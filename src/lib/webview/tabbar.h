@@ -24,6 +24,7 @@
 
 class QupZilla;
 class TabWidget;
+class TabPreview;
 
 class QT_QUPZILLA_EXPORT TabBar : public QTabBar
 {
@@ -46,6 +47,8 @@ public:
 
     void disconnectObjects();
 
+    void wheelEvent(QWheelEvent* event);
+
 signals:
     void reloadTab(int index);
     void stopTab(int index);
@@ -58,9 +61,8 @@ signals:
     void showButtons();
     void hideButtons();
 
-public slots:
-
 private slots:
+    void currentTabChanged(int index);
     void pinnedTabAdded();
     void pinnedTabClosed();
 
@@ -74,12 +76,15 @@ private slots:
     void pinTab();
     void closeCurrentTab();
 
+    void showTabPreview();
+    void hideTabPreview(bool delayed = true);
+
 private:
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
-    void wheelEvent(QWheelEvent* event);
+    bool event(QEvent* event);
 
     void dragEnterEvent(QDragEnterEvent* event);
     void dropEvent(QDropEvent* event);
@@ -91,16 +96,17 @@ private:
 
     QupZilla* p_QupZilla;
     TabWidget* m_tabWidget;
+    TabPreview* m_tabPreview;
+    QTimer* m_tabPreviewTimer;
 
-    bool m_showCloseButtonWithOneTab;
-    bool m_showTabBarWithOneTab;
+    bool m_showTabPreviews;
 
     int m_clickedTab;
     int m_pinnedTabsCount;
 
-    int m_normalTabWidth;
-    int m_lastTabWidth;
-    bool m_adjustingLastTab;
+    mutable int m_normalTabWidth;
+    mutable int m_lastTabWidth;
+    mutable bool m_adjustingLastTab;
 
     QPoint m_dragStartPosition;
 };

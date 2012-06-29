@@ -21,7 +21,7 @@
 #include "webpage.h"
 #include "tabbedwebview.h"
 #include "lineedit.h"
-#include "historymodel.h"
+#include "history.h"
 #include "locationbar.h"
 #include "searchtoolbar.h"
 #include "websearchbar.h"
@@ -84,11 +84,11 @@ const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
 const QString QupZilla::COPYRIGHT = "2010-2012";
 const QString QupZilla::WWWADDRESS = "http://www.qupzilla.com";
-const QString QupZilla::WIKIADDRESS = "https://github.com/nowrep/QupZilla/wiki";
+const QString QupZilla::WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
 QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
-    : QMainWindow()
+    : QMainWindow(0)
     , m_historyMenuChanged(true)
     , m_bookmarksMenuChanged(true)
     , m_isClosing(false)
@@ -107,6 +107,10 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("QupZilla"));
+
+    if (mApp->isPrivateSession()) {
+        setProperty("private", QVariant(true));
+    }
 
     m_isStarting = true;
 
@@ -361,10 +365,10 @@ void QupZilla::setupMenu()
     m_actionShowFullScreen->setCheckable(true);
     m_actionShowFullScreen->setShortcut(QKeySequence("F11"));
     connect(m_actionShowFullScreen, SIGNAL(triggered(bool)), this, SLOT(fullScreen(bool)));
-    m_actionStop = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), this);
+    m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), this);
     connect(m_actionStop, SIGNAL(triggered()), this, SLOT(stop()));
     m_actionStop->setShortcut(QKeySequence("Esc"));
-    m_actionReload = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
+    m_actionReload = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
     connect(m_actionReload, SIGNAL(triggered()), this, SLOT(reload()));
     m_actionReload->setShortcut(QKeySequence("F5"));
     QAction* actionEncoding = new QAction(tr("Character &Encoding"), this);
@@ -402,9 +406,9 @@ void QupZilla::setupMenu()
      * History Menu *
      ****************/
     m_menuHistory = new Menu(tr("Hi&story"));
-    m_menuHistory->addAction(IconProvider::standardIcon(QStyle::SP_ArrowBack), tr("&Back"), this, SLOT(goBack()))->setShortcut(QKeySequence("Ctrl+Left"));
-    m_menuHistory->addAction(IconProvider::standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), this, SLOT(goNext()))->setShortcut(QKeySequence("Ctrl+Right"));
-    m_menuHistory->addAction(IconProvider::fromTheme("go-home"), tr("&Home"), this, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
+    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowBack), tr("&Back"), this, SLOT(goBack()))->setShortcut(QKeySequence("Ctrl+Left"));
+    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), this, SLOT(goNext()))->setShortcut(QKeySequence("Ctrl+Right"));
+    m_menuHistory->addAction(qIconProvider->fromTheme("go-home"), tr("&Home"), this, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
     m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), this, SLOT(showHistoryManager()))->setShortcut(QKeySequence("Ctrl+Shift+H"));
     m_menuHistory->addSeparator();
     connect(m_menuHistory, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMenu()));
@@ -429,7 +433,7 @@ void QupZilla::setupMenu()
     m_menuBookmarks = new Menu(tr("&Bookmarks"));
     m_menuBookmarks->addAction(tr("Bookmark &This Page"), this, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
     m_menuBookmarks->addAction(tr("Bookmark &All Tabs"), this, SLOT(bookmarkAllTabs()));
-    m_menuBookmarks->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Organize &Bookmarks"), this, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
+    m_menuBookmarks->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("Organize &Bookmarks"), this, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
     m_menuBookmarks->addSeparator();
 
     connect(m_menuBookmarks, SIGNAL(aboutToShow()), this, SLOT(aboutToShowBookmarksMenu()));
@@ -450,9 +454,8 @@ void QupZilla::setupMenu()
     m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), this, SLOT(showClearPrivateData()));
     m_actionPrivateBrowsing = new QAction(tr("&Private Browsing"), this);
     m_actionPrivateBrowsing->setShortcut(QKeySequence("Ctrl+Shift+P"));
-    m_actionPrivateBrowsing->setCheckable(true);
-    m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
-    connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), this, SLOT(startPrivate(bool)));
+    m_actionPrivateBrowsing->setVisible(!mApp->isPrivateSession());
+    connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), mApp, SLOT(startPrivateBrowsing()));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
 #if !defined(Q_WS_X11) && !defined(Q_WS_MAC)
@@ -578,11 +581,10 @@ void QupZilla::loadSettings()
     m_navigationBar->buttonNext()->setVisible(showBackForwardIcons);
     m_navigationBar->buttonAddTab()->setVisible(showAddTab);
 
-    m_sideBarManager->showSideBar(activeSideBar);
+    m_sideBarManager->showSideBar(activeSideBar, false);
 
     //Private browsing
-    m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
-    m_privateBrowsing->setVisible(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
+    m_privateBrowsing->setVisible(mApp->isPrivateSession());
 
 #ifdef Q_WS_WIN
     if (m_usingTransparentBackground && !makeTransparent) {
@@ -657,7 +659,7 @@ void QupZilla::setWindowTitle(const QString &t)
 {
     QString title = t;
 
-    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
+    if (mApp->isPrivateSession()) {
         title.append(tr(" (Private Browsing)"));
     }
 
@@ -693,10 +695,6 @@ void QupZilla::receiveMessage(Qz::AppMessageType mes, bool state)
 
     case Qz::AM_BookmarksChanged:
         m_bookmarksMenuChanged = true;
-        break;
-
-    case Qz::AM_StartPrivateBrowsing:
-        startPrivate(state);
         break;
 
     default:
@@ -739,7 +737,7 @@ void QupZilla::aboutToShowBookmarksMenu()
     while (query.next()) {
         QString title = query.value(0).toString();
         const QUrl &url = query.value(1).toUrl();
-        const QIcon &icon = IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray()));
+        const QIcon &icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
         if (title.length() > 40) {
             title.truncate(40);
             title += "..";
@@ -759,7 +757,7 @@ void QupZilla::aboutToShowBookmarksMenu()
     while (query.next()) {
         QString title = query.value(0).toString();
         const QUrl &url = query.value(1).toUrl();
-        const QIcon &icon = IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray()));
+        const QIcon &icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
         if (title.length() > 40) {
             title.truncate(40);
             title += "..";
@@ -789,7 +787,7 @@ void QupZilla::aboutToShowBookmarksMenu()
         while (query2.next()) {
             QString title = query2.value(0).toString();
             const QUrl &url = query2.value(1).toUrl();
-            const QIcon &icon = IconProvider::iconFromImage(QImage::fromData(query2.value(2).toByteArray()));
+            const QIcon &icon = qIconProvider->iconFromImage(QImage::fromData(query2.value(2).toByteArray()));
             if (title.length() > 40) {
                 title.truncate(40);
                 title += "..";
@@ -1148,6 +1146,7 @@ void QupZilla::showCookieManager()
     m->raise();
 }
 
+
 void QupZilla::showHistoryManager()
 {
     mApp->browsingLibrary()->showHistory(this);
@@ -1330,7 +1329,7 @@ void QupZilla::updateLoadingActions()
     m_actionReload->setEnabled(!isLoading);
 
     if (isLoading) {
-        m_progressBar->setValue(view->loadProgress());
+        m_progressBar->setValue(view->loadingProgress());
         m_navigationBar->showStopButton();
     }
     else {
@@ -1376,13 +1375,13 @@ void QupZilla::searchOnPage()
             return;
         }
 
-        search->searchLine()->setFocus();
+        search->focusSearchLine();
         return;
     }
 
     SearchToolBar* search = new SearchToolBar(this);
     m_mainLayout->insertWidget(3, search);
-    search->searchLine()->setFocus();
+    search->focusSearchLine();
 }
 
 void QupZilla::openFile()
@@ -1496,40 +1495,6 @@ void QupZilla::savePageScreen()
 {
     PageScreen* p = new PageScreen(weView(), this);
     p->show();
-}
-
-void QupZilla::startPrivate(bool state)
-{
-    static bool askedThisSession = false;
-
-    Settings settings;
-    bool askNow = settings.value("Browser-View-Settings/AskOnPrivate", true).toBool();
-
-    if (state && askNow && !askedThisSession) {
-        QString title = tr("Are you sure you want to turn on private browsing?");
-        QString text1 = tr("When private browsing is turned on, some actions concerning your privacy will be disabled:");
-
-        QStringList actions;
-        actions.append(tr("Webpages are not added to the history."));
-        actions.append(tr("Current cookies cannot be accessed."));
-        actions.append(tr("Your session is not stored."));
-
-        QString text2 = tr("Until you close the window, you can still click the Back and Forward "
-                           "buttons to return to the webpages you have opened.");
-
-        QString message = QString(QLatin1String("<b>%1</b><p>%2</p><ul><li>%3</li></ul><p>%4</p>")).arg(title, text1, actions.join(QLatin1String("</li><li>")), text2);
-
-        QMessageBox::StandardButton button = QMessageBox::question(this, tr("Start Private Browsing"),
-                                             message, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
-        if (button != QMessageBox::Yes) {
-            m_actionPrivateBrowsing->setChecked(false);
-            return;
-        }
-
-        askedThisSession = true;
-    }
-
-    mApp->togglePrivateBrowsingMode(state);
 }
 
 void QupZilla::resizeEvent(QResizeEvent* event)
@@ -1789,7 +1754,7 @@ bool QupZilla::quitApp()
         dialog.setText(tr("There are still %1 open tabs and your session won't be stored. \nAre you sure to quit QupZilla?").arg(m_tabWidget->count()));
         dialog.setCheckBoxText(tr("Don't ask again"));
         dialog.setWindowTitle(tr("There are still open tabs"));
-        dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning));
+        dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning));
         if (dialog.exec() != QDialog::Accepted) {
             return false;
         }

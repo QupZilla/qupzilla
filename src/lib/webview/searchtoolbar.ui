@@ -38,7 +38,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="FocusSelectLineEdit" name="lineEdit">
      <property name="minimumSize">
       <size>
        <width>100</width>
@@ -127,6 +127,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FocusSelectLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>focusselectlineedit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

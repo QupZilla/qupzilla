@@ -80,7 +80,7 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
     // Close Empty Tab
     if (m_webPage) {
         WebView* view = qobject_cast<WebView*>(m_webPage->view());
-        if (!m_webPage->url().isEmpty() && m_webPage->url().toString() != "about:blank") {
+        if (!m_webPage->url().isEmpty()) {
             m_downloadPage = m_webPage->url();
         }
         else if (m_webPage->history()->canGoBack()) {
@@ -228,13 +228,13 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
         QString value = QString::fromLatin1(reply->rawHeader("Content-Disposition"));
 
         // We try to use UTF-8 encoded filename first if present
-        if (value.contains("filename*=UTF-8")) {
-            QRegExp reg("filename\\*=UTF-8''([^;]*)");
+        if (value.contains(QRegExp("filename\\s*\\*\\s*=\\s*UTF-8", Qt::CaseInsensitive))) {
+            QRegExp reg("filename\\s*\\*\\s*=\\s*UTF-8''([^;]*)", Qt::CaseInsensitive);
             reg.indexIn(value);
             path = QUrl::fromPercentEncoding(reg.cap(1).toUtf8()).trimmed();
         }
-        else if (value.contains("filename=")) {
-            QRegExp reg("filename=([^;]*)");
+        else if (value.contains(QRegExp("filename\\s*=", Qt::CaseInsensitive))) {
+            QRegExp reg("filename\\s*=([^;]*)", Qt::CaseInsensitive);
             reg.indexIn(value);
             path = reg.cap(1).trimmed();
 
@@ -243,6 +243,7 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
             }
         }
     }
+
     if (path.isEmpty()) {
         path = reply->url().path();
     }

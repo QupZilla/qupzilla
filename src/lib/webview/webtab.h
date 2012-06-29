@@ -91,6 +91,8 @@ public:
     void p_restoreTab(const SavedTab &tab);
     void p_restoreTab(const QUrl &url, const QByteArray &history);
 
+    QPixmap renderTabPreview();
+
     void disconnectObjects();
 
 private slots:

@@ -26,7 +26,7 @@
 
 #include <QMenu>
 
-QHash<QString, QWeakPointer<SideBarInterface> > SideBarManager::m_sidebars;
+QHash<QString, QWeakPointer<SideBarInterface> > SideBarManager::s_sidebars;
 
 SideBar::SideBar(SideBarManager* manager, QupZilla* mainClass)
     : QWidget(mainClass)
@@ -96,7 +96,7 @@ void SideBarManager::setSideBarMenu(QMenu* menu)
 
 void SideBarManager::addSidebar(const QString &id, SideBarInterface* interface)
 {
-    m_sidebars[id] = interface;
+    s_sidebars[id] = interface;
 
     foreach(QupZilla * window, mApp->mainWindows()) {
         window->sideBarManager()->refreshMenu();
@@ -105,7 +105,7 @@ void SideBarManager::addSidebar(const QString &id, SideBarInterface* interface)
 
 void SideBarManager::removeSidebar(const QString &id)
 {
-    m_sidebars.remove(id);
+    s_sidebars.remove(id);
 
     foreach(QupZilla * window, mApp->mainWindows()) {
         window->sideBarManager()->sideBarRemoved(id);
@@ -129,13 +129,13 @@ void SideBarManager::refreshMenu()
     act->setShortcut(QKeySequence("Ctrl+H"));
     act->setData("History");
 
-    foreach(const QWeakPointer<SideBarInterface> &sidebar, m_sidebars) {
+    foreach(const QWeakPointer<SideBarInterface> &sidebar, s_sidebars) {
         if (!sidebar) {
             continue;
         }
 
         QAction* act = sidebar.data()->createMenuAction();
-        act->setData(m_sidebars.key(sidebar));
+        act->setData(s_sidebars.key(sidebar));
         connect(act, SIGNAL(triggered()), this, SLOT(slotShowSideBar()));
 
         m_menu->addAction(act);
@@ -162,7 +162,7 @@ void SideBarManager::updateActions()
     }
 }
 
-void SideBarManager::showSideBar(const QString &id)
+void SideBarManager::showSideBar(const QString &id, bool toggle)
 {
     if (id == "None") {
         return;
@@ -173,9 +173,14 @@ void SideBarManager::showSideBar(const QString &id)
     }
 
     if (id == m_activeBar) {
+        if (!toggle) {
+            return;
+        }
         m_sideBar.data()->close();
-
         m_activeBar = "None";
+
+        Settings settings;
+        settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
         return;
     }
 
@@ -186,7 +191,7 @@ void SideBarManager::showSideBar(const QString &id)
         m_sideBar.data()->showHistory();
     }
     else {
-        SideBarInterface* sidebar = m_sidebars[id].data();
+        SideBarInterface* sidebar = s_sidebars[id].data();
         if (!sidebar) {
             m_sideBar.data()->close();
             return;
@@ -199,7 +204,7 @@ void SideBarManager::showSideBar(const QString &id)
     m_activeBar = id;
 
     Settings settings;
-    settings.setValue("Browser-View-Settings/SideBar", id);
+    settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
 
     updateActions();
 }

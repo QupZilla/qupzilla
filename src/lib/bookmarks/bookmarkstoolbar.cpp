@@ -20,7 +20,7 @@
 #include "mainapplication.h"
 #include "bookmarksmodel.h"
 #include "iconprovider.h"
-#include "historymodel.h"
+#include "history.h"
 #include "toolbutton.h"
 #include "databasewriter.h"
 #include "enhancedmenu.h"
@@ -74,7 +74,7 @@ void BookmarksToolbar::customContextMenuRequested(const QPoint &pos)
     QMenu menu;
     menu.addAction(tr("&Bookmark Current Page"), p_QupZilla, SLOT(bookmarkPage()));
     menu.addAction(tr("Bookmark &All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
-    menu.addAction(IconProvider::fromTheme("user-bookmarks"), tr("&Organize Bookmarks"), p_QupZilla, SLOT(showBookmarksManager()));
+    menu.addAction(qIconProvider->fromTheme("user-bookmarks"), tr("&Organize Bookmarks"), p_QupZilla, SLOT(showBookmarksManager()));
     menu.addSeparator();
     QAction act(tr("Show Most &Visited"), this);
     act.setCheckable(true);
@@ -107,11 +107,11 @@ void BookmarksToolbar::showBookmarkContextMenu(const QPoint &pos)
     QVariant buttonPointer = qVariantFromValue((void*) button);
 
     QMenu menu;
-    menu.addAction(IconProvider::fromTheme("go-next"), tr("Move right"), this, SLOT(moveRight()))->setData(buttonPointer);
-    menu.addAction(IconProvider::fromTheme("go-previous"), tr("Move left"), this, SLOT(moveLeft()))->setData(buttonPointer);
+    menu.addAction(qIconProvider->fromTheme("go-next"), tr("Move right"), this, SLOT(moveRight()))->setData(buttonPointer);
+    menu.addAction(qIconProvider->fromTheme("go-previous"), tr("Move left"), this, SLOT(moveLeft()))->setData(buttonPointer);
     menu.addAction(tr("Edit bookmark"), this, SLOT(editBookmark()))->setData(buttonPointer);
     menu.addSeparator();
-    menu.addAction(IconProvider::fromTheme("list-remove"), tr("Remove bookmark"), this, SLOT(removeButton()))->setData(buttonPointer);
+    menu.addAction(qIconProvider->fromTheme("list-remove"), tr("Remove bookmark"), this, SLOT(removeButton()))->setData(buttonPointer);
 
     //Prevent choosing first option with double rightclick
     QPoint position = button->mapToGlobal(pos);
@@ -404,7 +404,7 @@ void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     ToolButton* button = new ToolButton(this);
     button->setText(title);
     button->setData(v);
-    button->setIcon(IconProvider::iconFromImage(bookmark.image));
+    button->setIcon(qIconProvider->iconFromImage(bookmark.image));
     button->setToolButtonStyle(m_toolButtonStyle);
     button->setToolTip(bookmark.url.toEncoded());
     button->setAutoRaise(true);
@@ -471,7 +471,7 @@ void BookmarksToolbar::bookmarkEdited(const BookmarksModel::Bookmark &before, co
 
                 button->setText(title);
                 button->setData(v);
-                button->setIcon(IconProvider::iconFromImage(after.image));
+                button->setIcon(qIconProvider->iconFromImage(after.image));
                 button->setToolTip(after.url.toEncoded());
                 return;
             }
@@ -502,7 +502,7 @@ void BookmarksToolbar::refreshBookmarks()
         ToolButton* button = new ToolButton(this);
         button->setText(title);
         button->setData(v);
-        button->setIcon(IconProvider::iconFromImage(bookmark.image));
+        button->setIcon(qIconProvider->iconFromImage(bookmark.image));
         button->setToolButtonStyle(m_toolButtonStyle);
         button->setToolTip(bookmark.url.toEncoded());
         button->setAutoRaise(true);
@@ -565,7 +565,7 @@ void BookmarksToolbar::aboutToShowFolderMenu()
             title += "..";
         }
 
-        Action* act = new Action(IconProvider::iconFromImage(b.image), title);
+        Action* act = new Action(qIconProvider->iconFromImage(b.image), title);
         act->setData(b.url);
         connect(act, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
         connect(act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewNotSelectedTab()));
@@ -588,7 +588,7 @@ void BookmarksToolbar::dropEvent(QDropEvent* e)
 
     QString title = mime->text();
     QUrl url = mime->urls().at(0);
-    QIcon icon = IconProvider::iconFromImage(qvariant_cast<QImage>(mime->imageData()));
+    QIcon icon = qIconProvider->iconFromImage(qvariant_cast<QImage>(mime->imageData()));
 
     m_bookmarksModel->saveBookmark(url, title, icon, "bookmarksToolbar");
 }

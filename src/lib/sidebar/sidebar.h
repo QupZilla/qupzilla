@@ -63,11 +63,11 @@ public:
     void setSideBarMenu(QMenu* menu);
     void refreshMenu();
 
-    void showSideBar(const QString &id);
+    void showSideBar(const QString &id, bool toggle = true);
     void sideBarRemoved(const QString &id);
     void closeSideBar();
 
-    static QHash<QString, QWeakPointer<SideBarInterface> > m_sidebars;
+    static QHash<QString, QWeakPointer<SideBarInterface> > s_sidebars;
     static void addSidebar(const QString &id, SideBarInterface* interface);
     static void removeSidebar(const QString &id);
 

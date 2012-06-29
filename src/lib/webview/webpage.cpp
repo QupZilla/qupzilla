@@ -31,7 +31,9 @@
 #include "popupwebview.h"
 #include "networkmanagerproxy.h"
 #include "adblockicon.h"
+#include "adblockmanager.h"
 #include "iconprovider.h"
+#include "websettings.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -52,11 +54,11 @@
 #include <QFileDialog>
 #include <QWebFrame>
 
-QString WebPage::m_lastUploadLocation = QDir::homePath();
-QString WebPage::m_userAgent;
-QString WebPage::m_fakeUserAgent;
-QUrl WebPage::m_lastUnsupportedUrl;
-QList<WebPage*> WebPage::m_livingPages;
+QString WebPage::s_lastUploadLocation = QDir::homePath();
+QString WebPage::s_userAgent;
+QString WebPage::s_fakeUserAgent;
+QUrl WebPage::s_lastUnsupportedUrl;
+QList<WebPage*> WebPage::s_livingPages;
 
 WebPage::WebPage(QupZilla* mainClass)
     : QWebPage()
@@ -91,7 +93,7 @@ WebPage::WebPage(QupZilla* mainClass)
     connect(this, SIGNAL(featurePermissionRequested(QWebFrame*, QWebPage::Feature)), this, SLOT(featurePermissionRequested(QWebFrame*, QWebPage::Feature)));
 #endif
 
-    m_livingPages.append(this);
+    s_livingPages.append(this);
 }
 
 QUrl WebPage::url() const
@@ -148,10 +150,10 @@ bool WebPage::isRunningLoop()
 void WebPage::setUserAgent(const QString &agent)
 {
     if (!agent.isEmpty()) {
-        m_userAgent = QString("%1 (QupZilla %2)").arg(agent, QupZilla::VERSION);
+        s_userAgent = QString("%1 (QupZilla %2)").arg(agent, QupZilla::VERSION);
     }
     else {
-        m_userAgent = agent;
+        s_userAgent = agent;
     }
 }
 
@@ -266,8 +268,8 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
         // (to prevent endless loop in case QDesktopServices::openUrl decide
         // to open the url again in QupZilla )
 
-        if (m_lastUnsupportedUrl != url) {
-            m_lastUnsupportedUrl = url;
+        if (s_lastUnsupportedUrl != url) {
+            s_lastUnsupportedUrl = url;
             QDesktopServices::openUrl(url);
         }
 
@@ -280,6 +282,55 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
 
     qDebug() << "WebPage::UnsupportedContent error" << url << reply->errorString();
     reply->deleteLater();
+}
+
+void WebPage::handleUnknownProtocol(const QUrl &url)
+{
+    const QString &protocol = url.scheme();
+
+    if (WebSettings::blockedProtocols.contains(protocol)) {
+        qDebug() << "WebPage::handleUnknownProtocol Protocol" << protocol << "is blocked!";
+        return;
+    }
+
+    if (WebSettings::autoOpenProtocols.contains(protocol)) {
+        QDesktopServices::openUrl(url);
+        return;
+    }
+
+    CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, view());
+
+    const QString &wrappedUrl = qz_alignTextToWidth(url.toString(), "<br/>", dialog.fontMetrics(), 450);
+    const QString &text = tr("QupZilla cannot handle <b>%1:</b> links. The requested link "
+                             "is <ul><li>%2</li></ul>Do you want QupZilla to try "
+                             "open this link in system application?").arg(protocol, wrappedUrl);
+
+    dialog.setText(text);
+    dialog.setCheckBoxText(tr("Remember my choice for this protocol"));
+    dialog.setWindowTitle(tr("External Protocol Request"));
+    dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxQuestion));
+
+    switch (dialog.exec()) {
+    case QDialog::Accepted:
+        if (dialog.isChecked()) {
+            WebSettings::autoOpenProtocols.append(protocol);
+            WebSettings::saveSettings();
+        }
+
+        QDesktopServices::openUrl(url);
+        break;
+
+    case QDialog::Rejected:
+        if (dialog.isChecked()) {
+            WebSettings::blockedProtocols.append(protocol);
+            WebSettings::saveSettings();
+        }
+
+        break;
+
+    default:
+        break;
+    }
 }
 
 void WebPage::downloadRequested(const QNetworkRequest &request)
@@ -323,7 +374,27 @@ bool WebPage::event(QEvent* event)
         // So we are faking mouse move event with proper coordinates for
         // so called "just outside of the widget" position
 
-        QMouseEvent fakeEvent(QEvent::MouseMove, QPoint(0, -1), Qt::NoButton, Qt::NoButton, Qt::NoModifier);
+        const QPoint cursorPos = view()->mapFromGlobal(QCursor::pos());
+        QPoint mousePos;
+
+        if (cursorPos.y() < 0) {
+            // Left on top
+            mousePos = QPoint(cursorPos.x(), -1);
+        }
+        else if (cursorPos.x() < 0) {
+            // Left on left
+            mousePos = QPoint(-1, cursorPos.y());
+        }
+        else if (cursorPos.y() > view()->height()) {
+            // Left on bottom
+            mousePos = QPoint(cursorPos.x(), view()->height() + 1);
+        }
+        else {
+            // Left on right
+            mousePos = QPoint(view()->width() + 1, cursorPos.y());
+        }
+
+        QMouseEvent fakeEvent(QEvent::MouseMove, mousePos, Qt::NoButton, Qt::NoButton, Qt::NoModifier);
         return QWebPage::event(&fakeEvent);
     }
 
@@ -385,6 +456,12 @@ QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
     return new PopupWebPage(type, p_QupZilla);
 }
 
+QObject* WebPage::createPlugin(const QString &classid, const QUrl &url, const QStringList &paramNames, const QStringList &paramValues)
+{
+    qDebug() << Q_FUNC_INFO;
+    return pluginFactory()->create(classid, url, paramNames, paramValues);
+}
+
 void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
 {
     AdBlockedEntry entry;
@@ -398,6 +475,17 @@ void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
 
 void WebPage::cleanBlockedObjects()
 {
+    if (!AdBlockManager::instance()->isEnabled()) {
+        return;
+    }
+
+    // Don't run on local schemes
+    const QString &urlScheme = url().scheme();
+    if (urlScheme == "data" || urlScheme == "qrc" || urlScheme == "file" ||
+            urlScheme == "qupzilla" || urlScheme == "abp") {
+        return;
+    }
+
     QStringList findingStrings;
 
     foreach(const AdBlockedEntry & entry, m_adBlockedEntries) {
@@ -428,21 +516,30 @@ void WebPage::cleanBlockedObjects()
     foreach(QWebElement element, elements) {
         element.setStyleProperty("visibility", "hidden");
     }
+
+    // Apply domain-specific element hiding rules
+    QString elementHiding = AdBlockManager::instance()->elementHidingRulesForDomain(url().host());
+    elementHiding.append("{display: none !important;}\n</style>");
+
+    QWebElement headElement = docElement.findFirst("body");
+    headElement.appendInside("<style type=\"text/css\">\n/* AdBlock for QupZilla */\n" + elementHiding);
 }
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
 {
+    const QString &host = url.host();
+
     // Let Google services play nice with us
-    if (url.host().contains("google")) {
-        if (m_fakeUserAgent.isEmpty()) {
-            m_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + QupZilla::WEBKITVERSION + " (KHTML, like Gecko) Chrome/10.0 Safari/" + QupZilla::WEBKITVERSION;
+    if (host.contains("google")) {
+        if (s_fakeUserAgent.isEmpty()) {
+            s_fakeUserAgent = QString("Mozilla/5.0 (%1) AppleWebKit/%2 (KHTML, like Gecko) Chrome/10.0 Safari/%2").arg(qz_buildSystem(), QupZilla::WEBKITVERSION);
         }
 
-        return m_fakeUserAgent;
+        return s_fakeUserAgent;
     }
 
-    if (m_userAgent.isEmpty()) {
-        m_userAgent = QWebPage::userAgentForUrl(url);
+    if (s_userAgent.isEmpty()) {
+        s_userAgent = QWebPage::userAgentForUrl(url);
 #ifdef Q_WS_MAC
 #ifdef __i386__ || __x86_64__
         m_userAgent.replace("PPC Mac OS X", "Intel Mac OS X");
@@ -450,7 +547,7 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
 #endif
     }
 
-    return m_userAgent;
+    return s_userAgent;
 }
 
 bool WebPage::supportsExtension(Extension extension) const
@@ -531,8 +628,14 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         case QNetworkReply::UnknownNetworkError:
             errorString = exOption->errorString.isEmpty() ? tr("Unknown network error") : exOption->errorString;
             break;
+        case QNetworkReply::ProtocolUnknownError: {
+            // Sometimes exOption->url returns just "?" instead of actual url
+            const QUrl unknownProtocolUrl = (exOption->url == QUrl("?")) ? erPage->mainFrame()->requestedUrl() : exOption->url;
+            handleUnknownProtocol(unknownProtocolUrl);
+            return false;
+        }
         case QNetworkReply::ContentAccessDenied:
-            if (exOption->errorString.startsWith("AdBlockRule")) {
+            if (exOption->errorString.startsWith("AdBlock")) {
                 if (exOption->frame != erPage->mainFrame()) { //Content in <iframe>
                     QWebElement docElement = erPage->mainFrame()->documentElement();
 
@@ -550,7 +653,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                 }
                 else {   //The whole page is blocked
                     QString rule = exOption->errorString;
-                    rule.remove("AdBlockRule:");
+                    rule.remove("AdBlock:");
 
                     QFile file(":/html/adblockPage.html");
                     file.open(QFile::ReadOnly);
@@ -559,7 +662,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     errString.replace("%IMAGE%", "qrc:html/adblock_big.png");
                     errString.replace("%FAVICON%", "qrc:html/adblock_big.png");
 
-                    errString.replace("%RULE%", tr("Blocked by rule <i>%1</i>").arg(rule));
+                    errString.replace("%RULE%", tr("Blocked by <i>%1</i>").arg(rule));
 
                     exReturn->baseUrl = exOption->url;
                     exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();
@@ -578,11 +681,18 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             errorString = tr("Content Access Denied");
             break;
         default:
-            qDebug() << "Content error: " << exOption->errorString << exOption->error;
+            if (exOption->errorString != "QupZilla:No Error") {
+                qDebug() << "Content error: " << exOption->errorString << exOption->error;
+            }
             return false;
         }
     }
     else if (exOption->domain == QWebPage::Http) {
+        // 200 status code = OK
+        // It shouldn't be reported as an error, but sometimes it is ...
+        if (exOption->error == 200) {
+            return false;
+        }
         errorString = tr("Error code %1").arg(exOption->error);
     }
     else if (exOption->domain == QWebPage::WebKit) {
@@ -597,8 +707,8 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     QString errString = file.readAll();
     errString.replace("%TITLE%", tr("Failed loading page"));
 
-    errString.replace("%IMAGE%", qz_pixmapToByteArray(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
-    errString.replace("%FAVICON%", qz_pixmapToByteArray(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
+    errString.replace("%IMAGE%", qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
+    errString.replace("%FAVICON%", qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
     errString.replace("%BOX-BORDER%", "qrc:html/box-border.png");
 
     errString.replace("%HEADING%", errorString);
@@ -714,7 +824,7 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     dialog.setWindowTitle(title);
     dialog.setText(msg);
     dialog.setCheckBoxText(tr("Prevent this page from creating additional dialogs"));
-    dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxInformation));
+    dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxInformation));
     dialog.exec();
 
     m_blockAlerts = dialog.isChecked();
@@ -755,7 +865,7 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
     QString suggFileName;
 
     if (oldFile.isEmpty()) {
-        suggFileName = m_lastUploadLocation;
+        suggFileName = s_lastUploadLocation;
     }
     else {
         suggFileName = oldFile;
@@ -764,7 +874,7 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
     const QString &fileName = QFileDialog::getOpenFileName(originatingFrame->page()->view(), tr("Choose file..."), suggFileName);
 
     if (!fileName.isEmpty()) {
-        m_lastUploadLocation = fileName;
+        s_lastUploadLocation = fileName;
     }
 
     return fileName;
@@ -776,7 +886,7 @@ bool WebPage::isPointerSafeToUse(WebPage* page)
     // So there is no way to test whether pointer is still valid or not, except
     // this hack.
 
-    return page == 0 ? false : m_livingPages.contains(page);
+    return page == 0 ? false : s_livingPages.contains(page);
 }
 
 void WebPage::disconnectObjects()
@@ -786,7 +896,7 @@ void WebPage::disconnectObjects()
         m_runningLoop = 0;
     }
 
-    m_livingPages.removeOne(this);
+    s_livingPages.removeOne(this);
 
     disconnect(this);
     m_networkProxy->disconnectObjects();
@@ -801,5 +911,5 @@ WebPage::~WebPage()
         m_runningLoop = 0;
     }
 
-    m_livingPages.removeOne(this);
+    s_livingPages.removeOne(this);
 }

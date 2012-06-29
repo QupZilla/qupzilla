@@ -31,11 +31,11 @@ SourceViewerSearch::SourceViewerSearch(SourceViewer* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
-    ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
+    ui->closeButton->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));
 
-    ui->next->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
+    ui->next->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowForward));
 
-    ui->previous->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
+    ui->previous->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowBack));
     ui->lineEdit->setFocus();
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->lineEdit, SIGNAL(textEdited(QString)), this, SLOT(next()));
@@ -65,7 +65,7 @@ void SourceViewerSearch::next()
         m_sourceViewer->sourceEdit()->moveCursor(QTextCursor::Start);
     }
 
-    ui->lineEdit->setProperty("notfound", !found);
+    ui->lineEdit->setProperty("notfound", QVariant(!found));
 
     ui->lineEdit->style()->unpolish(ui->lineEdit);
     ui->lineEdit->style()->polish(ui->lineEdit);
@@ -78,7 +78,7 @@ void SourceViewerSearch::previous()
         m_sourceViewer->sourceEdit()->moveCursor(QTextCursor::Start);
     }
 
-    ui->lineEdit->setProperty("notfound", !found);
+    ui->lineEdit->setProperty("notfound", QVariant(!found));
 
     ui->lineEdit->style()->unpolish(ui->lineEdit);
     ui->lineEdit->style()->polish(ui->lineEdit);

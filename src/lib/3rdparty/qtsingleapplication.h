@@ -80,6 +80,7 @@ public:
 #endif
 
     bool isRunning();
+    void setAppId(const QString &id);
     QString id() const;
 
     void setActivationWindow(QWidget* aw, bool activateOnMessage = true);

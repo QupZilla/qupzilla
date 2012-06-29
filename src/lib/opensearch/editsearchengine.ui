@@ -94,7 +94,7 @@
       <item>
        <widget class="QPushButton" name="iconFromFile">
         <property name="text">
-         <string>Add from file ...</string>
+         <string>Change...</string>
         </property>
        </widget>
       </item>

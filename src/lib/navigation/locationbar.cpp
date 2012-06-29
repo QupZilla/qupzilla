@@ -20,7 +20,6 @@
 #include "tabbedwebview.h"
 #include "rssmanager.h"
 #include "mainapplication.h"
-#include "locationcompleter.h"
 #include "clickablelabel.h"
 #include "siteinfowidget.h"
 #include "rsswidget.h"
@@ -38,11 +37,12 @@
 #include "downicon.h"
 #include "globalfunctions.h"
 #include "iconprovider.h"
+#include "websettings.h"
 
 #include <QClipboard>
 
 LocationBar::LocationBar(QupZilla* mainClass)
-    : LineEdit()
+    : LineEdit(mainClass)
     , p_QupZilla(mainClass)
     , m_webView(0)
     , m_menu(new QMenu(this))
@@ -51,6 +51,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_holdingAlt(false)
 {
     setObjectName("locationbar");
+    setDragEnabled(true);
 
     m_bookmarkIcon = new BookmarkIcon(p_QupZilla);
     m_goIcon = new GoIcon(this);
@@ -66,15 +67,11 @@ LocationBar::LocationBar(QupZilla* mainClass)
 
     setWidgetSpacing(0);
 
-    m_locationCompleter = new LocationCompleter();
-    setCompleter(m_locationCompleter);
-
-//    LocationPopup* com = new LocationPopup(this);
-//    connect(down, SIGNAL(clicked(QPoint)), com, SLOT(show()));
+    m_completer.setLocationBar(this);
+    connect(&m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));
+    connect(&m_completer, SIGNAL(completionActivated()), this, SLOT(urlEnter()));
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
-    connect(this, SIGNAL(textEdited(QString)), m_locationCompleter, SLOT(refreshCompleter(QString)));
-    connect(m_locationCompleter->popup(), SIGNAL(clicked(QModelIndex)), this, SLOT(urlEnter()));
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
@@ -96,6 +93,12 @@ void LocationBar::updatePlaceHolderText()
     setPlaceholderText(tr("Enter URL address or search on %1").arg(mApp->searchEnginesManager()->activeEngine().name));
 }
 
+void LocationBar::showCompletion(const QString &newText)
+{
+    LineEdit::setText(newText);
+    end(false);
+}
+
 QUrl LocationBar::createUrl()
 {
     QUrl urlToLoad;
@@ -104,7 +107,7 @@ QUrl LocationBar::createUrl()
     int firstSpacePos = text().indexOf(" ");
     if (firstSpacePos != -1) {
         QString shortcut = text().mid(0, firstSpacePos);
-        QString searchedString = text().mid(firstSpacePos).trimmed();
+        QString searchedString = QUrl::toPercentEncoding(text().mid(firstSpacePos).trimmed());
 
         SearchEngine en = mApp->searchEnginesManager()->engineForShortcut(shortcut);
         if (!en.name.isEmpty()) {
@@ -127,7 +130,7 @@ QUrl LocationBar::createUrl()
 
 void LocationBar::urlEnter()
 {
-    m_locationCompleter->popup()->hide();
+    m_completer.closePopup();
     m_webView->setFocus();
 
     emit loadUrl(createUrl());
@@ -135,7 +138,13 @@ void LocationBar::urlEnter()
 
 void LocationBar::textEdit()
 {
-    m_locationCompleter->popup()->setUpdatesEnabled(false);
+    if (!text().isEmpty()) {
+        m_completer.complete(text());
+    }
+    else {
+        m_completer.closePopup();
+    }
+
     showGoButton();
 }
 
@@ -169,15 +178,7 @@ void LocationBar::hideGoButton()
 
 void LocationBar::showMostVisited()
 {
-    if (text().isEmpty()) {
-        // Workaround: If we show popup when text in locationbar is empty and then
-        // move up and down in completer and then we leave completer -> completer will
-        // set text in locationbar back to last "real" completion
-        QKeyEvent event(QEvent::KeyPress, Qt::Key_unknown, Qt::NoModifier, QString(" "));
-        keyPressEvent(&event);
-    }
-
-    m_locationCompleter->showMostVisited();
+    m_completer.complete(QString());
 }
 
 void LocationBar::showSiteInfo()
@@ -241,16 +242,16 @@ void LocationBar::siteIconChanged()
 
 void LocationBar::clearIcon()
 {
-    m_siteIcon->setIcon(IconProvider::emptyWebIcon());
+    m_siteIcon->setIcon(qIconProvider->emptyWebIcon());
 }
 
 void LocationBar::setPrivacy(bool state)
 {
-    m_siteIcon->setProperty("secured", state);
+    m_siteIcon->setProperty("secured", QVariant(state));
     m_siteIcon->style()->unpolish(m_siteIcon);
     m_siteIcon->style()->polish(m_siteIcon);
 
-    setProperty("secured", state);
+    setProperty("secured", QVariant(state));
     style()->unpolish(this);
     style()->polish(this);
 }
@@ -404,6 +405,10 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         }
         break;
 
+    case Qt::Key_Down:
+        m_completer.complete(text());
+        break;
+
     case Qt::Key_Escape:
         m_webView->setFocus();
         showUrl(m_webView->url());
@@ -424,7 +429,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
             break;
 
         case Qt::AltModifier:
-            p_QupZilla->tabWidget()->addView(createUrl(), Qz::NT_NotSelectedTab);
+            p_QupZilla->tabWidget()->addView(createUrl(), WebSettings::newTabPosition);
             m_holdingAlt = false;
             break;
 
@@ -474,5 +479,4 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
 LocationBar::~LocationBar()
 {
     delete m_bookmarkIcon;
-    delete m_locationCompleter;
 }

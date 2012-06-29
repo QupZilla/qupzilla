@@ -27,7 +27,7 @@ class QHBoxLayout;
 
 class QupZilla;
 class BookmarksModel;
-class HistoryModel;
+class History;
 class ToolButton;
 class Menu;
 
@@ -77,7 +77,7 @@ private:
 
     QupZilla* p_QupZilla;
     BookmarksModel* m_bookmarksModel;
-    HistoryModel* m_historyModel;
+    History* m_historyModel;
     Menu* m_menuMostVisited;
     ToolButton* m_mostVis;
     QHBoxLayout* m_layout;

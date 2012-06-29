@@ -65,19 +65,19 @@ signals:
     void pagesChanged();
 
 public slots:
-    Q_INVOKABLE void changed(const QString &allPages);
-    Q_INVOKABLE void loadThumbnail(const QString &url, bool loadTitle = false);
-    Q_INVOKABLE void removeImageForUrl(const QString &url);
+    void changed(const QString &allPages);
+    void loadThumbnail(const QString &url, bool loadTitle = false);
+    void removeImageForUrl(const QString &url);
 
-    Q_INVOKABLE QString getOpenFileName();
-    Q_INVOKABLE QString urlFromUserInput(const QString &url);
-    Q_INVOKABLE void setBackgroundImage(const QString &image);
-    Q_INVOKABLE void setBackgroundImageSize(const QString &size);
-    Q_INVOKABLE void setPagesInRow(int count);
-    Q_INVOKABLE void setSdSize(int count);
+    QString getOpenFileName();
+    QString urlFromUserInput(const QString &url);
+    void setBackgroundImage(const QString &image);
+    void setBackgroundImageSize(const QString &size);
+    void setPagesInRow(int count);
+    void setSdSize(int count);
 
 private slots:
-    void thumbnailCreated(const QPixmap &image);
+    void thumbnailCreated(const QPixmap &pixmap);
 
 private:
     QList<QWebFrame*> cleanFrames();

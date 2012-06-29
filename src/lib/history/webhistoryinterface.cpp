@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "webhistoryinterface.h"
 #include "mainapplication.h"
-#include "historymodel.h"
+#include "history.h"
 
 WebHistoryInterface::WebHistoryInterface(QObject* parent)
     : QWebHistoryInterface(parent)

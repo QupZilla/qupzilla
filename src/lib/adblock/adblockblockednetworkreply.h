@@ -51,14 +51,17 @@
 #include "qz_namespace.h"
 
 class AdBlockRule;
+class AdBlockSubscription;
 
 class QT_QUPZILLA_EXPORT AdBlockBlockedNetworkReply : public QNetworkReply
 {
     Q_OBJECT
 
 public:
-    AdBlockBlockedNetworkReply(const QNetworkRequest &request, const AdBlockRule* rule, QObject* parent = 0);
+    AdBlockBlockedNetworkReply(const AdBlockSubscription* subscription, const AdBlockRule* rule, QObject* parent = 0);
     void abort() {}
+
+    void setRequest(const QNetworkRequest &request);
 
 protected:
     qint64 readData(char* data, qint64 maxSize);

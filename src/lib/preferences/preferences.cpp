@@ -19,7 +19,7 @@
 #include "ui_preferences.h"
 #include "qupzilla.h"
 #include "bookmarkstoolbar.h"
-#include "historymodel.h"
+#include "history.h"
 #include "tabwidget.h"
 #include "cookiejar.h"
 #include "locationbar.h"
@@ -153,7 +153,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
     ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());
     ui->useTransparentBg->setChecked(settings.value("useTransparentBackground", false).toBool());
-    ui->askOnPrivateBrowsing->setChecked(settings.value("AskOnPrivate", true).toBool());
     settings.endGroup();
 #ifdef Q_WS_WIN
     ui->useTransparentBg->setEnabled(QtWin::isCompositionEnabled());
@@ -161,14 +160,19 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //TABS
     settings.beginGroup("Browser-Tabs-Settings");
-    ui->makeMovable->setChecked(settings.value("makeTabsMovable", true).toBool());
     ui->hideTabsOnTab->setChecked(settings.value("hideTabsWithOneTab", false).toBool());
     ui->activateLastTab->setChecked(settings.value("ActivateLastTabWhenClosingActual", false).toBool());
     ui->openNewTabAfterActive->setChecked(settings.value("newTabAfterActive", true).toBool());
+    ui->switchToNewTabs->setChecked(settings.value("OpenNewTabsSelected", false).toBool());
     ui->dontQuitOnTab->setChecked(settings.value("dontQuitWithOneTab", false).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     ui->closedInsteadOpened->setChecked(settings.value("closedInsteadOpenedTabs", false).toBool());
+    ui->showTabPreviews->setChecked(settings.value("showTabPreviews", true).toBool());
+    ui->animatedTabPreviews->setChecked(settings.value("tabPreviewAnimationsEnabled", true).toBool());
     settings.endGroup();
+    connect(ui->showTabPreviews, SIGNAL(toggled(bool)), this, SLOT(showTabPreviewsChanged(bool)));
+    showTabPreviewsChanged(ui->showTabPreviews->isChecked());
+
     //AddressBar
     settings.beginGroup("AddressBar");
     ui->selectAllOnFocus->setChecked(settings.value("SelectAllTextOnDoubleClick", true).toBool());
@@ -623,6 +627,11 @@ void Preferences::useDifferentProxyForHttpsChanged(bool state)
     ui->httpsProxyPassword->setEnabled(state);
 }
 
+void Preferences::showTabPreviewsChanged(bool state)
+{
+    ui->animatedTabPreviews->setEnabled(state);
+}
+
 void Preferences::showPassManager(bool state)
 {
     m_autoFillManager->setVisible(state);
@@ -739,7 +748,6 @@ void Preferences::saveSettings()
 
     //WINDOW
     settings.beginGroup("Browser-View-Settings");
-
     settings.setValue("showStatusbar", ui->showStatusbar->isChecked());
     settings.setValue("showBookmarksToolbar", ui->showBookmarksToolbar->isChecked());
     settings.setValue("showNavigationToolbar", ui->showNavigationToolbar->isChecked());
@@ -747,18 +755,19 @@ void Preferences::saveSettings()
     settings.setValue("showBackForwardButtons", ui->showBackForward->isChecked());
     settings.setValue("useTransparentBackground", ui->useTransparentBg->isChecked());
     settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
-    settings.setValue("AskOnPrivate", ui->askOnPrivateBrowsing->isChecked());
     settings.endGroup();
 
     //TABS
     settings.beginGroup("Browser-Tabs-Settings");
-    settings.setValue("makeTabsMovable", ui->makeMovable->isChecked());
     settings.setValue("hideTabsWithOneTab", ui->hideTabsOnTab->isChecked());
     settings.setValue("ActivateLastTabWhenClosingActual", ui->activateLastTab->isChecked());
     settings.setValue("newTabAfterActive", ui->openNewTabAfterActive->isChecked());
+    settings.setValue("OpenNewTabsSelected", ui->switchToNewTabs->isChecked());
     settings.setValue("dontQuitWithOneTab", ui->dontQuitOnTab->isChecked());
     settings.setValue("AskOnClosing", ui->askWhenClosingMultipleTabs->isChecked());
     settings.setValue("closedInsteadOpenedTabs", ui->closedInsteadOpened->isChecked());
+    settings.setValue("showTabPreviews", ui->showTabPreviews->isChecked());
+    settings.setValue("tabPreviewAnimationsEnabled", ui->animatedTabPreviews->isChecked());
     settings.endGroup();
 
     //DOWNLOADS

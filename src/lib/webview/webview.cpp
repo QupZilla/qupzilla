@@ -20,7 +20,7 @@
 #include "mainapplication.h"
 #include "globalfunctions.h"
 #include "iconprovider.h"
-#include "historymodel.h"
+#include "history.h"
 #include "autofillmodel.h"
 #include "downloadmanager.h"
 #include "sourceviewer.h"
@@ -29,7 +29,7 @@
 #include "browsinglibrary.h"
 #include "bookmarksmanager.h"
 #include "settings.h"
-#include "webviewsettings.h"
+#include "websettings.h"
 #include "enhancedmenu.h"
 #include "pluginproxy.h"
 
@@ -104,6 +104,10 @@ QUrl WebView::url() const
         returnUrl = m_aboutToLoadUrl;
     }
 
+    if (returnUrl.toString() == "about:blank") {
+        returnUrl = QUrl();
+    }
+
     return returnUrl;
 }
 
@@ -117,7 +121,7 @@ void WebView::setPage(QWebPage* page)
     QWebView::setPage(page);
     m_page = qobject_cast<WebPage*>(page);
 
-    setZoom(WebViewSettings::defaultZoom);
+    setZoom(WebSettings::defaultZoom);
     connect(m_page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
     connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
 
@@ -131,28 +135,27 @@ void WebView::load(const QUrl &url)
 
 void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operation operation, const QByteArray &body)
 {
-    const QUrl &url = request.url();
+    const QUrl &reqUrl = request.url();
 
-    if (url.scheme() == "javascript") {
+    if (reqUrl.scheme() == "javascript") {
         // Getting scriptSource from PercentEncoding to properly load bookmarklets
-        QString scriptSource = QUrl::fromPercentEncoding(url.toString().mid(11).toUtf8());
+        QString scriptSource = QUrl::fromPercentEncoding(reqUrl.toString().mid(11).toUtf8());
         page()->mainFrame()->evaluateJavaScript(scriptSource);
         return;
     }
 
-    if (isUrlValid(url)) {
+    if (reqUrl.isEmpty() || isUrlValid(reqUrl)) {
         QWebView::load(request, operation, body);
-        emit urlChanged(url);
-        m_aboutToLoadUrl = url;
+        emit urlChanged(reqUrl);
+        m_aboutToLoadUrl = reqUrl;
         return;
     }
 
-    const QUrl &searchUrl = mApp->searchEnginesManager()->searchUrl(url.toString());
+    const QUrl &searchUrl = mApp->searchEnginesManager()->searchUrl(reqUrl.toString());
     QWebView::load(searchUrl);
 
     emit urlChanged(searchUrl);
     m_aboutToLoadUrl = searchUrl;
-
 }
 
 bool WebView::loadingError() const
@@ -165,9 +168,15 @@ bool WebView::isLoading() const
     return m_isLoading;
 }
 
-int WebView::loadProgress() const
+int WebView::loadingProgress() const
 {
     return m_progress;
+}
+
+void WebView::fakeLoadingProgress(int progress)
+{
+    emit loadStarted();
+    emit loadProgress(progress);
 }
 
 bool WebView::isUrlValid(const QUrl &url)
@@ -352,7 +361,7 @@ void WebView::slotIconChanged()
         m_siteIcon = icon();
         m_siteIconUrl = url();
 
-        mApp->iconProvider()->saveIcon(this);
+        qIconProvider->saveIcon(this);
     }
 }
 
@@ -448,6 +457,19 @@ void WebView::searchSelectedText()
     openUrlInNewTab(urlToLoad, Qz::NT_SelectedTab);
 }
 
+void WebView::searchSelectedTextInBackgroundTab()
+{
+    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    if (QAction* act = qobject_cast<QAction*>(sender())) {
+        if (act->data().isValid()) {
+            engine = qVariantValue<SearchEngine>(act->data());
+        }
+    }
+
+    const QUrl &urlToLoad = mApp->searchEnginesManager()->searchUrl(engine, selectedText());
+    openUrlInNewTab(urlToLoad, Qz::NT_NotSelectedTab);
+}
+
 void WebView::bookmarkLink()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
@@ -478,6 +500,16 @@ void WebView::openUrlInBackgroundTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         openUrlInNewTab(action->data().toUrl(), Qz::NT_NotSelectedTab);
+    }
+}
+
+void WebView::userDefinedOpenUrlInNewTab(const QUrl &url)
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        openUrlInNewTab(action->data().toUrl(), WebSettings::newTabPosition);
+    }
+    else {
+        openUrlInNewTab(url, WebSettings::newTabPosition);
     }
 }
 
@@ -613,8 +645,8 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         pageAction(QWebPage::Paste)->setIcon(QIcon::fromTheme("edit-paste"));
         pageAction(QWebPage::SelectAll)->setIcon(QIcon::fromTheme("edit-select-all"));
 
-        m_actionReload = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
-        m_actionStop = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this);
+        m_actionReload = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
+        m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this);
 
         connect(m_actionReload, SIGNAL(triggered()), this, SLOT(reload()));
         connect(m_actionStop, SIGNAL(triggered()), this, SLOT(stop()));
@@ -698,11 +730,11 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     QWebFrame* frameAtPos = page()->frameAt(pos);
 
     QAction* action = menu->addAction(tr("&Back"), this, SLOT(back()));
-    action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
+    action->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowBack));
     action->setEnabled(history()->canGoBack());
 
     action = menu->addAction(tr("&Forward"), this, SLOT(forward()));
-    action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
+    action->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowForward));
     action->setEnabled(history()->canGoForward());
 
     menu->addAction(m_actionReload);
@@ -715,7 +747,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
         frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
         frameMenu->addAction(QIcon(":/icons/menu/popup.png"), tr("Show this frame in new &tab"), this, SLOT(loadClickedFrameInNewTab()));
         frameMenu->addSeparator();
-        frameMenu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
+        frameMenu->addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
         frameMenu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
         frameMenu->addSeparator();
         frameMenu->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &in"), this, SLOT(clickedFrameZoomIn()));
@@ -728,7 +760,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     }
 
     menu->addSeparator();
-    menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
+    menu->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadPage()));
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
@@ -754,10 +786,10 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     }
 
     menu->addSeparator();
-    menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInBackgroundTab()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(userDefinedOpenUrlInNewTab()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(hitTest.linkUrl());
     menu->addSeparator();
-    menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());
+    menu->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadUrlToDisk()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.linkUrl());
@@ -775,7 +807,7 @@ void WebView::createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
     Action* act = new Action(tr("Show i&mage"));
     act->setData(hitTest.imageUrl());
     connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
-    connect(act, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+    connect(act, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInNewTab()));
     menu->addAction(act);
     menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(hitTest.imageUrl());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
@@ -805,7 +837,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
 
     QString langCode = mApp->currentLanguage().left(2);
     QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
-    Action* gtwact = new Action(QIcon(":icons/menu/translate.png"), tr("Google Translate"));
+    Action* gtwact = new Action(QIcon(":icons/sites/translate.png"), tr("Google Translate"));
     gtwact->setData(googleTranslateUrl);
     connect(gtwact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
     connect(gtwact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
@@ -816,7 +848,8 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     connect(dictact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
     menu->addAction(dictact);
 
-    QString selectedString = selectedText.trimmed();
+    // #379: Remove newlines
+    QString selectedString = selectedText.trimmed().remove("\n");
     if (!selectedString.contains(".")) {
         // Try to add .com
         selectedString.append(".com");
@@ -826,8 +859,9 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     if (isUrlValid(guessedUrl)) {
         Action* act = new Action(QIcon::fromTheme("document-open-remote"), tr("Go to &web address"));
         act->setData(guessedUrl);
+
         connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
-        connect(act, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInNewTab()));
         menu->addAction(act);
     }
 
@@ -837,12 +871,23 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     selectedText.replace("\n", " ").replace("\t", "");
 
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
-    menu->addAction(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name), this, SLOT(searchSelectedText()));
-    QMenu* swMenu = new QMenu(tr("Search with..."));
+    Action* act = new Action(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name));
+    connect(act, SIGNAL(triggered()), this, SLOT(searchSelectedText()));
+    connect(act, SIGNAL(middleClicked()), this, SLOT(searchSelectedTextInBackgroundTab()));
+    menu->addAction(act);
+
+    // Search with ...
+    Menu* swMenu = new Menu(tr("Search with..."), menu);
     SearchEnginesManager* searchManager = mApp->searchEnginesManager();
     foreach(const SearchEngine & en, searchManager->allEngines()) {
-        swMenu->addAction(en.icon, en.name, this, SLOT(searchSelectedText()))->setData(qVariantFromValue(en));
+        Action* act = new Action(en.icon, en.name);
+        act->setData(qVariantFromValue(en));
+
+        connect(act, SIGNAL(triggered()), this, SLOT(searchSelectedText()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(searchSelectedTextInBackgroundTab()));
+        swMenu->addAction(act);
     }
+
     menu->addMenu(swMenu);
 }
 
@@ -947,7 +992,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         if (frame) {
             const QUrl &link = frame->hitTestContent(event->pos()).linkUrl();
             if (event->modifiers() == Qt::ControlModifier && isUrlValid(link)) {
-                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                userDefinedOpenUrlInNewTab(link);
                 event->accept();
                 return;
             }
@@ -973,7 +1018,7 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
         if (frame) {
             const QUrl &link = frame->hitTestContent(event->pos()).linkUrl();
             if (m_clickedUrl == link && isUrlValid(link)) {
-                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                userDefinedOpenUrlInNewTab(link);
                 event->accept();
                 return;
             }

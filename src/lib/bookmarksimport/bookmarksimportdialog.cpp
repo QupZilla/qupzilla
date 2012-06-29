@@ -103,7 +103,7 @@ void BookmarksImportDialog::startFetchingIcons()
     m_fetcher = new BookmarksImportIconFetcher();
     m_fetcher->moveToThread(m_fetcherThread);
 
-    QIcon defaultIcon = IconProvider::emptyWebIcon();
+    QIcon defaultIcon = qIconProvider->emptyWebIcon();
     QIcon folderIcon = style()->standardIcon(QStyle::SP_DirIcon);
     QHash<QString, QTreeWidgetItem*> hash;
 
@@ -267,7 +267,7 @@ void BookmarksImportDialog::addExportedBookmarks()
     db.transaction();
 
     foreach(const Bookmark & b, m_exportedBookmarks) {
-        model->saveBookmark(b.url, b.title, IconProvider::iconFromImage(b.image), b.folder);
+        model->saveBookmark(b.url, b.title, qIconProvider->iconFromImage(b.image), b.folder);
     }
 
     db.commit();

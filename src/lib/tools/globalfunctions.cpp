@@ -19,6 +19,7 @@
 
 #include <QByteArray>
 #include <QPixmap>
+#include <QPainter>
 #include <QBuffer>
 #include <QFile>
 #include <QDir>
@@ -112,7 +113,6 @@ void qz_removeDir(const QString &d)
         dir.rmdir(d);
     }
 }
-
 
 QString qz_samePartOfStrings(const QString &one, const QString &other)
 {
@@ -220,6 +220,7 @@ QString qz_getFileNameFromUrl(const QUrl &url)
 QString qz_filterCharsFromFilename(const QString &name)
 {
     QString value = name;
+
     value.replace("/", "-");
     value.remove("\\");
     value.remove(":");
@@ -231,6 +232,70 @@ QString qz_filterCharsFromFilename(const QString &name)
     value.remove("|");
 
     return value;
+}
+
+QString qz_alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width)
+{
+    int pos = 0;
+    QString returnString;
+
+    while (pos <= string.size()) {
+        QString part = string.mid(pos);
+        QString elidedLine = metrics.elidedText(part, Qt::ElideRight, width);
+
+        if (elidedLine.isEmpty()) {
+            break;
+        }
+
+        if (elidedLine.size() != part.size()) {
+            elidedLine = elidedLine.mid(0, elidedLine.size() - 3);
+        }
+
+        if (!returnString.isEmpty()) {
+            returnString += text;
+        }
+
+        returnString += elidedLine;
+        pos += elidedLine.size();
+    }
+
+    return returnString;
+}
+
+QPixmap qz_createPixmapForSite(const QIcon &icon, const QString &title, const QString &url)
+{
+    const QFontMetrics fontMetrics = QApplication::fontMetrics();
+    const int padding = 4;
+    const int maxWidth = fontMetrics.width(title.length() > url.length() ? title : url) + 3 * padding + 16;
+
+    const int width = qMin(maxWidth, 150);
+    const int height = fontMetrics.height() * 2 + fontMetrics.leading() + 2 * padding;
+
+    QPixmap pixmap(width, height);
+    QPainter painter(&pixmap);
+
+    // Draw background
+    QPen pen(Qt::black);
+    pen.setWidth(1);
+    painter.setPen(pen);
+
+    painter.fillRect(QRect(0, 0, width, height), Qt::white);
+    painter.drawRect(0, 0, width - 1, height - 1);
+
+    // Draw icon
+    QRect iconRect(0, 0, 16 + 2 * padding, height);
+    icon.paint(&painter, iconRect);
+
+    // Draw title
+    QRect titleRect(iconRect.width(), padding, width - padding - iconRect.width(), fontMetrics.height());
+    painter.drawText(titleRect, fontMetrics.elidedText(title, Qt::ElideRight, titleRect.width()));
+
+    // Draw url
+    QRect urlRect(titleRect.x(), titleRect.bottom() + fontMetrics.leading(), titleRect.width(), titleRect.height());
+    painter.setPen(QApplication::palette().color(QPalette::Link));
+    painter.drawText(urlRect, fontMetrics.elidedText(url, Qt::ElideRight, urlRect.width()));
+
+    return pixmap;
 }
 
 QString qz_buildSystem()

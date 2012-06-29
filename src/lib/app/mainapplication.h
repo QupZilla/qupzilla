@@ -33,7 +33,7 @@ class QNetworkDiskCache;
 class QupZilla;
 class CookieManager;
 class BrowsingLibrary;
-class HistoryModel;
+class History;
 class NetworkManager;
 class CookieJar;
 class RSSManager;
@@ -72,18 +72,17 @@ public:
     inline static MainApplication* getInstance() { return static_cast<MainApplication*>(QCoreApplication::instance()); }
     inline QString currentProfilePath() { return m_activeProfil; }
     inline QString currentLanguage() { return m_activeLanguage; }
+    inline bool isPrivateSession() { return m_isPrivateSession; }
     inline bool isClosing() { return m_isClosing; }
     inline bool isStartingAfterCrash() { return m_startingAfterCrash; }
     inline int windowCount() { return m_mainWindows.count(); }
 
     bool checkSettingsDir();
 
-    void togglePrivateBrowsingMode(bool state);
-
     QupZilla* getWindow();
     CookieManager* cookieManager();
     BrowsingLibrary* browsingLibrary();
-    HistoryModel* history();
+    History* history();
     QWebSettings* webSettings();
     NetworkManager* networkManager();
     CookieJar* cookieJar();
@@ -93,9 +92,8 @@ public:
     DownloadManager* downManager();
     AutoFillModel* autoFill();
     SearchEnginesManager* searchEnginesManager();
-    QNetworkDiskCache* networkCache() { return m_networkCache; }
+    QNetworkDiskCache* networkCache();
     DesktopNotificationsFactory* desktopNotifications();
-    IconProvider* iconProvider() { return m_iconProvider; }
     DatabaseWriter* dbWriter() { return m_dbWriter; }
 
 #ifdef Q_WS_MAC
@@ -109,6 +107,8 @@ public slots:
     void receiveAppMessage(QString message);
     void setStateChanged();
     void addNewTab(const QUrl &url = QUrl());
+
+    void startPrivateBrowsing();
 
 signals:
     void message(Qz::AppMessageType mes, bool state);
@@ -126,9 +126,11 @@ private:
     void translateApp();
     void restoreOtherWindows();
 
+    QUrl userStyleSheet(const QString &filePath) const;
+
     CookieManager* m_cookiemanager;
     BrowsingLibrary* m_browsingLibrary;
-    HistoryModel* m_historymodel;
+    History* m_historymodel;
     QWebSettings* m_websettings;
     NetworkManager* m_networkmanager;
     CookieJar* m_cookiejar;
@@ -139,7 +141,6 @@ private:
     AutoFillModel* m_autofill;
     QNetworkDiskCache* m_networkCache;
     DesktopNotificationsFactory* m_desktopNotifications;
-    IconProvider* m_iconProvider;
     SearchEnginesManager* m_searchEnginesManager;
     DatabaseWriter* m_dbWriter;
 
@@ -149,6 +150,7 @@ private:
     QString m_activeLanguage;
     QString m_activeThemePath;
 
+    bool m_isPrivateSession;
     bool m_isClosing;
     bool m_isStateChanged;
     bool m_isRestoring;

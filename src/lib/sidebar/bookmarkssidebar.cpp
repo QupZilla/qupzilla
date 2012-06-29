@@ -24,6 +24,7 @@
 #include "bookmarkstoolbar.h"
 #include "tabwidget.h"
 #include "bookmarksmodel.h"
+#include "websettings.h"
 
 #include <QMenu>
 #include <QTimer>
@@ -79,7 +80,7 @@ void BookmarksSideBar::itemDoubleClicked(QTreeWidgetItem* item)
 void BookmarksSideBar::loadInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        p_QupZilla->tabWidget()->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
+        p_QupZilla->tabWidget()->addView(action->data().toUrl(), WebSettings::newTabPosition);
     }
 }
 
@@ -119,7 +120,7 @@ void BookmarksSideBar::contextMenuRequested(const QPoint &position)
     menu.addAction(tr("&Delete"), this, SLOT(deleteItem()));
 
     //Prevent choosing first option with double rightclick
-    QPoint pos = QCursor::pos();
+    QPoint pos = ui->bookmarksTree->viewport()->mapToGlobal(position);
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
 }
@@ -131,7 +132,7 @@ void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setText(0, bookmark.title);
     item->setText(1, bookmark.url.toEncoded());
     item->setData(0, Qt::UserRole + 10, bookmark.id);
-    item->setIcon(0, IconProvider::iconFromImage(bookmark.image));
+    item->setIcon(0, qIconProvider->iconFromImage(bookmark.image));
     item->setToolTip(0, bookmark.url.toEncoded());
 
     if (bookmark.folder != "unsorted") {
@@ -244,7 +245,7 @@ void BookmarksSideBar::refreshTable()
         QUrl url = query.value(1).toUrl();
         int id = query.value(2).toInt();
         QString folder = query.value(3).toString();
-        QIcon icon = IconProvider::iconFromImage(QImage::fromData(query.value(4).toByteArray()));
+        QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(4).toByteArray()));
         QTreeWidgetItem* item;
         if (folder == "bookmarksMenu") {
             folder = _bookmarksMenu;

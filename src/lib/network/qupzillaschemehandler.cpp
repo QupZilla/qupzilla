@@ -147,7 +147,7 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace("%TYPE%", tr("Issue type"));
     bPage.replace("%DESCRIPTION%", tr("Issue description"));
     bPage.replace("%SEND%", tr("Send"));
-    bPage.replace("%E-MAIL-OPTIONAL%", tr("E-mail is optional<br/><b>Note: </b>Please read how to make a bug report <a href=%1>here</a> first.").arg("https://github.com/nowrep/QupZilla/wiki/Bug-Reports target=_blank"));
+    bPage.replace("%E-MAIL-OPTIONAL%", tr("E-mail is optional<br/><b>Note: </b>Please read how to make a bug report <a href=%1>here</a> first.").arg("https://github.com/QupZilla/qupzilla/wiki/Bug-Reports target=_blank"));
     bPage.replace("%FIELDS-ARE-REQUIRED%", tr("Please fill out all required fields!"));
 
     return bPage;
@@ -167,10 +167,11 @@ QString QupZillaSchemeReply::startPage()
     sPage.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
 
     sPage.replace("%TITLE%", tr("Start Page"));
-    sPage.replace("%BUTTON-LABEL%", tr("Google Search"));
-    sPage.replace("%SEARCH-BY-GOOGLE%", tr("Search results provided by Google"));
+    sPage.replace("%BUTTON-LABEL%", tr("Search on Web"));
+    sPage.replace("%SEARCH-BY%", tr("Search results provided by DuckDuckGo"));
     sPage.replace("%WWW%", QupZilla::WIKIADDRESS);
     sPage.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
+    sPage.replace("%PRIVATE-BROWSING%", mApp->isPrivateSession() ? tr("<h1>Private Browsing</h1>") : "");
 
     return sPage;
 }
@@ -203,6 +204,7 @@ QString QupZillaSchemeReply::aboutPage()
         aPage.replace("%CONTRIBUTORS%", tr("Contributors"));
         aPage.replace("%CONTRIBUTORS-TEXT%",
                       authorString("Mladen Pejaković", "pejakm@gmail.com") + "<br/>" +
+                      authorString("Alexander Samilov", "alexsamilovskih@gmail.com") + "<br/>" +
                       authorString("Bryan M Dunsmore", "dunsmoreb@gmail.com") + "<br/>" +
                       authorString("Mariusz Fik", "fisiu@opensuse.org") + "<br/>" +
                       authorString("Jan Rajnoha", "honza.rajny@hotmail.com")  + "<br/>" +
@@ -234,7 +236,8 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Beqa Arabuli", "arabulibeqa@gmail.com") + " (Georgian)<br/>" +
                       authorString("Daiki Noda", "sys.pdr.pdm9@gmail.com") + " (Japanese)<br/>" +
                       authorString("Gábor Oberle", "oberleg@myopera.com") + " (Hungarian)<br/>" +
-                      authorString("Piccoro McKay Lenz", "mckaygerhard@gmail.com") + " (Venezulean Spanish)"
+                      authorString("Piccoro McKay Lenz", "mckaygerhard@gmail.com") + " (Venezulean Spanish)<br/>" +
+                      authorString("Stanislav Kuznietsov", "stanislav_kuznetsov@ukr.net") + " (Ukrainian)"
                      );
     }
 

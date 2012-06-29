@@ -118,17 +118,11 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
 
 void CookieJar::saveCookies()
 {
-    if (m_deleteOnClose) {
+    if (m_deleteOnClose || mApp->isPrivateSession()) {
         return;
     }
 
-    QList<QNetworkCookie> allCookies;
-    if (m_tempList.isEmpty()) {
-        allCookies = getAllCookies();
-    }
-    else {
-        allCookies = m_tempList;
-    }
+    QList<QNetworkCookie> allCookies = getAllCookies();
 
     QFile file(m_activeProfil + "cookies.dat");
     file.open(QIODevice::WriteOnly);
@@ -150,9 +144,10 @@ void CookieJar::saveCookies()
 
 void CookieJar::restoreCookies()
 {
-    if (!QFile::exists(m_activeProfil + "cookies.dat")) {
+    if (!QFile::exists(m_activeProfil + "cookies.dat") || mApp->isPrivateSession()) {
         return;
     }
+
     QDateTime now = QDateTime::currentDateTime();
 
     QList<QNetworkCookie> restoredCookies;
@@ -184,12 +179,7 @@ void CookieJar::restoreCookies()
 
 void CookieJar::clearCookies()
 {
-    if (m_tempList.isEmpty()) {
-        setAllCookies(QList<QNetworkCookie>());
-    }
-    else {
-        m_tempList.clear();
-    }
+    setAllCookies(QList<QNetworkCookie>());
 }
 
 QList<QNetworkCookie> CookieJar::getAllCookies()
@@ -201,16 +191,3 @@ void CookieJar::setAllCookies(const QList<QNetworkCookie> &cookieList)
 {
     QNetworkCookieJar::setAllCookies(cookieList);
 }
-
-void CookieJar::turnPrivateJar(bool state)
-{
-    if (state) {
-        m_tempList = QNetworkCookieJar::allCookies();
-        QNetworkCookieJar::setAllCookies(QList<QNetworkCookie>());
-    }
-    else {
-        QNetworkCookieJar::setAllCookies(m_tempList);
-        m_tempList.clear();
-    }
-}
-

@@ -23,11 +23,13 @@
 #include "tabwidget.h"
 #include "locationbar.h"
 #include "globalfunctions.h"
-#include "webviewsettings.h"
+#include "websettings.h"
 
 #include <QVBoxLayout>
 #include <QWebHistory>
+#include <QWebFrame>
 #include <QLabel>
+#include <QStyle>
 
 WebTab::SavedTab::SavedTab(WebTab* webTab)
 {
@@ -220,7 +222,7 @@ bool WebTab::isRestored() const
 
 void WebTab::restoreTab(const WebTab::SavedTab &tab)
 {
-    if (WebViewSettings::loadTabsOnActivation) {
+    if (WebSettings::loadTabsOnActivation) {
         m_savedTab = tab;
         int index = tabIndex();
 
@@ -247,6 +249,32 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
     p_restoreTab(tab.url, tab.history);
 }
 
+QPixmap WebTab::renderTabPreview()
+{
+    WebPage* page = m_view->page();
+    QSize oldSize = page->viewportSize();
+
+    const int previewWidth = 230;
+    const int previewHeight = 150;
+    const int scrollBarExtent = style()->pixelMetric(QStyle::PM_ScrollBarExtent);
+    const int pageWidth = qMin(page->mainFrame()->contentsSize().width(), 1280);
+    const int pageHeight = (pageWidth / 23 * 15);
+    const qreal scalingFactor = 2 * static_cast<qreal>(previewWidth) / pageWidth;
+
+    page->setViewportSize(QSize(pageWidth, pageHeight));
+
+    QPixmap pageImage((2 * previewWidth) - scrollBarExtent, (2 * previewHeight) - scrollBarExtent);
+    pageImage.fill(Qt::transparent);
+
+    QPainter p(&pageImage);
+    p.scale(scalingFactor, scalingFactor);
+    m_view->page()->mainFrame()->render(&p, QWebFrame::ContentsLayer);
+    p.end();
+
+    page->setViewportSize(oldSize);
+
+    return pageImage.scaled(previewWidth, previewHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+}
 
 void WebTab::showNotification(QWidget* notif)
 {

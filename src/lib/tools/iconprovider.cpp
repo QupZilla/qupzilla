@@ -23,10 +23,10 @@
 #include <QTimer>
 #include <QBuffer>
 
-QImage IconProvider::m_emptyWebImage;
+IconProvider* IconProvider::s_instance = 0;
 
-IconProvider::IconProvider(QObject* parent)
-    : QObject(parent)
+IconProvider::IconProvider(QWidget* parent)
+    : QWidget(parent)
 {
     m_timer = new QTimer(this);
     m_timer->setInterval(10 * 1000);
@@ -35,9 +35,18 @@ IconProvider::IconProvider(QObject* parent)
     connect(m_timer, SIGNAL(timeout()), this, SLOT(saveIconsToDatabase()));
 }
 
+IconProvider* IconProvider::instance()
+{
+    if (!s_instance) {
+        s_instance = new IconProvider;
+    }
+
+    return s_instance;
+}
+
 void IconProvider::saveIcon(WebView* view)
 {
-    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
+    if (mApp->isPrivateSession()) {
         // Don't save icons in private mode.
         return;
     }
@@ -210,6 +219,16 @@ QImage IconProvider::emptyWebImage()
     return m_emptyWebImage;
 }
 
+QPixmap IconProvider::bookmarkIcon()
+{
+    return m_bookmarkIcon;
+}
+
+void IconProvider::setBookmarkIcon(const QPixmap &pixmap)
+{
+    m_bookmarkIcon = pixmap;
+}
+
 QIcon IconProvider::iconFromImage(const QImage &image)
 {
     if (m_emptyWebImage.isNull()) {
@@ -244,8 +263,4 @@ QByteArray IconProvider::iconToBase64(const QIcon &icon)
     out << icon;
     buffer.close();
     return bArray.toBase64();
-}
-
-IconProvider::~IconProvider()
-{
 }

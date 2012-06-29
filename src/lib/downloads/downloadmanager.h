@@ -78,9 +78,10 @@ private:
 #ifdef W7TASKBAR
     EcWin7 win7;
 #endif
-    void timerEvent(QTimerEvent* event);
+    void timerEvent(QTimerEvent* e);
     void closeEvent(QCloseEvent* e);
     void resizeEvent(QResizeEvent* e);
+    void keyPressEvent(QKeyEvent* e);
 
     void startExternalManager(const QUrl &url);
 

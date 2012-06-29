@@ -47,7 +47,7 @@ signals:
 public slots:
 
 private:
-    static QSettings* m_settings;
+    static QSettings* s_settings;
 
 };
 

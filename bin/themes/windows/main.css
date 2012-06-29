@@ -118,6 +118,12 @@
     qproperty-multiIcon: url(images/tabbar-addtab.png);
 }
 
+/*IconProvider*/
+IconProvider
+{
+    qproperty-bookmarkIcon: url(images/star-a.png);
+}
+
 /*LocationBar*/
 #locationbar
 {

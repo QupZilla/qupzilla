@@ -123,6 +123,12 @@
     background: url(images/transp.png);
 }
 
+/*IconProvider*/
+IconProvider
+{
+    qproperty-bookmarkIcon: url(images/star.png);
+}
+
 /*LocationBar*/
 #locationbar
 {

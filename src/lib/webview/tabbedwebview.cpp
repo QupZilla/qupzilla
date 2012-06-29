@@ -48,7 +48,7 @@ TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     , m_rssChecked(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
-    connect(this, SIGNAL(loadProgress(int)), this, SLOT(loadingProgress(int)));
+    connect(this, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
 
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
@@ -127,7 +127,7 @@ void TabbedWebView::urlChanged(const QUrl &url)
     }
 }
 
-void TabbedWebView::loadingProgress(int prog)
+void TabbedWebView::loadProgress(int prog)
 {
     if (prog > 60) {
         checkRss();
@@ -180,7 +180,6 @@ void TabbedWebView::setIp(const QHostInfo &info)
 void TabbedWebView::titleChanged()
 {
     const QString &t = title();
-    m_tabWidget->setTabToolTip(tabIndex(), t);
 
     if (isCurrent()) {
         p_QupZilla->setWindowTitle(tr("%1 - QupZilla").arg(t));
@@ -197,7 +196,7 @@ void TabbedWebView::showIcon()
 
     QIcon icon_ = icon();
     if (icon_.isNull()) {
-        icon_ = IconProvider::emptyWebIcon();
+        icon_ = qIconProvider->emptyWebIcon();
     }
 
     m_tabWidget->setTabIcon(tabIndex(), icon_);
@@ -319,13 +318,6 @@ void TabbedWebView::disconnectObjects()
     disconnect(p_QupZilla->statusBar());
 
     WebView::disconnectObjects();
-}
-
-void TabbedWebView::fakePageLoading(int progress)
-{
-    WebView::slotLoadStarted();
-    slotLoadStarted();
-    loadingProgress(progress);
 }
 
 TabbedWebView::~TabbedWebView()

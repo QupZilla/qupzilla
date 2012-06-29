@@ -22,7 +22,7 @@
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "qtwin.h"
-#include <QDebug>
+
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog(parent),
       ui(new Ui::AboutDialog)
@@ -79,6 +79,7 @@ void AboutDialog::showAuthors()
         m_authorsHtml += tr("<p><b>Main developer:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>");
         m_authorsHtml += tr("<p><b>Contributors:</b><br/>%1</p>").arg(
                              QString::fromUtf8("Mladen Pejaković<br/>"
+                                               "Alexander Samilov<br/>"
                                                "Bryan M Dunsmore<br/>"
                                                "Mariusz Fik<br/>"
                                                "Jan Rajnoha<br/>"
@@ -109,7 +110,8 @@ void AboutDialog::showAuthors()
                                                "Beqa Arabuli<br/>"
                                                "Daiki Noda<br/>"
                                                "Gábor Oberle<br/>"
-                                               "Piccoro McKay Lenz")
+                                               "Piccoro McKay Lenz<br/>"
+                                               "Stanislav Kuznietsov")
                          );
         m_authorsHtml += "</div></center>";
     }

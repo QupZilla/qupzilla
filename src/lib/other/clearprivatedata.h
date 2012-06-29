@@ -45,6 +45,11 @@ private slots:
     void clearFlash();
 
 private:
+    void closeEvent(QCloseEvent* e);
+
+    void restoreState(const QByteArray &state);
+    QByteArray saveState();
+
     QupZilla* p_QupZilla;
     Ui::ClearPrivateData* ui;
 

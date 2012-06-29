@@ -38,7 +38,6 @@
 #include <QMenu>
 #include <QMouseEvent>
 #include <QPainter>
-#include <QPropertyAnimation>
 #include <QSignalMapper>
 #include <QSplitter>
 #include <QStackedLayout>
@@ -124,7 +123,7 @@ void FancyTabProxyStyle::drawControl(
     int textFlags = Qt::AlignHCenter | Qt::AlignVCenter;
     p->drawText(text_rect, textFlags, text);
     p->setPen(selected ? QColor(60, 60, 60) : Utils::StyleHelper::panelTextColor());
-#ifndef Q_WS_MAC
+#if 0
     if (widget) {
         const QString fader_key = "tab_" + text + "_fader";
         const QString animation_key = "tab_" + text + "_animation";
@@ -220,25 +219,25 @@ bool FancyTabProxyStyle::eventFilter(QObject* o, QEvent* e)
 FancyTab::FancyTab(QWidget* tabbar)
     : QWidget(tabbar), tabbar(tabbar), m_fader(0)
 {
-    animator.setPropertyName("fader");
-    animator.setTargetObject(this);
+//    animator.setPropertyName("fader");
+//    animator.setTargetObject(this);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
 }
 
 void FancyTab::fadeIn()
 {
-    animator.stop();
-    animator.setDuration(80);
-    animator.setEndValue(40);
-    animator.start();
+//    animator.stop();
+//    animator.setDuration(80);
+//    animator.setEndValue(40);
+//    animator.start();
 }
 
 void FancyTab::fadeOut()
 {
-    animator.stop();
-    animator.setDuration(160);
-    animator.setEndValue(0);
-    animator.start();
+//    animator.stop();
+//    animator.setDuration(160);
+//    animator.setEndValue(0);
+//    animator.start();
 }
 
 void FancyTab::setFader(float value)

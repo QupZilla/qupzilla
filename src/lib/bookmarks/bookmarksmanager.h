@@ -63,6 +63,7 @@ private slots:
     void itemControlClicked(QTreeWidgetItem* item);
     void moveBookmark();
     void renameBookmark();
+    void changeIcon();
     void importBookmarks();
 
     void addFolder(const QString &name);

@@ -41,6 +41,8 @@ public:
     explicit AddTabButton(TabWidget* tabWidget, TabBar* tabBar);
 
 private:
+    void wheelEvent(QWheelEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
     void dragEnterEvent(QDragEnterEvent* event);
     void dropEvent(QDropEvent* event);
 
@@ -118,6 +120,9 @@ private slots:
     void tabMoved(int before, int after);
 
 private:
+    void tabInserted(int index);
+    void tabRemoved(int index);
+
     void resizeEvent(QResizeEvent* e);
 
     WebTab* weTab();

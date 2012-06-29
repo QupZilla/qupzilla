@@ -18,22 +18,23 @@
 #ifndef PLUGINLISTDELEGATE_H
 #define PLUGINLISTDELEGATE_H
 
-#include <QItemDelegate>
+#include <QStyledItemDelegate>
 
 #include "qz_namespace.h"
 
 class QListWidget;
 
-class QT_QUPZILLA_EXPORT PluginListDelegate : public QItemDelegate
+class QT_QUPZILLA_EXPORT PluginListDelegate : public QStyledItemDelegate
 {
 public:
     PluginListDelegate(QListWidget* parent);
 
-    void drawDisplay(QPainter* painter, const QStyleOptionViewItem &option, const QRect &rect, const QString &text) const;
+    void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 private:
-    QListWidget* m_listWidget;
+    mutable int m_rowHeight;
+    mutable int m_padding;
 };
 
 #endif // PLUGINLISTDELEGATE_H

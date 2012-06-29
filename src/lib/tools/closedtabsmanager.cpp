@@ -28,8 +28,7 @@ ClosedTabsManager::ClosedTabsManager()
 
 void ClosedTabsManager::saveView(WebTab* tab, int position)
 {
-    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) ||
-            (tab->url().isEmpty() && tab->history()->items().count() == 0)) {
+    if (mApp->isPrivateSession() || (tab->url().isEmpty() && tab->history()->items().count() == 0)) {
         return;
     }
 

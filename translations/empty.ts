@@ -72,6 +72,32 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
@@ -86,15 +112,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Rule</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Add Rule</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update EasyList</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -102,27 +120,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete Rule</source>
+        <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update completed</source>
+        <source>Remove Rule</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>EasyList has been successfully updated.</source>
+        <source>Add Subscription</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Custom Rules</source>
+        <source>Remove Subscription</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add Custom Rule</source>
+        <source>Update Subscriptions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Please write your rule here:</source>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -164,8 +189,38 @@
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
     <message>
-        <source>Learn About Writing &amp;Rules</source>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -535,6 +590,10 @@
     </message>
     <message>
         <source>Bookmark All Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change icon</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1202,79 +1261,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add from file ...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Choose icon...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Image files</source>
+        <source>Change...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>HistoryManager</name>
-    <message>
-        <source>History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Url</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Clear All History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Confirmation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Are you sure to delete all history?</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>HistoryModel</name>
+    <name>History</name>
     <message>
         <source>No Named Page</source>
         <translation type="unfinished"></translation>
@@ -1329,25 +1321,48 @@
     </message>
 </context>
 <context>
-    <name>HistorySideBar</name>
+    <name>HistoryManager</name>
     <message>
-        <source>Search...</source>
+        <source>History</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear All History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Optimize Database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirmation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure to delete all history?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HistoryModel</name>
     <message>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open link in current tab</source>
+        <source>Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open link in new tab</source>
+        <source>Visit Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copy address</source>
+        <source>Visit Count</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1360,6 +1375,67 @@
     </message>
     <message>
         <source>This Month</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HistorySideBar</name>
+    <message>
+        <source>Search...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1756,10 +1832,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Make tabs movable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Hide tabs when there is only one tab</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1832,10 +1904,6 @@
     </message>
     <message>
         <source>Zoom text only</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ask when entering Private Browsing mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2068,14 +2136,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>SSL Manager</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit CA certificates in SSL Manager</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>JavaScript can access clipboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2213,6 +2273,26 @@
     </message>
     <message>
         <source>Use different proxy for https connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show tab previews</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically switch to newly opened tab</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2565,38 +2645,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Are you sure you want to turn on private browsing?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Webpages are not added to the history.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Current cookies cannot be accessed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Your session is not stored.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Start Private Browsing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>HTML files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2674,14 +2722,6 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Start Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Google Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search results provided by Google</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2932,6 +2972,18 @@ Are you sure to quit QupZilla?</source>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3028,7 +3080,55 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 <context>
     <name>RSSNotification</name>
     <message>
-        <source>Open RSS Manager</source>
+        <source>Add this feed into</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Executable: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external program! %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Internal Reader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea not running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea must be running in order to add new feed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add feed into other application</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3049,10 +3149,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 </context>
 <context>
     <name>SSLManager</name>
-    <message>
-        <source>SSL Manager</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>CA Authorities Certificates</source>
         <translation type="unfinished"></translation>
@@ -3108,6 +3204,18 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Certificate Informations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3769,10 +3877,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Content Access Denied</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3818,6 +3922,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Unknown network error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember my choice for this protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

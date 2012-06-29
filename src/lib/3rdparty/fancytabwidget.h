@@ -33,7 +33,6 @@
 #include "qz_namespace.h"
 
 #include <QIcon>
-#include <QPropertyAnimation>
 #include <QProxyStyle>
 #include <QTabBar>
 #include <QTimer>
@@ -90,7 +89,6 @@ protected:
     void leaveEvent(QEvent*);
 
 private:
-    QPropertyAnimation animator;
     QWidget* tabbar;
     float m_fader;
 };
@@ -230,8 +228,6 @@ private:
 
 } // namespace Internal
 } // namespace Core
-
-Q_DECLARE_METATYPE(QPropertyAnimation*);
 
 using Core::Internal::FancyTab;
 using Core::Internal::FancyTabBar;

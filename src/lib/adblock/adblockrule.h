@@ -52,37 +52,59 @@
 
 #include "qz_namespace.h"
 
+class QNetworkRequest;
 class QUrl;
 
 class AdBlockRule
 {
-
 public:
     AdBlockRule(const QString &filter = QString());
 
     QString filter() const;
     void setFilter(const QString &filter);
 
-    bool isCSSRule() const { return m_cssRule; }
-    bool networkMatch(const QString &encodedUrl) const;
+    bool isCssRule() const;
+    QString cssSelector() const;
 
+    bool isDomainRestricted() const;
     bool isException() const;
-    void setException(bool exception);
 
     bool isEnabled() const;
     void setEnabled(bool enabled);
 
-    QString regExpPattern() const;
-    void setPattern(const QString &pattern, bool isRegExp);
+    bool isInternalDisabled() const;
+
+    bool networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const;
+
+    bool matchDomain(const QString &domain) const;
+    bool matchThirdParty(const QNetworkRequest &request) const;
 
 private:
+    void parseFilter();
+    void parseDomains(const QString &domains, const QChar &separator);
+
     QString m_filter;
 
+    bool m_enabled;
     bool m_cssRule;
     bool m_exception;
-    bool m_enabled;
+
+    bool m_internalDisabled;
+    bool m_domainRestricted;
+
+    bool m_useRegExp;
     QRegExp m_regExp;
-    QStringList m_options;
+
+    QString m_cssSelector;
+    QString m_matchString;
+
+    // Rule $options
+    QStringList m_allowedDomains;
+    QStringList m_blockedDomains;
+
+    bool m_thirdParty;
+    bool m_thirdPartyException;
+    Qt::CaseSensitivity m_caseSensitivity;
 };
 
 #endif // ADBLOCKRULE_H

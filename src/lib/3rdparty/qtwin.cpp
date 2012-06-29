@@ -29,7 +29,7 @@
 #include <QApplication>
 #include <QWidget>
 #include <QList>
-#include "historymodel.h"
+#include "history.h"
 #include "mainapplication.h"
 
 #ifdef Q_WS_WIN

@@ -15,36 +15,11 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-/**
- * Copyright (c) 2009, Benjamin C. Meyer <ben@meyerhome.net>
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- * 3. Neither the name of the Benjamin Meyer nor the names of its contributors
- *    may be used to endorse or promote products derived from this software
- *    without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
- * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
- * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
- * SUCH DAMAGE.
- */
 #include "adblockdialog.h"
 #include "adblockmanager.h"
 #include "adblocksubscription.h"
+#include "adblocktreewidget.h"
+#include "adblockaddsubscriptiondialog.h"
 #include "mainapplication.h"
 
 #include <QMenu>
@@ -53,182 +28,99 @@
 
 AdBlockDialog::AdBlockDialog(QWidget* parent)
     : QDialog(parent)
-    , m_itemChangingBlock(false)
     , m_manager(AdBlockManager::instance())
+    , m_currentTreeWidget(0)
+    , m_currentSubscription(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setupUi(this);
+
     adblockCheckBox->setChecked(m_manager->isEnabled());
 
-    treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-    treeWidget->setDefaultItemShowMode(TreeWidget::ItemsExpanded);
+    QMenu* menu = new QMenu(buttonMenu);
+    m_actionAddRule = menu->addAction(tr("Add Rule"), this, SLOT(addRule()));
+    m_actionRemoveRule = menu->addAction(tr("Remove Rule"), this, SLOT(removeRule()));
+    menu->addSeparator();
+    m_actionAddSubscription = menu->addAction(tr("Add Subscription"), this, SLOT(addSubscription()));
+    m_actionRemoveSubscription = menu->addAction(tr("Remove Subscription"), this, SLOT(removeSubscription()));
+    menu->addAction(tr("Update Subscriptions"), m_manager, SLOT(updateAllSubscriptions()));
+    menu->addSeparator();
+    menu->addAction(tr("Learn about writing rules..."), this, SLOT(learnAboutRules()));
+
+    buttonMenu->setMenu(menu);
+    connect(menu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowMenu()));
 
     connect(adblockCheckBox, SIGNAL(toggled(bool)), m_manager, SLOT(setEnabled(bool)));
-    connect(addButton, SIGNAL(clicked()), this, SLOT(addCustomRule()));
-    connect(reloadButton, SIGNAL(clicked()), this, SLOT(updateSubscription()));
-    connect(search, SIGNAL(textChanged(QString)), treeWidget, SLOT(filterString(QString)));
-    connect(m_manager->subscription(), SIGNAL(rulesUpdated()), this, SLOT(refreshAfterUpdate()));
-    connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested()));
+    connect(search, SIGNAL(textChanged(QString)), this, SLOT(filterString(QString)));
+    connect(tabWidget, SIGNAL(currentChanged(int)), this, SLOT(currentChanged(int)));
 
-//    QTimer::singleShot(0, this, SLOT(firstRefresh()));
-    firstRefresh();
+    foreach(AdBlockSubscription * subscription, m_manager->subscriptions()) {
+        AdBlockTreeWidget* tree = new AdBlockTreeWidget(subscription, tabWidget);
+        tabWidget->addTab(tree, subscription->title());
+    }
+
+    buttonBox->setFocus();
 }
 
-void AdBlockDialog::editRule()
+void AdBlockDialog::addRule()
 {
-    QTreeWidgetItem* item = treeWidget->currentItem();
-    if (!item || !(item->flags() & Qt::ItemIsEditable)) {
+    m_currentTreeWidget->addRule();
+}
+
+void AdBlockDialog::removeRule()
+{
+    m_currentTreeWidget->removeRule();
+}
+
+void AdBlockDialog::addSubscription()
+{
+    AdBlockAddSubscriptionDialog dialog(this);
+    if (dialog.exec() != QDialog::Accepted) {
         return;
     }
 
-    item->setSelected(true);
-}
+    QString title = dialog.title();
+    QString url = dialog.url();
 
-void AdBlockDialog::deleteRule()
-{
-    QTreeWidgetItem* item = treeWidget->currentItem();
-    if (!item) {
-        return;
+    if (AdBlockSubscription* subscription = m_manager->addSubscription(title, url)) {
+        AdBlockTreeWidget* tree = new AdBlockTreeWidget(subscription, tabWidget);
+        int index = tabWidget->insertTab(tabWidget->count() - 1, tree, subscription->title());
+
+        tabWidget->setCurrentIndex(index);
     }
-
-    int offset = item->data(0, Qt::UserRole + 10).toInt();
-    m_manager->subscription()->removeRule(offset);
-    treeWidget->deleteItem(item);
-    refresh();
 }
 
-void AdBlockDialog::customContextMenuRequested()
+void AdBlockDialog::removeSubscription()
 {
-    QMenu menu;
-    menu.addAction(tr("Add Rule"), this, SLOT(addCustomRule()));
-    menu.addSeparator();
-    menu.addAction(tr("Delete Rule"), this, SLOT(deleteRule()));
-    menu.exec(QCursor::pos());
-}
-
-void AdBlockDialog::firstRefresh()
-{
-    refresh();
-    connect(treeWidget, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
-}
-
-void AdBlockDialog::refreshAfterUpdate()
-{
-    QMessageBox::information(this, tr("Update completed"), tr("EasyList has been successfully updated."));
-    refresh();
-}
-
-void AdBlockDialog::refresh()
-{
-    m_itemChangingBlock = true;
-    treeWidget->setUpdatesEnabled(false);
-    treeWidget->clear();
-
-    QFont boldFont;
-    boldFont.setBold(true);
-    QFont italicFont;
-    italicFont.setItalic(true);
-
-    m_customRulesItem = new QTreeWidgetItem(treeWidget);
-    m_customRulesItem->setText(0, tr("Custom Rules"));
-    m_customRulesItem->setFont(0, boldFont);
-    treeWidget->addTopLevelItem(m_customRulesItem);
-
-    m_easyListItem = new QTreeWidgetItem(treeWidget);
-    m_easyListItem->setText(0, "EasyList");
-    m_easyListItem->setFont(0, boldFont);
-    treeWidget->addTopLevelItem(m_easyListItem);
-
-    bool customRulesStarted = false;
-    QList<AdBlockRule> allRules = m_manager->subscription()->allRules();
-
-    int index = 0;
-    foreach(const AdBlockRule & rule, allRules) {
-        index++;
-        if (rule.filter().contains("*******- user custom filters")) {
-            customRulesStarted = true;
-            continue;
-        }
-        QTreeWidgetItem* item = new QTreeWidgetItem(customRulesStarted ? m_customRulesItem : m_easyListItem);
-        if (item->parent() == m_customRulesItem) {
-            item->setFlags(item->flags() | Qt::ItemIsEditable);
-        }
-        item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
-        item->setCheckState(0, (rule.filter().startsWith("!")) ? Qt::Unchecked : Qt::Checked);
-        item->setText(0, rule.filter());
-        item->setData(0, Qt::UserRole + 10, index - 1);
-        if (rule.filter().startsWith("!")) {
-            item->setFont(0, italicFont);
-        }
+    if (m_manager->removeSubscription(m_currentSubscription)) {
+        delete m_currentTreeWidget;
     }
-    treeWidget->expandAll();
-    treeWidget->setUpdatesEnabled(true);
-    m_itemChangingBlock = false;
 }
 
-void AdBlockDialog::itemChanged(QTreeWidgetItem* item)
+void AdBlockDialog::currentChanged(int index)
 {
-    if (!item || m_itemChangingBlock) {
-        return;
+    if (index != -1) {
+        m_currentTreeWidget = qobject_cast<AdBlockTreeWidget*>(tabWidget->widget(index));
+        m_currentSubscription = m_currentTreeWidget->subscription();
     }
-
-    m_itemChangingBlock = true;
-
-    if (item->checkState(0) == Qt::Unchecked && !item->text(0).startsWith("!")) { //Disable rule
-        int offset = item->data(0, Qt::UserRole + 10).toInt();
-        QFont italicFont;
-        italicFont.setItalic(true);
-        item->setFont(0, italicFont);
-        item->setText(0, item->text(0).prepend("!"));
-
-        AdBlockRule rul(item->text(0));
-        m_manager->subscription()->replaceRule(rul, offset);
-
-    }
-    else if (item->checkState(0) == Qt::Checked && item->text(0).startsWith("!")) {   //Enable rule
-        int offset = item->data(0, Qt::UserRole + 10).toInt();
-        item->setFont(0, QFont());
-        QString newText = item->text(0).mid(1);
-        item->setText(0, newText);
-
-        AdBlockRule rul(newText);
-        m_manager->subscription()->replaceRule(rul, offset);
-
-    }
-    else {   //Custom rule has been changed
-        int offset = item->data(0, Qt::UserRole + 10).toInt();
-
-        AdBlockRule rul(item->text(0));
-        m_manager->subscription()->replaceRule(rul, offset);
-
-    }
-
-    m_itemChangingBlock = false;
 }
 
-
-void AdBlockDialog::addCustomRule()
+void AdBlockDialog::filterString(const QString &string)
 {
-    QString newRule = QInputDialog::getText(this, tr("Add Custom Rule"), tr("Please write your rule here:"));
-    if (newRule.isEmpty()) {
-        return;
-    }
-
-    AdBlockSubscription* subscription = m_manager->subscription();
-    int offset = subscription->addRule(AdBlockRule(newRule));
-    m_itemChangingBlock = true;
-    QTreeWidgetItem* item = new QTreeWidgetItem();
-    item->setText(0, newRule);
-    item->setData(0, Qt::UserRole + 10, offset);
-    item->setFlags(item->flags() | Qt::ItemIsEditable);
-    item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
-    item->setCheckState(0, Qt::Checked);
-    treeWidget->appendToParentItem(m_customRulesItem, item);
-    m_itemChangingBlock = false;
+    m_currentTreeWidget->filterString(string);
 }
 
-void AdBlockDialog::updateSubscription()
+void AdBlockDialog::aboutToShowMenu()
 {
-    AdBlockSubscription* subscription = m_manager->subscription();
-    subscription->updateNow();
+    bool subscriptionEditable = m_currentSubscription->canEditRules();
+    bool subscriptionRemovable = m_currentSubscription->canBeRemoved();
+
+    m_actionAddRule->setEnabled(subscriptionEditable);
+    m_actionRemoveRule->setEnabled(subscriptionEditable);
+    m_actionRemoveSubscription->setEnabled(subscriptionRemovable);
+}
+
+void AdBlockDialog::learnAboutRules()
+{
+    mApp->addNewTab(QUrl("http://adblockplus.org/en/filters"));
 }

@@ -72,6 +72,32 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished">Reguli personalizate</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
@@ -87,7 +113,7 @@
     </message>
     <message>
         <source>Rule</source>
-        <translation>Regulă</translation>
+        <translation type="obsolete">Regulă</translation>
     </message>
     <message>
         <source>Add Rule</source>
@@ -95,7 +121,7 @@
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation>Actualizează EasyList</translation>
+        <translation type="obsolete">Actualizează EasyList</translation>
     </message>
     <message>
         <source>AdBlock</source>
@@ -103,27 +129,58 @@
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation>Șterge regulă</translation>
+        <translation type="obsolete">Șterge regulă</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation>Actualizare completă</translation>
+        <translation type="obsolete">Actualizare completă</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation>EasyList a fost actualizat cu succes.</translation>
+        <translation type="obsolete">EasyList a fost actualizat cu succes.</translation>
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation>Reguli personalizate</translation>
+        <translation type="obsolete">Reguli personalizate</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation>Adaugă regulă personalizată</translation>
+        <translation type="obsolete">Adaugă regulă personalizată</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation>Va rugăm scrieți regula aici:</translation>
+        <translation type="obsolete">Va rugăm scrieți regula aici:</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Subscriptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -166,7 +223,41 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>Învață despre &amp;reguli de scriere</translation>
+        <translation type="obsolete">Învață despre &amp;reguli de scriere</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
+    <message>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished">Adaugă regulă</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished">Adaugă regulă personalizată</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished">Va rugăm scrieți regula aici:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -536,6 +627,10 @@
     <message>
         <source>Bookmark All Tabs</source>
         <translation>Adaugă semn de carte pentru toate tab-urile</translation>
+    </message>
+    <message>
+        <source>Change icon</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1205,15 +1300,74 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation>Adaugă din fișier ...</translation>
+        <translation type="obsolete">Adaugă din fișier ...</translation>
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation>Alege iconiță...</translation>
+        <translation type="obsolete">Alege iconiță...</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation>Fișiere imagine</translation>
+        <translation type="obsolete">Fișiere imagine</translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>History</name>
+    <message>
+        <source>No Named Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished">Ianuarie</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished">Februarie</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished">Martie</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished">Aprilie</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished">Mai</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished">Iunie</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished">Iulie</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished">August</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished">Septembrie</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished">Octombrie</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished">Noiembrie</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished">Decembrie</translation>
     </message>
 </context>
 <context>
@@ -1224,11 +1378,11 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>Titlu</translation>
+        <translation type="obsolete">Titlu</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation type="obsolete">Url</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1244,27 +1398,27 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Deschide legătura în tab curent</translation>
+        <translation type="obsolete">Deschide legătura în tab curent</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Deschide legătura în tab nou</translation>
+        <translation type="obsolete">Deschide legătura în tab nou</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Copiază adresa</translation>
+        <translation type="obsolete">Copiază adresa</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Astăzi</translation>
+        <translation type="obsolete">Astăzi</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Săptamâna aceasta</translation>
+        <translation type="obsolete">Săptamâna aceasta</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Luna aceasta</translation>
+        <translation type="obsolete">Luna aceasta</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1279,55 +1433,83 @@ nu a putut fi găsit!</translation>
     <name>HistoryModel</name>
     <message>
         <source>No Named Page</source>
-        <translation>Pagină fără nume</translation>
+        <translation type="obsolete">Pagină fără nume</translation>
     </message>
     <message>
         <source>January</source>
-        <translation>Ianuarie</translation>
+        <translation type="obsolete">Ianuarie</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>Februarie</translation>
+        <translation type="obsolete">Februarie</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>Martie</translation>
+        <translation type="obsolete">Martie</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>Aprilie</translation>
+        <translation type="obsolete">Aprilie</translation>
     </message>
     <message>
         <source>May</source>
-        <translation>Mai</translation>
+        <translation type="obsolete">Mai</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>Iunie</translation>
+        <translation type="obsolete">Iunie</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>Iulie</translation>
+        <translation type="obsolete">Iulie</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>August</translation>
+        <translation type="obsolete">August</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>Septembrie</translation>
+        <translation type="obsolete">Septembrie</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>Octombrie</translation>
+        <translation type="obsolete">Octombrie</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>Noiembrie</translation>
+        <translation type="obsolete">Noiembrie</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>Decembrie</translation>
+        <translation type="obsolete">Decembrie</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished">Titlu</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished">Astăzi</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="unfinished">Luna aceasta</translation>
     </message>
 </context>
 <context>
@@ -1338,31 +1520,85 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>Titlu</translation>
+        <translation type="obsolete">Titlu</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Deschide link in tab curent</translation>
+        <translation type="obsolete">Deschide link in tab curent</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Deschide link in tab nou</translation>
+        <translation type="obsolete">Deschide link in tab nou</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Copiază adresa</translation>
+        <translation type="obsolete">Copiază adresa</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Astăzi</translation>
+        <translation type="obsolete">Astăzi</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Săptămâna aceasta</translation>
+        <translation type="obsolete">Săptămâna aceasta</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Luna aceasta</translation>
+        <translation type="obsolete">Luna aceasta</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished">Copiază adresa</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished">Alege iconiță...</translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished">Alege fișier...</translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished">Fișiere imagine</translation>
     </message>
 </context>
 <context>
@@ -1759,7 +1995,7 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Make tabs movable</source>
-        <translation>Fă tab-urile mutabile</translation>
+        <translation type="obsolete">Fă tab-urile mutabile</translation>
     </message>
     <message>
         <source>Hide tabs when there is only one tab</source>
@@ -1840,7 +2076,7 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>Întreabă la intrarea în modul privat de navigare</translation>
+        <translation type="obsolete">Întreabă la intrarea în modul privat de navigare</translation>
     </message>
     <message>
         <source>Mouse wheel scrolls</source>
@@ -2074,11 +2310,11 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>Manager SSL</translation>
+        <translation type="obsolete">Manager SSL</translation>
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>Editează certificate CA în managerul SSL</translation>
+        <translation type="obsolete">Editează certificate CA în managerul SSL</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -2219,6 +2455,26 @@ nu a putut fi găsit!</translation>
     <message>
         <source>Use different proxy for https connection</source>
         <translation>Folosește proxy diferit pentru conexiuni http</translation>
+    </message>
+    <message>
+        <source>Show tab previews</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically switch to newly opened tab</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2571,35 +2827,35 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>Sunteți sigur că doriți să porniți navigarea privată?</translation>
+        <translation type="obsolete">Sunteți sigur că doriți să porniți navigarea privată?</translation>
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Când navigarea privată este pornită, unele acțiuni ce privesc intimitatea dvs. vor fi dezactivate:</translation>
+        <translation type="obsolete">Când navigarea privată este pornită, unele acțiuni ce privesc intimitatea dvs. vor fi dezactivate:</translation>
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>Paginile web nu sunt adăugate la istoric.</translation>
+        <translation type="obsolete">Paginile web nu sunt adăugate la istoric.</translation>
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation>Cookie-urile curente nu pot fi accesate.</translation>
+        <translation type="obsolete">Cookie-urile curente nu pot fi accesate.</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>Sesiunea dvs. nu este stocată.</translation>
+        <translation type="obsolete">Sesiunea dvs. nu este stocată.</translation>
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>Pâna când închideți fereastra, puteți încă să apăsați butonul de Înapoi si Înainte pentru a reveni la pagina deschisă.</translation>
+        <translation type="obsolete">Pâna când închideți fereastra, puteți încă să apăsați butonul de Înapoi si Înainte pentru a reveni la pagina deschisă.</translation>
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>Pornește navigarea privată</translation>
+        <translation type="obsolete">Pornește navigarea privată</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation>Ați adăugat cu succes feed-ul RSS &quot;%1&quot;.</translation>
+        <translation type="obsolete">Ați adăugat cu succes feed-ul RSS &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>HTML files</source>
@@ -2684,11 +2940,11 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Căutare Google</translation>
+        <translation type="obsolete">Căutare Google</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>Rezultatele căutării oferite de Google</translation>
+        <translation type="obsolete">Rezultatele căutării oferite de Google</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -2938,6 +3194,18 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
         <source>No available extensions.</source>
         <translation>Nu sunt extensii disponibile.</translation>
     </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3035,7 +3303,59 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>RSSNotification</name>
     <message>
         <source>Open RSS Manager</source>
-        <translation>Deschide manager RSS</translation>
+        <translation type="obsolete">Deschide manager RSS</translation>
+    </message>
+    <message>
+        <source>Add this feed into</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Adaugă</translation>
+    </message>
+    <message>
+        <source>Executable: </source>
+        <translation type="unfinished">Executabil:</translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation type="unfinished">Argumente:</translation>
+    </message>
+    <message>
+        <source>Cannot start external program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external program! %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Internal Reader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea not running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea must be running in order to add new feed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add feed into other application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3057,7 +3377,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>SSLManager</name>
     <message>
         <source>SSL Manager</source>
-        <translation>Manager SSL</translation>
+        <translation type="obsolete">Manager SSL</translation>
     </message>
     <message>
         <source>CA Authorities Certificates</source>
@@ -3116,6 +3436,18 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <source>Certificate Informations</source>
         <translation>Informatii despre certificat</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3777,7 +4109,7 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Blocat de regula &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="obsolete">Blocat de regula &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -3826,6 +4158,22 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <source>JavaScript alert</source>
         <translation>Alertă Javascript</translation>
+    </message>
+    <message>
+        <source>Remember my choice for this protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

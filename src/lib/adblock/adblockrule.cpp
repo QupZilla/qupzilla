@@ -52,10 +52,56 @@
 #include <QUrl>
 #include <QString>
 #include <QStringList>
+#include <QNetworkRequest>
 
-// #define ADBLOCKRULE_DEBUG
+// Version for Qt < 4.8 has one issue, it will wrongly
+// count .co.uk (and others) as second-level domain
+QString toSecondLevelDomain(const QUrl &url)
+{
+#if QT_VERSION >= 0x040800
+    const QString &topLevelDomain = url.topLevelDomain();
+    const QString &urlHost = url.host();
+
+    if (topLevelDomain.isEmpty() || urlHost.isEmpty()) {
+        return QString();
+    }
+
+    QString domain = urlHost.left(urlHost.size() - topLevelDomain.size());
+
+    if (domain.count('.') == 0) {
+        return urlHost;
+    }
+
+    while (domain.count('.') != 0) {
+        domain = domain.mid(domain.indexOf('.') + 1);
+    }
+
+    return domain + topLevelDomain;
+#else
+    QString domain = url.host();
+
+    if (domain.count('.') == 0) {
+        return QString();
+    }
+
+    while (domain.count('.') != 1) {
+        domain = domain.mid(domain.indexOf('.') + 1);
+    }
+
+    return domain;
+#endif
+}
 
 AdBlockRule::AdBlockRule(const QString &filter)
+    : m_enabled(true)
+    , m_cssRule(false)
+    , m_exception(false)
+    , m_internalDisabled(false)
+    , m_domainRestricted(false)
+    , m_useRegExp(false)
+    , m_thirdParty(false)
+    , m_thirdPartyException(false)
+    , m_caseSensitivity(Qt::CaseInsensitive)
 {
     setFilter(filter);
 }
@@ -68,112 +114,27 @@ QString AdBlockRule::filter() const
 void AdBlockRule::setFilter(const QString &filter)
 {
     m_filter = filter;
-
-    m_cssRule = false;
-    m_enabled = true;
-    m_exception = false;
-    bool regExpRule = false;
-
-    if (filter.startsWith(QLatin1String("!"))
-            || filter.trimmed().isEmpty()) {
-        m_enabled = false;
-    }
-
-    if (filter.contains(QLatin1String("##"))) {
-        m_cssRule = true;
-    }
-
-    QString parsedLine = filter;
-    if (parsedLine.startsWith(QLatin1String("@@"))) {
-        m_exception = true;
-        parsedLine = parsedLine.mid(2);
-    }
-    if (parsedLine.startsWith(QLatin1Char('/'))) {
-        if (parsedLine.endsWith(QLatin1Char('/'))) {
-            parsedLine = parsedLine.mid(1);
-            parsedLine = parsedLine.left(parsedLine.size() - 1);
-            regExpRule = true;
-        }
-    }
-    int options = parsedLine.indexOf(QLatin1String("$"), 0);
-    if (options >= 0) {
-        m_options = parsedLine.mid(options + 1).split(QLatin1Char(','));
-        parsedLine = parsedLine.left(options);
-    }
-
-    setPattern(parsedLine, regExpRule);
-
-    if (m_options.contains(QLatin1String("match-case"))) {
-        m_regExp.setCaseSensitivity(Qt::CaseSensitive);
-        m_options.removeOne(QLatin1String("match-case"));
-    }
+    parseFilter();
 }
 
-bool AdBlockRule::networkMatch(const QString &encodedUrl) const
+bool AdBlockRule::isCssRule() const
 {
-    if (m_cssRule) {
-#if defined(ADBLOCKRULE_DEBUG)
-        qDebug() << "AdBlockRule::" << __FUNCTION__ << "m_cssRule" << m_cssRule;
-#endif
-        return false;
-    }
+    return m_cssRule;
+}
 
-    if (!m_enabled) {
-#if defined(ADBLOCKRULE_DEBUG)
-        qDebug() << "AdBlockRule::" << __FUNCTION__ << "is not enabled";
-#endif
-        return false;
-    }
+QString AdBlockRule::cssSelector() const
+{
+    return m_cssSelector;
+}
 
-    bool matched = m_regExp.indexIn(encodedUrl) != -1;
-
-    if (matched
-            && !m_options.isEmpty()) {
-
-        // we only support domain right now
-        if (m_options.count() == 1) {
-            foreach(const QString & option, m_options) {
-                if (option.startsWith("domain=")) {
-                    QUrl url = QUrl::fromEncoded(encodedUrl.toUtf8());
-                    QString host = url.host();
-                    QStringList domainOptions = option.mid(7).split('|');
-                    foreach(QString domainOption, domainOptions) {
-                        bool negate = domainOption.at(0) == '~';
-                        if (negate) {
-                            domainOption = domainOption.mid(1);
-                        }
-                        bool hostMatched = domainOption == host;
-                        if (hostMatched && !negate) {
-                            return true;
-                        }
-                        if (!hostMatched && negate) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-
-#if defined(ADBLOCKRULE_DEBUG)
-        qDebug() << "AdBlockRule::" << __FUNCTION__ << "options are currently not supported" << m_options;
-#endif
-        return false;
-    }
-#if defined(ADBLOCKRULE_DEBUG)
-    //qDebug() << "AdBlockRule::" << __FUNCTION__ << encodedUrl << "MATCHED" << matched << filter();
-#endif
-
-    return matched;
+bool AdBlockRule::isDomainRestricted() const
+{
+    return m_domainRestricted;
 }
 
 bool AdBlockRule::isException() const
 {
     return m_exception;
-}
-
-void AdBlockRule::setException(bool exception)
-{
-    m_exception = exception;
 }
 
 bool AdBlockRule::isEnabled() const
@@ -192,32 +153,222 @@ void AdBlockRule::setEnabled(bool enabled)
     }
 }
 
-QString AdBlockRule::regExpPattern() const
+bool AdBlockRule::isInternalDisabled() const
 {
-    return m_regExp.pattern();
+    return m_internalDisabled;
 }
 
-static QString convertPatternToRegExp(const QString &wildcardPattern)
+bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const
 {
-    QString pattern = wildcardPattern;
-    return pattern.replace(QRegExp(QLatin1String("\\*+")), QLatin1String("*"))   // remove multiple wildcards
-           .replace(QRegExp(QLatin1String("\\^\\|$")), QLatin1String("^"))        // remove anchors following separator placeholder
-           .replace(QRegExp(QLatin1String("^(\\*)")), QLatin1String(""))          // remove leading wildcards
-           .replace(QRegExp(QLatin1String("(\\*)$")), QLatin1String(""))
-           .replace(QRegExp(QLatin1String("(\\W)")), QLatin1String("\\\\1"))      // escape special symbols
-           .replace(QRegExp(QLatin1String("^\\\\\\|\\\\\\|")),
-                    QLatin1String("^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?"))       // process extended anchor at expression start
-           .replace(QRegExp(QLatin1String("\\\\\\^")),
-                    QLatin1String("(?:[^\\w\\d\\-.%]|$)"))                        // process separator placeholders
-           .replace(QRegExp(QLatin1String("^\\\\\\|")), QLatin1String("^"))       // process anchor at expression start
-           .replace(QRegExp(QLatin1String("\\\\\\|$")), QLatin1String("$"))       // process anchor at expression end
-           .replace(QRegExp(QLatin1String("\\\\\\*")), QLatin1String(".*"))       // replace wildcards by .*
-           ;
+    if (m_cssRule || !m_enabled || m_internalDisabled) {
+        return false;
+    }
+
+    bool matched = false;
+
+    if (m_useRegExp) {
+        matched = (m_regExp.indexIn(encodedUrl) != -1);
+    }
+    else {
+        matched = encodedUrl.contains(m_matchString, m_caseSensitivity);
+    }
+
+    if (matched) {
+        // Check domain restrictions
+        if (m_domainRestricted && !matchDomain(domain)) {
+            return false;
+        }
+
+        // Check third-party restriction
+        if (m_thirdParty && !matchThirdParty(request)) {
+            return false;
+        }
+    }
+
+    return matched;
 }
 
-void AdBlockRule::setPattern(const QString &pattern, bool isRegExp)
+bool AdBlockRule::matchDomain(const QString &domain) const
 {
-    Q_UNUSED(isRegExp)
-    m_regExp = QRegExp(convertPatternToRegExp(pattern), Qt::CaseInsensitive, QRegExp::RegExp);
+    if (!m_domainRestricted) {
+        return true;
+    }
+
+    if (m_blockedDomains.isEmpty()) {
+        foreach(const QString & d, m_allowedDomains) {
+            if (domain.contains(d)) {
+                return true;
+            }
+        }
+    }
+    else if (m_allowedDomains.isEmpty()) {
+        foreach(const QString & d, m_blockedDomains) {
+            if (domain.contains(d)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    else {
+        foreach(const QString & d, m_blockedDomains) {
+            if (domain.contains(d)) {
+                return false;
+            }
+        }
+
+        foreach(const QString & d, m_allowedDomains) {
+            if (domain.contains(d)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
+bool AdBlockRule::matchThirdParty(const QNetworkRequest &request) const
+{
+    const QString &referer = request.rawHeader("Referer");
+    if (referer.isEmpty()) {
+        return false;
+    }
+
+    // Third-party matching should be performed on second-level domains
+    const QString &refererHost = toSecondLevelDomain(QUrl(referer));
+    const QString &host = toSecondLevelDomain(request.url());
+
+    return m_thirdPartyException ? refererHost == host : refererHost != host;
+}
+
+void AdBlockRule::parseFilter()
+{
+    QString parsedLine = m_filter;
+
+    // Empty rule
+    if (m_filter.trimmed().isEmpty()) {
+        m_enabled = false;
+        return;
+    }
+
+    // Disabled rule - modify parsedLine to not contain starting ! so we can continue parsing rule
+    if (m_filter.startsWith('!')) {
+        m_enabled = false;
+        parsedLine = m_filter.mid(1);
+    }
+
+    // CSS Element hiding rule
+    if (parsedLine.contains("##")) {
+        m_cssRule = true;
+        int pos = parsedLine.indexOf("##");
+
+        // Domain restricted rule
+        if (!parsedLine.startsWith("##")) {
+            QString domains = parsedLine.mid(0, pos);
+            parseDomains(domains, ',');
+        }
+
+        m_cssSelector = parsedLine.mid(pos + 2);
+        // CSS rule cannot have more options -> stop parsing
+        return;
+    }
+
+    // Exception always starts with @@
+    if (parsedLine.startsWith("@@")) {
+        m_exception = true;
+        parsedLine = parsedLine.mid(2);
+    }
+
+    // Parse all options following $ char
+    int optionsIndex = parsedLine.indexOf('$');
+    if (optionsIndex >= 0) {
+        QStringList options = parsedLine.mid(optionsIndex + 1).split(',');
+
+        int handledOptions = 0;
+        foreach(const QString & option, options) {
+            if (option.startsWith("domain=")) {
+                parseDomains(option.mid(7), '|');
+                ++handledOptions;
+            }
+            else if (option.startsWith("match-case")) {
+                m_caseSensitivity = Qt::CaseSensitive;
+                ++handledOptions;
+            }
+            else if (option.contains("third-party")) {
+                m_thirdParty = true;
+                m_thirdPartyException = option.startsWith('~');
+                ++handledOptions;
+            }
+        }
+
+        // If we don't handle all known options, it's safer to just disable this rule
+        if (handledOptions != options.count()) {
+            m_internalDisabled = true;
+            return;
+        }
+
+        parsedLine = parsedLine.left(optionsIndex);
+    }
+
+    // Rule is classic regexp
+    if (parsedLine.startsWith('/') && parsedLine.endsWith('/')) {
+        parsedLine = parsedLine.mid(1);
+        parsedLine = parsedLine.left(parsedLine.size() - 1);
+
+        m_useRegExp = true;
+        m_regExp = QRegExp(parsedLine, m_caseSensitivity, QRegExp::RegExp);
+        return;
+    }
+
+    // Remove starting and ending wildcards (*)
+    if (parsedLine.startsWith("*")) {
+        parsedLine = parsedLine.mid(1);
+    }
+
+    if (parsedLine.endsWith("*")) {
+        parsedLine = parsedLine.left(parsedLine.size() - 1);
+    }
+
+    // If we still find a wildcard (*) or separator (^) or (|)
+    // we must modify parsedLine to comply with QRegExp
+    if (parsedLine.contains('*') || parsedLine.contains('^') || parsedLine.contains('|')) {
+        parsedLine.replace(QRegExp(QLatin1String("\\*+")), QLatin1String("*"))       // remove multiple wildcards
+        .replace(QRegExp(QLatin1String("\\^\\|$")), QLatin1String("^"))    // remove anchors following separator placeholder
+        .replace(QRegExp(QLatin1String("^(\\*)")), QLatin1String(""))      // remove leading wildcards
+        .replace(QRegExp(QLatin1String("(\\*)$")), QLatin1String(""))
+        .replace(QRegExp(QLatin1String("(\\W)")), QLatin1String("\\\\1"))  // escape special symbols
+        .replace(QRegExp(QLatin1String("^\\\\\\|\\\\\\|")),
+                 QLatin1String("^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?"))   // process extended anchor at expression start
+        .replace(QRegExp(QLatin1String("\\\\\\^")),
+                 QLatin1String("(?:[^\\w\\d\\-.%]|$)"))                    // process separator placeholders
+        .replace(QRegExp(QLatin1String("^\\\\\\|")), QLatin1String("^"))   // process anchor at expression start
+        .replace(QRegExp(QLatin1String("\\\\\\|$")), QLatin1String("$"))   // process anchor at expression end
+        .replace(QRegExp(QLatin1String("\\\\\\*")), QLatin1String(".*"));  // replace wildcards by .*
+
+        m_useRegExp = true;
+        m_regExp = QRegExp(parsedLine, m_caseSensitivity, QRegExp::RegExp);
+        return;
+    }
+
+    // We haven't found anything that needs use of regexp, yay!
+    m_useRegExp = false;
+    m_matchString = parsedLine;
+}
+
+void AdBlockRule::parseDomains(const QString &domains, const QChar &separator)
+{
+    QStringList domainsList = domains.split(separator);
+
+    foreach(const QString domain, domainsList) {
+        if (domain.isEmpty()) {
+            continue;
+        }
+        if (domain.startsWith('~')) {
+            m_blockedDomains.append(domain.mid(1));
+        }
+        else {
+            m_allowedDomains.append(domain);
+        }
+    }
+
+    m_domainRestricted = (!m_blockedDomains.isEmpty() || !m_allowedDomains.isEmpty());
+}

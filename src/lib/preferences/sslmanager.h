@@ -39,6 +39,7 @@ public:
 private slots:
     void showLocalCertInfo();
     void showCaCertInfo();
+    void addLocalCertificate();
 
     void deleteCertificate();
     void ignoreAll(bool state);

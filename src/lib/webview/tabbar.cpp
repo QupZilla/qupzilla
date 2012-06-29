@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "tabbar.h"
 #include "tabwidget.h"
+#include "tabpreview.h"
 #include "qupzilla.h"
 #include "webtab.h"
 #include "iconprovider.h"
@@ -29,6 +30,7 @@
 #include <QMenu>
 #include <QApplication>
 #include <QTimer>
+#include <QRect>
 
 #define MAXIMUM_TAB_WIDTH 250
 #define MINIMUM_TAB_WIDTH 50
@@ -45,6 +47,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     : QTabBar()
     , p_QupZilla(mainClass)
     , m_tabWidget(tabWidget)
+    , m_tabPreview(new TabPreview(mainClass, tabWidget))
     , m_clickedTab(0)
     , m_pinnedTabsCount(0)
     , m_normalTabWidth(0)
@@ -57,12 +60,20 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     setTabsClosable(true);
     setDocumentMode(true);
     setFocusPolicy(Qt::NoFocus);
+    setMouseTracking(true);
+    setMovable(true);
 
     setAcceptDrops(true);
 
+    connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(m_tabWidget, SIGNAL(pinnedTabClosed()), this, SLOT(pinnedTabClosed()));
     connect(m_tabWidget, SIGNAL(pinnedTabAdded()), this, SLOT(pinnedTabAdded()));
+
+    m_tabPreviewTimer = new QTimer(this);
+    m_tabPreviewTimer->setInterval(200);
+    m_tabPreviewTimer->setSingleShot(true);
+    connect(m_tabPreviewTimer, SIGNAL(timeout()), m_tabPreview, SLOT(hideAnimated()));
 }
 
 void TabBar::loadSettings()
@@ -70,7 +81,8 @@ void TabBar::loadSettings()
     Settings settings;
     settings.beginGroup("Browser-Tabs-Settings");
 
-    setMovable(settings.value("makeTabsMovable", true).toBool());
+    m_tabPreview->setAnimationsEnabled(settings.value("tabPreviewAnimationsEnabled", true).toBool());
+    m_showTabPreviews = settings.value("showTabPreviews", true).toBool();
 
     if (settings.value("ActivateLastTabWhenClosingActual", false).toBool()) {
         setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
@@ -107,6 +119,8 @@ void TabBar::setVisible(bool visible)
         emit hideButtons();
     }
 
+    hideTabPreview(false);
+
     QTabBar::setVisible(visible);
 }
 
@@ -124,10 +138,10 @@ void TabBar::contextMenuRequested(const QPoint &position)
             return;
         }
         if (p_QupZilla->weView(m_clickedTab)->isLoading()) {
-            menu.addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop Tab"), this, SLOT(stopTab()));
+            menu.addAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop Tab"), this, SLOT(stopTab()));
         }
         else {
-            menu.addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload Tab"), this, SLOT(reloadTab()));
+            menu.addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload Tab"), this, SLOT(reloadTab()));
         }
 
         menu.addAction(tr("&Duplicate Tab"), this, SLOT(duplicateTab()));
@@ -166,7 +180,7 @@ QSize TabBar::tabSizeHint(int index) const
     QSize size = QTabBar::tabSizeHint(index);
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
     TabBar* tabBar = const_cast <TabBar*>(this);
-    tabBar->m_adjustingLastTab = false;
+    m_adjustingLastTab = false;
 
     if (webTab && webTab->isPinned()) {
         size.setWidth(PINNED_TAB_WIDTH);
@@ -175,24 +189,24 @@ QSize TabBar::tabSizeHint(int index) const
         int availableWidth = width() - (PINNED_TAB_WIDTH * m_pinnedTabsCount) - m_tabWidget->buttonListTabs()->width() - m_tabWidget->buttonAddTab()->width();
         int normalTabsCount = count() - m_pinnedTabsCount;
         if (availableWidth >= MAXIMUM_TAB_WIDTH * normalTabsCount) {
-            tabBar->m_normalTabWidth = MAXIMUM_TAB_WIDTH;
+            m_normalTabWidth = MAXIMUM_TAB_WIDTH;
             size.setWidth(m_normalTabWidth);
         }
         else if (availableWidth < MINIMUM_TAB_WIDTH * normalTabsCount) {
-            tabBar->m_normalTabWidth = MINIMUM_TAB_WIDTH;
+            m_normalTabWidth = MINIMUM_TAB_WIDTH;
             size.setWidth(m_normalTabWidth);
         }
         else {
             int maxWidthForTab = availableWidth / normalTabsCount;
-            tabBar->m_normalTabWidth = maxWidthForTab;
+            m_normalTabWidth = maxWidthForTab;
             //Fill any empty space (we've got from rounding) with last tab
             if (index == count() - 1) {
-                tabBar->m_lastTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
-                tabBar->m_adjustingLastTab = true;
+                m_lastTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
+                m_adjustingLastTab = true;
                 size.setWidth(m_lastTabWidth);
             }
             else {
-                tabBar->m_lastTabWidth = maxWidthForTab;
+                m_lastTabWidth = maxWidthForTab;
                 size.setWidth(m_lastTabWidth);
             }
         }
@@ -282,6 +296,13 @@ void TabBar::closeCurrentTab()
     m_tabWidget->closeTab(id);
 }
 
+void TabBar::currentTabChanged(int index)
+{
+    Q_UNUSED(index)
+
+    hideTabPreview(false);
+}
+
 void TabBar::bookmarkTab()
 {
     TabbedWebView* view = p_QupZilla->weView(m_clickedTab);
@@ -337,6 +358,28 @@ int TabBar::normalTabsCount()
     return count() - m_pinnedTabsCount;
 }
 
+void TabBar::showTabPreview()
+{
+    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabPreview->previewIndex()));
+    if (!webTab) {
+        return;
+    }
+
+    m_tabPreviewTimer->stop();
+    m_tabPreview->setWebTab(webTab, m_tabPreview->previewIndex() == currentIndex());
+    m_tabPreview->showOnRect(tabRect(m_tabPreview->previewIndex()));
+}
+
+void TabBar::hideTabPreview(bool delayed)
+{
+    if (delayed) {
+        m_tabPreviewTimer->start();
+    }
+    else {
+        m_tabPreview->hideAnimated();
+    }
+}
+
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
     if (mApp->plugins()->processMouseDoubleClick(Qz::ON_TabBar, this, event)) {
@@ -353,6 +396,8 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 
 void TabBar::mousePressEvent(QMouseEvent* event)
 {
+    hideTabPreview(false);
+
     if (mApp->plugins()->processMousePress(Qz::ON_TabBar, this, event)) {
         return;
     }
@@ -377,6 +422,18 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
         int manhattanLength = (event->pos() - m_dragStartPosition).manhattanLength();
         if (manhattanLength > QApplication::startDragDistance()) {
             m_tabWidget->buttonAddTab()->hide();
+            hideTabPreview();
+        }
+    }
+
+    //Tab Preview
+
+    const int tab = tabAt(event->pos());
+
+    if (tab != -1 && tab != m_tabPreview->previewIndex() && event->buttons() == Qt::NoButton && m_dragStartPosition.isNull()) {
+        m_tabPreview->setPreviewIndex(tab);
+        if (m_tabPreview->isVisible()) {
+            showTabPreview();
         }
     }
 
@@ -385,6 +442,8 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
 
 void TabBar::mouseReleaseEvent(QMouseEvent* event)
 {
+    m_dragStartPosition = QPoint();
+
     if (mApp->plugins()->processMouseRelease(Qz::ON_TabBar, this, event)) {
         return;
     }
@@ -409,6 +468,29 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
     }
 
     QTabBar::mouseReleaseEvent(event);
+}
+
+bool TabBar::event(QEvent* event)
+{
+    switch (event->type()) {
+    case QEvent::Leave:
+        hideTabPreview();
+        break;
+
+    case QEvent::ToolTip:
+        if (m_showTabPreviews) {
+            if (!m_tabPreview->isVisible()) {
+                showTabPreview();
+            }
+            return true;
+        }
+        break;
+
+    default:
+        break;
+    }
+
+    return QTabBar::event(event);
 }
 
 void TabBar::wheelEvent(QWheelEvent* event)

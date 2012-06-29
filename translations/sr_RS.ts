@@ -51,7 +51,7 @@
         <translation>&lt;p&gt;&lt;b&gt;Сарадници:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="88"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="89"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Преводиоци:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -91,6 +91,37 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="14"/>
+        <source>Add Subscription</source>
+        <translation>Додај претплату</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="23"/>
+        <source>Title:</source>
+        <translation>Наслов:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="33"/>
+        <source>Address:</source>
+        <translation>Адреса:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="53"/>
+        <source>Add new subscription to AdBlock:</source>
+        <translation>Додај нову претплату на АдБлок:</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="353"/>
+        <source>Custom Rules</source>
+        <translation>Посебни филтери</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="14"/>
@@ -103,60 +134,89 @@
         <translation>Укључи Адблок</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.ui" line="39"/>
+        <location filename="../src/lib/adblock/adblockdialog.ui" line="32"/>
         <source>Search...</source>
         <translation>Тражи...</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.ui" line="50"/>
-        <source>Rule</source>
-        <translation>Филтер</translation>
+        <location filename="../src/lib/adblock/adblockdialog.ui" line="68"/>
+        <source>Options</source>
+        <translation>Опције</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.ui" line="76"/>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="103"/>
+        <source>Rule</source>
+        <translation type="obsolete">Филтер</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="41"/>
         <source>Add Rule</source>
         <translation>Додај филтер</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.ui" line="83"/>
-        <source>Update EasyList</source>
-        <translation>Ажурирај EasyList</translation>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="42"/>
+        <source>Remove Rule</source>
+        <translation>Уклони филтер</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.ui" line="114"/>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="44"/>
+        <source>Add Subscription</source>
+        <translation>Додај претплату</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="45"/>
+        <source>Remove Subscription</source>
+        <translation>Уклони претплату</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="46"/>
+        <source>Update Subscriptions</source>
+        <translation>Ажурирај претплате</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="48"/>
+        <source>Learn about writing rules...</source>
+        <translation>Научите правити филтере...</translation>
+    </message>
+    <message>
+        <source>Update EasyList</source>
+        <translation type="obsolete">Ажурирај EasyList</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockdialog.ui" line="104"/>
         <source>AdBlock</source>
         <translation>Адблок</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="105"/>
         <source>Delete Rule</source>
-        <translation>Обриши филтер</translation>
+        <translation type="obsolete">Обриши филтер</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="117"/>
         <source>Update completed</source>
-        <translation>Ажурирање је завршено</translation>
+        <translation type="obsolete">Ажурирање је завршено</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="117"/>
         <source>EasyList has been successfully updated.</source>
-        <translation>EasyList је успешно ажурирана.</translation>
+        <translation type="obsolete">EasyList је успешно ажурирана.</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="133"/>
         <source>Custom Rules</source>
-        <translation>Посебни филтери</translation>
+        <translation type="obsolete">Посебни филтери</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="212"/>
         <source>Add Custom Rule</source>
-        <translation>Додај посебни филтер</translation>
+        <translation type="obsolete">Додај посебни филтер</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="212"/>
         <source>Please write your rule here:</source>
-        <translation>Упишите ваш филтерски израз овде:</translation>
+        <translation type="obsolete">Упишите ваш филтерски израз овде:</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="322"/>
+        <source>EasyList</source>
+        <translation>EasyList</translation>
     </message>
 </context>
 <context>
@@ -208,9 +268,49 @@
         <translation>%1 са (%2)</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="119"/>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>Научите како да направите &amp;филтере</translation>
+        <translation type="obsolete">Научите како да направите &amp;филтере</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
+    <message>
+        <location filename="../src/lib/adblock/adblockschemehandler.cpp" line="58"/>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation>Желите ли да додате претплату на &lt;b&gt;%1&lt;/b&gt;?</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockschemehandler.cpp" line="60"/>
+        <source>AdBlock Subscription</source>
+        <translation>АдБлок претплата</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="60"/>
+        <source>Add Rule</source>
+        <translation>Додај филтер</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="62"/>
+        <source>Remove Rule</source>
+        <translation>Уклони филтер</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="112"/>
+        <source>Add Custom Rule</source>
+        <translation>Додај посебни филтер</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="112"/>
+        <source>Please write your rule here:</source>
+        <translation>Упишите ваш филтерски израз овде:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="149"/>
+        <source>%1 (recently updated)</source>
+        <translation>%1 (недавно ажурирано)</translation>
     </message>
 </context>
 <context>
@@ -624,67 +724,72 @@
         <translation>Име за фасциклу: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="233"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="253"/>
         <source>Add Subfolder</source>
         <translation>Додај подфасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="238"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="258"/>
         <source>Rename folder</source>
         <translation>Преименуј фасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="239"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="259"/>
         <source>Remove folder</source>
         <translation>Уклони фасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="254"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="274"/>
         <source>Open link in current &amp;tab</source>
         <translation>Отвори везу у &amp;текућем језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="255"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="275"/>
         <source>Open link in &amp;new tab</source>
         <translation>Отвори везу у &amp;новом језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="259"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="279"/>
         <source>Move bookmark to &amp;folder</source>
         <translation>Помјери обележивач у &amp;фасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="271"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="291"/>
+        <source>Change icon</source>
+        <translation>Промени икону</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="292"/>
         <source>Rename bookmark</source>
         <translation>Преименуј обележивач</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="272"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="293"/>
         <source>Remove bookmark</source>
         <translation>Уклони обележивач</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="573"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="597"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
         <translation>&lt;b&gt;Упозорење: &lt;/b&gt;Већ сте обележили ову страницу!</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="587"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="611"/>
         <source>Choose name and location of this bookmark.</source>
         <translation>Одредите име и локацију за овај обележивач.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="591"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="615"/>
         <source>Add New Bookmark</source>
         <translation>Додај нови обележивач</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="633"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="657"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Изаберите фасциклу обележивача:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="634"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="658"/>
         <source>Bookmark All Tabs</source>
         <translation>Обележи све језичке</translation>
     </message>
@@ -692,20 +797,20 @@
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="470"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="487"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="510"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="527"/>
         <source>Bookmarks In Menu</source>
         <translation>Обележивачи у менију</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="473"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="490"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="513"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="530"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Обележивачи у траци алатки</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="476"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="493"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="516"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="533"/>
         <source>Unsorted Bookmarks</source>
         <translation>Неразврстани обележивачи</translation>
     </message>
@@ -718,22 +823,22 @@
         <translation>Тражи...</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="115"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="116"/>
         <source>Open link in current &amp;tab</source>
         <translation>Отвори везу у &amp;текућем језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="116"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="117"/>
         <source>Open link in &amp;new tab</source>
         <translation>Отвори везу у &amp;новом језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="117"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="118"/>
         <source>Copy address</source>
         <translation>Копирај адресу</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="119"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="120"/>
         <source>&amp;Delete</source>
         <translation>&amp;Обриши</translation>
     </message>
@@ -891,27 +996,27 @@
         <translation>Тражи...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="51"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
         <source>History</source>
         <translation>Историјат</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="53"/>
         <source>Bookmarks</source>
         <translation>Обележивачи</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="53"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="54"/>
         <source>RSS</source>
         <translation>РСС</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="156"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="148"/>
         <source>Database Optimized</source>
         <translation>База података је оптимизована</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="156"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="148"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation>База података је успешно оптимизована.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Величина базе пре: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Величина базе након: &lt;/b&gt;%2</translation>
     </message>
@@ -1043,42 +1148,42 @@
 <context>
     <name>ClickToFlash</name>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="132"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="131"/>
         <source>Object blocked by ClickToFlash</source>
         <translation>Објекат блокирао Кликни-за-флеш</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="133"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="132"/>
         <source>Show more information about object</source>
         <translation>Прикажи још података о објекту</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="135"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="134"/>
         <source>Delete object</source>
         <translation>Обриши објекат</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="136"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="135"/>
         <source>Add %1 to whitelist</source>
         <translation>Додај %1 на списак дозвољених</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="274"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="305"/>
         <source>Flash Object</source>
         <translation>Флеш објекат</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="277"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="308"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Својство&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="277"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="308"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Вредност&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="291"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="322"/>
         <source>No more information available.</source>
         <translation>Нема више доступних података.</translation>
     </message>
@@ -1266,7 +1371,7 @@
         <translation>Сачувај фајл као...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="255"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="256"/>
         <source>NoNameDownload</source>
         <translation>Неименовано_преузимање</translation>
     </message>
@@ -1409,63 +1514,63 @@
     <name>DownloadManager</name>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="123"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="259"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="132"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="268"/>
         <source>Download Manager</source>
         <translation>Менаџер преузимања</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.ui" line="73"/>
+        <location filename="../src/lib/downloads/downloadmanager.ui" line="76"/>
         <source>Clear</source>
         <translation>Очисти</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="102"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="111"/>
         <source>Executable: </source>
         <translation>Извршна: </translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="102"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="111"/>
         <source>Arguments: </source>
         <translation>Аргументи: </translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="103"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="112"/>
         <source>Cannot start external download manager</source>
         <translation>Не могу да покренем спољашњи менаџер преузимања</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="103"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="112"/>
         <source>Cannot start external download manager! %1</source>
         <translation>Не могу да покренем спољашњи менаџер преузимања! %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="155"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="164"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% од %2 фајлова (%3) %4 преостало</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="158"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="167"/>
         <source>% - Download Manager</source>
         <translation>% - Менаџер преузимања</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="252"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="261"/>
         <source>Download Finished</source>
         <translation>Преузимање је завршено</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="252"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="261"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Сви фајлови су успешно преузети.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="304"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="313"/>
         <source>Warning</source>
         <translation>Упозорење</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="305"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="314"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Желите ли заиста да напустите? Сва незавршена преузимања ће бити отказана!</translation>
     </message>
@@ -1542,18 +1647,88 @@
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="97"/>
+        <source>Change...</source>
+        <translation>Промени...</translation>
+    </message>
+    <message>
         <source>Add from file ...</source>
-        <translation>Додај из фајла...</translation>
+        <translation type="obsolete">Додај из фајла...</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/editsearchengine.cpp" line="90"/>
         <source>Image files</source>
-        <translation>Фајлови слика</translation>
+        <translation type="obsolete">Фајлови слика</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/editsearchengine.cpp" line="92"/>
         <source>Choose icon...</source>
-        <translation>Изабери икону...</translation>
+        <translation type="obsolete">Изабери икону...</translation>
+    </message>
+</context>
+<context>
+    <name>History</name>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="75"/>
+        <source>No Named Page</source>
+        <translation>Неименована страница</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="262"/>
+        <source>January</source>
+        <translation>Јануар</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="264"/>
+        <source>February</source>
+        <translation>Фебруар</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="266"/>
+        <source>March</source>
+        <translation>Март</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="268"/>
+        <source>April</source>
+        <translation>Април</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="270"/>
+        <source>May</source>
+        <translation>Мај</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="272"/>
+        <source>June</source>
+        <translation>Јун</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="274"/>
+        <source>July</source>
+        <translation>Јул</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="276"/>
+        <source>August</source>
+        <translation>Август</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="278"/>
+        <source>September</source>
+        <translation>Септембар</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="280"/>
+        <source>October</source>
+        <translation>Октобар</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="282"/>
+        <source>November</source>
+        <translation>Новембар</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="284"/>
+        <source>December</source>
+        <translation>Децембар</translation>
     </message>
 </context>
 <context>
@@ -1564,70 +1739,59 @@
         <translation>Историјат</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="30"/>
         <source>Title</source>
-        <translation>име</translation>
+        <translation type="obsolete">име</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="35"/>
         <source>Url</source>
-        <translation>урл</translation>
+        <translation type="obsolete">урл</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="43"/>
+        <location filename="../src/lib/history/historymanager.ui" line="20"/>
         <source>Delete</source>
         <translation>Обриши</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="50"/>
+        <location filename="../src/lib/history/historymanager.ui" line="27"/>
         <source>Clear All History</source>
         <translation>Очисти историјат</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="73"/>
+        <location filename="../src/lib/history/historymanager.ui" line="50"/>
         <source>Optimize Database</source>
         <translation>Оптимизуј базу података</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="107"/>
         <source>Open link in current tab</source>
-        <translation>Отвори везу у текућем језичку</translation>
+        <translation type="obsolete">Отвори везу у текућем језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="108"/>
         <source>Open link in new tab</source>
-        <translation>Отвори везу у новом језичку</translation>
+        <translation type="obsolete">Отвори везу у новом језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="110"/>
         <source>Copy address</source>
-        <translation>Копирај адресу</translation>
+        <translation type="obsolete">Копирај адресу</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="179"/>
-        <location filename="../src/lib/history/historymanager.cpp" line="278"/>
         <source>Today</source>
-        <translation>Данас</translation>
+        <translation type="obsolete">Данас</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="182"/>
-        <location filename="../src/lib/history/historymanager.cpp" line="281"/>
         <source>This Week</source>
-        <translation>Ове недеље</translation>
+        <translation type="obsolete">Ове недеље</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="185"/>
-        <location filename="../src/lib/history/historymanager.cpp" line="284"/>
         <source>This Month</source>
-        <translation>Овога месеца</translation>
+        <translation type="obsolete">Овога месеца</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="242"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="75"/>
         <source>Confirmation</source>
         <translation>Потврда</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="243"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="76"/>
         <source>Are you sure to delete all history?</source>
         <translation>Желите ли заиста да обришете читав историјат?</translation>
     </message>
@@ -1635,69 +1799,92 @@
 <context>
     <name>HistoryModel</name>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="65"/>
         <source>No Named Page</source>
-        <translation>Неименована страница</translation>
+        <translation type="obsolete">Неименована страница</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="219"/>
         <source>January</source>
-        <translation>Јануар</translation>
+        <translation type="obsolete">Јануар</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="221"/>
         <source>February</source>
-        <translation>Фебруар</translation>
+        <translation type="obsolete">Фебруар</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="223"/>
         <source>March</source>
-        <translation>Март</translation>
+        <translation type="obsolete">Март</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="225"/>
         <source>April</source>
-        <translation>Април</translation>
+        <translation type="obsolete">Април</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="227"/>
         <source>May</source>
-        <translation>Мај</translation>
+        <translation type="obsolete">Мај</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="229"/>
         <source>June</source>
-        <translation>Јун</translation>
+        <translation type="obsolete">Јун</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="231"/>
         <source>July</source>
-        <translation>Јул</translation>
+        <translation type="obsolete">Јул</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="233"/>
         <source>August</source>
-        <translation>Август</translation>
+        <translation type="obsolete">Август</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="235"/>
         <source>September</source>
-        <translation>Септембар</translation>
+        <translation type="obsolete">Септембар</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="237"/>
         <source>October</source>
-        <translation>Октобар</translation>
+        <translation type="obsolete">Октобар</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="239"/>
         <source>November</source>
-        <translation>Новембар</translation>
+        <translation type="obsolete">Новембар</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="241"/>
         <source>December</source>
-        <translation>Децембар</translation>
+        <translation type="obsolete">Децембар</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="56"/>
+        <source>Title</source>
+        <translation>Наслов</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="58"/>
+        <source>Address</source>
+        <translation>Адреса</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="60"/>
+        <source>Visit Date</source>
+        <translation>Датум посете</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="62"/>
+        <source>Visit Count</source>
+        <translation>Број посета</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="316"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="444"/>
+        <source>Today</source>
+        <translation>Данас</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="449"/>
+        <source>This Week</source>
+        <translation>Ове недеље</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="454"/>
+        <source>This Month</source>
+        <translation>Овога месеца</translation>
     </message>
 </context>
 <context>
@@ -1708,42 +1895,99 @@
         <translation>Тражи...</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.ui" line="52"/>
         <source>Title</source>
-        <translation>име</translation>
+        <translation type="obsolete">име</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="99"/>
+        <source>Open link in current tab</source>
+        <translation type="obsolete">Отвори везу у текућем језичку</translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="obsolete">Отвори везу у новом језичку</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="obsolete">Копирај адресу</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="obsolete">Данас</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="obsolete">Ове недеље</translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="obsolete">Овога месеца</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="151"/>
         <source>Open link in current tab</source>
         <translation>Отвори везу у текућем језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="100"/>
+        <location filename="../src/lib/history/historyview.cpp" line="152"/>
         <source>Open link in new tab</source>
         <translation>Отвори везу у новом језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="102"/>
+        <location filename="../src/lib/history/historyview.cpp" line="154"/>
+        <source>Copy title</source>
+        <translation>Копирај наслов</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="155"/>
         <source>Copy address</source>
         <translation>Копирај адресу</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="119"/>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="195"/>
-        <source>Today</source>
-        <translation>Данас</translation>
+        <location filename="../src/lib/history/historyview.cpp" line="157"/>
+        <source>Remove</source>
+        <translation>Уклони</translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <location filename="../src/lib/other/iconchooser.ui" line="14"/>
+        <location filename="../src/lib/other/iconchooser.cpp" line="39"/>
+        <source>Choose icon...</source>
+        <translation>Изабери икону...</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="122"/>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="198"/>
-        <source>This Week</source>
-        <translation>Ове недеље</translation>
+        <location filename="../src/lib/other/iconchooser.ui" line="20"/>
+        <source>From file</source>
+        <translation>Из фајла</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="125"/>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="201"/>
-        <source>This Month</source>
-        <translation>Овога месеца</translation>
+        <location filename="../src/lib/other/iconchooser.ui" line="29"/>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation>Слика (.png, .jpg, .jpeg, .gif)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/iconchooser.ui" line="42"/>
+        <source>Choose file...</source>
+        <translation>Изабери фајл...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/iconchooser.ui" line="52"/>
+        <source>From database</source>
+        <translation>Из базе</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/iconchooser.ui" line="61"/>
+        <source>Site Url:</source>
+        <translation>Урл сајта:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/iconchooser.cpp" line="38"/>
+        <source>Image files</source>
+        <translation>Фајлови слика</translation>
     </message>
 </context>
 <context>
@@ -1757,33 +2001,33 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="58"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="59"/>
         <source>Add RSS from this page...</source>
         <translation>Додај РСС са ове странице...</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="96"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="93"/>
         <source>Enter URL address or search on %1</source>
         <translation>Унесите УРЛ адресу или тражите на %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="270"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="271"/>
         <source>Paste And &amp;Go</source>
         <translation>Налепи и &amp;иди</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="276"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="277"/>
         <source>Clear All</source>
         <translation>Очисти све</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="464"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="469"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.rs.ba</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/siteicon.cpp" line="31"/>
+        <location filename="../src/lib/navigation/siteicon.cpp" line="32"/>
         <source>Show information about this page</source>
         <translation>Прикажи податке о овој страници</translation>
     </message>
@@ -1791,44 +2035,44 @@
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="42"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="43"/>
         <source>No Named Page</source>
         <translation>Неименована страница</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="72"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="73"/>
         <source>Back</source>
         <translation>Назад</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="80"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="81"/>
         <source>Forward</source>
         <translation>Напред</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="96"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="97"/>
         <source>Home</source>
         <translation>Домаћа</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="103"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="104"/>
         <source>New Tab</source>
         <translation>Нови језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="117"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="118"/>
         <source>Main Menu</source>
         <translation>Главни мени</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="133"/>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="134"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="135"/>
         <source>Exit Fullscreen</source>
         <translation>Напусти цио екран</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="225"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="262"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="226"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="263"/>
         <source>Clear history</source>
         <translation>Очисти историјат</translation>
     </message>
@@ -1925,72 +2169,72 @@
 <context>
     <name>PluginsList</name>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="24"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="27"/>
         <source>Application Extensions</source>
         <translation>Проширења програма</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="30"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="33"/>
         <source>Allow Application Extensions to be loaded</source>
         <translation>Дозволи учитавање програмских проширења</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="64"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="70"/>
         <source>Settings</source>
         <translation>Подешавања</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="94"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="100"/>
         <source>WebKit Plugins</source>
         <translation>Вебкитови прикључци</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="100"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="106"/>
         <source>&lt;b&gt;Click To Flash Plugin&lt;/b&gt;</source>
         <translation>&lt;b&gt;„Кликни-за-флеш“ прикључак&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="107"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="113"/>
         <source>Click To Flash is a plugin which blocks auto loading of Flash content at page. You can always load it manually by clicking on the Flash play icon.</source>
         <translation>Кликни-за-флеш је прикључак који зауставља аутоматско учитавање флеш садржаја на страници. Увек га можете учитати ручно кликом на икону за покретање флеш садржаја.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="120"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="126"/>
         <source>Whitelist</source>
         <translation>списак дозвољених</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="128"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="134"/>
         <source>Add</source>
         <translation>Додај</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="135"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="141"/>
         <source>Remove</source>
         <translation>Уклони</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="157"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="163"/>
         <source>Allow Click To Flash</source>
         <translation>Дозволи Кликни-за-флеш</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.cpp" line="75"/>
+        <location filename="../src/lib/preferences/pluginslist.cpp" line="76"/>
         <source>Add site to whitelist</source>
         <translation>Додавање у дозвољене</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.cpp" line="75"/>
+        <location filename="../src/lib/preferences/pluginslist.cpp" line="76"/>
         <source>Server without http:// (ex. youtube.com)</source>
         <translation>Адреса сервера без „http://“ (на пример youtube.com)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.cpp" line="214"/>
+        <location filename="../src/lib/preferences/pluginslist.cpp" line="219"/>
         <source>Error!</source>
         <translation>Грешка!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.cpp" line="214"/>
+        <location filename="../src/lib/preferences/pluginslist.cpp" line="219"/>
         <source>Cannot load extension!</source>
         <translation>Не могу да учитам проширење!</translation>
     </message>
@@ -1998,7 +2242,7 @@
 <context>
     <name>PopupWindow</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="186"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="190"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - Капзила</translation>
     </message>
@@ -2089,7 +2333,7 @@
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="309"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="694"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="703"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Напомена: Не можете обрисати активни профил.</translation>
     </message>
@@ -2164,57 +2408,56 @@
         <translation>&lt;b&gt;Понашање језичака&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="625"/>
         <source>Make tabs movable</source>
-        <translation>Језичци се могу премештати</translation>
+        <translation type="obsolete">Језичци се могу премештати</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="632"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="638"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>Сакриј траку са језичцима када има само један</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="639"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="693"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
         <translation>&lt;b&gt;Понашање траке адресе&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="672"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="700"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>Изабери сав текст двокликом у траци адресе</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="679"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="714"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Додај .co.rs домен притиском на ALT тастер</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="713"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="645"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Активирај претходно коришћен језичак при затварању текућег</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="686"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="666"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Потврди затварање прозора са више језичака</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="693"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="707"/>
         <source>Select all text by clicking in address bar</source>
         <translation>Изабери сав текст кликом у траци адресе</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="749"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="783"/>
         <source>Web Configuration</source>
         <translation>Веб подешавање</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="771"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="805"/>
         <source>Allow JAVA</source>
         <translation>Дозволи Јаву</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="764"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="798"/>
         <source>Allow JavaScript</source>
         <translation>Дозволи Јаваскрипте</translation>
     </message>
@@ -2230,87 +2473,86 @@
         <translation>Активни профил:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="720"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="659"/>
         <source>Don&apos;t quit upon closing last tab</source>
         <translation>Не напуштај по затварању последњег језичка</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="727"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="673"/>
         <source>Closed tabs list instead of opened in tab bar</source>
         <translation>Списак затворених уместо списка отворених језичака на траци језичака</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="734"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="652"/>
         <source>Open new tabs after active tab</source>
         <translation>Отварај нове језичке после активног</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="778"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="812"/>
         <source>Allow DNS Prefetch</source>
         <translation>Предохватање ДНС уноса</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1055"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1082"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1062"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1089"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Обриши локални ХТМЛ5 веб садржај по затварању</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1750"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1777"/>
         <source>JavaScript can access clipboard</source>
         <translation>Јаваскрипта може приступити клипборду</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1815"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1842"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Шаљи ДНТ (Не Прати Ме) заглавље серверима</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="806"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="840"/>
         <source>Zoom text only</source>
         <translation>Увеличавај само текст</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="792"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="826"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>Штампај позадину елемента</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="799"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="833"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translation>Укључи везе у ланац фокуса</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="785"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="819"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>Укључи ИксСС проверавање</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="830"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="857"/>
         <source>Mouse wheel scrolls</source>
         <translation>Точкић миша клиза</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="850"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="877"/>
         <source>lines on page</source>
         <translation>линија на страници</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="861"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="888"/>
         <source>Default zoom on pages: </source>
         <translation>Подразумевано увеличање страница:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="813"/>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>Потврди улазак у режим приватног прегледања</translation>
+        <translation type="obsolete">Потврди улазак у режим приватног прегледања</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="142"/>
@@ -2323,355 +2565,365 @@
         <translation>Не учитавај језичке док не буду изабрани</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="757"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="761"/>
+        <source>Show tab previews</source>
+        <translation>Приказуј прегледе језичака</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="752"/>
+        <source>Make tab previews animated</source>
+        <translation>Анимирај прегледе језичака</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="768"/>
+        <source>Automatically switch to newly opened tab</source>
+        <translation>Аутоматски фокусирај новоотворени језичак</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="791"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
         <translation>Дозволи Нетскејпове прикључке (Флеш)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="913"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="940"/>
         <source>Local Storage</source>
         <translation>Локално складиште</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="921"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="948"/>
         <source>Maximum pages in cache: </source>
         <translation>Највише страница у кешу: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="940"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="967"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="981"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1008"/>
         <source>Allow storing network cache on disk</source>
         <translation>Дозволи смјештање мрежног кеша на диск</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="991"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1018"/>
         <source>Maximum </source>
         <translation>Највише</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="998"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1025"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1025"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1052"/>
         <source>Allow saving history</source>
         <translation>Дозволи чување историјата</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1032"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1059"/>
         <source>Delete history on close</source>
         <translation>Обриши историјат по затварању</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1088"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1115"/>
         <source>Delete now</source>
         <translation>Обриши сада</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1127"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1154"/>
         <source>Proxy Configuration</source>
         <translation>Подешавање проксија</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1136"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1163"/>
         <source>HTTP</source>
         <translation>ХТТП</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1141"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1168"/>
         <source>SOCKS5</source>
         <translation>СОЦКС5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1154"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1292"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1181"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1319"/>
         <source>Port:</source>
         <translation>Порт:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1173"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1267"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1200"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1294"/>
         <source>Username:</source>
         <translation>Корисничко име:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1183"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1274"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1210"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1301"/>
         <source>Password:</source>
         <translation>Лозинка:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1209"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1236"/>
         <source>Don&apos;t use on:</source>
         <translation>Не користи на:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1216"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1243"/>
         <source>Manual configuration</source>
         <translation>Ручне поставке</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1223"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1250"/>
         <source>System proxy configuration</source>
         <translation>Системске поставке</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1230"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1257"/>
         <source>Do not use proxy</source>
         <translation>Не користи прокси</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1253"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1280"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Изузеци&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1260"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1287"/>
         <source>Server:</source>
         <translation>Сервер:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1311"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1338"/>
         <source>Use different proxy for https connection</source>
         <translation>Користи други прокси за ХТТПС везу</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1341"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1368"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Породице фонта&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1354"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1381"/>
         <source>Standard</source>
         <translation>Стандардни</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1361"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1388"/>
         <source>Fixed</source>
         <translation>Фиксни</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1371"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1398"/>
         <source>Serif</source>
         <translation>Серифни</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1381"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1408"/>
         <source>Sans Serif</source>
         <translation>Бесерифни</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1391"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1418"/>
         <source>Cursive</source>
         <translation>Курзивни</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1443"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1470"/>
         <source>Fantasy</source>
         <translation>Фантазијски</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1450"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1477"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Величине фонта&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1459"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1486"/>
         <source>Fixed Font Size</source>
         <translation>Фиксни фонт</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1466"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1493"/>
         <source>Default Font Size</source>
         <translation>Подразумевани фонт</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1493"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1520"/>
         <source>Minimum Font Size</source>
         <translation>Најмања величина</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1500"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1527"/>
         <source>Minimum Logical Font Size</source>
         <translation>Најмања могућа величина</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1533"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1560"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Одредиште преузимања&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1540"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1567"/>
         <source>Ask everytime for download location</source>
         <translation>Питај сваки пут за одредиште</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1547"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1574"/>
         <source>Use defined location: </source>
         <translation>Користи одредиште: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1559"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1660"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2098"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1586"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1687"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2125"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1597"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1624"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Опције преузимања&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1604"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1631"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Користи системски дијалог фајлова
 (може проузрочити проблеме за преузимање ССЛ безбедног садржаја)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1612"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1639"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Затвори менаџера преузимања када се преузимање заврши</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1619"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1646"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Спољашњи менаџер преузимања&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1626"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1653"/>
         <source>Use external download manager</source>
         <translation>Користи спољашњи менаџер преузимања</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1638"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1665"/>
         <source>Executable:</source>
         <translation>Извршна:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1645"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1672"/>
         <source>Arguments:</source>
         <translation>Аргументи:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1688"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1715"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Опције аутоматске попуне&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1695"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1722"/>
         <source>Allow saving passwords from sites</source>
         <translation>Дозволи успремање лозинки са сајтова</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1778"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1805"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Колачићи&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1771"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1798"/>
         <source>Filter tracking cookies</source>
         <translation>Пречишћај колачиће пратиоце</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1921"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1948"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Упозорење:&lt;/b&gt; Тачно поклапање домена и пречишћање колачића пратиоца може довести до одбијања неких колачића са сајтова. Ако имате проблема са колачићима, искључите ове опције!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2136"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2163"/>
         <source>Change browser identification:</source>
         <translation>Промени идентификацију прегледача:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1785"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1812"/>
         <source>Allow storing of cookies</source>
         <translation>Дозволи успремање колачића</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1891"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1918"/>
         <source>Delete cookies on close</source>
         <translation>Обриши колачиће по затварању</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1808"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1835"/>
         <source>Match domain exactly</source>
         <translation>Поклапај домен тачно</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1871"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1898"/>
         <source>Cookies Manager</source>
         <translation>Менаџер колачића</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1914"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1941"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;ССЛ сертификати&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1884"/>
-        <source>SSL Manager</source>
-        <translation>ССЛ менаџер</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1829"/>
-        <source>Edit CA certificates in SSL Manager</source>
-        <translation>Уредите сертификате издавача у ССЛ менаџеру</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1822"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2081"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1849"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2108"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Разно&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1764"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1791"/>
         <source>Send Referer header to servers</source>
         <translation>Шаљи заглавље пратиоца серверима</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1757"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1784"/>
         <source>Block popup windows</source>
         <translation>Блокирај искачуће прозоре</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1935"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1911"/>
+        <source>Certificate Manager</source>
+        <translation>Менаџер сертификата</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1962"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Обавештења&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1942"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1969"/>
         <source>Use OSD Notifications</source>
         <translation>Користи ОСД обавештења</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1952"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1979"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Користи изворна системска обавештења (само за Линукс)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1959"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1986"/>
         <source>Do not use Notifications</source>
         <translation>Не користи ОСД обавештења</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2010"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2037"/>
         <source>Expiration timeout:</source>
         <translation>Време истека:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2023"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2050"/>
         <source> seconds</source>
         <translation> секунди</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2032"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2059"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Напомена: &lt;/b&gt;Можете променити положај ОСД обавештења превлачењем по екрану.</translation>
     </message>
@@ -2691,17 +2943,22 @@
         <translation>Да бисте промијенили језик, морате поново покренути прегледач.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2088"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1856"/>
+        <source>Manage CA certificates</source>
+        <translation>Управљај сертификатима</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2115"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>Опис стила који ће аутоматски бити учитан за све сајтове:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2107"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2134"/>
         <source>Languages</source>
         <translation>Језици</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2129"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2156"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Приоритетни језик за веб странице&lt;/b&gt;</translation>
     </message>
@@ -2756,68 +3013,68 @@
         <translation>Остало</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="448"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="452"/>
         <source>OSD Notification</source>
         <translation>ОСД обавештење</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="449"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="453"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Превуците га по екрану на жељени положај.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="477"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="481"/>
         <source>Choose download location...</source>
         <translation>Одабир одредишта за преузимање...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="491"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="495"/>
         <source>Choose stylesheet location...</source>
         <translation>Одабир фајла описа стила...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="502"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="506"/>
         <source>Deleted</source>
         <translation>Обрисано</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="508"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="512"/>
         <source>Choose executable location...</source>
         <translation>Одабир локације извршног фајла...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="654"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="663"/>
         <source>New Profile</source>
         <translation>Нови профил</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="654"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="663"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Унесите име новог профила:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="661"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="665"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="670"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="674"/>
         <source>Error!</source>
         <translation>Грешка!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="661"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="670"/>
         <source>This profile already exists!</source>
         <translation>Овај профил већ постоји!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="665"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="674"/>
         <source>Cannot create profile directory!</source>
         <translation>Не могу да направим директоријум профила!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="679"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="688"/>
         <source>Confirmation</source>
         <translation>Потврда</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="680"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="689"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Желите ли заиста трајно да обришете „%1“ профил? Ова радња не може да се поништи!</translation>
     </message>
@@ -2876,137 +3133,137 @@
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="266"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="270"/>
         <source>Private Browsing Enabled</source>
         <translation>Приватно прегледање је омогућено</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="270"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="274"/>
         <source>IP Address of current page</source>
         <translation>ИП адреса текуће странице</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="441"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="445"/>
         <source>&amp;Tools</source>
         <translation>Ала&amp;тке</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="465"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="468"/>
         <source>&amp;Help</source>
         <translation>По&amp;моћ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="429"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="433"/>
         <source>&amp;Bookmarks</source>
         <translation>&amp;Обележивачи</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="404"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="408"/>
         <source>Hi&amp;story</source>
         <translation>&amp;Историјат</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="298"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="302"/>
         <source>&amp;File</source>
         <translation>&amp;Фајл</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="299"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="303"/>
         <source>&amp;New Window</source>
         <translation>&amp;Нови прозор</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="300"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="304"/>
         <source>New Tab</source>
         <translation>Нови језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="301"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="305"/>
         <source>Open Location</source>
         <translation>Отвори локацију</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="302"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="306"/>
         <source>Open &amp;File</source>
         <translation>Отвори &amp;фајл</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="303"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="307"/>
         <source>Close Tab</source>
         <translation>Затвори језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="304"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="308"/>
         <source>Close Window</source>
         <translation>Затвори прозор</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="307"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="311"/>
         <source>&amp;Save Page As...</source>
         <translation>&amp;Сачувај страницу као...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="308"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="312"/>
         <source>Save Page Screen</source>
         <translation>Сачувај снимак странице</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="309"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="313"/>
         <source>Send Link...</source>
         <translation>Пошаљи везу...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="313"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="317"/>
         <source>Import bookmarks...</source>
         <translation>Увези обележиваче...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="290"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="294"/>
         <source>Quit</source>
         <translation>Напусти</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="325"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="329"/>
         <source>&amp;Edit</source>
         <translation>&amp;Уреди</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="326"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="330"/>
         <source>&amp;Undo</source>
         <translation>&amp;Опозови</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="327"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="331"/>
         <source>&amp;Redo</source>
         <translation>&amp;Понови</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="329"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="333"/>
         <source>&amp;Cut</source>
         <translation>&amp;Исеци</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="330"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="334"/>
         <source>C&amp;opy</source>
         <translation>&amp;Копирај</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="331"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="335"/>
         <source>&amp;Paste</source>
         <translation>&amp;Налепи</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="333"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="337"/>
         <source>Select &amp;All</source>
         <translation>Изабери &amp;све</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="334"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="338"/>
         <source>&amp;Find</source>
         <translation>Н&amp;ађи</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="285"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="289"/>
         <source>Pr&amp;eferences</source>
         <translation>По&amp;дешавање</translation>
     </message>
@@ -3016,335 +3273,327 @@
         <translation>Капзила</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="159"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="163"/>
         <source>Last session crashed</source>
         <translation>Претходна сесија се срушила</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="160"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="164"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;Капзила се срушила :-(&lt;/b&gt;&lt;br/&gt;Упс, претходна Капзилина сесија је неочекивано прекинута. Извњавамо се због овога. Желите ли да вратите посљедње сачувано стање?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="310"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="314"/>
         <source>&amp;Print...</source>
         <translation>&amp;Штампај...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="345"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="349"/>
         <source>&amp;View</source>
         <translation>&amp;Приказ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="346"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="350"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Трака &amp;навигације</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="349"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="353"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Трака &amp;обележивача</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="352"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="356"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Трака &amp;стања</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="356"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="360"/>
         <source>&amp;Menu Bar</source>
         <translation>Трака &amp;менија</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="360"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="364"/>
         <source>&amp;Fullscreen</source>
         <translation>&amp;Цио екран</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="364"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="368"/>
         <source>&amp;Stop</source>
         <translation>&amp;Заустави</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="367"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="371"/>
         <source>&amp;Reload</source>
         <translation>&amp;Учитај поново</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="370"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="374"/>
         <source>Character &amp;Encoding</source>
         <translation>&amp;Кодирање знакова</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="375"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="379"/>
         <source>Toolbars</source>
         <translation>Траке алатки</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="381"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="385"/>
         <source>Sidebars</source>
         <translation>Бочне траке</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="391"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="395"/>
         <source>Zoom &amp;In</source>
         <translation>У&amp;величај</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="392"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="396"/>
         <source>Zoom &amp;Out</source>
         <translation>У&amp;мањи</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="397"/>
         <source>Reset</source>
         <translation>Стварна величина</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="397"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="401"/>
         <source>&amp;Page Source</source>
         <translation>&amp;Извор странице</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="413"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="417"/>
         <source>Closed Tabs</source>
         <translation>Затворени језичци</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="416"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="420"/>
         <source>Recently Visited</source>
         <translation>Недавно посећено</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="419"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="423"/>
         <source>Most Visited</source>
         <translation>Најпосећеније</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="449"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="453"/>
         <source>Web In&amp;spector</source>
         <translation>Веб и&amp;нспектор</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="476"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="479"/>
         <source>Configuration Information</source>
         <translation>Поставке програма</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="496"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="499"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>&amp;Врати затворени језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="661"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="663"/>
         <source> (Private Browsing)</source>
         <translation> (приватно прегледање)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1789"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1754"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
         <translation>Још увек имате %1 отворених језичака а ваша сесија неће бити сачувана. 
 Желите ли заиста да напустите Капзилу?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1790"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1755"/>
         <source>Don&apos;t ask again</source>
         <translation>Не питај поново</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1791"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1756"/>
         <source>There are still open tabs</source>
         <translation>Још увек имате отворених језичака</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="430"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="434"/>
         <source>Bookmark &amp;This Page</source>
         <translation>Обележи овај &amp;језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="431"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="435"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Обележи &amp;све језичке</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="432"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="436"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>&amp;Организуј обележиваче</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="775"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="805"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="845"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="874"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="899"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="773"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="803"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="843"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="872"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="897"/>
         <source>Empty</source>
         <translation>Празно</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="405"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="409"/>
         <source>&amp;Back</source>
         <translation>На&amp;зад</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="406"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="410"/>
         <source>&amp;Forward</source>
         <translation>На&amp;пред</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="407"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="411"/>
         <source>&amp;Home</source>
         <translation>&amp;Домаћа</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="408"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="412"/>
         <source>Show &amp;All History</source>
         <translation>Прикажи &amp;сав историјат</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="848"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="846"/>
         <source>Restore All Closed Tabs</source>
         <translation>Врати све затворене језичке</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="849"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="847"/>
         <source>Clear list</source>
         <translation>Очисти списак</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="467"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="470"/>
         <source>About &amp;Qt</source>
         <translation>О &amp;Кјуту</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="471"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="474"/>
         <source>Information about application</source>
         <translation>Подаци о програму</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1307"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1306"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="281"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="285"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp;О Капзили</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="477"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="480"/>
         <source>Report &amp;Issue</source>
         <translation>&amp;Пријави проблем</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="442"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="446"/>
         <source>&amp;Web Search</source>
         <translation>Претрага &amp;веба</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="443"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="447"/>
         <source>Page &amp;Info</source>
         <translation>Подаци о &amp;сајту</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="445"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="449"/>
         <source>&amp;Download Manager</source>
         <translation>Менаџер &amp;преузимања</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="446"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="450"/>
         <source>&amp;Cookies Manager</source>
         <translation>Менаџер &amp;колачића</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="447"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="451"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;Адблок</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="448"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="452"/>
         <source>RSS &amp;Reader</source>
         <translation>Читач РСС &amp;довода</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="450"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="454"/>
         <source>Clear Recent &amp;History</source>
         <translation>&amp;Очисти приватне податке</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="451"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="455"/>
         <source>&amp;Private Browsing</source>
         <translation>П&amp;риватно прегледање</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="944"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="942"/>
         <source>Other</source>
         <translation>Остало</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1392"/>
         <source>HTML files</source>
         <translation>ХТМЛ фајлови</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1392"/>
         <source>Image files</source>
         <translation>Фајлови слика</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1392"/>
         <source>Text files</source>
         <translation>Фајлови текста</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1392"/>
         <source>All files</source>
         <translation>Сви фајлови</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1395"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1394"/>
         <source>Open file...</source>
         <translation>Отвори фајл...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1509"/>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>Желите ли заиста да укључите приватно прегледање?</translation>
+        <translation type="obsolete">Желите ли заиста да укључите приватно прегледање?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1510"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Када је приватно прегледање укључено неке радње које се тичу ваше приватности су онемогућене:</translation>
+        <translation type="obsolete">Када је приватно прегледање укључено неке радње које се тичу ваше приватности су онемогућене:</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1513"/>
         <source>Webpages are not added to the history.</source>
-        <translation>Веб странице нису додане у историјат.</translation>
+        <translation type="obsolete">Веб странице нису додане у историјат.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1514"/>
         <source>Current cookies cannot be accessed.</source>
-        <translation>Текућим колачићима није могућ приступ.</translation>
+        <translation type="obsolete">Текућим колачићима није могућ приступ.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1515"/>
         <source>Your session is not stored.</source>
-        <translation>Ваша сесија није сачувана.</translation>
+        <translation type="obsolete">Ваша сесија није сачувана.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1517"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>Док год не затворите прозор можете користити дугмад Напред и Назад да се вратите на странице које сте отварали.</translation>
+        <translation type="obsolete">Док год не затворите прозор можете користити дугмад Напред и Назад да се вратите на странице које сте отварали.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1522"/>
         <source>Start Private Browsing</source>
-        <translation>Покретање приватног прегледања</translation>
+        <translation type="obsolete">Покретање приватног прегледања</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation>Успешно сте додали РСС довод „%1“.</translation>
+        <translation type="obsolete">Успешно сте додали РСС довод „%1“.</translation>
     </message>
 </context>
 <context>
@@ -3391,82 +3640,80 @@ Are you sure to quit QupZilla?</source>
         <translation>Почетна страница</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="170"/>
         <source>Google Search</source>
-        <translation>Гугл претрага</translation>
+        <translation type="obsolete">Гугл претрага</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="171"/>
         <source>Search results provided by Google</source>
-        <translation>Резултате претраге обезбеђује Гугл</translation>
+        <translation type="obsolete">Резултате претраге обезбеђује Гугл</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="173"/>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="189"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="190"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="191"/>
         <source>About QupZilla</source>
         <translation>О Капзили</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="308"/>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="309"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="311"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="312"/>
         <source>Configuration Information</source>
         <translation>Подаци о поставкама</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="312"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="315"/>
         <source>Browser Identification</source>
         <translation>Идентификација прегледача</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="313"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="316"/>
         <source>Paths</source>
         <translation>Путање</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="192"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="193"/>
         <source>Copyright</source>
         <translation>Ауторска права</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="195"/>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="320"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="196"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="323"/>
         <source>Version</source>
         <translation>Издање</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="200"/>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="331"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="201"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="334"/>
         <source>WebKit version</source>
         <translation>Издање Вебкита</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="325"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="328"/>
         <source>Application version</source>
         <translation>Издање програма</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="330"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="333"/>
         <source>Qt version</source>
         <translation>Издање Кјут-а</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="332"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="335"/>
         <source>Build time</source>
         <translation>Датум компајлирања</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="333"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="336"/>
         <source>Platform</source>
         <translation>Платформа</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="336"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="339"/>
         <source>Profile</source>
         <translation>Профил</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="315"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="318"/>
         <source>Preferences</source>
         <translation>Подешавања</translation>
     </message>
@@ -3476,72 +3723,72 @@ Are you sure to quit QupZilla?</source>
         <translation>Ако имате проблема са Капзилом најпре покушајте да онемогућите проширења. &lt;br/&gt;Ако то не помогне, онда попуните овај формулар: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="314"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="317"/>
         <source>Build Configuration</source>
         <translation>Параметри компајлирања</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="316"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="319"/>
         <source>Option</source>
         <translation>Поставка</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="317"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="320"/>
         <source>Value</source>
         <translation>Вредност</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="318"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="321"/>
         <source>Extensions</source>
         <translation>Проширења</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="319"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="322"/>
         <source>Name</source>
         <translation>Име</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="321"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="324"/>
         <source>Author</source>
         <translation>Аутор</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="322"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="325"/>
         <source>Description</source>
         <translation>Опис</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="337"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="340"/>
         <source>Settings</source>
         <translation>Подешавања</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="338"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="341"/>
         <source>Saved session</source>
         <translation>Сачуване сесије</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="339"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="342"/>
         <source>Pinned tabs</source>
         <translation>Закачени језичци</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="340"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="343"/>
         <source>Data</source>
         <translation>Подаци</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="341"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="344"/>
         <source>Themes</source>
         <translation>Теме</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="342"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="345"/>
         <source>Translations</source>
         <translation>Преводи</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="201"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="202"/>
         <source>Main developer</source>
         <translation>Главни програмер</translation>
     </message>
@@ -3551,155 +3798,170 @@ Are you sure to quit QupZilla?</source>
         <translation>Е-адреса није обавезна&lt;br/&gt;&lt;b&gt;Напомена: &lt;/b&gt;Најпре &lt;a href=%1&gt;овде&lt;/a&gt; прочитајте како направити извештај о грешци.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="203"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="170"/>
+        <source>Search on Web</source>
+        <translation>Тражи на вебу</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="171"/>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation>Резултате претраге обезбеђује ДакДакГоу</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="174"/>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation>&lt;h1&gt;Приватно прегледање&lt;/h1&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="204"/>
         <source>Contributors</source>
         <translation>Сарадници</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="211"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="213"/>
         <source>Translators</source>
         <translation>Преводиоци</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="257"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="260"/>
         <source>Speed Dial</source>
         <translation>Брзо бирање</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="258"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="261"/>
         <source>Add New Page</source>
         <translation>Додај нову страницу</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="268"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="271"/>
         <source>Apply</source>
         <translation>Примени</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="269"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="272"/>
         <source>Close</source>
         <translation>Затвори</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="272"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="275"/>
         <source>Speed Dial settings</source>
         <translation>Подешавање брзог бирања</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="273"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="276"/>
         <source>Placement: </source>
         <translation>Положај: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="274"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="277"/>
         <source>Auto</source>
         <translation>Ауто</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="275"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="278"/>
         <source>Cover</source>
         <translation>Прекриј</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="276"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="279"/>
         <source>Fit</source>
         <translation>Уклопи</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="277"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="280"/>
         <source>Fit Width</source>
         <translation>Уклопи ширину</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="278"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="281"/>
         <source>Fit Height</source>
         <translation>Уклопи висину</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="279"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="282"/>
         <source>Use background image</source>
         <translation>Слика за позадину</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="280"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="283"/>
         <source>Select image</source>
         <translation>Изабери слику</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="281"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="284"/>
         <source>Maximum pages in a row:</source>
         <translation>Највише брзих бирања у реду:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="282"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="285"/>
         <source>Change size of pages:</source>
         <translation>Промени величину брзих бирања:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="311"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="314"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Ова страница садржи податке о текућим Капзилиним подешавањима битним за решавање проблема. Укључите ове податке приликом слања извештаја о грешци.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="387"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="390"/>
         <source>No available extensions.</source>
         <translation>Нема доступних проширења.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="344"/>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="345"/>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="346"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="347"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="348"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="349"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="350"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="351"/>
         <source>Disabled</source>
         <translation>искључено</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="351"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="354"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="357"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="360"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="363"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="366"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
         <translation>&lt;b&gt;укључено&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="367"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="370"/>
         <source>Debug build</source>
         <translation>Проналажење грешака</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="368"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="371"/>
         <source>WebGL support</source>
         <translation>ВебГЛ подршка</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="369"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="372"/>
         <source>Windows 7 API</source>
         <translation>Виндоуз 7 АПИ</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="370"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="373"/>
         <source>KDE integration</source>
         <translation>Интеграција у КДЕ</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="371"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="374"/>
         <source>Portable build</source>
         <translation>Преносно издање</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="262"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Load title from page</source>
         <translation>Учитај наслов са странице</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="259"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="262"/>
         <source>Edit</source>
         <translation>Уреди</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="260"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="263"/>
         <source>Remove</source>
         <translation>Уклони</translation>
     </message>
@@ -3709,28 +3971,28 @@ Are you sure to quit QupZilla?</source>
         <translation>Попуните сва обавезна поља!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="191"/>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="310"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="192"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="313"/>
         <source>Information about version</source>
         <translation>Подаци о издању</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="261"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="264"/>
         <source>Reload</source>
         <translation>Учитај поново</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="266"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="269"/>
         <source>Url</source>
         <translation>Урл</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="267"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="270"/>
         <source>Title</source>
         <translation>Име</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="270"/>
+        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="273"/>
         <source>New Page</source>
         <translation>Нова страница</translation>
     </message>
@@ -3744,12 +4006,12 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="33"/>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="128"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="129"/>
         <source>Empty</source>
         <translation>Празно</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="51"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="52"/>
         <source>Reload</source>
         <translation>Учитај поново</translation>
     </message>
@@ -3774,80 +4036,80 @@ Are you sure to quit QupZilla?</source>
         <translation>Оптимизуј базу података</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="90"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="91"/>
         <source>News</source>
         <translation>новости</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="100"/>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="140"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="101"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="141"/>
         <source>Loading...</source>
         <translation>Учитавам...</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="126"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="127"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translation>Немате ниједан РСС довод.&lt;br/&gt;
 Додајте их помоћу РСС иконе у траци навигације на сајту који нуди доводе.</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="148"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="149"/>
         <source>Add new feed</source>
         <translation>Додавање новог довода</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="148"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="149"/>
         <source>Please enter URL of new feed:</source>
         <translation>Унесите УРЛ новог довода:</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="154"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="155"/>
         <source>New feed</source>
         <translation>Нови довод</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="191"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="192"/>
         <source>Fill title and URL of a feed: </source>
         <translation>Унесите име и УРЛ довода: </translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="193"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="194"/>
         <source>Feed title: </source>
         <translation>Име довода: </translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="194"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="195"/>
         <source>Feed URL: </source>
         <translation>УРЛ довода: </translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="200"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="201"/>
         <source>Edit RSS Feed</source>
         <translation>Уређивање РСС довода</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="242"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="243"/>
         <source>Open link in current tab</source>
         <translation>Отвори везу у текућем језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="243"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="244"/>
         <source>Open link in new tab</source>
         <translation>Отвори везу у новом језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="370"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="369"/>
         <source>Error in fetching feed</source>
         <translation>Грешка приликом добављања довода</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="404"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="403"/>
         <source>RSS feed duplicated</source>
         <translation>РСС довод је удвостручен</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="404"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="403"/>
         <source>You already have this feed.</source>
         <translation>Већ имате овај довод.</translation>
     </message>
@@ -3855,9 +4117,73 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 <context>
     <name>RSSNotification</name>
     <message>
-        <location filename="../src/lib/rss/rssnotification.ui" line="55"/>
         <source>Open RSS Manager</source>
-        <translation>Отвори менаџера РСС довода</translation>
+        <translation type="obsolete">Отвори менаџера РСС довода</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.ui" line="55"/>
+        <source>Add this feed into</source>
+        <translation>Додај овај довод у</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.ui" line="84"/>
+        <source>Add</source>
+        <translation>Додај</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="36"/>
+        <source>Executable: </source>
+        <translation>Извршна: </translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="36"/>
+        <source>Arguments: </source>
+        <translation>Аргументи: </translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="37"/>
+        <source>Cannot start external program</source>
+        <translation>Не могу да покренем спољашњи програм</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="37"/>
+        <source>Cannot start external program! %1</source>
+        <translation>Не могу да покренем спољашњи програм! %1</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="56"/>
+        <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
+        <translation>РСС довод &lt;b&gt;„%1“&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="78"/>
+        <source>Internal Reader</source>
+        <translation>Унутрашњи читач</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="79"/>
+        <source>Other...</source>
+        <translation>Остали...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
+        <source>Liferea not running</source>
+        <translation>Лајфри није покренут</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
+        <source>Liferea must be running in order to add new feed.</source>
+        <translation>Лајфри мора бити покренут да бисте могли да додате нови довод.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="132"/>
+        <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
+        <translation>Да бисте додали овај довод у остале програме користите ове податке:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Наслов: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Урл: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Урл адреса довода је копирана на ваш клипборд.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="135"/>
+        <source>Add feed into other application</source>
+        <translation>Додавање довода у други програм</translation>
     </message>
 </context>
 <context>
@@ -3882,8 +4208,8 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>SSLManager</name>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="14"/>
-        <source>SSL Manager</source>
-        <translation>ССЛ менаџер</translation>
+        <source>Certificate Manager</source>
+        <translation>Менаџер сертификата</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="24"/>
@@ -3892,7 +4218,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="48"/>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="92"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="99"/>
         <source>Show info</source>
         <translation>Прикажи инфо</translation>
     </message>
@@ -3907,55 +4233,65 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation>Локални сертификати</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="99"/>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="150"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="79"/>
+        <source>Import</source>
+        <translation>Увези</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="106"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="157"/>
         <source>Remove</source>
         <translation>Уклони</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="108"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="115"/>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
         <translation>Ово је списак локалних сертификата сачуваних на вашем рачунару. Такође садржи све сертификате који су примили изузетак.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="119"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="126"/>
         <source>Settings</source>
         <translation>Подешавања</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="143"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="150"/>
         <source>Add</source>
         <translation>Додај</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="159"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="166"/>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
         <translation>Ако сертификати издавача нису аутоматски учитани са система, можете ручно одредити путање где су сертификати смештени.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="171"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="178"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
         <translation>&lt;b&gt;НАПОМЕНА:&lt;/b&gt; Постављање ове опције је велики безбедносни ризик!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="210"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="217"/>
         <source>Ignore all SSL Warnings</source>
         <translation>Занемари сва ССЛ упозорења</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="232"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="239"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Сви сертификати морају имати .crt наставак.
 Након додавања или уклањања путања сертификата потребно је да поново покренете Капзилу како би измене имале ефекта.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="57"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="58"/>
         <source>Choose path...</source>
         <translation>Изабери путању...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="146"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="134"/>
+        <source>Import certificate...</source>
+        <translation>Увоз сертификата...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="165"/>
         <source>Certificate Informations</source>
         <translation>Подаци о сертификату</translation>
     </message>
@@ -4192,9 +4528,9 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Путања:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="393"/>
-        <location filename="../src/lib/webview/siteinfo.ui" line="403"/>
-        <location filename="../src/lib/webview/siteinfo.ui" line="413"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="399"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="415"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="431"/>
         <source>&lt;database not selected&gt;</source>
         <translation>&lt;база података није изабрана&gt;</translation>
     </message>
@@ -4378,7 +4714,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="87"/>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="213"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="216"/>
         <source>Go to Line...</source>
         <translation>Иди на линију...</translation>
     </message>
@@ -4403,52 +4739,52 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Прелом текста</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="153"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="156"/>
         <source>Save file...</source>
         <translation>Сачувај фајл...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="160"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="163"/>
         <source>Error!</source>
         <translation>Грешка!</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="160"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="163"/>
         <source>Cannot write to file!</source>
         <translation>Не могу да упишем у фајл!</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="161"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="164"/>
         <source>Error writing to file</source>
         <translation>Грешка уписивања у фајл</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="167"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="170"/>
         <source>Source successfully saved</source>
         <translation>Изворни кôд је успешно сачуван</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="189"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="192"/>
         <source>Source reloaded</source>
         <translation>Изворни кôд је поново учитан</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="192"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="195"/>
         <source>Cannot reload source. Page has been closed.</source>
         <translation>Не могу да учитам извор поново. Страница је затворена.</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="201"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="204"/>
         <source>Editable changed</source>
         <translation>Уређивање је промењено</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="208"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="211"/>
         <source>Word Wrap changed</source>
         <translation>Прелом текста је промењен</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="213"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="216"/>
         <source>Enter line number</source>
         <translation>Унесите број линије</translation>
     </message>
@@ -4469,7 +4805,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="279"/>
         <source>Image files</source>
         <translation>Фајлови слика</translation>
     </message>
@@ -4479,7 +4815,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Изабери слику...</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="322"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="328"/>
         <source>Unable to load</source>
         <translation>Не могу да учитам</translation>
     </message>
@@ -4495,72 +4831,72 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="119"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="133"/>
         <source>&amp;New tab</source>
         <translation>&amp;Нови језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="127"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="141"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Заустави учитавање</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="130"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="144"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Учитај поново</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="133"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="147"/>
         <source>&amp;Duplicate Tab</source>
         <translation>У&amp;двостручи језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="134"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
         <source>Un&amp;pin Tab</source>
         <translation>Отк&amp;ачи језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="134"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
         <source>&amp;Pin Tab</source>
         <translation>За&amp;качи језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="136"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="150"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Учитај поново &amp;све језичке</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="137"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>&amp;Обележи овај језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="138"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="152"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Обележи с&amp;ве језичке</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="144"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="158"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Затвори ос&amp;тале језичке</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="145"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="159"/>
         <source>Cl&amp;ose</source>
         <translation>З&amp;атвори</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="149"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="163"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>&amp;Учитај поново све језичке</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="150"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
         <source>Bookmark &amp;All Ta&amp;bs</source>
         <translation>Обележи све &amp;језичке</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="152"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="166"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>&amp;Врати затворени језичак</translation>
     </message>
@@ -4568,49 +4904,49 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="113"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="133"/>
         <source>List of tabs</source>
         <translation>Списак језичака</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="50"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="51"/>
         <source>New Tab</source>
         <translation>Нови језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="201"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="221"/>
         <source>Loading...</source>
         <translation>Учитавам...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="205"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="225"/>
         <source>No Named Page</source>
         <translation>Неименована страница</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="223"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="243"/>
         <source>Currently you have %1 opened tabs</source>
         <translation>Имате %1 отворених језичака</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="240"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="95"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="96"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="260"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="97"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="98"/>
         <source>New tab</source>
         <translation>Нови језичак</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="606"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="630"/>
         <source>Empty</source>
         <translation>Празно</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="609"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="633"/>
         <source>Restore All Closed Tabs</source>
         <translation>Врати све затворене језичке</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="610"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="634"/>
         <source>Clear list</source>
         <translation>Очисти списак</translation>
     </message>
@@ -4628,12 +4964,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Учитавам...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbedwebview.cpp" line="186"/>
+        <location filename="../src/lib/webview/tabbedwebview.cpp" line="185"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - Капзила</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbedwebview.cpp" line="260"/>
+        <location filename="../src/lib/webview/tabbedwebview.cpp" line="259"/>
         <source>Inspect Element</source>
         <translation>Провери елемент</translation>
     </message>
@@ -4704,144 +5040,163 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="361"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="304"/>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation>Капзила не може да рукује &lt;b&gt;%1:&lt;/b&gt; везама. Захтевана веза је &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Желите ли да Капзила покуша да отвори ову везу помоћу системског програма?</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="309"/>
+        <source>Remember my choice for this protocol</source>
+        <translation>Запамти мој избор за за овај протокол</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="310"/>
+        <source>External Protocol Request</source>
+        <translation>Захтев за спољашњи протокол</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="432"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Да би приказала ову страницу Капзила мора поново да пошаље захтев 
 за учитавањем (као претрага куповине која је већ обављена)</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="363"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="434"/>
         <source>Confirm form resubmission</source>
         <translation>Потврда поновног слања</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="478"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="575"/>
         <source>Select files to upload...</source>
         <translation>Изабери фајлове за слање...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="499"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="596"/>
         <source>Server refused the connection</source>
         <translation>Сервер је одбио везу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="502"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="599"/>
         <source>Server closed the connection</source>
         <translation>Сервер је затворио везу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="505"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="602"/>
         <source>Server not found</source>
         <translation>Сервер није нађен</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="508"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="605"/>
         <source>Connection timed out</source>
         <translation>Истекло време повезивања</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="511"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="608"/>
         <source>Untrusted connection</source>
         <translation>Неповерљива веза</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="514"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="611"/>
         <source>Temporary network failure</source>
         <translation>Привремени неуспех мреже</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="517"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="614"/>
         <source>Proxy connection refused</source>
         <translation>Веза са проксијем одбијена</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="520"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="617"/>
         <source>Proxy server not found</source>
         <translation>Сервер проксија није нађен</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="523"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="620"/>
         <source>Proxy connection timed out</source>
         <translation>Истекло време повезивања са проксијем</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="526"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="623"/>
         <source>Proxy authentication required</source>
         <translation>Прокси захтева аутентификацију</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="529"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="626"/>
         <source>Content not found</source>
         <translation>Садржај није нађен</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="532"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="629"/>
         <source>Unknown network error</source>
         <translation>Непозната грешка мреже</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="558"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="661"/>
         <source>AdBlocked Content</source>
         <translation>Блокиран садржај</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="562"/>
-        <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
+        <location filename="../src/lib/webview/webpage.cpp" line="665"/>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Блокирано филтером &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="578"/>
+        <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="obsolete">Блокирано филтером &lt;i&gt;%1&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="681"/>
         <source>Content Access Denied</source>
         <translation>Приступ садржају одбијен</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="586"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="696"/>
         <source>Error code %1</source>
         <translation>Кôд грешке %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="598"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="708"/>
         <source>Failed loading page</source>
         <translation>Неуспех учитавања странице</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="605"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="715"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>Капзила не може да учита страницу са %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="606"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="716"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Проверите да ли сте погрешно укуцали адресу, на пример &lt;b&gt;ww.&lt;/b&gt;example.com уместо &lt;b&gt;www.&lt;/b&gt;example.com</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="607"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="717"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Ако не можете да учитате ниједну страницу, проверите везу вашег рачунара са интернетом.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="608"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="718"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Ако су ваш рачунар или мрежа заштићени заштитним зидом или проксијем, проверите да ли је Капзили дозвољен приступ интернету.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="609"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="719"/>
         <source>Try Again</source>
         <translation>Покушај поново</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="708"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="818"/>
         <source>JavaScript alert</source>
         <translation>Јаваскрипт упозорење</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="716"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="826"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Не дозволи овој страници да прави још дијалога</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="764"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="874"/>
         <source>Choose file...</source>
         <translation>Изабери фајл...</translation>
     </message>
@@ -4849,22 +5204,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebSearchBar</name>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="98"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="100"/>
         <source>Manage Search Engines</source>
         <translation>Управљај моторима претраге</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="202"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="204"/>
         <source>Add %1 ...</source>
         <translation>Додај %1 ...</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="225"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="227"/>
         <source>Paste And &amp;Search</source>
         <translation>Налепи и &amp;тражи</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="231"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="233"/>
         <source>Clear All</source>
         <translation>Очисти све</translation>
     </message>
@@ -4877,233 +5232,233 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Неименована страница</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="595"/>
+        <location filename="../src/lib/webview/webview.cpp" line="627"/>
         <source>Create Search Engine</source>
         <translation>Направи мотор претраге</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="700"/>
+        <location filename="../src/lib/webview/webview.cpp" line="732"/>
         <source>&amp;Back</source>
         <translation>На&amp;зад</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="704"/>
+        <location filename="../src/lib/webview/webview.cpp" line="736"/>
         <source>&amp;Forward</source>
         <translation>На&amp;пред</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="616"/>
-        <location filename="../src/lib/webview/webview.cpp" line="718"/>
+        <location filename="../src/lib/webview/webview.cpp" line="648"/>
+        <location filename="../src/lib/webview/webview.cpp" line="750"/>
         <source>&amp;Reload</source>
         <translation>&amp;Учитај поново</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="617"/>
+        <location filename="../src/lib/webview/webview.cpp" line="649"/>
         <source>S&amp;top</source>
         <translation>Заус&amp;тави</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="714"/>
+        <location filename="../src/lib/webview/webview.cpp" line="746"/>
         <source>This frame</source>
         <translation>Оквир</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="715"/>
+        <location filename="../src/lib/webview/webview.cpp" line="747"/>
         <source>Show &amp;only this frame</source>
         <translation>П&amp;рикажи само овај оквир</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="716"/>
+        <location filename="../src/lib/webview/webview.cpp" line="748"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>Прикажи овај оквир у новом &amp;језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="719"/>
+        <location filename="../src/lib/webview/webview.cpp" line="751"/>
         <source>Print frame</source>
         <translation>Штампај оквир</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="721"/>
+        <location filename="../src/lib/webview/webview.cpp" line="753"/>
         <source>Zoom &amp;in</source>
         <translation>У&amp;величај</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="722"/>
+        <location filename="../src/lib/webview/webview.cpp" line="754"/>
         <source>&amp;Zoom out</source>
         <translation>У&amp;мањи</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="723"/>
+        <location filename="../src/lib/webview/webview.cpp" line="755"/>
         <source>Reset</source>
         <translation>Стварна величина</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="725"/>
+        <location filename="../src/lib/webview/webview.cpp" line="757"/>
         <source>Show so&amp;urce of frame</source>
         <translation>Прикажи извор о&amp;квира</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="731"/>
+        <location filename="../src/lib/webview/webview.cpp" line="763"/>
         <source>Book&amp;mark page</source>
         <translation>&amp;Обележи страницу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="732"/>
+        <location filename="../src/lib/webview/webview.cpp" line="764"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Сачувај страницу као...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="733"/>
+        <location filename="../src/lib/webview/webview.cpp" line="765"/>
         <source>&amp;Copy page link</source>
         <translation>&amp;Копирај везу странице</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="734"/>
+        <location filename="../src/lib/webview/webview.cpp" line="766"/>
         <source>Send page link...</source>
         <translation>Пошаљи везу странице...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="735"/>
+        <location filename="../src/lib/webview/webview.cpp" line="767"/>
         <source>&amp;Print page</source>
         <translation>&amp;Штампај страницу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="737"/>
+        <location filename="../src/lib/webview/webview.cpp" line="769"/>
         <source>Select &amp;all</source>
         <translation>Из&amp;абери све</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="742"/>
+        <location filename="../src/lib/webview/webview.cpp" line="774"/>
         <source>Validate page</source>
         <translation>Провера кôда</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="745"/>
+        <location filename="../src/lib/webview/webview.cpp" line="777"/>
         <source>Show so&amp;urce code</source>
         <translation>Прикажи &amp;изворни кôд</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="746"/>
+        <location filename="../src/lib/webview/webview.cpp" line="778"/>
         <source>Show info ab&amp;out site</source>
         <translation>По&amp;даци о сајту</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="757"/>
+        <location filename="../src/lib/webview/webview.cpp" line="789"/>
         <source>Open link in new &amp;tab</source>
         <translation>Отвори везу у новом &amp;језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="758"/>
+        <location filename="../src/lib/webview/webview.cpp" line="790"/>
         <source>Open link in new &amp;window</source>
         <translation>Отвори везу у новом &amp;прозору</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="760"/>
+        <location filename="../src/lib/webview/webview.cpp" line="792"/>
         <source>B&amp;ookmark link</source>
         <translation>&amp;Обележи везу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="761"/>
+        <location filename="../src/lib/webview/webview.cpp" line="793"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Сачувај везу као...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="762"/>
+        <location filename="../src/lib/webview/webview.cpp" line="794"/>
         <source>Send link...</source>
         <translation>Пошаљи везу...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="763"/>
+        <location filename="../src/lib/webview/webview.cpp" line="795"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Копирај адресу везе</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="775"/>
+        <location filename="../src/lib/webview/webview.cpp" line="807"/>
         <source>Show i&amp;mage</source>
         <translation>П&amp;рикажи слику</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="780"/>
+        <location filename="../src/lib/webview/webview.cpp" line="812"/>
         <source>Copy im&amp;age</source>
         <translation>К&amp;опирај слику</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="781"/>
+        <location filename="../src/lib/webview/webview.cpp" line="813"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Копирај &amp;адресу слике</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="783"/>
+        <location filename="../src/lib/webview/webview.cpp" line="815"/>
         <source>&amp;Save image as...</source>
         <translation>Сачувај с&amp;лику као...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="784"/>
+        <location filename="../src/lib/webview/webview.cpp" line="816"/>
         <source>Send image...</source>
         <translation>Пошаљи слику...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="803"/>
+        <location filename="../src/lib/webview/webview.cpp" line="835"/>
         <source>Send text...</source>
         <translation>Пошаљи текст...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="808"/>
+        <location filename="../src/lib/webview/webview.cpp" line="840"/>
         <source>Google Translate</source>
         <translation>Гуглов преводилац</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="813"/>
+        <location filename="../src/lib/webview/webview.cpp" line="845"/>
         <source>Dictionary</source>
         <translation>Речник</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="827"/>
+        <location filename="../src/lib/webview/webview.cpp" line="860"/>
         <source>Go to &amp;web address</source>
         <translation>Иди на &amp;веб адресу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="840"/>
+        <location filename="../src/lib/webview/webview.cpp" line="874"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Тражи „%1“ на %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="841"/>
+        <location filename="../src/lib/webview/webview.cpp" line="880"/>
         <source>Search with...</source>
         <translation>Тражи на...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="862"/>
+        <location filename="../src/lib/webview/webview.cpp" line="907"/>
         <source>&amp;Play</source>
         <translation>&amp;Пусти</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="862"/>
+        <location filename="../src/lib/webview/webview.cpp" line="907"/>
         <source>&amp;Pause</source>
         <translation>&amp;Паузирај</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="863"/>
+        <location filename="../src/lib/webview/webview.cpp" line="908"/>
         <source>Un&amp;mute</source>
         <translation>Вра&amp;ти звук</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="863"/>
+        <location filename="../src/lib/webview/webview.cpp" line="908"/>
         <source>&amp;Mute</source>
         <translation>У&amp;тишај</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="865"/>
+        <location filename="../src/lib/webview/webview.cpp" line="910"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Копирај адресу медија</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="866"/>
+        <location filename="../src/lib/webview/webview.cpp" line="911"/>
         <source>&amp;Send Media Address</source>
         <translation>П&amp;ошаљи адресу медија</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="867"/>
+        <location filename="../src/lib/webview/webview.cpp" line="912"/>
         <source>Save Media To &amp;Disk</source>
         <translation>&amp;Сачувај медиј на диск</translation>
     </message>

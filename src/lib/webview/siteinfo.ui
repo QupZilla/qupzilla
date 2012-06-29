@@ -389,6 +389,12 @@
          </item>
          <item row="1" column="1">
           <widget class="SqueezeLabelV2" name="databasePath">
+           <property name="minimumSize">
+            <size>
+             <width>450</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="text">
             <string>&lt;database not selected&gt;</string>
            </property>
@@ -399,6 +405,12 @@
          </item>
          <item row="0" column="1">
           <widget class="SqueezeLabelV2" name="databaseName">
+           <property name="minimumSize">
+            <size>
+             <width>450</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="text">
             <string>&lt;database not selected&gt;</string>
            </property>
@@ -409,6 +421,12 @@
          </item>
          <item row="2" column="1">
           <widget class="SqueezeLabelV2" name="databaseSize">
+           <property name="minimumSize">
+            <size>
+             <width>450</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="text">
             <string>&lt;database not selected&gt;</string>
            </property>

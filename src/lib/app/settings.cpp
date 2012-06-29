@@ -19,55 +19,55 @@
 
 #include <QSettings>
 
-QSettings* Settings::m_settings = 0;
+QSettings* Settings::s_settings = 0;
 
 Settings::Settings()
 {
-    if (!m_settings->group().isEmpty()) {
+    if (!s_settings->group().isEmpty()) {
         qDebug("Settings: Creating object with opened group!");
-        m_settings->endGroup();
+        s_settings->endGroup();
     }
 }
 
 void Settings::createSettings(const QString &fileName)
 {
-    m_settings = new QSettings(fileName, QSettings::IniFormat);
+    s_settings = new QSettings(fileName, QSettings::IniFormat);
 }
 
 void Settings::syncSettings()
 {
-    m_settings->sync();
+    s_settings->sync();
 }
 
 void Settings::setValue(const QString &key, const QVariant &defaultValue)
 {
-    m_settings->setValue(key, defaultValue);
+    s_settings->setValue(key, defaultValue);
 }
 
 QVariant Settings::value(const QString &key, const QVariant &defaultValue)
 {
-    return m_settings->value(key, defaultValue);
+    return s_settings->value(key, defaultValue);
 }
 
 void Settings::beginGroup(const QString &prefix)
 {
-    m_settings->beginGroup(prefix);
+    s_settings->beginGroup(prefix);
 }
 
 void Settings::endGroup()
 {
-    m_settings->endGroup();
+    s_settings->endGroup();
 }
 
 QSettings* Settings::globalSettings()
 {
-    return m_settings;
+    return s_settings;
 }
 
 Settings::~Settings()
 {
-    if (!m_settings->group().isEmpty()) {
+    if (!s_settings->group().isEmpty()) {
         qDebug("Settings: Deleting object with opened group!");
-        m_settings->endGroup();
+        s_settings->endGroup();
     }
 }

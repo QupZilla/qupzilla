@@ -115,8 +115,6 @@ void AdBlockIcon::createMenu(QMenu* menu)
             menu->addAction(tr("%1 with (%2)").arg(address, entry.rule).replace("&", "&&"), manager, SLOT(showRule()))->setData(entry.rule);
         }
     }
-    menu->addSeparator();
-    menu->addAction(tr("Learn About Writing &Rules"), this, SLOT(learnAboutRules()));
 }
 
 void AdBlockIcon::showMenu(const QPoint &pos)
@@ -125,11 +123,6 @@ void AdBlockIcon::showMenu(const QPoint &pos)
     createMenu(&menu);
 
     menu.exec(pos);
-}
-
-void AdBlockIcon::learnAboutRules()
-{
-    p_QupZilla->tabWidget()->addView(QUrl("http://adblockplus.org/en/filters"), Qz::NT_SelectedTab);
 }
 
 void AdBlockIcon::animateIcon()

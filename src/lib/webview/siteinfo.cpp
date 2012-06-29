@@ -128,7 +128,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     }
 
     //DATABASES
-    const QList<QWebDatabase> databases = frame->securityOrigin().databases();
+    const QList<QWebDatabase> &databases = frame->securityOrigin().databases();
 
     int counter = 0;
     foreach(const QWebDatabase & b, databases) {
@@ -181,7 +181,7 @@ void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)
     menu.addAction(tr("Copy Image Name"), this, SLOT(copyActionData()))->setData(item->text(0));
     menu.addSeparator();
     menu.addAction(QIcon::fromTheme("document-save"), tr("Save Image to Disk"), this, SLOT(downloadImage()));
-    menu.exec(QCursor::pos());
+    menu.exec(ui->treeImages->viewport()->mapToGlobal(p));
 }
 
 void SiteInfo::databaseItemChanged(QListWidgetItem* item)

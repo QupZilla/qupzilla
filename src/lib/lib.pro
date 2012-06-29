@@ -8,6 +8,7 @@ DEFINES *= QUPZILLA_SHAREDLIBRARY
 include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
 include(../../translations/translations.pri)
+#include(../../tests/modeltest/modeltest.pri)
 
 INCLUDEPATH += 3rdparty\
                app\
@@ -34,6 +35,7 @@ INCLUDEPATH += 3rdparty\
                popupwindow\
 
 SOURCES += \
+    webview/tabpreview.cpp \
     3rdparty/qtwin.cpp \
     3rdparty/lineedit.cpp \
     app/qupzilla.cpp \
@@ -46,10 +48,8 @@ SOURCES += \
     cookies/cookiemanager.cpp \
     cookies/cookiejar.cpp \
     downloads/downloadmanager.cpp \
-    history/historymodel.cpp \
     history/historymanager.cpp \
     navigation/websearchbar.cpp \
-    navigation/locationcompleter.cpp \
     navigation/locationbar.cpp \
     network/networkmanagerproxy.cpp \
     network/networkmanager.cpp \
@@ -84,7 +84,6 @@ SOURCES += \
     rss/rsswidget.cpp \
     autofill/autofillnotification.cpp \
     rss/rssnotification.cpp \
-    navigation/locationpopup.cpp \
     preferences/sslmanager.cpp \
     tools/animatedwidget.cpp \
     tools/htmlhighlighter.cpp \
@@ -92,7 +91,6 @@ SOURCES += \
     adblock/adblocksubscription.cpp \
     adblock/adblockrule.cpp \
     adblock/adblockpage.cpp \
-    adblock/adblocknetwork.cpp \
     adblock/adblockmanager.cpp \
     adblock/adblockdialog.cpp \
     adblock/adblockblockednetworkreply.cpp \
@@ -161,16 +159,32 @@ SOURCES += \
     popupwindow/popuplocationbar.cpp \
     webview/tabbedwebview.cpp \
     webview/webview.cpp \
-    webview/webviewsettings.cpp \
     preferences/pluginlistdelegate.cpp \
     popupwindow/popupstatusbarmessage.cpp \
     other/licenseviewer.cpp \
     bookmarksimport/bookmarksimporticonfetcher.cpp \
     other/checkboxdialog.cpp \
-    network/schemehandler.cpp \
-    tools/plaineditwithlines.cpp
+    tools/plaineditwithlines.cpp \
+    webview/websettings.cpp \
+    tools/focusselectlineedit.cpp \
+    navigation/completer/locationcompleterdelegate.cpp \
+    navigation/completer/locationcompleter.cpp \
+    navigation/completer/locationcompletermodel.cpp \
+    navigation/completer/locationcompleterview.cpp \
+    history/history.cpp \
+    history/historymodel.cpp \
+    history/historyview.cpp \
+    history/historyitem.cpp \
+    tools/headerview.cpp \
+    other/iconchooser.cpp \
+    adblock/adblocktreewidget.cpp \
+    adblock/adblockaddsubscriptiondialog.cpp \
+    adblock/adblockschemehandler.cpp \
+    tools/emptynetworkreply.cpp \
+    3rdparty/processinfo.cpp
 
 HEADERS  += \
+    webview/tabpreview.h \
     3rdparty/qtwin.h \
     3rdparty/lineedit.h \
     app/qupzilla.h \
@@ -183,10 +197,8 @@ HEADERS  += \
     cookies/cookiemanager.h \
     cookies/cookiejar.h \
     downloads/downloadmanager.h \
-    history/historymodel.h \
     history/historymanager.h \
     navigation/websearchbar.h \
-    navigation/locationcompleter.h \
     navigation/locationbar.h \
     network/networkmanagerproxy.h \
     network/networkmanager.h \
@@ -222,7 +234,6 @@ HEADERS  += \
     rss/rsswidget.h \
     autofill/autofillnotification.h \
     rss/rssnotification.h \
-    navigation/locationpopup.h \
     preferences/sslmanager.h \
     tools/animatedwidget.h \
     tools/htmlhighlighter.h \
@@ -230,7 +241,6 @@ HEADERS  += \
     adblock/adblocksubscription.h \
     adblock/adblockrule.h \
     adblock/adblockpage.h \
-    adblock/adblocknetwork.h \
     adblock/adblockmanager.h \
     adblock/adblockdialog.h \
     adblock/adblockblockednetworkreply.h \
@@ -301,7 +311,6 @@ HEADERS  += \
     webview/tabbedwebview.h \
     webview/webview.h \
     app/qz_namespace.h \
-    webview/webviewsettings.h \
     preferences/pluginlistdelegate.h \
     popupwindow/popupstatusbarmessage.h \
     other/licenseviewer.h \
@@ -309,7 +318,24 @@ HEADERS  += \
     other/checkboxdialog.h \
     network/schemehandler.h \
     tools/plaineditwithlines.h \
-    sidebar/sidebarinterface.h
+    sidebar/sidebarinterface.h \
+    webview/websettings.h \
+    tools/focusselectlineedit.h \
+    navigation/completer/locationcompleterdelegate.h \
+    navigation/completer/locationcompleter.h \
+    navigation/completer/locationcompletermodel.h \
+    navigation/completer/locationcompleterview.h \
+    history/history.h \
+    history/historymodel.h \
+    history/historyview.h \
+    history/historyitem.h \
+    tools/headerview.h \
+    other/iconchooser.h \
+    adblock/adblocktreewidget.h \
+    adblock/adblockaddsubscriptiondialog.h \
+    adblock/adblockschemehandler.h \
+    tools/emptynetworkreply.h \
+    3rdparty/processinfo.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -350,7 +376,9 @@ FORMS    += \
     opensearch/searchenginesdialog.ui \
     opensearch/editsearchengine.ui \
     bookmarksimport/bookmarksimportdialog.ui \
-    other/checkboxdialog.ui
+    other/checkboxdialog.ui \
+    other/iconchooser.ui \
+    adblock/adblockaddsubscriptiondialog.ui
 
 RESOURCES += \
     data/icons.qrc \
@@ -363,6 +391,6 @@ RESOURCES += \
     INSTALLS += target
 }
 
-message(========== Building libqupzilla ==========)
+message(===========================================)
 message( Using following defines:)
-message($$DEFINES)
+message(  $$DEFINES)

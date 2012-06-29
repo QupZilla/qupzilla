@@ -18,9 +18,13 @@
 #ifndef GLOBALFUNCTIONS_H
 #define GLOBALFUNCTIONS_H
 
+#include <QList>
+
 #include "qz_namespace.h"
 
+class QFontMetrics;
 class QPixmap;
+class QIcon;
 class QWidget;
 class QUrl;
 
@@ -41,9 +45,18 @@ QString QT_QUPZILLA_EXPORT qz_urlEncodeQueryString(const QUrl &url);
 
 QString QT_QUPZILLA_EXPORT qz_ensureUniqueFilename(const QString &name);
 QString QT_QUPZILLA_EXPORT qz_getFileNameFromUrl(const QUrl &url);
-
 QString QT_QUPZILLA_EXPORT qz_filterCharsFromFilename(const QString &name);
 
+QString QT_QUPZILLA_EXPORT qz_alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width);
+
+QPixmap QT_QUPZILLA_EXPORT qz_createPixmapForSite(const QIcon &icon, const QString &title, const QString &url);
+
 QString QT_QUPZILLA_EXPORT qz_buildSystem();
+
+template <typename T>
+bool QT_QUPZILLA_EXPORT qz_listContainsIndex(const QList<T> &list, int index)
+{
+    return (index >= 0 && list.count() > index);
+}
 
 #endif // GLOBALFUNCTIONS_H

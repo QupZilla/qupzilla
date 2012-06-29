@@ -61,7 +61,6 @@ class QT_QUPZILLA_EXPORT ClickToFlash : public QWidget
 
 public:
     explicit ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, WebPage* parentPage);
-    ~ClickToFlash();
 
     static bool isAlreadyAccepted(const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues);
 
@@ -96,7 +95,6 @@ private:
     static QUrl acceptedUrl;
     static QStringList acceptedArgNames;
     static QStringList acceptedArgValues;
-
 
     WebPage* m_page;
 };

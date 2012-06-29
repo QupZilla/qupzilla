@@ -147,7 +147,7 @@ void CookieManager::refreshTable()
 
 void CookieManager::slotRefreshTable()
 {
-    const QList<QNetworkCookie>& allCookies = mApp->cookieJar()->getAllCookies();
+    const QList<QNetworkCookie> &allCookies = mApp->cookieJar()->getAllCookies();
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
     ui->cookieTree->clear();
@@ -285,6 +285,15 @@ void CookieManager::closeEvent(QCloseEvent* e)
     mApp->cookieJar()->loadSettings();
 
     e->accept();
+}
+
+void CookieManager::keyPressEvent(QKeyEvent* e)
+{
+    if (e->key() == Qt::Key_Escape) {
+        close();
+    }
+
+    QWidget::keyPressEvent(e);
 }
 
 CookieManager::~CookieManager()

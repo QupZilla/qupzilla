@@ -15,36 +15,18 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef LOCATIONPOPUP_H
-#define LOCATIONPOPUP_H
-
-#include <QAbstractItemView>
+#ifndef ADBLOCKSCHEMEHANDLER_H
+#define ADBLOCKSCHEMEHANDLER_H
 
 #include "qz_namespace.h"
+#include "schemehandler.h"
 
-class QT_QUPZILLA_EXPORT LocationPopup : public QAbstractItemView
+class QT_QUPZILLA_EXPORT AdBlockSchemeHandler : public SchemeHandler
 {
-    Q_OBJECT
 public:
-    explicit LocationPopup(QWidget* parent = 0);
+    AdBlockSchemeHandler();
 
-signals:
-
-public slots:
-    void show();
-private:
-#if 0
-    QRect visualRect(const QModelIndex &index) const;
-    void scrollTo(const QModelIndex &index, ScrollHint hint);
-    QModelIndex indexAt(const QPoint &point) const;
-    QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);
-    int horizontalOffset() const;
-    int verticalOffset() const;
-    bool isIndexHidden(const QModelIndex &index) const;
-    void setSelection(const QRect &rect, QItemSelectionModel::SelectionFlags command);
-    QRegion visualRegionForSelection(const QItemSelection &selection) const;
-#endif
-    QWidget* m_parent;
+    QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 };
 
-#endif // LOCATIONPOPUP_H
+#endif // ADBLOCKSCHEMEHANDLER_H

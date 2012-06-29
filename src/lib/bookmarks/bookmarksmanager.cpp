@@ -27,7 +27,9 @@
 #include "browsinglibrary.h"
 #include "globalfunctions.h"
 #include "bookmarksimportdialog.h"
+#include "iconchooser.h"
 #include "webtab.h"
+#include "websettings.h"
 
 #include <QInputDialog>
 #include <QComboBox>
@@ -66,8 +68,6 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     connect(deleteAction, SIGNAL(activated()), this, SLOT(deleteItem()));
 
     ui->bookmarksTree->setDefaultItemShowMode(TreeWidget::ItemsExpanded);
-
-    //QTimer::singleShot(0, this, SLOT(refreshTable()));
 }
 
 void BookmarksManager::importBookmarks()
@@ -151,6 +151,24 @@ void BookmarksManager::renameBookmark()
     ui->bookmarksTree->editItem(item, 0);
 }
 
+void BookmarksManager::changeIcon()
+{
+    QTreeWidgetItem* item = ui->bookmarksTree->currentItem();
+    if (!item) {
+        return;
+    }
+
+    int id = item->data(0, Qt::UserRole + 10).toInt();
+    QIcon icon;
+
+    IconChooser chooser(this);
+    icon = chooser.exec();
+
+    if (!icon.isNull()) {
+        m_bookmarksModel->changeIcon(id, icon);
+    }
+}
+
 void BookmarksManager::itemChanged(QTreeWidgetItem* item)
 {
     if (!item || m_isRefreshing || item->text(1).isEmpty()) {
@@ -176,7 +194,7 @@ void BookmarksManager::itemControlClicked(QTreeWidgetItem* item)
 void BookmarksManager::loadInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        getQupZilla()->tabWidget()->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
+        getQupZilla()->tabWidget()->addView(action->data().toUrl(), WebSettings::newTabPosition);
     }
 }
 
@@ -213,6 +231,7 @@ void BookmarksManager::moveBookmark()
     if (!item) {
         return;
     }
+
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         int id = item->data(0, Qt::UserRole + 10).toInt();
 
@@ -225,7 +244,8 @@ void BookmarksManager::contextMenuRequested(const QPoint &position)
     if (!ui->bookmarksTree->itemAt(position)) {
         return;
     }
-    QString link = ui->bookmarksTree->itemAt(position)->text(1);
+
+    QUrl link = ui->bookmarksTree->itemAt(position)->data(0, Qt::UserRole + 11).toUrl();
     if (link.isEmpty()) {
         QString folderName = ui->bookmarksTree->itemAt(position)->text(0);
         QMenu menu;
@@ -244,7 +264,7 @@ void BookmarksManager::contextMenuRequested(const QPoint &position)
         }
 
         //Prevent choosing first option with double rightclick
-        QPoint pos = QCursor::pos();
+        QPoint pos = ui->bookmarksTree->viewport()->mapToGlobal(position);
         QPoint p(pos.x(), pos.y() + 1);
         menu.exec(p);
         return;
@@ -268,11 +288,12 @@ void BookmarksManager::contextMenuRequested(const QPoint &position)
     menu.addMenu(&moveMenu);
 
     menu.addSeparator();
+    menu.addAction(tr("Change icon"), this, SLOT(changeIcon()));
     menu.addAction(tr("Rename bookmark"), this, SLOT(renameBookmark()));
     menu.addAction(tr("Remove bookmark"), this, SLOT(deleteItem()));
 
     //Prevent choosing first option with double rightclick
-    QPoint pos = QCursor::pos();
+    QPoint pos = ui->bookmarksTree->viewport()->mapToGlobal(position);
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
 }
@@ -308,7 +329,7 @@ void BookmarksManager::refreshTable()
         QUrl url = query.value(1).toUrl();
         int id = query.value(2).toInt();
         QString folder = query.value(3).toString();
-        QIcon icon = IconProvider::iconFromImage(QImage::fromData(query.value(4).toByteArray()));
+        QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(4).toByteArray()));
         QTreeWidgetItem* item = new QTreeWidgetItem();
         if (folder == "bookmarksMenu") {
             folder = _bookmarksMenu;
@@ -331,6 +352,7 @@ void BookmarksManager::refreshTable()
         item->setToolTip(1, url.toEncoded());
 
         item->setData(0, Qt::UserRole + 10, id);
+        item->setData(0, Qt::UserRole + 11, url);
         item->setIcon(0, icon);
         item->setFlags(item->flags() | Qt::ItemIsEditable);
         ui->bookmarksTree->addTopLevelItem(item);
@@ -350,7 +372,7 @@ void BookmarksManager::refreshTable()
             QString title = query2.value(0).toString();
             QUrl url = query2.value(1).toUrl();
             int id = query2.value(2).toInt();
-            QIcon icon = IconProvider::iconFromImage(QImage::fromData(query2.value(3).toByteArray()));
+            QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query2.value(3).toByteArray()));
             QTreeWidgetItem* item = new QTreeWidgetItem(newItem);
 
             item->setText(0, title);
@@ -359,6 +381,7 @@ void BookmarksManager::refreshTable()
             item->setToolTip(1, url.toEncoded());
 
             item->setData(0, Qt::UserRole + 10, id);
+            item->setData(0, Qt::UserRole + 11, url);
             item->setIcon(0, icon);
             item->setFlags(item->flags() | Qt::ItemIsEditable);
         }
@@ -378,7 +401,8 @@ void BookmarksManager::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setText(0, bookmark.title);
     item->setText(1, bookmark.url.toEncoded());
     item->setData(0, Qt::UserRole + 10, bookmark.id);
-    item->setIcon(0, IconProvider::iconFromImage(bookmark.image));
+    item->setData(0, Qt::UserRole + 11, bookmark.url);
+    item->setIcon(0, qIconProvider->iconFromImage(bookmark.image));
     item->setToolTip(0, bookmark.title);
     item->setToolTip(1, bookmark.url.toEncoded());
     item->setFlags(item->flags() | Qt::ItemIsEditable);

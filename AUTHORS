@@ -5,6 +5,7 @@ David Rosca <nowrep@gmail.com>
 Contributors:
 
 Mladen Pejaković      <pejakm@gmail.com>                (webview context menu improvements, speed dial background)
+Alexander Samilov     <alexsamilovskih@gmail.com>       (tab previews)
 Bryan M Dunsmore      <dunsmoreb@gmail.com>             (opening background tabs, closing window when closing last tab)
 Mariusz Fik           <fisiu@opensuse.org>              (fixed tab order in preferences dialog)
 Daniele Cocca         <jmc@chakra-project.org>          (close tabs with middle click, initial work on speed dial)
@@ -37,6 +38,7 @@ Daiki Noda            <sys.pdr.pdm9@gmail.com>          (Japanese)
 Ștefan Comănescu      <sdfanq@gmail.com>                (Romanian)
 Gábor Oberle          <oberleg@myopera.com>             (Hungarian)
 Piccoro McKay Lenz    <mckaygerhard@gmail.com>          (Venezulean Spanish)
+Stanislav Kuznietsov  <stanislav_kuznetsov@ukr.net>     (Ukrainian)
 
 Special thanks:
 

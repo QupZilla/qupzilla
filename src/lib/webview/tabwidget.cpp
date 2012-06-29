@@ -36,6 +36,7 @@
 #include <QMenu>
 #include <QStackedWidget>
 #include <QWebHistory>
+#include <QClipboard>
 #include <QFile>
 
 AddTabButton::AddTabButton(TabWidget* tabWidget, TabBar* tabBar)
@@ -48,6 +49,25 @@ AddTabButton::AddTabButton(TabWidget* tabWidget, TabBar* tabBar)
     setFocusPolicy(Qt::NoFocus);
     setAcceptDrops(true);
     setToolTip(TabWidget::tr("New Tab"));
+}
+
+void AddTabButton::wheelEvent(QWheelEvent* event)
+{
+    m_tabBar->wheelEvent(event);
+}
+
+void AddTabButton::mouseReleaseEvent(QMouseEvent* event)
+{
+    if (event->button() == Qt::MiddleButton && rect().contains(event->pos())) {
+        QString selectionClipboard = QApplication::clipboard()->text(QClipboard::Selection);
+        QUrl guessedUrl = WebView::guessUrlFromString(selectionClipboard);
+
+        if (!guessedUrl.isEmpty()) {
+            m_tabWidget->addView(guessedUrl, Qz::NT_SelectedTabAtTheEnd);
+        }
+    }
+
+    ToolButton::mouseReleaseEvent(event);
 }
 
 void AddTabButton::dragEnterEvent(QDragEnterEvent* event)
@@ -257,7 +277,7 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     if (position == -1 && m_newTabAfterActive && !(openFlags & Qz::NT_TabAtTheEnd)) {
         // If we are opening newBgTab from pinned tab, make sure it won't be
         // opened between other pinned tabs
-        if (openFlags &Qz::NT_NotSelectedTab && m_lastBackgroundTabIndex != -1) {
+        if (openFlags & Qz::NT_NotSelectedTab && m_lastBackgroundTabIndex != -1) {
             position = m_lastBackgroundTabIndex + 1;
         }
         else {
@@ -280,20 +300,13 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     locBar->setWebView(webView);
 
     setTabText(index, title);
-    setTabIcon(index, IconProvider::emptyWebIcon());
+    setTabIcon(index, qIconProvider->emptyWebIcon());
 
     if (openFlags & Qz::NT_SelectedTab) {
         setCurrentIndex(index);
     }
     else {
         m_lastBackgroundTabIndex = index;
-    }
-
-    if (count() == 1 && m_hideTabBarWithOneTab) {
-        tabBar()->setVisible(false);
-    }
-    else {
-        tabBar()->setVisible(true);
     }
 
     connect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
@@ -322,7 +335,6 @@ void TabWidget::closeTab(int index)
         index = currentIndex();
     }
 
-
     WebTab* webTab = weTab(index);
     if (!webTab) {
         return;
@@ -332,7 +344,7 @@ void TabWidget::closeTab(int index)
     WebPage* webPage = webView->page();
 
     if (count() == 1) {
-        if (m_dontQuitWithOneTab) {
+        if (m_dontQuitWithOneTab && mApp->windowCount() == 1) {
             webView->load(m_urlOnNewTab);
             return;
         }
@@ -350,15 +362,12 @@ void TabWidget::closeTab(int index)
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     disconnect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     disconnect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
+
     //Save last tab url and history
     m_closedTabsManager->saveView(webTab, index);
 
     if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
         setCurrentIndex(m_lastTabIndex);
-    }
-
-    if (count() == 2 && m_hideTabBarWithOneTab) {
-        tabBar()->setVisible(false);
     }
 
     m_lastBackgroundTabIndex = -1;
@@ -398,6 +407,20 @@ void TabWidget::tabMoved(int before, int after)
 
     m_isClosingToLastTabIndex = false;
     m_lastBackgroundTabIndex = -1;
+}
+
+void TabWidget::tabInserted(int index)
+{
+    Q_UNUSED(index)
+
+    tabBar()->setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
+}
+
+void TabWidget::tabRemoved(int index)
+{
+    Q_UNUSED(index)
+
+    tabBar()->setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
 }
 
 void TabWidget::startTabAnimation(int index)
@@ -464,6 +487,7 @@ void TabWidget::setTabText(int index, const QString &text)
         }
     }
 
+    setTabToolTip(index, text);
     QTabWidget::setTabText(index, newtext);
 }
 
@@ -629,6 +653,10 @@ QList<WebTab*> TabWidget::allTabs(bool withPinned)
 
 void TabWidget::savePinnedTabs()
 {
+    if (mApp->isPrivateSession()) {
+        return;
+    }
+
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
@@ -655,6 +683,10 @@ void TabWidget::savePinnedTabs()
 
 void TabWidget::restorePinnedTabs()
 {
+    if (mApp->isPrivateSession()) {
+        return;
+    }
+
     QFile file(mApp->currentProfilePath() + "pinnedtabs.dat");
     file.open(QIODevice::ReadOnly);
     QByteArray sd = file.readAll();

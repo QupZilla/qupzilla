@@ -109,6 +109,10 @@ void PopupWebPage::checkBehaviour()
         popup->setToolBarVisibility(m_toolBarVisible);
         popup->show();
 
+        if (m_isLoading) {
+            view->fakeLoadingProgress(m_progress);
+        }
+
         p_QupZilla->addDeleteOnCloseWidget(popup);
 
         disconnect(this, SIGNAL(geometryChangeRequested(QRect)), this, SLOT(slotGeometryChangeRequested(QRect)));
@@ -124,8 +128,9 @@ void PopupWebPage::checkBehaviour()
         int index = p_QupZilla->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
         TabbedWebView* view = p_QupZilla->weView(index);
         view->setWebPage(this);
+
         if (m_isLoading) {
-            view->fakePageLoading(m_progress);
+            view->fakeLoadingProgress(m_progress);
         }
     }
 }

@@ -26,6 +26,7 @@
 #include <QDebug>
 #include <QWebFrame>
 #include <QWebPage>
+#include <QImage>
 
 #define ENSURE_LOADED if (!m_loaded) loadSettings();
 
@@ -55,7 +56,7 @@ void SpeedDial::loadSettings()
         allPages = "url:\"http://www.google.com\"|title:\"Google\";"
                    "url:\"http://www.qupzilla.com\"|title:\"QupZilla\";"
                    "url:\"http://blog.qupzilla.com\"|title:\"QupZilla Blog\";"
-                   "url:\"https://github.com/nowrep/QupZilla\"|title:\"QupZilla GitHub\";"
+                   "url:\"https://github.com/QupZilla/qupzilla\"|title:\"QupZilla GitHub\";"
                    "url:\"https://facebook.com\"|title:\"Facebook\";";
     }
     changed(allPages);
@@ -259,7 +260,7 @@ void SpeedDial::loadThumbnail(const QString &url, bool loadTitle)
     PageThumbnailer* thumbnailer = new PageThumbnailer(this);
     thumbnailer->setUrl(QUrl::fromEncoded(url.toUtf8()));
     thumbnailer->setLoadTitle(loadTitle);
-    connect(thumbnailer, SIGNAL(thumbnailCreated(QPixmap)), this, SLOT(thumbnailCreated(QPixmap)));
+    connect(thumbnailer, SIGNAL(thumbnailCreated(const QPixmap &)), this, SLOT(thumbnailCreated(const QPixmap &)));
 
     thumbnailer->start();
 }
@@ -279,7 +280,7 @@ QString SpeedDial::getOpenFileName()
     const QString &image = QFileDialog::getOpenFileName(0, tr("Select image..."), QDir::homePath(), fileTypes);
 
     if (image.isEmpty()) {
-            return image;
+        return image;
     }
 
     return QUrl::fromLocalFile(image).toString();
@@ -292,7 +293,7 @@ QString SpeedDial::urlFromUserInput(const QString &url)
 
 void SpeedDial::setBackgroundImage(const QString &image)
 {
-    m_backgroundImage = QUrl(image).toEncoded();
+    m_backgroundImage = image;
 }
 
 void SpeedDial::setBackgroundImageSize(const QString &size)
@@ -310,7 +311,7 @@ void SpeedDial::setSdSize(int count)
     m_sizeOfSpeedDials = count;
 }
 
-void SpeedDial::thumbnailCreated(const QPixmap &image)
+void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
 {
     PageThumbnailer* thumbnailer = qobject_cast<PageThumbnailer*>(sender());
     if (!thumbnailer) {
@@ -322,13 +323,13 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
     QString url = thumbnailer->url().toString();
     QString fileName = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
-    if (image.isNull()) {
+    if (pixmap.isNull()) {
         fileName = "qrc:/html/broken-page.png";
         title = tr("Unable to load");
         loadTitle = true;
     }
     else {
-        if (!image.save(fileName)) {
+        if (!pixmap.save(fileName, "PNG")) {
             qWarning() << "SpeedDial::thumbnailCreated Cannot save thumbnail to " << fileName;
         }
 

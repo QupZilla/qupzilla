@@ -43,7 +43,9 @@ public:
 
     bool loadingError() const;
     bool isLoading() const;
-    int loadProgress() const;
+
+    int loadingProgress() const;
+    void fakeLoadingProgress(int progress);
 
     void addNotification(QWidget* notif);
     bool eventFilter(QObject* obj, QEvent* event);
@@ -95,10 +97,14 @@ protected slots:
     void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());
     void showSiteInfo();
     void searchSelectedText();
+    void searchSelectedTextInBackgroundTab();
     void bookmarkLink();
     void showSourceOfSelection();
     void openUrlInSelectedTab();
     void openUrlInBackgroundTab();
+
+    // To support user's option whether to open in selected or background tab
+    void userDefinedOpenUrlInNewTab(const QUrl &url = QUrl());
 
     void createSearchEngine();
 

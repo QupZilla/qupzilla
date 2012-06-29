@@ -17,64 +17,62 @@
 * ============================================================ */
 #include "animatedwidget.h"
 
-#include <QPropertyAnimation>
-#include <QParallelAnimationGroup>
 #include <QResizeEvent>
 
 AnimatedWidget::AnimatedWidget(const Direction &direction, int duration, QWidget* parent)
     : QWidget(parent)
-    , m_widget(new QWidget(this))
-    , Y_SHOWN(0)
-    , Y_HIDDEN(0)
     , m_direction(direction)
+    , m_stepHeight(0)
+    , m_stepY(0)
+    , m_widget(new QWidget(this))
 {
-    m_positionAni = new QPropertyAnimation(m_widget, "pos");
-    m_positionAni->setDuration(duration);
-
-    m_heightAni = new QPropertyAnimation(this, "fixedheight");
-    m_heightAni->setDuration(duration);
-
-    m_aniGroup = new QParallelAnimationGroup(this);
-    m_aniGroup->addAnimation(m_positionAni);
-    m_aniGroup->addAnimation(m_heightAni);
+    m_timeLine.setDuration(duration);
+    m_timeLine.setFrameRange(0, 100);
+    connect(&m_timeLine, SIGNAL(frameChanged(int)), this, SLOT(animateFrame(int)));
 
     setMaximumHeight(0);
 }
 
 void AnimatedWidget::startAnimation()
 {
-    if (m_aniGroup->state() == QAnimationGroup::Running) {
+    if (m_timeLine.state() == QTimeLine::Running) {
         return;
     }
 
+    int shown = 0;
+    int hidden = 0;
+
     if (m_direction == Down) {
-        Y_SHOWN = 0;
-        Y_HIDDEN = -m_widget->height();
-    }
-    else if (m_direction == Up) {
-        Y_SHOWN = 0;
-        Y_HIDDEN = 0;
+        shown = 0;
+        hidden = -m_widget->height();
     }
 
-    m_widget->move(QPoint(m_widget->pos().x(), Y_HIDDEN));
+    m_widget->move(QPoint(m_widget->pos().x(), hidden));
 
-    m_positionAni->setEndValue(QPoint(m_widget->pos().x(), Y_SHOWN));
-    m_heightAni->setEndValue(m_widget->height());
+    m_stepY = (hidden - shown) / 100.0;
+    m_startY = hidden;
+    m_stepHeight = m_widget->height() / 100.0;
 
-    m_aniGroup->start();
+    m_timeLine.setDirection(QTimeLine::Forward);
+    m_timeLine.start();
+}
+
+void AnimatedWidget::animateFrame(int frame)
+{
+    setFixedHeight(frame * m_stepHeight);
+    m_widget->move(pos().x(), m_startY - frame * m_stepY);
 }
 
 void AnimatedWidget::hide()
 {
-    if (m_aniGroup->state() == QAnimationGroup::Running) {
+    if (m_timeLine.state() == QTimeLine::Running) {
         return;
     }
 
-    m_positionAni->setEndValue(QPoint(m_widget->pos().x(), Y_HIDDEN));
-    m_heightAni->setEndValue(0);
+    m_timeLine.setDirection(QTimeLine::Backward);
+    m_timeLine.start();
 
-    m_aniGroup->start();
-    connect(m_aniGroup, SIGNAL(finished()), this, SLOT(close()));
+    connect(&m_timeLine, SIGNAL(finished()), this, SLOT(close()));
 }
 
 void AnimatedWidget::resizeEvent(QResizeEvent* event)
@@ -84,8 +82,4 @@ void AnimatedWidget::resizeEvent(QResizeEvent* event)
     }
 
     QWidget::resizeEvent(event);
-}
-
-AnimatedWidget::~AnimatedWidget()
-{
 }

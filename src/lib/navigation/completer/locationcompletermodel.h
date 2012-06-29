@@ -15,8 +15,31 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "schemehandler.h"
+#ifndef LOCATIONCOMPLETERMODEL_H
+#define LOCATIONCOMPLETERMODEL_H
 
-SchemeHandler::SchemeHandler()
+#include <QStandardItemModel>
+
+class LocationCompleterModel : public QStandardItemModel
 {
-}
+public:
+    enum Role {
+        TitleRole = Qt::UserRole + 1,
+        BookmarkRole = Qt::UserRole + 2,
+        IdRole = Qt::UserRole + 3
+    };
+    explicit LocationCompleterModel(QObject* parent = 0);
+
+    void refreshCompletions(const QString &string);
+    void showMostVisited();
+
+signals:
+
+public slots:
+
+private:
+    QString m_lastCompletion;
+
+};
+
+#endif // LOCATIONCOMPLETERMODEL_H

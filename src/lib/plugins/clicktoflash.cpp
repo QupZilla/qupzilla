@@ -54,6 +54,7 @@
 #include <QFormLayout>
 #include <QMenu>
 #include <QTimer>
+#include <QNetworkRequest>
 #include <QWebHitTestResult>
 
 QUrl ClickToFlash::acceptedUrl;
@@ -74,9 +75,7 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
     //AdBlock
     AdBlockManager* manager = AdBlockManager::instance();
     if (manager->isEnabled()) {
-        QString urlString = pluginUrl.toEncoded();
-        AdBlockSubscription* subscription = manager->subscription();
-        if (!subscription->allow(urlString) && subscription->block(urlString)) {
+        if (manager->block(QNetworkRequest(pluginUrl))) {
             QTimer::singleShot(200, this, SLOT(hideAdBlocked()));
             return;
         }
@@ -229,13 +228,45 @@ void ClickToFlash::load()
         qWarning("Click2Flash: Cannot find Flash object.");
     }
     else {
-        QWebElement substitute = m_element.clone();
-        substitute.setAttribute(QLatin1String("type"), "application/futuresplash");
-        m_element.replace(substitute);
+        /*
+           Old code caused sometimes flashing of the whole browser window and then somehow
+           ruined rendering of opacity effects, etc.. in the window on X11.
+
+                QWebElement substitute = m_element.clone();
+                substitute.setAttribute(QLatin1String("type"), "application/futuresplash");
+                m_element.replace(substitute);
+
+           So asynchronous JavaScript code is used to remove element from page and then substitute
+           it with unblocked Flash. The JavaScript code is:
+
+               var qz_c2f_clone = this.cloneNode(true);
+               var qz_c2f_parentNode = this.parentNode;
+               var qz_c2f_substituteElement = document.createElement(this.tagName);
+
+               qz_c2f_substituteElement.width = this.width;
+               qz_c2f_substituteElement.height = this.height;
+
+               this.parentNode.replaceChild(qz_c2f_substituteElement, this);
+
+               setTimeout(function(){
+                   qz_c2f_parentNode.replaceChild(qz_c2f_clone, qz_c2f_substituteElement);
+               }, 250);
+
+        */
 
         acceptedUrl = m_url;
         acceptedArgNames = m_argumentNames;
         acceptedArgValues = m_argumentValues;
+
+        m_element.setAttribute("type", "application/futuresplash");
+
+        QString js = "var qz_c2f_clone=this.cloneNode(true);var qz_c2f_parentNode=this.parentNode;"
+                     "var qz_c2f_substituteElement=document.createElement(this.tagName);"
+                     "qz_c2f_substituteElement.width=this.width;qz_c2f_substituteElement.height=this.height;"
+                     "this.parentNode.replaceChild(qz_c2f_substituteElement,this);setTimeout(function(){"
+                     "qz_c2f_parentNode.replaceChild(qz_c2f_clone,qz_c2f_substituteElement);},250);";
+
+        m_element.evaluateJavaScript(js);
     }
 }
 
@@ -294,8 +325,4 @@ void ClickToFlash::showInfo()
     widg->setMaximumHeight(500);
     qz_centerWidgetToParent(widg, m_page->view());
     widg->show();
-}
-
-ClickToFlash::~ClickToFlash()
-{
 }

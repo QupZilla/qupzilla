@@ -72,26 +72,52 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished">Vlastné pravidlá</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>Rule</source>
-        <translation>Pravidlo</translation>
+        <translation type="obsolete">Pravidlo</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation>EasyList bol úspešne aktualizovaný.</translation>
+        <translation type="obsolete">EasyList bol úspešne aktualizovaný.</translation>
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation>Aktualizovať EasyList</translation>
+        <translation type="obsolete">Aktualizovať EasyList</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation>Prosím, sem napíšte vlastné pravidlo:</translation>
+        <translation type="obsolete">Prosím, sem napíšte vlastné pravidlo:</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation>Pridať vlastné pravidlo</translation>
+        <translation type="obsolete">Pridať vlastné pravidlo</translation>
     </message>
     <message>
         <source>Enable AdBlock</source>
@@ -107,7 +133,7 @@
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation>Vymazať pravidlo</translation>
+        <translation type="obsolete">Vymazať pravidlo</translation>
     </message>
     <message>
         <source>Add Rule</source>
@@ -115,15 +141,46 @@
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation>Vlastné pravidlá</translation>
+        <translation type="obsolete">Vlastné pravidlá</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation>Aktualizácia dokončená</translation>
+        <translation type="obsolete">Aktualizácia dokončená</translation>
     </message>
     <message>
         <source>AdBlock Configuration</source>
         <translation>Natavenia AdBlocku</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Subscriptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -146,7 +203,7 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>Zistiť viac o písaní p&amp;ravidiel</translation>
+        <translation type="obsolete">Zistiť viac o písaní p&amp;ravidiel</translation>
     </message>
     <message>
         <source>AdBlock lets you block unwanted content on web pages</source>
@@ -170,6 +227,40 @@
     </message>
 </context>
 <context>
+    <name>AdBlockManager</name>
+    <message>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished">Pridať pravidlo</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished">Pridať vlastné pravidlo</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished">Prosím, sem napíšte vlastné pravidlo:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddAcceptLanguage</name>
     <message>
         <source>Add Language</source>
@@ -177,7 +268,7 @@
     </message>
     <message>
         <source>Personal definition:</source>
-        <translation>Vlastné definície:</translation>
+        <translation>Vlastná definícia:</translation>
     </message>
     <message>
         <source>Choose preferred language for web sites</source>
@@ -212,7 +303,7 @@
     </message>
     <message>
         <source>Show Passwords</source>
-        <translation>Zobraziť heslo</translation>
+        <translation>Zobraziť heslá</translation>
     </message>
     <message>
         <source>Remove All</source>
@@ -224,7 +315,7 @@
     </message>
     <message>
         <source>Username</source>
-        <translation>Užívateľ</translation>
+        <translation>Meno používateľa</translation>
     </message>
     <message>
         <source>Passwords</source>
@@ -252,11 +343,11 @@
     </message>
     <message>
         <source>Import Passwords from File...</source>
-        <translation>Imporotovať heslo zo súboru...</translation>
+        <translation>Imporotovať heslá zo súboru...</translation>
     </message>
     <message>
         <source>Export Passwords to File...</source>
-        <translation>Exportovať heslo zo súboru...</translation>
+        <translation>Exportovať heslá do súboru...</translation>
     </message>
     <message>
         <source>Choose file...</source>
@@ -276,11 +367,11 @@
     </message>
     <message>
         <source>Successfully imported</source>
-        <translation>Importovanie prebehlo úspešne</translation>
+        <translation>Importovanie úspešné</translation>
     </message>
     <message>
         <source>Successfully exported</source>
-        <translation>Exportovanie prebehlo úspešne</translation>
+        <translation>Exportovanie úspešné</translation>
     </message>
 </context>
 <context>
@@ -324,7 +415,7 @@
     </message>
     <message>
         <source>Next</source>
-        <translation>Ďalší</translation>
+        <translation>Ďalej</translation>
     </message>
     <message>
         <source>Title</source>
@@ -336,7 +427,7 @@
     </message>
     <message>
         <source>Please choose this file to begin importing bookmarks.</source>
-        <translation>Prosím zvoľte tento súbor pre zahájenie importu.</translation>
+        <translation>Prosím vyberte súbor pre zahájenie importu záložiek.</translation>
     </message>
     <message>
         <source>Choose file...</source>
@@ -360,7 +451,7 @@
     </message>
     <message>
         <source>Fetching icons, please wait...</source>
-        <translation>Získavám ikony, prosím čakajte...</translation>
+        <translation>Získavajú sa ikony, prosím čakajte...</translation>
     </message>
     <message>
         <source>From File</source>
@@ -368,7 +459,7 @@
     </message>
     <message>
         <source>Choose directory...</source>
-        <translation>Zvoľte umiestnenie...</translation>
+        <translation>Zvoľte priečinok...</translation>
     </message>
     <message>
         <source>&lt;b&gt;Import Bookmarks&lt;/b&gt;</source>
@@ -384,7 +475,7 @@
     </message>
     <message>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Google Chrome ukladá svoje záložky v SQLite databáze &lt;b&gt;places.sqlite&lt;/b&gt;. Tento súbor sa obvykle nachádza v </translation>
+        <translation>Google Chrome ukladá svoje záložky v textovom súbore &lt;b&gt;places.sqlite&lt;/b&gt;. Tento súbor sa obvykle nachádza v </translation>
     </message>
     <message>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
@@ -392,11 +483,11 @@
     </message>
     <message>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Opera ukladá svoje záložky v SQLite databáze &lt;b&gt;places.sqlite&lt;/b&gt;. Tento súbor sa obvykle nachádza v </translation>
+        <translation>Opera ukladá svoje záložky v textovom súbore &lt;b&gt;places.sqlite&lt;/b&gt;. Tento súbor sa obvykle nachádza v </translation>
     </message>
     <message>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation>Internet Explorer ukladá svoje záložky v SQLite databáze &lt;b&gt;places.sqlite&lt;/b&gt;. Tento súbor sa obvykle nachádza v </translation>
+        <translation>Internet Explorer ukladá svoje záložky v priečinku &lt;b&gt;places.sqlite&lt;/b&gt;. Tento priečinok sa obvykle nachádza v </translation>
     </message>
     <message>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
@@ -404,7 +495,7 @@
     </message>
     <message>
         <source>Please choose this folder to begin importing bookmarks.</source>
-        <translation>Prosím zvoľte tento priečinok pre zahájenie importu.</translation>
+        <translation>Prosím vyberte priečinok pre zahájenie importu.</translation>
     </message>
     <message>
         <source>Please press Finish to complete importing process.</source>
@@ -432,7 +523,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation>&lt;b&gt;Poznámka:&lt;/b&gt; Momentálne len import z html súboru importuje aj zložky.</translation>
+        <translation>&lt;b&gt;Poznámka:&lt;/b&gt; Momentálne iba import z html súboru importuje aj priečinky záložiek.</translation>
     </message>
 </context>
 <context>
@@ -455,7 +546,7 @@
     </message>
     <message>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation>Zvoľte meno pre nový podpriečinok v panely záložiek: </translation>
+        <translation>Zvoľte názov nového podpriečinka v paneli záložiek: </translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -467,11 +558,11 @@
     </message>
     <message>
         <source>Choose name for new bookmark folder: </source>
-        <translation>Zvoľte názov nového priečinka:</translation>
+        <translation>Vyberte názov nového priečinka záložiek:</translation>
     </message>
     <message>
         <source>Choose folder for bookmarks:</source>
-        <translation>Zvoľte priečinok pre záložky:</translation>
+        <translation>Vyberte priečinok pre záložky:</translation>
     </message>
     <message>
         <source>Import Bookmarks</source>
@@ -491,7 +582,7 @@
     </message>
     <message>
         <source>Choose name for folder: </source>
-        <translation>Zvoľte meno pre priečinok: </translation>
+        <translation>Vyberte názov priečinka: </translation>
     </message>
     <message>
         <source>Move bookmark to &amp;folder</source>
@@ -527,22 +618,26 @@
     </message>
     <message>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
-        <translation>&lt;b&gt;Upozornenie: &lt;/b&gt;Túto stránku už máte v záložkách!</translation>
+        <translation>&lt;b&gt;Varovanie: &lt;/b&gt;Túto stránku už máte v záložkách!</translation>
     </message>
     <message>
         <source>Choose name and location of this bookmark.</source>
-        <translation>Zvoľte názov a umiestnenie záložky.</translation>
+        <translation>V\berte názov a umiestnenie záložky.</translation>
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation>Otvoriť odkaz v &amp;aktuálnom panely</translation>
+        <translation>Otvoriť odkaz na &amp;aktuálnej karte</translation>
+    </message>
+    <message>
+        <source>Change icon</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>BookmarksModel</name>
     <message>
         <source>Unsorted Bookmarks</source>
-        <translation>Neroztriedené záložky</translation>
+        <translation>Nepotriedené záložky</translation>
     </message>
     <message>
         <source>Bookmarks In Menu</source>
@@ -550,7 +645,7 @@
     </message>
     <message>
         <source>Bookmarks In ToolBar</source>
-        <translation>Panel záložiek</translation>
+        <translation>Záložky na paneli nástrojov</translation>
     </message>
 </context>
 <context>
@@ -573,7 +668,7 @@
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation>Otvoriť odkaz v &amp;aktuálnom panely</translation>
+        <translation>Otvoriť odkaz na &amp;aktuálnej karte</translation>
     </message>
 </context>
 <context>
@@ -1197,11 +1292,11 @@
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation>Zvoľte ikonu...</translation>
+        <translation type="obsolete">Zvoľte ikonu...</translation>
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation>Pridať zo súboru...</translation>
+        <translation type="obsolete">Pridať zo súboru...</translation>
     </message>
     <message>
         <source>Shortcut:</source>
@@ -1213,26 +1308,85 @@
     </message>
     <message>
         <source>Image files</source>
-        <translation>Obrázky</translation>
+        <translation type="obsolete">Obrázky</translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>History</name>
+    <message>
+        <source>No Named Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished">Január</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished">Február</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished">Marec</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished">Apríl</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished">Máj</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished">Jún</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished">Júl</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished">August</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished">September</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished">Október</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished">November</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished">December</translation>
     </message>
 </context>
 <context>
     <name>HistoryManager</name>
     <message>
         <source>Url</source>
-        <translation>Adresa</translation>
+        <translation type="obsolete">Adresa</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Tento týždeň</translation>
+        <translation type="obsolete">Tento týždeň</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>Názov</translation>
+        <translation type="obsolete">Názov</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Dnes</translation>
+        <translation type="obsolete">Dnes</translation>
     </message>
     <message>
         <source>Are you sure to delete all history?</source>
@@ -1244,11 +1398,11 @@
     </message>
     <message>
         <source>This Month</source>
-        <translation>Tento mesiac</translation>
+        <translation type="obsolete">Tento mesiac</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Otvoriť odkaz na novej karte</translation>
+        <translation type="obsolete">Otvoriť odkaz na novej karte</translation>
     </message>
     <message>
         <source>Clear All History</source>
@@ -1268,93 +1422,121 @@
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Kopírovať adresu</translation>
+        <translation type="obsolete">Kopírovať adresu</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Otvoriť odkaz v aktuálnom panely</translation>
+        <translation type="obsolete">Otvoriť odkaz v aktuálnom panely</translation>
     </message>
 </context>
 <context>
     <name>HistoryModel</name>
     <message>
         <source>May</source>
-        <translation>Máj</translation>
+        <translation type="obsolete">Máj</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>Júl</translation>
+        <translation type="obsolete">Júl</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>Jún</translation>
+        <translation type="obsolete">Jún</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>Apríl</translation>
+        <translation type="obsolete">Apríl</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>Marec</translation>
+        <translation type="obsolete">Marec</translation>
     </message>
     <message>
         <source>January</source>
-        <translation>Január</translation>
+        <translation type="obsolete">Január</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>August</translation>
+        <translation type="obsolete">August</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>Október</translation>
+        <translation type="obsolete">Október</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>November</translation>
+        <translation type="obsolete">November</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>September</translation>
+        <translation type="obsolete">September</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>Február</translation>
+        <translation type="obsolete">Február</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>December</translation>
+        <translation type="obsolete">December</translation>
     </message>
     <message>
         <source>No Named Page</source>
-        <translation>Stránka bez názvu</translation>
+        <translation type="obsolete">Stránka bez názvu</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished">Dnes</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="unfinished">Tento týždeň</translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="unfinished">Tento mesiac</translation>
     </message>
 </context>
 <context>
     <name>HistorySideBar</name>
     <message>
         <source>This Week</source>
-        <translation>Tento týždeň</translation>
+        <translation type="obsolete">Tento týždeň</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>Názov</translation>
+        <translation type="obsolete">Názov</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Dnes</translation>
+        <translation type="obsolete">Dnes</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Kopírovať adresu</translation>
+        <translation type="obsolete">Kopírovať adresu</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Tento mesiac</translation>
+        <translation type="obsolete">Tento mesiac</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Otvoriť odkaz na novej karte</translation>
+        <translation type="obsolete">Otvoriť odkaz na novej karte</translation>
     </message>
     <message>
         <source>Search...</source>
@@ -1362,7 +1544,61 @@
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Otvoriť odkaz v aktuálnom panely</translation>
+        <translation type="obsolete">Otvoriť odkaz v aktuálnom panely</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished">Otvoriť odkaz v aktuálnom panely</translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished">Otvoriť odkaz na novej karte</translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished">Kopírovať adresu</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished">Zvoľte ikonu...</translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished">Obrázky</translation>
     </message>
 </context>
 <context>
@@ -1700,7 +1936,7 @@
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>Správca SSL</translation>
+        <translation type="obsolete">Správca SSL</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -1772,7 +2008,7 @@
     </message>
     <message>
         <source>Make tabs movable</source>
-        <translation>Povoliť presúvanie kariet</translation>
+        <translation type="obsolete">Povoliť presúvanie kariet</translation>
     </message>
     <message>
         <source>Use Native System Notifications (Linux only)</source>
@@ -2088,7 +2324,7 @@
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>Pýtať sa pri zapínaní súkromného prehliadania</translation>
+        <translation type="obsolete">Pýtať sa pri zapínaní súkromného prehliadania</translation>
     </message>
     <message>
         <source>Active profile:</source>
@@ -2140,7 +2376,7 @@
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>Upraviť CA Certifikáty v správcovi SSL</translation>
+        <translation type="obsolete">Upraviť CA Certifikáty v správcovi SSL</translation>
     </message>
     <message>
         <source>Delete now</source>
@@ -2217,6 +2453,26 @@
     <message>
         <source>Use different proxy for https connection</source>
         <translation>Použiť iný proxy pre https pripojenie</translation>
+    </message>
+    <message>
+        <source>Show tab previews</source>
+        <translation>Zobraziť náhľad kariet</translation>
+    </message>
+    <message>
+        <source>Make tab previews animated</source>
+        <translation>Animovať náhľady kariet</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically switch to newly opened tab</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2333,7 +2589,7 @@
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>Ste si istý, že chcete zapnúť súkromné prehliadanie?</translation>
+        <translation type="obsolete">Ste si istý, že chcete zapnúť súkromné prehliadanie?</translation>
     </message>
     <message>
         <source>Close Window</source>
@@ -2405,7 +2661,7 @@
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>Stránky nie sú pridávané do histórie.</translation>
+        <translation type="obsolete">Stránky nie sú pridávané do histórie.</translation>
     </message>
     <message>
         <source>Restore &amp;Closed Tab</source>
@@ -2453,7 +2709,7 @@
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>Kým nezatvoríte okno, stále môžte používať tlačidlá Späť a Dopredu k vráteniu sa na stránky, ktoré ste mali otvorené.</translation>
+        <translation type="obsolete">Kým nezatvoríte okno, stále môžte používať tlačidlá Späť a Dopredu k vráteniu sa na stránky, ktoré ste mali otvorené.</translation>
     </message>
     <message>
         <source>Clear list</source>
@@ -2469,7 +2725,7 @@
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>Vaša relácia nie je uložená.</translation>
+        <translation type="obsolete">Vaša relácia nie je uložená.</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
@@ -2525,7 +2781,7 @@
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation>Aktuálne cookies nie sú dostupné.</translation>
+        <translation type="obsolete">Aktuálne cookies nie sú dostupné.</translation>
     </message>
     <message>
         <source>IP Address of current page</source>
@@ -2545,7 +2801,7 @@
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Keď je zapnuté súkromné prehliadanie, niektoré akcie týkajúce sa vášho súkromia sú vypnuté:</translation>
+        <translation type="obsolete">Keď je zapnuté súkromné prehliadanie, niektoré akcie týkajúce sa vášho súkromia sú vypnuté:</translation>
     </message>
     <message>
         <source>Import bookmarks...</source>
@@ -2553,7 +2809,7 @@
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>Spustiť súkromné prehliadanie</translation>
+        <translation type="obsolete">Spustiť súkromné prehliadanie</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
@@ -2577,7 +2833,7 @@
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation>Úspešne ste pridali RSS odber &quot;%1&quot;.</translation>
+        <translation type="obsolete">Úspešne ste pridali RSS odber &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>Recently Visited</source>
@@ -2766,7 +3022,7 @@ Skutočne chcete skončiť?</translation>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Vyhľadávanie Google</translation>
+        <translation type="obsolete">Vyhľadávanie Google</translation>
     </message>
     <message>
         <source>New Page</source>
@@ -2782,7 +3038,7 @@ Skutočne chcete skončiť?</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>Výsledky vyhľadávania poskytované Googleom</translation>
+        <translation type="obsolete">Výsledky vyhľadávania poskytované Googleom</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -2936,6 +3192,18 @@ Skutočne chcete skončiť?</translation>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Táto stránka obsahuje informácie o aktuálnej konfigurácii QupZilly - dôležité informácie k riešeniu problémov. Priložte prosím tieto informácie k hláseniu problémov.</translation>
     </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3034,7 +3302,59 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     <name>RSSNotification</name>
     <message>
         <source>Open RSS Manager</source>
-        <translation>Otvoriť správcu RSS</translation>
+        <translation type="obsolete">Otvoriť správcu RSS</translation>
+    </message>
+    <message>
+        <source>Add this feed into</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Pridať</translation>
+    </message>
+    <message>
+        <source>Executable: </source>
+        <translation type="unfinished">Program: </translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation type="unfinished">Argumenty: </translation>
+    </message>
+    <message>
+        <source>Cannot start external program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external program! %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Internal Reader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea not running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea must be running in order to add new feed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add feed into other application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3064,7 +3384,7 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>Správca certifikátov</translation>
+        <translation type="obsolete">Správca certifikátov</translation>
     </message>
     <message>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
@@ -3115,6 +3435,18 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
         <translation>Toto je zoznam lokálnych certifikátov uložených v používateľovom profile. Tento zoznam taktiež obsahuje všetky certifikáty, ktoré obdržali výnimku.</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3731,7 +4063,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Blokované pravidlom &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="obsolete">Blokované pravidlom &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -3826,6 +4158,22 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Unknown network error</source>
         <translation>Neznáma sieťová chyba</translation>
+    </message>
+    <message>
+        <source>Remember my choice for this protocol</source>
+        <translation>Zapamätať moju voľbu pre tento protokol</translation>
+    </message>
+    <message>
+        <source>External Protocol Request</source>
+        <translation>Externý protokol</translation>
+    </message>
+    <message>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation>QupZilla nemôže otvoriť &lt;b&gt;%1:&lt;/b&gt; odkazy. Vyžiadany odkaz je &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Chcete aby QupZila otvorila tento odkaz v systémovej aplikácií?</translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

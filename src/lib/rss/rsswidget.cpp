@@ -74,8 +74,17 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
 
 void RSSWidget::showAt(QWidget* _parent)
 {
-    QPoint p = _parent->mapToGlobal(QPoint(0, 0));
-    move((p.x() + _parent->width() - width()), p.y() + _parent->height());
+    layout()->invalidate();
+    layout()->activate();
+
+    const QPoint &widgetPos = _parent->mapToGlobal(QPoint(0, 0));
+
+    QPoint newPos;
+    newPos.setX(widgetPos.x() + _parent->width() - width());
+    newPos.setY(widgetPos.y() + _parent->height());
+
+    move(newPos);
+
     show();
 }
 
@@ -103,11 +112,9 @@ void RSSWidget::addRss()
             title = button->toolTip();
         }
 
-        if (mApp->rssManager()->addRssFeed(url, title, m_view->icon())) {
-            RSSNotification* notif = new RSSNotification(title, m_view);
-            m_view->addNotification(notif);
-            close();
-        }
+        RSSNotification* notif = new RSSNotification(title, url, m_view);
+        m_view->addNotification(notif);
+        close();
     }
 }
 

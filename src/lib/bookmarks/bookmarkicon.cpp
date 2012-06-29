@@ -88,7 +88,7 @@ void BookmarkIcon::speedDialChanged()
 
 void BookmarkIcon::setBookmarkSaved()
 {
-    setProperty("bookmarked", true);
+    setProperty("bookmarked", QVariant(true));
     style()->unpolish(this);
     style()->polish(this);
     setToolTip(tr("Edit this bookmark"));
@@ -96,7 +96,7 @@ void BookmarkIcon::setBookmarkSaved()
 
 void BookmarkIcon::setBookmarkDisabled()
 {
-    setProperty("bookmarked", false);
+    setProperty("bookmarked", QVariant(false));
     style()->unpolish(this);
     style()->polish(this);
     setToolTip(tr("Bookmark this Page"));

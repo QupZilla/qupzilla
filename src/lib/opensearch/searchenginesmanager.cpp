@@ -35,7 +35,7 @@
 
 QIcon SearchEnginesManager::iconForSearchEngine(const QUrl &url)
 {
-    QIcon ic = IconProvider::iconFromImage(mApp->iconProvider()->iconForDomain(url));
+    QIcon ic = qIconProvider->iconFromImage(qIconProvider->iconForDomain(url));
     if (ic.isNull()) {
         ic = QIcon(":icons/menu/search-icon.png");
     }
@@ -65,7 +65,7 @@ void SearchEnginesManager::loadSettings()
     while (query.next()) {
         Engine en;
         en.name = query.value(0).toString();
-        en.icon = IconProvider::iconFromBase64(query.value(1).toByteArray());
+        en.icon = qIconProvider->iconFromBase64(query.value(1).toByteArray());
         en.url = query.value(2).toString();
         en.shortcut = query.value(3).toString();
         en.suggestionsUrl = query.value(4).toString();
@@ -119,28 +119,28 @@ void SearchEnginesManager::restoreDefaults()
 {
     Engine google;
     google.name = "Google";
-    google.icon = QIcon(":icons/menu/google.png");
+    google.icon = QIcon(":icons/sites/google.png");
     google.url = "http://www.google.com/search?client=qupzilla&q=%s";
     google.shortcut = "g";
     google.suggestionsUrl = "http://suggestqueries.google.com/complete/search?output=firefox&q=%s";
 
     Engine wiki;
     wiki.name = "Wikipedia (en)";
-    wiki.icon = QIcon(":/icons/menu/wikipedia.png");
+    wiki.icon = QIcon(":/icons/sites/wikipedia.png");
     wiki.url = "http://en.wikipedia.org/wiki/Special:Search?search=%s&fulltext=Search";
     wiki.shortcut = "w";
     wiki.suggestionsUrl = "http://en.wikipedia.org/w/api.php?action=opensearch&search=%s&namespace=0";
 
     Engine yt;
     yt.name = "YouTube";
-    yt.icon = QIcon(":/icons/menu/youtube.png");
+    yt.icon = QIcon(":/icons/sites/youtube.png");
     yt.url = "http://www.youtube.com/results?search_query=%s&search=Search";
     yt.shortcut = "yt";
     yt.suggestionsUrl = "http://suggestqueries.google.com/complete/search?ds=yt&output=firefox&q=%s";
 
     Engine duck;
     duck.name = "DuckDuckGo";
-    duck.icon = QIcon(":/icons/menu/duck.png");
+    duck.icon = QIcon(":/icons/sites/duck.png");
     duck.url = "https://duckduckgo.com/?q=%s&t=qupzilla";
     duck.shortcut = "d";
 
@@ -407,7 +407,7 @@ void SearchEnginesManager::saveSettings()
     foreach(const Engine & en, m_allEngines) {
         query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, suggestionsUrl, suggestionsParameters) VALUES (?, ?, ?, ?, ?, ?)");
         query.bindValue(0, en.name);
-        query.bindValue(1, IconProvider::iconToBase64(en.icon));
+        query.bindValue(1, qIconProvider->iconToBase64(en.icon));
         query.bindValue(2, en.url);
         query.bindValue(3, en.shortcut);
         query.bindValue(4, en.suggestionsUrl);

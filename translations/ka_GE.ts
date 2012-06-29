@@ -72,6 +72,32 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished">შერჩეული წესები</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
@@ -87,7 +113,7 @@
     </message>
     <message>
         <source>Rule</source>
-        <translation>წესი</translation>
+        <translation type="obsolete">წესი</translation>
     </message>
     <message>
         <source>Add Rule</source>
@@ -95,7 +121,7 @@
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation>EasyList-ის განახლება</translation>
+        <translation type="obsolete">EasyList-ის განახლება</translation>
     </message>
     <message>
         <source>AdBlock</source>
@@ -103,27 +129,58 @@
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation>წესის წაშლა</translation>
+        <translation type="obsolete">წესის წაშლა</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation>განახლება დასრულდა</translation>
+        <translation type="obsolete">განახლება დასრულდა</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation>EasyList წარმატებით განახლდა.</translation>
+        <translation type="obsolete">EasyList წარმატებით განახლდა.</translation>
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation>შერჩეული წესები</translation>
+        <translation type="obsolete">შერჩეული წესები</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation>სასურველი წესის დამატება</translation>
+        <translation type="obsolete">სასურველი წესის დამატება</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation>გთხოვთ ჩაწერეთ თქვენი წესი აქ:</translation>
+        <translation type="obsolete">გთხოვთ ჩაწერეთ თქვენი წესი აქ:</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Subscriptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -166,7 +223,41 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>&amp;წესების წერის შესახებ მეტის გაგება</translation>
+        <translation type="obsolete">&amp;წესების წერის შესახებ მეტის გაგება</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
+    <message>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished">წესის დამატება</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished">სასურველი წესის დამატება</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished">გთხოვთ ჩაწერეთ თქვენი წესი აქ:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -536,6 +627,10 @@
     <message>
         <source>Bookmark All Tabs</source>
         <translation>ყველა ჩანართის ჩანიშვნა</translation>
+    </message>
+    <message>
+        <source>Change icon</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1205,15 +1300,74 @@
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation>ფაილიდან დამატება...</translation>
+        <translation type="obsolete">ფაილიდან დამატება...</translation>
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation>ხატულის არჩევა...</translation>
+        <translation type="obsolete">ხატულის არჩევა...</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation>სურათის ფაილები</translation>
+        <translation type="obsolete">სურათის ფაილები</translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>History</name>
+    <message>
+        <source>No Named Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished">იანვარი</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished">თებერვალი</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished">მარტი</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished">აპრილი</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished">მაისი</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished">ივნისი</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished">ივლისი</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished">აგვისტო</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished">სექტემბერი</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished">ოქტომბერი</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished">ნოემბერი</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished">დეკემბერი</translation>
     </message>
 </context>
 <context>
@@ -1224,11 +1378,11 @@
     </message>
     <message>
         <source>Title</source>
-        <translation>სათაური</translation>
+        <translation type="obsolete">სათაური</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation>ბმული</translation>
+        <translation type="obsolete">ბმული</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1244,27 +1398,27 @@
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>ბმულის გახნსა მიმდინარე ჩანართში</translation>
+        <translation type="obsolete">ბმულის გახნსა მიმდინარე ჩანართში</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>ბმულის გახნსა ახალ ჩანრთში</translation>
+        <translation type="obsolete">ბმულის გახნსა ახალ ჩანრთში</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>მისამართის კოპირება</translation>
+        <translation type="obsolete">მისამართის კოპირება</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>დღეს</translation>
+        <translation type="obsolete">დღეს</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>ამ კვირაში</translation>
+        <translation type="obsolete">ამ კვირაში</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>ამ თვეში</translation>
+        <translation type="obsolete">ამ თვეში</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1279,55 +1433,83 @@
     <name>HistoryModel</name>
     <message>
         <source>No Named Page</source>
-        <translation>უსათაურო გვერდი</translation>
+        <translation type="obsolete">უსათაურო გვერდი</translation>
     </message>
     <message>
         <source>January</source>
-        <translation>იანვარი</translation>
+        <translation type="obsolete">იანვარი</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>თებერვალი</translation>
+        <translation type="obsolete">თებერვალი</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>მარტი</translation>
+        <translation type="obsolete">მარტი</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>აპრილი</translation>
+        <translation type="obsolete">აპრილი</translation>
     </message>
     <message>
         <source>May</source>
-        <translation>მაისი</translation>
+        <translation type="obsolete">მაისი</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>ივნისი</translation>
+        <translation type="obsolete">ივნისი</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>ივლისი</translation>
+        <translation type="obsolete">ივლისი</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>აგვისტო</translation>
+        <translation type="obsolete">აგვისტო</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>სექტემბერი</translation>
+        <translation type="obsolete">სექტემბერი</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>ოქტომბერი</translation>
+        <translation type="obsolete">ოქტომბერი</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>ნოემბერი</translation>
+        <translation type="obsolete">ნოემბერი</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>დეკემბერი</translation>
+        <translation type="obsolete">დეკემბერი</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished">დღეს</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="unfinished">ამ კვირაში</translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="unfinished">ამ თვეში</translation>
     </message>
 </context>
 <context>
@@ -1338,31 +1520,85 @@
     </message>
     <message>
         <source>Title</source>
-        <translation>სათაური</translation>
+        <translation type="obsolete">სათაური</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>ბმულის გახნსა მიმდინარე ჩანართში</translation>
+        <translation type="obsolete">ბმულის გახნსა მიმდინარე ჩანართში</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>ბმულის გახნსა ახალ ჩანრთში</translation>
+        <translation type="obsolete">ბმულის გახნსა ახალ ჩანრთში</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>მისამართის კოპირება</translation>
+        <translation type="obsolete">მისამართის კოპირება</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>დღეს</translation>
+        <translation type="obsolete">დღეს</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>ამ კვირაში</translation>
+        <translation type="obsolete">ამ კვირაში</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>ამ თვეში</translation>
+        <translation type="obsolete">ამ თვეში</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished">ბმულის გახნსა მიმდინარე ჩანართში</translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished">ბმულის გახნსა ახალ ჩანრთში</translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished">მისამართის კოპირება</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">წაშლა</translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished">ხატულის არჩევა...</translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished">ფაილის არჩევა...</translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished">სურათის ფაილები</translation>
     </message>
 </context>
 <context>
@@ -1759,7 +1995,7 @@
     </message>
     <message>
         <source>Make tabs movable</source>
-        <translation>მოძრავი ჩანართები</translation>
+        <translation type="obsolete">მოძრავი ჩანართები</translation>
     </message>
     <message>
         <source>Hide tabs when there is only one tab</source>
@@ -1838,7 +2074,7 @@
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>დასტური პირადი ბრაუზინგის რეჟიმში შესვლისას</translation>
+        <translation type="obsolete">დასტური პირადი ბრაუზინგის რეჟიმში შესვლისას</translation>
     </message>
     <message>
         <source>Mouse wheel scrolls</source>
@@ -2072,11 +2308,11 @@
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>SSL მმართველი</translation>
+        <translation type="obsolete">SSL მმართველი</translation>
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>CA სერტიფიკატების რედაქტირება SSL მმართველში</translation>
+        <translation type="obsolete">CA სერტიფიკატების რედაქტირება SSL მმართველში</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -2217,6 +2453,26 @@
     <message>
         <source>Use different proxy for https connection</source>
         <translation>სხვა პროქსის გამოყენება https კავშირებისთვის</translation>
+    </message>
+    <message>
+        <source>Show tab previews</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically switch to newly opened tab</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2569,35 +2825,35 @@
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>დარწმუნებული ხართ რომ პირადი ბრაუზინგის ჩართვა გსურთ?</translation>
+        <translation type="obsolete">დარწმუნებული ხართ რომ პირადი ბრაუზინგის ჩართვა გსურთ?</translation>
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>პირადი ბრაუზინგის ჩართვისას, ხდება ზოგიერთი ისეთი მოქმედების გამორთვა რომელიც თქვენს კონფიდენციალურობას ეხება :</translation>
+        <translation type="obsolete">პირადი ბრაუზინგის ჩართვისას, ხდება ზოგიერთი ისეთი მოქმედების გამორთვა რომელიც თქვენს კონფიდენციალურობას ეხება :</translation>
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>ისტორიაში არ არის არცერთი ვებ-გვერდი.</translation>
+        <translation type="obsolete">ისტორიაში არ არის არცერთი ვებ-გვერდი.</translation>
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation>მიმდინარე ფუნთუშა მიუწვდომელია.</translation>
+        <translation type="obsolete">მიმდინარე ფუნთუშა მიუწვდომელია.</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>თქვენი სესია არ შენახულა.</translation>
+        <translation type="obsolete">თქვენი სესია არ შენახულა.</translation>
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>სანამ ამ ფანჯარას დახურავთ, თქვენ შეგიძლიათ დააწკაპუნოთ უკან და წინ წასვლის ღილაკებზე რათა გადახვიდეთ ვებ-გვერდებზე რომლებიც გახსნილი გქონდათ.</translation>
+        <translation type="obsolete">სანამ ამ ფანჯარას დახურავთ, თქვენ შეგიძლიათ დააწკაპუნოთ უკან და წინ წასვლის ღილაკებზე რათა გადახვიდეთ ვებ-გვერდებზე რომლებიც გახსნილი გქონდათ.</translation>
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>პირადი ბრაუზინგის დაწყება</translation>
+        <translation type="obsolete">პირადი ბრაუზინგის დაწყება</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation>თქვენ წარმატებით დაამატეთ RSS არხი &quot;%1&quot;.</translation>
+        <translation type="obsolete">თქვენ წარმატებით დაამატეთ RSS არხი &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>HTML files</source>
@@ -2682,11 +2938,11 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Google ძებნა</translation>
+        <translation type="obsolete">Google ძებნა</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>ძებნის შედეგები მოწოდებულია Google-ს მიერ</translation>
+        <translation type="obsolete">ძებნის შედეგები მოწოდებულია Google-ს მიერ</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -2936,6 +3192,18 @@ Are you sure to quit QupZilla?</source>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>ეს გვერდი შეიცავს ინფორმაციას QupZilla-ს მიმდინარე კონფიგურაციის შესახებ - საჭიროს პრობლემის აღმოფხვრისთვის. გთხოვთ მოაყოლეთ ეს ინფორმაცია შეცდომის შეტყობინების გამოგზავნისას.</translation>
     </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3033,7 +3301,59 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>RSSNotification</name>
     <message>
         <source>Open RSS Manager</source>
-        <translation>RSS მმართველის გახსნა</translation>
+        <translation type="obsolete">RSS მმართველის გახსნა</translation>
+    </message>
+    <message>
+        <source>Add this feed into</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">დამატება</translation>
+    </message>
+    <message>
+        <source>Executable: </source>
+        <translation type="unfinished">გამშვები: </translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation type="unfinished">არგუმენტები:</translation>
+    </message>
+    <message>
+        <source>Cannot start external program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external program! %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Internal Reader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea not running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea must be running in order to add new feed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add feed into other application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3055,7 +3375,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>SSLManager</name>
     <message>
         <source>SSL Manager</source>
-        <translation>SSL მმართველი</translation>
+        <translation type="obsolete">SSL მმართველი</translation>
     </message>
     <message>
         <source>CA Authorities Certificates</source>
@@ -3114,6 +3434,18 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Certificate Informations</source>
         <translation>სერტიფიკატის ინფორმაცია</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3776,7 +4108,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>დაბლოკილია წესით &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="obsolete">დაბლოკილია წესით &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -3825,6 +4157,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Unknown network error</source>
         <translation>ქსელის უცნობის შეცდომა</translation>
+    </message>
+    <message>
+        <source>Remember my choice for this protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

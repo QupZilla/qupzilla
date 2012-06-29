@@ -72,6 +72,32 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished">Egyéni szabályok</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
@@ -87,7 +113,7 @@
     </message>
     <message>
         <source>Rule</source>
-        <translation>Szabály</translation>
+        <translation type="obsolete">Szabály</translation>
     </message>
     <message>
         <source>Add Rule</source>
@@ -95,7 +121,7 @@
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation>EasyList frissítése</translation>
+        <translation type="obsolete">EasyList frissítése</translation>
     </message>
     <message>
         <source>AdBlock</source>
@@ -103,27 +129,58 @@
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation>Szabály törlése</translation>
+        <translation type="obsolete">Szabály törlése</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation>A frissítés befejeződött</translation>
+        <translation type="obsolete">A frissítés befejeződött</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation>Az EasyList frissítése sikeresen befejeződött.</translation>
+        <translation type="obsolete">Az EasyList frissítése sikeresen befejeződött.</translation>
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation>Egyéni szabályok</translation>
+        <translation type="obsolete">Egyéni szabályok</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation>Egyéni szabály hozzáadása</translation>
+        <translation type="obsolete">Egyéni szabály hozzáadása</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation>Az egyéni szabály ide írható:</translation>
+        <translation type="obsolete">Az egyéni szabály ide írható:</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Subscriptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -166,7 +223,41 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>Segítség saját szabályok &amp;készítéséhez</translation>
+        <translation type="obsolete">Segítség saját szabályok &amp;készítéséhez</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
+    <message>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished">Szabály hozzáadása</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished">Egyéni szabály hozzáadása</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished">Az egyéni szabály ide írható:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -536,6 +627,10 @@
     <message>
         <source>Bookmark All Tabs</source>
         <translation>Összes jelenlegi fül mentése a könyvjelzőkhöz</translation>
+    </message>
+    <message>
+        <source>Change icon</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1205,15 +1300,74 @@
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation>Hozzáadás fájlból ...</translation>
+        <translation type="obsolete">Hozzáadás fájlból ...</translation>
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation>Ikon kiválasztása...</translation>
+        <translation type="obsolete">Ikon kiválasztása...</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation>Képfájlok</translation>
+        <translation type="obsolete">Képfájlok</translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>History</name>
+    <message>
+        <source>No Named Page</source>
+        <translation type="unfinished">Névtelen lap</translation>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished">Január</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished">Február</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished">Március</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished">Április</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished">Május</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished">Június</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished">Július</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished">Augusztus</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished">Szeptember</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished">Október</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished">November</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished">December</translation>
     </message>
 </context>
 <context>
@@ -1224,11 +1378,11 @@
     </message>
     <message>
         <source>Title</source>
-        <translation>Az oldal neve</translation>
+        <translation type="obsolete">Az oldal neve</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation>Internetcím</translation>
+        <translation type="obsolete">Internetcím</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1244,27 +1398,27 @@
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Hivatkozás megnyitása a jelenlegi fülön</translation>
+        <translation type="obsolete">Hivatkozás megnyitása a jelenlegi fülön</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Hivatkozás megnyitása új fülön</translation>
+        <translation type="obsolete">Hivatkozás megnyitása új fülön</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>A cím másolása</translation>
+        <translation type="obsolete">A cím másolása</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Ma</translation>
+        <translation type="obsolete">Ma</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Ezen a héten</translation>
+        <translation type="obsolete">Ezen a héten</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Ebben a hónapban</translation>
+        <translation type="obsolete">Ebben a hónapban</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1279,59 +1433,87 @@
     <name>HistoryModel</name>
     <message>
         <source>Failed loading page</source>
-        <translation>Nem sikerült betölteni az oldalt</translation>
+        <translation type="obsolete">Nem sikerült betölteni az oldalt</translation>
     </message>
     <message>
         <source>No Named Page</source>
-        <translation>Névtelen lap</translation>
+        <translation type="obsolete">Névtelen lap</translation>
     </message>
     <message>
         <source>January</source>
-        <translation>Január</translation>
+        <translation type="obsolete">Január</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>Február</translation>
+        <translation type="obsolete">Február</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>Március</translation>
+        <translation type="obsolete">Március</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>Április</translation>
+        <translation type="obsolete">Április</translation>
     </message>
     <message>
         <source>May</source>
-        <translation>Május</translation>
+        <translation type="obsolete">Május</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>Június</translation>
+        <translation type="obsolete">Június</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>Július</translation>
+        <translation type="obsolete">Július</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>Augusztus</translation>
+        <translation type="obsolete">Augusztus</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>Szeptember</translation>
+        <translation type="obsolete">Szeptember</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>Október</translation>
+        <translation type="obsolete">Október</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>November</translation>
+        <translation type="obsolete">November</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>December</translation>
+        <translation type="obsolete">December</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished">Az oldal neve</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished">Ma</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="unfinished">Ezen a héten</translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="unfinished">Ebben a hónapban</translation>
     </message>
 </context>
 <context>
@@ -1342,31 +1524,85 @@
     </message>
     <message>
         <source>Title</source>
-        <translation>Az oldal neve</translation>
+        <translation type="obsolete">Az oldal neve</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Hivatkozás megnyitása a jelenlegi fülön</translation>
+        <translation type="obsolete">Hivatkozás megnyitása a jelenlegi fülön</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Hivatkozás megnyitása új fülön</translation>
+        <translation type="obsolete">Hivatkozás megnyitása új fülön</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>A cím másolása</translation>
+        <translation type="obsolete">A cím másolása</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Ma</translation>
+        <translation type="obsolete">Ma</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Ezen a héten</translation>
+        <translation type="obsolete">Ezen a héten</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Ebben a hónapban</translation>
+        <translation type="obsolete">Ebben a hónapban</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished">Hivatkozás megnyitása a jelenlegi fülön</translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished">Hivatkozás megnyitása új fülön</translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished">A cím másolása</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished">Ikon kiválasztása...</translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished">Fájl megadása...</translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished">Képfájlok</translation>
     </message>
 </context>
 <context>
@@ -1731,11 +1967,11 @@
     </message>
     <message>
         <source>Show Navigation ToolBar on start</source>
-        <translation>Irányítópult megjelenítése elinduláskor</translation>
+        <translation>Vezérlőelemek megjelenítése elinduláskor</translation>
     </message>
     <message>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Irányítópult&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Vezérlőelemek&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Show Home button</source>
@@ -1763,7 +1999,7 @@
     </message>
     <message>
         <source>Make tabs movable</source>
-        <translation>Legyenek a fülek mozgathatóak</translation>
+        <translation type="obsolete">Legyenek a fülek mozgathatóak</translation>
     </message>
     <message>
         <source>Hide tabs when there is only one tab</source>
@@ -1842,7 +2078,7 @@
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>Megerősítés kérése Privát Böngészés indításakor</translation>
+        <translation type="obsolete">Megerősítés kérése Privát Böngészés indításakor</translation>
     </message>
     <message>
         <source>Mouse wheel scrolls</source>
@@ -1950,27 +2186,27 @@
     </message>
     <message>
         <source>Standard</source>
-        <translation>Standard</translation>
+        <translation>Általános típusok</translation>
     </message>
     <message>
         <source>Fixed</source>
-        <translation>Fixed</translation>
+        <translation>Rögzített méretű (szélességű) betűk</translation>
     </message>
     <message>
         <source>Serif</source>
-        <translation>Serif</translation>
+        <translation>Talpas betűk</translation>
     </message>
     <message>
         <source>Sans Serif</source>
-        <translation>Sans Serif</translation>
+        <translation>Talp nélküli betűk</translation>
     </message>
     <message>
         <source>Cursive</source>
-        <translation>Cursive</translation>
+        <translation>Folyóírásos betűk</translation>
     </message>
     <message>
         <source>Fantasy</source>
-        <translation>Fantasy</translation>
+        <translation>Fantáziabetűk</translation>
     </message>
     <message>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
@@ -2068,7 +2304,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;Figyelem:&lt;/b&gt; A Csak a megnyitott weboldaltól fogad sütiket, más címekről nem és a Nyomkövető sütik szűrésének engedélyezése opció néhány weboldalon a sütik letiltását eredményezheti. Ha problémákat észlel, kapcsolja ki ezeket az opciókat!</translation>
+        <translation>&lt;b&gt;Figyelem:&lt;/b&gt; A &quot;Csak a megnyitott weboldaltól fogad sütiket, más címekről nem&quot; és a &quot;Nyomkövető sütik szűrésének engedélyezése&quot; opció néhány weboldalon a sütik letiltását eredményezheti. Ha problémákat észlel, kapcsolja ki ezeket az opciókat!</translation>
     </message>
     <message>
         <source>Cookies Manager</source>
@@ -2080,11 +2316,11 @@
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>SSL kezelő</translation>
+        <translation type="obsolete">SSL kezelő</translation>
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>CA tanúsítványok szerkesztése az SSL kezelőben</translation>
+        <translation type="obsolete">CA tanúsítványok szerkesztése az SSL kezelőben</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -2225,6 +2461,26 @@
     <message>
         <source>Use different proxy for https connection</source>
         <translation>Más proxy használata https kapcsolathoz</translation>
+    </message>
+    <message>
+        <source>Show tab previews</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically switch to newly opened tab</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2381,7 +2637,7 @@
     </message>
     <message>
         <source>&amp;Navigation Toolbar</source>
-        <translation>&amp;Irányítópult</translation>
+        <translation>&amp;Vezérlőelemek</translation>
     </message>
     <message>
         <source>&amp;Bookmarks Toolbar</source>
@@ -2413,11 +2669,11 @@
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation>Könyvjelzők</translation>
+        <translation type="obsolete">Könyvjelzők</translation>
     </message>
     <message>
         <source>History</source>
-        <translation>Előzmények</translation>
+        <translation type="obsolete">Előzmények</translation>
     </message>
     <message>
         <source>Toolbars</source>
@@ -2521,7 +2777,7 @@
     </message>
     <message>
         <source>Web In&amp;spector</source>
-        <translation>Weboldalak el&amp;emeinek vizsgálata</translation>
+        <translation>Weboldal el&amp;emeinek vizsgálata</translation>
     </message>
     <message>
         <source>Clear Recent &amp;History</source>
@@ -2577,7 +2833,7 @@
     </message>
     <message>
         <source>Default</source>
-        <translation>Alapértelmezett</translation>
+        <translation type="obsolete">Alapértelmezett</translation>
     </message>
     <message>
         <source>%1 - QupZilla</source>
@@ -2589,35 +2845,35 @@
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>Biztos, hogy a Privát Böngészést szeretné használni?</translation>
+        <translation type="obsolete">Biztos, hogy a Privát Böngészést szeretné használni?</translation>
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Privát Böngészés módban nem minden funkció használható. Lásd:</translation>
+        <translation type="obsolete">Privát Böngészés módban nem minden funkció használható. Lásd:</translation>
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>Nem lettek hozzáadva weboldalak az Előzményekhez.</translation>
+        <translation type="obsolete">Nem lettek hozzáadva weboldalak az Előzményekhez.</translation>
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation>A jelenlegi sütik nem elérhetőek.</translation>
+        <translation type="obsolete">A jelenlegi sütik nem elérhetőek.</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>A munkamenet nem került mentésre.</translation>
+        <translation type="obsolete">A munkamenet nem került mentésre.</translation>
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>Amíg az ablak nincs bezárva, a Vissza és az Előre gombokkal még vissza lehet térni az előzőleg megnyitott oldalakhoz.</translation>
+        <translation type="obsolete">Amíg az ablak nincs bezárva, a Vissza és az Előre gombokkal még vissza lehet térni az előzőleg megnyitott oldalakhoz.</translation>
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>Privát Böngészés indítása</translation>
+        <translation type="obsolete">Privát Böngészés indítása</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation>Ez híroldal: &quot;%1&quot; sikeresen elmentve.</translation>
+        <translation type="obsolete">Ez híroldal: &quot;%1&quot; sikeresen elmentve.</translation>
     </message>
     <message>
         <source>HTML files</source>
@@ -2702,11 +2958,11 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Google kereső</translation>
+        <translation type="obsolete">Google kereső</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>Google keresési eredmények</translation>
+        <translation type="obsolete">Google keresési eredmények</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -2790,15 +3046,15 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation>Középre helyezés eredeti méretben</translation>
     </message>
     <message>
         <source>Cover</source>
-        <translation>Mozaik</translation>
+        <translation>Háttér kitöltése</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation>Igazítás az oldalhoz</translation>
+        <translation>Háttér méretéhez igazítás</translation>
     </message>
     <message>
         <source>Fit Width</source>
@@ -2956,6 +3212,18 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Ez az oldal információkat tartalmaz a böngésző jelenlegi beállításairól - amelyet a hibaelhárításhoz használhatunk. Kérjük, ezeket az információkat is helyezze bele a hibabejelentésébe.</translation>
     </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3054,7 +3322,59 @@ RSS ikonnal jelölt oldalcímekről hozzá lehet adni híroldalakat.</translatio
     <name>RSSNotification</name>
     <message>
         <source>Open RSS Manager</source>
-        <translation>RSS kezelő megnyitása</translation>
+        <translation type="obsolete">RSS kezelő megnyitása</translation>
+    </message>
+    <message>
+        <source>Add this feed into</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Hozzáadás</translation>
+    </message>
+    <message>
+        <source>Executable: </source>
+        <translation type="unfinished">Indítófájl:</translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation type="unfinished">Programutasítások:</translation>
+    </message>
+    <message>
+        <source>Cannot start external program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external program! %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Internal Reader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea not running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea must be running in order to add new feed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add feed into other application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3076,7 +3396,7 @@ RSS ikonnal jelölt oldalcímekről hozzá lehet adni híroldalakat.</translatio
     <name>SSLManager</name>
     <message>
         <source>SSL Manager</source>
-        <translation>SSL kezelő</translation>
+        <translation type="obsolete">SSL kezelő</translation>
     </message>
     <message>
         <source>CA Authorities Certificates</source>
@@ -3116,7 +3436,7 @@ RSS ikonnal jelölt oldalcímekről hozzá lehet adni híroldalakat.</translatio
     </message>
     <message>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
-        <translation>&lt;b&gt;MEGJEGYZÉS:&lt;/b&gt;Ennek az opciónak a beállítása magas biztonsági kockázatot jelent!</translation>
+        <translation>&lt;b&gt;MEGJEGYZÉS:&lt;/b&gt; Ennek az opciónak a beállítása magas biztonsági kockázatot jelent!</translation>
     </message>
     <message>
         <source>Ignore all SSL Warnings</source>
@@ -3135,6 +3455,18 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     <message>
         <source>Certificate Informations</source>
         <translation>Tanúsítvány adatok</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3728,7 +4060,7 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     <name>WebInspectorDockWidget</name>
     <message>
         <source>Web Inspector</source>
-        <translation>Weboldalak elemeinek vizsgálata</translation>
+        <translation>Weboldal elemeinek vizsgálata</translation>
     </message>
 </context>
 <context>
@@ -3796,7 +4128,7 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>&lt;i&gt;%1&lt;/i&gt; szabály alapján blokkolva</translation>
+        <translation type="obsolete">&lt;i&gt;%1&lt;/i&gt; szabály alapján blokkolva</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -3845,6 +4177,22 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     <message>
         <source>Unknown network error</source>
         <translation>Nem beazonosítható hálózati hiba</translation>
+    </message>
+    <message>
+        <source>Remember my choice for this protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

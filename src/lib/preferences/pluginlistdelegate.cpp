@@ -19,72 +19,109 @@
 
 #include <QPainter>
 #include <QListWidget>
-#include <QTextLayout>
-#include <QTextDocument>
-#include <QTextBlock>
 #include <QApplication>
-#include <QScrollBar>
 
 PluginListDelegate::PluginListDelegate(QListWidget* parent)
-    : QItemDelegate(parent)
-    , m_listWidget(parent)
+    : QStyledItemDelegate(parent)
+    , m_rowHeight(0)
 {
 }
 
-void PluginListDelegate::drawDisplay(QPainter* painter, const QStyleOptionViewItem &option, const QRect &rect, const QString &text) const
+void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QPalette::ColorGroup cg = option.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
+    QStyleOptionViewItemV4 opt = option;
+    initStyleOption(&opt, index);
 
-    if (cg == QPalette::Normal && !(option.state & QStyle::State_Active)) {
-        cg = QPalette::Inactive;
-    }
+    const QWidget* w = opt.widget;
+    const QStyle* style = w ? w->style() : QApplication::style();
+    const int height = opt.rect.height();
+    const int center = height / 2 + opt.rect.top();
 
-    if (option.state & QStyle::State_Selected) {
-        painter->fillRect(rect, option.palette.brush(cg, QPalette::Highlight));
-        painter->setPen(option.palette.color(cg, QPalette::HighlightedText));
-    }
-    else {
-        painter->setPen(option.palette.color(cg, QPalette::Text));
-    }
+    // Prepare title font
+    QFont titleFont = opt.font;
+    titleFont.setBold(true);
+    titleFont.setPointSize(titleFont.pointSize() + 1);
 
-    QTextDocument textDocument;
-    textDocument.setHtml(text);
+    const QFontMetrics titleMetrics(titleFont);
+    const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
 
-    QTextLayout textLayout(textDocument.begin());
-    textLayout.setFont(option.font);
+    int leftPosition = m_padding;
+    int rightPosition = opt.rect.right() - m_padding;
 
-    const int textMargin = QApplication::style()->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
-    QRect textRect = rect.adjusted(textMargin, 0, -textMargin, 0); // remove width padding
+    // Draw background
+    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
-    textLayout.beginLayout();
-    qreal height = 0;
-    QTextLine line = textLayout.createLine();
+    // Draw checkbox
+    const int checkboxSize = 18;
+    const int checkboxYPos = center - (checkboxSize / 2);
+    QStyleOptionViewItemV4 opt2 = opt;
+    opt2.checkState == Qt::Checked ? opt2.state |= QStyle::State_On : opt2.state |= QStyle::State_Off;
+    QRect styleCheckBoxRect = style->subElementRect(QStyle::SE_ViewItemCheckIndicator, &opt2, w);
+    opt2.rect = QRect(leftPosition, checkboxYPos, styleCheckBoxRect.width(), styleCheckBoxRect.height());
+    style->drawPrimitive(QStyle::PE_IndicatorViewItemCheck, &opt2, painter, w);
+    leftPosition = opt2.rect.right() + m_padding;
 
-    while (line.isValid()) {
-        line.setLineWidth(textRect.width());
-        height += 3;
-        line.setPosition(QPoint(0, height));
-        height += line.height();
+    // Draw icon
+    const int iconSize = 32;
+    const int iconYPos = center - (iconSize / 2);
+    QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
+    QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize);
+    painter->drawPixmap(iconRect, pixmap);
+    leftPosition = iconRect.right() + m_padding;
 
-        line = textLayout.createLine();
-    }
+    // Draw plugin name
+    const QString &name = index.data(Qt::DisplayRole).toString();
+    const int leftTitleEdge = leftPosition + 2;
+    const int rightTitleEdge = rightPosition - m_padding;
+    const int leftPosForVersion = titleMetrics.width(name) + m_padding;
+    QRect nameRect(leftTitleEdge, opt.rect.top() + m_padding, rightTitleEdge - leftTitleEdge, titleMetrics.height());
+    painter->setFont(titleFont);
+    style->drawItemText(painter, nameRect, Qt::AlignLeft, opt.palette, true, name, colorRole);
 
-    textLayout.endLayout();
-    textLayout.draw(painter, QPointF(textRect.left(), textRect.top()));
+    // Draw version
+    const QString &version = index.data(Qt::UserRole).toString();
+    QRect versionRect(nameRect.x() + leftPosForVersion, nameRect.y(), rightTitleEdge - leftPosForVersion, titleMetrics.height());
+    QFont versionFont = titleFont;
+    versionFont.setBold(false);
+    painter->setFont(versionFont);
+    style->drawItemText(painter, versionRect, Qt::AlignLeft, opt.palette, true, version, colorRole);
+
+    // Draw info
+    const int infoYPos = nameRect.bottom() + opt.fontMetrics.leading();
+    QRect infoRect(nameRect.x(), infoYPos, nameRect.width(), opt.fontMetrics.height());
+    const QString &info = opt.fontMetrics.elidedText(index.data(Qt::UserRole + 1).toString(), Qt::ElideRight, infoRect.width());
+    painter->setFont(opt.font);
+    style->drawItemText(painter, infoRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, info, colorRole);
+
+    // Draw description
+    const int descriptionYPos = infoRect.bottom() + opt.fontMetrics.leading();
+    QRect descriptionRect(infoRect.x(), descriptionYPos, infoRect.width(), opt.fontMetrics.height());
+    const QString &description = opt.fontMetrics.elidedText(index.data(Qt::UserRole + 2).toString(), Qt::ElideRight, descriptionRect.width());
+    style->drawItemText(painter, descriptionRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, description, colorRole);
 }
 
 QSize PluginListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Q_UNUSED(index)
 
-    const int textMargin = QApplication::style()->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
-    const int scrollBarSize = m_listWidget->verticalScrollBar()->isVisible() ? m_listWidget->verticalScrollBar()->width() : 0;
+    if (!m_rowHeight) {
+        QStyleOptionViewItemV4 opt(option);
+        initStyleOption(&opt, index);
 
-    QSize size;
-    size.setWidth(m_listWidget->width() - 10 - scrollBarSize);
+        const QWidget* w = opt.widget;
+        const QStyle* style = w ? w->style() : QApplication::style();
+        const int padding = style->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
 
-    // ( height of font * 3 = 3 lines )  + ( text margins ) + ( 2 free lines = every line is 3px )
-    size.setHeight((option.fontMetrics.height() * 3) + (textMargin * 2) + (2 * 3));
+        QFont titleFont = opt.font;
+        titleFont.setBold(true);
+        titleFont.setPointSize(titleFont.pointSize() + 1);
 
-    return size;
+        m_padding = padding > 5 ? padding : 5;
+
+        const QFontMetrics titleMetrics(titleFont);
+
+        m_rowHeight = 2 * m_padding + 2 * opt.fontMetrics.leading() + 2 * opt.fontMetrics.height() + titleMetrics.height();
+    }
+
+    return QSize(200, m_rowHeight);
 }

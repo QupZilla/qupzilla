@@ -25,8 +25,7 @@
 class QT_QUPZILLA_EXPORT SchemeHandler
 {
 public:
-    SchemeHandler();
-
+    SchemeHandler() { }
     virtual QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData) = 0;
 };
 

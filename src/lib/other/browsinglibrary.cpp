@@ -24,6 +24,7 @@
 #include "downloaditem.h"
 #include "globalfunctions.h"
 #include "settings.h"
+#include "history.h"
 
 #include <QMessageBox>
 #include <QCloseEvent>
@@ -35,7 +36,6 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     , m_historyManager(new HistoryManager(mainClass))
     , m_bookmarksManager(new BookmarksManager(mainClass))
     , m_rssManager(mApp->rssManager())
-    , m_historyLoaded(false)
     , m_bookmarksLoaded(false)
     , m_rssLoaded(false)
 {
@@ -44,6 +44,7 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     Settings settings;
     settings.beginGroup("BrowsingLibrary");
     resize(settings.value("size", QSize(760, 470)).toSize());
+    m_historyManager->restoreState(settings.value("historyState", QByteArray()).toByteArray());
     settings.endGroup();
 
     qz_centerWidgetOnScreen(this);
@@ -63,10 +64,6 @@ void BrowsingLibrary::currentIndexChanged(int index)
 {
     switch (index) {
     case 0:
-        if (!m_historyLoaded) {
-            m_historyManager->refreshTable();
-            m_historyLoaded = true;
-        }
         ui->searchLine->show();
         search();
         break;
@@ -108,11 +105,6 @@ void BrowsingLibrary::showHistory(QupZilla* mainClass)
     ui->tabs->SetCurrentIndex(0);
     show();
     m_historyManager->setMainWindow(mainClass);
-
-    if (!m_historyLoaded) {
-        m_historyManager->refreshTable();
-        m_historyLoaded = true;
-    }
 
     raise();
     activateWindow();
@@ -161,8 +153,18 @@ void BrowsingLibrary::closeEvent(QCloseEvent* e)
     Settings settings;
     settings.beginGroup("BrowsingLibrary");
     settings.setValue("size", size());
+    settings.setValue("historyState", m_historyManager->saveState());
     settings.endGroup();
     e->accept();
+}
+
+void BrowsingLibrary::keyPressEvent(QKeyEvent* e)
+{
+    if (e->key() == Qt::Key_Escape) {
+        close();
+    }
+
+    QWidget::keyPressEvent(e);
 }
 
 BrowsingLibrary::~BrowsingLibrary()

@@ -94,7 +94,7 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     m_actionPaste->setShortcut(QKeySequence("Ctrl+V"));
 
     QMenu* menuView = new QMenu(tr("View"));
-    menuView->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("Reload"), this, SLOT(reload()))->setShortcut(QKeySequence("F5"));
+    menuView->addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("Reload"), this, SLOT(reload()))->setShortcut(QKeySequence("F5"));
     menuView->addSeparator();
     menuView->addAction(tr("Editable"), this, SLOT(setTextEditable()))->setCheckable(true);
     menuView->addAction(tr("Word Wrap"), this, SLOT(setTextWordWrap()))->setCheckable(true);
@@ -138,7 +138,10 @@ void SourceViewer::loadSource()
     m_actionCopy->setEnabled(false);
     m_actionPaste->setEnabled(false);
 
-    m_sourceEdit->setPlainText(m_frame.data()->toHtml());
+    QString html = m_frame.data()->toHtml();
+    // Remove AdBlock element hiding rules
+    html.remove(QRegExp("<style type=\"text/css\">\n/\\* AdBlock for QupZilla \\*/\n.*\\{display: none !important;\\}\n</style>"));
+    m_sourceEdit->setPlainText(html);
 
     //Highlight selectedHtml
     if (!m_selectedHtml.isEmpty()) {
