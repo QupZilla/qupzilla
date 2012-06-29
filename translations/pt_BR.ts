@@ -75,26 +75,26 @@
     <name>AdBlockAddSubscriptionDialog</name>
     <message>
         <source>Title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Título: </translation>
     </message>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Endereço:</translation>
     </message>
     <message>
         <source>Add new subscription to AdBlock:</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar nova inscrição:</translation>
     </message>
     <message>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar Inscrição</translation>
     </message>
 </context>
 <context>
     <name>AdBlockCustomList</name>
     <message>
         <source>Custom Rules</source>
-        <translation type="unfinished">Filtros Personalizados</translation>
+        <translation>Filtros Personalizados</translation>
     </message>
 </context>
 <context>
@@ -153,34 +153,34 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opções</translation>
     </message>
     <message>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover Filtro</translation>
     </message>
     <message>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar Inscrição</translation>
     </message>
     <message>
         <source>Remove Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover Inscrição</translation>
     </message>
     <message>
         <source>Update Subscriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Atualizar Inscrições</translation>
     </message>
     <message>
         <source>Learn about writing rules...</source>
-        <translation type="unfinished"></translation>
+        <translation>Aprenda mais sobre como escrever filtros...</translation>
     </message>
 </context>
 <context>
     <name>AdBlockEasyList</name>
     <message>
         <source>EasyList</source>
-        <translation type="unfinished"></translation>
+        <translation>EasyList</translation>
     </message>
 </context>
 <context>
@@ -223,41 +223,41 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation type="obsolete">Saber mais sobre as &amp;regras</translation>
+        <translation type="obsolete">Saber mais sobre como escrever filt&amp;ros</translation>
     </message>
 </context>
 <context>
     <name>AdBlockManager</name>
     <message>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
-        <translation type="unfinished"></translation>
+        <translation>Você quer adicionar &lt;b&gt;%1&lt;/b&gt; inscrições?</translation>
     </message>
     <message>
         <source>AdBlock Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Inscrições do AdBlock</translation>
     </message>
 </context>
 <context>
     <name>AdBlockTreeWidget</name>
     <message>
         <source>Add Rule</source>
-        <translation type="unfinished">Adicionar Filtro</translation>
+        <translation>Adicionar Filtro</translation>
     </message>
     <message>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover Filtro</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation type="unfinished">Adicionar filtro personalizado</translation>
+        <translation>Adicionar filtro personalizado</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation type="unfinished">Escreva aqui o seu filtro:</translation>
+        <translation>Escreva aqui o seu filtro:</translation>
     </message>
     <message>
         <source>%1 (recently updated)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (atualizado recentemente)</translation>
     </message>
 </context>
 <context>
@@ -499,7 +499,7 @@
     </message>
     <message>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation>O Internet Explorer salva os favoritos na pasta  &lt;b&gt;Favoritos&lt;/b&gt;, que geralmente fica em</translation>
+        <translation>O Internet Explorer salva os favoritos na pasta &lt;b&gt;Favoritos&lt;/b&gt;, que geralmente fica em</translation>
     </message>
     <message>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
@@ -530,7 +530,7 @@
     <name>BookmarksManager</name>
     <message>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Title</source>
@@ -679,7 +679,7 @@
     </message>
     <message>
         <source>Url: </source>
-        <translation>Url: </translation>
+        <translation>URL: </translation>
     </message>
     <message>
         <source>&amp;Hide Toolbar</source>
@@ -1122,10 +1122,10 @@
         <translation>Abrir pasta</translation>
     </message>
     <message>
-        <source>Sorry, the file 
- %1 
+        <source>Sorry, the file
+ %1
  was not found!</source>
-        <translation>Desculpa, o arquivo 
+        <translation>Desculpa, o arquivo
 %1
 não foi encontrado!</translation>
     </message>
@@ -1280,7 +1280,7 @@ não foi encontrado!</translation>
     <name>EditSearchEngine</name>
     <message>
         <source>Url:</source>
-        <translation>Url:</translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <source>Icon:</source>
@@ -1304,7 +1304,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
-        <translation>&lt;b&gt;Observação: &lt;/b&gt;%s no url representa o texto procurado</translation>
+        <translation>&lt;b&gt;Observação: &lt;/b&gt;%s no URL representa o texto procurado</translation>
     </message>
     <message>
         <source>Image files</source>
@@ -1374,7 +1374,7 @@ não foi encontrado!</translation>
     <name>HistoryManager</name>
     <message>
         <source>Url</source>
-        <translation type="obsolete">Url</translation>
+        <translation type="obsolete">URL</translation>
     </message>
     <message>
         <source>This Week</source>
@@ -2472,7 +2472,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Automatically switch to newly opened tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Alterar automaticamente para a mais nova guia aberta</translation>
     </message>
 </context>
 <context>
@@ -2880,7 +2880,7 @@ não foi encontrado!</translation>
         <translation>&lt;b&gt;QupZilla travou :/&lt;/b&gt;&lt;br/&gt;Oops, parece que a última sessão do QupZilla não foi fechada como o planejado. Pedimos mil desculpas por isso. Você deseja que nós tentassemos abrir a última sessão que você estava?</translation>
     </message>
     <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. 
+        <source>There are still %1 open tabs and your session won&apos;t be stored.
 Are you sure to quit QupZilla?</source>
         <translation>Ainda há %1 guias abertas. A sua sessão não será salva.
 Você tem certeza que deseja sair do QupZilla?</translation>
@@ -2902,7 +2902,7 @@ Você tem certeza que deseja sair do QupZilla?</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -3194,15 +3194,15 @@ Você tem certeza que deseja sair do QupZilla?</translation>
     </message>
     <message>
         <source>Search on Web</source>
-        <translation type="unfinished"></translation>
+        <translation>Procurar na Internet</translation>
     </message>
     <message>
         <source>Search results provided by DuckDuckGo</source>
-        <translation type="unfinished"></translation>
+        <translation>Resultados direto do DuckDuckGo</translation>
     </message>
     <message>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Navegação Privada&lt;/h1&gt;</translation>
     </message>
 </context>
 <context>
@@ -3306,55 +3306,55 @@ Adicione os feeds clicando no símbolo RSS existente na barra de navegação, em
     </message>
     <message>
         <source>Add this feed into</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar esse fedd no</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Adicionar</translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Executable: </source>
-        <translation type="unfinished">Executável: </translation>
+        <translation>Executável: </translation>
     </message>
     <message>
         <source>Arguments: </source>
-        <translation type="unfinished">Argumentos: </translation>
+        <translation>Argumentos: </translation>
     </message>
     <message>
         <source>Cannot start external program</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível iniciar o programa externo</translation>
     </message>
     <message>
         <source>Cannot start external program! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível iniciar o programa externo! %1</translation>
     </message>
     <message>
         <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Feed RSS &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Internal Reader</source>
-        <translation type="unfinished"></translation>
+        <translation>Leitor Interno</translation>
     </message>
     <message>
         <source>Other...</source>
-        <translation type="unfinished"></translation>
+        <translation>Outro...</translation>
     </message>
     <message>
         <source>Liferea not running</source>
-        <translation type="unfinished"></translation>
+        <translation>Liferea não está em execução</translation>
     </message>
     <message>
         <source>Liferea must be running in order to add new feed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Liferea deve estar em execução para poder adicionar novos feeds.</translation>
     </message>
     <message>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
-        <translation type="unfinished"></translation>
+        <translation>Para adicionar esse feed RSS em outro aplicativo, por favor, use essa informação:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Título:&lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;URL:&lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;A URL foi copiada para a sua área de transferência.</translation>
     </message>
     <message>
         <source>Add feed into other application</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar feed em outro aplicativo</translation>
     </message>
 </context>
 <context>
@@ -3648,7 +3648,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Copy Image Location</source>
-        <translation>Copiar URL da Imagem</translation>
+        <translation>Copiar link da Imagem</translation>
     </message>
     <message>
         <source>General</source>
@@ -4083,7 +4083,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="obsolete">Bloqueado pela regra &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="obsolete">Bloqueado pelo filtro &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -4146,7 +4146,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
         <translation>Falha ao carregar a página</translation>
     </message>
     <message>
-        <source>To show this page, QupZilla must resend request which do it again 
+        <source>To show this page, QupZilla must resend request which do it again
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Para mostrar esta página, o QupZilla precisa reenviar o pedido solicitado.
 (é como fazer alguma coisa, que você já havia feito anteriormente)</translation>
@@ -4173,7 +4173,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloqueado por &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
@@ -4235,7 +4235,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>&amp;Copy link address</source>
-        <translation>&amp;Copiar URL</translation>
+        <translation>&amp;Copiar link</translation>
     </message>
     <message>
         <source>Show so&amp;urce of frame</source>
@@ -4375,7 +4375,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Copy image ad&amp;dress</source>
-        <translation>Copiar URL &amp;da imagem</translation>
+        <translation>Copiar link &amp;da imagem</translation>
     </message>
     <message>
         <source>Search with...</source>
