@@ -1151,7 +1151,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Cancel downloading</source>
-        <translation>Cancelar download</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>seconds</source>
