@@ -302,6 +302,24 @@ LangString DESC_SecDesktop ${LANG_POLISH} "Dodaj skrót do pulpitu."
 LangString DESC_SecExtensions ${LANG_POLISH} "Skojarz przeglądarkę QupZilla z plikami .htm i .html"
 LangString DESC_SecThemes ${LANG_POLISH} "Dodatkowe motywy dla przeglądarki QupZilla"
 
+;;;;Ukrainian
+LangString TITLE_SecMain ${LANG_UKRAINIAN} "Основні компоненти"
+LangString TITLE_SecTranslations ${LANG_UKRAINIAN} "Переклади"
+LangString TITLE_SecPlugins ${LANG_UKRAINIAN} "Плаґіни"
+LangString TITLE_SecDesktop ${LANG_UKRAINIAN} "Іконка на робочому столі"
+LangString TITLE_SecExtensions ${LANG_UKRAINIAN} "Асоціювання файлів"
+LangString TITLE_SecThemes ${LANG_UKRAINIAN} "Теми"
+
+LangString FILE_Htm ${LANG_UKRAINIAN} "Файл HTM"
+LangString FILE_Html ${LANG_UKRAINIAN} "Файл HTML"
+;
+LangString DESC_SecMain ${LANG_UKRAINIAN} "Основні компоненти програми."
+LangString DESC_SecTranslations ${LANG_UKRAINIAN} "Доступні інші переклади для встановлення. Мова за умовчуванням - англійська."
+LangString DESC_SecPlugins ${LANG_UKRAINIAN} "Доступні інші плаґіни для встановлення."
+LangString DESC_SecDesktop ${LANG_UKRAINIAN} "Додати посилання на робочий стіл."
+LangString DESC_SecExtensions ${LANG_UKRAINIAN} "Асоціювати QupZill'у з файлами .htm і .html"
+LangString DESC_SecThemes ${LANG_UKRAINIAN} "Додаткові теми для QupZill'и"
+
 ;;;;;;;;;
 ;;;;;;;;;
 ; Unfinished translations
