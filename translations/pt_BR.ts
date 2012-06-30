@@ -1120,8 +1120,8 @@
     <message>
         <source>Open Folder</source>
         <translation>Abrir pasta</translation>
-    </message>
-    <message>
+    </message>    
+    <message>	
         <source>Remove</source>
         <translation>Remover</translation>
     </message>
@@ -2884,7 +2884,8 @@ não foi encontrado!</translation>
         <translation>&lt;b&gt;QupZilla travou :/&lt;/b&gt;&lt;br/&gt;Oops, parece que a última sessão do QupZilla não foi fechada como o planejado. Pedimos mil desculpas por isso. Você deseja que nós tentassemos abrir a última sessão que você estava?</translation>
     </message>
     <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored.
+        <location filename="../src/lib/app/qupzilla.cpp" line="1754"/>
+        <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
         <translation>Ainda há %1 guias abertas. A sua sessão não será salva.
 Você tem certeza que deseja sair do QupZilla?</translation>
