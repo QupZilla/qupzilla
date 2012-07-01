@@ -48,7 +48,7 @@ private slots:
     void subscriptionUpdated();
 
 private:
-    void adjustItemColor(QTreeWidgetItem* item, const AdBlockRule &rule);
+    void adjustItemFeatures(QTreeWidgetItem* item, const AdBlockRule &rule);
     void keyPressEvent(QKeyEvent* event);
 
     AdBlockSubscription* m_subscription;

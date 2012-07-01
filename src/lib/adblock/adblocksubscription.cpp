@@ -43,6 +43,7 @@
  * SUCH DAMAGE.
  */
 #include "adblocksubscription.h"
+#include "adblockmanager.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "globalfunctions.h"
@@ -85,7 +86,7 @@ void AdBlockSubscription::setUrl(const QUrl &url)
     m_url = url;
 }
 
-void AdBlockSubscription::loadSubscription()
+void AdBlockSubscription::loadSubscription(const QStringList &disabledRules)
 {
     QFile file(m_filePath);
 
@@ -116,8 +117,13 @@ void AdBlockSubscription::loadSubscription()
     m_rules.clear();
 
     while (!textStream.atEnd()) {
-        const QString &line = textStream.readLine();
-        m_rules.append(AdBlockRule(line, this));
+        AdBlockRule rule(textStream.readLine(), this);
+
+        if (disabledRules.contains(rule.filter())) {
+            rule.setEnabled(false);
+        }
+
+        m_rules.append(rule);
     }
 
     populateCache();
@@ -130,21 +136,6 @@ void AdBlockSubscription::loadSubscription()
 
 void AdBlockSubscription::saveSubscription()
 {
-    QFile file(m_filePath);
-
-    if (!file.open(QFile::ReadWrite | QFile::Truncate)) {
-        qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for writing:" << m_filePath;
-        return;
-    }
-
-    QTextStream textStream(&file);
-    textStream << "Title: " << m_title << endl;
-    textStream << "Url: " << m_url.toString() << endl;
-    textStream << "[Adblock Plus 1.1.1]" << endl;
-
-    foreach(const AdBlockRule & rule, m_rules) {
-        textStream << rule.filter() << endl;
-    }
 }
 
 void AdBlockSubscription::updateSubscription()
@@ -173,7 +164,7 @@ void AdBlockSubscription::subscriptionDownloaded()
 
         saveDownloadedData(response);
 
-        loadSubscription();
+        loadSubscription(AdBlockManager::instance()->disabledRules());
         emit subscriptionUpdated();
     }
 
@@ -230,6 +221,15 @@ QString AdBlockSubscription::elementHidingRulesForDomain(const QString &domain) 
     return rules;
 }
 
+const AdBlockRule* AdBlockSubscription::rule(int offset) const
+{
+    if (!qz_listContainsIndex(m_rules, offset)) {
+        return 0;
+    }
+
+    return &m_rules[offset];
+}
+
 QList<AdBlockRule> AdBlockSubscription::allRules() const
 {
     return m_rules;
@@ -241,8 +241,11 @@ const AdBlockRule* AdBlockSubscription::enableRule(int offset)
         return 0;
     }
 
-    m_rules[offset].setEnabled(true);
-    return &m_rules[offset];
+    AdBlockRule* rule = &m_rules[offset];
+    rule->setEnabled(true);
+    AdBlockManager::instance()->removeDisabledRule(rule->filter());
+
+    return rule;
 }
 
 const AdBlockRule* AdBlockSubscription::disableRule(int offset)
@@ -251,8 +254,11 @@ const AdBlockRule* AdBlockSubscription::disableRule(int offset)
         return 0;
     }
 
-    m_rules[offset].setEnabled(false);
-    return &m_rules[offset];
+    AdBlockRule* rule = &m_rules[offset];
+    rule->setEnabled(false);
+    AdBlockManager::instance()->addDisabledRule(rule->filter());
+
+    return rule;
 }
 
 bool AdBlockSubscription::canEditRules() const
@@ -355,6 +361,27 @@ AdBlockCustomList::AdBlockCustomList(QObject* parent)
     setFilePath(mApp->currentProfilePath() + "adblock/customlist.txt");
 }
 
+void AdBlockCustomList::saveSubscription()
+{
+    QFile file(filePath());
+
+    if (!file.open(QFile::ReadWrite | QFile::Truncate)) {
+        qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for writing:" << filePath();
+        return;
+    }
+
+    QTextStream textStream(&file);
+    textStream << "Title: " << title() << endl;
+    textStream << "Url: " << url().toString() << endl;
+    textStream << "[Adblock Plus 1.1.1]" << endl;
+
+    foreach(const AdBlockRule & rule, m_rules) {
+        textStream << rule.filter() << endl;
+    }
+
+    file.close();
+}
+
 bool AdBlockCustomList::canEditRules() const
 {
     return true;
@@ -379,8 +406,12 @@ bool AdBlockCustomList::removeRule(int offset)
         return false;
     }
 
+    const QString &filter = m_rules[offset].filter();
+
     m_rules.removeAt(offset);
     populateCache();
+
+    AdBlockManager::instance()->removeDisabledRule(filter);
 
     return true;
 }

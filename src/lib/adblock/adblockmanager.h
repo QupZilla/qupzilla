@@ -19,6 +19,7 @@
 #define ADBLOCKMANAGER_H
 
 #include <QObject>
+#include <QStringList>
 #include <QWeakPointer>
 
 #include "qz_namespace.h"
@@ -51,6 +52,10 @@ public:
 
     QNetworkReply* block(const QNetworkRequest &request);
 
+    QStringList disabledRules() const;
+    void addDisabledRule(const QString &filter);
+    void removeDisabledRule(const QString &filter);
+
     AdBlockSubscription* addSubscription(const QString &title, const QString &url);
     bool removeSubscription(AdBlockSubscription* subscription);
 
@@ -68,8 +73,10 @@ private:
     bool m_loaded;
     bool m_enabled;
 
-    QWeakPointer<AdBlockDialog> m_adBlockDialog;
     QList<AdBlockSubscription*> m_subscriptions;
+    QStringList m_disabledRules;
+
+    QWeakPointer<AdBlockDialog> m_adBlockDialog;
 };
 
 #endif // ADBLOCKMANAGER_H

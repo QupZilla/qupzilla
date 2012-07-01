@@ -74,6 +74,7 @@ public:
     bool isDomainRestricted() const;
     bool isException() const;
 
+    bool isComment() const;
     bool isEnabled() const;
     void setEnabled(bool enabled);
 

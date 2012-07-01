@@ -70,13 +70,15 @@ public:
     QUrl url() const;
     void setUrl(const QUrl &url);
 
-    virtual void loadSubscription();
+    virtual void loadSubscription(const QStringList &disabledRules);
     virtual void saveSubscription();
 
     const AdBlockRule* match(const QNetworkRequest &request, const QString &urlDomain, const QString &urlString) const;
 
     QString elementHidingRules() const;
     QString elementHidingRulesForDomain(const QString &domain) const;
+
+    const AdBlockRule* rule(int offset) const;
     QList<AdBlockRule> allRules() const;
 
     const AdBlockRule* enableRule(int offset);
@@ -116,6 +118,7 @@ protected:
 private:
     QString m_title;
     QString m_filePath;
+
     QUrl m_url;
 };
 
@@ -136,6 +139,8 @@ class AdBlockCustomList : public AdBlockSubscription
     Q_OBJECT
 public:
     explicit AdBlockCustomList(QObject* parent = 0);
+
+    void saveSubscription();
 
     bool canEditRules() const;
     bool canBeRemoved() const;

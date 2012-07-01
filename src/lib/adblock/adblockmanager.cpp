@@ -97,6 +97,21 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
     return 0;
 }
 
+QStringList AdBlockManager::disabledRules() const
+{
+    return m_disabledRules;
+}
+
+void AdBlockManager::addDisabledRule(const QString &filter)
+{
+    m_disabledRules.append(filter);
+}
+
+void AdBlockManager::removeDisabledRule(const QString &filter)
+{
+    m_disabledRules.removeOne(filter);
+}
+
 AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const QString &url)
 {
     if (title.isEmpty() || url.isEmpty()) {
@@ -120,7 +135,7 @@ AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const
     AdBlockSubscription* subscription = new AdBlockSubscription(title, this);
     subscription->setUrl(QUrl(url));
     subscription->setFilePath(filePath);
-    subscription->loadSubscription();
+    subscription->loadSubscription(m_disabledRules);
 
     m_subscriptions.insert(m_subscriptions.count() - 1, subscription);
 
@@ -149,6 +164,7 @@ void AdBlockManager::load()
     Settings settings;
     settings.beginGroup("AdBlock");
     m_enabled = settings.value("enabled", m_enabled).toBool();
+    m_disabledRules = settings.value("disabledRules", QStringList()).toStringList();
     QDateTime lastUpdate = settings.value("lastUpdate", QDateTime()).toDateTime();
     settings.endGroup();
 
@@ -198,7 +214,7 @@ void AdBlockManager::load()
 
     // Load all subscriptions
     foreach(AdBlockSubscription * subscription, m_subscriptions) {
-        subscription->loadSubscription();
+        subscription->loadSubscription(m_disabledRules);
     }
 
     if (lastUpdate.addDays(5) < QDateTime::currentDateTime()) {
@@ -233,6 +249,7 @@ void AdBlockManager::save()
     Settings settings;
     settings.beginGroup("AdBlock");
     settings.setValue("enabled", m_enabled);
+    settings.setValue("disabledRules", m_disabledRules);
     settings.endGroup();
 }
 

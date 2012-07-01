@@ -158,6 +158,11 @@ bool AdBlockRule::isException() const
     return m_exception;
 }
 
+bool AdBlockRule::isComment() const
+{
+    return m_filter.startsWith('!');
+}
+
 bool AdBlockRule::isEnabled() const
 {
     return m_enabled;
@@ -166,13 +171,6 @@ bool AdBlockRule::isEnabled() const
 void AdBlockRule::setEnabled(bool enabled)
 {
     m_enabled = enabled;
-
-    if (!enabled) {
-        m_filter = "!" + m_filter;
-    }
-    else {
-        m_filter = m_filter.mid(1);
-    }
 }
 
 bool AdBlockRule::isSlow() const
@@ -325,16 +323,10 @@ void AdBlockRule::parseFilter()
 {
     QString parsedLine = m_filter;
 
-    // Empty rule
-    if (m_filter.trimmed().isEmpty()) {
+    // Empty rule or just comment
+    if (m_filter.trimmed().isEmpty() || m_filter.startsWith('!')) {
         m_enabled = false;
         return;
-    }
-
-    // Disabled rule - modify parsedLine to not contain starting ! so we can continue parsing rule
-    if (m_filter.startsWith('!')) {
-        m_enabled = false;
-        parsedLine = m_filter.mid(1);
     }
 
     // CSS Element hiding rule
@@ -416,16 +408,16 @@ void AdBlockRule::parseFilter()
     }
 
     // Remove starting and ending wildcards (*)
-    if (parsedLine.startsWith("*")) {
+    if (parsedLine.startsWith('*')) {
         parsedLine = parsedLine.mid(1);
     }
 
-    if (parsedLine.endsWith("*")) {
+    if (parsedLine.endsWith('*')) {
         parsedLine = parsedLine.left(parsedLine.size() - 1);
     }
 
     // We can use fast string matching for domain here
-    if (parsedLine.startsWith("||") && parsedLine.endsWith("^") && !parsedLine.contains(QRegExp("[/:?=&\\*]"))) {
+    if (parsedLine.startsWith("||") && parsedLine.endsWith('^') && !parsedLine.contains(QRegExp("[/:?=&\\*]"))) {
         parsedLine = parsedLine.mid(2);
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
@@ -435,7 +427,7 @@ void AdBlockRule::parseFilter()
     }
 
     // If rule contains only | at end, we can also use string matching
-    if (parsedLine.endsWith("|") && !parsedLine.contains(QRegExp("[\\^\\*]")) && parsedLine.count('|') == 1) {
+    if (parsedLine.endsWith('|') && !parsedLine.contains(QRegExp("[\\^\\*]")) && parsedLine.count('|') == 1) {
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
         m_useEndsMatch = true;

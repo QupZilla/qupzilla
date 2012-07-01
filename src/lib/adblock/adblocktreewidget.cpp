@@ -95,28 +95,26 @@ void AdBlockTreeWidget::itemChanged(QTreeWidgetItem* item)
 
     m_itemChangingBlock = true;
 
-    if (item->checkState(0) == Qt::Unchecked && !item->text(0).startsWith("!")) {
+    int offset = item->data(0, Qt::UserRole + 10).toInt();
+    const AdBlockRule* oldRule = m_subscription->rule(offset);
+
+    if (item->checkState(0) == Qt::Unchecked && oldRule->isEnabled()) {
         // Disable rule
-        int offset = item->data(0, Qt::UserRole + 10).toInt();
-        item->setText(0, item->text(0).prepend("!"));
-
         const AdBlockRule* rule = m_subscription->disableRule(offset);
-        adjustItemColor(item, *rule);
-    }
-    else if (item->checkState(0) == Qt::Checked && item->text(0).startsWith("!")) {
-        // Enable rule
-        int offset = item->data(0, Qt::UserRole + 10).toInt();
-        item->setText(0, item->text(0).mid(1));
 
+        adjustItemFeatures(item, *rule);
+    }
+    else if (item->checkState(0) == Qt::Checked && !oldRule->isEnabled()) {
+        // Enable rule
         const AdBlockRule* rule = m_subscription->enableRule(offset);
-        adjustItemColor(item, *rule);
+
+        adjustItemFeatures(item, *rule);
     }
     else if (m_subscription->canEditRules()) {
         // Custom rule has been changed
-        int offset = item->data(0, Qt::UserRole + 10).toInt();
+        const AdBlockRule* rule = m_subscription->replaceRule(AdBlockRule(item->text(0), m_subscription), offset);
 
-        const AdBlockRule* rule = m_subscription->replaceRule(AdBlockRule(item->text(0)), offset);
-        adjustItemColor(item, *rule);
+        adjustItemFeatures(item, *rule);
     }
 
     m_itemChangingBlock = false;
@@ -140,14 +138,12 @@ void AdBlockTreeWidget::addRule()
     item->setText(0, newRule);
     item->setData(0, Qt::UserRole + 10, offset);
     item->setFlags(item->flags() | Qt::ItemIsEditable);
-    item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
-    item->setCheckState(0, Qt::Checked);
 
     m_itemChangingBlock = true;
     m_topItem->addChild(item);
     m_itemChangingBlock = false;
 
-    adjustItemColor(item, rule);
+    adjustItemFeatures(item, rule);
 }
 
 void AdBlockTreeWidget::removeRule()
@@ -172,15 +168,26 @@ void AdBlockTreeWidget::subscriptionUpdated()
     m_itemChangingBlock = false;
 }
 
-void AdBlockTreeWidget::adjustItemColor(QTreeWidgetItem* item, const AdBlockRule &rule)
+void AdBlockTreeWidget::adjustItemFeatures(QTreeWidgetItem* item, const AdBlockRule &rule)
 {
     if (!rule.isEnabled()) {
         QFont font;
         font.setItalic(true);
         item->setForeground(0, QColor(Qt::gray));
-        item->setFont(0, font);
+
+        if (!rule.isComment()) {
+            item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+            item->setCheckState(0, Qt::Unchecked);
+            item->setFont(0, font);
+        }
+
+        return;
     }
-    else if (rule.isCssRule()) {
+
+    item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+    item->setCheckState(0, Qt::Checked);
+
+    if (rule.isCssRule()) {
         item->setForeground(0, QColor(Qt::darkBlue));
         item->setFont(0, QFont());
     }
@@ -221,8 +228,6 @@ void AdBlockTreeWidget::refresh()
     int index = 0;
     foreach(const AdBlockRule & rule, allRules) {
         QTreeWidgetItem* item = new QTreeWidgetItem(m_topItem);
-        item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
-        item->setCheckState(0, (rule.isEnabled()) ? Qt::Checked : Qt::Unchecked);
         item->setText(0, rule.filter());
         item->setData(0, Qt::UserRole + 10, index);
 
@@ -230,7 +235,7 @@ void AdBlockTreeWidget::refresh()
             item->setFlags(item->flags() | Qt::ItemIsEditable);
         }
 
-        adjustItemColor(item, rule);
+        adjustItemFeatures(item, rule);
         ++index;
     }
 
