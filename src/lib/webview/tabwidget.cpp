@@ -227,7 +227,7 @@ void TabWidget::aboutToShowTabsMenu()
         }
         else {
             QString title = tab->title();
-            title.replace("&", "&&");
+            title.replace('&', "&&");
             if (title.length() > 40) {
                 title.truncate(40);
                 title += "..";
@@ -479,7 +479,7 @@ void TabWidget::setTabIcon(int index, const QIcon &icon)
 void TabWidget::setTabText(int index, const QString &text)
 {
     QString newtext = text;
-    newtext.replace("&", "&&"); // Avoid Alt+letter shortcuts
+    newtext.replace('&', "&&"); // Avoid Alt+letter shortcuts
 
     if (WebTab* webTab = weTab(index)) {
         if (webTab->isPinned()) {

@@ -121,7 +121,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     m_actProfileName = mApp->currentProfilePath();
     m_actProfileName = m_actProfileName.left(m_actProfileName.length() - 1);
     m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf("/"));
-    m_actProfileName.remove("/");
+    m_actProfileName.remove('/');
 
     ui->activeProfile->setText("<b>" + m_actProfileName + "</b>");
 
@@ -483,7 +483,7 @@ void Preferences::chooseDownPath()
         return;
     }
 #ifdef Q_WS_WIN   //QFileDialog::getExistingDirectory returns path with \ instead of / (??)
-    userFileName.replace("\\", "/");
+    userFileName.replace('\\', '/');
 #endif
     userFileName += "/";
 

@@ -160,7 +160,7 @@ void CookieManager::slotRefreshTable()
         QTreeWidgetItem* item;
 
         QString cookieDomain = cookie.domain();
-        if (cookieDomain.startsWith(".")) {
+        if (cookieDomain.startsWith('.')) {
             cookieDomain = cookieDomain.mid(1);
         }
 

@@ -80,7 +80,7 @@ AcceptLanguage::AcceptLanguage(QWidget* parent)
 
     foreach(const QString & code, langs) {
         QString code_ = code;
-        QLocale loc = QLocale(code_.replace("-", "_"));
+        QLocale loc = QLocale(code_.replace('-', '_'));
         QString label;
 
         if (loc.language() == QLocale::C) {
@@ -202,8 +202,8 @@ void AcceptLanguage::accept()
     QStringList langs;
     for (int i = 0; i < ui->listWidget->count(); i++) {
         QString t = ui->listWidget->item(i)->text();
-        QString code = t.mid(t.indexOf("[") + 1);
-        code.remove("]");
+        QString code = t.mid(t.indexOf('[') + 1);
+        code.remove(']');
         langs.append(code);
     }
 

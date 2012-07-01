@@ -397,7 +397,7 @@ void WebView::downloadPage()
 {
     QNetworkRequest request(url());
     QString suggestedFileName = qz_getFileNameFromUrl(url());
-    if (!suggestedFileName.contains(".")) {
+    if (!suggestedFileName.contains('.')) {
         suggestedFileName.append(".html");
     }
 
@@ -849,8 +849,8 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addAction(dictact);
 
     // #379: Remove newlines
-    QString selectedString = selectedText.trimmed().remove("\n");
-    if (!selectedString.contains(".")) {
+    QString selectedString = selectedText.trimmed().remove('\n');
+    if (!selectedString.contains('.')) {
         // Try to add .com
         selectedString.append(".com");
     }
@@ -868,7 +868,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addSeparator();
     selectedText.truncate(20);
     // KDE is displaying new lines in menu actions ... weird -,-
-    selectedText.replace("\n", " ").replace("\t", "");
+    selectedText.replace('\n', ' ').remove('\t');
 
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
     Action* act = new Action(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name));

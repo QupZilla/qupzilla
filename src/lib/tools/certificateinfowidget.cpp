@@ -39,7 +39,7 @@ QString CertificateInfoWidget::clearCertSpecialSymbols(const QString &string)
 {
     QString n = Qt::escape(string);
 
-    if (!n.contains("\\")) {
+    if (!n.contains('\\')) {
         return n;
     }
 

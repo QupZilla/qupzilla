@@ -410,7 +410,7 @@ void WebPage::setSSLCertificate(const QSslCertificate &cert)
 QSslCertificate WebPage::sslCertificate()
 {
     if (url().scheme() == "https" &&
-            m_SslCert.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(url().host()))) {
+            m_SslCert.subjectInfo(QSslCertificate::CommonName).remove('*').contains(QRegExp(url().host()))) {
         return m_SslCert;
     }
     else {
@@ -500,7 +500,7 @@ void WebPage::cleanBlockedObjects()
             //May be relative url
             QString relativeUrl = qz_makeRelativeUrl(mainFrameUrl, entry.url).toString();
             findingStrings.append(relativeUrl);
-            if (relativeUrl.startsWith("/")) {
+            if (relativeUrl.startsWith('/')) {
                 findingStrings.append(relativeUrl.right(relativeUrl.size() - 1));
             }
         }

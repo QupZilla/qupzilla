@@ -191,7 +191,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     QSettings::setDefaultFormat(QSettings::IniFormat);
     if (startProfile.isEmpty()) {
         QSettings settings(PROFILEDIR + "profiles/profiles.ini", QSettings::IniFormat);
-        if (settings.value("Profiles/startProfile", "default").toString().contains("/")) {
+        if (settings.value("Profiles/startProfile", "default").toString().contains('/')) {
             m_activeProfil = PROFILEDIR + "profiles/default/";
         }
         else {
@@ -744,7 +744,7 @@ void MainApplication::startPrivateBrowsing()
 {
     QStringList args;
     foreach(const QString & arg, arguments()) {
-        if (arg.startsWith("-")) {
+        if (arg.startsWith('-')) {
             args.append(arg);
         }
     }
@@ -763,7 +763,7 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
     QFile file(filePath);
     if (!filePath.isEmpty() && file.open(QFile::ReadOnly)) {
         userStyle = file.readAll();
-        userStyle.remove("\n");
+        userStyle.remove('\n');
         file.close();
     }
 

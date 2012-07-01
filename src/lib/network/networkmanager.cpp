@@ -51,7 +51,7 @@
 QString fileNameForCert(const QSslCertificate &cert)
 {
     QString certFileName = CertificateInfoWidget::certificateItemText(cert);
-    certFileName.remove(" ");
+    certFileName.remove(' ');
     certFileName.append(".crt");
     certFileName = qz_filterCharsFromFilename(certFileName);
     return certFileName;

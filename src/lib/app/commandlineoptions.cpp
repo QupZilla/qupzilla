@@ -161,8 +161,8 @@ void CommandLineOptions::parseActions()
 
     const QString &url = arguments.last();
 
-    if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-") &&
-            (url.contains(".") || url.contains("/") || url.contains("\\"))) {
+    if (m_argc > 1 && !url.isEmpty() && !url.startsWith('-') &&
+            (url.contains('.') || url.contains('/') || url.contains('\\'))) {
         ActionPair pair;
         pair.action = Qz::CL_OpenUrl;
         pair.text = url;

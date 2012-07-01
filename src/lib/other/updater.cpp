@@ -58,7 +58,7 @@ Updater::Version Updater::parseVersionFromString(const QString &string)
 
 bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
 {
-    if (one.contains("rc") && two.contains("b")) {
+    if (one.contains("rc") && two.contains('b')) {
         return true;
     }
 
@@ -74,9 +74,9 @@ bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
         return false;
     }
 
-    if (one.contains("b")) {
-        int o = one.remove("b").toInt();
-        int t = two.remove("b").toInt();
+    if (one.contains('b')) {
+        int o = one.remove('b').toInt();
+        int t = two.remove('b').toInt();
 
         return o > t;
     }

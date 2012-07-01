@@ -1461,7 +1461,7 @@ void QupZilla::savePage()
 {
     QNetworkRequest request(weView()->url());
     QString suggestedFileName = qz_getFileNameFromUrl(weView()->url());
-    if (!suggestedFileName.contains(".")) {
+    if (!suggestedFileName.contains('.')) {
         suggestedFileName.append(".html");
     }
 

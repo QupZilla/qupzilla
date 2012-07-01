@@ -211,8 +211,8 @@ void AutoFillModel::completePage(WebPage* page)
     for (int i = 0; i < arguments.count(); i++) {
         QString key = arguments.at(i).first;
         QString value = arguments.at(i).second;
-        key.replace("+", " ");
-        value.replace("+", " ");
+        key.replace('+', ' ');
+        value.replace('+', ' ');
 
         key = QUrl::fromEncoded(key.toUtf8()).toString();
         value = QUrl::fromEncoded(value.toUtf8()).toString();
@@ -362,13 +362,13 @@ QByteArray AutoFillModel::convertWebKitFormBoundaryIfNecessary(const QByteArray 
         QString string = rx.cap(1);
         pos += rx.matchedLength();
 
-        int endOfAttributeName = string.indexOf("\"");
+        int endOfAttributeName = string.indexOf('"');
         if (endOfAttributeName == -1) {
             continue;
         }
 
         QString attrName = string.left(endOfAttributeName);
-        QString attrValue = string.mid(endOfAttributeName + 1).trimmed().remove("\n");
+        QString attrValue = string.mid(endOfAttributeName + 1).trimmed().remove('\n');
 
         if (attrName.isEmpty() || attrValue.isEmpty()) {
             continue;
