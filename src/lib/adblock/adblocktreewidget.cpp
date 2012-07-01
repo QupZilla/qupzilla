@@ -20,6 +20,7 @@
 
 #include <QMenu>
 #include <QTimer>
+#include <QKeyEvent>
 #include <QInputDialog>
 
 AdBlockTreeWidget::AdBlockTreeWidget(AdBlockSubscription* subscription, QWidget* parent)
@@ -114,7 +115,8 @@ void AdBlockTreeWidget::addRule()
         return;
     }
 
-    int offset = m_subscription->addRule(AdBlockRule(newRule));
+    AdBlockRule rule(newRule);
+    int offset = m_subscription->addRule(rule);
 
     QTreeWidgetItem* item = new QTreeWidgetItem();
     item->setText(0, newRule);
@@ -126,6 +128,8 @@ void AdBlockTreeWidget::addRule()
     m_itemChangingBlock = true;
     m_topItem->addChild(item);
     m_itemChangingBlock = false;
+
+    adjustItemColor(item, rule);
 }
 
 void AdBlockTreeWidget::removeRule()
@@ -170,6 +174,15 @@ void AdBlockTreeWidget::adjustItemColor(QTreeWidgetItem* item, const AdBlockRule
         item->setForeground(0, QColor());
         item->setFont(0, QFont());
     }
+}
+
+void AdBlockTreeWidget::keyPressEvent(QKeyEvent* event)
+{
+    if (event->key() == Qt::Key_Delete) {
+        removeRule();
+    }
+
+    TreeWidget::keyPressEvent(event);
 }
 
 void AdBlockTreeWidget::refresh()

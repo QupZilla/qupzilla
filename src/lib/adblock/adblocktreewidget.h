@@ -47,6 +47,7 @@ private slots:
 
 private:
     void adjustItemColor(QTreeWidgetItem* item, const AdBlockRule &rule);
+    void keyPressEvent(QKeyEvent* event);
 
     AdBlockSubscription* m_subscription;
     QTreeWidgetItem* m_topItem;
