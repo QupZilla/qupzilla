@@ -195,7 +195,7 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
         matched = (m_regExp.indexIn(encodedUrl) != -1);
     }
     else if (m_useDomainMatch) {
-        matched = (domain == m_matchString);
+        matched = domain.contains(m_matchString);
     }
     else if (m_useEndsMatch) {
         matched = encodedUrl.endsWith(m_matchString, m_caseSensitivity);
