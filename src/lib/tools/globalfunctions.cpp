@@ -192,7 +192,7 @@ QString qz_ensureUniqueFilename(const QString &pathToFile)
             tmpFileName.append("(" + QString::number(i) + ")");
         }
         else {
-            tmpFileName = tmpFileName.mid(0, index) + "(" + QString::number(i) + ")" + tmpFileName.mid(index);
+            tmpFileName = tmpFileName.left(index) + "(" + QString::number(i) + ")" + tmpFileName.mid(index);
         }
         i++;
     }
@@ -248,7 +248,7 @@ QString qz_alignTextToWidth(const QString &string, const QString &text, const QF
         }
 
         if (elidedLine.size() != part.size()) {
-            elidedLine = elidedLine.mid(0, elidedLine.size() - 3);
+            elidedLine = elidedLine.left(elidedLine.size() - 3);
         }
 
         if (!returnString.isEmpty()) {

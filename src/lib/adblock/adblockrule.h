@@ -55,10 +55,15 @@
 class QNetworkRequest;
 class QUrl;
 
+class AdBlockSubscription;
+
 class AdBlockRule
 {
 public:
-    AdBlockRule(const QString &filter = QString());
+    AdBlockRule(const QString &filter = QString(), AdBlockSubscription* subscription = 0);
+
+    AdBlockSubscription* subscription() const;
+    void setSubscription(AdBlockSubscription* subscription);
 
     QString filter() const;
     void setFilter(const QString &filter);
@@ -87,6 +92,7 @@ private:
     void parseFilter();
     void parseDomains(const QString &domains, const QChar &separator);
 
+    AdBlockSubscription* m_subscription;
     QString m_filter;
 
     bool m_enabled;

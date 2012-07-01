@@ -117,7 +117,7 @@ void AdBlockSubscription::loadSubscription()
 
     while (!textStream.atEnd()) {
         const QString &line = textStream.readLine();
-        m_rules.append(AdBlockRule(line));
+        m_rules.append(AdBlockRule(line, this));
     }
 
     populateCache();

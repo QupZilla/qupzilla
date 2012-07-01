@@ -94,8 +94,9 @@ QString toSecondLevelDomain(const QUrl &url)
 #endif
 }
 
-AdBlockRule::AdBlockRule(const QString &filter)
-    : m_enabled(true)
+AdBlockRule::AdBlockRule(const QString &filter, AdBlockSubscription* subscription)
+    : m_subscription(subscription)
+    , m_enabled(true)
     , m_cssRule(false)
     , m_exception(false)
     , m_internalDisabled(false)
@@ -114,6 +115,16 @@ AdBlockRule::AdBlockRule(const QString &filter)
     , m_caseSensitivity(Qt::CaseInsensitive)
 {
     setFilter(filter);
+}
+
+AdBlockSubscription* AdBlockRule::subscription() const
+{
+    return m_subscription;
+}
+
+void AdBlockRule::setSubscription(AdBlockSubscription* subscription)
+{
+    m_subscription = subscription;
 }
 
 QString AdBlockRule::filter() const
@@ -333,7 +344,7 @@ void AdBlockRule::parseFilter()
 
         // Domain restricted rule
         if (!parsedLine.startsWith("##")) {
-            QString domains = parsedLine.mid(0, pos);
+            QString domains = parsedLine.left(pos);
             parseDomains(domains, ',');
         }
 

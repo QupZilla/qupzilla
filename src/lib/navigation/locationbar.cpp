@@ -106,7 +106,7 @@ QUrl LocationBar::createUrl()
     //Check for Search Engine shortcut
     int firstSpacePos = text().indexOf(" ");
     if (firstSpacePos != -1) {
-        QString shortcut = text().mid(0, firstSpacePos);
+        QString shortcut = text().left(firstSpacePos);
         QString searchedString = QUrl::toPercentEncoding(text().mid(firstSpacePos).trimmed());
 
         SearchEngine en = mApp->searchEnginesManager()->engineForShortcut(shortcut);

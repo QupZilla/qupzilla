@@ -82,7 +82,7 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
     bookmarks.replace("<H3", "<h3");
     bookmarks.replace("</H3", "</h3");
 
-    bookmarks = bookmarks.mid(0, bookmarks.lastIndexOf("</dl><p>"));
+    bookmarks = bookmarks.left(bookmarks.lastIndexOf("</dl><p>"));
     int start = bookmarks.indexOf("<dl><p>");
 
     QStringList folders("Html Import");
