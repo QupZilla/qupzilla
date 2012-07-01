@@ -341,7 +341,7 @@ void AdBlockEasyList::saveDownloadedData(QByteArray &data)
 
     // Third-party advertisers rules are with start domain (||) placeholder which needs regexps
     // So we are ignoring it for keeping good performance
-    data = data.left(data.indexOf("!---------------------------Third-party advertisers"));
+    data = data.left(data.indexOf("!-----------------------------Third-party adverts-----------------------------!"));
 
     file.write(data);
     file.close();

@@ -101,6 +101,8 @@ AdBlockRule::AdBlockRule(const QString &filter)
     , m_internalDisabled(false)
     , m_domainRestricted(false)
     , m_useRegExp(false)
+    , m_useDomainMatch(false)
+    , m_useEndsMatch(false)
     , m_thirdParty(false)
     , m_thirdPartyException(false)
     , m_object(false)
@@ -153,12 +155,18 @@ bool AdBlockRule::isEnabled() const
 void AdBlockRule::setEnabled(bool enabled)
 {
     m_enabled = enabled;
+
     if (!enabled) {
-        m_filter = QLatin1String("!") + m_filter;
+        m_filter = "!" + m_filter;
     }
     else {
         m_filter = m_filter.mid(1);
     }
+}
+
+bool AdBlockRule::isSlow() const
+{
+    return m_useRegExp;
 }
 
 bool AdBlockRule::isInternalDisabled() const
@@ -176,6 +184,12 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
 
     if (m_useRegExp) {
         matched = (m_regExp.indexIn(encodedUrl) != -1);
+    }
+    else if (m_useDomainMatch) {
+        matched = (domain == m_matchString);
+    }
+    else if (m_useEndsMatch) {
+        matched = encodedUrl.endsWith(m_matchString, m_caseSensitivity);
     }
     else {
         matched = encodedUrl.contains(m_matchString, m_caseSensitivity);
@@ -397,6 +411,25 @@ void AdBlockRule::parseFilter()
 
     if (parsedLine.endsWith("*")) {
         parsedLine = parsedLine.left(parsedLine.size() - 1);
+    }
+
+    // We can use fast string matching for domain here
+    if (parsedLine.startsWith("||") && parsedLine.endsWith("^") && !parsedLine.contains(QRegExp("[/:?=&\\*]"))) {
+        parsedLine = parsedLine.mid(2);
+        parsedLine = parsedLine.left(parsedLine.size() - 1);
+
+        m_useDomainMatch = true;
+        m_matchString = parsedLine;
+        return;
+    }
+
+    // If rule contains only | at end, we can also use string matching
+    if (parsedLine.endsWith("|") && !parsedLine.contains(QRegExp("[\\^\\*]")) && parsedLine.count('|') == 1) {
+        parsedLine = parsedLine.left(parsedLine.size() - 1);
+
+        m_useEndsMatch = true;
+        m_matchString = parsedLine;
+        return;
     }
 
     // If we still find a wildcard (*) or separator (^) or (|)

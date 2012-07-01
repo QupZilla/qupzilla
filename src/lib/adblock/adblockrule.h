@@ -72,6 +72,7 @@ public:
     bool isEnabled() const;
     void setEnabled(bool enabled);
 
+    bool isSlow() const;
     bool isInternalDisabled() const;
 
     bool networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const;
@@ -97,6 +98,9 @@ private:
 
     bool m_useRegExp;
     QRegExp m_regExp;
+
+    bool m_useDomainMatch;
+    bool m_useEndsMatch;
 
     QString m_cssSelector;
     QString m_matchString;
