@@ -17,7 +17,6 @@
 * ============================================================ */
 #include "adblockmanager.h"
 #include "adblockdialog.h"
-#include "adblockpage.h"
 #include "adblocksubscription.h"
 #include "adblockblockednetworkreply.h"
 #include "mainapplication.h"
@@ -85,7 +84,7 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
             QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
             WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
             if (WebPage::isPointerSafeToUse(webPage)) {
-                webPage->addAdBlockRule(blockedRule->filter(), request.url());
+                webPage->addAdBlockRule(blockedRule, request.url());
             }
 
             AdBlockBlockedNetworkReply* reply = new AdBlockBlockedNetworkReply(subscription, blockedRule, this);
@@ -252,7 +251,7 @@ QString AdBlockManager::elementHidingRules() const
 
     // Remove last ","
     if (!rules.isEmpty()) {
-        rules = rules.mid(0, rules.size() - 1);
+        rules = rules.left(rules.size() - 1);
     }
 
     return rules;
@@ -268,10 +267,21 @@ QString AdBlockManager::elementHidingRulesForDomain(const QString &domain) const
 
     // Remove last ","
     if (!rules.isEmpty()) {
-        rules = rules.mid(0, rules.size() - 1);
+        rules = rules.left(rules.size() - 1);
     }
 
     return rules;
+}
+
+AdBlockSubscription* AdBlockManager::subscriptionByName(const QString &name) const
+{
+    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+        if (subscription->title() == name) {
+            return subscription;
+        }
+    }
+
+    return 0;
 }
 
 AdBlockDialog* AdBlockManager::showDialog()
@@ -287,6 +297,10 @@ AdBlockDialog* AdBlockManager::showDialog()
 void AdBlockManager::showRule()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        showDialog()->search->setText(action->data().toString());
+        const AdBlockRule* rule = static_cast<const AdBlockRule*>(action->data().value<void*>());
+
+        if (rule) {
+            showDialog()->showRule(rule);
+        }
     }
 }

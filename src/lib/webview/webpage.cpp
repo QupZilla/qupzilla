@@ -462,10 +462,10 @@ QObject* WebPage::createPlugin(const QString &classid, const QUrl &url, const QS
     return pluginFactory()->create(classid, url, paramNames, paramValues);
 }
 
-void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
+void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)
 {
     AdBlockedEntry entry;
-    entry.rule = filter;
+    entry.rule = rule;
     entry.url = url;
 
     if (!m_adBlockedEntries.contains(entry)) {
@@ -653,7 +653,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                 }
                 else {   //The whole page is blocked
                     QString rule = exOption->errorString;
-                    rule.remove("AdBlock:");
+                    rule.remove("AdBlock: ");
 
                     QFile file(":/html/adblockPage.html");
                     file.open(QFile::ReadOnly);

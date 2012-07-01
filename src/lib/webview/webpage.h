@@ -27,6 +27,7 @@ class QFileSystemWatcher;
 class QEventLoop;
 
 class QupZilla;
+class AdBlockRule;
 class TabbedWebView;
 class SpeedDial;
 class NetworkManagerProxy;
@@ -36,7 +37,7 @@ class QT_QUPZILLA_EXPORT WebPage : public QWebPage
     Q_OBJECT
 public:
     struct AdBlockedEntry {
-        QString rule;
+        const AdBlockRule* rule;
         QUrl url;
 
         bool operator==(const AdBlockedEntry &other) const {
@@ -60,7 +61,7 @@ public:
     bool javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg);
     void javaScriptAlert(QWebFrame* originatingFrame, const QString &msg);
 
-    void addAdBlockRule(const QString &filter, const QUrl &url);
+    void addAdBlockRule(const AdBlockRule* rule, const QUrl &url);
     QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
 
     void scheduleAdjustPage();

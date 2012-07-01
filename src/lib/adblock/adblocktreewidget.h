@@ -34,6 +34,8 @@ public:
 
     AdBlockSubscription* subscription() const;
 
+    void showRule(const AdBlockRule* rule);
+
 public slots:
     void addRule();
     void removeRule();
@@ -52,6 +54,7 @@ private:
     AdBlockSubscription* m_subscription;
     QTreeWidgetItem* m_topItem;
 
+    QString m_ruleToBeSelected;
     bool m_itemChangingBlock;
 };
 

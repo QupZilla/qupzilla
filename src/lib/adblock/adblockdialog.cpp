@@ -62,6 +62,24 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
     buttonBox->setFocus();
 }
 
+void AdBlockDialog::showRule(const AdBlockRule* rule) const
+{
+    AdBlockSubscription* subscription = rule->subscription();
+    if (!subscription) {
+        return;
+    }
+
+    for (int i = 0; i < tabWidget->count(); ++i) {
+        AdBlockTreeWidget* treeWidget = qobject_cast<AdBlockTreeWidget*>(tabWidget->widget(i));
+
+        if (subscription == treeWidget->subscription()) {
+            treeWidget->showRule(rule);
+            tabWidget->setCurrentIndex(i);
+            break;
+        }
+    }
+}
+
 void AdBlockDialog::addRule()
 {
     m_currentTreeWidget->addRule();

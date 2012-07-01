@@ -18,9 +18,9 @@
 #ifndef ADBLOCKICON_H
 #define ADBLOCKICON_H
 
-
 #include "qz_namespace.h"
 #include "clickablelabel.h"
+#include "adblockrule.h"
 
 class QMenu;
 class QUrl;
@@ -34,7 +34,7 @@ public:
     explicit AdBlockIcon(QupZilla* mainClass, QWidget* parent = 0);
     ~AdBlockIcon();
 
-    void popupBlocked(const QString &rule, const QUrl &url);
+    void popupBlocked(const QString &ruleString, const QUrl &url);
     QAction* menuAction();
 
 signals:
@@ -53,8 +53,9 @@ private:
     QupZilla* p_QupZilla;
     QAction* m_menuAction;
 
-    QList<QPair<QString, QUrl> > m_blockedPopups;
+    QList<QPair<AdBlockRule, QUrl> > m_blockedPopups;
     QTimer* m_flashTimer;
+
     int m_timerTicks;
     bool m_enabled;
 };

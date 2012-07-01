@@ -46,6 +46,7 @@ public:
     QString elementHidingRules() const;
     QString elementHidingRulesForDomain(const QString &domain) const;
 
+    AdBlockSubscription* subscriptionByName(const QString &name) const;
     QList<AdBlockSubscription*> subscriptions() const;
 
     QNetworkReply* block(const QNetworkRequest &request);

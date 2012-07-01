@@ -26,13 +26,16 @@
 class AdBlockSubscription;
 class AdBlockTreeWidget;
 class AdBlockManager;
+class AdBlockRule;
 
 class QT_QUPZILLA_EXPORT AdBlockDialog : public QDialog, public Ui_AdBlockDialog
 {
     Q_OBJECT
 
 public:
-    AdBlockDialog(QWidget* parent = 0);
+    explicit AdBlockDialog(QWidget* parent = 0);
+
+    void showRule(const AdBlockRule* rule) const;
 
 private slots:
     void addRule();

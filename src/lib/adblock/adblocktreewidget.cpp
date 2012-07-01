@@ -38,12 +38,30 @@ AdBlockTreeWidget::AdBlockTreeWidget(AdBlockSubscription* subscription, QWidget*
     connect(this, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
     connect(m_subscription, SIGNAL(subscriptionUpdated()), this, SLOT(subscriptionUpdated()));
 
-    QTimer::singleShot(0, this, SLOT(refresh()));
+    QTimer::singleShot(100, this, SLOT(refresh()));
 }
 
 AdBlockSubscription* AdBlockTreeWidget::subscription() const
 {
     return m_subscription;
+}
+
+void AdBlockTreeWidget::showRule(const AdBlockRule* rule)
+{
+    if (!m_topItem && rule) {
+        m_ruleToBeSelected = rule->filter();
+    }
+    else if (!m_ruleToBeSelected.isEmpty()) {
+        QList<QTreeWidgetItem*> items = findItems(m_ruleToBeSelected, Qt::MatchRecursive);
+        if (!items.isEmpty()) {
+            QTreeWidgetItem* item = items.at(0);
+
+            setCurrentItem(item);
+            scrollToItem(item, QAbstractItemView::PositionAtCenter);
+        }
+
+        m_ruleToBeSelected.clear();
+    }
 }
 
 void AdBlockTreeWidget::contextMenuRequested(const QPoint &pos)
@@ -115,7 +133,7 @@ void AdBlockTreeWidget::addRule()
         return;
     }
 
-    AdBlockRule rule(newRule);
+    AdBlockRule rule(newRule, m_subscription);
     int offset = m_subscription->addRule(rule);
 
     QTreeWidgetItem* item = new QTreeWidgetItem();
@@ -217,5 +235,6 @@ void AdBlockTreeWidget::refresh()
     }
 
     expandAll();
+    showRule(0);
     m_itemChangingBlock = false;
 }

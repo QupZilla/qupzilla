@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "adblockicon.h"
+#include "adblockrule.h"
 #include "adblockmanager.h"
 #include "mainapplication.h"
 #include "qupzilla.h"
@@ -42,12 +43,22 @@ AdBlockIcon::AdBlockIcon(QupZilla* mainClass, QWidget* parent)
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(showMenu(QPoint)));
 }
 
-void AdBlockIcon::popupBlocked(const QString &rule, const QUrl &url)
+void AdBlockIcon::popupBlocked(const QString &ruleString, const QUrl &url)
 {
-    QPair<QString, QUrl> pair;
+    int index = ruleString.lastIndexOf(" (");
+
+    const QString &subscriptionName = ruleString.left(index);
+    const QString &filter = ruleString.mid(index + 2, ruleString.size() - index - 3);
+    AdBlockSubscription* subscription = AdBlockManager::instance()->subscriptionByName(subscriptionName);
+    if (filter.isEmpty() || !subscription) {
+        return;
+    }
+
+    AdBlockRule rule(filter, subscription);
+
+    QPair<AdBlockRule, QUrl> pair;
     pair.first = rule;
     pair.second = url;
-
     m_blockedPopups.append(pair);
 
     mApp->desktopNotifications()->showNotifications(QPixmap(":html/adblock_big.png"), tr("Blocked popup window"), tr("AdBlock blocked unwanted popup window."));
@@ -97,9 +108,13 @@ void AdBlockIcon::createMenu(QMenu* menu)
     if (!m_blockedPopups.isEmpty()) {
         menu->addAction(tr("Blocked Popup Windows"))->setEnabled(false);
         for (int i = 0; i < m_blockedPopups.count(); i++) {
-            const QPair<QString, QUrl> &pair = m_blockedPopups.at(i);
+            const QPair<AdBlockRule, QUrl> &pair = m_blockedPopups.at(i);
+
             QString address = pair.second.toString().right(55);
-            menu->addAction(tr("%1 with (%2)").arg(address, pair.first).replace("&", "&&"), manager, SLOT(showRule()))->setData(pair.first);
+            QString actionText = tr("%1 with (%2)").arg(address, pair.first.filter()).replace("&", "&&");
+
+            QAction* action = menu->addAction(actionText, manager, SLOT(showRule()));
+            action->setData(qVariantFromValue((void*)&pair.first));
         }
     }
 
@@ -112,7 +127,10 @@ void AdBlockIcon::createMenu(QMenu* menu)
         menu->addAction(tr("Blocked URL (AdBlock Rule) - click to edit rule"))->setEnabled(false);
         foreach(const WebPage::AdBlockedEntry & entry, entries) {
             QString address = entry.url.toString().right(55);
-            menu->addAction(tr("%1 with (%2)").arg(address, entry.rule).replace("&", "&&"), manager, SLOT(showRule()))->setData(entry.rule);
+            QString actionText = tr("%1 with (%2)").arg(address, entry.rule->filter()).replace("&", "&&");
+
+            QAction* action = menu->addAction(actionText, manager, SLOT(showRule()));
+            action->setData(qVariantFromValue((void*)entry.rule));
         }
     }
 }

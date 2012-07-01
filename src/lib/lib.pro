@@ -90,7 +90,6 @@ SOURCES += \
     other/sourceviewersearch.cpp \
     adblock/adblocksubscription.cpp \
     adblock/adblockrule.cpp \
-    adblock/adblockpage.cpp \
     adblock/adblockmanager.cpp \
     adblock/adblockdialog.cpp \
     adblock/adblockblockednetworkreply.cpp \
@@ -240,7 +239,6 @@ HEADERS  += \
     other/sourceviewersearch.h \
     adblock/adblocksubscription.h \
     adblock/adblockrule.h \
-    adblock/adblockpage.h \
     adblock/adblockmanager.h \
     adblock/adblockdialog.h \
     adblock/adblockblockednetworkreply.h \
