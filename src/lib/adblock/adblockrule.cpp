@@ -53,6 +53,8 @@
 #include <QString>
 #include <QStringList>
 #include <QNetworkRequest>
+#include <QWebFrame>
+#include <QWebPage>
 
 // Version for Qt < 4.8 has one issue, it will wrongly
 // count .co.uk (and others) as second-level domain
@@ -101,6 +103,12 @@ AdBlockRule::AdBlockRule(const QString &filter)
     , m_useRegExp(false)
     , m_thirdParty(false)
     , m_thirdPartyException(false)
+    , m_object(false)
+    , m_objectException(false)
+    , m_subdocument(false)
+    , m_subdocumentException(false)
+    , m_xmlhttprequest(false)
+    , m_xmlhttprequestException(false)
     , m_caseSensitivity(Qt::CaseInsensitive)
 {
     setFilter(filter);
@@ -183,6 +191,21 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
         if (m_thirdParty && !matchThirdParty(request)) {
             return false;
         }
+
+        // Check object restrictions
+        if (m_object && !matchObject(request)) {
+            return false;
+        }
+
+        // Check subdocument restriction
+        if (m_subdocument && !matchSubdocument(request)) {
+            return false;
+        }
+
+        // Check xmlhttprequest restriction
+        if (m_xmlhttprequest && !matchXmlHttpRequest(request)) {
+            return false;
+        }
     }
 
     return matched;
@@ -237,7 +260,40 @@ bool AdBlockRule::matchThirdParty(const QNetworkRequest &request) const
     const QString &refererHost = toSecondLevelDomain(QUrl(referer));
     const QString &host = toSecondLevelDomain(request.url());
 
-    return m_thirdPartyException ? refererHost == host : refererHost != host;
+    bool match = refererHost != host;
+
+    return m_thirdPartyException ? !match : match;
+}
+
+bool AdBlockRule::matchObject(const QNetworkRequest &request) const
+{
+    bool match = request.attribute(QNetworkRequest::Attribute(QNetworkRequest::User + 150)).toString() == QString("object");
+
+    return m_objectException ? !match : match;
+}
+
+bool AdBlockRule::matchSubdocument(const QNetworkRequest &request) const
+{
+    QWebFrame* originatingFrame = static_cast<QWebFrame*>(request.originatingObject());
+    if (!originatingFrame) {
+        return false;
+    }
+
+    QWebPage* page = originatingFrame->page();
+    if (!page) {
+        return false;
+    }
+
+    bool match = originatingFrame == page->mainFrame();
+
+    return m_subdocumentException ? !match : match;
+}
+
+bool AdBlockRule::matchXmlHttpRequest(const QNetworkRequest &request) const
+{
+    bool match = request.rawHeader("X-Requested-With") == QByteArray("XMLHttpRequest");
+
+    return m_xmlhttprequestException ? !match : match;
 }
 
 void AdBlockRule::parseFilter()
@@ -289,18 +345,33 @@ void AdBlockRule::parseFilter()
                 parseDomains(option.mid(7), '|');
                 ++handledOptions;
             }
-            else if (option.startsWith("match-case")) {
+            else if (option.endsWith("match-case")) {
                 m_caseSensitivity = Qt::CaseSensitive;
                 ++handledOptions;
             }
-            else if (option.contains("third-party")) {
+            else if (option.endsWith("third-party")) {
                 m_thirdParty = true;
                 m_thirdPartyException = option.startsWith('~');
                 ++handledOptions;
             }
+            else if (option.endsWith("object")) {
+                m_object = true;
+                m_objectException = option.startsWith('~');
+                ++handledOptions;
+            }
+            else if (option.endsWith("subdocument")) {
+                m_subdocument = true;
+                m_subdocumentException = option.startsWith('~');
+                ++handledOptions;
+            }
+            else if (option.endsWith("xmlhttprequest")) {
+                m_xmlhttprequest = true;
+                m_xmlhttprequestException = option.startsWith('~');
+                ++handledOptions;
+            }
         }
 
-        // If we don't handle all known options, it's safer to just disable this rule
+        // If we don't handle all options, it's safer to just disable this rule
         if (handledOptions != options.count()) {
             m_internalDisabled = true;
             return;

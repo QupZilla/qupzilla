@@ -41,19 +41,17 @@
 #include "clickablelabel.h"
 #include "mainapplication.h"
 #include "pluginproxy.h"
-#include "adblockmanager.h"
-#include "adblocksubscription.h"
 #include "squeezelabelv2.h"
 #include "webpage.h"
 #include "globalfunctions.h"
 #include "qupzilla.h"
-#include "tabbedwebview.h"
 
 #include <QHBoxLayout>
 #include <QToolButton>
 #include <QFormLayout>
 #include <QMenu>
 #include <QTimer>
+#include <QWebView>
 #include <QNetworkRequest>
 #include <QWebHitTestResult>
 
@@ -72,15 +70,6 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
     , m_url(pluginUrl)
     , m_page(parentPage)
 {
-    //AdBlock
-    AdBlockManager* manager = AdBlockManager::instance();
-    if (manager->isEnabled()) {
-        if (manager->block(QNetworkRequest(pluginUrl))) {
-            QTimer::singleShot(200, this, SLOT(hideAdBlocked()));
-            return;
-        }
-    }
-
     m_layout1 = new QHBoxLayout(this);
     m_frame = new QFrame(this);
     m_frame->setObjectName("click2flash-frame");
@@ -131,7 +120,7 @@ void ClickToFlash::customContextMenuRequested(const QPoint &pos)
     menu.addAction(tr("Object blocked by ClickToFlash"));
     menu.addAction(tr("Show more information about object"), this, SLOT(showInfo()));
     menu.addSeparator();
-    menu.addAction(tr("Delete object"), this, SLOT(hideAdBlocked()));
+    menu.addAction(tr("Delete object"), this, SLOT(hideObject()));
     menu.addAction(tr("Add %1 to whitelist").arg(m_url.host()), this, SLOT(toWhitelist()));
     menu.actions().at(0)->setEnabled(false);
     menu.exec(mapToGlobal(pos));
@@ -143,7 +132,7 @@ void ClickToFlash::toWhitelist()
     load();
 }
 
-void ClickToFlash::hideAdBlocked()
+void ClickToFlash::hideObject()
 {
     findElement();
     if (!m_element.isNull()) {
@@ -280,7 +269,7 @@ bool ClickToFlash::checkUrlOnElement(QWebElement el)
         checkString = el.attribute("value");
     }
 
-    checkString = m_page->getView()->url().resolved(QUrl(checkString)).toString(QUrl::RemoveQuery);
+    checkString = m_page->url().resolved(QUrl(checkString)).toString(QUrl::RemoveQuery);
 
     return m_url.toEncoded().contains(checkString.toUtf8());
 }

@@ -78,6 +78,9 @@ public:
 
     bool matchDomain(const QString &domain) const;
     bool matchThirdParty(const QNetworkRequest &request) const;
+    bool matchObject(const QNetworkRequest &request) const;
+    bool matchSubdocument(const QNetworkRequest &request) const;
+    bool matchXmlHttpRequest(const QNetworkRequest &request) const;
 
 private:
     void parseFilter();
@@ -104,6 +107,16 @@ private:
 
     bool m_thirdParty;
     bool m_thirdPartyException;
+
+    bool m_object;
+    bool m_objectException;
+
+    bool m_subdocument;
+    bool m_subdocumentException;
+
+    bool m_xmlhttprequest;
+    bool m_xmlhttprequestException;
+
     Qt::CaseSensitivity m_caseSensitivity;
 };
 
