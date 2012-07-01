@@ -31,6 +31,7 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
     , m_manager(AdBlockManager::instance())
     , m_currentTreeWidget(0)
     , m_currentSubscription(0)
+    , m_loaded(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setupUi(this);
@@ -50,14 +51,11 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
     buttonMenu->setMenu(menu);
     connect(menu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowMenu()));
 
-    connect(adblockCheckBox, SIGNAL(toggled(bool)), m_manager, SLOT(setEnabled(bool)));
+    connect(adblockCheckBox, SIGNAL(toggled(bool)), this, SLOT(enableAdBlock(bool)));
     connect(search, SIGNAL(textChanged(QString)), this, SLOT(filterString(QString)));
     connect(tabWidget, SIGNAL(currentChanged(int)), this, SLOT(currentChanged(int)));
 
-    foreach(AdBlockSubscription * subscription, m_manager->subscriptions()) {
-        AdBlockTreeWidget* tree = new AdBlockTreeWidget(subscription, tabWidget);
-        tabWidget->addTab(tree, subscription->title());
-    }
+    load();
 
     buttonBox->setFocus();
 }
@@ -125,13 +123,24 @@ void AdBlockDialog::currentChanged(int index)
 
 void AdBlockDialog::filterString(const QString &string)
 {
-    m_currentTreeWidget->filterString(string);
+    if (m_currentTreeWidget && adblockCheckBox->isChecked()) {
+        m_currentTreeWidget->filterString(string);
+    }
+}
+
+void AdBlockDialog::enableAdBlock(bool state)
+{
+    m_manager->setEnabled(state);
+
+    if (state) {
+        load();
+    }
 }
 
 void AdBlockDialog::aboutToShowMenu()
 {
-    bool subscriptionEditable = m_currentSubscription->canEditRules();
-    bool subscriptionRemovable = m_currentSubscription->canBeRemoved();
+    bool subscriptionEditable = m_currentSubscription && m_currentSubscription->canEditRules();
+    bool subscriptionRemovable = m_currentSubscription && m_currentSubscription->canBeRemoved();
 
     m_actionAddRule->setEnabled(subscriptionEditable);
     m_actionRemoveRule->setEnabled(subscriptionEditable);
@@ -141,4 +150,18 @@ void AdBlockDialog::aboutToShowMenu()
 void AdBlockDialog::learnAboutRules()
 {
     mApp->addNewTab(QUrl("http://adblockplus.org/en/filters"));
+}
+
+void AdBlockDialog::load()
+{
+    if (m_loaded || !adblockCheckBox->isChecked()) {
+        return;
+    }
+
+    foreach(AdBlockSubscription * subscription, m_manager->subscriptions()) {
+        AdBlockTreeWidget* tree = new AdBlockTreeWidget(subscription, tabWidget);
+        tabWidget->addTab(tree, subscription->title());
+    }
+
+    m_loaded = true;
 }

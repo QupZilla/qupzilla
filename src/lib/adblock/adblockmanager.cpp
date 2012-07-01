@@ -53,12 +53,19 @@ AdBlockManager* AdBlockManager::instance()
 
 void AdBlockManager::setEnabled(bool enabled)
 {
-    if (isEnabled() == enabled) {
+    if (m_enabled == enabled) {
         return;
     }
 
     m_enabled = enabled;
     mApp->sendMessages(Qz::AM_SetAdBlockIconEnabled, enabled);
+
+    Settings settings;
+    settings.beginGroup("AdBlock");
+    settings.setValue("enabled", m_enabled);
+    settings.endGroup();
+
+    load();
 }
 
 QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
@@ -157,7 +164,7 @@ bool AdBlockManager::removeSubscription(AdBlockSubscription* subscription)
 
 void AdBlockManager::load()
 {
-    if (!m_enabled || m_loaded) {
+    if (m_loaded) {
         return;
     }
 

@@ -38,6 +38,7 @@ AdBlockAddSubscriptionDialog::AdBlockAddSubscriptionDialog(QWidget* parent)
                          << Subscription("PLgeneral (Polish)", "http://www.niecko.pl/adblock/adblock.txt")
                          << Subscription("Schacks Adblock Plus liste (Danish)", "http://adblock.schack.dk/block.txt")
                          << Subscription("Xfiles (Italian)", "http://mozilla.gfsolone.com/filtri.txt")
+                         << Subscription("EasyPrivacy (English)", "http://easylist-downloads.adblockplus.org/easyprivacy.txt")
                          << Subscription("Antisocial (English)", "http://adversity.googlecode.com/hg/Antisocial.txt");
 
     foreach(const Subscription & subscription, m_knownSubscriptions) {
@@ -62,7 +63,14 @@ void AdBlockAddSubscriptionDialog::indexChanged(int index)
 {
     const Subscription &subscription = m_knownSubscriptions.at(index);
 
-    ui->title->setText(subscription.title);
+    int pos = subscription.title.indexOf('(');
+    QString title = subscription.title;
+
+    if (pos > 0) {
+        title = title.left(pos).trimmed();
+    }
+
+    ui->title->setText(title);
     ui->title->setCursorPosition(0);
 
     ui->url->setText(subscription.url);

@@ -46,11 +46,14 @@ private slots:
 
     void currentChanged(int index);
     void filterString(const QString &string);
+    void enableAdBlock(bool state);
 
     void aboutToShowMenu();
     void learnAboutRules();
 
 private:
+    void load();
+
     AdBlockManager* m_manager;
     AdBlockTreeWidget* m_currentTreeWidget;
     AdBlockSubscription* m_currentSubscription;
@@ -59,6 +62,8 @@ private:
     QAction* m_actionRemoveRule;
     QAction* m_actionAddSubscription;
     QAction* m_actionRemoveSubscription;
+
+    bool m_loaded;
 };
 
 #endif // ADBLOCKDIALOG_H
