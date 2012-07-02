@@ -195,7 +195,7 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
         matched = (m_regExp.indexIn(encodedUrl) != -1);
     }
     else if (m_useDomainMatch) {
-        matched = domain.contains(m_matchString);
+        matched = domain.endsWith(m_matchString);
     }
     else if (m_useEndsMatch) {
         matched = encodedUrl.endsWith(m_matchString, m_caseSensitivity);
@@ -242,14 +242,14 @@ bool AdBlockRule::matchDomain(const QString &domain) const
 
     if (m_blockedDomains.isEmpty()) {
         foreach(const QString & d, m_allowedDomains) {
-            if (domain.contains(d)) {
+            if (domain.endsWith(d)) {
                 return true;
             }
         }
     }
     else if (m_allowedDomains.isEmpty()) {
         foreach(const QString & d, m_blockedDomains) {
-            if (domain.contains(d)) {
+            if (domain.endsWith(d)) {
                 return false;
             }
         }
@@ -257,13 +257,13 @@ bool AdBlockRule::matchDomain(const QString &domain) const
     }
     else {
         foreach(const QString & d, m_blockedDomains) {
-            if (domain.contains(d)) {
+            if (domain.endsWith(d)) {
                 return false;
             }
         }
 
         foreach(const QString & d, m_allowedDomains) {
-            if (domain.contains(d)) {
+            if (domain.endsWith(d)) {
                 return true;
             }
         }

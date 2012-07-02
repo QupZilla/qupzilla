@@ -35,7 +35,7 @@ bool containsDomain(QString string, QString domain)
         domain = domain.mid(4);
     }
 
-    return string.contains(domain);
+    return string.endsWith(domain);
 }
 
 bool listContainsDomain(const QStringList &list, const QString &domain)
