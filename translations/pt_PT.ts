@@ -95,22 +95,22 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="14"/>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar subscrição</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="23"/>
         <source>Title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Título: </translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="33"/>
         <source>Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Endereço:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="53"/>
         <source>Add new subscription to AdBlock:</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar nova subscrição AdBlock:</translation>
     </message>
 </context>
 <context>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="353"/>
         <source>Custom Rules</source>
-        <translation type="unfinished">Regras personalizadas</translation>
+        <translation>Regras personalizadas</translation>
     </message>
 </context>
 <context>
@@ -141,7 +141,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="68"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opções</translation>
     </message>
     <message>
         <source>Rule</source>
@@ -155,27 +155,27 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="42"/>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover regra</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="44"/>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar subscrição</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="45"/>
         <source>Remove Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover subscrição</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="46"/>
         <source>Update Subscriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Atualizar subscrições</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="48"/>
         <source>Learn about writing rules...</source>
-        <translation type="unfinished"></translation>
+        <translation>Saber mais sobre as regras...</translation>
     </message>
     <message>
         <source>Update EasyList</source>
@@ -216,7 +216,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="322"/>
         <source>EasyList</source>
-        <translation type="unfinished"></translation>
+        <translation>EasyList</translation>
     </message>
 </context>
 <context>
@@ -277,12 +277,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockschemehandler.cpp" line="58"/>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
-        <translation type="unfinished"></translation>
+        <translation>Pretende adicionar a subscrição &lt;b&gt;%1&lt;/b&gt;?</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockschemehandler.cpp" line="60"/>
         <source>AdBlock Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Subscrição AdBlock</translation>
     </message>
 </context>
 <context>
@@ -290,27 +290,27 @@
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="60"/>
         <source>Add Rule</source>
-        <translation type="unfinished">Adicionar regra</translation>
+        <translation>Adicionar regra</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="62"/>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover regra</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="112"/>
         <source>Add Custom Rule</source>
-        <translation type="unfinished">Adicionar regras personalizadas</translation>
+        <translation>Adicionar regra personalizada</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="112"/>
         <source>Please write your rule here:</source>
-        <translation type="unfinished">Escreva aqui as suas regras:</translation>
+        <translation>Escreva aqui a sua regra:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="149"/>
         <source>%1 (recently updated)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (atualizada recentemente)</translation>
     </message>
 </context>
 <context>
@@ -756,7 +756,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="291"/>
         <source>Change icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Alterar ícone</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="292"/>
@@ -1648,7 +1648,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="97"/>
         <source>Change...</source>
-        <translation type="unfinished"></translation>
+        <translation>Alterar...</translation>
     </message>
     <message>
         <source>Add from file ...</source>
@@ -1668,67 +1668,67 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/history/history.cpp" line="75"/>
         <source>No Named Page</source>
-        <translation type="unfinished">Página sem nome</translation>
+        <translation>Página sem nome</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="262"/>
         <source>January</source>
-        <translation type="unfinished">janeiro</translation>
+        <translation>janeiro</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="264"/>
         <source>February</source>
-        <translation type="unfinished">fevereiro</translation>
+        <translation>fevereiro</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="266"/>
         <source>March</source>
-        <translation type="unfinished">março</translation>
+        <translation>março</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="268"/>
         <source>April</source>
-        <translation type="unfinished">abril</translation>
+        <translation>abril</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="270"/>
         <source>May</source>
-        <translation type="unfinished">maio</translation>
+        <translation>maio</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="272"/>
         <source>June</source>
-        <translation type="unfinished">junho</translation>
+        <translation>junho</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="274"/>
         <source>July</source>
-        <translation type="unfinished">julho</translation>
+        <translation>julho</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="276"/>
         <source>August</source>
-        <translation type="unfinished">agosto</translation>
+        <translation>agosto</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="278"/>
         <source>September</source>
-        <translation type="unfinished">setembro</translation>
+        <translation>setembro</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="280"/>
         <source>October</source>
-        <translation type="unfinished">outubro</translation>
+        <translation>outubro</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="282"/>
         <source>November</source>
-        <translation type="unfinished">novembro</translation>
+        <translation>novembro</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="284"/>
         <source>December</source>
-        <translation type="unfinished">dezembro</translation>
+        <translation>dezembro</translation>
     </message>
 </context>
 <context>
@@ -1853,38 +1853,38 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="56"/>
         <source>Title</source>
-        <translation type="unfinished">Título</translation>
+        <translation>Título</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="58"/>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Endereço</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="60"/>
         <source>Visit Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Data da visita</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="62"/>
         <source>Visit Count</source>
-        <translation type="unfinished"></translation>
+        <translation>N.º de visitas</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="316"/>
         <location filename="../src/lib/history/historymodel.cpp" line="444"/>
         <source>Today</source>
-        <translation type="unfinished">Hoje</translation>
+        <translation>Hoje</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="449"/>
         <source>This Week</source>
-        <translation type="unfinished">Esta semana</translation>
+        <translation>Esta semana</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="454"/>
         <source>This Month</source>
-        <translation type="unfinished">Este mês</translation>
+        <translation>Este mês</translation>
     </message>
 </context>
 <context>
@@ -1928,27 +1928,27 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="151"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished">Abrir ligação no separador atual</translation>
+        <translation>Abrir ligação no separador atual</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="152"/>
         <source>Open link in new tab</source>
-        <translation type="unfinished">Abrir ligação em novo separador</translation>
+        <translation>Abrir ligação em novo separador</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="154"/>
         <source>Copy title</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar título</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="155"/>
         <source>Copy address</source>
-        <translation type="unfinished">Copiar endereço</translation>
+        <translation>Copiar endereço</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="157"/>
         <source>Remove</source>
-        <translation type="unfinished">Remover</translation>
+        <translation>Remover</translation>
     </message>
 </context>
 <context>
@@ -1957,37 +1957,37 @@ não foi encontrado!</translation>
         <location filename="../src/lib/other/iconchooser.ui" line="14"/>
         <location filename="../src/lib/other/iconchooser.cpp" line="39"/>
         <source>Choose icon...</source>
-        <translation type="unfinished">Escolha o ícone...</translation>
+        <translation>Escolha o ícone...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="20"/>
         <source>From file</source>
-        <translation type="unfinished"></translation>
+        <translation>Do ficheiro</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="29"/>
         <source>Image (.png, .jpg, .jpeg, .gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem (.png, .jpg, .jpeg, .gif)</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="42"/>
         <source>Choose file...</source>
-        <translation type="unfinished">Escolha o ficheiro...</translation>
+        <translation>Escolha o ficheiro...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="52"/>
         <source>From database</source>
-        <translation type="unfinished"></translation>
+        <translation>Da base de dados</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="61"/>
         <source>Site Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Url:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.cpp" line="38"/>
         <source>Image files</source>
-        <translation type="unfinished">Imagens</translation>
+        <translation>Imagens</translation>
     </message>
 </context>
 <context>
@@ -2572,17 +2572,17 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="761"/>
         <source>Show tab previews</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar antevisão das páginas</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="752"/>
         <source>Make tab previews animated</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar antevisão animada</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="768"/>
         <source>Automatically switch to newly opened tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Trocar automaticamente para o separador aberto</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="791"/>
@@ -2760,7 +2760,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1911"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestor de certificados</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1948"/>
@@ -2859,7 +2859,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1856"/>
         <source>Manage CA certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerir certificados das AC</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1918"/>
@@ -3808,17 +3808,17 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="170"/>
         <source>Search on Web</source>
-        <translation type="unfinished"></translation>
+        <translation>Procurar na web</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="171"/>
         <source>Search results provided by DuckDuckGo</source>
-        <translation type="unfinished"></translation>
+        <translation>Resultados disponibilizados pelo DuckDuckGo</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="174"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Navegação privada&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="204"/>
@@ -4131,67 +4131,67 @@ Adicione as fontes com o ícone RSS existente na barra de navegação, nas pági
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="55"/>
         <source>Add this feed into</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar fonte para</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="84"/>
         <source>Add</source>
-        <translation type="unfinished">Adicionar</translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="36"/>
         <source>Executable: </source>
-        <translation type="unfinished">Executável: </translation>
+        <translation>Executável: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="36"/>
         <source>Arguments: </source>
-        <translation type="unfinished">Argumentos: </translation>
+        <translation>Argumentos: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="37"/>
         <source>Cannot start external program</source>
-        <translation type="unfinished"></translation>
+        <translation>Incapaz de iniciar o programa externo</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="37"/>
         <source>Cannot start external program! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Incapaz de iniciar o programa externo! %1</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="56"/>
         <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonte RSS &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="78"/>
         <source>Internal Reader</source>
-        <translation type="unfinished"></translation>
+        <translation>Leitor interno</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="79"/>
         <source>Other...</source>
-        <translation type="unfinished"></translation>
+        <translation>Outro...</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
         <source>Liferea not running</source>
-        <translation type="unfinished"></translation>
+        <translation>O Liferea não está em execução</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
         <source>Liferea must be running in order to add new feed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Para adicionar a nova fonte, o Liferea tem que estar em execução.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="132"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
-        <translation type="unfinished"></translation>
+        <translation>Para adicionar esta fonte RSS noutra aplicação, utilze estas informações:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Título: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;. O URL desta fonte foi copiado para a área de transferência.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="135"/>
         <source>Add feed into other application</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar fonte noutra aplicação</translation>
     </message>
 </context>
 <context>
@@ -4221,7 +4221,7 @@ Adicione as fontes com o ícone RSS existente na barra de navegação, nas pági
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="14"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestor de certificados</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="24"/>
@@ -4247,7 +4247,7 @@ Adicione as fontes com o ícone RSS existente na barra de navegação, nas pági
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="79"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="106"/>
@@ -4300,7 +4300,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="134"/>
         <source>Import certificate...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar certificado...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="165"/>
@@ -5054,23 +5054,23 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="304"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"></translation>
+        <translation>O QupZilla não consegue manipular ligações &lt;b&gt;%1:&lt;/b&gt;. A ligação solicitada é &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Pretende que o QupZilla tente abrir a ligação com uma aplicação do sistema?</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="309"/>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Lembrar a minha escolha para este protocolo</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="310"/>
         <source>External Protocol Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Pedido de protocolo externo</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="432"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation>Para mostrar esta página, o QupZilla tem que reenviar o pedido solicitado.
+        <translation>Para mostrar esta página, o QupZilla tem que reenviar o pedido.
 (tal como fazer algo que já foi feito.)</translation>
     </message>
     <message>
@@ -5151,7 +5151,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="665"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloqueado por &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
