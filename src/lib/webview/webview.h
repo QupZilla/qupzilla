@@ -104,7 +104,7 @@ protected slots:
     void openUrlInBackgroundTab();
 
     // To support user's option whether to open in selected or background tab
-    void userDefinedOpenUrlInNewTab(const QUrl &url = QUrl());
+    void userDefinedOpenUrlInNewTab(const QUrl &url = QUrl(), bool invert = false);
 
     void createSearchEngine();
 

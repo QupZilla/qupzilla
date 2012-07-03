@@ -10,7 +10,7 @@ $menu_download = "Pobierz";
 $menu_faq = "FAQ";
 $menu_about = "Przyczyń się";
 $footer_site = "www.qupzilla.com";
-$translated_by = "Mariusz Fik <fisiu(at)opensuse.org"; // "Page translated by <translator's name>"
+$translated_by = "Page translated by Mariusz Fik"; // "Page translated by <translator's name>"
 
 //Home Page
 $actual_version = "Aktualna Wersja";
