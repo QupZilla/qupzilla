@@ -1,0 +1,285 @@
+Version 1.3.0
+    * not released yet
+    * added animated tab previews
+    * ssl manager now can import own certificate
+    * clear recent history now remembers last checked options
+    * new urlbar completion widget can now show also entries from bookmarks
+    * little changes in speed dial's preferences
+    * support for 3rd party subscriptions in AdBlock
+    * improved performance of AdBlock rules matching
+    * possibility to add subscriptions with loading abp: links
+    * improved AdBlock dialog distinguish rule types with colors
+    * popup windows now have loading animation in urlbar
+    * new gif for loading animation (spinner)
+    * possibility to add RSS feed into external reader
+    * option to specify preferred behaviour when opening new tab
+    * inverting preferred new tab behaviour with shift modifier (eg. shift+middle click on link)
+    * X11: middle clicking on add tab button will open new tab with global mouse selection's contents
+    * fixed excessive ssl warnings when rejecting untrusted certificate
+    * fixed dragging the whole text from some labels
+    * fixed handling special characters when searching with shortcuts in urlbar
+    * fixed "open external protocol" dialog overflowing out of desktop if url is too long
+    * fixed "hide when there is only one tab" option in preferences
+    * fixed "close other tabs" action in tabbar context menu
+    * fixed rss popup in urlbar overflowing out of desktop if feed's title is too long
+    * fixed animations occasionally stop working without any reason
+
+Version 1.2.0
+    * released 5 April 2012
+    * Brazilian Portuguese, Indonesian, Georgian, Japanese and Romanian translation
+    * added information about configuration page qupzilla:config
+    * added option to show only icons in bookmarks toolbar
+    * added alt+d shortcut for focusing urlbar
+    * added possibility to import bookmarks folder structure on html import
+    * added option to create search engine from input element on page
+    * added "don't load tabs until selected" option when restoring session
+    * added option to separate http and https proxy configuration
+    * added new page into site info: databases
+    * added command line option to open url in current tab
+    * support for utf-8 filenames in Content-Disposition header (downloads)
+    * support for whitelisting/blacklisting cookies
+    * improved source viewer, it now shows line numbers
+    * improved html import - support for importing folders
+    * improved performance of bookmarks import and deleting
+    * sending referer header when opening new tab from webview
+    * user agent workaround for google sites
+    * fixed history of frames not saving
+    * fixed loading unicode urls from command line
+    * fixed removing local certificates
+    * fixed dark color of text in urlbar when using dark theme
+    * fixed garbled rendering of desktop notifications
+    * fixed text in urlbar on https sites when using dark theme
+    * fixed not saving cookies on crash
+    * fixed option not to send Referer header to servers
+    * fixed showing bad total + downloaded size when starting download
+    * fixed toggling WebInspector
+
+Version 1.18
+    * released 14 February 2012
+    * added Swedish, Serbian and Traditional Chinese translation
+    * added option to set Minimum font size in web pages
+    * added option to edit bookmark from bookmarks toolbar context menu
+    * added option to enable/disable HTML5 local storage (and to clear it)
+    * added option not to send Referer header to servers
+    * added option to use external download manager
+    * added option to add/remove page in speed dial from bookmark star icon
+    * added option to import/export passwords into xml file
+    * added option to change user agent
+    * added global shortcuts for loading sites in speed dial (Ctrl+1,2,...9)
+    * added global shortcuts for switch to tabs (Alt+1,2,3...9)
+    * added possibility to create new rss feeds in rss manager
+    * added alt+left/right click shortcuts to navigate in page history
+    * restoring / saving pinned tabs only on first window
+    * Paste & Go option in urlbar and websearchbar
+    * support for JavaScript Popup windows
+    * improved History menu -> added Most visited menu here
+    * don't saving icons in private mode
+    * improved and refactored context menu on page
+    * little improvements in speed dial
+    * using global QSettings object, should save some writed to disk
+    * remember last folder when saving new bookmarks
+    * disabling adblock on local schemes
+    * showing size of file going to be downloaded
+    * improved browser responsibility when loading a lot of cookies/history
+    * possibility to change background in Speed Dial
+    * possibility to change number of dials in row in Speed Dial
+    * possibility to change maximum number of dials in a row in Speed Dial
+    * using QImages to store icons in database now - older icons won't work!
+    * fixed showing file type when download file
+    * fixed saving usernames with spaces in password manager
+    * fixed loading of some rss feeds
+    * fixed loading incomplete urls in speed dial
+    * fixed all crashes/issues with web inspector
+    * fixed memory leak when canceling download
+    * fixed open new tab after active option
+    * fixed saving of sidebar width
+    * fixed occasional fails to restore session
+    * fixed occasional crash when closing tabs/windows
+    * fixed wrong tab focus order
+    * fixed loss of speed dial settings
+    * fixed cancelled downloads now no longer leak memory
+    * fixed showing of "Are you sure to close x tabs?" question
+    * fixed searching strings with special characters
+    * fixed sending report in Report Bug page
+
+Version 1.1.5
+    * released 7 January 2012
+    * added Portuguese, French, Greek translation
+    * support for loading long locale named qt translations
+    * support for printing page through javascript window.print()
+    * context menu in webview now handles also frames
+    * using own CA certificates database instead of system one (+ automatic updates)
+    * improved commandline options, possibility to use multiple options at once
+    * hiding new tab while moving tabs
+    * using bigger icons in Linux default theme
+    * opens all bookmarks from folder on middle click
+    * Ctrl+Enter in urlbar now appends .com & start loading
+    * opening links in new tab now opens new tab next to current tab
+    * drag&drop site icon on bookmarks toolbar creates bookmark
+    * improved performance of deleting history entries -> moved into separate thread
+    * fixed loading of local files from menu file -> open file...
+    * fixed showing rss feeds without title
+    * fixed searching on page when highlight is enabled + added shortcuts
+    * fixed Click2Flash plugin and enables it by default again
+    * fixed crash when closing WebInspector with QtWebKit 2.2
+    * fixed crash in Click2Flash plugin when element is not found
+    * fixed "hide tabs when there is only one tab" option
+    * fixed cookies loss when closing browser with private browsing
+    * fixed overflowing bookmarks toolbar when there is a lot of bookmarks
+    * fixed going to history items in history back/forward menu in new tab
+    * fixed showing custom rules in AdBlock
+    * fixed problem with downloading with right click -> download link
+    * fixed suggestions for google and youtube
+
+Version 1.1.0
+    * released 14 December 2011
+    * option to turn on XSS Auditing
+    * option to select all text in urlbar when clicking on it
+    * added Speed Dial
+    * possibility to select + copy text on a lot of labels
+    * improved source code viewer performance + highlighting
+    * importing bookmarks from html files
+    * restoring closed tabs now remember position
+    * multiple sizes icon in linux
+    * fixed saving certificate exception
+    * fixed overriding cursor by some flash objects
+    * fixed problem with loading urls with % characters from history
+    * fixed favicon of qupzilla internal pages in ubuntu
+    * fixed loading of user defined stylesheet
+    * fixed saving of user defined fonts
+
+Version 1.0.0
+    * released 9 November 2011
+    * possibility to place folders on bookmarks toolbar
+    * password manager has now all passwords hidden by default
+    * added a lot of keyboard shortcuts
+    * fixed right click on back/next buttons shows menu
+    * fixed fetching icons in bookmarks importing
+    * fixed duplicated entries in back/next menus
+    * fixed problem with adding addition tab when restoring more windows
+    * fixed error handling in download manager
+    * fixed various crashes
+    * fixed updating AdBlock EasyList
+    * fixed html highlighter
+
+Version 1.0.0-rc1
+    * possibility to delete click2flash object on page
+    * improved SSL Manager (you can add paths to look for CA Certs)
+    * Search Engines Manager + OpenSearch support with suggestions
+    * add tab button is now shown next to last tab
+    * you can open bookmark / history entry in new tab with middle button
+    * fixed problem with bookmarks toolbar
+    * fixed loading animation ending with page still loading
+    * fixed occasional problem with updating address when going next/back in history
+    * fixed crash when clearing history
+
+Version 1.0.0-beta4
+    * from this version, QupZilla is now fully skinnable
+    * introduced 4 basic themes including Chrome, Windows and Mac theme
+    * private browsing is now indicated in window title
+    * added qupzilla: scheme - qupzilla:about, qupzilla:reportbug and new start page qupzilla:start
+    * saving and restoring position and size of window
+    * added "page screenshot" feature
+    * fixed occasional problem with searching on Google from location bar
+    * fixed crash in download manager
+
+Version 1.0.0-beta3
+    * whole urlbar has been rewritten - now every tab has own separate urlbar
+    * click2flash now offers information about flash object
+    * when downloading file with the name it already exists, it will be automatically renamed
+    * history in menubar is refreshed only when needed, not with every click
+    * added new library containing bookmarks, history and rss manager in single window
+    * rewritten all animations, they are now smoother
+    * fixed performance issue with web icons
+
+Version 1.0.0-beta2
+    * fixed issue with downloading secured content on Windows
+    * image previews in site information dialog now properly handle relative links
+    * reload with bypass cache feature (Shift+F5)
+    * if download content is offered in empty tab with empty history, thus will be closed
+    * hovered link url is shown even when statusbar is hidden
+    * option to specify own CSS Style loaded with every page
+    * fixed and enhanced command line interface
+    * private browsing now uses temporary cookie jar
+    * javascript prompts/alerts/confirms are now non-blocking
+    * JumpList for Windows 7 integration
+
+Version 1.0.0-beta1
+    * duplicate panel feature added
+    * added sidebars for history and bookmarks
+    * close other tabs now keep pinned tabs open
+    * option to hide 'add new tab' button
+    * fixed some bugs in downloadmanager (with W7API also)
+    * rewritten icon database, no longer forgetting icons
+    * navigation in fullscreen is automatically showing/hiding
+    * added support for notifications (OSD + native desktop on Linux)
+    * added support for configuring Proxy (system configuration or your own)
+
+Version 0.9.9
+    * pinning tab feature added
+    * basic AdBlock support
+    * fixed some issues with restoring sessions
+    * new Site Informations dialog including preview of pictures at the page
+    * download manager now offers option to just open file (downloaded into temp folder)
+    * added profiles support
+    * edited look of some widgets for Windows Vista/7
+
+Version 0.9.8
+    * added character encoding option in View menu
+    * added option to change default fonts in Preferences
+    * source viewer has now more features including HTML highlighter
+    * option to specify how long history you want to delete from Clear Recent History in Tools menu
+    * improved Windows installer, you can now choose which component to install
+
+Version 0.9.7
+    * fixed Flash issues on Windows
+    * added SSL Exceptions Manager
+    * added animated notifications for "save password" dialog
+
+Version 0.9.6
+    * fixed some issues with user background
+    * added option to change font color (for dark backgrounds)
+    * improved bookmarks / history / RSS Reader
+    * new Windows installer
+    * initial support for Plugins
+
+Version 0.9.5
+    * support for user specific background image for browser
+    * new icons in navigation bar
+    * brand new browser icon
+    * new About dialog
+
+Version 0.9.4
+    * completely new design preferences + few changes in browser design
+    * network disk cache added to speed up browsing
+    * new options in preference with option to change maximum disk quota for cache
+    * complete integration into Linux desktop
+    * fixes in Debian packages
+
+Version 0.9.3
+    * another stability improves
+    * added autosaver in case of browser crash
+    * improved saving and restoring sessions with multiple windows
+    * first Debian package for Linux
+
+Version 0.9.2
+    * lot of bugs fixed, including crash fixes
+    * improved stability and speed of browser
+    * added source viewer (without highlighting for now)
+    * added simple download manager
+
+Version 0.9.1
+    * added bookmarks and history manager
+    * added RSS Reader + indicator to location bar whether the page offers feeds
+    * new design for Windows Vista/7
+
+Version 0.9.0
+    * first version written in C++, built with mingw32
+    * almost all features from Python version implemented
+    * finally fixed all problems relating to tabs
+    * HTML5 supported from this version, including offline storage
+    * added cookies manager
+    * added simple Windows installer
+
+Version 0.x.x
+    * written in Python
