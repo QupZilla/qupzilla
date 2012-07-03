@@ -312,7 +312,7 @@ void RSSManager::finished()
     QString titleString;
 
     QXmlStreamReader xml;
-    xml.addData(reply->reply()->readAll());
+    xml.addData(reply->readAll());
 
     reply->deleteLater();
 

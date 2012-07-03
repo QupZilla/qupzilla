@@ -20,6 +20,7 @@
 #define FOLLOWREDIRECTREPLY_H
 
 #include <QObject>
+#include <QNetworkReply>
 
 #include "qz_namespace.h"
 
@@ -34,7 +35,11 @@ public:
     explicit FollowRedirectReply(const QUrl &url, QNetworkAccessManager* manager);
     ~FollowRedirectReply();
 
-    QNetworkReply* reply() { return m_reply; }
+    QNetworkReply* reply() const;
+    QUrl url() const;
+
+    QNetworkReply::NetworkError error() const;
+    QByteArray readAll();
 
 signals:
     void finished();

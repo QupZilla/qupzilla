@@ -56,6 +56,8 @@ class QNetworkRequest;
 class QNetworkReply;
 class QUrl;
 
+class FollowRedirectReply;
+
 class QT_QUPZILLA_EXPORT AdBlockSubscription : public QObject
 {
     Q_OBJECT
@@ -105,7 +107,7 @@ protected:
 
     void populateCache();
 
-    QNetworkReply* m_reply;
+    FollowRedirectReply* m_reply;
 
     QList<AdBlockRule> m_rules;
     QString m_elementHidingRules;
@@ -120,6 +122,7 @@ private:
     QString m_filePath;
 
     QUrl m_url;
+    bool m_updated;
 };
 
 class AdBlockEasyList : public AdBlockSubscription

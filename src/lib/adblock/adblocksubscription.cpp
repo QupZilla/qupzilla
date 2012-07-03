@@ -47,6 +47,7 @@
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "globalfunctions.h"
+#include "followredirectreply.h"
 
 #include <QFile>
 #include <QTimer>
@@ -58,6 +59,7 @@ AdBlockSubscription::AdBlockSubscription(const QString &title, QObject* parent)
     : QObject(parent)
     , m_reply(0)
     , m_title(title)
+    , m_updated(false)
 {
 }
 
@@ -129,7 +131,7 @@ void AdBlockSubscription::loadSubscription(const QStringList &disabledRules)
     populateCache();
 
     // Initial update
-    if (m_rules.isEmpty()) {
+    if (m_rules.isEmpty() && !m_updated) {
         QTimer::singleShot(0, this, SLOT(updateSubscription()));
     }
 }
@@ -144,21 +146,20 @@ void AdBlockSubscription::updateSubscription()
         return;
     }
 
-    QNetworkRequest request(m_url);
-    m_reply = mApp->networkManager()->get(request);
+    m_reply = new FollowRedirectReply(m_url, mApp->networkManager());
 
     connect(m_reply, SIGNAL(finished()), this, SLOT(subscriptionDownloaded()));
 }
 
 void AdBlockSubscription::subscriptionDownloaded()
 {
-    if (m_reply != qobject_cast<QNetworkReply*>(sender())) {
+    if (m_reply != qobject_cast<FollowRedirectReply*>(sender())) {
         return;
     }
 
     QByteArray response = m_reply->readAll();
 
-    if (m_reply->error() == QNetworkReply::NoError && !response.isEmpty()) {
+    if (m_reply->error() == QNetworkReply::NoError && response.startsWith("[Adblock")) {
         // Prepend subscription info
         response.prepend(QString("Title: %1\nUrl: %2\n").arg(title(), url().toString()).toUtf8());
 
@@ -168,7 +169,6 @@ void AdBlockSubscription::subscriptionDownloaded()
         emit subscriptionUpdated();
     }
 
-    m_reply->close();
     m_reply->deleteLater();
     m_reply = 0;
 }

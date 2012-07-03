@@ -54,6 +54,7 @@ public:
     void populateNetworkRequest(QNetworkRequest &request);
 
     TabbedWebView* getView() { return m_view; }
+
     void setSSLCertificate(const QSslCertificate &cert);
     QSslCertificate sslCertificate();
 
@@ -71,7 +72,7 @@ public:
     bool loadingError() const;
 
     void addRejectedCerts(const QList<QSslCertificate> &certs);
-    bool containsRejectedCerts(const QList<QSslCertificate> &certs) const;
+    bool containsRejectedCerts(const QList<QSslCertificate> &certs);
 
     static void setUserAgent(const QString &agent);
     QString userAgentForUrl(const QUrl &url) const;
@@ -126,7 +127,7 @@ private:
     QWebPage::NavigationType m_lastRequestType;
     TabbedWebView* m_view;
     SpeedDial* m_speedDial;
-    QSslCertificate m_SslCert;
+    QSslCertificate m_sslCert;
     QList<QSslCertificate> m_rejectedSslCerts;
     QList<AdBlockedEntry> m_adBlockedEntries;
     QFileSystemWatcher* m_fileWatcher;

@@ -152,13 +152,17 @@ void WebPage::addRejectedCerts(const QList<QSslCertificate> &certs)
     }
 }
 
-bool WebPage::containsRejectedCerts(const QList<QSslCertificate> &certs) const
+bool WebPage::containsRejectedCerts(const QList<QSslCertificate> &certs)
 {
     int matches = 0;
 
     foreach(const QSslCertificate & cert, certs) {
         if (m_rejectedSslCerts.contains(cert)) {
             ++matches;
+        }
+
+        if (m_sslCert == cert) {
+            m_sslCert.clear();
         }
     }
 
@@ -434,18 +438,16 @@ bool WebPage::event(QEvent* event)
 void WebPage::setSSLCertificate(const QSslCertificate &cert)
 {
     //    if (cert != m_SslCert)
-    m_SslCert = cert;
+    m_sslCert = cert;
 }
 
 QSslCertificate WebPage::sslCertificate()
 {
-    if (url().scheme() == "https" &&
-            m_SslCert.subjectInfo(QSslCertificate::CommonName).remove('*').contains(QRegExp(url().host()))) {
-        return m_SslCert;
+    if (url().scheme() == "https" && m_sslCert.isValid()) {
+        return m_sslCert;
     }
-    else {
-        return QSslCertificate();
-    }
+
+    return QSslCertificate();
 }
 
 bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type)
