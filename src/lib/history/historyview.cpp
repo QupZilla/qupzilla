@@ -66,6 +66,8 @@ void HistoryView::removeItems()
     QList<int> list;
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
+    QList<QPersistentModelIndex> topLevelIndexes;
+
     foreach(const QModelIndex & index, selectedIndexes()) {
         if (index.column() > 0) {
             continue;
@@ -76,6 +78,8 @@ void HistoryView::removeItems()
             qint64 end = index.data(HistoryModel::TimestampEndRole).toLongLong();
 
             list.append(m_history->indexesFromTimeRange(start, end));
+
+            topLevelIndexes.append(index);
         }
         else {
             int id = index.data(HistoryModel::IdRole).toInt();
@@ -86,6 +90,8 @@ void HistoryView::removeItems()
     }
 
     m_history->deleteHistoryEntry(list);
+    m_history->model()->removeTopLevelIndexes(topLevelIndexes);
+
     QApplication::restoreOverrideCursor();
 }
 
