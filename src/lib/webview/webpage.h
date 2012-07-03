@@ -67,7 +67,11 @@ public:
     void scheduleAdjustPage();
     bool isRunningLoop();
 
+    bool isLoading() const;
     bool loadingError() const;
+
+    void addRejectedCerts(const QList<QSslCertificate> &certs);
+    bool containsRejectedCerts(const QList<QSslCertificate> &certs) const;
 
     static void setUserAgent(const QString &agent);
     QString userAgentForUrl(const QUrl &url) const;
@@ -123,12 +127,13 @@ private:
     TabbedWebView* m_view;
     SpeedDial* m_speedDial;
     QSslCertificate m_SslCert;
-    QList<QSslCertificate> m_SslCerts;
+    QList<QSslCertificate> m_rejectedSslCerts;
     QList<AdBlockedEntry> m_adBlockedEntries;
     QFileSystemWatcher* m_fileWatcher;
 
     QEventLoop* m_runningLoop;
 
+    int m_loadProgress;
     bool m_blockAlerts;
     bool m_secureStatus;
     bool m_adjustingScheduled;

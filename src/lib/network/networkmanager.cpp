@@ -145,25 +145,15 @@ void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
     }
 }
 
+inline uint qHash(const QSslCertificate &cert)
+{
+    return qHash(cert.toPem());
+}
+
 void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
 {
-    if (m_ignoreAllWarnings) {
+    if (m_ignoreAllWarnings || reply->property("downReply").toBool()) {
         reply->ignoreSslErrors(errors);
-        return;
-    }
-
-    if (reply->property("downReply").toBool()) {
-        return;
-    }
-
-    int errorsIgnored = 0;
-    foreach(const QSslError & error, errors) {
-        if (m_ignoredCerts.contains(error.certificate())) {
-            ++errorsIgnored;
-        }
-    }
-
-    if (errorsIgnored == errors.count()) {
         return;
     }
 
@@ -174,43 +164,76 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
         return;
     }
 
+    QHash<QSslCertificate, QStringList> errorHash;
+    foreach(const QSslError & error, errors) {
+        // Weird behavior on Windows
+        if (error.error() == QSslError::NoError) {
+            continue;
+        }
+
+        const QSslCertificate &cert = error.certificate();
+
+        if (errorHash.contains(cert)) {
+            errorHash[cert].append(error.errorString());
+        }
+        else {
+            errorHash.insert(cert, QStringList(error.errorString()));
+        }
+    }
+
+    // User already rejected those certs on this page
+    if (webPage->containsRejectedCerts(errorHash.keys())) {
+        return;
+    }
+
     QString title = tr("SSL Certificate Error!");
     QString text1 = tr("The page you are trying to access has the following errors in the SSL certificate:");
 
     QString certs;
 
-    foreach(const QSslError & error, errors) {
-        if (m_localCerts.contains(error.certificate())) {
-            continue;
-        }
-        if (error.error() == QSslError::NoError) { //Weird behavior on Windows
+    QHash<QSslCertificate, QStringList>::const_iterator i = errorHash.constBegin();
+    while (i != errorHash.constEnd()) {
+        const QSslCertificate &cert = i.key();
+        const QStringList &errors = i.value();
+
+        if (m_localCerts.contains(cert) || errors.isEmpty()) {
+            ++i;
             continue;
         }
 
-        QSslCertificate cert = error.certificate();
         certs += "<ul><li>";
         certs += tr("<b>Organization: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::Organization));
         certs += "</li><li>";
         certs += tr("<b>Domain Name: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::CommonName));
         certs += "</li><li>";
         certs += tr("<b>Expiration Date: </b>") + cert.expiryDate().toString("hh:mm:ss dddd d. MMMM yyyy");
-        certs += "</li><li>";
-        certs += tr("<b>Error: </b>") + error.errorString();
         certs += "</li></ul>";
+
+        certs += "<ul>";
+        foreach(const QString & error, errors) {
+            certs += "<li>";
+            certs += tr("<b>Error: </b>") + error;
+            certs += "</li>";
+        }
+        certs += "</ul>";
+
+        ++i;
     }
 
     QString text2 = tr("Would you like to make an exception for this certificate?");
     QString message = QString("<b>%1</b><p>%2</p>%3<p>%4</p>").arg(title, text1, certs, text2);
 
     if (!certs.isEmpty())  {
-        if (QMessageBox::critical(webPage->view(), tr("SSL Certificate Error!"), message,
-                                  QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::No) {
+        QMessageBox::StandardButton button = QMessageBox::critical(webPage->view(), tr("SSL Certificate Error!"), message, QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+        if (button == QMessageBox::No) {
+            // To prevent asking user more than once for the same certificate
+            webPage->addRejectedCerts(errorHash.keys());
             return;
         }
 
-        foreach(const QSslError & error, errors) {
-            if (!m_localCerts.contains(error.certificate())) {
-                addLocalCertificate(error.certificate());
+        foreach(const QSslCertificate & cert, errorHash.keys()) {
+            if (!m_localCerts.contains(cert)) {
+                addLocalCertificate(cert);
             }
         }
     }
@@ -365,11 +388,12 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
 void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
 {
     m_localCerts.removeOne(cert);
+
     QList<QSslCertificate> certs = QSslSocket::defaultCaCertificates();
     certs.removeOne(cert);
     QSslSocket::setDefaultCaCertificates(certs);
 
-    //Delete cert file from profile
+    // Delete cert file from profile
     bool deleted = false;
     QDirIterator it(mApp->currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it.hasNext()) {

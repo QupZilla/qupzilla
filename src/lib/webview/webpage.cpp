@@ -67,6 +67,7 @@ WebPage::WebPage(QupZilla* mainClass)
     , m_speedDial(mApp->plugins()->speedDial())
     , m_fileWatcher(0)
     , m_runningLoop(0)
+    , m_loadProgress(-1)
     , m_blockAlerts(false)
     , m_secureStatus(false)
     , m_adjustingScheduled(false)
@@ -142,9 +143,36 @@ bool WebPage::loadingError() const
     return !mainFrame()->findFirstElement("span[id=\"qupzilla-error-page\"]").isNull();
 }
 
+void WebPage::addRejectedCerts(const QList<QSslCertificate> &certs)
+{
+    foreach(const QSslCertificate & cert, certs) {
+        if (!m_rejectedSslCerts.contains(cert)) {
+            m_rejectedSslCerts.append(cert);
+        }
+    }
+}
+
+bool WebPage::containsRejectedCerts(const QList<QSslCertificate> &certs) const
+{
+    int matches = 0;
+
+    foreach(const QSslCertificate & cert, certs) {
+        if (m_rejectedSslCerts.contains(cert)) {
+            ++matches;
+        }
+    }
+
+    return matches == certs.count();
+}
+
 bool WebPage::isRunningLoop()
 {
     return m_runningLoop;
+}
+
+bool WebPage::isLoading() const
+{
+    return m_loadProgress < 100;
 }
 
 void WebPage::setUserAgent(const QString &agent)
@@ -161,13 +189,15 @@ void WebPage::urlChanged(const QUrl &url)
 {
     Q_UNUSED(url)
 
-    m_adBlockedEntries.clear();
-    m_blockAlerts = false;
+    if (isLoading()) {
+        m_adBlockedEntries.clear();
+        m_blockAlerts = false;
+    }
 }
 
 void WebPage::progress(int prog)
 {
-    Q_UNUSED(prog)
+    m_loadProgress = prog;
 
     bool secStatus = sslCertificate().isValid();
 
