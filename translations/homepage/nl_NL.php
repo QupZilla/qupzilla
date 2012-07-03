@@ -46,6 +46,7 @@ $source_code = "Broncode";
 $choose_os = "Kies uw besturingssysteem";
 $windows_text = "32-bit en 64-bit Windows-installaties kunnen worden gedownload door te klikken op onderstaande links";
 $ubuntu_text = "Precise, Oneiric, Natty en Maverick-gebruikers kunnen QupZilla installeren door deze commando's te gebruken";
+$install_run_command = "You can install QupZilla by running this command";
 $for_development_version = "voor ontwikkelings-versie:";
 $packages_text = "32-bit en 64-bit-pakketten";
 $tarballs_text = "32-bit en 64-bit voorgecompileerde tarballs";

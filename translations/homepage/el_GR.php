@@ -46,6 +46,7 @@ $source_code = "Πηγαίος κώδικας";
 $choose_os = "Παρακαλώ επιλέξτε το λειτουργικό σας σύστημα";
 $windows_text = "Προγράμματα εγκατάστασης για 32bit και 64bit Windows μπορούν να ληφθούν κάνοντας κλικ στους παρακάτω συνδέσμους";
 $ubuntu_text = "Οι χρήστες Precise, Oneiric, Natty and Maverick μπορούν να εγκαταστήσουν το QupZilla τρέχοντας αυτές τις εντολές";
+$install_run_command = "You can install QupZilla by running this command";
 $for_development_version = "για την έκδοση σε ανάπτυξη:";
 $packages_text = "πακέτα 32bit και 64bit";
 $tarballs_text = "32bit και 64bit precompiled tarballs";

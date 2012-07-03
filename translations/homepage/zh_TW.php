@@ -45,6 +45,7 @@ $source_code = "原始碼";
 $choose_os = "選擇您所使用的作業系統";
 $windows_text = "點擊下面的連結下載32位元及64位元的Windows的安裝包";
 $ubuntu_text = "Ubuntu的Precise(12.04)、Oneiric(11.10)、Natty(11.04)以及Maverick(10.10)使用者可以藉由下列指令安裝QupZilla";
+$install_run_command = "You can install QupZilla by running this command";
 $for_development_version = "開發中版本：";
 $packages_text = "32位元以及64位元的套件包";
 $tarballs_text = "32位元以及64位元的預編譯壓縮檔(tarballs)";

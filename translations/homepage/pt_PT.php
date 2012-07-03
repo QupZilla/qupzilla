@@ -43,6 +43,7 @@ $source_code = "Código fonte";
 $choose_os = "Escolha o seu sistema operativo";
 $windows_text = "Pode transferir as versões 32 bits e 64 bits para o Windows nas ligações abaixo";
 $ubuntu_text = "Os utilizadores do Ubuntu Precise, Oneiric, Natty e Maverick podem instalar o QupZilla através destes comandos";
+$install_run_command = "You can install QupZilla by running this command";
 $for_development_version = "Versões de desenvolvimento:";
 $packages_text = "Os pacotes 32 bits e 64 bits";
 $tarballs_text = "Os pacotes pré-compilados 32 bits e 64 bits";

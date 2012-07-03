@@ -175,7 +175,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="48"/>
         <source>Learn about writing rules...</source>
-        <translation>Zjistit více o psaní &amp;pravidel</translation>
+        <translation>Zjistit více o psaní pravidel...</translation>
     </message>
     <message>
         <source>Update EasyList</source>
@@ -259,7 +259,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="112"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
-        <translation>Blokovaná adresa (AdBlock pravidlo) - klikem upravíte pravidlo</translation>
+        <translation>Blokovaná adresa (AdBlock pravidlo) - kliknutím upravíte pravidlo</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="102"/>
