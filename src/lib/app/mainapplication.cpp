@@ -756,21 +756,28 @@ void MainApplication::startPrivateBrowsing()
     }
 }
 
+void MainApplication::reloadUserStyleSheet()
+{
+    Settings settings;
+    settings.beginGroup("Web-Browser-Settings");
+    m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", "").toString()));
+    settings.endGroup();
+}
+
 QUrl MainApplication::userStyleSheet(const QString &filePath) const
 {
-    QString userStyle;
+    QString userStyle = AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}";
 
     QFile file(filePath);
     if (!filePath.isEmpty() && file.open(QFile::ReadOnly)) {
-        userStyle = file.readAll();
-        userStyle.remove('\n');
+        QString fileData = file.readAll();
+        fileData.remove('\n');
+        userStyle.append(fileData);
         file.close();
     }
 
-    userStyle.append(AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}");
-
-    QString encodedStyle = userStyle.toAscii().toBase64();
-    QString dataString = QString("data:text/css;charset=utf-8;base64,%1").arg(encodedStyle);
+    const QString &encodedStyle = userStyle.toAscii().toBase64();
+    const QString &dataString = QString("data:text/css;charset=utf-8;base64,%1").arg(encodedStyle);
 
     return QUrl(dataString);
 }

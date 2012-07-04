@@ -157,6 +157,9 @@ public:
     int addRule(const AdBlockRule &rule);
     bool removeRule(int offset);
     const AdBlockRule* replaceRule(const AdBlockRule &rule, int offset);
+
+signals:
+    void subscriptionEdited();
 };
 
 #endif // ADBLOCKSUBSCRIPTION_H

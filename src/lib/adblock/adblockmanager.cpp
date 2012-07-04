@@ -211,16 +211,20 @@ void AdBlockManager::load()
         AdBlockSubscription* subscription = new AdBlockSubscription(title, this);
         subscription->setUrl(url);
         subscription->setFilePath(absolutePath);
+        connect(subscription, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
+
         m_subscriptions.append(subscription);
     }
 
     // Prepend EasyList
     AdBlockSubscription* easyList = new AdBlockEasyList(this);
     m_subscriptions.prepend(easyList);
+    connect(easyList, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
 
     // Append CustomList
-    AdBlockSubscription* customList = new AdBlockCustomList(this);
+    AdBlockCustomList* customList = new AdBlockCustomList(this);
     m_subscriptions.append(customList);
+    connect(customList, SIGNAL(subscriptionEdited()), mApp, SLOT(reloadUserStyleSheet()));
 
     // Load all subscriptions
     foreach(AdBlockSubscription * subscription, m_subscriptions) {
@@ -286,6 +290,10 @@ bool AdBlockManager::canBeBlocked(const QUrl &url) const
 
 QString AdBlockManager::elementHidingRules() const
 {
+    if (!m_enabled) {
+        return QString();
+    }
+
     QString rules;
 
     foreach(AdBlockSubscription * subscription, m_subscriptions) {

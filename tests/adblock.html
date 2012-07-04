@@ -3,9 +3,17 @@
  <title>AdBlock Tests &A</title>
 </head>
 <body>
-<h2>Popup Block Tests</h2>
-  <a href="javascript:window.open('http://www.google.com/aclk?sa=l&adurl=http://www.edreams.com/', '_blank', 'width=600,height=600,statusbar=no,toolbar=no')">Open Popup window (will be blocked)</a>
-  <br/>
-  <br/>
+<h2>AdBlock Tests</h2>
+<h3>Popup Blocking</h3>
+<p>
+<a href="javascript:window.open('http://www.google.com/aclk?sa=l&adurl=http://www.edreams.com/', '_blank', 'width=600,height=600,statusbar=no,toolbar=no')">Open Popup window (will be blocked)</a>
+</p>
+
+<h3>Element hiding</h3>
+Blocking element with <b>##div.test-qz-ad</b> rule.
+<div class="test-qz-ad" style="font-weight: bold; color: darkred;">
+If you see this text, the rule does not works!
+</div>
+
 </body>
 </html>

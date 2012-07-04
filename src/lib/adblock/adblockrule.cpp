@@ -260,6 +260,10 @@ bool AdBlockRule::urlMatch(const QUrl &url) const
 
 bool AdBlockRule::matchDomain(const QString &domain) const
 {
+    if (!m_enabled) {
+        return false;
+    }
+
     if (!m_domainRestricted) {
         return true;
     }

@@ -109,6 +109,7 @@ public slots:
     void addNewTab(const QUrl &url = QUrl());
 
     void startPrivateBrowsing();
+    void reloadUserStyleSheet();
 
 signals:
     void message(Qz::AppMessageType mes, bool state);
