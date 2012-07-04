@@ -75,26 +75,26 @@
     <name>AdBlockAddSubscriptionDialog</name>
     <message>
         <source>Title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Názov:</translation>
     </message>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Adresa:</translation>
     </message>
     <message>
         <source>Add new subscription to AdBlock:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať sadu filtrov do AdBlocku:</translation>
     </message>
     <message>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať sadu filtrov</translation>
     </message>
 </context>
 <context>
     <name>AdBlockCustomList</name>
     <message>
         <source>Custom Rules</source>
-        <translation type="unfinished">Vlastné pravidlá</translation>
+        <translation>Vlastné pravidlá</translation>
     </message>
 </context>
 <context>
@@ -153,34 +153,34 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Možnosti</translation>
     </message>
     <message>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť pravidlo</translation>
     </message>
     <message>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať sadu filtrov</translation>
     </message>
     <message>
         <source>Remove Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť sadu filtrov</translation>
     </message>
     <message>
         <source>Update Subscriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizovať sadu filtrov</translation>
     </message>
     <message>
         <source>Learn about writing rules...</source>
-        <translation type="unfinished"></translation>
+        <translation>Zistiť viac o písaní pravidiel...</translation>
     </message>
 </context>
 <context>
     <name>AdBlockEasyList</name>
     <message>
         <source>EasyList</source>
-        <translation type="unfinished"></translation>
+        <translation>EasyList</translation>
     </message>
 </context>
 <context>
@@ -230,34 +230,34 @@
     <name>AdBlockManager</name>
     <message>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
-        <translation type="unfinished"></translation>
+        <translation>Chcete pridať &lt;b&gt;%1&lt;/b&gt; sadu filtrov?</translation>
     </message>
     <message>
         <source>AdBlock Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlock sada filtrov</translation>
     </message>
 </context>
 <context>
     <name>AdBlockTreeWidget</name>
     <message>
         <source>Add Rule</source>
-        <translation type="unfinished">Pridať pravidlo</translation>
+        <translation>Pridať pravidlo</translation>
     </message>
     <message>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť pravidlo</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation type="unfinished">Pridať vlastné pravidlo</translation>
+        <translation>Pridať vlastné pravidlo</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation type="unfinished">Prosím, sem napíšte vlastné pravidlo:</translation>
+        <translation>Prosím, sem napíšte vlastné pravidlo:</translation>
     </message>
     <message>
         <source>%1 (recently updated)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (aktualizované)</translation>
     </message>
 </context>
 <context>
@@ -630,7 +630,7 @@
     </message>
     <message>
         <source>Change icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmeniť ikonu</translation>
     </message>
 </context>
 <context>
@@ -1312,62 +1312,62 @@
     </message>
     <message>
         <source>Change...</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmeniť...</translation>
     </message>
 </context>
 <context>
     <name>History</name>
     <message>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Stránka bez mena</translation>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished">Január</translation>
+        <translation>Január</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished">Február</translation>
+        <translation>Február</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished">Marec</translation>
+        <translation>Marec</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished">Apríl</translation>
+        <translation>Apríl</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished">Máj</translation>
+        <translation>Máj</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished">Jún</translation>
+        <translation>Jún</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished">Júl</translation>
+        <translation>Júl</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished">August</translation>
+        <translation>August</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished">September</translation>
+        <translation>September</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished">Október</translation>
+        <translation>Október</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished">November</translation>
+        <translation>November</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished">December</translation>
+        <translation>December</translation>
     </message>
 </context>
 <context>
@@ -1485,31 +1485,31 @@
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Názov</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Adresa</translation>
     </message>
     <message>
         <source>Visit Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Dátum návštevy</translation>
     </message>
     <message>
         <source>Visit Count</source>
-        <translation type="unfinished"></translation>
+        <translation>Počet návštev</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished">Dnes</translation>
+        <translation>Dnes</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation type="unfinished">Tento týždeň</translation>
+        <translation>Tento týždeň</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation type="unfinished">Tento mesiac</translation>
+        <translation>Tento mesiac</translation>
     </message>
 </context>
 <context>
@@ -1551,54 +1551,54 @@
     <name>HistoryView</name>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished">Otvoriť odkaz v aktuálnom panely</translation>
+        <translation>Otvoriť odkaz v aktuálnom panely</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished">Otvoriť odkaz na novej karte</translation>
+        <translation>Otvoriť odkaz na novej karte</translation>
     </message>
     <message>
         <source>Copy title</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovať názov</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished">Kopírovať adresu</translation>
+        <translation>Kopírovať adresu</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť</translation>
     </message>
 </context>
 <context>
     <name>IconChooser</name>
     <message>
         <source>Choose icon...</source>
-        <translation type="unfinished">Zvoľte ikonu...</translation>
+        <translation>Zvoľte ikonu...</translation>
     </message>
     <message>
         <source>From file</source>
-        <translation type="unfinished"></translation>
+        <translation>Zo súboru</translation>
     </message>
     <message>
         <source>Image (.png, .jpg, .jpeg, .gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázok (.png, .jpg, .jpeg, .gif)</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľte súbor...</translation>
     </message>
     <message>
         <source>From database</source>
-        <translation type="unfinished"></translation>
+        <translation>Z databázy</translation>
     </message>
     <message>
         <source>Site Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Adresa stránky:</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished">Obrázky</translation>
+        <translation>Obrázky</translation>
     </message>
 </context>
 <context>
@@ -2464,15 +2464,15 @@
     </message>
     <message>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Správca certifikátov</translation>
     </message>
     <message>
         <source>Manage CA certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Spravovať CA certifikáty</translation>
     </message>
     <message>
         <source>Automatically switch to newly opened tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky prepnúť na novo otvorený panel</translation>
     </message>
 </context>
 <context>
@@ -3194,15 +3194,15 @@ Skutočne chcete skončiť?</translation>
     </message>
     <message>
         <source>Search on Web</source>
-        <translation type="unfinished"></translation>
+        <translation>Hšadať na webe</translation>
     </message>
     <message>
         <source>Search results provided by DuckDuckGo</source>
-        <translation type="unfinished"></translation>
+        <translation>Výsledky hľadania poskytuje DuckDuckGo</translation>
     </message>
     <message>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Súkromné prehliadanie&lt;/h1&gt;</translation>
     </message>
 </context>
 <context>
@@ -3306,55 +3306,55 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     </message>
     <message>
         <source>Add this feed into</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať tento kanál do</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Pridať</translation>
+        <translation>Pridať</translation>
     </message>
     <message>
         <source>Executable: </source>
-        <translation type="unfinished">Program: </translation>
+        <translation>Program: </translation>
     </message>
     <message>
         <source>Arguments: </source>
-        <translation type="unfinished">Argumenty: </translation>
+        <translation>Argumenty: </translation>
     </message>
     <message>
         <source>Cannot start external program</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodarilo sa spustiť externý program</translation>
     </message>
     <message>
         <source>Cannot start external program! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodarilo sa spustiť externý program! %1</translation>
     </message>
     <message>
         <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>RSS kanál &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Internal Reader</source>
-        <translation type="unfinished"></translation>
+        <translation>Interná čítačka</translation>
     </message>
     <message>
         <source>Other...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ostatné...</translation>
     </message>
     <message>
         <source>Liferea not running</source>
-        <translation type="unfinished"></translation>
+        <translation>Liferea nie je spustená</translation>
     </message>
     <message>
         <source>Liferea must be running in order to add new feed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Liferea musí byť spustená, aby bolo možné pridať nový kanál.</translation>
     </message>
     <message>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
-        <translation type="unfinished"></translation>
+        <translation>rPre pridanie tohto RSS kanálu do inej aplikácie použijete tieto informácie:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Názov: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url adresa tohto kanálu bola skopírovaná do schránky.</translation>
     </message>
     <message>
         <source>Add feed into other application</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať kanál do inej aplikácie</translation>
     </message>
 </context>
 <context>
@@ -3438,15 +3438,15 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Správca certifikátov</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importovať</translation>
     </message>
     <message>
         <source>Import certificate...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importovať certifikát...</translation>
     </message>
 </context>
 <context>
@@ -4173,7 +4173,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokované s &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
