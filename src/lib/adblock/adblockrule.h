@@ -71,6 +71,9 @@ public:
     bool isCssRule() const;
     QString cssSelector() const;
 
+    bool isDocument() const;
+    bool isElemhide() const;
+
     bool isDomainRestricted() const;
     bool isException() const;
 
@@ -82,6 +85,7 @@ public:
     bool isInternalDisabled() const;
 
     bool networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const;
+    bool urlMatch(const QUrl &url) const;
 
     bool matchDomain(const QString &domain) const;
     bool matchThirdParty(const QNetworkRequest &request) const;
@@ -127,6 +131,10 @@ private:
 
     bool m_xmlhttprequest;
     bool m_xmlhttprequestException;
+
+    // Exception only options
+    bool m_document;
+    bool m_elemhide;
 
     Qt::CaseSensitivity m_caseSensitivity;
 };

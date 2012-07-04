@@ -543,7 +543,11 @@ void WebPage::cleanBlockedObjects()
     }
 
     // Apply domain-specific element hiding rules
-    QString elementHiding = AdBlockManager::instance()->elementHidingRulesForDomain(url().host());
+    QString elementHiding = AdBlockManager::instance()->elementHidingRulesForDomain(url());
+    if (elementHiding.isEmpty()) {
+        return;
+    }
+
     elementHiding.append("{display: none !important;}\n</style>");
 
     QWebElement bodyElement = docElement.findFirst("body");

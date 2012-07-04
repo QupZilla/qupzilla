@@ -46,6 +46,7 @@
 #ifndef ADBLOCKSUBSCRIPTION_H
 #define ADBLOCKSUBSCRIPTION_H
 
+#include <QVarLengthArray>
 #include <QList>
 #include <QUrl>
 
@@ -76,6 +77,9 @@ public:
     virtual void saveSubscription();
 
     const AdBlockRule* match(const QNetworkRequest &request, const QString &urlDomain, const QString &urlString) const;
+
+    bool adBlockDisabledForUrl(const QUrl &url) const;
+    bool elemHideDisabledForUrl(const QUrl &url) const;
 
     QString elementHidingRules() const;
     QString elementHidingRulesForDomain(const QString &domain) const;
@@ -112,10 +116,12 @@ protected:
     QList<AdBlockRule> m_rules;
     QString m_elementHidingRules;
 
-    // sorted list
-    QList<const AdBlockRule*> m_networkExceptionRules;
-    QList<const AdBlockRule*> m_networkBlockRules;
-    QList<const AdBlockRule*> m_domainRestrictedCssRules;
+    QVarLengthArray<const AdBlockRule*> m_networkExceptionRules;
+    QVarLengthArray<const AdBlockRule*> m_networkBlockRules;
+    QVarLengthArray<const AdBlockRule*> m_domainRestrictedCssRules;
+
+    QVarLengthArray<const AdBlockRule*> m_documentRules;
+    QVarLengthArray<const AdBlockRule*> m_elemhideRules;
 
 private:
     QString m_title;

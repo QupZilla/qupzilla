@@ -112,6 +112,8 @@ AdBlockRule::AdBlockRule(const QString &filter, AdBlockSubscription* subscriptio
     , m_subdocumentException(false)
     , m_xmlhttprequest(false)
     , m_xmlhttprequestException(false)
+    , m_document(false)
+    , m_elemhide(false)
     , m_caseSensitivity(Qt::CaseInsensitive)
 {
     setFilter(filter);
@@ -146,6 +148,16 @@ bool AdBlockRule::isCssRule() const
 QString AdBlockRule::cssSelector() const
 {
     return m_cssSelector;
+}
+
+bool AdBlockRule::isDocument() const
+{
+    return m_document;
+}
+
+bool AdBlockRule::isElemhide() const
+{
+    return m_elemhide;
 }
 
 bool AdBlockRule::isDomainRestricted() const
@@ -232,6 +244,18 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
     }
 
     return matched;
+}
+
+bool AdBlockRule::urlMatch(const QUrl &url) const
+{
+    if (!m_document && !m_elemhide) {
+        return false;
+    }
+
+    const QString &encodedUrl = url.toEncoded();
+    const QString &domain = url.host();
+
+    return networkMatch(QNetworkRequest(url), domain, encodedUrl);
 }
 
 bool AdBlockRule::matchDomain(const QString &domain) const
@@ -384,6 +408,14 @@ void AdBlockRule::parseFilter()
             else if (option.endsWith("xmlhttprequest")) {
                 m_xmlhttprequest = true;
                 m_xmlhttprequestException = option.startsWith('~');
+                ++handledOptions;
+            }
+            else if (option == "document" && m_exception) {
+                m_document = true;
+                ++handledOptions;
+            }
+            else if (option == "elemhide" && m_exception) {
+                m_elemhide = true;
                 ++handledOptions;
             }
             else if (option == "collapse") {

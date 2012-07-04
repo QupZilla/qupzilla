@@ -46,7 +46,7 @@ public:
     bool canRunOnScheme(const QString &scheme) const;
 
     QString elementHidingRules() const;
-    QString elementHidingRulesForDomain(const QString &domain) const;
+    QString elementHidingRulesForDomain(const QUrl &url) const;
 
     AdBlockSubscription* subscriptionByName(const QString &name) const;
     QList<AdBlockSubscription*> subscriptions() const;
@@ -69,6 +69,7 @@ public slots:
     AdBlockDialog* showDialog();
 
 private:
+    bool canBeBlocked(const QUrl &url) const;
     static AdBlockManager* s_adBlockManager;
 
     bool m_loaded;

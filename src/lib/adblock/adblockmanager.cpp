@@ -90,6 +90,10 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
             QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
             WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
             if (WebPage::isPointerSafeToUse(webPage)) {
+                if (!canBeBlocked(webPage->url())) {
+                    return 0;
+                }
+
                 webPage->addAdBlockRule(blockedRule, request.url());
             }
 
@@ -269,6 +273,17 @@ bool AdBlockManager::canRunOnScheme(const QString &scheme) const
     return !(scheme == "file" || scheme == "qrc" || scheme == "qupzilla" || scheme == "data" || scheme == "abp");
 }
 
+bool AdBlockManager::canBeBlocked(const QUrl &url) const
+{
+    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+        if (subscription->adBlockDisabledForUrl(url)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 QString AdBlockManager::elementHidingRules() const
 {
     QString rules;
@@ -285,12 +300,16 @@ QString AdBlockManager::elementHidingRules() const
     return rules;
 }
 
-QString AdBlockManager::elementHidingRulesForDomain(const QString &domain) const
+QString AdBlockManager::elementHidingRulesForDomain(const QUrl &url) const
 {
     QString rules;
 
     foreach(AdBlockSubscription * subscription, m_subscriptions) {
-        rules.append(subscription->elementHidingRulesForDomain(domain));
+        if (subscription->elemHideDisabledForUrl(url)) {
+            return QString();
+        }
+
+        rules.append(subscription->elementHidingRulesForDomain(url.host()));
     }
 
     // Remove last ","

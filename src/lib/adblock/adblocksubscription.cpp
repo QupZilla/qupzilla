@@ -53,7 +53,6 @@
 #include <QTimer>
 #include <QNetworkReply>
 #include <QDebug>
-// #define ADBLOCKSUBSCRIPTION_DEBUG
 
 AdBlockSubscription::AdBlockSubscription(const QString &title, QObject* parent)
     : QObject(parent)
@@ -203,6 +202,32 @@ const AdBlockRule* AdBlockSubscription::match(const QNetworkRequest &request, co
     return 0;
 }
 
+bool AdBlockSubscription::adBlockDisabledForUrl(const QUrl &url) const
+{
+    foreach(const AdBlockRule * rule, m_documentRules) {
+        if (rule->urlMatch(url)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool AdBlockSubscription::elemHideDisabledForUrl(const QUrl &url) const
+{
+    if (adBlockDisabledForUrl(url)) {
+        return true;
+    }
+
+    foreach(const AdBlockRule * rule, m_elemhideRules) {
+        if (rule->urlMatch(url)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 QString AdBlockSubscription::elementHidingRules() const
 {
     return m_elementHidingRules;
@@ -296,8 +321,11 @@ void AdBlockSubscription::populateCache()
     m_networkBlockRules.clear();
     m_domainRestrictedCssRules.clear();
     m_elementHidingRules.clear();
+    m_documentRules.clear();
+    m_elemhideRules.clear();
 
-    for (int i = 0; i < m_rules.count(); ++i) {
+    int count = m_rules.count();
+    for (int i = 0; i < count; ++i) {
         const AdBlockRule* rule = &m_rules.at(i);
         if (!rule->isEnabled()) {
             continue;
@@ -310,10 +338,14 @@ void AdBlockSubscription::populateCache()
             else {
                 m_elementHidingRules.append(rule->cssSelector() + ",");
             }
-            continue;
         }
-
-        if (rule->isException()) {
+        else if (rule->isDocument()) {
+            m_documentRules.append(rule);
+        }
+        else if (rule->isElemhide()) {
+            m_elemhideRules.append(rule);
+        }
+        else if (rule->isException()) {
             m_networkExceptionRules.append(rule);
         }
         else {
