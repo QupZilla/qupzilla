@@ -205,7 +205,7 @@ void QupZilla::postLaunch()
     emit startingCompleted();
 
     m_isStarting = false;
-    setWindowTitle(m_lastWindowTitle);
+    QMainWindow::setWindowTitle(m_lastWindowTitle);
 
     setUpdatesEnabled(true);
 }
@@ -1736,30 +1736,32 @@ bool QupZilla::quitApp()
         saveSideBarWidth();
     }
 
-    Settings settings;
-    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
-    bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", true).toBool();
+    if (!mApp->isPrivateSession()) {
+        Settings settings;
+        int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
+        bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", true).toBool();
 
-    settings.beginGroup("Browser-View-Settings");
-    settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
-    settings.setValue("WindowGeometry", saveGeometry());
-    settings.setValue("LocationBarWidth", m_navigationBar->splitter()->sizes().at(0));
-    settings.setValue("WebSearchBarWidth", m_navigationBar->splitter()->sizes().at(1));
-    settings.setValue("SideBarWidth", m_sideBarWidth);
-    settings.setValue("WebViewWidth", m_webViewWidth);
-    settings.endGroup();
+        settings.beginGroup("Browser-View-Settings");
+        settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
+        settings.setValue("WindowGeometry", saveGeometry());
+        settings.setValue("LocationBarWidth", m_navigationBar->splitter()->sizes().at(0));
+        settings.setValue("WebSearchBarWidth", m_navigationBar->splitter()->sizes().at(1));
+        settings.setValue("SideBarWidth", m_sideBarWidth);
+        settings.setValue("WebViewWidth", m_webViewWidth);
+        settings.endGroup();
 
-    if (askOnClose && afterLaunch != 3 && m_tabWidget->count() > 1) {
-        CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, this);
-        dialog.setText(tr("There are still %1 open tabs and your session won't be stored. \nAre you sure to quit QupZilla?").arg(m_tabWidget->count()));
-        dialog.setCheckBoxText(tr("Don't ask again"));
-        dialog.setWindowTitle(tr("There are still open tabs"));
-        dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning));
-        if (dialog.exec() != QDialog::Accepted) {
-            return false;
-        }
-        if (dialog.isChecked()) {
-            settings.setValue("Browser-Tabs-Settings/AskOnClosing", false);
+        if (askOnClose && afterLaunch != 3 && m_tabWidget->count() > 1) {
+            CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, this);
+            dialog.setText(tr("There are still %1 open tabs and your session won't be stored. \nAre you sure to quit QupZilla?").arg(m_tabWidget->count()));
+            dialog.setCheckBoxText(tr("Don't ask again"));
+            dialog.setWindowTitle(tr("There are still open tabs"));
+            dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning));
+            if (dialog.exec() != QDialog::Accepted) {
+                return false;
+            }
+            if (dialog.isChecked()) {
+                settings.setValue("Browser-Tabs-Settings/AskOnClosing", false);
+            }
         }
     }
 
