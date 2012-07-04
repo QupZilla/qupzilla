@@ -362,7 +362,7 @@ void AdBlockRule::parseFilter()
                 parseDomains(option.mid(7), '|');
                 ++handledOptions;
             }
-            else if (option.endsWith("match-case")) {
+            else if (option == "match-case") {
                 m_caseSensitivity = Qt::CaseSensitive;
                 ++handledOptions;
             }
@@ -384,6 +384,10 @@ void AdBlockRule::parseFilter()
             else if (option.endsWith("xmlhttprequest")) {
                 m_xmlhttprequest = true;
                 m_xmlhttprequestException = option.startsWith('~');
+                ++handledOptions;
+            }
+            else if (option == "collapse") {
+                // Hiding placeholders of blocked elements
                 ++handledOptions;
             }
         }

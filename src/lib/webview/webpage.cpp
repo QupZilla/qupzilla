@@ -507,54 +507,47 @@ void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)
 
 void WebPage::cleanBlockedObjects()
 {
-    if (!AdBlockManager::instance()->isEnabled()) {
-        return;
-    }
-
-    // Don't run on local schemes
+    AdBlockManager* manager = AdBlockManager::instance();
     const QString &urlScheme = url().scheme();
-    if (urlScheme == "data" || urlScheme == "qrc" || urlScheme == "file" ||
-            urlScheme == "qupzilla" || urlScheme == "abp") {
+
+    if (!manager->isEnabled() || !manager->canRunOnScheme(urlScheme)) {
         return;
-    }
-
-    QStringList findingStrings;
-
-    foreach(const AdBlockedEntry & entry, m_adBlockedEntries) {
-        if (entry.url.toString().endsWith(".js")) {
-            continue;
-        }
-
-        findingStrings.append(entry.url.toString());
-        const QUrl &mainFrameUrl = url();
-
-        if (entry.url.scheme() == mainFrameUrl.scheme() && entry.url.host() == mainFrameUrl.host()) {
-            //May be relative url
-            QString relativeUrl = qz_makeRelativeUrl(mainFrameUrl, entry.url).toString();
-            findingStrings.append(relativeUrl);
-            if (relativeUrl.startsWith('/')) {
-                findingStrings.append(relativeUrl.right(relativeUrl.size() - 1));
-            }
-        }
     }
 
     const QWebElement &docElement = mainFrame()->documentElement();
-    QWebElementCollection elements;
 
-    foreach(const QString & s, findingStrings) {
-        elements.append(docElement.findAll("*[src=\"" + s + "\"]"));
-    }
+    foreach(const AdBlockedEntry & entry, m_adBlockedEntries) {
+        const QString &urlString = entry.url.toString();
+        if (urlString.endsWith(".js") || urlString.endsWith(".css")) {
+            continue;
+        }
 
-    foreach(QWebElement element, elements) {
-        element.setStyleProperty("visibility", "hidden");
+        int pos = urlString.lastIndexOf('/');
+        if (pos < 0 || urlString.endsWith('/')) {
+            continue;
+        }
+
+        QString urlEnd = urlString.mid(pos + 1);
+        QString selector("img[src$=\"" + urlEnd + "\"], iframe[src$=\"" + urlEnd + "\"],"
+                         "embed[src$=\"" + urlEnd + "\"]");
+        QWebElementCollection elements = docElement.findAll(selector);
+
+        foreach(QWebElement element, elements) {
+            QString src = element.attribute("src");
+            src.remove("../");
+
+            if (urlString.endsWith(src)) {
+                element.setStyleProperty("visibility", "hidden");
+            }
+        }
     }
 
     // Apply domain-specific element hiding rules
     QString elementHiding = AdBlockManager::instance()->elementHidingRulesForDomain(url().host());
     elementHiding.append("{display: none !important;}\n</style>");
 
-    QWebElement headElement = docElement.findFirst("body");
-    headElement.appendInside("<style type=\"text/css\">\n/* AdBlock for QupZilla */\n" + elementHiding);
+    QWebElement bodyElement = docElement.findFirst("body");
+    bodyElement.appendInside("<style type=\"text/css\">\n/* AdBlock for QupZilla */\n" + elementHiding);
 }
 
 QString WebPage::userAgentForUrl(const QUrl &url) const

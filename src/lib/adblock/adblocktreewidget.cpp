@@ -21,6 +21,8 @@
 #include <QMenu>
 #include <QTimer>
 #include <QKeyEvent>
+#include <QClipboard>
+#include <QApplication>
 #include <QInputDialog>
 
 AdBlockTreeWidget::AdBlockTreeWidget(AdBlockSubscription* subscription, QWidget* parent)
@@ -120,6 +122,16 @@ void AdBlockTreeWidget::itemChanged(QTreeWidgetItem* item)
     m_itemChangingBlock = false;
 }
 
+void AdBlockTreeWidget::copyFilter()
+{
+    QTreeWidgetItem* item = currentItem();
+    if (!item) {
+        return;
+    }
+
+    QApplication::clipboard()->setText(item->text(0));
+}
+
 void AdBlockTreeWidget::addRule()
 {
     if (!m_subscription->canEditRules()) {
@@ -203,6 +215,10 @@ void AdBlockTreeWidget::adjustItemFeatures(QTreeWidgetItem* item, const AdBlockR
 
 void AdBlockTreeWidget::keyPressEvent(QKeyEvent* event)
 {
+    if (event->key() == Qt::Key_C && event->modifiers() & Qt::ControlModifier) {
+        copyFilter();
+    }
+
     if (event->key() == Qt::Key_Delete) {
         removeRule();
     }

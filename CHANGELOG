@@ -1,6 +1,9 @@
 Version 1.3.0
     * not released yet
-    * added animated tab previews
+    * new Ukrainian translation
+    * can now open .xhtml files from open file dialog
+    * added animated tab previews with option to turn animations off
+    * possibility to change icon of bookmarks
     * ssl manager now can import own certificate
     * clear recent history now remembers last checked options
     * new urlbar completion widget can now show also entries from bookmarks
@@ -8,13 +11,18 @@ Version 1.3.0
     * support for 3rd party subscriptions in AdBlock
     * improved performance of AdBlock rules matching
     * possibility to add subscriptions with loading abp: links
+    * private browsing is now opened in new window and new process
     * improved AdBlock dialog distinguish rule types with colors
     * popup windows now have loading animation in urlbar
     * new gif for loading animation (spinner)
     * possibility to add RSS feed into external reader
     * option to specify preferred behaviour when opening new tab
     * inverting preferred new tab behaviour with shift modifier (eg. shift+middle click on link)
-    * X11: middle clicking on add tab button will open new tab with global mouse selection's contents
+    * better support for Content-Disposition header (downloads)
+    * Linux: middle clicking on add tab button will open new tab with global mouse selection's contents
+    * Linux: generating backtrace and saving it into file upon application crash
+    * fixed saving passwords on some sites (parsing WebKit's data format)
+    * fixed "go to web address" action when newlines were in string
     * fixed excessive ssl warnings when rejecting untrusted certificate
     * fixed dragging the whole text from some labels
     * fixed handling special characters when searching with shortcuts in urlbar

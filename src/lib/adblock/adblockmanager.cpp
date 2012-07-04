@@ -79,8 +79,7 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
     const QString &urlDomain = request.url().host();
     const QString &urlScheme = request.url().scheme();
 
-    if (!isEnabled() || urlScheme == "data" || urlScheme == "qrc" ||
-            urlScheme == "file" || urlScheme == "qupzilla" || urlScheme == "abp") {
+    if (!isEnabled() || !canRunOnScheme(urlScheme)) {
         return 0;
     }
 
@@ -263,6 +262,11 @@ void AdBlockManager::save()
 bool AdBlockManager::isEnabled()
 {
     return m_enabled;
+}
+
+bool AdBlockManager::canRunOnScheme(const QString &scheme) const
+{
+    return !(scheme == "file" || scheme == "qrc" || scheme == "qupzilla" || scheme == "data" || scheme == "abp");
 }
 
 QString AdBlockManager::elementHidingRules() const

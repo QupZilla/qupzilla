@@ -43,6 +43,7 @@ public:
     void save();
 
     bool isEnabled();
+    bool canRunOnScheme(const QString &scheme) const;
 
     QString elementHidingRules() const;
     QString elementHidingRulesForDomain(const QString &domain) const;

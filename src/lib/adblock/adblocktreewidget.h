@@ -43,6 +43,7 @@ public slots:
 private slots:
     void contextMenuRequested(const QPoint &pos);
     void itemChanged(QTreeWidgetItem* item);
+    void copyFilter();
 
     void refresh();
     void subscriptionUpdated();
