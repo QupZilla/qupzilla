@@ -33,7 +33,7 @@ class QListWidgetItem;
 
 class AutoFillManager;
 class QupZilla;
-class PluginsList;
+class PluginsManager;
 class DesktopNotification;
 class ThemeManager;
 
@@ -89,7 +89,7 @@ private:
     Ui::Preferences* ui;
     QupZilla* p_QupZilla;
     AutoFillManager* m_autoFillManager;
-    PluginsList* m_pluginsList;
+    PluginsManager* m_pluginsList;
     ThemeManager* m_themesManager;
     QWeakPointer<DesktopNotification> m_notification;
 

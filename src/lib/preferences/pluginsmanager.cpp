@@ -15,7 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "pluginslist.h"
+#include "pluginsmanager.h"
 #include "ui_pluginslist.h"
 #include "pluginproxy.h"
 #include "mainapplication.h"
@@ -28,9 +28,10 @@
 #include <QMessageBox>
 #include <QTimer>
 
-PluginsList::PluginsList(QWidget* parent)
+PluginsManager::PluginsManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::PluginsList)
+    , m_loaded(false)
 {
     ui->setupUi(this);
 
@@ -65,13 +66,17 @@ PluginsList::PluginsList(QWidget* parent)
     }
 
     allowC2FChanged(ui->allowClick2Flash->isChecked());
+}
 
-    if (appPluginsEnabled) {
-        QTimer::singleShot(0, this, SLOT(refresh()));
+void PluginsManager::load()
+{
+    if (!m_loaded) {
+        refresh();
+        m_loaded = true;
     }
 }
 
-void PluginsList::addWhitelist()
+void PluginsManager::addWhitelist()
 {
     QString site = QInputDialog::getText(this, tr("Add site to whitelist"), tr("Server without http:// (ex. youtube.com)"));
     if (site.isEmpty()) {
@@ -82,7 +87,7 @@ void PluginsList::addWhitelist()
     ui->whitelist->insertTopLevelItem(0, new QTreeWidgetItem(QStringList(site)));
 }
 
-void PluginsList::removeWhitelist()
+void PluginsManager::removeWhitelist()
 {
     QTreeWidgetItem* item = ui->whitelist->currentItem();
     if (!item) {
@@ -93,7 +98,7 @@ void PluginsList::removeWhitelist()
     delete item;
 }
 
-void PluginsList::save()
+void PluginsManager::save()
 {
     QStringList allowedPlugins;
     for (int i = 0; i < ui->list->count(); i++) {
@@ -113,14 +118,11 @@ void PluginsList::save()
     settings.endGroup();
 }
 
-void PluginsList::allowAppPluginsChanged(bool state)
+void PluginsManager::allowAppPluginsChanged(bool state)
 {
     ui->list->setEnabled(state);
 
-    if (state) {
-        refresh();
-    }
-    else {
+    if (!state) {
         for (int i = 0; i < ui->list->count(); i++) {
             QListWidgetItem* item = ui->list->item(i);
 
@@ -129,9 +131,11 @@ void PluginsList::allowAppPluginsChanged(bool state)
             }
         }
     }
+
+    refresh();
 }
 
-void PluginsList::allowC2FChanged(bool state)
+void PluginsManager::allowC2FChanged(bool state)
 {
     Settings settings;
     settings.beginGroup("ClickToFlash");
@@ -145,8 +149,12 @@ void PluginsList::allowC2FChanged(bool state)
     mApp->plugins()->c2f_setEnabled(state);
 }
 
-void PluginsList::refresh()
+void PluginsManager::refresh()
 {
+    if (!ui->allowAppPlugins->isChecked()) {
+        return;
+    }
+
     ui->list->clear();
     ui->butSettings->setEnabled(false);
     disconnect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
@@ -178,10 +186,36 @@ void PluginsList::refresh()
         ui->list->addItem(item);
     }
 
+    sortItems();
+
     connect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
 }
 
-void PluginsList::currentChanged(QListWidgetItem* item)
+void PluginsManager::sortItems()
+{
+    ui->list->sortItems();
+
+    bool itemMoved;
+    do {
+        itemMoved = false;
+        for (int i = 0; i < ui->list->count(); ++i) {
+            QListWidgetItem* topItem = ui->list->item(i);
+            QListWidgetItem* bottomItem = ui->list->item(i + 1);
+            if (!topItem || !bottomItem) {
+                continue;
+            }
+
+            if (topItem->checkState() == Qt::Unchecked && bottomItem->checkState() == Qt::Checked) {
+                QListWidgetItem* item = ui->list->takeItem(i + 1);
+                ui->list->insertItem(i, item);
+                itemMoved = true;
+            }
+        }
+    }
+    while (itemMoved);
+}
+
+void PluginsManager::currentChanged(QListWidgetItem* item)
 {
     if (!item) {
         return;
@@ -197,7 +231,7 @@ void PluginsList::currentChanged(QListWidgetItem* item)
     ui->butSettings->setEnabled(showSettings);
 }
 
-void PluginsList::itemChanged(QListWidgetItem* item)
+void PluginsManager::itemChanged(QListWidgetItem* item)
 {
     if (!item) {
         return;
@@ -227,7 +261,7 @@ void PluginsList::itemChanged(QListWidgetItem* item)
     currentChanged(ui->list->currentItem());
 }
 
-void PluginsList::settingsClicked()
+void PluginsManager::settingsClicked()
 {
     QListWidgetItem* item = ui->list->currentItem();
     if (!item) {
@@ -247,7 +281,7 @@ void PluginsList::settingsClicked()
     }
 }
 
-PluginsList::~PluginsList()
+PluginsManager::~PluginsManager()
 {
     delete ui;
 }

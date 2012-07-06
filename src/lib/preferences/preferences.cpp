@@ -27,7 +27,7 @@
 #include "mainapplication.h"
 #include "cookiemanager.h"
 #include "pluginproxy.h"
-#include "pluginslist.h"
+#include "pluginsmanager.h"
 #include "qtwin.h"
 #include "sslmanager.h"
 #include "networkproxyfactory.h"
@@ -316,7 +316,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     settings.endGroup();
 
     //PLUGINS
-    m_pluginsList = new PluginsList(this);
+    m_pluginsList = new PluginsManager(this);
     ui->pluginsFrame->addWidget(m_pluginsList);
 
     //NOTIFICATIONS
@@ -427,10 +427,15 @@ void Preferences::showStackedPage(QListWidgetItem* item)
         return;
     }
 
-    ui->caption->setText("<b>" + item->text() + "</b>");
-    ui->stackedWidget->setCurrentIndex(ui->listWidget->currentRow());
+    int index = ui->listWidget->currentRow();
 
-    setNotificationPreviewVisible(ui->stackedWidget->currentIndex() == 8);
+    ui->caption->setText("<b>" + item->text() + "</b>");
+    ui->stackedWidget->setCurrentIndex(index);
+
+    setNotificationPreviewVisible(index == 8);
+    if (index == 9) {
+        m_pluginsList->load();
+    }
 }
 
 void Preferences::setNotificationPreviewVisible(bool state)

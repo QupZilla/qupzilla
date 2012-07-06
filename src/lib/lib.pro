@@ -66,7 +66,6 @@ SOURCES += \
     app/commandlineoptions.cpp \
     other/aboutdialog.cpp \
     plugins/plugins.cpp \
-    preferences/pluginslist.cpp \
     plugins/pluginproxy.cpp \
     tools/clickablelabel.cpp \
     downloads/downloadoptionsdialog.cpp \
@@ -180,7 +179,8 @@ SOURCES += \
     adblock/adblockaddsubscriptiondialog.cpp \
     adblock/adblockschemehandler.cpp \
     tools/emptynetworkreply.cpp \
-    3rdparty/processinfo.cpp
+    3rdparty/processinfo.cpp \
+    preferences/pluginsmanager.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -215,7 +215,6 @@ HEADERS  += \
     other/aboutdialog.h \
     plugins/plugininterface.h \
     plugins/plugins.h \
-    preferences/pluginslist.h \
     plugins/pluginproxy.h \
     tools/clickablelabel.h \
     downloads/downloadoptionsdialog.h \
@@ -333,7 +332,8 @@ HEADERS  += \
     adblock/adblockaddsubscriptiondialog.h \
     adblock/adblockschemehandler.h \
     tools/emptynetworkreply.h \
-    3rdparty/processinfo.h
+    3rdparty/processinfo.h \
+    preferences/pluginsmanager.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

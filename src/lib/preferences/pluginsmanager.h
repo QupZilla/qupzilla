@@ -15,8 +15,8 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef PLUGINSLIST_H
-#define PLUGINSLIST_H
+#ifndef PLUGINSMANAGER_H
+#define PLUGINSMANAGER_H
 
 #include <QWidget>
 
@@ -29,13 +29,15 @@ class PluginsList;
 
 class QListWidgetItem;
 
-class QT_QUPZILLA_EXPORT PluginsList : public QWidget
+class QT_QUPZILLA_EXPORT PluginsManager : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit PluginsList(QWidget* parent = 0);
-    ~PluginsList();
+    explicit PluginsManager(QWidget* parent = 0);
+    ~PluginsManager();
+
+    void load();
     void save();
 
 private slots:
@@ -52,9 +54,11 @@ private slots:
     void removeWhitelist();
     void allowC2FChanged(bool state);
 
-private:;
+private:
+    void sortItems();
 
     Ui::PluginsList* ui;
+    bool m_loaded;
 };
 
-#endif // PLUGINSLIST_H
+#endif // PLUGINSMANAGER_H
