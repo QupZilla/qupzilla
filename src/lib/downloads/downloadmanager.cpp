@@ -108,7 +108,7 @@ void DownloadManager::startExternalManager(const QUrl &url)
     bool success = QProcess::startDetached(m_externalExecutable, arguments);
 
     if (!success) {
-        QString info = "<ul><li><b>" + tr("Executable: ") + "</b>" + m_externalExecutable + "</li><li><b>" + tr("Arguments: ") + "</b>" + arguments.join(' ') + "</li></ul>";
+        QString info = "<ul><li><b>" + tr("Executable: ") + "</b>" + m_externalExecutable + "</li><li><b>" + tr("Arguments: ") + "</b>" + arguments.join(" ") + "</li></ul>";
         QMessageBox::critical(this, tr("Cannot start external download manager"), tr("Cannot start external download manager! %1").arg(info));
     }
 }

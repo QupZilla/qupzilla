@@ -398,7 +398,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->httpsProxyUsername->setText(settings.value("HttpsUsername", "").toString());
     ui->httpsProxyPassword->setText(settings.value("HttpsPassword", "").toString());
 
-    ui->proxyExceptions->setText(settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList().join(','));
+    ui->proxyExceptions->setText(settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList().join(","));
     settings.endGroup();
 
     useDifferentProxyForHttpsChanged(ui->useHttpsProxy->isChecked());

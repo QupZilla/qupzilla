@@ -414,7 +414,7 @@ QString QupZillaSchemeReply::configPage()
             }
 
             case QVariant::StringList:
-                keyString = keyValue.toStringList().join(',');
+                keyString = keyValue.toStringList().join(",");
                 break;
 
             default:
