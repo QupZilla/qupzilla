@@ -187,13 +187,17 @@ void AdBlockSubscription::saveDownloadedData(QByteArray &data)
 
 const AdBlockRule* AdBlockSubscription::match(const QNetworkRequest &request, const QString &urlDomain, const QString &urlString) const
 {
-    foreach(const AdBlockRule * rule, m_networkExceptionRules) {
+    int count = m_networkExceptionRules.count();
+    for (int i = 0; i < count; ++i) {
+        const AdBlockRule * rule = m_networkExceptionRules.at(i);
         if (rule->networkMatch(request, urlDomain, urlString)) {
             return 0;
         }
     }
 
-    foreach(const AdBlockRule * rule, m_networkBlockRules) {
+    count = m_networkBlockRules.count();
+    for (int i = 0; i < count; ++i) {
+        const AdBlockRule * rule = m_networkBlockRules.at(i);
         if (rule->networkMatch(request, urlDomain, urlString)) {
             return rule;
         }
@@ -204,7 +208,9 @@ const AdBlockRule* AdBlockSubscription::match(const QNetworkRequest &request, co
 
 bool AdBlockSubscription::adBlockDisabledForUrl(const QUrl &url) const
 {
-    foreach(const AdBlockRule * rule, m_documentRules) {
+    int count = m_documentRules.count();
+    for (int i = 0; i < count; ++i) {
+        const AdBlockRule * rule = m_documentRules.at(i);
         if (rule->urlMatch(url)) {
             return true;
         }
@@ -219,7 +225,9 @@ bool AdBlockSubscription::elemHideDisabledForUrl(const QUrl &url) const
         return true;
     }
 
-    foreach(const AdBlockRule * rule, m_elemhideRules) {
+    int count = m_elemhideRules.count();
+    for (int i = 0; i < count; ++i) {
+        const AdBlockRule * rule = m_elemhideRules.at(i);
         if (rule->urlMatch(url)) {
             return true;
         }
@@ -237,7 +245,9 @@ QString AdBlockSubscription::elementHidingRulesForDomain(const QString &domain) 
 {
     QString rules;
 
-    foreach(const AdBlockRule * rule, m_domainRestrictedCssRules) {
+    int count = m_domainRestrictedCssRules.count();
+    for (int i = 0; i < count; ++i) {
+        const AdBlockRule * rule = m_domainRestrictedCssRules.at(i);
         if (rule->matchDomain(domain)) {
             rules.append(rule->cssSelector() + ",");
         }
