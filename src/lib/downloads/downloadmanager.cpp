@@ -102,13 +102,13 @@ void DownloadManager::keyPressEvent(QKeyEvent* e)
 
 void DownloadManager::startExternalManager(const QUrl &url)
 {
-    QStringList arguments = m_externalArguments.split(" ");
+    QStringList arguments = m_externalArguments.split(' ', QString::SkipEmptyParts);
     arguments << url.toString();
 
     bool success = QProcess::startDetached(m_externalExecutable, arguments);
 
     if (!success) {
-        QString info = "<ul><li><b>" + tr("Executable: ") + "</b>" + m_externalExecutable + "</li><li><b>" + tr("Arguments: ") + "</b>" + arguments.join(" ") + "</li></ul>";
+        QString info = "<ul><li><b>" + tr("Executable: ") + "</b>" + m_externalExecutable + "</li><li><b>" + tr("Arguments: ") + "</b>" + arguments.join(' ') + "</li></ul>";
         QMessageBox::critical(this, tr("Cannot start external download manager"), tr("Cannot start external download manager! %1").arg(info));
     }
 }

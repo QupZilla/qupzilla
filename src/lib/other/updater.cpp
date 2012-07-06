@@ -38,12 +38,12 @@ Updater::Version Updater::parseVersionFromString(const QString &string)
     Version ver;
     ver.isValid = false;
 
-    QStringList v = string.split(".");
+    QStringList v = string.split('.');
     if (v.count() != 3) {
         return ver;
     }
 
-    QStringList r = v.at(2).split("-");
+    QStringList r = v.at(2).split('.');
 
     ver.majorVersion = v.at(0).toInt();
     ver.minorVersion = v.at(1).toInt();

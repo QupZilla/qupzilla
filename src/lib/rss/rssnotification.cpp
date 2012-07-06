@@ -33,7 +33,7 @@
 bool startExternalProcess(const QString &program, const QStringList &arguments)
 {
     if (!QProcess::startDetached(program, arguments)) {
-        QString info = "<ul><li><b>" + RSSNotification::tr("Executable: ") + "</b>" + program + "</li><li><b>" + RSSNotification::tr("Arguments: ") + "</b>" + arguments.join(" ") + "</li></ul>";
+        QString info = "<ul><li><b>" + RSSNotification::tr("Executable: ") + "</b>" + program + "</li><li><b>" + RSSNotification::tr("Arguments: ") + "</b>" + arguments.join(' ') + "</li></ul>";
         QMessageBox::critical(0, RSSNotification::tr("Cannot start external program"), RSSNotification::tr("Cannot start external program! %1").arg(info));
 
         return false;
