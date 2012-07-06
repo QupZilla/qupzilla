@@ -118,6 +118,10 @@ WebPage* WebView::page() const
 
 void WebView::setPage(QWebPage* page)
 {
+    if (m_page == page) {
+        return;
+    }
+
     QWebView::setPage(page);
     m_page = qobject_cast<WebPage*>(page);
 
