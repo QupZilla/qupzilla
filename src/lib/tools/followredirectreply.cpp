@@ -33,6 +33,11 @@ QNetworkReply* FollowRedirectReply::reply() const
     return m_reply;
 }
 
+QUrl FollowRedirectReply::originalUrl() const
+{
+    return m_reply->request().url();
+}
+
 QUrl FollowRedirectReply::url() const
 {
     return m_reply->url();

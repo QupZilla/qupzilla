@@ -53,11 +53,13 @@ QPixmap qz_pixmapFromByteArray(const QByteArray &data)
 QByteArray qz_readAllFileContents(const QString &filename)
 {
     QFile file(filename);
-    file.open(QFile::ReadOnly);
-    QByteArray a = file.readAll();
-    file.close();
+    if (file.open(QFile::ReadOnly)) {
+        QByteArray a = file.readAll();
+        file.close();
+        return a;
+    }
 
-    return a;
+    return QByteArray();
 }
 
 void qz_centerWidgetOnScreen(QWidget* w)
@@ -176,23 +178,24 @@ QString qz_urlEncodeQueryString(const QUrl &url)
     return returnString;
 }
 
-QString qz_ensureUniqueFilename(const QString &pathToFile)
+QString qz_ensureUniqueFilename(const QString &name, const QString &appendFormat)
 {
-    if (!QFile::exists(pathToFile)) {
-        return pathToFile;
+    if (!QFile::exists(name)) {
+        return name;
     }
 
-    QString tmpFileName = pathToFile;
+    QString tmpFileName = name;
     int i = 1;
     while (QFile::exists(tmpFileName)) {
-        tmpFileName = pathToFile;
+        tmpFileName = name;
         int index = tmpFileName.lastIndexOf(".");
 
+        QString appendString = appendFormat.arg(i);
         if (index == -1) {
-            tmpFileName.append("(" + QString::number(i) + ")");
+            tmpFileName.append(appendString);
         }
         else {
-            tmpFileName = tmpFileName.left(index) + "(" + QString::number(i) + ")" + tmpFileName.mid(index);
+            tmpFileName = tmpFileName.left(index) + appendString + tmpFileName.mid(index);
         }
         i++;
     }

@@ -193,7 +193,7 @@ void AdBlockManager::load()
             continue;
         }
 
-        const QString absolutePath = adblockDir.absoluteFilePath(fileName);
+        const QString &absolutePath = adblockDir.absoluteFilePath(fileName);
         QFile file(absolutePath);
         if (!file.open(QFile::ReadOnly)) {
             continue;

@@ -19,6 +19,7 @@
 #define GLOBALFUNCTIONS_H
 
 #include <QList>
+#include <QString>
 
 #include "qz_namespace.h"
 
@@ -43,7 +44,7 @@ QString QT_QUPZILLA_EXPORT qz_samePartOfStrings(const QString &one, const QStrin
 QUrl QT_QUPZILLA_EXPORT qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
 QString QT_QUPZILLA_EXPORT qz_urlEncodeQueryString(const QUrl &url);
 
-QString QT_QUPZILLA_EXPORT qz_ensureUniqueFilename(const QString &name);
+QString QT_QUPZILLA_EXPORT qz_ensureUniqueFilename(const QString &name, const QString &appendFormat = QString("(%1)"));
 QString QT_QUPZILLA_EXPORT qz_getFileNameFromUrl(const QUrl &url);
 QString QT_QUPZILLA_EXPORT qz_filterCharsFromFilename(const QString &name);
 

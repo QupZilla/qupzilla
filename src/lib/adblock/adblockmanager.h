@@ -69,7 +69,7 @@ public slots:
     AdBlockDialog* showDialog();
 
 private:
-    bool canBeBlocked(const QUrl &url) const;
+    inline bool canBeBlocked(const QUrl &url) const;
     static AdBlockManager* s_adBlockManager;
 
     bool m_loaded;

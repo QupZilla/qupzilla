@@ -36,6 +36,7 @@ public:
     ~FollowRedirectReply();
 
     QNetworkReply* reply() const;
+    QUrl originalUrl() const;
     QUrl url() const;
 
     QNetworkReply::NetworkError error() const;

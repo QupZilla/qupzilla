@@ -347,12 +347,18 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     QNetworkRequest req = request;
     QNetworkReply* reply = 0;
 
-    //SchemeHandlers
+    // SchemeHandlers
     if (m_schemeHandlers.contains(req.url().scheme())) {
         reply = m_schemeHandlers[req.url().scheme()]->createRequest(op, req, outgoingData);
         if (reply) {
             return reply;
         }
+    }
+
+    // Plugins
+    reply = mApp->plugins()->createRequest(op, request, outgoingData);
+    if (reply) {
+        return reply;
     }
 
     if (m_doNotTrack) {
