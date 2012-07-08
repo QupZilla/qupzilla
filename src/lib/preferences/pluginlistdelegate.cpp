@@ -24,6 +24,7 @@
 PluginListDelegate::PluginListDelegate(QListWidget* parent)
     : QStyledItemDelegate(parent)
     , m_rowHeight(0)
+    , m_padding(0)
 {
 }
 

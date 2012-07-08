@@ -47,6 +47,7 @@ PluginsManager::PluginsManager(QWidget* parent)
     connect(ui->butSettings, SIGNAL(clicked()), this, SLOT(settingsClicked()));
     connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
     connect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
+    connect(ui->list, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(settingsClicked()));
     connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
 
     ui->list->setItemDelegate(new PluginListDelegate(ui->list));
@@ -264,7 +265,7 @@ void PluginsManager::itemChanged(QListWidgetItem* item)
 void PluginsManager::settingsClicked()
 {
     QListWidgetItem* item = ui->list->currentItem();
-    if (!item) {
+    if (!item || item->checkState() == Qt::Unchecked) {
         return;
     }
 
@@ -276,7 +277,7 @@ void PluginsManager::settingsClicked()
         item->setData(Qt::UserRole + 10, qVariantFromValue(plugin));
     }
 
-    if (plugin.isLoaded()) {
+    if (plugin.isLoaded() && plugin.pluginSpec.hasSettings) {
         plugin.instance->showSettings(this);
     }
 }
