@@ -769,7 +769,7 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
 
     QFile file(filePath);
     if (!filePath.isEmpty() && file.open(QFile::ReadOnly)) {
-        QString fileData = file.readAll();
+        QString fileData = QString::fromUtf8(file.readAll());
         fileData.remove('\n');
         userStyle.append(fileData);
         file.close();

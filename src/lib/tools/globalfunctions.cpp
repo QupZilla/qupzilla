@@ -50,11 +50,11 @@ QPixmap qz_pixmapFromByteArray(const QByteArray &data)
     return image;
 }
 
-QByteArray qz_readAllFileContents(const QString &filename)
+QString qz_readAllFileContents(const QString &filename)
 {
     QFile file(filename);
     if (file.open(QFile::ReadOnly)) {
-        QByteArray a = file.readAll();
+        QString a = QString::fromUtf8(file.readAll());
         file.close();
         return a;
     }

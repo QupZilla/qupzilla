@@ -32,7 +32,7 @@ class QUrl;
 QByteArray QT_QUPZILLA_EXPORT qz_pixmapToByteArray(const QPixmap &pix);
 QPixmap QT_QUPZILLA_EXPORT qz_pixmapFromByteArray(const QByteArray &data);
 
-QByteArray QT_QUPZILLA_EXPORT qz_readAllFileContents(const QString &filename);
+QString qz_readAllFileContents(const QString &filename);
 
 void QT_QUPZILLA_EXPORT qz_centerWidgetOnScreen(QWidget* w);
 void QT_QUPZILLA_EXPORT qz_centerWidgetToParent(QWidget* w, QWidget* parent);
