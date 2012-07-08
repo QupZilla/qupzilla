@@ -37,7 +37,7 @@ public:
 
     void loadSettings();
 
-    void showNotifications(const QPixmap &icon, const QString &heading, const QString &text);
+    void showNotification(const QPixmap &icon, const QString &heading, const QString &text);
     void nativeNotificationPreview();
 
 private:

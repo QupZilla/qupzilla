@@ -112,7 +112,7 @@ void Updater::downCompleted(QNetworkReply* reply)
         Version current = parseVersionFromString(QupZilla::VERSION);
         Version updated = parseVersionFromString(html);
         if (current < updated) {
-            mApp->desktopNotifications()->showNotifications(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
+            mApp->desktopNotifications()->showNotification(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
 //            QAction* action = new QAction(QIcon(":icons/qupzillaupdate.png"), "Update", this);
 //            connect(action, SIGNAL(triggered()), this, SLOT(downloadNewVersion()));
 //            p_QupZilla->menuBar()->addAction(action);

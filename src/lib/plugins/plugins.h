@@ -64,6 +64,8 @@ public:
     bool loadPlugin(Plugin* plugin);
     void unloadPlugin(Plugin* plugin);
 
+    void shutdown();
+
     // CLick2Flash
     void c2f_loadSettings();
     void c2f_saveSettings();
@@ -78,6 +80,7 @@ public:
 
 public slots:
     void loadSettings();
+
     void loadPlugins();
 
 protected:

@@ -619,8 +619,7 @@ void MainApplication::saveSettings()
 
     m_searchEnginesManager->saveSettings();
     m_networkmanager->saveCertificates();
-    m_plugins->c2f_saveSettings();
-    m_plugins->speedDial()->saveSettings();
+    m_plugins->shutdown();
     qIconProvider->saveIconsToDatabase();
 
     AdBlockManager::instance()->save();
