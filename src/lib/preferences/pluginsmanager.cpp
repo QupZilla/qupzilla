@@ -101,6 +101,10 @@ void PluginsManager::removeWhitelist()
 
 void PluginsManager::save()
 {
+    if (!m_loaded) {
+        return;
+    }
+
     QStringList allowedPlugins;
     for (int i = 0; i < ui->list->count(); i++) {
         QListWidgetItem* item = ui->list->item(i);

@@ -1,10 +1,11 @@
 #!/bin/bash
 
-lupdate ../src/plugins/TestPlugin/TestPlugin.pro -no-obsolete
+cd ../src/plugins
 
-lupdate ../src/plugins/MouseGestures/MouseGestures.pro -no-obsolete
-
-lupdate ../src/plugins/AccessKeysNavigation/AccessKeysNavigation.pro -no-obsolete
+for pluginPro in */*.pro
+do
+ lupdate $pluginPro -no-obsolete
+done
 
 read -p "Press [ENTER] to close terminal"
 exit
