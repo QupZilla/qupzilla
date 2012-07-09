@@ -114,6 +114,10 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
 
     m_isStarting = true;
 
+#ifndef Q_WS_X11
+    setUpdatesEnabled(false);
+#endif
+
     setupUi();
     setupMenu();
 
@@ -123,7 +127,9 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
 
 void QupZilla::postLaunch()
 {
+#ifdef Q_WS_X11
     setUpdatesEnabled(false);
+#endif
 
     loadSettings();
 
