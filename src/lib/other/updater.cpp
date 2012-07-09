@@ -30,7 +30,7 @@ Updater::Updater(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
     , p_QupZilla(mainClass)
 {
-    QTimer::singleShot(60 * 1000, this, SLOT(start())); //Start checking after 1 minute
+    QTimer::singleShot(60 * 1000, this, SLOT(start())); // Start checking after 1 minute
 }
 
 Updater::Version Updater::parseVersionFromString(const QString &string)
@@ -106,18 +106,18 @@ void Updater::startDownloadingUpdateInfo(const QUrl &url)
 
 void Updater::downCompleted(QNetworkReply* reply)
 {
-    QString html = QString(reply->readAll());
+    QString html = reply->readAll();
+
     if (html.startsWith("Version:")) {
         html.remove("Version:");
         Version current = parseVersionFromString(QupZilla::VERSION);
         Version updated = parseVersionFromString(html);
+
         if (current < updated) {
             mApp->desktopNotifications()->showNotification(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
-//            QAction* action = new QAction(QIcon(":icons/qupzillaupdate.png"), "Update", this);
-//            connect(action, SIGNAL(triggered()), this, SLOT(downloadNewVersion()));
-//            p_QupZilla->menuBar()->addAction(action);
         }
     }
+
     reply->manager()->deleteLater();
 }
 

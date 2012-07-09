@@ -122,7 +122,7 @@ private slots:
     void saveSettings();
 
 private:
-    enum PostLaunchAction { PrivateBrowsing, OpenDownloadManager, OpenNewTab };
+    enum PostLaunchAction { OpenDownloadManager, OpenNewTab };
 
     void translateApp();
     void restoreOtherWindows();

@@ -143,7 +143,10 @@ MainApplication::MainApplication(int &argc, char** argv)
             case Qz::CL_OpenUrlInCurrentTab:
                 startUrl = QUrl::fromUserInput(pair.text);
                 messages.append("ACTION:OpenUrlInCurrentTab" + pair.text);
-                m_postLaunchActions.append(PrivateBrowsing);
+                break;
+            case Qz::CL_OpenUrlInNewWindow:
+                startUrl = QUrl::fromUserInput(pair.text);
+                messages.append("ACTION:OpenUrlInNewWindow" + pair.text);
                 break;
             case Qz::CL_OpenUrl:
                 startUrl = QUrl::fromUserInput(pair.text);
@@ -459,7 +462,11 @@ void MainApplication::receiveAppMessage(QString message)
             actWin = downManager();
         }
         else if (text.startsWith("OpenUrlInCurrentTab")) {
-            actUrl = QUrl::fromUserInput(text.remove("OpenUrlInCurrentTab"));
+            actUrl = QUrl::fromUserInput(text.mid(19));
+        }
+        else if (text.startsWith("OpenUrlInNewWindow")) {
+            makeNewWindow(Qz::BW_NewWindow, QUrl::fromUserInput(text.mid(18)));
+            return;
         }
     }
 
