@@ -320,9 +320,8 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->pluginsFrame->addWidget(m_pluginsList);
 
     //NOTIFICATIONS
-#ifdef Q_WS_X11
-    ui->useNativeSystemNotifications->setEnabled(true);
-#endif
+    ui->useNativeSystemNotifications->setEnabled(mApp->desktopNotifications()->supportsNativeNotifications());
+
     DesktopNotificationsFactory::Type notifyType;
     settings.beginGroup("Notifications");
     ui->notificationTimeout->setValue(settings.value("Timeout", 6000).toInt() / 1000);
@@ -331,7 +330,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 #else
     notifyType = DesktopNotificationsFactory::PopupWidget;
 #endif
-    if (notifyType == DesktopNotificationsFactory::DesktopNative) {
+    if (ui->useNativeSystemNotifications->isChecked() && notifyType == DesktopNotificationsFactory::DesktopNative) {
         ui->useNativeSystemNotifications->setChecked(true);
     }
     else {

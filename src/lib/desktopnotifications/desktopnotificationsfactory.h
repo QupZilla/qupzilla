@@ -37,6 +37,8 @@ public:
 
     void loadSettings();
 
+    bool supportsNativeNotifications() const;
+
     void showNotification(const QPixmap &icon, const QString &heading, const QString &text);
     void nativeNotificationPreview();
 

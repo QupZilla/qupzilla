@@ -108,11 +108,12 @@ void CommandLineOptions::parseActions()
         if (arg.startsWith("-p=") || arg.startsWith("--profile=")) {
             int index = arg.indexOf('=');
             if (index != -1) {
-                cout << "QupZilla: Starting with profile " << arg.toUtf8().data() << endl;
+                const QString profileName = arg.mid(index + 1);
+                cout << "QupZilla: Starting with profile '" << profileName.toUtf8().data() << "'" << endl;
 
                 ActionPair pair;
                 pair.action = Qz::CL_StartWithProfile;
-                pair.text = arg.mid(index + 1);
+                pair.text = profileName;
                 m_actions.append(pair);
             }
         }

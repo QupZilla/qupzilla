@@ -1,6 +1,8 @@
 Version 1.3.0
     * not released yet
     * new Ukrainian translation
+    * new plugins: GreaseMonkey and PIM (Personal Information Manager)
+    * new command line option to open new window with url
     * can now open .xhtml files from open file dialog
     * added animated tab previews with option to turn animations off
     * possibility to change icon of bookmarks
@@ -21,6 +23,7 @@ Version 1.3.0
     * better support for Content-Disposition header (downloads)
     * Linux: middle clicking on add tab button will open new tab with global mouse selection's contents
     * Linux: generating backtrace and saving it into file upon application crash
+    * Windows: fixed theme loading delay (showing ugly interface for a second when starting app)
     * fixed saving passwords on some sites (parsing WebKit's data format)
     * fixed "go to web address" action when newlines were in string
     * fixed excessive ssl warnings when rejecting untrusted certificate
