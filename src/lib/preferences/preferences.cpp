@@ -346,7 +346,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //OTHER
     //Languages
-    QString activeLanguage = "";
+    QString activeLanguage;
     if (!mApp->currentLanguage().isEmpty()) {
         activeLanguage = mApp->currentLanguage();
         QLocale locale(activeLanguage);
@@ -359,12 +359,17 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     QDir lanDir(mApp->TRANSLATIONSDIR);
     QStringList list = lanDir.entryList(QStringList("*.qm"));
     foreach(const QString & name, list) {
-        if (name.startsWith("qt_") || name == activeLanguage) {
+        if (name.startsWith("qt_")) {
             continue;
         }
 
         QString loc = name;
         loc.remove(".qm");
+
+        if (loc == activeLanguage) {
+            continue;
+        }
+
         QLocale locale(loc);
         QString country = QLocale::countryToString(locale.country());
         QString language = QLocale::languageToString(locale.language());
