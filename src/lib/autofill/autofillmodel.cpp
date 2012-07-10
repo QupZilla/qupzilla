@@ -233,7 +233,7 @@ void AutoFillModel::completePage(WebPage* page)
 
 void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgoingData)
 {
-    //Dont save in private browsing
+    // Don't save in private browsing
     if (mApp->isPrivateSession()) {
         return;
     }
@@ -250,18 +250,19 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
         return;
     }
 
-    v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101));
-    QWebPage::NavigationType type = (QWebPage::NavigationType)v.toInt();
+//    v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101));
+//    QWebPage::NavigationType type = (QWebPage::NavigationType)v.toInt();
 
-    if (type != QWebPage::NavigationTypeFormSubmitted) {
-        return;
-    }
+//    if (type != QWebPage::NavigationTypeFormSubmitted) {
+//        return;
+//    }
 
     QString usernameName;
     QString usernameValue;
     QString passwordName;
     QString passwordValue;
-    QUrl siteUrl = webPage->url();
+
+    const QUrl &siteUrl = webPage->url();
 
     if (!isStoringEnabled(siteUrl)) {
         return;
@@ -305,6 +306,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     foreach(const QWebElement & element, foundForm.findAll("input[type=\"text\"]")) {
         usernameName = element.attribute("name");
         usernameValue = getValueFromData(data, element);
+
         if (!usernameName.isEmpty() && !usernameValue.isEmpty()) {
             break;
         }

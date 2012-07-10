@@ -24,6 +24,7 @@ Version 1.3.0
     * Linux: middle clicking on add tab button will open new tab with global mouse selection's contents
     * Linux: generating backtrace and saving it into file upon application crash
     * Windows: fixed theme loading delay (showing ugly interface for a second when starting app)
+    * fixed all issues with saving password (i hope so)
     * fixed saving passwords on some sites (parsing WebKit's data format)
     * fixed "go to web address" action when newlines were in string
     * fixed excessive ssl warnings when rejecting untrusted certificate

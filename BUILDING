@@ -161,7 +161,7 @@ Available Defines
                           example:
                           $ export QUPZILLA_PREFIX="/usr/"
 
-     DISABLE_DBUS         Build without QtDBUS module. Native desktop notifications will be disabled.
+     DISABLE_DBUS         Build without QtDBus module. Native desktop notifications will be disabled.
 
                           example:
                           $ export DISABLE_DBUS="true"
