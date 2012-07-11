@@ -142,12 +142,12 @@ void BookmarksToolbar::moveRight()
     Bookmark bookmarkRight = buttonRight->data().value<Bookmark>();
 
     QSqlQuery query;
-    query.prepare("UPDATE bookmarks SET toolbar_position=? WHERE id=?");
+    query.prepare("UPDATE bookmarks SET position=? WHERE id=?");
     query.addBindValue(index + 1);
     query.addBindValue(bookmark.id);
     mApp->dbWriter()->executeQuery(query);
 
-    query.prepare("UPDATE bookmarks SET toolbar_position=? WHERE id=?");
+    query.prepare("UPDATE bookmarks SET position=? WHERE id=?");
     query.addBindValue(index);
     query.addBindValue(bookmarkRight.id);
     mApp->dbWriter()->executeQuery(query);
@@ -179,12 +179,12 @@ void BookmarksToolbar::moveLeft()
     Bookmark bookmarkLeft = buttonLeft->data().value<Bookmark>();
 
     QSqlQuery query;
-    query.prepare("UPDATE bookmarks SET toolbar_position=? WHERE id=?");
+    query.prepare("UPDATE bookmarks SET position=? WHERE id=?");
     query.addBindValue(index - 1);
     query.addBindValue(bookmark.id);
     mApp->dbWriter()->executeQuery(query);
 
-    query.prepare("UPDATE bookmarks SET toolbar_position=? WHERE id=?");
+    query.prepare("UPDATE bookmarks SET position=? WHERE id=?");
     query.addBindValue(index);
     query.addBindValue(bookmarkLeft.id);
     mApp->dbWriter()->executeQuery(query);
@@ -419,7 +419,7 @@ void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     m_layout->insertWidget(indexForBookmark, button);
 
     QSqlQuery query;
-    query.prepare("UPDATE bookmarks SET toolbar_position=? WHERE id=?");
+    query.prepare("UPDATE bookmarks SET position=? WHERE id=?");
     query.addBindValue(indexForBookmark);
     query.addBindValue(bookmark.id);
     mApp->dbWriter()->executeQuery(query);
@@ -482,7 +482,7 @@ void BookmarksToolbar::bookmarkEdited(const BookmarksModel::Bookmark &before, co
 void BookmarksToolbar::refreshBookmarks()
 {
     QSqlQuery query;
-    query.exec("SELECT id, title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar' ORDER BY toolbar_position");
+    query.exec("SELECT id, title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar' ORDER BY position");
     while (query.next()) {
         Bookmark bookmark;
         bookmark.id = query.value(0).toInt();
