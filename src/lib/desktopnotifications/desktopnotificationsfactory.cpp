@@ -107,7 +107,7 @@ void DesktopNotificationsFactory::nativeNotificationPreview()
 #if defined(Q_WS_X11) && !defined(DISABLE_DBUS)
     QFile tmp(QDir::tempPath() + "/qupzilla_notif.png");
     tmp.open(QFile::WriteOnly);
-    QPixmap(":icons/preferences/stock_dialog-question.png").save(tmp.fileName());
+    QPixmap(":icons/preferences/dialog-question.png").save(tmp.fileName());
 
     QDBusInterface dbus("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications", QDBusConnection::sessionBus());
     QVariantList args;

@@ -92,7 +92,6 @@ void AdBlockSubscription::loadSubscription(const QStringList &disabledRules)
     QFile file(m_filePath);
 
     if (!file.exists()) {
-        qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "File does not exists" << m_filePath;
         QTimer::singleShot(0, this, SLOT(updateSubscription()));
         return;
     }

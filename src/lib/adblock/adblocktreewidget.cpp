@@ -19,7 +19,6 @@
 #include "adblocksubscription.h"
 
 #include <QMenu>
-#include <QTimer>
 #include <QKeyEvent>
 #include <QClipboard>
 #include <QApplication>
@@ -39,8 +38,6 @@ AdBlockTreeWidget::AdBlockTreeWidget(AdBlockSubscription* subscription, QWidget*
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
     connect(this, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
     connect(m_subscription, SIGNAL(subscriptionUpdated()), this, SLOT(subscriptionUpdated()));
-
-    QTimer::singleShot(100, this, SLOT(refresh()));
 }
 
 AdBlockSubscription* AdBlockTreeWidget::subscription() const

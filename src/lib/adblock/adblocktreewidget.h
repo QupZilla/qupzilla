@@ -35,6 +35,7 @@ public:
     AdBlockSubscription* subscription() const;
 
     void showRule(const AdBlockRule* rule);
+    void refresh();
 
 public slots:
     void addRule();
@@ -45,7 +46,6 @@ private slots:
     void itemChanged(QTreeWidgetItem* item);
     void copyFilter();
 
-    void refresh();
     void subscriptionUpdated();
 
 private:

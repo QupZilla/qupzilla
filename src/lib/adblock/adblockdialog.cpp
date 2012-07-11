@@ -23,6 +23,7 @@
 #include "mainapplication.h"
 
 #include <QMenu>
+#include <QTimer>
 #include <QMessageBox>
 #include <QInputDialog>
 
@@ -152,6 +153,14 @@ void AdBlockDialog::learnAboutRules()
     mApp->addNewTab(QUrl("http://adblockplus.org/en/filters"));
 }
 
+void AdBlockDialog::loadSubscriptions()
+{
+    for (int i = 0; i < tabWidget->count(); ++i) {
+        AdBlockTreeWidget* treeWidget = qobject_cast<AdBlockTreeWidget*>(tabWidget->widget(i));
+        treeWidget->refresh();
+    }
+}
+
 void AdBlockDialog::load()
 {
     if (m_loaded || !adblockCheckBox->isChecked()) {
@@ -164,4 +173,6 @@ void AdBlockDialog::load()
     }
 
     m_loaded = true;
+
+    QTimer::singleShot(50, this, SLOT(loadSubscriptions()));
 }

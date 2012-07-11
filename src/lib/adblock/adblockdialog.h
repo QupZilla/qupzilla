@@ -51,9 +51,10 @@ private slots:
     void aboutToShowMenu();
     void learnAboutRules();
 
-private:
+    void loadSubscriptions();
     void load();
 
+private:
     AdBlockManager* m_manager;
     AdBlockTreeWidget* m_currentTreeWidget;
     AdBlockSubscription* m_currentSubscription;
