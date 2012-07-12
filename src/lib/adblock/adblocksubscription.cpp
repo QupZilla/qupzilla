@@ -155,7 +155,7 @@ void AdBlockSubscription::subscriptionDownloaded()
         return;
     }
 
-    QByteArray response = m_reply->readAll();
+    QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
     if (m_reply->error() == QNetworkReply::NoError && response.startsWith("[Adblock")) {
         // Prepend subscription info

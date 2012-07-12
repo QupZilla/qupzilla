@@ -52,7 +52,7 @@ void GM_Downloader::scriptDownloaded()
         return;
     }
 
-    QByteArray response = m_reply->readAll();
+    QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
     if (m_reply->error() == QNetworkReply::NoError && response.contains("// ==UserScript==")) {
         const QString &filePath = m_manager->scriptsDirectory() + qz_getFileNameFromUrl(m_reply->url());
@@ -97,7 +97,7 @@ void GM_Downloader::requireDownloaded()
         return;
     }
 
-    QByteArray response = m_reply->readAll();
+    QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
     if (m_reply->error() == QNetworkReply::NoError && !response.isEmpty()) {
         const QString &filePath = m_manager->settinsPath() + "/greasemonkey/requires/require.js";
