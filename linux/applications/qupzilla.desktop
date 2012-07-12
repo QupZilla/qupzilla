@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=QupZilla
 Name[ka]=ქუპზილა
 Name[sr]=Капзила
@@ -61,7 +60,7 @@ MimeType=text/html;application/xhtml+xml;
 Terminal=false
 X-Ayatana-Desktop-Shortcuts=NewTab;NewWindow;PrivateBrowsing;
 
-[NewTab Shortcut Group]
+[X-NewTab Shortcut Group]
 Name=Open new tab
 Name[cs]=Otevřít nový panel
 Name[de]=Neuen Tab öffnen
@@ -89,7 +88,7 @@ Name[ja]=新しいタブを開く
 Exec=qupzilla --new-tab
 TargetEnvironment=Unity
 
-[NewWindow Shortcut Group]
+[X-NewWindow Shortcut Group]
 Name=Open new window
 Name[cs]=Otevřít nové okno
 Name[de]=Neues Fenster öffnen
@@ -117,7 +116,7 @@ Name[ja]=新しいウィンドウを開く
 Exec=qupzilla --new-window
 TargetEnvironment=Unity
 
-[PrivateBrowsing Shortcut Group]
+[X-PrivateBrowsing Shortcut Group]
 Name=Start private browsing
 Name[cs]=Spustit soukromé prohlížení
 Name[de]=Privaten Modus starten
