@@ -32,7 +32,7 @@ class QUrl;
 QByteArray QT_QUPZILLA_EXPORT qz_pixmapToByteArray(const QPixmap &pix);
 QPixmap QT_QUPZILLA_EXPORT qz_pixmapFromByteArray(const QByteArray &data);
 
-QString qz_readAllFileContents(const QString &filename);
+QString QT_QUPZILLA_EXPORT qz_readAllFileContents(const QString &filename);
 
 void QT_QUPZILLA_EXPORT qz_centerWidgetOnScreen(QWidget* w);
 void QT_QUPZILLA_EXPORT qz_centerWidgetToParent(QWidget* w, QWidget* parent);
@@ -55,7 +55,7 @@ QPixmap QT_QUPZILLA_EXPORT qz_createPixmapForSite(const QIcon &icon, const QStri
 QString QT_QUPZILLA_EXPORT qz_buildSystem();
 
 template <typename T>
-bool QT_QUPZILLA_EXPORT qz_listContainsIndex(const QList<T> &list, int index)
+bool qz_listContainsIndex(const QList<T> &list, int index)
 {
     return (index >= 0 && list.count() > index);
 }

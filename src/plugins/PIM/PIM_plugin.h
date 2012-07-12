@@ -44,9 +44,6 @@ public:
     void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r);
     bool keyPress(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event);
 
-private slots:
-    void webPageCreated(WebPage* page);
-
 private:
     PIM_Handler* m_handler;
 };

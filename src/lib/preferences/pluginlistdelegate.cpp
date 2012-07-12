@@ -44,7 +44,11 @@ void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     titleFont.setPointSize(titleFont.pointSize() + 1);
 
     const QFontMetrics titleMetrics(titleFont);
+#ifdef Q_WS_WIN
+    const QPalette::ColorRole colorRole = QPalette::Text;
+#else
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
+#endif
 
     int leftPosition = m_padding;
     int rightPosition = opt.rect.right() - m_padding;

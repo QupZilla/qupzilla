@@ -3,7 +3,7 @@
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.2.0"
+!define /date PRODUCT_VERSION "1.3.0"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -259,6 +259,12 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   SetOutPath "$INSTDIR\locale"
   File "locale\sv_SE.qm"
   File "locale\qt_sv.qm"
+  SectionEnd
+
+  Section "Ukrainian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\uk_UA.qm"
+  File "locale\qt_uk.qm"
   SectionEnd
 
 SectionGroupEnd
