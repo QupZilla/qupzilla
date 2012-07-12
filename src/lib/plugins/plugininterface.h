@@ -20,6 +20,7 @@
 
 #include <QPixmap>
 #include <QtPlugin>
+#include <QNetworkRequest>
 #include <QWebHitTestResult>
 
 #include "qz_namespace.h"
@@ -85,6 +86,6 @@ public:
     virtual QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData) { Q_UNUSED(op) Q_UNUSED(request) Q_UNUSED(outgoingData) return 0; }
 };
 
-Q_DECLARE_INTERFACE(PluginInterface, "QupZilla.Browser.PluginInterface/1.1")
+Q_DECLARE_INTERFACE(PluginInterface, "QupZilla.Browser.PluginInterface/1.2")
 
 #endif // PLUGININTERFACE_H
