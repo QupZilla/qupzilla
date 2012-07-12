@@ -330,7 +330,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 #else
     notifyType = DesktopNotificationsFactory::PopupWidget;
 #endif
-    if (ui->useNativeSystemNotifications->isChecked() && notifyType == DesktopNotificationsFactory::DesktopNative) {
+    if (ui->useNativeSystemNotifications->isEnabled() && notifyType == DesktopNotificationsFactory::DesktopNative) {
         ui->useNativeSystemNotifications->setChecked(true);
     }
     else {
