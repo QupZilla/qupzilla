@@ -2337,7 +2337,8 @@ n&apos;a pas été trouvé !</translation>
         <location filename="../src/lib/preferences/preferences.ui" line="309"/>
         <location filename="../src/lib/preferences/preferences.cpp" line="703"/>
         <source>Note: You cannot delete active profile.</source>
-        <translation>Note : Vous ne pouvez pas effacer le profil actif.</translation>
+        <translatorcomment>&quot;Note : Vous ne pouvez pas effacer le profil actif.&quot; ne loge pas dans la fenètre réduite...</translatorcomment>
+        <translation>Note : Vous ne pouvez effacer le profil actif.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="370"/>
@@ -2502,7 +2503,7 @@ n&apos;a pas été trouvé !</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1089"/>
         <source>Delete locally stored HTML5 web content on close</source>
-        <translation>Supprimer à la fermeture le contenu HTML5 stocké localement</translation>
+        <translation>Supprimer à la fermeture le contenu HTML5 stocké</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1777"/>
@@ -2757,7 +2758,7 @@ n&apos;a pas été trouvé !</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1911"/>
         <source>Certificate Manager</source>
-        <translation>Gestionnaire de Certificat (CM : Certificate Manager) </translation>
+        <translation>Certificats</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1948"/>
@@ -2876,7 +2877,7 @@ n&apos;a pas été trouvé !</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1898"/>
         <source>Cookies Manager</source>
-        <translation>Gestionnaire de cookies</translation>
+        <translation>Cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1941"/>
@@ -2955,7 +2956,7 @@ n&apos;a pas été trouvé !</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="391"/>
         <source>In order to change language, you must restart browser.</source>
-        <translation>Pour changer de langue, Vous devez redémarrer le navigateur.</translation>
+        <translation>Pour changer de langue, vous devez redémarrer le navigateur.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2115"/>

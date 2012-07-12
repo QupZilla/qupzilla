@@ -1621,6 +1621,9 @@
         <source>Allow Click To Flash</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>PluginsManager</name>
     <message>
         <source>Add site to whitelist</source>
         <translation type="unfinished"></translation>

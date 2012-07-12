@@ -174,7 +174,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="260"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Press Ctrl+ENTER to autofill form fields for which QupZilla finds personal entries.</source>
-        <translation>&lt;b&gt;Note:&lt;/b&gt; Appuyer sur Ctrl+ENTER pour autocompléter les champs dont QupZilla dispose.d&apos;informations.</translation>
+        <translation>&lt;b&gt;Note:&lt;/b&gt; Appuyer sur Ctrl+ENTER pour autocompléter les formulaires avec les informations ci-dessus.</translation>
     </message>
 </context>
 </TS>

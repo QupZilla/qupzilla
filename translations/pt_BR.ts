@@ -100,26 +100,6 @@
 <context>
     <name>AdBlockDialog</name>
     <message>
-        <source>Rule</source>
-        <translation type="obsolete">Filtro</translation>
-    </message>
-    <message>
-        <source>EasyList has been successfully updated.</source>
-        <translation type="obsolete">A EasyList foi atualizada com sucesso.</translation>
-    </message>
-    <message>
-        <source>Update EasyList</source>
-        <translation type="obsolete">Atualizar EasyList</translation>
-    </message>
-    <message>
-        <source>Please write your rule here:</source>
-        <translation type="obsolete">Escreva aqui o seu filtro:</translation>
-    </message>
-    <message>
-        <source>Add Custom Rule</source>
-        <translation type="obsolete">Adicionar filtro personalizado</translation>
-    </message>
-    <message>
         <source>Enable AdBlock</source>
         <translation>Ativar AdBlock</translation>
     </message>
@@ -132,20 +112,8 @@
         <translation>Procurar...</translation>
     </message>
     <message>
-        <source>Delete Rule</source>
-        <translation type="obsolete">Apagar Filtro</translation>
-    </message>
-    <message>
         <source>Add Rule</source>
         <translation>Adicionar Filtro</translation>
-    </message>
-    <message>
-        <source>Custom Rules</source>
-        <translation type="obsolete">Filtros Personalizados</translation>
-    </message>
-    <message>
-        <source>Update completed</source>
-        <translation type="obsolete">Atualização concluída</translation>
     </message>
     <message>
         <source>AdBlock Configuration</source>
@@ -220,10 +188,6 @@
     <message>
         <source>AdBlock blocked unwanted popup window.</source>
         <translation>O AdBlock bloqueou algumas janelas popups.</translation>
-    </message>
-    <message>
-        <source>Learn About Writing &amp;Rules</source>
-        <translation type="obsolete">Saber mais sobre como escrever filt&amp;ros</translation>
     </message>
 </context>
 <context>
@@ -1122,14 +1086,6 @@
         <translation>Abrir pasta</translation>
     </message>
     <message>
-        <source>Sorry, the file
- %1
- was not found!</source>
-        <translation>Desculpa, o arquivo
-%1
-não foi encontrado!</translation>
-    </message>
-    <message>
         <source>Not found</source>
         <translation>Não encontrado</translation>
     </message>
@@ -1188,6 +1144,12 @@ não foi encontrado!</translation>
     <message>
         <source>Error: Cannot write to file!</source>
         <translation>Erro: incapaz de escrever no arquivo!</translation>
+    </message>
+    <message>
+        <source>Sorry, the file 
+ %1 
+ was not found!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1291,24 +1253,12 @@ não foi encontrado!</translation>
         <translation>Nome:</translation>
     </message>
     <message>
-        <source>Choose icon...</source>
-        <translation type="obsolete">Escolha icon...</translation>
-    </message>
-    <message>
-        <source>Add from file ...</source>
-        <translation type="obsolete">Adicionar do arquivo...</translation>
-    </message>
-    <message>
         <source>Shortcut:</source>
         <translation>Atalho:</translation>
     </message>
     <message>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
         <translation>&lt;b&gt;Observação: &lt;/b&gt;%s no URL representa o texto procurado</translation>
-    </message>
-    <message>
-        <source>Image files</source>
-        <translation type="obsolete">Imagens</translation>
     </message>
     <message>
         <source>Change...</source>
@@ -1373,26 +1323,6 @@ não foi encontrado!</translation>
 <context>
     <name>HistoryManager</name>
     <message>
-        <source>Url</source>
-        <translation type="obsolete">URL</translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="obsolete">Esta semana</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation type="obsolete">Título</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">Hoje</translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">Copiar endereço</translation>
-    </message>
-    <message>
         <source>Are you sure to delete all history?</source>
         <translation>Tem certeza que deseja limpar todo o histórico?</translation>
     </message>
@@ -1401,24 +1331,12 @@ não foi encontrado!</translation>
         <translation>Apagar</translation>
     </message>
     <message>
-        <source>This Month</source>
-        <translation type="obsolete">Este mês</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">Abrir link em uma nova guia</translation>
-    </message>
-    <message>
         <source>Clear All History</source>
         <translation>Limpar Histórico</translation>
     </message>
     <message>
         <source>Optimize Database</source>
         <translation>Otimizar banco de dados</translation>
-    </message>
-    <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">Abrir link na guia atual</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1431,58 +1349,6 @@ não foi encontrado!</translation>
 </context>
 <context>
     <name>HistoryModel</name>
-    <message>
-        <source>May</source>
-        <translation type="obsolete">Maio</translation>
-    </message>
-    <message>
-        <source>July</source>
-        <translation type="obsolete">Julho</translation>
-    </message>
-    <message>
-        <source>June</source>
-        <translation type="obsolete">Junho</translation>
-    </message>
-    <message>
-        <source>April</source>
-        <translation type="obsolete">Abril</translation>
-    </message>
-    <message>
-        <source>March</source>
-        <translation type="obsolete">Março</translation>
-    </message>
-    <message>
-        <source>January</source>
-        <translation type="obsolete">Janeiro</translation>
-    </message>
-    <message>
-        <source>August</source>
-        <translation type="obsolete">Agosto</translation>
-    </message>
-    <message>
-        <source>October</source>
-        <translation type="obsolete">Outubro</translation>
-    </message>
-    <message>
-        <source>November</source>
-        <translation type="obsolete">Novembro</translation>
-    </message>
-    <message>
-        <source>September</source>
-        <translation type="obsolete">Setembro</translation>
-    </message>
-    <message>
-        <source>February</source>
-        <translation type="obsolete">Fevereiro</translation>
-    </message>
-    <message>
-        <source>December</source>
-        <translation type="obsolete">Dezembro</translation>
-    </message>
-    <message>
-        <source>No Named Page</source>
-        <translation type="obsolete">Página sem nome</translation>
-    </message>
     <message>
         <source>Title</source>
         <translation>Título</translation>
@@ -1515,36 +1381,8 @@ não foi encontrado!</translation>
 <context>
     <name>HistorySideBar</name>
     <message>
-        <source>This Week</source>
-        <translation type="obsolete">Esta semana</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation type="obsolete">Título</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">Hoje</translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">Copiar endereço</translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="obsolete">Este mês</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">Abrir link em uma nova guia</translation>
-    </message>
-    <message>
         <source>Search...</source>
         <translation>Procurar...</translation>
-    </message>
-    <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">Abrir link na guia atual</translation>
     </message>
 </context>
 <context>
@@ -1756,10 +1594,6 @@ não foi encontrado!</translation>
         <translation>Lista de permissões</translation>
     </message>
     <message>
-        <source>Add site to whitelist</source>
-        <translation>Adicionar página à lista de permissões</translation>
-    </message>
-    <message>
         <source>Allow Application Extensions to be loaded</source>
         <translation>Permitir carregar extensões</translation>
     </message>
@@ -1780,10 +1614,6 @@ não foi encontrado!</translation>
         <translation>Remover</translation>
     </message>
     <message>
-        <source>Server without http:// (ex. youtube.com)</source>
-        <translation>Servidor sem http:// (ex. youtube.com)</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Configurações</translation>
     </message>
@@ -1791,13 +1621,24 @@ não foi encontrado!</translation>
         <source>WebKit Plugins</source>
         <translation>Plugins WebKit</translation>
     </message>
+</context>
+<context>
+    <name>PluginsManager</name>
+    <message>
+        <source>Add site to whitelist</source>
+        <translation type="unfinished">Adicionar página à lista de permissões</translation>
+    </message>
+    <message>
+        <source>Server without http:// (ex. youtube.com)</source>
+        <translation type="unfinished">Servidor sem http:// (ex. youtube.com)</translation>
+    </message>
     <message>
         <source>Error!</source>
-        <translation>Erro!</translation>
+        <translation type="unfinished">Erro!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation>Não foi possível carregar essa extensão!</translation>
+        <translation type="unfinished">Não foi possível carregar essa extensão!</translation>
     </message>
 </context>
 <context>
@@ -1955,10 +1796,6 @@ não foi encontrado!</translation>
         <translation>Permitir salvar senha das páginas</translation>
     </message>
     <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">Gerenciador SSL</translation>
-    </message>
-    <message>
         <source>JavaScript can access clipboard</source>
         <translation>Os JavaScripts podem acessar à área de transferência</translation>
     </message>
@@ -2039,10 +1876,6 @@ não foi encontrado!</translation>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <source>Make tabs movable</source>
-        <translation type="obsolete">Permitir movimentar guias</translation>
-    </message>
-    <message>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Utilizar notificações do sistema (somente para Linux)</translation>
     </message>
@@ -2061,10 +1894,6 @@ não foi encontrado!</translation>
     <message>
         <source>Ask everytime for download location</source>
         <translation>Sempre perguntar aonde salvar os arquivos</translation>
-    </message>
-    <message>
-        <source>Edit CA certificates in SSL Manager</source>
-        <translation type="obsolete">Editar certificados no gerenciador SSL</translation>
     </message>
     <message>
         <source>Allow JAVA</source>
@@ -2144,10 +1973,6 @@ não foi encontrado!</translation>
     <message>
         <source>Use transparent background</source>
         <translation>Utilizar plano de fundo transparente</translation>
-    </message>
-    <message>
-        <source>Ask when entering Private Browsing mode</source>
-        <translation type="obsolete">Perguntar ao entrar no modo de navegação privada</translation>
     </message>
     <message>
         <source>Create New</source>
@@ -2592,10 +2417,6 @@ não foi encontrado!</translation>
         <translation>Informações do aplicativo</translation>
     </message>
     <message>
-        <source>Are you sure you want to turn on private browsing?</source>
-        <translation type="obsolete">Tem a certeza que deseja ativar a navegação privada?</translation>
-    </message>
-    <message>
         <source>Web In&amp;spector</source>
         <translation>In&amp;spetor web</translation>
     </message>
@@ -2676,10 +2497,6 @@ não foi encontrado!</translation>
         <translation>&amp;Favoritos</translation>
     </message>
     <message>
-        <source>Webpages are not added to the history.</source>
-        <translation type="obsolete">As páginas web não são adicionadas ao histórico.</translation>
-    </message>
-    <message>
         <source>Restore &amp;Closed Tab</source>
         <translation>Restaurar guia &amp;fechada</translation>
     </message>
@@ -2724,10 +2541,6 @@ não foi encontrado!</translation>
         <translation>Codificação dos caract&amp;eres</translation>
     </message>
     <message>
-        <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation type="obsolete">Até você fechar a janela, você ainda poderá usar os botões &quot;Voltar&quot; e &quot;Avançar&quot; para navegar por sites que você entrou anteriormente.</translation>
-    </message>
-    <message>
         <source>Clear list</source>
         <translation>Limpar lista</translation>
     </message>
@@ -2736,20 +2549,12 @@ não foi encontrado!</translation>
         <translation>Im&amp;primir...</translation>
     </message>
     <message>
-        <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="obsolete">A fonte RSS &quot;%1&quot; foi adicionada com sucesso.</translation>
-    </message>
-    <message>
         <source>Open file...</source>
         <translation>Abrir arquivo...</translation>
     </message>
     <message>
         <source>Pr&amp;eferences</source>
         <translation>Pr&amp;eferências</translation>
-    </message>
-    <message>
-        <source>Your session is not stored.</source>
-        <translation type="obsolete">A sua sessão não pode ser gravada.</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
@@ -2812,10 +2617,6 @@ não foi encontrado!</translation>
         <translation>(Navegação privada)</translation>
     </message>
     <message>
-        <source>Current cookies cannot be accessed.</source>
-        <translation type="obsolete">Os cookies atuais não estão acessíveis.</translation>
-    </message>
-    <message>
         <source>IP Address of current page</source>
         <translation>Endereço IP da página atual</translation>
     </message>
@@ -2832,16 +2633,8 @@ não foi encontrado!</translation>
         <translation>Mostr&amp;ar todo o histórico</translation>
     </message>
     <message>
-        <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation type="obsolete">Se a navegação privada estiver ativa, alguns elementos de privacidade estarão inativos:</translation>
-    </message>
-    <message>
         <source>Import bookmarks...</source>
         <translation>Importar favoritos...</translation>
-    </message>
-    <message>
-        <source>Start Private Browsing</source>
-        <translation type="obsolete">Iniciar navegação privada</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
@@ -2880,18 +2673,17 @@ não foi encontrado!</translation>
         <translation>&lt;b&gt;QupZilla travou :/&lt;/b&gt;&lt;br/&gt;Oops, parece que a última sessão do QupZilla não foi fechada como o planejado. Pedimos mil desculpas por isso. Você deseja que nós tentassemos abrir a última sessão que você estava?</translation>
     </message>
     <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored.
-Are you sure to quit QupZilla?</source>
-        <translation>Ainda há %1 guias abertas. A sua sessão não será salva.
-Você tem certeza que deseja sair do QupZilla?</translation>
-    </message>
-    <message>
         <source>Don&apos;t ask again</source>
         <translation>Não perguntar novamente</translation>
     </message>
     <message>
         <source>There are still open tabs</source>
         <translation>Ainda existem guias abertas</translation>
+    </message>
+    <message>
+        <source>There are still %1 open tabs and your session won&apos;t be stored. 
+Are you sure to quit QupZilla?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3057,10 +2849,6 @@ Você tem certeza que deseja sair do QupZilla?</translation>
         <translation>Identificação do navegador</translation>
     </message>
     <message>
-        <source>Google Search</source>
-        <translation type="obsolete">Procurar no Google</translation>
-    </message>
-    <message>
         <source>Speed Dial settings</source>
         <translation>Configurações do Acesso Rápido</translation>
     </message>
@@ -3079,10 +2867,6 @@ Você tem certeza que deseja sair do QupZilla?</translation>
     <message>
         <source>Version</source>
         <translation>Versão</translation>
-    </message>
-    <message>
-        <source>Search results provided by Google</source>
-        <translation type="obsolete">Resultados disponibilizados pelo Google</translation>
     </message>
     <message>
         <source>Change size of pages:</source>
@@ -3301,10 +3085,6 @@ Adicione os feeds clicando no símbolo RSS existente na barra de navegação, em
 <context>
     <name>RSSNotification</name>
     <message>
-        <source>Open RSS Manager</source>
-        <translation type="obsolete">Abrir gerenciador de RSS</translation>
-    </message>
-    <message>
         <source>Add this feed into</source>
         <translation>Adicionar esse fedd no</translation>
     </message>
@@ -3381,10 +3161,6 @@ Adicione os feeds clicando no símbolo RSS existente na barra de navegação, em
     <message>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
         <translation>Esta é a lista de autoridades de certificação existentes no sistema e nos caminhos do usuário.</translation>
-    </message>
-    <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">Gerenciador SSL</translation>
     </message>
     <message>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
@@ -4082,10 +3858,6 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
         <translation>Falha temporária de rede</translation>
     </message>
     <message>
-        <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="obsolete">Bloqueado pelo filtro &lt;i&gt;%1&lt;/i&gt;</translation>
-    </message>
-    <message>
         <source>Content Access Denied</source>
         <translation>Conteúdo Bloqueado</translation>
     </message>
@@ -4146,12 +3918,6 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
         <translation>Falha ao carregar a página</translation>
     </message>
     <message>
-        <source>To show this page, QupZilla must resend request which do it again
-(like searching on making an shoping, which has been already done.)</source>
-        <translation>Para mostrar esta página, o QupZilla precisa reenviar o pedido solicitado.
-(é como fazer alguma coisa, que você já havia feito anteriormente)</translation>
-    </message>
-    <message>
         <source>JavaScript alert</source>
         <translation>Alerta JavaScript</translation>
     </message>
@@ -4174,6 +3940,11 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Bloqueado por &lt;i&gt;%1&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>To show this page, QupZilla must resend request which do it again 
+(like searching on making an shoping, which has been already done.)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

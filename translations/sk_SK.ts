@@ -100,26 +100,6 @@
 <context>
     <name>AdBlockDialog</name>
     <message>
-        <source>Rule</source>
-        <translation type="obsolete">Pravidlo</translation>
-    </message>
-    <message>
-        <source>EasyList has been successfully updated.</source>
-        <translation type="obsolete">EasyList bol úspešne aktualizovaný.</translation>
-    </message>
-    <message>
-        <source>Update EasyList</source>
-        <translation type="obsolete">Aktualizovať EasyList</translation>
-    </message>
-    <message>
-        <source>Please write your rule here:</source>
-        <translation type="obsolete">Prosím, sem napíšte vlastné pravidlo:</translation>
-    </message>
-    <message>
-        <source>Add Custom Rule</source>
-        <translation type="obsolete">Pridať vlastné pravidlo</translation>
-    </message>
-    <message>
         <source>Enable AdBlock</source>
         <translation>Povoliť AdBlock</translation>
     </message>
@@ -132,20 +112,8 @@
         <translation>Hľadať...</translation>
     </message>
     <message>
-        <source>Delete Rule</source>
-        <translation type="obsolete">Vymazať pravidlo</translation>
-    </message>
-    <message>
         <source>Add Rule</source>
         <translation>Pridať pravidlo</translation>
-    </message>
-    <message>
-        <source>Custom Rules</source>
-        <translation type="obsolete">Vlastné pravidlá</translation>
-    </message>
-    <message>
-        <source>Update completed</source>
-        <translation type="obsolete">Aktualizácia dokončená</translation>
     </message>
     <message>
         <source>AdBlock Configuration</source>
@@ -200,10 +168,6 @@
     <message>
         <source>No content blocked</source>
         <translation>Žiadny obsah neblokovaný</translation>
-    </message>
-    <message>
-        <source>Learn About Writing &amp;Rules</source>
-        <translation type="obsolete">Zistiť viac o písaní p&amp;ravidiel</translation>
     </message>
     <message>
         <source>AdBlock lets you block unwanted content on web pages</source>
@@ -1291,24 +1255,12 @@
         <translation>Názov:</translation>
     </message>
     <message>
-        <source>Choose icon...</source>
-        <translation type="obsolete">Zvoľte ikonu...</translation>
-    </message>
-    <message>
-        <source>Add from file ...</source>
-        <translation type="obsolete">Pridať zo súboru...</translation>
-    </message>
-    <message>
         <source>Shortcut:</source>
         <translation>Skratka:</translation>
     </message>
     <message>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
         <translation>&lt;b&gt;Poznámka: &lt;/b&gt;%s v url reprezentuje hľadaný reťazec</translation>
-    </message>
-    <message>
-        <source>Image files</source>
-        <translation type="obsolete">Obrázky</translation>
     </message>
     <message>
         <source>Change...</source>
@@ -1373,36 +1325,12 @@
 <context>
     <name>HistoryManager</name>
     <message>
-        <source>Url</source>
-        <translation type="obsolete">Adresa</translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="obsolete">Tento týždeň</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation type="obsolete">Názov</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">Dnes</translation>
-    </message>
-    <message>
         <source>Are you sure to delete all history?</source>
         <translation>Ste si istý, že chcete vymazať celú históriu?</translation>
     </message>
     <message>
         <source>Delete</source>
         <translation>Vymazať</translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="obsolete">Tento mesiac</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">Otvoriť odkaz na novej karte</translation>
     </message>
     <message>
         <source>Clear All History</source>
@@ -1420,69 +1348,9 @@
         <source>History</source>
         <translation>História</translation>
     </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">Kopírovať adresu</translation>
-    </message>
-    <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">Otvoriť odkaz v aktuálnom panely</translation>
-    </message>
 </context>
 <context>
     <name>HistoryModel</name>
-    <message>
-        <source>May</source>
-        <translation type="obsolete">Máj</translation>
-    </message>
-    <message>
-        <source>July</source>
-        <translation type="obsolete">Júl</translation>
-    </message>
-    <message>
-        <source>June</source>
-        <translation type="obsolete">Jún</translation>
-    </message>
-    <message>
-        <source>April</source>
-        <translation type="obsolete">Apríl</translation>
-    </message>
-    <message>
-        <source>March</source>
-        <translation type="obsolete">Marec</translation>
-    </message>
-    <message>
-        <source>January</source>
-        <translation type="obsolete">Január</translation>
-    </message>
-    <message>
-        <source>August</source>
-        <translation type="obsolete">August</translation>
-    </message>
-    <message>
-        <source>October</source>
-        <translation type="obsolete">Október</translation>
-    </message>
-    <message>
-        <source>November</source>
-        <translation type="obsolete">November</translation>
-    </message>
-    <message>
-        <source>September</source>
-        <translation type="obsolete">September</translation>
-    </message>
-    <message>
-        <source>February</source>
-        <translation type="obsolete">Február</translation>
-    </message>
-    <message>
-        <source>December</source>
-        <translation type="obsolete">December</translation>
-    </message>
-    <message>
-        <source>No Named Page</source>
-        <translation type="obsolete">Stránka bez názvu</translation>
-    </message>
     <message>
         <source>Title</source>
         <translation>Názov</translation>
@@ -1515,36 +1383,8 @@
 <context>
     <name>HistorySideBar</name>
     <message>
-        <source>This Week</source>
-        <translation type="obsolete">Tento týždeň</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation type="obsolete">Názov</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">Dnes</translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">Kopírovať adresu</translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="obsolete">Tento mesiac</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">Otvoriť odkaz na novej karte</translation>
-    </message>
-    <message>
         <source>Search...</source>
         <translation>Hľadať...</translation>
-    </message>
-    <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">Otvoriť odkaz v aktuálnom panely</translation>
     </message>
 </context>
 <context>
@@ -1756,10 +1596,6 @@
         <translation>Zoznam výnimiek</translation>
     </message>
     <message>
-        <source>Add site to whitelist</source>
-        <translation>Pridať stránku do zoznamu výnimiek</translation>
-    </message>
-    <message>
         <source>Allow Application Extensions to be loaded</source>
         <translation>Povoliť načítanie rozšírení programu</translation>
     </message>
@@ -1780,10 +1616,6 @@
         <translation>Odstrániť</translation>
     </message>
     <message>
-        <source>Server without http:// (ex. youtube.com)</source>
-        <translation>Server bez http:// (napr. youtube.com)</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Nastavenia</translation>
     </message>
@@ -1791,13 +1623,24 @@
         <source>WebKit Plugins</source>
         <translation>WebKit pluginy</translation>
     </message>
+</context>
+<context>
+    <name>PluginsManager</name>
+    <message>
+        <source>Add site to whitelist</source>
+        <translation type="unfinished">Pridať stránku do zoznamu výnimiek</translation>
+    </message>
+    <message>
+        <source>Server without http:// (ex. youtube.com)</source>
+        <translation type="unfinished">Server bez http:// (napr. youtube.com)</translation>
+    </message>
     <message>
         <source>Error!</source>
-        <translation>Chyba!</translation>
+        <translation type="unfinished">Chyba!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation>Nemožno načítať rozšírenie!</translation>
+        <translation type="unfinished">Nemožno načítať rozšírenie!</translation>
     </message>
 </context>
 <context>
@@ -1935,10 +1778,6 @@
         <translation>Povoliť ukladanie hesiel zo stránok</translation>
     </message>
     <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">Správca SSL</translation>
-    </message>
-    <message>
         <source>JavaScript can access clipboard</source>
         <translation>Povoliť JavaScriptu prístup do schránky</translation>
     </message>
@@ -2005,10 +1844,6 @@
     <message>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
-    </message>
-    <message>
-        <source>Make tabs movable</source>
-        <translation type="obsolete">Povoliť presúvanie kariet</translation>
     </message>
     <message>
         <source>Use Native System Notifications (Linux only)</source>
@@ -2323,10 +2158,6 @@
         <translation>Povoliť ukladanie cookies</translation>
     </message>
     <message>
-        <source>Ask when entering Private Browsing mode</source>
-        <translation type="obsolete">Pýtať sa pri zapínaní súkromného prehliadania</translation>
-    </message>
-    <message>
         <source>Active profile:</source>
         <translation>Aktivovať profil:</translation>
     </message>
@@ -2373,10 +2204,6 @@
     <message>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL Certifikáty&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Edit CA certificates in SSL Manager</source>
-        <translation type="obsolete">Upraviť CA Certifikáty v správcovi SSL</translation>
     </message>
     <message>
         <source>Delete now</source>
@@ -2588,10 +2415,6 @@
         <translation>Resetovať</translation>
     </message>
     <message>
-        <source>Are you sure you want to turn on private browsing?</source>
-        <translation type="obsolete">Ste si istý, že chcete zapnúť súkromné prehliadanie?</translation>
-    </message>
-    <message>
         <source>Close Window</source>
         <translation>Zatvoriť okno</translation>
     </message>
@@ -2660,10 +2483,6 @@
         <translation>&amp;Záložky</translation>
     </message>
     <message>
-        <source>Webpages are not added to the history.</source>
-        <translation type="obsolete">Stránky nie sú pridávané do histórie.</translation>
-    </message>
-    <message>
         <source>Restore &amp;Closed Tab</source>
         <translation>Obnoviť zatvorenú &amp;kartu</translation>
     </message>
@@ -2708,10 +2527,6 @@
         <translation>Kódovani&amp;e znakov</translation>
     </message>
     <message>
-        <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation type="obsolete">Kým nezatvoríte okno, stále môžte používať tlačidlá Späť a Dopredu k vráteniu sa na stránky, ktoré ste mali otvorené.</translation>
-    </message>
-    <message>
         <source>Clear list</source>
         <translation>Vyčistiť zoznam</translation>
     </message>
@@ -2722,10 +2537,6 @@
     <message>
         <source>Pr&amp;eferences</source>
         <translation>Nastav&amp;enia</translation>
-    </message>
-    <message>
-        <source>Your session is not stored.</source>
-        <translation type="obsolete">Vaša relácia nie je uložená.</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
@@ -2780,10 +2591,6 @@
         <translation> (Súkromné prehliadanie)</translation>
     </message>
     <message>
-        <source>Current cookies cannot be accessed.</source>
-        <translation type="obsolete">Aktuálne cookies nie sú dostupné.</translation>
-    </message>
-    <message>
         <source>IP Address of current page</source>
         <translation>IP adresa aktuálnej stránky</translation>
     </message>
@@ -2800,16 +2607,8 @@
         <translation>Zobraziť celú &amp;históriu</translation>
     </message>
     <message>
-        <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation type="obsolete">Keď je zapnuté súkromné prehliadanie, niektoré akcie týkajúce sa vášho súkromia sú vypnuté:</translation>
-    </message>
-    <message>
         <source>Import bookmarks...</source>
         <translation>Importovať záložky...</translation>
-    </message>
-    <message>
-        <source>Start Private Browsing</source>
-        <translation type="obsolete">Spustiť súkromné prehliadanie</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
@@ -2830,10 +2629,6 @@
     <message>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
-    </message>
-    <message>
-        <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="obsolete">Úspešne ste pridali RSS odber &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>Recently Visited</source>
@@ -3021,10 +2816,6 @@ Skutočne chcete skončiť?</translation>
         <translation>Identifikácia prehliadača</translation>
     </message>
     <message>
-        <source>Google Search</source>
-        <translation type="obsolete">Vyhľadávanie Google</translation>
-    </message>
-    <message>
         <source>New Page</source>
         <translation>Nová stránka</translation>
     </message>
@@ -3035,10 +2826,6 @@ Skutočne chcete skončiť?</translation>
     <message>
         <source>Version</source>
         <translation>Verzia</translation>
-    </message>
-    <message>
-        <source>Search results provided by Google</source>
-        <translation type="obsolete">Výsledky vyhľadávania poskytované Googleom</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -3301,10 +3088,6 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
 <context>
     <name>RSSNotification</name>
     <message>
-        <source>Open RSS Manager</source>
-        <translation type="obsolete">Otvoriť správcu RSS</translation>
-    </message>
-    <message>
         <source>Add this feed into</source>
         <translation>Pridať tento kanál do</translation>
     </message>
@@ -3381,10 +3164,6 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     <message>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
         <translation>Toto je zoznam certifikátov CA autorít uložených v štandardných systémových a používateľom špecifikovaných cestách.</translation>
-    </message>
-    <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">Správca certifikátov</translation>
     </message>
     <message>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
@@ -4060,10 +3839,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Ak sa vám nezobrazujú žiadne stránky, skontrolujte sieťové pripojenie vášho počítača.</translation>
-    </message>
-    <message>
-        <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="obsolete">Blokované pravidlom &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Content Access Denied</source>

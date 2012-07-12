@@ -114,44 +114,12 @@
         <translation>検索...</translation>
     </message>
     <message>
-        <source>Rule</source>
-        <translation type="obsolete">ルール</translation>
-    </message>
-    <message>
         <source>Add Rule</source>
         <translation>ルールを追加する</translation>
     </message>
     <message>
-        <source>Update EasyList</source>
-        <translation type="obsolete">EasyListのアップデート</translation>
-    </message>
-    <message>
         <source>AdBlock</source>
         <translation>Adblock</translation>
-    </message>
-    <message>
-        <source>Delete Rule</source>
-        <translation type="obsolete">ルールの削除</translation>
-    </message>
-    <message>
-        <source>Update completed</source>
-        <translation type="obsolete">更新の完了</translation>
-    </message>
-    <message>
-        <source>EasyList has been successfully updated.</source>
-        <translation type="obsolete">EasyListの更新に成功しました。</translation>
-    </message>
-    <message>
-        <source>Custom Rules</source>
-        <translation type="obsolete">カスタムルールの編集</translation>
-    </message>
-    <message>
-        <source>Add Custom Rule</source>
-        <translation type="obsolete">カスタムルールの追加</translation>
-    </message>
-    <message>
-        <source>Please write your rule here:</source>
-        <translation type="obsolete">新しいルールの追加:</translation>
     </message>
     <message>
         <source>Options</source>
@@ -225,10 +193,6 @@
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
         <translatorcomment>保留</translatorcomment>
         <translation>ブロックされたURL(AdBlockのルール) -  クリックして編集</translation>
-    </message>
-    <message>
-        <source>Learn About Writing &amp;Rules</source>
-        <translation type="obsolete">広告ブロックの書き方ついて(&amp;R)</translation>
     </message>
 </context>
 <context>
@@ -1323,18 +1287,6 @@
         <translation>&lt;b&gt;注意&lt;/b&gt;%sは検索文字列が挿入される個所です</translation>
     </message>
     <message>
-        <source>Add from file ...</source>
-        <translation type="obsolete">ファイルから追加する...</translation>
-    </message>
-    <message>
-        <source>Choose icon...</source>
-        <translation type="obsolete">アイコンを選択する...</translation>
-    </message>
-    <message>
-        <source>Image files</source>
-        <translation type="obsolete">画像ファイル</translation>
-    </message>
-    <message>
         <source>Change...</source>
         <translation>変更する...</translation>
     </message>
@@ -1413,30 +1365,6 @@
         <translation>データベースの最適化</translation>
     </message>
     <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">現在のタブでリンクを開く</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">新しいタブでリンクを開く</translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">アドレスのコピー</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">今日</translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="obsolete">今週</translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="obsolete">今月</translation>
-    </message>
-    <message>
         <source>Confirmation</source>
         <translation>確認する</translation>
     </message>
@@ -1447,58 +1375,6 @@
 </context>
 <context>
     <name>HistoryModel</name>
-    <message>
-        <source>No Named Page</source>
-        <translation type="obsolete">無題</translation>
-    </message>
-    <message>
-        <source>January</source>
-        <translation type="obsolete">1月</translation>
-    </message>
-    <message>
-        <source>February</source>
-        <translation type="obsolete">2月</translation>
-    </message>
-    <message>
-        <source>March</source>
-        <translation type="obsolete">3月</translation>
-    </message>
-    <message>
-        <source>April</source>
-        <translation type="obsolete">4月</translation>
-    </message>
-    <message>
-        <source>May</source>
-        <translation type="obsolete">5月</translation>
-    </message>
-    <message>
-        <source>June</source>
-        <translation type="obsolete">6月</translation>
-    </message>
-    <message>
-        <source>July</source>
-        <translation type="obsolete">7月</translation>
-    </message>
-    <message>
-        <source>August</source>
-        <translation type="obsolete">8月</translation>
-    </message>
-    <message>
-        <source>September</source>
-        <translation type="obsolete">9月</translation>
-    </message>
-    <message>
-        <source>October</source>
-        <translation type="obsolete">10月</translation>
-    </message>
-    <message>
-        <source>November</source>
-        <translation type="obsolete">11月</translation>
-    </message>
-    <message>
-        <source>December</source>
-        <translation type="obsolete">12月</translation>
-    </message>
     <message>
         <source>Title</source>
         <translation>ページ名</translation>
@@ -1533,34 +1409,6 @@
     <message>
         <source>Search...</source>
         <translation>検索...</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation type="obsolete">ページ名</translation>
-    </message>
-    <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">現在のタブでリンクを開く</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">新しいタブでリンクを開く</translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">アドレスのコピー</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">今日</translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="obsolete">今週</translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="obsolete">今月</translation>
     </message>
 </context>
 <context>
@@ -1805,23 +1653,24 @@
         <source>Allow Click To Flash</source>
         <translation>Click to Flashを有効にする</translation>
     </message>
+</context>
+<context>
+    <name>PluginsManager</name>
     <message>
         <source>Add site to whitelist</source>
-        <translation>ホワイトリストにサイトを追加する</translation>
+        <translation type="unfinished">ホワイトリストにサイトを追加する</translation>
     </message>
     <message>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translatorcomment>要再考</translatorcomment>
-        <translation>http://なしで入力してください(ex. youtube.com)</translation>
+        <translation type="unfinished">http://なしで入力してください(ex. youtube.com)</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation>エラーが発生しました!</translation>
+        <translation type="unfinished">エラーが発生しました!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translatorcomment>保留</translatorcomment>
-        <translation>エクステンションが読み込めません!</translation>
+        <translation type="unfinished">エクステンションが読み込めません!</translation>
     </message>
 </context>
 <context>
@@ -2023,10 +1872,6 @@
         <translation>&lt;b&gt;タブの挙動&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Make tabs movable</source>
-        <translation type="obsolete">タブを移動可能にする</translation>
-    </message>
-    <message>
         <source>Hide tabs when there is only one tab</source>
         <translation>タブが1つだけの時タブバーを非表示</translation>
     </message>
@@ -2107,10 +1952,6 @@
     <message>
         <source>Zoom text only</source>
         <translation>テキストのみズーム</translation>
-    </message>
-    <message>
-        <source>Ask when entering Private Browsing mode</source>
-        <translation type="obsolete">プライベートブラウジングモードを開始するとき確認する</translation>
     </message>
     <message>
         <source>Mouse wheel scrolls</source>
@@ -2346,14 +2187,6 @@
     <message>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL証明書&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">SSLマネージャ</translation>
-    </message>
-    <message>
-        <source>Edit CA certificates in SSL Manager</source>
-        <translation type="obsolete">SSLマネージャ内の公開鍵証明書を編集する</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -2874,40 +2707,6 @@
         <translation>ファイルを開く...</translation>
     </message>
     <message>
-        <source>Are you sure you want to turn on private browsing?</source>
-        <translation type="obsolete">プライベートブラウジングモードを開始しますか?</translation>
-    </message>
-    <message>
-        <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation type="obsolete">プライベートブラウジングモードが有効になるとプライバシー関連のいくつかの挙動が制限されます:</translation>
-    </message>
-    <message>
-        <source>Webpages are not added to the history.</source>
-        <translation type="obsolete">ページの閲覧履歴が残らない。</translation>
-    </message>
-    <message>
-        <source>Current cookies cannot be accessed.</source>
-        <translatorcomment>保留。意味はだいたいわかるが適訳見つからず。</translatorcomment>
-        <translation type="obsolete">Cookieが保存されない。</translation>
-    </message>
-    <message>
-        <source>Your session is not stored.</source>
-        <translation type="obsolete">セッションが保存されない。</translation>
-    </message>
-    <message>
-        <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translatorcomment>意訳</translatorcomment>
-        <translation type="obsolete">履歴及びセッションは保存されませんがページ上で戻る進むは利用できます。</translation>
-    </message>
-    <message>
-        <source>Start Private Browsing</source>
-        <translation type="obsolete">プライベートブラウジングを開始する</translation>
-    </message>
-    <message>
-        <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="obsolete">RSSフィード&quot;%1&quot;の追加に成功しました。</translation>
-    </message>
-    <message>
         <source>HTML files</source>
         <translatorcomment>保留</translatorcomment>
         <translation>HTMLファイル</translation>
@@ -2988,14 +2787,6 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>Start Page</source>
         <translation>スタートページ</translation>
-    </message>
-    <message>
-        <source>Google Search</source>
-        <translation type="obsolete">Google検索</translation>
-    </message>
-    <message>
-        <source>Search results provided by Google</source>
-        <translation type="obsolete">検索結果はGoogleから提供されます</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -3362,10 +3153,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 <context>
     <name>RSSNotification</name>
     <message>
-        <source>Open RSS Manager</source>
-        <translation type="obsolete">RSSマネージャを開く</translation>
-    </message>
-    <message>
         <source>Add this feed into</source>
         <translation>このフィードを以下に追加する</translation>
     </message>
@@ -3435,10 +3222,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 </context>
 <context>
     <name>SSLManager</name>
-    <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">SSLマネージャ</translation>
-    </message>
     <message>
         <source>CA Authorities Certificates</source>
         <translatorcomment>保留</translatorcomment>
@@ -4187,10 +3970,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>AdBlocked Content</source>
         <translation>ブロックされたコンテンツ</translation>
-    </message>
-    <message>
-        <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="obsolete">&lt;i&gt;%1&lt;/i&gt;によってブロックされています</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
