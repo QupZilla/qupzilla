@@ -516,9 +516,7 @@ void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)
 void WebPage::cleanBlockedObjects()
 {
     AdBlockManager* manager = AdBlockManager::instance();
-    const QString &urlScheme = url().scheme();
-
-    if (!manager->isEnabled() || !manager->canRunOnScheme(urlScheme)) {
+    if (!manager->isEnabled()) {
         return;
     }
 
@@ -530,12 +528,17 @@ void WebPage::cleanBlockedObjects()
             continue;
         }
 
+        QString urlEnd;
+
         int pos = urlString.lastIndexOf('/');
-        if (pos < 0 || urlString.endsWith('/')) {
-            continue;
+        if (pos > 8) {
+            urlEnd = urlString.mid(pos + 1);
         }
 
-        QString urlEnd = urlString.mid(pos + 1);
+        if (urlString.endsWith('/')) {
+            urlEnd = urlString.left(urlString.size() - 1);
+        }
+
         QString selector("img[src$=\"" + urlEnd + "\"], iframe[src$=\"" + urlEnd + "\"],"
                          "embed[src$=\"" + urlEnd + "\"]");
         QWebElementCollection elements = docElement.findAll(selector);
@@ -544,8 +547,8 @@ void WebPage::cleanBlockedObjects()
             QString src = element.attribute("src");
             src.remove("../");
 
-            if (urlString.endsWith(src)) {
-                element.setStyleProperty("visibility", "hidden");
+            if (urlString.contains(src)) {
+                element.setStyleProperty("display", "none");
             }
         }
     }

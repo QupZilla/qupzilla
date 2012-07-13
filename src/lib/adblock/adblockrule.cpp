@@ -336,7 +336,7 @@ bool AdBlockRule::matchSubdocument(const QNetworkRequest &request) const
         return false;
     }
 
-    bool match = originatingFrame == page->mainFrame();
+    bool match = !(originatingFrame == page->mainFrame());
 
     return m_subdocumentException ? !match : match;
 }
