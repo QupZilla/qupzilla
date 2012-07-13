@@ -21,6 +21,8 @@
 #include "settings.h"
 
 #include <QDateTime>
+#include <QDebug>
+
 //#define COOKIE_DEBUG
 
 bool containsDomain(QString string, QString domain)
@@ -30,23 +32,26 @@ bool containsDomain(QString string, QString domain)
         return true;
     }
 
-    string.prepend(".");
-    if (domain.startsWith("www.")) {
-        domain = domain.mid(4);
+    if (string.startsWith('.')) {
+        string = string.mid(1);
     }
 
-    return string.endsWith(domain);
+    return domain.endsWith(string);
 }
 
-bool listContainsDomain(const QStringList &list, const QString &domain)
+int listContainsDomain(const QStringList &list, const QString &domain)
 {
+    if (domain.isEmpty()) {
+        return -1;
+    }
+
     foreach(const QString & d, list) {
-        if (containsDomain(d, domain)) {
-            return true;
+        if (domain.endsWith(d)) {
+            return 1;
         }
     }
 
-    return false;
+    return 0;
 }
 
 CookieJar::CookieJar(QupZilla* mainClass, QObject* parent)
@@ -62,7 +67,7 @@ void CookieJar::loadSettings()
     Settings settings;
     settings.beginGroup("Cookie-Settings");
     m_allowCookies = settings.value("allowCookies", true).toBool();
-    m_allowCookiesFromDomain = settings.value("allowCookiesFromVisitedDomainOnly", false).toBool();
+    m_blockThirdParty = settings.value("allowCookiesFromVisitedDomainOnly", false).toBool();
     m_filterTrackingCookie = settings.value("filterTrackingCookie", false).toBool();
     m_deleteOnClose = settings.value("deleteCookiesOnClose", false).toBool();
     m_whitelist = settings.value("whitelist", QStringList()).toStringList();
@@ -75,39 +80,56 @@ void CookieJar::setAllowCookies(bool allow)
     m_allowCookies = allow;
 }
 
+bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie) const
+{
+    const QString &cookieDomain = cookie.domain();
+
+    if (!m_allowCookies) {
+        int result = listContainsDomain(m_whitelist, cookieDomain);
+        if (result != 1) {
+#ifdef COOKIE_DEBUG
+            qDebug() << "not in whitelist" << cookie;
+#endif
+            return true;
+        }
+    }
+
+    if (m_allowCookies) {
+        int result = listContainsDomain(m_blacklist, cookieDomain);
+        if (result == 1) {
+#ifdef COOKIE_DEBUG
+            qDebug() << "found in blacklist" << cookie;
+#endif
+            return true;
+        }
+    }
+
+    if (m_blockThirdParty) {
+        bool result = !containsDomain(cookieDomain, domain);
+        if (result) {
+#ifdef COOKIE_DEBUG
+            qDebug() << "purged for domain mismatch" << cookie << cookieDomain << domain;
+#endif
+            return true;
+        }
+    }
+
+    if (m_filterTrackingCookie && cookie.name().startsWith("__utm")) {
+#ifdef COOKIE_DEBUG
+        qDebug() << "purged as tracking " << cookie;
+#endif
+        return true;
+    }
+
+    return false;
+}
+
 bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url)
 {
     QList<QNetworkCookie> newList = cookieList;
 
     foreach(const QNetworkCookie & cookie, newList) {
-        if (!m_allowCookies && !listContainsDomain(m_whitelist, cookie.domain())) {
-#ifdef COOKIE_DEBUG
-            qDebug() << "not in whitelist" << cookie;
-#endif
-            newList.removeOne(cookie);
-            continue;
-        }
-
-        if (m_allowCookies && listContainsDomain(m_blacklist, cookie.domain())) {
-#ifdef COOKIE_DEBUG
-            qDebug() << "found in blacklist" << cookie;
-#endif
-            newList.removeOne(cookie);
-            continue;
-        }
-
-        if (m_allowCookiesFromDomain && !containsDomain(url.host(), cookie.domain())) {
-#ifdef COOKIE_DEBUG
-            qDebug() << "purged for domain mismatch" << cookie << cookie.domain() << url.host();
-#endif
-            newList.removeOne(cookie);
-            continue;
-        }
-
-        if (m_filterTrackingCookie && cookie.name().startsWith("__utm")) {
-#ifdef COOKIE_DEBUG
-            qDebug() << "purged as tracking " << cookie;
-#endif
+        if (rejectCookie(url.host(), cookie)) {
             newList.removeOne(cookie);
             continue;
         }
