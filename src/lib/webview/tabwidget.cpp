@@ -314,6 +314,7 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     connect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
     if (url.isValid()) {
+        req.setUrl(url);
         webView->load(req);
     }
 
