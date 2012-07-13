@@ -952,15 +952,9 @@ void WebView::wheelEvent(QWheelEvent* event)
     }
 
     if (event->modifiers() & Qt::ControlModifier) {
-        int numDegrees = event->delta() / 8;
-        int numSteps = numDegrees / 15;
-        if (numSteps == 1) {
-            zoomIn();
-        }
-        else {
-            zoomOut();
-        }
+        event->delta() > 0 ? zoomIn() : zoomOut();
         event->accept();
+
         return;
     }
 

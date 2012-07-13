@@ -1,6 +1,7 @@
 Version 1.3.1
     * not yet released
     * Ctrl+Enter shortcut in PIM plugin now also works with enter on numpad
+    * fixed zooming with Ctrl+Wheel for some users
     * fixed issues with cookies filtering
     * fixed $subdocument matching in AdBlock
     * fixed $third-party in AdBlock rules when Referer header is empty
