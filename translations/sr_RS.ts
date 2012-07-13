@@ -2064,22 +2064,22 @@
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="82"/>
         <source>Add site to whitelist</source>
-        <translation type="unfinished">Додавање у дозвољене</translation>
+        <translation>Додавање у дозвољене</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="82"/>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished">Адреса сервера без „http://“ (на пример youtube.com)</translation>
+        <translation>Адреса сервера без „http://“ (нпр. youtube.com)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="258"/>
         <source>Error!</source>
-        <translation type="unfinished">Грешка!</translation>
+        <translation>Грешка!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="258"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished">Не могу да учитам проширење!</translation>
+        <translation>Не могу да учитам проширење!</translation>
     </message>
 </context>
 <context>

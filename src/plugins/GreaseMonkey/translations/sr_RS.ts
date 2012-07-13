@@ -46,12 +46,12 @@
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="82"/>
         <source>Cannot install script</source>
-        <translation type="unfinished">Не могу да инсталирам скрипту</translation>
+        <translation>Не могу да инсталирам скрипту</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="85"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation type="unfinished">„%1“ је успешно инсталирана</translation>
+        <translation>„%1“ је успешно инсталирана</translation>
     </message>
 </context>
 <context>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../gm_downloader.cpp" line="144"/>
         <source>&apos;%1&apos; is already installed</source>
-        <translation type="unfinished"></translation>
+        <translation>„%1“ је већ инсталирана</translation>
     </message>
 </context>
 <context>
@@ -85,12 +85,12 @@
     <message>
         <location filename="../gm_notification.cpp" line="49"/>
         <source>Cannot install script</source>
-        <translation type="unfinished">Не могу да инсталирам скрипту</translation>
+        <translation>Не могу да инсталирам скрипту</translation>
     </message>
     <message>
         <location filename="../gm_notification.cpp" line="57"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation type="unfinished">„%1“ је успешно инсталирана</translation>
+        <translation>„%1“ је успешно инсталирана</translation>
     </message>
 </context>
 <context>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="196"/>
         <source>Open scripts directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Отвори фасциклу скрипти</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.cpp" line="68"/>
