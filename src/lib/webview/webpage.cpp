@@ -453,6 +453,8 @@ QSslCertificate WebPage::sslCertificate()
 bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type)
 {
     m_lastRequestType = type;
+    m_lastRequestUrl = request.url();
+
     const QString &scheme = request.url().scheme();
 
     if (scheme == "mailto" || scheme == "ftp") {
@@ -480,7 +482,13 @@ void WebPage::populateNetworkRequest(QNetworkRequest &request)
 
     QVariant variant = qVariantFromValue((void*) pagePointer);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);
-    request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), m_lastRequestType);
+
+    if (m_lastRequestUrl == request.url()) {
+        request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), m_lastRequestType);
+        if (m_lastRequestType == NavigationTypeLinkClicked) {
+            request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
+        }
+    }
 }
 
 QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)

@@ -361,6 +361,14 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
         return reply;
     }
 
+    if (req.rawHeader("X-QupZilla-UserLoadAction") == QByteArray("1")) {
+        req.setRawHeader("X-QupZilla-UserLoadAction", QByteArray());
+        req.setAttribute(QNetworkRequest::Attribute(QNetworkRequest::User + 151), QString());
+    }
+    else {
+        req.setAttribute(QNetworkRequest::Attribute(QNetworkRequest::User + 151), req.rawHeader("Referer"));
+    }
+
     if (m_doNotTrack) {
         req.setRawHeader("DNT", QByteArray("1"));
     }
@@ -372,9 +380,9 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     req.setRawHeader("Accept-Language", m_acceptLanguage);
 
     req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-    if (req.attribute(QNetworkRequest::CacheLoadControlAttribute).toInt() == QNetworkRequest::PreferNetwork) {
-        req.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
-    }
+//    if (req.attribute(QNetworkRequest::CacheLoadControlAttribute).toInt() == QNetworkRequest::PreferNetwork) {
+//        req.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
+//    }
 
     // Adblock
     if (op == QNetworkAccessManager::GetOperation) {

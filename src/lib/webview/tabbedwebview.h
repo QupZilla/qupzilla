@@ -65,6 +65,8 @@ public slots:
     void slotLoadStarted();
     void loadProgress(int prog);
 
+    void userLoadAction(const QUrl &url);
+
     void closeView();
     void openUrlInNewTab(const QUrl &urla, Qz::NewTabPositionFlag position);
     void openNewTab();

@@ -124,15 +124,17 @@ private:
 
     QupZilla* p_QupZilla;
     NetworkManagerProxy* m_networkProxy;
-    QWebPage::NavigationType m_lastRequestType;
     TabbedWebView* m_view;
     SpeedDial* m_speedDial;
+    QFileSystemWatcher* m_fileWatcher;
+    QEventLoop* m_runningLoop;
+
     QSslCertificate m_sslCert;
     QList<QSslCertificate> m_rejectedSslCerts;
     QList<AdBlockedEntry> m_adBlockedEntries;
-    QFileSystemWatcher* m_fileWatcher;
 
-    QEventLoop* m_runningLoop;
+    QWebPage::NavigationType m_lastRequestType;
+    QUrl m_lastRequestUrl;
 
     int m_loadProgress;
     bool m_blockAlerts;

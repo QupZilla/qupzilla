@@ -193,7 +193,10 @@ void QupZilla::postLaunch()
     }
 
     if (addTab) {
-        m_tabWidget->addView(startUrl, Qz::NT_CleanSelectedTabAtTheEnd);
+        QNetworkRequest request(startUrl);
+        request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
+
+        m_tabWidget->addView(request, Qz::NT_CleanSelectedTabAtTheEnd);
 
         if (startUrl.isEmpty() || startUrl.toString() == "qupzilla:speeddial") {
             locationBar()->setFocus();
@@ -202,7 +205,10 @@ void QupZilla::postLaunch()
 
     if (m_tabWidget->getTabBar()->normalTabsCount() <= 0 && m_startBehaviour != Qz::BW_OtherRestoredWindow) {
         //Something went really wrong .. add one tab
-        m_tabWidget->addView(m_homepage, Qz::NT_SelectedTabAtTheEnd);
+        QNetworkRequest request(m_homepage);
+        request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
+
+        m_tabWidget->addView(request, Qz::NT_SelectedTabAtTheEnd);
     }
 
     aboutToHideEditMenu();

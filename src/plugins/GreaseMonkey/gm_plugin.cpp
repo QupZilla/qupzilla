@@ -38,7 +38,7 @@ PluginSpec GM_Plugin::pluginSpec()
     spec.name = "GreaseMonkey";
     spec.info = "Userscripts for QupZilla";
     spec.description = "Provides support for userscripts (www.userscripts.org)";
-    spec.version = "0.1.1";
+    spec.version = "0.2.1";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":gm/data/icon.png");
     spec.hasSettings = true;
@@ -81,9 +81,7 @@ QNetworkReply* GM_Plugin::createRequest(QNetworkAccessManager::Operation op, con
 {
     Q_UNUSED(outgoingData)
 
-    int type = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), -1).toInt();
-
-    if (op == QNetworkAccessManager::GetOperation && QWebPage::NavigationType(type) == QWebPage::NavigationTypeLinkClicked) {
+    if (op == QNetworkAccessManager::GetOperation && request.rawHeader("X-QupZilla-UserLoadAction") == QByteArray("1")) {
         const QString &urlString = request.url().toString(QUrl::RemoveFragment | QUrl::RemoveQuery);
 
         if (urlString.endsWith(".user.js")) {

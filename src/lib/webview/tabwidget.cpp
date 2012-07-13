@@ -314,7 +314,6 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     connect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
     if (url.isValid()) {
-        req.setUrl(url);
         webView->load(req);
     }
 
@@ -553,6 +552,7 @@ int TabWidget::duplicateTab(int index)
 
     QNetworkRequest req(url);
     req.setRawHeader("Referer", url.toEncoded());
+    req.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 
     int id = addView(req, title, Qz::NT_CleanNotSelectedTab);
     weTab(id)->setHistoryData(history);

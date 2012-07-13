@@ -138,6 +138,14 @@ void TabbedWebView::loadProgress(int prog)
     }
 }
 
+void TabbedWebView::userLoadAction(const QUrl &url)
+{
+    QNetworkRequest request(url);
+    request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
+
+    load(request);
+}
+
 void TabbedWebView::slotLoadStarted()
 {
     m_rssChecked = false;
@@ -280,6 +288,7 @@ void TabbedWebView::openUrlInNewTab(const QUrl &urla, Qz::NewTabPositionFlag pos
 {
     QNetworkRequest req(urla);
     req.setRawHeader("Referer", url().toEncoded());
+    req.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 
     m_tabWidget->addView(req, position);
 }

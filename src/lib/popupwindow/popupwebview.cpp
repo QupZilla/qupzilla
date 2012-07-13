@@ -67,6 +67,7 @@ void PopupWebView::openUrlInNewTab(const QUrl &urla, Qz::NewTabPositionFlag posi
     if (window) {
         QNetworkRequest req(urla);
         req.setRawHeader("Referer", url().toEncoded());
+        req.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 
         window->tabWidget()->addView(req, Qz::NT_SelectedTab);
         window->raise();

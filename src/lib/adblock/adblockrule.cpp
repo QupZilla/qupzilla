@@ -302,7 +302,8 @@ bool AdBlockRule::matchDomain(const QString &domain) const
 
 bool AdBlockRule::matchThirdParty(const QNetworkRequest &request) const
 {
-    const QString &referer = request.rawHeader("Referer");
+    const QString &referer = request.attribute(QNetworkRequest::Attribute(QNetworkRequest::User + 151), QString()).toString();
+
     if (referer.isEmpty()) {
         return false;
     }
