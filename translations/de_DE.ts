@@ -2065,22 +2065,22 @@
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="82"/>
         <source>Add site to whitelist</source>
-        <translation type="unfinished">Aktuelle Seite zur Whitelist hinzufügen</translation>
+        <translation>Aktuelle Seite zur Whitelist hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="82"/>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished">Server ohne http:// (z.B. youtube.com)</translation>
+        <translation>Server ohne http:// (z.B. youtube.com)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="258"/>
         <source>Error!</source>
-        <translation type="unfinished">Fehler!</translation>
+        <translation>Fehler!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="258"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished">Erweiterung kann nicht geladen werden!</translation>
+        <translation>Erweiterung kann nicht geladen werden!</translation>
     </message>
 </context>
 <context>
