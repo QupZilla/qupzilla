@@ -134,8 +134,9 @@ bool PIM_Handler::keyPress(WebView* view, QKeyEvent* event)
     }
 
     bool isEnter = event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter;
+    bool isControlModifier = event->modifiers() & Qt::ControlModifier;
 
-    if (!isEnter || event->modifiers() != Qt::ControlModifier) {
+    if (!isEnter || !isControlModifier) {
         return false;
     }
 

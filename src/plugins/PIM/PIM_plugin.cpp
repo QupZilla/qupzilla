@@ -38,7 +38,7 @@ PluginSpec PIM_Plugin::pluginSpec()
     spec.name = "PIM";
     spec.info = "Personal Information Manager";
     spec.description = "Adds ability for Qupzilla to store some personal data";
-    spec.version = "0.0.1";
+    spec.version = "0.1.1";
     spec.author = QString::fromUtf8("Mladen Pejaković <pejakm@gmail.com>");
     spec.icon = QPixmap(":/PIM/data/PIM.png");
     spec.hasSettings = true;
