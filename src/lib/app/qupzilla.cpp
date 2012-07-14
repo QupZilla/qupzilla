@@ -1614,6 +1614,13 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
         }
         break;
 
+    case Qt::Key_Equal:
+        if (event->modifiers() == Qt::ControlModifier) {
+            weView()->zoomIn();
+            event->accept();
+        }
+        break;
+
     case Qt::Key_1:
         number = 1;
         break;
