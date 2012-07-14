@@ -2,6 +2,7 @@ Version 1.3.1
     * not yet released
     * Ctrl+= shortcut for + zoom in webview
     * Ctrl+Enter shortcut in PIM plugin now also works with enter on numpad
+    * fixed ' and " chars in speed dial's input fields
     * fixed zooming with Ctrl+Wheel for some users
     * fixed issues with cookies filtering
     * fixed $subdocument matching in AdBlock

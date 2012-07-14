@@ -80,6 +80,9 @@ private slots:
     void thumbnailCreated(const QPixmap &pixmap);
 
 private:
+    QString escapeTitle(QString string) const;
+    QString escapeUrl(QString url) const;
+
     QList<QWebFrame*> cleanFrames();
     QString generateAllPages();
 
