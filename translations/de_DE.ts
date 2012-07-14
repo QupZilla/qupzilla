@@ -439,7 +439,7 @@
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="81"/>
         <source>Remember</source>
-        <translation>Erinnern</translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="97"/>
