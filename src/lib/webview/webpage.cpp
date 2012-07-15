@@ -237,7 +237,7 @@ void WebPage::finished()
         m_fileWatcher->removePaths(m_fileWatcher->files());
     }
 
-    QTimer::singleShot(100, this, SLOT(cleanBlockedObjects()));
+    cleanBlockedObjects();
 }
 
 void WebPage::watchedFileChanged(const QString &file)
