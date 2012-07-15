@@ -7,5 +7,7 @@
         <file>locale/fr_FR.qm</file>
         <file>locale/sr_BA.qm</file>
         <file>locale/sr_RS.qm</file>
+        <file>locale/uk_UA.qm</file>
+        <file>locale/zh_TW.qm</file>
     </qresource>
 </RCC>

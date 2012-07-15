@@ -9,5 +9,6 @@
         <file>locale/it_IT.qm</file>
         <file>locale/sr_BA.qm</file>
         <file>locale/sr_RS.qm</file>
+        <file>locale/uk_UA.qm</file>
     </qresource>
 </RCC>
