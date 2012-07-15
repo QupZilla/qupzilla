@@ -181,12 +181,7 @@ bool WebPage::isLoading() const
 
 void WebPage::setUserAgent(const QString &agent)
 {
-    if (!agent.isEmpty()) {
-        s_userAgent = QString("%1 (QupZilla %2)").arg(agent, QupZilla::VERSION);
-    }
-    else {
-        s_userAgent = agent;
-    }
+    s_userAgent = agent;
 }
 
 void WebPage::urlChanged(const QUrl &url)
