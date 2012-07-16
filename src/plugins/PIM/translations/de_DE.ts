@@ -41,7 +41,7 @@
     <message>
         <location filename="../PIM_handler.cpp" line="66"/>
         <source>ZIP Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Postleitzahl</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="67"/>
@@ -61,22 +61,22 @@
     <message>
         <location filename="../PIM_handler.cpp" line="70"/>
         <source>Custom 1</source>
-        <translation type="unfinished">Benutzerdefiniert 3: {1?}</translation>
+        <translation>Benutzerdefiniert 1</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="71"/>
         <source>Custom 2</source>
-        <translation type="unfinished">Benutzerdefiniert 3: {2?}</translation>
+        <translation>Benutzerdefiniert 2</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="72"/>
         <source>Custom 3</source>
-        <translation type="unfinished">Benutzerdefiniert 3: {3?}</translation>
+        <translation>Benutzerdefiniert 3</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="110"/>
         <source>Insert Personal Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Persönliche Informationen eintragen</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="124"/>
@@ -119,12 +119,12 @@
     <message>
         <location filename="../PIM_settings.ui" line="42"/>
         <source>&lt;h2&gt;Personal Information Manager&lt;/h2&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h2&gt;Personal Information Manager&lt;/h2&gt;</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="64"/>
         <source>Your personal information that will be used on webpages.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ihre persönlichen Informationen für Formulare.</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="138"/>
@@ -134,7 +134,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="151"/>
         <source>E-mail:</source>
-        <translation type="unfinished"></translation>
+        <translation>E-Mail:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="167"/>
