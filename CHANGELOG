@@ -79,7 +79,7 @@ Version 1.2.0
     * fixed showing bad total + downloaded size when starting download
     * fixed toggling WebInspector
 
-Version 1.18
+Version 1.1.8
     * released 14 February 2012
     * added Swedish, Serbian and Traditional Chinese translation
     * added option to set Minimum font size in web pages
@@ -100,7 +100,7 @@ Version 1.18
     * improved History menu -> added Most visited menu here
     * don't saving icons in private mode
     * improved and refactored context menu on page
-    * little improvements in speed dial
+    * little improvements in sp0eed dial
     * using global QSettings object, should save some writed to disk
     * remember last folder when saving new bookmarks
     * disabling adblock on local schemes
