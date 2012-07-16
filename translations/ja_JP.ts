@@ -143,7 +143,7 @@
     </message>
     <message>
         <source>Learn about writing rules...</source>
-        <translation>Adblockの季報について学ぶ...</translation>
+        <translation>Adblockの記法について学ぶ...</translation>
     </message>
 </context>
 <context>
@@ -199,7 +199,7 @@
     <name>AdBlockManager</name>
     <message>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
-        <translation>&lt;b&gt;%1&lt;/b&gt;を購読しますか？</translation>
+        <translation>&lt;b&gt;%1&lt;/b&gt;を購読しますか?</translation>
     </message>
     <message>
         <source>AdBlock Subscription</source>
@@ -1658,19 +1658,19 @@
     <name>PluginsManager</name>
     <message>
         <source>Add site to whitelist</source>
-        <translation type="unfinished">ホワイトリストにサイトを追加する</translation>
+        <translation>ホワイトリストにサイトを追加する</translation>
     </message>
     <message>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished">http://なしで入力してください(ex. youtube.com)</translation>
+        <translation>http://なしで入力してください(ex. youtube.com)</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">エラーが発生しました!</translation>
+        <translation>エラーが発生しました!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation type="unfinished">エクステンションが読み込めません!</translation>
+        <translation>エクステンションが読み込めません!</translation>
     </message>
 </context>
 <context>
@@ -2134,7 +2134,7 @@
     </message>
     <message>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation>&lt;b&gt;外部ダウンローダの仕様&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;外部ダウンローダマネージャ&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Use external download manager</source>
@@ -2178,7 +2178,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;警告&lt;/b&gt;  ファーストパーティのCookieの許可やトラッキングCookieのフィルタリングは一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
+        <translation>&lt;b&gt;警告&lt;/b&gt;  「ファーストパーティのCookieのみ許可」や「トラッキングCookieのフィルタリング」は一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
     </message>
     <message>
         <source>Cookies Manager</source>
@@ -4034,7 +4034,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translatorcomment>ここようわからん</translatorcomment>
-        <translation>QupZillaは&lt;b&gt;%1:&lt;/b&gt;のリンクを処理できません。リクエストされたリンクは&lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;システムアプリケーションでこのリンクを開きますか？</translation>
+        <translation>QupZillaは&lt;b&gt;%1:&lt;/b&gt;のリンクを処理できません。リクエストされたリンクは&lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;システムアプリケーションでこのリンクを開きますか?</translation>
     </message>
     <message>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
