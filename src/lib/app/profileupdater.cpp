@@ -73,6 +73,7 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         update100();
         update118();
         update120();
+        update130();
         return;
     }
 
@@ -81,6 +82,7 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         update100();
         update118();
         update120();
+        update130();
         return;
     }
 
@@ -88,29 +90,39 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         update100();
         update118();
         update120();
+        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.1.0")) {
         update118();
         update120();
+        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.1.5")) {
         update118();
         update120();
+        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.1.8")) {
         update118();
         update120();
+        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.2.0")) {
         update120();
+        update130();
+        return;
+    }
+
+    if (profileVersion == Updater::parseVersionFromString("1.3.0")) {
+        update130();
         return;
     }
 
@@ -201,4 +213,13 @@ void ProfileUpdater::update120()
     query.exec("CREATE INDEX bookmarksUrl ON bookmarks(url ASC)");
 
     db.commit();
+}
+
+void ProfileUpdater::update130()
+{
+    std::cout << "QupZilla: Upgrading profile version from 1.3.0..." << std::endl;
+    mApp->connectDatabase();
+
+    QSqlQuery query;
+    query.exec("ALTER TABLE bookmarks ADD COLUMN keyword TEXT");
 }
