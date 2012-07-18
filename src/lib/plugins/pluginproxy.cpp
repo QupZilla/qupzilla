@@ -191,6 +191,18 @@ bool PluginProxy::processKeyRelease(const Qz::ObjectName &type, QObject* obj, QK
     return accepted;
 }
 
+QNetworkReply* PluginProxy::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
+{
+    foreach(PluginInterface * iPlugin, m_loadedPlugins) {
+        QNetworkReply* reply = iPlugin->createRequest(op, request, outgoingData);
+        if (reply) {
+            return reply;
+        }
+    }
+
+    return 0;
+}
+
 void PluginProxy::emitWebPageCreated(WebPage* page)
 {
     emit webPageCreated(page);

@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/gm">
+        <file>data/icon.png</file>
+        <file>data/bootstrap.min.js</file>
+        <file>data/script.png</file>
+        <file>locale/cs_CZ.qm</file>
+        <file>locale/de_DE.qm</file>
+        <file>locale/fr_FR.qm</file>
+        <file>locale/it_IT.qm</file>
+        <file>locale/pt_PT.qm</file>
+        <file>locale/sr_BA.qm</file>
+        <file>locale/sr_RS.qm</file>
+        <file>locale/uk_UA.qm</file>
+    </qresource>
+</RCC>

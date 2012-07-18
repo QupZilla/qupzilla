@@ -1,5 +1,4 @@
 QT += core gui webkit sql network script
-unix:QT += dbus
 TARGET = QupZilla
 TEMPLATE = lib
 
@@ -9,6 +8,8 @@ include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
 include(../../translations/translations.pri)
 #include(../../tests/modeltest/modeltest.pri)
+
+unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
 
 INCLUDEPATH += 3rdparty\
                app\
@@ -66,7 +67,6 @@ SOURCES += \
     app/commandlineoptions.cpp \
     other/aboutdialog.cpp \
     plugins/plugins.cpp \
-    preferences/pluginslist.cpp \
     plugins/pluginproxy.cpp \
     tools/clickablelabel.cpp \
     downloads/downloadoptionsdialog.cpp \
@@ -90,7 +90,6 @@ SOURCES += \
     other/sourceviewersearch.cpp \
     adblock/adblocksubscription.cpp \
     adblock/adblockrule.cpp \
-    adblock/adblockpage.cpp \
     adblock/adblockmanager.cpp \
     adblock/adblockdialog.cpp \
     adblock/adblockblockednetworkreply.cpp \
@@ -164,7 +163,6 @@ SOURCES += \
     other/licenseviewer.cpp \
     bookmarksimport/bookmarksimporticonfetcher.cpp \
     other/checkboxdialog.cpp \
-    network/schemehandler.cpp \
     tools/plaineditwithlines.cpp \
     webview/websettings.cpp \
     tools/focusselectlineedit.cpp \
@@ -177,7 +175,13 @@ SOURCES += \
     history/historyview.cpp \
     history/historyitem.cpp \
     tools/headerview.cpp \
-    other/iconchooser.cpp
+    other/iconchooser.cpp \
+    adblock/adblocktreewidget.cpp \
+    adblock/adblockaddsubscriptiondialog.cpp \
+    adblock/adblockschemehandler.cpp \
+    tools/emptynetworkreply.cpp \
+    3rdparty/processinfo.cpp \
+    preferences/pluginsmanager.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -212,7 +216,6 @@ HEADERS  += \
     other/aboutdialog.h \
     plugins/plugininterface.h \
     plugins/plugins.h \
-    preferences/pluginslist.h \
     plugins/pluginproxy.h \
     tools/clickablelabel.h \
     downloads/downloadoptionsdialog.h \
@@ -236,7 +239,6 @@ HEADERS  += \
     other/sourceviewersearch.h \
     adblock/adblocksubscription.h \
     adblock/adblockrule.h \
-    adblock/adblockpage.h \
     adblock/adblockmanager.h \
     adblock/adblockdialog.h \
     adblock/adblockblockednetworkreply.h \
@@ -326,7 +328,13 @@ HEADERS  += \
     history/historyview.h \
     history/historyitem.h \
     tools/headerview.h \
-    other/iconchooser.h
+    other/iconchooser.h \
+    adblock/adblocktreewidget.h \
+    adblock/adblockaddsubscriptiondialog.h \
+    adblock/adblockschemehandler.h \
+    tools/emptynetworkreply.h \
+    3rdparty/processinfo.h \
+    preferences/pluginsmanager.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -368,7 +376,8 @@ FORMS    += \
     opensearch/editsearchengine.ui \
     bookmarksimport/bookmarksimportdialog.ui \
     other/checkboxdialog.ui \
-    other/iconchooser.ui
+    other/iconchooser.ui \
+    adblock/adblockaddsubscriptiondialog.ui
 
 RESOURCES += \
     data/icons.qrc \

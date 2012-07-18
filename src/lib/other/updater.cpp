@@ -30,7 +30,7 @@ Updater::Updater(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
     , p_QupZilla(mainClass)
 {
-    QTimer::singleShot(60 * 1000, this, SLOT(start())); //Start checking after 1 minute
+    QTimer::singleShot(60 * 1000, this, SLOT(start())); // Start checking after 1 minute
 }
 
 Updater::Version Updater::parseVersionFromString(const QString &string)
@@ -38,12 +38,12 @@ Updater::Version Updater::parseVersionFromString(const QString &string)
     Version ver;
     ver.isValid = false;
 
-    QStringList v = string.split(".");
+    QStringList v = string.split('.');
     if (v.count() != 3) {
         return ver;
     }
 
-    QStringList r = v.at(2).split("-");
+    QStringList r = v.at(2).split('.');
 
     ver.majorVersion = v.at(0).toInt();
     ver.minorVersion = v.at(1).toInt();
@@ -58,7 +58,7 @@ Updater::Version Updater::parseVersionFromString(const QString &string)
 
 bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
 {
-    if (one.contains("rc") && two.contains("b")) {
+    if (one.contains("rc") && two.contains('b')) {
         return true;
     }
 
@@ -74,9 +74,9 @@ bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
         return false;
     }
 
-    if (one.contains("b")) {
-        int o = one.remove("b").toInt();
-        int t = two.remove("b").toInt();
+    if (one.contains('b')) {
+        int o = one.remove('b').toInt();
+        int t = two.remove('b').toInt();
 
         return o > t;
     }
@@ -106,18 +106,18 @@ void Updater::startDownloadingUpdateInfo(const QUrl &url)
 
 void Updater::downCompleted(QNetworkReply* reply)
 {
-    QString html = QString(reply->readAll());
+    QString html = reply->readAll();
+
     if (html.startsWith("Version:")) {
         html.remove("Version:");
         Version current = parseVersionFromString(QupZilla::VERSION);
         Version updated = parseVersionFromString(html);
+
         if (current < updated) {
-            mApp->desktopNotifications()->showNotifications(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
-//            QAction* action = new QAction(QIcon(":icons/qupzillaupdate.png"), "Update", this);
-//            connect(action, SIGNAL(triggered()), this, SLOT(downloadNewVersion()));
-//            p_QupZilla->menuBar()->addAction(action);
+            mApp->desktopNotifications()->showNotification(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
         }
     }
+
     reply->manager()->deleteLater();
 }
 

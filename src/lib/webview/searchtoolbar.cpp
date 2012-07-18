@@ -138,7 +138,7 @@ void SearchToolBar::searchText(const QString &text)
     }
 
 
-    ui->lineEdit->setProperty("notfound", !found);
+    ui->lineEdit->setProperty("notfound", QVariant(!found));
 
     ui->lineEdit->style()->unpolish(ui->lineEdit);
     ui->lineEdit->style()->polish(ui->lineEdit);

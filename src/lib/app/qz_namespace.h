@@ -34,8 +34,7 @@ enum AppMessageType {
     AM_CheckPrivateBrowsing,
     AM_ReloadSettings,
     AM_HistoryStateChanged,
-    AM_BookmarksChanged,
-    AM_StartPrivateBrowsing
+    AM_BookmarksChanged
 };
 
 enum BrowserWindow {
@@ -48,6 +47,7 @@ enum CommandLineAction {
     CL_NoAction,
     CL_OpenUrl,
     CL_OpenUrlInCurrentTab,
+    CL_OpenUrlInNewWindow,
     CL_StartWithProfile,
     CL_StartWithoutAddons,
     CL_NewTab,

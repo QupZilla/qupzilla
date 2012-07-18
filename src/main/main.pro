@@ -1,5 +1,4 @@
 QT += core gui webkit sql network script
-unix: QT += dbus
 
 TARGET = qupzilla
 mac: TARGET = QupZilla
@@ -11,6 +10,8 @@ TEMPLATE = app
 
 include(../defines.pri)
 include(../install.pri)
+
+unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
 
 INCLUDEPATH += ../lib/app\
                ../lib/3rdparty

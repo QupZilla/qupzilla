@@ -238,7 +238,7 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
             reg.indexIn(value);
             path = reg.cap(1).trimmed();
 
-            if (path.startsWith("\"") && path.endsWith("\"")) {
+            if (path.startsWith('"') && path.endsWith('"')) {
                 path = path.mid(1, path.length() - 2);
             }
         }
@@ -262,7 +262,7 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
 
     QString name = baseName + endName;
 
-    if (name.contains("\"")) {
+    if (name.contains('"')) {
         name.remove("\";");
     }
 

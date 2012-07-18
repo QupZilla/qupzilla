@@ -58,7 +58,7 @@ You need to specify path to `macdeployqt` only if it is not in PATH.
 Current version
 ----------------------------------------------------------------------------------------
 
-The current released version of QupZilla is 1.2.0. You can download precompiled packages
+The current released version of QupZilla is 1.3.1. You can download precompiled packages
 and the sources from the download section at [homepage](http://www.qupzilla.com/download).
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:
@@ -80,4 +80,4 @@ FAQ and Changelog
 
 If you are experiencing some sort of problem, please read the FAQ before you open an issue.
 
-[FAQ](https://github.com/QupZilla/qupzilla/wiki/FAQ) | [Changelog](https://github.com/QupZilla/qupzilla/wiki/Changelog) | [Bug Reports](https://github.com/QupZilla/qupzilla/wiki/Bug-Reports)
+[FAQ](https://github.com/QupZilla/qupzilla/wiki/FAQ) | [Changelog](https://github.com/QupZilla/qupzilla/blob/master/CHANGELOG) | [Bug Reports](https://github.com/QupZilla/qupzilla/wiki/Bug-Reports)

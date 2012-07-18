@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de_DE" sourcelanguage="en_US">
+<TS version="2.0" language="it_IT" sourcelanguage="en_US">
 <context>
     <name>TestPlugin</name>
     <message>
@@ -35,7 +35,8 @@
         <location filename="../testplugin_sidebar.cpp" line="32"/>
         <location filename="../testplugin_sidebar.cpp" line="37"/>
         <source>Testing Sidebar</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Not sure about translation...to be reviewed</translatorcomment>
+        <translation>Barra laterale di test</translation>
     </message>
 </context>
 </TS>

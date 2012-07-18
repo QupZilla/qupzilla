@@ -60,11 +60,15 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         opt.state &= ~QStyle::State_Selected;
     }
 
+#ifdef Q_WS_WIN
+    const QPalette::ColorRole colorRole = QPalette::Text;
+    const QPalette::ColorRole colorLinkRole = QPalette::Link;
+#else
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
     const QPalette::ColorRole colorLinkRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Link;
+#endif
 
     // Draw background
-    painter->fillRect(opt.rect, Qt::white);
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
     // Draw icon

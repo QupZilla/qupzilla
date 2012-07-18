@@ -160,7 +160,7 @@ void CookieManager::slotRefreshTable()
         QTreeWidgetItem* item;
 
         QString cookieDomain = cookie.domain();
-        if (cookieDomain.startsWith(".")) {
+        if (cookieDomain.startsWith('.')) {
             cookieDomain = cookieDomain.mid(1);
         }
 
@@ -200,6 +200,9 @@ void CookieManager::slotRefreshTable()
 
 void CookieManager::slotRefreshFilters()
 {
+    ui->whiteList->clear();
+    ui->blackList->clear();
+
     Settings settings;
     settings.beginGroup("Cookie-Settings");
     QStringList whiteList = settings.value("whitelist", QStringList()).toStringList();

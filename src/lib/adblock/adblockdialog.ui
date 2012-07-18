@@ -13,8 +13,8 @@
   <property name="windowTitle">
    <string>AdBlock Configuration</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0" colspan="2">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
     <widget class="QCheckBox" name="adblockCheckBox">
      <property name="text">
       <string>Enable AdBlock</string>
@@ -24,7 +24,34 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0" colspan="2">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLineEdit" name="search">
+       <property name="placeholderText">
+        <string>Search...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>50</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
     <widget class="QWidget" name="adblockWidget" native="true">
      <property name="enabled">
       <bool>true</bool>
@@ -33,54 +60,22 @@
       <property name="margin">
        <number>0</number>
       </property>
-      <item row="0" column="0">
-       <widget class="QLineEdit" name="search">
-        <property name="placeholderText">
-         <string>Search...</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="5">
-       <widget class="TreeWidget" name="treeWidget">
-        <property name="alternatingRowColors">
-         <bool>true</bool>
-        </property>
-        <column>
-         <property name="text">
-          <string>Rule</string>
-         </property>
-        </column>
-       </widget>
-      </item>
-      <item row="0" column="1" colspan="3">
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="0" colspan="4">
+      <item row="4" column="0" colspan="2">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QToolButton" name="addButton">
+         <widget class="QToolButton" name="buttonMenu">
           <property name="text">
-           <string>Add Rule</string>
+           <string>Options</string>
           </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="reloadButton">
-          <property name="text">
-           <string>Update EasyList</string>
+          <property name="icon">
+           <iconset resource="../data/icons.qrc">
+            <normaloff>:/icons/other/adblock.png</normaloff>:/icons/other/adblock.png</iconset>
+          </property>
+          <property name="popupMode">
+           <enum>QToolButton::InstantPopup</enum>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonTextBesideIcon</enum>
           </property>
          </widget>
         </item>
@@ -97,25 +92,35 @@
           </property>
          </spacer>
         </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>AdBlock</string>
+          </property>
+         </widget>
+        </item>
        </layout>
+      </item>
+      <item row="2" column="0">
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>-1</number>
+        </property>
+        <property name="documentMode">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="text">
-      <string>AdBlock</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
+   <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -127,14 +132,9 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>TreeWidget</class>
-   <extends>QTreeWidget</extends>
-   <header>treewidget.h</header>
-  </customwidget>
- </customwidgets>
- <resources/>
+ <resources>
+  <include location="../data/icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

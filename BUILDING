@@ -8,7 +8,7 @@ General
   from git to specific directory by your system you compiled for.
   On Linux, you can easily do it by running make install.
   If you are unsure where is the right place, you can check it directly from
-  QupZilla by clicking from Help Menu to Informations about program, then in
+  QupZilla by clicking from Help Menu on Configuration Information, then in
   Path section.
 
   You may want to build QupZilla with debugging symbols (for generating
@@ -160,4 +160,9 @@ Available Defines
 
                           example:
                           $ export QUPZILLA_PREFIX="/usr/"
+
+     DISABLE_DBUS         Build without QtDBus module. Native desktop notifications will be disabled.
+
+                          example:
+                          $ export DISABLE_DBUS="true"
 

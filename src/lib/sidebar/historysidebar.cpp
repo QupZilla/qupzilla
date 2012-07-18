@@ -22,6 +22,7 @@
 #include "tabbedwebview.h"
 #include "mainapplication.h"
 #include "historymodel.h"
+#include "websettings.h"
 
 HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -42,7 +43,7 @@ HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent)
 void HistorySideBar::openLink(const QUrl &url, HistoryView::OpenBehavior openIn)
 {
     if (openIn == HistoryView::OpenInNewTab) {
-        p_QupZilla->tabWidget()->addView(url, Qz::NT_NotSelectedTab);
+        p_QupZilla->tabWidget()->addView(url, WebSettings::newTabPosition);
     }
     else {
         p_QupZilla->weView()->load(url);

@@ -73,6 +73,11 @@ void AnimatedWidget::hide()
     m_timeLine.start();
 
     connect(&m_timeLine, SIGNAL(finished()), this, SLOT(close()));
+
+    QWidget* p = parentWidget();
+    if (p) {
+        p->setFocus();
+    }
 }
 
 void AnimatedWidget::resizeEvent(QResizeEvent* event)

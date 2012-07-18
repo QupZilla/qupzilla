@@ -27,7 +27,7 @@
 #include "mainapplication.h"
 #include "cookiemanager.h"
 #include "pluginproxy.h"
-#include "pluginslist.h"
+#include "pluginsmanager.h"
 #include "qtwin.h"
 #include "sslmanager.h"
 #include "networkproxyfactory.h"
@@ -121,7 +121,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     m_actProfileName = mApp->currentProfilePath();
     m_actProfileName = m_actProfileName.left(m_actProfileName.length() - 1);
     m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf("/"));
-    m_actProfileName.remove("/");
+    m_actProfileName.remove('/');
 
     ui->activeProfile->setText("<b>" + m_actProfileName + "</b>");
 
@@ -153,7 +153,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
     ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());
     ui->useTransparentBg->setChecked(settings.value("useTransparentBackground", false).toBool());
-    ui->askOnPrivateBrowsing->setChecked(settings.value("AskOnPrivate", true).toBool());
     settings.endGroup();
 #ifdef Q_WS_WIN
     ui->useTransparentBg->setEnabled(QtWin::isCompositionEnabled());
@@ -161,10 +160,10 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //TABS
     settings.beginGroup("Browser-Tabs-Settings");
-    ui->makeMovable->setChecked(settings.value("makeTabsMovable", true).toBool());
     ui->hideTabsOnTab->setChecked(settings.value("hideTabsWithOneTab", false).toBool());
     ui->activateLastTab->setChecked(settings.value("ActivateLastTabWhenClosingActual", false).toBool());
     ui->openNewTabAfterActive->setChecked(settings.value("newTabAfterActive", true).toBool());
+    ui->switchToNewTabs->setChecked(settings.value("OpenNewTabsSelected", false).toBool());
     ui->dontQuitOnTab->setChecked(settings.value("dontQuitWithOneTab", false).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     ui->closedInsteadOpened->setChecked(settings.value("closedInsteadOpenedTabs", false).toBool());
@@ -317,13 +316,12 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     settings.endGroup();
 
     //PLUGINS
-    m_pluginsList = new PluginsList(this);
+    m_pluginsList = new PluginsManager(this);
     ui->pluginsFrame->addWidget(m_pluginsList);
 
     //NOTIFICATIONS
-#ifdef Q_WS_X11
-    ui->useNativeSystemNotifications->setEnabled(true);
-#endif
+    ui->useNativeSystemNotifications->setEnabled(mApp->desktopNotifications()->supportsNativeNotifications());
+
     DesktopNotificationsFactory::Type notifyType;
     settings.beginGroup("Notifications");
     ui->notificationTimeout->setValue(settings.value("Timeout", 6000).toInt() / 1000);
@@ -332,7 +330,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 #else
     notifyType = DesktopNotificationsFactory::PopupWidget;
 #endif
-    if (notifyType == DesktopNotificationsFactory::DesktopNative) {
+    if (ui->useNativeSystemNotifications->isEnabled() && notifyType == DesktopNotificationsFactory::DesktopNative) {
         ui->useNativeSystemNotifications->setChecked(true);
     }
     else {
@@ -348,7 +346,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //OTHER
     //Languages
-    QString activeLanguage = "";
+    QString activeLanguage;
     if (!mApp->currentLanguage().isEmpty()) {
         activeLanguage = mApp->currentLanguage();
         QLocale locale(activeLanguage);
@@ -361,12 +359,17 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     QDir lanDir(mApp->TRANSLATIONSDIR);
     QStringList list = lanDir.entryList(QStringList("*.qm"));
     foreach(const QString & name, list) {
-        if (name.startsWith("qt_") || name == activeLanguage) {
+        if (name.startsWith("qt_")) {
             continue;
         }
 
         QString loc = name;
         loc.remove(".qm");
+
+        if (loc == activeLanguage) {
+            continue;
+        }
+
         QLocale locale(loc);
         QString country = QLocale::countryToString(locale.country());
         QString language = QLocale::languageToString(locale.language());
@@ -428,10 +431,15 @@ void Preferences::showStackedPage(QListWidgetItem* item)
         return;
     }
 
-    ui->caption->setText("<b>" + item->text() + "</b>");
-    ui->stackedWidget->setCurrentIndex(ui->listWidget->currentRow());
+    int index = ui->listWidget->currentRow();
 
-    setNotificationPreviewVisible(ui->stackedWidget->currentIndex() == 8);
+    ui->caption->setText("<b>" + item->text() + "</b>");
+    ui->stackedWidget->setCurrentIndex(index);
+
+    setNotificationPreviewVisible(index == 8);
+    if (index == 9) {
+        m_pluginsList->load();
+    }
 }
 
 void Preferences::setNotificationPreviewVisible(bool state)
@@ -484,7 +492,7 @@ void Preferences::chooseDownPath()
         return;
     }
 #ifdef Q_WS_WIN   //QFileDialog::getExistingDirectory returns path with \ instead of / (??)
-    userFileName.replace("\\", "/");
+    userFileName.replace('\\', '/');
 #endif
     userFileName += "/";
 
@@ -749,7 +757,6 @@ void Preferences::saveSettings()
 
     //WINDOW
     settings.beginGroup("Browser-View-Settings");
-
     settings.setValue("showStatusbar", ui->showStatusbar->isChecked());
     settings.setValue("showBookmarksToolbar", ui->showBookmarksToolbar->isChecked());
     settings.setValue("showNavigationToolbar", ui->showNavigationToolbar->isChecked());
@@ -757,15 +764,14 @@ void Preferences::saveSettings()
     settings.setValue("showBackForwardButtons", ui->showBackForward->isChecked());
     settings.setValue("useTransparentBackground", ui->useTransparentBg->isChecked());
     settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
-    settings.setValue("AskOnPrivate", ui->askOnPrivateBrowsing->isChecked());
     settings.endGroup();
 
     //TABS
     settings.beginGroup("Browser-Tabs-Settings");
-    settings.setValue("makeTabsMovable", ui->makeMovable->isChecked());
     settings.setValue("hideTabsWithOneTab", ui->hideTabsOnTab->isChecked());
     settings.setValue("ActivateLastTabWhenClosingActual", ui->activateLastTab->isChecked());
     settings.setValue("newTabAfterActive", ui->openNewTabAfterActive->isChecked());
+    settings.setValue("OpenNewTabsSelected", ui->switchToNewTabs->isChecked());
     settings.setValue("dontQuitWithOneTab", ui->dontQuitOnTab->isChecked());
     settings.setValue("AskOnClosing", ui->askWhenClosingMultipleTabs->isChecked());
     settings.setValue("closedInsteadOpenedTabs", ui->closedInsteadOpened->isChecked());
@@ -903,7 +909,7 @@ void Preferences::saveSettings()
     settings.setValue("HttpsUsername", ui->httpsProxyUsername->text());
     settings.setValue("HttpsPassword", ui->httpsProxyPassword->text());
 
-    settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(","));
+    settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(','));
     settings.endGroup();
 
     //Profiles

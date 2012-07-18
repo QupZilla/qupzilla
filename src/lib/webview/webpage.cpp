@@ -31,6 +31,7 @@
 #include "popupwebview.h"
 #include "networkmanagerproxy.h"
 #include "adblockicon.h"
+#include "adblockmanager.h"
 #include "iconprovider.h"
 #include "websettings.h"
 
@@ -66,6 +67,7 @@ WebPage::WebPage(QupZilla* mainClass)
     , m_speedDial(mApp->plugins()->speedDial())
     , m_fileWatcher(0)
     , m_runningLoop(0)
+    , m_loadProgress(-1)
     , m_blockAlerts(false)
     , m_secureStatus(false)
     , m_adjustingScheduled(false)
@@ -141,32 +143,60 @@ bool WebPage::loadingError() const
     return !mainFrame()->findFirstElement("span[id=\"qupzilla-error-page\"]").isNull();
 }
 
+void WebPage::addRejectedCerts(const QList<QSslCertificate> &certs)
+{
+    foreach(const QSslCertificate & cert, certs) {
+        if (!m_rejectedSslCerts.contains(cert)) {
+            m_rejectedSslCerts.append(cert);
+        }
+    }
+}
+
+bool WebPage::containsRejectedCerts(const QList<QSslCertificate> &certs)
+{
+    int matches = 0;
+
+    foreach(const QSslCertificate & cert, certs) {
+        if (m_rejectedSslCerts.contains(cert)) {
+            ++matches;
+        }
+
+        if (m_sslCert == cert) {
+            m_sslCert.clear();
+        }
+    }
+
+    return matches == certs.count();
+}
+
 bool WebPage::isRunningLoop()
 {
     return m_runningLoop;
 }
 
+bool WebPage::isLoading() const
+{
+    return m_loadProgress < 100;
+}
+
 void WebPage::setUserAgent(const QString &agent)
 {
-    if (!agent.isEmpty()) {
-        s_userAgent = QString("%1 (QupZilla %2)").arg(agent, QupZilla::VERSION);
-    }
-    else {
-        s_userAgent = agent;
-    }
+    s_userAgent = agent;
 }
 
 void WebPage::urlChanged(const QUrl &url)
 {
     Q_UNUSED(url)
 
-    m_adBlockedEntries.clear();
-    m_blockAlerts = false;
+    if (isLoading()) {
+        m_adBlockedEntries.clear();
+        m_blockAlerts = false;
+    }
 }
 
 void WebPage::progress(int prog)
 {
-    Q_UNUSED(prog)
+    m_loadProgress = prog;
 
     bool secStatus = sslCertificate().isValid();
 
@@ -202,7 +232,7 @@ void WebPage::finished()
         m_fileWatcher->removePaths(m_fileWatcher->files());
     }
 
-    QTimer::singleShot(100, this, SLOT(cleanBlockedObjects()));
+    cleanBlockedObjects();
 }
 
 void WebPage::watchedFileChanged(const QString &file)
@@ -403,23 +433,23 @@ bool WebPage::event(QEvent* event)
 void WebPage::setSSLCertificate(const QSslCertificate &cert)
 {
     //    if (cert != m_SslCert)
-    m_SslCert = cert;
+    m_sslCert = cert;
 }
 
 QSslCertificate WebPage::sslCertificate()
 {
-    if (url().scheme() == "https" &&
-            m_SslCert.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(url().host()))) {
-        return m_SslCert;
+    if (url().scheme() == "https" && m_sslCert.isValid()) {
+        return m_sslCert;
     }
-    else {
-        return QSslCertificate();
-    }
+
+    return QSslCertificate();
 }
 
 bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type)
 {
     m_lastRequestType = type;
+    m_lastRequestUrl = request.url();
+
     const QString &scheme = request.url().scheme();
 
     if (scheme == "mailto" || scheme == "ftp") {
@@ -447,7 +477,13 @@ void WebPage::populateNetworkRequest(QNetworkRequest &request)
 
     QVariant variant = qVariantFromValue((void*) pagePointer);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);
-    request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), m_lastRequestType);
+
+    if (m_lastRequestUrl == request.url()) {
+        request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), m_lastRequestType);
+        if (m_lastRequestType == NavigationTypeLinkClicked) {
+            request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
+        }
+    }
 }
 
 QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
@@ -461,10 +497,10 @@ QObject* WebPage::createPlugin(const QString &classid, const QUrl &url, const QS
     return pluginFactory()->create(classid, url, paramNames, paramValues);
 }
 
-void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
+void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)
 {
     AdBlockedEntry entry;
-    entry.rule = filter;
+    entry.rule = rule;
     entry.url = url;
 
     if (!m_adBlockedEntries.contains(entry)) {
@@ -474,36 +510,54 @@ void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
 
 void WebPage::cleanBlockedObjects()
 {
-    QStringList findingStrings;
+    AdBlockManager* manager = AdBlockManager::instance();
+    if (!manager->isEnabled()) {
+        return;
+    }
+
+    const QWebElement &docElement = mainFrame()->documentElement();
 
     foreach(const AdBlockedEntry & entry, m_adBlockedEntries) {
-        if (entry.url.toString().endsWith(".js")) {
+        const QString &urlString = entry.url.toString();
+        if (urlString.endsWith(".js") || urlString.endsWith(".css")) {
             continue;
         }
 
-        findingStrings.append(entry.url.toString());
-        const QUrl &mainFrameUrl = url();
+        QString urlEnd;
 
-        if (entry.url.scheme() == mainFrameUrl.scheme() && entry.url.host() == mainFrameUrl.host()) {
-            //May be relative url
-            QString relativeUrl = qz_makeRelativeUrl(mainFrameUrl, entry.url).toString();
-            findingStrings.append(relativeUrl);
-            if (relativeUrl.startsWith("/")) {
-                findingStrings.append(relativeUrl.right(relativeUrl.size() - 1));
+        int pos = urlString.lastIndexOf('/');
+        if (pos > 8) {
+            urlEnd = urlString.mid(pos + 1);
+        }
+
+        if (urlString.endsWith('/')) {
+            urlEnd = urlString.left(urlString.size() - 1);
+        }
+
+        QString selector("img[src$=\"" + urlEnd + "\"], iframe[src$=\"" + urlEnd + "\"],"
+                         "embed[src$=\"" + urlEnd + "\"]");
+        QWebElementCollection elements = docElement.findAll(selector);
+
+        foreach(QWebElement element, elements) {
+            QString src = element.attribute("src");
+            src.remove("../");
+
+            if (urlString.contains(src)) {
+                element.setStyleProperty("display", "none");
             }
         }
     }
 
-    const QWebElement &docElement = mainFrame()->documentElement();
-    QWebElementCollection elements;
-
-    foreach(const QString & s, findingStrings) {
-        elements.append(docElement.findAll("*[src=\"" + s + "\"]"));
+    // Apply domain-specific element hiding rules
+    QString elementHiding = AdBlockManager::instance()->elementHidingRulesForDomain(url());
+    if (elementHiding.isEmpty()) {
+        return;
     }
 
-    foreach(QWebElement element, elements) {
-        element.setStyleProperty("visibility", "hidden");
-    }
+    elementHiding.append("{display: none !important;}\n</style>");
+
+    QWebElement bodyElement = docElement.findFirst("body");
+    bodyElement.appendInside("<style type=\"text/css\">\n/* AdBlock for QupZilla */\n" + elementHiding);
 }
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
@@ -609,12 +663,14 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         case QNetworkReply::UnknownNetworkError:
             errorString = exOption->errorString.isEmpty() ? tr("Unknown network error") : exOption->errorString;
             break;
-        case QNetworkReply::ProtocolUnknownError:
-            handleUnknownProtocol(exOption->url);
+        case QNetworkReply::ProtocolUnknownError: {
+            // Sometimes exOption->url returns just "?" instead of actual url
+            const QUrl unknownProtocolUrl = (exOption->url == QUrl("?")) ? erPage->mainFrame()->requestedUrl() : exOption->url;
+            handleUnknownProtocol(unknownProtocolUrl);
             return false;
-            break;
+        }
         case QNetworkReply::ContentAccessDenied:
-            if (exOption->errorString.startsWith("AdBlockRule")) {
+            if (exOption->errorString.startsWith("AdBlock")) {
                 if (exOption->frame != erPage->mainFrame()) { //Content in <iframe>
                     QWebElement docElement = erPage->mainFrame()->documentElement();
 
@@ -632,7 +688,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                 }
                 else {   //The whole page is blocked
                     QString rule = exOption->errorString;
-                    rule.remove("AdBlockRule:");
+                    rule.remove("AdBlock: ");
 
                     QFile file(":/html/adblockPage.html");
                     file.open(QFile::ReadOnly);
@@ -641,7 +697,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     errString.replace("%IMAGE%", "qrc:html/adblock_big.png");
                     errString.replace("%FAVICON%", "qrc:html/adblock_big.png");
 
-                    errString.replace("%RULE%", tr("Blocked by rule <i>%1</i>").arg(rule));
+                    errString.replace("%RULE%", tr("Blocked by <i>%1</i>").arg(rule));
 
                     exReturn->baseUrl = exOption->url;
                     exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();
@@ -660,7 +716,9 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             errorString = tr("Content Access Denied");
             break;
         default:
-            qDebug() << "Content error: " << exOption->errorString << exOption->error;
+            if (exOption->errorString != "QupZilla:No Error") {
+                qDebug() << "Content error: " << exOption->errorString << exOption->error;
+            }
             return false;
         }
     }

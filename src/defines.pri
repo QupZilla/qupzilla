@@ -3,7 +3,7 @@ OBJECTS_DIR = $$PWD/../build
 MOC_DIR = $$PWD/../build
 RCC_DIR = $$PWD/../build
 UI_DIR = $$PWD/../build
-unix: VERSION = 1.2.0
+unix: VERSION = 1.3.1
 
 # Please read BUILD information #
 #DEFINES *= NO_SYSTEM_DATAPATH
@@ -28,6 +28,7 @@ d_portable = $$(PORTABLE_BUILD)
 d_nonblock_dialogs = $$(NONBLOCK_JS_DIALOGS)
 d_use_qtwebkit_2_2 = $$(USE_QTWEBKIT_2_2)
 d_use_lib_path = $$(USE_LIBPATH)
+d_disable_dbus = $$(DISABLE_DBUS)
 
 equals(d_no_system_datapath, "true") { DEFINES *= NO_SYSTEM_DATAPATH }
 equals(d_use_webgl, "true") { DEFINES *= USE_WEBGL }
@@ -36,6 +37,7 @@ equals(d_kde, "true") { DEFINES *= KDE }
 equals(d_portable, "true") { DEFINES *= PORTABLE_BUILD }
 equals(d_nonblock_dialogs, "true") { DEFINES *= NONBLOCK_JS_DIALOGS }
 equals(d_use_qtwebkit_2_2, "true") { DEFINES *= USE_QTWEBKIT_2_2 }
+equals(d_disable_dbus, "true") { DEFINES *= DISABLE_DBUS }
 
 !mac:unix {
     d_prefix = $$(QUPZILLA_PREFIX)

@@ -23,7 +23,7 @@
 #include <QFile>
 #include <QDir>
 
-#ifdef Q_WS_X11
+#if defined(Q_WS_X11) && !defined(DISABLE_DBUS)
 #include <QDBusInterface>
 #endif
 
@@ -49,7 +49,16 @@ void DesktopNotificationsFactory::loadSettings()
     settings.endGroup();
 }
 
-void DesktopNotificationsFactory::showNotifications(const QPixmap &icon, const QString &heading, const QString &text)
+bool DesktopNotificationsFactory::supportsNativeNotifications() const
+{
+#if defined(Q_WS_X11) && !defined(DISABLE_DBUS)
+    return true;
+#else
+    return false;
+#endif
+}
+
+void DesktopNotificationsFactory::showNotification(const QPixmap &icon, const QString &heading, const QString &text)
 {
     if (!m_enabled) {
         return;
@@ -68,7 +77,7 @@ void DesktopNotificationsFactory::showNotifications(const QPixmap &icon, const Q
         m_desktopNotif.data()->show();
         break;
     case DesktopNative:
-#ifdef Q_WS_X11
+#if defined(Q_WS_X11) && !defined(DISABLE_DBUS)
         QFile tmp(QDir::tempPath() + "/qupzilla_notif.png");
         tmp.open(QFile::WriteOnly);
         icon.save(tmp.fileName());
@@ -95,10 +104,10 @@ void DesktopNotificationsFactory::showNotifications(const QPixmap &icon, const Q
 
 void DesktopNotificationsFactory::nativeNotificationPreview()
 {
-#ifdef Q_WS_X11
+#if defined(Q_WS_X11) && !defined(DISABLE_DBUS)
     QFile tmp(QDir::tempPath() + "/qupzilla_notif.png");
     tmp.open(QFile::WriteOnly);
-    QPixmap(":icons/preferences/stock_dialog-question.png").save(tmp.fileName());
+    QPixmap(":icons/preferences/dialog-question.png").save(tmp.fileName());
 
     QDBusInterface dbus("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications", QDBusConnection::sessionBus());
     QVariantList args;

@@ -158,7 +158,7 @@ void PlainEditWithLines::highlightCurrentLine()
     QTextEdit::ExtraSelection selection;
 
     selection.format.setBackground(lineColor);
-    selection.format.setProperty(QTextFormat::FullWidthSelection, true);
+    selection.format.setProperty(QTextFormat::FullWidthSelection, QVariant(true));
     selection.cursor = textCursor();
     selection.cursor.clearSelection();
     selectionsList.append(selection);

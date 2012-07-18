@@ -73,6 +73,33 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation>ページ名:</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>アドレス:</translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translatorcomment>未定</translatorcomment>
+        <translation>Adblockが新しく購読する:</translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation>購読する</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation>カスタムルールの編集</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
@@ -87,44 +114,43 @@
         <translation>検索...</translation>
     </message>
     <message>
-        <source>Rule</source>
-        <translation>ルール</translation>
-    </message>
-    <message>
         <source>Add Rule</source>
         <translation>ルールを追加する</translation>
-    </message>
-    <message>
-        <source>Update EasyList</source>
-        <translation>EasyListのアップデート</translation>
     </message>
     <message>
         <source>AdBlock</source>
         <translation>Adblock</translation>
     </message>
     <message>
-        <source>Delete Rule</source>
-        <translation>ルールの削除</translation>
+        <source>Options</source>
+        <translation>オプション</translation>
     </message>
     <message>
-        <source>Update completed</source>
-        <translation>更新の完了</translation>
+        <source>Remove Rule</source>
+        <translation>ルールを削除する</translation>
     </message>
     <message>
-        <source>EasyList has been successfully updated.</source>
-        <translation>EasyListの更新に成功しました。</translation>
+        <source>Add Subscription</source>
+        <translation>購読する</translation>
     </message>
     <message>
-        <source>Custom Rules</source>
-        <translation>カスタムルールの編集</translation>
+        <source>Remove Subscription</source>
+        <translation>購読を削除する</translation>
     </message>
     <message>
-        <source>Add Custom Rule</source>
-        <translation>カスタムルールの追加</translation>
+        <source>Update Subscriptions</source>
+        <translation>購読しているフィルタを更新する</translation>
     </message>
     <message>
-        <source>Please write your rule here:</source>
-        <translation>新しいルールの追加:</translation>
+        <source>Learn about writing rules...</source>
+        <translation>Adblockの記法について学ぶ...</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation>Easylist</translation>
     </message>
 </context>
 <context>
@@ -168,9 +194,39 @@
         <translatorcomment>保留</translatorcomment>
         <translation>ブロックされたURL(AdBlockのルール) -  クリックして編集</translation>
     </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
     <message>
-        <source>Learn About Writing &amp;Rules</source>
-        <translation>広告ブロックの書き方ついて(&amp;R)</translation>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation>&lt;b&gt;%1&lt;/b&gt;を購読しますか?</translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation>Adblockフィルタの購読</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation>ルールを追加する</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation>ルールを削除する</translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation>カスタムルールの追加</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation>新しいルールの追加:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation>%1(最近アップデートされたもの)</translation>
     </message>
 </context>
 <context>
@@ -548,7 +604,7 @@
     </message>
     <message>
         <source>Change icon</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンの変更</translation>
     </message>
 </context>
 <context>
@@ -1231,20 +1287,8 @@
         <translation>&lt;b&gt;注意&lt;/b&gt;%sは検索文字列が挿入される個所です</translation>
     </message>
     <message>
-        <source>Add from file ...</source>
-        <translation type="obsolete">ファイルから追加する...</translation>
-    </message>
-    <message>
-        <source>Choose icon...</source>
-        <translation type="obsolete">アイコンを選択する...</translation>
-    </message>
-    <message>
-        <source>Image files</source>
-        <translation type="obsolete">画像ファイル</translation>
-    </message>
-    <message>
         <source>Change...</source>
-        <translation type="unfinished"></translation>
+        <translation>変更する...</translation>
     </message>
 </context>
 <context>
@@ -1321,30 +1365,6 @@
         <translation>データベースの最適化</translation>
     </message>
     <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">現在のタブでリンクを開く</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">新しいタブでリンクを開く</translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">アドレスのコピー</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">今日</translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="obsolete">今週</translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="obsolete">今月</translation>
-    </message>
-    <message>
         <source>Confirmation</source>
         <translation>確認する</translation>
     </message>
@@ -1355,58 +1375,6 @@
 </context>
 <context>
     <name>HistoryModel</name>
-    <message>
-        <source>No Named Page</source>
-        <translation type="obsolete">無題</translation>
-    </message>
-    <message>
-        <source>January</source>
-        <translation type="obsolete">1月</translation>
-    </message>
-    <message>
-        <source>February</source>
-        <translation type="obsolete">2月</translation>
-    </message>
-    <message>
-        <source>March</source>
-        <translation type="obsolete">3月</translation>
-    </message>
-    <message>
-        <source>April</source>
-        <translation type="obsolete">4月</translation>
-    </message>
-    <message>
-        <source>May</source>
-        <translation type="obsolete">5月</translation>
-    </message>
-    <message>
-        <source>June</source>
-        <translation type="obsolete">6月</translation>
-    </message>
-    <message>
-        <source>July</source>
-        <translation type="obsolete">7月</translation>
-    </message>
-    <message>
-        <source>August</source>
-        <translation type="obsolete">8月</translation>
-    </message>
-    <message>
-        <source>September</source>
-        <translation type="obsolete">9月</translation>
-    </message>
-    <message>
-        <source>October</source>
-        <translation type="obsolete">10月</translation>
-    </message>
-    <message>
-        <source>November</source>
-        <translation type="obsolete">11月</translation>
-    </message>
-    <message>
-        <source>December</source>
-        <translation type="obsolete">12月</translation>
-    </message>
     <message>
         <source>Title</source>
         <translation>ページ名</translation>
@@ -1442,34 +1410,6 @@
         <source>Search...</source>
         <translation>検索...</translation>
     </message>
-    <message>
-        <source>Title</source>
-        <translation type="obsolete">ページ名</translation>
-    </message>
-    <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">現在のタブでリンクを開く</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">新しいタブでリンクを開く</translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">アドレスのコピー</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">今日</translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="obsolete">今週</translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="obsolete">今月</translation>
-    </message>
 </context>
 <context>
     <name>HistoryView</name>
@@ -1498,31 +1438,31 @@
     <name>IconChooser</name>
     <message>
         <source>Choose icon...</source>
-        <translation type="unfinished">アイコンを選択する...</translation>
+        <translation>アイコンを選択する...</translation>
     </message>
     <message>
         <source>From file</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルから</translation>
     </message>
     <message>
         <source>Image (.png, .jpg, .jpeg, .gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>画像(.png, .jpg, .jpeg, .gif)</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished">ファイルの選択...</translation>
+        <translation>ファイルの選択...</translation>
     </message>
     <message>
         <source>From database</source>
-        <translation type="unfinished"></translation>
+        <translation>データベースから</translation>
     </message>
     <message>
         <source>Site Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>サイトのURL:</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished">画像ファイル</translation>
+        <translation>画像ファイル</translation>
     </message>
 </context>
 <context>
@@ -1549,7 +1489,7 @@
     </message>
     <message>
         <source>Clear All</source>
-        <translation>アドレスバーをクリア</translation>
+        <translation>ロケーションバーをクリア</translation>
     </message>
     <message>
         <source>.co.uk</source>
@@ -1713,13 +1653,15 @@
         <source>Allow Click To Flash</source>
         <translation>Click to Flashを有効にする</translation>
     </message>
+</context>
+<context>
+    <name>PluginsManager</name>
     <message>
         <source>Add site to whitelist</source>
         <translation>ホワイトリストにサイトを追加する</translation>
     </message>
     <message>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translatorcomment>要再考</translatorcomment>
         <translation>http://なしで入力してください(ex. youtube.com)</translation>
     </message>
     <message>
@@ -1728,7 +1670,6 @@
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translatorcomment>保留</translatorcomment>
         <translation>エクステンションが読み込めません!</translation>
     </message>
 </context>
@@ -1931,16 +1872,12 @@
         <translation>&lt;b&gt;タブの挙動&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Make tabs movable</source>
-        <translation>タブを移動可能にする</translation>
-    </message>
-    <message>
         <source>Hide tabs when there is only one tab</source>
         <translation>タブが1つだけの時タブバーを非表示</translation>
     </message>
     <message>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
-        <translation>&lt;b&gt;アドレスバーの設定&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;ロケーションバーの設定&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Select all text by double clicking in address bar</source>
@@ -2015,10 +1952,6 @@
     <message>
         <source>Zoom text only</source>
         <translation>テキストのみズーム</translation>
-    </message>
-    <message>
-        <source>Ask when entering Private Browsing mode</source>
-        <translation>プライベートブラウジングモードを開始するとき確認する</translation>
     </message>
     <message>
         <source>Mouse wheel scrolls</source>
@@ -2201,7 +2134,7 @@
     </message>
     <message>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation>&lt;b&gt;外部ダウンローダの仕様&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;外部ダウンローダマネージャ&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Use external download manager</source>
@@ -2245,7 +2178,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;警告&lt;/b&gt;  ファーストパーティのCookieの許可やトラッキングCookieのフィルタリングは一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
+        <translation>&lt;b&gt;警告&lt;/b&gt;  「ファーストパーティのCookieのみ許可」や「トラッキングCookieのフィルタリング」は一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
     </message>
     <message>
         <source>Cookies Manager</source>
@@ -2254,14 +2187,6 @@
     <message>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL証明書&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">SSLマネージャ</translation>
-    </message>
-    <message>
-        <source>Edit CA certificates in SSL Manager</source>
-        <translation type="obsolete">SSLマネージャ内の公開鍵証明書を編集する</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -2422,6 +2347,10 @@
         <translatorcomment>ここ直したい</translatorcomment>
         <translation>公開鍵証明書の設定</translation>
     </message>
+    <message>
+        <source>Automatically switch to newly opened tab</source>
+        <translation>新しいタブが開かれたとき、すぐにそのタブに切り替える</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2508,7 +2437,7 @@
     <message>
         <source>Open Location</source>
         <translatorcomment>わからない</translatorcomment>
-        <translation>アドレスバー</translation>
+        <translation>ロケーションバー</translation>
     </message>
     <message>
         <source>Open &amp;File</source>
@@ -2778,40 +2707,6 @@
         <translation>ファイルを開く...</translation>
     </message>
     <message>
-        <source>Are you sure you want to turn on private browsing?</source>
-        <translation>プライベートブラウジングモードを開始しますか?</translation>
-    </message>
-    <message>
-        <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>プライベートブラウジングモードが有効になるとプライバシー関連のいくつかの挙動が制限されます:</translation>
-    </message>
-    <message>
-        <source>Webpages are not added to the history.</source>
-        <translation>ページの閲覧履歴が残らない。</translation>
-    </message>
-    <message>
-        <source>Current cookies cannot be accessed.</source>
-        <translatorcomment>保留。意味はだいたいわかるが適訳見つからず。</translatorcomment>
-        <translation>Cookieが保存されない。</translation>
-    </message>
-    <message>
-        <source>Your session is not stored.</source>
-        <translation>セッションが保存されない。</translation>
-    </message>
-    <message>
-        <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translatorcomment>意訳</translatorcomment>
-        <translation>履歴及びセッションは保存されませんがページ上で戻る進むは利用できます。</translation>
-    </message>
-    <message>
-        <source>Start Private Browsing</source>
-        <translation>プライベートブラウジングを開始する</translation>
-    </message>
-    <message>
-        <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation>RSSフィード&quot;%1&quot;の追加に成功しました。</translation>
-    </message>
-    <message>
         <source>HTML files</source>
         <translatorcomment>保留</translatorcomment>
         <translation>HTMLファイル</translation>
@@ -2892,14 +2787,6 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>Start Page</source>
         <translation>スタートページ</translation>
-    </message>
-    <message>
-        <source>Google Search</source>
-        <translation>Google検索</translation>
-    </message>
-    <message>
-        <source>Search results provided by Google</source>
-        <translation>検索結果はGoogleから提供されます</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -3155,6 +3042,18 @@ Are you sure to quit QupZilla?</source>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>このページはQupZillaの現在の設定についての情報が表示されています。これらの情報はトラブルシューティングに非常に大切です。バグレポートの際は、これらの情報を含めて送信してください。</translation>
     </message>
+    <message>
+        <source>Search on Web</source>
+        <translation>Webで検索する</translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation>検索結果はDuckDuckGoから提供されます</translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation>&lt;h1&gt;プライベートブラウジング&lt;h1/&gt;</translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3198,7 +3097,7 @@ Are you sure to quit QupZilla?</source>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translatorcomment>意訳</translatorcomment>
-        <translation>RSSフィードがありません。&lt;br/&gt;RSSフィードが取得可能な場合アドレスバーにRSSアイコンが表示されます。</translation>
+        <translation>RSSフィードがありません。&lt;br/&gt;RSSフィードが取得可能な場合ロケーションバーにRSSアイコンが表示されます。</translation>
     </message>
     <message>
         <source>Add new feed</source>
@@ -3254,8 +3153,56 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 <context>
     <name>RSSNotification</name>
     <message>
-        <source>Open RSS Manager</source>
-        <translation>RSSマネージャを開く</translation>
+        <source>Add this feed into</source>
+        <translation>このフィードを以下に追加する</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>追加</translation>
+    </message>
+    <message>
+        <source>Executable: </source>
+        <translation>実行可能:</translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation>引数:</translation>
+    </message>
+    <message>
+        <source>Cannot start external program</source>
+        <translation>外部プログラムを起動できません</translation>
+    </message>
+    <message>
+        <source>Cannot start external program! %1</source>
+        <translation>外部プログラムを起動できません! %1</translation>
+    </message>
+    <message>
+        <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
+        <translation>RSSフィード &lt;b&gt;&quot;%1&quot;&lt;/b&gt; </translation>
+    </message>
+    <message>
+        <source>Internal Reader</source>
+        <translation>内部リーダー</translation>
+    </message>
+    <message>
+        <source>Other...</source>
+        <translation>その他...</translation>
+    </message>
+    <message>
+        <source>Liferea not running</source>
+        <translation>Lifereaは起動していません</translation>
+    </message>
+    <message>
+        <source>Liferea must be running in order to add new feed.</source>
+        <translation>新しいフィードを追加するにはLifereaが起動していなくてはなりません。</translation>
+    </message>
+    <message>
+        <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
+        <translation>このRSSフィードをその他のアプリケーションに追加するにはこの情報を使ってください。:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;ページ名：&lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;URL:&lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;このフィードのURLアドレスはクリップボードにコピーされます。</translation>
+    </message>
+    <message>
+        <source>Add feed into other application</source>
+        <translation>フィードをその他のアプリケーションに追加する</translation>
     </message>
 </context>
 <context>
@@ -3275,10 +3222,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 </context>
 <context>
     <name>SSLManager</name>
-    <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">SSLマネージャ</translation>
-    </message>
     <message>
         <source>CA Authorities Certificates</source>
         <translatorcomment>保留</translatorcomment>
@@ -4029,10 +3972,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>ブロックされたコンテンツ</translation>
     </message>
     <message>
-        <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>&lt;i&gt;%1&lt;/i&gt;によってブロックされています</translation>
-    </message>
-    <message>
         <source>Content Access Denied</source>
         <translation>コンテンツに接続できません</translation>
     </message>
@@ -4095,7 +4034,11 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translatorcomment>ここようわからん</translatorcomment>
-        <translation>QupZillaは&lt;b&gt;%1:&lt;/b&gt;のリンクを処理できません。リクエストされたリンクは&lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;システムアプリケーションでこのリンクを開きますか？</translation>
+        <translation>QupZillaは&lt;b&gt;%1:&lt;/b&gt;のリンクを処理できません。リクエストされたリンクは&lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;システムアプリケーションでこのリンクを開きますか?</translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation>&lt;i&gt;%1&lt;i/&gt;によってブロックされました</translation>
     </message>
 </context>
 <context>

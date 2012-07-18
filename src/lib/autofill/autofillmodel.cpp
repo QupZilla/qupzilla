@@ -211,8 +211,8 @@ void AutoFillModel::completePage(WebPage* page)
     for (int i = 0; i < arguments.count(); i++) {
         QString key = arguments.at(i).first;
         QString value = arguments.at(i).second;
-        key.replace("+", " ");
-        value.replace("+", " ");
+        key.replace('+', ' ');
+        value.replace('+', ' ');
 
         key = QUrl::fromEncoded(key.toUtf8()).toString();
         value = QUrl::fromEncoded(value.toUtf8()).toString();
@@ -233,8 +233,8 @@ void AutoFillModel::completePage(WebPage* page)
 
 void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgoingData)
 {
-    //Dont save in private browsing
-    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
+    // Don't save in private browsing
+    if (mApp->isPrivateSession()) {
         return;
     }
 
@@ -250,18 +250,19 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
         return;
     }
 
-    v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101));
-    QWebPage::NavigationType type = (QWebPage::NavigationType)v.toInt();
+//    v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101));
+//    QWebPage::NavigationType type = (QWebPage::NavigationType)v.toInt();
 
-    if (type != QWebPage::NavigationTypeFormSubmitted) {
-        return;
-    }
+//    if (type != QWebPage::NavigationTypeFormSubmitted) {
+//        return;
+//    }
 
     QString usernameName;
     QString usernameValue;
     QString passwordName;
     QString passwordValue;
-    QUrl siteUrl = webPage->url();
+
+    const QUrl &siteUrl = webPage->url();
 
     if (!isStoringEnabled(siteUrl)) {
         return;
@@ -305,6 +306,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     foreach(const QWebElement & element, foundForm.findAll("input[type=\"text\"]")) {
         usernameName = element.attribute("name");
         usernameValue = getValueFromData(data, element);
+
         if (!usernameName.isEmpty() && !usernameValue.isEmpty()) {
             break;
         }
@@ -362,13 +364,13 @@ QByteArray AutoFillModel::convertWebKitFormBoundaryIfNecessary(const QByteArray 
         QString string = rx.cap(1);
         pos += rx.matchedLength();
 
-        int endOfAttributeName = string.indexOf("\"");
+        int endOfAttributeName = string.indexOf('"');
         if (endOfAttributeName == -1) {
             continue;
         }
 
         QString attrName = string.left(endOfAttributeName);
-        QString attrValue = string.mid(endOfAttributeName + 1).trimmed().remove("\n");
+        QString attrValue = string.mid(endOfAttributeName + 1).trimmed().remove('\n');
 
         if (attrName.isEmpty() || attrValue.isEmpty()) {
             continue;

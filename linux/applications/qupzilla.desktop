@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=QupZilla
 Name[ka]=ქუპზილა
 Name[sr]=Капзила
@@ -27,6 +26,7 @@ Comment[sr@ijekavian]=Брз и сигуран веб прегледач
 Comment[sr@ijekavianlatin]=Brz i siguran veb pregledač
 Comment[sr@latin]=Brz i siguran veb pregledač
 Comment[sv]=En snabb och säker webbläsare
+Comment[uk]=Швидкий і безпечний веб-переглядач
 Comment[zh_TW]=安全又快速的瀏覽器
 Comment[zh_CN]=安全又快速的浏览器
 Comment[ja]=高速で安全なブラウザ
@@ -51,6 +51,7 @@ GenericName[sr@ijekavian]=Веб прегледач
 GenericName[sr@ijekavianlatin]=Veb pregledač
 GenericName[sr@latin]=Veb pregledač
 GenericName[sv]=Webbläsare
+GenericName[uk]=Веб-переглядач
 GenericName[zh_TW]=網頁瀏覽器
 GenericName[zh_CN]=网页浏览器
 GenericName[ja]=Webブラウザ
@@ -59,7 +60,7 @@ MimeType=text/html;application/xhtml+xml;
 Terminal=false
 X-Ayatana-Desktop-Shortcuts=NewTab;NewWindow;PrivateBrowsing;
 
-[NewTab Shortcut Group]
+[X-NewTab Shortcut Group]
 Name=Open new tab
 Name[cs]=Otevřít nový panel
 Name[de]=Neuen Tab öffnen
@@ -80,14 +81,14 @@ Name[sr@ijekavian]=Отвори у новом језичку
 Name[sr@ijekavianlatin]=Otvori u novom jezičku
 Name[sr@latin]=Otvori u novom jezičku
 Name[sv]=Öppna ny flik
+Name[uk]=Відкрити нову вкладку
 Name[zh_TW]=新增分頁
 Name[zh_CN]=新建标签页
 Name[ja]=新しいタブを開く
-
 Exec=qupzilla --new-tab
 TargetEnvironment=Unity
 
-[NewWindow Shortcut Group]
+[X-NewWindow Shortcut Group]
 Name=Open new window
 Name[cs]=Otevřít nové okno
 Name[de]=Neues Fenster öffnen
@@ -108,13 +109,14 @@ Name[sr@ijekavian]=Отвори у новом прозору
 Name[sr@ijekavianlatin]=Otvori u novom prozoru
 Name[sr@latin]=Otvori u novom prozoru
 Name[sv]=Öppna nytt fönster
+Name[uk]=Відкрити нове вікно
 Name[zh_TW]=新增視窗
 Name[zh_CN]=新建窗口
 Name[ja]=新しいウィンドウを開く
 Exec=qupzilla --new-window
 TargetEnvironment=Unity
 
-[PrivateBrowsing Shortcut Group]
+[X-PrivateBrowsing Shortcut Group]
 Name=Start private browsing
 Name[cs]=Spustit soukromé prohlížení
 Name[de]=Privaten Modus starten
@@ -135,6 +137,7 @@ Name[sr@ijekavian]=Покрени приватно прегледање
 Name[sr@ijekavianlatin]=Pokreni privatno pregledanje
 Name[sr@latin]=Pokreni privatno pregledanje
 Name[sv]=Starta privat surfning
+Name[uk]=Запустити Приватний перегляд
 Name[zh_TW]=開始私密瀏覽
 Name[zh_CN]=开始隐私浏览
 Name[ja]=プライベートブラウジングを開始

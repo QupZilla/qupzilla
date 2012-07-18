@@ -118,6 +118,10 @@ WebPage* WebView::page() const
 
 void WebView::setPage(QWebPage* page)
 {
+    if (m_page == page) {
+        return;
+    }
+
     QWebView::setPage(page);
     m_page = qobject_cast<WebPage*>(page);
 
@@ -146,7 +150,7 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
 
     if (reqUrl.isEmpty() || isUrlValid(reqUrl)) {
         QWebView::load(request, operation, body);
-        emit urlChanged(url());
+        emit urlChanged(reqUrl);
         m_aboutToLoadUrl = reqUrl;
         return;
     }
@@ -156,7 +160,6 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
 
     emit urlChanged(searchUrl);
     m_aboutToLoadUrl = searchUrl;
-
 }
 
 bool WebView::loadingError() const
@@ -169,9 +172,15 @@ bool WebView::isLoading() const
     return m_isLoading;
 }
 
-int WebView::loadProgress() const
+int WebView::loadingProgress() const
 {
     return m_progress;
+}
+
+void WebView::fakeLoadingProgress(int progress)
+{
+    emit loadStarted();
+    emit loadProgress(progress);
 }
 
 bool WebView::isUrlValid(const QUrl &url)
@@ -392,7 +401,7 @@ void WebView::downloadPage()
 {
     QNetworkRequest request(url());
     QString suggestedFileName = qz_getFileNameFromUrl(url());
-    if (!suggestedFileName.contains(".")) {
+    if (!suggestedFileName.contains('.')) {
         suggestedFileName.append(".html");
     }
 
@@ -495,6 +504,21 @@ void WebView::openUrlInBackgroundTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         openUrlInNewTab(action->data().toUrl(), Qz::NT_NotSelectedTab);
+    }
+}
+
+void WebView::userDefinedOpenUrlInNewTab(const QUrl &url, bool invert)
+{
+    Qz::NewTabPositionFlag position = WebSettings::newTabPosition;
+    if (invert) {
+        position = (position == Qz::NT_SelectedTab) ? Qz::NT_NotSelectedTab : Qz::NT_SelectedTab;
+    }
+
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        openUrlInNewTab(action->data().toUrl(), position);
+    }
+    else {
+        openUrlInNewTab(url, position);
     }
 }
 
@@ -771,7 +795,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     }
 
     menu->addSeparator();
-    menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInBackgroundTab()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(userDefinedOpenUrlInNewTab()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(hitTest.linkUrl());
     menu->addSeparator();
     menu->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());
@@ -792,7 +816,7 @@ void WebView::createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
     Action* act = new Action(tr("Show i&mage"));
     act->setData(hitTest.imageUrl());
     connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
-    connect(act, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+    connect(act, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInNewTab()));
     menu->addAction(act);
     menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(hitTest.imageUrl());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
@@ -822,7 +846,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
 
     QString langCode = mApp->currentLanguage().left(2);
     QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
-    Action* gtwact = new Action(QIcon(":icons/menu/translate.png"), tr("Google Translate"));
+    Action* gtwact = new Action(QIcon(":icons/sites/translate.png"), tr("Google Translate"));
     gtwact->setData(googleTranslateUrl);
     connect(gtwact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
     connect(gtwact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
@@ -834,8 +858,8 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addAction(dictact);
 
     // #379: Remove newlines
-    QString selectedString = selectedText.trimmed().remove("\n");
-    if (!selectedString.contains(".")) {
+    QString selectedString = selectedText.trimmed().remove('\n');
+    if (!selectedString.contains('.')) {
         // Try to add .com
         selectedString.append(".com");
     }
@@ -846,14 +870,14 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
         act->setData(guessedUrl);
 
         connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
-        connect(act, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInNewTab()));
         menu->addAction(act);
     }
 
     menu->addSeparator();
     selectedText.truncate(20);
     // KDE is displaying new lines in menu actions ... weird -,-
-    selectedText.replace("\n", " ").replace("\t", "");
+    selectedText.replace('\n', ' ').remove('\t');
 
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
     Action* act = new Action(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name));
@@ -928,15 +952,9 @@ void WebView::wheelEvent(QWheelEvent* event)
     }
 
     if (event->modifiers() & Qt::ControlModifier) {
-        int numDegrees = event->delta() / 8;
-        int numSteps = numDegrees / 15;
-        if (numSteps == 1) {
-            zoomIn();
-        }
-        else {
-            zoomOut();
-        }
+        event->delta() > 0 ? zoomIn() : zoomOut();
         event->accept();
+
         return;
     }
 
@@ -976,8 +994,8 @@ void WebView::mousePressEvent(QMouseEvent* event)
         QWebFrame* frame = page()->frameAt(event->pos());
         if (frame) {
             const QUrl &link = frame->hitTestContent(event->pos()).linkUrl();
-            if (event->modifiers() == Qt::ControlModifier && isUrlValid(link)) {
-                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+            if (event->modifiers() & Qt::ControlModifier && isUrlValid(link)) {
+                userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
                 event->accept();
                 return;
             }
@@ -1003,7 +1021,7 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
         if (frame) {
             const QUrl &link = frame->hitTestContent(event->pos()).linkUrl();
             if (m_clickedUrl == link && isUrlValid(link)) {
-                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
                 event->accept();
                 return;
             }

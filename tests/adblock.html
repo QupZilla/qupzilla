@@ -1,11 +1,38 @@
 <html>
 <head>
  <title>AdBlock Tests &A</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 <body>
-<h2>Popup Block Tests</h2>
-  <a href="javascript:window.open('http://www.google.com/aclk?sa=l&adurl=http://www.edreams.com/', '_blank', 'width=600,height=600,statusbar=no,toolbar=no')">Open Popup window (will be blocked)</a>
-  <br/>
-  <br/>
+<h2>AdBlock Tests</h2>
+<h3>Popup Blocking</h3>
+<p>
+<a href="javascript:window.open('http://www.google.com/aclk?sa=l&adurl=http://www.edreams.com/', '_blank', 'width=600,height=600,statusbar=no,toolbar=no')">Open Popup window (will be blocked)</a>
+</p>
+
+<h3>Element hiding</h3>
+Blocking element with <b>##div.test-qz-ad</b> rule.
+<div class="test-qz-ad" style="font-weight: bold; color: darkred;">
+If you see this text, the rule does not works!
+</div>
+
+<h3>Subdocument rules</h3>
+Blocking iframe with <b>||linux.org.ru^$subdocument</b> rule.
+<iframe src="http://www.linux.org.ru" width="100" height="100"></iframe>
+
+<h3>XMLHttpRequest rules</h3>
+Blocking ajax with <b>adblock.html$xmlhttprequest</b> rule.
+<div id="ajax-status">Blocked</div>
+<script>
+$.get("adblock.html", function(data) {
+    $("#ajax-status").html("Loaded!");
+  });
+
+if (location.protocol == "file:") {
+    document.write("<h3 style='color:red'>Protocol file:// cannot be blocked!</h3>");
+    document.write("Please move this file to localhost");
+}
+</script>
+
 </body>
 </html>

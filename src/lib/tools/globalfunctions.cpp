@@ -50,14 +50,16 @@ QPixmap qz_pixmapFromByteArray(const QByteArray &data)
     return image;
 }
 
-QByteArray qz_readAllFileContents(const QString &filename)
+QString qz_readAllFileContents(const QString &filename)
 {
     QFile file(filename);
-    file.open(QFile::ReadOnly);
-    QByteArray a = file.readAll();
-    file.close();
+    if (file.open(QFile::ReadOnly)) {
+        QString a = QString::fromUtf8(file.readAll());
+        file.close();
+        return a;
+    }
 
-    return a;
+    return QByteArray();
 }
 
 void qz_centerWidgetOnScreen(QWidget* w)
@@ -114,7 +116,6 @@ void qz_removeDir(const QString &d)
     }
 }
 
-
 QString qz_samePartOfStrings(const QString &one, const QString &other)
 {
     int i = 0;
@@ -145,7 +146,7 @@ QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
     else {
         samePart = samePart.left(samePart.lastIndexOf("/") + 1);
         int slashCount = samePart.count("/") + 1;
-        if (samePart.startsWith("/")) {
+        if (samePart.startsWith('/')) {
             slashCount--;
         }
         if (samePart.endsWith("/")) {
@@ -165,35 +166,36 @@ QString qz_urlEncodeQueryString(const QUrl &url)
     QString returnString = url.toString(QUrl::RemoveQuery | QUrl::RemoveFragment);
 
     if (url.hasQuery()) {
-        returnString += "?" + url.encodedQuery();
+        returnString += '?' + url.encodedQuery();
     }
 
     if (url.hasFragment()) {
-        returnString += "#" + url.encodedFragment();
+        returnString += '#' + url.encodedFragment();
     }
 
-    returnString.replace(" ", "%20");
+    returnString.replace(' ', "%20");
 
     return returnString;
 }
 
-QString qz_ensureUniqueFilename(const QString &pathToFile)
+QString qz_ensureUniqueFilename(const QString &name, const QString &appendFormat)
 {
-    if (!QFile::exists(pathToFile)) {
-        return pathToFile;
+    if (!QFile::exists(name)) {
+        return name;
     }
 
-    QString tmpFileName = pathToFile;
+    QString tmpFileName = name;
     int i = 1;
     while (QFile::exists(tmpFileName)) {
-        tmpFileName = pathToFile;
+        tmpFileName = name;
         int index = tmpFileName.lastIndexOf(".");
 
+        QString appendString = appendFormat.arg(i);
         if (index == -1) {
-            tmpFileName.append("(" + QString::number(i) + ")");
+            tmpFileName.append(appendString);
         }
         else {
-            tmpFileName = tmpFileName.mid(0, index) + "(" + QString::number(i) + ")" + tmpFileName.mid(index);
+            tmpFileName = tmpFileName.left(index) + appendString + tmpFileName.mid(index);
         }
         i++;
     }
@@ -203,16 +205,16 @@ QString qz_ensureUniqueFilename(const QString &pathToFile)
 QString qz_getFileNameFromUrl(const QUrl &url)
 {
     QString fileName = url.toString(QUrl::RemoveFragment | QUrl::RemoveQuery | QUrl::RemoveScheme | QUrl::RemovePort);
-    if (fileName.indexOf("/") != -1) {
-        int pos = fileName.lastIndexOf("/");
+    if (fileName.indexOf('/') != -1) {
+        int pos = fileName.lastIndexOf('/');
         fileName = fileName.mid(pos);
-        fileName.remove("/");
+        fileName.remove('/');
     }
 
     fileName = qz_filterCharsFromFilename(fileName);
 
     if (fileName.isEmpty()) {
-        fileName = qz_filterCharsFromFilename(url.host().replace(".", "-"));
+        fileName = qz_filterCharsFromFilename(url.host().replace('.', '-'));
     }
 
     return fileName;
@@ -221,15 +223,16 @@ QString qz_getFileNameFromUrl(const QUrl &url)
 QString qz_filterCharsFromFilename(const QString &name)
 {
     QString value = name;
-    value.replace("/", "-");
-    value.remove("\\");
-    value.remove(":");
-    value.remove("*");
-    value.remove("?");
-    value.remove("\"");
-    value.remove("<");
-    value.remove(">");
-    value.remove("|");
+
+    value.replace('/', '-');
+    value.remove('\\');
+    value.remove(':');
+    value.remove('*');
+    value.remove('?');
+    value.remove('"');
+    value.remove('<');
+    value.remove('>');
+    value.remove('|');
 
     return value;
 }
@@ -248,7 +251,7 @@ QString qz_alignTextToWidth(const QString &string, const QString &text, const QF
         }
 
         if (elidedLine.size() != part.size()) {
-            elidedLine = elidedLine.mid(0, elidedLine.size() - 3);
+            elidedLine = elidedLine.left(elidedLine.size() - 3);
         }
 
         if (!returnString.isEmpty()) {

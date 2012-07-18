@@ -20,6 +20,7 @@
 
 #include <QPixmap>
 #include <QtPlugin>
+#include <QNetworkRequest>
 #include <QWebHitTestResult>
 
 #include "qz_namespace.h"
@@ -81,8 +82,10 @@ public:
 
     virtual bool keyPress(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
     virtual bool keyRelease(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
+
+    virtual QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData) { Q_UNUSED(op) Q_UNUSED(request) Q_UNUSED(outgoingData) return 0; }
 };
 
-Q_DECLARE_INTERFACE(PluginInterface, "QupZilla.Browser.PluginInterface/1.1")
+Q_DECLARE_INTERFACE(PluginInterface, "QupZilla.Browser.PluginInterface/1.2")
 
 #endif // PLUGININTERFACE_H

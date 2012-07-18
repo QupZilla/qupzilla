@@ -74,6 +74,32 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation>Назва:</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>Url-адреса:</translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation>Додати нову підписку до AdBlock&apos;у:</translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation>Додати підписку</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation>Правила користувача</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
@@ -88,45 +114,43 @@
         <translation>Пошук...</translation>
     </message>
     <message>
-        <source>Rule</source>
-        <translation>Правило</translation>
-    </message>
-    <message>
         <source>Add Rule</source>
         <translation>Додати правило</translation>
-    </message>
-    <message>
-        <source>Update EasyList</source>
-        <translation>Оновити EasyList</translation>
     </message>
     <message>
         <source>AdBlock</source>
         <translation>AdBlock</translation>
     </message>
     <message>
-        <source>Delete Rule</source>
+        <source>Options</source>
+        <translation>Опції</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
         <translation>Видалити правило</translation>
     </message>
     <message>
-        <source>Update completed</source>
-        <translation>Оновлення завершено</translation>
+        <source>Add Subscription</source>
+        <translation>Додати підписку</translation>
     </message>
     <message>
-        <source>EasyList has been successfully updated.</source>
-        <translation>EasyList було успішно оновлено.</translation>
+        <source>Remove Subscription</source>
+        <translation>Видалити підписку</translation>
     </message>
     <message>
-        <source>Custom Rules</source>
-        <translatorcomment>Custom = користувач</translatorcomment>
-        <translation>Правила користувача</translation>
+        <source>Update Subscriptions</source>
+        <translation>Оновити підписки</translation>
     </message>
     <message>
-        <source>Add Custom Rule</source>
-        <translation>Додати правило користувача</translation>
+        <source>Learn about writing rules...</source>
+        <translation>Дізнатись про написання правил...</translation>
     </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
     <message>
-        <source>Please write your rule here:</source>
-        <translation>Будь ласка, напишіть Ваше правило тут:</translation>
+        <source>EasyList</source>
+        <translation>EasyList</translation>
     </message>
 </context>
 <context>
@@ -167,9 +191,39 @@
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
         <translation>Заблоковано URL (за правилом AdBlock) - клацніть, щоб відредагувати правило</translation>
     </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
     <message>
-        <source>Learn About Writing &amp;Rules</source>
-        <translation>Дізнатись про написання &amp;правил</translation>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation>Ви хочете додати підписку &lt;b&gt;%1&lt;/b&gt;?</translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation>Підписка AdBlock</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation>Додати правило</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation>Видалити правило</translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation>Додати правило користувача</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation>Будь ласка, напишіть Ваше правило тут:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation>%1 (нещодавно оновлено)</translation>
     </message>
 </context>
 <context>
@@ -542,7 +596,7 @@
     </message>
     <message>
         <source>Change icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Змінити іконку</translation>
     </message>
 </context>
 <context>
@@ -1211,75 +1265,63 @@
         <translation>&lt;b&gt;Примітка: &lt;/b&gt;%s в url-адресі означає шуканий рядок</translation>
     </message>
     <message>
-        <source>Add from file ...</source>
-        <translation type="obsolete">Додати з файлу...</translation>
-    </message>
-    <message>
-        <source>Choose icon...</source>
-        <translation type="obsolete">Оберіть іконку...</translation>
-    </message>
-    <message>
-        <source>Image files</source>
-        <translation type="obsolete">Файли зображень</translation>
-    </message>
-    <message>
         <source>Change...</source>
-        <translation type="unfinished"></translation>
+        <translation>Змінити...</translation>
     </message>
 </context>
 <context>
     <name>History</name>
     <message>
         <source>No Named Page</source>
-        <translation type="unfinished">Безіменна сторінка</translation>
+        <translation>Безіменна сторінка</translation>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished">Січень</translation>
+        <translation>Січень</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished">Лютий</translation>
+        <translation>Лютий</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished">Березень</translation>
+        <translation>Березень</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished">Квітень</translation>
+        <translation>Квітень</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished">Травень</translation>
+        <translation>Травень</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished">Червень</translation>
+        <translation>Червень</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished">Липень</translation>
+        <translation>Липень</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished">Серпень</translation>
+        <translation>Серпень</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished">Вересень</translation>
+        <translation>Вересень</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished">Жовтень</translation>
+        <translation>Жовтень</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished">Листопад</translation>
+        <translation>Листопад</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished">Грудень</translation>
+        <translation>Грудень</translation>
     </message>
 </context>
 <context>
@@ -1287,14 +1329,6 @@
     <message>
         <source>History</source>
         <translation>Історія</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation type="obsolete">Назва</translation>
-    </message>
-    <message>
-        <source>Url</source>
-        <translation type="obsolete">Url-адреса</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1309,30 +1343,6 @@
         <translation>Оптимізувати базу даних</translation>
     </message>
     <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">Відкрити посилання в поточній вкладці</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">Відкрити посилання в новій вкладці</translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">Скопіювати адресу</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">Сьогодні</translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="obsolete">Цього тижня</translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="obsolete">Цього місяця</translation>
-    </message>
-    <message>
         <source>Confirmation</source>
         <translation>Підтвердження</translation>
     </message>
@@ -1344,88 +1354,32 @@
 <context>
     <name>HistoryModel</name>
     <message>
-        <source>Failed loading page</source>
-        <translation type="obsolete">Не вдалося завантажити сторінку</translation>
-    </message>
-    <message>
-        <source>No Named Page</source>
-        <translation type="obsolete">Безіменна сторінка</translation>
-    </message>
-    <message>
-        <source>January</source>
-        <translation type="obsolete">Січень</translation>
-    </message>
-    <message>
-        <source>February</source>
-        <translation type="obsolete">Лютий</translation>
-    </message>
-    <message>
-        <source>March</source>
-        <translation type="obsolete">Березень</translation>
-    </message>
-    <message>
-        <source>April</source>
-        <translation type="obsolete">Квітень</translation>
-    </message>
-    <message>
-        <source>May</source>
-        <translation type="obsolete">Травень</translation>
-    </message>
-    <message>
-        <source>June</source>
-        <translation type="obsolete">Червень</translation>
-    </message>
-    <message>
-        <source>July</source>
-        <translation type="obsolete">Липень</translation>
-    </message>
-    <message>
-        <source>August</source>
-        <translation type="obsolete">Серпень</translation>
-    </message>
-    <message>
-        <source>September</source>
-        <translation type="obsolete">Вересень</translation>
-    </message>
-    <message>
-        <source>October</source>
-        <translation type="obsolete">Жовтень</translation>
-    </message>
-    <message>
-        <source>November</source>
-        <translation type="obsolete">Листопад</translation>
-    </message>
-    <message>
-        <source>December</source>
-        <translation type="obsolete">Грудень</translation>
-    </message>
-    <message>
         <source>Title</source>
-        <translation type="unfinished">Назва</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Url-адреса</translation>
     </message>
     <message>
         <source>Visit Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Дата відвідування</translation>
     </message>
     <message>
         <source>Visit Count</source>
-        <translation type="unfinished"></translation>
+        <translation>Кількість відвідувань</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished">Сьогодні</translation>
+        <translation>Сьогодні</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation type="unfinished">Цього тижня</translation>
+        <translation>Цього тижня</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation type="unfinished">Цього місяця</translation>
+        <translation>Цього місяця</translation>
     </message>
 </context>
 <context>
@@ -1434,87 +1388,59 @@
         <source>Search...</source>
         <translation>Пошук...</translation>
     </message>
-    <message>
-        <source>Title</source>
-        <translation type="obsolete">Назва</translation>
-    </message>
-    <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">Відкрити посилання в поточній вкладці</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">Відкрити посилання в новій вкладці</translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">Копіювати адресу</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">Сьогодні</translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="obsolete">Цього тижня</translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="obsolete">Цього місяця</translation>
-    </message>
 </context>
 <context>
     <name>HistoryView</name>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished">Відкрити посилання в поточній вкладці</translation>
+        <translation>Відкрити посилання в поточній вкладці</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished">Відкрити посилання в новій вкладці</translation>
+        <translation>Відкрити посилання в новій вкладці</translation>
     </message>
     <message>
         <source>Copy title</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати назву</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати Url-адресу</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Видалити</translation>
+        <translation>Видалити</translation>
     </message>
 </context>
 <context>
     <name>IconChooser</name>
     <message>
         <source>Choose icon...</source>
-        <translation type="unfinished">Оберіть іконку...</translation>
+        <translation>Оберіть іконку...</translation>
     </message>
     <message>
         <source>From file</source>
-        <translation type="unfinished"></translation>
+        <translation>З файлу</translation>
     </message>
     <message>
         <source>Image (.png, .jpg, .jpeg, .gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>Зображення (.png, .jpg, .jpeg, .gif)</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Оберіть файл...</translation>
     </message>
     <message>
         <source>From database</source>
-        <translation type="unfinished"></translation>
+        <translation>З бази даних</translation>
     </message>
     <message>
         <source>Site Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Url-адреса сайту:</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished">Файли зображень</translation>
+        <translation>Файли зображень</translation>
     </message>
 </context>
 <context>
@@ -1699,21 +1625,24 @@
         <source>Allow Click To Flash</source>
         <translation>Використовувати Click To Flash</translation>
     </message>
+</context>
+<context>
+    <name>PluginsManager</name>
     <message>
         <source>Add site to whitelist</source>
-        <translation>Додати сайт до білого переліку</translation>
+        <translation type="unfinished">Додати сайт до білого переліку</translation>
     </message>
     <message>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation>Сервер без http:// (напр. youtube.com)</translation>
+        <translation type="unfinished">Сервер без http:// (напр. youtube.com)</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation>Помилка!</translation>
+        <translation type="unfinished">Помилка!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation>Неможливо завантажити розширення!</translation>
+        <translation type="unfinished">Неможливо завантажити розширення!</translation>
     </message>
 </context>
 <context>
@@ -1910,10 +1839,6 @@
         <translation>&lt;b&gt;Поведінка вкладок&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Make tabs movable</source>
-        <translation>Дозволити пересувати вкладки</translation>
-    </message>
-    <message>
         <source>Hide tabs when there is only one tab</source>
         <translation>Ховати панель вкладок, коли відкрита лише одна вкладка</translation>
     </message>
@@ -1989,10 +1914,6 @@
         <translation>Масштабувати лише текст</translation>
     </message>
     <message>
-        <source>Ask when entering Private Browsing mode</source>
-        <translation>Питати під час запуску Приватного перегляду</translation>
-    </message>
-    <message>
         <source>Mouse wheel scrolls</source>
         <translation>Колесо миші прокручує</translation>
     </message>
@@ -2027,10 +1948,6 @@
     <message>
         <source>50 MB</source>
         <translation>50 МБ</translation>
-    </message>
-    <message>
-        <source>Allow storing web icons</source>
-        <translation type="obsolete">Дозволити зберігання іконок з нету</translation>
     </message>
     <message>
         <source>Allow saving history</source>
@@ -2227,14 +2144,6 @@
         <translation>&lt;b&gt;SSL-сертифікати&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">Менеджер SSL</translation>
-    </message>
-    <message>
-        <source>Edit CA certificates in SSL Manager</source>
-        <translation type="obsolete">Редагувати CA-сертифікати в SSL-менеджері</translation>
-    </message>
-    <message>
         <source>JavaScript can access clipboard</source>
         <translation>JavaScript має доступ до буферу обміну</translation>
     </message>
@@ -2376,19 +2285,23 @@
     </message>
     <message>
         <source>Show tab previews</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати прев&apos;ю вкладок</translation>
     </message>
     <message>
         <source>Make tab previews animated</source>
-        <translation type="unfinished"></translation>
+        <translation>Робити прев&apos;ю вкладок анімованим</translation>
     </message>
     <message>
         <source>Manage CA certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Керування CA-сертифікатами</translation>
     </message>
     <message>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер сертифікатів</translation>
+    </message>
+    <message>
+        <source>Automatically switch to newly opened tab</source>
+        <translation>Автоматично перемикатись на нову вкладку</translation>
     </message>
 </context>
 <context>
@@ -2578,14 +2491,6 @@
         <translation>&amp;Кодування символів</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation type="obsolete">Закладки</translation>
-    </message>
-    <message>
-        <source>History</source>
-        <translation type="obsolete">Історія</translation>
-    </message>
-    <message>
         <source>Toolbars</source>
         <translation>Панелі інструментів</translation>
     </message>
@@ -2744,49 +2649,12 @@
         <translation>Інше</translation>
     </message>
     <message>
-        <source>Default</source>
-        <translation type="obsolete">За замовчуванням</translation>
-    </message>
-    <message>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
         <source>Open file...</source>
         <translation>Відкрити файл...</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to turn on private browsing?</source>
-        <translatorcomment>private browsing</translatorcomment>
-        <translation>Ви впевнені що хочете увімкнути Приватний перегляд?</translation>
-    </message>
-    <message>
-        <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Коли приватний перегляд увімкнено, деякі функції, що можуть порушити Вашу приватність, будуть відключені:</translation>
-    </message>
-    <message>
-        <source>Webpages are not added to the history.</source>
-        <translation>Переглянуті веб-сторінки не додаватимуться до історії.</translation>
-    </message>
-    <message>
-        <source>Current cookies cannot be accessed.</source>
-        <translation>Поточні cookies будуть недоступними.</translation>
-    </message>
-    <message>
-        <source>Your session is not stored.</source>
-        <translation>Ваша сесія не збережеться.</translation>
-    </message>
-    <message>
-        <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>Допоки Ви не закриєте вікно, Ви все ще можете використовувати кнопки &quot;Назад&quot; і &quot;Вперед&quot;, щоб повернутись до сторінок, які ви відкривали.</translation>
-    </message>
-    <message>
-        <source>Start Private Browsing</source>
-        <translation>Запустити Приватний перегляд</translation>
-    </message>
-    <message>
-        <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation>Ви успішно додали RSS-канал &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>HTML files</source>
@@ -2868,14 +2736,6 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>Start Page</source>
         <translation>Стартова сторінка</translation>
-    </message>
-    <message>
-        <source>Google Search</source>
-        <translation>Пошук Google</translation>
-    </message>
-    <message>
-        <source>Search results provided by Google</source>
-        <translation>Результати пошуку надані Googl&apos;ом</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -3125,6 +2985,18 @@ Are you sure to quit QupZilla?</source>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Ця сторінка містить інфомацію про поточну конфігурацію QupZill&apos;и - актуальна для усунення неполадок. Будь ласка, включіть цю інформацію коли заповнюватимете звіти про помилки.</translation>
     </message>
+    <message>
+        <source>Search on Web</source>
+        <translation>Шукати у Вебі</translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation>Результати пошуку надані DuckDuckGo</translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation>&lt;h1&gt;Приватний перегляд&lt;/h1&gt;</translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3222,8 +3094,56 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 <context>
     <name>RSSNotification</name>
     <message>
-        <source>Open RSS Manager</source>
-        <translation>Відкрити RSS-менеджер</translation>
+        <source>Add this feed into</source>
+        <translation>Додати цю стрічку до</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Додати</translation>
+    </message>
+    <message>
+        <source>Executable: </source>
+        <translation>Виконуваний файл: </translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation>Параметри запуску: </translation>
+    </message>
+    <message>
+        <source>Cannot start external program</source>
+        <translation>Неможливо запустити зовнішню програму</translation>
+    </message>
+    <message>
+        <source>Cannot start external program! %1</source>
+        <translation>Неможливо запустити зовнішню програму! %1</translation>
+    </message>
+    <message>
+        <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
+        <translation>RSS-стрічка &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Internal Reader</source>
+        <translation>Внутрішня читалка</translation>
+    </message>
+    <message>
+        <source>Other...</source>
+        <translation>Інше...</translation>
+    </message>
+    <message>
+        <source>Liferea not running</source>
+        <translation>Liferea не запущено</translation>
+    </message>
+    <message>
+        <source>Liferea must be running in order to add new feed.</source>
+        <translation>Liferea має бути запущено, щоб додати нову стрічку.</translation>
+    </message>
+    <message>
+        <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
+        <translation>Щоб додати цю RSS-стрічку до іншої програми, будь ласка, використовуйте цю інформацію:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Назва: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url-адреса: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url-адресу стрічку було скопійовано до буферу обміну.</translation>
+    </message>
+    <message>
+        <source>Add feed into other application</source>
+        <translation>Додати стрічку до іншої програми</translation>
     </message>
 </context>
 <context>
@@ -3243,10 +3163,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 </context>
 <context>
     <name>SSLManager</name>
-    <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">Менеджер SSL</translation>
-    </message>
     <message>
         <source>CA Authorities Certificates</source>
         <translation>Сертифікати управління CA</translation>
@@ -3307,15 +3223,15 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер сертифікатів</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Імпорт</translation>
     </message>
     <message>
         <source>Import certificate...</source>
-        <translation type="unfinished"></translation>
+        <translation>Імпортувати сертифікат...</translation>
     </message>
 </context>
 <context>
@@ -3977,10 +3893,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Контент заблоковано AdBlock&apos;ом</translation>
     </message>
     <message>
-        <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Заблоковано правилом &lt;i&gt;%1&lt;/i&gt;</translation>
-    </message>
-    <message>
         <source>Content Access Denied</source>
         <translation>У доступі до контенту відмовлено</translation>
     </message>
@@ -4030,15 +3942,19 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla не може управитись з посиланнями &lt;b&gt;%1:&lt;/b&gt;. Шукане посилання &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;. Чи хочете Ви аби QupZilla спробувала відкрити це посилання за допомогою системної програми?</translation>
     </message>
     <message>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Запам&apos;ятати мій вибір для цього протоколу</translation>
     </message>
     <message>
         <source>External Protocol Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Запит зовнішнього протоколу</translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation>Заблоковано &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
 </context>
 <context>

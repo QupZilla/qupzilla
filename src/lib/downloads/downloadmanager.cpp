@@ -102,7 +102,7 @@ void DownloadManager::keyPressEvent(QKeyEvent* e)
 
 void DownloadManager::startExternalManager(const QUrl &url)
 {
-    QStringList arguments = m_externalArguments.split(" ");
+    QStringList arguments = m_externalArguments.split(' ', QString::SkipEmptyParts);
     arguments << url.toString();
 
     bool success = QProcess::startDetached(m_externalExecutable, arguments);
@@ -202,7 +202,6 @@ void DownloadManager::download(const QNetworkRequest &request, WebPage* page, bo
     // Clearing web page info from request
     QNetworkRequest req = request;
     req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), 0);
-    req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), 0);
 
     handleUnsupportedContent(m_networkManager->get(req), page, fromPageDownload, suggestedFileName);
 }
@@ -220,7 +219,7 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* pa
         return;
     }
 
-    reply->setProperty("downReply", true);
+    reply->setProperty("downReply", QVariant(true));
 
     DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog, page);
     connect(h, SIGNAL(itemCreated(QListWidgetItem*, DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*, DownloadItem*)));
@@ -258,7 +257,7 @@ void DownloadManager::downloadFinished(bool success)
 
     if (downloadingAllFilesFinished) {
         if (success && qApp->activeWindow() != this) {
-            mApp->desktopNotifications()->showNotifications(QIcon::fromTheme("mail-inbox", QIcon(":icons/notifications/download.png")).pixmap(48), tr("Download Finished"), tr("All files have been successfully downloaded."));
+            mApp->desktopNotifications()->showNotification(QIcon::fromTheme("mail-inbox", QIcon(":icons/notifications/download.png")).pixmap(48), tr("Download Finished"), tr("All files have been successfully downloaded."));
             if (!m_closeOnFinish) {
                 raise();
                 activateWindow();

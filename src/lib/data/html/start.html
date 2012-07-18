@@ -5,6 +5,7 @@
 <style>
 html {background: #eeeeee;font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;color: #525c66;}
 #box {max-width: 500px;margin: 25px auto 0px auto;padding: 0px 40px 0px 40px;border-width: 20px;-webkit-border-image: url(%BOX-BORDER%) 25;}
+h1 {color: #1a4ba4;font-size: 160%;margin-top: 0px;}
 .line {width: 400px;height: 25px;text-align: center;border: 1px solid #babcb8;}
 .line:focus {border-color: #579eea;}
 .submit {margin-top: 5px;}
@@ -16,13 +17,15 @@ a {color: #1a4ba4;text-decoration: none;font-weight: bold;}
   <div id="box">
 <center>
 
-<img src="%ABOUT-IMG%"">
-<form action="http://www.google.com/search?client=qupzilla" method="GET">
+<img src="%ABOUT-IMG%">
+%PRIVATE-BROWSING%
+<form action="https://duckduckgo.com/" method="GET">
+    <input type="hidden" name="t" value="qupzilla" />
     <input class="line" id="inp" class="question" name="q"/> <br/>
-    <input class="submit" type="submit" name="search" value="%BUTTON-LABEL%">
+    <input class="submit" type="submit" value="%BUTTON-LABEL%">
 </form>
 
-<p class="bottom">%SEARCH-BY-GOOGLE% | <a href="%WWW%">%ABOUT-QUPZILLA%</a></p>
+<p class="bottom">%SEARCH-BY% | <a href="%WWW%">%ABOUT-QUPZILLA%</a></p>
 </center>
   </div>
 </body></html>

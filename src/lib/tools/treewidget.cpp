@@ -24,6 +24,8 @@ TreeWidget::TreeWidget(QWidget* parent)
     , m_refreshAllItemsNeeded(true)
     , m_showMode(ItemsCollapsed)
 {
+    setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+
     connect(this, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(sheduleRefresh()));
 }
 

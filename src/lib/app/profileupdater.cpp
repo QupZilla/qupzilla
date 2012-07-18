@@ -72,6 +72,8 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         update100rc1();
         update100();
         update118();
+        update120();
+        update130();
         return;
     }
 
@@ -79,27 +81,48 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         update100rc1();
         update100();
         update118();
+        update120();
+        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.0.0")) {
         update100();
         update118();
+        update120();
+        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.1.0")) {
-        // Do nothing, nothing changed
+        update118();
+        update120();
+        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.1.5")) {
-        // Do nothing, nothing changed
+        update118();
+        update120();
+        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.1.8")) {
         update118();
+        update120();
+        update130();
+        return;
+    }
+
+    if (profileVersion == Updater::parseVersionFromString("1.2.0")) {
+        update120();
+        update130();
+        return;
+    }
+
+    if (profileVersion == Updater::parseVersionFromString("1.3.0")) {
+        update130();
         return;
     }
 
@@ -150,7 +173,6 @@ void ProfileUpdater::update100rc1()
 
     query.exec("ALTER TABLE bookmarks ADD COLUMN toolbar_position NUMERIC");
     query.exec("UPDATE bookmarks SET toolbar_position=0");
-
 }
 
 void ProfileUpdater::update100()
@@ -170,4 +192,34 @@ void ProfileUpdater::update118()
 
     QSqlQuery query;
     query.exec("ALTER TABLE folders ADD COLUMN parent TEXT");
+}
+
+void ProfileUpdater::update120()
+{
+    std::cout << "QupZilla: Upgrading profile version from 1.2.0..." << std::endl;
+    mApp->connectDatabase();
+
+    QSqlDatabase db = QSqlDatabase::database();
+    db.transaction();
+
+    // This is actually just renaming bookmarks.toolbar_position to bookmarks.position
+    QSqlQuery query;
+    query.exec("ALTER TABLE bookmarks RENAME TO tmp_bookmarks");
+    query.exec("CREATE TABLE bookmarks (icon TEXT, folder TEXT, id INTEGER PRIMARY KEY, title VARCHAR(200), url VARCHAR(200), position NUMERIC)");
+    query.exec("INSERT INTO bookmarks(icon, folder, id, title, url, position)"
+               "SELECT icon, folder, id, title, url, toolbar_position FROM tmp_bookmarks");
+    query.exec("DROP TABLE tmp_bookmarks");
+    query.exec("CREATE INDEX bookmarksTitle ON bookmarks(title ASC)");
+    query.exec("CREATE INDEX bookmarksUrl ON bookmarks(url ASC)");
+
+    db.commit();
+}
+
+void ProfileUpdater::update130()
+{
+    std::cout << "QupZilla: Upgrading profile version from 1.3.0..." << std::endl;
+    mApp->connectDatabase();
+
+    QSqlQuery query;
+    query.exec("ALTER TABLE bookmarks ADD COLUMN keyword TEXT");
 }

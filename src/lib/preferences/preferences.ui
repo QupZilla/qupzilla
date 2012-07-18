@@ -619,13 +619,6 @@
          </property>
         </spacer>
        </item>
-       <item row="1" column="1">
-        <widget class="QCheckBox" name="makeMovable">
-         <property name="text">
-          <string>Make tabs movable</string>
-         </property>
-        </widget>
-       </item>
        <item row="1" column="2">
         <spacer name="horizontalSpacer_16">
          <property name="orientation">
@@ -638,13 +631,6 @@
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="3" column="1">
-        <widget class="QCheckBox" name="showTabPreviews">
-         <property name="text">
-          <string>Show tab previews</string>
-         </property>
-        </widget>
        </item>
        <item row="6" column="1">
         <widget class="QCheckBox" name="hideTabsOnTab">
@@ -667,28 +653,28 @@
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
+       <item row="11" column="1">
         <widget class="QCheckBox" name="dontQuitOnTab">
          <property name="text">
           <string>Don't quit upon closing last tab</string>
          </property>
         </widget>
        </item>
-       <item row="11" column="1">
+       <item row="12" column="1">
         <widget class="QCheckBox" name="askWhenClosingMultipleTabs">
          <property name="text">
           <string>Ask when closing multiple tabs</string>
          </property>
         </widget>
        </item>
-       <item row="12" column="1">
+       <item row="13" column="1">
         <widget class="QCheckBox" name="closedInsteadOpened">
          <property name="text">
           <string>Closed tabs list instead of opened in tab bar</string>
          </property>
         </widget>
        </item>
-       <item row="13" column="1">
+       <item row="14" column="1">
         <spacer name="verticalSpacer_7">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -701,35 +687,35 @@
          </property>
         </spacer>
        </item>
-       <item row="14" column="0" colspan="2">
+       <item row="15" column="0" colspan="2">
         <widget class="QLabel" name="label_25">
          <property name="text">
           <string>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</string>
          </property>
         </widget>
        </item>
-       <item row="15" column="1" colspan="2">
+       <item row="16" column="1" colspan="2">
         <widget class="QCheckBox" name="selectAllOnFocus">
          <property name="text">
           <string>Select all text by double clicking in address bar</string>
          </property>
         </widget>
        </item>
-       <item row="16" column="1">
+       <item row="17" column="1">
         <widget class="QCheckBox" name="selectAllOnClick">
          <property name="text">
           <string>Select all text by clicking in address bar</string>
          </property>
         </widget>
        </item>
-       <item row="17" column="1">
+       <item row="18" column="1">
         <widget class="QCheckBox" name="addCountryWithAlt">
          <property name="text">
           <string>Add .co.uk domain by pressing ALT key</string>
          </property>
         </widget>
        </item>
-       <item row="18" column="1">
+       <item row="19" column="1">
         <spacer name="verticalSpacer_8">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -768,6 +754,20 @@
           </widget>
          </item>
         </layout>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="showTabPreviews">
+         <property name="text">
+          <string>Show tab previews</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QCheckBox" name="switchToNewTabs">
+         <property name="text">
+          <string>Automatically switch to newly opened tab</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -838,13 +838,6 @@
               <widget class="QCheckBox" name="zoomTextOnly">
                <property name="text">
                 <string>Zoom text only</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="askOnPrivateBrowsing">
-               <property name="text">
-                <string>Ask when entering Private Browsing mode</string>
                </property>
               </widget>
              </item>
@@ -2245,7 +2238,6 @@
   <tabstop>createProfile</tabstop>
   <tabstop>deleteProfile</tabstop>
   <tabstop>tabWidget_2</tabstop>
-  <tabstop>makeMovable</tabstop>
   <tabstop>hideTabsOnTab</tabstop>
   <tabstop>askWhenClosingMultipleTabs</tabstop>
   <tabstop>selectAllOnFocus</tabstop>

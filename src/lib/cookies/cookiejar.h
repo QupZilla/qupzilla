@@ -41,20 +41,21 @@ public:
     void clearCookies();
 
     void setAllowCookies(bool allow);
-    void turnPrivateJar(bool state);
 
 private:
+    bool rejectCookie(const QString &domain, const QNetworkCookie &cookie) const;
+
     QupZilla* p_QupZilla;
+
     bool m_allowCookies;
     bool m_filterTrackingCookie;
-    bool m_allowCookiesFromDomain;
+    bool m_blockThirdParty;
     bool m_deleteOnClose;
 
     QStringList m_whitelist;
     QStringList m_blacklist;
 
     QString m_activeProfil;
-    QList<QNetworkCookie> m_tempList;
 };
 
 #endif // COOKIEJAR_H

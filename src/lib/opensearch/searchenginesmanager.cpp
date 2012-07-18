@@ -119,28 +119,28 @@ void SearchEnginesManager::restoreDefaults()
 {
     Engine google;
     google.name = "Google";
-    google.icon = QIcon(":icons/menu/google.png");
+    google.icon = QIcon(":icons/sites/google.png");
     google.url = "http://www.google.com/search?client=qupzilla&q=%s";
     google.shortcut = "g";
     google.suggestionsUrl = "http://suggestqueries.google.com/complete/search?output=firefox&q=%s";
 
     Engine wiki;
     wiki.name = "Wikipedia (en)";
-    wiki.icon = QIcon(":/icons/menu/wikipedia.png");
+    wiki.icon = QIcon(":/icons/sites/wikipedia.png");
     wiki.url = "http://en.wikipedia.org/wiki/Special:Search?search=%s&fulltext=Search";
     wiki.shortcut = "w";
     wiki.suggestionsUrl = "http://en.wikipedia.org/w/api.php?action=opensearch&search=%s&namespace=0";
 
     Engine yt;
     yt.name = "YouTube";
-    yt.icon = QIcon(":/icons/menu/youtube.png");
+    yt.icon = QIcon(":/icons/sites/youtube.png");
     yt.url = "http://www.youtube.com/results?search_query=%s&search=Search";
     yt.shortcut = "yt";
     yt.suggestionsUrl = "http://suggestqueries.google.com/complete/search?ds=yt&output=firefox&q=%s";
 
     Engine duck;
     duck.name = "DuckDuckGo";
-    duck.icon = QIcon(":/icons/menu/duck.png");
+    duck.icon = QIcon(":/icons/sites/duck.png");
     duck.url = "https://duckduckgo.com/?q=%s&t=qupzilla";
     duck.shortcut = "d";
 

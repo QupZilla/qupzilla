@@ -22,6 +22,7 @@
 #include "lineedit.h"
 
 class QUrl;
+class QLabel;
 
 class PopupSiteIcon;
 class PopupWebView;
@@ -38,6 +39,9 @@ public:
 
     void setView(PopupWebView* view);
 
+    void startLoading();
+    void stopLoading();
+
 signals:
 
 public slots:
@@ -47,7 +51,7 @@ public slots:
 private:
     PopupWebView* m_view;
     PopupSiteIcon* m_siteIcon;
-
+    QLabel* m_loadingAnimation;
 };
 
 #endif // POPUPLOCATIONBAR_H

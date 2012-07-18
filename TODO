@@ -10,8 +10,6 @@ The list is not sorted by priority.
 * Password Manager: save more than one account for site + input completer
 * (KDE) Nepomuk integration
 * Support for remote Web inspector
-* option to save RSS feeds in external reader
 * Session manager
 * Editable toolbar
 * NoScript plugin
-* GreaseMonkey plugin (userscripts)

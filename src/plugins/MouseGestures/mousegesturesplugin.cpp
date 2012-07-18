@@ -63,7 +63,7 @@ bool MouseGesturesPlugin::testPlugin()
 {
     // Let's be sure, require latest version of QupZilla
 
-    return (QupZilla::VERSION == "1.2.0");
+    return (QupZilla::VERSION == "1.3.1");
 }
 
 QTranslator* MouseGesturesPlugin::getTranslator(const QString &locale)

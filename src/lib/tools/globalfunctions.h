@@ -18,6 +18,9 @@
 #ifndef GLOBALFUNCTIONS_H
 #define GLOBALFUNCTIONS_H
 
+#include <QList>
+#include <QString>
+
 #include "qz_namespace.h"
 
 class QFontMetrics;
@@ -29,7 +32,7 @@ class QUrl;
 QByteArray QT_QUPZILLA_EXPORT qz_pixmapToByteArray(const QPixmap &pix);
 QPixmap QT_QUPZILLA_EXPORT qz_pixmapFromByteArray(const QByteArray &data);
 
-QByteArray QT_QUPZILLA_EXPORT qz_readAllFileContents(const QString &filename);
+QString QT_QUPZILLA_EXPORT qz_readAllFileContents(const QString &filename);
 
 void QT_QUPZILLA_EXPORT qz_centerWidgetOnScreen(QWidget* w);
 void QT_QUPZILLA_EXPORT qz_centerWidgetToParent(QWidget* w, QWidget* parent);
@@ -41,7 +44,7 @@ QString QT_QUPZILLA_EXPORT qz_samePartOfStrings(const QString &one, const QStrin
 QUrl QT_QUPZILLA_EXPORT qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
 QString QT_QUPZILLA_EXPORT qz_urlEncodeQueryString(const QUrl &url);
 
-QString QT_QUPZILLA_EXPORT qz_ensureUniqueFilename(const QString &name);
+QString QT_QUPZILLA_EXPORT qz_ensureUniqueFilename(const QString &name, const QString &appendFormat = QString("(%1)"));
 QString QT_QUPZILLA_EXPORT qz_getFileNameFromUrl(const QUrl &url);
 QString QT_QUPZILLA_EXPORT qz_filterCharsFromFilename(const QString &name);
 
@@ -50,5 +53,11 @@ QString QT_QUPZILLA_EXPORT qz_alignTextToWidth(const QString &string, const QStr
 QPixmap QT_QUPZILLA_EXPORT qz_createPixmapForSite(const QIcon &icon, const QString &title, const QString &url);
 
 QString QT_QUPZILLA_EXPORT qz_buildSystem();
+
+template <typename T>
+bool qz_listContainsIndex(const QList<T> &list, int index)
+{
+    return (index >= 0 && list.count() > index);
+}
 
 #endif // GLOBALFUNCTIONS_H

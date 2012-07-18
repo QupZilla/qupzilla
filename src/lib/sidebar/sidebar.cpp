@@ -77,6 +77,11 @@ void SideBar::close()
 {
     m_manager->closeSideBar();
 
+    QWidget* p = parentWidget();
+    if (p) {
+        p->setFocus();
+    }
+
     QWidget::close();
 }
 

@@ -51,6 +51,7 @@ void CommandLineOptions::showHelp()
                        "    -pb or --private-browsing           start private browsing\n"
                        "    -dm or --download-manager           show download manager\n"
                        "    -ct=URL or --current-tab=URL        open URL in current tab\n"
+                       "    -ow=URL or --open-window=URL        open URL in new window\n"
                        "\n"
                        " QupZilla is a new, fast and secure web browser\n"
                        " based on WebKit core (http://webkit.org) and\n"
@@ -105,13 +106,16 @@ void CommandLineOptions::parseActions()
         }
 
         if (arg.startsWith("-p=") || arg.startsWith("--profile=")) {
-            arg.remove("-p=");
-            arg.remove("--profile=");
-            cout << "QupZilla: Starting with profile " << arg.toUtf8().data() << endl;
-            ActionPair pair;
-            pair.action = Qz::CL_StartWithProfile;
-            pair.text = arg;
-            m_actions.append(pair);
+            int index = arg.indexOf('=');
+            if (index != -1) {
+                const QString profileName = arg.mid(index + 1);
+                cout << "QupZilla: Starting with profile '" << profileName.toUtf8().data() << "'" << endl;
+
+                ActionPair pair;
+                pair.action = Qz::CL_StartWithProfile;
+                pair.text = profileName;
+                m_actions.append(pair);
+            }
         }
 
         if (arg.startsWith("-ne") || arg.startsWith("--no-extensions")) {
@@ -150,19 +154,30 @@ void CommandLineOptions::parseActions()
         }
 
         if (arg.startsWith("-ct") || arg.startsWith("--current-tab")) {
-            arg.remove("-ct=");
-            arg.remove("--current-tab=");
-            ActionPair pair;
-            pair.action = Qz::CL_OpenUrlInCurrentTab;
-            pair.text = arg;
-            m_actions.append(pair);
+            int index = arg.indexOf('=');
+            if (index != -1) {
+                ActionPair pair;
+                pair.action = Qz::CL_OpenUrlInCurrentTab;
+                pair.text = arg.mid(index + 1);
+                m_actions.append(pair);
+            }
+        }
+
+        if (arg.startsWith("-ow") || arg.startsWith("--open-window")) {
+            int index = arg.indexOf('=');
+            if (index != -1) {
+                ActionPair pair;
+                pair.action = Qz::CL_OpenUrlInNewWindow;
+                pair.text = arg.mid(index + 1);
+                m_actions.append(pair);
+            }
         }
     }
 
     const QString &url = arguments.last();
 
-    if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-") &&
-            (url.contains(".") || url.contains("/") || url.contains("\\"))) {
+    if (m_argc > 1 && !url.isEmpty() && !url.startsWith('-') &&
+            (url.contains('.') || url.contains('/') || url.contains('\\'))) {
         ActionPair pair;
         pair.action = Qz::CL_OpenUrl;
         pair.text = url;

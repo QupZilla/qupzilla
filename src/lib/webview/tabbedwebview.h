@@ -50,8 +50,6 @@ public:
     QWidget* overlayForJsAlert();
     void disconnectObjects();
 
-    void fakePageLoading(int progress);
-
 signals:
     void wantsCloseTab(int);
     void ipChanged(QString);
@@ -65,7 +63,9 @@ public slots:
     void showIcon();
 
     void slotLoadStarted();
-    void loadingProgress(int prog);
+    void loadProgress(int prog);
+
+    void userLoadAction(const QUrl &url);
 
     void closeView();
     void openUrlInNewTab(const QUrl &urla, Qz::NewTabPositionFlag position);

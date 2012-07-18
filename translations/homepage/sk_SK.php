@@ -45,6 +45,7 @@ $source_code = "Zdrojový kód";
 $choose_os = "Zvoľte prosím operačný systém";
 $windows_text = "32bit a 64bit Windows inštalátor je možné stiahnuť kliknutím na odkazy uvedené nižšie";
 $ubuntu_text = "Ubuntu Precise, Oneiric, Natty a Maverick užívatelia môžu nainštalovať QupZillu zadáním týchto príkazov";
+$install_run_command = "You can install QupZilla by running this command";
 $for_development_version = "pre vývojovú verziu:";
 $packages_text = "32bit a 64bit balíčky";
 $tarballs_text = "32bit a 64bit predkompilované tarbally";

@@ -19,9 +19,11 @@
 #include "clicktoflash.h"
 #include "mainapplication.h"
 #include "pluginproxy.h"
+#include "adblockmanager.h"
 #include "webpage.h"
 
 #include <QDebug>
+#include <QNetworkRequest>
 
 WebPluginFactory::WebPluginFactory(WebPage* page)
     : QWebPluginFactory(page)
@@ -54,6 +56,14 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
 
     if (!mApp->plugins()->c2f_isEnabled()) {
         return 0;
+    }
+
+    // AdBlock
+    AdBlockManager* manager = AdBlockManager::instance();
+    QNetworkRequest request(url);
+    request.setAttribute(QNetworkRequest::Attribute(QNetworkRequest::User + 150), QString("object"));
+    if (manager->isEnabled() && manager->block(request)) {
+        return new QObject();
     }
 
     // Click2Flash whitelist

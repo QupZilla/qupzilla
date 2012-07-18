@@ -61,6 +61,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     setDocumentMode(true);
     setFocusPolicy(Qt::NoFocus);
     setMouseTracking(true);
+    setMovable(true);
 
     setAcceptDrops(true);
 
@@ -80,7 +81,6 @@ void TabBar::loadSettings()
     Settings settings;
     settings.beginGroup("Browser-Tabs-Settings");
 
-    setMovable(settings.value("makeTabsMovable", true).toBool());
     m_tabPreview->setAnimationsEnabled(settings.value("tabPreviewAnimationsEnabled", true).toBool());
     m_showTabPreviews = settings.value("showTabPreviews", true).toBool();
 

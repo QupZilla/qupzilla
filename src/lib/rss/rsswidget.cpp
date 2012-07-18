@@ -112,11 +112,9 @@ void RSSWidget::addRss()
             title = button->toolTip();
         }
 
-        if (mApp->rssManager()->addRssFeed(url, title, m_view->icon())) {
-            RSSNotification* notif = new RSSNotification(title, m_view);
-            m_view->addNotification(notif);
-            close();
-        }
+        RSSNotification* notif = new RSSNotification(title, url, m_view);
+        m_view->addNotification(notif);
+        close();
     }
 }
 

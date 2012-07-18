@@ -46,6 +46,7 @@ $source_code = "Source Code";
 $choose_os = "Please choose your operating system";
 $windows_text = "32bit and 64bit Windows installers can be downloaded by clicking on links below";
 $ubuntu_text = "Ubuntu Precise, Oneiric, Natty and Maverick users can install QupZilla by running these commands";
+$install_run_command = "You can install QupZilla by running this command";
 $for_development_version = "for development version:";
 $packages_text = "32bit and 64bit packages";
 $tarballs_text = "32bit and 64bit precompiled tarballs";

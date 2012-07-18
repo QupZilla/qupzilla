@@ -44,8 +44,8 @@ void IconFetcher::pageDownloaded()
         return;
     }
 
-    QString html = reply->reply()->readAll();
-    QUrl replyUrl = reply->reply()->url();
+    QString html = reply->readAll();
+    QUrl replyUrl = reply->url();
     reply->deleteLater();
 
     QRegExp rx("<link(.*)>", Qt::CaseInsensitive);
@@ -91,7 +91,7 @@ void IconFetcher::iconDownloaded()
         return;
     }
 
-    QByteArray response = reply->reply()->readAll();
+    QByteArray response = reply->readAll();
     reply->deleteLater();
 
     if (!response.isEmpty()) {

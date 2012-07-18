@@ -250,10 +250,10 @@ LangString DESC_SecDesktop ${LANG_GEORGIAN} "გამშვების და�
 LangString DESC_SecExtensions ${LANG_GEORGIAN} "QupZilla-ს ასოცირება .htm და .html ფაილებთან"
 LangString DESC_SecThemes ${LANG_GEORGIAN} "დამატებითი თემები QupZilla-სთვის"
 
-;;;;JAPANESE
+;;;;Japanese
 LangString TITLE_SecMain ${LANG_JAPANESE} "メインコンポーネント"
 LangString TITLE_SecTranslations ${LANG_JAPANESE} "言語ファイル"
-LangString TITLE_SecPlugins ${LANG_JAPANESE} "プラグイン(拡張機能)"
+LangString TITLE_SecPlugins ${LANG_JAPANESE} "エクステンション(拡張機能)"
 LangString TITLE_SecDesktop ${LANG_JAPANESE} "デスクトップアイコン"
 LangString TITLE_SecExtensions ${LANG_JAPANESE} "ファイルの関連付け"
 LangString TITLE_SecThemes ${LANG_JAPANESE} "テーマ"
@@ -283,6 +283,42 @@ LangString FILE_Htm ${LANG_SWEDISH} "HTM-fil"
 LangString FILE_Html ${LANG_SWEDISH} "HTML-fil"
 LangString TITLE_SecThemes ${LANG_SWEDISH} "Teman"
 LangString DESC_SecThemes ${LANG_SWEDISH} "Ytterligare teman för QupZilla"
+
+;;;;Polish
+LangString TITLE_SecMain ${LANG_POLISH} "Składniki podstawowe"
+LangString TITLE_SecTranslations ${LANG_POLISH} "Tłumaczenia"
+LangString TITLE_SecPlugins ${LANG_POLISH} "Wtyczki"
+LangString TITLE_SecDesktop ${LANG_POLISH} "Ikona pulpitu"
+LangString TITLE_SecExtensions ${LANG_POLISH} "Skojarzenia plików"
+LangString TITLE_SecThemes ${LANG_POLISH} "Motywy"
+
+LangString FILE_Htm ${LANG_POLISH} "Plik HTM"
+LangString FILE_Html ${LANG_POLISH} "Plik HTML"
+;
+LangString DESC_SecMain ${LANG_POLISH} "Podstawowe składniki programu."
+LangString DESC_SecTranslations ${LANG_POLISH} "Instalacja dodatkowych wersji językowych. Domyślnie tylko język angielski."
+LangString DESC_SecPlugins ${LANG_POLISH} "Instalacja dodatkowych wtyczek."
+LangString DESC_SecDesktop ${LANG_POLISH} "Dodaj skrót do pulpitu."
+LangString DESC_SecExtensions ${LANG_POLISH} "Skojarz przeglądarkę QupZilla z plikami .htm i .html"
+LangString DESC_SecThemes ${LANG_POLISH} "Dodatkowe motywy dla przeglądarki QupZilla"
+
+;;;;Ukrainian
+LangString TITLE_SecMain ${LANG_UKRAINIAN} "Основні компоненти"
+LangString TITLE_SecTranslations ${LANG_UKRAINIAN} "Переклади"
+LangString TITLE_SecPlugins ${LANG_UKRAINIAN} "Плаґіни"
+LangString TITLE_SecDesktop ${LANG_UKRAINIAN} "Іконка на робочому столі"
+LangString TITLE_SecExtensions ${LANG_UKRAINIAN} "Асоціювання файлів"
+LangString TITLE_SecThemes ${LANG_UKRAINIAN} "Теми"
+
+LangString FILE_Htm ${LANG_UKRAINIAN} "Файл HTM"
+LangString FILE_Html ${LANG_UKRAINIAN} "Файл HTML"
+;
+LangString DESC_SecMain ${LANG_UKRAINIAN} "Основні компоненти програми."
+LangString DESC_SecTranslations ${LANG_UKRAINIAN} "Доступні інші переклади для встановлення. Мова за умовчуванням - англійська."
+LangString DESC_SecPlugins ${LANG_UKRAINIAN} "Доступні інші плаґіни для встановлення."
+LangString DESC_SecDesktop ${LANG_UKRAINIAN} "Додати посилання на робочий стіл."
+LangString DESC_SecExtensions ${LANG_UKRAINIAN} "Асоціювати QupZill'у з файлами .htm і .html"
+LangString DESC_SecThemes ${LANG_UKRAINIAN} "Додаткові теми для QupZill'и"
 
 ;;;;;;;;;
 ;;;;;;;;;

@@ -35,7 +35,7 @@
         <location filename="../testplugin_sidebar.cpp" line="32"/>
         <location filename="../testplugin_sidebar.cpp" line="37"/>
         <source>Testing Sidebar</source>
-        <translation type="unfinished"></translation>
+        <translation>Probando barra lateral</translation>
     </message>
 </context>
 </TS>

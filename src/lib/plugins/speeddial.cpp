@@ -129,8 +129,8 @@ void SpeedDial::addPage(const QUrl &url, const QString &title)
     }
 
     Page page;
-    page.title = title;
-    page.url = url.toString();
+    page.title = escapeTitle(title);
+    page.url = escapeUrl(url.toString());
 
     m_webPages.append(page);
     m_regenerateScript = true;
@@ -283,12 +283,12 @@ QString SpeedDial::getOpenFileName()
         return image;
     }
 
-    return QUrl::fromLocalFile(image).toString();
+    return QUrl::fromLocalFile(image).toEncoded();
 }
 
 QString SpeedDial::urlFromUserInput(const QString &url)
 {
-    return QUrl::fromUserInput(url).toString().remove("'");
+    return QUrl::fromUserInput(url).toString();
 }
 
 void SpeedDial::setBackgroundImage(const QString &image)
@@ -340,13 +340,27 @@ void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
 
     cleanFrames();
     foreach(QWebFrame * frame, cleanFrames()) {
-        frame->evaluateJavaScript(QString("setImageToUrl('%1', '%2');").arg(url, fileName));
+        frame->evaluateJavaScript(QString("setImageToUrl('%1', '%2');").arg(escapeUrl(url), escapeTitle(fileName)));
         if (loadTitle) {
-            frame->evaluateJavaScript(QString("setTitleToUrl('%1', '%2');").arg(url, title));
+            frame->evaluateJavaScript(QString("setTitleToUrl('%1', '%2');").arg(escapeUrl(url), escapeTitle(title)));
         }
     }
 
     thumbnailer->deleteLater();
+}
+
+QString SpeedDial::escapeTitle(QString title) const
+{
+    title.replace('"', "&quot;");
+    title.replace('\'', "&apos;");
+    return title;
+}
+
+QString SpeedDial::escapeUrl(QString url) const
+{
+    url.remove('"');
+    url.remove('\'');
+    return url;
 }
 
 QList<QWebFrame*> SpeedDial::cleanFrames()

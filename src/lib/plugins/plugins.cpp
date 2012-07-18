@@ -89,6 +89,16 @@ void Plugins::loadSettings()
     c2f_loadSettings();
 }
 
+void Plugins::shutdown()
+{
+    c2f_saveSettings();
+    m_speedDial->saveSettings();
+
+    foreach(PluginInterface * iPlugin, m_loadedPlugins) {
+        iPlugin->unload();
+    }
+}
+
 void Plugins::c2f_loadSettings()
 {
     Settings settings;

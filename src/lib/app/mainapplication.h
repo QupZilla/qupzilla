@@ -72,13 +72,12 @@ public:
     inline static MainApplication* getInstance() { return static_cast<MainApplication*>(QCoreApplication::instance()); }
     inline QString currentProfilePath() { return m_activeProfil; }
     inline QString currentLanguage() { return m_activeLanguage; }
+    inline bool isPrivateSession() { return m_isPrivateSession; }
     inline bool isClosing() { return m_isClosing; }
     inline bool isStartingAfterCrash() { return m_startingAfterCrash; }
     inline int windowCount() { return m_mainWindows.count(); }
 
     bool checkSettingsDir();
-
-    void togglePrivateBrowsingMode(bool state);
 
     QupZilla* getWindow();
     CookieManager* cookieManager();
@@ -109,6 +108,9 @@ public slots:
     void setStateChanged();
     void addNewTab(const QUrl &url = QUrl());
 
+    void startPrivateBrowsing();
+    void reloadUserStyleSheet();
+
 signals:
     void message(Qz::AppMessageType mes, bool state);
 
@@ -120,10 +122,12 @@ private slots:
     void saveSettings();
 
 private:
-    enum PostLaunchAction { PrivateBrowsing, OpenDownloadManager, OpenNewTab };
+    enum PostLaunchAction { OpenDownloadManager, OpenNewTab };
 
     void translateApp();
     void restoreOtherWindows();
+
+    QUrl userStyleSheet(const QString &filePath) const;
 
     CookieManager* m_cookiemanager;
     BrowsingLibrary* m_browsingLibrary;
@@ -147,6 +151,7 @@ private:
     QString m_activeLanguage;
     QString m_activeThemePath;
 
+    bool m_isPrivateSession;
     bool m_isClosing;
     bool m_isStateChanged;
     bool m_isRestoring;

@@ -27,6 +27,7 @@ class QFileSystemWatcher;
 class QEventLoop;
 
 class QupZilla;
+class AdBlockRule;
 class TabbedWebView;
 class SpeedDial;
 class NetworkManagerProxy;
@@ -36,7 +37,7 @@ class QT_QUPZILLA_EXPORT WebPage : public QWebPage
     Q_OBJECT
 public:
     struct AdBlockedEntry {
-        QString rule;
+        const AdBlockRule* rule;
         QUrl url;
 
         bool operator==(const AdBlockedEntry &other) const {
@@ -53,6 +54,7 @@ public:
     void populateNetworkRequest(QNetworkRequest &request);
 
     TabbedWebView* getView() { return m_view; }
+
     void setSSLCertificate(const QSslCertificate &cert);
     QSslCertificate sslCertificate();
 
@@ -60,13 +62,17 @@ public:
     bool javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg);
     void javaScriptAlert(QWebFrame* originatingFrame, const QString &msg);
 
-    void addAdBlockRule(const QString &filter, const QUrl &url);
+    void addAdBlockRule(const AdBlockRule* rule, const QUrl &url);
     QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
 
     void scheduleAdjustPage();
     bool isRunningLoop();
 
+    bool isLoading() const;
     bool loadingError() const;
+
+    void addRejectedCerts(const QList<QSslCertificate> &certs);
+    bool containsRejectedCerts(const QList<QSslCertificate> &certs);
 
     static void setUserAgent(const QString &agent);
     QString userAgentForUrl(const QUrl &url) const;
@@ -118,16 +124,19 @@ private:
 
     QupZilla* p_QupZilla;
     NetworkManagerProxy* m_networkProxy;
-    QWebPage::NavigationType m_lastRequestType;
     TabbedWebView* m_view;
     SpeedDial* m_speedDial;
-    QSslCertificate m_SslCert;
-    QList<QSslCertificate> m_SslCerts;
-    QList<AdBlockedEntry> m_adBlockedEntries;
     QFileSystemWatcher* m_fileWatcher;
-
     QEventLoop* m_runningLoop;
 
+    QSslCertificate m_sslCert;
+    QList<QSslCertificate> m_rejectedSslCerts;
+    QList<AdBlockedEntry> m_adBlockedEntries;
+
+    QWebPage::NavigationType m_lastRequestType;
+    QUrl m_lastRequestUrl;
+
+    int m_loadProgress;
     bool m_blockAlerts;
     bool m_secureStatus;
     bool m_adjustingScheduled;

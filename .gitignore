@@ -7,6 +7,7 @@ DEBIAN
 *.a
 *.orig
 *.qm
+*.o
 !qt_*.qm
 headers*.tar.gz
 license_template

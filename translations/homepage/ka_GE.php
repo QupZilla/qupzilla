@@ -46,6 +46,7 @@ $source_code = "წყაროს კოდი";
 $choose_os = "გთხოვთ აირჩიეთ თქვენი ოპერაციული სისტემა";
 $windows_text = "Windows-ისთვის 32 და 64 ბიტიანი ინსტალატორების ჩამოტვირთვა შეგიძლიათ ქვემოთ მოცემულ ბმულებზე დაწკაპუნებით";
 $ubuntu_text = "Precise-ის, Oneiric-ის, Natty-ის და Maverick-ის მოხმარებლებს QupZilla-ს დაყენება შემდეგი ბრძანებების გაშვებით შეგიძლიათ";
+$install_run_command = "You can install QupZilla by running this command";
 $for_development_version = "დეველოპერული ვერსიისთვის:";
 $packages_text = "32 და 64 ბიტიანი პაკეტები";
 $tarballs_text = "32 და 64 ბიტიანი წინასწარ კომპილირებული  არქივების";

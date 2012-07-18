@@ -60,13 +60,13 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
         return systemProxyForQuery(query);
 
     case NoProxy:
-        proxy.setType(QNetworkProxy::NoProxy);
+        proxy = QNetworkProxy::NoProxy;
         break;
 
     case DefinedProxy:
-        proxy.setType(m_proxyType);
+        proxy = m_proxyType;
 
-        if (m_useDifferentProxyForHttps && query.url().scheme() == "https") {
+        if (m_useDifferentProxyForHttps && query.protocolTag() == "https") {
             proxy.setHostName(m_httpsHostName);
             proxy.setPort(m_httpsPort);
             proxy.setUser(m_httpsUsername);

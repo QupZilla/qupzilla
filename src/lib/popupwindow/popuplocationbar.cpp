@@ -21,6 +21,9 @@
 #include "globalfunctions.h"
 #include "iconprovider.h"
 
+#include <QMovie>
+#include <QLabel>
+
 class QT_QUPZILLA_EXPORT PopupSiteIcon : public QWidget
 {
 public:
@@ -37,7 +40,6 @@ private:
         QPainter p(this);
         m_icon.paint(&p, rect());
     }
-
 };
 
 PopupLocationBar::PopupLocationBar(QWidget* parent)
@@ -48,8 +50,13 @@ PopupLocationBar::PopupLocationBar(QWidget* parent)
     m_siteIcon->setIcon(qIconProvider->emptyWebIcon());
     m_siteIcon->setFixedSize(20, 26);
 
+    m_loadingAnimation = new QLabel(this);
+    QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), m_loadingAnimation);
+    m_loadingAnimation->setMovie(movie);
+
     addWidget(m_siteIcon, LineEdit::LeftSide);
-    setWidgetSpacing(0);
+    addWidget(m_loadingAnimation, LineEdit::RightSide);
+    setWidgetSpacing(1);
 
     setFixedHeight(26);
     setReadOnly(true);
@@ -60,6 +67,22 @@ void PopupLocationBar::setView(PopupWebView* view)
     m_view = view;
 }
 
+void PopupLocationBar::startLoading()
+{
+    m_loadingAnimation->show();
+    m_loadingAnimation->movie()->start();
+
+    updateTextMargins();
+}
+
+void PopupLocationBar::stopLoading()
+{
+    m_loadingAnimation->hide();
+    m_loadingAnimation->movie()->stop();
+
+    updateTextMargins();
+}
+
 void PopupLocationBar::showUrl(const QUrl &url)
 {
     setText(qz_urlEncodeQueryString(url));
@@ -68,5 +91,5 @@ void PopupLocationBar::showUrl(const QUrl &url)
 
 void PopupLocationBar::showIcon()
 {
-    m_siteIcon->setIcon(QIcon(m_view->icon().pixmap(16, 16)));
+    m_siteIcon->setIcon(m_view->icon());
 }

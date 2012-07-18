@@ -108,9 +108,7 @@ void ButtonWithMenu::wheelEvent(QWheelEvent* event)
         return;
     }
 
-    int numDegrees = event->delta() / 8;
-    int numSteps = numDegrees / 15;
-    if (numSteps == 1) {
+    if (event->delta() > 0) {
         if (currItemIndex != 0) {
             setCurrentItem(m_items.at(currItemIndex - 1));
         }

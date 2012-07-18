@@ -52,37 +52,91 @@
 
 #include "qz_namespace.h"
 
+class QNetworkRequest;
 class QUrl;
+
+class AdBlockSubscription;
 
 class AdBlockRule
 {
-
 public:
-    AdBlockRule(const QString &filter = QString());
+    AdBlockRule(const QString &filter = QString(), AdBlockSubscription* subscription = 0);
+
+    AdBlockSubscription* subscription() const;
+    void setSubscription(AdBlockSubscription* subscription);
 
     QString filter() const;
     void setFilter(const QString &filter);
 
-    bool isCSSRule() const { return m_cssRule; }
-    bool networkMatch(const QString &encodedUrl) const;
+    bool isCssRule() const;
+    QString cssSelector() const;
 
+    bool isDocument() const;
+    bool isElemhide() const;
+
+    bool isDomainRestricted() const;
     bool isException() const;
-    void setException(bool exception);
 
+    bool isComment() const;
     bool isEnabled() const;
     void setEnabled(bool enabled);
 
-    QString regExpPattern() const;
-    void setPattern(const QString &pattern, bool isRegExp);
+    bool isSlow() const;
+    bool isInternalDisabled() const;
+
+    bool networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const;
+    bool urlMatch(const QUrl &url) const;
+
+    bool matchDomain(const QString &domain) const;
+    bool matchThirdParty(const QNetworkRequest &request) const;
+    bool matchObject(const QNetworkRequest &request) const;
+    bool matchSubdocument(const QNetworkRequest &request) const;
+    bool matchXmlHttpRequest(const QNetworkRequest &request) const;
 
 private:
+    void parseFilter();
+    void parseDomains(const QString &domains, const QChar &separator);
+
+    AdBlockSubscription* m_subscription;
     QString m_filter;
 
+    bool m_enabled;
     bool m_cssRule;
     bool m_exception;
-    bool m_enabled;
+
+    bool m_internalDisabled;
+    bool m_domainRestricted;
+
+    bool m_useRegExp;
     QRegExp m_regExp;
-    QStringList m_options;
+
+    bool m_useDomainMatch;
+    bool m_useEndsMatch;
+
+    QString m_cssSelector;
+    QString m_matchString;
+
+    // Rule $options
+    QStringList m_allowedDomains;
+    QStringList m_blockedDomains;
+
+    bool m_thirdParty;
+    bool m_thirdPartyException;
+
+    bool m_object;
+    bool m_objectException;
+
+    bool m_subdocument;
+    bool m_subdocumentException;
+
+    bool m_xmlhttprequest;
+    bool m_xmlhttprequestException;
+
+    // Exception only options
+    bool m_document;
+    bool m_elemhide;
+
+    Qt::CaseSensitivity m_caseSensitivity;
 };
 
 #endif // ADBLOCKRULE_H

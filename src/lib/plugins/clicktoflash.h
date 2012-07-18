@@ -70,7 +70,7 @@ private slots:
     void toWhitelist();
     void findElement();
 
-    void hideAdBlocked();
+    void hideObject();
     void showInfo();
 
     void ensurePluginVisible();

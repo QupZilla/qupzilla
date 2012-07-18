@@ -181,7 +181,6 @@ private slots:
     void zoomOut();
     void zoomReset();
     void fullScreen(bool make);
-    void startPrivate(bool state);
     void changeEncoding();
 
     void closeWindow();

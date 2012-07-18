@@ -227,7 +227,7 @@ void TabWidget::aboutToShowTabsMenu()
         }
         else {
             QString title = tab->title();
-            title.replace("&", "&&");
+            title.replace('&', "&&");
             if (title.length() > 40) {
                 title.truncate(40);
                 title += "..";
@@ -479,7 +479,7 @@ void TabWidget::setTabIcon(int index, const QIcon &icon)
 void TabWidget::setTabText(int index, const QString &text)
 {
     QString newtext = text;
-    newtext.replace("&", "&&"); // Avoid Alt+letter shortcuts
+    newtext.replace('&', "&&"); // Avoid Alt+letter shortcuts
 
     if (WebTab* webTab = weTab(index)) {
         if (webTab->isPinned()) {
@@ -553,6 +553,7 @@ int TabWidget::duplicateTab(int index)
 
     QNetworkRequest req(url);
     req.setRawHeader("Referer", url.toEncoded());
+    req.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 
     int id = addView(req, title, Qz::NT_CleanNotSelectedTab);
     weTab(id)->setHistoryData(history);
@@ -653,6 +654,10 @@ QList<WebTab*> TabWidget::allTabs(bool withPinned)
 
 void TabWidget::savePinnedTabs()
 {
+    if (mApp->isPrivateSession()) {
+        return;
+    }
+
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
@@ -679,6 +684,10 @@ void TabWidget::savePinnedTabs()
 
 void TabWidget::restorePinnedTabs()
 {
+    if (mApp->isPrivateSession()) {
+        return;
+    }
+
     QFile file(mApp->currentProfilePath() + "pinnedtabs.dat");
     file.open(QIODevice::ReadOnly);
     QByteArray sd = file.readAll();

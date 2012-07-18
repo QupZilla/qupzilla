@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "historyitem.h"
+#include "globalfunctions.h"
 
 HistoryItem::HistoryItem(HistoryItem* parent)
     : canFetchMore(false)
@@ -81,23 +82,19 @@ void HistoryItem::insertChild(int row, HistoryItem* child)
 
 void HistoryItem::removeChild(int row)
 {
-    if (m_children.count() > row) {
+    if (qz_listContainsIndex(m_children, row)) {
         removeChild(m_children.at(row));
     }
 }
 
 void HistoryItem::removeChild(HistoryItem* child)
 {
-    int index = m_children.indexOf(child);
-
-    if (index != -1) {
-        m_children.removeOne(child);
-    }
+    m_children.removeOne(child);
 }
 
 HistoryItem* HistoryItem::child(int row) const
 {
-    if (m_children.count() > row) {
+    if (qz_listContainsIndex(m_children, row)) {
         return m_children.at(row);
     }
 

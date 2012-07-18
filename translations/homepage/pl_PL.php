@@ -10,6 +10,7 @@ $menu_download = "Pobierz";
 $menu_faq = "FAQ";
 $menu_about = "Przyczyń się";
 $footer_site = "www.qupzilla.com";
+$translated_by = "Page translated by Mariusz Fik"; // "Page translated by <translator's name>"
 
 //Home Page
 $actual_version = "Aktualna Wersja";
@@ -44,13 +45,15 @@ $other_linux = "Inne z rodziny Linux";
 $source_code = "Kod Źródłowy";
 $choose_os = "Wybierz system operacyjny";
 $windows_text = "32bit i 64bit instalator dla systemu Windows można pobrać klikając na linki poniżej";
-$ubuntu_text = "Użytkownicy Ubuntu Precise, Oneric, Natty i Maverick mogą zainstalować QupZille wykonując komendy"; 
+$ubuntu_text = "Użytkownicy Ubuntu Precise, Oneric, Natty i Maverick mogą zainstalować QupZille wykonując komendy";
+$install_run_command = "You can install QupZilla by running this command";
 $for_development_version = "wersja developerska:";
 $packages_text = "Paczki 32bit i 64bit";
 $tarballs_text = "32bit and 64bit precompiled tarballs";
 $qupzilla_for_text = "QupZilla for";
 $can_be_downloaded = "można pobrać klikająć w link poniżej";
 $source_text = "Możesz pobrać kod źródłowy, klonując repozytorium (jeżeli ma się zainstalowany git)";
+$source_text2 = "Możesz także przeglądać kod źródłowy online i pobrać go w postaci archiwum zip";
 $view_source = "pokaż źródła na github.com";
 $download_snapshot = "Pobierz aktualną migawkę";
 
@@ -64,12 +67,12 @@ $getting_source_text2 = "i poprostu zacząć hakować. Możesz wysyłać poprawk
 $translating = "Tłumaczenie na inne języki";
 $translating_text = "Innym sposobem aby przyczynić sie dla projektu jest dodanie nowego lub poprawienie obecnego tłumaczenia. Jeżeli chcesz dodać nowe tłumaczenie, możesz wygenerowac plik tłumaczenia ręcznie, lub skontaktować się ze mną, a ja zrobie to dla Ciebie. Możesz mi wysłać swoje tłumaczenie po przez e-mial lub github.";
 $translating_moreinfo = "Więcej informacji o tłumaczeniu <a href='https://github.com/QupZilla/qupzilla/wiki/Translating'>tutaj</a> [wiki na github]";
-$creators = "Who creates QupZilla?";
-$creators_text = "The project owner, maintainer and main developer is Czech student <b>David Rosca</b> (nowrep).<br/>
-Apart from coding, others are contributing also by making translations or supporting QupZilla. Full list of contributors can be found <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>here</a> [at github].<br/><br/>You can also join IRC channel <b>#qupzilla</b> at irc.freenode.net to chat with poeple involved in QupZilla.";
+$creators = "Kto tworzy QupZillę?";
+$creators_text = "Właścicielem projektu i głównym programistą jest student z Republiki Czeskiej, <b>David Rosca</b> (nowrep).<br/>
+Poza kodowaniem, użytkownicy współtworzą tłumaczenia na wiele języków i wspierają QupZillę. Lista osób współtworzących dostępna jest <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>tutaj</a> [github].<br/><br/>Możesz także dołączyć do kanału IRC <b>#qupzilla</b> w sieci irc.freenode.net aby porozmawiać z osobami zaangażowanymi w rozwój QupZilli.";
 // You can delete these (commented) lines after you translate $creators and $creators_text
 //$contributors = "Contributors";
 //$contributors_text = "Full list of contributors can be found on <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>github</a>.<br/>You can also join IRC channel #qupzilla at irc.freenode.net.";
 $share_with_friends = "Podziel się ze znajomymi!";
-$share_with_friends_text = "Lubisz QupZille? W takim razie podziel się nią ze swoimi znajomymi!";
+$share_with_friends_text = "Lubisz QupZillę? W takim razie podziel się nią ze swoimi znajomymi!";
 ?>

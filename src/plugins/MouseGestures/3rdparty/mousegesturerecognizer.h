@@ -51,7 +51,7 @@ class MouseGestureCallback
 {
 public:
     virtual void callback() = 0;
-    virtual ~MouseGestureCallback() = 0;
+    virtual ~MouseGestureCallback() { }
 };
 
 /*

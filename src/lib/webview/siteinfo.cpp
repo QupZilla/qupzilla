@@ -109,13 +109,13 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
         QString src = element.attribute("src");
         QString alt = element.attribute("alt");
         if (alt.isEmpty()) {
-            if (src.indexOf("/") == -1) {
+            if (src.indexOf('/') == -1) {
                 alt = src;
             }
             else {
                 int pos = src.lastIndexOf("/");
                 alt = src.mid(pos);
-                alt.remove("/");
+                alt.remove('/');
             }
         }
         if (src.isEmpty() || alt.isEmpty()) {
@@ -250,7 +250,7 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
 
     if (imageUrl.scheme() == "data") {
         QByteArray encodedUrl = item->text(1).toUtf8();
-        QByteArray imageData = encodedUrl.mid(encodedUrl.indexOf(",") + 1);
+        QByteArray imageData = encodedUrl.mid(encodedUrl.indexOf(',') + 1);
         m_activePixmap = qz_pixmapFromByteArray(imageData);
     }
     else if (imageUrl.scheme() == "file") {

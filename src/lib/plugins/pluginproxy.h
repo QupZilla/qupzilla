@@ -49,6 +49,8 @@ public:
     bool processKeyPress(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event);
     bool processKeyRelease(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event);
 
+    QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
+
     void emitWebPageCreated(WebPage* page);
     void emitWebPageDeleted(WebPage* page);
 

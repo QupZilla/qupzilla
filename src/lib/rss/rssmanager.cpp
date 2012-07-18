@@ -26,6 +26,7 @@
 #include "globalfunctions.h"
 #include "followredirectreply.h"
 #include "networkmanager.h"
+#include "websettings.h"
 
 #include <QMenu>
 #include <QXmlStreamReader>
@@ -261,19 +262,17 @@ void RSSManager::loadFeed(QTreeWidgetItem* item)
 
 void RSSManager::controlLoadFeed(QTreeWidgetItem* item)
 {
-    if (!item) {
+    if (!item || item->toolTip(0).isEmpty()) {
         return;
     }
-    if (item->toolTip(0).isEmpty()) {
-        return;
-    }
-    getQupZilla()->tabWidget()->addView(QUrl(item->toolTip(0)), Qz::NT_NotSelectedTab);
+
+    getQupZilla()->tabWidget()->addView(QUrl(item->toolTip(0)), WebSettings::newTabPosition);
 }
 
 void RSSManager::loadFeedInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        getQupZilla()->tabWidget()->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
+        getQupZilla()->tabWidget()->addView(action->data().toUrl(), WebSettings::newTabPosition);
     }
 }
 
@@ -313,7 +312,7 @@ void RSSManager::finished()
     QString titleString;
 
     QXmlStreamReader xml;
-    xml.addData(reply->reply()->readAll());
+    xml.addData(reply->readAll());
 
     reply->deleteLater();
 

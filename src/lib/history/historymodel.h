@@ -66,6 +66,8 @@ public:
 
     HistoryItem* itemFromIndex(const QModelIndex &index) const;
 
+    void removeTopLevelIndexes(const QList<QPersistentModelIndex> &indexes);
+
 signals:
 
 private slots:

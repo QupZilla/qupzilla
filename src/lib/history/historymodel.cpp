@@ -235,6 +235,30 @@ HistoryItem* HistoryModel::itemFromIndex(const QModelIndex &index) const
     return m_rootItem;
 }
 
+void HistoryModel::removeTopLevelIndexes(const QList<QPersistentModelIndex> &indexes)
+{
+    foreach(const QPersistentModelIndex & index, indexes) {
+        if (index.parent().isValid()) {
+            continue;
+        }
+
+        int row = index.row();
+        HistoryItem* item = m_rootItem->child(row);
+
+        if (!item) {
+            return;
+        }
+
+        beginRemoveRows(QModelIndex(), row, row);
+        delete item;
+        endRemoveRows();
+
+        if (item == m_todayItem) {
+            m_todayItem = 0;
+        }
+    }
+}
+
 void HistoryModel::resetHistory()
 {
     beginResetModel();

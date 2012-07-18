@@ -79,7 +79,7 @@
 #include <QWebHistory>
 #include <QMessageBox>
 
-const QString QupZilla::VERSION = "1.2.0";
+const QString QupZilla::VERSION = "1.3.1";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
 const QString QupZilla::COPYRIGHT = "2010-2012";
@@ -108,7 +108,15 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("QupZilla"));
 
+    if (mApp->isPrivateSession()) {
+        setProperty("private", QVariant(true));
+    }
+
     m_isStarting = true;
+
+#ifndef Q_WS_X11
+    setUpdatesEnabled(false);
+#endif
 
     setupUi();
     setupMenu();
@@ -119,7 +127,9 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
 
 void QupZilla::postLaunch()
 {
+#ifdef Q_WS_X11
     setUpdatesEnabled(false);
+#endif
 
     loadSettings();
 
@@ -183,7 +193,10 @@ void QupZilla::postLaunch()
     }
 
     if (addTab) {
-        m_tabWidget->addView(startUrl, Qz::NT_CleanSelectedTabAtTheEnd);
+        QNetworkRequest request(startUrl);
+        request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
+
+        m_tabWidget->addView(request, Qz::NT_CleanSelectedTabAtTheEnd);
 
         if (startUrl.isEmpty() || startUrl.toString() == "qupzilla:speeddial") {
             locationBar()->setFocus();
@@ -192,7 +205,10 @@ void QupZilla::postLaunch()
 
     if (m_tabWidget->getTabBar()->normalTabsCount() <= 0 && m_startBehaviour != Qz::BW_OtherRestoredWindow) {
         //Something went really wrong .. add one tab
-        m_tabWidget->addView(m_homepage, Qz::NT_SelectedTabAtTheEnd);
+        QNetworkRequest request(m_homepage);
+        request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
+
+        m_tabWidget->addView(request, Qz::NT_SelectedTabAtTheEnd);
     }
 
     aboutToHideEditMenu();
@@ -201,7 +217,7 @@ void QupZilla::postLaunch()
     emit startingCompleted();
 
     m_isStarting = false;
-    setWindowTitle(m_lastWindowTitle);
+    QMainWindow::setWindowTitle(m_lastWindowTitle);
 
     setUpdatesEnabled(true);
 }
@@ -450,9 +466,8 @@ void QupZilla::setupMenu()
     m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), this, SLOT(showClearPrivateData()));
     m_actionPrivateBrowsing = new QAction(tr("&Private Browsing"), this);
     m_actionPrivateBrowsing->setShortcut(QKeySequence("Ctrl+Shift+P"));
-    m_actionPrivateBrowsing->setCheckable(true);
-    m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
-    connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), this, SLOT(startPrivate(bool)));
+    m_actionPrivateBrowsing->setVisible(!mApp->isPrivateSession());
+    connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), mApp, SLOT(startPrivateBrowsing()));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
 #if !defined(Q_WS_X11) && !defined(Q_WS_MAC)
@@ -581,8 +596,7 @@ void QupZilla::loadSettings()
     m_sideBarManager->showSideBar(activeSideBar, false);
 
     //Private browsing
-    m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
-    m_privateBrowsing->setVisible(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
+    m_privateBrowsing->setVisible(mApp->isPrivateSession());
 
 #ifdef Q_WS_WIN
     if (m_usingTransparentBackground && !makeTransparent) {
@@ -657,7 +671,7 @@ void QupZilla::setWindowTitle(const QString &t)
 {
     QString title = t;
 
-    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
+    if (mApp->isPrivateSession()) {
         title.append(tr(" (Private Browsing)"));
     }
 
@@ -693,10 +707,6 @@ void QupZilla::receiveMessage(Qz::AppMessageType mes, bool state)
 
     case Qz::AM_BookmarksChanged:
         m_bookmarksMenuChanged = true;
-        break;
-
-    case Qz::AM_StartPrivateBrowsing:
-        startPrivate(state);
         break;
 
     default:
@@ -1331,7 +1341,7 @@ void QupZilla::updateLoadingActions()
     m_actionReload->setEnabled(!isLoading);
 
     if (isLoading) {
-        m_progressBar->setValue(view->loadProgress());
+        m_progressBar->setValue(view->loadingProgress());
         m_navigationBar->showStopButton();
     }
     else {
@@ -1463,7 +1473,7 @@ void QupZilla::savePage()
 {
     QNetworkRequest request(weView()->url());
     QString suggestedFileName = qz_getFileNameFromUrl(weView()->url());
-    if (!suggestedFileName.contains(".")) {
+    if (!suggestedFileName.contains('.')) {
         suggestedFileName.append(".html");
     }
 
@@ -1497,40 +1507,6 @@ void QupZilla::savePageScreen()
 {
     PageScreen* p = new PageScreen(weView(), this);
     p->show();
-}
-
-void QupZilla::startPrivate(bool state)
-{
-    static bool askedThisSession = false;
-
-    Settings settings;
-    bool askNow = settings.value("Browser-View-Settings/AskOnPrivate", true).toBool();
-
-    if (state && askNow && !askedThisSession) {
-        QString title = tr("Are you sure you want to turn on private browsing?");
-        QString text1 = tr("When private browsing is turned on, some actions concerning your privacy will be disabled:");
-
-        QStringList actions;
-        actions.append(tr("Webpages are not added to the history."));
-        actions.append(tr("Current cookies cannot be accessed."));
-        actions.append(tr("Your session is not stored."));
-
-        QString text2 = tr("Until you close the window, you can still click the Back and Forward "
-                           "buttons to return to the webpages you have opened.");
-
-        QString message = QString(QLatin1String("<b>%1</b><p>%2</p><ul><li>%3</li></ul><p>%4</p>")).arg(title, text1, actions.join(QLatin1String("</li><li>")), text2);
-
-        QMessageBox::StandardButton button = QMessageBox::question(this, tr("Start Private Browsing"),
-                                             message, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
-        if (button != QMessageBox::Yes) {
-            m_actionPrivateBrowsing->setChecked(false);
-            return;
-        }
-
-        askedThisSession = true;
-    }
-
-    mApp->togglePrivateBrowsingMode(state);
 }
 
 void QupZilla::resizeEvent(QResizeEvent* event)
@@ -1634,6 +1610,13 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
     case Qt::Key_PageUp:
         if (event->modifiers() == Qt::ControlModifier) {
             m_tabWidget->previousTab();
+            event->accept();
+        }
+        break;
+
+    case Qt::Key_Equal:
+        if (event->modifiers() == Qt::ControlModifier) {
+            weView()->zoomIn();
             event->accept();
         }
         break;
@@ -1772,30 +1755,32 @@ bool QupZilla::quitApp()
         saveSideBarWidth();
     }
 
-    Settings settings;
-    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
-    bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", true).toBool();
+    if (!mApp->isPrivateSession()) {
+        Settings settings;
+        int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
+        bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", true).toBool();
 
-    settings.beginGroup("Browser-View-Settings");
-    settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
-    settings.setValue("WindowGeometry", saveGeometry());
-    settings.setValue("LocationBarWidth", m_navigationBar->splitter()->sizes().at(0));
-    settings.setValue("WebSearchBarWidth", m_navigationBar->splitter()->sizes().at(1));
-    settings.setValue("SideBarWidth", m_sideBarWidth);
-    settings.setValue("WebViewWidth", m_webViewWidth);
-    settings.endGroup();
+        settings.beginGroup("Browser-View-Settings");
+        settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
+        settings.setValue("WindowGeometry", saveGeometry());
+        settings.setValue("LocationBarWidth", m_navigationBar->splitter()->sizes().at(0));
+        settings.setValue("WebSearchBarWidth", m_navigationBar->splitter()->sizes().at(1));
+        settings.setValue("SideBarWidth", m_sideBarWidth);
+        settings.setValue("WebViewWidth", m_webViewWidth);
+        settings.endGroup();
 
-    if (askOnClose && afterLaunch != 3 && m_tabWidget->count() > 1) {
-        CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, this);
-        dialog.setText(tr("There are still %1 open tabs and your session won't be stored. \nAre you sure to quit QupZilla?").arg(m_tabWidget->count()));
-        dialog.setCheckBoxText(tr("Don't ask again"));
-        dialog.setWindowTitle(tr("There are still open tabs"));
-        dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning));
-        if (dialog.exec() != QDialog::Accepted) {
-            return false;
-        }
-        if (dialog.isChecked()) {
-            settings.setValue("Browser-Tabs-Settings/AskOnClosing", false);
+        if (askOnClose && afterLaunch != 3 && m_tabWidget->count() > 1) {
+            CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, this);
+            dialog.setText(tr("There are still %1 open tabs and your session won't be stored. \nAre you sure to quit QupZilla?").arg(m_tabWidget->count()));
+            dialog.setCheckBoxText(tr("Don't ask again"));
+            dialog.setWindowTitle(tr("There are still open tabs"));
+            dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning));
+            if (dialog.exec() != QDialog::Accepted) {
+                return false;
+            }
+            if (dialog.isChecked()) {
+                settings.setValue("Browser-Tabs-Settings/AskOnClosing", false);
+            }
         }
     }
 

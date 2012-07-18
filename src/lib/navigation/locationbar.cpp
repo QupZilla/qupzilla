@@ -37,6 +37,7 @@
 #include "downicon.h"
 #include "globalfunctions.h"
 #include "iconprovider.h"
+#include "websettings.h"
 
 #include <QClipboard>
 
@@ -103,9 +104,9 @@ QUrl LocationBar::createUrl()
     QUrl urlToLoad;
 
     //Check for Search Engine shortcut
-    int firstSpacePos = text().indexOf(" ");
+    int firstSpacePos = text().indexOf(' ');
     if (firstSpacePos != -1) {
-        QString shortcut = text().mid(0, firstSpacePos);
+        QString shortcut = text().left(firstSpacePos);
         QString searchedString = QUrl::toPercentEncoding(text().mid(firstSpacePos).trimmed());
 
         SearchEngine en = mApp->searchEnginesManager()->engineForShortcut(shortcut);
@@ -246,11 +247,11 @@ void LocationBar::clearIcon()
 
 void LocationBar::setPrivacy(bool state)
 {
-    m_siteIcon->setProperty("secured", state);
+    m_siteIcon->setProperty("secured", QVariant(state));
     m_siteIcon->style()->unpolish(m_siteIcon);
     m_siteIcon->style()->polish(m_siteIcon);
 
-    setProperty("secured", state);
+    setProperty("secured", QVariant(state));
     style()->unpolish(this);
     style()->polish(this);
 }
@@ -428,7 +429,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
             break;
 
         case Qt::AltModifier:
-            p_QupZilla->tabWidget()->addView(createUrl(), Qz::NT_NotSelectedTab);
+            p_QupZilla->tabWidget()->addView(createUrl(), WebSettings::newTabPosition);
             m_holdingAlt = false;
             break;
 
