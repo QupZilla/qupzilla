@@ -21,7 +21,7 @@
     <message>
         <location filename="../gm_addscriptdialog.ui" line="86"/>
         <source>&lt;b&gt;You should only install scripts from sources you trust!&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Só deve instalar &quot;scripts&quot; de fintes em que confia!&lt;b/&gt;</translation>
+        <translation>&lt;b&gt;Só deve instalar &quot;scripts&quot; de fontes em que confia!&lt;b/&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="96"/>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="73"/>
         <source>Double clicking script will show additional information</source>
-        <translation>Se clicar duas vezes no &quot;script&quot; mostra informações extra</translation>
+        <translation>Clique duas vezes no &quot;script&quot; para ver informações extra</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="153"/>
