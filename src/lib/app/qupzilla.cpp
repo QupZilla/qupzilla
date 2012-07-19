@@ -566,6 +566,7 @@ void QupZilla::loadSettings()
     settings.beginGroup("Browser-View-Settings");
     bool showStatusBar = settings.value("showStatusBar", true).toBool();
     bool showHomeIcon = settings.value("showHomeButton", true).toBool();
+    bool showWebSearchBar = settings.value("showWebSearchBar", true).toBool();
     bool showBackForwardIcons = settings.value("showBackForwardButtons", true).toBool();
     bool showBookmarksToolbar = settings.value("showBookmarksToolbar", true).toBool();
     bool showNavigationToolbar = settings.value("showNavigationToolbar", true).toBool();
@@ -591,6 +592,7 @@ void QupZilla::loadSettings()
     m_navigationBar->buttonHome()->setVisible(showHomeIcon);
     m_navigationBar->buttonBack()->setVisible(showBackForwardIcons);
     m_navigationBar->buttonNext()->setVisible(showBackForwardIcons);
+    m_navigationBar->searchLine()->setVisible(showWebSearchBar);
     m_navigationBar->buttonAddTab()->setVisible(showAddTab);
 
     m_sideBarManager->showSideBar(activeSideBar, false);
