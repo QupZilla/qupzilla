@@ -59,7 +59,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="label_14">
+    <widget class="QLabel" name="label_tip">
      <property name="text">
       <string>Your personal information that will be used on webpages.</string>
      </property>
@@ -70,33 +70,10 @@
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_5">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_firstname">
        <property name="text">
-        <string>Phone:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QLineEdit" name="pim_address"/>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_7">
-       <property name="text">
-        <string>Address:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>Last Name:</string>
+        <string>First Name:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -106,36 +83,10 @@
      <item row="0" column="1">
       <widget class="QLineEdit" name="pim_firstname"/>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_3">
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_lastname">
        <property name="text">
-        <string>First Name:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLineEdit" name="pim_phone"/>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLineEdit" name="pim_mobile"/>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>Mobile Phone:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_8">
-       <property name="text">
-        <string>City:</string>
+        <string>Last Name:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -146,9 +97,61 @@
       <widget class="QLineEdit" name="pim_lastname"/>
      </item>
      <item row="2" column="0">
-      <widget class="QLabel" name="label_15">
+      <widget class="QLabel" name="label_email">
        <property name="text">
         <string>E-mail:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="pim_email"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_phone">
+       <property name="text">
+        <string>Phone:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="pim_phone"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_mobile">
+       <property name="text">
+        <string>Mobile Phone:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="pim_mobile"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_address">
+       <property name="text">
+        <string>Address:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="pim_address"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_city">
+       <property name="text">
+        <string>City:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -158,11 +161,8 @@
      <item row="6" column="1">
       <widget class="QLineEdit" name="pim_city"/>
      </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="pim_email"/>
-     </item>
      <item row="0" column="2">
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="label_zip">
        <property name="text">
         <string>ZIP Code:</string>
        </property>
@@ -175,7 +175,7 @@
       <widget class="QLineEdit" name="pim_zip"/>
      </item>
      <item row="1" column="2">
-      <widget class="QLabel" name="label_10">
+      <widget class="QLabel" name="label_state">
        <property name="text">
         <string>State/Region:</string>
        </property>
@@ -188,7 +188,7 @@
       <widget class="QLineEdit" name="pim_state"/>
      </item>
      <item row="2" column="2">
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="label_country">
        <property name="text">
         <string>Country:</string>
        </property>
@@ -201,7 +201,7 @@
       <widget class="QLineEdit" name="pim_country"/>
      </item>
      <item row="3" column="2">
-      <widget class="QLabel" name="label_12">
+      <widget class="QLabel" name="label_homepage">
        <property name="text">
         <string>Home Page:</string>
        </property>
@@ -214,7 +214,7 @@
       <widget class="QLineEdit" name="pim_homepage"/>
      </item>
      <item row="4" column="2">
-      <widget class="QLabel" name="label_16">
+      <widget class="QLabel" name="label_special1">
        <property name="text">
         <string>Custom 1:</string>
        </property>
@@ -227,7 +227,7 @@
       <widget class="QLineEdit" name="pim_special1"/>
      </item>
      <item row="5" column="2">
-      <widget class="QLabel" name="label_17">
+      <widget class="QLabel" name="label_special2">
        <property name="text">
         <string>Custom 2:</string>
        </property>
@@ -240,7 +240,7 @@
       <widget class="QLineEdit" name="pim_special2"/>
      </item>
      <item row="6" column="2">
-      <widget class="QLabel" name="label_18">
+      <widget class="QLabel" name="label_special3">
        <property name="text">
         <string>Custom 3:</string>
        </property>
@@ -255,7 +255,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="label_13">
+    <widget class="QLabel" name="label_note">
      <property name="text">
       <string>&lt;b&gt;Note:&lt;/b&gt; Press Ctrl+ENTER to autofill form fields for which QupZilla finds personal entries.</string>
      </property>
