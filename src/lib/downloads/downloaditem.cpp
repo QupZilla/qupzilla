@@ -339,7 +339,7 @@ void DownloadItem::customContextMenuRequested(const QPoint &pos)
     menu.addAction(QIcon::fromTheme("edit-copy"), tr("Copy Download Link"), this, SLOT(copyDownloadLink()));
     menu.addSeparator();
     menu.addAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("Cancel downloading"), this, SLOT(stop()))->setEnabled(m_downloading);
-    menu.addAction(QIcon::fromTheme("list-remove"), tr("Clear"), this, SLOT(clear()))->setEnabled(!m_downloading);
+    menu.addAction(QIcon::fromTheme("list-remove"), tr("Remove"), this, SLOT(clear()))->setEnabled(!m_downloading);
 
     if (m_downloading || ui->downloadInfo->text().startsWith(tr("Cancelled")) || ui->downloadInfo->text().startsWith(tr("Error"))) {
         menu.actions().at(0)->setEnabled(false);
