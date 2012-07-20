@@ -495,6 +495,19 @@
              </property>
             </spacer>
            </item>
+           <item row="1" column="2">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
            <item row="1" column="1">
             <layout class="QGridLayout" name="gridLayout_7">
              <item row="0" column="0">
@@ -520,19 +533,6 @@
              </item>
             </layout>
            </item>
-           <item row="1" column="2">
-            <spacer name="horizontalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
            <item row="2" column="0" colspan="2">
             <widget class="QLabel" name="label_8">
              <property name="text">
@@ -554,21 +554,21 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="6" column="1">
             <widget class="QCheckBox" name="showAddTabButton">
              <property name="text">
               <string>Show Add Tab button</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="0" colspan="2">
+           <item row="7" column="0" colspan="2">
             <widget class="QLabel" name="label_7">
              <property name="text">
               <string>&lt;b&gt;Background&lt;b/&gt;</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="1">
+           <item row="9" column="1">
             <spacer name="verticalSpacer_12">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -581,10 +581,17 @@
              </property>
             </spacer>
            </item>
-           <item row="7" column="1">
+           <item row="8" column="1">
             <widget class="QCheckBox" name="useTransparentBg">
              <property name="text">
               <string>Use transparent background</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QCheckBox" name="showWebSearchBar">
+             <property name="text">
+              <string>Show web search bar</string>
              </property>
             </widget>
            </item>
