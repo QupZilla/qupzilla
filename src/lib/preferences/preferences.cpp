@@ -152,6 +152,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->showHome->setChecked(settings.value("showHomeButton", true).toBool());
     ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
     ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());
+    ui->showWebSearchBar->setChecked(settings.value("showWebSearchBar", true).toBool());
     ui->useTransparentBg->setChecked(settings.value("useTransparentBackground", false).toBool());
     settings.endGroup();
 #ifdef Q_WS_WIN
@@ -762,6 +763,7 @@ void Preferences::saveSettings()
     settings.setValue("showNavigationToolbar", ui->showNavigationToolbar->isChecked());
     settings.setValue("showHomeButton", ui->showHome->isChecked());
     settings.setValue("showBackForwardButtons", ui->showBackForward->isChecked());
+    settings.setValue("showWebSearchBar", ui->showWebSearchBar->isChecked());
     settings.setValue("useTransparentBackground", ui->useTransparentBg->isChecked());
     settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
     settings.endGroup();
