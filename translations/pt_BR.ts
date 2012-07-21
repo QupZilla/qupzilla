@@ -1085,6 +1085,10 @@
         <source>Open Folder</source>
         <translation>Abrir pasta</translation>
     </message>
+    <message>  
+        <source>Remove</source>
+        <translation>Remover</translation>
+    </message>
     <message>
         <source>Not found</source>
         <translation>Não encontrado</translation>
@@ -1103,7 +1107,7 @@
     </message>
     <message>
         <source>Cancel downloading</source>
-        <translation>Cancelar download</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>seconds</source>
@@ -1149,7 +1153,9 @@
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"></translation>
+        <translation>Desculpe, o arquivo 
+ %1 
+não foi encontrado!</translation>
     </message>
 </context>
 <context>
@@ -1626,19 +1632,19 @@
     <name>PluginsManager</name>
     <message>
         <source>Add site to whitelist</source>
-        <translation type="unfinished">Adicionar página à lista de permissões</translation>
+        <translation>Adicionar página à lista de permissões</translation>
     </message>
     <message>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished">Servidor sem http:// (ex. youtube.com)</translation>
+        <translation>Servidor sem http:// (ex: youtube.com)</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Erro!</translation>
+        <translation>Erro!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation type="unfinished">Não foi possível carregar essa extensão!</translation>
+        <translation>Não foi possível carregar essa extensão!</translation>
     </message>
 </context>
 <context>
@@ -1965,6 +1971,7 @@
         <translation>Não utilizar em:</translation>
     </message>
     <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1631"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Utilizar caixa de diálogo do sistema
@@ -2683,7 +2690,8 @@
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ainda existe %1 guias abertas, e não será possível salvar a sua sessão. 
+Tem certeza que deseja sair do QupZilla?</translation>
     </message>
 </context>
 <context>
@@ -3072,6 +3080,7 @@ Are you sure to quit QupZilla?</source>
         <translation>Indique o título e o URL do feed:</translation>
     </message>
     <message>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="127"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translation>Ainda não possui nenhum feed RSS.&lt;br/&gt;
@@ -3944,7 +3953,8 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Para exibir essa página, Qupzilla precisa reenviar o pedido novamente 
+(ou seja, talvez você tenha que digitar tudo novamente.)</translation>
     </message>
 </context>
 <context>
@@ -4055,6 +4065,10 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <source>Show i&amp;mage</source>
         <translation>Abrir i&amp;magem</translation>
+    </message>
+    <message>
+        <source>Open ima&amp;ge in new tab</source>
+        <translation>Abrir i&amp;magem em nova guia</translation>
     </message>
     <message>
         <source>Validate page</source>
