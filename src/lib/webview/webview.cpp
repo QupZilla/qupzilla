@@ -813,17 +813,22 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
 void WebView::createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
 {
     menu->addSeparator();
-    Action* act = new Action(tr("Show i&mage"));
-    act->setData(hitTest.imageUrl());
-    connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
-    connect(act, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInNewTab()));
-    menu->addAction(act);
+    Action* sameTab = new Action(tr("Show i&mage"));
+    sameTab->setData(hitTest.imageUrl());
+    connect(sameTab, SIGNAL(triggered()), this, SLOT(openActionUrl()));
+    connect(sameTab, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInNewTab()));
+    menu->addAction(sameTab);
+    Action* newTab = new Action(tr("Open ima&ge in new tab"));
+    newTab->setData(hitTest.imageUrl());
+    connect(newTab, SIGNAL(triggered()), this, SLOT(userDefinedOpenUrlInNewTab()));
+    menu->addAction(newTab);
     menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(hitTest.imageUrl());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadUrlToDisk()))->setData(hitTest.imageUrl());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(hitTest.imageUrl());
     menu->addSeparator();
+
 
     if (!selectedText().isEmpty()) {
         pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
