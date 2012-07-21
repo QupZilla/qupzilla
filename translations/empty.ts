@@ -4082,6 +4082,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Open ima&amp;ge in new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Copy im&amp;age</source>
         <translation type="unfinished"></translation>
     </message>
