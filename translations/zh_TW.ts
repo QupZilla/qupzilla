@@ -2062,22 +2062,22 @@
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="82"/>
         <source>Add site to whitelist</source>
-        <translation type="unfinished">將網站加入白名單</translation>
+        <translation>將網站加入白名單</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="82"/>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished">伺服器沒有 http:// (例如 youtube.com)</translation>
+        <translation>伺服器沒有 http:// (例如 youtube.com)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="258"/>
         <source>Error!</source>
-        <translation type="unfinished">錯誤！</translation>
+        <translation>錯誤！</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="258"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished">無法載入擴充功能！</translation>
+        <translation>無法載入擴充功能！</translation>
     </message>
 </context>
 <context>
