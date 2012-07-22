@@ -26,27 +26,27 @@
     <message>
         <location filename="../PIM_handler.cpp" line="66"/>
         <source>ZIP Code</source>
-        <translation type="unfinished"></translation>
+        <translation>郵遞區號</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="70"/>
         <source>Custom 1</source>
-        <translation type="unfinished">自訂 3: {1?}</translation>
+        <translation>自訂 1</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="71"/>
         <source>Custom 2</source>
-        <translation type="unfinished">自訂 3: {2?}</translation>
+        <translation>自訂 2</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="72"/>
         <source>Custom 3</source>
-        <translation type="unfinished">自訂 3: {3?}</translation>
+        <translation>自訂 3</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="110"/>
         <source>Insert Personal Information</source>
-        <translation type="unfinished"></translation>
+        <translation>插入個人資訊</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="62"/>
@@ -119,12 +119,12 @@
     <message>
         <location filename="../PIM_settings.ui" line="42"/>
         <source>&lt;h2&gt;Personal Information Manager&lt;/h2&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h2&gt;個人資訊管理員&lt;/h2&gt;</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="64"/>
         <source>Your personal information that will be used on webpages.</source>
-        <translation type="unfinished"></translation>
+        <translation>您的個人資訊將會被用在網頁上。</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="138"/>
@@ -134,7 +134,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="151"/>
         <source>E-mail:</source>
-        <translation type="unfinished"></translation>
+        <translation>電子郵件:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="167"/>
