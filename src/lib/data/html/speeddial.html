@@ -284,6 +284,7 @@ function setBoxTitle(id, title) {
 }
 
 function removeBox(id) {
+    if (confirm("%TITLE-WARN%"))
     var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
     if (box === undefined)
         return;

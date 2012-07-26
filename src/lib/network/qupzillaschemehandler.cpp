@@ -262,6 +262,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace("%TITLE-EDIT%", tr("Edit"));
         dPage.replace("%TITLE-REMOVE%", tr("Remove"));
         dPage.replace("%TITLE-RELOAD%", tr("Reload"));
+        dPage.replace("%TITLE-WARN%", tr("Are you sure to remove this speed dial?"));
         dPage.replace("%TITLE-FETCHTITLE%", tr("Load title from page"));
         dPage.replace("%JQUERY%", "qrc:html/jquery.js");
         dPage.replace("%JQUERY-UI%", "qrc:html/jquery-ui.js");
