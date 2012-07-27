@@ -18,6 +18,7 @@
 #include "enhancedmenu.h"
 
 #include <QMouseEvent>
+#include <QApplication>
 
 Menu::Menu(QWidget* parent)
     : QMenu(parent)
@@ -66,11 +67,11 @@ void Menu::mouseReleaseEvent(QMouseEvent* e)
 
 void Menu::closeAllMenus()
 {
-    QMenu* parentMenu = this;
+    QMenu* menu = this;
 
-    while (parentMenu) {
-        parentMenu->close();
-        parentMenu = qobject_cast<QMenu*>(parentMenu->parentWidget());
+    while (menu) {
+        menu->close();
+        menu = qobject_cast<QMenu*>(QApplication::activePopupWidget());
     }
 }
 
