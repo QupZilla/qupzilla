@@ -1129,7 +1129,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Очистити</translation>
+        <translation type="obsolete">Очистити</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1154,6 +1154,10 @@
     <message>
         <source>Error: </source>
         <translation>Помилка:</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Видалити</translation>
     </message>
 </context>
 <context>
@@ -2303,6 +2307,10 @@
         <source>Automatically switch to newly opened tab</source>
         <translation>Автоматично перемикатись на нову вкладку</translation>
     </message>
+    <message>
+        <source>Show web search bar</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2996,6 +3004,10 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Приватний перегляд&lt;/h1&gt;</translation>
+    </message>
+    <message>
+        <source>Are you sure to remove this speed dial?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

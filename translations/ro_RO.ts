@@ -1127,7 +1127,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Șterge</translation>
+        <translation type="obsolete">Șterge</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1152,6 +1152,10 @@ nu a putut fi găsit!</translation>
     <message>
         <source>Error: </source>
         <translation>Eroare:</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1391,11 +1395,11 @@ nu a putut fi găsit!</translation>
     <name>HistoryView</name>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deschide legătura in tab-ul curent</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deschide legătura in tab nou</translation>
     </message>
     <message>
         <source>Copy title</source>
@@ -2303,6 +2307,10 @@ nu a putut fi găsit!</translation>
         <source>Automatically switch to newly opened tab</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Show web search bar</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2991,6 +2999,10 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
     </message>
     <message>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure to remove this speed dial?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

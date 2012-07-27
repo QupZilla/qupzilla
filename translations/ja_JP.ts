@@ -1147,7 +1147,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>消去</translation>
+        <translation type="obsolete">消去</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1171,6 +1171,10 @@
     <message>
         <source>Error: </source>
         <translation>エラー:</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">削除</translation>
     </message>
 </context>
 <context>
@@ -2351,6 +2355,10 @@
         <source>Automatically switch to newly opened tab</source>
         <translation>新しいタブが開かれたとき、すぐにそのタブに切り替える</translation>
     </message>
+    <message>
+        <source>Show web search bar</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3053,6 +3061,10 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;プライベートブラウジング&lt;h1/&gt;</translation>
+    </message>
+    <message>
+        <source>Are you sure to remove this speed dial?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

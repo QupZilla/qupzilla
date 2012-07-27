@@ -1051,7 +1051,7 @@
     <name>DownloadItem</name>
     <message>
         <source>Clear</source>
-        <translation>Vyčistiť</translation>
+        <translation type="obsolete">Vyčistiť</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1152,6 +1152,10 @@
     <message>
         <source>Error: Cannot write to file!</source>
         <translation>Chyba: Nedá sa zapisovať do súboru!</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2301,6 +2305,10 @@
         <source>Automatically switch to newly opened tab</source>
         <translation>Automaticky prepnúť na novo otvorený panel</translation>
     </message>
+    <message>
+        <source>Show web search bar</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2990,6 +2998,10 @@ Skutočne chcete skončiť?</translation>
     <message>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Súkromné prehliadanie&lt;/h1&gt;</translation>
+    </message>
+    <message>
+        <source>Are you sure to remove this speed dial?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

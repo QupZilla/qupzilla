@@ -1127,7 +1127,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>გასუფთავება</translation>
+        <translation type="obsolete">გასუფთავება</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1152,6 +1152,10 @@
     <message>
         <source>Error: </source>
         <translation>შეცდომა:</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">წაშლა</translation>
     </message>
 </context>
 <context>
@@ -2301,6 +2305,10 @@
         <source>Automatically switch to newly opened tab</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Show web search bar</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2989,6 +2997,10 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure to remove this speed dial?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
