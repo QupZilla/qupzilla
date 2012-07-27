@@ -2793,6 +2793,10 @@ Tem certeza que deseja sair do QupZilla?</translation>
         <translation>Remover</translation>
     </message>
     <message>
+        <source>Are you sure to remove this speed dial?</source>
+        <translation>Você tem certeza que deseja remover o site selecionado da lista de acesso rápido?</translation>
+    </message>
+    <message>
         <source>Load title from page</source>
         <translation>Carregar título da página</translation>
     </message>
