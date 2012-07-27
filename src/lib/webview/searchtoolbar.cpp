@@ -117,6 +117,7 @@ void SearchToolBar::searchText(const QString &text)
 {
     WebView* view = p_QupZilla->weView();
     bool found = view->findText(text, m_findFlags);
+
     if (text.isEmpty()) {
         found = true;
     }
@@ -125,9 +126,13 @@ void SearchToolBar::searchText(const QString &text)
         m_findFlags = QWebPage::HighlightAllOccurrences;
         updateFindFlags();
         view->findText(text, m_findFlags);
+
+        if (!found) {
+            view->findText(QString(), QWebPage::HighlightAllOccurrences);
+        }
     }
     else {
-        view->findText("", QWebPage::HighlightAllOccurrences);
+        view->findText(QString(), QWebPage::HighlightAllOccurrences);
     }
 
     if (!found) {
