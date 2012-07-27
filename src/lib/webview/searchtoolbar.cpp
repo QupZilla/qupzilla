@@ -116,6 +116,10 @@ void SearchToolBar::caseSensitivityChanged()
 void SearchToolBar::searchText(const QString &text)
 {
     WebView* view = p_QupZilla->weView();
+
+    // Clear highlighting on page
+    view->findText(QString(), QWebPage::HighlightAllOccurrences);
+
     bool found = view->findText(text, m_findFlags);
 
     if (text.isEmpty()) {
@@ -126,10 +130,6 @@ void SearchToolBar::searchText(const QString &text)
         m_findFlags = QWebPage::HighlightAllOccurrences;
         updateFindFlags();
         view->findText(text, m_findFlags);
-
-        if (!found) {
-            view->findText(QString(), QWebPage::HighlightAllOccurrences);
-        }
     }
     else {
         view->findText(QString(), QWebPage::HighlightAllOccurrences);
