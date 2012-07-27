@@ -125,10 +125,11 @@ void SearchToolBar::searchText(const QString &text)
     if (ui->highligh->isChecked()) {
         m_findFlags = QWebPage::HighlightAllOccurrences;
         updateFindFlags();
+    view->findText(QString(), m_findFlags); //clear the highlight words
         view->findText(text, m_findFlags);
 
         if (!found) {
-            view->findText(QString(), QWebPage::HighlightAllOccurrences);
+            view->findText(QString(), m_findFlags);
         }
     }
     else {
