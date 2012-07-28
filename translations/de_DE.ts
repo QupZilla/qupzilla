@@ -1443,7 +1443,7 @@
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="342"/>
         <source>Remove</source>
-        <translation type="unfinished">Entfernen</translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2510,7 +2510,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="594"/>
         <source>Show web search bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchleiste anzeigen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="775"/>
@@ -3462,7 +3462,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Are you sure to remove this speed dial?</source>
-        <translation type="unfinished"></translation>
+        <translation>Möchten Sie diese Schnellwahl wirklich entfernen?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="312"/>
