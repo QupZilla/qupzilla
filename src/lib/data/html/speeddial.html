@@ -8,7 +8,7 @@ body * {-webkit-user-select: none;font-size: 100%;line-height: 1.6;margin: 0px;}
 .add {position: absolute;right:10px;top:10px;width: 24px;height: 24px;background: url(%IMG_PLUS%); cursor: pointer;}
 
 #quickdial {margin: auto;text-align: center;}
-#quickdial div.entry {position: relative; display:inline-block; border-width: 10px;
+#quickdial div.entry {position: relative; border-width: 10px;
 -webkit-border-image: url(%BOX-BORDER%) 10;margin: 5px;}
 #quickdial img {display: block;margin: auto;}
 #quickdial a {position: absolute;left: 0px;top: 0px;width: 100%;height: 87%;}
@@ -333,11 +333,13 @@ function bgImageSel() {
 function saveSettings() {
     MAX_PAGES_ROW = $('#PgInRow').val();
     DIAL_WIDTH = parseInt($('#SdSize').val());
+    SD_CNTR = ($('#SdCntrToggle').attr('checked') ? 1 : 0 );
 
     speeddial.setBackgroundImage($('#BgImgHold').val());
     speeddial.setBackgroundImageSize($('#BgImgSelSiz').val());
     speeddial.setPagesInRow(MAX_PAGES_ROW);
     speeddial.setSdSize(DIAL_WIDTH);
+    speeddial.setSdCentered(SD_CNTR);
 
     alignPage();
 }
@@ -381,11 +383,15 @@ $(document).ready(function () {
   $('#BgImgSelSiz').val('%B_SIZE%').attr('selected','selected');
   var bgImg = "%IMG_BACKGROUND%";
   var sdSize = 'DIAL_WIDTH';
+  var sdCntr = "%SD-CNTR%";
+
   bgImg == '' ? $('#BgImgToggle').prop('checked', false) : $('#BgImgToggle').prop('checked', true)
   sdSize == '231' ? $('#SdSizeToggle').prop('checked', false) : $('#SdSizeToggle').prop('checked', true)
   $('#BgImgToggle').is(':checked') ? $('#BgImgSel').removeAttr('disabled') : $('#BgImgSel').attr('disabled', 'disabled');
   $('#BgImgToggle').is(':checked') ? $('#BgImgSelSiz').removeAttr('disabled') : $('#BgImgSelSiz').attr('disabled', 'disabled');
   $('#SdSizeToggle').is(':checked') ? $('#SdSize').removeAttr('disabled') : $('#SdSize').attr('disabled', 'disabled');
+  sdCntr == 0 ? $('#SdCntrToggle').prop('checked', false) : $('#SdCntrToggle').prop('checked', true);
+  sdCntr == 0 ? $('#quickdial div.entry').css('float', 'left') : $('#quickdial div.entry').css('display', 'inline-block');
 });
 
 </script>
@@ -424,6 +430,7 @@ $("#quickdial").sortable({
       <input id="PgInRow" type="range" min="2" max="8" value="%ROW-PAGES%" step="1" onchange="$('#sliderValuePg').html(this.value);" />
     </div>
     <div class="togop">
+      <input type="checkbox" name="sdcntrt" id="SdCntrToggle" />&nbsp;<label for="SdCntrToggle">%TXT_CNTRDLS%</label><br />
       <input type="checkbox" name="sdsizet" id="SdSizeToggle" onchange="sdSizeToggle()" />&nbsp;<label for="SdSizeToggle">%TXT_SDSIZE%</label>
     </div>
     <div class="rowsel">

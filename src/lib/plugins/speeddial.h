@@ -57,6 +57,8 @@ public:
 
     int pagesInRow();
     int sdSize();
+    int sdCntr();
+
     QString backgroundImage();
     QString backgroundImageSize();
     QString initialScript();
@@ -75,6 +77,7 @@ public slots:
     void setBackgroundImageSize(const QString &size);
     void setPagesInRow(int count);
     void setSdSize(int count);
+    void setSdCentered(int cntr);
 
 private slots:
     void thumbnailCreated(const QPixmap &pixmap);
@@ -92,6 +95,7 @@ private:
     QString m_backgroundImageSize;
     int m_maxPagesInRow;
     int m_sizeOfSpeedDials;
+    int m_sdcentered;
 
     QList<QWeakPointer<QWebFrame> > m_webFrames;
     QList<Page> m_webPages;

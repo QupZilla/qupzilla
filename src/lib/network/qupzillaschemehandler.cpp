@@ -284,6 +284,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace("%TXT_SELECTIMAGE%", tr("Select image"));
         dPage.replace("%TXT_NRROWS%", tr("Maximum pages in a row:"));
         dPage.replace("%TXT_SDSIZE%", tr("Change size of pages:"));
+        dPage.replace("%TXT_CNTRDLS%", tr("Center speed dials"));
     }
 
     QString page = dPage;
@@ -294,6 +295,7 @@ QString QupZillaSchemeReply::speeddialPage()
     page.replace("%B_SIZE%", dial->backgroundImageSize());
     page.replace("%ROW-PAGES%", QString::number(dial->pagesInRow()));
     page.replace("%SD-SIZE%", QString::number(dial->sdSize()));
+    page.replace("%SD-CNTR%", QString::number(dial->sdCntr()));
 
     return page;
 }
