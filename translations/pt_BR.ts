@@ -2131,7 +2131,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="594"/>
         <source>Show web search bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar barra de pesquisa na web</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="864"/>
@@ -3664,7 +3664,7 @@ Tem certeza que deseja sair do QupZilla?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Are you sure to remove this speed dial?</source>
-        <translation type="unfinished"></translation>
+        <translation>Você tem certeza que deseja remover o site selecionado do acesso rápido?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="279"/>
