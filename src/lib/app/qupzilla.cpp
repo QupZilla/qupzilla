@@ -463,7 +463,7 @@ void QupZilla::setupMenu()
     m_menuTools->addAction(tr("&AdBlock"), AdBlockManager::instance(), SLOT(showDialog()));
     m_menuTools->addAction(QIcon(":/icons/menu/rss.png"), tr("RSS &Reader"), this,  SLOT(showRSSManager()));
     m_menuTools->addAction(tr("Web In&spector"), this, SLOT(showWebInspector()))->setShortcut(QKeySequence("Ctrl+Shift+I"));
-    m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), this, SLOT(showClearPrivateData()));
+    m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), this, SLOT(showClearPrivateData()))->setShortcut(QKeySequence("Ctrl+Shift+Del"));
     m_actionPrivateBrowsing = new QAction(tr("&Private Browsing"), this);
     m_actionPrivateBrowsing->setShortcut(QKeySequence("Ctrl+Shift+P"));
     m_actionPrivateBrowsing->setVisible(!mApp->isPrivateSession());
