@@ -5,6 +5,8 @@
         <file>data/script.png</file>
         <file>locale/cs_CZ.qm</file>
         <file>locale/de_DE.qm</file>
+        <file>locale/es_ES.qm</file>
+        <file>locale/es_VE.qm</file>
         <file>locale/fr_FR.qm</file>
         <file>locale/id_ID.qm</file>
         <file>locale/it_IT.qm</file>

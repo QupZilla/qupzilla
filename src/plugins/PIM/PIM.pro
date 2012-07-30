@@ -19,6 +19,8 @@ RESOURCES = PIM_res.qrc
 TRANSLATIONS = \
     translations/cs_CZ.ts \
     translations/de_DE.ts \
+    translations/es_ES.ts \
+    translations/es_VE.ts \
     translations/fr_FR.ts \
     translations/id_ID.ts \
     translations/it_IT.ts \
