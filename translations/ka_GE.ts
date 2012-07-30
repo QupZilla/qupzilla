@@ -3003,6 +3003,10 @@ Are you sure to quit QupZilla?</source>
         <source>Are you sure to remove this speed dial?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Center speed dials</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
