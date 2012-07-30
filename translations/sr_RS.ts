@@ -3709,7 +3709,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="287"/>
         <source>Center speed dials</source>
-        <translation type="unfinished"></translation>
+        <translation>Центрирај брза бирања</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="317"/>
