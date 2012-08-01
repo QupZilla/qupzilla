@@ -684,9 +684,15 @@ void Preferences::createProfile()
         QMessageBox::warning(this, tr("Error!"), tr("Cannot create profile directory!"));
         return;
     }
+
     dir.cd(name);
     QFile(":data/browsedata.db").copy(dir.absolutePath() + "/browsedata.db");
     QFile(dir.absolutePath() + "/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
+
+    QFile versionFile(dir.absolutePath() + "/version");
+    versionFile.open(QFile::WriteOnly);
+    versionFile.write(QupZilla::VERSION.toUtf8());
+    versionFile.close();
 
     ui->startProfile->insertItem(0, name);
     ui->startProfile->setCurrentIndex(0);
