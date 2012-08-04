@@ -1350,7 +1350,7 @@
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="70"/>
         <source>Remaining time unavailable</source>
-        <translation>Оставшееся время недоступно</translation>
+        <translation>Оставшееся время неизвестно</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="142"/>
@@ -1448,7 +1448,7 @@
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="342"/>
         <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2075,22 +2075,22 @@
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="82"/>
         <source>Add site to whitelist</source>
-        <translation type="unfinished">Добавить сайт в Белый список</translation>
+        <translation>Добавить сайт в Белый список</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="82"/>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished">Сервер (без http://)</translation>
+        <translation>Сервер без http:// (Например youtube.com)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="258"/>
         <source>Error!</source>
-        <translation type="unfinished">Ошибка!</translation>
+        <translation>Ошибка!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="258"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished">Не могу загрузить расширение!</translation>
+        <translation>Не могу загрузить расширение!</translation>
     </message>
 </context>
 <context>
@@ -2424,7 +2424,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="594"/>
         <source>Show web search bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать панель поиска</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="775"/>
@@ -2439,7 +2439,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="947"/>
         <source>Local Storage</source>
-        <translation>Локльное хранилище</translation>
+        <translation>Локальное хранилище</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="955"/>
@@ -3651,7 +3651,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Are you sure to remove this speed dial?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы точно хотите удалить эту закладку?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="272"/>
@@ -3721,7 +3721,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="287"/>
         <source>Center speed dials</source>
-        <translation type="unfinished"></translation>
+        <translation>Выравнивать закладки</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="317"/>
