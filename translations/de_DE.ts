@@ -938,14 +938,14 @@
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="51"/>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="114"/>
         <source>Remove from Speed Dial</source>
-        <translation>Aus Speed Dial entfernen</translation>
+        <translation>Aus Schnellwahl entfernen</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="150"/>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="51"/>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="119"/>
         <source>Add to Speed Dial</source>
-        <translation>Zu Speed Dial hinzufügen</translation>
+        <translation>Zur Schnellwahl hinzufügen</translation>
     </message>
 </context>
 <context>
@@ -3462,12 +3462,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Are you sure to remove this speed dial?</source>
-        <translation>Möchten Sie diese Schnellwahl wirklich entfernen?</translation>
+        <translation>Möchten Sie dieses Schnellwahl-Feld wirklich entfernen?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="287"/>
         <source>Center speed dials</source>
-        <translation type="unfinished"></translation>
+        <translation>Schnellwahl-Felder zentrieren</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="314"/>
