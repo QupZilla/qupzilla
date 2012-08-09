@@ -409,7 +409,7 @@
     </message>
     <message>
         <source>Fetching icons, please wait...</source>
-        <translation>アイコンの読み込み中です,お待ちください...</translation>
+        <translation>アイコンの読み込み中です。お待ちください...</translation>
     </message>
     <message>
         <source>Title</source>
@@ -1182,7 +1182,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">削除</translation>
+        <translation>削除</translation>
     </message>
 </context>
 <context>
@@ -2365,7 +2365,7 @@
     </message>
     <message>
         <source>Show web search bar</source>
-        <translation type="unfinished"></translation>
+        <translation>検索バーを表示する</translation>
     </message>
 </context>
 <context>
@@ -3072,11 +3072,11 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Are you sure to remove this speed dial?</source>
-        <translation type="unfinished"></translation>
+        <translation>本当にspeed dialを削除しますか？</translation>
     </message>
     <message>
         <source>Center speed dials</source>
-        <translation type="unfinished"></translation>
+        <translation>speed dialの中心</translation>
     </message>
 </context>
 <context>
