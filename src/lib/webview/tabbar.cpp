@@ -217,6 +217,10 @@ QSize TabBar::tabSizeHint(int index) const
         if (m_adjustingLastTab) {
             xForAddTabButton += m_lastTabWidth - m_normalTabWidth;
         }
+        //RTL Support
+        if (QApplication::layoutDirection() == Qt::RightToLeft) {
+            xForAddTabButton = width() - xForAddTabButton;
+        }
         emit tabBar->moveAddTabButton(xForAddTabButton);
     }
 

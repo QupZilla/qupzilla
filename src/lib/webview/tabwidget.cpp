@@ -163,7 +163,13 @@ void TabWidget::resizeEvent(QResizeEvent* e)
 {
     QPoint posit;
     posit.setY(0);
-    posit.setX(width() - m_buttonListTabs->width());
+    //RTL Support
+    if (QApplication::layoutDirection() == Qt::RightToLeft) {
+        posit.setX(0);
+    }
+    else {
+        posit.setX(width() - m_buttonListTabs->width());
+    }
     m_buttonListTabs->move(posit);
 
     QTabWidget::resizeEvent(e);
@@ -194,6 +200,10 @@ void TabWidget::hideButtons()
 void TabWidget::moveAddTabButton(int posX)
 {
     int posY = (m_tabBar->height() - m_buttonAddTab->height()) / 2;
+    //RTL Support
+    if (QApplication::layoutDirection() == Qt::RightToLeft) {
+        posX = posX - m_buttonAddTab->width();
+    }
     m_buttonAddTab->move(posX, posY);
 }
 

@@ -301,6 +301,15 @@ void MainApplication::loadSettings()
     }
 #endif
 
+    //RTL Support
+    //loading 'rtl.css' when layout is right to left!
+    if ( isRightToLeft() && QFile(m_activeThemePath + "rtl.css").exists()) {
+        cssFile.setFileName(m_activeThemePath + "rtl.css");
+        cssFile.open(QFile::ReadOnly);
+        css.append(cssFile.readAll());
+        cssFile.close();
+    }
+
     QString relativePath = QDir::current().relativeFilePath(m_activeThemePath);
     css.replace(QRegExp("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)", Qt::CaseSensitive, QRegExp::RegExp2),
                 QString("url(%1\\1)").arg(relativePath + "/"));
