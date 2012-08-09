@@ -169,10 +169,22 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
         return QIcon(":/icons/faenza/reload.png");
 
     case QStyle::SP_ArrowForward:
-        return QIcon(":/icons/faenza/forward.png");
+        //RTL Support
+        if (QApplication::layoutDirection() == Qt::RightToLeft) {
+            return QIcon(":/icons/faenza/back.png");
+        }
+        else {
+            return QIcon(":/icons/faenza/forward.png");
+        }
 
     case QStyle::SP_ArrowBack:
-        return QIcon(":/icons/faenza/back.png");
+        //RTL Support
+        if (QApplication::layoutDirection() == Qt::RightToLeft) {
+            return QIcon(":/icons/faenza/forward.png");
+        }
+        else {
+            return QIcon(":/icons/faenza/back.png");
+        }
 
     default:
         return QIcon();
