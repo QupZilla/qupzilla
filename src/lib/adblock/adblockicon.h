@@ -45,6 +45,7 @@ public slots:
 
 private slots:
     void showMenu(const QPoint &pos);
+    void toggleCustomFilter();
 
     void animateIcon();
     void stopAnimation();

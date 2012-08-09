@@ -115,11 +115,13 @@ private:
     QString chooseFile(QWebFrame* originatingFrame, const QString &oldFile);
 
     void handleUnknownProtocol(const QUrl &url);
+    void desktopServicesOpen(const QUrl &url);
 
     static QString s_lastUploadLocation;
     static QString s_userAgent;
     static QString s_fakeUserAgent;
     static QUrl s_lastUnsupportedUrl;
+    static QTime s_lastUnsupportedUrlTime;
     static QList<WebPage*> s_livingPages;
 
     QupZilla* p_QupZilla;

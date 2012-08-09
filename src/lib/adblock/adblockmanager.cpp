@@ -165,6 +165,19 @@ bool AdBlockManager::removeSubscription(AdBlockSubscription* subscription)
     return true;
 }
 
+AdBlockCustomList* AdBlockManager::customList() const
+{
+    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+        AdBlockCustomList* list = qobject_cast<AdBlockCustomList*>(subscription);
+
+        if (list) {
+            return list;
+        }
+    }
+
+    return 0;
+}
+
 void AdBlockManager::load()
 {
     if (m_loaded) {

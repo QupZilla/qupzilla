@@ -29,6 +29,7 @@ class QNetworkReply;
 class QNetworkRequest;
 
 class AdBlockDialog;
+class AdBlockCustomList;
 class AdBlockSubscription;
 
 class QT_QUPZILLA_EXPORT AdBlockManager : public QObject
@@ -59,6 +60,8 @@ public:
 
     AdBlockSubscription* addSubscription(const QString &title, const QString &url);
     bool removeSubscription(AdBlockSubscription* subscription);
+
+    AdBlockCustomList* customList() const;
 
 public slots:
     void setEnabled(bool enabled);

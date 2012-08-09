@@ -189,6 +189,14 @@
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
         <translation>Adresă blocată (regulă AdBlock) - click pentru a edita regula</translation>
     </message>
+    <message>
+        <source>Disable on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable only on this page</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AdBlockManager</name>
@@ -3844,7 +3852,7 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation>Pentru a afișa această pagină, QupZilla trebuie să trimită cererea</translation>
+        <translation type="obsolete">Pentru a afișa această pagină, QupZilla trebuie să trimită cererea</translation>
     </message>
     <message>
         <source>Confirm form resubmission</source>
@@ -3964,6 +3972,11 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     </message>
     <message>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To show this page, QupZilla must resend request which do it again 
+(like searching on making an shopping, which has been already done.)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

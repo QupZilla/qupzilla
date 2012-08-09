@@ -189,6 +189,14 @@
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
         <translation>დაბლოკილი ბმული (AdBlock-ის წესი) - დააწკაპუნეთ რათა დაარედაქტიროთ</translation>
     </message>
+    <message>
+        <source>Disable on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable only on this page</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AdBlockManager</name>
@@ -3842,7 +3850,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation>ამ გვერდის საჩვენებლად, QupZilla -მ ხელახლა უნდა გადაგზავნოს მოთხოვნა 
+        <translation type="obsolete">ამ გვერდის საჩვენებლად, QupZilla -მ ხელახლა უნდა გადაგზავნოს მოთხოვნა 
 (like searching on making an shoping, which has been already done.)</translation>
     </message>
     <message>
@@ -3963,6 +3971,11 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To show this page, QupZilla must resend request which do it again 
+(like searching on making an shopping, which has been already done.)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
