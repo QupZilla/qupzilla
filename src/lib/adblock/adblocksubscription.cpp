@@ -443,6 +443,30 @@ bool AdBlockCustomList::canBeRemoved() const
     return false;
 }
 
+bool AdBlockCustomList::containsFilter(const QString &filter) const
+{
+    foreach(const AdBlockRule & rule, m_rules) {
+        if (rule.filter() == filter) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool AdBlockCustomList::removeFilter(const QString &filter)
+{
+    for (int i = 0; i < m_rules.count(); ++i) {
+        const AdBlockRule &rule = m_rules.at(i);
+
+        if (rule.filter() == filter) {
+            return removeRule(i);
+        }
+    }
+
+    return false;
+}
+
 int AdBlockCustomList::addRule(const AdBlockRule &rule)
 {
     m_rules.append(rule);

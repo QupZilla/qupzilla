@@ -203,14 +203,14 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
 
     bool matched = false;
 
-    if (m_useRegExp) {
-        matched = (m_regExp.indexIn(encodedUrl) != -1);
-    }
-    else if (m_useDomainMatch) {
+    if (m_useDomainMatch) {
         matched = domain.endsWith(m_matchString);
     }
     else if (m_useEndsMatch) {
         matched = encodedUrl.endsWith(m_matchString, m_caseSensitivity);
+    }
+    else if (m_useRegExp) {
+        matched = (m_regExp.indexIn(encodedUrl) != -1);
     }
     else {
         matched = encodedUrl.contains(m_matchString, m_caseSensitivity);

@@ -154,6 +154,9 @@ public:
     bool canEditRules() const;
     bool canBeRemoved() const;
 
+    bool containsFilter(const QString &filter) const;
+    bool removeFilter(const QString &filter);
+
     int addRule(const AdBlockRule &rule);
     bool removeRule(int offset);
     const AdBlockRule* replaceRule(const AdBlockRule &rule, int offset);
