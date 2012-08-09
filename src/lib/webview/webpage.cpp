@@ -58,6 +58,7 @@ QString WebPage::s_lastUploadLocation = QDir::homePath();
 QString WebPage::s_userAgent;
 QString WebPage::s_fakeUserAgent;
 QUrl WebPage::s_lastUnsupportedUrl;
+QTime WebPage::s_lastUnsupportedUrlTime;
 QList<WebPage*> WebPage::s_livingPages;
 
 WebPage::WebPage(QupZilla* mainClass)
@@ -292,15 +293,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
 
     case QNetworkReply::ProtocolUnknownError: {
         qDebug() << "WebPage::UnsupportedContent" << url << "ProtocolUnknowError";
-
-        // We will open last unsupported url only once
-        // (to prevent endless loop in case QDesktopServices::openUrl decide
-        // to open the url again in QupZilla )
-
-        if (s_lastUnsupportedUrl != url) {
-            s_lastUnsupportedUrl = url;
-            QDesktopServices::openUrl(url);
-        }
+        desktopServicesOpen(url);
 
         reply->deleteLater();
         return;
@@ -323,7 +316,7 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
     }
 
     if (WebSettings::autoOpenProtocols.contains(protocol)) {
-        QDesktopServices::openUrl(url);
+        desktopServicesOpen(url);
         return;
     }
 
@@ -359,6 +352,21 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
 
     default:
         break;
+    }
+}
+
+void WebPage::desktopServicesOpen(const QUrl &url)
+{
+    // Open same url only once in 2 secs
+
+    if (s_lastUnsupportedUrl != url || QTime::currentTime() > s_lastUnsupportedUrlTime.addSecs(2)) {
+        s_lastUnsupportedUrl = url;
+        s_lastUnsupportedUrlTime = QTime::currentTime();
+        QDesktopServices::openUrl(url);
+    }
+    else {
+        qWarning() << "WebPage::desktopServicesOpen Url" << url << "has already been opened!\n"
+                   "Ignoring it to prevent infinite loop!";
     }
 }
 
@@ -453,13 +461,13 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
     const QString &scheme = request.url().scheme();
 
     if (scheme == "mailto" || scheme == "ftp") {
-        QDesktopServices::openUrl(request.url());
+        desktopServicesOpen(request.url());
         return false;
     }
 
     if (type == QWebPage::NavigationTypeFormResubmitted) {
         QString message = tr("To show this page, QupZilla must resend request which do it again \n"
-                             "(like searching on making an shoping, which has been already done.)");
+                             "(like searching on making an shopping, which has been already done.)");
         bool result = (QMessageBox::question(view(), tr("Confirm form resubmission"),
                                              message, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes);
         if (!result) {
