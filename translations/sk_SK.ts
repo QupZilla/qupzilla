@@ -189,6 +189,14 @@
         <source>Blocked Popup Windows</source>
         <translation>Zablokované vyskakovacie okná</translation>
     </message>
+    <message>
+        <source>Disable on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable only on this page</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AdBlockManager</name>
@@ -3903,7 +3911,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation>Na zobrazenie tejto stránky musí QupZilla znova odoslať požiadavku
+        <translation type="obsolete">Na zobrazenie tejto stránky musí QupZilla znova odoslať požiadavku
 (ako napr. hľadanie pri nakupovaní, ktoré už raz bolo urobené.)</translation>
     </message>
     <message>
@@ -3965,6 +3973,11 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Blokované s &lt;i&gt;%1&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>To show this page, QupZilla must resend request which do it again 
+(like searching on making an shopping, which has been already done.)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

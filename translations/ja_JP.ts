@@ -194,6 +194,14 @@
         <translatorcomment>保留</translatorcomment>
         <translation>ブロックされたURL(AdBlockのルール) -  クリックして編集</translation>
     </message>
+    <message>
+        <source>Disable on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable only on this page</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AdBlockManager</name>
@@ -3923,7 +3931,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translatorcomment>再考</translatorcomment>
-        <translation>このページを見るためにはQupZillaがもう一度リクエストを送信する必要があります。
+        <translation type="obsolete">このページを見るためにはQupZillaがもう一度リクエストを送信する必要があります。
 (検索、あるいはオンラインショッピングなどの場合リクエストはすでに一度送信されています)</translation>
     </message>
     <message>
@@ -4055,6 +4063,11 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>&lt;i&gt;%1&lt;i/&gt;によってブロックされました</translation>
+    </message>
+    <message>
+        <source>To show this page, QupZilla must resend request which do it again 
+(like searching on making an shopping, which has been already done.)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
