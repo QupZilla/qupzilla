@@ -29,6 +29,8 @@ public:
     static bool selectAllOnDoubleClick;
     static bool selectAllOnClick;
     static bool addCountryWithAlt;
+
+    static bool showSearchSuggestions;
 };
 
 #endif // LOCATIONBARSETTINGS_H

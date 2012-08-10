@@ -212,12 +212,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="119"/>
         <source>Disable on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Desabilitar em %1</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="125"/>
         <source>Disable only on this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Desabilitar só nessa página</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="153"/>
@@ -3684,7 +3684,7 @@ Tem certeza que deseja sair do QupZilla?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="287"/>
         <source>Center speed dials</source>
-        <translation type="unfinished"></translation>
+        <translation>Centralizar acesso rápido</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="314"/>
@@ -4933,7 +4933,8 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
         <location filename="../src/lib/webview/webpage.cpp" line="465"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Para exibir essa página, o QupZilla terá que reenviar a sua solicitação 
+(ou seja, se você digitou alguma coisa, provavelmente terá que digitar novamente)</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="647"/>
