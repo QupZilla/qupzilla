@@ -20,12 +20,14 @@
 #include "mainapplication.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
+#include "settings.h"
 #include "websettings.h"
 #include "tabwidget.h"
 #include "clickablelabel.h"
 #include "buttonwithmenu.h"
 #include "searchenginesmanager.h"
 #include "searchenginesdialog.h"
+#include "locationbarsettings.h"
 #include "networkmanager.h"
 
 #include <QCompleter>
@@ -102,8 +104,10 @@ void WebSearchBar::aboutToShowMenu()
 
 void WebSearchBar::addSuggestions(const QStringList &list)
 {
-    QStringList list_ = list.mid(0, 6);
-    m_completerModel->setStringList(list_);
+    if (LocationBarSettings::showSearchSuggestions) {
+        QStringList list_ = list.mid(0, 6);
+        m_completerModel->setStringList(list_);
+    }
 }
 
 void WebSearchBar::openSearchEnginesDialog()
@@ -116,6 +120,17 @@ void WebSearchBar::openSearchEnginesDialog()
 
     m_searchDialog = new SearchEnginesDialog(this);
     m_searchDialog.data()->show();
+}
+
+void WebSearchBar::enableSearchSuggestions(bool enable)
+{
+    Settings settings;
+    settings.beginGroup("SearchEngines");
+    settings.setValue("showSuggestions", enable);
+    settings.endGroup();
+
+    LocationBarSettings::showSearchSuggestions = enable;
+    m_completerModel->setStringList(QStringList());
 }
 
 void WebSearchBar::setupEngines()
@@ -274,6 +289,12 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
     }
 
     tempMenu->deleteLater();
+
+    m_menu->addSeparator();
+    QAction* act = m_menu->addAction(tr("Show suggestions"));
+    act->setCheckable(true);
+    act->setChecked(LocationBarSettings::showSearchSuggestions);
+    connect(act, SIGNAL(triggered(bool)), this, SLOT(enableSearchSuggestions(bool)));
 
     m_pasteAndGoAction->setEnabled(!QApplication::clipboard()->text().isEmpty());
 

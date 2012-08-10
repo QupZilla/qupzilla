@@ -64,6 +64,7 @@ private slots:
     void aboutToShowMenu();
     void openSearchEnginesDialog();
 
+    void enableSearchSuggestions(bool enable);
     void addSuggestions(const QStringList &list);
 
     void addEngineFromAction();
