@@ -38,6 +38,13 @@ signals:
 public slots:
 
 private:
+    enum Type {
+        HistoryAndBookmarks = 0,
+        History = 1,
+        Bookmarks = 2,
+        Nothing = 3
+    };
+
     QString m_lastCompletion;
 
 };

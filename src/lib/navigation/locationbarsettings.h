@@ -30,6 +30,7 @@ public:
     static bool selectAllOnClick;
     static bool addCountryWithAlt;
 
+    static int showLocationSuggestions;
     static bool showSearchSuggestions;
 };
 

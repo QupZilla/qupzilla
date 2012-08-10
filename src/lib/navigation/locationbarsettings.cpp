@@ -22,6 +22,8 @@
 bool LocationBarSettings::selectAllOnDoubleClick = false;
 bool LocationBarSettings::selectAllOnClick = false;
 bool LocationBarSettings::addCountryWithAlt = false;
+
+int LocationBarSettings::showLocationSuggestions = 0;
 bool LocationBarSettings::showSearchSuggestions = false;
 
 LocationBarSettings::LocationBarSettings()
@@ -36,6 +38,7 @@ void LocationBarSettings::loadSettings()
     selectAllOnDoubleClick = settings.value("SelectAllTextOnDoubleClick", true).toBool();
     selectAllOnClick = settings.value("SelectAllTextOnClick", false).toBool();
     addCountryWithAlt = settings.value("AddCountryDomainWithAltKey", true).toBool();
+    showLocationSuggestions = settings.value("showSuggestions", 0).toInt();
     settings.endGroup();
 
     settings.beginGroup("SearchEngines");
