@@ -24,3 +24,5 @@ git_revision
 *.zip
 Thumbs.db
 tests/modeltest
+*.pdb
+*.ilk
