@@ -29,7 +29,7 @@
 #include "browsinglibrary.h"
 #include "bookmarksmanager.h"
 #include "settings.h"
-#include "websettings.h"
+#include "qzsettings.h"
 #include "enhancedmenu.h"
 #include "pluginproxy.h"
 
@@ -125,7 +125,7 @@ void WebView::setPage(QWebPage* page)
     QWebView::setPage(page);
     m_page = qobject_cast<WebPage*>(page);
 
-    setZoom(WebSettings::defaultZoom);
+    setZoom(qzSettings->defaultZoom);
     connect(m_page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
     connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
 
@@ -509,7 +509,7 @@ void WebView::openUrlInBackgroundTab()
 
 void WebView::userDefinedOpenUrlInNewTab(const QUrl &url, bool invert)
 {
-    Qz::NewTabPositionFlag position = WebSettings::newTabPosition;
+    Qz::NewTabPositionFlag position = qzSettings->newTabPosition;
     if (invert) {
         position = (position == Qz::NT_SelectedTab) ? Qz::NT_NotSelectedTab : Qz::NT_SelectedTab;
     }

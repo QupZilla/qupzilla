@@ -25,7 +25,7 @@
 #include "tabbedwebview.h"
 #include "historymodel.h"
 #include "headerview.h"
-#include "websettings.h"
+#include "qzsettings.h"
 
 #include <QMessageBox>
 
@@ -90,7 +90,7 @@ void HistoryManager::search(const QString &searchText)
 void HistoryManager::openLink(const QUrl &url, HistoryView::OpenBehavior openIn)
 {
     if (openIn == HistoryView::OpenInNewTab) {
-        getQupZilla()->tabWidget()->addView(url, WebSettings::newTabPosition);
+        getQupZilla()->tabWidget()->addView(url, qzSettings->newTabPosition);
     }
     else {
         getQupZilla()->weView()->load(url);

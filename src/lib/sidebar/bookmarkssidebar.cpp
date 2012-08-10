@@ -24,7 +24,7 @@
 #include "bookmarkstoolbar.h"
 #include "tabwidget.h"
 #include "bookmarksmodel.h"
-#include "websettings.h"
+#include "qzsettings.h"
 
 #include <QMenu>
 #include <QTimer>
@@ -80,7 +80,7 @@ void BookmarksSideBar::itemDoubleClicked(QTreeWidgetItem* item)
 void BookmarksSideBar::loadInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        p_QupZilla->tabWidget()->addView(action->data().toUrl(), WebSettings::newTabPosition);
+        p_QupZilla->tabWidget()->addView(action->data().toUrl(), qzSettings->newTabPosition);
     }
 }
 

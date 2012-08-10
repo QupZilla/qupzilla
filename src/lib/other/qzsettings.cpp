@@ -15,27 +15,33 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "websettings.h"
+#include "qzsettings.h"
 #include "settings.h"
 
-int WebSettings::defaultZoom = 100;
-bool WebSettings::loadTabsOnActivation = false;
+QzSettings::QzSettings()
+{
+    loadSettings();
+}
 
-Qz::NewTabPositionFlag WebSettings::newTabPosition;
-QStringList WebSettings::autoOpenProtocols;
-QStringList WebSettings::blockedProtocols;
-
-void WebSettings::loadSettings()
+void QzSettings::loadSettings()
 {
     Settings settings;
-    settings.beginGroup("Web-Browser-Settings");
+    settings.beginGroup("AddressBar");
+    selectAllOnDoubleClick = settings.value("SelectAllTextOnDoubleClick", true).toBool();
+    selectAllOnClick = settings.value("SelectAllTextOnClick", false).toBool();
+    addCountryWithAlt = settings.value("AddCountryDomainWithAltKey", true).toBool();
+    showLocationSuggestions = settings.value("showSuggestions", 0).toInt();
+    settings.endGroup();
 
+    settings.beginGroup("SearchEngines");
+    showSearchSuggestions = settings.value("showSuggestions", true).toBool();
+    settings.endGroup();
+
+    settings.beginGroup("Web-Browser-Settings");
     defaultZoom = settings.value("DefaultZoom", 100).toInt();
     loadTabsOnActivation = settings.value("LoadTabsOnActivation", false).toBool();
-
     autoOpenProtocols = settings.value("AutomaticallyOpenProtocols", QStringList()).toStringList();
     blockedProtocols = settings.value("BlockOpeningProtocols", QStringList()).toStringList();
-
     settings.endGroup();
 
     settings.beginGroup("Browser-Tabs-Settings");
@@ -43,7 +49,7 @@ void WebSettings::loadSettings()
     settings.endGroup();
 }
 
-void WebSettings::saveSettings()
+void QzSettings::saveSettings()
 {
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
@@ -53,3 +59,5 @@ void WebSettings::saveSettings()
 
     settings.endGroup();
 }
+
+

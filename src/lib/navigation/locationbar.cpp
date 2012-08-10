@@ -28,7 +28,6 @@
 #include "bookmarkicon.h"
 #include "progressbar.h"
 #include "statusbarmessage.h"
-#include "locationbarsettings.h"
 #include "toolbutton.h"
 #include "searchenginesmanager.h"
 #include "siteicon.h"
@@ -37,7 +36,7 @@
 #include "downicon.h"
 #include "globalfunctions.h"
 #include "iconprovider.h"
-#include "websettings.h"
+#include "qzsettings.h"
 
 #include <QClipboard>
 
@@ -376,7 +375,7 @@ void LocationBar::focusOutEvent(QFocusEvent* e)
 
 void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton && LocationBarSettings::selectAllOnDoubleClick) {
+    if (event->button() == Qt::LeftButton && qzSettings->selectAllOnDoubleClick) {
         selectAll();
     }
     else {
@@ -386,7 +385,7 @@ void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
 
 void LocationBar::mousePressEvent(QMouseEvent* event)
 {
-    if (cursorPosition() == 0 && LocationBarSettings::selectAllOnClick) {
+    if (cursorPosition() == 0 && qzSettings->selectAllOnClick) {
         selectAll();
         return;
     }
@@ -429,7 +428,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
             break;
 
         case Qt::AltModifier:
-            p_QupZilla->tabWidget()->addView(createUrl(), WebSettings::newTabPosition);
+            p_QupZilla->tabWidget()->addView(createUrl(), qzSettings->newTabPosition);
             m_holdingAlt = false;
             break;
 
@@ -468,7 +467,7 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
 {
     QString localDomain = tr(".co.uk", "Append domain name on ALT + Enter = Should be different for every country");
 
-    if (event->key() == Qt::Key_Alt && m_holdingAlt && LocationBarSettings::addCountryWithAlt &&
+    if (event->key() == Qt::Key_Alt && m_holdingAlt && qzSettings->addCountryWithAlt &&
             !text().endsWith(localDomain) && !text().endsWith("/")) {
         LineEdit::setText(text().append(localDomain));
     }

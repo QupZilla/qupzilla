@@ -44,8 +44,7 @@
 #include "speeddial.h"
 #include "webpage.h"
 #include "settings.h"
-#include "locationbarsettings.h"
-#include "websettings.h"
+#include "qzsettings.h"
 #include "clearprivatedata.h"
 #include "commandlineoptions.h"
 
@@ -373,8 +372,7 @@ void MainApplication::loadSettings()
         m_downloadManager->loadSettings();
     }
 
-    LocationBarSettings::loadSettings();
-    WebSettings::loadSettings();
+    qzSettings->loadSettings();
 }
 
 void MainApplication::reloadSettings()

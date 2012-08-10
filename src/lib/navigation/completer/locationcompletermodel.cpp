@@ -16,8 +16,8 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "locationcompletermodel.h"
-#include "locationbarsettings.h"
 #include "iconprovider.h"
+#include "qzsettings.h"
 #include "mainapplication.h"
 
 #include <QSqlQuery>
@@ -43,7 +43,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
 
     clear();
 
-    Type showType = (Type) LocationBarSettings::showLocationSuggestions;
+    Type showType = (Type) qzSettings->showLocationSuggestions;
 
     int limit = string.size() < 3 ? 25 : 15;
     QString searchString = QString("%%1%").arg(string);

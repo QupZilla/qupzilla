@@ -29,7 +29,7 @@
 #include "bookmarksimportdialog.h"
 #include "iconchooser.h"
 #include "webtab.h"
-#include "websettings.h"
+#include "qzsettings.h"
 
 #include <QInputDialog>
 #include <QComboBox>
@@ -194,7 +194,7 @@ void BookmarksManager::itemControlClicked(QTreeWidgetItem* item)
 void BookmarksManager::loadInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        getQupZilla()->tabWidget()->addView(action->data().toUrl(), WebSettings::newTabPosition);
+        getQupZilla()->tabWidget()->addView(action->data().toUrl(), qzSettings->newTabPosition);
     }
 }
 
