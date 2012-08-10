@@ -196,11 +196,11 @@
     </message>
     <message>
         <source>Disable on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 で無効</translation>
     </message>
     <message>
         <source>Disable only on this page</source>
-        <translation type="unfinished"></translation>
+        <translation>このページでのみ無効にする</translation>
     </message>
 </context>
 <context>
@@ -2369,23 +2369,24 @@
     </message>
     <message>
         <source>Suggest when typing into address bar:</source>
-        <translation type="unfinished"></translation>
+        <translation>アドレスバーへの入力時にサジェストする:</translation>
     </message>
     <message>
         <source>History and Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>履歴とブックマーク</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">履歴</translation>
+        <translation>履歴</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished">ブックマーク</translation>
+        <translation>ブックマーク</translation>
     </message>
     <message>
         <source>Nothing</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>なし</translation>
     </message>
 </context>
 <context>
@@ -4087,7 +4088,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>このページを見るためにはQupZillaがもう一度リクエストを送信する必要があります。(検索、あるいはオンラインショッピングなどの場合リクエストはすでに一度送信されています)</translation>
     </message>
 </context>
 <context>
@@ -4111,7 +4112,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Show suggestions</source>
-        <translation type="unfinished"></translation>
+        <translation>サジェストの表示</translation>
     </message>
 </context>
 <context>
