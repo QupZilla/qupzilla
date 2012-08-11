@@ -7,8 +7,3 @@
 {
     qproperty-icon: url(images/navigation-forward.png);
 }
-
-#locationbar-goicon
-{
-	qproperty-pixmap: url(images/gotoaddress_rtl.png);
-}

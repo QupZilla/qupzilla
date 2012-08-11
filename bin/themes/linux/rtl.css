@@ -10,7 +10,3 @@
     qproperty-fallbackIcon: url(images/go-next.png);
 }
 
-#locationbar-goicon
-{
-	qproperty-pixmap: url(images/gotoaddress_rtl.png);
-}

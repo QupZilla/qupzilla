@@ -47,10 +47,20 @@ void LineEdit::setLeftMargin(int margin)
 
 void LineEdit::init()
 {
+    ////we use setTextMargins() instead of padding property, and we should
+    //// uncomment following line or just update padding property of LineEdit's
+    //// subclasses in all themes and use same value for padding-left and padding-right,
+    //// with this new implementation padding-left and padding-right show padding from
+    //// edges of m_leftWidget and m_rightWidget.
+    //setStyleSheet(QString("QLineEdit{padding-left: 0; padding-right: 0;}"));
+    mainLayout = new QHBoxLayout(this);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(0);
+
     m_leftWidget = new SideWidget(this);
     m_leftWidget->resize(0, 0);
     m_leftLayout = new QHBoxLayout(m_leftWidget);
-    m_leftLayout->setContentsMargins(0, 0, 0, 0);
+    m_leftLayout->setContentsMargins(0, 0, 2, 0);
 
     if (isRightToLeft()) {
         m_leftLayout->setDirection(QBoxLayout::RightToLeft);
@@ -69,10 +79,15 @@ void LineEdit::init()
     else {
         m_rightLayout->setDirection(QBoxLayout::LeftToRight);
     }
-    m_rightLayout->setContentsMargins(0, 0, 0, 0);
 
+    m_rightLayout->setContentsMargins(0, 0, 2, 0);
     QSpacerItem* horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
-    m_rightLayout->addItem(horizontalSpacer);
+
+    mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter|Qt::AlignLeft);
+    mainLayout->addItem(horizontalSpacer);
+    mainLayout->addWidget(m_rightWidget, 0, Qt::AlignVCenter|Qt::AlignRight);
+    //by this we undo reversing of layout when direction is RTL. //TODO: don't do this and show reversed icon when needed
+    mainLayout->setDirection(isRightToLeft() ? QBoxLayout::RightToLeft : QBoxLayout::LeftToRight);
 
     setWidgetSpacing(3);
     connect(m_leftWidget, SIGNAL(sizeHintChanged()),
@@ -84,11 +99,14 @@ void LineEdit::init()
 bool LineEdit::event(QEvent* event)
 {
     if (event->type() == QEvent::LayoutDirectionChange) {
+        //by this we undo reversing of layout when direction is RTL.
         if (isRightToLeft()) {
+            mainLayout->setDirection(QBoxLayout::RightToLeft);
             m_leftLayout->setDirection(QBoxLayout::RightToLeft);
             m_rightLayout->setDirection(QBoxLayout::RightToLeft);
         }
         else {
+            mainLayout->setDirection(QBoxLayout::LeftToRight);
             m_leftLayout->setDirection(QBoxLayout::LeftToRight);
             m_rightLayout->setDirection(QBoxLayout::LeftToRight);
         }
@@ -101,16 +119,11 @@ void LineEdit::addWidget(QWidget* widget, WidgetPosition position)
     if (!widget) {
         return;
     }
-
-    bool rtl = isRightToLeft();
-    if (rtl) {
-        position = (position == LeftSide) ? RightSide : LeftSide;
-    }
     if (position == LeftSide) {
         m_leftLayout->addWidget(widget);
     }
     else {
-        m_rightLayout->insertWidget(1, widget);
+        m_rightLayout->addWidget(widget);
     }
 }
 
@@ -157,49 +170,49 @@ void LineEdit::updateTextMargins()
 {
     int left;
     if (m_leftMargin == 0) {
-        left = textMargin(LineEdit::LeftSide);
+        left = m_leftWidget->sizeHint().width();
     }
     else {
         left = m_leftMargin;
     }
-    int right = textMargin(LineEdit::RightSide) + 3;
+    int right = m_rightWidget->sizeHint().width();
     int top = 0;
     int bottom = 0;
     setTextMargins(left, top, right, bottom);
-    updateSideWidgetLocations();
+//    updateSideWidgetLocations();
 }
 
-void LineEdit::updateSideWidgetLocations()
-{
-    QStyleOptionFrameV2 opt;
-    initStyleOption(&opt);
-    QRect textRect = style()->subElementRect(QStyle::SE_LineEditContents, &opt, this);
-    int spacing = m_rightLayout->spacing();
-    textRect.adjust(spacing, 0, -spacing, 0);
+//void LineEdit::updateSideWidgetLocations()
+//{
+//    QStyleOptionFrameV2 opt;
+//    initStyleOption(&opt);
+//    QRect textRect = style()->subElementRect(QStyle::SE_LineEditContents, &opt, this);
+//    int spacing = m_rightLayout->spacing();
+//    textRect.adjust(spacing, 0, -spacing, 0);
 
-    int left = textMargin(LineEdit::LeftSide);
+//    int left = textMargin(LineEdit::LeftSide);
 
-    int midHeight = textRect.center().y() + 1;
+//    int midHeight = textRect.center().y() + 1;
 
-    if (m_leftLayout->count() > 0) {
-        int leftHeight = midHeight - m_leftWidget->height() / 2;
-        int leftWidth = m_leftWidget->width();
-        if (leftWidth == 0) {
-            leftHeight = midHeight - m_leftWidget->sizeHint().height() / 2;
-        }
-        m_leftWidget->move(textRect.x(), leftHeight);
-    }
-    textRect.setX(left);
-    textRect.setY(midHeight - m_rightWidget->sizeHint().height() / 2);
-    textRect.setHeight(m_rightWidget->sizeHint().height());
-    m_rightWidget->setGeometry(textRect);
-}
+//    if (m_leftLayout->count() > 0) {
+//        int leftHeight = midHeight - m_leftWidget->height() / 2;
+//        int leftWidth = m_leftWidget->width();
+//        if (leftWidth == 0) {
+//            leftHeight = midHeight - m_leftWidget->sizeHint().height() / 2;
+//        }
+//        m_leftWidget->move(textRect.x(), leftHeight);
+//    }
+//    textRect.setX(left);
+//    textRect.setY(midHeight - m_rightWidget->sizeHint().height() / 2);
+//    textRect.setHeight(m_rightWidget->sizeHint().height());
+//    m_rightWidget->setGeometry(textRect);
+//}
 
-void LineEdit::resizeEvent(QResizeEvent* event)
-{
-    updateSideWidgetLocations();
-    QLineEdit::resizeEvent(event);
-}
+//void LineEdit::resizeEvent(QResizeEvent* event)
+//{
+//    updateSideWidgetLocations();
+//    QLineEdit::resizeEvent(event);
+//}
 
 QString LineEdit::inactiveText() const
 {

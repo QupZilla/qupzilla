@@ -131,7 +131,8 @@ IconProvider
     border-image: url(images/lineedit-bg.png);
     border-width:4;
     color:black;
-    padding-left: 28px;
+    padding-right: -4px;
+    padding-left: -4px;
     qproperty-fixedheight: 22;
 }
 
@@ -208,7 +209,8 @@ IconProvider
     border-image: url(images/lineedit-bg.png);
     border-width:4;
     color:black;
-    padding-left: 30px;
+    padding-right: -4px;
+    padding-left: -4px;
     qproperty-fixedheight: 22;
 }
 
