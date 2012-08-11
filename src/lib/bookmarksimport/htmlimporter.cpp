@@ -66,7 +66,6 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
 
-
     // Converting tags to lower case -,-
     // For some reason Qt::CaseInsensitive is not everytime insensitive :-D
 
@@ -106,7 +105,7 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
             rx.indexIn(string);
 
 //            QString arguments = rx.cap(1);
-            QString folderName = rx.cap(2);
+            QString folderName = rx.cap(2).trimmed();
 
             folders.append(folderName);
 
@@ -127,13 +126,13 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
             rx.indexIn(string);
 
             QString arguments = rx.cap(1);
-            QString linkName = rx.cap(2);
+            QString linkName = rx.cap(2).trimmed();
 
             QRegExp rx2("href=\"(.*)\"");
             rx2.setMinimal(true);
             rx2.indexIn(arguments);
 
-            QUrl url = QUrl::fromEncoded(rx2.cap(1).toUtf8());
+            QUrl url = QUrl::fromEncoded(rx2.cap(1).trimmed().toUtf8());
 
             start += posOfLink + rx.cap(0).size();
 
