@@ -1738,7 +1738,11 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="externalDownArguments"/>
+          <widget class="QLineEdit" name="externalDownArguments">
+           <property name="placeholderText">
+            <string>Leave blank if unsure</string>
+           </property>
+          </widget>
          </item>
          <item row="0" column="1">
           <layout class="QHBoxLayout" name="horizontalLayout_7">

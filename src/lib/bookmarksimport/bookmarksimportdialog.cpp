@@ -192,7 +192,6 @@ bool BookmarksImportDialog::exportedOK()
             QMessageBox::critical(this, tr("Error!"), firefox.errorString());
             return false;
         }
-        return true;
     }
     else if (m_browser == Chrome) {
         ChromeImporter chrome(this);
@@ -205,7 +204,6 @@ bool BookmarksImportDialog::exportedOK()
             QMessageBox::critical(this, tr("Error!"), chrome.errorString());
             return false;
         }
-        return true;
     }
     else if (m_browser == Opera) {
         OperaImporter opera(this);
@@ -218,7 +216,6 @@ bool BookmarksImportDialog::exportedOK()
             QMessageBox::critical(this, tr("Error!"), opera.errorString());
             return false;
         }
-        return true;
     }
     else if (m_browser == Html) {
         HtmlImporter html(this);
@@ -231,10 +228,14 @@ bool BookmarksImportDialog::exportedOK()
             QMessageBox::critical(this, tr("Error!"), html.errorString());
             return false;
         }
-        return true;
     }
 
-    return false;
+    if (m_exportedBookmarks.isEmpty()) {
+        QMessageBox::critical(this, tr("Error!"), tr("The file doesn't contain any bookmark."));
+        return false;
+    }
+
+    return true;
 }
 
 void BookmarksImportDialog::setFile()
