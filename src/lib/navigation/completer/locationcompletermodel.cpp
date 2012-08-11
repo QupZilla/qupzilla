@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "locationcompletermodel.h"
 #include "iconprovider.h"
+#include "qzsettings.h"
 #include "mainapplication.h"
 
 #include <QSqlQuery>
@@ -42,53 +43,59 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
 
     clear();
 
+    Type showType = (Type) qzSettings->showLocationSuggestions;
+
     int limit = string.size() < 3 ? 25 : 15;
     QString searchString = QString("%%1%").arg(string);
     QList<QUrl> urlList;
-
     QSqlQuery query;
-    query.prepare("SELECT id, url, title, icon FROM bookmarks WHERE title LIKE ? OR url LIKE ? LIMIT ?");
-    query.addBindValue(searchString);
-    query.addBindValue(searchString);
-    query.addBindValue(limit);
-    query.exec();
 
-    while (query.next()) {
-        QStandardItem* item = new QStandardItem();
-        const QUrl &url = query.value(1).toUrl();
+    if (showType == HistoryAndBookmarks || showType == Bookmarks) {
+        query.prepare("SELECT id, url, title, icon FROM bookmarks WHERE title LIKE ? OR url LIKE ? LIMIT ?");
+        query.addBindValue(searchString);
+        query.addBindValue(searchString);
+        query.addBindValue(limit);
+        query.exec();
 
-        item->setIcon(qIconProvider->iconFromImage(QImage::fromData(query.value(3).toByteArray())));
-        item->setText(url.toEncoded());
-        item->setData(query.value(0), IdRole);
-        item->setData(query.value(2), TitleRole);
-        item->setData(QVariant(true), BookmarkRole);
-        appendRow(item);
-        urlList.append(url);
-    }
+        while (query.next()) {
+            QStandardItem* item = new QStandardItem();
+            const QUrl &url = query.value(1).toUrl();
 
-    limit -= query.size();
-
-    query.prepare("SELECT id, url, title FROM history WHERE title LIKE ? OR url LIKE ? ORDER BY count DESC LIMIT ?");
-    query.addBindValue(searchString);
-    query.addBindValue(searchString);
-    query.addBindValue(limit);
-    query.exec();
-
-    while (query.next()) {
-        QStandardItem* item = new QStandardItem();
-        const QUrl &url = query.value(1).toUrl();
-
-        if (urlList.contains(url)) {
-            continue;
+            item->setIcon(qIconProvider->iconFromImage(QImage::fromData(query.value(3).toByteArray())));
+            item->setText(url.toEncoded());
+            item->setData(query.value(0), IdRole);
+            item->setData(query.value(2), TitleRole);
+            item->setData(QVariant(true), BookmarkRole);
+            appendRow(item);
+            urlList.append(url);
         }
 
-        item->setIcon(_iconForUrl(url));
-        item->setText(url.toEncoded());
-        item->setData(query.value(0), IdRole);
-        item->setData(query.value(2), TitleRole);
-        item->setData(QVariant(false), BookmarkRole);
+        limit -= query.size();
+    }
 
-        appendRow(item);
+    if (showType == HistoryAndBookmarks || showType == History) {
+        query.prepare("SELECT id, url, title FROM history WHERE title LIKE ? OR url LIKE ? ORDER BY count DESC LIMIT ?");
+        query.addBindValue(searchString);
+        query.addBindValue(searchString);
+        query.addBindValue(limit);
+        query.exec();
+
+        while (query.next()) {
+            QStandardItem* item = new QStandardItem();
+            const QUrl &url = query.value(1).toUrl();
+
+            if (urlList.contains(url)) {
+                continue;
+            }
+
+            item->setIcon(_iconForUrl(url));
+            item->setText(url.toEncoded());
+            item->setData(query.value(0), IdRole);
+            item->setData(query.value(2), TitleRole);
+            item->setData(QVariant(false), BookmarkRole);
+
+            appendRow(item);
+        }
     }
 }
 

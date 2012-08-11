@@ -21,13 +21,12 @@
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "settings.h"
-#include "websettings.h"
+#include "qzsettings.h"
 #include "tabwidget.h"
 #include "clickablelabel.h"
 #include "buttonwithmenu.h"
 #include "searchenginesmanager.h"
 #include "searchenginesdialog.h"
-#include "locationbarsettings.h"
 #include "networkmanager.h"
 
 #include <QCompleter>
@@ -110,7 +109,7 @@ void WebSearchBar::aboutToShowMenu()
 
 void WebSearchBar::addSuggestions(const QStringList &list)
 {
-    if (LocationBarSettings::showSearchSuggestions) {
+    if (qzSettings->showSearchSuggestions) {
         QStringList list_ = list.mid(0, 6);
         m_completerModel->setStringList(list_);
     }
@@ -135,7 +134,7 @@ void WebSearchBar::enableSearchSuggestions(bool enable)
     settings.setValue("showSuggestions", enable);
     settings.endGroup();
 
-    LocationBarSettings::showSearchSuggestions = enable;
+    qzSettings->showSearchSuggestions = enable;
     m_completerModel->setStringList(QStringList());
 }
 
@@ -199,7 +198,7 @@ void WebSearchBar::search()
 void WebSearchBar::searchInNewTab()
 {
     p_QupZilla->weView()->setFocus();
-    p_QupZilla->tabWidget()->addView(m_searchManager->searchUrl(m_activeEngine, text()), WebSettings::newTabPosition);
+    p_QupZilla->tabWidget()->addView(m_searchManager->searchUrl(m_activeEngine, text()), qzSettings->newTabPosition);
 }
 
 void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
@@ -299,7 +298,7 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
     m_menu->addSeparator();
     QAction* act = m_menu->addAction(tr("Show suggestions"));
     act->setCheckable(true);
-    act->setChecked(LocationBarSettings::showSearchSuggestions);
+    act->setChecked(qzSettings->showSearchSuggestions);
     connect(act, SIGNAL(triggered(bool)), this, SLOT(enableSearchSuggestions(bool)));
 
     m_pasteAndGoAction->setEnabled(!QApplication::clipboard()->text().isEmpty());

@@ -26,7 +26,7 @@
 #include "globalfunctions.h"
 #include "followredirectreply.h"
 #include "networkmanager.h"
-#include "websettings.h"
+#include "qzsettings.h"
 
 #include <QMenu>
 #include <QXmlStreamReader>
@@ -266,13 +266,13 @@ void RSSManager::controlLoadFeed(QTreeWidgetItem* item)
         return;
     }
 
-    getQupZilla()->tabWidget()->addView(QUrl(item->toolTip(0)), WebSettings::newTabPosition);
+    getQupZilla()->tabWidget()->addView(QUrl(item->toolTip(0)), qzSettings->newTabPosition);
 }
 
 void RSSManager::loadFeedInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        getQupZilla()->tabWidget()->addView(action->data().toUrl(), WebSettings::newTabPosition);
+        getQupZilla()->tabWidget()->addView(action->data().toUrl(), qzSettings->newTabPosition);
     }
 }
 

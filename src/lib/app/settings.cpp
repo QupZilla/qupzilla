@@ -16,10 +16,12 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "settings.h"
+#include "qzsettings.h"
 
 #include <QSettings>
 
 QSettings* Settings::s_settings = 0;
+QzSettings* Settings::s_qzSettings = 0;
 
 Settings::Settings()
 {
@@ -32,6 +34,7 @@ Settings::Settings()
 void Settings::createSettings(const QString &fileName)
 {
     s_settings = new QSettings(fileName, QSettings::IniFormat);
+    s_qzSettings = new QzSettings();
 }
 
 void Settings::syncSettings()
@@ -62,6 +65,11 @@ void Settings::endGroup()
 QSettings* Settings::globalSettings()
 {
     return s_settings;
+}
+
+QzSettings *Settings::staticSettings()
+{
+    return s_qzSettings;
 }
 
 Settings::~Settings()

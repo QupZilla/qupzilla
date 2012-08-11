@@ -15,22 +15,42 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef LOCATIONBARSETTINGS_H
-#define LOCATIONBARSETTINGS_H
+#ifndef QZSETTINGS_H
+#define QZSETTINGS_H
 
 #include "qz_namespace.h"
+#include "settings.h"
 
-class QT_QUPZILLA_EXPORT LocationBarSettings
+#include <QStringList>
+
+class QT_QUPZILLA_EXPORT QzSettings
 {
 public:
-    LocationBarSettings();
+    QzSettings();
 
-    static void loadSettings();
-    static bool selectAllOnDoubleClick;
-    static bool selectAllOnClick;
-    static bool addCountryWithAlt;
+    void loadSettings();
+    void saveSettings();
 
-    static bool showSearchSuggestions;
+    // AddressBar
+    bool selectAllOnDoubleClick;
+    bool selectAllOnClick;
+    bool addCountryWithAlt;
+    int showLocationSuggestions;
+
+    // SearchEngines
+    bool showSearchSuggestions;
+
+    // Web-Browser-Settings
+    int defaultZoom;
+    bool loadTabsOnActivation;
+
+    QStringList autoOpenProtocols;
+    QStringList blockedProtocols;
+
+    // Browser-Tabs-Settings
+    Qz::NewTabPositionFlag newTabPosition;
 };
 
-#endif // LOCATIONBARSETTINGS_H
+#define qzSettings Settings::staticSettings()
+
+#endif // QZSETTINGS_H

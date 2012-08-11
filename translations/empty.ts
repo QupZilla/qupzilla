@@ -2310,6 +2310,26 @@
         <source>Show web search bar</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Suggest when typing into address bar:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>History and Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3980,6 +4000,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Clear All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show suggestions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

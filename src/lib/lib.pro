@@ -110,7 +110,6 @@ SOURCES += \
     3rdparty/squeezelabelv2.cpp \
     3rdparty/squeezelabelv1.cpp \
     tools/buttonwithmenu.cpp \
-    navigation/locationbarsettings.cpp \
     other/browsinglibrary.cpp \
     3rdparty/stylehelper.cpp \
     3rdparty/fancytabwidget.cpp \
@@ -164,7 +163,6 @@ SOURCES += \
     bookmarksimport/bookmarksimporticonfetcher.cpp \
     other/checkboxdialog.cpp \
     tools/plaineditwithlines.cpp \
-    webview/websettings.cpp \
     tools/focusselectlineedit.cpp \
     navigation/completer/locationcompleterdelegate.cpp \
     navigation/completer/locationcompleter.cpp \
@@ -181,7 +179,8 @@ SOURCES += \
     adblock/adblockschemehandler.cpp \
     tools/emptynetworkreply.cpp \
     3rdparty/processinfo.cpp \
-    preferences/pluginsmanager.cpp
+    preferences/pluginsmanager.cpp \
+    other/qzsettings.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -259,7 +258,6 @@ HEADERS  += \
     3rdparty/squeezelabelv2.h \
     3rdparty/squeezelabelv1.h \
     tools/buttonwithmenu.h \
-    navigation/locationbarsettings.h \
     other/browsinglibrary.h \
     3rdparty/stylehelper.h \
     3rdparty/fancytabwidget.h \
@@ -317,7 +315,6 @@ HEADERS  += \
     network/schemehandler.h \
     tools/plaineditwithlines.h \
     sidebar/sidebarinterface.h \
-    webview/websettings.h \
     tools/focusselectlineedit.h \
     navigation/completer/locationcompleterdelegate.h \
     navigation/completer/locationcompleter.h \
@@ -334,7 +331,8 @@ HEADERS  += \
     adblock/adblockschemehandler.h \
     tools/emptynetworkreply.h \
     3rdparty/processinfo.h \
-    preferences/pluginsmanager.h
+    preferences/pluginsmanager.h \
+    other/qzsettings.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

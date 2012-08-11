@@ -27,7 +27,7 @@
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
-#include "websettings.h"
+#include "qzsettings.h"
 
 #include <QSplitter>
 #include <QHBoxLayout>
@@ -297,7 +297,7 @@ void NavigationBar::goAtHistoryIndexInNewTab(int index)
     QWebHistory* history = p_QupZilla->weView(tabIndex)->page()->history();
     history->goToItem(history->itemAt(index));
 
-    if (WebSettings::newTabPosition == Qz::NT_SelectedTab) {
+    if (qzSettings->newTabPosition == Qz::NT_SelectedTab) {
         tabWidget->setCurrentIndex(tabIndex);
     }
 }

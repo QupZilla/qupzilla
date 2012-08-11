@@ -33,7 +33,7 @@
 #include "adblockicon.h"
 #include "adblockmanager.h"
 #include "iconprovider.h"
-#include "websettings.h"
+#include "qzsettings.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -310,12 +310,12 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
 {
     const QString &protocol = url.scheme();
 
-    if (WebSettings::blockedProtocols.contains(protocol)) {
+    if (qzSettings->blockedProtocols.contains(protocol)) {
         qDebug() << "WebPage::handleUnknownProtocol Protocol" << protocol << "is blocked!";
         return;
     }
 
-    if (WebSettings::autoOpenProtocols.contains(protocol)) {
+    if (qzSettings->autoOpenProtocols.contains(protocol)) {
         desktopServicesOpen(url);
         return;
     }
@@ -335,8 +335,8 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
     switch (dialog.exec()) {
     case QDialog::Accepted:
         if (dialog.isChecked()) {
-            WebSettings::autoOpenProtocols.append(protocol);
-            WebSettings::saveSettings();
+            qzSettings->autoOpenProtocols.append(protocol);
+            qzSettings->saveSettings();
         }
 
         QDesktopServices::openUrl(url);
@@ -344,8 +344,8 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
 
     case QDialog::Rejected:
         if (dialog.isChecked()) {
-            WebSettings::blockedProtocols.append(protocol);
-            WebSettings::saveSettings();
+            qzSettings->blockedProtocols.append(protocol);
+            qzSettings->saveSettings();
         }
 
         break;

@@ -2319,6 +2319,26 @@ nu a putut fi găsit!</translation>
         <source>Show web search bar</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Suggest when typing into address bar:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>History and Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation type="unfinished">Istoric</translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished">Semne de carte</translation>
+    </message>
+    <message>
+        <source>Nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3997,6 +4017,10 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <source>Clear All</source>
         <translation>Golește tot</translation>
+    </message>
+    <message>
+        <source>Show suggestions</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

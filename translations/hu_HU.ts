@@ -2317,6 +2317,26 @@
         <source>Show web search bar</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Suggest when typing into address bar:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>History and Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation type="unfinished">Előzmények</translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished">Könyvjelzők</translation>
+    </message>
+    <message>
+        <source>Nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3996,6 +4016,10 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     <message>
         <source>Clear All</source>
         <translation>Összes törlése</translation>
+    </message>
+    <message>
+        <source>Show suggestions</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

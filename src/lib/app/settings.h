@@ -25,7 +25,9 @@
 
 class QSettings;
 
-class Settings
+class QzSettings;
+
+class QT_QUPZILLA_EXPORT Settings
 {
 public:
     explicit Settings();
@@ -35,6 +37,7 @@ public:
     static void syncSettings();
 
     static QSettings* globalSettings();
+    static QzSettings* staticSettings();
 
     void setValue(const QString &key, const QVariant &defaultValue = QVariant());
     QVariant value(const QString &key, const QVariant &defaultValue = QVariant());
@@ -48,6 +51,7 @@ public slots:
 
 private:
     static QSettings* s_settings;
+    static QzSettings* s_qzSettings;
 
 };
 
