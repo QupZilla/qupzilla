@@ -17,8 +17,3 @@
 {
     qproperty-multiIcon: url(images/tabbar-addtab_rtl.png);
 }
-
-#locationbar-goicon
-{
-	qproperty-pixmap: url(images/gotoaddress_rtl.png);
-}

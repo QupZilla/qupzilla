@@ -65,6 +65,12 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
 
     m_boxSearchType = new ButtonWithMenu(this);
     m_boxSearchType->setObjectName("websearchbar-searchprovider-comobobox");
+    //RTL Support
+    ////if we don't add 'm_boxSearchType' by following code, then we should use suitable padding-left value
+    //// but then, when typing RTL text the layout dynamically changed and within RTL layout direction
+    //// padding-left is equivalent to padding-right and vice versa, and because style sheet is
+    //// not changed dynamically this create padding problems.
+    addWidget(m_boxSearchType, LineEdit::LeftSide);
 
     addWidget(m_buttonSearch, LineEdit::RightSide);
 

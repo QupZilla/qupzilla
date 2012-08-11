@@ -12,8 +12,3 @@
 {
     qproperty-multiIcon: url(images/tabs-list-button_rtl.png);
 }
-
-#locationbar-goicon
-{
-	qproperty-pixmap: url(images/gotoaddress_rtl.png);
-}
