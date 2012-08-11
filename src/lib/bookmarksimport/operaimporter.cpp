@@ -61,11 +61,11 @@ QList<BookmarksModel::Bookmark> OperaImporter::exportBookmarks()
         QRegExp rx2("NAME=(.*)\\n");
         rx2.setMinimal(true);
         rx2.indexIn(string);
-        QString name = rx2.cap(1);
+        QString name = rx2.cap(1).trimmed();
 
         rx2.setPattern("URL=(.*)\\n");
         rx2.indexIn(string);
-        QUrl url = QUrl::fromEncoded(rx2.cap(1).toUtf8());
+        QUrl url = QUrl::fromEncoded(rx2.cap(1).trimmed().toUtf8());
 
         if (name.isEmpty() || url.isEmpty()) {
             continue;
