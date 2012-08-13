@@ -20,7 +20,7 @@
 
 #include <QMessageBox> // For QT_REQUIRE_VERSION
 
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
 #include <iostream>
 #include <signal.h>
 #include <execinfo.h>
@@ -113,7 +113,9 @@ int main(int argc, char* argv[])
 
 #ifdef Q_WS_X11
     QApplication::setGraphicsSystem("raster"); // Better overall performance on X11
+#endif
 
+#ifdef Q_OS_LINUX
     signal(SIGSEGV, qupzilla_signal_handler);
     signal(SIGPIPE, qupzilla_signal_handler);
 #endif
