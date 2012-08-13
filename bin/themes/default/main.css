@@ -139,6 +139,7 @@ IconProvider
     padding-right: -2px;
     padding-left: -2px;
     qproperty-fixedheight: 25;
+    qproperty-leftMargin: 35;
 }
 
 #locationbar-bookmarkicon

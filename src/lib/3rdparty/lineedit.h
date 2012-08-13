@@ -48,7 +48,7 @@ class SideWidget;
 class QT_QUPZILLA_EXPORT LineEdit : public QLineEdit
 {
     Q_OBJECT
-    Q_PROPERTY(QString inactiveText READ inactiveText WRITE setInactiveText)
+    Q_PROPERTY(int leftMargin READ leftMargin WRITE setLeftMargin)
 
 public:
     enum WidgetPosition {
@@ -64,14 +64,11 @@ public:
     void setWidgetSpacing(int spacing);
     int widgetSpacing() const;
     int textMargin(WidgetPosition position) const;
-    QString inactiveText() const;
-    void setInactiveText(const QString &text);
 
-    void paintEvent(QPaintEvent* event);
-
-    void setLeftMargin(int margin);
+    int leftMargin() { return m_leftMargin; }
 
 public slots:
+    void setLeftMargin(int margin);
     void updateTextMargins();
 
 protected:
@@ -87,7 +84,7 @@ private:
     QHBoxLayout* m_leftLayout;
     QHBoxLayout* m_rightLayout;
     QHBoxLayout* mainLayout;
-    QString m_inactiveText;
+
     int m_leftMargin;
 };
 

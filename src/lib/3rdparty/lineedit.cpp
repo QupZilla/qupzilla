@@ -52,7 +52,7 @@ void LineEdit::init()
     //// subclasses in all themes and use same value for padding-left and padding-right,
     //// with this new implementation padding-left and padding-right show padding from
     //// edges of m_leftWidget and m_rightWidget.
-    //setStyleSheet(QString("QLineEdit{padding-left: 0; padding-right: 0;}"));
+
     mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->setSpacing(0);
@@ -83,9 +83,9 @@ void LineEdit::init()
     m_rightLayout->setContentsMargins(0, 0, 2, 0);
     QSpacerItem* horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-    mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter|Qt::AlignLeft);
+    mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter | Qt::AlignLeft);
     mainLayout->addItem(horizontalSpacer);
-    mainLayout->addWidget(m_rightWidget, 0, Qt::AlignVCenter|Qt::AlignRight);
+    mainLayout->addWidget(m_rightWidget, 0, Qt::AlignVCenter | Qt::AlignRight);
     //by this we undo reversing of layout when direction is RTL. //TODO: don't do this and show reversed icon when needed
     mainLayout->setDirection(isRightToLeft() ? QBoxLayout::RightToLeft : QBoxLayout::LeftToRight);
 
@@ -213,31 +213,3 @@ void LineEdit::updateTextMargins()
 //    updateSideWidgetLocations();
 //    QLineEdit::resizeEvent(event);
 //}
-
-QString LineEdit::inactiveText() const
-{
-    return m_inactiveText;
-}
-
-void LineEdit::setInactiveText(const QString &text)
-{
-    m_inactiveText = text;
-}
-
-void LineEdit::paintEvent(QPaintEvent* event)
-{
-    QLineEdit::paintEvent(event);
-    if (text().isEmpty() && !m_inactiveText.isEmpty() && !hasFocus()) {
-        QStyleOptionFrameV2 panel;
-        initStyleOption(&panel);
-        QRect textRect = style()->subElementRect(QStyle::SE_LineEditContents, &panel, this);
-        int horizontalMargin = 2;
-        textRect.adjust(horizontalMargin, 0, 0, 0);
-        int left = textMargin(LineEdit::LeftSide);
-        int right = textMargin(LineEdit::RightSide);
-        textRect.adjust(left, 0, -right, 0);
-        QPainter painter(this);
-        painter.setPen(palette().brush(QPalette::Disabled, QPalette::Text).color());
-        painter.drawText(textRect, Qt::AlignLeft | Qt::AlignVCenter, m_inactiveText);
-    }
-}

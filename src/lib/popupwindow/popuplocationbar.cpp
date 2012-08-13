@@ -48,15 +48,16 @@ PopupLocationBar::PopupLocationBar(QWidget* parent)
 {
     m_siteIcon = new PopupSiteIcon(this);
     m_siteIcon->setIcon(qIconProvider->emptyWebIcon());
-    m_siteIcon->setFixedSize(20, 26);
+    m_siteIcon->setFixedSize(26, 26);
 
     m_loadingAnimation = new QLabel(this);
     QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), m_loadingAnimation);
     m_loadingAnimation->setMovie(movie);
+    m_loadingAnimation->setFixedSize(20, 26);
 
     addWidget(m_siteIcon, LineEdit::LeftSide);
     addWidget(m_loadingAnimation, LineEdit::RightSide);
-    setWidgetSpacing(1);
+    setLeftMargin(20);
 
     setFixedHeight(26);
     setReadOnly(true);

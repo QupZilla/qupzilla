@@ -51,7 +51,7 @@ CookieManager::CookieManager(QWidget* parent)
     connect(ui->blackAdd, SIGNAL(clicked()), this, SLOT(addBlacklist()));
     connect(ui->blackRemove, SIGNAL(clicked()), this, SLOT(removeBlacklist()));
 
-    ui->search->setInactiveText(tr("Search"));
+    ui->search->setPlaceholderText(tr("Search"));
     ui->cookieTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
     ui->cookieTree->sortItems(0, Qt::AscendingOrder);
     ui->cookieTree->header()->setDefaultSectionSize(220);

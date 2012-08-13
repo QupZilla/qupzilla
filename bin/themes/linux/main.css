@@ -120,6 +120,7 @@ IconProvider
     padding-left: -4px;
     padding-top: -2px;
     qproperty-fixedheight: 27;
+    qproperty-leftMargin: 26;
 }
 
 #locationbar[secured="true"]
@@ -160,7 +161,6 @@ IconProvider
 
 #locationbar-down-icon
 {
-    margin-right: -4px;
     margin-bottom: 1px;
     qproperty-pixmap: url(images/navigation-dropdown.png);
 }

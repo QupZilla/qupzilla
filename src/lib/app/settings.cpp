@@ -67,7 +67,7 @@ QSettings* Settings::globalSettings()
     return s_settings;
 }
 
-QzSettings *Settings::staticSettings()
+QzSettings* Settings::staticSettings()
 {
     return s_qzSettings;
 }

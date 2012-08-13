@@ -130,6 +130,7 @@ IconProvider
     padding-left: 0px;
     padding-top: -2px;
     qproperty-fixedheight: 27;
+    qproperty-leftMargin: 28;
 }
 
 #locationbar-bookmarkicon
@@ -169,7 +170,6 @@ IconProvider
 
 #locationbar-down-icon
 {
-    margin-right: -4px;
     margin-bottom: 1px;
     qproperty-pixmap: url(images/navigation-dropdown.png);
 }

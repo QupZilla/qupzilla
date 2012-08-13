@@ -66,12 +66,10 @@ LocationBar::LocationBar(QupZilla* mainClass)
     //// not changed dynamically this create padding problems.
     addWidget(m_siteIcon, LineEdit::LeftSide);
 
-    addWidget(down, LineEdit::RightSide);
-    addWidget(m_bookmarkIcon, LineEdit::RightSide);
     addWidget(m_goIcon, LineEdit::RightSide);
+    addWidget(m_bookmarkIcon, LineEdit::RightSide);
     addWidget(m_rssIcon, LineEdit::RightSide);
-
-    setWidgetSpacing(0);
+    addWidget(down, LineEdit::RightSide);
 
     m_completer.setLocationBar(this);
     connect(&m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));

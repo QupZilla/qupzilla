@@ -278,7 +278,7 @@ void MainApplication::loadSettings()
     cssFile.close();
     //resetting style sheet
     //it seems the css properties of previous theme that was not setted
-    // in the new theme are applied to new theme! for this we reset all properties here!! 
+    // in the new theme are applied to new theme! for this we reset all properties here!!
     setStyleSheet("");
 #ifdef Q_WS_X11
     if (QFile(m_activeThemePath + "linux.css").exists()) {
@@ -307,7 +307,7 @@ void MainApplication::loadSettings()
 
     //RTL Support
     //loading 'rtl.css' when layout is right to left!
-    if ( isRightToLeft() && QFile(m_activeThemePath + "rtl.css").exists()) {
+    if (isRightToLeft() && QFile(m_activeThemePath + "rtl.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "rtl.css");
         cssFile.open(QFile::ReadOnly);
         css.append(cssFile.readAll());
