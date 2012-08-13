@@ -29,6 +29,7 @@ TRANSLATIONS = \
     translations/sr_RS.ts \
     translations/uk_UA.ts \
     translations/zh_TW.ts \
+    translations/fa_IR.ts \
 
 srcdir = $$(QUPZILLA_SRCDIR)
 equals(srcdir, "") {

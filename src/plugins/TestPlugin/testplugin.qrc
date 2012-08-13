@@ -18,5 +18,6 @@
         <file>locale/sv_SE.qm</file>
         <file>locale/zh_CN.qm</file>
         <file>locale/zh_TW.qm</file>
+        <file>locale/fa_IR.qm</file>
     </qresource>
 </RCC>

@@ -31,5 +31,6 @@ TRANSLATIONS += translations/cs_CZ.ts\
                 translations/sv_SE.ts\
                 translations/zh_CN.ts\
                 translations/zh_TW.ts\
+                translations/fa_IR.ts \
 
 include(../../plugins.pri)
