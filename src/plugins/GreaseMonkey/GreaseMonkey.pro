@@ -1,6 +1,9 @@
 TARGET = GreaseMonkey
 os2: TARGET = GreaseMo
 
+INCLUDEPATH += . settings\
+
+
 SOURCES += gm_plugin.cpp \
     gm_manager.cpp \
     gm_script.cpp \

@@ -1,0 +1,14 @@
+#navigation-button-next
+{
+    qproperty-multiIcon: url(images/navigation-back.png);
+}
+
+#navigation-button-back
+{
+    qproperty-multiIcon: url(images/navigation-forward.png);
+}
+
+#tabwidget-button-opentabs
+{
+    qproperty-multiIcon: url(images/tabs-list-button_rtl.png);
+}

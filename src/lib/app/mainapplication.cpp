@@ -276,6 +276,10 @@ void MainApplication::loadSettings()
     cssFile.open(QFile::ReadOnly);
     QString css = cssFile.readAll();
     cssFile.close();
+    //resetting style sheet
+    //it seems the css properties of previous theme that was not setted
+    // in the new theme are applied to new theme! for this we reset all properties here!! 
+    setStyleSheet("");
 #ifdef Q_WS_X11
     if (QFile(m_activeThemePath + "linux.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "linux.css");
@@ -300,6 +304,15 @@ void MainApplication::loadSettings()
         cssFile.close();
     }
 #endif
+
+    //RTL Support
+    //loading 'rtl.css' when layout is right to left!
+    if ( isRightToLeft() && QFile(m_activeThemePath + "rtl.css").exists()) {
+        cssFile.setFileName(m_activeThemePath + "rtl.css");
+        cssFile.open(QFile::ReadOnly);
+        css.append(cssFile.readAll());
+        cssFile.close();
+    }
 
     QString relativePath = QDir::current().relativeFilePath(m_activeThemePath);
     css.replace(QRegExp("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)", Qt::CaseSensitive, QRegExp::RegExp2),

@@ -10,7 +10,7 @@ unix: VERSION = 1.3.1
 #DEFINES *= USE_WEBGL
 #DEFINES *= KDE
 #DEFINES *= PORTABLE_BUILD
-win32 {
+win32-msvc* {
     DEFINES *= W7API
     LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
 }
@@ -32,7 +32,9 @@ d_disable_dbus = $$(DISABLE_DBUS)
 
 equals(d_no_system_datapath, "true") { DEFINES *= NO_SYSTEM_DATAPATH }
 equals(d_use_webgl, "true") { DEFINES *= USE_WEBGL }
-equals(d_w7api, "true") { DEFINES *= W7API }
+win32-msvc* {
+    equals(d_w7api, "true") { DEFINES *= W7API }
+}
 equals(d_kde, "true") { DEFINES *= KDE }
 equals(d_portable, "true") { DEFINES *= PORTABLE_BUILD }
 equals(d_nonblock_dialogs, "true") { DEFINES *= NONBLOCK_JS_DIALOGS }

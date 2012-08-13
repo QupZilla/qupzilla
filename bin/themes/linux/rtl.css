@@ -1,0 +1,12 @@
+#navigation-button-next
+{
+	qproperty-themeIcon: "go-previous";
+    qproperty-fallbackIcon: url(images/go-previous.png);
+}
+
+#navigation-button-back
+{
+	qproperty-themeIcon: "go-next";
+    qproperty-fallbackIcon: url(images/go-next.png);
+}
+

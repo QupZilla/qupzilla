@@ -75,17 +75,18 @@ public slots:
     void updateTextMargins();
 
 protected:
-    void resizeEvent(QResizeEvent* event);
+//    void resizeEvent(QResizeEvent* event);
     bool event(QEvent* event);
 
 private:
     void init();
-    void updateSideWidgetLocations();
+//    void updateSideWidgetLocations();
 
     SideWidget* m_leftWidget;
     SideWidget* m_rightWidget;
     QHBoxLayout* m_leftLayout;
     QHBoxLayout* m_rightLayout;
+    QHBoxLayout* mainLayout;
     QString m_inactiveText;
     int m_leftMargin;
 };

@@ -116,7 +116,8 @@ IconProvider
 #locationbar
 {
     border-width:4;
-    padding-left: 22px;
+    padding-right: -4px;
+    padding-left: -4px;
     padding-top: -2px;
     qproperty-fixedheight: 27;
 }
@@ -187,7 +188,8 @@ IconProvider
 #websearchbar
 {
     border-width:4;
-    padding-left: 30px;
+    padding-right: -4px;
+    padding-left: -4px;
     padding-top: -2px;
     qproperty-fixedheight: 27;
 }

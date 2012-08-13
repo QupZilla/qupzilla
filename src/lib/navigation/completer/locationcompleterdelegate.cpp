@@ -39,6 +39,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
     const QWidget* w = opt.widget;
     const QStyle* style = w ? w->style() : QApplication::style();
+
     const int height = opt.rect.height();
     const int center = height / 2 + opt.rect.top();
 
@@ -79,29 +80,54 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     painter->drawPixmap(iconRect, pixmap);
     leftPosition = iconRect.right() + m_padding * 2;
 
+    // Draw star to bookmark items
+    int starPixmapWidth = 0;
+    if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
+        const QPixmap starPixmap = qIconProvider->bookmarkIcon();
+        QSize starSize = starPixmap.size();
+        //new
+        starPixmapWidth = starSize.width();
+        QPoint pos(rightPosition - starPixmapWidth, opt.rect.top() + m_padding);
+        QRect starRect(pos, starSize);
+        painter->drawPixmap(starRect, starPixmap);
+    }
+
     // Draw title
     const int leftTitleEdge = leftPosition + 2;
-    const int rightTitleEdge = rightPosition - m_padding;
+    //RTL Support //remove conflicting of right-aligned text and starpixmap!
+    const int rightTitleEdge = rightPosition - m_padding - starPixmapWidth;
     QRect titleRect(leftTitleEdge, opt.rect.top() + m_padding, rightTitleEdge - leftTitleEdge, titleMetrics.height());
     QString title(titleMetrics.elidedText(index.data(LocationCompleterModel::TitleRole).toString(), Qt::ElideRight, titleRect.width()));
     painter->setFont(titleFont);
-    style->drawItemText(painter, titleRect, Qt::AlignLeft | Qt::TextSingleLine, opt.palette, true, title, colorRole);
+
+    //RTL Support
+#define LRE QChar(0x202A)
+#define RLE QChar(0x202B)
+#define PDF QChar(0x202C)
+    //by computing 'alignment' we align text by its direction not by application layout direction!
+    const Qt::LayoutDirection direction = w ? w->layoutDirection() : QApplication::layoutDirection();
+    Qt::LayoutDirection textDirection = title.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight;
+    Qt::Alignment alignment = textDirection == direction ? Qt::AlignLeft : Qt::AlignRight;
+    QString directedTitle = title;
+    directedTitle.isRightToLeft() ? directedTitle.prepend(RLE) : directedTitle.prepend(LRE);
+    directedTitle.append(PDF);
+
+    style->drawItemText(painter, titleRect, alignment | Qt::TextSingleLine, opt.palette, true, directedTitle, colorRole);
 
     // Draw link
     const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading();
     QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
     const QString &link = opt.fontMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, linkRect.width());
     painter->setFont(opt.font);
-    style->drawItemText(painter, linkRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, link, colorLinkRole);
 
-    // Draw star to bookmark items
-    if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
-        const QPixmap starPixmap = qIconProvider->bookmarkIcon();
-        QSize starSize = starPixmap.size();
-        QPoint pos(rightPosition - starSize.width(), opt.rect.top() + m_padding);
-        QRect starRect(pos, starSize);
-        painter->drawPixmap(starRect, starPixmap);
-    }
+    //RTL Support
+    textDirection = link.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight;
+    alignment = textDirection == direction ? Qt::AlignLeft : Qt::AlignRight;
+    QString directedLink = link;
+    directedLink.isRightToLeft() ? directedLink.prepend(RLE) : directedLink.prepend(LRE);
+    directedLink.append(PDF);
+
+    style->drawItemText(painter, linkRect, Qt::TextSingleLine | alignment, opt.palette, true, directedLink, colorLinkRole);
 }
 
 QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

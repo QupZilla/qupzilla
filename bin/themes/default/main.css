@@ -136,7 +136,8 @@ IconProvider
     border-image: url(images/lineedit-bg.png);
     border-width:4;
     color:black;
-    padding-left: 33px;
+    padding-right: -2px;
+    padding-left: -2px;
     qproperty-fixedheight: 25;
 }
 
@@ -187,13 +188,15 @@ IconProvider
     border-image: url(images/lineedit-bg.png);
     border-width:4;
     color:black;
-    padding-left: 33px;
+    padding-right: -2px;
+    padding-left: -2px;
     qproperty-fixedheight: 25;
 }
 
 #websearchbar-searchbutton
 {
-    margin-bottom:2px;
+    /* margin-bottom:2px; */
+    margin-left: 2px;
     qproperty-pixmap: url(images/search.png);
 }
 

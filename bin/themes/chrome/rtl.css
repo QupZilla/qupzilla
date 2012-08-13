@@ -1,0 +1,9 @@
+#navigation-button-next
+{
+    qproperty-multiIcon: url(images/navigation-back.png);
+}
+
+#navigation-button-back
+{
+    qproperty-multiIcon: url(images/navigation-forward.png);
+}
