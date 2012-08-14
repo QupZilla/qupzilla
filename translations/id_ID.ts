@@ -217,12 +217,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="119"/>
         <source>Disable on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nonaktifkan di %1</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="125"/>
         <source>Disable only on this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Nonaktifkan di halaman ini saja</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="135"/>
@@ -1453,7 +1453,7 @@
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="342"/>
         <source>Remove</source>
-        <translation type="unfinished">Hapus</translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2420,7 +2420,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="594"/>
         <source>Show web search bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan panel pencarian web</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="741"/>
@@ -2430,27 +2430,27 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="784"/>
         <source>Suggest when typing into address bar:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sarankan saat mengetik di panel alamat:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="798"/>
         <source>History and Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Sejarah dan Bookmark</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="803"/>
         <source>History</source>
-        <translation type="unfinished">Sejarah</translation>
+        <translation>Sejarah</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="808"/>
         <source>Bookmarks</source>
-        <translation type="unfinished">Bookmark</translation>
+        <translation>Bookmark</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="813"/>
         <source>Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak ada</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="855"/>
@@ -3678,7 +3678,7 @@ Anda yakin untuk berhenti dari QupZilla?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Are you sure to remove this speed dial?</source>
-        <translation type="unfinished"></translation>
+        <translation>Anda yakin untuk menghapus panggilan cepat ini?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="272"/>
@@ -3748,7 +3748,7 @@ Anda yakin untuk berhenti dari QupZilla?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="287"/>
         <source>Center speed dials</source>
-        <translation type="unfinished"></translation>
+        <translation>Ketengahkan panggilan cepat</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="317"/>
@@ -4913,7 +4913,8 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
         <location filename="../src/lib/webview/webpage.cpp" line="469"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Untuk menampilkan halaman ini, QupZilla harus mengirim ulang permintaan yang sudah dilakukan
+(seperti pencarian saat berbelanja, yang sudah pernah dilakukan sebelumnya.)</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="471"/>
@@ -5076,7 +5077,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="294"/>
         <source>Show suggestions</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan saran</translation>
     </message>
 </context>
 <context>
