@@ -200,10 +200,10 @@ IconProvider
     border-image: url(images/lineedit-bg.png);
     border-width: 4;
     padding-right: -4px;
-    padding-left: -4px;
     padding-top: -2px;
     color:black;
     qproperty-fixedheight: 23;
+    qproperty-leftMargin: 35;
 }
 
 #websearchbar-searchbutton

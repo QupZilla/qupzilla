@@ -189,9 +189,9 @@ IconProvider
 {
     border-width:4;
     padding-right: -4px;
-    padding-left: -4px;
     padding-top: -2px;
     qproperty-fixedheight: 27;
+    qproperty-leftMargin: 30;
 }
 
 #websearchbar-searchbutton

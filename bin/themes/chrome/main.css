@@ -209,6 +209,7 @@ IconProvider
     padding-left: 0px;
     padding-top: -2px;
     qproperty-fixedheight: 27;
+    qproperty-leftMargin: 35;
 }
 
 #websearchbar-searchbutton

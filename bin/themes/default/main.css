@@ -190,8 +190,8 @@ IconProvider
     border-width:4;
     color:black;
     padding-right: -2px;
-    padding-left: -2px;
     qproperty-fixedheight: 25;
+    qproperty-leftMargin: 34;
 }
 
 #websearchbar-searchbutton

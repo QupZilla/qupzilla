@@ -276,10 +276,6 @@ void MainApplication::loadSettings()
     cssFile.open(QFile::ReadOnly);
     QString css = cssFile.readAll();
     cssFile.close();
-    //resetting style sheet
-    //it seems the css properties of previous theme that was not setted
-    // in the new theme are applied to new theme! for this we reset all properties here!!
-    setStyleSheet("");
 #ifdef Q_WS_X11
     if (QFile(m_activeThemePath + "linux.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "linux.css");

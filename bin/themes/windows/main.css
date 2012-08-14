@@ -211,8 +211,8 @@ IconProvider
     border-width:4;
     color:black;
     padding-right: -4px;
-    padding-left: -4px;
     qproperty-fixedheight: 22;
+    qproperty-leftMargin: 30;
 }
 
 #websearchbar-searchbutton
