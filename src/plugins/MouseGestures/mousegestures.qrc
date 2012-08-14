@@ -32,5 +32,6 @@
         <file>locale/sv_SE.qm</file>
         <file>locale/uk_UA.qm</file>
         <file>locale/zh_TW.qm</file>
+        <file>locale/fa_IR.qm</file>
     </qresource>
 </RCC>
