@@ -195,9 +195,9 @@ void DownloadManager::clearList()
     qDeleteAll(items);
 }
 
-void DownloadManager::download(const QNetworkRequest &request, WebPage* page, bool fromPageDownload, const QString &suggestedFileName)
+void DownloadManager::download(const QNetworkRequest &request, const DownloadInfo &info)
 {
-    if (!page) {
+    if (!info.page) {
         return;
     }
 
@@ -205,12 +205,12 @@ void DownloadManager::download(const QNetworkRequest &request, WebPage* page, bo
     QNetworkRequest req = request;
     req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), 0);
 
-    handleUnsupportedContent(m_networkManager->get(req), page, fromPageDownload, suggestedFileName);
+    handleUnsupportedContent(m_networkManager->get(req), info);
 }
 
-void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* page, bool fromPageDownload, const QString &suggestedFileName)
+void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, const DownloadInfo &info)
 {
-    if (!page || reply->url().scheme() == "qupzilla") {
+    if (!info.page || reply->url().scheme() == "qupzilla") {
         return;
     }
 
@@ -223,13 +223,13 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* pa
 
     reply->setProperty("downReply", QVariant(true));
 
-    DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog, page);
+    DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog);
     connect(h, SIGNAL(itemCreated(QListWidgetItem*, DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*, DownloadItem*)));
 
     h->setLastDownloadOption(m_lastDownloadOption);
     h->setDownloadManager(this);
     h->setListWidget(ui->list);
-    h->handleUnsupportedContent(reply, fromPageDownload, suggestedFileName);
+    h->handleUnsupportedContent(reply, info);
 }
 
 void DownloadManager::itemCreated(QListWidgetItem* item, DownloadItem* downItem)

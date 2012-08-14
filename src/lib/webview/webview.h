@@ -75,6 +75,7 @@ public slots:
     void selectAll();
     void printPage(QWebFrame* frame = 0);
     void sendPageByMail();
+    void savePageAs();
 
     virtual void closeView() = 0;
     virtual void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position) = 0;
@@ -90,7 +91,6 @@ protected slots:
     void openUrlInNewWindow();
     void sendLinkByMail();
     void copyLinkToClipboard();
-    void downloadPage();
     void downloadUrlToDisk();
     void copyImageToClipboard();
     void openActionUrl();

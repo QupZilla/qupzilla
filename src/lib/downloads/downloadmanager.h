@@ -44,13 +44,28 @@ class QT_QUPZILLA_EXPORT DownloadManager : public QWidget
 public:
     enum DownloadOption { OpenFile, SaveFile, ExternalManager };
 
+    struct DownloadInfo {
+        WebPage* page;
+        QString suggestedFileName;
+
+        bool askWhatToDo;
+        bool forceChoosingPath;
+
+        DownloadInfo(WebPage* p = 0) {
+            page = p;
+            suggestedFileName = QString();
+            askWhatToDo = true;
+            forceChoosingPath = false;
+        }
+    };
+
     explicit DownloadManager(QWidget* parent = 0);
     ~DownloadManager();
 
     void loadSettings();
 
-    void download(const QNetworkRequest &request, WebPage* page, bool fromPageDownload = true, const QString &suggestedFileName = QString());
-    void handleUnsupportedContent(QNetworkReply* reply, WebPage* page, bool fromPageDownload = true, const QString &suggestedFileName = QString());
+    void download(const QNetworkRequest &request, const DownloadInfo &info);
+    void handleUnsupportedContent(QNetworkReply* reply, const DownloadInfo &info);
 
     bool canClose();
 

@@ -397,7 +397,7 @@ void WebView::copyLinkToClipboard()
     }
 }
 
-void WebView::downloadPage()
+void WebView::savePageAs()
 {
     QNetworkRequest request(url());
     QString suggestedFileName = qz_getFileNameFromUrl(url());
@@ -405,8 +405,14 @@ void WebView::downloadPage()
         suggestedFileName.append(".html");
     }
 
+    DownloadManager::DownloadInfo info;
+    info.page = page();
+    info.suggestedFileName = suggestedFileName;
+    info.askWhatToDo = false;
+    info.forceChoosingPath = true;
+
     DownloadManager* dManager = mApp->downManager();
-    dManager->download(request, page(), false, suggestedFileName);
+    dManager->download(request, info);
 }
 
 void WebView::downloadUrlToDisk()
@@ -414,8 +420,14 @@ void WebView::downloadUrlToDisk()
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         QNetworkRequest request(action->data().toUrl());
 
+        DownloadManager::DownloadInfo info;
+        info.page = page();
+        info.suggestedFileName = QString();
+        info.askWhatToDo = false;
+        info.forceChoosingPath = true;
+
         DownloadManager* dManager = mApp->downManager();
-        dManager->download(request, page(), false);
+        dManager->download(request, info);
     }
 }
 
@@ -770,7 +782,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
 
     menu->addSeparator();
     menu->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
-    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadPage()));
+    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(savePageAs()));
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
     menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printPage()));

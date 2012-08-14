@@ -36,14 +36,14 @@ class QT_QUPZILLA_EXPORT DownloadFileHelper : public QObject
 {
     Q_OBJECT
 public:
-    explicit DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog, WebPage* page);
+    explicit DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog);
     ~DownloadFileHelper();
 
     void setListWidget(QListWidget* tw) { m_listWidget = tw; }
     void setDownloadManager(DownloadManager* m) { m_manager = m; }
     void setLastDownloadOption(const DownloadManager::DownloadOption &option) { m_lastDownloadOption = option; }
 
-    void handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo, const QString &suggestedFileName);
+    void handleUnsupportedContent(QNetworkReply* reply, const DownloadManager::DownloadInfo &info);
 
 signals:
     void itemCreated(QListWidgetItem* item, DownloadItem* downItem);
@@ -74,7 +74,6 @@ private:
     QListWidget* m_listWidget;
     QFileIconProvider* m_iconProvider;
     DownloadManager* m_manager;
-    WebPage* m_webPage;
 };
 
 #endif // DOWNLOADFILEHELPER_H

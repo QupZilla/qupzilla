@@ -34,7 +34,7 @@
 #include <QFileDialog>
 #include <QDesktopServices>
 
-DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog, WebPage* page)
+DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog)
     : QObject()
     , m_lastDownloadOption(DownloadManager::SaveFile)
     , m_lastDownloadPath(lastDownloadPath)
@@ -46,7 +46,6 @@ DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QS
     , m_listWidget(0)
     , m_iconProvider(new QFileIconProvider)
     , m_manager(0)
-    , m_webPage(page)
 {
 }
 
@@ -57,15 +56,15 @@ DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QS
 //// on Windows working properly )
 //////////////////////////////////////////////////////
 
-void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo, const QString &suggestedFileName)
+void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, const DownloadManager::DownloadInfo &info)
 {
     m_timer = new QTime();
     m_timer->start();
-    m_h_fileName = suggestedFileName.isEmpty() ? getFileName(reply) : suggestedFileName;
+    m_h_fileName = info.suggestedFileName.isEmpty() ? getFileName(reply) : info.suggestedFileName;
     m_reply = reply;
 
-    QFileInfo info(m_h_fileName);
-    QTemporaryFile tempFile("XXXXXX." + info.suffix());
+    QFileInfo fileInfo(m_h_fileName);
+    QTemporaryFile tempFile("XXXXXX." + fileInfo.suffix());
     tempFile.open();
     tempFile.write(m_reply->peek(1024 * 1024));
     QFileInfo tempInfo(tempFile.fileName());
@@ -78,26 +77,29 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
     }
 
     // Close Empty Tab
-    if (m_webPage) {
-        WebView* view = qobject_cast<WebView*>(m_webPage->view());
-        if (!m_webPage->url().isEmpty()) {
-            m_downloadPage = m_webPage->url();
+    if (info.page) {
+        WebView* view = qobject_cast<WebView*>(info.page->view());
+        if (!info.page->url().isEmpty()) {
+            m_downloadPage = info.page->url();
         }
-        else if (m_webPage->history()->canGoBack()) {
-            m_downloadPage = m_webPage->history()->backItem().url();
+        else if (info.page->history()->canGoBack()) {
+            m_downloadPage = info.page->history()->backItem().url();
         }
-        else if (view && m_webPage->history()->count() == 0) {
+        else if (view && info.page->history()->count() == 0) {
             view->closeView();
         }
     }
 
-    if (askWhatToDo) {
+    if (info.askWhatToDo && m_downloadPath.isEmpty()) {
         DownloadOptionsDialog* dialog = new DownloadOptionsDialog(m_h_fileName, m_fileIcon, mimeType, reply->url(), mApp->activeWindow());
         dialog->showExternalManagerOption(m_manager->useExternalManager());
         dialog->setLastDownloadOption(m_lastDownloadOption);
         dialog->show();
 
         connect(dialog, SIGNAL(dialogFinished(int)), this, SLOT(optionsDialogAccepted(int)));
+    }
+    else if (info.forceChoosingPath) {
+        optionsDialogAccepted(4);
     }
     else {
         optionsDialogAccepted(2);
@@ -106,7 +108,9 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
 
 void DownloadFileHelper::optionsDialogAccepted(int finish)
 {
+    bool forceChoosingPath = false;
     m_openFileChoosed = false;
+
     switch (finish) {
     case 0:  // Cancelled
         if (m_timer) {
@@ -133,6 +137,11 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
         m_reply->deleteLater();
         return;
 
+    case 4: // Force opening save file dialog
+        m_lastDownloadOption = DownloadManager::SaveFile;
+        forceChoosingPath = true;
+        break;
+
     default:
         qWarning() << "DownloadFileHelper::optionsDialogAccepted invalid return value!";
         if (m_timer) {
@@ -147,7 +156,7 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
     m_manager->setLastDownloadOption(m_lastDownloadOption);
 
     if (!m_openFileChoosed) {
-        if (m_downloadPath.isEmpty()) {
+        if (m_downloadPath.isEmpty() || forceChoosingPath) {
             if (m_useNativeDialog) {
                 fileNameChoosed(QFileDialog::getSaveFileName(mApp->getWindow(), tr("Save file as..."), m_lastDownloadPath + m_h_fileName));
             }
