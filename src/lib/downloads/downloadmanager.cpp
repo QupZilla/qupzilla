@@ -111,6 +111,8 @@ void DownloadManager::startExternalManager(const QUrl &url)
         QString info = "<ul><li><b>" + tr("Executable: ") + "</b>" + m_externalExecutable + "</li><li><b>" + tr("Arguments: ") + "</b>" + arguments.join(" ") + "</li></ul>";
         QMessageBox::critical(this, tr("Cannot start external download manager"), tr("Cannot start external download manager! %1").arg(info));
     }
+
+    m_lastDownloadOption = ExternalManager;
 }
 
 #ifdef W7TASKBAR
@@ -212,12 +214,12 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* pa
         return;
     }
 
-    if (fromPageDownload && m_useExternalManager) {
-        startExternalManager(reply->url());
-        reply->abort();
-        reply->deleteLater();
-        return;
-    }
+//    if (fromPageDownload && m_useExternalManager) {
+//        startExternalManager(reply->url());
+//        reply->abort();
+//        reply->deleteLater();
+//        return;
+//    }
 
     reply->setProperty("downReply", QVariant(true));
 
@@ -303,6 +305,11 @@ bool DownloadManager::canClose()
     }
 
     return !isDownloading;
+}
+
+bool DownloadManager::useExternalManager() const
+{
+    return m_useExternalManager;
 }
 
 void DownloadManager::closeEvent(QCloseEvent* e)

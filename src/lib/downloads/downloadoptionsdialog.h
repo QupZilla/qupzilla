@@ -36,6 +36,7 @@ public:
     explicit DownloadOptionsDialog(const QString &fileName, const QPixmap &fileIcon, const QString &mimeType, const QUrl &url, QWidget* parent = 0);
     ~DownloadOptionsDialog();
 
+    void showExternalManagerOption(bool show);
     void setLastDownloadOption(const DownloadManager::DownloadOption &option);
 
 private slots:

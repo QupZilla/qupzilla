@@ -93,8 +93,10 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
 
     if (askWhatToDo) {
         DownloadOptionsDialog* dialog = new DownloadOptionsDialog(m_h_fileName, m_fileIcon, mimeType, reply->url(), mApp->activeWindow());
+        dialog->showExternalManagerOption(m_manager->useExternalManager());
         dialog->setLastDownloadOption(m_lastDownloadOption);
         dialog->show();
+
         connect(dialog, SIGNAL(dialogFinished(int)), this, SLOT(optionsDialogAccepted(int)));
     }
     else {
@@ -106,7 +108,7 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
 {
     m_openFileChoosed = false;
     switch (finish) {
-    case 0:  //Cancelled
+    case 0:  // Cancelled
         if (m_timer) {
             delete m_timer;
         }
@@ -115,14 +117,21 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
         m_reply->deleteLater();
 
         return;
-        break;
-    case 1: //Open
+
+    case 1: // Open
         m_openFileChoosed = true;
         m_lastDownloadOption = DownloadManager::OpenFile;
         break;
-    case 2: //Save
+
+    case 2: // Save
         m_lastDownloadOption = DownloadManager::SaveFile;
         break;
+
+    case 3: // External manager
+        m_manager->startExternalManager(m_reply->url());
+        m_reply->abort();
+        m_reply->deleteLater();
+        return;
 
     default:
         qWarning() << "DownloadFileHelper::optionsDialogAccepted invalid return value!";
@@ -133,8 +142,6 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
         m_reply->abort();
         m_reply->deleteLater();
         return;
-
-        break;
     }
 
     m_manager->setLastDownloadOption(m_lastDownloadOption);

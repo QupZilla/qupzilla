@@ -2146,27 +2146,27 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="784"/>
         <source>Suggest when typing into address bar:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sugerir enquanto estiver digitando na barra de endereço:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="798"/>
         <source>History and Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Histórico e Favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="803"/>
         <source>History</source>
-        <translation type="unfinished">Histórico</translation>
+        <translation>Histórico</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="808"/>
         <source>Bookmarks</source>
-        <translation type="unfinished">Favoritos</translation>
+        <translation>Favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="813"/>
         <source>Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Nada</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="921"/>
@@ -5068,7 +5068,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="294"/>
         <source>Show suggestions</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir Sugestões</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="242"/>

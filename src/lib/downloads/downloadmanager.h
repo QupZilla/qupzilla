@@ -42,7 +42,7 @@ class QT_QUPZILLA_EXPORT DownloadManager : public QWidget
 {
     Q_OBJECT
 public:
-    enum DownloadOption { OpenFile, SaveFile };
+    enum DownloadOption { OpenFile, SaveFile, ExternalManager };
 
     explicit DownloadManager(QWidget* parent = 0);
     ~DownloadManager();
@@ -53,6 +53,10 @@ public:
     void handleUnsupportedContent(QNetworkReply* reply, WebPage* page, bool fromPageDownload = true, const QString &suggestedFileName = QString());
 
     bool canClose();
+
+    bool useExternalManager() const;
+    void startExternalManager(const QUrl &url);
+
     void setLastDownloadPath(const QString &lastPath) { m_lastDownloadPath = lastPath; }
     void setLastDownloadOption(const DownloadOption &option) { m_lastDownloadOption = option; }
 
@@ -82,8 +86,6 @@ private:
     void closeEvent(QCloseEvent* e);
     void resizeEvent(QResizeEvent* e);
     void keyPressEvent(QKeyEvent* e);
-
-    void startExternalManager(const QUrl &url);
 
     Ui::DownloadManager* ui;
     NetworkManager* m_networkManager;

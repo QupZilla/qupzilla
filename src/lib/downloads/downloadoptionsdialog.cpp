@@ -40,9 +40,20 @@ DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QPix
     connect(this, SIGNAL(finished(int)), this, SLOT(emitDialogFinished(int)));
 }
 
+void DownloadOptionsDialog::showExternalManagerOption(bool show)
+{
+    ui->radioExternal->setVisible(show);
+}
+
 void DownloadOptionsDialog::setLastDownloadOption(const DownloadManager::DownloadOption &option)
 {
     switch (option) {
+    case DownloadManager::ExternalManager:
+        if (!ui->radioExternal->isHidden()) {
+            ui->radioExternal->setChecked(true);
+            break;
+        }
+
     case DownloadManager::OpenFile:
         ui->radioOpen->setChecked(true);
         break;
@@ -64,6 +75,9 @@ void DownloadOptionsDialog::emitDialogFinished(int status)
         }
         else if (ui->radioSave->isChecked()) {
             status =  2;
+        }
+        else if (ui->radioExternal->isChecked()) {
+            status = 3;
         }
     }
 

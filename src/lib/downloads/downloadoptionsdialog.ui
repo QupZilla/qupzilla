@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>410</width>
-    <height>226</height>
+    <height>251</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -146,6 +146,13 @@
         </property>
         <property name="checked">
          <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QRadioButton" name="radioExternal">
+        <property name="text">
+         <string>Download with External Manager</string>
         </property>
        </widget>
       </item>
