@@ -154,6 +154,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());
     ui->showWebSearchBar->setChecked(settings.value("showWebSearchBar", true).toBool());
     ui->useTransparentBg->setChecked(settings.value("useTransparentBackground", false).toBool());
+    int currentSettingsPage = settings.value("settingsDialogPage", 0).toInt(0);
     settings.endGroup();
 #ifdef Q_WS_WIN
     ui->useTransparentBg->setEnabled(QtWin::isCompositionEnabled());
@@ -424,7 +425,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
 
     ui->version->setText(" QupZilla v" + QupZilla::VERSION);
-    showStackedPage(ui->listWidget->item(0));
+    ui->listWidget->setCurrentRow(currentSettingsPage);
 }
 
 void Preferences::showStackedPage(QListWidgetItem* item)
@@ -773,6 +774,7 @@ void Preferences::saveSettings()
     settings.setValue("showWebSearchBar", ui->showWebSearchBar->isChecked());
     settings.setValue("useTransparentBackground", ui->useTransparentBg->isChecked());
     settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
+    settings.setValue("settingsDialogPage", ui->stackedWidget->currentIndex());
     settings.endGroup();
 
     //TABS
