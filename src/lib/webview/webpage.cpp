@@ -34,6 +34,7 @@
 #include "adblockmanager.h"
 #include "iconprovider.h"
 #include "qzsettings.h"
+#include "useragentmanager.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -55,8 +56,6 @@
 #include <QWebFrame>
 
 QString WebPage::s_lastUploadLocation = QDir::homePath();
-QString WebPage::s_userAgent;
-QString WebPage::s_fakeUserAgent;
 QUrl WebPage::s_lastUnsupportedUrl;
 QTime WebPage::s_lastUnsupportedUrlTime;
 QList<WebPage*> WebPage::s_livingPages;
@@ -178,11 +177,6 @@ bool WebPage::isRunningLoop()
 bool WebPage::isLoading() const
 {
     return m_loadProgress < 100;
-}
-
-void WebPage::setUserAgent(const QString &agent)
-{
-    s_userAgent = agent;
 }
 
 void WebPage::urlChanged(const QUrl &url)
@@ -570,27 +564,18 @@ void WebPage::cleanBlockedObjects()
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
 {
-    const QString &host = url.host();
+    QString userAgent = mApp->uaManager()->userAgentForUrl(url);
 
-    // Let Google services play nice with us
-    if (host.contains("google")) {
-        if (s_fakeUserAgent.isEmpty()) {
-            s_fakeUserAgent = QString("Mozilla/5.0 (%1) AppleWebKit/%2 (KHTML, like Gecko) Chrome/10.0 Safari/%2").arg(qz_buildSystem(), QupZilla::WEBKITVERSION);
-        }
-
-        return s_fakeUserAgent;
-    }
-
-    if (s_userAgent.isEmpty()) {
-        s_userAgent = QWebPage::userAgentForUrl(url);
+    if (userAgent.isEmpty()) {
+        userAgent = QWebPage::userAgentForUrl(url);
 #ifdef Q_WS_MAC
 #ifdef __i386__ || __x86_64__
-        m_userAgent.replace("PPC Mac OS X", "Intel Mac OS X");
+        userAgent.replace("PPC Mac OS X", "Intel Mac OS X");
 #endif
 #endif
     }
 
-    return s_userAgent;
+    return userAgent;
 }
 
 bool WebPage::supportsExtension(Extension extension) const

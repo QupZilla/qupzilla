@@ -74,7 +74,6 @@ public:
     void addRejectedCerts(const QList<QSslCertificate> &certs);
     bool containsRejectedCerts(const QList<QSslCertificate> &certs);
 
-    static void setUserAgent(const QString &agent);
     QString userAgentForUrl(const QUrl &url) const;
 
     static bool isPointerSafeToUse(WebPage* page);
@@ -118,8 +117,6 @@ private:
     void desktopServicesOpen(const QUrl &url);
 
     static QString s_lastUploadLocation;
-    static QString s_userAgent;
-    static QString s_fakeUserAgent;
     static QUrl s_lastUnsupportedUrl;
     static QTime s_lastUnsupportedUrlTime;
     static QList<WebPage*> s_livingPages;

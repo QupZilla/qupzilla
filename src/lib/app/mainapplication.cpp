@@ -47,6 +47,7 @@
 #include "qzsettings.h"
 #include "clearprivatedata.h"
 #include "commandlineoptions.h"
+#include "useragentmanager.h"
 
 #ifdef Q_WS_MAC
 #include <QFileOpenEvent>
@@ -81,6 +82,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_desktopNotifications(0)
     , m_searchEnginesManager(0)
     , m_dbWriter(new DatabaseWriter(this))
+    , m_uaManager(new UserAgentManager)
     , m_isPrivateSession(false)
     , m_isClosing(false)
     , m_isStateChanged(false)
@@ -350,7 +352,6 @@ void MainApplication::loadSettings()
 
     setWheelScrollLines(settings.value("wheelScrollLines", wheelScrollLines()).toInt());
     m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", "").toString()));
-    WebPage::setUserAgent(settings.value("UserAgent", "").toString());
     settings.endGroup();
 
     settings.beginGroup("Browser-Fonts");
@@ -382,6 +383,7 @@ void MainApplication::loadSettings()
     }
 
     qzSettings->loadSettings();
+    m_uaManager->loadSettings();
 }
 
 void MainApplication::reloadSettings()
@@ -955,4 +957,9 @@ bool MainApplication::checkSettingsDir()
     versionFile.close();
 
     return dir.isReadable();
+}
+
+MainApplication::~MainApplication()
+{
+    delete m_uaManager;
 }

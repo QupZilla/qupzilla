@@ -46,6 +46,7 @@ class DesktopNotificationsFactory;
 class IconProvider;
 class SearchEnginesManager;
 class DatabaseWriter;
+class UserAgentManager;
 
 class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -58,6 +59,7 @@ public:
     QString THEMESDIR;
 
     explicit MainApplication(int &argc, char** argv);
+    ~MainApplication();
 
     void connectDatabase();
     void loadSettings();
@@ -94,7 +96,9 @@ public:
     SearchEnginesManager* searchEnginesManager();
     QNetworkDiskCache* networkCache();
     DesktopNotificationsFactory* desktopNotifications();
+
     DatabaseWriter* dbWriter() { return m_dbWriter; }
+    UserAgentManager* uaManager() { return m_uaManager; }
 
 #ifdef Q_WS_MAC
     bool event(QEvent* e);
@@ -144,6 +148,7 @@ private:
     DesktopNotificationsFactory* m_desktopNotifications;
     SearchEnginesManager* m_searchEnginesManager;
     DatabaseWriter* m_dbWriter;
+    UserAgentManager* m_uaManager;
 
     QList<QWeakPointer<QupZilla> > m_mainWindows;
 

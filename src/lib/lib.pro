@@ -180,7 +180,8 @@ SOURCES += \
     tools/emptynetworkreply.cpp \
     3rdparty/processinfo.cpp \
     preferences/pluginsmanager.cpp \
-    other/qzsettings.cpp
+    other/qzsettings.cpp \
+    other/useragentmanager.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -332,7 +333,8 @@ HEADERS  += \
     tools/emptynetworkreply.h \
     3rdparty/processinfo.h \
     preferences/pluginsmanager.h \
-    other/qzsettings.h
+    other/qzsettings.h \
+    other/useragentmanager.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
