@@ -15,34 +15,46 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef USERAGENTMANAGER_H
-#define USERAGENTMANAGER_H
+#ifndef USERAGENTDIALOG_H
+#define USERAGENTDIALOG_H
 
-#include <QHash>
+#include <QDialog>
+#include <QStringList>
 
 #include "qz_namespace.h"
 
-class QUrl;
+class UserAgentManager;
 
-class QT_QUPZILLA_EXPORT UserAgentManager
+namespace Ui
 {
+class UserAgentDialog;
+}
+
+class QT_QUPZILLA_EXPORT UserAgentDialog : public QDialog
+{
+    Q_OBJECT
+
 public:
-    explicit UserAgentManager();
+    explicit UserAgentDialog(QWidget* parent = 0);
+    ~UserAgentDialog();
 
-    void loadSettings();
+private slots:
+    void addSite();
+    void removeSite();
+    void editSite();
 
-    QString userAgentForUrl(const QUrl &url) const;
-    QString globalUserAgent() const;
+    void accept();
 
-    bool usePerDomainUserAgents() const;
-    QHash<QString, QString> perDomainUserAgentsList() const;
+    void enableGlobalComboBox(bool enable);
+    void enablePerSiteFrame(bool enable);
 
 private:
-    QString m_globalUserAgent;
-    QString m_fakeUserAgent;
+    bool showEditDialog(const QString &title, QString* rSite, QString* rUserAgent);
 
-    bool m_usePerDomainUserAgent;
-    QHash<QString, QString> m_userAgentsList;
+    Ui::UserAgentDialog* ui;
+    UserAgentManager* m_manager;
+
+    QStringList m_knownUserAgents;
 };
 
-#endif // USERAGENTMANAGER_H
+#endif // USERAGENTDIALOG_H

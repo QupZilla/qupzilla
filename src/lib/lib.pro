@@ -181,7 +181,8 @@ SOURCES += \
     3rdparty/processinfo.cpp \
     preferences/pluginsmanager.cpp \
     other/qzsettings.cpp \
-    other/useragentmanager.cpp
+    other/useragentmanager.cpp \
+    preferences/useragentdialog.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -334,7 +335,8 @@ HEADERS  += \
     3rdparty/processinfo.h \
     preferences/pluginsmanager.h \
     other/qzsettings.h \
-    other/useragentmanager.h
+    other/useragentmanager.h \
+    preferences/useragentdialog.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -377,7 +379,8 @@ FORMS    += \
     bookmarksimport/bookmarksimportdialog.ui \
     other/checkboxdialog.ui \
     other/iconchooser.ui \
-    adblock/adblockaddsubscriptiondialog.ui
+    adblock/adblockaddsubscriptiondialog.ui \
+    preferences/useragentdialog.ui
 
 RESOURCES += \
     data/icons.qrc \
