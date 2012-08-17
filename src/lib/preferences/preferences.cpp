@@ -42,6 +42,7 @@
 #include "settings.h"
 #include "tabbedwebview.h"
 #include "clearprivatedata.h"
+#include "useragentdialog.h"
 
 #include <QSettings>
 #include <QInputDialog>
@@ -239,30 +240,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->doNotTrack->setChecked(settings.value("DoNotTrack", false).toBool());
     ui->sendReferer->setChecked(settings.value("SendReferer", true).toBool());
 
-    // UserAgent
-    const QString &os = qz_buildSystem();
-    QStringList items;
-    items << QString("Opera/9.80 (%1) Presto/2.10.229 Version/11.61").arg(os)
-          << QString("Mozilla/5.0 (%1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7").arg(os)
-          << QString("Mozilla/5.0 (%1) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1").arg(os)
-          << QString("Mozilla/5.0 (%1; rv:9.0.1) Gecko/20100101 Firefox/9.0.1").arg(os);
-
-    const QString &savedUserAgent = settings.value("UserAgent", "").toString();
-    ui->changeUserAgent->setChecked(!savedUserAgent.isEmpty());
-    ui->userAgentCombo->addItems(items);
-
-    int index = ui->userAgentCombo->findText(savedUserAgent);
-    if (index >= 0) {
-        ui->userAgentCombo->setCurrentIndex(index);
-    }
-    else {
-        ui->userAgentCombo->lineEdit()->setText(savedUserAgent);
-    }
-
-    ui->userAgentCombo->lineEdit()->setCursorPosition(0);
-    connect(ui->changeUserAgent, SIGNAL(toggled(bool)), this, SLOT(changeUserAgentChanged(bool)));
-    changeUserAgentChanged(ui->changeUserAgent->isChecked());
-
     //CSS Style
     ui->userStyleSheet->setText(settings.value("userStyleSheet", "").toString());
     connect(ui->chooseUserStylesheet, SIGNAL(clicked()), this, SLOT(chooseUserStyleClicked()));
@@ -420,6 +397,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->sslManagerButton, SIGNAL(clicked()), this, SLOT(openSslManager()));
     connect(ui->preferredLanguages, SIGNAL(clicked()), this, SLOT(showAcceptLanguage()));
     connect(ui->deleteHtml5storage, SIGNAL(clicked()), this, SLOT(deleteHtml5storage()));
+    connect(ui->uaManager, SIGNAL(clicked()), this, SLOT(openUserAgentManager()));
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
@@ -529,6 +507,12 @@ void Preferences::chooseExternalDownloadManager()
     ui->externalDownExecutable->setText(path);
 }
 
+void Preferences::openUserAgentManager()
+{
+    UserAgentDialog dialog(this);
+    dialog.exec();
+}
+
 void Preferences::downLocChanged(bool state)
 {
     ui->downButt->setEnabled(state);
@@ -626,11 +610,6 @@ void Preferences::useExternalDownManagerChanged(bool state)
     ui->chooseExternalDown->setEnabled(state);
 }
 
-void Preferences::changeUserAgentChanged(bool state)
-{
-    ui->userAgentCombo->setEnabled(state);
-}
-
 void Preferences::useDifferentProxyForHttpsChanged(bool state)
 {
     ui->httpsProxyServer->setEnabled(state);
@@ -725,6 +704,16 @@ void Preferences::startProfileIndexChanged(QString index)
     }
 }
 
+void Preferences::closeEvent(QCloseEvent* event)
+{
+    Settings settings;
+    settings.beginGroup("Browser-View-Settings");
+    settings.setValue("settingsDialogPage", ui->stackedWidget->currentIndex());
+    settings.endGroup();
+
+    event->accept();
+}
+
 void Preferences::saveSettings()
 {
     Settings settings;
@@ -774,7 +763,6 @@ void Preferences::saveSettings()
     settings.setValue("showWebSearchBar", ui->showWebSearchBar->isChecked());
     settings.setValue("useTransparentBackground", ui->useTransparentBg->isChecked());
     settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
-    settings.setValue("settingsDialogPage", ui->stackedWidget->currentIndex());
     settings.endGroup();
 
     //TABS
@@ -836,7 +824,6 @@ void Preferences::saveSettings()
     settings.setValue("LoadTabsOnActivation", ui->dontLoadTabsUntilSelected->isChecked());
     settings.setValue("DefaultZoom", ui->defaultZoom->value());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
-    settings.setValue("UserAgent", ui->changeUserAgent->isChecked() ? ui->userAgentCombo->currentText() : "");
 
     //Cache
     settings.setValue("maximumCachedPages", ui->pagesInCache->value());

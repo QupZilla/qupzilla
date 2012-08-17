@@ -60,6 +60,7 @@ private slots:
     void chooseUserStyleClicked();
     void deleteHtml5storage();
     void chooseExternalDownloadManager();
+    void openUserAgentManager();
 
     void allowJavaScriptChanged(bool state);
     void saveHistoryChanged(bool state);
@@ -70,7 +71,6 @@ private slots:
     void showPassManager(bool state);
     void setManualProxyConfigurationEnabled(bool state);
     void useExternalDownManagerChanged(bool state);
-    void changeUserAgentChanged(bool state);
     void useDifferentProxyForHttpsChanged(bool state);
     void showTabPreviewsChanged(bool state);
 
@@ -86,6 +86,8 @@ private slots:
     void setNotificationPreviewVisible(bool state);
 
 private:
+    void closeEvent(QCloseEvent* event);
+
     Ui::Preferences* ui;
     QupZilla* p_QupZilla;
     AutoFillManager* m_autoFillManager;
