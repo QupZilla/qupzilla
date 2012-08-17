@@ -506,6 +506,10 @@
         <translatorcomment>わからん</translatorcomment>
         <translation>&lt;b&gt;注意&lt;/b&gt;現在はHTMLファイルとブックマークフォルダからのインポートのみ正常に動作します。</translation>
     </message>
+    <message>
+        <source>The file doesn&apos;t contain any bookmark.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksManager</name>
@@ -1274,6 +1278,10 @@
     <message>
         <source>Opening %1</source>
         <translation>%1を開いています</translation>
+    </message>
+    <message>
+        <source>Download with External Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2262,7 +2270,7 @@
     </message>
     <message>
         <source>Change browser identification:</source>
-        <translation>User Agentの変更:</translation>
+        <translation type="obsolete">User Agentの変更:</translation>
     </message>
     <message>
         <source>OSD Notification</source>
@@ -2387,6 +2395,18 @@
         <source>Nothing</source>
         <translatorcomment>再考</translatorcomment>
         <translation>なし</translation>
+    </message>
+    <message>
+        <source>Leave blank if unsure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3936,6 +3956,57 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Update</source>
         <translation>アップデート</translation>
+    </message>
+</context>
+<context>
+    <name>UserAgentDialog</name>
+    <message>
+        <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change global User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use different User Agents for specified sites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">削除</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">編集</translation>
+    </message>
+    <message>
+        <source>Add new site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site domain: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

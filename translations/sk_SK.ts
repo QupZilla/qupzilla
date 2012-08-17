@@ -497,6 +497,10 @@
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
         <translation>&lt;b&gt;Poznámka:&lt;/b&gt; Momentálne iba import z html súboru importuje aj priečinky záložiek.</translation>
     </message>
+    <message>
+        <source>The file doesn&apos;t contain any bookmark.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksManager</name>
@@ -1250,6 +1254,10 @@
     <message>
         <source>You have chosen to open</source>
         <translation>Vybrali ste otvoriť</translation>
+    </message>
+    <message>
+        <source>Download with External Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2267,7 +2275,7 @@
     </message>
     <message>
         <source>Change browser identification:</source>
-        <translation>Zmeniť identifikáciu prehliadača:</translation>
+        <translation type="obsolete">Zmeniť identifikáciu prehliadača:</translation>
     </message>
     <message>
         <source>Allow Netscape Plugins (Flash plugin)</source>
@@ -2335,6 +2343,18 @@
     </message>
     <message>
         <source>Nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leave blank if unsure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent Manager</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3857,6 +3877,57 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Update available</source>
         <translation>Je dostupná aktualizácia</translation>
+    </message>
+</context>
+<context>
+    <name>UserAgentDialog</name>
+    <message>
+        <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change global User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use different User Agents for specified sites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Pridať</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site domain: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

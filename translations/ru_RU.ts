@@ -552,58 +552,64 @@
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="192"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="205"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="218"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="231"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="204"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="216"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="228"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="234"/>
         <source>Error!</source>
         <translation>Ошибка!</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="244"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="234"/>
+        <source>The file doesn&apos;t contain any bookmark.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="245"/>
         <source>Choose directory...</source>
         <translation>Выберите папку...</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="252"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="253"/>
         <source>Choose file...</source>
         <translation>Выберите файл...</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="285"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="286"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
         <translation>Mozilla Firefox хранит закладки в базе данных SQLite &lt;b&gt;places.sqlite&lt;/b&gt;. Этот файл обычно расположен в </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="287"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="302"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="318"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="333"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="288"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="303"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="319"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="334"/>
         <source>Please choose this file to begin importing bookmarks.</source>
         <translatorcomment>?</translatorcomment>
         <translation>Пожалуйста, укажите расположение этого файла, чтобы начать импорт.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="300"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="301"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
         <translation>Google Chrome хранит закладки в текстовом файле &lt;b&gt;Bookmarks&lt;/b&gt;. Этот файл обычно расположен в </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="316"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="317"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
         <translation>Opera хранит свои закладки в файле &lt;b&gt;bookmarks.adr&lt;/b&gt;. Этот файл обычно расположен в </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="331"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="332"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
         <translation>Вы можете импортировать закладки из любого браузера, который поддерживает HTML экспорт.Этот файл обычно использует это расширение</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="340"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="341"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
         <translation>Internet Explorer хранит закладки в папке  &lt;b&gt;Избранное&lt;/b&gt;. Эта папка обычно расположена в</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="342"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="343"/>
         <source>Please choose this folder to begin importing bookmarks.</source>
         <translation>Пожалуйста, выберите эту папку, чтобы начать импорт.</translation>
     </message>
@@ -1343,13 +1349,13 @@
 <context>
     <name>DownloadFileHelper</name>
     <message>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="145"/>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="150"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="161"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="166"/>
         <source>Save file as...</source>
         <translation>Сохранить как...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="256"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="272"/>
         <source>NoNameDownload</source>
         <translatorcomment>??</translatorcomment>
         <translation>Безымянная загрузка</translation>
@@ -1498,8 +1504,8 @@
     <name>DownloadManager</name>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="132"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="267"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="134"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="269"/>
         <source>Download Manager</source>
         <translation>Менеджер загрузок</translation>
     </message>
@@ -1529,32 +1535,32 @@
         <translation>Не удается запустить внешний менеджер закачек! %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="164"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="166"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% из %2 файлов (%3) %4 осталось</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="167"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="169"/>
         <source>% - Download Manager</source>
         <translation>% - Менеджер загрузок</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="260"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="262"/>
         <source>Download Finished</source>
         <translation>Загузка закончена</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="260"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="262"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Все файлы были успешно загружены.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="312"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="319"/>
         <source>Warning</source>
         <translation>Внимание</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="313"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="320"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Вы точно хотите выйти? Все незавершенные загрузки будут отменены!</translation>
     </message>
@@ -1595,6 +1601,11 @@
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="145"/>
         <source>Save File</source>
         <translation>Сохранить файл</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="155"/>
+        <source>Download with External Manager</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="34"/>
@@ -1861,27 +1872,27 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="59"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="58"/>
         <source>Add RSS from this page...</source>
         <translation>Добавить RSS с этой страницы...</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="93"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="97"/>
         <source>Enter URL address or search on %1</source>
         <translation>Введите адрес или используйте поиск в %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="271"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="275"/>
         <source>Paste And &amp;Go</source>
         <translation>Вставить и &amp;Перейти</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="277"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="281"/>
         <source>Clear All</source>
         <translation>Очистить все</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="469"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="473"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.ru</translation>
@@ -2083,22 +2094,22 @@
 <context>
     <name>PluginsManager</name>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="82"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="81"/>
         <source>Add site to whitelist</source>
         <translation>Добавить сайт в Белый список</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="82"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="81"/>
         <source>Server without http:// (ex. youtube.com)</source>
         <translation>Сервер без http:// (Например youtube.com)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="258"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="257"/>
         <source>Error!</source>
         <translation>Ошибка!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="258"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="257"/>
         <source>Cannot load extension!</source>
         <translation>Не могу загрузить расширение!</translation>
     </message>
@@ -2197,7 +2208,7 @@
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="309"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="720"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="700"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Примечание: Нельзя удалить активный профиль.</translation>
     </message>
@@ -2363,12 +2374,12 @@
         <translation>Удалять локальные данные HTML5 при закрытии</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1841"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1845"/>
         <source>JavaScript can access clipboard</source>
         <translation>JavaScript может получить доступ к буферу обмена</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1906"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1910"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Просить сервер не отслежевать вас</translation>
     </message>
@@ -2635,24 +2646,38 @@
         <translation>Аргументы:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1862"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1743"/>
+        <source>Leave blank if unsure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1866"/>
         <source>Filter tracking cookies</source>
         <translation>Фильтрация шпионских Cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1975"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1979"/>
         <source>Certificate Manager</source>
         <translation>Менеджер сертификатов</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2012"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2016"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Внимание:&lt;/b&gt; Опции &quot;Требовать точное соответствие домена&quot; и &quot;фильтрация шпионских cookies&quot; могут привести к запрещению некторых cookies. Если у вас проблемы с cookies, то попробуйте отключить эти опции!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2227"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2273"/>
+        <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2298"/>
+        <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Change browser identification:</source>
-        <translation>Изменить идентификатор браузера:</translation>
+        <translation type="obsolete">Изменить идентификатор браузера:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1534"/>
@@ -2703,8 +2728,8 @@
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1650"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1751"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2189"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1755"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2193"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -2726,98 +2751,98 @@
         <translation>Закрыть менеджер загрузок после завершения всех загрузок</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1779"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1783"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Автозаполнение&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1786"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1790"/>
         <source>Allow saving passwords from sites</source>
         <translation>Сохранять пароли</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1869"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1873"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;B&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1876"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1880"/>
         <source>Allow storing of cookies</source>
         <translation>Сохранять cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1920"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1924"/>
         <source>Manage CA certificates</source>
         <translation>Управлять CA сертификатами</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1982"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1986"/>
         <source>Delete cookies on close</source>
         <translation>Удалить cookies после закрытия</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1899"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1903"/>
         <source>Match domain exactly</source>
         <translation>Требовать точное соответствие домена</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1962"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1966"/>
         <source>Cookies Manager</source>
         <translation>Менеджер Cookies </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2005"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2009"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL Сертификаты&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1913"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2172"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1917"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2176"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Остальное&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1855"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1859"/>
         <source>Send Referer header to servers</source>
         <translation>Отправить Referer заголовок к серверам</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1848"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1852"/>
         <source>Block popup windows</source>
         <translation>Блокировать всплывающие окна</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2026"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2030"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Уведомления&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2033"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2037"/>
         <source>Use OSD Notifications</source>
         <translation>Использовать экранные уведомления</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2043"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2047"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Использовать системные уведомления ( только для Linux)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2050"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2054"/>
         <source>Do not use Notifications</source>
         <translation>Не использовать уведомления</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2101"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2105"/>
         <source>Expiration timeout:</source>
         <translation>Время действия:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2114"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2118"/>
         <source> seconds</source>
         <translation>секунд</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2123"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2127"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Примечание: &lt;/b&gt;Вы можете изменить расположение экранных уведомлений перетаскивая их по экрану.</translation>
     </message>
@@ -2837,17 +2862,17 @@
         <translation>Чтобы изменить язык, вы должны перезапустить браузер.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2179"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2183"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>Выберите таблицу стилей для всех сайтов:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2198"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2202"/>
         <source>Languages</source>
         <translation>Языки</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2220"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2224"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Предпочитаемый язык для веб сайтов&lt;/b&gt;</translation>
     </message>
@@ -2902,68 +2927,68 @@
         <translation>Прочее</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="463"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="442"/>
         <source>OSD Notification</source>
         <translation>Экранные уведомления</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="464"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="443"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Перетащите уведомление, в место где вы хотите его разместить.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="492"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="471"/>
         <source>Choose download location...</source>
         <translation>Выберите папку для загрузок...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="506"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="485"/>
         <source>Choose stylesheet location...</source>
         <translation>Укажите местоположение таблицы стилей...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="517"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="496"/>
         <source>Deleted</source>
         <translation>Удален</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="523"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="502"/>
         <source>Choose executable location...</source>
         <translation>Выберите место для выполнения...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="674"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="654"/>
         <source>New Profile</source>
         <translation>Новый профиль</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="674"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="654"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Введите имя профиля:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="681"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="685"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="661"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="665"/>
         <source>Error!</source>
         <translation>Ошибка!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="681"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="661"/>
         <source>This profile already exists!</source>
         <translation>Такой профиль уже существует!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="685"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="665"/>
         <source>Cannot create profile directory!</source>
         <translation>Невозможно создать папку для профиля!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="705"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="685"/>
         <source>Confirmation</source>
         <translation>Подтверждение</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="706"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="686"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Вы точно хотите удалить профиль &quot;%1&quot;? Это действие необратимо!</translation>
     </message>
@@ -3288,18 +3313,18 @@
         <translation> (Режим приватного просмотра)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1776"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1696"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
         <translation>У вас открыто %1 вкладок и ваша сессия не сохранится. Вы точно хотите выйти из QupZilla?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1777"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1697"/>
         <source>Don&apos;t ask again</source>
         <translation>Не спрашивать снова</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1778"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1698"/>
         <source>There are still open tabs</source>
         <translation>Некоторые вкладки не закрыты</translation>
     </message>
@@ -4773,39 +4798,39 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Новая вкладка</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="221"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="231"/>
         <source>Loading...</source>
         <translation>Загрузка...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="225"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="235"/>
         <source>No Named Page</source>
         <translation>Безымянная страница</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="243"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="253"/>
         <source>Currently you have %1 opened tabs</source>
         <translation>Сейчас вы имеет %1 открытых вкладок</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="260"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="270"/>
         <location filename="../src/lib/webview/tabwidget.h" line="97"/>
         <location filename="../src/lib/webview/tabwidget.h" line="98"/>
         <source>New tab</source>
         <translation>Новая вкладка</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="631"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="641"/>
         <source>Empty</source>
         <translation>Пусто</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="634"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="644"/>
         <source>Restore All Closed Tabs</source>
         <translation>Открыть все закрытые вкладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="635"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="645"/>
         <source>Clear list</source>
         <translation>Очистить список</translation>
     </message>
@@ -4888,6 +4913,69 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
 </context>
 <context>
+    <name>UserAgentDialog</name>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.ui" line="14"/>
+        <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.ui" line="20"/>
+        <source>Change global User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.ui" line="48"/>
+        <source>Use different User Agents for specified sites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.ui" line="86"/>
+        <source>Site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.ui" line="91"/>
+        <source>User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.ui" line="101"/>
+        <source>Add</source>
+        <translation type="unfinished">Добавить</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.ui" line="108"/>
+        <source>Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.ui" line="128"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="83"/>
+        <source>Add new site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="121"/>
+        <source>Edit site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="195"/>
+        <source>Site domain: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="196"/>
+        <source>User Agent: </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>WebInspectorDockWidget</name>
     <message>
         <location filename="../src/lib/webview/webinspectordockwidget.cpp" line="29"/>
@@ -4899,17 +4987,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="326"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="320"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>QupZilla не может управлять &lt;b&gt;%1:&lt;/b&gt; ссылками. Запрашиваемая ссылка: &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Вы хотите чтобы QupZilla попыталась открыть ссылку через систему?</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="331"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="325"/>
         <source>Remember my choice for this protocol</source>
         <translation>Запомнить мой выбор протокола</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="332"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="326"/>
         <source>External Protocol Request</source>
         <translation>Внешний запрос протокола</translation>
     </message>
@@ -4920,143 +5008,143 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 ( Например поиск, или покупку чего-либо )</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="469"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="463"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="471"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="465"/>
         <source>Confirm form resubmission</source>
         <translation>Подтвердите повторную отправку формы</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="618"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="603"/>
         <source>Select files to upload...</source>
         <translation>Выберите файлы для загрузки ...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="639"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="624"/>
         <source>Server refused the connection</source>
         <translation>Соединение отвергнуто сервером</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="642"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="627"/>
         <source>Server closed the connection</source>
         <translation>Сервер закрыл соединение</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="645"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="630"/>
         <source>Server not found</source>
         <translation>Сервер не найден</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="648"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="633"/>
         <source>Connection timed out</source>
         <translation>Время ожидания соединения истекло</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="651"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="636"/>
         <source>Untrusted connection</source>
         <translation>Ненадежное соединение</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="654"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="639"/>
         <source>Temporary network failure</source>
         <translation>Временный сбой сети</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="657"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="642"/>
         <source>Proxy connection refused</source>
         <translation>Подключение к прокси провалилось</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="660"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="645"/>
         <source>Proxy server not found</source>
         <translation>Прокси сервер не найден</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="663"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="648"/>
         <source>Proxy connection timed out</source>
         <translation>Вышел временной лимит подключения</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="666"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="651"/>
         <source>Proxy authentication required</source>
         <translation>Прокси сервер требует авторизацию</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="669"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="654"/>
         <source>Content not found</source>
         <translation>Содержимое не найдено</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="672"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="657"/>
         <source>Unknown network error</source>
         <translation>Неизвестная ошибка сети</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="704"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="689"/>
         <source>AdBlocked Content</source>
         <translation>Содержимое заболкировано AdBlock&apos;ом</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="708"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="693"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Заблокировано &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="724"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="709"/>
         <source>Content Access Denied</source>
         <translation>Доступ к содержанию запрещен</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="739"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="724"/>
         <source>Error code %1</source>
         <translation>Код ошибки %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="751"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="736"/>
         <source>Failed loading page</source>
         <translation>Невозможно загрузить страницу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="758"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="743"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla не может загрузить страницу %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="759"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="744"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Проверьте адрес страницы на ошибки ( Например  &lt;b&gt;ww&lt;/b&gt;.example.com вместо &lt;b&gt;www&lt;/b&gt;.example.com)</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="760"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="745"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Если невозможно загрузить любую страницу, проверьте ваше соединение с Internet.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="761"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="746"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Если ваш компютер или сеть защишена с помощью фаервола или прокси, удостовертесь, что QupZilla может выходить в Internet.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="762"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="747"/>
         <source>Try Again</source>
         <translation>Попробовать снова</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="861"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="846"/>
         <source>JavaScript alert</source>
         <translation>предупреждение JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="869"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="854"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Запретить странице создавать дополнительные диалоги</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="917"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="902"/>
         <source>Choose file...</source>
         <translation>Выберите файл...</translation>
     </message>
@@ -5064,27 +5152,27 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebSearchBar</name>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="102"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="107"/>
         <source>Manage Search Engines</source>
         <translation>Управление поисковыми системами</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="219"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="224"/>
         <source>Add %1 ...</source>
         <translation>Добавить %1...</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="242"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="247"/>
         <source>Paste And &amp;Search</source>
         <translation>Вставить и &amp;Найти</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="248"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="253"/>
         <source>Clear All</source>
         <translation>Очистить все</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="294"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="299"/>
         <source>Show suggestions</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5092,233 +5180,233 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="798"/>
+        <location filename="../src/lib/webview/webview.cpp" line="810"/>
         <source>Open link in new &amp;tab</source>
         <translation>Открыть ссылку в новой &amp;вкладке</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="799"/>
+        <location filename="../src/lib/webview/webview.cpp" line="811"/>
         <source>Open link in new &amp;window</source>
         <translation>Открыть ссылку в новом &amp;окне</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="801"/>
+        <location filename="../src/lib/webview/webview.cpp" line="813"/>
         <source>B&amp;ookmark link</source>
         <translation>Добавить ссылку в &amp;закладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="802"/>
+        <location filename="../src/lib/webview/webview.cpp" line="814"/>
         <source>&amp;Save link as...</source>
         <translation>С&amp;охранить ссылку как...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="803"/>
+        <location filename="../src/lib/webview/webview.cpp" line="815"/>
         <source>Send link...</source>
         <translation>Послать адрес...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="804"/>
+        <location filename="../src/lib/webview/webview.cpp" line="816"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Копировать адрес</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="816"/>
+        <location filename="../src/lib/webview/webview.cpp" line="828"/>
         <source>Show i&amp;mage</source>
         <translation>Показать и&amp;зображение</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="821"/>
+        <location filename="../src/lib/webview/webview.cpp" line="833"/>
         <source>Copy im&amp;age</source>
         <translation>Копи&amp;ровать изображение</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="822"/>
+        <location filename="../src/lib/webview/webview.cpp" line="834"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Копировать &amp;адрес изображения</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="824"/>
+        <location filename="../src/lib/webview/webview.cpp" line="836"/>
         <source>&amp;Save image as...</source>
         <translation>Со&amp;хранить изображение как...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="825"/>
+        <location filename="../src/lib/webview/webview.cpp" line="837"/>
         <source>Send image...</source>
         <translation>Послать изображение...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="741"/>
+        <location filename="../src/lib/webview/webview.cpp" line="753"/>
         <source>&amp;Back</source>
         <translation>&amp;Назад</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="636"/>
+        <location filename="../src/lib/webview/webview.cpp" line="648"/>
         <source>Create Search Engine</source>
         <translation>Добавить поисковый движок</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="745"/>
+        <location filename="../src/lib/webview/webview.cpp" line="757"/>
         <source>&amp;Forward</source>
         <translation>&amp;Вперед</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="657"/>
-        <location filename="../src/lib/webview/webview.cpp" line="759"/>
+        <location filename="../src/lib/webview/webview.cpp" line="669"/>
+        <location filename="../src/lib/webview/webview.cpp" line="771"/>
         <source>&amp;Reload</source>
         <translation>&amp;Обновить</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="658"/>
+        <location filename="../src/lib/webview/webview.cpp" line="670"/>
         <source>S&amp;top</source>
         <translation>&amp;Прервать</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="755"/>
+        <location filename="../src/lib/webview/webview.cpp" line="767"/>
         <source>This frame</source>
         <translation>Эта структура</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="756"/>
+        <location filename="../src/lib/webview/webview.cpp" line="768"/>
         <source>Show &amp;only this frame</source>
         <translation>Показывать &amp;только эту структуру</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="757"/>
+        <location filename="../src/lib/webview/webview.cpp" line="769"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>Показывать структуру в новой вкладк&amp;е</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="760"/>
+        <location filename="../src/lib/webview/webview.cpp" line="772"/>
         <source>Print frame</source>
         <translation>Распечатаь структуру</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="762"/>
+        <location filename="../src/lib/webview/webview.cpp" line="774"/>
         <source>Zoom &amp;in</source>
         <translation>&amp;Увеличить</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="763"/>
+        <location filename="../src/lib/webview/webview.cpp" line="775"/>
         <source>&amp;Zoom out</source>
         <translation>&amp;Уменьшить</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="764"/>
+        <location filename="../src/lib/webview/webview.cpp" line="776"/>
         <source>Reset</source>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="766"/>
+        <location filename="../src/lib/webview/webview.cpp" line="778"/>
         <source>Show so&amp;urce of frame</source>
         <translation>&amp;Показать код структуры</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="772"/>
+        <location filename="../src/lib/webview/webview.cpp" line="784"/>
         <source>Book&amp;mark page</source>
         <translation>Добавить в &amp;закладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="773"/>
+        <location filename="../src/lib/webview/webview.cpp" line="785"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Сохранить страницу как...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="774"/>
+        <location filename="../src/lib/webview/webview.cpp" line="786"/>
         <source>&amp;Copy page link</source>
         <translation>Копировать &amp;ссылку страницы</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="775"/>
+        <location filename="../src/lib/webview/webview.cpp" line="787"/>
         <source>Send page link...</source>
         <translation>Послать адрес страницы...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="776"/>
+        <location filename="../src/lib/webview/webview.cpp" line="788"/>
         <source>&amp;Print page</source>
         <translation>&amp;Распечатать страницу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="844"/>
+        <location filename="../src/lib/webview/webview.cpp" line="856"/>
         <source>Send text...</source>
         <translation>Послать текст...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="849"/>
+        <location filename="../src/lib/webview/webview.cpp" line="861"/>
         <source>Google Translate</source>
         <translation>Google перевод</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="854"/>
+        <location filename="../src/lib/webview/webview.cpp" line="866"/>
         <source>Dictionary</source>
         <translation>Словарь</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="869"/>
+        <location filename="../src/lib/webview/webview.cpp" line="881"/>
         <source>Go to &amp;web address</source>
         <translation>Идти по &amp;ссылке</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="889"/>
+        <location filename="../src/lib/webview/webview.cpp" line="901"/>
         <source>Search with...</source>
         <translation>Искать с помощью...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="916"/>
+        <location filename="../src/lib/webview/webview.cpp" line="928"/>
         <source>&amp;Play</source>
         <translation>&amp;Играть</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="916"/>
+        <location filename="../src/lib/webview/webview.cpp" line="928"/>
         <source>&amp;Pause</source>
         <translation>&amp;Пауза</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="917"/>
+        <location filename="../src/lib/webview/webview.cpp" line="929"/>
         <source>Un&amp;mute</source>
         <translation>&amp;Включение</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="917"/>
+        <location filename="../src/lib/webview/webview.cpp" line="929"/>
         <source>&amp;Mute</source>
         <translation>&amp;Отключение</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="919"/>
+        <location filename="../src/lib/webview/webview.cpp" line="931"/>
         <source>&amp;Copy Media Address</source>
         <translation>Копировать &amp;сслыку медиаконтента</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="920"/>
+        <location filename="../src/lib/webview/webview.cpp" line="932"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Послать сслыку медиаконтента</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="921"/>
+        <location filename="../src/lib/webview/webview.cpp" line="933"/>
         <source>Save Media To &amp;Disk</source>
         <translation>&amp;Сохранить медиоконтент</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="778"/>
+        <location filename="../src/lib/webview/webview.cpp" line="790"/>
         <source>Select &amp;all</source>
         <translation>В&amp;ыделить всё</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="783"/>
+        <location filename="../src/lib/webview/webview.cpp" line="795"/>
         <source>Validate page</source>
         <translation>Проверенная страница</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="786"/>
+        <location filename="../src/lib/webview/webview.cpp" line="798"/>
         <source>Show so&amp;urce code</source>
         <translation>Показать &amp;исходый код</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="787"/>
+        <location filename="../src/lib/webview/webview.cpp" line="799"/>
         <source>Show info ab&amp;out site</source>
         <translation>Показывать &amp;информацию о сайте</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="883"/>
+        <location filename="../src/lib/webview/webview.cpp" line="895"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Искать &quot;%1 ..&quot; с %2</translation>
     </message>

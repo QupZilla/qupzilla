@@ -1254,6 +1254,10 @@
         <source>Opening %1</source>
         <translation>در حال بازکردن %1</translation>
     </message>
+    <message>
+        <source>Download with External Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>EditSearchEngine</name>
@@ -2219,7 +2223,7 @@
     </message>
     <message>
         <source>Change browser identification:</source>
-        <translation>تغییر هویت مرورگر:</translation>
+        <translation type="obsolete">تغییر هویت مرورگر:</translation>
     </message>
     <message>
         <source>OSD Notification</source>
@@ -2344,6 +2348,14 @@
     <message>
         <source>Leave blank if unsure</source>
         <translation>اگر اطمینان ندارید، خالی بگذارید </translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3865,6 +3877,57 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Update</source>
         <translation>بروزرسانی</translation>
+    </message>
+</context>
+<context>
+    <name>UserAgentDialog</name>
+    <message>
+        <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change global User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use different User Agents for specified sites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">افزودن</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">حذف</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">ویرایش</translation>
+    </message>
+    <message>
+        <source>Add new site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site domain: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

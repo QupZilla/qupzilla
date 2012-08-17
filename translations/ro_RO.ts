@@ -497,6 +497,10 @@
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
         <translation>&lt;b&gt;Notă:&lt;/b&gt; Deocamdată, doar importarea din fișiere HTML poate importa deasemenea directoare de semne de carte.</translation>
     </message>
+    <message>
+        <source>The file doesn&apos;t contain any bookmark.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksManager</name>
@@ -1250,6 +1254,10 @@ nu a putut fi găsit!</translation>
     <message>
         <source>Opening %1</source>
         <translation>Se deschide %1</translation>
+    </message>
+    <message>
+        <source>Download with External Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2217,7 +2225,7 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Change browser identification:</source>
-        <translation>Schimbați identificarea browser-ului:</translation>
+        <translation type="obsolete">Schimbați identificarea browser-ului:</translation>
     </message>
     <message>
         <source>OSD Notification</source>
@@ -2337,6 +2345,18 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leave blank if unsure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent Manager</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3858,6 +3878,57 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <source>Update</source>
         <translation>Actualizeaza</translation>
+    </message>
+</context>
+<context>
+    <name>UserAgentDialog</name>
+    <message>
+        <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change global User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use different User Agents for specified sites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Adaugă</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site domain: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -497,6 +497,10 @@
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
         <translation>&lt;b&gt;Megjegyzés:&lt;/b&gt; Könyvjelző mappákat jelenleg csak HTML fájlból lehet betölteni.</translation>
     </message>
+    <message>
+        <source>The file doesn&apos;t contain any bookmark.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksManager</name>
@@ -1250,6 +1254,10 @@
     <message>
         <source>Opening %1</source>
         <translation>%1 megnyitása</translation>
+    </message>
+    <message>
+        <source>Download with External Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2215,7 +2223,7 @@
     </message>
     <message>
         <source>Change browser identification:</source>
-        <translation>Böngésző azonosító megváltoztatása:</translation>
+        <translation type="obsolete">Böngésző azonosító megváltoztatása:</translation>
     </message>
     <message>
         <source>OSD Notification</source>
@@ -2335,6 +2343,18 @@
     </message>
     <message>
         <source>Nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leave blank if unsure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent Manager</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3857,6 +3877,57 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     <message>
         <source>Update</source>
         <translation>Frissítés</translation>
+    </message>
+</context>
+<context>
+    <name>UserAgentDialog</name>
+    <message>
+        <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change global User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use different User Agents for specified sites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Hozzáadás</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Szerkesztés</translation>
+    </message>
+    <message>
+        <source>Add new site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site domain: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

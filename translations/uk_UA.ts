@@ -499,6 +499,10 @@
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
         <translation>&lt;b&gt;Примітка:&lt;/b&gt; Наразі, тільки &quot;імпорт з Html-файлу&quot; може імпортувати також папки закладок.</translation>
     </message>
+    <message>
+        <source>The file doesn&apos;t contain any bookmark.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksManager</name>
@@ -1252,6 +1256,10 @@
     <message>
         <source>Opening %1</source>
         <translation>Відкриваю %1</translation>
+    </message>
+    <message>
+        <source>Download with External Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2217,7 +2225,7 @@
     </message>
     <message>
         <source>Change browser identification:</source>
-        <translation>Змінити ідентифікацію браузера:</translation>
+        <translation type="obsolete">Змінити ідентифікацію браузера:</translation>
     </message>
     <message>
         <source>OSD Notification</source>
@@ -2337,6 +2345,18 @@
     </message>
     <message>
         <source>Nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leave blank if unsure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent Manager</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3863,6 +3883,57 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Update</source>
         <translation>Оновлення</translation>
+    </message>
+</context>
+<context>
+    <name>UserAgentDialog</name>
+    <message>
+        <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change global User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use different User Agents for specified sites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Додати</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Видалити</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Редагувати</translation>
+    </message>
+    <message>
+        <source>Add new site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site domain: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Agent: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
