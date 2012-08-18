@@ -33,6 +33,7 @@
 #include <QFileInfo>
 #include <QMessageBox>
 #include <QDesktopServices>
+#include <QProcess>
 
 //#define DOWNMANAGER_DEBUG
 
@@ -385,7 +386,13 @@ void DownloadItem::openFile()
 
 void DownloadItem::openFolder()
 {
+#ifdef Q_WS_WIN
+    QString winFileName = m_path + m_fileName;
+    winFileName.replace("/","\\");
+    QProcess::startDetached("explorer.exe /e,/select,\""+winFileName+"\"");
+#else
     QDesktopServices::openUrl(QUrl::fromLocalFile(m_path));
+#endif
 }
 
 void DownloadItem::readyRead()
