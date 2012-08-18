@@ -555,7 +555,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="234"/>
         <source>The file doesn&apos;t contain any bookmark.</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese Datei enthält keine Lesezeichen.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="245"/>
@@ -1585,7 +1585,7 @@
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="155"/>
         <source>Download with External Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Mit externem Download Manager herunterladen</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="32"/>
@@ -2682,7 +2682,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1743"/>
         <source>Leave blank if unsure</source>
-        <translation type="unfinished"></translation>
+        <translation>Im Zweifelsfall leer lassen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1880"/>
@@ -2702,12 +2702,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2273"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Browser Identifizierung ändern&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2298"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent Manager</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1903"/>
@@ -4906,62 +4906,62 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="14"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent Manager</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="20"/>
         <source>Change global User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>Globale Einstellung ändern</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="48"/>
         <source>Use different User Agents for specified sites</source>
-        <translation type="unfinished"></translation>
+        <translation>Unterschiedliche User Agents für bestimmte Web-Seiten nutzen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="86"/>
         <source>Site</source>
-        <translation type="unfinished"></translation>
+        <translation>Web-Seite</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="91"/>
         <source>User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="101"/>
         <source>Add</source>
-        <translation type="unfinished">Hinzufügen</translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="108"/>
         <source>Remove</source>
-        <translation type="unfinished">Entfernen</translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="128"/>
         <source>Edit</source>
-        <translation type="unfinished">Bearbeiten</translation>
+        <translation>Bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="83"/>
         <source>Add new site</source>
-        <translation type="unfinished"></translation>
+        <translation>Neue Web-Seite hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="121"/>
         <source>Edit site</source>
-        <translation type="unfinished"></translation>
+        <translation>Web-Seite bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="195"/>
         <source>Site domain: </source>
-        <translation type="unfinished"></translation>
+        <translation>Domäne: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="196"/>
         <source>User Agent: </source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent: </translation>
     </message>
 </context>
 <context>
