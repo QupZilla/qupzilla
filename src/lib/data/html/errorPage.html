@@ -5,14 +5,14 @@
 <style>
 html {background: #eeeeee;font: 14px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;color: #525c66;}
 html * {font-size: 100%;line-height: 1.6;}
-#box {max-width: 650px;overflow:auto;margin: 25px auto 10px auto;padding: 10px 40px;border-width: 20px;text-align: left;-webkit-border-image: url(%BOX-BORDER%) 25;}
+#box {max-width: 650px;overflow:auto;margin: 25px auto 10px auto;padding: 10px 40px;border-width: 20px;text-align: %LEFT_STR%;-webkit-border-image: url(%BOX-BORDER%) 25;direction: %DIRECTION%;}
 hr {color: lightgray;width: 100%;}
-img {float: left;margin-left: -20px;margin-top: 15px;}
-h1 {font-size: 150%;font-weight: bold;border-bottom: 1px solid #f4f4f4;margin-left: 48px;margin-right: 50px;}
-h2 {font-size: 100%;font-weight: normal;border-bottom: 1px solid #f4f4f4;margin-left: 48px;padding: 5px 0px 10px 2px;margin-right: 50px;}
-ul {font-size: 90%;padding-left: 48px;margin: 20px 0;max-width:600px;}
+img {float: %LEFT_STR%;margin-%LEFT_STR%: -20px;margin-top: 15px;}
+h1 {font-size: 150%;font-weight: bold;border-bottom: 1px solid #f4f4f4;margin-%LEFT_STR%: 48px;margin-%RIGHT_STR%: 50px;}
+h2 {font-size: 100%;font-weight: normal;border-bottom: 1px solid #f4f4f4;margin-%LEFT_STR%: 48px;padding: 5px 0px 10px 2px;margin-%RIGHT_STR%: 50px;}
+ul {font-size: 90%;padding-%LEFT_STR%: 48px;margin: 20px 0;max-width:600px;}
 li {padding: 5px;}
-#reloadButton {padding-left: 48px;margin-top: 20px;min-width: 100px;}
+#reloadButton {padding-%LEFT_STR%: 48px;margin-top: 20px;min-width: 100px;}
 </style>
 </head>
 <body>

@@ -3,39 +3,39 @@
 <title>%SITE-TITLE%</title>
 <link rel="icon" href="%FAVICON%" type="image/x-icon" />
 <style type="text/css" media="screen">
-body {background: #eeeeee url("%IMG_BACKGROUND%") no-repeat center center;background-size: %B_SIZE%;font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;color: #525c66;}
+body {background: #eeeeee url("%IMG_BACKGROUND%") no-repeat center center;background-size: %B_SIZE%;font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;color: #525c66;direction: %DIRECTION%;}
 body * {-webkit-user-select: none;font-size: 100%;line-height: 1.6;margin: 0px;}
-.add {position: absolute;right:10px;top:10px;width: 24px;height: 24px;background: url(%IMG_PLUS%); cursor: pointer;}
+.add {position: absolute;%RIGHT_STR%:10px;top:10px;width: 24px;height: 24px;background: url(%IMG_PLUS%); cursor: pointer;}
 
 #quickdial {margin: auto;text-align: center;}
-#quickdial div.entry {position: relative; float: left; border-width: 10px;
+#quickdial div.entry {position: relative; float: %LEFT_STR%; border-width: 10px;
 -webkit-border-image: url(%BOX-BORDER%) 10;margin: 5px;}
 #quickdial img {display: block;margin: auto;}
-#quickdial a {position: absolute;left: 0px;top: 0px;width: 100%;height: 87%;}
+#quickdial a {position: absolute;%LEFT_STR%: 0px;top: 0px;width: 100%;height: 87%;}
 
 div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload{display: inline;}
-span.boxTitle {width:100%;max-height: 20px; position: absolute;top: 88%;left: 0px;text-align: center;overflow:hidden;}
-span.close {width: 14px;height: 14px;position: absolute;left: 92%;top: 90%;
+span.boxTitle {width:100%;max-height: 20px; position: absolute;top: 88%;%LEFT_STR%: 0px;text-align: center;overflow:hidden;}
+span.close {width: 14px;height: 14px;position: absolute;%LEFT_STR%: 92%;top: 90%;
 background: url(%IMG_CLOSE%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
 span.close:hover {border-color: grey; border-radius: 3px;}
-span.edit {width: 14px;height: 14px;position: absolute;left: 0px;top: 90%;
+span.edit {width: 14px;height: 14px;position: absolute;%LEFT_STR%: 0px;top: 90%;
 background: url(%IMG_EDIT%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
 span.edit:hover {border-color: grey; border-radius: 3px;}
-span.reload {width: 16px;height: 16px;position: absolute;left: 92%;top: 0px;background: url(%IMG_RELOAD%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
+span.reload {width: 16px;height: 16px;position: absolute;%LEFT_STR%: 92%;top: 0px;background: url(%IMG_RELOAD%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
 span.reload:hover {border-color: grey; border-radius: 4px;}
 
-#overlay-edit {width: 380px;max-height: 265px;border-width: 20px;margin-left:auto;margin-right: auto;margin-top: 100px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;}
-#overlay-edit img {display: block;margin-left: auto;margin-right: auto;}
-#overlay-edit .buttonbox input {margin-right:0px;margin-left:3px;}
+#overlay-edit {width: 380px;max-height: 265px;border-width: 20px;margin-%LEFT_STR%:auto;margin-%RIGHT_STR%: auto;margin-top: 100px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;}
+#overlay-edit img {display: block;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;}
+#overlay-edit .buttonbox input {margin-%RIGHT_STR%:0px;margin-%LEFT_STR%:3px;}
 
-.formTable {width: 350px;margin-left: auto;margin-right: auto;margin-top: 15px;}
+.formTable {width: 350px;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;margin-top: 15px;}
 .formTable input[type="text"] {width: 100%;-webkit-user-select: auto;}
 
-.sett {position: absolute;right:36px;top:10px;width: 24px;height: 24px;background: url(%IMG_SETTINGS%); cursor: pointer;}
-#settingsBox {margin-left:auto;margin-right: auto;margin-top: 100px;width: 350px;height: auto;padding:0 8px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;border-width: 20px;}
-#settingsBox .content {margin-left:auto;margin-right:auto;padding-bottom:2px;border-bottom: 1px solid #888;}
-#settingsBox .thumbhold {margin-left:auto;margin-right:auto;margin-bottom: 5px;padding: 1px;border-radius: 10px;text-align:center;width:180px;height:100px;background: #AAA;}
-#settingsBox .thumbhold p {padding: 0;background: #eeeeee url("%IMG_BACKGROUND%") no-repeat center center;background-size: %B_SIZE%;width: 178px;height:98px;border-radius: 10px;position: relative;left: 1px;top: 1px;line-height:98px;cursor:default;}
+.sett {position: absolute;%RIGHT_STR%:36px;top:10px;width: 24px;height: 24px;background: url(%IMG_SETTINGS%); cursor: pointer;}
+#settingsBox {margin-%LEFT_STR%:auto;margin-%RIGHT_STR%: auto;margin-top: 100px;width: 350px;height: auto;padding:0 8px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;border-width: 20px;}
+#settingsBox .content {margin-%LEFT_STR%:auto;margin-%RIGHT_STR%:auto;padding-bottom:2px;border-bottom: 1px solid #888;}
+#settingsBox .thumbhold {margin-%LEFT_STR%:auto;margin-%RIGHT_STR%:auto;margin-bottom: 5px;padding: 1px;border-radius: 10px;text-align:center;width:180px;height:100px;background: #AAA;}
+#settingsBox .thumbhold p {padding: 0;background: #eeeeee url("%IMG_BACKGROUND%") no-repeat center center;background-size: %B_SIZE%;width: 178px;height:98px;border-radius: 10px;position: relative;%LEFT_STR%: 1px;top: 1px;line-height:98px;cursor:default;}
 #settingsBox p label {margin: 2px;padding: 1px;text-align: center;}
 #settingsBox p select {margin: 2px;padding: 1px;text-align: center;width: auto;}
 #settingsBox p select option {text-align: center;}
@@ -43,10 +43,10 @@ span.reload:hover {border-color: grey; border-radius: 4px;}
 #settingsBox .button {margin: 2px;padding: 1px;text-align:center;width: 98%;}
 #settingsBox .rowsel {margin: 2px;padding: 3px 0;border-bottom: 1px solid #888;}
 #settingsBox .rowsel input {text-align: center;width: 80%;height: 12px;margin: 0px;padding-bottom: 0;}
-#settingsBox .rowsel span {font-weight: bold;text-align: center;margin: 2px;margin-right: 7px;display: inline-block;width: 25px;}
+#settingsBox .rowsel span {font-weight: bold;text-align: center;margin: 2px;margin-%RIGHT_STR%: 7px;display: inline-block;width: 25px;}
 
-.buttonbox {margin-top: 5px;margin-bottom:-5px;text-align:right;}
-.overlay {background:rgba(128,128,128,0.8);background:-webkit-radial-gradient(rgba(127, 127, 127, 0.5),rgba(127, 127, 127, 0.5) 35%,rgba(0, 0, 0, 0.7));bottom:0;left: 0;padding: 20px;padding-bottom: 130px;position: fixed;right:0;top:0;}
+.buttonbox {margin-top: 5px;margin-bottom:-5px;text-align:%RIGHT_STR%;}
+.overlay {background:rgba(128,128,128,0.8);background:-webkit-radial-gradient(rgba(127, 127, 127, 0.5),rgba(127, 127, 127, 0.5) 35%,rgba(0, 0, 0, 0.7));bottom:0;%LEFT_STR%: 0;padding: 20px;padding-bottom: 130px;position: fixed;%RIGHT_STR%:0;top:0;}
 </style>
 <script type="text/javascript" src="%JQUERY%"></script>
 <script type="text/javascript" src="%JQUERY-UI%"></script>
