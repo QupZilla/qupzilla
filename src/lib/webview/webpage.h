@@ -78,7 +78,6 @@ public:
 
     static bool isPointerSafeToUse(WebPage* page);
     void disconnectObjects();
-    static QString applyDirectionToPage(const QString &pageContents);
 
 signals:
     void privacyChanged(bool status);

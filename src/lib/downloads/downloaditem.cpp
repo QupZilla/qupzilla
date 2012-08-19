@@ -388,8 +388,8 @@ void DownloadItem::openFolder()
 {
 #ifdef Q_WS_WIN
     QString winFileName = m_path + m_fileName;
-    winFileName.replace("/","\\");
-    QProcess::startDetached("explorer.exe /e,/select,\""+winFileName+"\"");
+    winFileName.replace("/", "\\");
+    QProcess::startDetached("explorer.exe /e,/select,\"" + winFileName + "\"");
 #else
     QDesktopServices::openUrl(QUrl::fromLocalFile(m_path));
 #endif

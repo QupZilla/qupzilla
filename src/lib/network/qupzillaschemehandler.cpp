@@ -149,7 +149,7 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace("%SEND%", tr("Send"));
     bPage.replace("%E-MAIL-OPTIONAL%", tr("E-mail is optional<br/><b>Note: </b>Please read how to make a bug report <a href=%1>here</a> first.").arg("https://github.com/QupZilla/qupzilla/wiki/Bug-Reports target=_blank"));
     bPage.replace("%FIELDS-ARE-REQUIRED%", tr("Please fill out all required fields!"));
-    bPage = WebPage::applyDirectionToPage(bPage);
+    bPage = qz_applyDirectionToPage(bPage);
 
     return bPage;
 }
@@ -173,7 +173,7 @@ QString QupZillaSchemeReply::startPage()
     sPage.replace("%WWW%", QupZilla::WIKIADDRESS);
     sPage.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
     sPage.replace("%PRIVATE-BROWSING%", mApp->isPrivateSession() ? tr("<h1>Private Browsing</h1>") : "");
-    sPage = WebPage::applyDirectionToPage(sPage);
+    sPage = qz_applyDirectionToPage(sPage);
 
     return sPage;
 }
@@ -241,7 +241,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Piccoro McKay Lenz", "mckaygerhard@gmail.com") + " (Venezulean Spanish)<br/>" +
                       authorString("Stanislav Kuznietsov", "stanislav_kuznetsov@ukr.net") + " (Ukrainian)"
                      );
-        aPage = WebPage::applyDirectionToPage(aPage);
+        aPage = qz_applyDirectionToPage(aPage);
     }
 
     return aPage;
@@ -288,7 +288,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace("%TXT_NRROWS%", tr("Maximum pages in a row:"));
         dPage.replace("%TXT_SDSIZE%", tr("Change size of pages:"));
         dPage.replace("%TXT_CNTRDLS%", tr("Center speed dials"));
-        dPage = WebPage::applyDirectionToPage(dPage);
+        dPage = qz_applyDirectionToPage(dPage);
     }
 
     QString page = dPage;
@@ -380,7 +380,7 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("KDE integration"), KDEIntegration) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Portable build"), portableBuild));
 
-        cPage = WebPage::applyDirectionToPage(cPage);
+        cPage = qz_applyDirectionToPage(cPage);
     }
 
     QString page = cPage;

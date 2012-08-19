@@ -301,6 +301,25 @@ QPixmap qz_createPixmapForSite(const QIcon &icon, const QString &title, const QS
     return pixmap;
 }
 
+QString QT_QUPZILLA_EXPORT qz_applyDirectionToPage(QString &pageContents)
+{
+    QString direction = "ltr";
+    QString right_str = "right";
+    QString left_str = "left";
+
+    if (QApplication::isRightToLeft()) {
+        direction = "rtl";
+        right_str = "left";
+        left_str = "right";
+    }
+
+    pageContents.replace("%DIRECTION%", direction);
+    pageContents.replace("%RIGHT_STR%", right_str);
+    pageContents.replace("%LEFT_STR%", left_str);
+
+    return pageContents;
+}
+
 QString qz_buildSystem()
 {
 #ifdef Q_OS_LINUX

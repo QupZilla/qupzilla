@@ -691,7 +691,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     errString.replace("%FAVICON%", "qrc:html/adblock_big.png");
 
                     errString.replace("%RULE%", tr("Blocked by <i>%1</i>").arg(rule));
-                    errString = applyDirectionToPage(errString);
+                    errString = qz_applyDirectionToPage(errString);
 
                     exReturn->baseUrl = exOption->url;
                     exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();
@@ -746,7 +746,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     errString.replace("%LI-2%", tr("If you are unable to load any pages, check your computer's network connection."));
     errString.replace("%LI-3%", tr("If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web."));
     errString.replace("%TRY-AGAIN%", tr("Try Again"));
-    errString = applyDirectionToPage(errString);
+    errString = qz_applyDirectionToPage(errString);
 
     exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();
     return true;
@@ -942,23 +942,4 @@ WebPage::~WebPage()
     }
 
     s_livingPages.removeOne(this);
-}
-
-QString WebPage::applyDirectionToPage(const QString &pageContents)
-{
-    QString direction = "ltr";
-    QString right_str = "right";
-    QString left_str = "left";
-    if (QApplication::isRightToLeft()) {
-        direction = "rtl";
-        right_str = "left";
-        left_str = "right";
-    }
-
-    QString result = pageContents;
-    result.replace("%DIRECTION%", direction);
-    result.replace("%RIGHT_STR%", right_str);
-    result.replace("%LEFT_STR%", left_str);
-
-    return result;
 }
