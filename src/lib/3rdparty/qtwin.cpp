@@ -65,6 +65,7 @@ static PtrDwmEnableBlurBehindWindow pDwmEnableBlurBehindWindow = 0;
 static PtrDwmExtendFrameIntoClientArea pDwmExtendFrameIntoClientArea = 0;
 static PtrDwmGetColorizationColor pDwmGetColorizationColor = 0;
 
+QHash<QWidget *, bool> widgetsBlurState = QHash<QWidget *, bool>();
 
 /*
  * Internal helper class that notifies windows if the
@@ -169,6 +170,7 @@ bool QtWin::enableBlurBehindWindow(QWidget* widget, bool enable)
         if (SUCCEEDED(hr)) {
             result = true;
             windowNotifier()->addWidget(widget);
+            widgetsBlurState.insert(widget, true);
         }
     }
 #endif
@@ -207,6 +209,7 @@ bool QtWin::extendFrameIntoClientArea(QWidget* widget, int left, int top, int ri
         if (SUCCEEDED(hr)) {
             result = true;
             windowNotifier()->addWidget(widget);
+            widgetsBlurState.insert(widget, true);
         }
         widget->setAttribute(Qt::WA_TranslucentBackground, result);
     }
@@ -257,6 +260,13 @@ bool WindowNotifier::winEvent(MSG* message, long* result)
         foreach(QWidget * widget, widgets) {
             if (widget) {
                 widget->setAttribute(Qt::WA_NoSystemBackground, compositionEnabled);
+                bool isBlur = widgetsBlurState.value(widget, false);
+                if (compositionEnabled && isBlur)
+                {
+                    // hack for fixing black background when enabling composition
+                    QtWin::enableBlurBehindWindow(widget, false);
+                    QtWin::extendFrameIntoClientArea(widget);
+                }
                 widget->update();
             }
         }
