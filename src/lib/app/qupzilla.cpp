@@ -1454,6 +1454,11 @@ void QupZilla::fullScreen(bool make)
         bookmarksToolbar()->hide();
         m_navigationBar->hide();
         m_tabWidget->getTabBar()->hide();
+#ifdef Q_WS_WIN
+        if (m_usingTransparentBackground) {
+            QtWin::enableBlurBehindWindow(this, false);
+        }
+#endif
     }
     else {
         setWindowState(windowState() & ~Qt::WindowFullScreen);
@@ -1463,6 +1468,11 @@ void QupZilla::fullScreen(bool make)
         m_bookmarksToolbar->setVisible(m_bookmarksToolBarVisible);
         m_navigationBar->setVisible(m_navigationVisible);
         m_tabWidget->showTabBar();
+#ifdef Q_WS_WIN
+        if (m_usingTransparentBackground) {
+            QtWin::enableBlurBehindWindow(this);
+        }
+#endif
     }
 
     m_actionShowFullScreen->setChecked(make);
