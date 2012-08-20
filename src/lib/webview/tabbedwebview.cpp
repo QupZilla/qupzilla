@@ -36,6 +36,8 @@
 #include <QHostInfo>
 #include <QWebFrame>
 
+bool TabbedWebView::m_navigationVisible = false;
+
 TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     : WebView(webTab)
     , p_QupZilla(mainClass)
@@ -43,7 +45,6 @@ TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     , m_webTab(webTab)
     , m_menu(new Menu(this))
     , m_mouseTrack(false)
-    , m_navigationVisible(false)
     , m_hasRss(false)
     , m_rssChecked(false)
 {

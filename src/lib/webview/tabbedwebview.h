@@ -98,7 +98,7 @@ private:
     Menu* m_menu;
 
     bool m_mouseTrack;
-    bool m_navigationVisible;
+    static bool m_navigationVisible;
 
     bool m_hasRss;
     bool m_rssChecked;
