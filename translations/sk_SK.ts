@@ -2724,11 +2724,11 @@
     </message>
     <message>
         <source>Last session crashed</source>
-        <translation>Minulá relácia spadla</translation>
+        <translation type="obsolete">Minulá relácia spadla</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
+        <translation type="obsolete">&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
@@ -3055,6 +3055,26 @@ Skutočne chcete skončiť?</translation>
         <source>Center speed dials</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Restore Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Oops, QupZilla crashed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>We apologize for this. Would you like to restore the last saved state?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Try removing one or more tabs that you think cause troubles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Or you can start completely new session</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3217,6 +3237,21 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     <message>
         <source>Untitled feed</source>
         <translation>Kanál bez názvu</translation>
+    </message>
+</context>
+<context>
+    <name>RecoveryWidget</name>
+    <message>
+        <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start New Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

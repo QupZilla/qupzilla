@@ -2712,14 +2712,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Last session crashed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
         <translation type="unfinished"></translation>
@@ -3043,6 +3035,26 @@ Are you sure to quit QupZilla?</source>
         <source>Center speed dials</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Restore Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Oops, QupZilla crashed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>We apologize for this. Would you like to restore the last saved state?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Try removing one or more tabs that you think cause troubles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Or you can start completely new session</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3203,6 +3215,21 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RecoveryWidget</name>
+    <message>
+        <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start New Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2782,11 +2782,11 @@
     </message>
     <message>
         <source>Last session crashed</source>
-        <translation>前回のセッションがクラッシュしました</translation>
+        <translation type="obsolete">前回のセッションがクラッシュしました</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation>&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
+        <translation type="obsolete">&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
@@ -3119,6 +3119,26 @@ Are you sure to quit QupZilla?</source>
         <source>Center speed dials</source>
         <translation>speed dialの中心</translation>
     </message>
+    <message>
+        <source>Restore Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Oops, QupZilla crashed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>We apologize for this. Would you like to restore the last saved state?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Try removing one or more tabs that you think cause troubles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Or you can start completely new session</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3283,6 +3303,21 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <source>Add</source>
         <translation>追加する</translation>
+    </message>
+</context>
+<context>
+    <name>RecoveryWidget</name>
+    <message>
+        <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start New Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
