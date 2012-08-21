@@ -48,6 +48,7 @@
 #include "clearprivatedata.h"
 #include "commandlineoptions.h"
 #include "useragentmanager.h"
+#include "restoremanager.h"
 
 #ifdef Q_WS_MAC
 #include <QFileOpenEvent>
@@ -81,6 +82,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_networkCache(0)
     , m_desktopNotifications(0)
     , m_searchEnginesManager(0)
+    , m_restoreManager(0)
     , m_dbWriter(new DatabaseWriter(this))
     , m_uaManager(new UserAgentManager)
     , m_isPrivateSession(false)
@@ -109,7 +111,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     TRANSLATIONSDIR = DATADIR + "locale/";
     THEMESDIR = DATADIR + "themes/";
 
-    setOverrideCursor(Qt::WaitCursor);
     setWindowIcon(QIcon(":icons/exeicons/qupzilla-window.png"));
     bool noAddons = false;
     QUrl startUrl;
@@ -234,10 +235,15 @@ MainApplication::MainApplication(int &argc, char** argv)
         Settings settings;
         m_startingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
         bool checkUpdates = settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool();
+        int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
         settings.setValue("SessionRestore/isRunning", true);
 
         if (checkUpdates) {
             new Updater(qupzilla);
+        }
+
+        if (m_startingAfterCrash || afterLaunch == 3) {
+            m_restoreManager = new RestoreManager(m_activeProfil + "session.dat");
         }
     }
 
@@ -816,12 +822,12 @@ void MainApplication::aboutToCloseWindow(QupZilla* window)
     m_mainWindows.removeOne(window);
 }
 
-//Version of session.dat file
+// Version of session.dat file
 static const int sessionVersion = 0x0003;
 
 bool MainApplication::saveStateSlot()
 {
-    if (m_isPrivateSession || m_isRestoring || m_mainWindows.count() == 0) {
+    if (m_isPrivateSession || m_isRestoring || m_mainWindows.count() == 0 || m_restoreManager) {
         return false;
     }
 
@@ -858,7 +864,7 @@ bool MainApplication::saveStateSlot()
     return true;
 }
 
-bool MainApplication::restoreStateSlot(QupZilla* window)
+bool MainApplication::restoreStateSlot(QupZilla* window, const RestoreData &recoveryData)
 {
     if (m_isPrivateSession) {
         return false;
@@ -866,47 +872,34 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
 
     m_isRestoring = true;
 
-    if (!QFile::exists(m_activeProfil + "session.dat")) {
+    if (recoveryData.isEmpty()) {
         m_isRestoring = false;
+
         return false;
     }
 
-    QFile file(m_activeProfil + "session.dat");
-    file.open(QIODevice::ReadOnly);
-    QDataStream stream(&file);
+    int windowCount = recoveryData.size();
+    int currentWindow = 0;
 
-    QByteArray tabState;
-    QByteArray windowState;
-    int version;
-    int windowCount;
+    while (window) {
+        const RestoreManager::WindowData &wd = recoveryData.at(currentWindow);
+        window->restoreWindowState(wd);
+        window->show();
 
-    stream >> version;
-    if (version != sessionVersion) {
-        m_isRestoring = false;
-        return false;
-    }
-    stream >> windowCount;
-    stream >> tabState;
-    stream >> windowState;
+        ++currentWindow;
 
-    window->restoreWindowState(windowState, tabState);
-
-    if (windowCount > 1) {
-        for (int i = 1; i < windowCount; i++) {
-            stream >> tabState;
-            stream >> windowState;
-
-            QupZilla* window = new QupZilla(Qz::BW_OtherRestoredWindow);
+        if (currentWindow < windowCount) {
+            window = new QupZilla(Qz::BW_OtherRestoredWindow);
             m_mainWindows.append(window);
-
-            window->restoreWindowState(windowState, tabState);
-
-            window->show();
+        }
+        else {
+            window = 0;
         }
     }
-    file.close();
 
+    destroyRestoreManager();
     m_isRestoring = false;
+
     return true;
 }
 
@@ -957,6 +950,12 @@ bool MainApplication::checkSettingsDir()
     versionFile.close();
 
     return dir.isReadable();
+}
+
+void MainApplication::destroyRestoreManager()
+{
+    delete m_restoreManager;
+    m_restoreManager = 0;
 }
 
 MainApplication::~MainApplication()

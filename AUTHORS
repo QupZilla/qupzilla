@@ -7,6 +7,7 @@ Contributors:
 Mladen Pejaković       <pejakm@gmail.com>                (webview context menu improvements, speed dial background)
 Alexander Samilov      <alexsamilovskih@gmail.com>       (tab previews)
 Seyyed Razi Alavizadeh <s.r.alavizadeh@gmail.com>        (fixed UI for RTL languages)
+Franz Fellner          <alpine.art.de@googlemail.com>    (new restore session ui)
 Bryan M Dunsmore       <dunsmoreb@gmail.com>             (opening background tabs, closing window when closing last tab)
 Mariusz Fik            <fisiu@opensuse.org>              (fixed tab order in preferences dialog)
 Daniele Cocca          <jmc@chakra-project.org>          (close tabs with middle click, initial work on speed dial)

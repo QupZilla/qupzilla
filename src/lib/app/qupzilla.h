@@ -22,6 +22,7 @@
 #include <QUrl>
 #include "qwebkitversion.h"
 
+#include "restoremanager.h"
 #include "qz_namespace.h"
 
 class QMenuBar;
@@ -48,6 +49,7 @@ class NavigationBar;
 class ClickableLabel;
 class WebInspectorDockWidget;
 class LocationBar;
+
 class QT_QUPZILLA_EXPORT QupZilla : public QMainWindow
 {
     Q_OBJECT
@@ -74,7 +76,7 @@ public:
     void addBookmark(const QUrl &url, const QString &title, const QIcon &icon);
     void addDeleteOnCloseWidget(QWidget* widget);
 
-    void restoreWindowState(const QByteArray &window, const QByteArray &tabs);
+    void restoreWindowState(const RestoreManager::WindowData &d);
 
     SideBar* addSideBar();
     virtual QMenuBar* menuBar() const;

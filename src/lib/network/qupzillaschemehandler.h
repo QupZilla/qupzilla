@@ -53,6 +53,7 @@ private:
     QString reportbugPage();
     QString startPage();
     QString speeddialPage();
+    QString restorePage();
     QString configPage();
 
     QBuffer m_buffer;

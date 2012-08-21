@@ -24,6 +24,7 @@
 #include <QUrl>
 #include <QWeakPointer>
 
+#include "restoremanager.h"
 #include "qtsingleapplication.h"
 #include "qz_namespace.h"
 
@@ -64,7 +65,7 @@ public:
     void connectDatabase();
     void loadSettings();
     void reloadSettings();
-    bool restoreStateSlot(QupZilla* window);
+    bool restoreStateSlot(QupZilla* window, const RestoreData &recoveryData);
     QupZilla* makeNewWindow(Qz::BrowserWindow type, const QUrl &startUrl = QUrl());
     void aboutToCloseWindow(QupZilla* window);
     bool isStateChanged();
@@ -80,6 +81,7 @@ public:
     inline int windowCount() { return m_mainWindows.count(); }
 
     bool checkSettingsDir();
+    void destroyRestoreManager();
 
     QupZilla* getWindow();
     CookieManager* cookieManager();
@@ -99,6 +101,7 @@ public:
 
     DatabaseWriter* dbWriter() { return m_dbWriter; }
     UserAgentManager* uaManager() { return m_uaManager; }
+    RestoreManager* restoreManager() { return m_restoreManager; }
 
 #ifdef Q_WS_MAC
     bool event(QEvent* e);
@@ -147,6 +150,7 @@ private:
     QNetworkDiskCache* m_networkCache;
     DesktopNotificationsFactory* m_desktopNotifications;
     SearchEnginesManager* m_searchEnginesManager;
+    RestoreManager* m_restoreManager;
     DatabaseWriter* m_dbWriter;
     UserAgentManager* m_uaManager;
 

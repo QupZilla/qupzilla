@@ -342,7 +342,7 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     return index;
 }
 
-void TabWidget::closeTab(int index)
+void TabWidget::closeTab(int index, bool force)
 {
     if (index == -1) {
         index = currentIndex();
@@ -356,7 +356,12 @@ void TabWidget::closeTab(int index)
     TabbedWebView* webView = webTab->view();
     WebPage* webPage = webView->page();
 
-    if (count() == 1) {
+    if (!force && webView->url() == QUrl("qupzilla:restore") && mApp->restoreManager()) {
+        // Don't close restore page!
+        return;
+    }
+
+    if (!force && count() == 1) {
         if (m_dontQuitWithOneTab && mApp->windowCount() == 1) {
             webView->load(m_urlOnNewTab);
             return;
@@ -775,29 +780,21 @@ QByteArray TabWidget::saveState()
     return data;
 }
 
-bool TabWidget::restoreState(const QByteArray &state)
+bool TabWidget::restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab)
 {
-    QDataStream stream(state);
-    if (stream.atEnd()) {
-        return false;
-    }
-
-    int tabListCount = 0;
-    int currentTab = 0;
-
-    stream >> tabListCount;
-
     m_isRestoringState = true;
 
-    for (int i = 0; i < tabListCount; ++i) {
-        WebTab::SavedTab tab;
-        stream >> tab;
+    foreach(WebTab * tab, allTabs()) {
+        int tabIndex = tab->tabIndex();
+        closeTab(tabIndex, true);
+    }
+
+    for (int i = 0; i < tabs.size(); ++i) {
+        WebTab::SavedTab tab = tabs.at(i);
 
         int index = addView(QUrl(), Qz::NT_CleanSelectedTab);
         weTab(index)->restoreTab(tab);
     }
-
-    stream >> currentTab;
 
     m_isRestoringState = false;
 

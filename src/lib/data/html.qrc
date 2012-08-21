@@ -22,5 +22,6 @@
         <file>html/broken-page.png</file>
         <file>html/setting.png</file>
         <file>html/config.html</file>
+        <file>html/restore.html</file>
     </qresource>
 </RCC>

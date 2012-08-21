@@ -35,6 +35,7 @@
 #include "iconprovider.h"
 #include "qzsettings.h"
 #include "useragentmanager.h"
+#include "recoverywidget.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -495,8 +496,15 @@ QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
 
 QObject* WebPage::createPlugin(const QString &classid, const QUrl &url, const QStringList &paramNames, const QStringList &paramValues)
 {
-    qDebug() << Q_FUNC_INFO;
-    return pluginFactory()->create(classid, url, paramNames, paramValues);
+    Q_UNUSED(url)
+    Q_UNUSED(paramNames)
+    Q_UNUSED(paramValues)
+
+    if (classid == "RecoveryWidget" && mApp->restoreManager()) {
+        return new RecoveryWidget(qobject_cast<WebView*>(view()), p_QupZilla);
+    }
+
+    return 0;
 }
 
 void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)

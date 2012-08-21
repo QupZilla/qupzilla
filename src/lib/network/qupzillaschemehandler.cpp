@@ -25,6 +25,7 @@
 #include "pluginproxy.h"
 #include "plugininterface.h"
 #include "settings.h"
+#include "iconprovider.h"
 
 #include <QTextDocument>
 #include <QTextStream>
@@ -61,7 +62,7 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* pa
     m_pageName = req.url().path();
 
     QStringList knownPages;
-    knownPages << "about" << "reportbug" << "start" << "speeddial" << "config";
+    knownPages << "about" << "reportbug" << "start" << "speeddial" << "config" << "restore";
 
     if (knownPages.contains(m_pageName)) {
         m_buffer.open(QIODevice::ReadWrite);
@@ -95,6 +96,9 @@ void QupZillaSchemeReply::loadPage()
     }
     else if (m_pageName == "config") {
         stream << configPage();
+    }
+    else if (m_pageName == "restore") {
+        stream << restorePage();
     }
 
     stream.flush();
@@ -207,6 +211,8 @@ QString QupZillaSchemeReply::aboutPage()
         aPage.replace("%CONTRIBUTORS-TEXT%",
                       authorString("Mladen Pejaković", "pejakm@gmail.com") + "<br/>" +
                       authorString("Alexander Samilov", "alexsamilovskih@gmail.com") + "<br/>" +
+                      authorString("Seyyed Razi Alavizadeh", "s.r.alavizadeh@gmail.com") + "<br/>" +
+                      authorString("Franz Fellner", "alpine.art.de@googlemail.com") + "<br/>" +
                       authorString("Bryan M Dunsmore", "dunsmoreb@gmail.com") + "<br/>" +
                       authorString("Mariusz Fik", "fisiu@opensuse.org") + "<br/>" +
                       authorString("Jan Rajnoha", "honza.rajny@hotmail.com")  + "<br/>" +
@@ -239,7 +245,8 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Daiki Noda", "sys.pdr.pdm9@gmail.com") + " (Japanese)<br/>" +
                       authorString("Gábor Oberle", "oberleg@myopera.com") + " (Hungarian)<br/>" +
                       authorString("Piccoro McKay Lenz", "mckaygerhard@gmail.com") + " (Venezulean Spanish)<br/>" +
-                      authorString("Stanislav Kuznietsov", "stanislav_kuznetsov@ukr.net") + " (Ukrainian)"
+                      authorString("Stanislav Kuznietsov", "stanislav_kuznetsov@ukr.net") + " (Ukrainian)<br/>" +
+                      authorString("Seyyed Razi Alavizadeh", "s.r.alavizadeh@gmail.com") + " (Persian)"
                      );
         aPage = qz_applyDirectionToPage(aPage);
     }
@@ -304,6 +311,27 @@ QString QupZillaSchemeReply::speeddialPage()
     return page;
 }
 
+QString QupZillaSchemeReply::restorePage()
+{
+    static QString rPage;
+
+    if (rPage.isEmpty()) {
+        rPage.append(qz_readAllFileContents(":html/restore.html"));
+        rPage.replace("%FAVICON%", "qrc:icons/qupzilla.png");
+        rPage.replace("%BOX-BORDER%", "qrc:html/box-border.png");
+        rPage.replace("%IMAGE%", qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
+
+
+        rPage.replace("%TITLE%", tr("Restore Session"));
+        rPage.replace("%OOPS%", tr("Oops, QupZilla crashed."));
+        rPage.replace("%APOLOGIZE%", tr("We apologize for this. Would you like to restore the last saved state?"));
+        rPage.replace("%TRY-REMOVING%", tr("Try removing one or more tabs that you think cause troubles"));
+        rPage.replace("%START-NEW%", tr("Or you can start completely new session"));
+        rPage = qz_applyDirectionToPage(rPage);
+    }
+
+    return rPage;
+}
 
 QString QupZillaSchemeReply::configPage()
 {

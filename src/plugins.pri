@@ -5,6 +5,7 @@ INCLUDEPATH += $$PWD/lib/3rdparty\
                $$PWD/lib/autofill\
                $$PWD/lib/bookmarks\
                $$PWD/lib/cookies\
+               $$PWD/lib/session\
                $$PWD/lib/downloads\
                $$PWD/lib/history\
                $$PWD/lib/navigation\

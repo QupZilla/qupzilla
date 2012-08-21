@@ -14,7 +14,9 @@ include(../install.pri)
 unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
 
 INCLUDEPATH += ../lib/app\
-               ../lib/3rdparty
+               ../lib/3rdparty\
+               ../lib/session\
+               ../lib/webview
 
 SOURCES =      main.cpp
 OTHER_FILES += appicon.rc \

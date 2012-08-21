@@ -24,6 +24,7 @@
 
 #include "toolbutton.h"
 #include "qz_namespace.h"
+#include "webtab.h"
 
 class QStackedWidget;
 class QMenu;
@@ -32,7 +33,6 @@ class QupZilla;
 class TabbedWebView;
 class TabBar;
 class TabWidget;
-class WebTab;
 class ClosedTabsManager;
 
 class QT_QUPZILLA_EXPORT AddTabButton : public ToolButton
@@ -60,7 +60,7 @@ public:
     void loadSettings();
 
     QByteArray saveState();
-    bool restoreState(const QByteArray &state);
+    bool restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab);
 
     void savePinnedTabs();
     void restorePinnedTabs();
@@ -99,7 +99,7 @@ public slots:
 
     int duplicateTab(int index);
 
-    void closeTab(int index = -1);
+    void closeTab(int index = -1, bool force = false);
     void reloadTab(int index);
     void reloadAllTabs();
     void stopTab(int index);

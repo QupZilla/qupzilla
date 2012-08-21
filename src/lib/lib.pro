@@ -16,6 +16,7 @@ INCLUDEPATH += 3rdparty\
                autofill\
                bookmarks\
                cookies\
+               session\
                downloads\
                history\
                navigation\
@@ -182,7 +183,9 @@ SOURCES += \
     preferences/pluginsmanager.cpp \
     other/qzsettings.cpp \
     other/useragentmanager.cpp \
-    preferences/useragentdialog.cpp
+    preferences/useragentdialog.cpp \
+    session/recoverywidget.cpp \
+    session/restoremanager.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -336,7 +339,9 @@ HEADERS  += \
     preferences/pluginsmanager.h \
     other/qzsettings.h \
     other/useragentmanager.h \
-    preferences/useragentdialog.h
+    preferences/useragentdialog.h \
+    session/recoverywidget.h \
+    session/restoremanager.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -380,7 +385,8 @@ FORMS    += \
     other/checkboxdialog.ui \
     other/iconchooser.ui \
     adblock/adblockaddsubscriptiondialog.ui \
-    preferences/useragentdialog.ui
+    preferences/useragentdialog.ui \
+    session/recoverywidget.ui
 
 RESOURCES += \
     data/icons.qrc \

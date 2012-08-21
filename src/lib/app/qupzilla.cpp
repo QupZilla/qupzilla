@@ -162,19 +162,12 @@ void QupZilla::postLaunch()
 
     switch (m_startBehaviour) {
     case Qz::BW_FirstAppWindow:
-        if (afterLaunch == 3) {
-            addTab = !mApp->restoreStateSlot(this);
+        if (mApp->isStartingAfterCrash()) {
+            addTab = true;
+            startUrl = QUrl("qupzilla:restore");
         }
-        else if (mApp->isStartingAfterCrash()) {
-            QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Last session crashed"),
-                                                 tr("<b>QupZilla crashed :-(</b><br/>Oops, the last session "
-                                                    "of QupZilla was interrupted unexpectedly. We apologize "
-                                                    "for this. Would you like to try restoring the last "
-                                                    "saved state?"),
-                                                 QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
-            if (button == QMessageBox::Yes) {
-                addTab = !mApp->restoreStateSlot(this);
-            }
+        else if (afterLaunch == 3 && mApp->restoreManager()) {
+            addTab = !mApp->restoreStateSlot(this, mApp->restoreManager()->restoreData());
         }
         break;
 
@@ -1358,10 +1351,10 @@ void QupZilla::addDeleteOnCloseWidget(QWidget* widget)
     }
 }
 
-void QupZilla::restoreWindowState(const QByteArray &window, const QByteArray &tabs)
+void QupZilla::restoreWindowState(const RestoreManager::WindowData &d)
 {
-    QMainWindow::restoreState(window);
-    m_tabWidget->restoreState(tabs);
+    QMainWindow::restoreState(d.windowState);
+    m_tabWidget->restoreState(d.tabsState, d.currentTab);
 }
 
 void QupZilla::aboutQupZilla()
