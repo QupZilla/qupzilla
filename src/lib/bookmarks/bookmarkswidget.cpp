@@ -22,13 +22,15 @@
 #include "pluginproxy.h"
 #include "speeddial.h"
 #include "webview.h"
+#include "qupzilla.h"
 
 #include <QToolTip>
 #include <QSqlQuery>
 
-BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
+BookmarksWidget::BookmarksWidget(QupZilla *mainClass, WebView* view, QWidget* parent)
     : QMenu(parent)
     , ui(new Ui::BookmarksWidget)
+    , p_QupZilla(mainClass)
     , m_url(view->url())
     , m_view(view)
     , m_bookmarksModel(mApp->bookmarksModel())
@@ -36,16 +38,17 @@ BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
+
+    // The locationbar's direction is direction of its text,
+    // it dynamically changes and so, it's not good choice for this widget.
+    setLayoutDirection(QApplication::layoutDirection());
+
     connect(ui->close, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->removeBookmark, SIGNAL(clicked()), this, SLOT(removeBookmark()));
     connect(ui->save, SIGNAL(clicked()), this, SLOT(saveBookmark()));
 
-    connect(ui->bookmarksButton, SIGNAL(clicked()), this, SLOT(addBookmark()));
+    connect(ui->organizeBookmarksButton, SIGNAL(clicked()), p_QupZilla, SLOT(showBookmarksManager()));
     connect(ui->speeddialButton, SIGNAL(clicked()), this, SLOT(toggleSpeedDial()));
-
-    if (m_bookmarksModel->isBookmarked(m_url)) {
-        ui->bookmarksButton->setText(tr("Edit Bookmark"));
-    }
 
     const SpeedDial::Page &page = m_speedDial->pageForUrl(m_url);
     ui->speeddialButton->setText(page.url.isEmpty() ? tr("Add to Speed Dial") : tr("Remove from Speed Dial"));
@@ -57,13 +60,13 @@ BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
     ui->label_2->setPalette(pal);
     ui->label_3->setPalette(pal);
 #endif
+
+    addBookmark();
 }
 
 void BookmarksWidget::loadBookmark()
 {
     if (m_bookmarksModel->isBookmarked(m_url)) {
-        ui->stackedWidget->setCurrentIndex(0);
-
         m_bookmarkId = m_bookmarksModel->bookmarkId(m_url);
         BookmarksModel::Bookmark bookmark = m_bookmarksModel->getBookmark(m_bookmarkId);
         ui->name->setText(bookmark.title);

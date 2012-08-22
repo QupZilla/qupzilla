@@ -31,11 +31,13 @@ class BookmarksWidget;
 class WebView;
 class SpeedDial;
 class BookmarksModel;
+class QupZilla;
+
 class QT_QUPZILLA_EXPORT BookmarksWidget : public QMenu
 {
     Q_OBJECT
 public:
-    explicit BookmarksWidget(WebView* view, QWidget* parent = 0);
+    explicit BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* parent = 0);
     ~BookmarksWidget();
     void showAt(QWidget* _parent);
 
@@ -57,6 +59,7 @@ private:
     Ui::BookmarksWidget* ui;
     QUrl m_url;
     int m_bookmarkId;
+    QupZilla* p_QupZilla;
 
     WebView* m_view;
     BookmarksModel* m_bookmarksModel;
