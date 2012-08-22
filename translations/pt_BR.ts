@@ -580,7 +580,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="234"/>
         <source>The file doesn&apos;t contain any bookmark.</source>
-        <translation type="unfinished"></translation>
+        <translation>O arquivo selecionado não possui nenhum favorito.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="301"/>
@@ -1599,7 +1599,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="155"/>
         <source>Download with External Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar Arquivo com Gerenciador de Downloads Externo</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="32"/>
@@ -2197,12 +2197,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2273"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Alterar a identificação do navegador&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2298"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerenciar User Agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="117"/>
@@ -2339,7 +2339,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1743"/>
         <source>Leave blank if unsure</source>
-        <translation type="unfinished"></translation>
+        <translation>Deixe em branco caso não saiba o que colocar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1790"/>
@@ -3737,27 +3737,27 @@ Tem certeza que deseja sair do QupZilla?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="322"/>
         <source>Restore Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar Sessão</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="323"/>
         <source>Oops, QupZilla crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Oops, o QupZilla travou.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="324"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation type="unfinished"></translation>
+        <translation>Pedimos descupas pelo transtorno. Deseja restaurar as últimas guias abertas?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="325"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation type="unfinished"></translation>
+        <translation>Caso você acredite que alguma guia tenha causado o problema, tente desativá-la</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="326"/>
         <source>Or you can start completely new session</source>
-        <translation type="unfinished"></translation>
+        <translation>Ou você pode criar uma nova sessão</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="343"/>
@@ -4102,17 +4102,17 @@ Adicione os feeds clicando no símbolo RSS existente na barra de navegação, em
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="34"/>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="47"/>
         <source>Start New Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Começar Nova Sessão</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.cpp" line="23"/>
         <source>Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Window %1</translation>
     </message>
 </context>
 <context>
@@ -4944,62 +4944,62 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="14"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerenciar User Agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="20"/>
         <source>Change global User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>Alterar o User Agent global</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="48"/>
         <source>Use different User Agents for specified sites</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar um User Agent diferente para os sites especificados abaixo</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="86"/>
         <source>Site</source>
-        <translation type="unfinished"></translation>
+        <translation>Site</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="91"/>
         <source>User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="101"/>
         <source>Add</source>
-        <translation type="unfinished">Adicionar</translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="108"/>
         <source>Remove</source>
-        <translation type="unfinished">Remover</translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="128"/>
         <source>Edit</source>
-        <translation type="unfinished">Editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="83"/>
         <source>Add new site</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar um novo site</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="121"/>
         <source>Edit site</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar site</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="195"/>
         <source>Site domain: </source>
-        <translation type="unfinished"></translation>
+        <translation>Domínio: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="196"/>
         <source>User Agent: </source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent: </translation>
     </message>
 </context>
 <context>
