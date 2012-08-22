@@ -175,6 +175,20 @@ void AKN_Handler::handleAccessKey(QKeyEvent* event)
 
     QChar key = text.at(0);
 
+    QChar other(QChar::Null);
+    if (key.isLower()) {
+        other = key.toUpper();
+    }
+    else if (key.isUpper()) {
+        other = key.toLower();
+    }
+
+    if (!other.isNull()
+            && m_accessKeyNodes.contains(other)
+            && !m_accessKeyNodes.contains(key)) {
+        key = other;
+    }
+
     if (m_accessKeyNodes.contains(key)) {
         QWebElement element = m_accessKeyNodes[key];
         QPoint p = element.geometry().center();
