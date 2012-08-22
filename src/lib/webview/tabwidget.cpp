@@ -784,11 +784,6 @@ bool TabWidget::restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab
 {
     m_isRestoringState = true;
 
-    foreach(WebTab * tab, allTabs()) {
-        int tabIndex = tab->tabIndex();
-        closeTab(tabIndex, true);
-    }
-
     for (int i = 0; i < tabs.size(); ++i) {
         WebTab::SavedTab tab = tabs.at(i);
 

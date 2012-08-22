@@ -864,7 +864,7 @@ bool MainApplication::saveStateSlot()
     return true;
 }
 
-bool MainApplication::restoreStateSlot(QupZilla* window, const RestoreData &recoveryData)
+bool MainApplication::restoreStateSlot(QupZilla* win, const RestoreData &recoveryData)
 {
     if (m_isPrivateSession) {
         return false;
@@ -877,6 +877,14 @@ bool MainApplication::restoreStateSlot(QupZilla* window, const RestoreData &reco
 
         return false;
     }
+
+    QupZilla* window = win;
+
+    if (window->tabWidget()->count() > 1) {
+        window = new QupZilla(Qz::BW_OtherRestoredWindow);
+        m_mainWindows.append(window);
+    }
+    win->tabWidget()->closeTab(window->tabWidget()->currentIndex(), true);
 
     int windowCount = recoveryData.size();
     int currentWindow = 0;
