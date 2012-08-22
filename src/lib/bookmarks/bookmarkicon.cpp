@@ -47,7 +47,7 @@ BookmarkIcon::BookmarkIcon(QupZilla* mainClass, QWidget* parent)
 
 void BookmarkIcon::iconClicked()
 {
-    BookmarksWidget* menu = new BookmarksWidget(p_QupZilla->weView(), p_QupZilla->locationBar());
+    BookmarksWidget* menu = new BookmarksWidget(p_QupZilla, p_QupZilla->weView(), p_QupZilla->locationBar());
     menu->showAt(this);
 }
 
