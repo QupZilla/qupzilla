@@ -175,6 +175,20 @@ void AKN_Handler::handleAccessKey(QKeyEvent* event)
 
     QChar key = text.at(0);
 
+    QChar other(QChar::Null);
+    if (key.isLower()) {
+        other = key.toUpper();
+    }
+    else if (key.isUpper()) {
+        other = key.toLower();
+    }
+
+    if (!other.isNull()
+            && m_accessKeyNodes.contains(other)
+            && !m_accessKeyNodes.contains(key)) {
+        key = other;
+    }
+
     if (m_accessKeyNodes.contains(key)) {
         QWebElement element = m_accessKeyNodes[key];
         QPoint p = element.geometry().center();
@@ -294,6 +308,10 @@ void AKN_Handler::showAccessKeys()
     if (m_accessKeysVisible) {
         m_view.data()->installEventFilter(this);
         connect(m_view.data(), SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
+        connect(m_view.data()->page(), SIGNAL(scrollRequested(int,int,QRect)), this, SLOT(hideAccessKeys()));
+#if QT_VERSION > 0x040800
+        connect(m_view.data()->page(), SIGNAL(viewportChangeRequested()), this, SLOT(hideAccessKeys()));
+#endif
     }
 }
 
@@ -312,6 +330,10 @@ void AKN_Handler::hideAccessKeys()
         // Uninstall event filter and disconnect loadStarted
         m_view.data()->removeEventFilter(this);
         disconnect(m_view.data(), SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
+        disconnect(m_view.data()->page(), SIGNAL(scrollRequested(int,int,QRect)), this, SLOT(hideAccessKeys()));
+#if QT_VERSION > 0x040800
+        disconnect(m_view.data()->page(), SIGNAL(viewportChangeRequested()), this, SLOT(hideAccessKeys()));
+#endif
     }
 
     m_accessKeysVisible = false;
