@@ -58,7 +58,10 @@ bool AutoFillModel::isStored(const QUrl &url)
     }
 
     QSqlQuery query;
-    query.exec("SELECT count(id) FROM autofill WHERE server='" + server + "'");
+    query.prepare("SELECT count(id) FROM autofill WHERE server=?");
+    query.addBindValue(server);
+    query.exec();
+
     query.next();
     if (query.value(0).toInt() > 0) {
         return true;
@@ -78,7 +81,10 @@ bool AutoFillModel::isStoringEnabled(const QUrl &url)
     }
 
     QSqlQuery query;
-    query.exec("SELECT count(id) FROM autofill_exceptions WHERE server='" + server + "'");
+    query.prepare("SELECT count(id) FROM autofill_exceptions WHERE server=?");
+    query.addBindValue(server);
+    query.exec();
+
     query.next();
     if (query.value(0).toInt() > 0) {
         return false;
@@ -107,7 +113,10 @@ QString AutoFillModel::getUsername(const QUrl &url)
     }
 
     QSqlQuery query;
-    query.exec("SELECT username FROM autofill WHERE server='" + server + "'");
+    query.prepare("SELECT username FROM autofill WHERE server=?");
+    query.addBindValue(server);
+    query.exec();
+
     query.next();
     return query.value(0).toString();
 }
@@ -120,7 +129,10 @@ QString AutoFillModel::getPassword(const QUrl &url)
     }
 
     QSqlQuery query;
-    query.exec("SELECT password FROM autofill WHERE server='" + server + "'");
+    query.prepare("SELECT password FROM autofill WHERE server=?");
+    query.addBindValue(server);
+    query.exec();
+
     query.next();
     return query.value(0).toString();
 }
@@ -129,7 +141,10 @@ QString AutoFillModel::getPassword(const QUrl &url)
 void AutoFillModel::addEntry(const QUrl &url, const QString &name, const QString &pass)
 {
     QSqlQuery query;
-    query.exec("SELECT username FROM autofill WHERE server='" + url.host() + "'");
+    query.prepare("SELECT username FROM autofill WHERE server=?");
+    query.addBindValue(url.host());
+    query.exec();
+
     if (query.next()) {
         return;
     }
@@ -150,7 +165,10 @@ void AutoFillModel::addEntry(const QUrl &url, const QString &name, const QString
 void AutoFillModel::addEntry(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass)
 {
     QSqlQuery query;
-    query.exec("SELECT data FROM autofill WHERE server='" + url.host() + "'");
+    query.prepare("SELECT data FROM autofill WHERE server=?");
+    query.addBindValue(url.host());
+    query.exec();
+
     if (query.next()) {
         return;
     }

@@ -238,7 +238,11 @@ void BookmarksModel::removeBookmark(const QList<int> list)
         bookmark.image = QImage::fromData(query.value(3).toByteArray());
         bookmark.inSubfolder = isSubfolder(bookmark.folder);
 
-        if (!query.exec("DELETE FROM bookmarks WHERE id = " + QString::number(id))) {
+        query.prepare("DELETE FROM bookmarks WHERE id=?");
+        query.addBindValue(id);
+        query.exec();
+
+        if (!query.exec()) {
             continue;
         }
 
@@ -286,7 +290,10 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     }
 
     QSqlQuery query;
-    query.exec("SELECT title, url, folder, icon FROM bookmarks WHERE id = " + QString::number(id));
+    query.prepare("SELECT title, url, folder, icon FROM bookmarks WHERE id=?");
+    query.addBindValue(id);
+    query.exec();
+
     if (!query.next()) {
         return false;
     }
@@ -325,7 +332,10 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
 bool BookmarksModel::changeIcon(int id, const QIcon &icon)
 {
     QSqlQuery query;
-    query.exec("SELECT title, url, folder, icon FROM bookmarks WHERE id = " + QString::number(id));
+    query.prepare("SELECT title, url, folder, icon FROM bookmarks WWHERE id=?");
+    query.addBindValue(id);
+    query.exec();
+
     if (!query.next()) {
         return false;
     }

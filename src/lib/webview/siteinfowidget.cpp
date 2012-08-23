@@ -49,7 +49,10 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
     QSqlQuery query;
     QString host = url.host();
 
-    query.exec("SELECT sum(count) FROM history WHERE url LIKE '" + scheme + "://" + host + "%' ");
+    query.prepare("SELECT sum(count) FROM history WHERE url LIKE ?");
+    query.addBindValue(QString("%1://%2%").arg(scheme, host));
+    query.exec();
+
     if (query.next()) {
         int count = query.value(0).toInt();
         if (count > 3) {

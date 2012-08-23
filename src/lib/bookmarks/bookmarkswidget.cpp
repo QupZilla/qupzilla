@@ -27,7 +27,7 @@
 #include <QToolTip>
 #include <QSqlQuery>
 
-BookmarksWidget::BookmarksWidget(QupZilla *mainClass, WebView* view, QWidget* parent)
+BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* parent)
     : QMenu(parent)
     , ui(new Ui::BookmarksWidget)
     , p_QupZilla(mainClass)

@@ -96,7 +96,10 @@ QImage IconProvider::iconForDomain(const QUrl &url)
     }
 
     QSqlQuery query;
-    query.exec("SELECT icon FROM icons WHERE url LIKE '%" + url.host() + "%'");
+    query.prepare("SELECT icon FROM icons WHERE url LIKE ?");
+    query.addBindValue(QString("%%1%").arg(url.host()));
+    query.exec();
+
     if (query.next()) {
         return QImage::fromData(query.value(0).toByteArray());
     }

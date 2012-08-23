@@ -163,7 +163,9 @@ void RSSManager::deleteFeed()
         return;
     }
     QSqlQuery query;
-    query.exec("DELETE FROM rss WHERE address='" + url + "'");
+    query.prepare("DELETE FROM rss WHERE address=?");
+    query.addBindValue(url);
+    query.exec();
 
     ui->tabWidget->removeTab(ui->tabWidget->currentIndex());
     if (ui->tabWidget->count() == 0) {

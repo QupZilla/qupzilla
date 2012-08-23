@@ -125,7 +125,9 @@ void AutoFillManager::removePass()
     }
     QString id = curItem->data(0, Qt::UserRole + 10).toString();
     QSqlQuery query;
-    query.exec("DELETE FROM autofill WHERE id=" + id);
+    query.prepare("DELETE FROM autofill WHERE id=?");
+    query.addBindValue(id);
+    query.exec();
 
     delete curItem;
 }
@@ -186,7 +188,9 @@ void AutoFillManager::removeExcept()
     }
     QString id = curItem->data(0, Qt::UserRole + 10).toString();
     QSqlQuery query;
-    query.exec("DELETE FROM autofill_exceptions WHERE id=" + id);
+    query.prepare("DELETE FROM autofill_exceptions WHERE id=?");
+    query.addBindValue(id);
+    query.exec();
 
     delete curItem;
 }
