@@ -45,6 +45,11 @@ void DownloadOptionsDialog::showExternalManagerOption(bool show)
     ui->radioExternal->setVisible(show);
 }
 
+void DownloadOptionsDialog::showFromLine(bool show)
+{
+    ui->fromFrame->setVisible(show);
+}
+
 void DownloadOptionsDialog::setLastDownloadOption(const DownloadManager::DownloadOption &option)
 {
     switch (option) {
@@ -65,6 +70,25 @@ void DownloadOptionsDialog::setLastDownloadOption(const DownloadManager::Downloa
     default:
         break;
     }
+}
+
+int DownloadOptionsDialog::exec()
+{
+    int status = QDialog::exec();
+
+    if (status != 0) {
+        if (ui->radioOpen->isChecked()) {
+            status =  1;
+        }
+        else if (ui->radioSave->isChecked()) {
+            status =  2;
+        }
+        else if (ui->radioExternal->isChecked()) {
+            status = 3;
+        }
+    }
+
+    return status;
 }
 
 void DownloadOptionsDialog::emitDialogFinished(int status)

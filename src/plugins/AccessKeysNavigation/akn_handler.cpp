@@ -309,7 +309,7 @@ void AKN_Handler::showAccessKeys()
     if (m_accessKeysVisible) {
         m_view.data()->installEventFilter(this);
         connect(m_view.data(), SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
-        connect(m_view.data()->page(), SIGNAL(scrollRequested(int,int,QRect)), this, SLOT(hideAccessKeys()));
+        connect(m_view.data()->page(), SIGNAL(scrollRequested(int, int, QRect)), this, SLOT(hideAccessKeys()));
 #if QT_VERSION >= 0x040800
         connect(m_view.data()->page(), SIGNAL(viewportChangeRequested()), this, SLOT(hideAccessKeys()));
 #endif
@@ -331,7 +331,7 @@ void AKN_Handler::hideAccessKeys()
         // Uninstall event filter and disconnect loadStarted
         m_view.data()->removeEventFilter(this);
         disconnect(m_view.data(), SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
-        disconnect(m_view.data()->page(), SIGNAL(scrollRequested(int,int,QRect)), this, SLOT(hideAccessKeys()));
+        disconnect(m_view.data()->page(), SIGNAL(scrollRequested(int, int, QRect)), this, SLOT(hideAccessKeys()));
 #if QT_VERSION >= 0x040800
         disconnect(m_view.data()->page(), SIGNAL(viewportChangeRequested()), this, SLOT(hideAccessKeys()));
 #endif

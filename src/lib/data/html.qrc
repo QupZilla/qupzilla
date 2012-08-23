@@ -23,5 +23,7 @@
         <file>html/setting.png</file>
         <file>html/config.html</file>
         <file>html/restore.html</file>
+        <file>html/dirlist.html</file>
+        <file>html/hdd-icon.png</file>
     </qresource>
 </RCC>

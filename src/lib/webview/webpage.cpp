@@ -36,6 +36,7 @@
 #include "qzsettings.h"
 #include "useragentmanager.h"
 #include "recoverywidget.h"
+#include "schemehandlers/fileschemehandler.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -213,15 +214,18 @@ void WebPage::finished()
     }
 
     if (url().scheme() == "file") {
-        if (!m_fileWatcher) {
-            m_fileWatcher = new QFileSystemWatcher(this);
-            connect(m_fileWatcher, SIGNAL(fileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
-        }
+        QFileInfo info(url().toLocalFile());
+        if (info.isFile()) {
+            if (!m_fileWatcher) {
+                m_fileWatcher = new QFileSystemWatcher(this);
+                connect(m_fileWatcher, SIGNAL(fileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
+            }
 
-        const QString &filePath = url().toLocalFile();
+            const QString &filePath = url().toLocalFile();
 
-        if (QFile::exists(filePath) && !m_fileWatcher->files().contains(filePath)) {
-            m_fileWatcher->addPath(filePath);
+            if (QFile::exists(filePath) && !m_fileWatcher->files().contains(filePath)) {
+                m_fileWatcher->addPath(filePath);
+            }
         }
     }
     else if (m_fileWatcher && !m_fileWatcher->files().isEmpty()) {
@@ -287,6 +291,11 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
         }
 
     case QNetworkReply::ProtocolUnknownError: {
+        if (url.scheme() == "file") {
+            FileSchemeHandler::handleUrl(url);
+            return;
+        }
+
         qDebug() << "WebPage::UnsupportedContent" << url << "ProtocolUnknowError";
         desktopServicesOpen(url);
 
@@ -691,9 +700,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     QString rule = exOption->errorString;
                     rule.remove("AdBlock: ");
 
-                    QFile file(":/html/adblockPage.html");
-                    file.open(QFile::ReadOnly);
-                    QString errString = file.readAll();
+                    QString errString = qz_readAllFileContents(":/html/adblockPage.html");
                     errString.replace("%TITLE%", tr("AdBlocked Content"));
                     errString.replace("%IMAGE%", "qrc:html/adblock_big.png");
                     errString.replace("%FAVICON%", "qrc:html/adblock_big.png");
@@ -748,8 +755,10 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     errString.replace("%FAVICON%", qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
     errString.replace("%BOX-BORDER%", "qrc:html/box-border.png");
 
+    QString heading2 = loadedUrl.host().isEmpty() ? tr("QupZilla can't load page.") : tr("QupZilla can't load page from %1.").arg(loadedUrl.host());
+
     errString.replace("%HEADING%", errorString);
-    errString.replace("%HEADING2%", tr("QupZilla can't load page from %1.").arg(loadedUrl.host()));
+    errString.replace("%HEADING2%", heading2);
     errString.replace("%LI-1%", tr("Check the address for typing errors such as <b>ww.</b>example.com instead of <b>www.</b>example.com"));
     errString.replace("%LI-2%", tr("If you are unable to load any pages, check your computer's network connection."));
     errString.replace("%LI-3%", tr("If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web."));

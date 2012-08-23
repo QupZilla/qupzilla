@@ -70,6 +70,10 @@ QIcon WebView::icon() const
         return QIcon(":icons/qupzilla.png");
     }
 
+    if (url().scheme() == "file") {
+        return qIconProvider->standardIcon(QStyle::SP_DriveHDIcon);
+    }
+
     if (!QWebView::icon().isNull()) {
         return QWebView::icon();
     }

@@ -186,6 +186,7 @@ SOURCES += \
     session/restoremanager.cpp \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/schemehandlers/adblockschemehandler.cpp \
+    network/schemehandlers/fileschemehandler.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -342,6 +343,7 @@ HEADERS  += \
     network/schemehandlers/schemehandler.h \
     network/schemehandlers/qupzillaschemehandler.h \
     network/schemehandlers/adblockschemehandler.h \
+    network/schemehandlers/fileschemehandler.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

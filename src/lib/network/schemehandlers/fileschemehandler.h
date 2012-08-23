@@ -15,43 +15,46 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef DOWNLOADOPTIONSDIALOG_H
-#define DOWNLOADOPTIONSDIALOG_H
+#ifndef FILESCHEMEHANDLER_H
+#define FILESCHEMEHANDLER_H
 
-#include <QDialog>
+#include <QNetworkReply>
+#include <QBuffer>
 
+#include "schemehandler.h"
 #include "qz_namespace.h"
-#include "downloadmanager.h"
 
-namespace Ui
+class QT_QUPZILLA_EXPORT FileSchemeHandler : public SchemeHandler
 {
-class DownloadOptionsDialog;
-}
-
-class QT_QUPZILLA_EXPORT DownloadOptionsDialog : public QDialog
-{
-    Q_OBJECT
-
 public:
-    explicit DownloadOptionsDialog(const QString &fileName, const QPixmap &fileIcon, const QString &mimeType, const QUrl &url, QWidget* parent = 0);
-    ~DownloadOptionsDialog();
+    explicit FileSchemeHandler();
 
-    void showExternalManagerOption(bool show);
-    void showFromLine(bool show);
+    QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 
-    void setLastDownloadOption(const DownloadManager::DownloadOption &option);
-
-    int exec();
-
-private slots:
-    void emitDialogFinished(int status);
-
-signals:
-    void dialogFinished(int);
-
-private:
-    Ui::DownloadOptionsDialog* ui;
-    bool m_signalEmited;
+    static void handleUrl(const QUrl &url);
 };
 
-#endif // DOWNLOADOPTIONSDIALOG_H
+class QT_QUPZILLA_EXPORT FileSchemeReply : public QNetworkReply
+{
+    Q_OBJECT
+public:
+    explicit FileSchemeReply(const QNetworkRequest &req, QObject* parent = 0);
+
+    qint64 bytesAvailable() const;
+
+protected:
+    qint64 readData(char* data, qint64 maxSize);
+    void abort() { }
+
+private slots:
+    void loadPage();
+
+private:
+    QString loadDirectory();
+
+    QBuffer m_buffer;
+    QString m_pageName;
+};
+
+
+#endif // FILESCHEMEHANDLER_H
