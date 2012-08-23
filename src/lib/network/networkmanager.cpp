@@ -23,14 +23,14 @@
 #include "webpage.h"
 #include "pluginproxy.h"
 #include "adblockmanager.h"
-#include "adblockschemehandler.h"
 #include "networkproxyfactory.h"
-#include "qupzillaschemehandler.h"
 #include "certificateinfowidget.h"
 #include "globalfunctions.h"
 #include "acceptlanguage.h"
 #include "cabundleupdater.h"
 #include "settings.h"
+#include "schemehandlers/adblockschemehandler.h"
+#include "schemehandlers/qupzillaschemehandler.h"
 
 #include <QFormLayout>
 #include <QLabel>

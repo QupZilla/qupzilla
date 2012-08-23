@@ -119,7 +119,6 @@ SOURCES += \
     navigation/navigationbar.cpp \
     navigation/reloadstopbutton.cpp \
     preferences/thememanager.cpp \
-    network/qupzillaschemehandler.cpp \
     tools/globalfunctions.cpp \
     other/pagescreen.cpp \
     downloads/downloadfilehelper.cpp \
@@ -177,7 +176,6 @@ SOURCES += \
     other/iconchooser.cpp \
     adblock/adblocktreewidget.cpp \
     adblock/adblockaddsubscriptiondialog.cpp \
-    adblock/adblockschemehandler.cpp \
     tools/emptynetworkreply.cpp \
     3rdparty/processinfo.cpp \
     preferences/pluginsmanager.cpp \
@@ -185,7 +183,9 @@ SOURCES += \
     other/useragentmanager.cpp \
     preferences/useragentdialog.cpp \
     session/recoverywidget.cpp \
-    session/restoremanager.cpp
+    session/restoremanager.cpp \
+    network/schemehandlers/qupzillaschemehandler.cpp \
+    network/schemehandlers/adblockschemehandler.cpp \
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -271,7 +271,6 @@ HEADERS  += \
     navigation/navigationbar.h \
     navigation/reloadstopbutton.h \
     preferences/thememanager.h \
-    network/qupzillaschemehandler.h \
     tools/globalfunctions.h \
     other/pagescreen.h \
     downloads/downloadfilehelper.h \
@@ -317,7 +316,6 @@ HEADERS  += \
     other/licenseviewer.h \
     bookmarksimport/bookmarksimporticonfetcher.h \
     other/checkboxdialog.h \
-    network/schemehandler.h \
     tools/plaineditwithlines.h \
     sidebar/sidebarinterface.h \
     tools/focusselectlineedit.h \
@@ -333,7 +331,6 @@ HEADERS  += \
     other/iconchooser.h \
     adblock/adblocktreewidget.h \
     adblock/adblockaddsubscriptiondialog.h \
-    adblock/adblockschemehandler.h \
     tools/emptynetworkreply.h \
     3rdparty/processinfo.h \
     preferences/pluginsmanager.h \
@@ -341,7 +338,10 @@ HEADERS  += \
     other/useragentmanager.h \
     preferences/useragentdialog.h \
     session/recoverywidget.h \
-    session/restoremanager.h
+    session/restoremanager.h \
+    network/schemehandlers/schemehandler.h \
+    network/schemehandlers/qupzillaschemehandler.h \
+    network/schemehandlers/adblockschemehandler.h \
 
 FORMS    += \
     preferences/autofillmanager.ui \
