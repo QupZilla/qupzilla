@@ -1,3 +1,28 @@
+Version 1.3.5
+    * not yet released
+    * new Persion translation
+    * option to remove web search bar
+    * warning user when removing page from speed dial
+    * option to align pages to center in speed dial
+    * added shortcut for Clear private data
+    * new options in AdBlock menu to disable it for domain and for single page
+    * added option to disable search suggestions in search bar
+    * added option to choose what to suggest in address bar
+    * Save x as ... actions will always show file dialog
+    * possibility to choose to use external download manager on every download
+    * remember last section in preferences
+    * new User Agent manager lets you set User Agent per site
+    * new restore session page lets you choose which tabs you want to restore
+    * new scheme handler for file protocol allows browsing through directories
+    * fixed visibility of navigation bar in fullscreen
+    * fixed bad position of add tab button when there is a lot of tabs
+    * fixed gui with RTL languages
+    * fixed issue with infinite opening mailto links
+    * fixed issue with showing warning after creating new profile
+    * fixed clearing highlight when search text not found
+    * fixed closing bookmarks menu when menu toolbar is hidden
+    * fixed occasional crashes when closing tab while it is still loading
+
 Version 1.3.1
     * released 16 July 2012
     * Ctrl+= shortcut for + zoom in webview

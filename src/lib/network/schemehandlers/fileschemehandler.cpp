@@ -189,7 +189,7 @@ QString FileSchemeReply::loadDirectory()
         line += "\">";
         line += info.fileName();
         line += "</a></td><td class=\"td-size\">";
-        line += qz_fileSizeToString(info.size());
+        line += info.isDir() ? "" : qz_fileSizeToString(info.size());
         line += "</td><td>";
         line += info.lastModified().toString("dd.MM.yyyy");
         line += "</td><td>";
