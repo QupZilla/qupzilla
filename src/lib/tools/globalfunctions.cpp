@@ -265,6 +265,28 @@ QString qz_alignTextToWidth(const QString &string, const QString &text, const QF
     return returnString;
 }
 
+QString qz_fileSizeToString(qint64 size)
+{
+    if (size < 0) {
+        return QObject::tr("Unknown size");
+    }
+
+    double _size = (double)size;
+    _size /= 1024; //kB
+    if (_size < 1000) {
+        return QString::number(_size > 1 ? _size : 1, 'f', 0) + " KB";
+    }
+
+    _size /= 1024; //MB
+    if (_size < 1000) {
+        return QString::number(_size, 'f', 1) + " MB";
+    }
+
+    _size /= 1024; //GB
+    return QString::number(_size, 'f', 2) + " GB";
+}
+
+
 QPixmap qz_createPixmapForSite(const QIcon &icon, const QString &title, const QString &url)
 {
     const QFontMetrics fontMetrics = QApplication::fontMetrics();

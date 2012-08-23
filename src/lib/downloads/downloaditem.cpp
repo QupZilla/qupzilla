@@ -24,6 +24,7 @@
 #include "downloadmanager.h"
 #include "iconprovider.h"
 #include "networkmanager.h"
+#include "globalfunctions.h"
 
 #include <QMenu>
 #include <QClipboard>
@@ -236,27 +237,6 @@ QString DownloadItem::currentSpeedToString(double speed)
     return QString::number(speed, 'f', 2) + " GB/s";
 }
 
-QString DownloadItem::fileSizeToString(qint64 size)
-{
-    if (size < 0) {
-        return tr("Unknown size");
-    }
-
-    double _size = (double)size;
-    _size /= 1024; //kB
-    if (_size < 1000) {
-        return QString::number(_size, 'f', 0) + " kB";
-    }
-
-    _size /= 1024; //MB
-    if (_size < 1000) {
-        return QString::number(_size, 'f', 1) + " MB";
-    }
-
-    _size /= 1024; //GB
-    return QString::number(_size, 'f', 2) + " GB";
-}
-
 void DownloadItem::updateDownloadInfo(double currSpeed, qint64 received, qint64 total)
 {
 #ifdef DOWNMANAGER_DEBUG
@@ -275,8 +255,8 @@ void DownloadItem::updateDownloadInfo(double currSpeed, qint64 received, qint64 
     QString remTime = remaingTimeToString(time);
     m_remTime = time;
 
-    QString currSize = fileSizeToString(received);
-    QString fileSize = fileSizeToString(total);
+    QString currSize = qz_fileSizeToString(received);
+    QString fileSize = qz_fileSizeToString(total);
 
     if (fileSize == tr("Unknown size")) {
         ui->downloadInfo->setText(tr("%2 - unknown size (%3)").arg(currSize, speed));

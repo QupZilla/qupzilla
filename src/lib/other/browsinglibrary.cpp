@@ -141,9 +141,9 @@ void BrowsingLibrary::optimizeDatabase()
 {
     mApp->setOverrideCursor(Qt::WaitCursor);
     QString profilePath = mApp->currentProfilePath();
-    QString sizeBefore = DownloadItem::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
+    QString sizeBefore = qz_fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
     mApp->history()->optimizeHistory();
-    QString sizeAfter = DownloadItem::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
+    QString sizeAfter = qz_fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
     mApp->restoreOverrideCursor();
     QMessageBox::information(this, tr("Database Optimized"), tr("Database successfully optimized.<br/><br/><b>Database Size Before: </b>%1<br/><b>Database Size After: </b>%2").arg(sizeBefore, sizeAfter));
 }

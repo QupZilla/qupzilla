@@ -73,7 +73,7 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, const Do
 
     m_fileSize = m_reply->header(QNetworkRequest::ContentLengthHeader).toLongLong();
     if (m_fileSize > 0) {
-        mimeType.append(QString(" (%1)").arg(DownloadItem::fileSizeToString(m_fileSize)));
+        mimeType.append(QString(" (%1)").arg(qz_fileSizeToString(m_fileSize)));
     }
 
     // Close Empty Tab

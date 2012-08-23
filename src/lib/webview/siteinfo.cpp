@@ -68,7 +68,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     //GENERAL
     ui->heading->setText(QString("<b>%1</b>:").arg(title));
     ui->siteAddress->setText(view->url().toString());
-    ui->sizeLabel->setText(DownloadItem::fileSizeToString(webPage->totalBytes()));
+    ui->sizeLabel->setText(qz_fileSizeToString(webPage->totalBytes()));
     QString encoding;
 
     //Meta
@@ -202,7 +202,7 @@ void SiteInfo::databaseItemChanged(QListWidgetItem* item)
 
     ui->databaseName->setText(QString("%1 (%2)").arg(db.displayName(), db.name()));
     ui->databasePath->setText(db.fileName());
-    ui->databaseSize->setText(DownloadItem::fileSizeToString(db.size()));
+    ui->databaseSize->setText(qz_fileSizeToString(db.size()));
 }
 
 void SiteInfo::copyActionData()
