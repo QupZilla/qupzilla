@@ -738,7 +738,7 @@
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation>Upraviť záložku</translation>
+        <translation type="obsolete">Upraviť záložku</translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
@@ -754,7 +754,11 @@
     </message>
     <message>
         <source>Add to Bookmarks</source>
-        <translation>Pridať do záložiek</translation>
+        <translation type="obsolete">Pridať do záložiek</translation>
+    </message>
+    <message>
+        <source>Organize Bookmarks</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1285,6 +1289,41 @@
     <message>
         <source>Change...</source>
         <translation>Zmeniť...</translation>
+    </message>
+</context>
+<context>
+    <name>FileSchemeReply</name>
+    <message>
+        <source>No Error</source>
+        <translation type="unfinished">Žiadna chyba</translation>
+    </message>
+    <message>
+        <source>Up to higher level directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show hidden files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Meno</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Index for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder is empty.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2371,6 +2410,14 @@
     <message>
         <source>Native System Notification</source>
         <translation>Nativné systémové oznámenie</translation>
+    </message>
+    <message>
+        <source>Save file as...</source>
+        <translation type="unfinished">Uložiť súbor ako...</translation>
+    </message>
+    <message>
+        <source>Unknown size</source>
+        <translation type="unfinished">Veľkosť neznáma</translation>
     </message>
 </context>
 <context>
@@ -4103,6 +4150,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla can&apos;t load page.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

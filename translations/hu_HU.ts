@@ -742,7 +742,7 @@
     </message>
     <message>
         <source>Add to Bookmarks</source>
-        <translation>Hozzáadás a Könyvjelzőkhöz</translation>
+        <translation type="obsolete">Hozzáadás a Könyvjelzőkhöz</translation>
     </message>
     <message>
         <source>Add to Speed Dial</source>
@@ -750,11 +750,15 @@
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation>Könyvjelző szerkesztése</translation>
+        <translation type="obsolete">Könyvjelző szerkesztése</translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
         <translation>Eltávolítás a Gyorsindítóból</translation>
+    </message>
+    <message>
+        <source>Organize Bookmarks</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1284,6 +1288,41 @@
     </message>
     <message>
         <source>Change...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FileSchemeReply</name>
+    <message>
+        <source>No Error</source>
+        <translation type="unfinished">Nincs hiba</translation>
+    </message>
+    <message>
+        <source>Up to higher level directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show hidden files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Név</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Index for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder is empty.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2371,6 +2410,14 @@
     <message>
         <source>&lt;not set in certificate&gt;</source>
         <translation>&lt;nincs beállítva a tanúsítványban&gt;</translation>
+    </message>
+    <message>
+        <source>Save file as...</source>
+        <translation type="unfinished">Fájl mentése másként...</translation>
+    </message>
+    <message>
+        <source>Unknown size</source>
+        <translation type="unfinished">Ismeretlen méret</translation>
     </message>
 </context>
 <context>
@@ -4102,6 +4149,10 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla can&apos;t load page.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -742,7 +742,7 @@
     </message>
     <message>
         <source>Add to Bookmarks</source>
-        <translation>სანიშნებში დამატება</translation>
+        <translation type="obsolete">სანიშნებში დამატება</translation>
     </message>
     <message>
         <source>Add to Speed Dial</source>
@@ -750,11 +750,15 @@
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation>სანიშნის რედაქტირება</translation>
+        <translation type="obsolete">სანიშნის რედაქტირება</translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
         <translation>სწრაფი გამოძახებიდან წაშლა</translation>
+    </message>
+    <message>
+        <source>Organize Bookmarks</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1284,6 +1288,41 @@
     </message>
     <message>
         <source>Change...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FileSchemeReply</name>
+    <message>
+        <source>No Error</source>
+        <translation type="unfinished">შეცდომა არ არის</translation>
+    </message>
+    <message>
+        <source>Up to higher level directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show hidden files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">სახელი</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Index for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder is empty.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2371,6 +2410,14 @@
     <message>
         <source>&lt;not set in certificate&gt;</source>
         <translation>&lt;not set in certificate&gt;</translation>
+    </message>
+    <message>
+        <source>Save file as...</source>
+        <translation type="unfinished">ფაილის შენახვა როგორც...</translation>
+    </message>
+    <message>
+        <source>Unknown size</source>
+        <translation type="unfinished">ზომა უცნობია</translation>
     </message>
 </context>
 <context>
@@ -4102,6 +4149,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla can&apos;t load page.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

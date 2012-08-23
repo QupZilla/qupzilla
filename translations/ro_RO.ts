@@ -742,7 +742,7 @@
     </message>
     <message>
         <source>Add to Bookmarks</source>
-        <translation>Adaugă semn de carte</translation>
+        <translation type="obsolete">Adaugă semn de carte</translation>
     </message>
     <message>
         <source>Add to Speed Dial</source>
@@ -750,11 +750,15 @@
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation>Editează semn de carte</translation>
+        <translation type="obsolete">Editează semn de carte</translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
         <translation>Șterge din Speed Dial</translation>
+    </message>
+    <message>
+        <source>Organize Bookmarks</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1284,6 +1288,41 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Change...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FileSchemeReply</name>
+    <message>
+        <source>No Error</source>
+        <translation type="unfinished">Nici o eroare</translation>
+    </message>
+    <message>
+        <source>Up to higher level directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show hidden files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nume</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Index for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder is empty.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2373,6 +2412,14 @@ nu a putut fi găsit!</translation>
     <message>
         <source>&lt;not set in certificate&gt;</source>
         <translation>&lt;nu a fost setat în certificat&gt;</translation>
+    </message>
+    <message>
+        <source>Save file as...</source>
+        <translation type="unfinished">Salvează fișier ca...</translation>
+    </message>
+    <message>
+        <source>Unknown size</source>
+        <translation type="unfinished">Dimensiune necunoscută</translation>
     </message>
 </context>
 <context>
@@ -4103,6 +4150,10 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla can&apos;t load page.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -752,7 +752,7 @@
     </message>
     <message>
         <source>Add to Bookmarks</source>
-        <translation>ブックマークに追加</translation>
+        <translation type="obsolete">ブックマークに追加</translation>
     </message>
     <message>
         <source>Add to Speed Dial</source>
@@ -760,11 +760,15 @@
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation>ブックマークの編集</translation>
+        <translation type="obsolete">ブックマークの編集</translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
         <translation>Speed Dialから削除</translation>
+    </message>
+    <message>
+        <source>Organize Bookmarks</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1309,6 +1313,41 @@
     <message>
         <source>Change...</source>
         <translation>変更する...</translation>
+    </message>
+</context>
+<context>
+    <name>FileSchemeReply</name>
+    <message>
+        <source>No Error</source>
+        <translation type="unfinished">エラーなし</translation>
+    </message>
+    <message>
+        <source>Up to higher level directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show hidden files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">名前</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Index for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder is empty.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2423,6 +2462,14 @@
     <message>
         <source>&lt;not set in certificate&gt;</source>
         <translation>&lt;証明書が発行されていません&gt;</translation>
+    </message>
+    <message>
+        <source>Save file as...</source>
+        <translation type="unfinished">名前を付けて保存...</translation>
+    </message>
+    <message>
+        <source>Unknown size</source>
+        <translation type="unfinished">ファイルサイズが計測できません</translation>
     </message>
 </context>
 <context>
@@ -4195,6 +4242,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
         <translation>このページを見るためにはQupZillaがもう一度リクエストを送信する必要があります。(検索、あるいはオンラインショッピングなどの場合リクエストはすでに一度送信されています)</translation>
+    </message>
+    <message>
+        <source>QupZilla can&apos;t load page.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

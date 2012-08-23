@@ -742,7 +742,7 @@
     </message>
     <message>
         <source>Add to Bookmarks</source>
-        <translation>افزودن به نشان‌ها</translation>
+        <translation type="obsolete">افزودن به نشان‌ها</translation>
     </message>
     <message>
         <source>Add to Speed Dial</source>
@@ -750,11 +750,15 @@
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation>ویرایش نشان</translation>
+        <translation type="obsolete">ویرایش نشان</translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
         <translation>حذف از شماره‌گیر سریع</translation>
+    </message>
+    <message>
+        <source>Organize Bookmarks</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1284,6 +1288,41 @@
     <message>
         <source>Change...</source>
         <translation>تغییر...</translation>
+    </message>
+</context>
+<context>
+    <name>FileSchemeReply</name>
+    <message>
+        <source>No Error</source>
+        <translation type="unfinished">بدون خطا</translation>
+    </message>
+    <message>
+        <source>Up to higher level directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show hidden files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">نام</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Index for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder is empty.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2371,6 +2410,14 @@
     <message>
         <source>&lt;not set in certificate&gt;</source>
         <translation>&lt;در گواهی‌نامه ذکر نشده است&gt;</translation>
+    </message>
+    <message>
+        <source>Save file as...</source>
+        <translation type="unfinished">رونوشت‌برداری پرونده به...</translation>
+    </message>
+    <message>
+        <source>Unknown size</source>
+        <translation type="unfinished">اندازه نامعلوم</translation>
     </message>
 </context>
 <context>
@@ -4105,6 +4152,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 (like searching on making an shopping, which has been already done.)</source>
         <translation>کوپزیلا برای نمایش این صفحه، مجبور است درخواست را دوباره بفرستد که دوباره آن را به انجام برساند 
 (مشابه بررسی برای خرید کردن، که هم‌اکنون به انجام رسیده است.)</translation>
+    </message>
+    <message>
+        <source>QupZilla can&apos;t load page.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
