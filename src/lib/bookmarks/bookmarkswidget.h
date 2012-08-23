@@ -57,9 +57,9 @@ private:
     void loadBookmark();
 
     Ui::BookmarksWidget* ui;
+    QupZilla* p_QupZilla;
     QUrl m_url;
     int m_bookmarkId;
-    QupZilla* p_QupZilla;
 
     WebView* m_view;
     BookmarksModel* m_bookmarksModel;
