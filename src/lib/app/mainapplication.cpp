@@ -410,12 +410,19 @@ void MainApplication::setupJumpList()
 
 QupZilla* MainApplication::getWindow()
 {
+    QupZilla* activeW = qobject_cast<QupZilla*>(activeWindow());
+    if (activeW) {
+        return activeW;
+    }
+
     for (int i = 0; i < m_mainWindows.count(); i++) {
         if (!m_mainWindows.at(i)) {
             continue;
         }
+
         return m_mainWindows.at(i).data();
     }
+
     return 0;
 }
 
