@@ -45,7 +45,7 @@ QNetworkReply* FileSchemeHandler::createRequest(QNetworkAccessManager::Operation
 
     // Only list directories
     QFileInfo fileInfo(request.url().toLocalFile());
-    if (!fileInfo.isDir() && fileInfo.isReadable()) {
+    if (!fileInfo.isDir() || !fileInfo.isReadable() || !fileInfo.exists()) {
         return 0;
     }
 
