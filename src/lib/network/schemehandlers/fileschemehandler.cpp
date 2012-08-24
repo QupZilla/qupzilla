@@ -138,7 +138,6 @@ QString FileSchemeReply::loadDirectory()
 {
     const QDir &dir = QDir(request().url().toLocalFile());
     const QFileInfoList &list = dir.entryInfoList(QDir::AllEntries | QDir::Hidden, QDir::Name | QDir::DirsFirst);
-    const QFileIconProvider &iconProvider = QFileIconProvider();
 
     static QString sPage;
 
@@ -182,7 +181,7 @@ QString FileSchemeReply::loadDirectory()
         }
 
         line += "><td class=\"td-name\" style=\"background-image:url(data:image/png;base64,";
-        line += qz_pixmapToByteArray(iconProvider.icon(info).pixmap(16));
+        line += qz_pixmapToByteArray(QFileIconProvider().icon(info).pixmap(16));
         line += ");\">";
         line += "<a href=\"";
         line += QUrl::fromLocalFile(info.absoluteFilePath()).toEncoded();
