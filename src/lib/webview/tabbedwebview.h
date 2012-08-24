@@ -63,7 +63,7 @@ public slots:
     void showIcon();
 
     void slotLoadStarted();
-    void slotLoadProgress(int prog);
+    void loadProgress(int prog);
 
     void userLoadAction(const QUrl &url);
 

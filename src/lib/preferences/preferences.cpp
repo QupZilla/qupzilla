@@ -182,6 +182,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->selectAllOnFocus->setChecked(settings.value("SelectAllTextOnDoubleClick", true).toBool());
     ui->selectAllOnClick->setChecked(settings.value("SelectAllTextOnClick", false).toBool());
     ui->addCountryWithAlt->setChecked(settings.value("AddCountryDomainWithAltKey", true).toBool());
+    ui->showLoadingInAddressBar->setChecked(settings.value("ShowLoadingProgress", false).toBool());
     settings.endGroup();
 
     //BROWSING
@@ -867,6 +868,7 @@ void Preferences::saveSettings()
     settings.setValue("SelectAllTextOnDoubleClick", ui->selectAllOnFocus->isChecked());
     settings.setValue("SelectAllTextOnClick", ui->selectAllOnClick->isChecked());
     settings.setValue("AddCountryDomainWithAltKey", ui->addCountryWithAlt->isChecked());
+    settings.setValue("ShowLoadingProgress", ui->showLoadingInAddressBar->isChecked());
     settings.endGroup();
 
     //Languages

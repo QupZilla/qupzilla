@@ -45,7 +45,7 @@ public:
     explicit LocationBar(QupZilla* mainClass);
     ~LocationBar();
 
-    void setWebView(TabbedWebView* view) { m_webView = view; }
+    void setWebView(TabbedWebView* view);
     TabbedWebView* webView() { return m_webView; }
 
 signals:
@@ -54,6 +54,9 @@ signals:
 public slots:
     void showUrl(const QUrl &url);
     void setText(const QString &text);
+
+protected:
+    virtual void paintEvent(QPaintEvent* event);
 
 private slots:
     void siteIconChanged();
@@ -69,6 +72,10 @@ private slots:
 
     void updatePlaceHolderText();
     void showCompletion(const QString &newText);
+
+    void onLoadProgress(int progress);
+    void onLoadFinished();
+    void hideProgress();
 
 private:
     void contextMenuEvent(QContextMenuEvent* event);
@@ -100,6 +107,8 @@ private:
 
     bool m_rssIconVisible;
     bool m_holdingAlt;
+    int m_loadProgress;
+    bool m_loadFinished;
 };
 
 #endif // LOCATIONBAR_H

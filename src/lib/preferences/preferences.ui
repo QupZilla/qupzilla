@@ -602,236 +602,234 @@
       </layout>
      </widget>
      <widget class="QWidget" name="stackedWidgetPage3">
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0" colspan="2">
-        <widget class="QLabel" name="label_13">
-         <property name="text">
-          <string>&lt;b&gt;Tabs behavior&lt;/b&gt;</string>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QTabWidget" name="tabWidget_3">
+         <property name="currentIndex">
+          <number>0</number>
          </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <spacer name="horizontalSpacer_9">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="2">
-        <spacer name="horizontalSpacer_16">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="6" column="1">
-        <widget class="QCheckBox" name="hideTabsOnTab">
-         <property name="text">
-          <string>Hide tabs when there is only one tab</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="1">
-        <widget class="QCheckBox" name="activateLastTab">
-         <property name="text">
-          <string>Activate last tab when closing active tab</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="1">
-        <widget class="QCheckBox" name="openNewTabAfterActive">
-         <property name="text">
-          <string>Open new tabs after active tab</string>
-         </property>
-        </widget>
-       </item>
-       <item row="12" column="1">
-        <widget class="QCheckBox" name="dontQuitOnTab">
-         <property name="text">
-          <string>Don't quit upon closing last tab</string>
-         </property>
-        </widget>
-       </item>
-       <item row="13" column="1">
-        <widget class="QCheckBox" name="askWhenClosingMultipleTabs">
-         <property name="text">
-          <string>Ask when closing multiple tabs</string>
-         </property>
-        </widget>
-       </item>
-       <item row="14" column="1">
-        <widget class="QCheckBox" name="closedInsteadOpened">
-         <property name="text">
-          <string>Closed tabs list instead of opened in tab bar</string>
-         </property>
-        </widget>
-       </item>
-       <item row="15" column="1">
-        <spacer name="verticalSpacer_7">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="16" column="0" colspan="2">
-        <widget class="QLabel" name="label_25">
-         <property name="text">
-          <string>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="18" column="1" colspan="2">
-        <widget class="QCheckBox" name="selectAllOnFocus">
-         <property name="text">
-          <string>Select all text by double clicking in address bar</string>
-         </property>
-        </widget>
-       </item>
-       <item row="19" column="1">
-        <widget class="QCheckBox" name="selectAllOnClick">
-         <property name="text">
-          <string>Select all text by clicking in address bar</string>
-         </property>
-        </widget>
-       </item>
-       <item row="20" column="1">
-        <widget class="QCheckBox" name="addCountryWithAlt">
-         <property name="text">
-          <string>Add .co.uk domain by pressing ALT key</string>
-         </property>
-        </widget>
-       </item>
-       <item row="21" column="1">
-        <spacer name="verticalSpacer_8">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="11" column="1">
-        <widget class="QCheckBox" name="switchToNewTabs">
-         <property name="text">
-          <string>Automatically switch to newly opened tab</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <layout class="QHBoxLayout" name="horizontalLayout_15">
-         <item>
-          <widget class="QCheckBox" name="showTabPreviews">
-           <property name="text">
-            <string>Show tab previews</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_5">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>10</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="animatedTabPreviews">
-           <property name="text">
-            <string>Make tab previews animated</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="17" column="1" colspan="2">
-        <layout class="QHBoxLayout" name="horizontalLayout_16">
-         <item>
-          <widget class="QLabel" name="label_59">
-           <property name="text">
-            <string>Suggest when typing into address bar:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="addressbarCompletion">
-           <property name="minimumSize">
-            <size>
-             <width>170</width>
-             <height>0</height>
-            </size>
-           </property>
+         <widget class="QWidget" name="tab_6">
+          <attribute name="title">
+           <string>Tabs behavior</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
-            <property name="text">
-             <string>History and Bookmarks</string>
-            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_15">
+             <item>
+              <widget class="QCheckBox" name="showTabPreviews">
+               <property name="text">
+                <string>Show tab previews</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>10</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="animatedTabPreviews">
+               <property name="text">
+                <string>Make tab previews animated</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_16">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>63</width>
+                 <height>13</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
            </item>
            <item>
-            <property name="text">
-             <string>History</string>
-            </property>
+            <widget class="QCheckBox" name="hideTabsOnTab">
+             <property name="text">
+              <string>Hide tabs when there is only one tab</string>
+             </property>
+            </widget>
            </item>
            <item>
-            <property name="text">
-             <string>Bookmarks</string>
-            </property>
+            <widget class="QCheckBox" name="activateLastTab">
+             <property name="text">
+              <string>Activate last tab when closing active tab</string>
+             </property>
+            </widget>
            </item>
            <item>
-            <property name="text">
-             <string>Nothing</string>
-            </property>
+            <widget class="QCheckBox" name="openNewTabAfterActive">
+             <property name="text">
+              <string>Open new tabs after active tab</string>
+             </property>
+            </widget>
            </item>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_23">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Expanding</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
+           <item>
+            <widget class="QCheckBox" name="switchToNewTabs">
+             <property name="text">
+              <string>Automatically switch to newly opened tab</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="dontQuitOnTab">
+             <property name="text">
+              <string>Don't quit upon closing last tab</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="askWhenClosingMultipleTabs">
+             <property name="text">
+              <string>Ask when closing multiple tabs</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="closedInsteadOpened">
+             <property name="text">
+              <string>Closed tabs list instead of opened in tab bar</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_7">
+          <attribute name="title">
+           <string>Address Bar behavior</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_16">
+             <item>
+              <widget class="QLabel" name="label_59">
+               <property name="text">
+                <string>Suggest when typing into address bar:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="addressbarCompletion">
+               <property name="minimumSize">
+                <size>
+                 <width>170</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <item>
+                <property name="text">
+                 <string>History and Bookmarks</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>History</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Bookmarks</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Nothing</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_23">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Expanding</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="showLoadingInAddressBar">
+             <property name="text">
+              <string>Show loading progress in address bar</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="selectAllOnFocus">
+             <property name="text">
+              <string>Select all text by double clicking in address bar</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="selectAllOnClick">
+             <property name="text">
+              <string>Select all text by clicking in address bar</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="addCountryWithAlt">
+             <property name="text">
+              <string>Add .co.uk domain by pressing ALT key</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
        </item>
       </layout>
      </widget>

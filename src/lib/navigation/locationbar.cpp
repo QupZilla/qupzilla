@@ -39,6 +39,7 @@
 #include "qzsettings.h"
 
 #include <QClipboard>
+#include <QTimer>
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit(mainClass)
@@ -48,6 +49,8 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_pasteAndGoAction(0)
     , m_clearAction(0)
     , m_holdingAlt(false)
+    , m_loadProgress(0)
+    , m_loadFinished(true)
 {
     setObjectName("locationbar");
     setDragEnabled(true);
@@ -84,6 +87,14 @@ LocationBar::LocationBar(QupZilla* mainClass)
 
     clearIcon();
     updatePlaceHolderText();
+}
+
+void LocationBar::setWebView(TabbedWebView* view)
+{
+    m_webView = view;
+
+    connect(m_webView, SIGNAL(loadProgress(int)), SLOT(onLoadProgress(int)));
+    connect(m_webView, SIGNAL(loadFinished(bool)), SLOT(onLoadFinished()));
 }
 
 void LocationBar::setText(const QString &text)
@@ -483,4 +494,76 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
 LocationBar::~LocationBar()
 {
     delete m_bookmarkIcon;
+}
+
+void LocationBar::onLoadProgress(int progress)
+{
+    if (qzSettings->showLoadingProgress) {
+        m_loadFinished = false;
+        m_loadProgress = progress;
+        repaint();
+    }
+}
+
+void LocationBar::onLoadFinished()
+{
+    if (qzSettings->showLoadingProgress) {
+        m_loadFinished = false;
+        QTimer::singleShot(700, this, SLOT(hideProgress()));
+    }
+}
+
+void LocationBar::hideProgress()
+{
+    if (qzSettings->showLoadingProgress) {
+        m_loadFinished = true;
+        repaint();
+    }
+}
+
+void LocationBar::paintEvent(QPaintEvent* event)
+{
+    if (hasFocus() || !qzSettings->showLoadingProgress || m_loadFinished) {
+        LineEdit::paintEvent(event);
+        return;
+    }
+
+    QStyleOptionFrameV3 option;
+    initStyleOption(&option);
+
+    QPainter p(this);
+    p.setRenderHint(QPainter::Antialiasing, true);
+    p.setRenderHint(QPainter::TextAntialiasing, true);
+
+    style()->drawPrimitive(QStyle::PE_PanelLineEdit, &option, &p, this);
+
+    QRect contentsRect = style()->subElementRect(QStyle::SE_LineEditContents, &option, this);
+    int lm, tm, rm, bm;
+    getTextMargins(&lm, &tm, &rm, &bm);
+    contentsRect.adjust(lm, tm, -rm, -bm);
+    QFontMetrics fm = fontMetrics();
+    const int x = contentsRect.x() + 3;
+    const int y = contentsRect.y() + (contentsRect.height() - fm.height() + 1) / 2;
+    const int width = contentsRect.width() - 6;
+    const int height = fm.height();
+    QRect textRect(x, y, width, height);
+
+    QColor bg = palette().color(QPalette::Base);
+    if (!bg.isValid() || bg.alpha() == 0) {
+        bg = p_QupZilla->palette().color(QPalette::Base);
+    }
+    bg = bg.darker(110);
+    p.setBrush(QBrush(bg));
+
+    QPen oldPen = p.pen();
+    QPen outlinePen(bg.darker(110), 0.8);
+    p.setPen(outlinePen);
+
+    QRect bar = textRect.adjusted(-3, 0, 6 - (textRect.width() * (100.0 - m_loadProgress) / 100), 0);
+    const int roundness = bar.height() / 4.0;
+    p.drawRoundedRect(bar, roundness, roundness);
+
+    p.setPen(oldPen);
+//    Qt::Alignment va = QStyle::visualAlignment(QApplication::layoutDirection(), QFlag(alignment()));
+    p.drawText(textRect, text());
 }
