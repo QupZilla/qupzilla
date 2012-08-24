@@ -32,6 +32,8 @@ RecoveryWidget::RecoveryWidget(WebView* view, QupZilla* mainClass)
 {
     ui->setupUi(this);
 
+    setCursor(Qt::ArrowCursor);
+
     const RestoreData &data = m_restoreManager->restoreData();
 
     for (int i = 0; i < data.size(); ++i) {

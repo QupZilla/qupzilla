@@ -871,45 +871,34 @@ bool MainApplication::saveStateSlot()
     return true;
 }
 
-bool MainApplication::restoreStateSlot(QupZilla* win, const RestoreData &recoveryData)
+bool MainApplication::restoreStateSlot(QupZilla* window, RestoreData recoveryData)
 {
-    if (m_isPrivateSession) {
+    if (m_isPrivateSession || recoveryData.isEmpty()) {
         return false;
     }
 
     m_isRestoring = true;
 
-    if (recoveryData.isEmpty()) {
-        m_isRestoring = false;
+    window->tabWidget()->closeRecoveryTab();
 
-        return false;
+    if (window->tabWidget()->normalTabsCount() > 1) {
+        // This can only happen when recovering crashed session!
+        //
+        // Don't restore tabs in current window as user already opened
+        // some new tabs.
+        // Instead create new one and restore pinned tabs there
+
+        QupZilla* newWin = makeNewWindow(Qz::BW_OtherRestoredWindow);
+        newWin->tabWidget()->restorePinnedTabs();
+        newWin->restoreWindowState(recoveryData.takeFirst());
+    }
+    else {
+        window->restoreWindowState(recoveryData.takeFirst());
     }
 
-    QupZilla* window = win;
-
-    if (window->tabWidget()->count() > 1) {
-        window = new QupZilla(Qz::BW_OtherRestoredWindow);
-        m_mainWindows.append(window);
-    }
-    win->tabWidget()->closeTab(window->tabWidget()->currentIndex(), true);
-
-    int windowCount = recoveryData.size();
-    int currentWindow = 0;
-
-    while (window) {
-        const RestoreManager::WindowData &wd = recoveryData.at(currentWindow);
-        window->restoreWindowState(wd);
-        window->show();
-
-        ++currentWindow;
-
-        if (currentWindow < windowCount) {
-            window = new QupZilla(Qz::BW_OtherRestoredWindow);
-            m_mainWindows.append(window);
-        }
-        else {
-            window = 0;
-        }
+    foreach(const RestoreManager::WindowData & data, recoveryData) {
+        QupZilla* window = makeNewWindow(Qz::BW_OtherRestoredWindow);
+        window->restoreWindowState(data);
     }
 
     destroyRestoreManager();

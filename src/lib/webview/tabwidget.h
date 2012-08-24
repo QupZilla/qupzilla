@@ -61,6 +61,7 @@ public:
 
     QByteArray saveState();
     bool restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab);
+    void closeRecoveryTab();
 
     void savePinnedTabs();
     void restorePinnedTabs();
@@ -73,6 +74,9 @@ public:
 
     void nextTab();
     void previousTab();
+
+    int normalTabsCount() const;
+    int pinnedTabsCount() const;
 
     void showTabBar();
 
@@ -120,6 +124,8 @@ private slots:
     void tabMoved(int before, int after);
 
 private:
+    inline bool validIndex(int index) const { return index >= 0 && index < count(); }
+
     void tabInserted(int index);
     void tabRemoved(int index);
 

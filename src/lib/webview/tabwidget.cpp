@@ -349,7 +349,7 @@ void TabWidget::closeTab(int index, bool force)
     }
 
     WebTab* webTab = weTab(index);
-    if (!webTab) {
+    if (!webTab || !validIndex(index)) {
         return;
     }
 
@@ -399,7 +399,7 @@ void TabWidget::closeTab(int index, bool force)
 
 void TabWidget::currentTabChanged(int index)
 {
-    if (index < 0 || m_isRestoringState) {
+    if (!validIndex(index) || m_isRestoringState) {
         return;
     }
 
@@ -443,7 +443,7 @@ void TabWidget::tabRemoved(int index)
 
 void TabWidget::startTabAnimation(int index)
 {
-    if (index == -1) {
+    if (!validIndex(index)) {
         return;
     }
 
@@ -467,7 +467,7 @@ void TabWidget::startTabAnimation(int index)
 
 void TabWidget::stopTabAnimation(int index)
 {
-    if (index == -1) {
+    if (!validIndex(index)) {
         return;
     }
 
@@ -480,7 +480,7 @@ void TabWidget::stopTabAnimation(int index)
 
 void TabWidget::setTabIcon(int index, const QIcon &icon)
 {
-    if (index == -1) {
+    if (!validIndex(index)) {
         return;
     }
 
@@ -496,6 +496,10 @@ void TabWidget::setTabIcon(int index, const QIcon &icon)
 
 void TabWidget::setTabText(int index, const QString &text)
 {
+    if (!validIndex(index)) {
+        return;
+    }
+
     QString newtext = text;
     newtext.replace('&', "&&"); // Avoid Alt+letter shortcuts
 
@@ -521,8 +525,22 @@ void TabWidget::previousTab()
     keyPressEvent(&fakeEvent);
 }
 
+int TabWidget::normalTabsCount() const
+{
+    return m_tabBar->normalTabsCount();
+}
+
+int TabWidget::pinnedTabsCount() const
+{
+    return m_tabBar->pinnedTabsCount();
+}
+
 void TabWidget::reloadTab(int index)
 {
+    if (!validIndex(index)) {
+        return;
+    }
+
     weTab(index)->reload();
 }
 
@@ -545,11 +563,19 @@ void TabWidget::reloadAllTabs()
 
 void TabWidget::stopTab(int index)
 {
+    if (!validIndex(index)) {
+        return;
+    }
+
     weTab(index)->stop();
 }
 
 void TabWidget::closeAllButCurrent(int index)
 {
+    if (!validIndex(index)) {
+        return;
+    }
+
     WebTab* akt = weTab(index);
 
     foreach(WebTab * tab, allTabs(false)) {
@@ -563,6 +589,10 @@ void TabWidget::closeAllButCurrent(int index)
 
 int TabWidget::duplicateTab(int index)
 {
+    if (!validIndex(index)) {
+        return -1;
+    }
+
     WebTab* webTab = weTab(index);
 
     const QUrl &url = webTab->url();
@@ -732,7 +762,7 @@ void TabWidget::restorePinnedTabs()
         if (!historyState.isEmpty()) {
             addedIndex = addView(QUrl(), Qz::NT_CleanSelectedTab);
 
-            weTab(i)->p_restoreTab(url, historyState);
+            weTab(addedIndex)->p_restoreTab(url, historyState);
         }
         else {
             addedIndex = addView(url);
@@ -746,7 +776,7 @@ void TabWidget::restorePinnedTabs()
         }
 
         m_tabBar->updateCloseButton(addedIndex);
-        m_tabBar->moveTab(addedIndex, i);
+//        m_tabBar->moveTab(addedIndex, i);
     }
 
     m_isRestoringState = false;
@@ -797,6 +827,15 @@ bool TabWidget::restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab
     currentTabChanged(currentTab);
 
     return true;
+}
+
+void TabWidget::closeRecoveryTab()
+{
+    foreach(WebTab * tab, allTabs(false)) {
+        if (tab->url() == QUrl("qupzilla:restore")) {
+            closeTab(tab->tabIndex(), true);
+        }
+    }
 }
 
 void TabWidget::disconnectObjects()

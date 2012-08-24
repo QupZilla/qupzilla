@@ -65,7 +65,7 @@ public:
     void connectDatabase();
     void loadSettings();
     void reloadSettings();
-    bool restoreStateSlot(QupZilla* window, const RestoreData &recoveryData);
+    bool restoreStateSlot(QupZilla* window, RestoreData recoveryData);
     QupZilla* makeNewWindow(Qz::BrowserWindow type, const QUrl &startUrl = QUrl());
     void aboutToCloseWindow(QupZilla* window);
     bool isStateChanged();
