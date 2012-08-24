@@ -183,7 +183,6 @@ bool UserAgentDialog::showEditDialog(const QString &title, QString* rSite, QStri
     QComboBox* editAgent = new QComboBox(dialog);
     editAgent->setEditable(true);
     editAgent->addItems(m_knownUserAgents);
-    editAgent->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
 
     QDialogButtonBox* box = new QDialogButtonBox(dialog);
     box->addButton(QDialogButtonBox::Ok);
@@ -206,6 +205,7 @@ bool UserAgentDialog::showEditDialog(const QString &title, QString* rSite, QStri
 
     dialog->setWindowTitle(title);
     dialog->setMinimumSize(550, 100);
+    dialog->setMaximumWidth(550);
 
     if (dialog->exec()) {
         *rSite = editSite->text();
