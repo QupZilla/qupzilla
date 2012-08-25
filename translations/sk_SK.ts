@@ -1777,7 +1777,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Správanie kariet&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Správanie kariet&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Delete history on close</source>
@@ -2122,7 +2122,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Správanie panelu adresy&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Správanie panelu adresy&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Preferences</source>
@@ -2394,6 +2394,18 @@
     </message>
     <message>
         <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tabs behavior</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address Bar behavior</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show loading progress in address bar</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

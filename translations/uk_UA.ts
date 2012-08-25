@@ -1895,7 +1895,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Поведінка вкладок&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Поведінка вкладок&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Hide tabs when there is only one tab</source>
@@ -1903,7 +1903,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Поведінка адресного рядка&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Поведінка адресного рядка&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Select all text by double clicking in address bar</source>
@@ -2396,6 +2396,18 @@
     </message>
     <message>
         <source>User Agent Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tabs behavior</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address Bar behavior</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show loading progress in address bar</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
