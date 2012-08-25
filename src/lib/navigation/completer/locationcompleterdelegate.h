@@ -33,6 +33,16 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 private:
+    void drawHighlightedTextLine(const QRect &rect, QString text, const QString &searchText,
+                                 QPainter* painter, const QStyle* style, const QStyleOptionViewItemV4 &option,
+                                 const QPalette::ColorRole &role) const;
+
+    void drawTextLine(const QRect &rect, QString text, QPainter* painter,
+                      const QStyle* style, const QStyleOptionViewItemV4 &option,
+                      const QPalette::ColorRole &role) const;
+
+    inline QRect adjustRect(const QRect &original, const QRect &created) const;
+
     mutable int m_rowHeight;
     mutable int m_padding;
 

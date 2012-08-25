@@ -92,42 +92,137 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         painter->drawPixmap(starRect, starPixmap);
     }
 
+    const QString &searchText = index.data(LocationCompleterModel::SearchStringRole).toString();
+
     // Draw title
     const int leftTitleEdge = leftPosition + 2;
-    //RTL Support //remove conflicting of right-aligned text and starpixmap!
+    // RTL Support: remove conflicting of right-aligned text and starpixmap!
     const int rightTitleEdge = rightPosition - m_padding - starPixmapWidth;
     QRect titleRect(leftTitleEdge, opt.rect.top() + m_padding, rightTitleEdge - leftTitleEdge, titleMetrics.height());
     QString title(titleMetrics.elidedText(index.data(LocationCompleterModel::TitleRole).toString(), Qt::ElideRight, titleRect.width()));
     painter->setFont(titleFont);
 
-    //RTL Support
-#define LRE QChar(0x202A)
-#define RLE QChar(0x202B)
-#define PDF QChar(0x202C)
-    //by computing 'alignment' we align text by its direction not by application layout direction!
-    const Qt::LayoutDirection direction = w ? w->layoutDirection() : QApplication::layoutDirection();
-    Qt::LayoutDirection textDirection = title.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight;
-    Qt::Alignment alignment = textDirection == direction ? Qt::AlignLeft : Qt::AlignRight;
-    QString directedTitle = title;
-    directedTitle.isRightToLeft() ? directedTitle.prepend(RLE) : directedTitle.prepend(LRE);
-    directedTitle.append(PDF);
-
-    style->drawItemText(painter, titleRect, alignment | Qt::TextSingleLine, opt.palette, true, directedTitle, colorRole);
+    drawHighlightedTextLine(titleRect, title, searchText, painter, style, opt, colorRole);
 
     // Draw link
     const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading();
     QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
-    const QString &link = opt.fontMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, linkRect.width());
+    QString link(opt.fontMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, linkRect.width()));
     painter->setFont(opt.font);
 
-    //RTL Support
-    textDirection = link.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight;
-    alignment = textDirection == direction ? Qt::AlignLeft : Qt::AlignRight;
-    QString directedLink = link;
-    directedLink.isRightToLeft() ? directedLink.prepend(RLE) : directedLink.prepend(LRE);
-    directedLink.append(PDF);
+    drawHighlightedTextLine(linkRect, link, searchText, painter, style, opt, colorLinkRole);
+}
 
-    style->drawItemText(painter, linkRect, Qt::TextSingleLine | alignment, opt.palette, true, directedLink, colorLinkRole);
+void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QString text, const QString &searchText,
+        QPainter* painter, const QStyle* style, const QStyleOptionViewItemV4 &option,
+        const QPalette::ColorRole &role) const
+{
+    QList<int> delimiters;
+    const QStringList &searchStrings = searchText.split(' ', QString::SkipEmptyParts);
+
+    foreach(const QString & string, searchStrings) {
+        int delimiter = text.indexOf(string, 0, Qt::CaseInsensitive);
+
+        while (delimiter != -1) {
+            delimiters.append(delimiter);
+            delimiters.append(delimiter + string.length());
+
+            delimiter = text.indexOf(string, delimiters.last(), Qt::CaseInsensitive);
+        }
+    }
+
+    // If we don't find any match, just paint it without any highlight
+    if (delimiters.isEmpty() || delimiters.count() % 2) {
+        drawTextLine(rect, text, painter, style, option, role);
+        return;
+    }
+
+    QFont normalFont = painter->font();
+    QFont boldFont = normalFont;
+    boldFont.setBold(true);
+    boldFont.setUnderline(true);
+
+    QFontMetrics normalMetrics(normalFont);
+    QFontMetrics boldMetrics(boldFont);
+
+    int lastEndPos = 0;
+    int lastRectPos = rect.left();
+
+    while (!delimiters.isEmpty()) {
+        int start = delimiters.takeFirst();
+        int end = delimiters.takeFirst();
+
+        const QString &normalPart = text.mid(lastEndPos, start - lastEndPos);
+        const QString &boldPart = text.mid(start, end - start);
+
+        lastEndPos = end;
+
+        if (!normalPart.isEmpty()) {
+            int width = normalMetrics.width(normalPart);
+            QRect nRect(lastRectPos, rect.top(), width, rect.height());
+
+            painter->setFont(normalFont);
+            drawTextLine(adjustRect(rect, nRect), normalPart, painter, style, option, role);
+
+            lastRectPos += width;
+        }
+
+        if (!boldPart.isEmpty()) {
+            int width = boldMetrics.width(boldPart);
+            QRect bRect(lastRectPos, rect.top(), width, rect.height());
+
+            painter->setFont(boldFont);
+            drawTextLine(adjustRect(rect, bRect), boldPart, painter, style, option, role);
+
+            lastRectPos += width;
+        }
+
+        if (delimiters.isEmpty() && lastEndPos != text.size()) {
+            const QString &lastText = text.mid(lastEndPos);
+
+            int width = normalMetrics.width(lastText);
+            QRect nRect(lastRectPos, rect.top(), width, rect.height());
+
+            painter->setFont(normalFont);
+            drawTextLine(adjustRect(rect, nRect), lastText, painter, style, option, role);
+        }
+    }
+}
+
+// RTL Support
+#define LRE QChar(0x202A)
+#define RLE QChar(0x202B)
+#define PDF QChar(0x202C)
+
+void LocationCompleterDelegate::drawTextLine(const QRect &rect, QString text, QPainter* painter,
+        const QStyle* style, const QStyleOptionViewItemV4 &option,
+        const QPalette::ColorRole &role) const
+{
+    if (rect.width() > 0) {
+        const Qt::LayoutDirection direction = option.widget ? option.widget->layoutDirection() : QApplication::layoutDirection();
+        Qt::LayoutDirection textDirection = text.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight;
+        Qt::Alignment alignment = textDirection == direction ? Qt::AlignLeft : Qt::AlignRight;
+
+        text.isRightToLeft() ? text.prepend(RLE) : text.prepend(LRE);
+        text.append(PDF);
+
+        style->drawItemText(painter, rect, Qt::TextSingleLine | alignment, option.palette, true, text, role);
+    }
+}
+
+QRect LocationCompleterDelegate::adjustRect(const QRect &original, const QRect &created) const
+{
+    int crLeft = created.left() + created.width();
+    int orLeft = original.left() + original.width();
+
+    if (crLeft > orLeft) {
+        QRect nRect = created;
+        nRect.setWidth(orLeft - created.left());
+
+        return nRect;
+    }
+
+    return created;
 }
 
 QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
