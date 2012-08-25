@@ -46,15 +46,10 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
     Type showType = (Type) qzSettings->showLocationSuggestions;
 
     int limit = string.size() < 3 ? 25 : 15;
-    QString searchString = QString("%%1%").arg(string);
     QList<QUrl> urlList;
-    QSqlQuery query;
 
     if (showType == HistoryAndBookmarks || showType == Bookmarks) {
-        query.prepare("SELECT id, url, title, icon FROM bookmarks WHERE title LIKE ? OR url LIKE ? LIMIT ?");
-        query.addBindValue(searchString);
-        query.addBindValue(searchString);
-        query.addBindValue(limit);
+        QSqlQuery query = createQuery(string, QString(), limit, true, false);
         query.exec();
 
         while (query.next()) {
@@ -66,6 +61,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             item->setData(query.value(0), IdRole);
             item->setData(query.value(2), TitleRole);
             item->setData(QVariant(true), BookmarkRole);
+            item->setData(string, SearchStringRole);
             appendRow(item);
             urlList.append(url);
         }
@@ -74,10 +70,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
     }
 
     if (showType == HistoryAndBookmarks || showType == History) {
-        query.prepare("SELECT id, url, title FROM history WHERE title LIKE ? OR url LIKE ? ORDER BY count DESC LIMIT ?");
-        query.addBindValue(searchString);
-        query.addBindValue(searchString);
-        query.addBindValue(limit);
+        QSqlQuery query = createQuery(string, "count DESC", limit, false, false);
         query.exec();
 
         while (query.next()) {
@@ -93,6 +86,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             item->setData(query.value(0), IdRole);
             item->setData(query.value(2), TitleRole);
             item->setData(QVariant(false), BookmarkRole);
+            item->setData(string, SearchStringRole);
 
             appendRow(item);
         }
@@ -118,4 +112,55 @@ void LocationCompleterModel::showMostVisited()
 
         appendRow(item);
     }
+}
+
+QSqlQuery LocationCompleterModel::createQuery(QString searchString, QString orderBy, int limit, bool bookmarks, bool exactMatch)
+{
+    QString query = "SELECT id, url, title";
+    QStringList searchList;
+
+    if (bookmarks) {
+        query.append(", icon FROM bookmarks ");
+    }
+    else {
+        query.append(" FROM history ");
+    }
+
+    query.append("WHERE ");
+    if (exactMatch) {
+        query.append("title LIKE ? OR url LIKE ? ");
+    }
+    else {
+        searchList = searchString.split(' ', QString::SkipEmptyParts);
+        const int slSize = searchList.size();
+        for (int i = 0; i < slSize; ++i) {
+            query.append("(title LIKE ? OR url LIKE ?) ");
+            if (i < slSize - 1) {
+                query.append("AND ");
+            }
+        }
+    }
+
+    if (!orderBy.isEmpty()) {
+        query.append("ORDER BY " + orderBy);
+    }
+
+    query.append(" LIMIT ?");
+
+    QSqlQuery sqlQuery;
+    sqlQuery.prepare(query);
+
+    if (exactMatch) {
+        sqlQuery.addBindValue(QString("%%1%").arg(searchString));
+        sqlQuery.addBindValue(QString("%%1%").arg(searchString));
+    }
+    else {
+        foreach(const QString & str, searchList) {
+            sqlQuery.addBindValue(QString("%%1%").arg(str));
+            sqlQuery.addBindValue(QString("%%1%").arg(str));
+        }
+    }
+    sqlQuery.addBindValue(limit);
+
+    return sqlQuery;
 }

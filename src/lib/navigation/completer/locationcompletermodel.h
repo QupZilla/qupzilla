@@ -20,13 +20,16 @@
 
 #include <QStandardItemModel>
 
+class QSqlQuery;
+
 class LocationCompleterModel : public QStandardItemModel
 {
 public:
     enum Role {
         TitleRole = Qt::UserRole + 1,
         BookmarkRole = Qt::UserRole + 2,
-        IdRole = Qt::UserRole + 3
+        IdRole = Qt::UserRole + 3,
+        SearchStringRole = Qt::UserRole + 4
     };
     explicit LocationCompleterModel(QObject* parent = 0);
 
@@ -42,8 +45,10 @@ private:
         HistoryAndBookmarks = 0,
         History = 1,
         Bookmarks = 2,
-        Nothing = 3
+        Nothing = 4
     };
+
+    QSqlQuery createQuery(QString searchString, QString orderBy, int limit, bool bookmarks, bool exactMatch);
 
     QString m_lastCompletion;
 
