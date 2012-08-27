@@ -2381,6 +2381,10 @@
         <source>Show loading progress in address bar</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Show close button on tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

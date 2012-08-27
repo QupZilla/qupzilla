@@ -51,7 +51,7 @@
         <translation>&lt;p&gt;&lt;b&gt;Bidragare:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="89"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="91"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Översättare:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -2247,7 +2247,7 @@
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="309"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="701"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="703"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Observera: Du kan inte ta bort aktiv profil.</translation>
     </message>
@@ -2321,7 +2321,7 @@
         <translation type="obsolete">&lt;b&gt;Flikbeteende&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="666"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="673"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>Göm flikar när endast en är öppen</translation>
     </message>
@@ -2330,42 +2330,42 @@
         <translation type="obsolete">&lt;b&gt;Adressradens beteende&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="799"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="806"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>Markera all text vid dubbelklick i adressraden</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="813"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="820"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Lägg till .se genom att trycka på ALT-knappen</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="673"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="680"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Visa senaste flik när den aktiva fliken stängs</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="701"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="708"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Fråga när flera flikar stängs</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="806"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="813"/>
         <source>Select all text by clicking in address bar</source>
         <translation>Markera all text vid enkelklick i adressraden</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="845"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="852"/>
         <source>Web Configuration</source>
         <translation>Webbinställningar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="867"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="874"/>
         <source>Allow JAVA</source>
         <translation>Tillåt Java</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="860"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="867"/>
         <source>Allow JavaScript</source>
         <translation>Tillåt Javaskript</translation>
     </message>
@@ -2381,81 +2381,81 @@
         <translation>Aktiv profil:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="694"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="701"/>
         <source>Don&apos;t quit upon closing last tab</source>
         <translation>Avsluta inte när den sista fliken stängs</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="708"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="715"/>
         <source>Closed tabs list instead of opened in tab bar</source>
         <translation>Lista över stängda flikar istället för öppna i flikraden</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="680"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="687"/>
         <source>Open new tabs after active tab</source>
         <translation>Öppna nya flikar efter den aktiva fliken</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="874"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="881"/>
         <source>Allow DNS Prefetch</source>
         <translation>Hämta DNS-poster i förväg</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1144"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1151"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>Tillåt lokal lagring av HTML5-innehåll</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1151"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1158"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Ta bort lokalt sparade HTML5-data vid avslut</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1843"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1850"/>
         <source>JavaScript can access clipboard</source>
         <translatorcomment>Klippbord?</translatorcomment>
         <translation>Javaskript kan komma åt klippbordet</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1908"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1915"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Skicka DNT-instruktioner till servrar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="902"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="909"/>
         <source>Zoom text only</source>
         <translation>Zooma endast text</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="888"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="895"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>Skriv ut elements bakgrunder</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="895"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="902"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translation>Inkludera länkar i fokuskedjan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="881"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="888"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>Tillått XSS-auditering</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="919"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="926"/>
         <source>Mouse wheel scrolls</source>
         <translation>Mushjulet skrollar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="939"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="946"/>
         <source>lines on page</source>
         <translation>rader på sidan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="950"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="957"/>
         <source>Default zoom on pages: </source>
         <translation>Standardzoom på sidor:</translation>
     </message>
@@ -2490,240 +2490,245 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="687"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="666"/>
+        <source>Show close button on tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="694"/>
         <source>Automatically switch to newly opened tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="729"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="736"/>
         <source>Address Bar behavior</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="737"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="744"/>
         <source>Suggest when typing into address bar:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="751"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="758"/>
         <source>History and Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="756"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="763"/>
         <source>History</source>
         <translation type="unfinished">Historik</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="761"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="768"/>
         <source>Bookmarks</source>
         <translation type="unfinished">Bokmärken</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="766"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="773"/>
         <source>Nothing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="792"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="799"/>
         <source>Show loading progress in address bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="853"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="860"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
         <translation>Tillåt Netscape-insticksmoduler (Flash)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1002"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1009"/>
         <source>Local Storage</source>
         <translation>Lokal lagring</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1010"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1017"/>
         <source>Maximum pages in cache: </source>
         <translation>Maximalt antal sidor i cache:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1029"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1036"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1070"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1077"/>
         <source>Allow storing network cache on disk</source>
         <translation>Tillåt att nätverkscache lagras på hårddisken</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1080"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1087"/>
         <source>Maximum </source>
         <translation>Maximal</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1087"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1094"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1114"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1121"/>
         <source>Allow saving history</source>
         <translation>Tillåt att historik sparas</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1121"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1128"/>
         <source>Delete history on close</source>
         <translation>Ta bort historik vid avslut</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1177"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1184"/>
         <source>Delete now</source>
         <translation>Ta bort nu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1216"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1223"/>
         <source>Proxy Configuration</source>
         <translation>Proxyinställningar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1225"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1232"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1230"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1237"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1243"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1381"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1250"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1388"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1262"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1356"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1269"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1363"/>
         <source>Username:</source>
         <translation>Användarnamn:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1272"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1363"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1279"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1370"/>
         <source>Password:</source>
         <translation>Lösenord:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1298"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1305"/>
         <source>Don&apos;t use on:</source>
         <translation>Använd inte på:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1305"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1312"/>
         <source>Manual configuration</source>
         <translation>Manuell inställning</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1312"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1319"/>
         <source>System proxy configuration</source>
         <translation>Global proxyinställning</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1319"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1326"/>
         <source>Do not use proxy</source>
         <translation>Använd inte proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1342"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1349"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Undantag&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1349"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1356"/>
         <source>Server:</source>
         <translation>Server:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1400"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1407"/>
         <source>Use different proxy for https connection</source>
         <translation>Använd annan proxy för https-anslutningar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1430"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1437"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Teckensnittsfamilerj&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1443"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1450"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1450"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1457"/>
         <source>Fixed</source>
         <translation>Fast bredd</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1460"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1467"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1470"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1477"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1480"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1487"/>
         <source>Cursive</source>
         <translation>Kursivt</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1708"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1715"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Extern nedladdningshanterare&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1715"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1722"/>
         <source>Use external download manager</source>
         <translation>Använd extern nedladdningshanterare</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1727"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1734"/>
         <source>Executable:</source>
         <translation>Körbar fil:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1734"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1741"/>
         <source>Arguments:</source>
         <translation>Argument:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1741"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1748"/>
         <source>Leave blank if unsure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1864"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1871"/>
         <source>Filter tracking cookies</source>
         <translation>Filtrera spårningskakor</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1977"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1984"/>
         <source>Certificate Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2014"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2021"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Varning: &lt;/b&gt;Matcha domännamn exakt och Filtrera spårningskakor kan leda till att kakor från vissa sidor nekas. Om du har problem med kakor, prova att inaktivera dessa inställningar först!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2271"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2278"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2296"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2303"/>
         <source>User Agent Manager</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2732,167 +2737,167 @@
         <translation type="obsolete">Ändra webbläsaridentifiering:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1532"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1539"/>
         <source>Fantasy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1539"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1546"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Teckenstorlek&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1548"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1555"/>
         <source>Fixed Font Size</source>
         <translation>Fast</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1555"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1562"/>
         <source>Default Font Size</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1582"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1589"/>
         <source>Minimum Font Size</source>
         <translation>Minsta</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1589"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1596"/>
         <source>Minimum Logical Font Size</source>
         <translation>Minsta logiska</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1622"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1629"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nedladdningsdestination&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1629"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1636"/>
         <source>Ask everytime for download location</source>
         <translation>Fråga efter nedladdningsdestination varje gång</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1636"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1643"/>
         <source>Use defined location: </source>
         <translation>Använd förinställd destination:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1648"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1753"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2191"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1655"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1760"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2198"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1686"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1693"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nedladdningsinställningar&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1693"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1700"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Använd systemets egna filhanterare 
 (skapar eventuellt problem vid nedladdning av SSL-säkrat material)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1701"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1708"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Stäng nedladdningshanterare när alla nedladdningar avslutas</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1781"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1788"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Autofyll-alternativ&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1788"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1795"/>
         <source>Allow saving passwords from sites</source>
         <translation>Tillåt att lösenord lagras på sidor</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1871"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1878"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Kakor&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1878"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1885"/>
         <source>Allow storing of cookies</source>
         <translation>Tillåt lagring av kakor</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1922"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1929"/>
         <source>Manage CA certificates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1984"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1991"/>
         <source>Delete cookies on close</source>
         <translation>Ta bort kakor vid avslut</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1901"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1908"/>
         <source>Match domain exactly</source>
         <translation>Matcha domännamn exakt</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1964"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1971"/>
         <source>Cookies Manager</source>
         <translation>Kakhanterare</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2007"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2014"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL-certifikat&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1915"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2174"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1922"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2181"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Övrigt&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1857"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1864"/>
         <source>Send Referer header to servers</source>
         <translation>Skicka Referer header till servrar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1850"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1857"/>
         <source>Block popup windows</source>
         <translation>Blockera popup-fönster</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2028"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2035"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Notifikationer&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2035"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2042"/>
         <source>Use OSD Notifications</source>
         <translation>Använd OSD-notifikationer</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2045"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2052"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Använd systemets egna notifikationssystem (endast Linux)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2052"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2059"/>
         <source>Do not use Notifications</source>
         <translation>Använd inte notifikationer</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2103"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2110"/>
         <source>Expiration timeout:</source>
         <translation>Tiden löper ut:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2116"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2123"/>
         <source> seconds</source>
         <translation> sekunder</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2125"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2132"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Observera: &lt;/b&gt;Du kan ändra notifikationernas placering genom att dra runt dem på skärmen.</translation>
     </message>
@@ -2912,17 +2917,17 @@
         <translation>För att byta språk måste du starta om webbläsaren.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2181"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2188"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>Stilmall som automatiskt laddas med alla webbsidor: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2200"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2207"/>
         <source>Languages</source>
         <translation>Språk</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2222"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2229"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Föredraget språk för hemsidor&lt;/b&gt;</translation>
     </message>
@@ -2977,68 +2982,68 @@
         <translation>Annat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="443"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="445"/>
         <source>OSD Notification</source>
         <translation>OSD-notifikationer</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="444"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="446"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Flytta runt den på skämen för att placera den där du vill ha den.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="472"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="474"/>
         <source>Choose download location...</source>
         <translation>Välj nedladdningsdestination...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="486"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="488"/>
         <source>Choose stylesheet location...</source>
         <translation>Välj stilmallens plats...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="497"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="499"/>
         <source>Deleted</source>
         <translation>Borttagen</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="503"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="505"/>
         <source>Choose executable location...</source>
         <translation>Välj den körbara filens plats...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="655"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="657"/>
         <source>New Profile</source>
         <translation>Ny profil</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="655"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="657"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Välj namn på den nya profilen:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="662"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="666"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="664"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="668"/>
         <source>Error!</source>
         <translation>Fel!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="662"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="664"/>
         <source>This profile already exists!</source>
         <translation>Denna profil finns redan!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="666"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="668"/>
         <source>Cannot create profile directory!</source>
         <translation>Kan inte skapa profilensökväg!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="686"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="688"/>
         <source>Confirmation</source>
         <translation>Bekräftelse</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="687"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="689"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Är du säker på att du permanent vill ta bort profilen&quot;%1&quot;? Detta kan ej göras ogjort!  </translation>
     </message>
@@ -4812,72 +4817,72 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="133"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="131"/>
         <source>&amp;New tab</source>
         <translation>&amp;Ny flik</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="141"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="139"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Stoppa flik</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="144"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="142"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Hämta om flik</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="147"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="145"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Duplicera flik</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="146"/>
         <source>Un&amp;pin Tab</source>
         <translation>Av&amp;nåla flik</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="146"/>
         <source>&amp;Pin Tab</source>
         <translation>&amp;Nåla flik</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="150"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
         <source>Re&amp;load All Tabs</source>
         <translation>&amp;Hämta om alla flikar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="149"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>&amp;Bokmärk denna flik</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="152"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="150"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Bokmärk &amp;alla flikar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="158"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="156"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Stäng &amp;andra flikar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="159"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="157"/>
         <source>Cl&amp;ose</source>
         <translation>&amp;Stäng</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="163"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Hämta &amp;om alla flikar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="162"/>
         <source>Bookmark &amp;All Ta&amp;bs</source>
         <translation>Bokmärk &amp;alla flikar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="166"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Återställ &amp;stängd flik</translation>
     </message>
