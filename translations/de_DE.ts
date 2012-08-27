@@ -2578,7 +2578,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="613"/>
         <source>Tabs behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Tab-Verhalten</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="687"/>
@@ -2588,7 +2588,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="729"/>
         <source>Address Bar behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Adress-Leisten Verhalten</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="737"/>
@@ -2618,7 +2618,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="792"/>
         <source>Show loading progress in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Fortschrittsanzeige in der Adress-Leiste anzeigen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="853"/>
