@@ -71,7 +71,7 @@ void History::addHistoryEntry(const QUrl &url, QString title)
     if (url.scheme() == "qupzilla" || url.scheme() == "about" || url.isEmpty()) {
         return;
     }
-    if (title == "") {
+    if (title.isEmpty()) {
         title = tr("No Named Page");
     }
 

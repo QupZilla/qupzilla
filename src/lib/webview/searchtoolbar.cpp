@@ -62,10 +62,10 @@ void SearchToolBar::focusSearchLine()
 
 void SearchToolBar::hide()
 {
-    searchText("");
-    p_QupZilla->weView()->setFocus();
-
     AnimatedWidget::hide();
+
+    searchText(QString());
+    p_QupZilla->weView()->setFocus();
 }
 
 void SearchToolBar::findNext()
@@ -102,7 +102,7 @@ void SearchToolBar::highlightChanged()
         view->findText(ui->lineEdit->text(), m_findFlags | QWebPage::HighlightAllOccurrences);
     }
     else {
-        view->findText("", QWebPage::HighlightAllOccurrences);
+        view->findText(QString(), QWebPage::HighlightAllOccurrences);
     }
 }
 
