@@ -80,6 +80,8 @@ void AboutDialog::showAuthors()
         m_authorsHtml += tr("<p><b>Contributors:</b><br/>%1</p>").arg(
                              QString::fromUtf8("Mladen Pejaković<br/>"
                                                "Alexander Samilov<br/>"
+                                               "Seyyed Razi Alavizadeh<br/>"
+                                               "Franz Fellner<br/>"
                                                "Bryan M Dunsmore<br/>"
                                                "Mariusz Fik<br/>"
                                                "Jan Rajnoha<br/>"
@@ -111,7 +113,8 @@ void AboutDialog::showAuthors()
                                                "Daiki Noda<br/>"
                                                "Gábor Oberle<br/>"
                                                "Piccoro McKay Lenz<br/>"
-                                               "Stanislav Kuznietsov")
+                                               "Stanislav Kuznietsov<br/>"
+                                               "Seyyed Razi Alavizadeh")
                          );
         m_authorsHtml += "</div></center>";
     }
