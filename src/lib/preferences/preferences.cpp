@@ -172,7 +172,9 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->closedInsteadOpened->setChecked(settings.value("closedInsteadOpenedTabs", false).toBool());
     ui->showTabPreviews->setChecked(settings.value("showTabPreviews", true).toBool());
     ui->animatedTabPreviews->setChecked(settings.value("tabPreviewAnimationsEnabled", true).toBool());
+    ui->showCloseButtonOnTabs->setChecked(settings.value("showCloseButtonOnTabs", true).toBool());
     settings.endGroup();
+
     connect(ui->showTabPreviews, SIGNAL(toggled(bool)), this, SLOT(showTabPreviewsChanged(bool)));
     showTabPreviewsChanged(ui->showTabPreviews->isChecked());
 
@@ -777,6 +779,7 @@ void Preferences::saveSettings()
     settings.setValue("closedInsteadOpenedTabs", ui->closedInsteadOpened->isChecked());
     settings.setValue("showTabPreviews", ui->showTabPreviews->isChecked());
     settings.setValue("tabPreviewAnimationsEnabled", ui->animatedTabPreviews->isChecked());
+    settings.setValue("showCloseButtonOnTabs", ui->showCloseButtonOnTabs->isChecked());
     settings.endGroup();
 
     //DOWNLOADS
