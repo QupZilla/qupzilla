@@ -33,7 +33,7 @@
 #include <QRect>
 
 #define MAXIMUM_TAB_WIDTH 250
-#define MINIMUM_TAB_WIDTH 50
+#define MINIMUM_TAB_WIDTH 125
 
 #ifdef Q_WS_WIN
 #define PINNED_TAB_WIDTH 38
@@ -48,16 +48,16 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     , p_QupZilla(mainClass)
     , m_tabWidget(tabWidget)
     , m_tabPreview(new TabPreview(mainClass, tabWidget))
+    , m_showTabPreviews(false)
+    , m_showCloseButtons(false)
     , m_clickedTab(0)
     , m_pinnedTabsCount(0)
     , m_normalTabWidth(0)
     , m_lastTabWidth(0)
-    , m_adjustingLastTab(false)
 {
     setObjectName("tabbar");
     setContextMenuPolicy(Qt::CustomContextMenu);
     setElideMode(Qt::ElideRight);
-    setTabsClosable(true);
     setDocumentMode(true);
     setFocusPolicy(Qt::NoFocus);
     setMouseTracking(true);
@@ -83,13 +83,11 @@ void TabBar::loadSettings()
 
     m_tabPreview->setAnimationsEnabled(settings.value("tabPreviewAnimationsEnabled", true).toBool());
     m_showTabPreviews = settings.value("showTabPreviews", true).toBool();
+    m_showCloseButtons = settings.value("showCloseButtonOnTabs", true).toBool();
+    bool activateLastTab = settings.value("ActivateLastTabWhenClosingActual", false).toBool();
 
-    if (settings.value("ActivateLastTabWhenClosingActual", false).toBool()) {
-        setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
-    }
-    else {
-        setSelectionBehaviorOnRemove(QTabBar::SelectRightTab);
-    }
+    setTabsClosable(m_showCloseButtons);
+    setSelectionBehaviorOnRemove(activateLastTab ? QTabBar::SelectPreviousTab : QTabBar::SelectRightTab);
 
     settings.endGroup();
 }
@@ -180,7 +178,7 @@ QSize TabBar::tabSizeHint(int index) const
     QSize size = QTabBar::tabSizeHint(index);
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
     TabBar* tabBar = const_cast <TabBar*>(this);
-    m_adjustingLastTab = false;
+    bool adjustingLastTab = false;
 
     if (webTab && webTab->isPinned()) {
         size.setWidth(PINNED_TAB_WIDTH);
@@ -193,31 +191,63 @@ QSize TabBar::tabSizeHint(int index) const
             size.setWidth(m_normalTabWidth);
         }
         else if (availableWidth < MINIMUM_TAB_WIDTH * normalTabsCount) {
-            m_normalTabWidth = MINIMUM_TAB_WIDTH;
-            size.setWidth(m_normalTabWidth);
+            // Tabs don't fit at all in tabbar even with MINIMUM_TAB_WIDTH
+            // We will try to use as low width of tabs as possible
+            // to try avoid overflowing tabs into tabbar buttons
+
+            int maxWidthForTab = availableWidth / normalTabsCount;
+            if (maxWidthForTab < PINNED_TAB_WIDTH) {
+                // FIXME: It overflows now
+
+                m_normalTabWidth = PINNED_TAB_WIDTH;
+                size.setWidth(m_normalTabWidth);
+            }
+            else {
+                m_normalTabWidth = maxWidthForTab;
+
+                // Fill any empty space (we've got from rounding) with last tab
+                if (index == count() - 1) {
+                    m_lastTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
+                    adjustingLastTab = true;
+                    size.setWidth(m_lastTabWidth);
+                }
+                else {
+                    m_lastTabWidth = maxWidthForTab;
+                    size.setWidth(m_lastTabWidth);
+                }
+
+                // Hiding close buttons to save some space
+                tabBar->setTabsClosable(false);
+            }
         }
         else {
             int maxWidthForTab = availableWidth / normalTabsCount;
             m_normalTabWidth = maxWidthForTab;
-            //Fill any empty space (we've got from rounding) with last tab
+
+            // Fill any empty space (we've got from rounding) with last tab
             if (index == count() - 1) {
                 m_lastTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
-                m_adjustingLastTab = true;
+                adjustingLastTab = true;
                 size.setWidth(m_lastTabWidth);
             }
             else {
                 m_lastTabWidth = maxWidthForTab;
                 size.setWidth(m_lastTabWidth);
             }
+
+            if (tabsClosable() != m_showCloseButtons) {
+                tabBar->setTabsClosable(m_showCloseButtons);
+            }
         }
     }
 
     if (index == count() - 1) {
         int xForAddTabButton = (PINNED_TAB_WIDTH * m_pinnedTabsCount) + (count() - m_pinnedTabsCount) * (m_normalTabWidth);
-        if (m_adjustingLastTab) {
+        if (adjustingLastTab) {
             xForAddTabButton += m_lastTabWidth - m_normalTabWidth;
         }
-        //RTL Support
+
+        // RTL Support
         if (QApplication::layoutDirection() == Qt::RightToLeft) {
             xForAddTabButton = width() - xForAddTabButton;
         }

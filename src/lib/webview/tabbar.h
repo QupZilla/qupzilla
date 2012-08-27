@@ -100,13 +100,13 @@ private:
     QTimer* m_tabPreviewTimer;
 
     bool m_showTabPreviews;
+    bool m_showCloseButtons;
 
     int m_clickedTab;
     int m_pinnedTabsCount;
 
     mutable int m_normalTabWidth;
     mutable int m_lastTabWidth;
-    mutable bool m_adjustingLastTab;
 
     QPoint m_dragStartPosition;
 };
