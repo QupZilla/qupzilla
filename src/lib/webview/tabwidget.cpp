@@ -31,7 +31,6 @@
 #include "websearchbar.h"
 #include "settings.h"
 
-#include <QStyleOptionToolButton>
 #include <QMovie>
 #include <QMenu>
 #include <QStackedWidget>
@@ -113,7 +112,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
     connect(this, SIGNAL(currentChanged(int)), p_QupZilla, SLOT(refreshHistory()));
 
-    connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
+    connect(m_tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(reloadTab(int)), this, SLOT(reloadTab(int)));
     connect(m_tabBar, SIGNAL(stopTab(int)), this, SLOT(stopTab(int)));
     connect(m_tabBar, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
