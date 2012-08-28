@@ -758,7 +758,7 @@
     </message>
     <message>
         <source>Organize Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>سازمان‌دهی نشان‌ها</translation>
     </message>
 </context>
 <context>
@@ -1260,7 +1260,7 @@
     </message>
     <message>
         <source>Download with External Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>دریافت با استفاده از مدیر دریافت بیرونی</translation>
     </message>
 </context>
 <context>
@@ -1294,35 +1294,35 @@
     <name>FileSchemeReply</name>
     <message>
         <source>No Error</source>
-        <translation type="unfinished">بدون خطا</translation>
+        <translation>بدون خطا</translation>
     </message>
     <message>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"></translation>
+        <translation>رفتن به پوشه در سطح بالاتر</translation>
     </message>
     <message>
         <source>Show hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>نمایش فایل‌های مخفی</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">نام</translation>
+        <translation>نام</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>اندازه</translation>
     </message>
     <message>
         <source>Last modified</source>
-        <translation type="unfinished"></translation>
+        <translation>آخرین اصلاح</translation>
     </message>
     <message>
         <source>Index for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>نمایه برای %1</translation>
     </message>
     <message>
         <source>Folder is empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>پوشه خالی است.</translation>
     </message>
 </context>
 <context>
@@ -2390,27 +2390,27 @@
     </message>
     <message>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;تغییر هویت مرورگر&lt;/b&gt;</translation>
     </message>
     <message>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>مدیر پیشکار کاربر</translation>
     </message>
     <message>
         <source>Tabs behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>رفتار برگه‌ها</translation>
     </message>
     <message>
         <source>Address Bar behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>رفتار نوار آدرس</translation>
     </message>
     <message>
         <source>Show loading progress in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>نمایش نوار پیشرفت بارگذاری در نوار آدرس</translation>
     </message>
     <message>
         <source>Show close button on tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>نمایش دکمه بستن روی برگه‌ها</translation>
     </message>
 </context>
 <context>
@@ -2429,11 +2429,11 @@
     </message>
     <message>
         <source>Save file as...</source>
-        <translation type="unfinished">رونوشت‌برداری پرونده به...</translation>
+        <translation>رونوشت‌برداری پرونده به...</translation>
     </message>
     <message>
         <source>Unknown size</source>
-        <translation type="unfinished">اندازه نامعلوم</translation>
+        <translation>اندازه نامعلوم</translation>
     </message>
 </context>
 <context>
@@ -2627,11 +2627,11 @@
     </message>
     <message>
         <source>&amp;Page Source</source>
-        <translation>&amp;سورس صفحه</translation>
+        <translation>سورس &amp;صفحه</translation>
     </message>
     <message>
         <source>Hi&amp;story</source>
-        <translation>&amp;پیشینه</translation>
+        <translation>پی&amp;شینه</translation>
     </message>
     <message>
         <source>&amp;Back</source>
@@ -2639,7 +2639,7 @@
     </message>
     <message>
         <source>&amp;Forward</source>
-        <translation>&amp;پسین</translation>
+        <translation>پ&amp;سین</translation>
     </message>
     <message>
         <source>&amp;Home</source>
@@ -2663,7 +2663,7 @@
     </message>
     <message>
         <source>&amp;Bookmarks</source>
-        <translation>&amp;نشان‌ها</translation>
+        <translation>ن&amp;شان‌ها</translation>
     </message>
     <message>
         <source>Bookmark &amp;This Page</source>
@@ -2695,7 +2695,7 @@
     </message>
     <message>
         <source>&amp;Cookies Manager</source>
-        <translation>&amp;مدیر کوکی‌ها</translation>
+        <translation>مدیر &amp;کوکی‌ها</translation>
     </message>
     <message>
         <source>&amp;AdBlock</source>
@@ -2715,7 +2715,7 @@
     </message>
     <message>
         <source>&amp;Private Browsing</source>
-        <translation>مرور &amp;خصوصی</translation>
+        <translation>مرور خ&amp;صوصی</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -2739,7 +2739,7 @@
     </message>
     <message>
         <source>Restore &amp;Closed Tab</source>
-        <translation>برگرداندن برگه &amp;بسته‌شده</translation>
+        <translation>بر&amp;گرداندن برگه بسته‌شده</translation>
     </message>
     <message>
         <source> (Private Browsing)</source>
@@ -3120,23 +3120,23 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Restore Session</source>
-        <translation type="unfinished"></translation>
+        <translation>برگرداندن نشست</translation>
     </message>
     <message>
         <source>Oops, QupZilla crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>اوه، کوپزیلا دچار خطا شد.</translation>
     </message>
     <message>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation type="unfinished"></translation>
+        <translation>به این خاطر از شما عذرخواهیم. آیا می‌خواهید آخرین حالت ذحیره شده، برگردانده شود؟</translation>
     </message>
     <message>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation type="unfinished"></translation>
+        <translation>سعی کنید یک یا چند برگه‌ای را که فکر می‌کنید باعث بروز مشکل هستند را حذف کنید</translation>
     </message>
     <message>
         <source>Or you can start completely new session</source>
-        <translation type="unfinished"></translation>
+        <translation>یا می‌توانید به طور کامل نشست تازه‌ای را آغاز کنید</translation>
     </message>
 </context>
 <context>
@@ -3306,15 +3306,15 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>RecoveryWidget</name>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>بازگرداندن</translation>
     </message>
     <message>
         <source>Start New Session</source>
-        <translation type="unfinished"></translation>
+        <translation>آغاز نشست تازه</translation>
     </message>
     <message>
         <source>Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>پنجره %1</translation>
     </message>
 </context>
 <context>
@@ -3831,11 +3831,11 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>ساخت نسخه &amp;دوم از برگه</translation>
+        <translation>تک&amp;ثیر کردن برگه</translation>
     </message>
     <message>
         <source>Un&amp;pin Tab</source>
-        <translation>بد&amp;ی سنجاق کردن برگه</translation>
+        <translation>ب&amp;رداشتن سنجاق برگه</translation>
     </message>
     <message>
         <source>&amp;Pin Tab</source>
@@ -3855,7 +3855,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Close Ot&amp;her Tabs</source>
-        <translation>ب&amp;ستن دیگر برگه‌ها</translation>
+        <translation>بستن &amp;دیگر برگه‌ها</translation>
     </message>
     <message>
         <source>Cl&amp;ose</source>
@@ -3871,7 +3871,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Restore &amp;Closed Tab</source>
-        <translation>بازگ&amp;شایی برگه بسته‌شده</translation>
+        <translation>بر&amp;گرداندن برگه بسته‌شده</translation>
     </message>
 </context>
 <context>
@@ -3981,51 +3981,51 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>UserAgentDialog</name>
     <message>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>مدیر پیشکار کاربر</translation>
     </message>
     <message>
         <source>Change global User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>تغییر پیشکار کاربر سراسری</translation>
     </message>
     <message>
         <source>Use different User Agents for specified sites</source>
-        <translation type="unfinished"></translation>
+        <translation>استفاده از پیشکارهای کاربر متفاوت برای تارنماهای مشخص شده</translation>
     </message>
     <message>
         <source>Site</source>
-        <translation type="unfinished"></translation>
+        <translation>تارنما</translation>
     </message>
     <message>
         <source>User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>پیشکار کاربر</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">افزودن</translation>
+        <translation>افزودن</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">حذف</translation>
+        <translation>حذف</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">ویرایش</translation>
+        <translation>ویرایش</translation>
     </message>
     <message>
         <source>Add new site</source>
-        <translation type="unfinished"></translation>
+        <translation>افزودن تارنمای تازه</translation>
     </message>
     <message>
         <source>Edit site</source>
-        <translation type="unfinished"></translation>
+        <translation>ویرایش تارنما</translation>
     </message>
     <message>
         <source>Site domain: </source>
-        <translation type="unfinished"></translation>
+        <translation>نام دامنه تارنما: </translation>
     </message>
     <message>
         <source>User Agent: </source>
-        <translation type="unfinished"></translation>
+        <translation>پیشکار کاربر: </translation>
     </message>
 </context>
 <context>
@@ -4171,7 +4171,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>QupZilla can&apos;t load page.</source>
-        <translation type="unfinished"></translation>
+        <translation>کوپزیلا نمی‌تواند صفحه را بارگذاری کند.</translation>
     </message>
 </context>
 <context>
@@ -4261,7 +4261,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>&amp;Copy page link</source>
-        <translation>&amp;رونگاشت از لینک صفحه</translation>
+        <translation>رونگاشت از &amp;لینک صفحه</translation>
     </message>
     <message>
         <source>Send page link...</source>
@@ -4309,7 +4309,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>&amp;Copy link address</source>
-        <translation>&amp;رونگاشت آدرس لینک</translation>
+        <translation>رونگاشت آدرس &amp;لینک</translation>
     </message>
     <message>
         <source>Show i&amp;mage</source>
@@ -4325,7 +4325,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>&amp;Save image as...</source>
-        <translation>&amp;رونوشت‌برداری شکل به...</translation>
+        <translation>رونو&amp;شت‌برداری شکل به...</translation>
     </message>
     <message>
         <source>Send image...</source>

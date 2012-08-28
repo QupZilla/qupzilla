@@ -1,4 +1,4 @@
-;;;;English
+﻿;;;;English
 LangString TITLE_SecMain ${LANG_ENGLISH} "Main Components"
 LangString TITLE_SecTranslations ${LANG_ENGLISH} "Translations"
 LangString TITLE_SecPlugins ${LANG_ENGLISH} "Plugins"
@@ -320,6 +320,23 @@ LangString DESC_SecDesktop ${LANG_UKRAINIAN} "Додати посилання н
 LangString DESC_SecExtensions ${LANG_UKRAINIAN} "Асоціювати QupZill'у з файлами .htm і .html"
 LangString DESC_SecThemes ${LANG_UKRAINIAN} "Додаткові теми для QupZill'и"
 
+;;;;Persian (Farsi)
+LangString TITLE_SecMain ${LANG_FARSI} "اجزاء اصلی"
+LangString TITLE_SecTranslations ${LANG_FARSI} "برگردان‌ها"
+LangString TITLE_SecPlugins ${LANG_FARSI} "افزونه‌ها"
+LangString TITLE_SecDesktop ${LANG_FARSI} "آیکون میزکار"
+LangString TITLE_SecExtensions ${LANG_FARSI} "اختصاص برای بازکردن فایل‌ها"
+LangString TITLE_SecThemes ${LANG_FARSI} "فرهشت‌ها"
+
+LangString FILE_Htm ${LANG_FARSI} "فایل HTM"
+LangString FILE_Html ${LANG_FARSI} "فایل HTML"
+;
+LangString DESC_SecMain ${LANG_FARSI} "اجزاء اصلی نرم‌افزار."
+LangString DESC_SecTranslations ${LANG_FARSI} "برگردان‌های دیگر برای نصب کننده. پیش فرض انگلیسی است."
+LangString DESC_SecPlugins ${LANG_FARSI} "افزونه‌های دیگر که برای نصب در دسترس هستند."
+LangString DESC_SecDesktop ${LANG_FARSI} "افزودن میان‌بری برای آغازگر به میزکار"
+LangString DESC_SecExtensions ${LANG_FARSI} "کوپزیلا را برای بازکردن فایل‌های ‎.htm و ‎.html  اختصاص می‌دهد."
+LangString DESC_SecThemes ${LANG_FARSI} "فرهشت‌های اضافی برای کوپزیلا"
 ;;;;;;;;;
 ;;;;;;;;;
 ; Unfinished translations
