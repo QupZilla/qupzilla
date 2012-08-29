@@ -508,7 +508,7 @@
     </message>
     <message>
         <source>The file doesn&apos;t contain any bookmark.</source>
-        <translation type="unfinished"></translation>
+        <translation>このファイルにはブックマークは含まれていません。</translation>
     </message>
 </context>
 <context>
@@ -768,7 +768,8 @@
     </message>
     <message>
         <source>Organize Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考</translatorcomment>
+        <translation>ブックマークの編集</translation>
     </message>
 </context>
 <context>
@@ -1285,7 +1286,7 @@
     </message>
     <message>
         <source>Download with External Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>外部ダウンローダーの使用</translation>
     </message>
 </context>
 <context>
@@ -1319,35 +1320,36 @@
     <name>FileSchemeReply</name>
     <message>
         <source>No Error</source>
-        <translation type="unfinished">エラーなし</translation>
+        <translation>エラーなし</translation>
     </message>
     <message>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考</translatorcomment>
+        <translation>一つ上のディレクトリに移動する</translation>
     </message>
     <message>
         <source>Show hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>隠しファイルの表示</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">名前</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>サイズ</translation>
     </message>
     <message>
         <source>Last modified</source>
-        <translation type="unfinished"></translation>
+        <translation>更新日時</translation>
     </message>
     <message>
         <source>Index for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 のインデックス</translation>
     </message>
     <message>
         <source>Folder is empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>このフォルダーは空です。</translation>
     </message>
 </context>
 <context>
@@ -2437,31 +2439,32 @@
     </message>
     <message>
         <source>Leave blank if unsure</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>？</translatorcomment>
+        <translation>不明瞭な場合は記入しないでください</translation>
     </message>
     <message>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt; ブラウザの識別を変更する &lt;/b&gt;</translation>
     </message>
     <message>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent マネージャ</translation>
     </message>
     <message>
         <source>Tabs behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>タブの挙動</translation>
     </message>
     <message>
         <source>Address Bar behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>アドレスバーの挙動</translation>
     </message>
     <message>
         <source>Show loading progress in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>ページ読み込み状況をアドレスバーに表示</translation>
     </message>
     <message>
         <source>Show close button on tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>タブに閉じるボタンを表示</translation>
     </message>
 </context>
 <context>
@@ -2481,11 +2484,11 @@
     </message>
     <message>
         <source>Save file as...</source>
-        <translation type="unfinished">名前を付けて保存...</translation>
+        <translation>名前を付けて保存...</translation>
     </message>
     <message>
         <source>Unknown size</source>
-        <translation type="unfinished">ファイルサイズが計測できません</translation>
+        <translation>ファイルサイズが計測できません</translation>
     </message>
 </context>
 <context>
@@ -3184,23 +3187,24 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Restore Session</source>
-        <translation type="unfinished"></translation>
+        <translation>セッションの復元</translation>
     </message>
     <message>
         <source>Oops, QupZilla crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla がクラッシュしてしまいました。</translation>
     </message>
     <message>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考</translatorcomment>
+        <translation>申し訳ありません。以前のセッションを復元しますか？</translation>
     </message>
     <message>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation type="unfinished"></translation>
+        <translation>トラブルの原因と思われるタブを削除してみてください</translation>
     </message>
     <message>
         <source>Or you can start completely new session</source>
-        <translation type="unfinished"></translation>
+        <translation>もしくは新しいセッションでも起動できます</translation>
     </message>
 </context>
 <context>
@@ -3372,15 +3376,15 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>RecoveryWidget</name>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>復元</translation>
     </message>
     <message>
         <source>Start New Session</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいセッションの開始</translation>
     </message>
     <message>
         <source>Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ウィンドウ</translation>
     </message>
 </context>
 <context>
@@ -4060,51 +4064,51 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>UserAgentDialog</name>
     <message>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent マネージャ</translation>
     </message>
     <message>
         <source>Change global User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>一般 User Agent</translation>
     </message>
     <message>
         <source>Use different User Agents for specified sites</source>
-        <translation type="unfinished"></translation>
+        <translation>特定のサイトに個別の User Agent を使う</translation>
     </message>
     <message>
         <source>Site</source>
-        <translation type="unfinished"></translation>
+        <translation>サイト</translation>
     </message>
     <message>
         <source>User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">削除</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">編集</translation>
+        <translation>編集</translation>
     </message>
     <message>
         <source>Add new site</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいサイトの追加</translation>
     </message>
     <message>
         <source>Edit site</source>
-        <translation type="unfinished"></translation>
+        <translation>サイトの編集</translation>
     </message>
     <message>
         <source>Site domain: </source>
-        <translation type="unfinished"></translation>
+        <translation>ドメイン:</translation>
     </message>
     <message>
         <source>User Agent: </source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent:</translation>
     </message>
 </context>
 <context>
@@ -4261,7 +4265,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>QupZilla can&apos;t load page.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaはページを読み決めませんでした。</translation>
     </message>
 </context>
 <context>
