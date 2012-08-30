@@ -191,11 +191,11 @@
     </message>
     <message>
         <source>Disable on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Vypnúť na %1</translation>
     </message>
     <message>
         <source>Disable only on this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Vypnúť len na tejto stránke</translation>
     </message>
 </context>
 <context>
@@ -499,7 +499,7 @@
     </message>
     <message>
         <source>The file doesn&apos;t contain any bookmark.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento súbor neobsahuje žiadne záložky.</translation>
     </message>
 </context>
 <context>
@@ -758,7 +758,7 @@
     </message>
     <message>
         <source>Organize Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Organizovať záložky</translation>
     </message>
 </context>
 <context>
@@ -1171,7 +1171,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť</translation>
     </message>
 </context>
 <context>
@@ -1261,7 +1261,7 @@
     </message>
     <message>
         <source>Download with External Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Stiahnuť pomocou externého manažéra</translation>
     </message>
 </context>
 <context>
@@ -1295,35 +1295,35 @@
     <name>FileSchemeReply</name>
     <message>
         <source>No Error</source>
-        <translation type="unfinished">Žiadna chyba</translation>
+        <translation>Žiadna chyba</translation>
     </message>
     <message>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"></translation>
+        <translation>O adresár vyššie</translation>
     </message>
     <message>
         <source>Show hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť skryté súbory</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Meno</translation>
+        <translation>Meno</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Veľkosť</translation>
     </message>
     <message>
         <source>Last modified</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmenené</translation>
     </message>
     <message>
         <source>Index for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Index pre %1</translation>
     </message>
     <message>
         <source>Folder is empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>Priečinok je prázdny.</translation>
     </message>
 </context>
 <context>
@@ -1687,19 +1687,19 @@
     <name>PluginsManager</name>
     <message>
         <source>Add site to whitelist</source>
-        <translation type="unfinished">Pridať stránku do zoznamu výnimiek</translation>
+        <translation>Pridať stránku do zoznamu výnimiek</translation>
     </message>
     <message>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished">Server bez http:// (napr. youtube.com)</translation>
+        <translation>Server bez http:// (napr. youtube.com)</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Chyba!</translation>
+        <translation>Chyba!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation type="unfinished">Nemožno načítať rozšírenie!</translation>
+        <translation>Nemožno načítať rozšírenie!</translation>
     </message>
 </context>
 <context>
@@ -2362,55 +2362,55 @@
     </message>
     <message>
         <source>Show web search bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť vyhľadávací riadok</translation>
     </message>
     <message>
         <source>Suggest when typing into address bar:</source>
-        <translation type="unfinished"></translation>
+        <translation>Odporúčanie pri písaní v adresnom riadku:</translation>
     </message>
     <message>
         <source>History and Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>História a záložky</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">História</translation>
+        <translation>História</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished">Záložky</translation>
+        <translation>Záložky</translation>
     </message>
     <message>
         <source>Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Nič</translation>
     </message>
     <message>
         <source>Leave blank if unsure</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokiaľ ste si není istý, nevyplňujte</translation>
     </message>
     <message>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Zmeniť identifikáciu prehliadača&lt;/b&gt;</translation>
     </message>
     <message>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent Správca</translation>
     </message>
     <message>
         <source>Tabs behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Chovanie panelov</translation>
     </message>
     <message>
         <source>Address Bar behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Chovanie adresného riadku</translation>
     </message>
     <message>
         <source>Show loading progress in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť priebeh načítavania v adresnom riadku</translation>
     </message>
     <message>
         <source>Show close button on tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť zavieracie tlačidlo na paneloch</translation>
     </message>
 </context>
 <context>
@@ -2429,11 +2429,11 @@
     </message>
     <message>
         <source>Save file as...</source>
-        <translation type="unfinished">Uložiť súbor ako...</translation>
+        <translation>Uložiť súbor ako...</translation>
     </message>
     <message>
         <source>Unknown size</source>
-        <translation type="unfinished">Veľkosť neznáma</translation>
+        <translation>Neznáma veľkosť</translation>
     </message>
 </context>
 <context>
@@ -3112,31 +3112,31 @@ Skutočne chcete skončiť?</translation>
     </message>
     <message>
         <source>Are you sure to remove this speed dial?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ste si istý, že chcete zmazať túto stránku?</translation>
     </message>
     <message>
         <source>Center speed dials</source>
-        <translation type="unfinished"></translation>
+        <translation>Vycentrovať náhľady stránok</translation>
     </message>
     <message>
         <source>Restore Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Obnoviť reláciu</translation>
     </message>
     <message>
         <source>Oops, QupZilla crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Oops, QupZilla spadla.</translation>
     </message>
     <message>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ospravedlňujeme sa. Chcete obnoviť poslednú uloženú reláciu?</translation>
     </message>
     <message>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation type="unfinished"></translation>
+        <translation>Skúste odobrať jeden alebo viac panelov, o ktorých si myslíte, že môžu spôsobovať problémy</translation>
     </message>
     <message>
         <source>Or you can start completely new session</source>
-        <translation type="unfinished"></translation>
+        <translation>Alebo môžete začať úplne novú reláciu</translation>
     </message>
 </context>
 <context>
@@ -3306,15 +3306,15 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     <name>RecoveryWidget</name>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Obnoviť</translation>
     </message>
     <message>
         <source>Start New Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Začať novú reláciu</translation>
     </message>
     <message>
         <source>Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Okno %1</translation>
     </message>
 </context>
 <context>
@@ -3981,51 +3981,51 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <name>UserAgentDialog</name>
     <message>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent Správca</translation>
     </message>
     <message>
         <source>Change global User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmeniť globálny User Agent</translation>
     </message>
     <message>
         <source>Use different User Agents for specified sites</source>
-        <translation type="unfinished"></translation>
+        <translation>Používať rôzne User Agenty pre zvolené stránky</translation>
     </message>
     <message>
         <source>Site</source>
-        <translation type="unfinished"></translation>
+        <translation>Stránka</translation>
     </message>
     <message>
         <source>User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Pridať</translation>
+        <translation>Pridať</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Upraviť</translation>
     </message>
     <message>
         <source>Add new site</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať novú stránku</translation>
     </message>
     <message>
         <source>Edit site</source>
-        <translation type="unfinished"></translation>
+        <translation>Upraviť stránku</translation>
     </message>
     <message>
         <source>Site domain: </source>
-        <translation type="unfinished"></translation>
+        <translation>Doména stránky: </translation>
     </message>
     <message>
         <source>User Agent: </source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent:</translation>
     </message>
 </context>
 <context>
@@ -4166,11 +4166,12 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pre zobrazenie tejto stránky musí QupZilla znovu odoslať požiadavku na server 
+(ako napr. hľadanie pri nakupovaní, ktoré už prebehlo)</translation>
     </message>
     <message>
         <source>QupZilla can&apos;t load page.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla nemôže načítať stránku.</translation>
     </message>
 </context>
 <context>
@@ -4193,7 +4194,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Show suggestions</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť našepkávač</translation>
     </message>
 </context>
 <context>
