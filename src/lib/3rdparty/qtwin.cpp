@@ -204,7 +204,7 @@ bool QtWin::extendFrameIntoClientArea(QWidget* widget, int left, int top, int ri
     if (resolveLibs()) {
         QLibrary dwmLib(QString::fromAscii("dwmapi"));
         HRESULT hr = S_OK;
-        MARGINS m = {left, top, right, bottom};
+        MARGINS m = {left, right, top, bottom};
         hr = pDwmExtendFrameIntoClientArea(widget->winId(), &m);
         if (SUCCEEDED(hr)) {
             result = true;

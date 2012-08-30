@@ -260,6 +260,7 @@ void QupZilla::setupUi()
     m_navigationBar = new NavigationBar(this);
     m_navigationBar->setSplitterSizes(locationBarWidth, websearchBarWidth);
     m_bookmarksToolbar = new BookmarksToolbar(this);
+
     m_mainSplitter->addWidget(m_tabWidget);
     m_mainLayout->addWidget(m_navigationBar);
     m_mainLayout->addWidget(m_bookmarksToolbar);
@@ -595,6 +596,7 @@ void QupZilla::loadSettings()
 
 #ifdef Q_WS_WIN
     if (m_usingTransparentBackground && !makeTransparent) {
+        QtWin::extendFrameIntoClientArea(this, 0, 0, 0, 0);
         QtWin::enableBlurBehindWindow(this, false);
         m_usingTransparentBackground = false;
     }
@@ -615,12 +617,21 @@ void QupZilla::loadSettings()
     ensurePolished(); // workaround Oxygen filling the background
     setAttribute(Qt::WA_StyledBackground, false);
 #endif
+
+#ifdef Q_WS_WIN
     if (QtWin::isCompositionEnabled()) {
-        QtWin::extendFrameIntoClientArea(this);
         setContentsMargins(0, 0, 0, 0);
 
         m_usingTransparentBackground = true;
+
+        applyBlurToMainWindow();
+        //install event filter
+        menuBar()->installEventFilter(this);
+        m_navigationBar->installEventFilter(this);
+        m_bookmarksToolbar->installEventFilter(this);
+        statusBar()->installEventFilter(this);
     }
+#endif
 }
 
 void QupZilla::goNext()
@@ -1226,6 +1237,13 @@ SideBar* QupZilla::addSideBar()
 
     m_mainSplitter->setSizes(QList<int>() << m_sideBarWidth << m_webViewWidth);
 
+#ifdef Q_WS_WIN
+    if (QtWin::isCompositionEnabled()) {
+        applyBlurToMainWindow();
+        m_sideBar.data()->installEventFilter(this);
+    }
+#endif
+
     return m_sideBar.data();
 }
 
@@ -1290,6 +1308,13 @@ void QupZilla::showWebInspector(bool toggle)
     m_webInspectorDock = new WebInspectorDockWidget(this);
     connect(m_tabWidget, SIGNAL(currentChanged(int)), m_webInspectorDock.data(), SLOT(tabChanged()));
     addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock.data());
+
+#ifdef Q_WS_WIN
+    if (QtWin::isCompositionEnabled()) {
+        applyBlurToMainWindow();
+        m_webInspectorDock.data()->installEventFilter(this);
+    }
+#endif
 }
 
 void QupZilla::showBookmarkImport()
@@ -1389,6 +1414,13 @@ void QupZilla::searchOnPage()
     SearchToolBar* search = new SearchToolBar(this);
     m_mainLayout->insertWidget(3, search);
     search->focusSearchLine();
+
+#ifdef Q_WS_WIN
+    if (QtWin::isCompositionEnabled()) {
+        applyBlurToMainWindow();
+        search->installEventFilter(this);
+    }
+#endif
 }
 
 void QupZilla::openFile()
@@ -1449,6 +1481,7 @@ void QupZilla::fullScreen(bool make)
         m_tabWidget->getTabBar()->hide();
 #ifdef Q_WS_WIN
         if (m_usingTransparentBackground) {
+            QtWin::extendFrameIntoClientArea(this, 0, 0, 0 ,0);
             QtWin::enableBlurBehindWindow(this, false);
         }
 #endif
@@ -1463,7 +1496,7 @@ void QupZilla::fullScreen(bool make)
         m_tabWidget->showTabBar();
 #ifdef Q_WS_WIN
         if (m_usingTransparentBackground) {
-            QtWin::enableBlurBehindWindow(this);
+            applyBlurToMainWindow(true);
         }
 #endif
     }
@@ -1793,6 +1826,108 @@ bool QupZilla::quitApp()
     QTimer::singleShot(0, mApp, SLOT(quitApplication()));
     return true;
 }
+
+#ifdef Q_WS_WIN
+bool QupZilla::winEvent(MSG *message, long *result)
+{
+    if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
+        Settings settings;
+        settings.beginGroup("Browser-View-Settings");
+        m_usingTransparentBackground = settings.value("useTransparentBackground", false).toBool();
+        settings.endGroup();
+        if (m_usingTransparentBackground && QtWin::isCompositionEnabled()) {
+            setUpdatesEnabled(false);
+
+            QtWin::extendFrameIntoClientArea(this, 0, 0, 0, 0);
+            QTimer::singleShot(0, this, SLOT(applyBlurToMainWindow()));
+
+            //install event filter
+            menuBar()->installEventFilter(this);
+            m_navigationBar->installEventFilter(this);
+            m_bookmarksToolbar->installEventFilter(this);
+            statusBar()->installEventFilter(this);
+
+            if (m_sideBar) {
+                m_sideBar.data()->installEventFilter(this);
+            }
+
+            if (m_mainLayout->count() == 4) {
+                SearchToolBar* search = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(3)->widget());
+                if (search) {
+                    search->installEventFilter(this);
+                }
+            }
+
+            if (m_webInspectorDock) {
+                m_webInspectorDock.data()->installEventFilter(this);
+            }
+
+            if (isVisible())
+            {
+                hide();
+                show();
+            }
+            setUpdatesEnabled(true);
+        }
+    }
+    return QMainWindow::winEvent(message, result);
+}
+
+void QupZilla::applyBlurToMainWindow(bool force)
+{
+    if (!force && (m_actionShowFullScreen->isChecked() || !m_usingTransparentBackground)) return;
+    int topMargin = 0;
+    int bottomMargin = 1;
+    int rightMargin = 1;
+    int leftMargin = 1;
+
+    if (m_sideBar) {
+        if (isRightToLeft())
+            rightMargin += m_sideBar.data()->width() + m_mainSplitter->handleWidth();
+        else
+            leftMargin += m_sideBar.data()->width() + m_mainSplitter->handleWidth();
+    }
+
+    topMargin += menuBar()->isVisible() ? menuBar()->height() : 0;
+    topMargin += m_navigationBar->isVisible() ? m_navigationBar->height() : 0;
+    topMargin += m_bookmarksToolbar->isVisible() ? m_bookmarksToolbar->height() : 0;
+    topMargin += m_tabWidget->getTabBar()->height();
+
+    if (m_mainLayout->count() == 4) {
+        SearchToolBar* search = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(3)->widget());
+        if (search) {
+            bottomMargin += search->height();
+        }
+    }
+
+    bottomMargin += statusBar()->isVisible() ? statusBar()->height() : 0;
+
+    if (m_webInspectorDock) {
+        bottomMargin += m_webInspectorDock.data()->isVisible()
+                ? m_webInspectorDock.data()->height()
+                  + m_webInspectorDock.data()->style()->pixelMetric( QStyle::PM_DockWidgetSeparatorExtent)
+                : 0;
+    }
+
+    QtWin::extendFrameIntoClientArea(this, leftMargin, topMargin, rightMargin, bottomMargin);
+}
+
+bool QupZilla::eventFilter(QObject *object, QEvent *event)
+{
+    switch (event->type()) {
+    case QEvent::DeferredDelete:
+    case QEvent::Show:
+    case QEvent::Hide:
+    case QEvent::Resize:
+        applyBlurToMainWindow();
+        break;
+    default:
+        break;
+    }
+
+    return QMainWindow::eventFilter(object, event);
+}
+#endif
 
 QupZilla::~QupZilla()
 {
