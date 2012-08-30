@@ -187,6 +187,9 @@ private slots:
 
     void closeWindow();
     bool quitApp();
+#ifdef Q_WS_WIN
+    void applyBlurToMainWindow(bool force = false);
+#endif
 
 private:
     void resizeEvent(QResizeEvent* event);
@@ -198,6 +201,10 @@ private:
     void setupMenu();
 
     void disconnectObjects();
+#ifdef Q_WS_WIN
+    bool winEvent(MSG* message, long* result);
+    bool eventFilter(QObject *object, QEvent *event);
+#endif
 
     bool m_historyMenuChanged;
     bool m_bookmarksMenuChanged;
