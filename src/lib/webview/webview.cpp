@@ -40,6 +40,7 @@
 #include <QWebHistory>
 #include <QWebFrame>
 #include <QClipboard>
+#include <QTouchEvent>
 #include <QPrintPreviewDialog>
 
 WebView::WebView(QWidget* parent)
@@ -52,11 +53,13 @@ WebView::WebView(QWidget* parent)
     , m_actionReload(0)
     , m_actionStop(0)
     , m_actionsInitialized(false)
+    , m_disableTouchMocking(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
     connect(this, SIGNAL(iconChanged()), this, SLOT(slotIconChanged()));
+    connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
 
     // Zoom levels same as in firefox
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
@@ -370,6 +373,17 @@ void WebView::slotIconChanged()
         m_siteIconUrl = url();
 
         qIconProvider->saveIcon(this);
+    }
+}
+
+void WebView::slotUrlChanged(const QUrl &url)
+{
+    // Disable touch mocking on all google pages as it just makes it buggy
+    if (url.host().contains("google")) {
+        m_disableTouchMocking = true;
+    }
+    else {
+        m_disableTouchMocking = false;
     }
 }
 
@@ -1120,7 +1134,7 @@ void WebView::setZoom(int zoom)
 ///
 bool WebView::eventFilter(QObject* obj, QEvent* event)
 {
-    if (obj != this) {
+    if (obj != this || m_disableTouchMocking) {
         return false;
     }
 
@@ -1130,63 +1144,52 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
             event->type() == QEvent::MouseMove) {
 
         QMouseEvent* ev = static_cast<QMouseEvent*>(event);
+
         if (ev->type() == QEvent::MouseMove && !(ev->buttons() & Qt::LeftButton)) {
             return false;
         }
 
-        if (ev->type() == QEvent::MouseButtonPress && ev->buttons() & Qt::RightButton) {
+        if (ev->type() == QEvent::MouseButtonPress && !(ev->buttons() & Qt::LeftButton)) {
             return false;
         }
 
+        QEvent::Type type;
         QTouchEvent::TouchPoint touchPoint;
-        touchPoint.setState(Qt::TouchPointMoved);
-        if ((ev->type() == QEvent::MouseButtonPress
-                || ev->type() == QEvent::MouseButtonDblClick)) {
-            touchPoint.setState(Qt::TouchPointPressed);
-        }
-        else if (ev->type() == QEvent::MouseButtonRelease) {
-            touchPoint.setState(Qt::TouchPointReleased);
-        }
-
         touchPoint.setId(0);
         touchPoint.setScreenPos(ev->globalPos());
         touchPoint.setPos(ev->pos());
         touchPoint.setPressure(1);
 
-        // If the point already exists, update it. Otherwise create it.
-        if (m_touchPoints.size() > 0 && !m_touchPoints[0].id()) {
-            m_touchPoints[0] = touchPoint;
-        }
-        else if (m_touchPoints.size() > 1 && !m_touchPoints[1].id()) {
-            m_touchPoints[1] = touchPoint;
-        }
-        else {
-            m_touchPoints.append(touchPoint);
+        switch (ev->type()) {
+        case QEvent::MouseButtonPress:
+        case QEvent::MouseButtonDblClick:
+            touchPoint.setState(Qt::TouchPointPressed);
+            type = QEvent::TouchBegin;
+
+            break;
+
+        case QEvent::MouseButtonRelease:
+            touchPoint.setState(Qt::TouchPointReleased);
+            type = QEvent::TouchEnd;
+
+            break;
+
+        case QEvent::MouseMove:
+            touchPoint.setState(Qt::TouchPointMoved);
+            type = QEvent::TouchUpdate;
+
+            break;
+
+        default:
+            break;
         }
 
-        if (!m_touchPoints.isEmpty()) {
-            QEvent::Type type = QEvent::TouchUpdate;
-            if (m_touchPoints.size() == 1) {
-                if (m_touchPoints[0].state() == Qt::TouchPointReleased) {
-                    type = QEvent::TouchEnd;
-                }
-                else if (m_touchPoints[0].state() == Qt::TouchPointPressed) {
-                    type = QEvent::TouchBegin;
-                }
-            }
+        QList<QTouchEvent::TouchPoint> touchPoints;
+        touchPoints << touchPoint;
 
-            QTouchEvent touchEv(type);
-            touchEv.setTouchPoints(m_touchPoints);
-            QCoreApplication::sendEvent(page(), &touchEv);
-
-            // After sending the event, remove all touchpoints that were released
-            if (m_touchPoints[0].state() == Qt::TouchPointReleased) {
-                m_touchPoints.removeAt(0);
-            }
-            if (m_touchPoints.size() > 1 && m_touchPoints[1].state() == Qt::TouchPointReleased) {
-                m_touchPoints.removeAt(1);
-            }
-        }
+        QTouchEvent touchEv(type);
+        touchEv.setTouchPoints(touchPoints);
+        QCoreApplication::sendEvent(page(), &touchEv);
 
         return false;
     }

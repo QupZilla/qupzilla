@@ -20,7 +20,6 @@
 
 #include <QWebView>
 #include <QWebElement>
-#include <QTouchEvent>
 
 #include "qz_namespace.h"
 
@@ -86,6 +85,7 @@ protected slots:
     void slotLoadProgress(int progress);
     void slotLoadFinished();
     void slotIconChanged();
+    void slotUrlChanged(const QUrl &url);
 
     // Context menu slots
     void openUrlInNewWindow();
@@ -168,7 +168,7 @@ private:
     QAction* m_actionStop;
     bool m_actionsInitialized;
 
-    QList<QTouchEvent::TouchPoint> m_touchPoints;
+    bool m_disableTouchMocking;
 };
 
 #endif // WEBVIEW_H
