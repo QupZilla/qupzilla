@@ -26,6 +26,7 @@
 #include <QVBoxLayout>
 #include <QStatusBar>
 #include <QWebFrame>
+#include <QCloseEvent>
 
 PopupWindow::PopupWindow(PopupWebView* view, bool showStatusBar)
     : QWidget()

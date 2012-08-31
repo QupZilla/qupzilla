@@ -63,6 +63,7 @@
 #include "speeddial.h"
 #include "qtwin.h"
 
+#include <QKeyEvent>
 #include <QSplitter>
 #include <QStatusBar>
 #include <QMenuBar>
@@ -1481,7 +1482,7 @@ void QupZilla::fullScreen(bool make)
         m_tabWidget->getTabBar()->hide();
 #ifdef Q_WS_WIN
         if (m_usingTransparentBackground) {
-            QtWin::extendFrameIntoClientArea(this, 0, 0, 0 ,0);
+            QtWin::extendFrameIntoClientArea(this, 0, 0, 0 , 0);
             QtWin::enableBlurBehindWindow(this, false);
         }
 #endif
@@ -1828,7 +1829,7 @@ bool QupZilla::quitApp()
 }
 
 #ifdef Q_WS_WIN
-bool QupZilla::winEvent(MSG *message, long *result)
+bool QupZilla::winEvent(MSG* message, long* result)
 {
     if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
         Settings settings;
@@ -1862,8 +1863,7 @@ bool QupZilla::winEvent(MSG *message, long *result)
                 m_webInspectorDock.data()->installEventFilter(this);
             }
 
-            if (isVisible())
-            {
+            if (isVisible()) {
                 hide();
                 show();
             }
@@ -1875,17 +1875,21 @@ bool QupZilla::winEvent(MSG *message, long *result)
 
 void QupZilla::applyBlurToMainWindow(bool force)
 {
-    if (!force && (m_actionShowFullScreen->isChecked() || !m_usingTransparentBackground)) return;
+    if (!force && (m_actionShowFullScreen->isChecked() || !m_usingTransparentBackground)) {
+        return;
+    }
     int topMargin = 0;
     int bottomMargin = 1;
     int rightMargin = 1;
     int leftMargin = 1;
 
     if (m_sideBar) {
-        if (isRightToLeft())
+        if (isRightToLeft()) {
             rightMargin += m_sideBar.data()->width() + m_mainSplitter->handleWidth();
-        else
+        }
+        else {
             leftMargin += m_sideBar.data()->width() + m_mainSplitter->handleWidth();
+        }
     }
 
     topMargin += menuBar()->isVisible() ? menuBar()->height() : 0;
@@ -1904,15 +1908,15 @@ void QupZilla::applyBlurToMainWindow(bool force)
 
     if (m_webInspectorDock) {
         bottomMargin += m_webInspectorDock.data()->isVisible()
-                ? m_webInspectorDock.data()->height()
-                  + m_webInspectorDock.data()->style()->pixelMetric( QStyle::PM_DockWidgetSeparatorExtent)
-                : 0;
+                        ? m_webInspectorDock.data()->height()
+                        + m_webInspectorDock.data()->style()->pixelMetric(QStyle::PM_DockWidgetSeparatorExtent)
+                        : 0;
     }
 
     QtWin::extendFrameIntoClientArea(this, leftMargin, topMargin, rightMargin, bottomMargin);
 }
 
-bool QupZilla::eventFilter(QObject *object, QEvent *event)
+bool QupZilla::eventFilter(QObject* object, QEvent* event)
 {
     switch (event->type()) {
     case QEvent::DeferredDelete:

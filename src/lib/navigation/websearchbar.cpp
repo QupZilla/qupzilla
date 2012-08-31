@@ -35,6 +35,7 @@
 #include <QTimer>
 #include <QWebFrame>
 #include <QClipboard>
+#include <QContextMenuEvent>
 
 WebSearchBar_Button::WebSearchBar_Button(QWidget* parent)
     : ClickableLabel(parent)

@@ -203,7 +203,7 @@ private:
     void disconnectObjects();
 #ifdef Q_WS_WIN
     bool winEvent(MSG* message, long* result);
-    bool eventFilter(QObject *object, QEvent *event);
+    bool eventFilter(QObject* object, QEvent* event);
 #endif
 
     bool m_historyMenuChanged;

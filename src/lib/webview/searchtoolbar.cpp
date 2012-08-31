@@ -22,6 +22,7 @@
 #include "ui_searchtoolbar.h"
 #include "iconprovider.h"
 
+#include <QKeyEvent>
 #include <QShortcut>
 
 SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)

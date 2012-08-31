@@ -26,6 +26,7 @@
 #include "speeddial.h"
 
 #include <QStyle>
+#include <QContextMenuEvent>
 
 BookmarkIcon::BookmarkIcon(QupZilla* mainClass, QWidget* parent)
     : ClickableLabel(parent)

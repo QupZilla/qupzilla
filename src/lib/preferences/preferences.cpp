@@ -48,6 +48,7 @@
 #include <QInputDialog>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QCloseEvent>
 
 Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     : QDialog(parent)

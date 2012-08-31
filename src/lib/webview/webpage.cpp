@@ -47,6 +47,7 @@
 #endif
 
 #include <QDir>
+#include <QMouseEvent>
 #include <QWebHistory>
 #include <QFileSystemWatcher>
 #include <QTimer>

@@ -22,6 +22,7 @@
 #include "tabbedwebview.h"
 
 #include <QLabel>
+#include <QPaintEvent>
 #include <QPalette>
 #include <QStylePainter>
 #include <QVBoxLayout>

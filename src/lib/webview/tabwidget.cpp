@@ -34,6 +34,7 @@
 #include <QMovie>
 #include <QMenu>
 #include <QStackedWidget>
+#include <QMouseEvent>
 #include <QWebHistory>
 #include <QClipboard>
 #include <QFile>

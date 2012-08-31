@@ -35,6 +35,7 @@
 #include <QStatusBar>
 #include <QHostInfo>
 #include <QWebFrame>
+#include <QContextMenuEvent>
 
 bool TabbedWebView::m_navigationVisible = false;
 

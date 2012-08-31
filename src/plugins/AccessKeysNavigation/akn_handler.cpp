@@ -44,6 +44,7 @@
 #include <QLabel>
 #include <QTimer>
 #include <QToolTip>
+#include <QKeyEvent>
 
 Qt::Key keyFromCode(int code)
 {

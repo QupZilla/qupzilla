@@ -24,6 +24,7 @@
 #include "enhancedmenu.h"
 
 #include <QWebFrame>
+#include <QContextMenuEvent>
 
 PopupWebView::PopupWebView(QWidget* parent)
     : WebView(parent)

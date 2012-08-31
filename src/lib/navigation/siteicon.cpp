@@ -21,6 +21,7 @@
 #include "globalfunctions.h"
 
 #include <QApplication>
+#include <QContextMenuEvent>
 
 SiteIcon::SiteIcon(LocationBar* parent)
     : ToolButton(parent)

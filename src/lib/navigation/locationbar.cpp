@@ -40,6 +40,7 @@
 
 #include <QClipboard>
 #include <QTimer>
+#include <QContextMenuEvent>
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit(mainClass)

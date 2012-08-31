@@ -27,6 +27,7 @@
 #include <QWebFrame>
 #include <QLabel>
 #include <QToolTip>
+#include <QKeyEvent>
 
 PIM_Handler::PIM_Handler(const QString &sPath, QObject* parent)
     : QObject(parent)

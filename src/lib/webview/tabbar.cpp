@@ -28,6 +28,7 @@
 #include "pluginproxy.h"
 
 #include <QMenu>
+#include <QMouseEvent>
 #include <QApplication>
 #include <QTimer>
 #include <QRect>
