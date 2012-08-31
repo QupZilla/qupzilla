@@ -49,7 +49,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
     QList<QUrl> urlList;
 
     if (showType == HistoryAndBookmarks || showType == Bookmarks) {
-        QSqlQuery query = createQuery(string, QString(), limit, true, false);
+        QSqlQuery query = createQuery(string, QString("history.count DESC"), urlList, limit, true, false);
         query.exec();
 
         while (query.next()) {
@@ -70,16 +70,12 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
     }
 
     if (showType == HistoryAndBookmarks || showType == History) {
-        QSqlQuery query = createQuery(string, "count DESC", limit, false, false);
+        QSqlQuery query = createQuery(string, "count DESC", urlList, limit, false, false);
         query.exec();
 
         while (query.next()) {
             QStandardItem* item = new QStandardItem();
             const QUrl &url = query.value(1).toUrl();
-
-            if (urlList.contains(url)) {
-                continue;
-            }
 
             item->setIcon(_iconForUrl(url));
             item->setText(url.toEncoded());
@@ -114,13 +110,14 @@ void LocationCompleterModel::showMostVisited()
     }
 }
 
-QSqlQuery LocationCompleterModel::createQuery(QString searchString, QString orderBy, int limit, bool bookmarks, bool exactMatch)
+QSqlQuery LocationCompleterModel::createQuery(QString searchString, QString orderBy, const QList<QUrl> &alreadyFound, int limit, bool bookmarks, bool exactMatch)
 {
-    QString query = "SELECT id, url, title";
+    QString table = bookmarks ? "bookmarks" : "history";
+    QString query = QString("SELECT %1.id, %1.url, %1.title").arg(table);
     QStringList searchList;
 
     if (bookmarks) {
-        query.append(", icon FROM bookmarks ");
+        query.append(", bookmarks.icon FROM bookmarks LEFT JOIN history ON bookmarks.url=history.url ");
     }
     else {
         query.append(" FROM history ");
@@ -128,17 +125,21 @@ QSqlQuery LocationCompleterModel::createQuery(QString searchString, QString orde
 
     query.append("WHERE ");
     if (exactMatch) {
-        query.append("title LIKE ? OR url LIKE ? ");
+        query.append(QString("%1.title LIKE ? OR %1.url LIKE ? ").arg(table));
     }
     else {
         searchList = searchString.split(' ', QString::SkipEmptyParts);
         const int slSize = searchList.size();
         for (int i = 0; i < slSize; ++i) {
-            query.append("(title LIKE ? OR url LIKE ?) ");
+            query.append(QString("(%1.title LIKE ? OR %1.url LIKE ?) ").arg(table));
             if (i < slSize - 1) {
                 query.append("AND ");
             }
         }
+    }
+
+    for (int i = 0; i < alreadyFound.count(); i++) {
+        query.append(QString("AND (NOT %1.url=?) ").arg(table));
     }
 
     if (!orderBy.isEmpty()) {
@@ -160,6 +161,11 @@ QSqlQuery LocationCompleterModel::createQuery(QString searchString, QString orde
             sqlQuery.addBindValue(QString("%%1%").arg(str));
         }
     }
+
+    foreach(const QUrl & url, alreadyFound) {
+        sqlQuery.addBindValue(url);
+    }
+
     sqlQuery.addBindValue(limit);
 
     return sqlQuery;

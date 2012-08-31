@@ -21,6 +21,7 @@
 #include <QStandardItemModel>
 
 class QSqlQuery;
+class QUrl;
 
 class LocationCompleterModel : public QStandardItemModel
 {
@@ -48,7 +49,7 @@ private:
         Nothing = 4
     };
 
-    QSqlQuery createQuery(QString searchString, QString orderBy, int limit, bool bookmarks, bool exactMatch);
+    QSqlQuery createQuery(QString searchString, QString orderBy, const QList<QUrl> &alreadyFound, int limit, bool bookmarks, bool exactMatch);
 
     QString m_lastCompletion;
 
