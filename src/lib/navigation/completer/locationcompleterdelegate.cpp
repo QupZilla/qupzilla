@@ -105,12 +105,16 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     drawHighlightedTextLine(titleRect, title, searchText, painter, style, opt, colorRole);
 
     // Draw link
-    const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading();
+    const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading() + 2;
     QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
     QString link(opt.fontMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, linkRect.width()));
     painter->setFont(opt.font);
 
     drawHighlightedTextLine(linkRect, link, searchText, painter, style, opt, colorLinkRole);
+
+    // Draw line at the very bottom of item
+    QRect lineRect(opt.rect.left(), opt.rect.bottom(), opt.rect.width(), 1);
+    painter->fillRect(lineRect, opt.palette.color(QPalette::AlternateBase));
 }
 
 bool sizeBiggerThan(const QString &s1, const QString &s2)
@@ -276,7 +280,8 @@ QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, co
 
         const QFontMetrics titleMetrics(titleFont);
 
-        m_rowHeight = 2 * m_padding + opt.fontMetrics.leading() + opt.fontMetrics.height() + titleMetrics.height();
+        // 2 px bigger space between title and link because of underlining
+        m_rowHeight = 2 * m_padding + opt.fontMetrics.leading() + opt.fontMetrics.height() + titleMetrics.height() + 2;
     }
 
     return QSize(200, m_rowHeight);
