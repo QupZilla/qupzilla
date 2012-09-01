@@ -131,6 +131,9 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
         }
     }
 
+    // We need to sort delimiters to properly paint all parts that user typed
+    qSort(delimiters);
+
     // If we don't find any match, just paint it without any highlight
     if (delimiters.isEmpty() || delimiters.count() % 2) {
         drawTextLine(rect, text, painter, style, option, role);
@@ -140,7 +143,6 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
     QFont normalFont = painter->font();
     QFont boldFont = normalFont;
     boldFont.setBold(true);
-    boldFont.setUnderline(true);
 
     QFontMetrics normalMetrics(normalFont);
     QFontMetrics boldMetrics(boldFont);
@@ -159,22 +161,30 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
 
         if (!normalPart.isEmpty()) {
             int width = normalMetrics.width(normalPart);
-            QRect nRect(lastRectPos, rect.top(), width, rect.height());
+            const QRect &nRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
 
-            painter->setFont(normalFont);
-            drawTextLine(adjustRect(rect, nRect), normalPart, painter, style, option, role);
+            if (nRect.width() > 0) {
+                painter->setFont(normalFont);
+                drawTextLine(nRect, normalPart, painter, style, option, role);
 
-            lastRectPos += width;
+                lastRectPos += nRect.width();
+            }
         }
 
         if (!boldPart.isEmpty()) {
             int width = boldMetrics.width(boldPart);
-            QRect bRect(lastRectPos, rect.top(), width, rect.height());
+            const QRect &bRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
 
-            painter->setFont(boldFont);
-            drawTextLine(adjustRect(rect, bRect), boldPart, painter, style, option, role);
+            if (bRect.width() > 0) {
+                painter->setFont(boldFont);
+                drawTextLine(bRect, boldPart, painter, style, option, role);
 
-            lastRectPos += width;
+                lastRectPos += bRect.width();
+
+                // Paint manually line under text instead of using QFont::underline
+                QRect underlineRect(bRect.left(), bRect.top() + boldMetrics.ascent() + 1, bRect.width(), 2);
+                painter->fillRect(underlineRect, option.palette.color(role));
+            }
         }
 
         if (delimiters.isEmpty() && lastEndPos != text.size()) {
@@ -212,12 +222,9 @@ void LocationCompleterDelegate::drawTextLine(const QRect &rect, QString text, QP
 
 QRect LocationCompleterDelegate::adjustRect(const QRect &original, const QRect &created) const
 {
-    int crLeft = created.left() + created.width();
-    int orLeft = original.left() + original.width();
-
-    if (crLeft > orLeft) {
+    if (created.left() + created.width() >= original.right()) {
         QRect nRect = created;
-        nRect.setWidth(orLeft - created.left());
+        nRect.setWidth(original.right() - created.left());
 
         return nRect;
     }
