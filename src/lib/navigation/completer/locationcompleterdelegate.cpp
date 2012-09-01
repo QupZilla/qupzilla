@@ -168,9 +168,6 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
     QFont boldFont = normalFont;
     boldFont.setBold(true);
 
-    normalFont.setPointSize(8);
-    boldFont.setPointSize(8);
-
     QFontMetrics normalMetrics(normalFont);
     QFontMetrics boldMetrics(boldFont);
 
