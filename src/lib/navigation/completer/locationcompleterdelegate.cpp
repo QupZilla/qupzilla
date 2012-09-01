@@ -113,21 +113,45 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     drawHighlightedTextLine(linkRect, link, searchText, painter, style, opt, colorLinkRole);
 }
 
+bool sizeBiggerThan(const QString &s1, const QString &s2)
+{
+    return s1.size() > s2.size();
+}
+
 void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QString text, const QString &searchText,
         QPainter* painter, const QStyle* style, const QStyleOptionViewItemV4 &option,
         const QPalette::ColorRole &role) const
 {
     QList<int> delimiters;
-    const QStringList &searchStrings = searchText.split(' ', QString::SkipEmptyParts);
+    QStringList searchStrings = searchText.split(' ', QString::SkipEmptyParts);
+
+    // Look for longer parts first
+    qSort(searchStrings.begin(), searchStrings.end(), sizeBiggerThan);
 
     foreach(const QString & string, searchStrings) {
         int delimiter = text.indexOf(string, 0, Qt::CaseInsensitive);
 
         while (delimiter != -1) {
-            delimiters.append(delimiter);
-            delimiters.append(delimiter + string.length());
+            int start = delimiter;
+            int end = delimiter + string.length();
 
-            delimiter = text.indexOf(string, delimiters.last(), Qt::CaseInsensitive);
+            bool alreadyContains = false;
+            for (int i = 0; i < delimiters.count(); ++i) {
+                int dStart = delimiters.at(i);
+                int dEnd = delimiters.at(++i);
+
+                if (dStart <= start && dEnd >= end) {
+                    alreadyContains = true;
+                    break;
+                }
+            }
+
+            if (!alreadyContains) {
+                delimiters.append(start);
+                delimiters.append(end);
+            }
+
+            delimiter = text.indexOf(string, end, Qt::CaseInsensitive);
         }
     }
 
@@ -143,6 +167,9 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
     QFont normalFont = painter->font();
     QFont boldFont = normalFont;
     boldFont.setBold(true);
+
+    normalFont.setPointSize(8);
+    boldFont.setPointSize(8);
 
     QFontMetrics normalMetrics(normalFont);
     QFontMetrics boldMetrics(boldFont);
@@ -179,11 +206,12 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
                 painter->setFont(boldFont);
                 drawTextLine(bRect, boldPart, painter, style, option, role);
 
-                lastRectPos += bRect.width();
-
                 // Paint manually line under text instead of using QFont::underline
-                QRect underlineRect(bRect.left(), bRect.top() + boldMetrics.ascent() + 1, bRect.width(), 2);
+                QRect underlineRect(bRect.left(), bRect.top() + boldMetrics.ascent() + 1,
+                                    bRect.width(), boldFont.pointSize() > 8 ? 2 : 1);
                 painter->fillRect(underlineRect, option.palette.color(role));
+
+                lastRectPos += bRect.width();
             }
         }
 
