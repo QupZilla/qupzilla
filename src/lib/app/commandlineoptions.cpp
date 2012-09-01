@@ -50,6 +50,7 @@ void CommandLineOptions::showHelp()
                        "    -nw or --new-window                 open new window\n"
                        "    -pb or --private-browsing           start private browsing\n"
                        "    -dm or --download-manager           show download manager\n"
+                       "    -nr or --no-remote                  open new instance\n"
                        "    -ct=URL or --current-tab=URL        open URL in current tab\n"
                        "    -ow=URL or --open-window=URL        open URL in new window\n"
                        "\n"
@@ -121,35 +122,36 @@ void CommandLineOptions::parseActions()
         if (arg.startsWith("-ne") || arg.startsWith("--no-extensions")) {
             ActionPair pair;
             pair.action = Qz::CL_StartWithoutAddons;
-            pair.text = "";
             m_actions.append(pair);
         }
 
         if (arg.startsWith("-nt") || arg.startsWith("--new-tab")) {
             ActionPair pair;
             pair.action = Qz::CL_NewTab;
-            pair.text = "";
             m_actions.append(pair);
         }
 
         if (arg.startsWith("-nw") || arg.startsWith("--new-window")) {
             ActionPair pair;
             pair.action = Qz::CL_NewWindow;
-            pair.text = "";
             m_actions.append(pair);
         }
 
         if (arg.startsWith("-dm") || arg.startsWith("--download-manager")) {
             ActionPair pair;
             pair.action = Qz::CL_ShowDownloadManager;
-            pair.text = "";
             m_actions.append(pair);
         }
 
         if (arg.startsWith("-pb") || arg.startsWith("--private-browsing")) {
             ActionPair pair;
             pair.action = Qz::CL_StartPrivateBrowsing;
-            pair.text = "";
+            m_actions.append(pair);
+        }
+
+        if (arg.startsWith("-nr") || arg.startsWith("--no-remote")) {
+            ActionPair pair;
+            pair.action = Qz::CL_StartNewInstance;
             m_actions.append(pair);
         }
 

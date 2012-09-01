@@ -54,6 +54,7 @@ enum CommandLineAction {
     CL_NewWindow,
     CL_ShowDownloadManager,
     CL_StartPrivateBrowsing,
+    CL_StartNewInstance,
     CL_ExitAction
 };
 

@@ -113,6 +113,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     setWindowIcon(QIcon(":icons/exeicons/qupzilla-window.png"));
     bool noAddons = false;
+    bool newInstance = false;
     QUrl startUrl;
     QStringList messages;
     QString startProfile;
@@ -142,6 +143,9 @@ MainApplication::MainApplication(int &argc, char** argv)
             case Qz::CL_StartPrivateBrowsing:
                 m_isPrivateSession = true;
                 break;
+            case Qz::CL_StartNewInstance:
+                newInstance = true;
+                break;
             case Qz::CL_OpenUrlInCurrentTab:
                 startUrl = QUrl::fromUserInput(pair.text);
                 messages.append("ACTION:OpenUrlInCurrentTab" + pair.text);
@@ -165,7 +169,18 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     // Don't start single application in private browsing
     if (!m_isPrivateSession) {
-        setAppId("QupZillaWebBrowser");
+        QString appId = "QupZillaWebBrowser";
+
+        if (newInstance) {
+            if (startProfile.isEmpty() || startProfile == "default") {
+                std::cout << "New instance cannot be started with default profile!" << std::endl;
+            }
+            else {
+                appId.append(startProfile);
+            }
+        }
+
+        setAppId(appId);
     }
 
     if (messages.isEmpty()) {
