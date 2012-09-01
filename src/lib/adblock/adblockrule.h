@@ -97,6 +97,8 @@ private:
     void parseFilter();
     void parseDomains(const QString &domains, const QChar &separator);
 
+    bool _matchDomain(const QString &domain, const QString &filter) const;
+
     AdBlockSubscription* m_subscription;
     QString m_filter;
 

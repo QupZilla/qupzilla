@@ -204,7 +204,7 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
     bool matched = false;
 
     if (m_useDomainMatch) {
-        matched = domain.endsWith(m_matchString);
+        matched = _matchDomain(domain, m_matchString);
     }
     else if (m_useEndsMatch) {
         matched = encodedUrl.endsWith(m_matchString, m_caseSensitivity);
@@ -270,14 +270,14 @@ bool AdBlockRule::matchDomain(const QString &domain) const
 
     if (m_blockedDomains.isEmpty()) {
         foreach(const QString & d, m_allowedDomains) {
-            if (domain.endsWith(d)) {
+            if (_matchDomain(domain, d)) {
                 return true;
             }
         }
     }
     else if (m_allowedDomains.isEmpty()) {
         foreach(const QString & d, m_blockedDomains) {
-            if (domain.endsWith(d)) {
+            if (_matchDomain(domain, d)) {
                 return false;
             }
         }
@@ -285,13 +285,13 @@ bool AdBlockRule::matchDomain(const QString &domain) const
     }
     else {
         foreach(const QString & d, m_blockedDomains) {
-            if (domain.endsWith(d)) {
+            if (_matchDomain(domain, d)) {
                 return false;
             }
         }
 
         foreach(const QString & d, m_allowedDomains) {
-            if (domain.endsWith(d)) {
+            if (_matchDomain(domain, d)) {
                 return true;
             }
         }
@@ -519,4 +519,19 @@ void AdBlockRule::parseDomains(const QString &domains, const QChar &separator)
     }
 
     m_domainRestricted = (!m_blockedDomains.isEmpty() || !m_allowedDomains.isEmpty());
+}
+
+bool AdBlockRule::_matchDomain(const QString &domain, const QString &filter) const
+{
+    if (!domain.endsWith(filter)) {
+        return false;
+    }
+
+    int index = domain.indexOf(filter);
+
+    if (index == 0 || filter[0] == '.') {
+        return true;
+    }
+
+    return domain[index - 1] == '.';
 }

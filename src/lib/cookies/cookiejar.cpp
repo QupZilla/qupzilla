@@ -25,7 +25,22 @@
 
 //#define COOKIE_DEBUG
 
-bool containsDomain(QString string, QString domain)
+bool _matchDomain(const QString &domain, const QString &filter)
+{
+    if (!domain.endsWith(filter)) {
+        return false;
+    }
+
+    int index = domain.indexOf(filter);
+
+    if (index == 0 || filter[0] == '.') {
+        return true;
+    }
+
+    return domain[index - 1] == '.';
+}
+
+bool containsDomain(QString string, const QString &domain)
 {
     if (string.isEmpty()) {
         // Some cookies have empty domain() ... bug?
@@ -36,7 +51,7 @@ bool containsDomain(QString string, QString domain)
         string = string.mid(1);
     }
 
-    return domain.endsWith(string);
+    return _matchDomain(domain, string);
 }
 
 int listContainsDomain(const QStringList &list, const QString &domain)
@@ -46,7 +61,7 @@ int listContainsDomain(const QStringList &list, const QString &domain)
     }
 
     foreach(const QString & d, list) {
-        if (domain.endsWith(d)) {
+        if (_matchDomain(domain, d)) {
             return 1;
         }
     }
