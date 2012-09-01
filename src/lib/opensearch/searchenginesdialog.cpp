@@ -38,6 +38,7 @@ SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
 
     connect(ui->treeWidget, SIGNAL(itemDoubleClicked(QTreeWidgetItem*, int)), this, SLOT(editEngine()));
 
+    ui->treeWidget->sortByColumn(-1);
     reloadEngines();
 }
 

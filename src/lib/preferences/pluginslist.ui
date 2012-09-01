@@ -124,6 +124,9 @@
         <layout class="QGridLayout" name="gridLayout">
          <item row="0" column="0" rowspan="3">
           <widget class="QTreeWidget" name="whitelist">
+           <property name="sortingEnabled">
+            <bool>true</bool>
+           </property>
            <column>
             <property name="text">
              <string>Whitelist</string>

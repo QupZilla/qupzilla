@@ -68,6 +68,9 @@
    </item>
    <item row="0" column="0">
     <widget class="QTreeWidget" name="treeWidget">
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
      <attribute name="headerDefaultSectionSize">
       <number>200</number>
      </attribute>

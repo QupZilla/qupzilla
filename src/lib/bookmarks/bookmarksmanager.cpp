@@ -68,6 +68,7 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     connect(deleteAction, SIGNAL(activated()), this, SLOT(deleteItem()));
 
     ui->bookmarksTree->setDefaultItemShowMode(TreeWidget::ItemsExpanded);
+    ui->bookmarksTree->sortByColumn(-1);
 }
 
 void BookmarksManager::importBookmarks()

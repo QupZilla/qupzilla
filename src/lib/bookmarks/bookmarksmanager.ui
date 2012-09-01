@@ -22,6 +22,9 @@
      <property name="alternatingRowColors">
       <bool>true</bool>
      </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
      <attribute name="headerDefaultSectionSize">
       <number>330</number>
      </attribute>

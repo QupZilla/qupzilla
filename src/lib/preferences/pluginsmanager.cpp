@@ -56,6 +56,8 @@ PluginsManager::PluginsManager(QWidget* parent)
     connect(ui->remove, SIGNAL(clicked()), this, SLOT(removeWhitelist()));
     connect(ui->allowClick2Flash, SIGNAL(clicked(bool)), this, SLOT(allowC2FChanged(bool)));
 
+    ui->whitelist->sortByColumn(-1);
+
     settings.beginGroup("ClickToFlash");
     QStringList whitelist = mApp->plugins()->c2f_getWhiteList();
     ui->allowClick2Flash->setChecked(settings.value("Enable", true).toBool());

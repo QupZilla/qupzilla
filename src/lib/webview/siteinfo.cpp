@@ -167,6 +167,9 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     connect(ui->treeImages, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(imagesCustomContextMenuRequested(const QPoint &)));
 
     ui->treeImages->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->treeImages->sortByColumn(-1);
+
+    ui->treeTags->sortByColumn(-1);
 }
 
 void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)

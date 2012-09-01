@@ -60,8 +60,9 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
         ui->table->insertRow(row);
         ui->table->setItem(row, 0, siteItem);
         ui->table->setItem(row, 1, userAgentItem);
-
     }
+
+    ui->table->sortByColumn(-1);
 
     connect(ui->add, SIGNAL(clicked()), this, SLOT(addSite()));
     connect(ui->remove, SIGNAL(clicked()), this, SLOT(removeSite()));

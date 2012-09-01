@@ -32,6 +32,9 @@
          <property name="indentation">
           <number>0</number>
          </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
          <attribute name="headerMinimumSectionSize">
           <number>100</number>
          </attribute>
@@ -143,6 +146,9 @@
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QTreeWidget" name="treeExcept">
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
          <column>
           <property name="text">
            <string>Server</string>

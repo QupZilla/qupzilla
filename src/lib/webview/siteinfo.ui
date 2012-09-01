@@ -195,6 +195,9 @@
        </item>
        <item row="3" column="0" colspan="4">
         <widget class="QTreeWidget" name="treeTags">
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
          <attribute name="headerMinimumSectionSize">
           <number>200</number>
          </attribute>
@@ -293,6 +296,9 @@
              </property>
              <property name="itemsExpandable">
               <bool>false</bool>
+             </property>
+             <property name="sortingEnabled">
+              <bool>true</bool>
              </property>
              <attribute name="headerMinimumSectionSize">
               <number>200</number>

@@ -78,6 +78,9 @@ void AutoFillManager::loadPasswords()
         item->setData(0, Qt::UserRole + 10, query.value(1).toString());
         ui->treeExcept->addTopLevelItem(item);
     }
+
+    ui->treePass->sortByColumn(-1);
+    ui->treeExcept->sortByColumn(-1);
 }
 
 void AutoFillManager::showPasswords()
