@@ -36,14 +36,6 @@
 #define MAXIMUM_TAB_WIDTH 250
 #define MINIMUM_TAB_WIDTH 125
 
-#ifdef Q_WS_WIN
-#define PINNED_TAB_WIDTH 38
-#elif defined(KDE)
-#define PINNED_TAB_WIDTH 24
-#else
-#define PINNED_TAB_WIDTH 31
-#endif
-
 TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     : QTabBar()
     , p_QupZilla(mainClass)
@@ -176,6 +168,12 @@ void TabBar::contextMenuRequested(const QPoint &position)
 
 QSize TabBar::tabSizeHint(int index) const
 {
+    static int PINNED_TAB_WIDTH = -1;
+
+    if (PINNED_TAB_WIDTH == -1) {
+        PINNED_TAB_WIDTH = 16 + style()->pixelMetric(QStyle::PM_TabBarTabHSpace);
+    }
+
     QSize size = QTabBar::tabSizeHint(index);
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
     TabBar* tabBar = const_cast <TabBar*>(this);
