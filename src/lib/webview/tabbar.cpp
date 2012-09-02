@@ -158,7 +158,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
         action->setEnabled(m_tabWidget->canRestoreTab());
     }
 
-    //Prevent choosing first option with double rightclick
+    // Prevent choosing first option with double rightclick
     const QPoint &pos = mapToGlobal(position);
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
@@ -168,6 +168,12 @@ void TabBar::contextMenuRequested(const QPoint &position)
 
 QSize TabBar::tabSizeHint(int index) const
 {
+    if (!isVisible()) {
+        // Don't calculate it when tabbar is not visible
+        // It produces invalid size anyway
+        return QSize(-1, -1);
+    }
+
     static int PINNED_TAB_WIDTH = -1;
 
     if (PINNED_TAB_WIDTH == -1) {
@@ -234,8 +240,14 @@ QSize TabBar::tabSizeHint(int index) const
                 size.setWidth(m_lastTabWidth);
             }
 
+            // Restore close buttons according to preferences
             if (tabsClosable() != m_showCloseButtons) {
                 tabBar->setTabsClosable(m_showCloseButtons);
+
+                // Hide close buttons on pinned tabs
+                for (int i = 0; i < count(); ++i) {
+                    updateCloseButton(i);
+                }
             }
         }
     }
@@ -303,7 +315,7 @@ void TabBar::hideCloseButton(int index)
 }
 #endif
 
-void TabBar::updateCloseButton(int index)
+void TabBar::updateCloseButton(int index) const
 {
     QAbstractButton* button = qobject_cast<QAbstractButton*>(tabButton(index, QTabBar::RightSide));
     if (!button) {

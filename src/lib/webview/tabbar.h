@@ -33,7 +33,7 @@ public:
     explicit TabBar(QupZilla* mainClass, TabWidget* tabWidget);
 //    void hideCloseButton(int index);
 //    void showCloseButton(int index);
-    void updateCloseButton(int index);
+    void updateCloseButton(int index) const;
 
     QSize getTabSizeHint(int index) { return QTabBar::tabSizeHint(index); }
     void loadSettings();
