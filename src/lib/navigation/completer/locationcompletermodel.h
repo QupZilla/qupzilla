@@ -30,7 +30,8 @@ public:
         TitleRole = Qt::UserRole + 1,
         BookmarkRole = Qt::UserRole + 2,
         IdRole = Qt::UserRole + 3,
-        SearchStringRole = Qt::UserRole + 4
+        SearchStringRole = Qt::UserRole + 4,
+        CountRole = Qt::UserRole + 5
     };
     explicit LocationCompleterModel(QObject* parent = 0);
 

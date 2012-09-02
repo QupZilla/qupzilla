@@ -28,6 +28,12 @@ LocationCompleterModel::LocationCompleterModel(QObject* parent)
 {
 }
 
+bool countBiggerThan(const QStandardItem* i1, const QStandardItem* i2)
+{
+    return i1->data(LocationCompleterModel::CountRole).toInt() >
+           i2->data(LocationCompleterModel::CountRole).toInt();
+}
+
 void LocationCompleterModel::refreshCompletions(const QString &string)
 {
     if (m_lastCompletion == string) {
@@ -47,6 +53,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
 
     int limit = string.size() < 3 ? 25 : 15;
     QList<QUrl> urlList;
+    QList<QStandardItem*> itemList;
 
     if (showType == HistoryAndBookmarks || showType == Bookmarks) {
         QSqlQuery query = createQuery(string, "bookmarks.count DESC", urlList, limit, true);
@@ -56,14 +63,16 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             QStandardItem* item = new QStandardItem();
             const QUrl &url = query.value(1).toUrl();
 
-            item->setIcon(qIconProvider->iconFromImage(QImage::fromData(query.value(3).toByteArray())));
+            item->setIcon(qIconProvider->iconFromImage(QImage::fromData(query.value(4).toByteArray())));
             item->setText(url.toEncoded());
             item->setData(query.value(0), IdRole);
             item->setData(query.value(2), TitleRole);
+            item->setData(query.value(3).toInt() + 10, CountRole); // Give +10 count bonus to bookmarks
             item->setData(QVariant(true), BookmarkRole);
             item->setData(string, SearchStringRole);
-            appendRow(item);
+
             urlList.append(url);
+            itemList.append(item);
         }
 
         limit -= query.size();
@@ -81,12 +90,18 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             item->setText(url.toEncoded());
             item->setData(query.value(0), IdRole);
             item->setData(query.value(2), TitleRole);
+            item->setData(query.value(3), CountRole);
             item->setData(QVariant(false), BookmarkRole);
             item->setData(string, SearchStringRole);
 
-            appendRow(item);
+            itemList.append(item);
         }
     }
+
+    // Sort by count
+    qSort(itemList.begin(), itemList.end(), countBiggerThan);
+
+    appendColumn(itemList);
 }
 
 void LocationCompleterModel::showMostVisited()
@@ -114,7 +129,7 @@ QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const
         const QList<QUrl> &alreadyFound, int limit, bool bookmarks, bool exactMatch)
 {
     QString table = bookmarks ? "bookmarks" : "history";
-    QString query = QString("SELECT %1.id, %1.url, %1.title").arg(table);
+    QString query = QString("SELECT %1.id, %1.url, %1.title, %1.count").arg(table);
     QStringList searchList;
 
     if (bookmarks) {
