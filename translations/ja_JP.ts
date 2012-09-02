@@ -3998,7 +3998,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>TabbedWebView</name>
     <message>
         <source>Failed loading page</source>
-        <translation>ページの読み込みに失敗しました</translation>
+        <translatorcomment>ページの読み込みに失敗しましたもあり</translatorcomment>
+        <translation>ページを読み込めませんでした</translation>
     </message>
     <message>
         <source>Loading...</source>
@@ -4116,7 +4117,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Web Inspector</source>
         <translatorcomment>原文重視</translatorcomment>
-        <translation>Webインスペクター</translation>
+        <translation>Webインスペクタ</translation>
     </message>
 </context>
 <context>
@@ -4204,7 +4205,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>QupZilla can&apos;t load page from %1.</source>
-        <translation>QupZillaは%1からページを読み込むのに失敗しました。</translation>
+        <translation>QupZilla は %1 からのページ読み込みに失敗しました。</translation>
     </message>
     <message>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
@@ -4221,8 +4222,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Try Again</source>
-        <translatorcomment>再考、まったくわからん</translatorcomment>
-        <translation>もう一度試してください</translation>
+        <translatorcomment>再試行、try again</translatorcomment>
+        <translation>再試行</translation>
     </message>
     <message>
         <source>Prevent this page from creating additional dialogs</source>
