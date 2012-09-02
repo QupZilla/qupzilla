@@ -917,7 +917,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="41"/>
         <source>Organize Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Организуј обиљеживаче</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="52"/>
@@ -943,14 +943,6 @@
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="135"/>
         <source>Close</source>
         <translation>Затвори</translation>
-    </message>
-    <message>
-        <source>Add to Bookmarks</source>
-        <translation type="obsolete">Додај у обиљеживаче</translation>
-    </message>
-    <message>
-        <source>Edit Bookmark</source>
-        <translation type="obsolete">Уреди обиљеживач</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="54"/>
@@ -1463,10 +1455,6 @@
         <translation>Уклони</translation>
     </message>
     <message>
-        <source>Clear</source>
-        <translation type="obsolete">Очисти</translation>
-    </message>
-    <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="325"/>
         <source>Error</source>
         <translation>Грешка</translation>
@@ -1647,42 +1635,42 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="100"/>
         <source>No Error</source>
-        <translation type="unfinished">Нема грешке</translation>
+        <translation>Нема грешке</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="148"/>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"></translation>
+        <translation>У родитељску фасциклу</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="149"/>
         <source>Show hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи скривене фајлове</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="150"/>
         <source>Name</source>
-        <translation type="unfinished">Име</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="151"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Величина</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="152"/>
         <source>Last modified</source>
-        <translation type="unfinished"></translation>
+        <translation>Измијењено</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="157"/>
         <source>Index for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Индекс од %1</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="202"/>
         <source>Folder is empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>Фасцикла је празна.</translation>
     </message>
 </context>
 <context>
@@ -2202,7 +2190,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="211"/>
         <source>Restore session</source>
-        <translation>поврати сесију</translation>
+        <translation>Обнови сесију</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="219"/>
@@ -2316,17 +2304,9 @@
         <translation>Користи провидну позадину</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Понашање језичака&lt;/b&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="673"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>Сакриј траку са језичцима када има само један</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Понашање траке адресе&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="806"/>
@@ -2486,12 +2466,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="613"/>
         <source>Tabs behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Понашање језичака</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="666"/>
         <source>Show close button on tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи дугме за затварање на језичцима</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="694"/>
@@ -2501,7 +2481,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="736"/>
         <source>Address Bar behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Понашање траке адресе</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="744"/>
@@ -2531,7 +2511,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="799"/>
         <source>Show loading progress in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи напредак учитавања у траци адресе</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="860"/>
@@ -2811,10 +2791,6 @@
         <translation>&lt;b&gt;Упозорење:&lt;/b&gt; Тачно поклапање домена и пречишћање колачића пратиоца може довести до одбијања неких колачића са сајтова. Ако имате проблема са колачићима, искључите ове опције!</translation>
     </message>
     <message>
-        <source>Change browser identification:</source>
-        <translation type="obsolete">Промијени идентификацију прегледача:</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1885"/>
         <source>Allow storing of cookies</source>
         <translation>Дозволи успремање колачића</translation>
@@ -3067,12 +3043,12 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="83"/>
         <source>Save file as...</source>
-        <translation type="unfinished">Сачувај фајл као...</translation>
+        <translation>Сачувај фајл као...</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/globalfunctions.cpp" line="271"/>
         <source>Unknown size</source>
-        <translation type="unfinished">Величина није позната</translation>
+        <translation>Величина није позната</translation>
     </message>
 </context>
 <context>
@@ -3251,14 +3227,6 @@
         <translation>Капзила</translation>
     </message>
     <message>
-        <source>Last session crashed</source>
-        <translation type="obsolete">Претходна сесија се срушила</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="obsolete">&lt;b&gt;Капзила се срушила :-(&lt;/b&gt;&lt;br/&gt;Упс, претходна Капзилина сесија је неочекивано прекинута. Извњавамо се због овога. Желите ли да вратите посљедње сачувано стање?</translation>
-    </message>
-    <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="319"/>
         <source>&amp;Print...</source>
         <translation>&amp;Штампај...</translation>
@@ -3366,7 +3334,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="504"/>
         <source>Restore &amp;Closed Tab</source>
-        <translation>&amp;Врати затворени језичак</translation>
+        <translation>&amp;Обнови затворени језичак</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="670"/>
@@ -3437,7 +3405,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="853"/>
         <source>Restore All Closed Tabs</source>
-        <translation>Врати све затворене језичке</translation>
+        <translation>Обнови све затворене језичке</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="854"/>
@@ -3846,27 +3814,27 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
         <source>Restore Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Обнови сесију</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
         <source>Oops, QupZilla crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Упс, Капзила се срушила.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="327"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation type="unfinished"></translation>
+        <translation>Извињавамо се због овога. Желите ли да обновите посљедње сачувано стање?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="328"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation type="unfinished"></translation>
+        <translation>Покушајте да уклоните један или више језичака за које мислите да узрокују проблеме</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="329"/>
         <source>Or you can start completely new session</source>
-        <translation type="unfinished"></translation>
+        <translation>Или можете покренути нову сесију</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
@@ -4176,17 +4144,17 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="34"/>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Обнови</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="47"/>
         <source>Start New Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Почни нову сесију</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.cpp" line="43"/>
         <source>Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Прозор %1</translation>
     </message>
 </context>
 <context>
@@ -5103,12 +5071,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Захтјев за спољашњи протокол</translation>
     </message>
     <message>
-        <source>To show this page, QupZilla must resend request which do it again 
-(like searching on making an shoping, which has been already done.)</source>
-        <translation type="obsolete">Да би приказала ову страницу Капзила мора поново да пошаље захтијев 
-за учитавањем (као претрага куповине која је већ обављена)</translation>
-    </message>
-    <message>
         <location filename="../src/lib/webview/webpage.cpp" line="473"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
@@ -5217,7 +5179,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="758"/>
         <source>QupZilla can&apos;t load page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Капзила не може да учита страницу.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="762"/>
