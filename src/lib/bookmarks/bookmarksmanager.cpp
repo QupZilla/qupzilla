@@ -189,14 +189,27 @@ void BookmarksManager::itemControlClicked(QTreeWidgetItem* item)
     if (!item || item->text(1).isEmpty()) {
         return;
     }
-    getQupZilla()->tabWidget()->addView(QUrl(item->text(1)), item->text(0));
+
+    int id = item->data(0, Qt::UserRole + 10).toInt();
+    mApp->bookmarksModel()->countUpBookmark(id);
+
+    const QUrl &url = QUrl::fromEncoded(item->text(1).toUtf8());
+    getQupZilla()->tabWidget()->addView(url, item->text(0));
 }
 
 void BookmarksManager::loadInNewTab()
 {
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
-        getQupZilla()->tabWidget()->addView(action->data().toUrl(), qzSettings->newTabPosition);
+    QTreeWidgetItem* item = ui->bookmarksTree->currentItem();
+    QAction* action = qobject_cast<QAction*>(sender());
+
+    if (!item || !action) {
+        return;
     }
+
+    int id = item->data(0, Qt::UserRole + 10).toInt();
+    mApp->bookmarksModel()->countUpBookmark(id);
+
+    getQupZilla()->tabWidget()->addView(action->data().toUrl(), item->text(0), qzSettings->newTabPosition);
 }
 
 void BookmarksManager::deleteItem()

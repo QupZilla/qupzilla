@@ -50,6 +50,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_pasteAndGoAction(0)
     , m_clearAction(0)
     , m_holdingAlt(false)
+    , m_completerBookmarkId(-1)
     , m_loadProgress(0)
     , m_loadFinished(true)
 {
@@ -76,7 +77,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     addWidget(down, LineEdit::RightSide);
 
     m_completer.setLocationBar(this);
-    connect(&m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));
+    connect(&m_completer, SIGNAL(showCompletion(QString, int)), this, SLOT(showCompletion(QString, int)));
     connect(&m_completer, SIGNAL(completionActivated()), this, SLOT(urlEnter()));
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
@@ -109,9 +110,13 @@ void LocationBar::updatePlaceHolderText()
     setPlaceholderText(tr("Enter URL address or search on %1").arg(mApp->searchEnginesManager()->activeEngine().name));
 }
 
-void LocationBar::showCompletion(const QString &newText)
+void LocationBar::showCompletion(const QString &newText, int bookmarkId)
 {
+    m_completerBookmarkId = bookmarkId;
+
     LineEdit::setText(newText);
+
+    // Move cursor to the end
     end(false);
 }
 
@@ -146,6 +151,12 @@ QUrl LocationBar::createUrl()
 
 void LocationBar::urlEnter()
 {
+    if (m_completerBookmarkId != -1) {
+        mApp->bookmarksModel()->countUpBookmark(m_completerBookmarkId);
+
+        m_completerBookmarkId = -1;
+    }
+
     m_completer.closePopup();
     m_webView->setFocus();
 
@@ -160,6 +171,8 @@ void LocationBar::textEdit()
     else {
         m_completer.closePopup();
     }
+
+    m_completerBookmarkId = -1;
 
     showGoButton();
 }

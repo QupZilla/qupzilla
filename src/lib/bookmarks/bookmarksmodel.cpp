@@ -368,6 +368,14 @@ bool BookmarksModel::changeIcon(int id, const QIcon &icon)
     return true;
 }
 
+void BookmarksModel::countUpBookmark(int id)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE bookmarks SET count = count + 1 WHERE id=?");
+    query.addBindValue(id);
+    query.exec();
+}
+
 bool BookmarksModel::createFolder(const QString &name)
 {
     if (isFolder(name)) {

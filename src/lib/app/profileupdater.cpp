@@ -29,6 +29,8 @@
 ProfileUpdater::ProfileUpdater(const QString &profilePath)
     : m_profilePath(profilePath)
 {
+    // FIXME: Remove this line when releasing new version
+    update131();
 }
 
 void ProfileUpdater::checkProfile()
@@ -69,60 +71,38 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
 
     if (profileVersion == Updater::parseVersionFromString("1.0.0-b4")) {
         update100b4();
-        update100rc1();
-        update100();
-        update118();
-        update120();
-        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.0.0-rc1")) {
         update100rc1();
-        update100();
-        update118();
-        update120();
-        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.0.0")) {
         update100();
-        update118();
-        update120();
-        update130();
         return;
     }
 
-    if (profileVersion == Updater::parseVersionFromString("1.1.0")) {
+    if (profileVersion == Updater::parseVersionFromString("1.1.0") ||
+            profileVersion == Updater::parseVersionFromString("1.1.5") ||
+            profileVersion == Updater::parseVersionFromString("1.1.8")) {
         update118();
-        update120();
-        update130();
-        return;
-    }
-
-    if (profileVersion == Updater::parseVersionFromString("1.1.5")) {
-        update118();
-        update120();
-        update130();
-        return;
-    }
-
-    if (profileVersion == Updater::parseVersionFromString("1.1.8")) {
-        update118();
-        update120();
-        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.2.0")) {
         update120();
-        update130();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.3.0")) {
         update130();
+        return;
+    }
+
+    if (profileVersion == Updater::parseVersionFromString("1.3.1")) {
+        update131();
         return;
     }
 
@@ -160,6 +140,8 @@ void ProfileUpdater::update100b4()
     QSqlQuery query;
     query.exec("CREATE TABLE IF NOT EXISTS search_engines (id INTEGER PRIMARY KEY, name TEXT, icon TEXT,"
                "url TEXT, shortcut TEXT, suggestionsUrl TEXT, suggestionsParameters TEXT);");
+
+    update100rc1();
 }
 
 void ProfileUpdater::update100rc1()
@@ -173,6 +155,8 @@ void ProfileUpdater::update100rc1()
 
     query.exec("ALTER TABLE bookmarks ADD COLUMN toolbar_position NUMERIC");
     query.exec("UPDATE bookmarks SET toolbar_position=0");
+
+    update100();
 }
 
 void ProfileUpdater::update100()
@@ -183,6 +167,8 @@ void ProfileUpdater::update100()
     QSqlQuery query;
     query.exec("ALTER TABLE autofill ADD COLUMN last_used NUMERIC");
     query.exec("UPDATE autofill SET last_used=0");
+
+    update118();
 }
 
 void ProfileUpdater::update118()
@@ -192,6 +178,8 @@ void ProfileUpdater::update118()
 
     QSqlQuery query;
     query.exec("ALTER TABLE folders ADD COLUMN parent TEXT");
+
+    update120();
 }
 
 void ProfileUpdater::update120()
@@ -213,6 +201,8 @@ void ProfileUpdater::update120()
     query.exec("CREATE INDEX bookmarksUrl ON bookmarks(url ASC)");
 
     db.commit();
+
+    update130();
 }
 
 void ProfileUpdater::update130()
@@ -222,4 +212,16 @@ void ProfileUpdater::update130()
 
     QSqlQuery query;
     query.exec("ALTER TABLE bookmarks ADD COLUMN keyword TEXT");
+
+    update131();
+}
+
+void ProfileUpdater::update131()
+{
+    std::cout << "QupZilla: Upgrading profile version from 1.3.1..." << std::endl;
+    mApp->connectDatabase();
+
+    QSqlQuery query;
+    query.exec("ALTER TABLE bookmarks ADD COLUMN count NUMERIC");
+    query.exec("UPDATE bookmarks SET count=0");
 }

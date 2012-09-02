@@ -49,7 +49,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
     QList<QUrl> urlList;
 
     if (showType == HistoryAndBookmarks || showType == Bookmarks) {
-        QSqlQuery query = createQuery(string, QString("history.count DESC"), urlList, limit, true, false);
+        QSqlQuery query = createQuery(string, "bookmarks.count DESC", urlList, limit, true);
         query.exec();
 
         while (query.next()) {
@@ -70,7 +70,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
     }
 
     if (showType == HistoryAndBookmarks || showType == History) {
-        QSqlQuery query = createQuery(string, "count DESC", urlList, limit, false, false);
+        QSqlQuery query = createQuery(string, "count DESC", urlList, limit);
         query.exec();
 
         while (query.next()) {
@@ -110,7 +110,8 @@ void LocationCompleterModel::showMostVisited()
     }
 }
 
-QSqlQuery LocationCompleterModel::createQuery(QString searchString, QString orderBy, const QList<QUrl> &alreadyFound, int limit, bool bookmarks, bool exactMatch)
+QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const QString &orderBy,
+        const QList<QUrl> &alreadyFound, int limit, bool bookmarks, bool exactMatch)
 {
     QString table = bookmarks ? "bookmarks" : "history";
     QString query = QString("SELECT %1.id, %1.url, %1.title").arg(table);

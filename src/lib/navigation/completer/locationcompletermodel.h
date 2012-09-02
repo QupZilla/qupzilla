@@ -49,7 +49,8 @@ private:
         Nothing = 4
     };
 
-    QSqlQuery createQuery(QString searchString, QString orderBy, const QList<QUrl> &alreadyFound, int limit, bool bookmarks, bool exactMatch);
+    QSqlQuery createQuery(const QString &searchString, const QString &orderBy, const QList<QUrl> &alreadyFound,
+                          int limit, bool bookmarks = false, bool exactMatch = false);
 
     QString m_lastCompletion;
 

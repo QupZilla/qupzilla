@@ -63,7 +63,10 @@ void BookmarksSideBar::itemControlClicked(QTreeWidgetItem* item)
         return;
     }
 
-    QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
+    int id = item->data(0, Qt::UserRole + 10).toInt();
+    mApp->bookmarksModel()->countUpBookmark(id);
+
+    const QUrl &url = QUrl::fromEncoded(item->text(1).toUtf8());
     p_QupZilla->tabWidget()->addView(url, item->text(0));
 }
 
@@ -73,15 +76,26 @@ void BookmarksSideBar::itemDoubleClicked(QTreeWidgetItem* item)
         return;
     }
 
-    QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
+    int id = item->data(0, Qt::UserRole + 10).toInt();
+    mApp->bookmarksModel()->countUpBookmark(id);
+
+    const QUrl &url = QUrl::fromEncoded(item->text(1).toUtf8());
     p_QupZilla->loadAddress(url);
 }
 
 void BookmarksSideBar::loadInNewTab()
 {
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
-        p_QupZilla->tabWidget()->addView(action->data().toUrl(), qzSettings->newTabPosition);
+    QTreeWidgetItem* item = ui->bookmarksTree->currentItem();
+    QAction* action = qobject_cast<QAction*>(sender());
+
+    if (!item || !action) {
+        return;
     }
+
+    int id = item->data(0, Qt::UserRole + 10).toInt();
+    mApp->bookmarksModel()->countUpBookmark(id);
+
+    p_QupZilla->tabWidget()->addView(action->data().toUrl(), item->text(0), qzSettings->newTabPosition);
 }
 
 void BookmarksSideBar::copyAddress()

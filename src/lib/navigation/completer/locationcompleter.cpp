@@ -63,12 +63,23 @@ void LocationCompleter::showMostVisited()
 
 void LocationCompleter::currentChanged(const QModelIndex &index)
 {
+    int bookmarkId = -1;
     QString completion = index.data().toString();
+
     if (completion.isEmpty()) {
         completion = m_originalText;
     }
 
-    emit showCompletion(completion);
+    if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
+        bool ok = false;
+        int id = index.data(LocationCompleterModel::IdRole).toInt(&ok);
+
+        if (ok) {
+            bookmarkId = id;
+        }
+    }
+
+    emit showCompletion(completion, bookmarkId);
 }
 
 void LocationCompleter::popupClosed()
