@@ -62,6 +62,8 @@ private slots:
     void renameFolder(const QString &before, const QString &after);
 
 private:
+    void keyPressEvent(QKeyEvent* event);
+
     QupZilla* getQupZilla();
 
     bool m_isRefreshing;

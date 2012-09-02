@@ -31,6 +31,9 @@
    </item>
    <item>
     <widget class="QToolButton" name="closeButton">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="text">
       <string/>
      </property>

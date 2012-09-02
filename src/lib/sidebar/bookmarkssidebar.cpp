@@ -30,6 +30,7 @@
 #include <QTimer>
 #include <QClipboard>
 #include <QSqlQuery>
+#include <QKeyEvent>
 
 BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -233,6 +234,24 @@ void BookmarksSideBar::renameFolder(const QString &before, const QString &after)
     item->setText(0, after);
 }
 
+void BookmarksSideBar::keyPressEvent(QKeyEvent* event)
+{
+    if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
+        QTreeWidgetItem* item = ui->bookmarksTree->currentItem();
+
+        if (event->modifiers() & Qt::ControlModifier) {
+            itemControlClicked(item);
+        }
+        else {
+            itemDoubleClicked(item);
+        }
+
+        return;
+    }
+
+    QWidget::keyPressEvent(event);
+}
+
 void BookmarksSideBar::refreshTable()
 {
     m_isRefreshing = true;
@@ -293,6 +312,8 @@ void BookmarksSideBar::refreshTable()
 
     ui->bookmarksTree->setUpdatesEnabled(true);
     m_isRefreshing = false;
+
+    ui->search->setFocus();
 }
 
 BookmarksSideBar::~BookmarksSideBar()
