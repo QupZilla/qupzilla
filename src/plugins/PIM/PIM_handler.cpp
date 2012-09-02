@@ -41,20 +41,20 @@ void PIM_Handler::loadSettings()
     QSettings settings(m_settingsFile, QSettings::IniFormat);
 
     settings.beginGroup("PIM");
-    m_allInfo[PI_LastName] = settings.value("LastName", "").toString();
-    m_allInfo[PI_FirstName] = settings.value("FirstName", "").toString();
-    m_allInfo[PI_Email] = settings.value("Email", "").toString();
-    m_allInfo[PI_Mobile] = settings.value("Mobile", "").toString();
-    m_allInfo[PI_Phone] = settings.value("Phone", "").toString();
-    m_allInfo[PI_Address] = settings.value("Address", "").toString();
-    m_allInfo[PI_City] = settings.value("City", "").toString();
-    m_allInfo[PI_Zip] = settings.value("Zip", "").toString();
-    m_allInfo[PI_State] = settings.value("State", "").toString();
-    m_allInfo[PI_Country] = settings.value("Country", "").toString();
-    m_allInfo[PI_HomePage] = settings.value("HomePage", "").toString();
-    m_allInfo[PI_Special1] = settings.value("Special1", "").toString();
-    m_allInfo[PI_Special2] = settings.value("Special2", "").toString();
-    m_allInfo[PI_Special3] = settings.value("Special3", "").toString();
+    m_allInfo[PI_LastName] = settings.value("LastName", QString()).toString();
+    m_allInfo[PI_FirstName] = settings.value("FirstName", QString()).toString();
+    m_allInfo[PI_Email] = settings.value("Email", QString()).toString();
+    m_allInfo[PI_Mobile] = settings.value("Mobile", QString()).toString();
+    m_allInfo[PI_Phone] = settings.value("Phone", QString()).toString();
+    m_allInfo[PI_Address] = settings.value("Address", QString()).toString();
+    m_allInfo[PI_City] = settings.value("City", QString()).toString();
+    m_allInfo[PI_Zip] = settings.value("Zip", QString()).toString();
+    m_allInfo[PI_State] = settings.value("State", QString()).toString();
+    m_allInfo[PI_Country] = settings.value("Country", QString()).toString();
+    m_allInfo[PI_HomePage] = settings.value("HomePage", QString()).toString();
+    m_allInfo[PI_Special1] = settings.value("Special1", QString()).toString();
+    m_allInfo[PI_Special2] = settings.value("Special2", QString()).toString();
+    m_allInfo[PI_Special3] = settings.value("Special3", QString()).toString();
     settings.endGroup();
 
     m_translations[PI_LastName] = tr("Last Name");

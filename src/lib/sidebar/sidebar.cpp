@@ -41,7 +41,7 @@ SideBar::SideBar(SideBarManager* manager, QupZilla* mainClass)
     m_layout->setSpacing(0);
     setLayout(m_layout);
 
-    m_titleBar = new DockTitleBarWidget("", this);
+    m_titleBar = new DockTitleBarWidget(QString(), this);
     m_layout->addWidget(m_titleBar);
 }
 

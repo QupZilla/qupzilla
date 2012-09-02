@@ -218,11 +218,11 @@ void TabbedWebView::linkHovered(const QString &link, const QString &title, const
     Q_UNUSED(content)
 
     if (isCurrent()) {
-        if (link != "") {
-            p_QupZilla->statusBarMessage()->showMessage(link);
+        if (link.isEmpty()) {
+            p_QupZilla->statusBarMessage()->clearMessage();
         }
         else {
-            p_QupZilla->statusBarMessage()->clearMessage();
+            p_QupZilla->statusBarMessage()->showMessage(link);
         }
     }
 }

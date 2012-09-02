@@ -33,15 +33,15 @@ void NetworkProxyFactory::loadSettings()
     m_proxyType = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::HttpProxy).toInt());
     m_useDifferentProxyForHttps = settings.value("UseDifferentProxyForHttps", false).toBool();
 
-    m_hostName = settings.value("HostName", "").toString();
+    m_hostName = settings.value("HostName", QString()).toString();
     m_port = settings.value("Port", 8080).toInt();
-    m_username = settings.value("Username", "").toString();
-    m_password = settings.value("Password", "").toString();
+    m_username = settings.value("Username", QString()).toString();
+    m_password = settings.value("Password", QString()).toString();
 
-    m_httpsHostName = settings.value("HttpsHostName", "").toString();
+    m_httpsHostName = settings.value("HttpsHostName", QString()).toString();
     m_httpsPort = settings.value("HttpsPort", 8080).toInt();
-    m_httpsUsername = settings.value("HttpsUsername", "").toString();
-    m_httpsPassword = settings.value("HttpsPassword", "").toString();
+    m_httpsUsername = settings.value("HttpsUsername", QString()).toString();
+    m_httpsPassword = settings.value("HttpsPassword", QString()).toString();
 
     m_proxyExceptions = settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList();
     settings.endGroup();

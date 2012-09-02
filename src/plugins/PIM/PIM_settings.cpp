@@ -33,20 +33,20 @@ PIM_Settings::PIM_Settings(const QString &settingsFile, QWidget* parent)
 
     QSettings settings(m_settingsFile, QSettings::IniFormat);
     settings.beginGroup("PIM");
-    ui->pim_firstname->setText(settings.value("FirstName", "").toString());
-    ui->pim_lastname->setText(settings.value("LastName", "").toString());
-    ui->pim_email->setText(settings.value("Email", "").toString());
-    ui->pim_phone->setText(settings.value("Phone", "").toString());
-    ui->pim_mobile->setText(settings.value("Mobile", "").toString());
-    ui->pim_address->setText(settings.value("Address", "").toString());
-    ui->pim_city->setText(settings.value("City", "").toString());
-    ui->pim_zip->setText(settings.value("Zip", "").toString());
-    ui->pim_state->setText(settings.value("State", "").toString());
-    ui->pim_country->setText(settings.value("Country", "").toString());
-    ui->pim_homepage->setText(settings.value("HomePage", "").toString());
-    ui->pim_special1->setText(settings.value("Special1", "").toString());
-    ui->pim_special2->setText(settings.value("Special2", "").toString());
-    ui->pim_special3->setText(settings.value("Special3", "").toString());
+    ui->pim_firstname->setText(settings.value("FirstName", QString()).toString());
+    ui->pim_lastname->setText(settings.value("LastName", QString()).toString());
+    ui->pim_email->setText(settings.value("Email", QString()).toString());
+    ui->pim_phone->setText(settings.value("Phone", QString()).toString());
+    ui->pim_mobile->setText(settings.value("Mobile", QString()).toString());
+    ui->pim_address->setText(settings.value("Address", QString()).toString());
+    ui->pim_city->setText(settings.value("City", QString()).toString());
+    ui->pim_zip->setText(settings.value("Zip", QString()).toString());
+    ui->pim_state->setText(settings.value("State", QString()).toString());
+    ui->pim_country->setText(settings.value("Country", QString()).toString());
+    ui->pim_homepage->setText(settings.value("HomePage", QString()).toString());
+    ui->pim_special1->setText(settings.value("Special1", QString()).toString());
+    ui->pim_special2->setText(settings.value("Special2", QString()).toString());
+    ui->pim_special3->setText(settings.value("Special3", QString()).toString());
     settings.endGroup();
 
     connect(this, SIGNAL(accepted()), this, SLOT(dialogAccepted()));

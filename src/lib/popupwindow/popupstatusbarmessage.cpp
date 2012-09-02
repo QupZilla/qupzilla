@@ -77,7 +77,7 @@ void PopupStatusBarMessage::showMessage(const QString &message)
 void PopupStatusBarMessage::clearMessage()
 {
     if (m_popupWindow->statusBar()->isVisible()) {
-        m_popupWindow->statusBar()->showMessage("");
+        m_popupWindow->statusBar()->showMessage(QString());
     }
     else {
         m_statusBarText->hideDelayed();

@@ -295,7 +295,7 @@ bool QtSingleApplication::sendMessage(const QString &message, int timeout)
 */
 QString QtSingleApplication::id() const
 {
-    return (peer ? peer->applicationId() : "");
+    return (peer ? peer->applicationId() : QString());
 }
 
 

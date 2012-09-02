@@ -45,8 +45,8 @@ void SpeedDial::loadSettings()
 
     Settings settings;
     settings.beginGroup("SpeedDial");
-    QString allPages = settings.value("pages", "").toString();
-    m_backgroundImage = settings.value("background", "").toString();
+    QString allPages = settings.value("pages", QString()).toString();
+    m_backgroundImage = settings.value("background", QString()).toString();
     m_backgroundImageSize = settings.value("backsize", "auto").toString();
     m_maxPagesInRow = settings.value("pagesrow", 4).toInt();
     m_sizeOfSpeedDials = settings.value("sdsize", 231).toInt();
@@ -217,7 +217,7 @@ QString SpeedDial::initialScript()
             imgSource = "qrc:html/loading.gif";
 
             if (page.url.isEmpty()) {
-                imgSource = "";
+                imgSource.clear();
             }
         }
         else {

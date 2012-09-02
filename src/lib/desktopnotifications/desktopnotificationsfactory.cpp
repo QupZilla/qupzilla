@@ -115,7 +115,7 @@ void DesktopNotificationsFactory::nativeNotificationPreview()
     args.append(m_uint);
     args.append(tmp.fileName());
     args.append(QObject::tr("Native System Notification"));
-    args.append("");
+    args.append(QString());
     args.append(QStringList());
     args.append(QVariantMap());
     args.append(m_timeout);

@@ -307,7 +307,7 @@ void WebTab::pinTab(int index)
         m_pinned = true;
         tabWidget->setCurrentIndex(0); //             <<-- those 2 lines fixes
         tabWidget->getTabBar()->moveTab(index, 0);    // | weird behavior with bad
-        tabWidget->setTabText(0, "");                 // | tabwidget update if we
+        tabWidget->setTabText(0, QString());                 // | tabwidget update if we
         tabWidget->setCurrentIndex(0); //             <<-- are moving current tab
         tabWidget->getTabBar()->updateCloseButton(0);
     }

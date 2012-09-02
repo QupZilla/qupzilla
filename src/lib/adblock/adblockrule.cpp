@@ -481,8 +481,8 @@ void AdBlockRule::parseFilter()
     if (parsedLine.contains('*') || parsedLine.contains('^') || parsedLine.contains('|')) {
         parsedLine.replace(QRegExp(QLatin1String("\\*+")), QLatin1String("*"))       // remove multiple wildcards
         .replace(QRegExp(QLatin1String("\\^\\|$")), QLatin1String("^"))    // remove anchors following separator placeholder
-        .replace(QRegExp(QLatin1String("^(\\*)")), QLatin1String(""))      // remove leading wildcards
-        .replace(QRegExp(QLatin1String("(\\*)$")), QLatin1String(""))
+        .replace(QRegExp(QLatin1String("^(\\*)")), QString())      // remove leading wildcards
+        .replace(QRegExp(QLatin1String("(\\*)$")), QString())
         .replace(QRegExp(QLatin1String("(\\W)")), QLatin1String("\\\\1"))  // escape special symbols
         .replace(QRegExp(QLatin1String("^\\\\\\|\\\\\\|")),
                  QLatin1String("^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?"))   // process extended anchor at expression start

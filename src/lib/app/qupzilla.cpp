@@ -145,7 +145,7 @@ void QupZilla::postLaunch()
 
     switch (afterLaunch) {
     case 0:
-        startUrl = QUrl("");
+        startUrl = QUrl();
         break;
 
     case 2:

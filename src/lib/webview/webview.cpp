@@ -821,7 +821,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
 {
     // Workaround for QtWebKit <= 2.0 when selecting link text on right click
     if (page()->selectedText() == hitTest.linkText()) {
-        findText("");
+        findText(QString());
     }
 
     menu->addSeparator();
@@ -882,7 +882,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     connect(gtwact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
     menu->addAction(gtwact);
     Action* dictact = new Action(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"));
-    dictact->setData(QUrl("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText));
+    dictact->setData(QUrl("http://" + (!langCode.isEmpty() ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText));
     connect(dictact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
     connect(dictact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
     menu->addAction(dictact);

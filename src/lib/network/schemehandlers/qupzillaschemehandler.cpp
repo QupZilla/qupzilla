@@ -176,7 +176,7 @@ QString QupZillaSchemeReply::startPage()
     sPage.replace("%SEARCH-BY%", tr("Search results provided by DuckDuckGo"));
     sPage.replace("%WWW%", QupZilla::WIKIADDRESS);
     sPage.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
-    sPage.replace("%PRIVATE-BROWSING%", mApp->isPrivateSession() ? tr("<h1>Private Browsing</h1>") : "");
+    sPage.replace("%PRIVATE-BROWSING%", mApp->isPrivateSession() ? tr("<h1>Private Browsing</h1>") : QString());
     sPage = qz_applyDirectionToPage(sPage);
 
     return sPage;

@@ -10,9 +10,6 @@
     <height>348</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string notr="true"/>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QTabWidget" name="tabWidget">

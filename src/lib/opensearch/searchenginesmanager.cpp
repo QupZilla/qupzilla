@@ -264,7 +264,7 @@ void SearchEnginesManager::addEngine(OpenSearchEngine* engine)
     en.name = engine->name();
     en.url = engine->searchUrl("searchstring").toString().replace("searchstring", "%s");
     if (engine->image().isNull()) {
-        en.icon = iconForSearchEngine(engine->searchUrl(""));
+        en.icon = iconForSearchEngine(engine->searchUrl(QString()));
     }
     else {
         en.icon = QIcon(QPixmap::fromImage(engine->image()));

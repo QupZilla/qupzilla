@@ -10,9 +10,6 @@
     <height>73</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string notr="true"/>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="topMargin">
     <number>2</number>
@@ -72,9 +69,6 @@
         </property>
         <property name="textVisible">
          <bool>false</bool>
-        </property>
-        <property name="format">
-         <string notr="true"/>
         </property>
        </widget>
       </item>

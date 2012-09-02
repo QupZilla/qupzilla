@@ -117,7 +117,7 @@ public slots:
 
     void bookmarkPage();
     void loadAddress(const QUrl &url);
-    void showSource(QWebFrame* frame = 0, const QString &selectedHtml = "");
+    void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());
     void printPage(QWebFrame* frame = 0);
     void showPageInfo();
     void receiveMessage(Qz::AppMessageType mes, bool state);

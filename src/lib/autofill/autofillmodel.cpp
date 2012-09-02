@@ -238,7 +238,7 @@ void AutoFillModel::completePage(WebPage* page)
         for (int i = 0; i < inputs.count(); i++) {
             QWebElement element = inputs.at(i);
 
-            if (element.attribute("type") != "text" && element.attribute("type") != "password" && element.attribute("type") != "") {
+            if (element.attribute("type") != "text" && element.attribute("type") != "password" && !element.attribute("type").isEmpty()) {
                 continue;
             }
 

@@ -10,9 +10,6 @@
     <height>462</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string notr="true"/>
-  </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <property name="margin">
     <number>0</number>

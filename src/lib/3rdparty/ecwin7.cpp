@@ -75,7 +75,7 @@ void EcWin7::setOverlayIcon(QString iconName, QString description)
     if (mOverlayIcon != NULL) {
         oldIcon = mOverlayIcon;
     }
-    if (iconName == "") {
+    if (iconName.isEmpty()) {
         mTaskbar->SetOverlayIcon(mWindowId, NULL, NULL);
         mOverlayIcon = NULL;
     }

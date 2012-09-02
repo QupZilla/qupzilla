@@ -138,7 +138,7 @@ void StatusBarMessage::showMessage(const QString &message)
 void StatusBarMessage::clearMessage()
 {
     if (p_QupZilla->statusBar()->isVisible()) {
-        p_QupZilla->statusBar()->showMessage("");
+        p_QupZilla->statusBar()->showMessage(QString());
     }
     else {
         m_statusBarText->hideDelayed();

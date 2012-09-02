@@ -372,7 +372,7 @@ void MainApplication::loadSettings()
 #endif
 
     setWheelScrollLines(settings.value("wheelScrollLines", wheelScrollLines()).toInt());
-    m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", "").toString()));
+    m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", QString()).toString()));
     settings.endGroup();
 
     settings.beginGroup("Browser-Fonts");
@@ -803,7 +803,7 @@ void MainApplication::reloadUserStyleSheet()
 {
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
-    m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", "").toString()));
+    m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", QString()).toString()));
     settings.endGroup();
 }
 

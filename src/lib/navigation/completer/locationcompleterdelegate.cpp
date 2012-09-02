@@ -112,9 +112,11 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
     drawHighlightedTextLine(linkRect, link, searchText, painter, style, opt, colorLinkRole);
 
-    // Draw line at the very bottom of item
-    QRect lineRect(opt.rect.left(), opt.rect.bottom(), opt.rect.width(), 1);
-    painter->fillRect(lineRect, opt.palette.color(QPalette::AlternateBase));
+    // Draw line at the very bottom of item if the item is not highlighted
+    if (!(opt.state & QStyle::State_Selected)) {
+        QRect lineRect(opt.rect.left(), opt.rect.bottom(), opt.rect.width(), 1);
+        painter->fillRect(lineRect, opt.palette.color(QPalette::AlternateBase));
+    }
 }
 
 bool sizeBiggerThan(const QString &s1, const QString &s2)

@@ -303,10 +303,10 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     int index;
 
     if (position == -1) {
-        index = addTab(new WebTab(p_QupZilla, locBar), "");
+        index = addTab(new WebTab(p_QupZilla, locBar), QString());
     }
     else {
-        index = insertTab(position, new WebTab(p_QupZilla, locBar), "");
+        index = insertTab(position, new WebTab(p_QupZilla, locBar), QString());
     }
 
     TabbedWebView* webView = weTab(index)->view();
@@ -505,7 +505,7 @@ void TabWidget::setTabText(int index, const QString &text)
 
     if (WebTab* webTab = weTab(index)) {
         if (webTab->isPinned()) {
-            newtext = "";
+            newtext.clear();
         }
     }
 

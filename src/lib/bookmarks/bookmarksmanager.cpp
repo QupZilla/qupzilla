@@ -181,7 +181,7 @@ void BookmarksManager::itemChanged(QTreeWidgetItem* item)
     int id = item->data(0, Qt::UserRole + 10).toInt();
 
     ui->bookmarksTree->deleteItem(item);
-    m_bookmarksModel->editBookmark(id, name, url, "");
+    m_bookmarksModel->editBookmark(id, name, url, QString());
 }
 
 void BookmarksManager::itemControlClicked(QTreeWidgetItem* item)
