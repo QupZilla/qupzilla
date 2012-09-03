@@ -24,6 +24,7 @@ TRANSLATIONS = \
     translations/fr_FR.ts \
     translations/id_ID.ts \
     translations/it_IT.ts \
+    translations/pt_BR.ts \
     translations/pt_PT.ts \
     translations/sr_BA.ts \
     translations/sr_RS.ts \
