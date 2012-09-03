@@ -661,13 +661,6 @@
             </layout>
            </item>
            <item>
-            <widget class="QCheckBox" name="showCloseButtonOnTabs">
-             <property name="text">
-              <string>Show close button on tabs</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <widget class="QCheckBox" name="hideTabsOnTab">
              <property name="text">
               <string>Hide tabs when there is only one tab</string>

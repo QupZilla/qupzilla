@@ -405,6 +405,7 @@ void TabWidget::currentTabChanged(int index)
 
     m_isClosingToLastTabIndex = m_lastBackgroundTabIndex == index;
     m_lastBackgroundTabIndex = -1;
+    m_lastTabIndex = index;
 
     WebTab* webTab = weTab(index);
     LocationBar* locBar = webTab->locationBar();
@@ -415,7 +416,6 @@ void TabWidget::currentTabChanged(int index)
 
     webTab->setCurrentTab();
     p_QupZilla->currentTabChanged();
-    m_tabBar->updateCloseButton(index);
 }
 
 void TabWidget::tabMoved(int before, int after)
@@ -425,6 +425,7 @@ void TabWidget::tabMoved(int before, int after)
 
     m_isClosingToLastTabIndex = false;
     m_lastBackgroundTabIndex = -1;
+    m_lastTabIndex = before;
 }
 
 void TabWidget::tabInserted(int index)
@@ -476,6 +477,13 @@ void TabWidget::stopTabAnimation(int index)
     if (label && label->movie()) {
         label->movie()->stop();
     }
+}
+
+void TabWidget::setCurrentIndex(int index)
+{
+    m_lastTabIndex = currentIndex();
+
+    QTabWidget::setCurrentIndex(index);
 }
 
 void TabWidget::setTabIcon(int index, const QIcon &icon)
@@ -552,6 +560,11 @@ void TabWidget::showTabBar()
     else {
         tabBar()->show();
     }
+}
+
+int TabWidget::lastTabIndex() const
+{
+    return m_lastTabIndex;
 }
 
 void TabWidget::reloadAllTabs()
@@ -775,7 +788,7 @@ void TabWidget::restorePinnedTabs()
             emit pinnedTabAdded();
         }
 
-        m_tabBar->updateCloseButton(addedIndex);
+        m_tabBar->updatePinnedTabCloseButton(addedIndex);
 //        m_tabBar->moveTab(addedIndex, i);
     }
 

@@ -69,6 +69,7 @@ public:
     void startTabAnimation(int index);
     void stopTabAnimation(int index);
 
+    void setCurrentIndex(int index);
     void setTabIcon(int index, const QIcon &icon);
     void setTabText(int index, const QString &text);
 
@@ -79,6 +80,7 @@ public:
     int pinnedTabsCount() const;
 
     void showTabBar();
+    int lastTabIndex() const;
 
     TabBar* getTabBar() { return m_tabBar; }
     ClosedTabsManager* closedTabsManager() { return m_closedTabsManager; }

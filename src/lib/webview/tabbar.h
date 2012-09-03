@@ -19,6 +19,7 @@
 #define TABBAR_H
 
 #include <QTabBar>
+#include <QAbstractButton>
 
 #include "qz_namespace.h"
 
@@ -31,19 +32,16 @@ class QT_QUPZILLA_EXPORT TabBar : public QTabBar
     Q_OBJECT
 public:
     explicit TabBar(QupZilla* mainClass, TabWidget* tabWidget);
-//    void hideCloseButton(int index);
-//    void showCloseButton(int index);
-    void updateCloseButton(int index) const;
 
-    QSize getTabSizeHint(int index) { return QTabBar::tabSizeHint(index); }
     void loadSettings();
-    QSize getTabSizeHint(int index) const { return QTabBar::tabSizeHint(index); }
 
     void setVisible(bool visible);
     void updateVisibilityWithFullscreen(bool visible);
 
     int pinnedTabsCount();
     int normalTabsCount();
+
+    void updatePinnedTabCloseButton(int index);
 
     void disconnectObjects();
 
@@ -74,12 +72,19 @@ private slots:
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
     void bookmarkTab();
     void pinTab();
+
     void closeCurrentTab();
+    void closeTabFromButton();
 
     void showTabPreview();
     void hideTabPreview(bool delayed = true);
 
 private:
+    inline bool validIndex(int index) const { return index >= 0 && index < count(); }
+
+    void hideCloseButton(int index);
+    void showCloseButton(int index);
+
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
@@ -90,9 +95,6 @@ private:
     void dropEvent(QDropEvent* event);
 
     QSize tabSizeHint(int index) const;
-//    void tabInserted(int index);
-
-//    void emitMoveAddTabButton(int pox);
 
     QupZilla* p_QupZilla;
     TabWidget* m_tabWidget;
@@ -100,7 +102,6 @@ private:
     QTimer* m_tabPreviewTimer;
 
     bool m_showTabPreviews;
-    bool m_showCloseButtons;
 
     int m_clickedTab;
     int m_pinnedTabsCount;
@@ -109,6 +110,24 @@ private:
     mutable int m_lastTabWidth;
 
     QPoint m_dragStartPosition;
+};
+
+// Class for close button on tabs
+// * taken from qtabbar.cpp
+class CloseButton : public QAbstractButton
+{
+    Q_OBJECT
+
+public:
+    CloseButton(QWidget* parent = 0);
+
+    QSize sizeHint() const;
+    inline QSize minimumSizeHint() const { return sizeHint(); }
+
+    void enterEvent(QEvent* event);
+    void leaveEvent(QEvent* event);
+    void hideEvent(QHideEvent* event);
+    void paintEvent(QPaintEvent* event);
 };
 
 #endif // TABBAR_H

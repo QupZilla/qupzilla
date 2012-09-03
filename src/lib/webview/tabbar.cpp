@@ -29,6 +29,7 @@
 
 #include <QMenu>
 #include <QMouseEvent>
+#include <QStyleOption>
 #include <QApplication>
 #include <QTimer>
 #include <QRect>
@@ -42,7 +43,6 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     , m_tabWidget(tabWidget)
     , m_tabPreview(new TabPreview(mainClass, tabWidget))
     , m_showTabPreviews(false)
-    , m_showCloseButtons(false)
     , m_clickedTab(0)
     , m_pinnedTabsCount(0)
     , m_normalTabWidth(0)
@@ -53,6 +53,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     setElideMode(Qt::ElideRight);
     setDocumentMode(true);
     setFocusPolicy(Qt::NoFocus);
+    setTabsClosable(true);
     setMouseTracking(true);
     setMovable(true);
 
@@ -76,10 +77,8 @@ void TabBar::loadSettings()
 
     m_tabPreview->setAnimationsEnabled(settings.value("tabPreviewAnimationsEnabled", true).toBool());
     m_showTabPreviews = settings.value("showTabPreviews", true).toBool();
-    m_showCloseButtons = settings.value("showCloseButtonOnTabs", true).toBool();
     bool activateLastTab = settings.value("ActivateLastTabWhenClosingActual", false).toBool();
 
-    setTabsClosable(m_showCloseButtons);
     setSelectionBehaviorOnRemove(activateLastTab ? QTabBar::SelectPreviousTab : QTabBar::SelectRightTab);
 
     settings.endGroup();
@@ -221,8 +220,12 @@ QSize TabBar::tabSizeHint(int index) const
                     size.setWidth(m_lastTabWidth);
                 }
 
-                // Hiding close buttons to save some space
-                tabBar->setTabsClosable(false);
+                if (tabsClosable()) {
+                    // Hiding close buttons to save some space
+                    tabBar->setTabsClosable(false);
+
+                    tabBar->showCloseButton(currentIndex());
+                }
             }
         }
         else {
@@ -241,12 +244,12 @@ QSize TabBar::tabSizeHint(int index) const
             }
 
             // Restore close buttons according to preferences
-            if (tabsClosable() != m_showCloseButtons) {
-                tabBar->setTabsClosable(m_showCloseButtons);
+            if (!tabsClosable()) {
+                tabBar->setTabsClosable(true);
 
                 // Hide close buttons on pinned tabs
                 for (int i = 0; i < count(); ++i) {
-                    updateCloseButton(i);
+                    tabBar->updatePinnedTabCloseButton(i);
                 }
             }
         }
@@ -268,84 +271,98 @@ QSize TabBar::tabSizeHint(int index) const
     return size;
 }
 
-//void TabBar::emitMoveAddTabButton(int pox)
-//{
-//    emit moveAddTabButton(pox);
-//}
-
-#if 0
-void TabBar::tabInserted(int index)
-{
-//    CloseButton* closeButton = new CloseButton(this);
-//    closeButton->setAutoRaise(true);
-//    closeButton->setMaximumSize(17,17);
-//    closeButton->setIcon(style()->standardIcon(QStyle::SP_TitleBarMaxButton));
-//    connect(closeButton, SIGNAL(clicked()), this, SLOT(closeCurrentTab()));
-//    setTabButton(index, QTabBar::RightSide, closeButton);
-    QAbstractButton* button = (QAbstractButton*)tabButton(index, QTabBar::RightSide);
-    if (!button) {
-        return;
-    }
-    button->resize(17, 17);
-}
-
 void TabBar::showCloseButton(int index)
 {
+    if (!validIndex(index)) {
+        return;
+    }
 
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
-    if (webTab && webTab->isPinned()) {
+    QAbstractButton* button = qobject_cast<QAbstractButton*>(tabButton(index, QTabBar::RightSide));
+
+    if (button || (webTab && webTab->isPinned())) {
         return;
     }
 
-    CloseButton* button = (CloseButton*)tabButton(index, QTabBar::RightSide);
-    if (!button) {
-        return;
-    }
-
-    button->show();
+    QAbstractButton* closeButton = new CloseButton(this);
+    connect(closeButton, SIGNAL(clicked()), this, SLOT(closeTabFromButton()));
+    setTabButton(index, QTabBar::RightSide, closeButton);
 }
 
 void TabBar::hideCloseButton(int index)
 {
-    CloseButton* button = (CloseButton*)tabButton(index, QTabBar::RightSide);
+    if (!validIndex(index) || tabsClosable()) {
+        return;
+    }
+
+    CloseButton* button = qobject_cast<CloseButton*>(tabButton(index, QTabBar::RightSide));
     if (!button) {
         return;
     }
-    button->hide();
-}
-#endif
 
-void TabBar::updateCloseButton(int index) const
+    setTabButton(index, QTabBar::RightSide, 0);
+    button->deleteLater();
+}
+
+void TabBar::updatePinnedTabCloseButton(int index)
 {
-    QAbstractButton* button = qobject_cast<QAbstractButton*>(tabButton(index, QTabBar::RightSide));
-    if (!button) {
+    if (!validIndex(index)) {
         return;
     }
 
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
-    if (webTab && webTab->isPinned()) {
-        button->hide();
+    QAbstractButton* button = qobject_cast<QAbstractButton*>(tabButton(index, QTabBar::RightSide));
+
+    bool pinned = webTab && webTab->isPinned();
+
+    if (pinned) {
+        if (button) {
+            button->hide();
+        }
     }
     else {
-        button->show();
+        if (button) {
+            button->show();
+        }
+        else {
+            showCloseButton(index);
+        }
     }
 }
 
 void TabBar::closeCurrentTab()
 {
-    int id = currentIndex();
-    if (id < 0) {
-        return;
+    m_tabWidget->closeTab(currentIndex());
+}
+
+void TabBar::closeTabFromButton()
+{
+    QWidget* button = qobject_cast<QWidget*>(sender());
+
+    int tabToClose = -1;
+
+    for (int i = 0; i < count(); ++i) {
+        if (tabButton(i, QTabBar::RightSide) == button) {
+            tabToClose = i;
+            break;
+        }
     }
 
-    m_tabWidget->closeTab(id);
+    if (tabToClose != -1) {
+        m_tabWidget->closeTab(tabToClose);
+    }
 }
 
 void TabBar::currentTabChanged(int index)
 {
-    Q_UNUSED(index)
+    if (!validIndex(index)) {
+        return;
+    }
 
     hideTabPreview(false);
+
+    showCloseButton(index);
+    hideCloseButton(m_tabWidget->lastTabIndex());
 }
 
 void TabBar::bookmarkTab()
@@ -585,4 +602,77 @@ void TabBar::dropEvent(QDropEvent* event)
 void TabBar::disconnectObjects()
 {
     disconnect(this);
+}
+
+CloseButton::CloseButton(QWidget* parent)
+    : QAbstractButton(parent)
+{
+    setFocusPolicy(Qt::NoFocus);
+    setCursor(Qt::ArrowCursor);
+    setToolTip(QupZilla::tr("Close Tab"));
+
+    resize(sizeHint());
+}
+
+QSize CloseButton::sizeHint() const
+{
+    ensurePolished();
+    int width = style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, 0, this);
+    int height = style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, 0, this);
+    return QSize(width, height);
+}
+
+void CloseButton::enterEvent(QEvent* event)
+{
+    if (isEnabled()) {
+        update();
+    }
+
+    QAbstractButton::enterEvent(event);
+}
+
+void CloseButton::leaveEvent(QEvent* event)
+{
+    if (isEnabled()) {
+        update();
+    }
+
+    QAbstractButton::leaveEvent(event);
+}
+
+void CloseButton::hideEvent(QHideEvent* event)
+{
+    QAbstractButton::hideEvent(event);
+
+    if (!isVisible()) {
+        deleteLater();
+    }
+}
+
+void CloseButton::paintEvent(QPaintEvent*)
+{
+    QPainter p(this);
+    QStyleOption opt;
+    opt.init(this);
+    opt.state |= QStyle::State_AutoRaise;
+
+    if (isEnabled() && underMouse() && !isChecked() && !isDown()) {
+        opt.state |= QStyle::State_Raised;
+    }
+    if (isChecked()) {
+        opt.state |= QStyle::State_On;
+    }
+    if (isDown()) {
+        opt.state |= QStyle::State_Sunken;
+    }
+
+    if (const QTabBar* tb = qobject_cast<const QTabBar*>(parent())) {
+        int index = tb->currentIndex();
+        QTabBar::ButtonPosition position = (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, tb);
+        if (tb->tabButton(index, position) == this) {
+            opt.state |= QStyle::State_Selected;
+        }
+    }
+
+    style()->drawPrimitive(QStyle::PE_IndicatorTabClose, &opt, &p, this);
 }
