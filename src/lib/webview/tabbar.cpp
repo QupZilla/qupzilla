@@ -178,11 +178,6 @@ QSize TabBar::tabSizeHint(int index) const
 
     if (PINNED_TAB_WIDTH == -1) {
         PINNED_TAB_WIDTH = 16 + style()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
-
-        // This method for some reason does not work very well with oxygen ...
-        if (mApp->currentStyle() == "oxygen") {
-            PINNED_TAB_WIDTH = 25;
-        }
     }
 
     QSize size = QTabBar::tabSizeHint(index);

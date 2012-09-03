@@ -19,6 +19,7 @@
 
 ProxyStyle::ProxyStyle()
     : QProxyStyle()
+    , m_TabBarTabHSpace(-1)
 {
 }
 
@@ -33,9 +34,19 @@ int ProxyStyle::styleHint(StyleHint hint, const QStyleOption* option, const QWid
 
 int ProxyStyle::pixelMetric(PixelMetric metric, const QStyleOption* option, const QWidget* widget) const
 {
-    if (metric == PM_TabBarTabHSpace) {
-        return qMin(QProxyStyle::pixelMetric(PM_TabBarTabHSpace, option, widget), 14);
-    }
+    switch (metric) {
+    case PM_TabBarTabHSpace:
+        if (m_TabBarTabHSpace == -1) {
+            m_TabBarTabHSpace = qMin(QProxyStyle::pixelMetric(PM_TabBarTabHSpace, option, widget), 14);
 
-    return QProxyStyle::pixelMetric(metric, option, widget);
+            if (baseStyle()->objectName() == "oxygen") {
+                m_TabBarTabHSpace = 14;
+            }
+        }
+
+        return m_TabBarTabHSpace;
+
+    default:
+        return QProxyStyle::pixelMetric(metric, option, widget);
+    }
 }
