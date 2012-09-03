@@ -2251,7 +2251,7 @@
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
-        <translation>Jaxascriptがクリップボードにアクセスすることを許可</translation>
+        <translation>Javascriptがクリップボードにアクセスすることを許可</translation>
     </message>
     <message>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
