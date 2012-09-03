@@ -217,12 +217,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="119"/>
         <source>Disable on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Desabilitado en %1</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="125"/>
         <source>Disable only on this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Desabilitado solo en esta pagina</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="135"/>
@@ -560,7 +560,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="234"/>
         <source>The file doesn&apos;t contain any bookmark.</source>
-        <translation type="unfinished"></translation>
+        <translation>El archivo no contiene ningun favorito.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="245"/>
@@ -917,7 +917,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="41"/>
         <source>Organize Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Organizar favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="52"/>
@@ -927,7 +927,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="66"/>
         <source>Folder:</source>
-        <translation>Carpeta:</translation>
+        <translation>Directorio:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="96"/>
@@ -963,7 +963,7 @@
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="54"/>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="122"/>
         <source>Add to Speed Dial</source>
-        <translation>Añadir a la marcación rápida</translation>
+        <translation>Añadir a marcado rápido</translation>
     </message>
 </context>
 <context>
@@ -1460,7 +1460,7 @@
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="323"/>
         <source>Remove</source>
-        <translation type="unfinished">Eliminar</translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -1571,7 +1571,7 @@
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="32"/>
         <source>You have chosen to open</source>
-        <translation>Ha elegido abrir</translation>
+        <translation>Ha elegido el archivo</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="70"/>
@@ -1586,7 +1586,7 @@
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="89"/>
         <source>What should QupZilla do with this file?</source>
-        <translation>¿Qué debería hacer QupZilla con este archivo?</translation>
+        <translation>¿Qué desea haga QupZilla con este archivo?</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="111"/>
@@ -1601,7 +1601,7 @@
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="128"/>
         <source>Download with External Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Descargar con Manejador de Descargas alterno</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="34"/>
@@ -1647,42 +1647,42 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="100"/>
         <source>No Error</source>
-        <translation type="unfinished">Ningún error</translation>
+        <translation>Ningún error</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="148"/>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Subir al directorio superior</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="149"/>
         <source>Show hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar ocultos</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="150"/>
         <source>Name</source>
-        <translation type="unfinished">Nombre</translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="151"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="152"/>
         <source>Last modified</source>
-        <translation type="unfinished"></translation>
+        <translation>Ultima modificacion</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="157"/>
         <source>Index for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Indice para %1</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="202"/>
         <source>Folder is empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>Directorio esta vacio.</translation>
     </message>
 </context>
 <context>
@@ -2134,22 +2134,22 @@
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="81"/>
         <source>Add site to whitelist</source>
-        <translation type="unfinished">Añadir sitio a la lista blanca</translation>
+        <translation>Añadir sitio a la lista blanca</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="81"/>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished">Servidor sin http:// (ej. youtube.com)</translation>
+        <translation>Servidor sin http:// (ej. youtube.com)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="257"/>
         <source>Error!</source>
-        <translation type="unfinished">¡Error!</translation>
+        <translation>¡Error!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="257"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished">¡No se puede cargar la extensión!</translation>
+        <translation>¡No se puede cargar la extensión!</translation>
     </message>
 </context>
 <context>
@@ -2525,17 +2525,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="594"/>
         <source>Show web search bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar buscador rapido web</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="613"/>
         <source>Tabs behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Manejo de pestañas</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="666"/>
         <source>Show close button on tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar boton cerrar en pestañas</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="694"/>
@@ -2545,37 +2545,37 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="736"/>
         <source>Address Bar behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Manejo de direcciones</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="744"/>
         <source>Suggest when typing into address bar:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sugerir mientras escribe en la barra de direcciones web:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="758"/>
         <source>History and Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Historial y favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="763"/>
         <source>History</source>
-        <translation type="unfinished">Historial</translation>
+        <translation>Historial</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="768"/>
         <source>Bookmarks</source>
-        <translation type="unfinished">Marcadores</translation>
+        <translation>Marcadores</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="773"/>
         <source>Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Nada</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="799"/>
         <source>Show loading progress in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar progreso de carga en la barra de direccion</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="860"/>
@@ -2748,7 +2748,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1748"/>
         <source>Leave blank if unsure</source>
-        <translation type="unfinished"></translation>
+        <translation>Dejar en blanco si no esta seguro</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1871"/>
@@ -2768,12 +2768,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2278"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cambiar identificacion del navegador&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2303"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Agente de usuario</translation>
     </message>
     <message>
         <source>Change browser identification:</source>
@@ -3066,12 +3066,12 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="83"/>
         <source>Save file as...</source>
-        <translation type="unfinished">Guardar archivo como...</translation>
+        <translation>Guardar archivo como...</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/globalfunctions.cpp" line="271"/>
         <source>Unknown size</source>
-        <translation type="unfinished">Tamaño desconocido</translation>
+        <translation>Tamaño desconocido</translation>
     </message>
 </context>
 <context>
@@ -3769,7 +3769,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="275"/>
         <source>Are you sure to remove this speed dial?</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta seguro de remover este marcado rapido?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="282"/>
@@ -3839,32 +3839,32 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
         <source>Center speed dials</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrar marcados rapidos</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
         <source>Restore Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar sesion</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
         <source>Oops, QupZilla crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Oops, QupZilla exploto!</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="327"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation type="unfinished"></translation>
+        <translation>Nos disculpamos por esto. ¿Le gustaria restaurar el ultimo estado de la sesion?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="328"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation type="unfinished"></translation>
+        <translation>Intente quitar las pestañas que piense causen problemas (paginas que no sigan el estandar de html web)</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="329"/>
         <source>Or you can start completely new session</source>
-        <translation type="unfinished"></translation>
+        <translation>O puede comenzar una sesion nueva limpia</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
@@ -4174,17 +4174,17 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="34"/>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="47"/>
         <source>Start New Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Comenzar sesion nueva</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.cpp" line="43"/>
         <source>Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ventana %1</translation>
     </message>
 </context>
 <context>
@@ -5016,62 +5016,62 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="14"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Agente de usuario</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="20"/>
         <source>Change global User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar agente de usuario global</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="48"/>
         <source>Use different User Agents for specified sites</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar un Agente de Usuario distinto para cierto witio</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="86"/>
         <source>Site</source>
-        <translation type="unfinished"></translation>
+        <translation>Sito web</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="91"/>
         <source>User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>Agente de usuario</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="101"/>
         <source>Add</source>
-        <translation type="unfinished">Añadir</translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="108"/>
         <source>Remove</source>
-        <translation type="unfinished">Eliminar</translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="128"/>
         <source>Edit</source>
-        <translation type="unfinished">Editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="83"/>
         <source>Add new site</source>
-        <translation type="unfinished"></translation>
+        <translation>Agregar sitio web</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="121"/>
         <source>Edit site</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar sitio web</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="194"/>
         <source>Site domain: </source>
-        <translation type="unfinished"></translation>
+        <translation>Cominio del sitio:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="195"/>
         <source>User Agent: </source>
-        <translation type="unfinished"></translation>
+        <translation>Agente de usuario:</translation>
     </message>
 </context>
 <context>
@@ -5110,7 +5110,8 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
         <location filename="../src/lib/webview/webpage.cpp" line="473"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Para mostrar esta página, QupZilla necesita enviar información que repetirá cualquier acción 
+(como una búsqueda o una confirmación de compra) realizada anteriormente</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="475"/>
@@ -5215,7 +5216,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="758"/>
         <source>QupZilla can&apos;t load page.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla no puede cargar la página</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="762"/>
@@ -5278,7 +5279,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="299"/>
         <source>Show suggestions</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar sugerencias</translation>
     </message>
 </context>
 <context>
