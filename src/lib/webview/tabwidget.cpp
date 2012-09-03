@@ -665,7 +665,7 @@ void TabWidget::aboutToShowClosedTabsMenu()
     else {
         m_menuTabs->clear();
         int i = 0;
-        foreach(const ClosedTabsManager::Tab & tab, this->closedTabsManager()->allClosedTabs()) {
+        foreach(const ClosedTabsManager::Tab & tab, closedTabsManager()->allClosedTabs()) {
             QString title = tab.title;
             if (title.length() > 40) {
                 title.truncate(40);

@@ -49,6 +49,7 @@
 #include "commandlineoptions.h"
 #include "useragentmanager.h"
 #include "restoremanager.h"
+#include "proxystyle.h"
 
 #ifdef Q_WS_MAC
 #include <QFileOpenEvent>
@@ -83,6 +84,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_desktopNotifications(0)
     , m_searchEnginesManager(0)
     , m_restoreManager(0)
+    , m_proxyStyle(0)
     , m_dbWriter(new DatabaseWriter(this))
     , m_uaManager(new UserAgentManager)
     , m_isPrivateSession(false)
@@ -975,6 +977,18 @@ void MainApplication::destroyRestoreManager()
 {
     delete m_restoreManager;
     m_restoreManager = 0;
+}
+
+void MainApplication::setProxyStyle(ProxyStyle* style)
+{
+    m_proxyStyle = style;
+
+    QApplication::setStyle(style);
+}
+
+QString MainApplication::currentStyle() const
+{
+    return m_proxyStyle->baseStyle()->objectName();
 }
 
 MainApplication::~MainApplication()

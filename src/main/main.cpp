@@ -130,7 +130,7 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    app.setStyle(new ProxyStyle);
+    app.setProxyStyle(new ProxyStyle);
 
     return app.exec();
 }

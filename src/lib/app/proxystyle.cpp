@@ -33,11 +33,9 @@ int ProxyStyle::styleHint(StyleHint hint, const QStyleOption* option, const QWid
 
 int ProxyStyle::pixelMetric(PixelMetric metric, const QStyleOption* option, const QWidget* widget) const
 {
-    switch (metric) {
-    case PM_TabBarTabHSpace:
+    if (metric == PM_TabBarTabHSpace) {
         return qMin(QProxyStyle::pixelMetric(PM_TabBarTabHSpace, option, widget), 14);
-
-    default:
-        return QProxyStyle::pixelMetric(metric, option, widget);
     }
+
+    return QProxyStyle::pixelMetric(metric, option, widget);
 }

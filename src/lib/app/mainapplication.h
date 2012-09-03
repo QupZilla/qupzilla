@@ -48,6 +48,7 @@ class IconProvider;
 class SearchEnginesManager;
 class DatabaseWriter;
 class UserAgentManager;
+class ProxyStyle;
 
 class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -82,6 +83,9 @@ public:
 
     bool checkSettingsDir();
     void destroyRestoreManager();
+
+    void setProxyStyle(ProxyStyle* style);
+    QString currentStyle() const;
 
     QupZilla* getWindow();
     CookieManager* cookieManager();
@@ -151,6 +155,7 @@ private:
     DesktopNotificationsFactory* m_desktopNotifications;
     SearchEnginesManager* m_searchEnginesManager;
     RestoreManager* m_restoreManager;
+    ProxyStyle* m_proxyStyle;
     DatabaseWriter* m_dbWriter;
     UserAgentManager* m_uaManager;
 
