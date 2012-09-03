@@ -366,7 +366,7 @@ void DownloadItem::openFile()
 
 void DownloadItem::openFolder()
 {
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     QString winFileName = m_path + m_fileName;
     winFileName.replace("/", "\\");
     QProcess::startDetached("explorer.exe /e,/select,\"" + winFileName + "\"");

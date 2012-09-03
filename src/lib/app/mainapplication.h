@@ -107,7 +107,7 @@ public:
     UserAgentManager* uaManager() { return m_uaManager; }
     RestoreManager* restoreManager() { return m_restoreManager; }
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     bool event(QEvent* e);
 #endif
 

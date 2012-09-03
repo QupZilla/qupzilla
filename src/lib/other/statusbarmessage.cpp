@@ -100,7 +100,7 @@ void StatusBarMessage::showMessage(const QString &message)
     if (p_QupZilla->statusBar()->isVisible()) {
         p_QupZilla->statusBar()->showMessage(message);
     }
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     else if (mApp->activeWindow() == p_QupZilla) {
 #else
     else {

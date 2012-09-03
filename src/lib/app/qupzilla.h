@@ -187,7 +187,7 @@ private slots:
 
     void closeWindow();
     bool quitApp();
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     void applyBlurToMainWindow(bool force = false);
 #endif
 
@@ -201,7 +201,7 @@ private:
     void setupMenu();
 
     void disconnectObjects();
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     bool winEvent(MSG* message, long* result);
     bool eventFilter(QObject* object, QEvent* event);
 #endif
@@ -229,7 +229,7 @@ private:
     Menu* m_menuHistoryMost;
     QMenu* m_menuEncoding;
     QAction* m_menuBookmarksAction;
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     QMenuBar* m_macMenuBar;
 #endif
 
@@ -241,7 +241,7 @@ private:
     QAction* m_actionShowToolbar;
     QAction* m_actionShowBookmarksToolbar;
     QAction* m_actionShowStatusbar;
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     QAction* m_actionShowMenubar;
 #endif
     QAction* m_actionShowFullScreen;

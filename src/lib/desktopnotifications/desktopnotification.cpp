@@ -31,7 +31,7 @@ DesktopNotification::DesktopNotification(bool setPosition)
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
     Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint;
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     flags |= Qt::ToolTip;
 #endif
     setWindowFlags(flags);

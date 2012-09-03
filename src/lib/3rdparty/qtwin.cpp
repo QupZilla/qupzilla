@@ -32,7 +32,7 @@
 #include "history.h"
 #include "mainapplication.h"
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
 #include <qt_windows.h>
 
 // Blur behind data structures
@@ -114,7 +114,7 @@ static bool resolveLibs()
   */
 bool QtWin::isRunningWindows7()
 {
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     return QSysInfo::windowsVersion() == QSysInfo::WV_WINDOWS7;
 #else
     return false;
@@ -133,7 +133,7 @@ bool QtWin::isRunningWindows7()
   */
 bool QtWin::isCompositionEnabled()
 {
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (resolveLibs()) {
         HRESULT hr = S_OK;
         BOOL isEnabled = false;
@@ -157,7 +157,7 @@ bool QtWin::enableBlurBehindWindow(QWidget* widget, bool enable)
     Q_UNUSED(widget);
     Q_ASSERT(widget);
     bool result = false;
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (resolveLibs()) {
         DWM_BLURBEHIND bb = {0};
         HRESULT hr = S_OK;
@@ -200,7 +200,7 @@ bool QtWin::extendFrameIntoClientArea(QWidget* widget, int left, int top, int ri
     Q_UNUSED(widget);
 
     bool result = false;
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (resolveLibs()) {
         QLibrary dwmLib(QString::fromAscii("dwmapi"));
         HRESULT hr = S_OK;
@@ -226,7 +226,7 @@ QColor QtWin::colorizationColor()
 {
     QColor resultColor = QApplication::palette().window().color();
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (resolveLibs()) {
         DWORD color = 0;
         BOOL opaque = FALSE;
@@ -241,7 +241,7 @@ QColor QtWin::colorizationColor()
     return resultColor;
 }
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
 WindowNotifier* QtWin::windowNotifier()
 {
     static WindowNotifier* windowNotifierInstance = 0;
@@ -371,7 +371,7 @@ void QtWin::AddTasksToList(ICustomDestinationList* destinationList)
     obj_collection->Release();
 }
 #endif //W7API
-#endif //Q_WS_WIN
+#endif //Q_OS_WIN
 
 void QtWin::setupJumpList()
 {

@@ -94,7 +94,7 @@ void NetworkManager::loadSettings()
     settings.endGroup();
     m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     // From doc:
     // QSslSocket::VerifyNone ... The connection will still be encrypted, and your socket
     // will still send its local certificate to the peer if it's requested.
@@ -493,7 +493,7 @@ void NetworkManager::loadCertificates()
     //CA Certificates
     m_caCerts = QSslSocket::defaultCaCertificates();
     foreach(const QString & path, m_certPaths) {
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
         // Used from Qt 4.7.4 qsslcertificate.cpp and modified because QSslCertificate::fromPath
         // is kind of a bugged on Windows, it does work only with full path to cert file
         QDirIterator it(path, QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
@@ -513,7 +513,7 @@ void NetworkManager::loadCertificates()
 #endif
     }
     //Local Certificates
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     QDirIterator it_(mApp->currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it_.hasNext()) {
         QString filePath = it_.next();

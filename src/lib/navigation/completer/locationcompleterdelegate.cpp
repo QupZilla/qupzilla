@@ -61,7 +61,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         opt.state &= ~QStyle::State_Selected;
     }
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     const QPalette::ColorRole colorRole = QPalette::Text;
     const QPalette::ColorRole colorLinkRole = QPalette::Link;
 #else

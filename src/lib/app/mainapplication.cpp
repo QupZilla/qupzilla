@@ -51,7 +51,7 @@
 #include "restoremanager.h"
 #include "proxystyle.h"
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
 #include <QFileOpenEvent>
 #endif
 #include <QWebSecurityOrigin>
@@ -94,13 +94,13 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_startingAfterCrash(false)
     , m_databaseConnected(false)
 {
-#if defined(Q_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
+#if defined(Q_OS_X11) && !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR;
 #else
     DATADIR = qApp->applicationDirPath() + "/";
 #endif
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     DATADIR.append("../Resources/");
 #endif
 
@@ -197,7 +197,7 @@ MainApplication::MainApplication(int &argc, char** argv)
         return;
     }
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     setQuitOnLastWindowClosed(false);
 #else
     setQuitOnLastWindowClosed(true);
@@ -265,7 +265,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     }
 
     QTimer::singleShot(0, this, SLOT(postLaunch()));
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     QTimer::singleShot(10 * 1000, this, SLOT(setupJumpList()));
 #endif
 }
@@ -301,7 +301,7 @@ void MainApplication::loadSettings()
     cssFile.open(QFile::ReadOnly);
     QString css = cssFile.readAll();
     cssFile.close();
-#ifdef Q_WS_X11
+#ifdef Q_OS_X11
     if (QFile(m_activeThemePath + "linux.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "linux.css");
         cssFile.open(QFile::ReadOnly);
@@ -309,7 +309,7 @@ void MainApplication::loadSettings()
         cssFile.close();
     }
 #endif
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     if (QFile(m_activeThemePath + "mac.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "mac.css");
         cssFile.open(QFile::ReadOnly);
@@ -317,7 +317,7 @@ void MainApplication::loadSettings()
         cssFile.close();
     }
 #endif
-#if defined(Q_WS_WIN) || defined(Q_OS_OS2)
+#if defined(Q_OS_WIN) || defined(Q_OS_OS2)
     if (QFile(m_activeThemePath + "windows.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "windows.css");
         cssFile.open(QFile::ReadOnly);
@@ -547,7 +547,7 @@ QupZilla* MainApplication::makeNewWindow(Qz::BrowserWindow type, const QUrl &sta
     return newWindow;
 }
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
 bool MainApplication::event(QEvent* e)
 {
     switch (e->type()) {

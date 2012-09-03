@@ -97,7 +97,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     , m_startingUrl(startUrl)
     , m_startBehaviour(type)
     , m_menuBookmarksAction(0)
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     , m_macMenuBar(new QMenuBar())
 #endif
     , m_actionPrivateBrowsing(0)
@@ -115,7 +115,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
 
     m_isStarting = true;
 
-#ifndef Q_WS_X11
+#ifndef Q_OS_X11
     setUpdatesEnabled(false);
 #endif
 
@@ -128,7 +128,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
 
 void QupZilla::postLaunch()
 {
-#ifdef Q_WS_X11
+#ifdef Q_OS_X11
     setUpdatesEnabled(false);
 #endif
 
@@ -323,7 +323,7 @@ void QupZilla::setupMenu()
     m_menuFile->addSeparator();
     m_menuFile->addAction(tr("Import bookmarks..."), this, SLOT(showBookmarkImport()));
     m_menuFile->addAction(m_actionQuit);
-#ifdef Q_WS_MAC // Add standard actions to File Menu (as it won't be ever cleared) and Mac menubar should move them to "application" menu
+#ifdef Q_OS_MAC // Add standard actions to File Menu (as it won't be ever cleared) and Mac menubar should move them to "application" menu
     m_menuFile->addAction(m_actionAbout);
     m_menuFile->addAction(m_actionPreferences);
 #endif
@@ -344,7 +344,7 @@ void QupZilla::setupMenu()
     m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &All"), this, SLOT(editSelectAll()))->setShortcut(QKeySequence("Ctrl+A"));
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
     m_menuEdit->addSeparator();
-#ifdef Q_WS_X11
+#ifdef Q_OS_X11
     m_menuEdit->addAction(m_actionPreferences);
 #endif
     connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEditMenu()));
@@ -363,7 +363,7 @@ void QupZilla::setupMenu()
     m_actionShowStatusbar = new QAction(tr("Sta&tus Bar"), this);
     m_actionShowStatusbar->setCheckable(true);
     connect(m_actionShowStatusbar, SIGNAL(triggered(bool)), this, SLOT(showStatusbar()));
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     m_actionShowMenubar = new QAction(tr("&Menu Bar"), this);
     m_actionShowMenubar->setCheckable(true);
     connect(m_actionShowMenubar, SIGNAL(triggered(bool)), this, SLOT(showMenubar()));
@@ -384,7 +384,7 @@ void QupZilla::setupMenu()
     connect(m_menuEncoding, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
 
     QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     toolbarsMenu->addAction(m_actionShowMenubar);
 #endif
     toolbarsMenu->addAction(m_actionShowToolbar);
@@ -465,7 +465,7 @@ void QupZilla::setupMenu()
     connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), mApp, SLOT(startPrivateBrowsing()));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
-#if !defined(Q_WS_X11) && !defined(Q_WS_MAC)
+#if !defined(Q_OS_X11) && !defined(Q_OS_MAC)
     m_menuTools->addAction(m_actionPreferences);
 #endif
 
@@ -473,7 +473,7 @@ void QupZilla::setupMenu()
      * Help Menu *
      *************/
     m_menuHelp = new QMenu(tr("&Help"));
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     m_menuHelp->addAction(QIcon(":/icons/menu/qt.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
     m_menuHelp->addAction(m_actionAbout);
     m_menuHelp->addSeparator();
@@ -534,7 +534,7 @@ void QupZilla::setupMenu()
         addAction(action);
     }
 
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     m_superMenu->addMenu(m_menuFile);
     m_superMenu->addMenu(m_menuEdit);
     m_superMenu->addMenu(m_menuView);
@@ -581,7 +581,7 @@ void QupZilla::loadSettings()
     m_navigationBar->setVisible(showNavigationToolbar);
     menuBar()->setVisible(showMenuBar);
 
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     m_navigationBar->buttonSuperMenu()->setVisible(!showMenuBar);
 #endif
     m_navigationBar->buttonHome()->setVisible(showHomeIcon);
@@ -595,7 +595,7 @@ void QupZilla::loadSettings()
     //Private browsing
     m_privateBrowsing->setVisible(mApp->isPrivateSession());
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (m_usingTransparentBackground && !makeTransparent) {
         QtWin::extendFrameIntoClientArea(this, 0, 0, 0, 0);
         QtWin::enableBlurBehindWindow(this, false);
@@ -607,7 +607,7 @@ void QupZilla::loadSettings()
         return;
     }
     //Opacity
-#ifdef Q_WS_X11
+#ifdef Q_OS_X11
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_NoSystemBackground, false);
     QPalette pal = palette();
@@ -619,7 +619,7 @@ void QupZilla::loadSettings()
     setAttribute(Qt::WA_StyledBackground, false);
 #endif
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
         setContentsMargins(0, 0, 0, 0);
 
@@ -647,7 +647,7 @@ void QupZilla::goBack()
 
 QMenuBar* QupZilla::menuBar() const
 {
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     return m_macMenuBar;
 #else
     return QMainWindow::menuBar();
@@ -920,7 +920,7 @@ void QupZilla::aboutToShowHistoryMostMenu()
 void QupZilla::aboutToShowViewMenu()
 {
     m_actionShowToolbar->setChecked(m_navigationBar->isVisible());
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     m_actionShowMenubar->setChecked(menuBar()->isVisible());
 #endif
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
@@ -1238,7 +1238,7 @@ SideBar* QupZilla::addSideBar()
 
     m_mainSplitter->setSizes(QList<int>() << m_sideBarWidth << m_webViewWidth);
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
         applyBlurToMainWindow();
         m_sideBar.data()->installEventFilter(this);
@@ -1272,7 +1272,7 @@ void QupZilla::showNavigationToolbar()
 
 void QupZilla::showMenubar()
 {
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     if (!m_navigationBar->isVisible() && !m_actionShowMenubar->isChecked()) {
         showNavigationToolbar();
     }
@@ -1310,7 +1310,7 @@ void QupZilla::showWebInspector(bool toggle)
     connect(m_tabWidget, SIGNAL(currentChanged(int)), m_webInspectorDock.data(), SLOT(tabChanged()));
     addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock.data());
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
         applyBlurToMainWindow();
         m_webInspectorDock.data()->installEventFilter(this);
@@ -1416,7 +1416,7 @@ void QupZilla::searchOnPage()
     m_mainLayout->insertWidget(3, search);
     search->focusSearchLine();
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
         applyBlurToMainWindow();
         search->installEventFilter(this);
@@ -1480,7 +1480,7 @@ void QupZilla::fullScreen(bool make)
         bookmarksToolbar()->hide();
         m_navigationBar->hide();
         m_tabWidget->getTabBar()->hide();
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
         if (m_usingTransparentBackground) {
             QtWin::extendFrameIntoClientArea(this, 0, 0, 0 , 0);
             QtWin::enableBlurBehindWindow(this, false);
@@ -1495,7 +1495,7 @@ void QupZilla::fullScreen(bool make)
         m_bookmarksToolbar->setVisible(m_bookmarksToolBarVisible);
         m_navigationBar->setVisible(m_navigationVisible);
         m_tabWidget->showTabBar();
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
         if (m_usingTransparentBackground) {
             applyBlurToMainWindow(true);
         }
@@ -1748,7 +1748,7 @@ void QupZilla::closeEvent(QCloseEvent* event)
     m_isClosing = true;
     mApp->saveStateSlot();
 
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     if (mApp->windowCount() == 1) {
         if (quitApp()) {
             disconnectObjects();
@@ -1828,7 +1828,7 @@ bool QupZilla::quitApp()
     return true;
 }
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
 bool QupZilla::winEvent(MSG* message, long* result)
 {
     if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {

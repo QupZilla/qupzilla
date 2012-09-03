@@ -52,7 +52,7 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     titleFont.setPointSize(titleFont.pointSize() + 1);
 
     const QFontMetrics titleMetrics(titleFont);
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     const QPalette::ColorRole colorRole = QPalette::Text;
 #else
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;

@@ -391,10 +391,10 @@ QString QupZillaSchemeReply::configPage()
 #ifdef USE_WEBGL
         webGLEnabled = tr("<b>Enabled</b>");
 #endif
-#if defined(Q_WS_WIN) && defined(W7API)
+#if defined(Q_OS_WIN) && defined(W7API)
         w7APIEnabled = tr("<b>Enabled</b>");
 #endif
-#if defined(Q_WS_X11) && defined(KDE)
+#if defined(Q_OS_X11) && defined(KDE)
         KDEIntegration = tr("<b>Enabled</b>");
 #endif
 #ifdef PORTABLE_BUILD

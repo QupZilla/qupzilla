@@ -111,7 +111,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_menuForward = new Menu(this);
     m_buttonNext->setMenu(m_menuForward);
 
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     m_supMenu = new ToolButton(this);
     m_supMenu->setObjectName("navigation-button-supermenu");
     m_supMenu->setPopupMode(QToolButton::InstantPopup);
@@ -141,7 +141,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_layout->addWidget(m_buttonHome);
     m_layout->addWidget(m_buttonAddTab);
     m_layout->addWidget(m_navigationSplitter);
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     m_layout->addWidget(m_supMenu);
 #endif
     m_layout->addWidget(m_exitFullscreen);

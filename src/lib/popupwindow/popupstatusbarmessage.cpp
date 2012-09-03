@@ -37,7 +37,7 @@ void PopupStatusBarMessage::showMessage(const QString &message)
     if (m_popupWindow->statusBar()->isVisible()) {
         m_popupWindow->statusBar()->showMessage(message);
     }
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     else if (mApp->activeWindow() == m_popupWindow) {
 #else
     else {

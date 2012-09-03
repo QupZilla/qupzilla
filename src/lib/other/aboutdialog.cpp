@@ -28,7 +28,7 @@ AboutDialog::AboutDialog(QWidget* parent)
       ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
         QtWin::extendFrameIntoClientArea(this);
         ui->verticalLayout->setContentsMargins(0, 0, 0, 0);

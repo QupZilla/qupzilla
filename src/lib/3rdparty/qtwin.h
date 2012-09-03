@@ -37,7 +37,7 @@
   * functionality on Windows 7 and Windows Vista. On other platforms
   * these functions will simply not do anything.
   */
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
 #ifdef W7API
 #include <ShlObj.h>
 #include <shlwapi.h>

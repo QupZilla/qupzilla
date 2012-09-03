@@ -159,7 +159,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->useTransparentBg->setChecked(settings.value("useTransparentBackground", false).toBool());
     int currentSettingsPage = settings.value("settingsDialogPage", 0).toInt(0);
     settings.endGroup();
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     ui->useTransparentBg->setEnabled(QtWin::isCompositionEnabled());
 #endif
 
@@ -309,7 +309,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     DesktopNotificationsFactory::Type notifyType;
     settings.beginGroup("Notifications");
     ui->notificationTimeout->setValue(settings.value("Timeout", 6000).toInt() / 1000);
-#ifdef Q_WS_X11
+#ifdef Q_OS_X11
     notifyType = settings.value("UseNativeDesktop", true).toBool() ? DesktopNotificationsFactory::DesktopNative : DesktopNotificationsFactory::PopupWidget;
 #else
     notifyType = DesktopNotificationsFactory::PopupWidget;
@@ -476,7 +476,7 @@ void Preferences::chooseDownPath()
     if (userFileName.isEmpty()) {
         return;
     }
-#ifdef Q_WS_WIN   //QFileDialog::getExistingDirectory returns path with \ instead of / (??)
+#ifdef Q_OS_WIN   //QFileDialog::getExistingDirectory returns path with \ instead of / (??)
     userFileName.replace('\\', '/');
 #endif
     userFileName += "/";

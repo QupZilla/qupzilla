@@ -240,7 +240,7 @@ bool BookmarksImportDialog::exportedOK()
 
 void BookmarksImportDialog::setFile()
 {
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     if (m_browser == IE) {
         QString path = QFileDialog::getExistingDirectory(this, tr("Choose directory..."));
         if (!path.isEmpty()) {
@@ -287,7 +287,7 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
                                "This file is usually located in ");
         m_browserFileText2 = tr("Please choose this file to begin importing bookmarks.");
         m_standardDir =
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
             "%APPDATA%/Mozilla/";
 #else
             "/home/user/.mozilla/firefox/profilename/";
@@ -302,7 +302,7 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
                                "This file is usually located in ");
         m_browserFileText2 = tr("Please choose this file to begin importing bookmarks.");
         m_standardDir =
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
             "%APPDATA%/Chrome/Default/";
 #else
             "/home/user/.config/chrome/Default/";
@@ -318,7 +318,7 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
                                "This file is usually located in ");
         m_browserFileText2 = tr("Please choose this file to begin importing bookmarks.");
         m_standardDir =
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
             "%APPDATA%/Opera/";
 #else
             "/home/user/.opera/";
