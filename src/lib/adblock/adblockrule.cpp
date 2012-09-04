@@ -70,24 +70,24 @@ QString toSecondLevelDomain(const QUrl &url)
 
     QString domain = urlHost.left(urlHost.size() - topLevelDomain.size());
 
-    if (domain.count('.') == 0) {
+    if (domain.count(QLatin1Char('.')) == 0) {
         return urlHost;
     }
 
-    while (domain.count('.') != 0) {
-        domain = domain.mid(domain.indexOf('.') + 1);
+    while (domain.count(QLatin1Char('.')) != 0) {
+        domain = domain.mid(domain.indexOf(QLatin1Char('.')) + 1);
     }
 
     return domain + topLevelDomain;
 #else
     QString domain = url.host();
 
-    if (domain.count('.') == 0) {
+    if (domain.count(QLatin1Char('.')) == 0) {
         return QString();
     }
 
-    while (domain.count('.') != 1) {
-        domain = domain.mid(domain.indexOf('.') + 1);
+    while (domain.count(QLatin1Char('.')) != 1) {
+        domain = domain.mid(domain.indexOf(QLatin1Char('.')) + 1);
     }
 
     return domain;
@@ -319,7 +319,7 @@ bool AdBlockRule::matchThirdParty(const QNetworkRequest &request) const
 
 bool AdBlockRule::matchObject(const QNetworkRequest &request) const
 {
-    bool match = request.attribute(QNetworkRequest::Attribute(QNetworkRequest::User + 150)).toString() == QString("object");
+    bool match = request.attribute(QNetworkRequest::Attribute(QNetworkRequest::User + 150)).toString() == QLatin1String("object");
 
     return m_objectException ? !match : match;
 }
@@ -353,20 +353,20 @@ void AdBlockRule::parseFilter()
     QString parsedLine = m_filter;
 
     // Empty rule or just comment
-    if (m_filter.trimmed().isEmpty() || m_filter.startsWith('!')) {
+    if (m_filter.trimmed().isEmpty() || m_filter.startsWith(QLatin1Char('!'))) {
         m_enabled = false;
         return;
     }
 
     // CSS Element hiding rule
-    if (parsedLine.contains("##")) {
+    if (parsedLine.contains(QLatin1String("##"))) {
         m_cssRule = true;
-        int pos = parsedLine.indexOf("##");
+        int pos = parsedLine.indexOf(QLatin1String("##"));
 
         // Domain restricted rule
-        if (!parsedLine.startsWith("##")) {
+        if (!parsedLine.startsWith(QLatin1String("##"))) {
             QString domains = parsedLine.left(pos);
-            parseDomains(domains, ',');
+            parseDomains(domains, QLatin1Char(','));
         }
 
         m_cssSelector = parsedLine.mid(pos + 2);
@@ -375,55 +375,55 @@ void AdBlockRule::parseFilter()
     }
 
     // Exception always starts with @@
-    if (parsedLine.startsWith("@@")) {
+    if (parsedLine.startsWith(QLatin1String("@@"))) {
         m_exception = true;
         parsedLine = parsedLine.mid(2);
     }
 
     // Parse all options following $ char
-    int optionsIndex = parsedLine.indexOf('$');
+    int optionsIndex = parsedLine.indexOf(QLatin1Char('$'));
     if (optionsIndex >= 0) {
-        QStringList options = parsedLine.mid(optionsIndex + 1).split(',');
+        QStringList options = parsedLine.mid(optionsIndex + 1).split(QLatin1Char(','));
 
         int handledOptions = 0;
         foreach(const QString & option, options) {
-            if (option.startsWith("domain=")) {
-                parseDomains(option.mid(7), '|');
+            if (option.startsWith(QLatin1String("domain="))) {
+                parseDomains(option.mid(7), QLatin1Char('|'));
                 ++handledOptions;
             }
-            else if (option == "match-case") {
+            else if (option == QLatin1String("match-case")) {
                 m_caseSensitivity = Qt::CaseSensitive;
                 ++handledOptions;
             }
-            else if (option.endsWith("third-party")) {
+            else if (option.endsWith(QLatin1String("third-party"))) {
                 m_thirdParty = true;
-                m_thirdPartyException = option.startsWith('~');
+                m_thirdPartyException = option.startsWith(QLatin1Char('~'));
                 ++handledOptions;
             }
-            else if (option.endsWith("object")) {
+            else if (option.endsWith(QLatin1String("object"))) {
                 m_object = true;
-                m_objectException = option.startsWith('~');
+                m_objectException = option.startsWith(QLatin1Char('~'));
                 ++handledOptions;
             }
-            else if (option.endsWith("subdocument")) {
+            else if (option.endsWith(QLatin1String("subdocument"))) {
                 m_subdocument = true;
                 m_subdocumentException = option.startsWith('~');
                 ++handledOptions;
             }
-            else if (option.endsWith("xmlhttprequest")) {
+            else if (option.endsWith(QLatin1String("xmlhttprequest"))) {
                 m_xmlhttprequest = true;
-                m_xmlhttprequestException = option.startsWith('~');
+                m_xmlhttprequestException = option.startsWith(QLatin1Char('~'));
                 ++handledOptions;
             }
-            else if (option == "document" && m_exception) {
+            else if (option == QLatin1String("document") && m_exception) {
                 m_document = true;
                 ++handledOptions;
             }
-            else if (option == "elemhide" && m_exception) {
+            else if (option == QLatin1String("elemhide") && m_exception) {
                 m_elemhide = true;
                 ++handledOptions;
             }
-            else if (option == "collapse") {
+            else if (option == QLatin1String("collapse")) {
                 // Hiding placeholders of blocked elements
                 ++handledOptions;
             }
@@ -439,7 +439,7 @@ void AdBlockRule::parseFilter()
     }
 
     // Rule is classic regexp
-    if (parsedLine.startsWith('/') && parsedLine.endsWith('/')) {
+    if (parsedLine.startsWith(QLatin1Char('/')) && parsedLine.endsWith(QLatin1Char('/'))) {
         parsedLine = parsedLine.mid(1);
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
@@ -449,16 +449,17 @@ void AdBlockRule::parseFilter()
     }
 
     // Remove starting and ending wildcards (*)
-    if (parsedLine.startsWith('*')) {
+    if (parsedLine.startsWith(QLatin1Char('*'))) {
         parsedLine = parsedLine.mid(1);
     }
 
-    if (parsedLine.endsWith('*')) {
+    if (parsedLine.endsWith(QLatin1Char('*'))) {
         parsedLine = parsedLine.left(parsedLine.size() - 1);
     }
 
     // We can use fast string matching for domain here
-    if (parsedLine.startsWith("||") && parsedLine.endsWith('^') && !parsedLine.contains(QRegExp("[/:?=&\\*]"))) {
+    if (parsedLine.startsWith(QLatin1String("||")) && parsedLine.endsWith(QLatin1Char('^'))
+            && !parsedLine.contains(QRegExp("[/:?=&\\*]"))) {
         parsedLine = parsedLine.mid(2);
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
@@ -468,7 +469,8 @@ void AdBlockRule::parseFilter()
     }
 
     // If rule contains only | at end, we can also use string matching
-    if (parsedLine.endsWith('|') && !parsedLine.contains(QRegExp("[\\^\\*]")) && parsedLine.count('|') == 1) {
+    if (parsedLine.endsWith(QLatin1Char('|')) && !parsedLine.contains(QRegExp("[\\^\\*]"))
+            && parsedLine.count(QLatin1Char('|')) == 1) {
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
         m_useEndsMatch = true;
@@ -478,7 +480,8 @@ void AdBlockRule::parseFilter()
 
     // If we still find a wildcard (*) or separator (^) or (|)
     // we must modify parsedLine to comply with QRegExp
-    if (parsedLine.contains('*') || parsedLine.contains('^') || parsedLine.contains('|')) {
+    if (parsedLine.contains(QLatin1Char('*')) || parsedLine.contains(QLatin1Char('^'))
+            || parsedLine.contains(QLatin1Char('|'))) {
         parsedLine.replace(QRegExp(QLatin1String("\\*+")), QLatin1String("*"))       // remove multiple wildcards
         .replace(QRegExp(QLatin1String("\\^\\|$")), QLatin1String("^"))    // remove anchors following separator placeholder
         .replace(QRegExp(QLatin1String("^(\\*)")), QString())      // remove leading wildcards
@@ -529,9 +532,9 @@ bool AdBlockRule::_matchDomain(const QString &domain, const QString &filter) con
 
     int index = domain.indexOf(filter);
 
-    if (index == 0 || filter[0] == '.') {
+    if (index == 0 || filter[0] == QLatin1Char('.')) {
         return true;
     }
 
-    return domain[index - 1] == '.';
+    return domain[index - 1] == QLatin1Char('.');
 }

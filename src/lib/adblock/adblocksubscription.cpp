@@ -248,7 +248,7 @@ QString AdBlockSubscription::elementHidingRulesForDomain(const QString &domain) 
     for (int i = 0; i < count; ++i) {
         const AdBlockRule* rule = m_domainRestrictedCssRules.at(i);
         if (rule->matchDomain(domain)) {
-            rules.append(rule->cssSelector() + ",");
+            rules.append(rule->cssSelector() + QLatin1Char(','));
         }
     }
 
