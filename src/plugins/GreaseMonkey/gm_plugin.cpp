@@ -38,7 +38,7 @@ PluginSpec GM_Plugin::pluginSpec()
     spec.name = "GreaseMonkey";
     spec.info = "Userscripts for QupZilla";
     spec.description = "Provides support for userscripts (www.userscripts.org)";
-    spec.version = "0.2.1";
+    spec.version = "0.2.2";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":gm/data/icon.png");
     spec.hasSettings = true;
@@ -62,7 +62,7 @@ void GM_Plugin::unload()
 
 bool GM_Plugin::testPlugin()
 {
-    return (QupZilla::VERSION == "1.3.1");
+    return (QupZilla::VERSION == QLatin1String("1.3.1"));
 }
 
 QTranslator* GM_Plugin::getTranslator(const QString &locale)

@@ -237,5 +237,6 @@ void GM_Manager::load()
 
 bool GM_Manager::canRunOnScheme(const QString &scheme)
 {
-    return (scheme == "http" || scheme == "https" || scheme == "data" || scheme == "ftp");
+    return (scheme == QLatin1String("http") || scheme == QLatin1String("https")
+            || scheme == QLatin1String("data") || scheme == QLatin1String("ftp"));
 }

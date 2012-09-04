@@ -287,7 +287,9 @@ bool AdBlockManager::isEnabled()
 
 bool AdBlockManager::canRunOnScheme(const QString &scheme) const
 {
-    return !(scheme == "file" || scheme == "qrc" || scheme == "qupzilla" || scheme == "data" || scheme == "abp");
+    return !(scheme == QLatin1String("file") || scheme == QLatin1String("qrc")
+             || scheme == QLatin1String("qupzilla") || scheme == QLatin1String("data")
+             || scheme == QLatin1String("abp"));
 }
 
 bool AdBlockManager::canBeBlocked(const QUrl &url) const

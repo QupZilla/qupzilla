@@ -162,12 +162,12 @@ void GM_Script::parseScript(const QString &filePath)
 
     const QStringList &lines = metadataBlock.split('\n');
     foreach(QString line, lines) {
-        if (!line.startsWith("// @")) {
+        if (!line.startsWith(QLatin1String("// @"))) {
             continue;
         }
 
-        line = line.mid(3).replace('\t', ' ');
-        int index = line.indexOf(' ');
+        line = line.mid(3).replace(QLatin1Char('\t'), QLatin1Char(' '));
+        int index = line.indexOf(QLatin1Char(' '));
 
         if (index < 0) {
             continue;
@@ -184,39 +184,39 @@ void GM_Script::parseScript(const QString &filePath)
             continue;
         }
 
-        if (key == "@name") {
+        if (key == QLatin1String("@name")) {
             m_name = value;
         }
-        else if (key == "@namespace") {
+        else if (key == QLatin1String("@namespace")) {
             m_namespace = value;
         }
-        else if (key == "@description") {
+        else if (key == QLatin1String("@description")) {
             m_description = value;
         }
-        else if (key == "@version") {
+        else if (key == QLatin1String("@version")) {
             m_version = value;
         }
-        else if (key == "@updateURL") {
+        else if (key == QLatin1String("@updateURL")) {
             m_downloadUrl = QUrl(value);
         }
-        else if (key == "@include" || key == "@match") {
+        else if (key == QLatin1String("@include") || key == QLatin1String("@match")) {
             m_include.append(GM_UrlMatcher(value));
         }
-        else if (key == "@exclude" || key == "@exclude_match") {
+        else if (key == QLatin1String("@exclude") || key == QLatin1String("@exclude_match")) {
             m_exclude.append(GM_UrlMatcher(value));
         }
-        else if (key == "@require") {
+        else if (key == QLatin1String("@require")) {
             requireList.append(value);
         }
-        else if (key == "@run-at") {
-            if (value == "document-end") {
+        else if (key == QLatin1String("@run-at")) {
+            if (value == QLatin1String("document-end")) {
                 m_startAt = DocumentEnd;
             }
-            else if (value == "document-start") {
+            else if (value == QLatin1String("document-start")) {
                 m_startAt = DocumentStart;
             }
         }
-        else if (key == "@downloadURL" && m_downloadUrl.isEmpty()) {
+        else if (key == QLatin1String("@downloadURL") && m_downloadUrl.isEmpty()) {
             m_downloadUrl = QUrl(value);
         }
     }
@@ -225,7 +225,7 @@ void GM_Script::parseScript(const QString &filePath)
         m_include.append(GM_UrlMatcher("*"));
     }
 
-    int index = fileData.indexOf("// ==/UserScript==") + 18;
+    int index = fileData.indexOf(QLatin1String("// ==/UserScript==")) + 18;
     QString script = fileData.mid(index).trimmed();
 
     script.prepend(m_manager->requireScripts(requireList));

@@ -25,10 +25,10 @@ bool wildcardMatch(const QString &string, const QString &pattern)
     int stringSize = string.size();
     int patternSize = pattern.size();
 
-    bool startsWithWildcard = pattern[0] == '*';
-    bool endsWithWildcard = pattern[patternSize - 1] == '*';
+    bool startsWithWildcard = pattern[0] == QLatin1Char('*');
+    bool endsWithWildcard = pattern[patternSize - 1] == QLatin1Char('*');
 
-    const QStringList &parts = pattern.split('*');
+    const QStringList &parts = pattern.split(QLatin1Char('*'));
     int pos = 0;
 
     if (startsWithWildcard) {
@@ -76,7 +76,7 @@ bool GM_UrlMatcher::match(const QString &urlString) const
 
 void GM_UrlMatcher::parsePattern(QString pattern)
 {
-    if (pattern.startsWith('/') && pattern.endsWith('/')) {
+    if (pattern.startsWith(QLatin1Char('/')) && pattern.endsWith(QLatin1Char('/'))) {
         pattern = pattern.mid(1);
         pattern = pattern.left(pattern.size() - 1);
 
@@ -85,14 +85,14 @@ void GM_UrlMatcher::parsePattern(QString pattern)
         return;
     }
 
-    if (pattern.contains(".tld")) {
+    if (pattern.contains(QLatin1String(".tld"))) {
 
-        pattern.replace(QRegExp("(\\W)"), "\\\\1")
-        .replace(QRegExp("\\*+"), "*")
-        .replace(QRegExp("^\\\\\\|"), "^")
-        .replace(QRegExp("\\\\\\|$"), "$")
-        .replace(QRegExp("\\\\\\*"), ".*")
-        .replace("\\.tld", "\\.[a-z.]{2,6}");
+        pattern.replace(QRegExp("(\\W)"), QLatin1String("\\\\1"))
+        .replace(QRegExp("\\*+"), QLatin1String("*"))
+        .replace(QRegExp("^\\\\\\|"), QLatin1String("^"))
+        .replace(QRegExp("\\\\\\|$"), QLatin1String("$"))
+        .replace(QRegExp("\\\\\\*"), QLatin1String(".*"))
+        .replace("\\.tld", QLatin1String("\\.[a-z.]{2,6}"));
 
         m_useRegExp = true;
         m_regExp = QRegExp(pattern, Qt::CaseInsensitive);
