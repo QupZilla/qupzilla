@@ -28,6 +28,7 @@ SourceViewerSearch::SourceViewerSearch(SourceViewer* parent)
     : AnimatedWidget(AnimatedWidget::Up)
     , m_sourceViewer(parent)
     , ui(new Ui::SourceViewerSearch)
+    , m_findFlags(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
@@ -42,6 +43,8 @@ SourceViewerSearch::SourceViewerSearch(SourceViewer* parent)
     connect(ui->lineEdit, SIGNAL(returnPressed()), this, SLOT(next()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(next()));
     connect(ui->previous, SIGNAL(clicked()), this, SLOT(previous()));
+    connect(ui->wholeWords, SIGNAL(toggled(bool)), SLOT(searchWholeWords()));
+    connect(this, SIGNAL(performSearch()), SLOT(find()));
 
     QShortcut* findNextAction = new QShortcut(QKeySequence("F3"), this);
     connect(findNextAction, SIGNAL(activated()), this, SLOT(next()));
@@ -60,20 +63,29 @@ void SourceViewerSearch::activateLineEdit()
 
 void SourceViewerSearch::next()
 {
-    bool found = find(0);
-    if (!found) {
-        m_sourceViewer->sourceEdit()->moveCursor(QTextCursor::Start);
-    }
-
-    ui->lineEdit->setProperty("notfound", QVariant(!found));
-
-    ui->lineEdit->style()->unpolish(ui->lineEdit);
-    ui->lineEdit->style()->polish(ui->lineEdit);
+    m_findFlags &= (~QTextDocument::FindBackward);
+    emit performSearch();
 }
 
 void SourceViewerSearch::previous()
 {
-    bool found = find(QTextDocument::FindBackward);
+    m_findFlags |= QTextDocument::FindBackward;
+    emit performSearch();
+}
+
+void SourceViewerSearch::searchWholeWords()
+{
+    if (ui->wholeWords->isChecked()) {
+        m_findFlags |= QTextDocument::FindWholeWords;
+    } else {
+        m_findFlags &= (~QTextDocument::FindWholeWords);
+    }
+}
+
+void SourceViewerSearch::find()
+{
+    bool found = find(m_findFlags);
+
     if (!found) {
         m_sourceViewer->sourceEdit()->moveCursor(QTextCursor::Start);
     }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>679</width>
-    <height>40</height>
+    <width>677</width>
+    <height>38</height>
    </rect>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
@@ -79,6 +79,13 @@
      </property>
      <property name="autoRaise">
       <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="wholeWords">
+     <property name="text">
+      <string>Whole words</string>
      </property>
     </widget>
    </item>
