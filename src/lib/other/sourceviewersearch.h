@@ -40,19 +40,23 @@ public:
     bool eventFilter(QObject* obj, QEvent* event);
 
 signals:
+    void performSearch();
 
 public slots:
 
 private slots:
     void next();
     void previous();
-    bool find(QTextDocument::FindFlags flags);
+    void searchWholeWords();
+    void find();
+    bool find(QTextDocument::FindFlags);
 
 private:
     SourceViewer* m_sourceViewer;
     Ui::SourceViewerSearch* ui;
 
     QString m_lastSearchedString;
+    QTextDocument::FindFlags m_findFlags;
 };
 
 #endif // SOURCEVIEWERSEARCH_H
