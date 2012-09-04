@@ -41,7 +41,7 @@
 
 QStringList AcceptLanguage::defaultLanguage()
 {
-    return QStringList(QLocale::system().name().replace("_", "-"));
+    return QStringList(QLocale::system().name().replace(QLatin1Char('_'), QLatin1Char('-')));
 }
 
 QByteArray AcceptLanguage::generateHeader(const QStringList &langs)
@@ -63,7 +63,7 @@ QByteArray AcceptLanguage::generateHeader(const QStringList &langs)
 
         header.append(s);
     }
-    header.append(", *");
+    header.append(QLatin1String(", *"));
 
     return header;
 }
@@ -80,7 +80,7 @@ AcceptLanguage::AcceptLanguage(QWidget* parent)
 
     foreach(const QString & code, langs) {
         QString code_ = code;
-        QLocale loc = QLocale(code_.replace('-', '_'));
+        QLocale loc = QLocale(code_.replace(QLatin1Char('-'), QLatin1Char('_')));
         QString label;
 
         if (loc.language() == QLocale::C) {
@@ -202,8 +202,8 @@ void AcceptLanguage::accept()
     QStringList langs;
     for (int i = 0; i < ui->listWidget->count(); i++) {
         QString t = ui->listWidget->item(i)->text();
-        QString code = t.mid(t.indexOf('[') + 1);
-        code.remove(']');
+        QString code = t.mid(t.indexOf(QLatin1Char('[')) + 1);
+        code.remove(QLatin1Char(']'));
         langs.append(code);
     }
 

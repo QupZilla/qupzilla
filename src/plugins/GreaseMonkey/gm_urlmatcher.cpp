@@ -92,7 +92,7 @@ void GM_UrlMatcher::parsePattern(QString pattern)
         .replace(QRegExp("^\\\\\\|"), QLatin1String("^"))
         .replace(QRegExp("\\\\\\|$"), QLatin1String("$"))
         .replace(QRegExp("\\\\\\*"), QLatin1String(".*"))
-        .replace("\\.tld", QLatin1String("\\.[a-z.]{2,6}"));
+        .replace(QLatin1String("\\.tld"), QLatin1String("\\.[a-z.]{2,6}"));
 
         m_useRegExp = true;
         m_regExp = QRegExp(pattern, Qt::CaseInsensitive);

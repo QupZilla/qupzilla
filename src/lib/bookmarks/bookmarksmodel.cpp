@@ -65,7 +65,8 @@ void BookmarksModel::setShowingOnlyIconsInToolbar(bool state)
 
 bool BookmarksModel::isFolder(const QString &name)
 {
-    if (name == "bookmarksToolbar" || name == "bookmarksMenu" || name == "unsorted") {
+    if (name == QLatin1String("bookmarksToolbar") || name == QLatin1String("bookmarksMenu")
+            || name == QLatin1String("unsorted")) {
         return true;
     }
 
@@ -501,7 +502,7 @@ bool BookmarksModel::isSubfolder(const QString &name)
         return false;
     }
 
-    return query.value(0).toString() == "yes";
+    return query.value(0).toString() == QLatin1String("yes");
 }
 
 bool BookmarksModel::bookmarksEqual(const Bookmark &one, const Bookmark &two)
@@ -524,13 +525,13 @@ bool BookmarksModel::bookmarksEqual(const Bookmark &one, const Bookmark &two)
 QString BookmarksModel::toTranslatedFolder(const QString &name)
 {
     QString trFolder;
-    if (name == "bookmarksMenu") {
+    if (name == QLatin1String("bookmarksMenu")) {
         trFolder = tr("Bookmarks In Menu");
     }
-    else if (name == "bookmarksToolbar") {
+    else if (name == QLatin1String("bookmarksToolbar")) {
         trFolder = tr("Bookmarks In ToolBar");
     }
-    else if (name == "unsorted") {
+    else if (name == QLatin1String("unsorted")) {
         trFolder = tr("Unsorted Bookmarks");
     }
     else {

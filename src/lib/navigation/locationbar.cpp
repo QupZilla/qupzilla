@@ -125,14 +125,14 @@ QUrl LocationBar::createUrl()
     QUrl urlToLoad;
 
     //Check for Search Engine shortcut
-    int firstSpacePos = text().indexOf(' ');
+    int firstSpacePos = text().indexOf(QLatin1Char(' '));
     if (firstSpacePos != -1) {
         QString shortcut = text().left(firstSpacePos);
         QString searchedString = QUrl::toPercentEncoding(text().mid(firstSpacePos).trimmed());
 
         SearchEngine en = mApp->searchEnginesManager()->engineForShortcut(shortcut);
         if (!en.name.isEmpty()) {
-            urlToLoad = QUrl::fromEncoded(en.url.replace("%s", searchedString).toUtf8());
+            urlToLoad = QUrl::fromEncoded(en.url.replace(QLatin1String("%s"), searchedString).toUtf8());
         }
     }
 
@@ -214,7 +214,7 @@ void LocationBar::showSiteInfo()
 {
     QUrl url = p_QupZilla->weView()->url();
 
-    if (url.isEmpty() || url.scheme() == "qupzilla") {
+    if (url.isEmpty() || url.scheme() == QLatin1String("qupzilla")) {
         return;
     }
 
@@ -243,7 +243,7 @@ void LocationBar::showUrl(const QUrl &url)
 
     QString stringUrl = qz_urlEncodeQueryString(url);
 
-    if (stringUrl == "qupzilla:speeddial" || stringUrl == "about:blank") {
+    if (stringUrl == QLatin1String("qupzilla:speeddial") || stringUrl == QLatin1String("about:blank")) {
         stringUrl = "";
     }
 
@@ -452,7 +452,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
     case Qt::Key_Enter:
         switch (event->modifiers()) {
         case Qt::ControlModifier:
-            setText(text().append(".com"));
+            setText(text().append(QLatin1String(".com")));
             urlEnter();
             m_holdingAlt = false;
             break;
@@ -498,7 +498,7 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
     QString localDomain = tr(".co.uk", "Append domain name on ALT + Enter = Should be different for every country");
 
     if (event->key() == Qt::Key_Alt && m_holdingAlt && qzSettings->addCountryWithAlt &&
-            !text().endsWith(localDomain) && !text().endsWith("/")) {
+            !text().endsWith(localDomain) && !text().endsWith(QLatin1Char('/'))) {
         LineEdit::setText(text().append(localDomain));
     }
 

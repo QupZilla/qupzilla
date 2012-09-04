@@ -172,7 +172,7 @@ void PIM_Handler::pimInsert()
     }
 
     QString info = action->data().toString();
-    info.replace('"', "\\\"");
+    info.replace(QLatin1Char('"'), QLatin1String("\\\""));
     m_element.evaluateJavaScript(QString("var newVal = this.value.substring(0, this.selectionStart) + \"%1\" + this.value.substring(this.selectionEnd); this.value = newVal;").arg(info));
 }
 

@@ -163,7 +163,7 @@ void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
 
 void BookmarksSideBar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
 {
-    if (bookmark.folder == "unsorted") {
+    if (bookmark.folder == QLatin1String("unsorted")) {
         QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(bookmark.title, Qt::MatchExactly);
         if (list.count() == 0) {
             return;
@@ -280,10 +280,10 @@ void BookmarksSideBar::refreshTable()
         QString folder = query.value(3).toString();
         QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(4).toByteArray()));
         QTreeWidgetItem* item;
-        if (folder == "bookmarksMenu") {
+        if (folder == QLatin1String("bookmarksMenu")) {
             folder = _bookmarksMenu;
         }
-        if (folder == "bookmarksToolbar") {
+        if (folder == QLatin1String("bookmarksToolbar")) {
             continue;
         }
 

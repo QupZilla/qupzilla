@@ -140,16 +140,16 @@ QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
     if (samePart.isEmpty()) {
         returnUrl = rUrl;
     }
-    else if (samePart == "/") {
+    else if (samePart == QLatin1String("/")) {
         returnUrl = QUrl(rUrl.path());
     }
     else {
-        samePart = samePart.left(samePart.lastIndexOf("/") + 1);
-        int slashCount = samePart.count("/") + 1;
-        if (samePart.startsWith('/')) {
+        samePart = samePart.left(samePart.lastIndexOf(QLatin1Char('/')) + 1);
+        int slashCount = samePart.count(QLatin1Char('/')) + 1;
+        if (samePart.startsWith(QLatin1Char('/'))) {
             slashCount--;
         }
-        if (samePart.endsWith("/")) {
+        if (samePart.endsWith(QLatin1Char('/'))) {
             slashCount--;
         }
 
@@ -166,14 +166,14 @@ QString qz_urlEncodeQueryString(const QUrl &url)
     QString returnString = url.toString(QUrl::RemoveQuery | QUrl::RemoveFragment);
 
     if (url.hasQuery()) {
-        returnString += '?' + url.encodedQuery();
+        returnString += QLatin1Char('?') + url.encodedQuery();
     }
 
     if (url.hasFragment()) {
-        returnString += '#' + url.encodedFragment();
+        returnString += QLatin1Char('#') + url.encodedFragment();
     }
 
-    returnString.replace(' ', "%20");
+    returnString.replace(QLatin1Char(' '), QLatin1String("%20"));
 
     return returnString;
 }
@@ -188,7 +188,7 @@ QString qz_ensureUniqueFilename(const QString &name, const QString &appendFormat
     int i = 1;
     while (QFile::exists(tmpFileName)) {
         tmpFileName = name;
-        int index = tmpFileName.lastIndexOf(".");
+        int index = tmpFileName.lastIndexOf(QLatin1Char('.'));
 
         QString appendString = appendFormat.arg(i);
         if (index == -1) {
@@ -205,16 +205,16 @@ QString qz_ensureUniqueFilename(const QString &name, const QString &appendFormat
 QString qz_getFileNameFromUrl(const QUrl &url)
 {
     QString fileName = url.toString(QUrl::RemoveFragment | QUrl::RemoveQuery | QUrl::RemoveScheme | QUrl::RemovePort);
-    if (fileName.indexOf('/') != -1) {
-        int pos = fileName.lastIndexOf('/');
+    if (fileName.indexOf(QLatin1Char('/')) != -1) {
+        int pos = fileName.lastIndexOf(QLatin1Char('/'));
         fileName = fileName.mid(pos);
-        fileName.remove('/');
+        fileName.remove(QLatin1Char('/'));
     }
 
     fileName = qz_filterCharsFromFilename(fileName);
 
     if (fileName.isEmpty()) {
-        fileName = qz_filterCharsFromFilename(url.host().replace('.', '-'));
+        fileName = qz_filterCharsFromFilename(url.host().replace(QLatin1Char('.'), QLatin1Char('-')));
     }
 
     return fileName;
@@ -224,15 +224,15 @@ QString qz_filterCharsFromFilename(const QString &name)
 {
     QString value = name;
 
-    value.replace('/', '-');
-    value.remove('\\');
-    value.remove(':');
-    value.remove('*');
-    value.remove('?');
-    value.remove('"');
-    value.remove('<');
-    value.remove('>');
-    value.remove('|');
+    value.replace(QLatin1Char('/'), QLatin1Char('-'));
+    value.remove(QLatin1Char('\\'));
+    value.remove(QLatin1Char(':'));
+    value.remove(QLatin1Char('*'));
+    value.remove(QLatin1Char('?'));
+    value.remove(QLatin1Char('"'));
+    value.remove(QLatin1Char('<'));
+    value.remove(QLatin1Char('>'));
+    value.remove(QLatin1Char('|'));
 
     return value;
 }
@@ -325,19 +325,19 @@ QPixmap qz_createPixmapForSite(const QIcon &icon, const QString &title, const QS
 
 QString QT_QUPZILLA_EXPORT qz_applyDirectionToPage(QString &pageContents)
 {
-    QString direction = "ltr";
-    QString right_str = "right";
-    QString left_str = "left";
+    QString direction = QLatin1String("ltr");
+    QString right_str = QLatin1String("right");
+    QString left_str = QLatin1String("left");
 
     if (QApplication::isRightToLeft()) {
-        direction = "rtl";
-        right_str = "left";
-        left_str = "right";
+        direction = QLatin1String("rtl");
+        right_str = QLatin1String("left");
+        left_str = QLatin1String("right");
     }
 
-    pageContents.replace("%DIRECTION%", direction);
-    pageContents.replace("%RIGHT_STR%", right_str);
-    pageContents.replace("%LEFT_STR%", left_str);
+    pageContents.replace(QLatin1String("%DIRECTION%"), direction);
+    pageContents.replace(QLatin1String("%RIGHT_STR%"), right_str);
+    pageContents.replace(QLatin1String("%LEFT_STR%"), left_str);
 
     return pageContents;
 }

@@ -33,11 +33,11 @@ bool _matchDomain(const QString &domain, const QString &filter)
 
     int index = domain.indexOf(filter);
 
-    if (index == 0 || filter[0] == '.') {
+    if (index == 0 || filter[0] == QLatin1Char('.')) {
         return true;
     }
 
-    return domain[index - 1] == '.';
+    return domain[index - 1] == QLatin1Char('.');
 }
 
 bool containsDomain(QString string, const QString &domain)
@@ -47,7 +47,7 @@ bool containsDomain(QString string, const QString &domain)
         return true;
     }
 
-    if (string.startsWith('.')) {
+    if (string.startsWith(QLatin1Char('.'))) {
         string = string.mid(1);
     }
 

@@ -229,8 +229,8 @@ void AutoFillModel::completePage(WebPage* page)
     for (int i = 0; i < arguments.count(); i++) {
         QString key = arguments.at(i).first;
         QString value = arguments.at(i).second;
-        key.replace('+', ' ');
-        value.replace('+', ' ');
+        key.replace(QLatin1Char('+'), QLatin1Char(' '));
+        value.replace(QLatin1Char('+'), QLatin1Char(' '));
 
         key = QUrl::fromEncoded(key.toUtf8()).toString();
         value = QUrl::fromEncoded(value.toUtf8()).toString();
@@ -238,7 +238,9 @@ void AutoFillModel::completePage(WebPage* page)
         for (int i = 0; i < inputs.count(); i++) {
             QWebElement element = inputs.at(i);
 
-            if (element.attribute("type") != "text" && element.attribute("type") != "password" && !element.attribute("type").isEmpty()) {
+            if (element.attribute("type") != QLatin1String("text")
+                    && element.attribute("type") != QLatin1String("password")
+                    && !element.attribute("type").isEmpty()) {
                 continue;
             }
 
@@ -382,13 +384,13 @@ QByteArray AutoFillModel::convertWebKitFormBoundaryIfNecessary(const QByteArray 
         QString string = rx.cap(1);
         pos += rx.matchedLength();
 
-        int endOfAttributeName = string.indexOf('"');
+        int endOfAttributeName = string.indexOf(QLatin1Char('"'));
         if (endOfAttributeName == -1) {
             continue;
         }
 
         QString attrName = string.left(endOfAttributeName);
-        QString attrValue = string.mid(endOfAttributeName + 1).trimmed().remove('\n');
+        QString attrValue = string.mid(endOfAttributeName + 1).trimmed().remove(QLatin1Char('\n'));
 
         if (attrName.isEmpty() || attrValue.isEmpty()) {
             continue;
@@ -462,27 +464,27 @@ bool AutoFillModel::importPasswords(const QByteArray &data)
         xml.readNext();
 
         if (xml.isStartElement()) {
-            if (xml.name() == "entry") {
+            if (xml.name() == QLatin1String("entry")) {
                 QString server;
                 QString username;
                 QString password;
                 QByteArray data;
 
                 while (xml.readNext()) {
-                    if (xml.name() == "server") {
+                    if (xml.name() == QLatin1String("server")) {
                         server = xml.readElementText();
                     }
-                    else if (xml.name() == "username") {
+                    else if (xml.name() == QLatin1String("username")) {
                         username = xml.readElementText();
                     }
-                    else if (xml.name() == "password") {
+                    else if (xml.name() == QLatin1String("password")) {
                         password = xml.readElementText();
                     }
-                    else if (xml.name() == "data") {
+                    else if (xml.name() == QLatin1String("data")) {
                         data = xml.readElementText().toUtf8();
                     }
 
-                    if (xml.isEndElement() && xml.name() == "entry") {
+                    if (xml.isEndElement() && xml.name() == QLatin1String("entry")) {
                         break;
                     }
                 }
@@ -505,15 +507,15 @@ bool AutoFillModel::importPasswords(const QByteArray &data)
                     }
                 }
             }
-            else if (xml.name() == "exception") {
+            else if (xml.name() == QLatin1String("exception")) {
                 QString server;
 
                 while (xml.readNext()) {
-                    if (xml.name() == "server") {
+                    if (xml.name() == QLatin1String("server")) {
                         server = xml.readElementText();
                     }
 
-                    if (xml.isEndElement() && xml.name() == "exception") {
+                    if (xml.isEndElement() && xml.name() == QLatin1String("exception")) {
                         break;
                     }
                 }

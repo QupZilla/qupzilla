@@ -60,7 +60,7 @@ bool AKN_Plugin::testPlugin()
 {
     // Let's be sure, require latest version of QupZilla
 
-    return (QupZilla::VERSION == "1.3.1");
+    return (QupZilla::VERSION == QLatin1String("1.3.1"));
 }
 
 QTranslator* AKN_Plugin::getTranslator(const QString &locale)

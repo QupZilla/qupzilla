@@ -143,57 +143,57 @@ QString FileSchemeReply::loadDirectory()
 
     if (sPage.isEmpty()) {
         sPage = qz_readAllFileContents(":/html/dirlist.html");
-        sPage.replace("%BOX-BORDER%", "qrc:html/box-border.png");
-        sPage.replace("%UP-IMG%", qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_FileDialogToParent).pixmap(22)));
-        sPage.replace("%UP-DIR-TEXT%", tr("Up to higher level directory"));
-        sPage.replace("%SHOW-HIDDEN-TEXT%", tr("Show hidden files"));
-        sPage.replace("%NAME%", tr("Name"));
-        sPage.replace("%SIZE%", tr("Size"));
-        sPage.replace("%MODIFIED%", tr("Last modified"));
+        sPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
+        sPage.replace(QLatin1String("%UP-IMG%"), qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_FileDialogToParent).pixmap(22)));
+        sPage.replace(QLatin1String("%UP-DIR-TEXT%"), tr("Up to higher level directory"));
+        sPage.replace(QLatin1String("%SHOW-HIDDEN-TEXT%"), tr("Show hidden files"));
+        sPage.replace(QLatin1String("%NAME%"), tr("Name"));
+        sPage.replace(QLatin1String("%SIZE%"), tr("Size"));
+        sPage.replace(QLatin1String("%MODIFIED%"), tr("Last modified"));
         sPage = qz_applyDirectionToPage(sPage);
     }
 
     QString page = sPage;
-    page.replace("%TITLE%", tr("Index for %1").arg(request().url().toLocalFile()));
+    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(request().url().toLocalFile()));
 
-    QString upDirDisplay = "none";
-    QString showHiddenDisplay = "none";
+    QString upDirDisplay = QLatin1String("none");
+    QString showHiddenDisplay = QLatin1String("none");
     QString tBody;
 
     if (!dir.isRoot()) {
         QDir upDir = dir;
         upDir.cdUp();
 
-        upDirDisplay = "inline";
-        page.replace("%UP-DIR-LINK%", QUrl::fromLocalFile(upDir.absolutePath()).toEncoded());
+        upDirDisplay = QLatin1String("inline");
+        page.replace(QLatin1String("%UP-DIR-LINK%"), QUrl::fromLocalFile(upDir.absolutePath()).toEncoded());
     }
 
     foreach(const QFileInfo & info, list) {
-        if (info.fileName() == "." || info.fileName() == "..") {
+        if (info.fileName() == QLatin1String(".") || info.fileName() == QLatin1String("..")) {
             continue;
         }
 
-        QString line = "<tr";
+        QString line = QLatin1String("<tr");
 
         if (info.isHidden()) {
             showHiddenDisplay = "inline";
             line += " class=\"tr-hidden\"";
         }
 
-        line += "><td class=\"td-name\" style=\"background-image:url(data:image/png;base64,";
+        line += QLatin1String("><td class=\"td-name\" style=\"background-image:url(data:image/png;base64,");
         line += qz_pixmapToByteArray(QFileIconProvider().icon(info).pixmap(16));
-        line += ");\">";
-        line += "<a href=\"";
+        line += QLatin1String(");\">");
+        line += QLatin1String("<a href=\"");
         line += QUrl::fromLocalFile(info.absoluteFilePath()).toEncoded();
-        line += "\">";
+        line += QLatin1String("\">");
         line += info.fileName();
-        line += "</a></td><td class=\"td-size\">";
+        line += QLatin1String("</a></td><td class=\"td-size\">");
         line += info.isDir() ? QString() : qz_fileSizeToString(info.size());
-        line += "</td><td>";
+        line += QLatin1String("</td><td>");
         line += info.lastModified().toString("dd.MM.yyyy");
-        line += "</td><td>";
+        line += QLatin1String("</td><td>");
         line += info.lastModified().toString("hh:mm:ss");
-        line += "</td></tr>\n";
+        line += QLatin1String("</td></tr>\n");
 
         tBody.append(line);
     }
@@ -202,9 +202,9 @@ QString FileSchemeReply::loadDirectory()
         tBody = QString("<tr><td colspan='4'>%1</td></tr>").arg(tr("Folder is empty."));
     }
 
-    page.replace("%T-BODY%", tBody);
-    page.replace("%UP-DIR-DISPLAY%", upDirDisplay);
-    page.replace("%SHOW-HIDDEN-DISPLAY%", showHiddenDisplay);
+    page.replace(QLatin1String("%T-BODY%"), tBody);
+    page.replace(QLatin1String("%UP-DIR-DISPLAY%"), upDirDisplay);
+    page.replace(QLatin1String("%SHOW-HIDDEN-DISPLAY%"), showHiddenDisplay);
 
     return page;
 }

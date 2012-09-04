@@ -38,12 +38,12 @@ Updater::Version Updater::parseVersionFromString(const QString &string)
     Version ver;
     ver.isValid = false;
 
-    QStringList v = string.split('.');
+    QStringList v = string.split(QLatin1Char('.'));
     if (v.count() != 3) {
         return ver;
     }
 
-    QStringList r = v.at(2).split('.');
+    QStringList r = v.at(2).split(QLatin1Char('.'));
 
     ver.majorVersion = v.at(0).toInt();
     ver.minorVersion = v.at(1).toInt();
@@ -58,11 +58,11 @@ Updater::Version Updater::parseVersionFromString(const QString &string)
 
 bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
 {
-    if (one.contains("rc") && two.contains('b')) {
+    if (one.contains(QLatin1String("rc")) && two.contains(QLatin1Char('b'))) {
         return true;
     }
 
-    if (one.contains("b") && two.contains("rc")) {
+    if (one.contains(QLatin1Char('b')) && two.contains(QLatin1String("rc"))) {
         return false;
     }
 
@@ -74,16 +74,16 @@ bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
         return false;
     }
 
-    if (one.contains('b')) {
-        int o = one.remove('b').toInt();
-        int t = two.remove('b').toInt();
+    if (one.contains(QLatin1Char('b'))) {
+        int o = one.remove(QLatin1Char('b')).toInt();
+        int t = two.remove(QLatin1Char('b')).toInt();
 
         return o > t;
     }
 
-    if (one.contains("rc")) {
-        int o = one.remove("rc").toInt();
-        int t = two.remove("rc").toInt();
+    if (one.contains(QLatin1String("rc"))) {
+        int o = one.remove(QLatin1String("rc")).toInt();
+        int t = two.remove(QLatin1String("rc")).toInt();
 
         return o > t;
     }
@@ -108,8 +108,8 @@ void Updater::downCompleted(QNetworkReply* reply)
 {
     QString html = reply->readAll();
 
-    if (html.startsWith("Version:")) {
-        html.remove("Version:");
+    if (html.startsWith(QLatin1String("Version:"))) {
+        html.remove(QLatin1String("Version:"));
         Version current = parseVersionFromString(QupZilla::VERSION);
         Version updated = parseVersionFromString(html);
 

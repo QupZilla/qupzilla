@@ -82,22 +82,22 @@ void QupZillaSchemeReply::loadPage()
     QTextStream stream(&m_buffer);
     stream.setCodec("UTF-8");
 
-    if (m_pageName == "about") {
+    if (m_pageName == QLatin1String("about")) {
         stream << aboutPage();
     }
-    else if (m_pageName == "reportbug") {
+    else if (m_pageName == QLatin1String("reportbug")) {
         stream << reportbugPage();
     }
-    else if (m_pageName == "start") {
+    else if (m_pageName == QLatin1String("start")) {
         stream << startPage();
     }
-    else if (m_pageName == "speeddial") {
+    else if (m_pageName == QLatin1String("speeddial")) {
         stream << speeddialPage();
     }
-    else if (m_pageName == "config") {
+    else if (m_pageName == QLatin1String("config")) {
         stream << configPage();
     }
-    else if (m_pageName == "restore") {
+    else if (m_pageName == QLatin1String("restore")) {
         stream << restorePage();
     }
 
@@ -140,19 +140,19 @@ QString QupZillaSchemeReply::reportbugPage()
     }
 
     bPage.append(qz_readAllFileContents(":html/reportbug.html"));
-    bPage.replace("%FAVICON%", "qrc:icons/qupzilla.png");
-    bPage.replace("%BOX-BORDER%", "qrc:html/box-border.png");
+    bPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
+    bPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
 
-    bPage.replace("%TITLE%", tr("Report Issue"));
-    bPage.replace("%REPORT-ISSUE%", tr("Report Issue"));
-    bPage.replace("%PLUGINS-TEXT%", tr("If you are experiencing problems with QupZilla, please try to disable"
+    bPage.replace(QLatin1String("%TITLE%"), tr("Report Issue"));
+    bPage.replace(QLatin1String("%REPORT-ISSUE%"), tr("Report Issue"));
+    bPage.replace(QLatin1String("%PLUGINS-TEXT%"), tr("If you are experiencing problems with QupZilla, please try to disable"
                                        " all extensions first. <br/>If this does not fix it, then please fill out this form: "));
-    bPage.replace("%EMAIL%", tr("Your E-mail"));
-    bPage.replace("%TYPE%", tr("Issue type"));
-    bPage.replace("%DESCRIPTION%", tr("Issue description"));
-    bPage.replace("%SEND%", tr("Send"));
-    bPage.replace("%E-MAIL-OPTIONAL%", tr("E-mail is optional<br/><b>Note: </b>Please read how to make a bug report <a href=%1>here</a> first.").arg("https://github.com/QupZilla/qupzilla/wiki/Bug-Reports target=_blank"));
-    bPage.replace("%FIELDS-ARE-REQUIRED%", tr("Please fill out all required fields!"));
+    bPage.replace(QLatin1String("%EMAIL%"), tr("Your E-mail"));
+    bPage.replace(QLatin1String("%TYPE%"), tr("Issue type"));
+    bPage.replace(QLatin1String("%DESCRIPTION%"), tr("Issue description"));
+    bPage.replace(QLatin1String("%SEND%"), tr("Send"));
+    bPage.replace(QLatin1String("%E-MAIL-OPTIONAL%"), tr("E-mail is optional<br/><b>Note: </b>Please read how to make a bug report <a href=%1>here</a> first.").arg("https://github.com/QupZilla/qupzilla/wiki/Bug-Reports target=_blank"));
+    bPage.replace(QLatin1String("%FIELDS-ARE-REQUIRED%"), tr("Please fill out all required fields!"));
     bPage = qz_applyDirectionToPage(bPage);
 
     return bPage;
@@ -167,16 +167,16 @@ QString QupZillaSchemeReply::startPage()
     }
 
     sPage.append(qz_readAllFileContents(":html/start.html"));
-    sPage.replace("%FAVICON%", "qrc:icons/qupzilla.png");
-    sPage.replace("%BOX-BORDER%", "qrc:html/box-border.png");
-    sPage.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
+    sPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
+    sPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
+    sPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/about.png"));
 
-    sPage.replace("%TITLE%", tr("Start Page"));
-    sPage.replace("%BUTTON-LABEL%", tr("Search on Web"));
-    sPage.replace("%SEARCH-BY%", tr("Search results provided by DuckDuckGo"));
-    sPage.replace("%WWW%", QupZilla::WIKIADDRESS);
-    sPage.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
-    sPage.replace("%PRIVATE-BROWSING%", mApp->isPrivateSession() ? tr("<h1>Private Browsing</h1>") : QString());
+    sPage.replace(QLatin1String("%TITLE%"), tr("Start Page"));
+    sPage.replace(QLatin1String("%BUTTON-LABEL%"), tr("Search on Web"));
+    sPage.replace(QLatin1String("%SEARCH-BY%"), tr("Search results provided by DuckDuckGo"));
+    sPage.replace(QLatin1String("%WWW%"), QupZilla::WIKIADDRESS);
+    sPage.replace(QLatin1String("%ABOUT-QUPZILLA%"), tr("About QupZilla"));
+    sPage.replace(QLatin1String("%PRIVATE-BROWSING%"), mApp->isPrivateSession() ? tr("<h1>Private Browsing</h1>") : QString());
     sPage = qz_applyDirectionToPage(sPage);
 
     return sPage;
@@ -188,27 +188,27 @@ QString QupZillaSchemeReply::aboutPage()
 
     if (aPage.isEmpty()) {
         aPage.append(qz_readAllFileContents(":html/about.html"));
-        aPage.replace("%FAVICON%", "qrc:icons/qupzilla.png");
-        aPage.replace("%BOX-BORDER%", "qrc:html/box-border.png");
-        aPage.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
-        aPage.replace("%COPYRIGHT-INCLUDE%", Qt::escape(qz_readAllFileContents(":html/copyright")));
+        aPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
+        aPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
+        aPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/about.png"));
+        aPage.replace(QLatin1String("%COPYRIGHT-INCLUDE%"), Qt::escape(qz_readAllFileContents(":html/copyright")));
 
-        aPage.replace("%TITLE%", tr("About QupZilla"));
-        aPage.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
-        aPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
-        aPage.replace("%COPYRIGHT%", tr("Copyright"));
+        aPage.replace(QLatin1String("%TITLE%"), tr("About QupZilla"));
+        aPage.replace(QLatin1String("%ABOUT-QUPZILLA%"), tr("About QupZilla"));
+        aPage.replace(QLatin1String("%INFORMATIONS-ABOUT-VERSION%"), tr("Information about version"));
+        aPage.replace(QLatin1String("%COPYRIGHT%"), tr("Copyright"));
 
-        aPage.replace("%VERSION-INFO%",
+        aPage.replace(QLatin1String("%VERSION-INFO%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"), QupZilla::VERSION
 #ifdef GIT_REVISION
                               + " (" + GIT_REVISION + ")"
 #endif
                                                           ) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION));
-        aPage.replace("%MAIN-DEVELOPER%", tr("Main developer"));
-        aPage.replace("%MAIN-DEVELOPER-TEXT%", authorString(QupZilla::AUTHOR.toUtf8(), "nowrep@gmail.com"));
-        aPage.replace("%CONTRIBUTORS%", tr("Contributors"));
-        aPage.replace("%CONTRIBUTORS-TEXT%",
+        aPage.replace(QLatin1String("%MAIN-DEVELOPER%"), tr("Main developer"));
+        aPage.replace(QLatin1String("%MAIN-DEVELOPER-TEXT%"), authorString(QupZilla::AUTHOR.toUtf8(), "nowrep@gmail.com"));
+        aPage.replace(QLatin1String("%CONTRIBUTORS%"), tr("Contributors"));
+        aPage.replace(QLatin1String("%CONTRIBUTORS-TEXT%"),
                       authorString("Mladen Pejaković", "pejakm@gmail.com") + "<br/>" +
                       authorString("Alexander Samilov", "alexsamilovskih@gmail.com") + "<br/>" +
                       authorString("Seyyed Razi Alavizadeh", "s.r.alavizadeh@gmail.com") + "<br/>" +
@@ -218,8 +218,8 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Jan Rajnoha", "honza.rajny@hotmail.com")  + "<br/>" +
                       authorString("Daniele Cocca", "jmc@chakra-project.org")
                      );
-        aPage.replace("%TRANSLATORS%", tr("Translators"));
-        aPage.replace("%TRANSLATORS-TEXT%",
+        aPage.replace(QLatin1String("%TRANSLATORS%"), tr("Translators"));
+        aPage.replace(QLatin1String("%TRANSLATORS-TEXT%"),
                       authorString("Heimen Stoffels", "vistausss@gmail.com") + " (Dutch)<br/>" +
                       authorString("Peter Vacula", "pvacula1989@gmail.com") + " (Slovak)<br/>" +
                       authorString("Ján Ďanovský", "dagsoftware@yahoo.com") + " (Slovak)<br/>" +
@@ -260,53 +260,53 @@ QString QupZillaSchemeReply::speeddialPage()
 
     if (dPage.isEmpty()) {
         dPage.append(qz_readAllFileContents(":html/speeddial.html"));
-        dPage.replace("%FAVICON%", "qrc:icons/qupzilla.png");
-        dPage.replace("%IMG_PLUS%", "qrc:html/plus.png");
-        dPage.replace("%BOX-BORDER%", "qrc:html/box-border-small.png");
-        dPage.replace("%IMG_CLOSE%", "qrc:html/close.png");
-        dPage.replace("%IMG_EDIT%", "qrc:html/edit.png");
-        dPage.replace("%IMG_RELOAD%", "qrc:html/reload.png");
+        dPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
+        dPage.replace(QLatin1String("%IMG_PLUS%"), QLatin1String("qrc:html/plus.png"));
+        dPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border-small.png"));
+        dPage.replace(QLatin1String("%IMG_CLOSE%"), QLatin1String("qrc:html/close.png"));
+        dPage.replace(QLatin1String("%IMG_EDIT%"), QLatin1String("qrc:html/edit.png"));
+        dPage.replace(QLatin1String("%IMG_RELOAD%"), QLatin1String("qrc:html/reload.png"));
+        dPage.replace(QLatin1String("%JQUERY%"), QLatin1String("qrc:html/jquery.js"));
+        dPage.replace(QLatin1String("%JQUERY-UI%"), QLatin1String("qrc:html/jquery-ui.js"));
+        dPage.replace(QLatin1String("%LOADING-IMG%"), QLatin1String("qrc:html/loading.gif"));
+        dPage.replace(QLatin1String("%IMG_SETTINGS%"), QLatin1String("qrc:html/setting.png"));
 
-        dPage.replace("%SITE-TITLE%", tr("Speed Dial"));
-        dPage.replace("%ADD-TITLE%", tr("Add New Page"));
-        dPage.replace("%TITLE-EDIT%", tr("Edit"));
-        dPage.replace("%TITLE-REMOVE%", tr("Remove"));
-        dPage.replace("%TITLE-RELOAD%", tr("Reload"));
-        dPage.replace("%TITLE-WARN%", tr("Are you sure to remove this speed dial?"));
-        dPage.replace("%TITLE-FETCHTITLE%", tr("Load title from page"));
-        dPage.replace("%JQUERY%", "qrc:html/jquery.js");
-        dPage.replace("%JQUERY-UI%", "qrc:html/jquery-ui.js");
-        dPage.replace("%LOADING-IMG%", "qrc:html/loading.gif");
-        dPage.replace("%URL%", tr("Url"));
-        dPage.replace("%TITLE%", tr("Title"));
-        dPage.replace("%APPLY%", tr("Apply"));
-        dPage.replace("%CLOSE%", tr("Close"));
-        dPage.replace("%NEW-PAGE%", tr("New Page"));
-        dPage.replace("%IMG_SETTINGS%", "qrc:html/setting.png");
-        dPage.replace("%SETTINGS-TITLE%", tr("Speed Dial settings"));
-        dPage.replace("%TXT_PLACEMENT%", tr("Placement: "));
-        dPage.replace("%TXT_AUTO%", tr("Auto"));
-        dPage.replace("%TXT_COVER%", tr("Cover"));
-        dPage.replace("%TXT_FIT%", tr("Fit"));
-        dPage.replace("%TXT_FWIDTH%", tr("Fit Width"));
-        dPage.replace("%TXT_FHEIGHT%", tr("Fit Height"));
-        dPage.replace("%TXT_NOTE%", tr("Use background image"));
-        dPage.replace("%TXT_SELECTIMAGE%", tr("Select image"));
-        dPage.replace("%TXT_NRROWS%", tr("Maximum pages in a row:"));
-        dPage.replace("%TXT_SDSIZE%", tr("Change size of pages:"));
-        dPage.replace("%TXT_CNTRDLS%", tr("Center speed dials"));
+        dPage.replace(QLatin1String("%SITE-TITLE%"), tr("Speed Dial"));
+        dPage.replace(QLatin1String("%ADD-TITLE%"), tr("Add New Page"));
+        dPage.replace(QLatin1String("%TITLE-EDIT%"), tr("Edit"));
+        dPage.replace(QLatin1String("%TITLE-REMOVE%"), tr("Remove"));
+        dPage.replace(QLatin1String("%TITLE-RELOAD%"), tr("Reload"));
+        dPage.replace(QLatin1String("%TITLE-WARN%"), tr("Are you sure to remove this speed dial?"));
+        dPage.replace(QLatin1String("%TITLE-FETCHTITLE%"), tr("Load title from page"));
+        dPage.replace(QLatin1String("%URL%"), tr("Url"));
+        dPage.replace(QLatin1String("%TITLE%"), tr("Title"));
+        dPage.replace(QLatin1String("%APPLY%"), tr("Apply"));
+        dPage.replace(QLatin1String("%CLOSE%"), tr("Close"));
+        dPage.replace(QLatin1String("%NEW-PAGE%"), tr("New Page"));
+        dPage.replace(QLatin1String("%SETTINGS-TITLE%"), tr("Speed Dial settings"));
+        dPage.replace(QLatin1String("%TXT_PLACEMENT%"), tr("Placement: "));
+        dPage.replace(QLatin1String("%TXT_AUTO%"), tr("Auto"));
+        dPage.replace(QLatin1String("%TXT_COVER%"), tr("Cover"));
+        dPage.replace(QLatin1String("%TXT_FIT%"), tr("Fit"));
+        dPage.replace(QLatin1String("%TXT_FWIDTH%"), tr("Fit Width"));
+        dPage.replace(QLatin1String("%TXT_FHEIGHT%"), tr("Fit Height"));
+        dPage.replace(QLatin1String("%TXT_NOTE%"), tr("Use background image"));
+        dPage.replace(QLatin1String("%TXT_SELECTIMAGE%"), tr("Select image"));
+        dPage.replace(QLatin1String("%TXT_NRROWS%"), tr("Maximum pages in a row:"));
+        dPage.replace(QLatin1String("%TXT_SDSIZE%"), tr("Change size of pages:"));
+        dPage.replace(QLatin1String("%TXT_CNTRDLS%"), tr("Center speed dials"));
         dPage = qz_applyDirectionToPage(dPage);
     }
 
     QString page = dPage;
     SpeedDial* dial = mApp->plugins()->speedDial();
 
-    page.replace("%INITIAL-SCRIPT%", dial->initialScript());
-    page.replace("%IMG_BACKGROUND%", dial->backgroundImage());
-    page.replace("%B_SIZE%", dial->backgroundImageSize());
-    page.replace("%ROW-PAGES%", QString::number(dial->pagesInRow()));
-    page.replace("%SD-SIZE%", QString::number(dial->sdSize()));
-    page.replace("%SD-CNTR%", QString::number(dial->sdCntr()));
+    page.replace(QLatin1String("%INITIAL-SCRIPT%"), dial->initialScript());
+    page.replace(QLatin1String("%IMG_BACKGROUND%"), dial->backgroundImage());
+    page.replace(QLatin1String("%B_SIZE%"), dial->backgroundImageSize());
+    page.replace(QLatin1String("%ROW-PAGES%"), QString::number(dial->pagesInRow()));
+    page.replace(QLatin1String("%SD-SIZE%"), QString::number(dial->sdSize()));
+    page.replace(QLatin1String("%SD-CNTR%"), QString::number(dial->sdCntr()));
 
     return page;
 }
@@ -317,16 +317,16 @@ QString QupZillaSchemeReply::restorePage()
 
     if (rPage.isEmpty()) {
         rPage.append(qz_readAllFileContents(":html/restore.html"));
-        rPage.replace("%FAVICON%", "qrc:icons/qupzilla.png");
-        rPage.replace("%BOX-BORDER%", "qrc:html/box-border.png");
-        rPage.replace("%IMAGE%", qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
+        rPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
+        rPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
+        rPage.replace(QLatin1String("%IMAGE%"), qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
 
 
-        rPage.replace("%TITLE%", tr("Restore Session"));
-        rPage.replace("%OOPS%", tr("Oops, QupZilla crashed."));
-        rPage.replace("%APOLOGIZE%", tr("We apologize for this. Would you like to restore the last saved state?"));
-        rPage.replace("%TRY-REMOVING%", tr("Try removing one or more tabs that you think cause troubles"));
-        rPage.replace("%START-NEW%", tr("Or you can start completely new session"));
+        rPage.replace(QLatin1String("%TITLE%"), tr("Restore Session"));
+        rPage.replace(QLatin1String("%OOPS%"), tr("Oops, QupZilla crashed."));
+        rPage.replace(QLatin1String("%APOLOGIZE%"), tr("We apologize for this. Would you like to restore the last saved state?"));
+        rPage.replace(QLatin1String("%TRY-REMOVING%"), tr("Try removing one or more tabs that you think cause troubles"));
+        rPage.replace(QLatin1String("%START-NEW%"), tr("Or you can start completely new session"));
         rPage = qz_applyDirectionToPage(rPage);
     }
 
@@ -339,27 +339,27 @@ QString QupZillaSchemeReply::configPage()
 
     if (cPage.isEmpty()) {
         cPage.append(qz_readAllFileContents(":html/config.html"));
-        cPage.replace("%FAVICON%", "qrc:icons/qupzilla.png");
-        cPage.replace("%BOX-BORDER%", "qrc:html/box-border.png");
-        cPage.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
+        cPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
+        cPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
+        cPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/about.png"));
 
-        cPage.replace("%TITLE%", tr("Configuration Information"));
-        cPage.replace("%CONFIG%", tr("Configuration Information"));
-        cPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
-        cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about QupZilla's current configuration - relevant for troubleshooting. Please include this information when submitting bug reports."));
-        cPage.replace("%BROWSER-IDENTIFICATION%", tr("Browser Identification"));
-        cPage.replace("%PATHS%", tr("Paths"));
-        cPage.replace("%BUILD-CONFIG%", tr("Build Configuration"));
-        cPage.replace("%PREFS%", tr("Preferences"));
-        cPage.replace("%OPTION%", tr("Option"));
-        cPage.replace("%VALUE%", tr("Value"));
-        cPage.replace("%PLUGINS%", tr("Extensions"));
-        cPage.replace("%PL-NAME%", tr("Name"));
-        cPage.replace("%PL-VER%", tr("Version"));
-        cPage.replace("%PL-AUTH%", tr("Author"));
-        cPage.replace("%PL-DESC%", tr("Description"));
+        cPage.replace(QLatin1String("%TITLE%"), tr("Configuration Information"));
+        cPage.replace(QLatin1String("%CONFIG%"), tr("Configuration Information"));
+        cPage.replace(QLatin1String("%INFORMATIONS-ABOUT-VERSION%"), tr("Information about version"));
+        cPage.replace(QLatin1String("%CONFIG-ABOUT%"), tr("This page contains information about QupZilla's current configuration - relevant for troubleshooting. Please include this information when submitting bug reports."));
+        cPage.replace(QLatin1String("%BROWSER-IDENTIFICATION%"), tr("Browser Identification"));
+        cPage.replace(QLatin1String("%PATHS%"), tr("Paths"));
+        cPage.replace(QLatin1String("%BUILD-CONFIG%"), tr("Build Configuration"));
+        cPage.replace(QLatin1String("%PREFS%"), tr("Preferences"));
+        cPage.replace(QLatin1String("%OPTION%"), tr("Option"));
+        cPage.replace(QLatin1String("%VALUE%"), tr("Value"));
+        cPage.replace(QLatin1String("%PLUGINS%"), tr("Extensions"));
+        cPage.replace(QLatin1String("%PL-NAME%"), tr("Name"));
+        cPage.replace(QLatin1String("%PL-VER%"), tr("Version"));
+        cPage.replace(QLatin1String("%PL-AUTH%"), tr("Author"));
+        cPage.replace(QLatin1String("%PL-DESC%"), tr("Description"));
 
-        cPage.replace("%VERSION-INFO%",
+        cPage.replace(QLatin1String("%VERSION-INFO%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Application version"), QupZilla::VERSION
 #ifdef GIT_REVISION
                               + " (" + GIT_REVISION + ")"
@@ -370,7 +370,7 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
 
-        cPage.replace("%PATHS-TEXT%",
+        cPage.replace(QLatin1String("%PATHS-TEXT%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->currentProfilePath()) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->currentProfilePath() + "settings.ini") +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), mApp->currentProfilePath() + "session.dat") +
@@ -401,7 +401,7 @@ QString QupZillaSchemeReply::configPage()
         portableBuild = tr("<b>Enabled</b>");
 #endif
 
-        cPage.replace("%BUILD-CONFIG-TEXT%",
+        cPage.replace(QLatin1String("%BUILD-CONFIG-TEXT%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Debug build"), debugBuild) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebGL support"), webGLEnabled) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Windows 7 API"), w7APIEnabled) +
@@ -412,7 +412,7 @@ QString QupZillaSchemeReply::configPage()
     }
 
     QString page = cPage;
-    page.replace("%USER-AGENT%", mApp->getWindow()->weView()->page()->userAgentForUrl(QUrl()));
+    page.replace(QLatin1String("%USER-AGENT%"), mApp->getWindow()->weView()->page()->userAgentForUrl(QUrl()));
 
     QString pluginsString;
     const QList<Plugins::Plugin> &availablePlugins = mApp->plugins()->getAvailablePlugins();
@@ -427,7 +427,7 @@ QString QupZillaSchemeReply::configPage()
         pluginsString = QString("<tr><td colspan=4 class=\"no-available-plugins\">%1</td></tr>").arg(tr("No available extensions."));
     }
 
-    page.replace("%PLUGINS-INFO%", pluginsString);
+    page.replace(QLatin1String("%PLUGINS-INFO%"), pluginsString);
 
     QString allGroupsString;
     QSettings* settings = Settings::globalSettings();
@@ -441,7 +441,7 @@ QString QupZillaSchemeReply::configPage()
 
             switch (keyValue.type()) {
             case QVariant::ByteArray:
-                keyString = "QByteArray";
+                keyString = QLatin1String("QByteArray");
                 break;
 
             case QVariant::Point: {
@@ -459,7 +459,7 @@ QString QupZillaSchemeReply::configPage()
             }
 
             if (keyString.isEmpty()) {
-                keyString = "\"empty\"";
+                keyString = QLatin1String("\"empty\"");
             }
 
             groupString.append(QString("<tr><td>%1</td><td>%2</td></tr>").arg(key, Qt::escape(keyString)));
@@ -469,7 +469,7 @@ QString QupZillaSchemeReply::configPage()
         allGroupsString.append(groupString);
     }
 
-    page.replace("%PREFS-INFO%", allGroupsString);
+    page.replace(QLatin1String("%PREFS-INFO%"), allGroupsString);
 
     return page;
 }

@@ -100,7 +100,7 @@ QUrl SearchEnginesManager::searchUrl(const Engine &engine, const QString &string
     ENSURE_LOADED;
 
     QByteArray url = engine.url.toUtf8();
-    url.replace("%s", QUrl::toPercentEncoding(string));
+    url.replace(QLatin1String("%s"), QUrl::toPercentEncoding(string));
     return QUrl::fromEncoded(url);
 }
 
@@ -195,7 +195,7 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     QWebElement formElement = element.parent();
 
     while (!formElement.isNull()) {
-        if (formElement.tagName().toLower() == "form") {
+        if (formElement.tagName().toLower() == QLatin1String("form")) {
             break;
         }
 
@@ -262,7 +262,7 @@ void SearchEnginesManager::addEngine(OpenSearchEngine* engine)
 
     Engine en;
     en.name = engine->name();
-    en.url = engine->searchUrl("searchstring").toString().replace("searchstring", "%s");
+    en.url = engine->searchUrl("searchstring").toString().replace(QLatin1String("searchstring"), QLatin1String("%s"));
     if (engine->image().isNull()) {
         en.icon = iconForSearchEngine(engine->searchUrl(QString()));
     }

@@ -444,13 +444,16 @@ void BookmarksToolbar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
 
 void BookmarksToolbar::bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after)
 {
-    if (before.folder == "bookmarksToolbar" && after.folder != "bookmarksToolbar") { //Editing from toolbar folder to other folder -> Remove bookmark
+    if (before.folder == QLatin1String("bookmarksToolbar") && after.folder != QLatin1String("bookmarksToolbar")) {
+        // Editing from toolbar folder to other folder -> Remove bookmark
         removeBookmark(before);
     }
-    else if (before.folder != "bookmarksToolbar" && after.folder == "bookmarksToolbar") {   //Editing from other folder to toolbar folder -> Add bookmark
+    else if (before.folder != QLatin1String("bookmarksToolbar") && after.folder == QLatin1String("bookmarksToolbar")) {
+        // Editing from other folder to toolbar folder -> Add bookmark
         addBookmark(after);
     }
-    else {   //Editing bookmark already in toolbar
+    else {
+        // Editing bookmark already in toolbar
         for (int i = 0; i < m_layout->count(); i++) {
             ToolButton* button = qobject_cast<ToolButton*>(m_layout->itemAt(i)->widget());
             if (!button) {

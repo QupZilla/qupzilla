@@ -182,7 +182,7 @@ void FancyTabProxyStyle::drawControl(
 
 void FancyTabProxyStyle::polish(QWidget* widget)
 {
-    if (QString(widget->metaObject()->className()) == "QTabBar") {
+    if (QString(widget->metaObject()->className()) == QLatin1String("QTabBar")) {
         widget->setMouseTracking(true);
         widget->installEventFilter(this);
     }

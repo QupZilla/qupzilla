@@ -108,7 +108,7 @@ void AdBlockSubscription::loadSubscription(const QStringList &disabledRules)
     textStream.readLine(1024);
     QString header = textStream.readLine(1024);
 
-    if (!header.startsWith("[Adblock") || m_title.isEmpty()) {
+    if (!header.startsWith(QLatin1String("[Adblock")) || m_title.isEmpty()) {
         qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "invalid format of adblock file" << m_filePath;
         QTimer::singleShot(0, this, SLOT(updateSubscription()));
         return;
@@ -398,7 +398,7 @@ void AdBlockEasyList::saveDownloadedData(QByteArray &data)
 
     // Third-party advertisers rules are with start domain (||) placeholder which needs regexps
     // So we are ignoring it for keeping good performance
-    data = data.left(data.indexOf("!-----------------------------Third-party adverts-----------------------------!"));
+    data = data.left(data.indexOf(QLatin1String("!-----------------------------Third-party adverts-----------------------------!")));
 
     file.write(data);
     file.close();

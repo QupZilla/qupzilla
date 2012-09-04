@@ -61,7 +61,7 @@ QString UserAgentManager::userAgentForUrl(const QUrl &url) const
         }
     }
 
-    if (host.contains("google")) {
+    if (host.contains(QLatin1String("google"))) {
         return m_fakeUserAgent;
     }
 

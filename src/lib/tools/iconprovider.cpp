@@ -197,22 +197,22 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
 
 QIcon IconProvider::fromTheme(const QString &icon)
 {
-    if (icon == "go-home") {
+    if (icon == QLatin1String("go-home")) {
         return QIcon::fromTheme("go-home", QIcon(":/icons/faenza/home.png"));
     }
-    else if (icon == "text-plain") {
+    else if (icon == QLatin1String("text-plain")) {
         return QIcon::fromTheme("text-plain", QIcon(":icons/locationbar/unknownpage.png"));
     }
-    else if (icon == "user-bookmarks") {
+    else if (icon == QLatin1String("user-bookmarks")) {
         return QIcon::fromTheme("user-bookmarks", QIcon(":icons/faenza/user-bookmarks.png"));
     }
-    else if (icon == "list-remove") {
+    else if (icon == QLatin1String("list-remove")) {
         return QIcon::fromTheme("list-remove", QIcon(":icons/faenza/list-remove.png"));
     }
-    else if (icon == "go-next") {
+    else if (icon == QLatin1String("go-next")) {
         return QIcon::fromTheme("go-next", QIcon(":icons/faenza/go-next.png"));
     }
-    else if (icon == "go-previous") {
+    else if (icon == QLatin1String("go-previous")) {
         return QIcon::fromTheme("go-previous", QIcon(":icons/faenza/go-previous.png"));
     }
     else {

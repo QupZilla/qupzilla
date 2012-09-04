@@ -214,7 +214,7 @@ void WebPage::finished()
         mainFrame()->setZoomFactor(mainFrame()->zoomFactor() - 1);
     }
 
-    if (url().scheme() == "file") {
+    if (url().scheme() == QLatin1String("file")) {
         QFileInfo info(url().toLocalFile());
         if (info.isFile()) {
             if (!m_fileWatcher) {
@@ -255,7 +255,7 @@ void WebPage::printFrame(QWebFrame* frame)
 
 void WebPage::addJavaScriptObject()
 {
-    if (url().toString() != "qupzilla:speeddial") {
+    if (url().toString() != QLatin1String("qupzilla:speeddial")) {
         return;
     }
 
@@ -275,7 +275,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
     case QNetworkReply::NoError:
         if (reply->header(QNetworkRequest::ContentTypeHeader).isValid()) {
             QString requestUrl = reply->request().url().toString(QUrl::RemoveFragment | QUrl::RemoveQuery);
-            if (requestUrl.endsWith(".swf")) {
+            if (requestUrl.endsWith(QLatin1String(".swf"))) {
                 const QWebElement &docElement = mainFrame()->documentElement();
                 const QWebElement &object = docElement.findFirst(QString("object[src=\"%1\"]").arg(requestUrl));
                 const QWebElement &embed = docElement.findFirst(QString("embed[src=\"%1\"]").arg(requestUrl));
@@ -292,7 +292,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
         }
 
     case QNetworkReply::ProtocolUnknownError: {
-        if (url.scheme() == "file") {
+        if (url.scheme() == QLatin1String("file")) {
             FileSchemeHandler::handleUrl(url);
             return;
         }
@@ -451,7 +451,7 @@ void WebPage::setSSLCertificate(const QSslCertificate &cert)
 
 QSslCertificate WebPage::sslCertificate()
 {
-    if (url().scheme() == "https" && m_sslCert.isValid()) {
+    if (url().scheme() == QLatin1String("https") && m_sslCert.isValid()) {
         return m_sslCert;
     }
 
@@ -465,7 +465,7 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
 
     const QString &scheme = request.url().scheme();
 
-    if (scheme == "mailto" || scheme == "ftp") {
+    if (scheme == QLatin1String("mailto") || scheme == QLatin1String("ftp")) {
         desktopServicesOpen(request.url());
         return false;
     }
@@ -510,8 +510,11 @@ QObject* WebPage::createPlugin(const QString &classid, const QUrl &url, const QS
     Q_UNUSED(paramNames)
     Q_UNUSED(paramValues)
 
-    if (classid == "RecoveryWidget" && mApp->restoreManager()) {
+    if (classid == QLatin1String("RecoveryWidget") && mApp->restoreManager()) {
         return new RecoveryWidget(qobject_cast<WebView*>(view()), p_QupZilla);
+    }
+    else {
+        mainFrame()->load(QUrl("qupzilla:start"));
     }
 
     return 0;
@@ -539,28 +542,27 @@ void WebPage::cleanBlockedObjects()
 
     foreach(const AdBlockedEntry & entry, m_adBlockedEntries) {
         const QString &urlString = entry.url.toString();
-        if (urlString.endsWith(".js") || urlString.endsWith(".css")) {
+        if (urlString.endsWith(QLatin1String(".js")) || urlString.endsWith(QLatin1String(".css"))) {
             continue;
         }
 
         QString urlEnd;
 
-        int pos = urlString.lastIndexOf('/');
+        int pos = urlString.lastIndexOf(QLatin1Char('/'));
         if (pos > 8) {
             urlEnd = urlString.mid(pos + 1);
         }
 
-        if (urlString.endsWith('/')) {
+        if (urlString.endsWith(QLatin1Char('/'))) {
             urlEnd = urlString.left(urlString.size() - 1);
         }
 
-        QString selector("img[src$=\"" + urlEnd + "\"], iframe[src$=\"" + urlEnd + "\"],"
-                         "embed[src$=\"" + urlEnd + "\"]");
-        QWebElementCollection elements = docElement.findAll(selector);
+        QString selector("img[src$=\"%1\"], iframe[src$=\"%1\"],embed[src$=\"%1\"]");
+        QWebElementCollection elements = docElement.findAll(selector.arg(urlEnd));
 
         foreach(QWebElement element, elements) {
             QString src = element.attribute("src");
-            src.remove("../");
+            src.remove(QLatin1String("../"));
 
             if (urlString.contains(src)) {
                 element.setStyleProperty("display", "none");
@@ -574,7 +576,7 @@ void WebPage::cleanBlockedObjects()
         return;
     }
 
-    elementHiding.append("{display: none !important;}\n</style>");
+    elementHiding.append(QLatin1String("{display: none !important;}\n</style>"));
 
     QWebElement bodyElement = docElement.findFirst("body");
     bodyElement.appendInside("<style type=\"text/css\">\n/* AdBlock for QupZilla */\n" + elementHiding);
@@ -588,7 +590,7 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
         userAgent = QWebPage::userAgentForUrl(url);
 #ifdef Q_OS_MAC
 #ifdef __i386__ || __x86_64__
-        userAgent.replace("PPC Mac OS X", "Intel Mac OS X");
+        userAgent.replace(QLatin1String("PPC Mac OS X"), QLatin1String("Intel Mac OS X"));
 #endif
 #endif
     }
@@ -676,12 +678,12 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             break;
         case QNetworkReply::ProtocolUnknownError: {
             // Sometimes exOption->url returns just "?" instead of actual url
-            const QUrl unknownProtocolUrl = (exOption->url == QUrl("?")) ? erPage->mainFrame()->requestedUrl() : exOption->url;
+            const QUrl unknownProtocolUrl = (exOption->url.toString() == QLatin1String("?")) ? erPage->mainFrame()->requestedUrl() : exOption->url;
             handleUnknownProtocol(unknownProtocolUrl);
             return false;
         }
         case QNetworkReply::ContentAccessDenied:
-            if (exOption->errorString.startsWith("AdBlock")) {
+            if (exOption->errorString.startsWith(QLatin1String("AdBlock"))) {
                 if (exOption->frame != erPage->mainFrame()) { //Content in <iframe>
                     QWebElement docElement = erPage->mainFrame()->documentElement();
 
@@ -699,14 +701,14 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                 }
                 else {   //The whole page is blocked
                     QString rule = exOption->errorString;
-                    rule.remove("AdBlock: ");
+                    rule.remove(QLatin1String("AdBlock: "));
 
                     QString errString = qz_readAllFileContents(":/html/adblockPage.html");
-                    errString.replace("%TITLE%", tr("AdBlocked Content"));
-                    errString.replace("%IMAGE%", "qrc:html/adblock_big.png");
-                    errString.replace("%FAVICON%", "qrc:html/adblock_big.png");
+                    errString.replace(QLatin1String("%TITLE%"), tr("AdBlocked Content"));
+                    errString.replace(QLatin1String("%IMAGE%"), QLatin1String("qrc:html/adblock_big.png"));
+                    errString.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:html/adblock_big.png"));
 
-                    errString.replace("%RULE%", tr("Blocked by <i>%1</i>").arg(rule));
+                    errString.replace(QLatin1String("%RULE%"), tr("Blocked by <i>%1</i>").arg(rule));
                     errString = qz_applyDirectionToPage(errString);
 
                     exReturn->baseUrl = exOption->url;
@@ -750,20 +752,20 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     QFile file(":/html/errorPage.html");
     file.open(QFile::ReadOnly);
     QString errString = file.readAll();
-    errString.replace("%TITLE%", tr("Failed loading page"));
+    errString.replace(QLatin1String("%TITLE%"), tr("Failed loading page"));
 
-    errString.replace("%IMAGE%", qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
-    errString.replace("%FAVICON%", qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
-    errString.replace("%BOX-BORDER%", "qrc:html/box-border.png");
+    errString.replace(QLatin1String("%IMAGE%"), qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
+    errString.replace(QLatin1String("%FAVICON%"), qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
+    errString.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
 
     QString heading2 = loadedUrl.host().isEmpty() ? tr("QupZilla can't load page.") : tr("QupZilla can't load page from %1.").arg(loadedUrl.host());
 
-    errString.replace("%HEADING%", errorString);
-    errString.replace("%HEADING2%", heading2);
-    errString.replace("%LI-1%", tr("Check the address for typing errors such as <b>ww.</b>example.com instead of <b>www.</b>example.com"));
-    errString.replace("%LI-2%", tr("If you are unable to load any pages, check your computer's network connection."));
-    errString.replace("%LI-3%", tr("If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web."));
-    errString.replace("%TRY-AGAIN%", tr("Try Again"));
+    errString.replace(QLatin1String("%HEADING%"), errorString);
+    errString.replace(QLatin1String("%HEADING2%"), heading2);
+    errString.replace(QLatin1String("%LI-1%"), tr("Check the address for typing errors such as <b>ww.</b>example.com instead of <b>www.</b>example.com"));
+    errString.replace(QLatin1String("%LI-2%"), tr("If you are unable to load any pages, check your computer's network connection."));
+    errString.replace(QLatin1String("%LI-3%"), tr("If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web."));
+    errString.replace(QLatin1String("%TRY-AGAIN%"), tr("Try Again"));
     errString = qz_applyDirectionToPage(errString);
 
     exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();

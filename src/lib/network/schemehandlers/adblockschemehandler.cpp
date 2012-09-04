@@ -43,10 +43,10 @@ QNetworkReply* AdBlockSchemeHandler::createRequest(QNetworkAccessManager::Operat
 
     for (int i = 0; i < queryItems.count(); ++i) {
         QPair<QString, QString> pair = queryItems.at(i);
-        if (pair.first == "location") {
+        if (pair.first == QLatin1String("location")) {
             subscriptionUrl = pair.second;
         }
-        else if (pair.first == "title") {
+        else if (pair.first == QLatin1String("title")) {
             subscriptionTitle = pair.second;
         }
     }

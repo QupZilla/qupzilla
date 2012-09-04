@@ -205,7 +205,7 @@ void DownloadFileHelper::fileNameChoosed(const QString &name, bool fileNameAutoG
     }
 
 
-    int pos = m_userFileName.lastIndexOf("/");
+    int pos = m_userFileName.lastIndexOf(QLatin1Char('/'));
     if (pos != -1) {
         int size = m_userFileName.size();
         m_path = m_userFileName.left(pos + 1);
@@ -254,7 +254,7 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
             reg.indexIn(value);
             path = reg.cap(1).trimmed();
 
-            if (path.startsWith('"') && path.endsWith('"')) {
+            if (path.startsWith(QLatin1Char('"')) && path.endsWith(QLatin1Char('"'))) {
                 path = path.mid(1, path.length() - 2);
             }
         }
@@ -273,13 +273,13 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
     }
 
     if (!endName.isEmpty()) {
-        endName.prepend(".");
+        endName.prepend(QLatin1Char('.'));
     }
 
     QString name = baseName + endName;
 
-    if (name.contains('"')) {
-        name.remove("\";");
+    if (name.contains(QLatin1Char('"'))) {
+        name.remove(QLatin1String("\";"));
     }
 
     return qz_filterCharsFromFilename(name);

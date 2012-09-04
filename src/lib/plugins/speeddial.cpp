@@ -236,7 +236,7 @@ void SpeedDial::changed(const QString &allPages)
         return;
     }
 
-    const QStringList &entries = allPages.split("\";");
+    const QStringList &entries = allPages.split(QLatin1String("\";"));
     m_webPages.clear();
 
     foreach(const QString & entry, entries) {
@@ -244,7 +244,7 @@ void SpeedDial::changed(const QString &allPages)
             continue;
         }
 
-        const QStringList &tmp = entry.split("\"|");
+        const QStringList &tmp = entry.split(QLatin1String("\"|"));
         if (tmp.count() != 2) {
             continue;
         }
@@ -365,15 +365,15 @@ void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
 
 QString SpeedDial::escapeTitle(QString title) const
 {
-    title.replace('"', "&quot;");
-    title.replace('\'', "&apos;");
+    title.replace(QLatin1Char('"'), QLatin1String("&quot;"));
+    title.replace(QLatin1Char('\''), QLatin1String("&apos;"));
     return title;
 }
 
 QString SpeedDial::escapeUrl(QString url) const
 {
-    url.remove('"');
-    url.remove('\'');
+    url.remove(QLatin1Char('"'));
+    url.remove(QLatin1Char('\''));
     return url;
 }
 

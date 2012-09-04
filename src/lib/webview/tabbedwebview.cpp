@@ -80,7 +80,8 @@ void TabbedWebView::slotIconChanged()
 {
     const QString &urlScheme = url().scheme();
 
-    if (urlScheme == "file" || urlScheme == "qupzilla" || title().contains(tr("Failed loading page"))) {
+    if (urlScheme == QLatin1String("file") || urlScheme == QLatin1String("qupzilla")
+            || title().contains(tr("Failed loading page"))) {
         return;
     }
 
@@ -180,7 +181,7 @@ void TabbedWebView::setIp(const QHostInfo &info)
         return;
     }
 
-    m_currentIp = info.hostName() + " (" + info.addresses().at(0).toString() + ")";
+    m_currentIp = QString("%1 (%2)").arg(info.hostName(), info.addresses().at(0).toString());
 
     if (isCurrent()) {
         emit ipChanged(m_currentIp);

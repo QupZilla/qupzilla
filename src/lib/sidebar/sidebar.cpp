@@ -169,7 +169,7 @@ void SideBarManager::updateActions()
 
 void SideBarManager::showSideBar(const QString &id, bool toggle)
 {
-    if (id == "None") {
+    if (id == QLatin1String("None")) {
         return;
     }
 
@@ -189,10 +189,10 @@ void SideBarManager::showSideBar(const QString &id, bool toggle)
         return;
     }
 
-    if (id == "Bookmarks") {
+    if (id == QLatin1String("Bookmarks")) {
         m_sideBar.data()->showBookmarks();
     }
-    else if (id == "History") {
+    else if (id == QLatin1String("History")) {
         m_sideBar.data()->showHistory();
     }
     else {

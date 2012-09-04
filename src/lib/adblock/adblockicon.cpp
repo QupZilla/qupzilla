@@ -46,7 +46,7 @@ AdBlockIcon::AdBlockIcon(QupZilla* mainClass, QWidget* parent)
 
 void AdBlockIcon::popupBlocked(const QString &ruleString, const QUrl &url)
 {
-    int index = ruleString.lastIndexOf(" (");
+    int index = ruleString.lastIndexOf(QLatin1String(" ("));
 
     const QString &subscriptionName = ruleString.left(index);
     const QString &filter = ruleString.mid(index + 2, ruleString.size() - index - 3);
@@ -112,7 +112,7 @@ void AdBlockIcon::createMenu(QMenu* menu)
     menu->addSeparator();
 
     if (!pageUrl.isEmpty()) {
-        const QString &host = page->url().host().contains("www.") ? pageUrl.host().mid(4) : pageUrl.host();
+        const QString &host = page->url().host().contains(QLatin1String("www.")) ? pageUrl.host().mid(4) : pageUrl.host();
         const QString &hostFilter = QString("@@||%1^$document").arg(host);
         const QString &pageFilter = QString("@@|%1|$document").arg(pageUrl.toString());
 
@@ -137,7 +137,7 @@ void AdBlockIcon::createMenu(QMenu* menu)
             const QPair<AdBlockRule, QUrl> &pair = m_blockedPopups.at(i);
 
             QString address = pair.second.toString().right(55);
-            QString actionText = tr("%1 with (%2)").arg(address, pair.first.filter()).replace('&', "&&");
+            QString actionText = tr("%1 with (%2)").arg(address, pair.first.filter()).replace(QLatin1Char('&'), QLatin1String("&&"));
 
             QAction* action = menu->addAction(actionText, manager, SLOT(showRule()));
             action->setData(qVariantFromValue((void*)&pair.first));
@@ -153,7 +153,7 @@ void AdBlockIcon::createMenu(QMenu* menu)
         menu->addAction(tr("Blocked URL (AdBlock Rule) - click to edit rule"))->setEnabled(false);
         foreach(const WebPage::AdBlockedEntry & entry, entries) {
             QString address = entry.url.toString().right(55);
-            QString actionText = tr("%1 with (%2)").arg(address, entry.rule->filter()).replace('&', "&&");
+            QString actionText = tr("%1 with (%2)").arg(address, entry.rule->filter()).replace(QLatin1Char('&'), QLatin1String("&&"));
 
             QAction* action = menu->addAction(actionText, manager, SLOT(showRule()));
             action->setData(qVariantFromValue((void*)entry.rule));

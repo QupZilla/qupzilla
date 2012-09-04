@@ -58,8 +58,8 @@ void PageScreen::dialogAccepted()
                    suggestedPath);
 
     if (!path.isEmpty()) {
-        if (!path.endsWith(".png", Qt::CaseInsensitive)) {
-            path.append(".png");
+        if (!path.endsWith(QLatin1String(".png"), Qt::CaseInsensitive)) {
+            path.append(QLatin1String(".png"));
         }
 
         m_pageImage.save(path, "PNG");

@@ -112,10 +112,10 @@ void RSSNotification::addRss()
 
     case DesktopApplication: {
         const RssApp &app = m_rssApps.at(index);
-        if (app.title == "Akregator") {
+        if (app.title == QLatin1String("Akregator")) {
             success = startExternalProcess("/usr/bin/akregator", QStringList() << "-a" << m_url.toEncoded());
         }
-        else if (app.title == "Liferea") {
+        else if (app.title == QLatin1String("Liferea")) {
             if (!ProcessInfo("liferea").isRunning()) {
                 QMessageBox::warning(this, tr("Liferea not running"), tr("Liferea must be running in order to add new feed."));
                 success = false;

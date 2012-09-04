@@ -84,8 +84,8 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
         if (!element.attribute("charset").isEmpty()) {
             encoding = element.attribute("charset");
         }
-        if (content.contains("charset=")) {
-            encoding = content.mid(content.indexOf("charset=") + 8);
+        if (content.contains(QLatin1String("charset="))) {
+            encoding = content.mid(content.indexOf(QLatin1String("charset=")) + 8);
         }
 
         if (content.isEmpty() || name.isEmpty()) {
@@ -109,13 +109,13 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
         QString src = element.attribute("src");
         QString alt = element.attribute("alt");
         if (alt.isEmpty()) {
-            if (src.indexOf('/') == -1) {
+            if (src.indexOf(QLatin1Char('/')) == -1) {
                 alt = src;
             }
             else {
-                int pos = src.lastIndexOf("/");
+                int pos = src.lastIndexOf(QLatin1Char('/'));
                 alt = src.mid(pos);
-                alt.remove('/');
+                alt.remove(QLatin1Char('/'));
             }
         }
         if (src.isEmpty() || alt.isEmpty()) {
@@ -251,15 +251,15 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
     }
     QGraphicsScene* scene = new QGraphicsScene(ui->mediaPreview);
 
-    if (imageUrl.scheme() == "data") {
+    if (imageUrl.scheme() == QLatin1String("data")) {
         QByteArray encodedUrl = item->text(1).toUtf8();
         QByteArray imageData = encodedUrl.mid(encodedUrl.indexOf(',') + 1);
         m_activePixmap = qz_pixmapFromByteArray(imageData);
     }
-    else if (imageUrl.scheme() == "file") {
+    else if (imageUrl.scheme() == QLatin1String("file")) {
         m_activePixmap = QPixmap(imageUrl.toLocalFile());
     }
-    else if (imageUrl.scheme() == "qrc") {
+    else if (imageUrl.scheme() == QLatin1String("qrc")) {
         m_activePixmap = QPixmap(imageUrl.toString().mid(3)); // Remove qrc from url
     }
     else {

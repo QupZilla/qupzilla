@@ -101,7 +101,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 #endif
 
 #ifdef Q_OS_MAC
-    DATADIR.append("../Resources/");
+    DATADIR.append(QLatin1String("../Resources/"));
 #endif
 
 #ifdef PORTABLE_BUILD
@@ -132,14 +132,14 @@ MainApplication::MainApplication(int &argc, char** argv)
                 startProfile = pair.text;
                 break;
             case Qz::CL_NewTab:
-                messages.append("ACTION:NewTab");
+                messages.append(QLatin1String("ACTION:NewTab"));
                 m_postLaunchActions.append(OpenNewTab);
                 break;
             case Qz::CL_NewWindow:
-                messages.append("ACTION:NewWindow");
+                messages.append(QLatin1String("ACTION:NewWindow"));
                 break;
             case Qz::CL_ShowDownloadManager:
-                messages.append("ACTION:ShowDownloadManager");
+                messages.append(QLatin1String("ACTION:ShowDownloadManager"));
                 m_postLaunchActions.append(OpenDownloadManager);
                 break;
             case Qz::CL_StartPrivateBrowsing:
@@ -174,7 +174,7 @@ MainApplication::MainApplication(int &argc, char** argv)
         QString appId = "QupZillaWebBrowser";
 
         if (newInstance) {
-            if (startProfile.isEmpty() || startProfile == "default") {
+            if (startProfile.isEmpty() || startProfile == QLatin1String("default")) {
                 std::cout << "New instance cannot be started with default profile!" << std::endl;
             }
             else {
@@ -186,7 +186,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     }
 
     if (messages.isEmpty()) {
-        messages.append(" ");
+        messages.append(QLatin1String(" "));
     }
 
     if (isRunning()) {
@@ -213,7 +213,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     QSettings::setDefaultFormat(QSettings::IniFormat);
     if (startProfile.isEmpty()) {
         QSettings settings(PROFILEDIR + "profiles/profiles.ini", QSettings::IniFormat);
-        if (settings.value("Profiles/startProfile", "default").toString().contains('/')) {
+        if (settings.value("Profiles/startProfile", "default").toString().contains(QLatin1Char('/'))) {
             m_activeProfil = PROFILEDIR + "profiles/default/";
         }
         else {
@@ -483,27 +483,27 @@ void MainApplication::receiveAppMessage(QString message)
     QWidget* actWin = getWindow();
     QUrl actUrl;
 
-    if (message.startsWith("URL:")) {
+    if (message.startsWith(QLatin1String("URL:"))) {
         QUrl url = QUrl::fromUserInput(message.mid(4));
         addNewTab(url);
         actWin = getWindow();
     }
-    else if (message.startsWith("ACTION:")) {
+    else if (message.startsWith(QLatin1String("ACTION:"))) {
         QString text = message.mid(7);
-        if (text == "NewTab") {
+        if (text == QLatin1String("NewTab")) {
             addNewTab();
         }
-        else if (text == "NewWindow") {
+        else if (text == QLatin1String("NewWindow")) {
             actWin = makeNewWindow(Qz::BW_NewWindow);
         }
-        else if (text == "ShowDownloadManager") {
+        else if (text == QLatin1String("ShowDownloadManager")) {
             downManager()->show();
             actWin = downManager();
         }
-        else if (text.startsWith("OpenUrlInCurrentTab")) {
+        else if (text.startsWith(QLatin1String("OpenUrlInCurrentTab"))) {
             actUrl = QUrl::fromUserInput(text.mid(19));
         }
-        else if (text.startsWith("OpenUrlInNewWindow")) {
+        else if (text.startsWith(QLatin1String("OpenUrlInNewWindow"))) {
             makeNewWindow(Qz::BW_NewWindow, QUrl::fromUserInput(text.mid(18)));
             return;
         }
@@ -789,12 +789,12 @@ void MainApplication::startPrivateBrowsing()
 {
     QStringList args;
     foreach(const QString & arg, arguments()) {
-        if (arg.startsWith('-')) {
+        if (arg.startsWith(QLatin1Char('-'))) {
             args.append(arg);
         }
     }
 
-    args.append("--private-browsing");
+    args.append(QLatin1String("--private-browsing"));
 
     if (!QProcess::startDetached(applicationFilePath(), args)) {
         qWarning() << "MainApplication: Cannot start new browser process for private browsing!" << applicationFilePath() << args;
@@ -816,7 +816,7 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
     QFile file(filePath);
     if (!filePath.isEmpty() && file.open(QFile::ReadOnly)) {
         QString fileData = QString::fromUtf8(file.readAll());
-        fileData.remove('\n');
+        fileData.remove(QLatin1Char('\n'));
         userStyle.append(fileData);
         file.close();
     }

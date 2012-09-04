@@ -339,13 +339,13 @@ void RSSManager::finished()
     while (!xml.atEnd()) {
         xml.readNext();
         if (xml.isStartElement()) {
-            if (xml.name() == "item") {
+            if (xml.name() == QLatin1String("item")) {
                 linkString = xml.attributes().value("rss:about").toString();
             }
             currentTag = xml.qualifiedName().toString();
         }
         else if (xml.isEndElement()) {
-            if (xml.qualifiedName() == "item") {
+            if (xml.qualifiedName() == QLatin1String("item")) {
                 QTreeWidgetItem* item = new QTreeWidgetItem;
                 item->setText(0, titleString);
                 item->setIcon(0, QIcon(":/icons/other/feed.png"));
@@ -357,10 +357,10 @@ void RSSManager::finished()
             }
         }
         else if (xml.isCharacters() && !xml.isWhitespace()) {
-            if (currentTag == "title") {
+            if (currentTag == QLatin1String("title")) {
                 titleString = xml.text().toString();
             }
-            else if (currentTag == "link") {
+            else if (currentTag == QLatin1String("link")) {
                 linkString += xml.text().toString();
             }
         }

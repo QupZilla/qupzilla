@@ -68,7 +68,7 @@ void History::addHistoryEntry(const QUrl &url, QString title)
     if (!m_isSaving) {
         return;
     }
-    if (url.scheme() == "qupzilla" || url.scheme() == "about" || url.isEmpty()) {
+    if (url.scheme() == QLatin1String("qupzilla") || url.scheme() == QLatin1String("about") || url.isEmpty()) {
         return;
     }
     if (title.isEmpty()) {

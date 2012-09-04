@@ -59,7 +59,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    if (mApp->currentStyle() == "oxygen") {
+    if (mApp->currentStyle() == QLatin1String("oxygen")) {
         ui->listWidget->item(0)->setIcon(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/preferences/preferences-desktop.png")));
         ui->listWidget->item(1)->setIcon(QIcon::fromTheme("format-stroke-color", QIcon(":/icons/preferences/application-x-theme.png")));
         ui->listWidget->item(2)->setIcon(QIcon::fromTheme("tab-new-background", QIcon(":/icons/preferences/applications-internet.png")));
@@ -106,7 +106,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     else if (m_newTabUrl == m_homepage) {
         ui->newTab->setCurrentIndex(1);
     }
-    else if (m_newTabUrl == "qupzilla:speeddial") {
+    else if (m_newTabUrl == QLatin1String("qupzilla:speeddial")) {
         ui->newTab->setCurrentIndex(2);
     }
     else {
@@ -123,8 +123,8 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //PROFILES
     m_actProfileName = mApp->currentProfilePath();
     m_actProfileName = m_actProfileName.left(m_actProfileName.length() - 1);
-    m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf("/"));
-    m_actProfileName.remove('/');
+    m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf(QLatin1Char('/')));
+    m_actProfileName.remove(QLatin1Char('/'));
 
     ui->activeProfile->setText("<b>" + m_actProfileName + "</b>");
 
@@ -343,12 +343,12 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     QDir lanDir(mApp->TRANSLATIONSDIR);
     QStringList list = lanDir.entryList(QStringList("*.qm"));
     foreach(const QString & name, list) {
-        if (name.startsWith("qt_")) {
+        if (name.startsWith(QLatin1String("qt_"))) {
             continue;
         }
 
         QString loc = name;
-        loc.remove(".qm");
+        loc.remove(QLatin1String(".qm"));
 
         if (loc == activeLanguage) {
             continue;
@@ -477,9 +477,9 @@ void Preferences::chooseDownPath()
         return;
     }
 #ifdef Q_OS_WIN   //QFileDialog::getExistingDirectory returns path with \ instead of / (??)
-    userFileName.replace('\\', '/');
+    userFileName.replace(QLatin1Char('\\'), QLatin1Char('/'));
 #endif
-    userFileName += "/";
+    userFileName += QLatin1Char('/');
 
     ui->downLoc->setText(userFileName);
 }
@@ -913,7 +913,7 @@ void Preferences::saveSettings()
     settings.setValue("HttpsUsername", ui->httpsProxyUsername->text());
     settings.setValue("HttpsPassword", ui->httpsProxyPassword->text());
 
-    settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(','));
+    settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(QLatin1Char(',')));
     settings.endGroup();
 
     //Profiles

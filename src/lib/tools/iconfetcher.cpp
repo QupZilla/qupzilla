@@ -57,7 +57,7 @@ void IconFetcher::pageDownloaded()
         QString linkTag = rx.cap(0);
         pos += rx.matchedLength();
 
-        if (linkTag.contains("rel=\"shortcut icon\"", Qt::CaseInsensitive)) {
+        if (linkTag.contains(QLatin1String("rel=\"shortcut icon\""), Qt::CaseInsensitive)) {
             shortcutIconTag = linkTag;
             break;
         }

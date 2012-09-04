@@ -39,7 +39,7 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
 
     QString mime = mimeType.trimmed(); //Fixing bad behaviour when mimeType contains spaces
     if (mime.isEmpty()) {
-        if (url.toString().endsWith(".swf")) {
+        if (url.toString().endsWith(QLatin1String(".swf"))) {
             mime = "application/x-shockwave-flash";
         }
         else {
@@ -68,7 +68,7 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
 
     // Click2Flash whitelist
     QStringList whitelist = mApp->plugins()->c2f_getWhiteList();
-    if (whitelist.contains(url.host()) || whitelist.contains("www." + url.host()) || whitelist.contains(url.host().remove("www."))) {
+    if (whitelist.contains(url.host()) || whitelist.contains("www." + url.host()) || whitelist.contains(url.host().remove(QLatin1String("www.")))) {
         return 0;
     }
 

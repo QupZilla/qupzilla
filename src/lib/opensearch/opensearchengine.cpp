@@ -276,7 +276,7 @@ QUrl OpenSearchEngine::suggestionsUrl(const QString &searchTerm) const
 {
     if (!m_preparedSuggestionsUrl.isEmpty()) {
         QString s = m_preparedSuggestionsUrl;
-        s.replace("%s", searchTerm);
+        s.replace(QLatin1String("%s"), searchTerm);
         return QUrl(s);
     }
 
@@ -502,7 +502,7 @@ void OpenSearchEngine::setSuggestionsUrl(const QString &string)
 
 QString OpenSearchEngine::getSuggestionsUrl()
 {
-    return suggestionsUrl("searchstring").toString().replace("searchstring", "%s");
+    return suggestionsUrl("searchstring").toString().replace(QLatin1String("searchstring"), QLatin1String("%s"));
 }
 
 QByteArray OpenSearchEngine::getSuggestionsParameters()

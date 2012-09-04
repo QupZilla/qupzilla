@@ -68,7 +68,7 @@ void DownloadManager::loadSettings()
     Settings settings;
     settings.beginGroup("DownloadManager");
     m_downloadPath = settings.value("defaultDownloadPath", QString()).toString();
-    m_lastDownloadPath = settings.value("lastDownloadPath", QDir::homePath().append("/")).toString();
+    m_lastDownloadPath = settings.value("lastDownloadPath", QDir::homePath().append(QLatin1Char('/'))).toString();
     m_closeOnFinish = settings.value("CloseManagerOnFinish", false).toBool();
     m_useNativeDialog = settings.value("useNativeDialog", DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG).toBool();
 
@@ -102,7 +102,7 @@ void DownloadManager::keyPressEvent(QKeyEvent* e)
 
 void DownloadManager::startExternalManager(const QUrl &url)
 {
-    QStringList arguments = m_externalArguments.split(' ', QString::SkipEmptyParts);
+    QStringList arguments = m_externalArguments.split(QLatin1Char(' '), QString::SkipEmptyParts);
     arguments << url.toString();
 
     bool success = QProcess::startDetached(m_externalExecutable, arguments);
@@ -210,7 +210,7 @@ void DownloadManager::download(const QNetworkRequest &request, const DownloadInf
 
 void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, const DownloadInfo &info)
 {
-    if (!info.page || reply->url().scheme() == "qupzilla") {
+    if (!info.page || reply->url().scheme() == QLatin1String("qupzilla")) {
         return;
     }
 

@@ -66,7 +66,7 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
     case DefinedProxy:
         proxy = m_proxyType;
 
-        if (m_useDifferentProxyForHttps && query.protocolTag() == "https") {
+        if (m_useDifferentProxyForHttps && query.protocolTag() == QLatin1String("https")) {
             proxy.setHostName(m_httpsHostName);
             proxy.setPort(m_httpsPort);
             proxy.setUser(m_httpsUsername);

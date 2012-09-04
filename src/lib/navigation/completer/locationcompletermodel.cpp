@@ -133,23 +133,23 @@ QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const
     QStringList searchList;
 
     if (bookmarks) {
-        query.append(", bookmarks.icon FROM bookmarks LEFT JOIN history ON bookmarks.url=history.url ");
+        query.append(QLatin1String(", bookmarks.icon FROM bookmarks LEFT JOIN history ON bookmarks.url=history.url "));
     }
     else {
-        query.append(" FROM history ");
+        query.append(QLatin1String(" FROM history "));
     }
 
-    query.append("WHERE ");
+    query.append(QLatin1String("WHERE "));
     if (exactMatch) {
         query.append(QString("%1.title LIKE ? OR %1.url LIKE ? ").arg(table));
     }
     else {
-        searchList = searchString.split(' ', QString::SkipEmptyParts);
+        searchList = searchString.split(QLatin1Char(' '), QString::SkipEmptyParts);
         const int slSize = searchList.size();
         for (int i = 0; i < slSize; ++i) {
             query.append(QString("(%1.title LIKE ? OR %1.url LIKE ?) ").arg(table));
             if (i < slSize - 1) {
-                query.append("AND ");
+                query.append(QLatin1String("AND "));
             }
         }
     }
@@ -162,7 +162,7 @@ QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const
         query.append("ORDER BY " + orderBy);
     }
 
-    query.append(" LIMIT ?");
+    query.append(QLatin1String(" LIMIT ?"));
 
     QSqlQuery sqlQuery;
     sqlQuery.prepare(query);

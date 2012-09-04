@@ -76,7 +76,7 @@ void CommandLineOptions::parseActions()
     for (int i = 1; i < arguments.count(); ++i) {
         QString arg = arguments.at(i);
 
-        if (arg == "-h" || arg == "--help") {
+        if (arg == QLatin1String("-h") || arg == QLatin1String("--help")) {
             showHelp();
             ActionPair pair;
             pair.action = Qz::CL_ExitAction;
@@ -84,7 +84,7 @@ void CommandLineOptions::parseActions()
             break;
         }
 
-        if (arg == "-a" || arg == "--authors") {
+        if (arg == QLatin1String("-a") || arg == QLatin1String("--authors")) {
             cout << "QupZilla authors: " << endl;
             cout << "  nowrep <nowrep@gmail.com>" << endl;
             ActionPair pair;
@@ -93,7 +93,7 @@ void CommandLineOptions::parseActions()
             break;
         }
 
-        if (arg == "-v" || arg == "--version") {
+        if (arg == QLatin1String("-v") || arg == QLatin1String("--version")) {
             cout << "QupZilla v" << QupZilla::VERSION.toUtf8().data()
 #ifdef GIT_REVISION
                  << " rev " << GIT_REVISION << " "
@@ -106,8 +106,8 @@ void CommandLineOptions::parseActions()
             break;
         }
 
-        if (arg.startsWith("-p=") || arg.startsWith("--profile=")) {
-            int index = arg.indexOf('=');
+        if (arg.startsWith(QLatin1String("-p=")) || arg.startsWith(QLatin1String("--profile="))) {
+            int index = arg.indexOf(QLatin1Char('='));
             if (index != -1) {
                 const QString profileName = arg.mid(index + 1);
                 cout << "QupZilla: Starting with profile '" << profileName.toUtf8().data() << "'" << endl;
@@ -119,44 +119,44 @@ void CommandLineOptions::parseActions()
             }
         }
 
-        if (arg.startsWith("-ne") || arg.startsWith("--no-extensions")) {
+        if (arg.startsWith(QLatin1String("-ne")) || arg.startsWith(QLatin1String("--no-extensions"))) {
             ActionPair pair;
             pair.action = Qz::CL_StartWithoutAddons;
             m_actions.append(pair);
         }
 
-        if (arg.startsWith("-nt") || arg.startsWith("--new-tab")) {
+        if (arg.startsWith(QLatin1String("-nt")) || arg.startsWith(QLatin1String("--new-tab"))) {
             ActionPair pair;
             pair.action = Qz::CL_NewTab;
             m_actions.append(pair);
         }
 
-        if (arg.startsWith("-nw") || arg.startsWith("--new-window")) {
+        if (arg.startsWith(QLatin1String("-nw")) || arg.startsWith(QLatin1String("--new-window"))) {
             ActionPair pair;
             pair.action = Qz::CL_NewWindow;
             m_actions.append(pair);
         }
 
-        if (arg.startsWith("-dm") || arg.startsWith("--download-manager")) {
+        if (arg.startsWith(QLatin1String("-dm")) || arg.startsWith(QLatin1String("--download-manager"))) {
             ActionPair pair;
             pair.action = Qz::CL_ShowDownloadManager;
             m_actions.append(pair);
         }
 
-        if (arg.startsWith("-pb") || arg.startsWith("--private-browsing")) {
+        if (arg.startsWith(QLatin1String("-pb")) || arg.startsWith(QLatin1String("--private-browsing"))) {
             ActionPair pair;
             pair.action = Qz::CL_StartPrivateBrowsing;
             m_actions.append(pair);
         }
 
-        if (arg.startsWith("-nr") || arg.startsWith("--no-remote")) {
+        if (arg.startsWith(QLatin1String("-nr")) || arg.startsWith(QLatin1String("--no-remote"))) {
             ActionPair pair;
             pair.action = Qz::CL_StartNewInstance;
             m_actions.append(pair);
         }
 
-        if (arg.startsWith("-ct") || arg.startsWith("--current-tab")) {
-            int index = arg.indexOf('=');
+        if (arg.startsWith(QLatin1String("-ct")) || arg.startsWith(QLatin1String("--current-tab"))) {
+            int index = arg.indexOf(QLatin1Char('='));
             if (index != -1) {
                 ActionPair pair;
                 pair.action = Qz::CL_OpenUrlInCurrentTab;
@@ -165,8 +165,8 @@ void CommandLineOptions::parseActions()
             }
         }
 
-        if (arg.startsWith("-ow") || arg.startsWith("--open-window")) {
-            int index = arg.indexOf('=');
+        if (arg.startsWith(QLatin1String("-ow")) || arg.startsWith(QLatin1String("--open-window"))) {
+            int index = arg.indexOf(QLatin1Char('='));
             if (index != -1) {
                 ActionPair pair;
                 pair.action = Qz::CL_OpenUrlInNewWindow;
@@ -178,8 +178,9 @@ void CommandLineOptions::parseActions()
 
     const QString &url = arguments.last();
 
-    if (m_argc > 1 && !url.isEmpty() && !url.startsWith('-') &&
-            (url.contains('.') || url.contains('/') || url.contains('\\'))) {
+    if (m_argc > 1 && !url.isEmpty() && !url.startsWith(QLatin1Char('-')) &&
+            (url.contains(QLatin1Char('.')) || url.contains(QLatin1Char('/'))
+             || url.contains(QLatin1Char('\\')))) {
         ActionPair pair;
         pair.action = Qz::CL_OpenUrl;
         pair.text = url;

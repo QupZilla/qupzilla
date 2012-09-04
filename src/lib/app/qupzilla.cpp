@@ -192,7 +192,7 @@ void QupZilla::postLaunch()
 
         m_tabWidget->addView(request, Qz::NT_CleanSelectedTabAtTheEnd);
 
-        if (startUrl.isEmpty() || startUrl.toString() == "qupzilla:speeddial") {
+        if (startUrl.isEmpty() || startUrl.toString() == QLatin1String("qupzilla:speeddial")) {
             locationBar()->setFocus();
         }
     }
@@ -968,27 +968,30 @@ void QupZilla::aboutToShowEncodingMenu()
         if (QTextCodec::codecForName(name)->aliases().contains(name)) {
             continue;
         }
-        QAction* action = new QAction(name, 0);
-        action->setData(name);
+
+        const QString nameString = QString::fromUtf8(name);
+
+        QAction* action = new QAction(nameString, 0);
+        action->setData(nameString);
         action->setCheckable(true);
         connect(action, SIGNAL(triggered()), this, SLOT(changeEncoding()));
-        if (activeCodec.compare(name, Qt::CaseInsensitive) == 0) {
+        if (activeCodec.compare(nameString, Qt::CaseInsensitive) == 0) {
             action->setChecked(true);
         }
 
-        if (name.startsWith("ISO")) {
+        if (nameString.startsWith(QLatin1String("ISO"))) {
             menuISO->addAction(action);
         }
-        else if (name.startsWith("UTF")) {
+        else if (nameString.startsWith(QLatin1String("UTF"))) {
             menuUTF->addAction(action);
         }
-        else if (name.startsWith("windows")) {
+        else if (nameString.startsWith(QLatin1String("windows"))) {
             menuWindows->addAction(action);
         }
-        else if (name.startsWith("Iscii")) {
+        else if (nameString.startsWith(QLatin1String("Iscii"))) {
             menuIscii->addAction(action);
         }
-        else if (name == "System") {
+        else if (nameString == QLatin1String("System")) {
             m_menuEncoding->addAction(action);
         }
         else {

@@ -160,7 +160,7 @@ void GM_Script::parseScript(const QString &filePath)
 
     QStringList requireList;
 
-    const QStringList &lines = metadataBlock.split('\n');
+    const QStringList &lines = metadataBlock.split(QLatin1Char('\n'));
     foreach(QString line, lines) {
         if (!line.startsWith(QLatin1String("// @"))) {
             continue;

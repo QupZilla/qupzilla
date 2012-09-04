@@ -69,29 +69,29 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
     // Converting tags to lower case -,-
     // For some reason Qt::CaseInsensitive is not everytime insensitive :-D
 
-    bookmarks.replace("<DL", "<dl");
-    bookmarks.replace("</DL", "</dl");
-    bookmarks.replace("<DT", "<dt");
-    bookmarks.replace("</DT", "</dt");
-    bookmarks.replace("<P", "<p");
-    bookmarks.replace("</P", "</p");
-    bookmarks.replace("<A", "<a");
-    bookmarks.replace("</A", "</a");
-    bookmarks.replace("HREF=", "href=");
-    bookmarks.replace("<H3", "<h3");
-    bookmarks.replace("</H3", "</h3");
+    bookmarks.replace(QLatin1String("<DL"), QLatin1String("<dl"));
+    bookmarks.replace(QLatin1String("</DL"), QLatin1String("</dl"));
+    bookmarks.replace(QLatin1String("<DT"), QLatin1String("<dt"));
+    bookmarks.replace(QLatin1String("</DT"), QLatin1String("</dt"));
+    bookmarks.replace(QLatin1String("<P"), QLatin1String("<p"));
+    bookmarks.replace(QLatin1String("</P"), QLatin1String("</p"));
+    bookmarks.replace(QLatin1String("<A"), QLatin1String("<a"));
+    bookmarks.replace(QLatin1String("</A"), QLatin1String("</a"));
+    bookmarks.replace(QLatin1String("HREF="), QLatin1String("href="));
+    bookmarks.replace(QLatin1String("<H3"), QLatin1String("<h3"));
+    bookmarks.replace(QLatin1String("</H3"), QLatin1String("</h3"));
 
-    bookmarks = bookmarks.left(bookmarks.lastIndexOf("</dl><p>"));
-    int start = bookmarks.indexOf("<dl><p>");
+    bookmarks = bookmarks.left(bookmarks.lastIndexOf(QLatin1String("</dl><p>")));
+    int start = bookmarks.indexOf(QLatin1String("<dl><p>"));
 
     QStringList folders("Html Import");
 
     while (start > 0) {
         QString string = bookmarks.mid(start);
 
-        int posOfFolder = string.indexOf("<dt><h3");
-        int posOfEndFolder = string.indexOf("</dl><p>");
-        int posOfLink = string.indexOf("<dt><a");
+        int posOfFolder = string.indexOf(QLatin1String("<dt><h3"));
+        int posOfEndFolder = string.indexOf(QLatin1String("</dl><p>"));
+        int posOfLink = string.indexOf(QLatin1String("<dt><a"));
 
         int nearest = qzMin(posOfLink, qzMin(posOfFolder, posOfEndFolder));
         if (nearest == -1) {
@@ -136,7 +136,8 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
 
             start += posOfLink + rx.cap(0).size();
 
-            if (linkName.isEmpty() || url.isEmpty() || url.scheme() == "place" || url.scheme() == "about") {
+            if (linkName.isEmpty() || url.isEmpty() || url.scheme() == QLatin1String("place")
+                    || url.scheme() == QLatin1String("about")) {
                 continue;
             }
 

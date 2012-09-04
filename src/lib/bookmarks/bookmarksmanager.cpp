@@ -345,10 +345,10 @@ void BookmarksManager::refreshTable()
         QString folder = query.value(3).toString();
         QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(4).toByteArray()));
         QTreeWidgetItem* item = new QTreeWidgetItem();
-        if (folder == "bookmarksMenu") {
+        if (folder == QLatin1String("bookmarksMenu")) {
             folder = _bookmarksMenu;
         }
-        if (folder == "bookmarksToolbar") {
+        if (folder == QLatin1String("bookmarksToolbar")) {
             folder = _bookmarksToolbar;
         }
 
@@ -474,7 +474,7 @@ void BookmarksManager::removeBookmark(const BookmarksModel::Bookmark &bookmark)
             }
         }
     }
-    else if (bookmark.folder == "unsorted") {
+    else if (bookmark.folder == QLatin1String("unsorted")) {
         QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(bookmark.title, Qt::MatchExactly);
         if (list.count() == 0) {
             return;

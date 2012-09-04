@@ -69,11 +69,11 @@ WebView::WebView(QWidget* parent)
 
 QIcon WebView::icon() const
 {
-    if (url().scheme() == "qupzilla") {
+    if (url().scheme() == QLatin1String("qupzilla")) {
         return QIcon(":icons/qupzilla.png");
     }
 
-    if (url().scheme() == "file") {
+    if (url().scheme() == QLatin1String("file")) {
         return qIconProvider->standardIcon(QStyle::SP_DriveHDIcon);
     }
 
@@ -96,7 +96,7 @@ QString WebView::title() const
         title = url().toString(QUrl::RemoveFragment);
     }
 
-    if (title.isEmpty() || title == "about:blank") {
+    if (title.isEmpty() || title == QLatin1String("about:blank")) {
         return tr("No Named Page");
     }
 
@@ -111,7 +111,7 @@ QUrl WebView::url() const
         returnUrl = m_aboutToLoadUrl;
     }
 
-    if (returnUrl.toString() == "about:blank") {
+    if (returnUrl.toString() == QLatin1String("about:blank")) {
         returnUrl = QUrl();
     }
 
@@ -148,7 +148,7 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
 {
     const QUrl &reqUrl = request.url();
 
-    if (reqUrl.scheme() == "javascript") {
+    if (reqUrl.scheme() == QLatin1String("javascript")) {
         // Getting scriptSource from PercentEncoding to properly load bookmarklets
         QString scriptSource = QUrl::fromPercentEncoding(reqUrl.toString().mid(11).toUtf8());
         page()->mainFrame()->evaluateJavaScript(scriptSource);
@@ -193,11 +193,12 @@ void WebView::fakeLoadingProgress(int progress)
 bool WebView::isUrlValid(const QUrl &url)
 {
     const QString &urlScheme = url.scheme();
-    if (urlScheme == "data" || urlScheme == "qrc" || urlScheme == "mailto") {
+    if (urlScheme == QLatin1String("data") || urlScheme == QLatin1String("qrc") ||
+            urlScheme == QLatin1String("mailto")) {
         return true;
     }
 
-    if (urlScheme == "qupzilla" || urlScheme == "file") {
+    if (urlScheme == QLatin1String("qupzilla") || urlScheme == QLatin1String("file")) {
         return !url.path().isEmpty();
     }
 
@@ -379,7 +380,7 @@ void WebView::slotIconChanged()
 void WebView::slotUrlChanged(const QUrl &url)
 {
     // Disable touch mocking on all google pages as it just makes it buggy
-    if (url.host().contains("google")) {
+    if (url.host().contains(QLatin1String("google"))) {
         m_disableTouchMocking = true;
     }
     else {
@@ -419,8 +420,8 @@ void WebView::savePageAs()
 {
     QNetworkRequest request(url());
     QString suggestedFileName = qz_getFileNameFromUrl(url());
-    if (!suggestedFileName.contains('.')) {
-        suggestedFileName.append(".html");
+    if (!suggestedFileName.contains(QLatin1Char('.'))) {
+        suggestedFileName.append(QLatin1String(".html"));
     }
 
     DownloadManager::DownloadInfo info;
@@ -640,7 +641,8 @@ QUrl WebView::lastUrl()
 
 bool WebView::isMediaElement(const QWebElement &element)
 {
-    return (element.tagName().toLower() == "video" || element.tagName().toLower() == "audio");
+    return (element.tagName().toLower() == QLatin1String("video")
+            || element.tagName().toLower() == QLatin1String("audio"));
 }
 
 void WebView::checkForForm(QMenu* menu, const QWebElement &element)
@@ -648,7 +650,7 @@ void WebView::checkForForm(QMenu* menu, const QWebElement &element)
     QWebElement parentElement = element.parent();
 
     while (!parentElement.isNull()) {
-        if (parentElement.tagName().toLower() == "form") {
+        if (parentElement.tagName().toLower() == QLatin1String("form")) {
             break;
         }
 
@@ -662,7 +664,7 @@ void WebView::checkForForm(QMenu* menu, const QWebElement &element)
     const QString &url = parentElement.attribute("action");
     const QString &method = parentElement.hasAttribute("method") ? parentElement.attribute("method").toUpper() : "GET";
 
-    if (!url.isEmpty() && method == "GET") {
+    if (!url.isEmpty() && method == QLatin1String("GET")) {
         menu->addAction(QIcon(":icons/menu/search-icon.png"), tr("Create Search Engine"), this, SLOT(createSearchEngine()));
 
         m_clickedElement = element;
@@ -694,7 +696,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         m_actionStop->setEnabled(isLoading());
     }
 
-    if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != "javascript") {
+    if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != QLatin1String("javascript")) {
         createLinkContextMenu(menu, hitTest);
     }
 
@@ -738,7 +740,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
             delete pageMenu;
         }
 
-        if (hitTest.element().tagName().toLower() == "input") {
+        if (hitTest.element().tagName().toLower() == QLatin1String("input")) {
             checkForForm(menu, hitTest.element());
         }
     }
@@ -807,9 +809,9 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
     menu->addSeparator();
-    if (url().scheme() == "http" || url().scheme() == "https") {
-        //             bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
-        //                 if (result)
+    if (url().scheme() == QLatin1String("http") || url().scheme() == QLatin1String("https")) {
+//        bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
+//        if (result)
         menu->addAction(tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(QUrl("http://validator.w3.org/check?uri=" + url().toString()));
     }
 
@@ -888,10 +890,10 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addAction(dictact);
 
     // #379: Remove newlines
-    QString selectedString = selectedText.trimmed().remove('\n');
-    if (!selectedString.contains('.')) {
+    QString selectedString = selectedText.trimmed().remove(QLatin1Char('\n'));
+    if (!selectedString.contains(QLatin1Char('.'))) {
         // Try to add .com
-        selectedString.append(".com");
+        selectedString.append(QLatin1String(".com"));
     }
     QUrl guessedUrl = QUrl::fromUserInput(selectedString);
 
@@ -907,7 +909,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addSeparator();
     selectedText.truncate(20);
     // KDE is displaying new lines in menu actions ... weird -,-
-    selectedText.replace('\n', ' ').remove('\t');
+    selectedText.replace(QLatin1Char('\n'), QLatin1Char(' ')).remove(QLatin1Char('\t'));
 
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
     Action* act = new Action(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name));

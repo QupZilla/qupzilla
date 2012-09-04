@@ -240,10 +240,10 @@ void TabWidget::aboutToShowTabsMenu()
         }
         else {
             QString title = tab->title();
-            title.replace('&', "&&");
+            title.replace(QLatin1Char('&'), QLatin1String("&&"));
             if (title.length() > 40) {
                 title.truncate(40);
-                title += "..";
+                title += QLatin1String("..");
             }
             action->setText(title);
         }
@@ -356,7 +356,7 @@ void TabWidget::closeTab(int index, bool force)
     TabbedWebView* webView = webTab->view();
     WebPage* webPage = webView->page();
 
-    if (!force && webView->url() == QUrl("qupzilla:restore") && mApp->restoreManager()) {
+    if (!force && webView->url().toString() == QLatin1String("qupzilla:restore") && mApp->restoreManager()) {
         // Don't close restore page!
         return;
     }
@@ -509,7 +509,7 @@ void TabWidget::setTabText(int index, const QString &text)
     }
 
     QString newtext = text;
-    newtext.replace('&', "&&"); // Avoid Alt+letter shortcuts
+    newtext.replace(QLatin1Char('&'), QLatin1String("&&")); // Avoid Alt+letter shortcuts
 
     if (WebTab* webTab = weTab(index)) {
         if (webTab->isPinned()) {
@@ -845,7 +845,7 @@ bool TabWidget::restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab
 void TabWidget::closeRecoveryTab()
 {
     foreach(WebTab * tab, allTabs(false)) {
-        if (tab->url() == QUrl("qupzilla:restore")) {
+        if (tab->url().toString() == QLatin1String("qupzilla:restore")) {
             closeTab(tab->tabIndex(), true);
         }
     }

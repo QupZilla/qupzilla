@@ -202,7 +202,7 @@ void AdBlockManager::load()
     }
 
     foreach(const QString & fileName, adblockDir.entryList(QStringList("*.txt"), QDir::Files)) {
-        if (fileName == "easylist.txt" || fileName == "customlist.txt") {
+        if (fileName == QLatin1String("easylist.txt") || fileName == QLatin1String("customlist.txt")) {
             continue;
         }
 
@@ -213,8 +213,8 @@ void AdBlockManager::load()
         }
 
         QTextStream textStream(&file);
-        QString title = textStream.readLine(1024).remove("Title: ");
-        QUrl url = QUrl(textStream.readLine(1024).remove("Url: "));
+        QString title = textStream.readLine(1024).remove(QLatin1String("Title: "));
+        QUrl url = QUrl(textStream.readLine(1024).remove(QLatin1String("Url: ")));
 
         if (title.isEmpty() || !url.isValid()) {
             qWarning() << "AdBlockManager: Invalid subscription file" << absolutePath;

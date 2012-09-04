@@ -84,7 +84,7 @@ QNetworkReply* GM_Plugin::createRequest(QNetworkAccessManager::Operation op, con
     if (op == QNetworkAccessManager::GetOperation && request.rawHeader("X-QupZilla-UserLoadAction") == QByteArray("1")) {
         const QString &urlString = request.url().toString(QUrl::RemoveFragment | QUrl::RemoveQuery);
 
-        if (urlString.endsWith(".user.js")) {
+        if (urlString.endsWith(QLatin1String(".user.js"))) {
             m_manager->downloadScript(request);
             return new EmptyNetworkReply;
         }

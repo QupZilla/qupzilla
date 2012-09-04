@@ -84,7 +84,7 @@ void DesktopNotificationsFactory::showNotification(const QPixmap &icon, const QS
 
         QDBusInterface dbus("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications", QDBusConnection::sessionBus());
         QVariantList args;
-        args.append("qupzilla");
+        args.append(QLatin1String("qupzilla"));
         args.append(m_uint);
         args.append(tmp.fileName());
         args.append(heading);
@@ -111,7 +111,7 @@ void DesktopNotificationsFactory::nativeNotificationPreview()
 
     QDBusInterface dbus("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications", QDBusConnection::sessionBus());
     QVariantList args;
-    args.append("qupzilla");
+    args.append(QLatin1String("qupzilla"));
     args.append(m_uint);
     args.append(tmp.fileName());
     args.append(QObject::tr("Native System Notification"));

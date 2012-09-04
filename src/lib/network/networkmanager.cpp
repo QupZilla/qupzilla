@@ -52,8 +52,8 @@
 QString fileNameForCert(const QSslCertificate &cert)
 {
     QString certFileName = CertificateInfoWidget::certificateItemText(cert);
-    certFileName.remove(' ');
-    certFileName.append(".crt");
+    certFileName.remove(QLatin1Char(' '));
+    certFileName.append(QLatin1String(".crt"));
     certFileName = qz_filterCharsFromFilename(certFileName);
     return certFileName;
 }
@@ -499,7 +499,7 @@ void NetworkManager::loadCertificates()
         QDirIterator it(path, QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
         while (it.hasNext()) {
             QString filePath = it.next();
-            if (!filePath.endsWith(".crt")) {
+            if (!filePath.endsWith(QLatin1String(".crt"))) {
                 continue;
             }
 
@@ -517,7 +517,7 @@ void NetworkManager::loadCertificates()
     QDirIterator it_(mApp->currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it_.hasNext()) {
         QString filePath = it_.next();
-        if (!filePath.endsWith(".crt")) {
+        if (!filePath.endsWith(QLatin1String(".crt"))) {
             continue;
         }
 

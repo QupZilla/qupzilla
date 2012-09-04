@@ -73,7 +73,8 @@ QList<BookmarksModel::Bookmark> FirefoxImporter::exportBookmarks()
 
         QUrl url = query2.value(0).toUrl();
 
-        if (title.isEmpty() || url.isEmpty() || url.scheme() == "place" || url.scheme() == "about") {
+        if (title.isEmpty() || url.isEmpty() || url.scheme() == QLatin1String("place")
+                || url.scheme() == QLatin1String("about")) {
             continue;
         }
 

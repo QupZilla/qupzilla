@@ -129,7 +129,7 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
         const QPalette::ColorRole &role) const
 {
     QList<int> delimiters;
-    QStringList searchStrings = searchText.split(' ', QString::SkipEmptyParts);
+    QStringList searchStrings = searchText.split(QLatin1Char(' '), QString::SkipEmptyParts);
 
     // Look for longer parts first
     qSort(searchStrings.begin(), searchStrings.end(), sizeBiggerThan);

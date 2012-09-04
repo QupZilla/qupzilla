@@ -172,7 +172,7 @@ bool AdBlockRule::isException() const
 
 bool AdBlockRule::isComment() const
 {
-    return m_filter.startsWith('!');
+    return m_filter.startsWith(QLatin1Char('!'));
 }
 
 bool AdBlockRule::isEnabled() const
@@ -407,7 +407,7 @@ void AdBlockRule::parseFilter()
             }
             else if (option.endsWith(QLatin1String("subdocument"))) {
                 m_subdocument = true;
-                m_subdocumentException = option.startsWith('~');
+                m_subdocumentException = option.startsWith(QLatin1Char('~'));
                 ++handledOptions;
             }
             else if (option.endsWith(QLatin1String("xmlhttprequest"))) {
@@ -513,7 +513,7 @@ void AdBlockRule::parseDomains(const QString &domains, const QChar &separator)
         if (domain.isEmpty()) {
             continue;
         }
-        if (domain.startsWith('~')) {
+        if (domain.startsWith(QLatin1Char('~'))) {
             m_blockedDomains.append(domain.mid(1));
         }
         else {
