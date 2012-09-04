@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
 {
     QT_REQUIRE_VERSION(argc, argv, "4.7.0");
 
-#ifdef Q_OS_X11
+#ifdef Q_WS_X11
     QApplication::setGraphicsSystem("raster"); // Better overall performance on X11
 #endif
 

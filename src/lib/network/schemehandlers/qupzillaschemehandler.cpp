@@ -394,7 +394,7 @@ QString QupZillaSchemeReply::configPage()
 #if defined(Q_OS_WIN) && defined(W7API)
         w7APIEnabled = tr("<b>Enabled</b>");
 #endif
-#if defined(Q_OS_X11) && defined(KDE)
+#if defined(Q_WS_X11) && defined(KDE)
         KDEIntegration = tr("<b>Enabled</b>");
 #endif
 #ifdef PORTABLE_BUILD

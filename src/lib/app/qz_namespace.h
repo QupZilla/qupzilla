@@ -84,7 +84,7 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 
 #ifdef Q_OS_WIN
 #define DEFAULT_THEME_NAME "windows"
-#elif defined(Q_OS_X11)
+#elif defined(Q_WS_X11)
 #define DEFAULT_THEME_NAME "linux"
 #elif defined(Q_OS_MAC)
 #define DEFAULT_THEME_NAME "mac"
