@@ -59,7 +59,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    if (mApp->currentStyle() == QLatin1String("oxygen")) {
+    if (QIcon::themeName().toLower() == QLatin1String("oxygen")) {
         ui->listWidget->item(0)->setIcon(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/preferences/preferences-desktop.png")));
         ui->listWidget->item(1)->setIcon(QIcon::fromTheme("format-stroke-color", QIcon(":/icons/preferences/application-x-theme.png")));
         ui->listWidget->item(2)->setIcon(QIcon::fromTheme("tab-new-background", QIcon(":/icons/preferences/applications-internet.png")));
