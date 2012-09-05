@@ -61,6 +61,10 @@ private slots:
     void removeFolder(const QString &name);
     void renameFolder(const QString &before, const QString &after);
 
+    void changeBookmarkParent(const QString &name, const QByteArray &imageData, int id,
+                              const QUrl &url, const QString &oldParent, const QString &newParent);
+    void changeFolderParent(const QString &name, bool isSubfolder);
+
 private:
     void keyPressEvent(QKeyEvent* event);
 
