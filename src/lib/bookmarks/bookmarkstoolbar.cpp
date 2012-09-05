@@ -60,6 +60,8 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     connect(m_bookmarksModel, SIGNAL(subfolderAdded(QString)), this, SLOT(subfolderAdded(QString)));
     connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(folderDeleted(QString)));
     connect(m_bookmarksModel, SIGNAL(folderRenamed(QString, QString)), this, SLOT(folderRenamed(QString, QString)));
+    connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString,bool)), this, SLOT(changeFolderParent(QString,bool)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString,QByteArray,int,QUrl,QString,QString)), this, SLOT(changeBookmarkParent(QString,QByteArray,int,QUrl,QString,QString)));
 
     setMaximumWidth(p_QupZilla->width());
 
@@ -384,6 +386,41 @@ void BookmarksToolbar::folderRenamed(const QString &before, const QString &after
             button->menu()->setTitle(after);
             return;
         }
+    }
+}
+
+void BookmarksToolbar::changeBookmarkParent(const QString &name, const QByteArray &imageData, int id,
+                                            const QUrl &url, const QString &oldParent, const QString &newParent)
+{
+    if (oldParent != _bookmarksToolbar && newParent != _bookmarksToolbar) {
+        return;
+    }
+
+    bool itemIsAboutToRemove = (newParent != _bookmarksToolbar);
+
+    Bookmark bookmark;
+    bookmark.id =  id;
+    bookmark.url = url;
+    bookmark.title = name;
+    bookmark.folder = QLatin1String("bookmarksToolbar");
+    bookmark.image = QImage::fromData(imageData);
+    bookmark.inSubfolder = false;
+
+    if (itemIsAboutToRemove) {
+        removeBookmark(bookmark);
+    }
+    else {
+        addBookmark(bookmark);
+    }
+}
+
+void BookmarksToolbar::changeFolderParent(const QString &name, bool isSubfolder)
+{
+    if (!isSubfolder) {
+        folderDeleted(name);
+    }
+    else {
+        subfolderAdded(name);
     }
 }
 

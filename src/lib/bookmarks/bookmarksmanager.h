@@ -75,6 +75,10 @@ private slots:
     void removeBookmark(const BookmarksModel::Bookmark &bookmark);
     void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
 
+    void changeBookmarkParent(const QString &name, const QByteArray &, int id,
+                              const QUrl &, const QString &, const QString &newParent);
+    void changeFolderParent(const QString &name, bool isSubfolder);
+
 private:
     QupZilla* getQupZilla();
 
