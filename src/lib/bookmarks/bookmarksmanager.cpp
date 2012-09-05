@@ -352,7 +352,7 @@ void BookmarksManager::refreshTable()
             folder = _bookmarksToolbar;
         }
 
-        if (folder != "unsorted") {
+        if (folder != QLatin1String("unsorted")) {
             QList<QTreeWidgetItem*> findParent = ui->bookmarksTree->findItems(folder, 0);
             if (findParent.count() != 1) {
                 continue;
@@ -432,7 +432,7 @@ void BookmarksManager::addBookmark(const BookmarksModel::Bookmark &bookmark)
             }
         }
     }
-    else if (bookmark.folder != "unsorted") {
+    else if (bookmark.folder != QLatin1String("unsorted")) {
         ui->bookmarksTree->appendToParentItem(translatedFolder, item);
     }
     else {

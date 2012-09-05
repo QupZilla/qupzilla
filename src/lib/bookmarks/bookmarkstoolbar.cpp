@@ -389,7 +389,7 @@ void BookmarksToolbar::folderRenamed(const QString &before, const QString &after
 
 void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
 {
-    if (bookmark.folder != "bookmarksToolbar") {
+    if (bookmark.folder != QLatin1String("bookmarksToolbar")) {
         return;
     }
     QString title = bookmark.title;

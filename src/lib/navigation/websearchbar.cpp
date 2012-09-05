@@ -209,7 +209,7 @@ void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
 
     QWebElementCollection elements = frame->documentElement().findAll(QLatin1String("link[rel=search]"));
     foreach(const QWebElement & element, elements) {
-        if (element.attribute("type") != "application/opensearchdescription+xml") {
+        if (element.attribute("type") != QLatin1String("application/opensearchdescription+xml")) {
             continue;
         }
         QUrl url = view->url().resolved(QUrl::fromEncoded(element.attribute("href").toUtf8()));

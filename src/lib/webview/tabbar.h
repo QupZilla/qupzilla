@@ -82,6 +82,8 @@ private slots:
 private:
     inline bool validIndex(int index) const { return index >= 0 && index < count(); }
 
+    void tabRemoved(int index);
+
     void hideCloseButton(int index);
     void showCloseButton(int index);
 

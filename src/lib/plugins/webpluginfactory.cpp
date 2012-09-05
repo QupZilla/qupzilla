@@ -47,8 +47,8 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
         }
     }
 
-    if (mime != "application/x-shockwave-flash") {
-        if (mime != "application/futuresplash" && mime != "application/x-java-applet") {
+    if (mime != QLatin1String("application/x-shockwave-flash")) {
+        if (mime != QLatin1String("application/futuresplash") && mime != QLatin1String("application/x-java-applet")) {
             qDebug()  << "WebPluginFactory::create creating object of mimeType : " << mime;
         }
         return 0;

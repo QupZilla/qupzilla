@@ -728,7 +728,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             errorString = tr("Content Access Denied");
             break;
         default:
-            if (exOption->errorString != "QupZilla:No Error") {
+            if (exOption->errorString != QLatin1String("QupZilla:No Error")) {
                 qDebug() << "Content error: " << exOption->errorString << exOption->error;
             }
             return false;
