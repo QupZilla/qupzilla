@@ -146,7 +146,7 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace(QLatin1String("%TITLE%"), tr("Report Issue"));
     bPage.replace(QLatin1String("%REPORT-ISSUE%"), tr("Report Issue"));
     bPage.replace(QLatin1String("%PLUGINS-TEXT%"), tr("If you are experiencing problems with QupZilla, please try to disable"
-                                       " all extensions first. <br/>If this does not fix it, then please fill out this form: "));
+                  " all extensions first. <br/>If this does not fix it, then please fill out this form: "));
     bPage.replace(QLatin1String("%EMAIL%"), tr("Your E-mail"));
     bPage.replace(QLatin1String("%TYPE%"), tr("Issue type"));
     bPage.replace(QLatin1String("%DESCRIPTION%"), tr("Issue description"));

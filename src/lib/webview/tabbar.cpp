@@ -442,6 +442,13 @@ void TabBar::hideTabPreview(bool delayed)
     }
 }
 
+void TabBar::tabRemoved(int index)
+{
+    Q_UNUSED(index)
+
+    showCloseButton(currentIndex());
+}
+
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
     if (mApp->plugins()->processMouseDoubleClick(Qz::ON_TabBar, this, event)) {

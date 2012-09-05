@@ -104,7 +104,7 @@ void qz_removeDir(const QString &d)
         QFileInfo fi;
         for (int l = 0; l < list.size(); l++) {
             fi = list.at(l);
-            if (fi.isDir() && fi.fileName() != "." && fi.fileName() != "..") {
+            if (fi.isDir() && fi.fileName() != QLatin1String(".") && fi.fileName() != QLatin1String("..")) {
                 qz_removeDir(fi.absoluteFilePath());
             }
             else if (fi.isFile()) {

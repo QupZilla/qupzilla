@@ -150,7 +150,7 @@ void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setIcon(0, qIconProvider->iconFromImage(bookmark.image));
     item->setToolTip(0, bookmark.url.toEncoded());
 
-    if (bookmark.folder != "unsorted") {
+    if (bookmark.folder != QLatin1String("unsorted")) {
         ui->bookmarksTree->appendToParentItem(translatedFolder, item);
     }
     else {
@@ -287,7 +287,7 @@ void BookmarksSideBar::refreshTable()
             continue;
         }
 
-        if (folder != "unsorted") {
+        if (folder != QLatin1String("unsorted")) {
             QList<QTreeWidgetItem*> findParent = ui->bookmarksTree->findItems(folder, 0);
             if (findParent.count() != 1) {
                 continue;
