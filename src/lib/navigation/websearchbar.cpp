@@ -199,7 +199,7 @@ void WebSearchBar::search()
 void WebSearchBar::searchInNewTab()
 {
     p_QupZilla->weView()->setFocus();
-    p_QupZilla->tabWidget()->addView(m_searchManager->searchUrl(m_activeEngine, text()), qzSettings->newTabPosition);
+    p_QupZilla->tabWidget()->addView(m_searchManager->searchUrl(m_activeEngine, text()));
 }
 
 void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)

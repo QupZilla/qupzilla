@@ -13,6 +13,7 @@ Version 1.3.5
     * remember last section in preferences
     * much more tabs now fits into tabbar without overflowing into tab buttons
     * smarter address bar completer will show better search results
+    * support for bookmarks manager and sidebar drag&drop managing bookmarks
     * new User Agent manager lets you set User Agent per site
     * new restore session page lets you choose which tabs you want to restore
     * new scheme handler for file protocol allows browsing through directories
