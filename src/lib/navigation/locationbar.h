@@ -79,7 +79,8 @@ private slots:
 
 private:
     void contextMenuEvent(QContextMenuEvent* event);
-    void focusOutEvent(QFocusEvent* e);
+    void focusInEvent(QFocusEvent* event);
+    void focusOutEvent(QFocusEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void keyPressEvent(QKeyEvent* event);
@@ -87,6 +88,7 @@ private:
     void dropEvent(QDropEvent* event);
 
     QUrl createUrl();
+    QString convertUrlToText(const QUrl &url) const;
 
     void showGoButton();
     void hideGoButton();

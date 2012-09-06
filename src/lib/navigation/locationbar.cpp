@@ -149,6 +149,17 @@ QUrl LocationBar::createUrl()
     return urlToLoad;
 }
 
+QString LocationBar::convertUrlToText(const QUrl &url) const
+{
+    QString stringUrl = qz_urlEncodeQueryString(url);
+
+    if (stringUrl == QLatin1String("qupzilla:speeddial") || stringUrl == QLatin1String("about:blank")) {
+        stringUrl = "";
+    }
+
+    return stringUrl;
+}
+
 void LocationBar::urlEnter()
 {
     if (m_completerBookmarkId != -1) {
@@ -241,11 +252,7 @@ void LocationBar::showUrl(const QUrl &url)
         return;
     }
 
-    QString stringUrl = qz_urlEncodeQueryString(url);
-
-    if (stringUrl == QLatin1String("qupzilla:speeddial") || stringUrl == QLatin1String("about:blank")) {
-        stringUrl = "";
-    }
+    const QString &stringUrl = convertUrlToText(url);
 
     if (stringUrl == text()) {
         return;
@@ -356,6 +363,18 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
     m_menu->popup(p);
 }
 
+void LocationBar::focusInEvent(QFocusEvent* event)
+{
+    const QString &stringUrl = convertUrlToText(m_webView->url());
+
+    // Text has been edited, let's show go button
+    if (stringUrl != text()) {
+        showGoButton();
+    }
+
+    LineEdit::focusInEvent(event);
+}
+
 void LocationBar::dropEvent(QDropEvent* event)
 {
     if (event->mimeData()->hasUrls()) {
@@ -388,10 +407,12 @@ void LocationBar::dropEvent(QDropEvent* event)
     QLineEdit::dropEvent(event);
 }
 
-void LocationBar::focusOutEvent(QFocusEvent* e)
+void LocationBar::focusOutEvent(QFocusEvent* event)
 {
-    QLineEdit::focusOutEvent(e);
-    if (e->reason() == Qt::PopupFocusReason || (!selectedText().isEmpty() && e->reason() != Qt::TabFocusReason)) {
+    QLineEdit::focusOutEvent(event);
+
+    if (event->reason() == Qt::PopupFocusReason
+            || (!selectedText().isEmpty() && event->reason() != Qt::TabFocusReason)) {
         return;
     }
 
