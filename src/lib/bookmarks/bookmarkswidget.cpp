@@ -43,11 +43,8 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
     // it dynamically changes and so, it's not good choice for this widget.
     setLayoutDirection(QApplication::layoutDirection());
 
-    connect(ui->close, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->removeBookmark, SIGNAL(clicked()), this, SLOT(removeBookmark()));
     connect(ui->save, SIGNAL(clicked()), this, SLOT(saveBookmark()));
-
-    connect(ui->organizeBookmarksButton, SIGNAL(clicked()), p_QupZilla, SLOT(showBookmarksManager()));
     connect(ui->speeddialButton, SIGNAL(clicked()), this, SLOT(toggleSpeedDial()));
 
     const SpeedDial::Page &page = m_speedDial->pageForUrl(m_url);
