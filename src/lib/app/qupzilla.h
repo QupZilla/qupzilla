@@ -81,9 +81,13 @@ public:
     SideBar* addSideBar();
     virtual QMenuBar* menuBar() const;
 
+    QByteArray saveState(int version = 0) const;
+    bool restoreState(const QByteArray &state, int version = 0);
+
     TabbedWebView* weView() const;
     TabbedWebView* weView(int index) const;
     LocationBar* locationBar() const;
+
     inline TabWidget* tabWidget() { return m_tabWidget; }
     inline BookmarksToolbar* bookmarksToolbar() { return m_bookmarksToolbar; }
     inline StatusBarMessage* statusBarMessage() { return m_statusBarMessage; }
@@ -201,9 +205,15 @@ private:
     void setupMenu();
 
     void disconnectObjects();
+
 #ifdef Q_OS_WIN
     bool winEvent(MSG* message, long* result);
     bool eventFilter(QObject* object, QEvent* event);
+#endif
+
+#ifdef Q_WS_X11
+    int getCurrentVirtualDesktop() const;
+    void moveToVirtualDesktop(int desktopId);
 #endif
 
     bool m_historyMenuChanged;

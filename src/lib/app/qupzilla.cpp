@@ -80,6 +80,12 @@
 #include <QWebHistory>
 #include <QMessageBox>
 
+#ifdef Q_WS_X11
+#include <QX11Info>
+#include <X11/Xlib.h>
+#include <X11/Xatom.h>
+#endif
+
 const QString QupZilla::VERSION = "1.3.1";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
@@ -180,6 +186,8 @@ void QupZilla::postLaunch()
         addTab = false;
         break;
     }
+
+    show();
 
     if (!m_startingUrl.isEmpty()) {
         startUrl = QUrl::fromUserInput(m_startingUrl.toString());
@@ -1382,7 +1390,7 @@ void QupZilla::addDeleteOnCloseWidget(QWidget* widget)
 
 void QupZilla::restoreWindowState(const RestoreManager::WindowData &d)
 {
-    QMainWindow::restoreState(d.windowState);
+    restoreState(d.windowState);
     m_tabWidget->restoreState(d.tabsState, d.currentTab);
 }
 
@@ -1827,9 +1835,90 @@ bool QupZilla::quitApp()
         settings.endGroup();
     }
 
-    QTimer::singleShot(0, mApp, SLOT(quitApplication()));
+    mApp->quitApplication();
     return true;
 }
+
+QByteArray QupZilla::saveState(int version) const
+{
+#ifdef Q_WS_X11
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+
+    stream << QMainWindow::saveState(version);
+    stream << getCurrentVirtualDesktop();
+
+    return data;
+#else
+    return QMainWindow::saveState(version);
+#endif
+}
+
+bool QupZilla::restoreState(const QByteArray &state, int version)
+{
+#ifdef Q_WS_X11
+    QByteArray windowState;
+    int desktopId = -1;
+
+    QDataStream stream(state);
+    stream >> windowState;
+    stream >> desktopId;
+
+    moveToVirtualDesktop(desktopId);
+
+    return QMainWindow::restoreState(windowState, version);
+#else
+    return QMainWindow::saveState(version);
+#endif
+}
+
+#ifdef Q_WS_X11
+int QupZilla::getCurrentVirtualDesktop() const
+{
+    Display* display = QX11Info::display();
+    Atom actual_type;
+    int actual_format;
+    unsigned long nitems;
+    unsigned long bytes;
+    unsigned long* data;
+
+    Atom net_wm_desktop = XInternAtom(display, "_NET_WM_DESKTOP", False);
+    if (net_wm_desktop == None) {
+        return -1;
+    }
+
+    int status = XGetWindowProperty(display, winId(), net_wm_desktop, 0, 1,
+                                    False, XA_CARDINAL, &actual_type, &actual_format,
+                                    &nitems, &bytes, (unsigned char**) &data);
+
+    if (status != Success || data == NULL) {
+        return -1;
+    }
+
+    int desktop = *data;
+    XFree(data);
+
+    return desktop;
+}
+
+void QupZilla::moveToVirtualDesktop(int desktopId)
+{
+    // Don't move when window is already visible or it is first app window
+    if (desktopId < 0 || isVisible() || m_startBehaviour == Qz::BW_FirstAppWindow) {
+        return;
+    }
+
+    Display* display = QX11Info::display();
+
+    Atom net_wm_desktop = XInternAtom(display, "_NET_WM_DESKTOP", False);
+    if (net_wm_desktop == None) {
+        return;
+    }
+
+    XChangeProperty(display, winId(), net_wm_desktop, XA_CARDINAL,
+                    32, PropModeReplace, (unsigned char*) &desktopId, 1L);
+}
+#endif
 
 #ifdef Q_OS_WIN
 bool QupZilla::winEvent(MSG* message, long* result)
