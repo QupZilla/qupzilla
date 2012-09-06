@@ -22,6 +22,9 @@
      <property name="alternatingRowColors">
       <bool>true</bool>
      </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::ContiguousSelection</enum>
+     </property>
      <property name="sortingEnabled">
       <bool>true</bool>
      </property>

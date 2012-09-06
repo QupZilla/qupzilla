@@ -44,6 +44,7 @@ public:
     void deleteItems(const QList<QTreeWidgetItem*> &items);
 
     void setDragDropReceiver(bool enable, QObject* receiver = 0);
+    void setMimeType(const QString &mimeType);
 
 signals:
     void itemControlClicked(QTreeWidgetItem* item);
@@ -66,15 +67,15 @@ private:
 
     Qt::DropActions supportedDropActions();
     QStringList mimeTypes() const;
-    QMimeData *mimeData(const QList<QTreeWidgetItem *> items) const;
-    bool dropMimeData(QTreeWidgetItem *parent, int, const QMimeData *data, Qt::DropAction action);
-    void dragEnterEvent(QDragEnterEvent *event);
+    QMimeData* mimeData(const QList<QTreeWidgetItem*> items) const;
+    bool dropMimeData(QTreeWidgetItem* parent, int, const QMimeData* data, Qt::DropAction action);
+    void dragEnterEvent(QDragEnterEvent* event);
     void dragMoveEvent(QDragMoveEvent* event);
 
     bool m_refreshAllItemsNeeded;
     QList<QTreeWidgetItem*> m_allTreeItems;
     ItemShowMode m_showMode;
-
+    QString m_mimeType;
 };
 
 #endif // BOOKMARKSTREEWIDGET_H
