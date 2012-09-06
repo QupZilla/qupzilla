@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>275</width>
-    <height>130</height>
+    <width>295</width>
+    <height>146</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,6 +16,32 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QPushButton" name="removeBookmark">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Remove</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item>
       <widget class="QPushButton" name="speeddialButton">
        <property name="sizePolicy">
@@ -26,19 +52,6 @@
        </property>
        <property name="text">
         <string>Add to Speed Dial</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="organizeBookmarksButton">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Organize Bookmarks</string>
        </property>
       </widget>
      </item>
@@ -85,19 +98,6 @@
       <number>5</number>
      </property>
      <item>
-      <widget class="QPushButton" name="removeBookmark">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Remove</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -120,19 +120,6 @@
        </property>
        <property name="text">
         <string>Save</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="close">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Close</string>
        </property>
       </widget>
      </item>
