@@ -48,8 +48,8 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     ui->setupUi(this);
 
     ui->bookmarksTree->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->bookmarksTree->setSelectionMode(QAbstractItemView::ContiguousSelection);
     ui->bookmarksTree->setDragDropReceiver(true, m_bookmarksModel);
+    ui->bookmarksTree->setMimeType(QLatin1String("application/qupzilla.treewidgetitem.bookmarks"));
 
     connect(ui->bookmarksTree, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
     connect(ui->addFolder, SIGNAL(clicked()), this, SLOT(addFolder()));
@@ -64,8 +64,8 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     connect(m_bookmarksModel, SIGNAL(folderAdded(QString)), this, SLOT(addFolder(QString)));
     connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(removeFolder(QString)));
     connect(m_bookmarksModel, SIGNAL(folderRenamed(QString, QString)), this, SLOT(renameFolder(QString, QString)));
-    connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString,bool)), this, SLOT(changeFolderParent(QString,bool)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString,QByteArray,int,QUrl,QString,QString)), this, SLOT(changeBookmarkParent(QString,QByteArray,int,QUrl,QString,QString)));
+    connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString, bool)), this, SLOT(changeFolderParent(QString, bool)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString, QByteArray, int, QUrl, QString, QString)), this, SLOT(changeBookmarkParent(QString, QByteArray, int, QUrl, QString, QString)));
 
     connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
     connect(ui->importBookmarks, SIGNAL(clicked(QPoint)), this, SLOT(importBookmarks()));
@@ -328,13 +328,13 @@ void BookmarksManager::refreshTable()
     QTreeWidgetItem* newItem = new QTreeWidgetItem(ui->bookmarksTree);
     newItem->setText(0, _bookmarksMenu);
     newItem->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
-    newItem->setFlags(newItem->flags() & ~Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled);
+    newItem->setFlags((newItem->flags() & ~Qt::ItemIsDragEnabled) | Qt::ItemIsDropEnabled);
     ui->bookmarksTree->addTopLevelItem(newItem);
 
     QTreeWidgetItem* bookmarksToolbar = new QTreeWidgetItem(ui->bookmarksTree);
     bookmarksToolbar->setText(0, _bookmarksToolbar);
     bookmarksToolbar->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
-    bookmarksToolbar->setFlags(bookmarksToolbar->flags() & ~Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled);
+    bookmarksToolbar->setFlags((bookmarksToolbar->flags() & ~Qt::ItemIsDragEnabled) | Qt::ItemIsDropEnabled);
     ui->bookmarksTree->addTopLevelItem(bookmarksToolbar);
 
     query.exec("SELECT name FROM folders WHERE subfolder!='yes'");
@@ -529,12 +529,12 @@ void BookmarksManager::bookmarkEdited(const BookmarksModel::Bookmark &before, co
 }
 
 void BookmarksManager::changeBookmarkParent(const QString &name, const QByteArray &, int id,
-                                            const QUrl &, const QString &, const QString &newParent)
+        const QUrl &, const QString &, const QString &newParent)
 {
     QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(name, Qt::MatchExactly | Qt::MatchRecursive);
 
     QTreeWidgetItem* item = 0;
-    foreach (item, list) {
+    foreach(item, list) {
         if (id == item->data(0, Qt::UserRole + 10).toInt()) {
             break;
         }
@@ -606,7 +606,7 @@ void BookmarksManager::addFolder(const QString &name)
         item->setFlags(item->flags() | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled);
     }
     else {
-        item->setFlags(item->flags() & ~Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled);
+        item->setFlags((item->flags() & ~Qt::ItemIsDragEnabled) | Qt::ItemIsDropEnabled);
     }
 
     m_isRefreshing = false;

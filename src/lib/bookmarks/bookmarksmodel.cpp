@@ -617,7 +617,7 @@ void BookmarksModel::changeFolderParent(const QString &name, bool isSubfolder, b
 }
 
 
-void BookmarksModel::bookmarkDropedLink(const QUrl &url, const QString &title, const QVariant &imageVariant, const QString &folder, bool *ok)
+void BookmarksModel::bookmarkDropedLink(const QUrl &url, const QString &title, const QVariant &imageVariant, const QString &folder, bool* ok)
 {
     bool result = false;
 
