@@ -479,7 +479,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
             break;
 
         case Qt::AltModifier:
-            p_QupZilla->tabWidget()->addView(createUrl(), qzSettings->newTabPosition);
+            p_QupZilla->tabWidget()->addView(createUrl());
             m_holdingAlt = false;
             break;
 
