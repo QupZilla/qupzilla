@@ -333,7 +333,7 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
 bool BookmarksModel::changeIcon(int id, const QIcon &icon)
 {
     QSqlQuery query;
-    query.prepare("SELECT title, url, folder, icon FROM bookmarks WWHERE id=?");
+    query.prepare("SELECT title, url, folder, icon FROM bookmarks WHERE id=?");
     query.addBindValue(id);
     query.exec();
 
@@ -556,4 +556,75 @@ QString BookmarksModel::fromTranslatedFolder(const QString &name)
         folder = name;
     }
     return folder;
+}
+
+void BookmarksModel::changeBookmarkParent(int id, const QString &newParent, const QString &oldParent, bool* ok)
+{
+    QSqlQuery query;
+    query.prepare("SELECT title, url, icon FROM bookmarks WHERE id=?");
+    query.addBindValue(id);
+    query.exec();
+
+    if (!query.next()) {
+        if (ok) {
+            *ok = false;
+        }
+        return;
+    }
+
+    QString title = query.value(0).toString();
+    QUrl url = query.value(1).toUrl();
+    QByteArray imageData = query.value(2).toByteArray();
+
+    query.prepare("UPDATE bookmarks SET folder = ? WHERE id = ?");
+    query.bindValue(0, BookmarksModel::fromTranslatedFolder(newParent));
+    query.bindValue(1, id);
+
+    if (!query.exec()) {
+        if (ok) {
+            *ok = false;
+        }
+        return;
+    }
+
+    emit bookmarkParentChanged(title, imageData, id, url, oldParent, newParent);
+    mApp->sendMessages(Qz::AM_BookmarksChanged, true);
+
+    if (ok) {
+        *ok = true;
+    }
+}
+
+void BookmarksModel::changeFolderParent(const QString &name, bool isSubfolder, bool* ok)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE folders SET subfolder=? WHERE name=?");
+    query.bindValue(0, isSubfolder ? "yes" : "no");
+    query.bindValue(1, BookmarksModel::fromTranslatedFolder(name));
+    if (!query.exec()) {
+        if (ok) {
+            *ok = false;
+        }
+        return;
+    }
+
+    emit folderParentChanged(name, isSubfolder);
+    mApp->sendMessages(Qz::AM_BookmarksChanged, true);
+
+    if (ok) {
+        *ok = true;
+    }
+}
+
+
+void BookmarksModel::bookmarkDropedLink(const QUrl &url, const QString &title, const QVariant &imageVariant, const QString &folder, bool *ok)
+{
+    bool result = false;
+
+    QIcon icon = qIconProvider->iconFromImage(qvariant_cast<QImage>(imageVariant));
+    result = saveBookmark(url, title, icon, BookmarksModel::fromTranslatedFolder(folder));
+
+    if (ok) {
+        *ok = result;
+    }
 }

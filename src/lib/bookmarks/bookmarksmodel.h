@@ -109,13 +109,22 @@ signals:
     void bookmarkDeleted(const BookmarksModel::Bookmark &bookmark);
     void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
 
+    void bookmarkParentChanged(const QString &name, const QByteArray &imageData, int id,
+                               const QUrl &url, const QString &oldParent, const QString &newParent);
+
     void folderAdded(const QString &title);
     void folderDeleted(const QString &title);
 
     void subfolderAdded(const QString &title);
     void folderRenamed(const QString &before, const QString &after);
 
+    void folderParentChanged(const QString &name, bool isSubfolder);
+
 public slots:
+    void bookmarkDropedLink(const QUrl &url, const QString &title, const QVariant &imageVariant,
+                            const QString &folder = QLatin1String("unsorted"), bool* ok = 0);
+    void changeBookmarkParent(int id, const QString &newParent, const QString &oldParent, bool* ok = 0);
+    void changeFolderParent(const QString &name, bool isSubfolder, bool* ok = 0);
 
 private:
     bool m_showMostVisited;
