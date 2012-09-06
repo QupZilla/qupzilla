@@ -65,8 +65,13 @@ void SiteIcon::mouseMoveEvent(QMouseEvent* e)
         return;
     }
 
-    QUrl url = m_locationBar->webView()->url();
-    QString title = m_locationBar->webView()->title();
+    const QUrl &url = m_locationBar->webView()->url();
+    const QString &title = m_locationBar->webView()->title();
+
+    if (url.isEmpty() || title.isEmpty()) {
+        ToolButton::mouseMoveEvent(e);
+        return;
+    }
 
     QDrag* drag = new QDrag(this);
     QMimeData* mime = new QMimeData;
