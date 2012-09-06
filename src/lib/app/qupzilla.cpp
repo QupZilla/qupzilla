@@ -1868,7 +1868,7 @@ bool QupZilla::restoreState(const QByteArray &state, int version)
 
     return QMainWindow::restoreState(windowState, version);
 #else
-    return QMainWindow::saveState(version);
+    return QMainWindow::restoreState(windowState, version);
 #endif
 }
 
