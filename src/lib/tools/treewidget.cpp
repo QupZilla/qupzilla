@@ -16,8 +16,15 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "treewidget.h"
+#include "bookmarksmodel.h"
 
 #include <QMouseEvent>
+#include <QSqlDatabase>
+#include <QApplication>
+#include <QUrl>
+
+const int ITEM_IS_TOPLEVEL = Qt::UserRole+20;
+const int ITEM_PARENT_TITLE = Qt::UserRole+21;
 
 TreeWidget::TreeWidget(QWidget* parent)
     : QTreeWidget(parent)
@@ -89,6 +96,211 @@ void TreeWidget::iterateAllItems(QTreeWidgetItem* parent)
         }
 
         iterateAllItems(item);
+    }
+}
+
+Qt::DropActions TreeWidget::supportedDropActions()
+{
+    return Qt::CopyAction;
+}
+
+QStringList TreeWidget::mimeTypes() const
+{
+    QStringList types;
+    types << QLatin1String("application/qupzilla.treewidgetitem.list");
+    return types;
+}
+
+QMimeData *TreeWidget::mimeData(const QList<QTreeWidgetItem *> items) const
+{
+    QMimeData *data = new QMimeData();
+    QByteArray encodedData;
+
+    QDataStream stream(&encodedData, QIODevice::WriteOnly);
+    foreach (const QTreeWidgetItem* item, items) {
+        if (item) {
+            QTreeWidgetItem* clonedItem = item->clone();
+            bool parentIsRoot = false;
+            if (!item->parent() || item->parent() == invisibleRootItem()) {
+                parentIsRoot = true;
+            }
+            clonedItem->setData(0, ITEM_IS_TOPLEVEL, parentIsRoot );
+            clonedItem->setData(0, ITEM_PARENT_TITLE, (parentIsRoot ? QString() : item->parent()->text(0)) ) ;
+            clonedItem->write(stream);
+            delete clonedItem;
+        }
+    }
+
+    data->setData(QLatin1String("application/qupzilla.treewidgetitem.list"), encodedData);
+    return data;
+}
+
+bool TreeWidget::dropMimeData(QTreeWidgetItem *parent, int,
+                              const QMimeData *data, Qt::DropAction action)
+{
+    if (action == Qt::IgnoreAction) {
+        return true;
+    }
+
+    if (parent && !parent->text(1).isEmpty()) { // parent is a bookmark, go one level up!
+        parent = parent->parent();
+    }
+
+    if (!parent) {
+        parent = invisibleRootItem();
+    }
+
+    bool ok = false;
+    if (data->hasUrls()) {
+        QString folder = (parent == invisibleRootItem()) ? QLatin1String("unsorted") : parent->text(0);
+        QUrl url = data->urls().at(0);
+        QString title = data->text().isEmpty() ? url.host()+url.path() : data->text();
+        emit linkWasDroped(url, title, data->imageData(), folder, &ok);
+
+        return ok;
+    }
+
+    if (!data->hasFormat(QLatin1String("application/qupzilla.treewidgetitem.list")))
+        return false;
+
+    setUpdatesEnabled(false);
+    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+    QSqlDatabase db = QSqlDatabase::database();
+    db.transaction();
+
+    QByteArray ba = data->data(QLatin1String("application/qupzilla.treewidgetitem.list"));
+    QDataStream stream(&ba, QIODevice::ReadOnly);
+    if (stream.atEnd())
+        return false;
+
+    while (!stream.atEnd()) {
+                
+        QTreeWidgetItem *item = new QTreeWidgetItem;
+        item->read(stream);
+        bool parentIsRoot = item->data(0, ITEM_IS_TOPLEVEL).toBool();
+        QString oldParentTitle = item->data(0, ITEM_PARENT_TITLE).toString();
+
+        bool isFolder = (item && item->text(1).isEmpty());
+        if (isFolder && (item->text(0) == _bookmarksMenu ||
+                     item->text(0) == _bookmarksToolbar)) {
+            continue;
+        }
+
+        bool parentIsOldParent = parentIsRoot ? (parent == invisibleRootItem()) : (oldParentTitle == parent->text(0));
+        if ( parentIsOldParent || (isFolder && parent != invisibleRootItem() &&
+                                   parent->text(0) != _bookmarksToolbar) ) {
+            // just 'Bookmarks In ToolBar' folder can have subfolders
+            continue;
+        }
+
+        if (isFolder) {
+            if (parent->text(0) == _bookmarksToolbar) {
+                emit folderParentChanged(item->text(0), true, &ok);
+            }
+            else {
+                emit folderParentChanged(item->text(0), false, &ok);
+            }
+        }
+        else {
+            emit bookmarkParentChanged(item->data(0, Qt::UserRole + 10).toInt(),
+                                       parent->text(0), oldParentTitle, &ok);
+        }
+
+        if (!ok) {
+            continue;
+        }
+    }
+
+    db.commit();
+    clearSelection();
+    setUpdatesEnabled(true);
+    QApplication::restoreOverrideCursor();
+    return true;
+}
+
+void TreeWidget::dragEnterEvent(QDragEnterEvent *event)
+{
+    const QMimeData *mimeData = event->mimeData();
+    QTreeWidget::dragEnterEvent(event);
+    if (mimeData->hasUrls() || mimeData->hasFormat(QLatin1String("application/qupzilla.treewidgetitem.list"))) {
+        event->acceptProposedAction();
+    }
+    else {
+        event->ignore();
+    }
+}
+
+void TreeWidget::dragMoveEvent(QDragMoveEvent *event)
+{
+    const QMimeData *mimeData = event->mimeData();
+    bool accept = false;
+    if (mimeData->hasUrls()) {
+        accept = true;
+    }
+    else if (mimeData->hasFormat(QLatin1String("application/qupzilla.treewidgetitem.list"))) {
+        QTreeWidgetItem *itemUnderMouse = itemAt(event->pos());
+        bool underMouseIsFolder = (itemUnderMouse && itemUnderMouse->text(1).isEmpty());
+        int top = visualItemRect(itemUnderMouse).top();
+        int bottom = visualItemRect(itemUnderMouse).bottom();
+        int y = event->pos().y();
+        bool overEdgeOfItem = (y >= top-1 && y <= top+1) || (y <= bottom+1 && y >= bottom-1);
+
+        QByteArray ba = mimeData->data(QLatin1String("application/qupzilla.treewidgetitem.list"));
+        QDataStream stream(&ba, QIODevice::ReadOnly);
+
+        while (!stream.atEnd()) {
+            QTreeWidgetItem *dragItem = new QTreeWidgetItem;
+            dragItem->read(stream);
+            bool parentIsRoot = dragItem->data(0, ITEM_IS_TOPLEVEL).toBool();
+            QString oldParentTitle = dragItem->data(0, ITEM_PARENT_TITLE).toString();
+    
+            bool itemIsFolder = dragItem->text(1).isEmpty();
+            if (dragItem->text(0) != _bookmarksMenu
+                    && dragItem->text(0) != _bookmarksToolbar) {
+                if (!itemUnderMouse->parent() && !parentIsRoot && overEdgeOfItem) {
+                    accept = true;
+                    break;
+                }
+                bool parentsAreDifferent = parentIsRoot
+                        ? itemUnderMouse->parent()
+                        : (!itemUnderMouse->parent() || itemUnderMouse->parent()->text(0) != oldParentTitle);
+                bool canHasSubFolder = !itemUnderMouse->parent()
+                        || itemUnderMouse->parent() == invisibleRootItem()
+                        || itemUnderMouse->parent()->text(0) == _bookmarksToolbar;
+
+                if (!underMouseIsFolder && parentsAreDifferent) {
+                    if (!itemIsFolder) {
+                        accept = true;
+                        break;
+                    }
+                    else if (!itemUnderMouse->parent()
+                             || dragItem->text(0) != itemUnderMouse->parent()->text(0)
+                             && canHasSubFolder) {
+                        accept = true;
+                        break;
+                    }
+                }
+                else if (underMouseIsFolder) {
+                    if (itemIsFolder && itemUnderMouse->text(0) == _bookmarksToolbar
+                            && (parentIsRoot || oldParentTitle != _bookmarksToolbar)) {
+                        accept = true;
+                        break;
+                    }
+                    else if (!itemIsFolder && oldParentTitle != itemUnderMouse->text(0)) {
+                        accept = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    QTreeWidget::dragMoveEvent(event);
+    if (accept) {
+        event->acceptProposedAction();
+    }
+    else {
+        event->ignore();
     }
 }
 
@@ -221,4 +433,25 @@ void TreeWidget::deleteItems(const QList<QTreeWidgetItem*> &items)
     m_refreshAllItemsNeeded = true;
 
     qDeleteAll(items);
+}
+
+void TreeWidget::setDragDropReceiver(bool enable, QObject* receiver)
+{
+    if (!receiver) {
+        enable = false;
+    }
+    setDragEnabled(enable);
+    viewport()->setAcceptDrops(enable);
+    setDropIndicatorShown(enable);
+    if (enable) {
+        model()->setSupportedDragActions(Qt::CopyAction);
+        connect(this, SIGNAL(folderParentChanged(QString,bool,bool*)), receiver, SLOT(changeFolderParent(QString,bool,bool*)));
+        connect(this, SIGNAL(bookmarkParentChanged(int,QString,QString,bool*)), receiver, SLOT(changeBookmarkParent(int,QString,QString,bool*)));
+        connect(this, SIGNAL(linkWasDroped(QUrl,QString,QVariant,QString,bool*)), receiver, SLOT(bookmarkDropedLink(QUrl,QString,QVariant,QString,bool*)));
+    }
+    else {
+        disconnect(this, SIGNAL(folderParentChanged(QString,bool,bool*)), receiver, SLOT(changeFolderParent(QString,bool,bool*)));
+        disconnect(this, SIGNAL(bookmarkParentChanged(int,QString,QString,bool*)), receiver, SLOT(changeBookmarkParent(int,QString,QString,bool*)));
+        disconnect(this, SIGNAL(linkWasDroped(QUrl,QString,QVariant,QString,bool*)), receiver, SLOT(bookmarkDropedLink(QUrl,QString,QVariant,QString,bool*)));
+    }
 }
