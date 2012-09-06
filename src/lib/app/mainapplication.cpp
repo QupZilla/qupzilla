@@ -233,7 +233,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     translateApp();
 
     QupZilla* qupzilla = new QupZilla(Qz::BW_FirstAppWindow, startUrl);
-    qupzilla->show();
     m_mainWindows.append(qupzilla);
 
     connect(qupzilla, SIGNAL(message(Qz::AppMessageType, bool)), this, SLOT(sendMessages(Qz::AppMessageType, bool)));
@@ -542,7 +541,6 @@ QupZilla* MainApplication::makeNewWindow(Qz::BrowserWindow type, const QUrl &sta
 
     QupZilla* newWindow = new QupZilla(type, startUrl);
     m_mainWindows.append(newWindow);
-    newWindow->show();
 
     return newWindow;
 }
