@@ -69,7 +69,7 @@ bool PIM_Plugin::testPlugin()
 
 QTranslator* PIM_Plugin::getTranslator(const QString &locale)
 {
-    QTranslator* translator = new QTranslator();
+    QTranslator* translator = new QTranslator(this);
     translator->load(locale, ":/PIM/locale/");
     return translator;
 }
