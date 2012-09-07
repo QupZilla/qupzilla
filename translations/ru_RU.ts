@@ -218,12 +218,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="119"/>
         <source>Disable on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Выключить на %1</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="125"/>
         <source>Disable only on this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Выключить на этой странице</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="135"/>
@@ -562,7 +562,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="234"/>
         <source>The file doesn&apos;t contain any bookmark.</source>
-        <translation type="unfinished"></translation>
+        <translation>Этот файл не содержит закладок.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="245"/>
@@ -920,7 +920,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="41"/>
         <source>Organize Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление закладками</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="52"/>
@@ -1607,7 +1607,7 @@
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="128"/>
         <source>Download with External Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Скачать с помощью внешнего менеджера</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="34"/>
@@ -1653,42 +1653,42 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="100"/>
         <source>No Error</source>
-        <translation type="unfinished">Ошибок нет</translation>
+        <translation>Ошибок нет</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="148"/>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"></translation>
+        <translation>На уровень вверх</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="149"/>
         <source>Show hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать скрытые файлы</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="150"/>
         <source>Name</source>
-        <translation type="unfinished">Имя</translation>
+        <translation>Имя</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="151"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="152"/>
         <source>Last modified</source>
-        <translation type="unfinished"></translation>
+        <translation>Последнее изменение</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="157"/>
         <source>Index for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Индекс для %1</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="202"/>
         <source>Folder is empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>Папка пуста.</translation>
     </message>
 </context>
 <context>
@@ -2493,12 +2493,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="613"/>
         <source>Tabs behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройка вкладок</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="666"/>
         <source>Show close button on tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать кнопку &quot;Закрыть&quot; на вкладках</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="694"/>
@@ -2508,37 +2508,37 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="736"/>
         <source>Address Bar behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройка панели адреса </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="744"/>
         <source>Suggest when typing into address bar:</source>
-        <translation type="unfinished"></translation>
+        <translation>Автодополнение:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="758"/>
         <source>History and Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>История и закладки</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="763"/>
         <source>History</source>
-        <translation type="unfinished">История</translation>
+        <translation>История</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="768"/>
         <source>Bookmarks</source>
-        <translation type="unfinished">Закладки</translation>
+        <translation>Закладки</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="773"/>
         <source>Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Ничего</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="799"/>
         <source>Show loading progress in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать прогресс загрузки в адресной строке</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="860"/>
@@ -2711,7 +2711,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1748"/>
         <source>Leave blank if unsure</source>
-        <translation type="unfinished"></translation>
+        <translation>Оставьте пустым если не уверены</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1871"/>
@@ -2731,12 +2731,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2278"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Изменить настройки идентификации&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2303"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление User Agent</translation>
     </message>
     <message>
         <source>Change browser identification:</source>
@@ -3076,12 +3076,12 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="83"/>
         <source>Save file as...</source>
-        <translation type="unfinished">Сохранить как...</translation>
+        <translation>Сохранить как...</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/globalfunctions.cpp" line="271"/>
         <source>Unknown size</source>
-        <translation type="unfinished">Неизвестный размер</translation>
+        <translation>Неизвестный размер</translation>
     </message>
 </context>
 <context>
@@ -3857,27 +3857,27 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
         <source>Restore Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Восстановить сессию</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
         <source>Oops, QupZilla crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ой, QupZilla упал.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="327"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation type="unfinished"></translation>
+        <translation>Мы сожалеем. Хотите ли вы восстановить сессию?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="328"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation type="unfinished"></translation>
+        <translation>Попробуйте закрыть вкладки, которые могут вызвать проблемы</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="329"/>
         <source>Or you can start completely new session</source>
-        <translation type="unfinished"></translation>
+        <translation>Или вы можете начать новую сессию</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
@@ -4187,17 +4187,17 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="34"/>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Восстановить</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="47"/>
         <source>Start New Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Начать новую сессию</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.cpp" line="43"/>
         <source>Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Окно %1</translation>
     </message>
 </context>
 <context>
@@ -5031,62 +5031,62 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="14"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление User Agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="20"/>
         <source>Change global User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить User Agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="48"/>
         <source>Use different User Agents for specified sites</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать различные User Agents для разных сайтов</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="86"/>
         <source>Site</source>
-        <translation type="unfinished"></translation>
+        <translation>Сайт</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="91"/>
         <source>User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="101"/>
         <source>Add</source>
-        <translation type="unfinished">Добавить</translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="108"/>
         <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="128"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="83"/>
         <source>Add new site</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить сайт</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="121"/>
         <source>Edit site</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="194"/>
         <source>Site domain: </source>
-        <translation type="unfinished"></translation>
+        <translation>Домен: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="195"/>
         <source>User Agent: </source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent: </translation>
     </message>
 </context>
 <context>
@@ -5125,7 +5125,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/webview/webpage.cpp" line="473"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Чтобы показать эту страницу, QupZilla должен переслать запрос, который повторит действие, которое уже совершено.
+( Например поиск или покупку чего-либо )</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="475"/>
@@ -5230,7 +5231,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="758"/>
         <source>QupZilla can&apos;t load page.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla не может загрузить эту страницу.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="762"/>
@@ -5293,7 +5294,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="299"/>
         <source>Show suggestions</source>
-        <translation type="unfinished"></translation>
+        <translation>Автодополнение</translation>
     </message>
 </context>
 <context>
