@@ -193,11 +193,11 @@
     </message>
     <message>
         <source>Disable on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Відключити на %1</translation>
     </message>
     <message>
         <source>Disable only on this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Відключити лише на цій сторінці</translation>
     </message>
 </context>
 <context>
@@ -501,7 +501,7 @@
     </message>
     <message>
         <source>The file doesn&apos;t contain any bookmark.</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл не містить жодної закладки.</translation>
     </message>
 </context>
 <context>
@@ -760,7 +760,7 @@
     </message>
     <message>
         <source>Organize Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Навести лад в закладках</translation>
     </message>
 </context>
 <context>
@@ -1173,7 +1173,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Видалити</translation>
+        <translation>Видалити</translation>
     </message>
 </context>
 <context>
@@ -1263,7 +1263,7 @@
     </message>
     <message>
         <source>Download with External Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажити зовнішнім менеджером завантаження</translation>
     </message>
 </context>
 <context>
@@ -1297,35 +1297,35 @@
     <name>FileSchemeReply</name>
     <message>
         <source>No Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Без помилок</translation>
     </message>
     <message>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Перейти на рівень вище</translation>
     </message>
     <message>
         <source>Show hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати приховані файли</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Назва</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Розмір</translation>
     </message>
     <message>
         <source>Last modified</source>
-        <translation type="unfinished"></translation>
+        <translation>Востаннє змінено</translation>
     </message>
     <message>
         <source>Index for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Перелік для %1</translation>
     </message>
     <message>
         <source>Folder is empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>Папка порожня.</translation>
     </message>
 </context>
 <context>
@@ -1689,19 +1689,19 @@
     <name>PluginsManager</name>
     <message>
         <source>Add site to whitelist</source>
-        <translation type="unfinished">Додати сайт до білого переліку</translation>
+        <translation>Додати сайт до білого переліку</translation>
     </message>
     <message>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished">Сервер без http:// (напр. youtube.com)</translation>
+        <translation>Сервер без http:// (напр. youtube.com)</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Помилка!</translation>
+        <translation>Помилка!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation type="unfinished">Неможливо завантажити розширення!</translation>
+        <translation>Неможливо завантажити розширення!</translation>
     </message>
 </context>
 <context>
@@ -2364,55 +2364,55 @@
     </message>
     <message>
         <source>Show web search bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати панель веб-пошуку</translation>
     </message>
     <message>
         <source>Suggest when typing into address bar:</source>
-        <translation type="unfinished"></translation>
+        <translation>Робити підказки під час набирання адреси:</translation>
     </message>
     <message>
         <source>History and Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Історія і Закладки</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">Історія</translation>
+        <translation>Історія</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished">Закладки</translation>
+        <translation>Закладки</translation>
     </message>
     <message>
         <source>Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Нічого</translation>
     </message>
     <message>
         <source>Leave blank if unsure</source>
-        <translation type="unfinished"></translation>
+        <translation>Лишити порожнім якщо немає впевненості</translation>
     </message>
     <message>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Змінити ідентифікацію браузера&lt;/b&gt;</translation>
     </message>
     <message>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер User-Agent’ів</translation>
     </message>
     <message>
         <source>Tabs behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Поведінка вкладок</translation>
     </message>
     <message>
         <source>Address Bar behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Поведінка адресного рядка</translation>
     </message>
     <message>
         <source>Show loading progress in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати поступ завантаження в адресному рядку</translation>
     </message>
     <message>
         <source>Show close button on tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати кнопки закриття на вкладках</translation>
     </message>
 </context>
 <context>
@@ -2431,11 +2431,11 @@
     </message>
     <message>
         <source>Save file as...</source>
-        <translation type="unfinished">Зберегти файл як...</translation>
+        <translation>Зберегти файл як...</translation>
     </message>
     <message>
         <source>Unknown size</source>
-        <translation type="unfinished">Розмір невідомий</translation>
+        <translation>Розмір невідомий</translation>
     </message>
 </context>
 <context>
@@ -3118,31 +3118,31 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Are you sure to remove this speed dial?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви впевнені, що хочете видалити цю сторінку у Speed Dial?</translation>
     </message>
     <message>
         <source>Center speed dials</source>
-        <translation type="unfinished"></translation>
+        <translation>Центрувати &quot;Speed Dials&quot;</translation>
     </message>
     <message>
         <source>Restore Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Відновити сесію</translation>
     </message>
     <message>
         <source>Oops, QupZilla crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ой, QupZilla впала.</translation>
     </message>
     <message>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ми просимо вибачення за це. Чи бажаєте Ви відновити останній збережений стан?</translation>
     </message>
     <message>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation type="unfinished"></translation>
+        <translation>Спробуйте вимкнути одну або декілька вкладок, які, на Вашу думку, спричиняють проблеми</translation>
     </message>
     <message>
         <source>Or you can start completely new session</source>
-        <translation type="unfinished"></translation>
+        <translation>Або Ви можете розпочати нову сесію</translation>
     </message>
 </context>
 <context>
@@ -3312,15 +3312,15 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>RecoveryWidget</name>
     <message>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Відновити</translation>
     </message>
     <message>
         <source>Start New Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Розпочати нову сесію</translation>
     </message>
     <message>
         <source>Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Вікно %1</translation>
     </message>
 </context>
 <context>
@@ -3987,51 +3987,51 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>UserAgentDialog</name>
     <message>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер User-Agent’ів</translation>
     </message>
     <message>
         <source>Change global User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>Змінити глобального User-Agent’а</translation>
     </message>
     <message>
         <source>Use different User Agents for specified sites</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати інакшого User-Agent’а для окремих сайтів</translation>
     </message>
     <message>
         <source>Site</source>
-        <translation type="unfinished"></translation>
+        <translation>Сайт</translation>
     </message>
     <message>
         <source>User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>User-Agent</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Додати</translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Видалити</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Редагувати</translation>
+        <translation>Редагувати</translation>
     </message>
     <message>
         <source>Add new site</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати новий сайт</translation>
     </message>
     <message>
         <source>Edit site</source>
-        <translation type="unfinished"></translation>
+        <translation>Редагувати сайт</translation>
     </message>
     <message>
         <source>Site domain: </source>
-        <translation type="unfinished"></translation>
+        <translation>Домен сайту: </translation>
     </message>
     <message>
         <source>User Agent: </source>
-        <translation type="unfinished"></translation>
+        <translation>User Agent: </translation>
     </message>
 </context>
 <context>
@@ -4172,18 +4172,19 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Щоб показати цю сторінку, QupZilla мусить перенадіслати запит, який зробить це знову 
+(наприклад, для пошуку або для замовлення, які були зроблені раніше.)</translation>
     </message>
     <message>
         <source>QupZilla can&apos;t load page.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla не може завантажити сторінку.</translation>
     </message>
 </context>
 <context>
     <name>WebSearchBar</name>
     <message>
         <source>Manage Search Engines</source>
-        <translation>Управління пошуковими двигунами</translation>
+        <translation>Керування пошуковими двигунами</translation>
     </message>
     <message>
         <source>Add %1 ...</source>
@@ -4199,7 +4200,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Show suggestions</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати підказки</translation>
     </message>
 </context>
 <context>
