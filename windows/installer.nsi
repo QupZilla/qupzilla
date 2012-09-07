@@ -338,6 +338,10 @@ BrandingText "${PRODUCT_NAME} ${PRODUCT_VERSION} Installer"
 
 Function .onInit
         ;Language selection dialog
+        ;Do nothing when in silent install
+
+        IfSilent 0 +2
+          return
 
         Push ""
         Push ${LANG_ENGLISH}
