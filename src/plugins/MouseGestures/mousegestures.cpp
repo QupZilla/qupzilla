@@ -16,8 +16,9 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "mousegestures.h"
-#include "webview.h"
 #include "webpage.h"
+#include "tabbedwebview.h"
+#include "tabwidget.h"
 #include "mainapplication.h"
 #include "qupzilla.h"
 #include "mousegesturessettingsdialog.h"
@@ -54,6 +55,12 @@ MouseGestures::MouseGestures(QObject* parent) :
     QjtMouseGesture* upDownGesture = new QjtMouseGesture(DirectionList() << Up << Down, m_filter);
     connect(upDownGesture, SIGNAL(gestured()), this, SLOT(upDownGestured()));
 
+    QjtMouseGesture* upLeftGesture = new QjtMouseGesture(DirectionList() << Up << Left, m_filter);
+    connect(upLeftGesture, SIGNAL(gestured()), this, SLOT(upLeftGestured()));
+
+    QjtMouseGesture* upRightGesture = new QjtMouseGesture(DirectionList() << Up << Right, m_filter);
+    connect(upRightGesture, SIGNAL(gestured()), this, SLOT(upRightGestured()));
+
     m_filter->addGesture(upGesture);
     m_filter->addGesture(downGesture);
     m_filter->addGesture(leftGesture);
@@ -62,6 +69,8 @@ MouseGestures::MouseGestures(QObject* parent) :
     m_filter->addGesture(downRightGesture);
     m_filter->addGesture(downLeftGesture);
     m_filter->addGesture(upDownGesture);
+    m_filter->addGesture(upLeftGesture);
+    m_filter->addGesture(upRightGesture);
 }
 
 bool MouseGestures::mousePress(QObject* obj, QMouseEvent* event)
@@ -163,6 +172,26 @@ void MouseGestures::upDownGestured()
     }
 
     m_view.data()->reload();
+}
+
+void MouseGestures::upLeftGestured()
+{
+    TabbedWebView* view = qobject_cast<TabbedWebView*>(m_view.data());
+    if (!view) {
+        return;
+    }
+
+    view->tabWidget()->previousTab();
+}
+
+void MouseGestures::upRightGestured()
+{
+    TabbedWebView* view = qobject_cast<TabbedWebView*>(m_view.data());
+    if (!view) {
+        return;
+    }
+
+    view->tabWidget()->nextTab();
 }
 
 MouseGestures::~MouseGestures()

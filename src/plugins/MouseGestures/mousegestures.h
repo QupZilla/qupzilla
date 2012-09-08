@@ -49,8 +49,8 @@ private slots:
     void downLeftGestured();
 
     void upDownGestured();
-//    void upLeftGestured();
-//    void upRightGestured();
+    void upLeftGestured();
+    void upRightGestured();
 
 private:
     QjtMouseGestureFilter* m_filter;
