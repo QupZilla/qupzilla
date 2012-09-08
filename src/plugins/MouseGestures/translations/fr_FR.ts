@@ -34,27 +34,37 @@
         <translation>&lt;b&gt;Retour&lt;/b&gt;&lt;br/&gt;Retourner à l&apos;historique</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="153"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
         <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
         <translation>&lt;b&gt;Précédent&lt;/b&gt;&lt;br/&gt;Remonter dans l&apos;historique</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="173"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
+        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
+        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="159"/>
         <source>&lt;b&gt;Reload&lt;/b&gt;&lt;br/&gt;Reload page</source>
         <translation>&lt;b&gt;Actualiser&lt;/b&gt;&lt;br/&gt;Actualiser la page</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="173"/>
         <source>&lt;b&gt;Close tab&lt;/b&gt;&lt;br/&gt;Close current tab</source>
         <translation>&lt;b&gt;Fermer l&apos;onglet&lt;/b&gt;&lt;br/&gt;Fermer l&apos;onglet actuel</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="201"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="208"/>
         <source>&lt;b&gt;Home&lt;/b&gt;&lt;br/&gt;Go to homepage</source>
         <translation>&lt;b&gt;Home&lt;/b&gt;&lt;br/&gt;Retourner à la page d&apos;accueil</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="225"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="253"/>
         <source>License</source>
         <translation>Licence</translation>
     </message>
