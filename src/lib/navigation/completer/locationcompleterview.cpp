@@ -23,6 +23,7 @@
 #include <QKeyEvent>
 #include <QApplication>
 #include <QStyle>
+#include <QScrollBar>
 
 LocationCompleterView::LocationCompleterView()
     : QListView(0)
@@ -168,6 +169,7 @@ void LocationCompleterView::close()
     m_hoveredIndex = QPersistentModelIndex();
 
     QListView::hide();
+    verticalScrollBar()->setValue(0);
 }
 
 void LocationCompleterView::currentChanged(const QModelIndex &current, const QModelIndex &previous)
