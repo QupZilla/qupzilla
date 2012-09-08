@@ -117,7 +117,7 @@ void MouseGestures::downGestured()
         return;
     }
 
-    m_view.data()->openUrlInNewTab(QUrl(), Qz::NT_CleanSelectedTabAtTheEnd);
+    m_view.data()->openUrlInNewTab(QUrl(), Qz::NT_SelectedTabAtTheEnd);
 }
 
 void MouseGestures::leftGestured()
