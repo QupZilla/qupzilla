@@ -832,6 +832,25 @@ void QupZilla::aboutToShowBookmarksMenu()
         m_menuBookmarks->addMenu(tempFolder);
     }
 
+    m_menuBookmarks->addSeparator();
+
+    query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='unsorted'");
+    while (query.next()) {
+        QString title = query.value(0).toString();
+        const QUrl &url = query.value(1).toUrl();
+        const QIcon &icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
+        if (title.length() > 40) {
+            title.truncate(40);
+            title += "..";
+        }
+
+        Action* act = new Action(icon, title);
+        act->setData(url);
+        connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
+        m_menuBookmarks->addAction(act);
+    }
+
     m_menuBookmarksAction->setVisible(m_bookmarksToolbar->isVisible());
 }
 
