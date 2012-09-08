@@ -54,12 +54,14 @@ BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent)
 
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark, BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark, BookmarksModel::Bookmark)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark, BookmarksModel::Bookmark)),
+            this, SLOT(bookmarkEdited(BookmarksModel::Bookmark, BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(folderAdded(QString)), this, SLOT(addFolder(QString)));
     connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(removeFolder(QString)));
     connect(m_bookmarksModel, SIGNAL(folderRenamed(QString, QString)), this, SLOT(renameFolder(QString, QString)));
     connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString, bool)), this, SLOT(changeFolderParent(QString, bool)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString, QByteArray, int, QUrl, QString, QString)), this, SLOT(changeBookmarkParent(QString, QByteArray, int, QUrl, QString, QString)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString, QByteArray, int, QUrl, QString, QString)),
+            this, SLOT(changeBookmarkParent(QString, QByteArray, int, QUrl, QString, QString)));
 
     QTimer::singleShot(0, this, SLOT(refreshTable()));
 }
@@ -70,9 +72,6 @@ void BookmarksSideBar::itemControlClicked(QTreeWidgetItem* item)
         return;
     }
 
-    int id = item->data(0, Qt::UserRole + 10).toInt();
-    mApp->bookmarksModel()->countUpBookmark(id);
-
     const QUrl &url = QUrl::fromEncoded(item->text(1).toUtf8());
     p_QupZilla->tabWidget()->addView(url, item->text(0));
 }
@@ -82,9 +81,6 @@ void BookmarksSideBar::itemDoubleClicked(QTreeWidgetItem* item)
     if (!item || item->text(1).isEmpty()) {
         return;
     }
-
-    int id = item->data(0, Qt::UserRole + 10).toInt();
-    mApp->bookmarksModel()->countUpBookmark(id);
 
     const QUrl &url = QUrl::fromEncoded(item->text(1).toUtf8());
     p_QupZilla->loadAddress(url);
@@ -98,9 +94,6 @@ void BookmarksSideBar::loadInNewTab()
     if (!item || !action) {
         return;
     }
-
-    int id = item->data(0, Qt::UserRole + 10).toInt();
-    mApp->bookmarksModel()->countUpBookmark(id);
 
     p_QupZilla->tabWidget()->addView(action->data().toUrl(), item->text(0), qzSettings->newTabPosition);
 }

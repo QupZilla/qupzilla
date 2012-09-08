@@ -56,7 +56,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
     QList<QStandardItem*> itemList;
 
     if (showType == HistoryAndBookmarks || showType == Bookmarks) {
-        QSqlQuery query = createQuery(string, "bookmarks.count DESC", urlList, limit, true);
+        QSqlQuery query = createQuery(string, "history.count DESC", urlList, limit, true);
         query.exec();
 
         while (query.next()) {
@@ -67,7 +67,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             item->setText(url.toEncoded());
             item->setData(query.value(0), IdRole);
             item->setData(query.value(2), TitleRole);
-            item->setData(query.value(3).toInt() + 10, CountRole); // Give +10 count bonus to bookmarks
+            item->setData(query.value(3), CountRole);
             item->setData(QVariant(true), BookmarkRole);
             item->setData(string, SearchStringRole);
 
@@ -129,7 +129,7 @@ QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const
         const QList<QUrl> &alreadyFound, int limit, bool bookmarks, bool exactMatch)
 {
     QString table = bookmarks ? "bookmarks" : "history";
-    QString query = QString("SELECT %1.id, %1.url, %1.title, %1.count").arg(table);
+    QString query = QString("SELECT %1.id, %1.url, %1.title, history.count").arg(table);
     QStringList searchList;
 
     if (bookmarks) {

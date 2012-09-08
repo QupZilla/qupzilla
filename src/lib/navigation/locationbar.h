@@ -71,7 +71,7 @@ private slots:
     void pasteAndGo();
 
     void updatePlaceHolderText();
-    void showCompletion(const QString &newText, int bookmarkId);
+    void showCompletion(const QString &newText);
 
     void onLoadProgress(int progress);
     void onLoadFinished();
@@ -109,7 +109,6 @@ private:
 
     bool m_rssIconVisible;
     bool m_holdingAlt;
-    int m_completerBookmarkId;
 
     int m_loadProgress;
     bool m_loadFinished;

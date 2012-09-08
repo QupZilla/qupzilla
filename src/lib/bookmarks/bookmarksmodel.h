@@ -88,8 +88,6 @@ public:
     bool editBookmark(int id, const QString &title = QString(), const QUrl &url = QUrl(), const QString &folder = QString());
     bool changeIcon(int id, const QIcon &icon);
 
-    void countUpBookmark(int id);
-
     bool createFolder(const QString &name);
     void removeFolder(const QString &name);
 

@@ -38,7 +38,7 @@ public:
     void closePopup();
 
 signals:
-    void showCompletion(const QString &, int bookmarkId);
+    void showCompletion(const QString &);
     void completionActivated();
 
 public slots:

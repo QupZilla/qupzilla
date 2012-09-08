@@ -29,8 +29,6 @@
 ProfileUpdater::ProfileUpdater(const QString &profilePath)
     : m_profilePath(profilePath)
 {
-    // FIXME: Remove this line when releasing new version
-    update131();
 }
 
 void ProfileUpdater::checkProfile()
@@ -84,9 +82,9 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         return;
     }
 
-    if (profileVersion == Updater::parseVersionFromString("1.1.0") ||
-            profileVersion == Updater::parseVersionFromString("1.1.5") ||
-            profileVersion == Updater::parseVersionFromString("1.1.8")) {
+    if (profileVersion == Updater::parseVersionFromString("1.1.0")
+            || profileVersion == Updater::parseVersionFromString("1.1.5")
+            || profileVersion == Updater::parseVersionFromString("1.1.8")) {
         update118();
         return;
     }
@@ -96,13 +94,9 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         return;
     }
 
-    if (profileVersion == Updater::parseVersionFromString("1.3.0")) {
+    if (profileVersion == Updater::parseVersionFromString("1.3.0")
+            || profileVersion == Updater::parseVersionFromString("1.3.1")) {
         update130();
-        return;
-    }
-
-    if (profileVersion == Updater::parseVersionFromString("1.3.1")) {
-        update131();
         return;
     }
 
@@ -212,16 +206,4 @@ void ProfileUpdater::update130()
 
     QSqlQuery query;
     query.exec("ALTER TABLE bookmarks ADD COLUMN keyword TEXT");
-
-    update131();
-}
-
-void ProfileUpdater::update131()
-{
-    std::cout << "QupZilla: Upgrading profile version from 1.3.1..." << std::endl;
-    mApp->connectDatabase();
-
-    QSqlQuery query;
-    query.exec("ALTER TABLE bookmarks ADD COLUMN count NUMERIC");
-    query.exec("UPDATE bookmarks SET count=0");
 }

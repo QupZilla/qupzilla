@@ -21,6 +21,7 @@ Version 1.3.5
     * new option to hide close button on tabs
     * new option to start new instance with --no-remote option
     * X11: restore windows on correct virtual desktops
+    * MouseGestures: added 2 new gestures for switching tabs
     * fixed visibility of navigation bar in fullscreen
     * fixed bad position of add tab button when there is a lot of tabs
     * fixed gui with RTL languages
