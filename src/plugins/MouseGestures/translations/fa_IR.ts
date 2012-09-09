@@ -6,12 +6,12 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="14"/>
         <source>Mouse Gestures</source>
-        <translation>حرکات بیانگر موشواره</translation>
+        <translation>حرکت‌ها و اشاره‌های موشواره</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="42"/>
         <source>&lt;h1&gt;Mouse Gestures&lt;/h1&gt;</source>
-        <translation>&lt;h1&gt;حرکات بیانگر موشواره&lt;/h1&gt;</translation>
+        <translation>&lt;h1&gt;حرکت‌ها و اشاره‌های موشواره&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="64"/>
@@ -41,12 +41,12 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="194"/>
         <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;برگه پیشین&lt;/b&gt;&lt;br/&gt;جابجا شدن به برگه پیشین</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="222"/>
         <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;برگه پسین&lt;/b&gt;&lt;br/&gt;جابجا شدن به برگه پسین</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="159"/>
