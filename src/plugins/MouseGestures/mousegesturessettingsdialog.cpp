@@ -28,16 +28,10 @@ MouseGesturesSettingsDialog::MouseGesturesSettingsDialog(QWidget* parent)
     ui->setupUi(this);
 
     if (QApplication::isRightToLeft()) {
-        ui->label_5->setPixmap(QPixmap(QString::fromUtf8(":/mousegestures/data/right.gif")));
-        ui->label_6->setPixmap(QPixmap(QString::fromUtf8(":/mousegestures/data/left.gif")));
-        ui->label_18->setPixmap(QPixmap(QString::fromUtf8(":/mousegestures/data/up-right.gif")));
-        ui->label_20->setPixmap(QPixmap(QString::fromUtf8(":/mousegestures/data/up-left.gif")));
-    }
-    else {
-        ui->label_5->setPixmap(QPixmap(QString::fromUtf8(":/mousegestures/data/left.gif")));
-        ui->label_6->setPixmap(QPixmap(QString::fromUtf8(":/mousegestures/data/right.gif")));
-        ui->label_18->setPixmap(QPixmap(QString::fromUtf8(":/mousegestures/data/up-left.gif")));
-        ui->label_20->setPixmap(QPixmap(QString::fromUtf8(":/mousegestures/data/up-right.gif")));
+        ui->label_5->setPixmap(QPixmap(":/mousegestures/data/right.gif"));
+        ui->label_6->setPixmap(QPixmap(":/mousegestures/data/left.gif"));
+        ui->label_18->setPixmap(QPixmap(":/mousegestures/data/up-right.gif"));
+        ui->label_20->setPixmap(QPixmap(":/mousegestures/data/up-left.gif"));
     }
 
     setAttribute(Qt::WA_DeleteOnClose);
