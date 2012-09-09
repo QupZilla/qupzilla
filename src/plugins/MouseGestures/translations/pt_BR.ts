@@ -41,12 +41,12 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="194"/>
         <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Guia Anterior&lt;/b&gt;&lt;br/&gt;Volta para a guia anterior</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="222"/>
         <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Próxima Guia&lt;/b&gt;&lt;br/&gt;Avança para a próxima guia</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="159"/>
