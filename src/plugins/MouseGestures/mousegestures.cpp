@@ -135,7 +135,12 @@ void MouseGestures::leftGestured()
         return;
     }
 
-    m_view.data()->back();
+    if (QApplication::isRightToLeft()) {
+        m_view.data()->forward();
+    }
+    else {
+        m_view.data()->back();
+    }
 }
 
 void MouseGestures::rightGestured()
@@ -144,7 +149,12 @@ void MouseGestures::rightGestured()
         return;
     }
 
-    m_view.data()->forward();
+    if (QApplication::isRightToLeft()) {
+        m_view.data()->back();
+    }
+    else {
+        m_view.data()->forward();
+    }
 }
 
 void MouseGestures::downRightGestured()
@@ -181,7 +191,12 @@ void MouseGestures::upLeftGestured()
         return;
     }
 
-    view->tabWidget()->previousTab();
+    if (QApplication::isRightToLeft()) {
+            view->tabWidget()->nextTab();
+    }
+    else {
+        view->tabWidget()->previousTab();
+    }
 }
 
 void MouseGestures::upRightGestured()
@@ -191,7 +206,12 @@ void MouseGestures::upRightGestured()
         return;
     }
 
-    view->tabWidget()->nextTab();
+    if (QApplication::isRightToLeft()) {
+        view->tabWidget()->previousTab();
+    }
+    else {
+            view->tabWidget()->nextTab();
+    }
 }
 
 MouseGestures::~MouseGestures()
