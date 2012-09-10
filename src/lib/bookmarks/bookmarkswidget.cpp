@@ -26,6 +26,7 @@
 
 #include <QToolTip>
 #include <QSqlQuery>
+#include <QTimer>
 
 BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* parent)
     : QMenu(parent)
@@ -42,9 +43,15 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
     // The locationbar's direction is direction of its text,
     // it dynamically changes and so, it's not good choice for this widget.
     setLayoutDirection(QApplication::layoutDirection());
+    
+    m_bookmarkId = m_bookmarksModel->bookmarkId(m_url);
 
-    connect(ui->removeBookmark, SIGNAL(clicked()), this, SLOT(removeBookmark()));
-    connect(ui->save, SIGNAL(clicked()), this, SLOT(saveBookmark()));
+    if (m_bookmarkId > 0) {
+        connect(ui->saveRemove, SIGNAL(clicked()), this, SLOT(removeBookmark()));
+        ui->saveRemove->setText(tr("Remove"));
+    } else {
+        connect(ui->saveRemove, SIGNAL(clicked()), this, SLOT(saveBookmark()));
+    }
     connect(ui->speeddialButton, SIGNAL(clicked()), this, SLOT(toggleSpeedDial()));
 
     const SpeedDial::Page &page = m_speedDial->pageForUrl(m_url);
@@ -57,52 +64,53 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
     ui->label_2->setPalette(pal);
     ui->label_3->setPalette(pal);
 #endif
-
-    addBookmark();
+    
+    loadBookmark();
 }
 
 void BookmarksWidget::loadBookmark()
 {
-    if (m_bookmarksModel->isBookmarked(m_url)) {
-        m_bookmarkId = m_bookmarksModel->bookmarkId(m_url);
+    // Bookmark folders
+    ui->folder->addItem(QIcon(":/icons/other/unsortedbookmarks.png"), _bookmarksUnsorted, "unsorted");
+    ui->folder->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksMenu, "bookmarksMenu");
+    ui->folder->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksToolbar, "bookmarksToolbar");
+    QSqlQuery query;
+    query.exec("SELECT name FROM folders");
+    while (query.next()) {
+        ui->folder->addItem(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString(), query.value(0).toString());
+    }
+    
+    if (m_bookmarkId > 0) {
         BookmarksModel::Bookmark bookmark = m_bookmarksModel->getBookmark(m_bookmarkId);
         ui->name->setText(bookmark.title);
-
-        // Bookmark folders
-        ui->folder->addItem(QIcon(":icons/other/unsortedbookmarks.png"), _bookmarksUnsorted, "unsorted");
-        ui->folder->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksMenu, "bookmarksMenu");
-        ui->folder->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksToolbar, "bookmarksToolbar");
-        QSqlQuery query;
-        query.exec("SELECT name FROM folders");
-        while (query.next()) {
-            ui->folder->addItem(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString(), query.value(0).toString());
-        }
-
         ui->folder->setCurrentIndex(ui->folder->findData(bookmark.folder));
-        ui->name->setCursorPosition(0);
+        
+        ui->name->setEnabled(false);
+        ui->folder->setEnabled(false);
+    } else {
+        ui->name->setText(m_view->title());
+        ui->folder->setCurrentIndex(0);
     }
+    
+    ui->name->setCursorPosition(0);
+}
+
+namespace {
+    const int hideDelay = 270;
 }
 
 void BookmarksWidget::removeBookmark()
 {
     m_bookmarksModel->removeBookmark(m_url);
     emit bookmarkDeleted();
-    close();
+    QTimer::singleShot(hideDelay, this, SLOT(close()));
 }
 
 void BookmarksWidget::saveBookmark()
 {
-    m_bookmarksModel->editBookmark(m_bookmarkId, ui->name->text(), QUrl(), ui->folder->itemData(ui->folder->currentIndex()).toString());
-    close();
-}
-
-void BookmarksWidget::addBookmark()
-{
-    if (!m_bookmarksModel->isBookmarked(m_url)) {
-        m_bookmarksModel->saveBookmark(m_view);
-    }
-
-    loadBookmark();
+//     m_bookmarksModel->editBookmark(m_bookmarkId, ui->name->text(), QUrl(), ui->folder->itemData(ui->folder->currentIndex()).toString());
+    m_bookmarksModel->saveBookmark(m_view, ui->folder->currentText());
+    QTimer::singleShot(hideDelay, this, SLOT(close()));
 }
 
 void BookmarksWidget::toggleSpeedDial()
@@ -119,6 +127,7 @@ void BookmarksWidget::toggleSpeedDial()
         ui->speeddialButton->setText(tr("Add to Speed Dial"));
 
     }
+    QTimer::singleShot(hideDelay, this, SLOT(close()));
 }
 
 void BookmarksWidget::showAt(QWidget* _parent)

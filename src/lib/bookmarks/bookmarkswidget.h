@@ -50,7 +50,6 @@ private slots:
     void removeBookmark();
     void saveBookmark();
 
-    void addBookmark();
     void toggleSpeedDial();
 
 private:
