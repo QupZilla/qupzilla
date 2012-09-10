@@ -43,13 +43,14 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
     // The locationbar's direction is direction of its text,
     // it dynamically changes and so, it's not good choice for this widget.
     setLayoutDirection(QApplication::layoutDirection());
-    
+
     m_bookmarkId = m_bookmarksModel->bookmarkId(m_url);
 
     if (m_bookmarkId > 0) {
         connect(ui->saveRemove, SIGNAL(clicked()), this, SLOT(removeBookmark()));
         ui->saveRemove->setText(tr("Remove"));
-    } else {
+    }
+    else {
         connect(ui->saveRemove, SIGNAL(clicked()), this, SLOT(saveBookmark()));
     }
     connect(ui->speeddialButton, SIGNAL(clicked()), this, SLOT(toggleSpeedDial()));
@@ -64,7 +65,7 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
     ui->label_2->setPalette(pal);
     ui->label_3->setPalette(pal);
 #endif
-    
+
     loadBookmark();
 }
 
@@ -79,24 +80,26 @@ void BookmarksWidget::loadBookmark()
     while (query.next()) {
         ui->folder->addItem(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString(), query.value(0).toString());
     }
-    
+
     if (m_bookmarkId > 0) {
         BookmarksModel::Bookmark bookmark = m_bookmarksModel->getBookmark(m_bookmarkId);
         ui->name->setText(bookmark.title);
         ui->folder->setCurrentIndex(ui->folder->findData(bookmark.folder));
-        
+
         ui->name->setEnabled(false);
         ui->folder->setEnabled(false);
-    } else {
+    }
+    else {
         ui->name->setText(m_view->title());
         ui->folder->setCurrentIndex(0);
     }
-    
+
     ui->name->setCursorPosition(0);
 }
 
-namespace {
-    const int hideDelay = 270;
+namespace
+{
+const int hideDelay = 270;
 }
 
 void BookmarksWidget::removeBookmark()
@@ -108,8 +111,7 @@ void BookmarksWidget::removeBookmark()
 
 void BookmarksWidget::saveBookmark()
 {
-//     m_bookmarksModel->editBookmark(m_bookmarkId, ui->name->text(), QUrl(), ui->folder->itemData(ui->folder->currentIndex()).toString());
-    m_bookmarksModel->saveBookmark(m_view, ui->folder->currentText());
+    m_bookmarksModel->saveBookmark(m_url, ui->name->text(), m_view->icon(), ui->folder->currentText());
     QTimer::singleShot(hideDelay, this, SLOT(close()));
 }
 
