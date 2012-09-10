@@ -108,7 +108,7 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="73"/>
         <source>Double clicking script will show additional information</source>
-        <translation>Двоклик ће вам приказати додатне податке</translation>
+        <translation>Двокликом ћете приказати додатне податке</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="153"/>
