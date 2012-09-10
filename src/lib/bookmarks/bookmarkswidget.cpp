@@ -108,8 +108,7 @@ void BookmarksWidget::removeBookmark()
 
 void BookmarksWidget::saveBookmark()
 {
-//     m_bookmarksModel->editBookmark(m_bookmarkId, ui->name->text(), QUrl(), ui->folder->itemData(ui->folder->currentIndex()).toString());
-    m_bookmarksModel->saveBookmark(m_view, ui->folder->currentText());
+    m_bookmarksModel->saveBookmark(m_url, ui->name->text(), m_view->icon(), ui->folder->currentText());
     QTimer::singleShot(hideDelay, this, SLOT(close()));
 }
 
