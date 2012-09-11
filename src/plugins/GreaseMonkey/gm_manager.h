@@ -20,11 +20,13 @@
 
 #include <QObject>
 #include <QStringList>
+#include <QWeakPointer>
 
 class QUrl;
 class QNetworkRequest;
 
 class GM_Script;
+class GM_Settings;
 
 class GM_Manager : public QObject
 {
@@ -39,7 +41,7 @@ public:
     QString scriptsDirectory() const;
     QString requireScripts(const QStringList &urlList) const;
 
-    void saveSettings();
+    void unloadPlugin();
 
     QList<GM_Script*> allScripts() const;
     bool containsScript(const QString &fullName) const;
@@ -66,6 +68,7 @@ private slots:
 private:
     QString m_settingsPath;
     QString m_bootstrap;
+    QWeakPointer<GM_Settings> m_settings;
 
     QStringList m_disabledScripts;
     QList<GM_Script*> m_endScripts;

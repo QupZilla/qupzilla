@@ -25,6 +25,7 @@ class QMouseEvent;
 
 class WebView;
 class QjtMouseGestureFilter;
+class MouseGesturesSettingsDialog;
 
 class MouseGestures : public QObject
 {
@@ -38,6 +39,7 @@ public:
     bool mouseMove(QObject* obj, QMouseEvent* event);
 
     void showSettings(QWidget* parent);
+    void unloadPlugin();
 
 private slots:
     void upGestured();
@@ -54,8 +56,8 @@ private slots:
 
 private:
     QjtMouseGestureFilter* m_filter;
+    QWeakPointer<MouseGesturesSettingsDialog> m_settings;
     QWeakPointer<WebView> m_view;
-
 };
 
 #endif // MOUSEGESTURES_H

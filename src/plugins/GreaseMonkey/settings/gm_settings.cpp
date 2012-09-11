@@ -31,6 +31,7 @@ GM_Settings::GM_Settings(GM_Manager* manager, QWidget* parent)
     , ui(new Ui::GM_Settings)
     , m_manager(manager)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
     connect(ui->listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(showItemInfo(QListWidgetItem*)));

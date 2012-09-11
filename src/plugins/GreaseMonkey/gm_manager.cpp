@@ -40,8 +40,12 @@ GM_Manager::GM_Manager(const QString &sPath, QObject* parent)
 
 void GM_Manager::showSettings(QWidget* parent)
 {
-    GM_Settings settings(this, parent);
-    settings.exec();
+    if (!m_settings) {
+        m_settings = new GM_Settings(this, parent);
+    }
+
+    m_settings.data()->show();
+    m_settings.data()->raise();
 }
 
 void GM_Manager::downloadScript(const QNetworkRequest &request)
@@ -81,11 +85,15 @@ QString GM_Manager::requireScripts(const QStringList &urlList) const
     return script;
 }
 
-void GM_Manager::saveSettings()
+void GM_Manager::unloadPlugin()
 {
+    // Save settings
     QSettings settings(m_settingsPath + "extensions.ini", QSettings::IniFormat);
     settings.beginGroup("GreaseMonkey");
     settings.setValue("disabledScripts", m_disabledScripts);
+    settings.endGroup();
+
+    delete m_settings.data();
 }
 
 QList<GM_Script*> GM_Manager::allScripts() const

@@ -18,9 +18,12 @@
 #ifndef AKN_PLUGIN_H
 #define AKN_PLUGIN_H
 
+#include <QWeakPointer>
+
 #include "plugininterface.h"
 
 class AKN_Handler;
+class AKN_Settings;
 
 class AKN_Plugin : public QObject, public PluginInterface
 {
@@ -41,6 +44,7 @@ public:
     bool keyPress(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event);
 
 private:
+    QWeakPointer<AKN_Settings> m_settings;
     AKN_Handler* m_handler;
 };
 

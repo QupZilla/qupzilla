@@ -38,7 +38,7 @@ PluginSpec GM_Plugin::pluginSpec()
     spec.name = "GreaseMonkey";
     spec.info = "Userscripts for QupZilla";
     spec.description = "Provides support for userscripts (www.userscripts.org)";
-    spec.version = "0.2.2";
+    spec.version = "0.2.3";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":gm/data/icon.png");
     spec.hasSettings = true;
@@ -56,7 +56,7 @@ void GM_Plugin::init(const QString &sPath)
 
 void GM_Plugin::unload()
 {
-    m_manager->saveSettings();
+    m_manager->unloadPlugin();
     delete m_manager;
 }
 

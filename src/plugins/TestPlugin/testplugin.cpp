@@ -43,7 +43,7 @@ PluginSpec TestPlugin::pluginSpec()
     spec.name = "Example Plugin";
     spec.info = "Example minimal plugin";
     spec.description = "Very simple minimal plugin example";
-    spec.version = "0.1.5";
+    spec.version = "0.1.6";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":qupzilla.png");
     spec.hasSettings = true;
@@ -81,6 +81,9 @@ void TestPlugin::unload()
 
     // Removing sidebar from application
     SideBarManager::removeSidebar("testplugin-sidebar");
+
+    // Deleting settings dialog if opened
+    delete m_settings.data();
 }
 
 bool TestPlugin::testPlugin()
@@ -107,24 +110,27 @@ void TestPlugin::showSettings(QWidget* parent)
     // This function will be called from Preferences after clicking on Settings button.
     // Settings button will be enabled if PluginSpec.hasSettings == true
 
-    QDialog* dialog = new QDialog(parent);
-    QPushButton* b = new QPushButton("Example Plugin v0.0.1");
-    QPushButton* closeButton = new QPushButton(tr("Close"));
-    QLabel* label = new QLabel();
-    label->setPixmap(QPixmap(":icons/other/about.png"));
+    if (!m_settings) {
+        m_settings = new QDialog(parent);
+        QPushButton* b = new QPushButton("Example Plugin v0.0.1");
+        QPushButton* closeButton = new QPushButton(tr("Close"));
+        QLabel* label = new QLabel();
+        label->setPixmap(QPixmap(":icons/other/about.png"));
 
-    QVBoxLayout* l = new QVBoxLayout(dialog);
-    l->addWidget(label);
-    l->addWidget(b);
-    l->addWidget(closeButton);
-    dialog->setLayout(l);
+        QVBoxLayout* l = new QVBoxLayout(m_settings.data());
+        l->addWidget(label);
+        l->addWidget(b);
+        l->addWidget(closeButton);
+        m_settings.data()->setLayout(l);
 
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->setWindowTitle(tr("Example Plugin Settings"));
-    dialog->setWindowIcon(QIcon(":qupzilla.png"));
-    connect(closeButton, SIGNAL(clicked()), dialog, SLOT(close()));
+        m_settings.data()->setAttribute(Qt::WA_DeleteOnClose);
+        m_settings.data()->setWindowTitle(tr("Example Plugin Settings"));
+        m_settings.data()->setWindowIcon(QIcon(":qupzilla.png"));
+        connect(closeButton, SIGNAL(clicked()), m_settings.data(), SLOT(close()));
+    }
 
-    dialog->show();
+    m_settings.data()->show();
+    m_settings.data()->raise();
 }
 
 void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r)

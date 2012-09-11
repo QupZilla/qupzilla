@@ -36,7 +36,7 @@ PluginSpec AKN_Plugin::pluginSpec()
     spec.name = "Access Keys Navigation";
     spec.info = "Access keys navigation for QupZilla";
     spec.description = "Provides support for navigating in webpages by keyboard shortcuts";
-    spec.version = "0.4.1";
+    spec.version = "0.4.2";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":/accesskeysnavigation/data/icon.png");
     spec.hasSettings = true;
@@ -53,6 +53,8 @@ void AKN_Plugin::init(const QString &sPath)
 
 void AKN_Plugin::unload()
 {
+    delete m_settings.data();
+
     m_handler->deleteLater();
 }
 
@@ -72,10 +74,12 @@ QTranslator* AKN_Plugin::getTranslator(const QString &locale)
 
 void AKN_Plugin::showSettings(QWidget* parent)
 {
-    AKN_Settings* settings = new AKN_Settings(m_handler, parent);
-    settings->setAttribute(Qt::WA_DeleteOnClose);
+    if (!m_settings) {
+        m_settings = new AKN_Settings(m_handler, parent);
+    }
 
-    settings->show();
+    m_settings.data()->show();
+    m_settings.data()->raise();
 }
 
 bool AKN_Plugin::keyPress(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event)

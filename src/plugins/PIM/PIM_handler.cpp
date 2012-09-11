@@ -89,10 +89,14 @@ void PIM_Handler::loadSettings()
 
 void PIM_Handler::showSettings(QWidget* parent)
 {
-    PIM_Settings* settings = new PIM_Settings(m_settingsFile, parent);
-    settings->show();
+    if (!m_settings) {
+        m_settings = new PIM_Settings(m_settingsFile, parent);
 
-    connect(settings, SIGNAL(accepted()), this, SLOT(loadSettings()));
+        connect(m_settings.data(), SIGNAL(accepted()), this, SLOT(loadSettings()));
+    }
+
+    m_settings.data()->show();
+    m_settings.data()->raise();
 }
 
 void PIM_Handler::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &hitTest)
@@ -157,6 +161,11 @@ bool PIM_Handler::keyPress(WebView* view, QKeyEvent* event)
     }
 
     return true;
+}
+
+void PIM_Handler::unloadPlugin()
+{
+    delete m_settings.data();
 }
 
 void PIM_Handler::webPageCreated(WebPage* page)

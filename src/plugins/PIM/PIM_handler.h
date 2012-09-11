@@ -30,6 +30,8 @@
 class WebView;
 class WebPage;
 
+class PIM_Settings;
+
 class PIM_Handler : public QObject
 {
     Q_OBJECT
@@ -38,6 +40,8 @@ public:
 
     void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &hitTest);
     bool keyPress(WebView* view, QKeyEvent* event);
+
+    void unloadPlugin();
 
 signals:
 
@@ -77,6 +81,7 @@ private:
     QHash<PI_Type, QStringList> m_infoMatches;
     QHash<PI_Type, QString> m_translations;
 
+    QWeakPointer<PIM_Settings> m_settings;
     QWeakPointer<WebView> m_view;
     QWebElement m_element;
 

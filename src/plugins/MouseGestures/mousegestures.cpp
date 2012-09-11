@@ -107,8 +107,17 @@ bool MouseGestures::mouseMove(QObject* obj, QMouseEvent* event)
 
 void MouseGestures::showSettings(QWidget* parent)
 {
-    MouseGesturesSettingsDialog* d = new MouseGesturesSettingsDialog(parent);
-    d->show();
+    if (!m_settings) {
+        m_settings = new MouseGesturesSettingsDialog(parent);
+    }
+
+    m_settings.data()->show();
+    m_settings.data()->raise();
+}
+
+void MouseGestures::unloadPlugin()
+{
+    delete m_settings.data();
 }
 
 void MouseGestures::upGestured()
@@ -192,7 +201,7 @@ void MouseGestures::upLeftGestured()
     }
 
     if (QApplication::isRightToLeft()) {
-            view->tabWidget()->nextTab();
+        view->tabWidget()->nextTab();
     }
     else {
         view->tabWidget()->previousTab();
@@ -210,7 +219,7 @@ void MouseGestures::upRightGestured()
         view->tabWidget()->previousTab();
     }
     else {
-            view->tabWidget()->nextTab();
+        view->tabWidget()->nextTab();
     }
 }
 

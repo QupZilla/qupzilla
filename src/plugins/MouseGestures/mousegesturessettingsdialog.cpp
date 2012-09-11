@@ -25,6 +25,7 @@ MouseGesturesSettingsDialog::MouseGesturesSettingsDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::MouseGesturesSettingsDialog)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
     if (QApplication::isRightToLeft()) {

@@ -30,6 +30,7 @@ AKN_Settings::AKN_Settings(AKN_Handler* handler, QWidget* parent)
     , m_handler(handler)
     , m_settingsFile(handler->settingsFile())
 {
+    setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
     QSettings settings(m_settingsFile, QSettings::IniFormat);
