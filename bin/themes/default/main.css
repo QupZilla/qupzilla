@@ -6,7 +6,7 @@
 
 *[html-link-look="true"]
 {
-    color: blue;
+    color: palette(link);
     text-decoration: underline;
 }
 
