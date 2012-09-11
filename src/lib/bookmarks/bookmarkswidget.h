@@ -44,11 +44,9 @@ public:
 signals:
     void bookmarkDeleted();
 
-public slots:
-
 private slots:
-    void removeBookmark();
-    void saveBookmark();
+    void on_saveRemove_clicked(bool);
+    void bookmarkEdited();
 
     void toggleSpeedDial();
 
@@ -63,6 +61,7 @@ private:
     WebView* m_view;
     BookmarksModel* m_bookmarksModel;
     SpeedDial* m_speedDial;
+    bool m_edited;
 };
 
 #endif // BOOKMARKSWIDGET_H
