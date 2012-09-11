@@ -2190,7 +2190,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="211"/>
         <source>Restore session</source>
-        <translation>Обнови сесију</translation>
+        <translation>обнови сесију</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="219"/>
