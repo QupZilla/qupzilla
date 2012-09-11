@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>210</width>
-    <height>128</height>
+    <height>135</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string/>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <spacer name="horizontalSpacer_2">
@@ -44,10 +44,10 @@
      </item>
     </layout>
    </item>
-   <item>
+   <item row="1" column="1">
     <widget class="QLineEdit" name="name"/>
    </item>
-   <item>
+   <item row="2" column="1">
     <widget class="QComboBox" name="folder">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -57,7 +57,7 @@
      </property>
     </widget>
    </item>
-   <item>
+   <item row="3" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <spacer name="horizontalSpacer">
@@ -86,6 +86,20 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Name:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Folder:</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
