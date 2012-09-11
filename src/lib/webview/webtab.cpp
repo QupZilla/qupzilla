@@ -322,7 +322,5 @@ void WebTab::disconnectObjects()
 
 WebTab::~WebTab()
 {
-    if (m_locationBar) {
-        delete m_locationBar.data();
-    }
+    delete m_locationBar.data();
 }

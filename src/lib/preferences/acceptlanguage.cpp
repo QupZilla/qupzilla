@@ -163,10 +163,7 @@ void AcceptLanguage::addLanguage()
 
 void AcceptLanguage::removeLanguage()
 {
-    QListWidgetItem* currentItem = ui->listWidget->currentItem();
-    if (currentItem) {
-        delete currentItem;
-    }
+    delete ui->listWidget->currentItem();
 }
 
 void AcceptLanguage::upLanguage()

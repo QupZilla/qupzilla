@@ -113,9 +113,7 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
 
     switch (finish) {
     case 0:  // Cancelled
-        if (m_timer) {
-            delete m_timer;
-        }
+        delete m_timer;
 
         m_reply->abort();
         m_reply->deleteLater();
@@ -144,9 +142,7 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
 
     default:
         qWarning() << "DownloadFileHelper::optionsDialogAccepted invalid return value!";
-        if (m_timer) {
-            delete m_timer;
-        }
+        delete m_timer;
 
         m_reply->abort();
         m_reply->deleteLater();
@@ -198,9 +194,7 @@ void DownloadFileHelper::fileNameChoosed(const QString &name, bool fileNameAutoG
         m_reply->abort();
         m_reply->deleteLater();
 
-        if (m_timer) {
-            delete m_timer;
-        }
+        delete m_timer;
         return;
     }
 

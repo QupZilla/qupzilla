@@ -290,7 +290,5 @@ void SiteInfo::securityDetailsClicked()
 SiteInfo::~SiteInfo()
 {
     delete ui;
-    if (m_certWidget) {
-        delete m_certWidget;
-    }
+    delete m_certWidget;
 }

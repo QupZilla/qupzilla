@@ -573,10 +573,8 @@ void Preferences::openSslManager()
 
 void Preferences::showAcceptLanguage()
 {
-    AcceptLanguage* a = new AcceptLanguage(this);
-    a->exec();
-
-    delete a;
+    AcceptLanguage a(this);
+    a.exec();
 }
 
 void Preferences::newTabChanged(int value)
@@ -936,7 +934,5 @@ Preferences::~Preferences()
     delete ui;
     delete m_autoFillManager;
     delete m_pluginsList;
-    if (m_notification) {
-        delete m_notification.data();
-    }
+    delete m_notification.data();
 }

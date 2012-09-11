@@ -65,12 +65,7 @@ void SSLManager::addPath()
 
 void SSLManager::deletePath()
 {
-    QListWidgetItem* currentItem = ui->pathList->currentItem();
-    if (!currentItem) {
-        return;
-    }
-
-    delete currentItem;
+    delete ui->pathList->currentItem();
 }
 
 void SSLManager::refreshCAList()

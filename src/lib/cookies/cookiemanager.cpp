@@ -225,12 +225,7 @@ void CookieManager::addWhitelist()
 
 void CookieManager::removeWhitelist()
 {
-    QListWidgetItem* current = ui->whiteList->currentItem();
-    if (!current) {
-        return;
-    }
-
-    delete current;
+    delete ui->whiteList->currentItem();
 }
 
 void CookieManager::addBlacklist()
@@ -245,12 +240,7 @@ void CookieManager::addBlacklist()
 
 void CookieManager::removeBlacklist()
 {
-    QListWidgetItem* current = ui->blackList->currentItem();
-    if (!current) {
-        return;
-    }
-
-    delete current;
+    delete ui->blackList->currentItem();
 }
 
 void CookieManager::deletePressed()
