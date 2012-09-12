@@ -18,6 +18,7 @@
 #include "siteinfowidget.h"
 #include "ui_siteinfowidget.h"
 #include "qupzilla.h"
+#include "mainapplication.h"
 #include "webpage.h"
 #include "tabbedwebview.h"
 
@@ -80,13 +81,13 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
     }
     connect(ui->pushButton, SIGNAL(clicked()), p_QupZilla, SLOT(showPageInfo()));
 
-#ifndef KDE
-    // Use light color for QLabels even with Ubuntu Ambiance theme
-    QPalette pal = palette();
-    pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::ToolTipText));
-    ui->historyLabel->setPalette(pal);
-    ui->secureLabel->setPalette(pal);
-#endif
+    if (mApp->currentStyle() == "gtk+" || mApp->currentStyle() == "bespin") {
+        // Use light color for QLabels with problematic styles
+        QPalette pal = palette();
+        pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::Inactive, QPalette::ToolTipText));
+        ui->historyLabel->setPalette(pal);
+        ui->secureLabel->setPalette(pal);
+    }
 }
 
 void SiteInfoWidget::showAt(QWidget* _parent)

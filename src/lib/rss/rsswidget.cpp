@@ -34,13 +34,6 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
 {
     ui->setupUi(this);
 
-#ifndef KDE
-    // Use light color for QLabels even with Ubuntu Ambiance theme
-    QPalette pal = palette();
-    pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::ToolTipText));
-    ui->label_2->setPalette(pal);
-#endif
-
     QWebFrame* frame = m_view->page()->mainFrame();
     QWebElementCollection links = frame->findAllElements("link[type=\"application/rss+xml\"]");
 
@@ -61,14 +54,19 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
         button->setToolTip(title);
         button->setProperty("rss-url", url);
         QLabel* label = new QLabel(this);
-#ifndef KDE
-        label->setPalette(pal);
-#endif
         label->setText(title);
 
         ui->gridLayout->addWidget(label, i, 0);
         ui->gridLayout->addWidget(button, i, 1);
         connect(button, SIGNAL(clicked()), this, SLOT(addRss()));
+
+        if (mApp->currentStyle() == "gtk+" || mApp->currentStyle() == "bespin") {
+            // Use light color for QLabels with problematic styles
+            QPalette pal = palette();
+            pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::ToolTipText));
+            ui->label_2->setPalette(pal);
+            label->setPalette(pal);
+        }
     }
 }
 

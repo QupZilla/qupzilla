@@ -53,6 +53,14 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
                                  tr("Remove from Speed Dial"));
 
     loadBookmark();
+
+    if (mApp->currentStyle() == "gtk+" || mApp->currentStyle() == "bespin") {
+        // Use light color for QLabels with problematic styles
+        QPalette pal = palette();
+        pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::ToolTipText));
+        ui->label->setPalette(pal);
+        ui->label_2->setPalette(pal);
+    }
 }
 
 void BookmarksWidget::loadBookmark()
