@@ -26,7 +26,6 @@
 RecoveryWidget::RecoveryWidget(WebView* view, QupZilla* mainClass)
     : QWidget()
     , ui(new Ui::RecoveryWidget)
-    , m_restoreManager(mApp->restoreManager())
     , m_view(view)
     , p_QupZilla(mainClass)
 {
@@ -34,7 +33,7 @@ RecoveryWidget::RecoveryWidget(WebView* view, QupZilla* mainClass)
 
     setCursor(Qt::ArrowCursor);
 
-    const RestoreData &data = m_restoreManager->restoreData();
+    const RestoreData &data = mApp->restoreManager()->restoreData();
 
     for (int i = 0; i < data.size(); ++i) {
         const RestoreManager::WindowData &wd = data.at(i);
@@ -75,7 +74,12 @@ void RecoveryWidget::onItemChanged(QTreeWidgetItem* item, int column)
 
 void RecoveryWidget::restoreSession()
 {
-    RestoreData data = m_restoreManager->restoreData();
+    RestoreManager* manager = mApp->restoreManager();
+    if (!manager) {
+        return;
+    }
+
+    RestoreData data = manager->restoreData();
 
     for (int win = ui->treeWidget->topLevelItemCount() - 1; win >= 0; --win) {
         QTreeWidgetItem* root = ui->treeWidget->topLevelItem(win);

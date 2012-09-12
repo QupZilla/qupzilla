@@ -30,7 +30,6 @@ class QTreeWidgetItem;
 
 class WebView;
 class QupZilla;
-class RestoreManager;
 
 class RecoveryWidget : public QWidget
 {
@@ -49,7 +48,6 @@ private slots:
 private:
     Ui::RecoveryWidget* ui;
 
-    RestoreManager* m_restoreManager;
     WebView* m_view;
     QupZilla* p_QupZilla;
 };
