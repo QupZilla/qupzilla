@@ -41,12 +41,12 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="194"/>
         <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Προηγούμενη καρτέλα&lt;/b&gt;&lt;br/&gt;Μετάβαση στην προηγούμενη καρτέλα</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="222"/>
         <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Επόμενη καρτέλα&lt;/b&gt;&lt;br/&gt;Μετάβαση στην επόμενη καρτέλα</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="159"/>
