@@ -217,12 +217,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="119"/>
         <source>Disable on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Απενεργοποίηση σε %1</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="125"/>
         <source>Disable only on this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Απενεργοποίηση σε αυτή τη σελίδα μόνο</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="135"/>
@@ -560,7 +560,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="234"/>
         <source>The file doesn&apos;t contain any bookmark.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το αρχειο δεν περιέχει κανένα σελιδοδεικτη.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="245"/>
@@ -917,7 +917,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="41"/>
         <source>Organize Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Οργάνωση σελιδοδεικτών</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="52"/>
@@ -1461,7 +1461,7 @@
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="323"/>
         <source>Remove</source>
-        <translation type="unfinished">Αφαίρεση</translation>
+        <translation>Αφαίρεση</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -1602,7 +1602,7 @@
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="128"/>
         <source>Download with External Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Λήψη με εξωτερικό διαχειριστή λήψεων</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="34"/>
@@ -1648,42 +1648,42 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="100"/>
         <source>No Error</source>
-        <translation type="unfinished">Κανένα σφάλμα</translation>
+        <translation>Κανένα σφάλμα</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="148"/>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Επάνω σε υψηλότερου επιπέδου κατάλογο</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="149"/>
         <source>Show hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση κρυφών αρχείων</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="150"/>
         <source>Name</source>
-        <translation type="unfinished">Ονομασία</translation>
+        <translation>Ονομασία</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="151"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Μέγεθος</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="152"/>
         <source>Last modified</source>
-        <translation type="unfinished"></translation>
+        <translation>Τελευταία επεξεργασία</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="157"/>
         <source>Index for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ευρετήριο για %1</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="202"/>
         <source>Folder is empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>Άδειος φάκελος.</translation>
     </message>
 </context>
 <context>
@@ -2135,22 +2135,22 @@
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="81"/>
         <source>Add site to whitelist</source>
-        <translation type="unfinished">Προσθήκη σελίδας στην whitelist</translation>
+        <translation>Προσθήκη σελίδας στην whitelist</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="81"/>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished">Διακομιστής χωρίς http:// (π.χ. youtube.com)</translation>
+        <translation>Διακομιστής χωρίς http:// (π.χ. youtube.com)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="257"/>
         <source>Error!</source>
-        <translation type="unfinished">Σφάλμα!</translation>
+        <translation>Σφάλμα!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="257"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished">Αδυναμία φόρτωσης επέκτασης!</translation>
+        <translation>Αδυναμία φόρτωσης επέκτασης!</translation>
     </message>
 </context>
 <context>
@@ -2485,17 +2485,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="594"/>
         <source>Show web search bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση μπάρας αναζήτησης</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="613"/>
         <source>Tabs behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Συμπεριφορά καρτελών</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="666"/>
         <source>Show close button on tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση κουμπιού κλεισίματος στις καρτέλες</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="694"/>
@@ -2505,37 +2505,37 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="736"/>
         <source>Address Bar behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Συμπεριφορά μπάρας διευθύνσεων</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="744"/>
         <source>Suggest when typing into address bar:</source>
-        <translation type="unfinished"></translation>
+        <translation>Προτάσεις όταν πληκτρολογείτε στην μπάρα διευθύνσεων:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="758"/>
         <source>History and Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Ιστορικό και Σελιδοδεικτες</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="763"/>
         <source>History</source>
-        <translation type="unfinished">Ιστορικό</translation>
+        <translation>Ιστορικό</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="768"/>
         <source>Bookmarks</source>
-        <translation type="unfinished">Σελιδοδείκτες</translation>
+        <translation>Σελιδοδείκτες</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="773"/>
         <source>Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Τίποτα</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="799"/>
         <source>Show loading progress in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση προόδου φόρτωσης στην μπάρα διευθύνσεων</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="860"/>
@@ -2708,7 +2708,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1748"/>
         <source>Leave blank if unsure</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφήστε κενό αν δεν είστε σίγουροι</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1871"/>
@@ -2728,12 +2728,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2278"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Αλλαγή αναγνωριστικού περιηγητή&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2303"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαχειριστής πράκτορα χρήστη</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1539"/>
@@ -3067,12 +3067,12 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="83"/>
         <source>Save file as...</source>
-        <translation type="unfinished">Αποθήκευση αρχείου ως...</translation>
+        <translation>Αποθήκευση αρχείου ως...</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/globalfunctions.cpp" line="271"/>
         <source>Unknown size</source>
-        <translation type="unfinished">Άγνωστο μέγεθος</translation>
+        <translation>Άγνωστο μέγεθος</translation>
     </message>
 </context>
 <context>
@@ -3771,7 +3771,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="275"/>
         <source>Are you sure to remove this speed dial?</source>
-        <translation type="unfinished"></translation>
+        <translation>Είστε σίγουροι οτι θέλετε να αφαιρέσετε αυτή τη γρήγορη κλήση;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="282"/>
@@ -3841,32 +3841,32 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
         <source>Center speed dials</source>
-        <translation type="unfinished"></translation>
+        <translation>Γρήγορες κλήσεις στο κέντρο</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
         <source>Restore Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Επαναφορά συνεδρίας</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
         <source>Oops, QupZilla crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ουπς, το QupZilla κατέρρευσε.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="327"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ζητάμε συγνώμη. Θα θέλατε να επαναφέρετε την ποιο πρόσφατα αποθηκευμένη κατάσταση;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="328"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσπαθήστε να αφαιρέσετε μία ή περισσότερες καρτέλες που νομίζετε ότι προκαλούν προβλήματα</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="329"/>
         <source>Or you can start completely new session</source>
-        <translation type="unfinished"></translation>
+        <translation>Ή μπορείτε να ξεκινήσετε μια εντελώς νέα συνεδρία</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
@@ -4176,17 +4176,17 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="34"/>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Επαναφορά</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="47"/>
         <source>Start New Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Έναρξη νέας συνεδρίας</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.cpp" line="43"/>
         <source>Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Παράθυρο %1</translation>
     </message>
 </context>
 <context>
@@ -5018,62 +5018,62 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="14"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαχειριστής πράκτορα χρήστη</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="20"/>
         <source>Change global User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>Αλλαγή καθολικού πράκτορα χρήστη</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="48"/>
         <source>Use different User Agents for specified sites</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρήση διαφορετικών πρακτόρων χρήστη για συγκεκριμένες σελίδες</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="86"/>
         <source>Site</source>
-        <translation type="unfinished"></translation>
+        <translation>Σελίδα</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="91"/>
         <source>User Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>Πράκτορας χρήστη</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="101"/>
         <source>Add</source>
-        <translation type="unfinished">Προσθήκη</translation>
+        <translation>Προσθήκη</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="108"/>
         <source>Remove</source>
-        <translation type="unfinished">Αφαίρεση</translation>
+        <translation>Αφαίρεση</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="128"/>
         <source>Edit</source>
-        <translation type="unfinished">Επεξεργασία</translation>
+        <translation>Επεξεργασία</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="83"/>
         <source>Add new site</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη νέας σελίδας</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="121"/>
         <source>Edit site</source>
-        <translation type="unfinished"></translation>
+        <translation>Επεξεργασια σελίδας</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="194"/>
         <source>Site domain: </source>
-        <translation type="unfinished"></translation>
+        <translation>Διεύθυνση σελίδας: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="195"/>
         <source>User Agent: </source>
-        <translation type="unfinished"></translation>
+        <translation>Πράκτορας χρήστη: </translation>
     </message>
 </context>
 <context>
@@ -5112,7 +5112,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/webview/webpage.cpp" line="473"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Για την εμφάνιση της σελίδας αυτής, το QupZilla πρέπει να στείλει μια αίτηση για να το ξανακάνει 
+(όπως στην αναζήτηση μιας αγοράς, η οποία έχει ήδη γίνει.)</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="475"/>
@@ -5217,7 +5218,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="758"/>
         <source>QupZilla can&apos;t load page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το QupZilla δεν μπορεί να φορτώσει την σελίδα.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="762"/>
@@ -5280,7 +5281,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="299"/>
         <source>Show suggestions</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση προτάσεων</translation>
     </message>
 </context>
 <context>
