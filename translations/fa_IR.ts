@@ -3189,7 +3189,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <source>Please enter URL of new feed:</source>
-        <translation>لطفا URL فید تازه را وارد کنید:</translation>
+        <translation>لطفا آدرس فید تازه را وارد کنید:</translation>
     </message>
     <message>
         <source>New feed</source>
@@ -3197,7 +3197,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <source>Fill title and URL of a feed: </source>
-        <translation>با سرنویس و URL یک فید پر کنید:</translation>
+        <translation>جای سرنویس و آدرس فید را پرکنید:</translation>
     </message>
     <message>
         <source>Feed title: </source>
@@ -3205,7 +3205,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <source>Feed URL: </source>
-        <translation>‏URL فید: </translation>
+        <translation>آدرس فید: </translation>
     </message>
     <message>
         <source>Edit RSS Feed</source>
@@ -3264,7 +3264,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <source>Internal Reader</source>
-        <translation>خواننده درونی</translation>
+        <translation>فیدخوان درونی</translation>
     </message>
     <message>
         <source>Other...</source>
@@ -3280,7 +3280,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
-        <translation>برای افزودن این فید آراس‌اس داخل دیگر نرم‌افزارها، لطفا این اطلاعات را به‌کار ببرید:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;سرنویس: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;آدرس Url این فید به روی کلیپ‌بورد رونگاشت‌برداری شده‌است.</translation>
+        <translation>برای افزودن این فید آراس‌اس داخل دیگر نرم‌افزارها، لطفا این اطلاعات را به‌کار ببرید:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;سرنویس: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;آدرس: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;آدرس این فید به روی کلیپ‌بورد رونگاشت‌برداری شده‌است.</translation>
     </message>
     <message>
         <source>Add feed into other application</source>
