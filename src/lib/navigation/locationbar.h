@@ -65,6 +65,7 @@ private slots:
     void showMostVisited();
     void showSiteInfo();
     void rssIconClicked();
+    void bookmarkIconClicked();
     void urlEnter();
     void clearIcon();
     void showRSSIcon(bool state);

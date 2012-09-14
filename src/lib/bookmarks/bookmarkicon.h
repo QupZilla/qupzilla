@@ -35,7 +35,6 @@ public:
     void checkBookmark(const QUrl &url, bool forceCheck = false);
 
 private slots:
-    void iconClicked();
     void bookmarkAdded(const BookmarksModel::Bookmark &bookmark);
     void bookmarkDeleted(const BookmarksModel::Bookmark &bookmark);
     void speedDialChanged();

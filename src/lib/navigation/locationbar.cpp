@@ -26,6 +26,7 @@
 #include "webpage.h"
 #include "tabwidget.h"
 #include "bookmarkicon.h"
+#include "bookmarkswidget.h"
 #include "progressbar.h"
 #include "statusbarmessage.h"
 #include "toolbutton.h"
@@ -83,6 +84,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
+    connect(m_bookmarkIcon, SIGNAL(clicked(QPoint)), this, SLOT(bookmarkIconClicked()));
     connect(down, SIGNAL(clicked(QPoint)), this, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
 
@@ -226,6 +228,12 @@ void LocationBar::rssIconClicked()
 {
     RSSWidget* rss = new RSSWidget(m_webView, this);
     rss->showAt(this);
+}
+
+void LocationBar::bookmarkIconClicked()
+{
+    BookmarksWidget* bWidget = new BookmarksWidget(p_QupZilla, m_webView, this);
+    bWidget->showAt(this);
 }
 
 void LocationBar::showRSSIcon(bool state)

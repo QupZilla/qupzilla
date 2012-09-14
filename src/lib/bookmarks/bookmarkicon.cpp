@@ -21,7 +21,6 @@
 #include "tabbedwebview.h"
 #include "locationbar.h"
 #include "bookmarksmodel.h"
-#include "bookmarkswidget.h"
 #include "pluginproxy.h"
 #include "speeddial.h"
 
@@ -40,16 +39,9 @@ BookmarkIcon::BookmarkIcon(QupZilla* mainClass, QWidget* parent)
     setFocusPolicy(Qt::ClickFocus);
 
     m_bookmarksModel = mApp->bookmarksModel();
-    connect(this, SIGNAL(clicked(QPoint)), this, SLOT(iconClicked()));
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(bookmarkAdded(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(bookmarkDeleted(BookmarksModel::Bookmark)));
     connect(m_speedDial, SIGNAL(pagesChanged()), this, SLOT(speedDialChanged()));
-}
-
-void BookmarkIcon::iconClicked()
-{
-    BookmarksWidget* menu = new BookmarksWidget(p_QupZilla, p_QupZilla->weView(), p_QupZilla->locationBar());
-    menu->showAt(this);
 }
 
 void BookmarkIcon::checkBookmark(const QUrl &url, bool forceCheck)
