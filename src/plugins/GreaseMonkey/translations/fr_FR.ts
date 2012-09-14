@@ -41,17 +41,17 @@
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="52"/>
         <source>&lt;p&gt;does not run at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Impossible d&apos;exécuter pour &lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="82"/>
         <source>Cannot install script</source>
-        <translation type="unfinished">Installation du script impossible</translation>
+        <translation>Installation du script impossible</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="85"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation type="unfinished">&apos;%1&apos; Installation réussie</translation>
+        <translation>&apos;%1&apos; Installation réussie</translation>
     </message>
 </context>
 <context>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../gm_downloader.cpp" line="144"/>
         <source>&apos;%1&apos; is already installed</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;%1&apos; est déjà installé</translation>
     </message>
 </context>
 <context>
@@ -75,7 +75,7 @@
     <message>
         <location filename="../gm_notification.ui" line="45"/>
         <source>This script can be installed with the GreaseMonkey plugin.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ce script peut être installé avec le plugin GreaseMonkey.</translation>
     </message>
     <message>
         <location filename="../gm_notification.ui" line="65"/>
@@ -85,12 +85,12 @@
     <message>
         <location filename="../gm_notification.cpp" line="49"/>
         <source>Cannot install script</source>
-        <translation type="unfinished">Installation du script impossible</translation>
+        <translation>Installation du script impossible</translation>
     </message>
     <message>
         <location filename="../gm_notification.cpp" line="57"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation type="unfinished">&apos;%1&apos; Installation réussie</translation>
+        <translation>&apos;%1&apos; Installation réussie</translation>
     </message>
 </context>
 <context>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="196"/>
         <source>Open scripts directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Parcourir un répertoire</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.cpp" line="68"/>
@@ -161,12 +161,12 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="69"/>
         <source>Runs at:</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser pour : </translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="79"/>
         <source>Does not run at:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne pas utiliser pour : </translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.cpp" line="27"/>
