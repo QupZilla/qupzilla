@@ -29,7 +29,7 @@
 #include <QTimer>
 
 BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* parent)
-    : QMenu(parent)
+    : LocationBarPopup(parent)
     , ui(new Ui::BookmarksWidget)
     , p_QupZilla(mainClass)
     , m_url(view->url())
@@ -39,7 +39,6 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
     , m_edited(false)
 {
     ui->setupUi(this);
-    setAttribute(Qt::WA_DeleteOnClose);
 
     // The locationbar's direction is direction of its text,
     // it dynamically changes and so, it's not good choice for this widget.
@@ -53,14 +52,6 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
                                  tr("Remove from Speed Dial"));
 
     loadBookmark();
-
-    if (mApp->currentStyle() == "gtk+" || mApp->currentStyle() == "bespin") {
-        // Use light color for QLabels with problematic styles
-        QPalette pal = palette();
-        pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::ToolTipText));
-        ui->label->setPalette(pal);
-        ui->label_2->setPalette(pal);
-    }
 }
 
 void BookmarksWidget::loadBookmark()
@@ -140,17 +131,6 @@ void BookmarksWidget::on_saveRemove_clicked(bool)
     QTimer::singleShot(hideDelay, this, SLOT(close()));
 }
 
-
-void BookmarksWidget::showAt(QWidget* _parent)
-{
-    layout()->invalidate();
-    layout()->activate();
-
-    QPoint p = _parent->mapToGlobal(QPoint(0, 0));
-    move((p.x() + _parent->width()) - width(), p.y() + _parent->height());
-
-    show();
-}
 BookmarksWidget::~BookmarksWidget()
 {
     delete ui;

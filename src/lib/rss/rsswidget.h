@@ -21,6 +21,7 @@
 #include <QMenu>
 
 #include "qz_namespace.h"
+#include "locationbarpopup.h"
 
 namespace Ui
 {
@@ -29,15 +30,13 @@ class RSSWidget;
 
 class WebView;
 
-class QT_QUPZILLA_EXPORT RSSWidget : public QMenu
+class QT_QUPZILLA_EXPORT RSSWidget : public LocationBarPopup
 {
     Q_OBJECT
 
 public:
     explicit RSSWidget(WebView* view, QWidget* parent = 0);
     ~RSSWidget();
-
-    void showAt(QWidget* _parent);
 
 private slots:
     void addRss();

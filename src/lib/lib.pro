@@ -53,6 +53,7 @@ SOURCES += \
     history/historymanager.cpp \
     navigation/websearchbar.cpp \
     navigation/locationbar.cpp \
+    navigation/locationbarpopup.cpp \
     network/networkmanagerproxy.cpp \
     network/networkmanager.cpp \
     other/updater.cpp \
