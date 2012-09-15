@@ -22,6 +22,7 @@
 #include <QMenu>
 
 #include "qz_namespace.h"
+#include "locationbarpopup.h"
 
 namespace Ui
 {
@@ -33,13 +34,12 @@ class SpeedDial;
 class BookmarksModel;
 class QupZilla;
 
-class QT_QUPZILLA_EXPORT BookmarksWidget : public QMenu
+class QT_QUPZILLA_EXPORT BookmarksWidget : public LocationBarPopup
 {
     Q_OBJECT
 public:
     explicit BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* parent = 0);
     ~BookmarksWidget();
-    void showAt(QWidget* _parent);
 
 signals:
     void bookmarkDeleted();
