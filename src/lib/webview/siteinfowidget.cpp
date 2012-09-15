@@ -26,12 +26,14 @@
 #include <QSqlQuery>
 
 SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
-    : QMenu(parent)
+    : LocationBarPopup(parent)
     , ui(new Ui::SiteInfoWidget)
     , p_QupZilla(mainClass)
 {
     this->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
+
+    setPopupAlignment(Qt::AlignLeft);
 
     WebView* view = p_QupZilla->weView();
     WebPage* webPage = view->page();
@@ -80,25 +82,6 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
         }
     }
     connect(ui->pushButton, SIGNAL(clicked()), p_QupZilla, SLOT(showPageInfo()));
-
-    if (mApp->currentStyle() == "gtk+" || mApp->currentStyle() == "bespin") {
-        // Use light color for QLabels with problematic styles
-        QPalette pal = palette();
-        pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::Inactive, QPalette::ToolTipText));
-        ui->historyLabel->setPalette(pal);
-        ui->secureLabel->setPalette(pal);
-    }
-}
-
-void SiteInfoWidget::showAt(QWidget* _parent)
-{
-    layout()->invalidate();
-    layout()->activate();
-
-    QPoint p = _parent->mapToGlobal(QPoint(0, 0));
-    move(p.x(), p.y() + _parent->height());
-
-    show();
 }
 
 SiteInfoWidget::~SiteInfoWidget()

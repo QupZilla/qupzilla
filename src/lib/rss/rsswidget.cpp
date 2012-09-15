@@ -28,7 +28,7 @@
 #include <QWebFrame>
 
 RSSWidget::RSSWidget(WebView* view, QWidget* parent)
-    : QMenu(parent)
+    : LocationBarPopup(parent)
     , ui(new Ui::RSSWidget)
     , m_view(view)
 {
@@ -59,31 +59,7 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
         ui->gridLayout->addWidget(label, i, 0);
         ui->gridLayout->addWidget(button, i, 1);
         connect(button, SIGNAL(clicked()), this, SLOT(addRss()));
-
-        if (mApp->currentStyle() == "gtk+" || mApp->currentStyle() == "bespin") {
-            // Use light color for QLabels with problematic styles
-            QPalette pal = palette();
-            pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::ToolTipText));
-            ui->label_2->setPalette(pal);
-            label->setPalette(pal);
-        }
     }
-}
-
-void RSSWidget::showAt(QWidget* _parent)
-{
-    layout()->invalidate();
-    layout()->activate();
-
-    const QPoint &widgetPos = _parent->mapToGlobal(QPoint(0, 0));
-
-    QPoint newPos;
-    newPos.setX(widgetPos.x() + _parent->width() - width());
-    newPos.setY(widgetPos.y() + _parent->height());
-
-    move(newPos);
-
-    show();
 }
 
 void RSSWidget::addRss()

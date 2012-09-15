@@ -21,6 +21,7 @@
 #include <QMenu>
 
 #include "qz_namespace.h"
+#include <locationbarpopup.h>
 
 namespace Ui
 {
@@ -29,14 +30,12 @@ class SiteInfoWidget;
 
 class QupZilla;
 
-class QT_QUPZILLA_EXPORT SiteInfoWidget : public QMenu
+class QT_QUPZILLA_EXPORT SiteInfoWidget : public LocationBarPopup
 {
     Q_OBJECT
 public:
     explicit SiteInfoWidget(QupZilla* mainClass, QWidget* parent = 0);
     ~SiteInfoWidget();
-
-    void showAt(QWidget* _parent);
 
 private:
     Ui::SiteInfoWidget* ui;
