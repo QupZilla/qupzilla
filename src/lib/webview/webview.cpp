@@ -1155,7 +1155,7 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
             return false;
         }
 
-        QEvent::Type type;
+        QEvent::Type type = QEvent::TouchUpdate;
         QTouchEvent::TouchPoint touchPoint;
         touchPoint.setId(0);
         touchPoint.setScreenPos(ev->globalPos());
