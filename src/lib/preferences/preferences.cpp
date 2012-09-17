@@ -117,9 +117,14 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     afterLaunchChanged(ui->afterLaunch->currentIndex());
     connect(ui->afterLaunch, SIGNAL(currentIndexChanged(int)), this, SLOT(afterLaunchChanged(int)));
     connect(ui->newTab, SIGNAL(currentIndexChanged(int)), this, SLOT(newTabChanged(int)));
-    connect(ui->useCurrentBut, SIGNAL(clicked()), this, SLOT(useActualHomepage()));
-    connect(ui->newTabUseCurrent, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
-
+    if (p_QupZilla) {
+        connect(ui->useCurrentBut, SIGNAL(clicked()), this, SLOT(useActualHomepage()));
+        connect(ui->newTabUseCurrent, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
+    }
+    else {
+        ui->useCurrentBut->setEnabled(false);
+        ui->newTabUseCurrent->setEnabled(false);
+    }
     //PROFILES
     m_actProfileName = mApp->currentProfilePath();
     m_actProfileName = m_actProfileName.left(m_actProfileName.length() - 1);
@@ -150,8 +155,14 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     m_themesManager = new ThemeManager(ui->themesWidget, this);
     settings.beginGroup("Browser-View-Settings");
     ui->showStatusbar->setChecked(settings.value("showStatusBar", true).toBool());
-    ui->showBookmarksToolbar->setChecked(p_QupZilla->bookmarksToolbar()->isVisible());
-    ui->showNavigationToolbar->setChecked(p_QupZilla->navigationBar()->isVisible());
+    if (p_QupZilla) {
+        ui->showBookmarksToolbar->setChecked(p_QupZilla->bookmarksToolbar()->isVisible());
+        ui->showNavigationToolbar->setChecked(p_QupZilla->navigationBar()->isVisible());
+    }
+    else {
+        ui->showBookmarksToolbar->setChecked(settings.value("showBookmarksToolbar", true).toBool());
+        ui->showNavigationToolbar->setChecked(settings.value("showNavigationToolbar", true).toBool());
+    }
     ui->showHome->setChecked(settings.value("showHomeButton", true).toBool());
     ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
     ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());
