@@ -118,4 +118,8 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 #define DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG true
 #endif
 
+#ifdef Q_OS_MAC
+#define MENUBAR_USE_STATIC_ACTIONS
+#endif
+
 #endif // QZ_NAMESPACE_H

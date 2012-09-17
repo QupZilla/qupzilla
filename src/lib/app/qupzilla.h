@@ -49,6 +49,7 @@ class NavigationBar;
 class ClickableLabel;
 class WebInspectorDockWidget;
 class LocationBar;
+class Action;
 
 class QT_QUPZILLA_EXPORT QupZilla : public QMainWindow
 {
@@ -96,13 +97,19 @@ public:
     inline ProgressBar* progressBar() { return m_progressBar; }
     inline QLabel* ipLabel() { return m_ipLabel; }
     inline AdBlockIcon* adBlockIcon() { return m_adblockIcon; }
-    inline QMenu* menuHelp() { return m_menuHelp; }
+    inline Menu* menuHelp() { return m_menuHelp; }
     inline QAction* actionRestoreTab() { return m_actionRestoreTab; }
-    inline QAction* actionReload() { return m_actionReload; }
+    inline Action* actionReload() { return m_actionReload; }
     inline QMenu* superMenu() { return m_superMenu; }
 
     inline bool isClosing() { return m_isClosing; }
     inline QUrl homepageUrl() { return m_homepage; }
+#ifdef MENUBAR_USE_STATIC_ACTIONS
+    void actionsConnectionManager(const QString &actionName, bool checked = false,
+                                  QObject* senderObject = 0, bool isNewWindow = false);
+    void menusConnectionManager(const QString &menuName, bool aboutToShow = true);
+    static void resetMenuActionsState();
+#endif
 
 signals:
     void startingCompleted();
@@ -114,9 +121,9 @@ public slots:
 
     void showWebInspector(bool toggle = true);
     void showBookmarksToolbar();
-    void loadActionUrl();
-    void loadActionUrlInNewTab();
-    void loadActionUrlInNewNotSelectedTab();
+    void loadActionUrl(QObject* senderObject = 0);
+    void loadActionUrlInNewTab(QObject* senderObject = 0);
+    void loadActionUrlInNewNotSelectedTab(QObject* senderObject = 0);
     void loadFolderBookmarks(Menu* menu);
 
     void bookmarkPage();
@@ -125,6 +132,12 @@ public slots:
     void printPage(QWebFrame* frame = 0);
     void showPageInfo();
     void receiveMessage(Qz::AppMessageType mes, bool state);
+
+    //static
+    static void openFile();
+    static void showBookmarkImport();
+    static void aboutQupZilla();
+    static void showPreferences();
 
 private slots:
     void postLaunch();
@@ -135,7 +148,6 @@ private slots:
     void stop();
     void reload();
     void reloadByPassCache();
-    void aboutQupZilla();
     void addTab();
     void savePageScreen();
 
@@ -162,15 +174,12 @@ private slots:
     void showClearPrivateData();
     void aboutToShowHistoryRecentMenu();
     void aboutToShowHistoryMostMenu();
-    void showPreferences();
-    void showBookmarkImport();
 
     void refreshHistory();
     void bookmarkAllTabs();
     void newWindow();
 
     void openLocation();
-    void openFile();
     void savePage();
     void sendLink();
     void webSearch();
@@ -203,6 +212,7 @@ private:
 
     void setupUi();
     void setupMenu();
+    void addMenusToMenuContainers();
 
     void disconnectObjects();
 
@@ -216,8 +226,14 @@ private:
     void moveToVirtualDesktop(int desktopId);
 #endif
 
+    static bool doConnect(const QObject *sender, const char *signal,
+                     const QObject *receiver, const char *member);
+    void initializeOtherActions();
+#ifdef MENUBAR_USE_STATIC_ACTIONS
+    void createMenuConnections();
+#endif
+
     bool m_historyMenuChanged;
-    bool m_bookmarksMenuChanged;
     bool m_isClosing;
     bool m_isStarting;
     QUrl m_startingUrl;
@@ -227,40 +243,90 @@ private:
     QVBoxLayout* m_mainLayout;
     QSplitter* m_mainSplitter;
     QMenu* m_superMenu;
-    QMenu* m_menuFile;
-    QMenu* m_menuEdit;
-    QMenu* m_menuTools;
-    QMenu* m_menuHelp;
-    QMenu* m_menuView;
+
+#ifndef MENUBAR_USE_STATIC_ACTIONS
+    Menu* m_menuFile;
+    Menu* m_menuEdit;
+    Menu* m_menuTools;
+    Menu* m_menuHelp;
+    Menu* m_menuView;
     Menu* m_menuBookmarks;
     Menu* m_menuHistory;
     QMenu* m_menuClosedTabs;
     Menu* m_menuHistoryRecent;
     Menu* m_menuHistoryMost;
     QMenu* m_menuEncoding;
-    QAction* m_menuBookmarksAction;
-#ifdef Q_OS_MAC
-    QMenuBar* m_macMenuBar;
-#endif
+    Menu* toolbarsMenu;
+    Menu* sidebarsMenu;
 
-    QAction* m_actionAbout;
-    QAction* m_actionPreferences;
-    QAction* m_actionQuit;
-
+    // we sure this is not mac
+    Action* m_actionShowMenubar;
+    // actions
+    Action* m_actionAbout;
+    Action* m_actionPreferences;
+    Action* m_actionQuit;
+    
     QAction* m_actionCloseWindow;
-    QAction* m_actionShowToolbar;
-    QAction* m_actionShowBookmarksToolbar;
-    QAction* m_actionShowStatusbar;
+    Action* m_actionShowToolbar;
+    Action* m_actionShowBookmarksToolbar;
+    Action* m_actionShowStatusbar;
+    
+    Action* m_actionShowFullScreen;
+    
+    Action* m_actionStop;
+    Action* m_actionReload;
+    Action* m_actionPrivateBrowsing;
+    
+    bool m_bookmarksMenuChanged;
+    QAction* m_menuBookmarksAction;
+#else
+    static bool m_menuBarCreated;
+
+    static Menu* m_menuFile;
+    static Menu* m_menuEdit;
+    static Menu* m_menuTools;
+    static Menu* m_menuHelp;
+    static Menu* m_menuView;
+    static Menu* m_menuBookmarks;
+    static Menu* m_menuHistory;
+    static QMenu* m_menuClosedTabs;
+    static Menu* m_menuHistoryRecent;
+    static Menu* m_menuHistoryMost;
+    static QMenu* m_menuEncoding;
+    static Menu* toolbarsMenu;
+    static Menu* sidebarsMenu;
+
+    // if another OS other than mac use static actions
 #ifndef Q_OS_MAC
-    QAction* m_actionShowMenubar;
+    static Action* m_actionShowMenubar;
 #endif
-    QAction* m_actionShowFullScreen;
+    //actions
+    static Action* m_actionAbout;
+    static Action* m_actionPreferences;
+    static Action* m_actionQuit;
+
+    static QAction* m_actionCloseWindow;
+    static Action* m_actionShowToolbar;
+    static Action* m_actionShowBookmarksToolbar;
+    static Action* m_actionShowStatusbar;
+
+    static Action* m_actionShowFullScreen;
+
+    static Action* m_actionStop;
+    static Action* m_actionReload;
+    static Action* m_actionPrivateBrowsing;
+    
+    static bool m_bookmarksMenuChanged;
+    static QAction* m_menuBookmarksAction;
+#endif
+
+#ifdef Q_OS_MAC
+    static QMenuBar* m_macMenuBar;
+#endif
+
     QAction* m_actionShowBookmarksSideBar;
     QAction* m_actionShowHistorySideBar;
     QAction* m_actionShowRssSideBar;
-    QAction* m_actionPrivateBrowsing;
-    QAction* m_actionStop;
-    QAction* m_actionReload;
     QAction* m_actionRestoreTab;
 
     QLabel* m_privateBrowsing;
