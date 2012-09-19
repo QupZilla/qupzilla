@@ -38,10 +38,12 @@
 #include "globalfunctions.h"
 #include "iconprovider.h"
 #include "qzsettings.h"
+#include "colors.h"
 
 #include <QClipboard>
 #include <QTimer>
 #include <QContextMenuEvent>
+#include <QDebug>
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit(mainClass)
@@ -584,7 +586,7 @@ void LocationBar::hideProgress()
 
 void LocationBar::paintEvent(QPaintEvent* event)
 {
-    if (hasFocus()) {
+    if (hasFocus() || text().isEmpty()) {
         LineEdit::paintEvent(event);
         return;
     }
@@ -614,11 +616,9 @@ void LocationBar::paintEvent(QPaintEvent* event)
     if (qzSettings->showLoadingProgress && m_progressVisible) {
         QColor bg = m_progressColor;
         if (!bg.isValid() || bg.alpha() == 0) {
-
-            bg = palette().color(QPalette::Base).darker(110);
-            if (!bg.isValid() || bg.alpha() == 0) {
-                bg = p_QupZilla->palette().color(QPalette::Base).darker(110);
-            }
+            bg = Colors::mid(palette().color(QPalette::Base),
+                             palette().color(QPalette::Text),
+                             10, 1);
         }
         p.setBrush(QBrush(bg));
 
@@ -658,5 +658,37 @@ void LocationBar::paintEvent(QPaintEvent* event)
     p.setPen(oldPen);
     QTextOption opt;
     opt.setWrapMode(QTextOption::NoWrap);
-    p.drawText(textRect, text(), opt);
+
+    const QString hostName = m_webView->url().host();
+    QString currentText = text();
+    QRect currentRect = textRect;
+    if (!hostName.isEmpty()) {
+        const int hostPos = currentText.indexOf(hostName);
+        if (hostPos > 0) {
+            QPen lightPen = oldPen;
+            QColor lightColor = Colors::mid(palette().color(QPalette::Base),
+                                            palette().color(QPalette::Text),
+                                            1, 1);
+            lightPen.setColor(lightColor);
+
+            p.setPen(lightPen);
+            currentText = text().mid(0, hostPos);
+            currentRect.setWidth(fm.width(currentText));
+            p.drawText(currentRect, currentText, opt);
+
+            p.setPen(oldPen);
+            currentRect.setX(currentRect.x() + currentRect.width());
+            const int hostWidth = fm.width(hostName);
+            currentRect.setWidth(hostWidth);
+            p.drawText(currentRect, hostName, opt);
+
+            p.setFont(font());
+            currentText = text().mid(hostPos + hostName.length());
+            currentRect.setX(currentRect.x() + hostWidth);
+            currentRect.setWidth(textRect.width() - currentRect.x() + textRect.x());
+            p.setPen(lightPen);
+        }
+    }
+
+    p.drawText(currentRect, currentText, opt);
 }

@@ -89,6 +89,7 @@ SOURCES += \
     preferences/sslmanager.cpp \
     tools/animatedwidget.cpp \
     tools/htmlhighlighter.cpp \
+    tools/colors.cpp \
     other/sourceviewersearch.cpp \
     adblock/adblocksubscription.cpp \
     adblock/adblockrule.cpp \
