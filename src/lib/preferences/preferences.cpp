@@ -49,6 +49,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include <QColorDialog>
 
 Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     : QDialog(parent)
@@ -185,7 +186,17 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->selectAllOnFocus->setChecked(settings.value("SelectAllTextOnDoubleClick", true).toBool());
     ui->selectAllOnClick->setChecked(settings.value("SelectAllTextOnClick", false).toBool());
     ui->addCountryWithAlt->setChecked(settings.value("AddCountryDomainWithAltKey", true).toBool());
-    ui->showLoadingInAddressBar->setChecked(settings.value("ShowLoadingProgress", false).toBool());
+    bool showPBinAB = settings.value("ShowLoadingProgress", false).toBool();
+    ui->showLoadingInAddressBar->setChecked(showPBinAB);
+    ui->adressProgressSettings->setEnabled(showPBinAB);
+    ui->progressStyleSelector->setCurrentIndex(settings.value("ProgressStyle", 0).toInt());
+    bool pbInABuseCC = settings.value("UseCustomProgressColor", false).toBool();
+    ui->checkBoxCustomProgressColor->setChecked(pbInABuseCC);
+    ui->progressBarColorSelector->setEnabled(pbInABuseCC);
+    QColor pbColor = settings.value("CustomProgressColor", p_QupZilla->palette().color(QPalette::Highlight)).value<QColor>();
+    setProgressBarColorIcon(pbColor);
+    connect(ui->customColorToolButton, SIGNAL(clicked(bool)), SLOT(selectCustomProgressBarColor()));
+    connect(ui->setProgressBarColorToHighlightButton, SIGNAL(clicked()), SLOT(setProgressBarColorIcon()));
     settings.endGroup();
 
     //BROWSING
@@ -870,6 +881,9 @@ void Preferences::saveSettings()
     settings.setValue("SelectAllTextOnClick", ui->selectAllOnClick->isChecked());
     settings.setValue("AddCountryDomainWithAltKey", ui->addCountryWithAlt->isChecked());
     settings.setValue("ShowLoadingProgress", ui->showLoadingInAddressBar->isChecked());
+    settings.setValue("ProgressStyle", ui->progressStyleSelector->currentIndex());
+    settings.setValue("UseCustomProgressColor", ui->checkBoxCustomProgressColor->isChecked());
+    settings.setValue("CustomProgressColor", ui->customColorToolButton->property("ProgressColor").value<QColor>());
     settings.endGroup();
 
     //Languages
@@ -935,4 +949,24 @@ Preferences::~Preferences()
     delete m_autoFillManager;
     delete m_pluginsList;
     delete m_notification.data();
+}
+
+void Preferences::setProgressBarColorIcon(QColor color)
+{
+    const int size = style()->pixelMetric(QStyle::PM_ToolBarIconSize);
+    QPixmap pm(QSize(size, size));
+    if (!color.isValid()) {
+        color = p_QupZilla->palette().color(QPalette::Highlight);
+    }
+    pm.fill(color);
+    ui->customColorToolButton->setIcon(pm);
+    ui->customColorToolButton->setProperty("ProgressColor", color);
+}
+
+void Preferences::selectCustomProgressBarColor()
+{
+    QColor newColor = QColorDialog::getColor(ui->customColorToolButton->property("ProgressColor").value<QColor>(), this, tr("Select Color"));
+    if (newColor.isValid()) {
+        setProgressBarColorIcon(newColor);
+    }
 }

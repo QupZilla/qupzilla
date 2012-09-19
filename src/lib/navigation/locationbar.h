@@ -74,11 +74,20 @@ private slots:
     void updatePlaceHolderText();
     void showCompletion(const QString &newText);
 
+    void onLoadStarted();
     void onLoadProgress(int progress);
     void onLoadFinished();
     void hideProgress();
 
+    void onMessage(Qz::AppMessageType, bool);
+
 private:
+    enum ProgressStyle {
+        ProgressFilled,
+        ProgressBottom,
+        ProgressTop
+    };
+
     void contextMenuEvent(QContextMenuEvent* event);
     void focusInEvent(QFocusEvent* event);
     void focusOutEvent(QFocusEvent* event);
@@ -93,6 +102,8 @@ private:
 
     void showGoButton();
     void hideGoButton();
+
+    void loadSettings();
 
     LocationCompleter m_completer;
 
@@ -112,7 +123,9 @@ private:
     bool m_holdingAlt;
 
     int m_loadProgress;
-    bool m_loadFinished;
+    bool m_progressVisible;
+    ProgressStyle m_progressStyle;
+    QColor m_progressColor;
 };
 
 #endif // LOCATIONBAR_H

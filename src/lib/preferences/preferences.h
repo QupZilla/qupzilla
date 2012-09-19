@@ -83,6 +83,9 @@ private slots:
     void deleteProfile();
     void startProfileIndexChanged(QString index);
 
+    void setProgressBarColorIcon(QColor col = QColor());
+    void selectCustomProgressBarColor();
+
     void setNotificationPreviewVisible(bool state);
 
 private:
