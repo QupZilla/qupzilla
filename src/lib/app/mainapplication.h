@@ -49,6 +49,9 @@ class SearchEnginesManager;
 class DatabaseWriter;
 class UserAgentManager;
 class ProxyStyle;
+#ifdef MENUBAR_USE_STATIC_ACTIONS
+class Menu;
+#endif
 
 class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -131,6 +134,13 @@ private slots:
     void restoreCursor();
 
     void saveSettings();
+
+#ifdef MENUBAR_USE_STATIC_ACTIONS
+    void actionsConnectionManager(bool checked = false);
+    void menusManageAboutToShow();
+    void menusManageAboutToHide();
+    void manageMiddleClicks(Menu* menu = 0);
+#endif
 
 private:
     enum PostLaunchAction { OpenDownloadManager, OpenNewTab };

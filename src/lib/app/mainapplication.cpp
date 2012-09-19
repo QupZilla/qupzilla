@@ -671,6 +671,139 @@ void MainApplication::saveSettings()
     Settings::syncSettings();
 }
 
+#ifdef MENUBAR_USE_STATIC_ACTIONS
+void MainApplication::actionsConnectionManager(bool checked)
+{
+    // sender() return 0 if we disconnect it from recevier
+    QObject *senderObject = sender();
+    if (!senderObject || senderObject->objectName().isEmpty()) {
+        return;
+    }
+
+    disconnect(senderObject, SIGNAL(triggered(bool)), this, SLOT(actionsConnectionManager(bool)));
+
+    QupZilla* qupzillaWindow = getWindow();
+    QString actionName = senderObject->objectName();
+    bool makeFirstWindow = false;
+
+    if (actionName == QLatin1String("act-window-new")) {
+        makeNewWindow(Qz::BW_NewWindow);
+    }
+    else if (actionName == QLatin1String("act-new-tab") ||
+             actionName == QLatin1String("act-go-home") ||
+             actionName == QLatin1String("act-document-open-remote") ||
+             actionName == QLatin1String("act-info-about-app") ||
+             actionName == QLatin1String("act-configuration-information") ||
+             actionName == QLatin1String("act-report-issue") ||
+             actionName.startsWith(QLatin1String("act-bookmark-item-in")) ||
+             actionName.startsWith(QLatin1String("act-history-item-in"))) {
+        makeFirstWindow = true;
+    }
+    else if (actionName == QLatin1String("act-document-open")) {
+        QupZilla::openFile();
+    }
+    else if (actionName == QLatin1String("act-about-qupZilla")) {
+        QupZilla::aboutQupZilla();
+    }
+    else if (actionName == QLatin1String("act-application-exit")) {
+        if (!qupzillaWindow) {
+            quitApplication();
+        }
+    }
+    else if (actionName == QLatin1String("act-about-qt")) {
+        aboutQt();
+    }
+    else if (actionName == QLatin1String("act-import-bookmarks")) {
+        QupZilla::showBookmarkImport();
+    }
+    else if (actionName == QLatin1String("act-private-browsing")) {
+        startPrivateBrowsing();
+    }
+
+    bool isNewWindow = false;
+    if (makeFirstWindow && !qupzillaWindow) {
+        qupzillaWindow = makeNewWindow(Qz::BW_FirstAppWindow);
+        // this gives time to call QupZilla::postLaunch()
+        QApplication::processEvents();
+        isNewWindow = true;
+    }
+
+    if (qupzillaWindow) {
+        qupzillaWindow->actionsConnectionManager(actionName, checked, senderObject, isNewWindow);
+    }
+
+    connect(senderObject, SIGNAL(triggered(bool)), this, SLOT(actionsConnectionManager(bool)));
+}
+
+void MainApplication::menusManageAboutToShow()
+{
+    // sender() return 0 if we disconnect it from recevier
+    QObject *senderObject = sender();
+    if (!senderObject || senderObject->objectName().isEmpty()) {
+        return;
+    }
+
+    QString menuName = senderObject->objectName();
+    disconnect(senderObject, SIGNAL(aboutToShow()), this, SLOT(menusManageAboutToShow()));
+    if (windowCount() > 0) {
+        getWindow()->menusConnectionManager(menuName, true);
+    }
+    connect(senderObject, SIGNAL(aboutToShow()), this, SLOT(menusManageAboutToShow()));
+}
+
+void MainApplication::menusManageAboutToHide()
+{
+    // sender() return 0 if we disconnect it from recevier
+    QObject *senderObject = sender();
+    if (!senderObject || senderObject->objectName().isEmpty()) {
+        return;
+    }
+
+    QString menuName = senderObject->objectName();
+    disconnect(senderObject, SIGNAL(aboutToHide()), this, SLOT(menusManageAboutToHide()));
+    if (windowCount() > 0) {
+        getWindow()->menusConnectionManager(menuName, false);
+    }
+    connect(senderObject, SIGNAL(aboutToHide()), this, SLOT(menusManageAboutToHide()));
+}
+
+void MainApplication::manageMiddleClicks(Menu* menu)
+{
+    QObject *senderObject = sender();
+    if (!senderObject) {
+        return;
+    }
+
+    QupZilla* qupzillaWindow = getWindow();
+    bool isNewWindow = false;
+    if (!qupzillaWindow) {
+        isNewWindow = true;
+        qupzillaWindow = makeNewWindow(Qz::BW_FirstAppWindow);
+        // this gives time to call QupZilla::postLaunch()
+        QApplication::processEvents();
+    }
+
+    // middle-clicked on a bookmark or history item and not a bookmark folder
+    if (senderObject->objectName().startsWith(QLatin1String("act-bookmark-item-in")) ||
+            senderObject->objectName().startsWith(QLatin1String("act-history-item-in"))) {
+        disconnect(senderObject, SIGNAL(middleClicked()), this, SLOT(manageMiddleClicks()));
+        if (isNewWindow) {
+            qupzillaWindow->loadActionUrl(senderObject);
+        }
+        else {
+            qupzillaWindow->loadActionUrlInNewNotSelectedTab(senderObject);
+        }
+        connect(senderObject, SIGNAL(middleClicked()), this, SLOT(manageMiddleClicks()));
+        return;
+    }
+
+    // middle-clicked on a bookmark folder
+    disconnect(senderObject, SIGNAL(menuMiddleClicked(QString)), this, SLOT(manageMiddleClicks(QString)));
+    qupzillaWindow->loadFolderBookmarks(menu);
+    connect(senderObject, SIGNAL(menuMiddleClicked(QString)), this, SLOT(manageMiddleClicks(QString)));
+}
+#endif
+
 BrowsingLibrary* MainApplication::browsingLibrary()
 {
     if (!m_browsingLibrary) {

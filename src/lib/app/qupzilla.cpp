@@ -94,19 +94,62 @@ const QString QupZilla::WWWADDRESS = "http://www.qupzilla.com";
 const QString QupZilla::WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
+#ifdef Q_OS_MAC
+    QMenuBar* QupZilla::m_macMenuBar = 0;
+#endif
+
+#ifdef MENUBAR_USE_STATIC_ACTIONS
+    bool QupZilla::m_menuBarCreated = false;
+
+    Menu* QupZilla::m_menuFile = 0;
+    Menu* QupZilla::m_menuEdit = 0;
+    Menu* QupZilla::m_menuTools = 0;
+    Menu* QupZilla::m_menuHelp = 0;
+    Menu* QupZilla::m_menuView = 0;
+    Menu* QupZilla::m_menuBookmarks = 0;
+    Menu* QupZilla::m_menuHistory = 0;
+    QMenu* QupZilla::m_menuClosedTabs = 0;
+    Menu* QupZilla::m_menuHistoryRecent = 0;
+    Menu* QupZilla::m_menuHistoryMost = 0;
+    QMenu* QupZilla::m_menuEncoding = 0;
+    Menu* QupZilla::toolbarsMenu = 0;
+    Menu* QupZilla::sidebarsMenu = 0;
+
+#ifndef Q_OS_MAC
+    Action* QupZilla::m_actionShowMenubar = 0;
+#endif
+    Action* QupZilla::m_actionAbout = 0;
+    Action* QupZilla::m_actionPreferences = 0;
+    Action* QupZilla::m_actionQuit = 0;
+    
+    QAction* QupZilla::m_actionCloseWindow = 0;
+    
+    Action* QupZilla::m_actionShowToolbar = 0;
+    Action* QupZilla::m_actionShowBookmarksToolbar = 0;
+    Action* QupZilla::m_actionShowStatusbar = 0;
+    
+    Action* QupZilla::m_actionShowFullScreen = 0;
+    
+    Action* QupZilla::m_actionStop = 0;
+    Action* QupZilla::m_actionReload = 0;
+    Action* QupZilla::m_actionPrivateBrowsing = 0;
+
+    bool QupZilla::m_bookmarksMenuChanged = true;
+    QAction* QupZilla::m_menuBookmarksAction = 0;
+#endif
+
 QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     : QMainWindow(0)
     , m_historyMenuChanged(true)
-    , m_bookmarksMenuChanged(true)
     , m_isClosing(false)
     , m_isStarting(false)
     , m_startingUrl(startUrl)
     , m_startBehaviour(type)
+#ifndef MENUBAR_USE_STATIC_ACTIONS
+    , m_bookmarksMenuChanged(true)
     , m_menuBookmarksAction(0)
-#ifdef Q_OS_MAC
-    , m_macMenuBar(new QMenuBar())
-#endif
     , m_actionPrivateBrowsing(0)
+#endif
     , m_sideBarManager(new SideBarManager(this))
     , m_statusBarMessage(new StatusBarMessage(this))
     , m_usingTransparentBackground(false)
@@ -114,6 +157,12 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("QupZilla"));
+
+#ifdef Q_OS_MAC
+    if (!m_macMenuBar) {
+        m_macMenuBar = new QMenuBar();
+    }
+#endif
 
     if (mApp->isPrivateSession()) {
         setProperty("private", QVariant(true));
@@ -215,6 +264,13 @@ void QupZilla::postLaunch()
 
     aboutToHideEditMenu();
 
+#ifdef Q_OS_MAC
+    // fill menus even if user don't call them
+    aboutToShowBookmarksMenu();
+    aboutToShowHistoryMostMenu();
+    aboutToShowHistoryRecentMenu();
+#endif
+
     mApp->plugins()->emitMainWindowCreated(this);
     emit startingCompleted();
 
@@ -296,108 +352,128 @@ void QupZilla::setupUi()
 
 void QupZilla::setupMenu()
 {
-    // Standard actions - needed on Mac to be placed correctly in "application" menu
-    m_actionAbout = new QAction(QIcon(":/icons/qupzilla.png"), tr("&About QupZilla"), 0);
-    m_actionAbout->setMenuRole(QAction::AboutRole);
-    connect(m_actionAbout, SIGNAL(triggered()), this, SLOT(aboutQupZilla()));
+    StaticActionManager::setGlobalReciver(mApp, SLOT(actionsConnectionManager(bool)));
 
-    m_actionPreferences = new QAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), 0);
+    // Standard actions - needed on Mac to be placed correctly in "application" menu
+    m_actionAbout = StaticActionManager::actionInstance("act-about-qupZilla", tr("&About QupZilla"), QIcon(":/icons/qupzilla.png"), true);
+    m_actionAbout->setMenuRole(QAction::AboutRole);
+    doConnect(m_actionAbout, SIGNAL(triggered()), this, SLOT(aboutQupZilla()));
+
+    m_actionPreferences = StaticActionManager::actionInstance("act-preferences", tr("Pr&eferences"), QIcon(":/icons/faenza/settings.png"), false);
     m_actionPreferences->setMenuRole(QAction::PreferencesRole);
     m_actionPreferences->setShortcut(QKeySequence(QKeySequence::Preferences));
-    connect(m_actionPreferences, SIGNAL(triggered()), this, SLOT(showPreferences()));
+    doConnect(m_actionPreferences, SIGNAL(triggered()), this, SLOT(showPreferences()));
 
-    m_actionQuit = new QAction(QIcon::fromTheme("application-exit"), tr("Quit"), 0);
+    m_actionQuit = StaticActionManager::actionInstance("act-application-exit", tr("Quit"), QIcon::fromTheme("application-exit"), true);
     m_actionQuit->setMenuRole(QAction::QuitRole);
     m_actionQuit->setShortcut(QKeySequence(QKeySequence::Quit));
-    connect(m_actionQuit, SIGNAL(triggered()), this, SLOT(quitApp()));
+    doConnect(m_actionQuit, SIGNAL(triggered()), this, SLOT(quitApp()));
+
+#ifdef MENUBAR_USE_STATIC_ACTIONS
+   if (QupZilla::m_menuBarCreated) {
+       if (mApp->windowCount() == 0) {
+           StaticActionManager::enableStaticActions(true);
+       }
+#ifndef Q_OS_MAC
+       addMenusToMenuContainers();
+#endif
+       initializeOtherActions();
+       return;
+   }
+   QupZilla::m_menuBarCreated = true;
+#endif
 
     /*************
      * File Menu *
      *************/
-    m_menuFile = new QMenu(tr("&File"));
-    m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("&New Window"), this, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
-    m_menuFile->addAction(QIcon(":/icons/menu/popup.png"), tr("New Tab"), this, SLOT(addTab()))->setShortcut(QKeySequence("Ctrl+T"));
-    m_menuFile->addAction(QIcon::fromTheme("document-open-remote"), tr("Open Location"), this, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
-    m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File"), this, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
-    m_menuFile->addAction(tr("Close Tab"), m_tabWidget, SLOT(closeTab()))->setShortcut(QKeySequence("Ctrl+W"));
-    m_actionCloseWindow = m_menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close Window"), this, SLOT(closeWindow()));
+    m_menuFile = new Menu(tr("&File"), false);
+    m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("&New Window"), this, SLOT(newWindow()), "act-window-new", true)->setShortcut(QKeySequence("Ctrl+N"));
+    m_menuFile->addAction(QIcon(":/icons/menu/popup.png"), tr("New Tab"), this, SLOT(addTab()), "act-new-tab", true)->setShortcut(QKeySequence("Ctrl+T"));
+    m_menuFile->addAction(QIcon::fromTheme("document-open-remote"), tr("Open Location"), this, SLOT(openLocation()), "act-document-open-remote", true)->setShortcut(QKeySequence("Ctrl+L"));
+    m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File"), this, SLOT(openFile()), "act-document-open", true)->setShortcut(QKeySequence("Ctrl+O"));
+    m_menuFile->addAction(tr("Close Tab"), m_tabWidget, SLOT(closeTab()), "act-close-tab")->setShortcut(QKeySequence("Ctrl+W"));
+    m_actionCloseWindow = m_menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close Window"), this, SLOT(closeWindow()), "act-window-close");
     m_actionCloseWindow->setShortcut(QKeySequence("Ctrl+Shift+W"));
     m_menuFile->addSeparator();
-    m_menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), this, SLOT(savePage()))->setShortcut(QKeySequence("Ctrl+S"));
-    m_menuFile->addAction(tr("Save Page Screen"), this, SLOT(savePageScreen()));
-    m_menuFile->addAction(QIcon::fromTheme("mail-message-new"), tr("Send Link..."), this, SLOT(sendLink()));
-    m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print..."), this, SLOT(printPage()))->setShortcut(QKeySequence("Ctrl+P"));
+    m_menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), this, SLOT(savePage()), "act-document-save")->setShortcut(QKeySequence("Ctrl+S"));
+    m_menuFile->addAction(tr("Save Page Screen"), this, SLOT(savePageScreen()), "act-save-page-screen");
+    m_menuFile->addAction(QIcon::fromTheme("mail-message-new"), tr("Send Link..."), this, SLOT(sendLink()), "act-mail-message-new");
+    m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print..."), this, SLOT(printPage()), "act-document-print")->setShortcut(QKeySequence("Ctrl+P"));
     m_menuFile->addSeparator();
     m_menuFile->addSeparator();
-    m_menuFile->addAction(tr("Import bookmarks..."), this, SLOT(showBookmarkImport()));
+    m_menuFile->addAction(tr("Import bookmarks..."), this, SLOT(showBookmarkImport()), "act-import-bookmarks", true);
     m_menuFile->addAction(m_actionQuit);
 #ifdef Q_OS_MAC // Add standard actions to File Menu (as it won't be ever cleared) and Mac menubar should move them to "application" menu
     m_menuFile->addAction(m_actionAbout);
     m_menuFile->addAction(m_actionPreferences);
 #endif
-    connect(m_menuFile, SIGNAL(aboutToShow()), this, SLOT(aboutToShowFileMenu()));
-    connect(m_menuFile, SIGNAL(aboutToHide()), this, SLOT(aboutToHideFileMenu()));
+    doConnect(m_menuFile, SIGNAL(aboutToShow()), this, SLOT(aboutToShowFileMenu()));
+    doConnect(m_menuFile, SIGNAL(aboutToHide()), this, SLOT(aboutToHideFileMenu()));
 
     /*************
      * Edit Menu *
      *************/
-    m_menuEdit = new QMenu(tr("&Edit"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("&Undo"), this, SLOT(editUndo()))->setShortcut(QKeySequence("Ctrl+Z"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-redo"), tr("&Redo"), this, SLOT(editRedo()))->setShortcut(QKeySequence("Ctrl+Shift+Z"));
+    m_menuEdit = new Menu(tr("&Edit"), false);
+    m_menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("&Undo"), this, SLOT(editUndo()), "act-edit-undo")->setShortcut(QKeySequence("Ctrl+Z"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-redo"), tr("&Redo"), this, SLOT(editRedo()), "act-edit-redo")->setShortcut(QKeySequence("Ctrl+Shift+Z"));
     m_menuEdit->addSeparator();
-    m_menuEdit->addAction(QIcon::fromTheme("edit-cut"), tr("&Cut"), this, SLOT(editCut()))->setShortcut(QKeySequence("Ctrl+X"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-copy"), tr("C&opy"), this, SLOT(editCopy()))->setShortcut(QKeySequence("Ctrl+C"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-paste"), tr("&Paste"), this, SLOT(editPaste()))->setShortcut(QKeySequence("Ctrl+V"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-cut"), tr("&Cut"), this, SLOT(editCut()), "act-edit-cut")->setShortcut(QKeySequence("Ctrl+X"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-copy"), tr("C&opy"), this, SLOT(editCopy()), "act-edit-copy")->setShortcut(QKeySequence("Ctrl+C"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-paste"), tr("&Paste"), this, SLOT(editPaste()), "act-edit-paste")->setShortcut(QKeySequence("Ctrl+V"));
     m_menuEdit->addSeparator();
-    m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &All"), this, SLOT(editSelectAll()))->setShortcut(QKeySequence("Ctrl+A"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &All"), this, SLOT(editSelectAll()), "act-edit-select-all")->setShortcut(QKeySequence("Ctrl+A"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), this, SLOT(searchOnPage()), "act-edit-find")->setShortcut(QKeySequence("Ctrl+F"));
     m_menuEdit->addSeparator();
 #ifdef Q_WS_X11
     m_menuEdit->addAction(m_actionPreferences);
 #endif
-    connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEditMenu()));
-    connect(m_menuEdit, SIGNAL(aboutToHide()), this, SLOT(aboutToHideEditMenu()));
+    doConnect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEditMenu()));
+    doConnect(m_menuEdit, SIGNAL(aboutToHide()), this, SLOT(aboutToHideEditMenu()));
 
     /*************
      * View Menu *
      *************/
-    m_menuView = new QMenu(tr("&View"));
-    m_actionShowToolbar = new QAction(tr("&Navigation Toolbar"), this);
+    m_menuView = new Menu(tr("&View"), false);
+    m_actionShowToolbar = StaticActionManager::actionInstance("act-navigation-toolbar", tr("&Navigation Toolbar"), QIcon(), false, this);
     m_actionShowToolbar->setCheckable(true);
-    connect(m_actionShowToolbar, SIGNAL(triggered(bool)), this, SLOT(showNavigationToolbar()));
-    m_actionShowBookmarksToolbar = new QAction(tr("&Bookmarks Toolbar"), this);
+    doConnect(m_actionShowToolbar, SIGNAL(triggered(bool)), this, SLOT(showNavigationToolbar()));
+    m_actionShowBookmarksToolbar = StaticActionManager::actionInstance("act-bookmarks-toolbar", tr("&Bookmarks Toolbar"), QIcon(), false, this);
     m_actionShowBookmarksToolbar->setCheckable(true);
-    connect(m_actionShowBookmarksToolbar, SIGNAL(triggered(bool)), this, SLOT(showBookmarksToolbar()));
-    m_actionShowStatusbar = new QAction(tr("Sta&tus Bar"), this);
+    doConnect(m_actionShowBookmarksToolbar, SIGNAL(triggered(bool)), this, SLOT(showBookmarksToolbar()));
+    m_actionShowStatusbar = StaticActionManager::actionInstance("act-status-bar", tr("Sta&tus Bar"), QIcon(), false, this);
     m_actionShowStatusbar->setCheckable(true);
-    connect(m_actionShowStatusbar, SIGNAL(triggered(bool)), this, SLOT(showStatusbar()));
+    doConnect(m_actionShowStatusbar, SIGNAL(triggered(bool)), this, SLOT(showStatusbar()));
 #ifndef Q_OS_MAC
-    m_actionShowMenubar = new QAction(tr("&Menu Bar"), this);
+    m_actionShowMenubar = StaticActionManager::actionInstance("act-menu-bar", tr("&Menu Bar"), QIcon(), false, this);
     m_actionShowMenubar->setCheckable(true);
-    connect(m_actionShowMenubar, SIGNAL(triggered(bool)), this, SLOT(showMenubar()));
+    doConnect(m_actionShowMenubar, SIGNAL(triggered(bool)), this, SLOT(showMenubar()));
 #endif
-    m_actionShowFullScreen = new QAction(tr("&Fullscreen"), this);
+    m_actionShowFullScreen = StaticActionManager::actionInstance("act-fullscreen", tr("&Fullscreen"), QIcon(), false, this);
     m_actionShowFullScreen->setCheckable(true);
     m_actionShowFullScreen->setShortcut(QKeySequence("F11"));
-    connect(m_actionShowFullScreen, SIGNAL(triggered(bool)), this, SLOT(fullScreen(bool)));
-    m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), this);
-    connect(m_actionStop, SIGNAL(triggered()), this, SLOT(stop()));
+    doConnect(m_actionShowFullScreen, SIGNAL(triggered(bool)), this, SLOT(fullScreen(bool)));
+    m_actionStop = StaticActionManager::actionInstance("act-stop", tr("&Stop"), qIconProvider->standardIcon(QStyle::SP_BrowserStop), false, this);
+    doConnect(m_actionStop, SIGNAL(triggered()), this, SLOT(stop()));
     m_actionStop->setShortcut(QKeySequence("Esc"));
-    m_actionReload = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
-    connect(m_actionReload, SIGNAL(triggered()), this, SLOT(reload()));
+    m_actionReload = StaticActionManager::actionInstance("act-reload", tr("&Reload"), qIconProvider->standardIcon(QStyle::SP_BrowserReload), false, this);
+    doConnect(m_actionReload, SIGNAL(triggered()), this, SLOT(reload()));
     m_actionReload->setShortcut(QKeySequence("F5"));
-    QAction* actionEncoding = new QAction(tr("Character &Encoding"), this);
+    Action* actionEncoding = StaticActionManager::actionInstance("act-character-encoding", tr("Character &Encoding"), QIcon(), false, this);
+#ifdef MENUBAR_USE_STATIC_ACTIONS
+    m_menuEncoding = new QMenu();
+#else
     m_menuEncoding = new QMenu(this);
+#endif
     actionEncoding->setMenu(m_menuEncoding);
-    connect(m_menuEncoding, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
+    doConnect(m_menuEncoding, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
 
-    QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
+    toolbarsMenu = new Menu(tr("Toolbars"), false);
 #ifndef Q_OS_MAC
     toolbarsMenu->addAction(m_actionShowMenubar);
 #endif
     toolbarsMenu->addAction(m_actionShowToolbar);
     toolbarsMenu->addAction(m_actionShowBookmarksToolbar);
-    QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
+    sidebarsMenu = new Menu(tr("Sidebars"), false);
     m_sideBarManager->setSideBarMenu(sidebarsMenu);
 
     m_menuView->addMenu(toolbarsMenu);
@@ -407,36 +483,36 @@ void QupZilla::setupMenu()
     m_menuView->addAction(m_actionStop);
     m_menuView->addAction(m_actionReload);
     m_menuView->addSeparator();
-    m_menuView->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &In"), this, SLOT(zoomIn()))->setShortcut(QKeySequence("Ctrl++"));
-    m_menuView->addAction(QIcon::fromTheme("zoom-out"), tr("Zoom &Out"), this, SLOT(zoomOut()))->setShortcut(QKeySequence("Ctrl+-"));
-    m_menuView->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(zoomReset()))->setShortcut(QKeySequence("Ctrl+0"));
+    m_menuView->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &In"), this, SLOT(zoomIn()), "act-zoom-in")->setShortcut(QKeySequence("Ctrl++"));
+    m_menuView->addAction(QIcon::fromTheme("zoom-out"), tr("Zoom &Out"), this, SLOT(zoomOut()), "act-zoom-out")->setShortcut(QKeySequence("Ctrl+-"));
+    m_menuView->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(zoomReset()), "act-zoom-original")->setShortcut(QKeySequence("Ctrl+0"));
     m_menuView->addSeparator();
     m_menuView->addAction(actionEncoding);
     m_menuView->addSeparator();
-    m_menuView->addAction(QIcon::fromTheme("text-html"), tr("&Page Source"), this, SLOT(showSource()))->setShortcut(QKeySequence("Ctrl+U"));
-    m_menuView->addAction(m_actionShowFullScreen);
-    connect(m_menuView, SIGNAL(aboutToShow()), this, SLOT(aboutToShowViewMenu()));
+    m_menuView->addAction(QIcon::fromTheme("text-html"), tr("&Page Source"), this, SLOT(showSource()), "act-text-html")->setShortcut(QKeySequence("Ctrl+U"));
+    m_menuView->addAction(m_actionShowFullScreen, "m_actionShowFullScreen");
+    doConnect(m_menuView, SIGNAL(aboutToShow()), this, SLOT(aboutToShowViewMenu()));
 
     /****************
      * History Menu *
      ****************/
     m_menuHistory = new Menu(tr("Hi&story"));
-    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowBack), tr("&Back"), this, SLOT(goBack()))->setShortcut(QKeySequence("Ctrl+Left"));
-    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), this, SLOT(goNext()))->setShortcut(QKeySequence("Ctrl+Right"));
-    m_menuHistory->addAction(qIconProvider->fromTheme("go-home"), tr("&Home"), this, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
-    m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), this, SLOT(showHistoryManager()))->setShortcut(QKeySequence("Ctrl+Shift+H"));
+    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowBack), tr("&Back"), this, SLOT(goBack()), "act-back")->setShortcut(QKeySequence("Ctrl+Left"));
+    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), this, SLOT(goNext()), "act-forward")->setShortcut(QKeySequence("Ctrl+Right"));
+    m_menuHistory->addAction(qIconProvider->fromTheme("go-home"), tr("&Home"), this, SLOT(goHome()), "act-go-home", true)->setShortcut(QKeySequence("Alt+Home"));
+    m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), this, SLOT(showHistoryManager()), "act-show-all-history")->setShortcut(QKeySequence("Ctrl+Shift+H"));
     m_menuHistory->addSeparator();
-    connect(m_menuHistory, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMenu()));
-    connect(m_menuHistory, SIGNAL(aboutToHide()), this, SLOT(aboutToHideHistoryMenu()));
+    doConnect(m_menuHistory, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMenu()));
+    doConnect(m_menuHistory, SIGNAL(aboutToHide()), this, SLOT(aboutToHideHistoryMenu()));
 
     m_menuClosedTabs = new QMenu(tr("Closed Tabs"));
-    connect(m_menuClosedTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
+    doConnect(m_menuClosedTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
 
     m_menuHistoryRecent = new Menu(tr("Recently Visited"), m_menuHistory);
-    connect(m_menuHistoryRecent, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryRecentMenu()));
+    doConnect(m_menuHistoryRecent, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryRecentMenu()));
 
     m_menuHistoryMost = new Menu(tr("Most Visited"), m_menuHistory);
-    connect(m_menuHistoryMost, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMostMenu()));
+    doConnect(m_menuHistoryMost, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMostMenu()));
 
     m_menuHistory->addMenu(m_menuHistoryRecent);
     m_menuHistory->addMenu(m_menuHistoryMost);
@@ -446,31 +522,31 @@ void QupZilla::setupMenu()
      * Bookmarks Menu *
      ******************/
     m_menuBookmarks = new Menu(tr("&Bookmarks"));
-    m_menuBookmarks->addAction(tr("Bookmark &This Page"), this, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
-    m_menuBookmarks->addAction(tr("Bookmark &All Tabs"), this, SLOT(bookmarkAllTabs()));
-    m_menuBookmarks->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("Organize &Bookmarks"), this, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
+    m_menuBookmarks->addAction(tr("Bookmark &This Page"), this, SLOT(bookmarkPage()), "act-bookmark-this-page")->setShortcut(QKeySequence("Ctrl+D"));
+    m_menuBookmarks->addAction(tr("Bookmark &All Tabs"), this, SLOT(bookmarkAllTabs()), "act-bookmark-all-tabs");
+    m_menuBookmarks->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("Organize &Bookmarks"), this, SLOT(showBookmarksManager()), "act-user-bookmarks")->setShortcut(QKeySequence("Ctrl+Shift+O"));
     m_menuBookmarks->addSeparator();
 
-    connect(m_menuBookmarks, SIGNAL(aboutToShow()), this, SLOT(aboutToShowBookmarksMenu()));
-    connect(m_menuBookmarks, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(loadFolderBookmarks(Menu*)));
+    doConnect(m_menuBookmarks, SIGNAL(aboutToShow()), this, SLOT(aboutToShowBookmarksMenu()));
+    doConnect(m_menuBookmarks, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(loadFolderBookmarks(Menu*)));
 
     /**************
      * Tools Menu *
      **************/
-    m_menuTools = new QMenu(tr("&Tools"));
-    m_menuTools->addAction(tr("&Web Search"), this, SLOT(webSearch()))->setShortcut(QKeySequence("Ctrl+K"));
-    m_menuTools->addAction(QIcon::fromTheme("dialog-information"), tr("Page &Info"), this, SLOT(showPageInfo()))->setShortcut(QKeySequence("Ctrl+I"));
+    m_menuTools = new Menu(tr("&Tools"), false);
+    m_menuTools->addAction(tr("&Web Search"), this, SLOT(webSearch()), "act-web-search")->setShortcut(QKeySequence("Ctrl+K"));
+    m_menuTools->addAction(QIcon::fromTheme("dialog-information"), tr("Page &Info"), this, SLOT(showPageInfo()), "act-dialog-information")->setShortcut(QKeySequence("Ctrl+I"));
     m_menuTools->addSeparator();
-    m_menuTools->addAction(tr("&Download Manager"), this, SLOT(showDownloadManager()))->setShortcut(QKeySequence("Ctrl+Y"));
-    m_menuTools->addAction(tr("&Cookies Manager"), this, SLOT(showCookieManager()));
-    m_menuTools->addAction(tr("&AdBlock"), AdBlockManager::instance(), SLOT(showDialog()));
-    m_menuTools->addAction(QIcon(":/icons/menu/rss.png"), tr("RSS &Reader"), this,  SLOT(showRSSManager()));
-    m_menuTools->addAction(tr("Web In&spector"), this, SLOT(showWebInspector()))->setShortcut(QKeySequence("Ctrl+Shift+I"));
-    m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), this, SLOT(showClearPrivateData()))->setShortcut(QKeySequence("Ctrl+Shift+Del"));
-    m_actionPrivateBrowsing = new QAction(tr("&Private Browsing"), this);
+    m_menuTools->addAction(tr("&Download Manager"), this, SLOT(showDownloadManager()), "act-download-manager")->setShortcut(QKeySequence("Ctrl+Y"));
+    m_menuTools->addAction(tr("&Cookies Manager"), this, SLOT(showCookieManager()), "act-cookies-manager");
+    m_menuTools->addAction(tr("&AdBlock"), AdBlockManager::instance(), SLOT(showDialog()), "act-ad-block");
+    m_menuTools->addAction(QIcon(":/icons/menu/rss.png"), tr("RSS &Reader"), this,  SLOT(showRSSManager()), "act-rss-reader");
+    m_menuTools->addAction(tr("Web In&spector"), this, SLOT(showWebInspector()), "act-web-inspector")->setShortcut(QKeySequence("Ctrl+Shift+I"));
+    m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), this, SLOT(showClearPrivateData()), "act-edit-clear")->setShortcut(QKeySequence("Ctrl+Shift+Del"));
+    m_actionPrivateBrowsing = StaticActionManager::actionInstance("act-private-browsing", tr("&Private Browsing"), QIcon(), true);
     m_actionPrivateBrowsing->setShortcut(QKeySequence("Ctrl+Shift+P"));
     m_actionPrivateBrowsing->setVisible(!mApp->isPrivateSession());
-    connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), mApp, SLOT(startPrivateBrowsing()));
+    doConnect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), mApp, SLOT(startPrivateBrowsing()));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
 #if !defined(Q_WS_X11) && !defined(Q_OS_MAC)
@@ -480,23 +556,35 @@ void QupZilla::setupMenu()
     /*************
      * Help Menu *
      *************/
-    m_menuHelp = new QMenu(tr("&Help"));
+    m_menuHelp = new Menu(tr("&Help"), false);
 #ifndef Q_OS_MAC
-    m_menuHelp->addAction(QIcon(":/icons/menu/qt.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
+    m_menuHelp->addAction(QIcon(":/icons/menu/qt.png"), tr("About &Qt"), qApp, SLOT(aboutQt()), "act-about-qt", true);
     m_menuHelp->addAction(m_actionAbout);
     m_menuHelp->addSeparator();
 #endif
-    QAction* infoAction = new QAction(tr("Information about application"), m_menuHelp);
+    Action *infoAction = m_menuHelp->addAction(tr("Information about application"), this, SLOT(loadActionUrlInNewTab()), "act-info-about-app", true);
     infoAction->setData(QUrl("qupzilla:about"));
     infoAction->setShortcut(QKeySequence(QKeySequence::HelpContents));
-    connect(infoAction, SIGNAL(triggered()), this, SLOT(loadActionUrlInNewTab()));
-    m_menuHelp->addAction(infoAction);
-    m_menuHelp->addAction(tr("Configuration Information"), this, SLOT(loadActionUrlInNewTab()))->setData(QUrl("qupzilla:config"));
-    m_menuHelp->addAction(tr("Report &Issue"), this, SLOT(loadActionUrlInNewTab()))->setData(QUrl("qupzilla:reportbug"));
+    m_menuHelp->addAction(tr("Configuration Information"), this, SLOT(loadActionUrlInNewTab()), "act-configuration-information", true)->setData(QUrl("qupzilla:config"));
+    m_menuHelp->addAction(tr("Report &Issue"), this, SLOT(loadActionUrlInNewTab()), "act-report-issue", true)->setData(QUrl("qupzilla:reportbug"));
 
     /************
      * Menu Bar *
      ************/
+    addMenusToMenuContainers();
+
+    /*****************
+     * Other Actions *
+     *****************/
+    initializeOtherActions();
+
+#ifdef MENUBAR_USE_STATIC_ACTIONS
+    createMenuConnections();
+#endif
+}
+
+void QupZilla::addMenusToMenuContainers()
+{
     menuBar()->setObjectName("mainwindow-menubar");
     menuBar()->setCursor(Qt::ArrowCursor);
     menuBar()->addMenu(m_menuFile);
@@ -507,40 +595,6 @@ void QupZilla::setupMenu()
     menuBar()->addMenu(m_menuTools);
     menuBar()->addMenu(m_menuHelp);
     menuBar()->setContextMenuPolicy(Qt::CustomContextMenu);
-
-    /*****************
-     * Other Actions *
-     *****************/
-    m_actionRestoreTab = new QAction(QIcon::fromTheme("user-trash"), tr("Restore &Closed Tab"), this);
-    m_actionRestoreTab->setShortcut(QKeySequence("Ctrl+Shift+T"));
-    connect(m_actionRestoreTab, SIGNAL(triggered()), m_tabWidget, SLOT(restoreClosedTab()));
-    addAction(m_actionRestoreTab);
-
-    QShortcut* reloadByPassCacheAction = new QShortcut(QKeySequence("Ctrl+F5"), this);
-    QShortcut* reloadByPassCacheAction2 = new QShortcut(QKeySequence("Ctrl+Shift+R"), this);
-    connect(reloadByPassCacheAction, SIGNAL(activated()), this, SLOT(reloadByPassCache()));
-    connect(reloadByPassCacheAction2, SIGNAL(activated()), this, SLOT(reloadByPassCache()));
-
-    QShortcut* reloadAction = new QShortcut(QKeySequence("Ctrl+R"), this);
-    connect(reloadAction, SIGNAL(activated()), this, SLOT(reload()));
-
-    QShortcut* backAction = new QShortcut(QKeySequence("Alt+Left"), this);
-    connect(backAction, SIGNAL(activated()), this, SLOT(goBack()));
-
-    QShortcut* forwardAction = new QShortcut(QKeySequence("Alt+Right"), this);
-    connect(forwardAction, SIGNAL(activated()), this, SLOT(goNext()));
-
-    QShortcut* openLocationAction = new QShortcut(QKeySequence("Alt+D"), this);
-    connect(openLocationAction, SIGNAL(activated()), this, SLOT(openLocation()));
-
-    // Make shortcuts available even in fullscreen (menu hidden)
-    QList<QAction*> actions = menuBar()->actions();
-    foreach(QAction * action, actions) {
-        if (action->menu()) {
-            actions += action->menu()->actions();
-        }
-        addAction(action);
-    }
 
 #ifndef Q_OS_MAC
     m_superMenu->addMenu(m_menuFile);
@@ -682,6 +736,251 @@ LocationBar* QupZilla::locationBar() const
     return qobject_cast<LocationBar*>(m_tabWidget->locationBars()->currentWidget());
 }
 
+#ifdef MENUBAR_USE_STATIC_ACTIONS
+void QupZilla::actionsConnectionManager(const QString &actionName, bool checked, QObject *senderObject, bool isNewWindow)
+{
+    if (actionName == QLatin1String("act-window-new") ||
+            actionName == QLatin1String("act-document-open") ||
+            actionName == QLatin1String("act-about-qupZilla") ||
+            actionName == QLatin1String("act-about-qt") ||
+            actionName == QLatin1String("act-import-bookmarks") ||
+            actionName == QLatin1String("act-private-browsing")) {
+        return;
+    }
+    else if (actionName == QLatin1String("act-new-tab")) {
+        if (!isNewWindow || weView()->url().toString() == "qupzilla:restore") {
+            addTab();
+        }
+    }
+    else if (actionName == QLatin1String("act-application-exit")) {
+        quitApp();
+    }
+    else if (actionName == QLatin1String("act-info-about-app") ||
+             actionName == QLatin1String("act-configuration-information") ||
+             actionName == QLatin1String("act-report-issue") ||
+             actionName.startsWith(QLatin1String("act-bookmark-item-in")) || // left-clicked on a bookmark or history item
+             actionName.startsWith(QLatin1String("act-history-item-in"))) {
+        if (isNewWindow && weView()->url().toString() != "qupzilla:restore") {
+            loadActionUrl(senderObject);
+        }
+        else {
+            loadActionUrlInNewTab(senderObject);
+        }
+    }
+    else if (actionName == QLatin1String("act-document-open-remote")) {
+        openLocation();
+    }
+    else if (actionName == QLatin1String("act-close-tab")) {
+        m_tabWidget->closeTab();
+    }
+    else if (actionName == QLatin1String("act-window-close")) {
+        closeWindow();
+    }
+    else if (actionName == QLatin1String("act-document-save")) {
+        savePage();
+    }
+    else if (actionName == QLatin1String("act-save-page-screen")) {
+        savePageScreen();
+    }
+    else if (actionName == QLatin1String("act-mail-message-new")) {
+        sendLink();
+    }
+    else if (actionName == QLatin1String("act-document-print")) {
+        printPage();
+    }
+    else if (actionName == QLatin1String("act-edit-undo")) {
+        editUndo();
+    }
+    else if (actionName == QLatin1String("act-edit-redo")) {
+        editRedo();
+    }
+    else if (actionName == QLatin1String("act-edit-cut")) {
+        editCut();
+    }
+    else if (actionName == QLatin1String("act-edit-copy")) {
+        editCopy();
+    }
+    else if (actionName == QLatin1String("act-edit-paste")) {
+        editPaste();
+    }
+    else if (actionName == QLatin1String("act-edit-select-all")) {
+        editSelectAll();
+    }
+    else if (actionName == QLatin1String("act-edit-find")) {
+        searchOnPage();
+    }
+    else if (actionName == QLatin1String("act-zoom-in")) {
+        zoomIn();
+    }
+    else if (actionName == QLatin1String("act-zoom-out")) {
+        zoomOut();
+    }
+    else if (actionName == QLatin1String("act-zoom-original")) {
+        zoomReset();
+    }
+    else if (actionName == QLatin1String("act-text-html")) {
+        showSource();
+    }
+    else if (actionName == QLatin1String("act-back")) {
+        goBack();
+    }
+    else if (actionName == QLatin1String("act-forward")) {
+        goNext();
+    }
+    else if (actionName == QLatin1String("act-go-home")) {
+        goHome();
+    }
+    else if (actionName == QLatin1String("act-show-all-history")) {
+        showHistoryManager();
+    }
+    else if (actionName == QLatin1String("act-bookmark-this-page")) {
+        bookmarkPage();
+    }
+    else if (actionName == QLatin1String("act-bookmark-all-tabs")) {
+        bookmarkAllTabs();
+    }
+    else if (actionName == QLatin1String("act-user-bookmarks")) {
+        showBookmarksManager();
+    }
+    else if (actionName == QLatin1String("act-web-search")) {
+        webSearch();
+    }
+    else if (actionName == QLatin1String("act-dialog-information")) {
+        showPageInfo();
+    }
+    else if (actionName == QLatin1String("act-download-manager")) {
+        showDownloadManager();
+    }
+    else if (actionName == QLatin1String("act-cookies-manager")) {
+        showCookieManager();
+    }
+    else if (actionName == QLatin1String("act-ad-block")) {
+        AdBlockManager::instance()->showDialog();
+    }
+    else if (actionName == QLatin1String("act-rss-reader")) {
+        showRSSManager();
+    }
+    else if (actionName == QLatin1String("act-web-inspector")) {
+        showWebInspector();
+    }
+    else if (actionName == QLatin1String("act-edit-clear")) {
+        showClearPrivateData();
+    }
+
+    else if (actionName == QLatin1String("act-navigation-toolbar")) {
+        showNavigationToolbar();
+    }
+    else if (actionName == QLatin1String("act-bookmarks-toolbar")) {
+        showBookmarksToolbar();
+    }
+    else if (actionName == QLatin1String("act-status-bar")) {
+        showStatusbar();
+    }
+    else if (actionName == QLatin1String("act-menu-bar")) {
+        showMenubar();
+    }
+    else if (actionName == QLatin1String("act-fullscreen")) {
+        fullScreen(checked);
+    }
+    else if (actionName == QLatin1String("act-stop")) {
+        stop();
+    }
+    else if (actionName == QLatin1String("act-reload")) {
+        reload();
+    }
+    else if (actionName == QLatin1String("act-preferences")) {
+        showPreferences();
+    }
+    else if (actionName == QLatin1String("act-character-encoding")) {
+        return;// it's a submenu and managed by mApp->menusManageAboutToShow()
+    }
+}
+
+void QupZilla::menusConnectionManager(const QString &menuName, bool aboutToShow)
+{
+    if (aboutToShow) {
+        if (menuName == QLatin1String("menu-file")) {
+            aboutToShowFileMenu();
+        }
+        else if (menuName == QLatin1String("menu-edit")) {
+            aboutToShowEditMenu();
+        }
+        else if (menuName == QLatin1String("menu-encoding")) {
+            aboutToShowEncodingMenu();
+        }
+        else if (menuName == QLatin1String("menu-view")) {
+            aboutToShowViewMenu();
+        }
+        else if (menuName == QLatin1String("menu-history")) {
+            aboutToShowHistoryMenu();
+        }
+        else if (menuName == QLatin1String("menu-closed-tabs")) {
+            aboutToShowClosedTabsMenu();
+        }
+        else if (menuName == QLatin1String("menu-history-recent")) {
+            aboutToShowHistoryRecentMenu();
+        }
+        else if (menuName == QLatin1String("menu-history-most")) {
+            aboutToShowHistoryMostMenu();
+        }
+        else if (menuName == QLatin1String("menu-bookmarks")) {
+            aboutToShowBookmarksMenu();
+        }
+    }
+    else {
+        if (menuName == QLatin1String("menu-file")) {
+            aboutToHideFileMenu();
+        }
+        else if (menuName == QLatin1String("menu-edit")) {
+            aboutToHideEditMenu();
+        }
+        else if (menuName == QLatin1String("menu-history")) {
+            aboutToHideHistoryMenu();
+        }
+    }
+}
+
+void QupZilla::resetMenuActionsState()
+{
+    // there is no window just enable some actions.
+    if (m_menuClosedTabs) {
+        m_menuClosedTabs->clear();
+    }
+    if (sidebarsMenu) {
+        sidebarsMenu->clear();
+    }
+    StaticActionManager::enableStaticActions(false);
+}
+
+void QupZilla::createMenuConnections()
+{
+    // set name for static objects, they're used in reciver's slot
+    m_menuFile->setObjectName("menu-file");
+    m_menuEdit->setObjectName("menu-edit");
+    m_menuEncoding->setObjectName("menu-encoding");
+    m_menuView->setObjectName("menu-view");
+    m_menuHistory->setObjectName("menu-history");
+    m_menuClosedTabs->setObjectName("menu-closed-tabs");
+    m_menuHistoryRecent->setObjectName("menu-history-recent");
+    m_menuHistoryMost->setObjectName("menu-history-most");
+    m_menuBookmarks->setObjectName("menu-bookmarks");
+
+    connect(m_menuFile, SIGNAL(aboutToShow()), mApp, SLOT(menusManageAboutToShow()));
+    connect(m_menuFile, SIGNAL(aboutToHide()), mApp, SLOT(menusManageAboutToHide()));
+    connect(m_menuEdit, SIGNAL(aboutToShow()), mApp, SLOT(menusManageAboutToShow()));
+    connect(m_menuEdit, SIGNAL(aboutToHide()), mApp, SLOT(menusManageAboutToHide()));
+    connect(m_menuEncoding, SIGNAL(aboutToShow()), mApp, SLOT(menusManageAboutToShow()));
+    connect(m_menuView, SIGNAL(aboutToShow()), mApp, SLOT(menusManageAboutToShow()));
+    connect(m_menuHistory, SIGNAL(aboutToShow()), mApp, SLOT(menusManageAboutToShow()));
+    connect(m_menuHistory, SIGNAL(aboutToHide()), mApp, SLOT(menusManageAboutToHide()));
+    connect(m_menuClosedTabs, SIGNAL(aboutToShow()), mApp, SLOT(menusManageAboutToShow()));
+    connect(m_menuHistoryRecent, SIGNAL(aboutToShow()), mApp, SLOT(menusManageAboutToShow()));
+    connect(m_menuHistoryMost, SIGNAL(aboutToShow()), mApp, SLOT(menusManageAboutToShow()));
+    connect(m_menuBookmarks, SIGNAL(aboutToShow()), mApp, SLOT(menusManageAboutToShow()));
+    connect(m_menuBookmarks, SIGNAL(menuMiddleClicked(Menu*)), mApp, SLOT(manageMiddleClicks(Menu*)));
+}
+#endif
+
 void QupZilla::setWindowTitle(const QString &t)
 {
     QString title = t;
@@ -732,7 +1031,11 @@ void QupZilla::receiveMessage(Qz::AppMessageType mes, bool state)
 
 void QupZilla::aboutToShowFileMenu()
 {
+#ifdef Q_OS_MAC
+    m_actionCloseWindow->setEnabled(mApp->windowCount() > 0);
+#else
     m_actionCloseWindow->setEnabled(mApp->windowCount() > 1);
+#endif
 }
 
 void QupZilla::aboutToHideFileMenu()
@@ -772,8 +1075,14 @@ void QupZilla::aboutToShowBookmarksMenu()
 
         Action* act = new Action(icon, title);
         act->setData(url);
+#ifndef MENUBAR_USE_STATIC_ACTIONS
         connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
         connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
+#else
+        act->setObjectName("act-bookmark-item-in-menu-folder");
+        connect(act, SIGNAL(triggered()), mApp, SLOT(actionsConnectionManager()));
+        connect(act, SIGNAL(middleClicked()), mApp, SLOT(manageMiddleClicks()));
+#endif
         m_menuBookmarks->addAction(act);
     }
 
@@ -792,8 +1101,14 @@ void QupZilla::aboutToShowBookmarksMenu()
 
         Action* act = new Action(icon, title);
         act->setData(url);
+#ifndef MENUBAR_USE_STATIC_ACTIONS
         connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
         connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
+#else
+        act->setObjectName("act-bookmark-item-in-toolbar-folder");
+        connect(act, SIGNAL(triggered()), mApp, SLOT(actionsConnectionManager()));
+        connect(act, SIGNAL(middleClicked()), mApp, SLOT(manageMiddleClicks()));
+#endif
         menuBookmarks->addAction(act);
     }
     if (menuBookmarks->isEmpty()) {
@@ -822,8 +1137,14 @@ void QupZilla::aboutToShowBookmarksMenu()
 
             Action* act = new Action(icon, title);
             act->setData(url);
+#ifndef MENUBAR_USE_STATIC_ACTIONS
             connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
             connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
+#else
+            act->setObjectName("act-bookmark-item-in-user-folders");
+            connect(act, SIGNAL(triggered()), mApp, SLOT(actionsConnectionManager()));
+            connect(act, SIGNAL(middleClicked()), mApp, SLOT(manageMiddleClicks()));
+#endif
             tempFolder->addAction(act);
         }
         if (tempFolder->isEmpty()) {
@@ -846,8 +1167,14 @@ void QupZilla::aboutToShowBookmarksMenu()
 
         Action* act = new Action(icon, title);
         act->setData(url);
+#ifndef MENUBAR_USE_STATIC_ACTIONS
         connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
         connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
+#else
+        act->setObjectName("act-bookmark-item-in-unsorted-folder");
+        connect(act, SIGNAL(triggered()), mApp, SLOT(actionsConnectionManager()));
+        connect(act, SIGNAL(middleClicked()), mApp, SLOT(manageMiddleClicks()));
+#endif
         m_menuBookmarks->addAction(act);
     }
 
@@ -909,8 +1236,14 @@ void QupZilla::aboutToShowHistoryRecentMenu()
 
         Action* act = new Action(_iconForUrl(url), title);
         act->setData(url);
+#ifndef MENUBAR_USE_STATIC_ACTIONS
         connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
         connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
+#else
+        act->setObjectName("act-history-item-in-recent");
+        connect(act, SIGNAL(triggered()), mApp, SLOT(actionsConnectionManager()));
+        connect(act, SIGNAL(middleClicked()), mApp, SLOT(manageMiddleClicks()));
+#endif
         m_menuHistoryRecent->addAction(act);
     }
 
@@ -934,8 +1267,14 @@ void QupZilla::aboutToShowHistoryMostMenu()
 
         Action* act = new Action(_iconForUrl(entry.url), title);
         act->setData(entry.url);
+#ifndef MENUBAR_USE_STATIC_ACTIONS
         connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
         connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
+#else
+        act->setObjectName("act-history-item-in-most");
+        connect(act, SIGNAL(triggered()), mApp, SLOT(actionsConnectionManager()));
+        connect(act, SIGNAL(middleClicked()), mApp, SLOT(manageMiddleClicks()));
+#endif
         m_menuHistoryMost->addAction(act);
     }
 
@@ -952,6 +1291,8 @@ void QupZilla::aboutToShowViewMenu()
 #endif
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
+
+    m_sideBarManager->setSideBarMenu(sidebarsMenu);
 }
 
 void QupZilla::aboutToShowEditMenu()
@@ -1147,23 +1488,32 @@ void QupZilla::reloadByPassCache()
     weView()->triggerPageAction(QWebPage::ReloadAndBypassCache);
 }
 
-void QupZilla::loadActionUrl()
+void QupZilla::loadActionUrl(QObject *senderObject)
 {
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
+    if (!senderObject) {
+        senderObject = sender();
+    }
+    if (QAction* action = qobject_cast<QAction*>(senderObject)) {
         loadAddress(action->data().toUrl());
     }
 }
 
-void QupZilla::loadActionUrlInNewTab()
+void QupZilla::loadActionUrlInNewTab(QObject *senderObject)
 {
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
+    if (!senderObject) {
+        senderObject = sender();
+    }
+    if (QAction* action = qobject_cast<QAction*>(senderObject)) {
         m_tabWidget->addView(action->data().toUrl(), Qz::NT_SelectedTabAtTheEnd);
     }
 }
 
-void QupZilla::loadActionUrlInNewNotSelectedTab()
+void QupZilla::loadActionUrlInNewNotSelectedTab(QObject *senderObject)
 {
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
+    if (!senderObject) {
+        senderObject = sender();
+    }
+    if (QAction* action = qobject_cast<QAction*>(senderObject)) {
         m_tabWidget->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
     }
 }
@@ -1224,7 +1574,7 @@ void QupZilla::showDownloadManager()
 
 void QupZilla::showPreferences()
 {
-    Preferences* prefs = new Preferences(this, this);
+    Preferences* prefs = new Preferences(mApp->getWindow(), mApp->getWindow());
     prefs->show();
 }
 
@@ -1350,7 +1700,7 @@ void QupZilla::showWebInspector(bool toggle)
 
 void QupZilla::showBookmarkImport()
 {
-    BookmarksImportDialog* b = new BookmarksImportDialog(this);
+    BookmarksImportDialog* b = new BookmarksImportDialog(mApp->getWindow());
     b->show();
 }
 
@@ -1415,7 +1765,7 @@ void QupZilla::restoreWindowState(const RestoreManager::WindowData &d)
 
 void QupZilla::aboutQupZilla()
 {
-    AboutDialog about(this);
+    AboutDialog about(mApp->getWindow());
     about.exec();
 }
 
@@ -1461,10 +1811,15 @@ void QupZilla::openFile()
                                        "%3(*.txt);;"
                                        "%4(*.*)").arg(tr("HTML files"), tr("Image files"), tr("Text files"), tr("All files"));
 
-    const QString &filePath = QFileDialog::getOpenFileName(this, tr("Open file..."), QDir::homePath(), fileTypes);
+    const QString &filePath = QFileDialog::getOpenFileName(mApp->getWindow(), tr("Open file..."), QDir::homePath(), fileTypes);
 
     if (!filePath.isEmpty()) {
-        loadAddress(QUrl::fromLocalFile(filePath));
+        if (mApp->windowCount() == 0) {
+            mApp->makeNewWindow(Qz::BW_FirstAppWindow, QUrl::fromLocalFile(filePath));
+        }
+        else {
+            mApp->getWindow()->loadAddress(QUrl::fromLocalFile(filePath));
+        }
     }
 }
 
@@ -1792,6 +2147,12 @@ void QupZilla::closeEvent(QCloseEvent* event)
     }
 #endif
 
+#ifdef MENUBAR_USE_STATIC_ACTIONS
+    if (mApp->windowCount() == 1) {
+        resetMenuActionsState();
+    }
+#endif
+
     mApp->aboutToCloseWindow(this);
 
     disconnectObjects();
@@ -2043,6 +2404,53 @@ bool QupZilla::eventFilter(QObject* object, QEvent* event)
     return QMainWindow::eventFilter(object, event);
 }
 #endif
+
+bool QupZilla::doConnect(const QObject* sender, const char* signal, const QObject* receiver, const char* member)
+{
+#ifndef MENUBAR_USE_STATIC_ACTIONS
+    return QObject::connect(sender, signal, receiver, member);
+#else
+    Q_UNUSED(sender);
+    Q_UNUSED(signal);
+    Q_UNUSED(receiver);
+    Q_UNUSED(member);
+    return false;
+#endif
+}
+
+void QupZilla::initializeOtherActions()
+{
+    m_actionRestoreTab = new QAction(QIcon::fromTheme("user-trash"), tr("Restore &Closed Tab"), this);
+    m_actionRestoreTab->setShortcut(QKeySequence("Ctrl+Shift+T"));
+    doConnect(m_actionRestoreTab, SIGNAL(triggered()), m_tabWidget, SLOT(restoreClosedTab()));
+    addAction(m_actionRestoreTab);
+
+    QShortcut* reloadByPassCacheAction = new QShortcut(QKeySequence("Ctrl+F5"), this);
+    QShortcut* reloadByPassCacheAction2 = new QShortcut(QKeySequence("Ctrl+Shift+R"), this);
+    connect(reloadByPassCacheAction, SIGNAL(activated()), this, SLOT(reloadByPassCache()));
+    connect(reloadByPassCacheAction2, SIGNAL(activated()), this, SLOT(reloadByPassCache()));
+
+    QShortcut* reloadAction = new QShortcut(QKeySequence("Ctrl+R"), this);
+    connect(reloadAction, SIGNAL(activated()), this, SLOT(reload()));
+
+    QShortcut* backAction = new QShortcut(QKeySequence("Alt+Left"), this);
+    connect(backAction, SIGNAL(activated()), this, SLOT(goBack()));
+
+    QShortcut* forwardAction = new QShortcut(QKeySequence("Alt+Right"), this);
+    connect(forwardAction, SIGNAL(activated()), this, SLOT(goNext()));
+
+    QShortcut* openLocationAction = new QShortcut(QKeySequence("Alt+D"), this);
+    connect(openLocationAction, SIGNAL(activated()), this, SLOT(openLocation()));
+
+    // Make shortcuts available even in fullscreen (menu hidden)
+    QList<QAction*> actions = menuBar()->actions();
+    foreach(QAction * action, actions) {
+        if (action->menu()) {
+            actions += action->menu()->actions();
+        }
+        addAction(action);
+    }
+}
 
 QupZilla::~QupZilla()
 {
