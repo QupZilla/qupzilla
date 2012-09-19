@@ -38,10 +38,12 @@
 #include "globalfunctions.h"
 #include "iconprovider.h"
 #include "qzsettings.h"
+#include "colors.h"
 
 #include <QClipboard>
 #include <QTimer>
 #include <QContextMenuEvent>
+#include <QDebug>
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit(mainClass)
@@ -52,7 +54,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_clearAction(0)
     , m_holdingAlt(false)
     , m_loadProgress(0)
-    , m_loadFinished(true)
+    , m_progressVisible(false)
 {
     setObjectName("locationbar");
     setDragEnabled(true);
@@ -87,6 +89,9 @@ LocationBar::LocationBar(QupZilla* mainClass)
     connect(m_bookmarkIcon, SIGNAL(clicked(QPoint)), this, SLOT(bookmarkIconClicked()));
     connect(down, SIGNAL(clicked(QPoint)), this, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
+    connect(mApp, SIGNAL(message(Qz::AppMessageType, bool)), SLOT(onMessage(Qz::AppMessageType, bool)));
+
+    loadSettings();
 
     clearIcon();
     updatePlaceHolderText();
@@ -96,6 +101,7 @@ void LocationBar::setWebView(TabbedWebView* view)
 {
     m_webView = view;
 
+    connect(m_webView, SIGNAL(loadStarted()), SLOT(onLoadStarted()));
     connect(m_webView, SIGNAL(loadProgress(int)), SLOT(onLoadProgress(int)));
     connect(m_webView, SIGNAL(loadFinished(bool)), SLOT(onLoadFinished()));
 }
@@ -528,34 +534,59 @@ LocationBar::~LocationBar()
     delete m_bookmarkIcon;
 }
 
+void LocationBar::onLoadStarted()
+{
+    m_progressVisible = true;
+}
+
 void LocationBar::onLoadProgress(int progress)
 {
     if (qzSettings->showLoadingProgress) {
-        m_loadFinished = false;
         m_loadProgress = progress;
-        repaint();
+        update();
     }
 }
 
 void LocationBar::onLoadFinished()
 {
     if (qzSettings->showLoadingProgress) {
-        m_loadFinished = false;
         QTimer::singleShot(700, this, SLOT(hideProgress()));
+    }
+}
+
+void LocationBar::loadSettings()
+{
+    Settings settings;
+    settings.beginGroup("AddressBar");
+    m_progressStyle = static_cast<ProgressStyle>(settings.value("ProgressStyle", 0).toInt());
+    bool customColor = settings.value("UseCustomProgressColor", false).toBool();
+    m_progressColor = customColor ? settings.value("CustomProgressColor", palette().color(QPalette::Highlight)).value<QColor>() : QColor();
+    settings.endGroup();
+}
+
+void LocationBar::onMessage(Qz::AppMessageType msg, bool state)
+{
+    Q_UNUSED(state)
+    if (!qzSettings->showLoadingProgress) {
+        return;
+    }
+
+    if (msg == Qz::AM_ReloadSettings) {
+        loadSettings();
     }
 }
 
 void LocationBar::hideProgress()
 {
     if (qzSettings->showLoadingProgress) {
-        m_loadFinished = true;
-        repaint();
+        m_progressVisible = false;
+        update();
     }
 }
 
 void LocationBar::paintEvent(QPaintEvent* event)
 {
-    if (hasFocus() || !qzSettings->showLoadingProgress || m_loadFinished) {
+    if (hasFocus() || text().isEmpty()) {
         LineEdit::paintEvent(event);
         return;
     }
@@ -580,22 +611,84 @@ void LocationBar::paintEvent(QPaintEvent* event)
     const int height = fm.height();
     QRect textRect(x, y, width, height);
 
-    QColor bg = palette().color(QPalette::Base);
-    if (!bg.isValid() || bg.alpha() == 0) {
-        bg = p_QupZilla->palette().color(QPalette::Base);
-    }
-    bg = bg.darker(110);
-    p.setBrush(QBrush(bg));
-
     QPen oldPen = p.pen();
-    QPen outlinePen(bg.darker(110), 0.8);
-    p.setPen(outlinePen);
 
-    QRect bar = textRect.adjusted(-3, 0, 6 - (textRect.width() * (100.0 - m_loadProgress) / 100), 0);
-    const int roundness = bar.height() / 4.0;
-    p.drawRoundedRect(bar, roundness, roundness);
+    if (qzSettings->showLoadingProgress && m_progressVisible) {
+        QColor bg = m_progressColor;
+        if (!bg.isValid() || bg.alpha() == 0) {
+            bg = Colors::mid(palette().color(QPalette::Base),
+                             palette().color(QPalette::Text),
+                             10, 1);
+        }
+        p.setBrush(QBrush(bg));
+
+        QPen outlinePen(bg.darker(110), 0.8);
+        p.setPen(outlinePen);
+
+        switch (m_progressStyle) {
+        case ProgressFilled: {
+            QRect bar = textRect.adjusted(-3, 0, 6 - (textRect.width() * (100.0 - m_loadProgress) / 100), 0);
+            const int roundness = bar.height() / 4.0;
+            p.drawRoundedRect(bar, roundness, roundness);
+            break;
+        }
+        case ProgressBottom: {
+            outlinePen.setWidthF(0.3);
+            outlinePen.setColor(outlinePen.color().darker(130));
+            p.setPen(outlinePen);
+            QRect bar(contentsRect.x(), contentsRect.bottom() - 2,
+                      contentsRect.width()*m_loadProgress / 100.0, 3);
+            p.drawRoundedRect(bar, 1, 1);
+            break;
+        }
+        case ProgressTop: {
+            outlinePen.setWidthF(0.3);
+            outlinePen.setColor(outlinePen.color().darker(130));
+            p.setPen(outlinePen);
+            QRect bar(contentsRect.x(), contentsRect.top() + 1,
+                      contentsRect.width()*m_loadProgress / 100.0, 3);
+            p.drawRoundedRect(bar, 1, 1);
+            break;
+        }
+        default:
+            break;
+        }
+    }
 
     p.setPen(oldPen);
-//    Qt::Alignment va = QStyle::visualAlignment(QApplication::layoutDirection(), QFlag(alignment()));
-    p.drawText(textRect, text());
+    QTextOption opt;
+    opt.setWrapMode(QTextOption::NoWrap);
+
+    const QString hostName = m_webView->url().host();
+    QString currentText = text();
+    QRect currentRect = textRect;
+    if (!hostName.isEmpty()) {
+        const int hostPos = currentText.indexOf(hostName);
+        if (hostPos > 0) {
+            QPen lightPen = oldPen;
+            QColor lightColor = Colors::mid(palette().color(QPalette::Base),
+                                            palette().color(QPalette::Text),
+                                            1, 1);
+            lightPen.setColor(lightColor);
+
+            p.setPen(lightPen);
+            currentText = text().mid(0, hostPos);
+            currentRect.setWidth(fm.width(currentText));
+            p.drawText(currentRect, currentText, opt);
+
+            p.setPen(oldPen);
+            currentRect.setX(currentRect.x() + currentRect.width());
+            const int hostWidth = fm.width(hostName);
+            currentRect.setWidth(hostWidth);
+            p.drawText(currentRect, hostName, opt);
+
+            p.setFont(font());
+            currentText = text().mid(hostPos + hostName.length());
+            currentRect.setX(currentRect.x() + hostWidth);
+            currentRect.setWidth(textRect.width() - currentRect.x() + textRect.x());
+            p.setPen(lightPen);
+        }
+    }
+
+    p.drawText(currentRect, currentText, opt);
 }
