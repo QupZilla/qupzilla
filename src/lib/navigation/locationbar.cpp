@@ -578,7 +578,7 @@ void LocationBar::onMessage(Qz::AppMessageType msg, bool state)
 
 void LocationBar::hideProgress()
 {
-    if (qzSettings->showLoadingProgress) {
+    if (qzSettings->showLoadingProgress && m_loadProgress == 100) {
         m_progressVisible = false;
         update();
     }
@@ -618,7 +618,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
         if (!bg.isValid() || bg.alpha() == 0) {
             bg = Colors::mid(palette().color(QPalette::Base),
                              palette().color(QPalette::Text),
-                             10, 1);
+                             m_progressStyle > 0 ? 4 : 8, 1);
         }
         p.setBrush(QBrush(bg));
 
