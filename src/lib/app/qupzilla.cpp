@@ -1510,6 +1510,10 @@ void QupZilla::fullScreen(bool make)
         bookmarksToolbar()->hide();
         m_navigationBar->hide();
         m_tabWidget->getTabBar()->hide();
+#ifndef Q_OS_MAC
+        m_navigationBar->buttonSuperMenu()->hide();
+#endif
+
 #ifdef Q_OS_WIN
         if (m_usingTransparentBackground) {
             QtWin::extendFrameIntoClientArea(this, 0, 0, 0 , 0);
@@ -1525,6 +1529,10 @@ void QupZilla::fullScreen(bool make)
         m_bookmarksToolbar->setVisible(m_bookmarksToolBarVisible);
         m_navigationBar->setVisible(m_navigationVisible);
         m_tabWidget->showTabBar();
+#ifndef Q_OS_MAC
+        m_navigationBar->buttonSuperMenu()->setVisible(!m_menuBarVisible);
+#endif
+
 #ifdef Q_OS_WIN
         if (m_usingTransparentBackground) {
             applyBlurToMainWindow(true);
