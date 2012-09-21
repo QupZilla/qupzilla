@@ -401,6 +401,8 @@ RESOURCES += \
     target.path = $$library_folder
 
     INSTALLS += target
+
+    LIBS += -lX11
 }
 
 message(===========================================)
