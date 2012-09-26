@@ -69,6 +69,7 @@ private slots:
 
     void addEngineFromAction();
     void pasteAndGo();
+    void instantSearchChanged(bool);
 
 private:
     void focusInEvent(QFocusEvent* e);

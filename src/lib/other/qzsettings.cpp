@@ -36,6 +36,7 @@ void QzSettings::loadSettings()
 
     settings.beginGroup("SearchEngines");
     showSearchSuggestions = settings.value("showSuggestions", true).toBool();
+    searchOnEngineChange = settings.value("SearchOnEngineChange", true).toBool();
     settings.endGroup();
 
     settings.beginGroup("Web-Browser-Settings");
