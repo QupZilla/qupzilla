@@ -41,6 +41,7 @@ public:
     // SearchEngines
     bool showSearchSuggestions;
     bool searchOnEngineChange;
+    bool searchWithDefaultEngine;
 
     // Web-Browser-Settings
     int defaultZoom;

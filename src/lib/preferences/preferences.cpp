@@ -210,6 +210,10 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->setProgressBarColorToHighlightButton, SIGNAL(clicked()), SLOT(setProgressBarColorIcon()));
     settings.endGroup();
 
+    settings.beginGroup("SearchEngines");
+    ui->searchWithDefaultEngine->setChecked(settings.value("SearchWithDefaultEngine", false).toBool());
+    settings.endGroup();
+
     //BROWSING
     settings.beginGroup("Web-Browser-Settings");
     ui->allowPlugins->setChecked(settings.value("allowFlash", true).toBool());
@@ -895,6 +899,10 @@ void Preferences::saveSettings()
     settings.setValue("ProgressStyle", ui->progressStyleSelector->currentIndex());
     settings.setValue("UseCustomProgressColor", ui->checkBoxCustomProgressColor->isChecked());
     settings.setValue("CustomProgressColor", ui->customColorToolButton->property("ProgressColor").value<QColor>());
+    settings.endGroup();
+
+    settings.beginGroup("SearchEngines");
+    settings.setValue("SearchWithDefaultEngine", ui->searchWithDefaultEngine->isChecked());
     settings.endGroup();
 
     //Languages

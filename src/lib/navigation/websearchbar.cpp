@@ -192,7 +192,7 @@ void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item)
 
 void WebSearchBar::instantSearchChanged(bool enable)
 {
-    
+
     Settings settings;
     settings.beginGroup("SearchEngines");
     settings.setValue("SearchOnEngineChange", enable);
@@ -312,7 +312,7 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
     act->setChecked(qzSettings->showSearchSuggestions);
     connect(act, SIGNAL(triggered(bool)), this, SLOT(enableSearchSuggestions(bool)));
 
-    QAction *instantSearch = m_menu->addAction(tr("Search when engine changed"));
+    QAction* instantSearch = m_menu->addAction(tr("Search when engine changed"));
     instantSearch->setToolTip(tr("If checked an instant search is triggered when the search engine is changed"));
     instantSearch->setCheckable(true);
     instantSearch->setChecked(qzSettings->searchOnEngineChange);
