@@ -77,7 +77,8 @@ void SourceViewerSearch::searchWholeWords()
 {
     if (ui->wholeWords->isChecked()) {
         m_findFlags |= QTextDocument::FindWholeWords;
-    } else {
+    }
+    else {
         m_findFlags &= (~QTextDocument::FindWholeWords);
     }
 }

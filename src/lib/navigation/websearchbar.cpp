@@ -185,9 +185,19 @@ void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item)
 
     m_searchManager->setActiveEngine(m_activeEngine);
 
-    if (!m_reloadingEngines && !text().isEmpty()) {
+    if (qzSettings->searchOnEngineChange && !m_reloadingEngines && !text().isEmpty()) {
         search();
     }
+}
+
+void WebSearchBar::instantSearchChanged(bool enable)
+{
+
+    Settings settings;
+    settings.beginGroup("SearchEngines");
+    settings.setValue("SearchOnEngineChange", enable);
+    settings.endGroup();
+    qzSettings->searchOnEngineChange = enable;
 }
 
 void WebSearchBar::search()
@@ -301,6 +311,12 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
     act->setCheckable(true);
     act->setChecked(qzSettings->showSearchSuggestions);
     connect(act, SIGNAL(triggered(bool)), this, SLOT(enableSearchSuggestions(bool)));
+
+    QAction* instantSearch = m_menu->addAction(tr("Search when engine changed"));
+    instantSearch->setToolTip(tr("If checked an instant search is triggered when the search engine is changed"));
+    instantSearch->setCheckable(true);
+    instantSearch->setChecked(qzSettings->searchOnEngineChange);
+    connect(instantSearch, SIGNAL(triggered(bool)), this, SLOT(instantSearchChanged(bool)));
 
     m_pasteAndGoAction->setEnabled(!QApplication::clipboard()->text().isEmpty());
 

@@ -20,6 +20,41 @@
 #include "editsearchengine.h"
 #include "searchenginesmanager.h"
 #include "mainapplication.h"
+#include <QMessageBox>
+
+namespace
+{
+const int EngineRole = Qt::UserRole;
+const int DefaultRole = Qt::UserRole + 1;
+
+bool isDefault(QTreeWidgetItem* item)
+{
+    return item->data(0, DefaultRole).toBool();
+}
+
+SearchEngine getEngine(QTreeWidgetItem* item)
+{
+    return item->data(0, EngineRole).value<SearchEngine>();
+}
+
+void setEngine(QTreeWidgetItem* item, SearchEngine engine)
+{
+    QVariant v;
+    v.setValue<SearchEngine>(engine);
+    item->setData(0, EngineRole, v);
+}
+
+void changeItemToDefault(QTreeWidgetItem* item, bool isDefault)
+{
+    QString txt = item->data(0, EngineRole).value<SearchEngine>().name;
+    if (isDefault) {
+        txt.append(QString(" (%1)").arg(QObject::tr("Default")));
+    }
+
+    item->setText(0, txt);
+    item->setData(0, DefaultRole, isDefault);
+}
+}
 
 SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
     : QDialog(parent)
@@ -32,6 +67,7 @@ SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
     connect(ui->add, SIGNAL(clicked()), this, SLOT(addEngine()));
     connect(ui->remove, SIGNAL(clicked()), this, SLOT(removeEngine()));
     connect(ui->edit, SIGNAL(clicked()), this, SLOT(editEngine()));
+    connect(ui->setAsDefault, SIGNAL(clicked()), this, SLOT(setDefaultEngine()));
     connect(ui->defaults, SIGNAL(clicked()), this, SLOT(defaults()));
     connect(ui->moveUp, SIGNAL(clicked()), this, SLOT(moveUp()));
     connect(ui->moveDown, SIGNAL(clicked()), this, SLOT(moveDown()));
@@ -62,11 +98,9 @@ void SearchEnginesDialog::addEngine()
     }
 
     QTreeWidgetItem* item = new QTreeWidgetItem();
-    QVariant v;
-    v.setValue<SearchEngine>(engine);
-    item->setData(0, Qt::UserRole, v);
+    setEngine(item, engine);
 
-    item->setText(0, engine.name);
+    changeItemToDefault(item, false);
     item->setIcon(0, engine.icon);
     item->setText(1, engine.shortcut);
 
@@ -80,7 +114,15 @@ void SearchEnginesDialog::removeEngine()
         return;
     }
 
-    delete item;
+    if (isDefault(item)) {
+        SearchEngine en = getEngine(item);
+        QMessageBox::warning(this, tr("Remove Engine"),
+                             tr("You can't remove the default search engine.<br>"
+                                "Set a different engine as Default before removing %1.").arg(en.name));
+    }
+    else {
+        delete item;
+    }
 }
 
 void SearchEnginesDialog::editEngine()
@@ -90,7 +132,7 @@ void SearchEnginesDialog::editEngine()
         return;
     }
 
-    SearchEngine engine = item->data(0, Qt::UserRole).value<SearchEngine>();
+    SearchEngine engine = getEngine(item);
 
     EditSearchEngine dialog(tr("Edit Search Engine"), this);
 
@@ -112,13 +154,32 @@ void SearchEnginesDialog::editEngine()
         return;
     }
 
-    QVariant v;
-    v.setValue<SearchEngine>(engine);
-    item->setData(0, Qt::UserRole, v);
+    setEngine(item, engine);
 
-    item->setText(0, engine.name);
+    changeItemToDefault(item, isDefault(item));
     item->setIcon(0, engine.icon);
     item->setText(1, engine.shortcut);
+}
+
+void SearchEnginesDialog::setDefaultEngine()
+{
+    QTreeWidgetItem* item = ui->treeWidget->currentItem();
+    if (!item) {
+        return;
+    }
+
+    for (int j = 0; j < ui->treeWidget->topLevelItemCount(); ++j) {
+        QTreeWidgetItem* i = ui->treeWidget->topLevelItem(j);
+        if (isDefault(i)) {
+            if (i == item) {
+                return;
+            }
+            changeItemToDefault(i, false);
+            break;
+        }
+    }
+
+    changeItemToDefault(item, true);
 }
 
 void SearchEnginesDialog::defaults()
@@ -158,15 +219,14 @@ void SearchEnginesDialog::moveDown()
 void SearchEnginesDialog::reloadEngines()
 {
     ui->treeWidget->clear();
+    const QString defaultEngineName = mApp->searchEnginesManager()->defaultEngine().name;
 
     foreach(const SearchEngine & en, m_manager->allEngines()) {
         QTreeWidgetItem* item = new QTreeWidgetItem();
+        setEngine(item, en);
+        changeItemToDefault(item, en.name == defaultEngineName);
         item->setIcon(0, en.icon);
-        item->setText(0, en.name);
         item->setText(1, en.shortcut);
-        QVariant v;
-        v.setValue<SearchEngine>(en);
-        item->setData(0, Qt::UserRole, v);
 
         ui->treeWidget->addTopLevelItem(item);
     }
@@ -186,8 +246,12 @@ void SearchEnginesDialog::accept()
             continue;
         }
 
-        SearchEngine engine = item->data(0, Qt::UserRole).value<SearchEngine>();
+        SearchEngine engine = getEngine(item);
         allEngines.append(engine);
+
+        if (isDefault(item)) {
+            m_manager->setDefaultEngine(engine);
+        }
     }
 
     m_manager->setAllEngines(allEngines);

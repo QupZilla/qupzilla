@@ -25,6 +25,7 @@
 #include "opensearchengine.h"
 #include "databasewriter.h"
 #include "settings.h"
+#include "qzsettings.h"
 #include "webview.h"
 
 #include <QNetworkReply>
@@ -51,6 +52,7 @@ SearchEnginesManager::SearchEnginesManager()
     Settings settings;
     settings.beginGroup("SearchEngines");
     m_startingEngineName = settings.value("activeEngine", "Google").toString();
+    m_defaultEngineName = settings.value("DefaultEngine", "Google").toString();
     settings.endGroup();
 
     connect(this, SIGNAL(enginesChanged()), this, SLOT(scheduleSave()));
@@ -71,10 +73,18 @@ void SearchEnginesManager::loadSettings()
         en.suggestionsUrl = query.value(4).toString();
 
         m_allEngines.append(en);
+
+        if (en.name == m_defaultEngineName) {
+            m_defaultEngine = en;
+        }
     }
 
     if (m_allEngines.isEmpty()) {
         restoreDefaults();
+    }
+
+    if (m_defaultEngine.name.isEmpty()) {
+        m_defaultEngine = m_allEngines[0];
     }
 }
 
@@ -106,7 +116,8 @@ QUrl SearchEnginesManager::searchUrl(const Engine &engine, const QString &string
 
 QUrl SearchEnginesManager::searchUrl(const QString &string)
 {
-    return searchUrl(m_activeEngine, string);
+    const Engine &en = qzSettings->searchWithDefaultEngine ? m_defaultEngine : m_activeEngine;
+    return searchUrl(en, string);
 }
 
 void SearchEnginesManager::restoreDefaults()
@@ -142,6 +153,8 @@ void SearchEnginesManager::restoreDefaults()
     addEngine(wiki);
     addEngine(yt);
     addEngine(duck);
+
+    m_defaultEngine = google;
 
     emit enginesChanged();
 }
@@ -344,6 +357,18 @@ void SearchEnginesManager::setActiveEngine(const Engine &engine)
     emit activeEngineChanged();
 }
 
+void SearchEnginesManager::setDefaultEngine(const SearchEnginesManager::Engine &engine)
+{
+    ENSURE_LOADED;
+
+    if (!m_allEngines.contains(engine)) {
+        return;
+    }
+
+    m_defaultEngine = engine;
+    emit defaultEngineChanged();
+}
+
 void SearchEnginesManager::removeEngine(const Engine &engine)
 {
     ENSURE_LOADED;
@@ -382,6 +407,7 @@ void SearchEnginesManager::saveSettings()
     Settings settings;
     settings.beginGroup("SearchEngines");
     settings.setValue("activeEngine", m_activeEngine.name);
+    settings.setValue("DefaultEngine", m_defaultEngine.name);
     settings.endGroup();
 
     if (!m_saveScheduled) {

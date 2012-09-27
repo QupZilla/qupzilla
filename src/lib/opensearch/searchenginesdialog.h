@@ -22,6 +22,8 @@
 
 #include <QDialog>
 
+class QTreeWidgetItem;
+
 namespace Ui
 {
 class SearchEnginesDialog;
@@ -43,6 +45,7 @@ private slots:
     void addEngine();
     void removeEngine();
     void editEngine();
+    void setDefaultEngine();
 
     void moveUp();
     void moveDown();
