@@ -38,13 +38,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="setAsDefault">
-       <property name="text">
-        <string>Set as Default</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <spacer name="verticalSpacer">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -56,6 +49,13 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="setAsDefault">
+       <property name="text">
+        <string>Set as Default</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="moveUp">

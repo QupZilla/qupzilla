@@ -18,43 +18,8 @@
 #include "searchenginesdialog.h"
 #include "ui_searchenginesdialog.h"
 #include "editsearchengine.h"
-#include "searchenginesmanager.h"
 #include "mainapplication.h"
 #include <QMessageBox>
-
-namespace
-{
-const int EngineRole = Qt::UserRole;
-const int DefaultRole = Qt::UserRole + 1;
-
-bool isDefault(QTreeWidgetItem* item)
-{
-    return item->data(0, DefaultRole).toBool();
-}
-
-SearchEngine getEngine(QTreeWidgetItem* item)
-{
-    return item->data(0, EngineRole).value<SearchEngine>();
-}
-
-void setEngine(QTreeWidgetItem* item, SearchEngine engine)
-{
-    QVariant v;
-    v.setValue<SearchEngine>(engine);
-    item->setData(0, EngineRole, v);
-}
-
-void changeItemToDefault(QTreeWidgetItem* item, bool isDefault)
-{
-    QString txt = item->data(0, EngineRole).value<SearchEngine>().name;
-    if (isDefault) {
-        txt.append(QString(" (%1)").arg(QObject::tr("Default")));
-    }
-
-    item->setText(0, txt);
-    item->setData(0, DefaultRole, isDefault);
-}
-}
 
 SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
     : QDialog(parent)
@@ -114,7 +79,7 @@ void SearchEnginesDialog::removeEngine()
         return;
     }
 
-    if (isDefault(item)) {
+    if (isDefaultEngine(item)) {
         SearchEngine en = getEngine(item);
         QMessageBox::warning(this, tr("Remove Engine"),
                              tr("You can't remove the default search engine.<br>"
@@ -156,7 +121,7 @@ void SearchEnginesDialog::editEngine()
 
     setEngine(item, engine);
 
-    changeItemToDefault(item, isDefault(item));
+    changeItemToDefault(item, isDefaultEngine(item));
     item->setIcon(0, engine.icon);
     item->setText(1, engine.shortcut);
 }
@@ -170,7 +135,7 @@ void SearchEnginesDialog::setDefaultEngine()
 
     for (int j = 0; j < ui->treeWidget->topLevelItemCount(); ++j) {
         QTreeWidgetItem* i = ui->treeWidget->topLevelItem(j);
-        if (isDefault(i)) {
+        if (isDefaultEngine(i)) {
             if (i == item) {
                 return;
             }
@@ -186,6 +151,34 @@ void SearchEnginesDialog::defaults()
 {
     m_manager->restoreDefaults();
     reloadEngines();
+}
+
+bool SearchEnginesDialog::isDefaultEngine(QTreeWidgetItem* item)
+{
+    return item->data(0, DefaultRole).toBool();
+}
+
+SearchEngine SearchEnginesDialog::getEngine(QTreeWidgetItem* item)
+{
+    return item->data(0, EngineRole).value<SearchEngine>();
+}
+
+void SearchEnginesDialog::setEngine(QTreeWidgetItem* item, SearchEngine engine)
+{
+    QVariant v;
+    v.setValue<SearchEngine>(engine);
+    item->setData(0, EngineRole, v);
+    item->setText(0, engine.name);
+}
+
+void SearchEnginesDialog::changeItemToDefault(QTreeWidgetItem* item, bool isDefault)
+{
+    QFont font = item->font(0);
+    font.setBold(isDefault);
+
+    item->setFont(0, font);
+    item->setFont(1, font);
+    item->setData(0, DefaultRole, isDefault);
 }
 
 void SearchEnginesDialog::moveUp()
@@ -249,7 +242,7 @@ void SearchEnginesDialog::accept()
         SearchEngine engine = getEngine(item);
         allEngines.append(engine);
 
-        if (isDefault(item)) {
+        if (isDefaultEngine(item)) {
             m_manager->setDefaultEngine(engine);
         }
     }

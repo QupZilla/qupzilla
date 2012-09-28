@@ -19,6 +19,7 @@
 #define SEARCHENGINESDIALOG_H
 
 #include "qz_namespace.h"
+#include "searchenginesmanager.h"
 
 #include <QDialog>
 
@@ -29,7 +30,6 @@ namespace Ui
 class SearchEnginesDialog;
 }
 
-class SearchEnginesManager;
 class QT_QUPZILLA_EXPORT SearchEnginesDialog : public QDialog
 {
     Q_OBJECT
@@ -53,10 +53,17 @@ private slots:
     void defaults();
 
 private:
+    enum TreeRole { EngineRole = Qt::UserRole, DefaultRole = Qt::UserRole + 1 };
+
+    bool isDefaultEngine(QTreeWidgetItem* item);
+    SearchEngine getEngine(QTreeWidgetItem* item);
+
+    void setEngine(QTreeWidgetItem* item, SearchEngine engine);
+    void changeItemToDefault(QTreeWidgetItem* item, bool isDefault);
+
     void reloadEngines();
 
     Ui::SearchEnginesDialog* ui;
-
     SearchEnginesManager* m_manager;
 };
 

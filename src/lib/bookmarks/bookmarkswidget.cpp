@@ -28,6 +28,8 @@
 #include <QSqlQuery>
 #include <QTimer>
 
+#define HIDE_DELAY 270
+
 BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* parent)
     : LocationBarPopup(parent)
     , ui(new Ui::BookmarksWidget)
@@ -84,11 +86,6 @@ void BookmarksWidget::loadBookmark()
     ui->name->setCursorPosition(0);
 }
 
-namespace
-{
-const int hideDelay = 270;
-}
-
 void BookmarksWidget::toggleSpeedDial()
 {
     const SpeedDial::Page &page = m_speedDial->pageForUrl(m_url);
@@ -101,7 +98,7 @@ void BookmarksWidget::toggleSpeedDial()
     else {
         m_speedDial->removePage(page);
     }
-    QTimer::singleShot(hideDelay, this, SLOT(close()));
+    QTimer::singleShot(HIDE_DELAY, this, SLOT(close()));
 }
 
 void BookmarksWidget::bookmarkEdited()
@@ -128,7 +125,7 @@ void BookmarksWidget::on_saveRemove_clicked(bool)
     else {
         m_bookmarksModel->saveBookmark(m_url, ui->name->text(), m_view->icon(), ui->folder->currentText());
     }
-    QTimer::singleShot(hideDelay, this, SLOT(close()));
+    QTimer::singleShot(HIDE_DELAY, this, SLOT(close()));
 }
 
 BookmarksWidget::~BookmarksWidget()
