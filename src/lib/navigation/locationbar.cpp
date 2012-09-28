@@ -89,6 +89,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     connect(m_bookmarkIcon, SIGNAL(clicked(QPoint)), this, SLOT(bookmarkIconClicked()));
     connect(down, SIGNAL(clicked(QPoint)), this, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
+    connect(mApp->searchEnginesManager(), SIGNAL(defaultEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp, SIGNAL(message(Qz::AppMessageType, bool)), SLOT(onMessage(Qz::AppMessageType, bool)));
 
     loadSettings();
@@ -114,7 +115,10 @@ void LocationBar::setText(const QString &text)
 
 void LocationBar::updatePlaceHolderText()
 {
-    setPlaceholderText(tr("Enter URL address or search on %1").arg(mApp->searchEnginesManager()->activeEngine().name));
+    QString engineName = qzSettings->searchWithDefaultEngine ?
+                         mApp->searchEnginesManager()->defaultEngine().name :
+                         mApp->searchEnginesManager()->activeEngine().name;
+    setPlaceholderText(tr("Enter URL address or search on %1").arg(engineName));
 }
 
 void LocationBar::showCompletion(const QString &newText)

@@ -66,7 +66,11 @@ public:
     void removeEngine(const Engine &engine);
 
     void setActiveEngine(const Engine &engine);
-    Engine activeEngine() { return m_activeEngine; }
+    Engine activeEngine() const { return m_activeEngine; }
+
+    void setDefaultEngine(const Engine &engine);
+    Engine defaultEngine() const { return m_defaultEngine; }
+
     void editEngine(const Engine &before, const Engine &after);
 
     Engine engineForShortcut(const QString &shortcut);
@@ -84,6 +88,7 @@ public:
 signals:
     void enginesChanged();
     void activeEngineChanged();
+    void defaultEngineChanged();
 
 public slots:
 
@@ -102,8 +107,10 @@ private:
     bool m_saveScheduled;
 
     QString m_startingEngineName;
+    QString m_defaultEngineName;
     QList<Engine> m_allEngines;
     Engine m_activeEngine;
+    Engine m_defaultEngine;
 
 };
 
