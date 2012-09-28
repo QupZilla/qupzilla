@@ -737,19 +737,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Add to Speed Dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Organize Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2382,7 +2374,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show close button on tabs</source>
+        <source>Fill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If unchecked the bar will adapt to the background color.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>custom color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Many styles use Highlight color for the progressbar.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>set to &quot;Highlight&quot; color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search with Default Engine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Color</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3398,6 +3430,18 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>Edit Search Engine</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Remove Engine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set as default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchEnginesManager</name>
@@ -3752,6 +3796,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Search...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whole words</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4149,6 +4197,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Show suggestions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search when engine changed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

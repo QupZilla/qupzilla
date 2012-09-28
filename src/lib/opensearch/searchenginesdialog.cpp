@@ -83,7 +83,7 @@ void SearchEnginesDialog::removeEngine()
         SearchEngine en = getEngine(item);
         QMessageBox::warning(this, tr("Remove Engine"),
                              tr("You can't remove the default search engine.<br>"
-                                "Set a different engine as Default before removing %1.").arg(en.name));
+                                "Set a different engine as default before removing %1.").arg(en.name));
     }
     else {
         delete item;
