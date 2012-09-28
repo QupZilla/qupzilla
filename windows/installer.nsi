@@ -3,7 +3,7 @@
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.3.1"
+!define /date PRODUCT_VERSION "1.3.5"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -45,6 +45,7 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Georgian"
 !insertmacro MUI_LANGUAGE "Japanese"
 !insertmacro MUI_LANGUAGE "Swedish"
+!insertmacro MUI_LANGUAGE "Polish"
 !insertmacro MUI_LANGUAGE "Ukrainian"
 
 !insertmacro MUI_LANGUAGE "Korean"
@@ -267,6 +268,12 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\qt_uk.qm"
   SectionEnd
 
+  Section "Persian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\fa_IR.qm"
+  File "locale\qt_fa.qm"
+  SectionEnd
+
 SectionGroupEnd
 
 Section $(TITLE_SecPlugins) SecPlugins
@@ -337,9 +344,9 @@ SectionEnd
 BrandingText "${PRODUCT_NAME} ${PRODUCT_VERSION} Installer"
 
 Function .onInit
-        ;Language selection dialog
-        ;Do nothing when in silent install
-
+        ;Language selection dialog¨
+        ;Return when running silent instalation
+        
         IfSilent 0 +2
           return
 
@@ -376,6 +383,8 @@ Function .onInit
         Push Japanese
         Push ${LANG_SWEDISH}
         Push Swedish
+        Push ${LANG_POLISH}
+        Push Polish
         Push ${LANG_UKRAINIAN}
         Push Ukrainian
         Push A ; A means auto count languages
