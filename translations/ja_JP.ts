@@ -2444,7 +2444,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation>&lt;b&gt; ブラウザの識別を変更する &lt;/b&gt;</translation>
+        <translation>&lt;b&gt; ブラウザのUAを変更する &lt;/b&gt;</translation>
     </message>
     <message>
         <source>User Agent Manager</source>
@@ -2468,47 +2468,50 @@
     </message>
     <message>
         <source>Fill</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>微妙</translatorcomment>
+        <translation>入力</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>微妙</translatorcomment>
+        <translation>Bottom</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>微妙</translatorcomment>
+        <translation>Top</translation>
     </message>
     <message>
         <source>If unchecked the bar will adapt to the background color.</source>
-        <translation type="unfinished"></translation>
+        <translation>チェックを外すとバーの色は背景色をもとに設定されます。</translation>
     </message>
     <message>
         <source>custom color:</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタムカラー:</translation>
     </message>
     <message>
         <source>Select color</source>
-        <translation type="unfinished"></translation>
+        <translation>色の選択</translation>
     </message>
     <message>
         <source>Many styles use Highlight color for the progressbar.</source>
-        <translation type="unfinished"></translation>
+        <translation>多くのスタイルがプログレスバーにハイライトカラーを使用します。</translation>
     </message>
     <message>
         <source>set to &quot;Highlight&quot; color</source>
-        <translation type="unfinished"></translation>
+        <translation>ハイライトカラーに設定する</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;デフォルトの検索エンジンを有効にした場合、ショートカットなしでのロケーションバーからの検索は検索バーのエンジンではなく、デフォルト検索エンジンによって行われます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Search with Default Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>デフォルトのエンジンで検索</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>色の選択</translation>
     </message>
 </context>
 <context>
@@ -3555,15 +3558,15 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Remove Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジンの削除</translation>
     </message>
     <message>
         <source>Set as default</source>
-        <translation type="unfinished"></translation>
+        <translation>デフォルトに設定</translation>
     </message>
     <message>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>デフォルトの検索エンジンは削除できません。&lt;br&gt;他の検索エンジンをデフォルトに設定してから削除してください %1。</translation>
     </message>
 </context>
 <context>
@@ -3929,7 +3932,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Whole words</source>
-        <translation type="unfinished"></translation>
+        <translation>単語単位</translation>
     </message>
 </context>
 <context>
@@ -4129,7 +4132,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Change global User Agent</source>
-        <translation>一般 User Agent</translation>
+        <translation>既定のUser Agent</translation>
     </message>
     <message>
         <source>Use different User Agents for specified sites</source>
@@ -4354,7 +4357,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Search when engine changed</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジンの変更時に検索する</translation>
     </message>
 </context>
 <context>
