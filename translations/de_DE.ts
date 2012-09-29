@@ -2625,52 +2625,52 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="803"/>
         <source>Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Füllen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="808"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Unten</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="813"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Oben</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="821"/>
         <source>If unchecked the bar will adapt to the background color.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn deaktivert, übernimmt der Fortschrittsbalken die Hintergrundfarbe.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="824"/>
         <source>custom color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzerdefinierte Farbe:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="834"/>
         <source>Select color</source>
-        <translation type="unfinished"></translation>
+        <translation>Farbe auswählen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="844"/>
         <source>Many styles use Highlight color for the progressbar.</source>
-        <translation type="unfinished"></translation>
+        <translation>Viele Themen stellen den Fortschrittsbalken hervorgehoben dar.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="847"/>
         <source>set to &quot;Highlight&quot; color</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivieren, um die Farbe hervor zu heben</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="894"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ist diese Option aktiviert, wird die Standard-Suchmaschine ohne Shortcut in der Adressleiste genutzt anstatt der, die aktuell in der Suchleiste eingestellt ist.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="897"/>
         <source>Search with Default Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Mit Standard-Suchmaschine suchen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="937"/>
@@ -3098,7 +3098,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="987"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Farbe auswählen</translation>
     </message>
 </context>
 <context>
@@ -4380,7 +4380,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="56"/>
         <source>Set as default</source>
-        <translation type="unfinished"></translation>
+        <translation>Als Standard verwenden</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="91"/>
@@ -4396,12 +4396,12 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="84"/>
         <source>Remove Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchmaschine entfernen</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="85"/>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Standard-Suchmaschine kann nicht entfernt werden.&lt;br&gt;Bitte definieren Sie eine andere Standard-Suchmaschine, bevor Sie %1 entfernen.</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="102"/>
@@ -4858,7 +4858,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="88"/>
         <source>Whole words</source>
-        <translation type="unfinished"></translation>
+        <translation>Ganze Wörter suchen</translation>
     </message>
 </context>
 <context>
@@ -5362,7 +5362,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="315"/>
         <source>Search when engine changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Suche nach Änderung der Suchmaschine starten</translation>
     </message>
 </context>
 <context>
