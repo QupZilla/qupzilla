@@ -2239,57 +2239,57 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="792"/>
         <source>Show loading progress in address bar</source>
-        <translation>Mostrar o progesson do carregamento da página na barra de endereços</translation>
+        <translation>Mostrar o progresso do carregamento da página na barra de endereços</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="803"/>
         <source>Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Preencher</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="808"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Em baixo</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="813"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Em cima</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="821"/>
         <source>If unchecked the bar will adapt to the background color.</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolher cor de fundo.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="824"/>
         <source>custom color:</source>
-        <translation type="unfinished"></translation>
+        <translation>cor:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="834"/>
         <source>Select color</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolher cor</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="844"/>
         <source>Many styles use Highlight color for the progressbar.</source>
-        <translation type="unfinished"></translation>
+        <translation>Muitos estilos usam cor de realce na barra de progresso.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="847"/>
         <source>set to &quot;Highlight&quot; color</source>
-        <translation type="unfinished"></translation>
+        <translation>Definir cor de realce</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="894"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&lt;p&gt;Caso esteja habilitado, a pesquisa será feita no site de pesquisa padrão invés de pesquiser no site de pesquisa descrito na barra de pesquisa.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="897"/>
         <source>Search with Default Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Procurar com o site de pesquisa padrão</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1003"/>
@@ -2329,7 +2329,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="987"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolher Cor</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1948"/>
@@ -4363,7 +4363,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="56"/>
         <source>Set as default</source>
-        <translation type="unfinished"></translation>
+        <translation>Definir padrão</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="14"/>
@@ -4373,12 +4373,12 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="84"/>
         <source>Remove Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover sites</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="85"/>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Você não pode remover o site padrão. &lt;br&gt;Primeiro escolha um novo site de pesquisa padrão.</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="102"/>
@@ -4851,7 +4851,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="88"/>
         <source>Whole words</source>
-        <translation type="unfinished"></translation>
+        <translation>Palavras completas</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="42"/>
@@ -5353,7 +5353,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="315"/>
         <source>Search when engine changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Procurar quando alterar o site de pesquisa</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="258"/>
