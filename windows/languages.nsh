@@ -321,20 +321,17 @@ LangString DESC_SecExtensions ${LANG_UKRAINIAN} "Асоціювати QupZill'у
 LangString DESC_SecThemes ${LANG_UKRAINIAN} "Додаткові теми для QupZill'и"
 
 ;;;;Persian (Farsi)
-LangString TITLE_SecMain ${LANG_FARSI} "اجزاء اصلی"
+LangString TITLE_SecMain ${LANG_FARSI} "بخش اصلی"
 LangString TITLE_SecTranslations ${LANG_FARSI} "برگردان‌ها"
 LangString TITLE_SecPlugins ${LANG_FARSI} "افزونه‌ها"
 LangString TITLE_SecDesktop ${LANG_FARSI} "آیکون میزکار"
 LangString TITLE_SecExtensions ${LANG_FARSI} "اختصاص برای بازکردن فایل‌ها"
 LangString TITLE_SecThemes ${LANG_FARSI} "فرهشت‌ها"
-
-LangString FILE_Htm ${LANG_FARSI} "فایل HTM"
-LangString FILE_Html ${LANG_FARSI} "فایل HTML"
 ;
-LangString DESC_SecMain ${LANG_FARSI} "اجزاء اصلی نرم‌افزار."
-LangString DESC_SecTranslations ${LANG_FARSI} "برگردان‌های دیگر برای نصب کننده. پیش فرض انگلیسی است."
+LangString DESC_SecMain ${LANG_FARSI} "بخش اصلی نرم‌افزار."
+LangString DESC_SecTranslations ${LANG_FARSI} "دیگر برگردان‌های دردسترس. پیش فرض انگلیسی است."
 LangString DESC_SecPlugins ${LANG_FARSI} "افزونه‌های دیگر که برای نصب در دسترس هستند."
-LangString DESC_SecDesktop ${LANG_FARSI} "افزودن میان‌بری برای آغازگر به میزکار"
+LangString DESC_SecDesktop ${LANG_FARSI} "افزودن میان‌برِ آغازگر به میزکار"
 LangString DESC_SecExtensions ${LANG_FARSI} "کوپزیلا را برای بازکردن فایل‌های ‎.htm و ‎.html  اختصاص می‌دهد."
 LangString DESC_SecThemes ${LANG_FARSI} "فرهشت‌های اضافی برای کوپزیلا"
 ;;;;;;;;;
@@ -380,9 +377,11 @@ LangString DESC_SecExtensions ${LANG_SPANISH} "Associate QupZilla with .htm and 
 LangString FILE_Htm ${LANG_KOREAN} "HTM File"
 LangString FILE_Htm ${LANG_RUSSIAN} "HTM File"
 LangString FILE_Htm ${LANG_SPANISH} "HTM File"
+LangString FILE_Htm ${LANG_FARSI} "HTM File"
 LangString FILE_Html ${LANG_KOREAN} "HTML File"
 LangString FILE_Html ${LANG_RUSSIAN} "HTML File"
 LangString FILE_Html ${LANG_SPANISH} "HTML File"
+LangString FILE_Html ${LANG_FARSI} "HTML File"
 
 LangString TITLE_SecThemes ${LANG_KOREAN} "Themes"
 LangString TITLE_SecThemes ${LANG_RUSSIAN} "Themes"
