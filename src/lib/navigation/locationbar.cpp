@@ -631,7 +631,8 @@ void LocationBar::paintEvent(QPaintEvent* event)
 
         switch (m_progressStyle) {
         case ProgressFilled: {
-            QRect bar = textRect.adjusted(-3, 0, 6 - (textRect.width() * (100.0 - m_loadProgress) / 100), 0);
+            QRect bar = contentsRect.adjusted(0, 1, 0, -1);
+            bar.setWidth(bar.width()*m_loadProgress/100);
             const int roundness = bar.height() / 4.0;
             p.drawRoundedRect(bar, roundness, roundness);
             break;
@@ -640,7 +641,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
             outlinePen.setWidthF(0.3);
             outlinePen.setColor(outlinePen.color().darker(130));
             p.setPen(outlinePen);
-            QRect bar(contentsRect.x(), contentsRect.bottom() - 2,
+            QRect bar(contentsRect.x(), contentsRect.bottom() - 3,
                       contentsRect.width()*m_loadProgress / 100.0, 3);
             p.drawRoundedRect(bar, 1, 1);
             break;
