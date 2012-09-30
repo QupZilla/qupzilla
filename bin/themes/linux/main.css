@@ -188,9 +188,10 @@ IconProvider
 /*WebSearchBar*/
 #websearchbar
 {
-    border-width:4;
+    border-width: 4px;
     padding-right: -4px;
     padding-top: -2px;
+    padding-bottom: -2px;
     qproperty-fixedheight: 27;
     qproperty-leftMargin: 30;
 }
