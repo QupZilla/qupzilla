@@ -52,7 +52,7 @@ class QT_QUPZILLA_EXPORT WebSearchBar : public LineEdit
     Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)
 
 public:
-    explicit WebSearchBar(QupZilla* mainClass, QWidget* parent = 0);
+    explicit WebSearchBar(QupZilla* mainClass);
 
 private slots:
     void searchChanged(const ButtonWithMenu::Item &item);
@@ -93,7 +93,6 @@ private:
     SearchEnginesManager* m_searchManager;
     QWeakPointer<SearchEnginesDialog> m_searchDialog;
 
-    QMenu* m_menu;
     QAction* m_pasteAndGoAction;
     QAction* m_clearAction;
 

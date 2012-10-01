@@ -30,12 +30,13 @@ class WebSearchBar;
 class QupZilla;
 class ReloadStopButton;
 class Menu;
+class QUrl;
+
 class QT_QUPZILLA_EXPORT NavigationBar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NavigationBar(QupZilla* mainClass, QWidget* parent = 0);
-    ~NavigationBar();
+    explicit NavigationBar(QupZilla* mainClass);
 
     void setSplitterSizes(int locationBar, int websearchBar);
 
@@ -71,6 +72,9 @@ private slots:
     void clearHistory();
 
 private:
+    QString titleForUrl(QString title, const QUrl &url);
+    QIcon iconForPage(const QUrl &url, const QIcon &sIcon);
+
     QupZilla* p_QupZilla;
 
     QHBoxLayout* m_layout;

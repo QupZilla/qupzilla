@@ -50,10 +50,9 @@ void WebSearchBar_Button::contextMenuEvent(QContextMenuEvent* event)
     event->accept();
 }
 
-WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
-    : LineEdit(parent)
+WebSearchBar::WebSearchBar(QupZilla* mainClass)
+    : LineEdit(mainClass)
     , p_QupZilla(mainClass)
-    , m_menu(new QMenu(this))
     , m_pasteAndGoAction(0)
     , m_clearAction(0)
     , m_reloadingEngines(false)
@@ -266,13 +265,13 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
     }
 
     QMenu* tempMenu = createStandardContextMenu();
-    m_menu->clear();
+    QMenu menu(this);
 
     int i = 0;
     foreach(QAction * act, tempMenu->actions()) {
-        act->setParent(m_menu);
+        act->setParent(&menu);
         tempMenu->removeAction(act);
-        m_menu->addAction(act);
+        menu.addAction(act);
 
         switch (i) {
         case 0:
@@ -289,13 +288,13 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
             break;
         case 5:
             act->setIcon(QIcon::fromTheme("edit-paste"));
-            m_menu->addAction(act);
-            m_menu->addAction(m_pasteAndGoAction);
+            menu.addAction(act);
+            menu.addAction(m_pasteAndGoAction);
             break;
         case 6:
             act->setIcon(QIcon::fromTheme("edit-delete"));
-            m_menu->addAction(act);
-            m_menu->addAction(m_clearAction);
+            menu.addAction(act);
+            menu.addAction(m_clearAction);
             break;
         case 8:
             act->setIcon(QIcon::fromTheme("edit-select-all"));
@@ -306,13 +305,13 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
 
     tempMenu->deleteLater();
 
-    m_menu->addSeparator();
-    QAction* act = m_menu->addAction(tr("Show suggestions"));
+    menu.addSeparator();
+    QAction* act = menu.addAction(tr("Show suggestions"));
     act->setCheckable(true);
     act->setChecked(qzSettings->showSearchSuggestions);
     connect(act, SIGNAL(triggered(bool)), this, SLOT(enableSearchSuggestions(bool)));
 
-    QAction* instantSearch = m_menu->addAction(tr("Search when engine changed"));
+    QAction* instantSearch = menu.addAction(tr("Search when engine changed"));
     instantSearch->setCheckable(true);
     instantSearch->setChecked(qzSettings->searchOnEngineChange);
     connect(instantSearch, SIGNAL(triggered(bool)), this, SLOT(instantSearchChanged(bool)));
@@ -322,7 +321,7 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
     //Prevent choosing first option with double rightclick
     QPoint pos = event->globalPos();
     QPoint p(pos.x(), pos.y() + 1);
-    m_menu->popup(p);
+    menu.exec(p);
 }
 
 void WebSearchBar::focusOutEvent(QFocusEvent* e)
