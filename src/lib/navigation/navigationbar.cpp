@@ -34,7 +34,7 @@
 #include <QStackedWidget>
 #include <QWebHistory>
 
-QString titleForUrl(QString title, const QUrl &url)
+QString NavigationBar::titleForUrl(QString title, const QUrl &url)
 {
     if (title.isEmpty()) {
         title = url.toString(QUrl::RemoveFragment);
@@ -50,7 +50,7 @@ QString titleForUrl(QString title, const QUrl &url)
     return title;
 }
 
-QIcon iconForPage(const QUrl &url, const QIcon &sIcon)
+QIcon NavigationBar::iconForPage(const QUrl &url, const QIcon &sIcon)
 {
     QIcon icon;
     icon.addPixmap(url.scheme() == QLatin1String("qupzilla") ? QIcon(":icons/qupzilla.png").pixmap(16, 16) : _iconForUrl(url).pixmap(16, 16));
@@ -58,8 +58,8 @@ QIcon iconForPage(const QUrl &url, const QIcon &sIcon)
     return icon;
 }
 
-NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
-    : QWidget(parent)
+NavigationBar::NavigationBar(QupZilla* mainClass)
+    : QWidget(mainClass)
     , p_QupZilla(mainClass)
 {
     setObjectName("navigationbar");
@@ -355,9 +355,4 @@ void NavigationBar::goForwardInNewTab()
     }
 
     goAtHistoryIndexInNewTab(itemIndex);
-}
-
-NavigationBar::~NavigationBar()
-{
-    delete m_searchLine;
 }
