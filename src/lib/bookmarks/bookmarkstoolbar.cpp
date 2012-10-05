@@ -109,6 +109,9 @@ void BookmarksToolbar::showBookmarkContextMenu(const QPoint &pos)
     QVariant buttonPointer = qVariantFromValue((void*) button);
 
     QMenu menu;
+    menu.addAction(tr("Open bookmark"), this, SLOT(loadClickedBookmark()))->setData(buttonPointer);
+    menu.addAction(tr("Open bookmark in new tab"), this, SLOT(loadClickedBookmarkInNewTab()))->setData(buttonPointer);
+    menu.addSeparator();
     menu.addAction(qIconProvider->fromTheme("go-next"), tr("Move right"), this, SLOT(moveRight()))->setData(buttonPointer);
     menu.addAction(qIconProvider->fromTheme("go-previous"), tr("Move left"), this, SLOT(moveLeft()))->setData(buttonPointer);
     menu.addAction(tr("Edit bookmark"), this, SLOT(editBookmark()))->setData(buttonPointer);
@@ -277,7 +280,17 @@ void BookmarksToolbar::toggleShowOnlyIcons()
 
 void BookmarksToolbar::loadClickedBookmark()
 {
-    ToolButton* button = qobject_cast<ToolButton*>(sender());
+    ToolButton* button = 0;
+
+    QAction* act = qobject_cast<QAction*> (sender());
+    if (act) {
+        button = static_cast<ToolButton*>(act->data().value<void*>());
+    }
+
+    if (!button) {
+        button = qobject_cast<ToolButton*>(sender());
+    }
+
     if (!button) {
         return;
     }
@@ -289,7 +302,17 @@ void BookmarksToolbar::loadClickedBookmark()
 
 void BookmarksToolbar::loadClickedBookmarkInNewTab()
 {
-    ToolButton* button = qobject_cast<ToolButton*>(sender());
+    ToolButton* button = 0;
+
+    QAction* act = qobject_cast<QAction*> (sender());
+    if (act) {
+        button = static_cast<ToolButton*>(act->data().value<void*>());
+    }
+
+    if (!button) {
+        button = qobject_cast<ToolButton*>(sender());
+    }
+
     if (!button) {
         return;
     }

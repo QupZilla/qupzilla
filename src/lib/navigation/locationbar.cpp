@@ -632,7 +632,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
         switch (m_progressStyle) {
         case ProgressFilled: {
             QRect bar = contentsRect.adjusted(0, 1, 0, -1);
-            bar.setWidth(bar.width()*m_loadProgress/100);
+            bar.setWidth(bar.width()*m_loadProgress / 100);
             const int roundness = bar.height() / 4.0;
             p.drawRoundedRect(bar, roundness, roundness);
             break;
