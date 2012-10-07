@@ -55,6 +55,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_holdingAlt(false)
     , m_loadProgress(0)
     , m_progressVisible(false)
+    , m_forceLineEditPaintEvent(false)
 {
     setObjectName("locationbar");
     setDragEnabled(true);
@@ -110,6 +111,7 @@ void LocationBar::setWebView(TabbedWebView* view)
 void LocationBar::setText(const QString &text)
 {
     LineEdit::setText(text);
+    m_forceLineEditPaintEvent = true;
     setCursorPosition(0);
 }
 
@@ -423,6 +425,7 @@ void LocationBar::focusOutEvent(QFocusEvent* event)
         return;
     }
 
+    m_forceLineEditPaintEvent = true;
     setCursorPosition(0);
     hideGoButton();
 
@@ -590,8 +593,12 @@ void LocationBar::hideProgress()
 
 void LocationBar::paintEvent(QPaintEvent* event)
 {
-    if (hasFocus() || text().isEmpty()) {
+    if (hasFocus() || text().isEmpty() || m_forceLineEditPaintEvent) {
         LineEdit::paintEvent(event);
+        if(m_forceLineEditPaintEvent) {
+            m_forceLineEditPaintEvent = false;
+            update();
+        }
         return;
     }
 
