@@ -126,6 +126,8 @@ private:
     bool m_progressVisible;
     ProgressStyle m_progressStyle;
     QColor m_progressColor;
+
+    bool m_forceLineEditPaintEvent;
 };
 
 #endif // LOCATIONBAR_H
