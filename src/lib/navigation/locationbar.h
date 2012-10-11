@@ -115,7 +115,6 @@ private:
     QupZilla* p_QupZilla;
     TabbedWebView* m_webView;
 
-    QMenu* m_menu;
     QAction* m_pasteAndGoAction;
     QAction* m_clearAction;
 

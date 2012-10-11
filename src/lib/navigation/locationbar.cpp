@@ -49,7 +49,6 @@ LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit(mainClass)
     , p_QupZilla(mainClass)
     , m_webView(0)
-    , m_menu(new QMenu(this))
     , m_pasteAndGoAction(0)
     , m_clearAction(0)
     , m_holdingAlt(false)
@@ -324,13 +323,11 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
     }
 
     QMenu* tempMenu = createStandardContextMenu();
-    m_menu->clear();
+    QMenu menu(this);
 
     int i = 0;
     foreach(QAction * act, tempMenu->actions()) {
-        act->setParent(m_menu);
-        tempMenu->removeAction(act);
-        m_menu->addAction(act);
+        menu.addAction(act);
 
         switch (i) {
         case 0:
@@ -347,13 +344,13 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
             break;
         case 5:
             act->setIcon(QIcon::fromTheme("edit-paste"));
-            m_menu->addAction(act);
-            m_menu->addAction(m_pasteAndGoAction);
+            menu.addAction(act);
+            menu.addAction(m_pasteAndGoAction);
             break;
         case 6:
             act->setIcon(QIcon::fromTheme("edit-delete"));
-            m_menu->addAction(act);
-            m_menu->addAction(m_clearAction);
+            menu.addAction(act);
+            menu.addAction(m_clearAction);
             break;
         case 8:
             act->setIcon(QIcon::fromTheme("edit-select-all"));
@@ -362,14 +359,14 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
         ++i;
     }
 
-    tempMenu->deleteLater();
-
     m_pasteAndGoAction->setEnabled(!QApplication::clipboard()->text().isEmpty());
 
-    //Prevent choosing first option with double rightclick
+    // Prevent choosing first option with double rightclick
     QPoint pos = event->globalPos();
     QPoint p(pos.x(), pos.y() + 1);
-    m_menu->popup(p);
+    menu.exec(p);
+
+    tempMenu->deleteLater();
 }
 
 void LocationBar::focusInEvent(QFocusEvent* event)
@@ -595,7 +592,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
 {
     if (hasFocus() || text().isEmpty() || m_forceLineEditPaintEvent) {
         LineEdit::paintEvent(event);
-        if(m_forceLineEditPaintEvent) {
+        if (m_forceLineEditPaintEvent) {
             m_forceLineEditPaintEvent = false;
             update();
         }

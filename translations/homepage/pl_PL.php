@@ -70,9 +70,6 @@ $translating_moreinfo = "Więcej informacji o tłumaczeniu <a href='https://gith
 $creators = "Kto tworzy QupZillę?";
 $creators_text = "Właścicielem projektu i głównym programistą jest student z Republiki Czeskiej, <b>David Rosca</b> (nowrep).<br/>
 Poza kodowaniem, użytkownicy współtworzą tłumaczenia na wiele języków i wspierają QupZillę. Lista osób współtworzących dostępna jest <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>tutaj</a> [github].<br/><br/>Możesz także dołączyć do kanału IRC <b>#qupzilla</b> w sieci irc.freenode.net aby porozmawiać z osobami zaangażowanymi w rozwój QupZilli.";
-// You can delete these (commented) lines after you translate $creators and $creators_text
-//$contributors = "Contributors";
-//$contributors_text = "Full list of contributors can be found on <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>github</a>.<br/>You can also join IRC channel #qupzilla at irc.freenode.net.";
 $share_with_friends = "Podziel się ze znajomymi!";
 $share_with_friends_text = "Lubisz QupZillę? W takim razie podziel się nią ze swoimi znajomymi!";
 ?>

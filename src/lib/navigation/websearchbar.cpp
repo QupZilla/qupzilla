@@ -303,8 +303,6 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
         ++i;
     }
 
-    tempMenu->deleteLater();
-
     menu.addSeparator();
     QAction* act = menu.addAction(tr("Show suggestions"));
     act->setCheckable(true);
@@ -318,10 +316,12 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
 
     m_pasteAndGoAction->setEnabled(!QApplication::clipboard()->text().isEmpty());
 
-    //Prevent choosing first option with double rightclick
+    // Prevent choosing first option with double rightclick
     QPoint pos = event->globalPos();
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
+
+    tempMenu->deleteLater();
 }
 
 void WebSearchBar::focusOutEvent(QFocusEvent* e)
