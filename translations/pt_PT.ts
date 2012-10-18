@@ -2535,52 +2535,52 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="803"/>
         <source>Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Preencher</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="808"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Base</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="813"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Topo</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="821"/>
         <source>If unchecked the bar will adapt to the background color.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se inativa, a barra será adaptada à cor de fundo.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="824"/>
         <source>custom color:</source>
-        <translation type="unfinished"></translation>
+        <translation>cor personalizada:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="834"/>
         <source>Select color</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolha a cor</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="844"/>
         <source>Many styles use Highlight color for the progressbar.</source>
-        <translation type="unfinished"></translation>
+        <translation>Diversos estilos utilizam uma cor de realce para a barra de evolução.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="847"/>
         <source>set to &quot;Highlight&quot; color</source>
-        <translation type="unfinished"></translation>
+        <translation>definir cor de &quot;Realce&quot;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="894"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se ativa, o motor de procura padrão será obtido para a procura sem utilizar o atalho na barra de endereço em vez de utilizar o motor de procura selecionado na barra de procura web.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="897"/>
         <source>Search with Default Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Procurar com o motor padrão</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="937"/>
@@ -2964,7 +2964,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2265"/>
         <source>StyleSheet automatically loaded with all websites: </source>
-        <translation>A stylesheet a carregar automaticamente nas páginas web: </translation>
+        <translation>A folha de estilo a carregar automaticamente nas páginas web: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2284"/>
@@ -3044,7 +3044,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="515"/>
         <source>Choose stylesheet location...</source>
-        <translation>Escolha a localização da stylesheet...</translation>
+        <translation>Escolha a localização da folha de estilo...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="526"/>
@@ -3095,7 +3095,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="987"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolha a cor</translation>
     </message>
 </context>
 <context>
@@ -3853,7 +3853,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="289"/>
         <source>Cover</source>
-        <translation type="unfinished"></translation>
+        <translation>Cobrir</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
@@ -4378,7 +4378,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="56"/>
         <source>Set as default</source>
-        <translation type="unfinished"></translation>
+        <translation>Definir como padrão</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="91"/>
@@ -4394,12 +4394,12 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="84"/>
         <source>Remove Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover motor</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="85"/>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não pode remover o motor de procura padrão.&lt;br&gt;Defina um motor diferente para ser utilizado como padrão antes de remover %1.</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="102"/>
@@ -4856,7 +4856,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="88"/>
         <source>Whole words</source>
-        <translation type="unfinished"></translation>
+        <translation>Palavras completas</translation>
     </message>
 </context>
 <context>
@@ -5358,7 +5358,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="315"/>
         <source>Search when engine changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Procurar ao alterar o motor</translation>
     </message>
 </context>
 <context>
