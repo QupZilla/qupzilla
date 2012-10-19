@@ -25,33 +25,39 @@
 
 //#define COOKIE_DEBUG
 
-bool _matchDomain(const QString &domain, const QString &filter)
+bool blockThirdParty(QString string, QString domain)
 {
+    if (string.isEmpty()) {
+        // Some cookies have empty domain() ... bug?
+        return false;
+    }
+
+    if (string.startsWith(QLatin1String("www."))) {
+        string = string.mid(3);
+    }
+
+    if (domain.startsWith(QLatin1String("www."))) {
+        domain = domain.mid(4);
+    }
+
+    return !domain.endsWith(string);
+}
+
+bool matchDomain(const QString &domain, const QString &filter)
+{
+    // According to RFC 6265
+
+    if (domain == filter) {
+        return true;
+    }
+
     if (!domain.endsWith(filter)) {
         return false;
     }
 
     int index = domain.indexOf(filter);
 
-    if (index == 0 || filter[0] == QLatin1Char('.')) {
-        return true;
-    }
-
-    return domain[index - 1] == QLatin1Char('.');
-}
-
-bool containsDomain(QString string, const QString &domain)
-{
-    if (string.isEmpty()) {
-        // Some cookies have empty domain() ... bug?
-        return true;
-    }
-
-    if (string.startsWith(QLatin1Char('.'))) {
-        string = string.mid(1);
-    }
-
-    return _matchDomain(domain, string);
+    return (index > 0 && filter[0] == QLatin1Char('.'));
 }
 
 int listContainsDomain(const QStringList &list, const QString &domain)
@@ -61,7 +67,7 @@ int listContainsDomain(const QStringList &list, const QString &domain)
     }
 
     foreach(const QString & d, list) {
-        if (_matchDomain(domain, d)) {
+        if (matchDomain(domain, d)) {
             return 1;
         }
     }
@@ -120,7 +126,7 @@ bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie
     }
 
     if (m_blockThirdParty) {
-        bool result = !containsDomain(cookieDomain, domain);
+        bool result = blockThirdParty(cookieDomain, domain);
         if (result) {
 #ifdef COOKIE_DEBUG
             qDebug() << "purged for domain mismatch" << cookie << cookieDomain << domain;
