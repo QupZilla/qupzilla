@@ -727,6 +727,14 @@
         <source>Empty</source>
         <translation>該当なし</translation>
     </message>
+    <message>
+        <source>Open bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open bookmark in new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksWidget</name>
@@ -2512,6 +2520,10 @@
     <message>
         <source>Select Color</source>
         <translation>色の選択</translation>
+    </message>
+    <message>
+        <source>Show Reload / Stop buttons</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

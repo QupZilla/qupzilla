@@ -717,6 +717,14 @@
         <source>Empty</source>
         <translation>Gol</translation>
     </message>
+    <message>
+        <source>Open bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open bookmark in new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksWidget</name>
@@ -2448,6 +2456,10 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Select Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Reload / Stop buttons</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
