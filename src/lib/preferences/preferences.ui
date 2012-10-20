@@ -547,28 +547,21 @@
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
+           <item row="5" column="1">
             <widget class="QCheckBox" name="showBackForward">
              <property name="text">
               <string>Show Back / Forward buttons</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="1">
-            <widget class="QCheckBox" name="showAddTabButton">
-             <property name="text">
-              <string>Show Add Tab button</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="0" colspan="2">
+           <item row="9" column="0" colspan="2">
             <widget class="QLabel" name="label_7">
              <property name="text">
               <string>&lt;b&gt;Background&lt;b/&gt;</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="1">
+           <item row="11" column="1">
             <spacer name="verticalSpacer_12">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -581,17 +574,31 @@
              </property>
             </spacer>
            </item>
-           <item row="8" column="1">
+           <item row="10" column="1">
             <widget class="QCheckBox" name="useTransparentBg">
              <property name="text">
               <string>Use transparent background</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="7" column="1">
             <widget class="QCheckBox" name="showWebSearchBar">
              <property name="text">
               <string>Show web search bar</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QCheckBox" name="showAddTabButton">
+             <property name="text">
+              <string>Show Add Tab button</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QCheckBox" name="showReloadStopButtons">
+             <property name="text">
+              <string>Show Reload / Stop buttons</string>
              </property>
             </widget>
            </item>
@@ -2461,7 +2468,6 @@
   <tabstop>showStatusbar</tabstop>
   <tabstop>useTransparentBg</tabstop>
   <tabstop>showNavigationToolbar</tabstop>
-  <tabstop>showAddTabButton</tabstop>
   <tabstop>pagesInCache</tabstop>
   <tabstop>showHome</tabstop>
   <tabstop>showBookmarksToolbar</tabstop>

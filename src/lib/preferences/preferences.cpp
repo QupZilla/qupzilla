@@ -167,6 +167,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->showHome->setChecked(settings.value("showHomeButton", true).toBool());
     ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
     ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());
+    ui->showReloadStopButtons->setChecked(settings.value("showReloadButton", true).toBool());
     ui->showWebSearchBar->setChecked(settings.value("showWebSearchBar", true).toBool());
     ui->useTransparentBg->setChecked(settings.value("useTransparentBackground", false).toBool());
     int currentSettingsPage = settings.value("settingsDialogPage", 0).toInt(0);
@@ -791,6 +792,7 @@ void Preferences::saveSettings()
     settings.setValue("showWebSearchBar", ui->showWebSearchBar->isChecked());
     settings.setValue("useTransparentBackground", ui->useTransparentBg->isChecked());
     settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
+    settings.setValue("showReloadButton", ui->showReloadStopButtons->isChecked());
     settings.endGroup();
 
     //TABS

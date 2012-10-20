@@ -49,6 +49,7 @@ public:
     inline ToolButton* buttonAddTab() { return m_buttonAddTab; }
     inline ToolButton* buttonSuperMenu() { return m_supMenu; }
     inline ToolButton* buttonExitFullscreen() { return m_exitFullscreen; }
+    inline ReloadStopButton* buttonReloadStop() { return m_reloadStop; }
     inline WebSearchBar* searchLine() { return m_searchLine; }
     inline QSplitter* splitter() { return m_navigationSplitter; }
 

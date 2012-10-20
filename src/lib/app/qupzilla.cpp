@@ -57,6 +57,7 @@
 #include "webinspectordockwidget.h"
 #include "bookmarksimportdialog.h"
 #include "globalfunctions.h"
+#include "reloadstopbutton.h"
 #include "enhancedmenu.h"
 #include "settings.h"
 #include "webtab.h"
@@ -568,13 +569,14 @@ void QupZilla::loadSettings()
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
     bool showStatusBar = settings.value("showStatusBar", true).toBool();
-    bool showHomeIcon = settings.value("showHomeButton", true).toBool();
+    bool showReloadButton = settings.value("showReloadButton", true).toBool();
+    bool showHomeButton = settings.value("showHomeButton", true).toBool();
+    bool showBackForwardButtons = settings.value("showBackForwardButtons", true).toBool();
+    bool showAddTabButton = settings.value("showAddTabButton", false).toBool();
     bool showWebSearchBar = settings.value("showWebSearchBar", true).toBool();
-    bool showBackForwardIcons = settings.value("showBackForwardButtons", true).toBool();
     bool showBookmarksToolbar = settings.value("showBookmarksToolbar", true).toBool();
     bool showNavigationToolbar = settings.value("showNavigationToolbar", true).toBool();
     bool showMenuBar = settings.value("showMenubar", true).toBool();
-    bool showAddTab = settings.value("showAddTabButton", false).toBool();
     bool makeTransparent = settings.value("useTransparentBackground", false).toBool();
     m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
     m_webViewWidth = settings.value("WebViewWidth", 2000).toInt();
@@ -592,11 +594,12 @@ void QupZilla::loadSettings()
 #ifndef Q_OS_MAC
     m_navigationBar->buttonSuperMenu()->setVisible(!showMenuBar);
 #endif
-    m_navigationBar->buttonHome()->setVisible(showHomeIcon);
-    m_navigationBar->buttonBack()->setVisible(showBackForwardIcons);
-    m_navigationBar->buttonNext()->setVisible(showBackForwardIcons);
+    m_navigationBar->buttonReloadStop()->setVisible(showReloadButton);
+    m_navigationBar->buttonHome()->setVisible(showHomeButton);
+    m_navigationBar->buttonBack()->setVisible(showBackForwardButtons);
+    m_navigationBar->buttonNext()->setVisible(showBackForwardButtons);
     m_navigationBar->searchLine()->setVisible(showWebSearchBar);
-    m_navigationBar->buttonAddTab()->setVisible(showAddTab);
+    m_navigationBar->buttonAddTab()->setVisible(showAddTabButton);
 
     m_sideBarManager->showSideBar(activeSideBar, false);
 
