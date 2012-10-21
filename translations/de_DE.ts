@@ -859,12 +859,12 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="112"/>
         <source>Open bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen öffnen</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="113"/>
         <source>Open bookmark in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen in neuem Tab öffnen</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="115"/>
@@ -2863,7 +2863,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="601"/>
         <source>Show Reload / Stop buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Neu Laden-/ Stopp-Schaltflächen anzeigen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2013"/>
