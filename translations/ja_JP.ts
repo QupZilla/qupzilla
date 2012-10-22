@@ -729,11 +729,11 @@
     </message>
     <message>
         <source>Open bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークを開く</translation>
     </message>
     <message>
         <source>Open bookmark in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークを新しいタブで開く</translation>
     </message>
 </context>
 <context>
@@ -2523,7 +2523,7 @@
     </message>
     <message>
         <source>Show Reload / Stop buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>更新/中止ボタンの表示</translation>
     </message>
 </context>
 <context>
@@ -2951,7 +2951,7 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Issue description</source>
-        <translation>問題の細かな説明</translation>
+        <translation>問題の説明</translation>
     </message>
     <message>
         <source>Send</source>
@@ -2959,8 +2959,7 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translatorcomment>ようわからんので保留</translatorcomment>
-        <translation>E-mailアドレスの記入は必須ではありません。l&lt;br/&gt;&lt;b&gt;注意&lt;/b&gt;バグレポートの書き方についてご覧ください&lt;a href=%1&gt;こちらから&lt;/a&gt; first.</translation>
+        <translation>E-mailアドレスの記入は必須ではありません。&lt;br/&gt;&lt;b&gt;注意&lt;/b&gt;バグレポートの書き方についてまず&lt;a href=%1&gt;こちらから&lt;/a&gt;ご覧ください。</translation>
     </message>
     <message>
         <source>Please fill out all required fields!</source>
@@ -2989,7 +2988,7 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>WebKit version</source>
-        <translation>Webkitのバージョン</translation>
+        <translation>WebKit version</translation>
     </message>
     <message>
         <source>Main developer</source>
@@ -3158,15 +3157,15 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>Application version</source>
         <translatorcomment>比較検討、絶対する</translatorcomment>
-        <translation>アプリケーションバージョン</translation>
+        <translation>Application version</translation>
     </message>
     <message>
         <source>Qt version</source>
-        <translation>Qtのバージョン</translation>
+        <translation>Qt version</translation>
     </message>
     <message>
         <source>Build time</source>
-        <translation>ビルド情報</translation>
+        <translation>Build time</translation>
     </message>
     <message>
         <source>Platform</source>
@@ -3174,7 +3173,7 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Build Configuration</source>
-        <translation>ビルド設定</translation>
+        <translation>Build Configuration</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -3263,7 +3262,7 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Or you can start completely new session</source>
-        <translation>もしくは新しいセッションでも起動できます</translation>
+        <translation>新しいセッションで開始することもできます</translation>
     </message>
 </context>
 <context>
