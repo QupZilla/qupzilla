@@ -858,12 +858,12 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="112"/>
         <source>Open bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Отвори</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="113"/>
         <source>Open bookmark in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Отвори у новом језичку</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="115"/>
@@ -2521,52 +2521,52 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="810"/>
         <source>Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Испун</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="815"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Дно</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="820"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Врх</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="828"/>
         <source>If unchecked the bar will adapt to the background color.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ако није попуњено, трака ће се прилагодити боји позадине.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="831"/>
         <source>custom color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Посебна боја:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="841"/>
         <source>Select color</source>
-        <translation type="unfinished"></translation>
+        <translation>Изабери боју</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="851"/>
         <source>Many styles use Highlight color for the progressbar.</source>
-        <translation type="unfinished"></translation>
+        <translation>Многи стилови користе боју истицања за траку напретка.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="854"/>
         <source>set to &quot;Highlight&quot; color</source>
-        <translation type="unfinished"></translation>
+        <translation>Постави на боју „истицања“</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="901"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ако је омогућено подразумевани мотор претраге ће бити коришћен за претрагу без пречице претраге у траци адресе уместо текућег мотора претраге у траци веб претраге.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="904"/>
         <source>Search with Default Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Тражи помоћу подразумеваног мотора</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="944"/>
@@ -2772,7 +2772,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="601"/>
         <source>Show Reload / Stop buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи дугмад Поново учитај / Заустави</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1777"/>
@@ -3086,7 +3086,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="989"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Избор боје</translation>
     </message>
 </context>
 <context>
@@ -4361,7 +4361,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="56"/>
         <source>Set as default</source>
-        <translation type="unfinished"></translation>
+        <translation>Подразумеван</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="91"/>
@@ -4377,12 +4377,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="84"/>
         <source>Remove Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Уклони</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="85"/>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не можете да уклоните подразумевани мотор претраге.&lt;br&gt;Поставите други мотор као подразумеван пре уклањања %1.</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="102"/>
@@ -4839,7 +4839,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="88"/>
         <source>Whole words</source>
-        <translation type="unfinished"></translation>
+        <translation>Целе речи</translation>
     </message>
 </context>
 <context>
@@ -5334,7 +5334,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="312"/>
         <source>Search when engine changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Претражуј по промени мотора</translation>
     </message>
 </context>
 <context>
