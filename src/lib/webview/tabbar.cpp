@@ -647,15 +647,6 @@ void CloseButton::leaveEvent(QEvent* event)
     QAbstractButton::leaveEvent(event);
 }
 
-void CloseButton::hideEvent(QHideEvent* event)
-{
-    QAbstractButton::hideEvent(event);
-
-    if (!isVisible()) {
-        deleteLater();
-    }
-}
-
 void CloseButton::paintEvent(QPaintEvent*)
 {
     QPainter p(this);
