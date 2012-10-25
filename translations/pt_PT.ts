@@ -1422,7 +1422,7 @@
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="265"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
-        <translation>Falta(m) %1 - %2 de %3 (%4)</translation>
+        <translation>Faltam %1 - %2 de %3 (%4)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="285"/>
@@ -3947,7 +3947,7 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
         <source>Disabled</source>
-        <translation>Inativas</translation>
+        <translation>Inativa</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
@@ -3956,7 +3956,7 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="398"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Ativas&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Ativa&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
