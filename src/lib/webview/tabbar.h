@@ -128,7 +128,6 @@ public:
 
     void enterEvent(QEvent* event);
     void leaveEvent(QEvent* event);
-    void hideEvent(QHideEvent* event);
     void paintEvent(QPaintEvent* event);
 };
 
