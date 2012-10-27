@@ -111,7 +111,7 @@ void AdBlockIcon::createMenu(QMenu* menu)
     menu->addAction(tr("Show AdBlock &Settings"), manager, SLOT(showDialog()));
     menu->addSeparator();
 
-    if (!pageUrl.isEmpty()) {
+    if (!pageUrl.isEmpty() && m_enabled) {
         const QString &host = page->url().host().contains(QLatin1String("www.")) ? pageUrl.host().mid(4) : pageUrl.host();
         const QString &hostFilter = QString("@@||%1^$document").arg(host);
         const QString &pageFilter = QString("@@|%1|$document").arg(pageUrl.toString());
