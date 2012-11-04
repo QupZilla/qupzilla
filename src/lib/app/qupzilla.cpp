@@ -1945,6 +1945,9 @@ void QupZilla::moveToVirtualDesktop(int desktopId)
         return;
     }
 
+    // Fixes issue when the property wasn't set on some X servers
+    setVisible(true);
+
     XChangeProperty(display, winId(), net_wm_desktop, XA_CARDINAL,
                     32, PropModeReplace, (unsigned char*) &desktopId, 1L);
 }
