@@ -859,12 +859,12 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="112"/>
         <source>Open bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka bookmark</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="113"/>
         <source>Open bookmark in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka bookmark di tab baru</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="115"/>
@@ -2535,52 +2535,52 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="810"/>
         <source>Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Isi</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="815"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Bawah</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="820"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Atas</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="828"/>
         <source>If unchecked the bar will adapt to the background color.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilah akan menggunakan warna latar jika tidak dipilih.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="831"/>
         <source>custom color:</source>
-        <translation type="unfinished"></translation>
+        <translation>warna khusus:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="841"/>
         <source>Select color</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilih warna</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="851"/>
         <source>Many styles use Highlight color for the progressbar.</source>
-        <translation type="unfinished"></translation>
+        <translation>Banyak gaya menggunakan Penyorotan berwarna pada bilah perkembangan.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="854"/>
         <source>set to &quot;Highlight&quot; color</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubah ke &quot;Penyorotan&quot; berwana</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="901"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head&gt;/&lt;body&gt;&lt;p&gt;Jika diaktifkan maka mesin pencarian utama akan digunakan untuk pencarian tanpa shortcut di bilah alamat dan tidak menggunakan mesin pencari yang telah dipilih di bilah pencarian web&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="904"/>
         <source>Search with Default Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Cari menggunakan Mesin Pencari Utama</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="944"/>
@@ -2786,7 +2786,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="601"/>
         <source>Show Reload / Stop buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan tombol Muat-ulang / Berhenti</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1777"/>
@@ -3114,7 +3114,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="989"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilih Warna</translation>
     </message>
 </context>
 <context>
@@ -4397,7 +4397,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="56"/>
         <source>Set as default</source>
-        <translation type="unfinished"></translation>
+        <translation>Tetapkan sebagai utama</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="91"/>
@@ -4413,12 +4413,12 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="84"/>
         <source>Remove Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hapus Mesin</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="85"/>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anda tidak dapat menghapus mesin pencari utama.&lt;br&gt;Pilih mesin lain sebagai utama sebelum menghapus %1.</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="102"/>
@@ -4875,7 +4875,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="88"/>
         <source>Whole words</source>
-        <translation type="unfinished"></translation>
+        <translation>Seluruh kata</translation>
     </message>
 </context>
 <context>
@@ -5377,7 +5377,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="312"/>
         <source>Search when engine changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Cari setelah mesin diganti</translation>
     </message>
 </context>
 <context>
