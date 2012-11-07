@@ -655,7 +655,7 @@
     </message>
     <message>
         <source>&amp;Hide Toolbar</source>
-        <translation>Skr&amp;yť panel</translation>
+        <translation>Skr&amp;yť panel nástrojov</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -1458,7 +1458,7 @@
     <name>HistoryView</name>
     <message>
         <source>Open link in current tab</source>
-        <translation>Otvoriť odkaz v aktuálnom panely</translation>
+        <translation>Otvoriť odkaz v aktuálnej karte</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
@@ -2037,7 +2037,7 @@
     </message>
     <message>
         <source> seconds</source>
-        <translation>sekúnd</translation>
+        <translation> sekúnd</translation>
     </message>
     <message>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
@@ -2202,7 +2202,7 @@
     </message>
     <message>
         <source>Select all text by clicking in address bar</source>
-        <translation>Označiť celý text kliknutím do adresného riadka</translation>
+        <translation>Označiť všetok text kliknutím do panelu adresy</translation>
     </message>
     <message>
         <source>Select all text by double clicking in address bar</source>
@@ -2230,11 +2230,11 @@
     </message>
     <message>
         <source>Don&apos;t quit upon closing last tab</source>
-        <translation>Neskončiť pri zatváraní posledného panelu</translation>
+        <translation>Neukončiť pri zatvorení poslednej karty</translation>
     </message>
     <message>
         <source>Closed tabs list instead of opened in tab bar</source>
-        <translation>Zobraziť zoznam zavretých (miesto otvorených) panelov v zozname panelov</translation>
+        <translation>Zoznam zatvonených, namiesto otvorených kariet v paneli kariet</translation>
     </message>
     <message>
         <source>Fixed Font Size</source>
@@ -2254,7 +2254,7 @@
     </message>
     <message>
         <source>Open new tabs after active tab</source>
-        <translation>Otvoriť nové panely za aktívnym panelom</translation>
+        <translation>Otvárať nové karty za aktívnou kartou</translation>
     </message>
     <message>
         <source>Use current</source>
@@ -2282,7 +2282,7 @@
     </message>
     <message>
         <source>Send Referer header to servers</source>
-        <translation>Posielať serverom Referer hlavičku</translation>
+        <translation>Zasielať servrom Referer hlavičku</translation>
     </message>
     <message>
         <source>Block popup windows</source>
@@ -2330,7 +2330,7 @@
     </message>
     <message>
         <source>Don&apos;t load tabs until selected</source>
-        <translation>Nenačítať panely pokiaľ nie sú vybrané</translation>
+        <translation>Nenačítať karty kým nie sú vybrané</translation>
     </message>
     <message>
         <source>Extensions</source>
@@ -2366,7 +2366,7 @@
     </message>
     <message>
         <source>Automatically switch to newly opened tab</source>
-        <translation>Automaticky prepnúť na novo otvorený panel</translation>
+        <translation>Automaticky prepnúť na novo otvorenú kartu</translation>
     </message>
     <message>
         <source>Show web search bar</source>
@@ -2374,7 +2374,7 @@
     </message>
     <message>
         <source>Suggest when typing into address bar:</source>
-        <translation>Odporúčanie pri písaní v adresnom riadku:</translation>
+        <translation>Napovedanie pri písaní v paneli adresy:</translation>
     </message>
     <message>
         <source>History and Bookmarks</source>
@@ -2394,7 +2394,7 @@
     </message>
     <message>
         <source>Leave blank if unsure</source>
-        <translation>Pokiaľ ste si není istý, nevyplňujte</translation>
+        <translation>Ak si nie ste istý, nevyplňujte</translation>
     </message>
     <message>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
@@ -2406,11 +2406,11 @@
     </message>
     <message>
         <source>Tabs behavior</source>
-        <translation>Chovanie panelov</translation>
+        <translation>Správanie kariet</translation>
     </message>
     <message>
         <source>Address Bar behavior</source>
-        <translation>Chovanie adresného riadku</translation>
+        <translation>Správanie panelu adresy</translation>
     </message>
     <message>
         <source>Show loading progress in address bar</source>
@@ -2418,7 +2418,7 @@
     </message>
     <message>
         <source>Show close button on tabs</source>
-        <translation type="obsolete">Zobraziť zavieracie tlačidlo na paneloch</translation>
+        <translation type="obsolete">Zobraziť zatváracie tlačidlo na kartách</translation>
     </message>
     <message>
         <source>Fill</source>
@@ -2567,7 +2567,7 @@
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>&amp;Zobrazenie</translation>
+        <translation>&amp;Zobraziť</translation>
     </message>
     <message>
         <source>Open &amp;File</source>
@@ -2852,12 +2852,12 @@
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation>Ešte je otvorených %1 panelov a Vaša relácia nebude uložená.
-Skutočne chcete skončiť?</translation>
+        <translation>Stále je otvorených %1 kariet, ale Vaša relácia nebude uložená.
+Ste si istý, že chcete ukončiť QupZillu?</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation>Viac sa uz nepýtať</translation>
+        <translation>Znovu sa už nepýtať</translation>
     </message>
     <message>
         <source>There are still open tabs</source>
@@ -3188,7 +3188,7 @@ Skutočne chcete skončiť?</translation>
     </message>
     <message>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation>Skúste odobrať jeden alebo viac panelov, o ktorých si myslíte, že môžu spôsobovať problémy</translation>
+        <translation>Skúste odstrániť jednu alebo viac kariet, o ktorých si myslíte, že môžu spôsobovať problémy</translation>
     </message>
     <message>
         <source>Or you can start completely new session</source>
@@ -3285,7 +3285,7 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Otvoriť odkaz v aktuálnom panely</translation>
+        <translation>Otvoriť odkaz v aktuálnej karte</translation>
     </message>
 </context>
 <context>
@@ -3958,7 +3958,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Loading...</source>
-        <translation>Načítaba sa...</translation>
+        <translation>Načítava sa...</translation>
     </message>
     <message>
         <source>No Named Page</source>
@@ -3966,7 +3966,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>List of tabs</source>
-        <translation>Zoznam panelov</translation>
+        <translation>Zoznam kariet</translation>
     </message>
     <message>
         <source>Empty</source>
@@ -3982,7 +3982,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Currently you have %1 opened tabs</source>
-        <translation>Momentálne máte otvorených %1 panelov</translation>
+        <translation>Momentálne máte otvorených %1 kariet</translation>
     </message>
 </context>
 <context>
@@ -4373,7 +4373,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Show this frame in new &amp;tab</source>
-        <translation>Zobraziť tento rám na &amp;novom panely</translation>
+        <translation>Zobraziť tento rámec na &amp;novej karte</translation>
     </message>
     <message>
         <source>Print frame</source>
