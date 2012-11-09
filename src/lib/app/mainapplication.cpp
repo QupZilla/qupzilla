@@ -812,8 +812,7 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
     // Set default white background for all sites
     // Fixes issue with dark themes when sites don't set background
 
-    QString userStyle = "body{background:white;}";
-    userStyle += AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}";
+    QString userStyle = AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}";
 
     QFile file(filePath);
     if (!filePath.isEmpty() && file.open(QFile::ReadOnly)) {
