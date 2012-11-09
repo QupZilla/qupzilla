@@ -2398,7 +2398,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="715"/>
         <source>Closed tabs list instead of opened in tab bar</source>
-        <translation>Lista de separadores fechados em vez dos abertos na barra de separadores</translation>
+        <translation>Na barra de separadores, mostrar lista de separadores fechados em vez dos abertos</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="687"/>
@@ -2439,7 +2439,7 @@ não foi encontrado!</translation>
         <location filename="../src/lib/preferences/preferences.ui" line="979"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
-        <translation>Imprimir os elementos em segundo plano</translation>
+        <translation>Imprimir elementos de segundo plano</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="986"/>
@@ -2888,7 +2888,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2013"/>
         <source>Manage CA certificates</source>
-        <translation>Gerir certificados das AC</translation>
+        <translation>Gerir certificados</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2075"/>
@@ -3445,7 +3445,7 @@ não foi encontrado!</translation>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
         <translation>Ainda existem %1 separadores abertos e a sessão não será gravada.
- Tem a certeza que pretende sair?</translation>
+Tem a certeza que pretende sair?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1775"/>
