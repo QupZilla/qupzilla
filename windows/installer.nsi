@@ -1,4 +1,7 @@
 ﻿RequestExecutionLevel admin
+!addplugindir "wininstall\"
+
+!include "FileFunc.nsh"
 !include "wininstall\FileAssociation.nsh"
 SetCompressor /SOLID /FINAL lzma
 
@@ -66,8 +69,16 @@ ShowUnInstDetails show
 
 Section !$(TITLE_SecMain) SecMain
   SectionIn RO
-  KillProcDLL::KillProc "qupzilla.exe"
-  Sleep 100
+  FindProcDLL::FindProc "qupzilla.exe"
+  IntCmp $R0 1 0 notRunning
+  MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION "$(MSG_RunningInstance)" /SD IDOK IDCANCEL AbortInstallation
+    KillProcDLL::KillProc "qupzilla.exe"
+	Sleep 100
+	Goto notRunning
+AbortInstallation:
+  Abort "$(MSG_InstallationCanceled)"
+
+notRunning:
   SetOverwrite on
 
   SetOutPath "$INSTDIR"
@@ -318,6 +329,14 @@ Section -Uninstaller
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\Uninstall.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\qupzilla.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "QupZilla Team"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "HelpLink" "https://github.com/QupZilla/qupzilla/wiki"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "InstallLocation" "$INSTDIR"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "InstallSource" "$EXEDIR"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "http://www.qupzilla.com"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLUpdateInfo" "http://blog.qupzilla.com/"
+  ${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
+  WriteRegDWORD ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "EstimatedSize" "$0"
 SectionEnd
 
 Section -MSVC
@@ -329,9 +348,16 @@ Section -MSVC
 SectionEnd
 
 Section Uninstall
-  KillProcDLL::KillProc "qupzilla.exe"
-  Sleep 100
+  FindProcDLL::FindProc "qupzilla.exe"
+  IntCmp $R0 1 0 notRunning
+  MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION "$(MSG_RunningInstance)" /SD IDOK IDCANCEL AbortInstallation
+    KillProcDLL::KillProc "qupzilla.exe"
+	Sleep 100
+	Goto notRunning
+AbortInstallation:
+  Abort "$(MSG_InstallationCanceled)"
 
+notRunning:
   SetShellVarContext all
   Delete "$DESKTOP\QupZilla.lnk"
   RMDir /r "$INSTDIR"
@@ -345,6 +371,13 @@ SectionEnd
 BrandingText "${PRODUCT_NAME} ${PRODUCT_VERSION} Installer"
 
 Function .onInit
+		;Prevent Multiple Instances
+        System::Call 'kernel32::CreateMutexA(i 0, i 0, t "QupZillaInstaller-4ECB4694-2C39-4f93-9122-A986344C4E7B") i .r1 ?e'
+        Pop $R0
+        StrCmp $R0 0 +3
+          MessageBox MB_OK|MB_ICONEXCLAMATION "QupZilla installer is already running!" /SD IDOK
+        Abort
+
         ;Language selection dialog¨
         ;Return when running silent instalation
         
