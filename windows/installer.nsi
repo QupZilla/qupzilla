@@ -1,8 +1,14 @@
 ﻿RequestExecutionLevel admin
+
+; WinVer.nsh was added in the same release that RequestExecutionLevel so check
+; if ___WINVER__NSH___ is defined to determine if RequestExecutionLevel is
+; available.
+!include /NONFATAL WinVer.nsh
+
 !addplugindir "wininstall\"
 
 !include "FileFunc.nsh"
-!include "wininstall\FileAssociation.nsh"
+!include "wininstall\AllAssociation.nsh"
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
@@ -10,6 +16,7 @@ SetCompressor /SOLID /FINAL lzma
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
+!define PRODUCT_CAPABILITIES_KEY "Software\${PRODUCT_NAME}\Capabilities"
 
 !include "MUI.nsh"
 !define MUI_ABORTWARNING
@@ -118,6 +125,7 @@ notRunning:
   SetOutPath "$INSTDIR\sqldrivers"
   File "sqldrivers\qsqlite4.dll"
 
+  call RegisterCapabilities
 SectionEnd
 
 SectionGroup $(TITLE_SecThemes) SecThemes
@@ -293,11 +301,20 @@ SetOutPath "$INSTDIR\plugins"
 File "plugins\*.dll"
 SectionEnd
 
-Section $(TITLE_SecExtensions) SecExtensions
-  SetOutPath "$INSTDIR"
-  ${registerExtension} "$INSTDIR\qupzilla.exe" ".htm" $(FILE_Htm)
-  ${registerExtension} "$INSTDIR\qupzilla.exe" ".html" $(FILE_Html)
-SectionEnd
+SectionGroup $(TITLE_SecSetASDefault) SecSetASDefault
+	Section $(TITLE_SecExtensions) SecExtensions
+	  SetOutPath "$INSTDIR"
+	  ${RegisterAssociation} ".htm" "$INSTDIR\qupzilla.exe" "QupZilla.HTM" $(FILE_Htm) "$INSTDIR\qupzilla.exe,1" "file"
+	  ${RegisterAssociation} ".html" "$INSTDIR\qupzilla.exe" "QupZilla.HTML" $(FILE_Html) "$INSTDIR\qupzilla.exe,1" "file"
+	  ${UpdateSystemIcons}
+	SectionEnd
+
+    Section $(TITLE_SecProtocols) SecProtocols
+	  ${RegisterAssociation} "http" "$INSTDIR\qupzilla.exe" "QupZilla.HTML" "" "$INSTDIR\qupzilla.exe,0" "protocol"
+	  ${RegisterAssociation} "https" "$INSTDIR\qupzilla.exe" "QupZilla.HTML" "" "$INSTDIR\qupzilla.exe,0" "protocol"
+	  ${UpdateSystemIcons}
+    SectionEnd
+SectionGroupEnd
 
 Section -StartMenu
   SetOutPath "$INSTDIR"
@@ -320,6 +337,9 @@ SectionEnd
   !insertmacro MUI_DESCRIPTION_TEXT ${SecDesktop} $(DESC_SecDesktop)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecExtensions} $(DESC_SecExtensions)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecThemes} $(DESC_SecThemes)
+
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecSetASDefault} $(DESC_SecSetASDefault)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecProtocols} $(DESC_SecProtocols)
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Section -Uninstaller
@@ -364,8 +384,15 @@ notRunning:
   RMDir /r "$SMPROGRAMS\QupZilla"
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
-  ${unregisterExtension} ".htm" $(FILE_Htm)
-  ${unregisterExtension} ".html" $(FILE_Html)
+
+  DeleteRegKey HKLM "Software\${PRODUCT_NAME}"
+  DeleteRegValue HKLM "SOFTWARE\RegisteredApplications" "${PRODUCT_NAME}"
+
+  ${UnRegisterAssociation} ".htm" "QupZilla.HTM" "$INSTDIR\qupzilla.exe" "file"
+  ${UnRegisterAssociation} ".html" "QupZilla.HTML" "$INSTDIR\qupzilla.exe" "file"
+  ${UnRegisterAssociation} "http" "" "$INSTDIR\qupzilla.exe" "protocol"
+  ${UnRegisterAssociation} "https" "" "$INSTDIR\qupzilla.exe" "protocol"
+  ${UpdateSystemIcons}
 SectionEnd
 
 BrandingText "${PRODUCT_NAME} ${PRODUCT_VERSION} Installer"
@@ -430,4 +457,31 @@ Function .onInit
         Pop $LANGUAGE
         StrCmp $LANGUAGE "cancel" 0 +2
                 Abort
+FunctionEnd
+
+Function RegisterCapabilities
+	!ifdef ___WINVER__NSH___
+		${If} ${AtLeastWinVista}
+			; even if we don't associate QupZilla as default for ".htm" and ".html"
+			; we need to write these ProgIds for future use!
+			;(e.g.: user uses "Default Programs" on Win7 or Vista to set QupZilla as default.)
+			${CreateProgId} "QupZilla.HTM" "$INSTDIR\qupzilla.exe" $(FILE_Htm) "$INSTDIR\qupzilla.exe,1"
+			${CreateProgId} "QupZilla.HTML" "$INSTDIR\qupzilla.exe" $(FILE_Html) "$INSTDIR\qupzilla.exe,1"
+
+			; note: these lines just introduce capabilities of QupZilla to OS and don't change defaults!
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}" "ApplicationDescription" "$(PRODUCT_DESC)"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}" "ApplicationIcon" "$INSTDIR\qupzilla.exe,0"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}" "ApplicationName" "${PRODUCT_NAME}"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\FileAssociations" ".htm" "QupZilla.HTM"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\FileAssociations" ".html" "QupZilla.HTML"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\URLAssociations" "http" "QupZilla.HTML"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\URLAssociations" "https" "QupZilla.HTML"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\Startmenu" "StartMenuInternet" "$INSTDIR\qupzilla.exe"
+			WriteRegStr HKLM "SOFTWARE\RegisteredApplications" "${PRODUCT_NAME}" "${PRODUCT_CAPABILITIES_KEY}"
+		${EndIf}
+	!endif
+FunctionEnd
+
+Function IsRunningInstance
+
 FunctionEnd
