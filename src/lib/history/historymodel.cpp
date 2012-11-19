@@ -555,6 +555,6 @@ bool HistoryFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
         return true;
     }
 
-    return (index.data(HistoryModel::UrlStringRole).toString().contains(m_pattern) ||
-            index.data(HistoryModel::TitleRole).toString().contains(m_pattern));
+    return (index.data(HistoryModel::UrlStringRole).toString().contains(m_pattern, Qt::CaseInsensitive) ||
+            index.data(HistoryModel::TitleRole).toString().contains(m_pattern, Qt::CaseInsensitive));
 }
