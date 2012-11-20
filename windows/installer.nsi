@@ -1,4 +1,15 @@
-﻿RequestExecutionLevel admin
+﻿; QupZilla Windows Installer NSIS Script
+; Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+;
+; For compiling this script you need following plugins:
+; FindProcDLL_plug-in, KillProcDLL_plug-in and 'AllAssociation.nsh' needs
+; Registry_plug-in, Application_Association_Registration_plug-in 
+; Unicode version of them can be downloaded from:
+; http://sourceforge.net/projects/findkillprocuni/files/bin/
+; http://nsis.sourceforge.net/Application_Association_Registration_plug-in
+; http://nsis.sourceforge.net/Registry_plug-in
+
+RequestExecutionLevel admin
 
 ; WinVer.nsh was added in the same release that RequestExecutionLevel so check
 ; if ___WINVER__NSH___ is defined to determine if RequestExecutionLevel is
