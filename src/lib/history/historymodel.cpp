@@ -264,6 +264,7 @@ void HistoryModel::resetHistory()
     beginResetModel();
 
     delete m_rootItem;
+    m_todayItem = 0;
     m_rootItem = new HistoryItem(0);
 
     init();
