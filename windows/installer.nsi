@@ -1,5 +1,25 @@
-﻿RequestExecutionLevel admin
-!include "wininstall\FileAssociation.nsh"
+﻿; QupZilla Windows Installer NSIS Script
+; Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+;
+; For compiling this script you need following plugins:
+; FindProcDLL_plug-in, KillProcDLL_plug-in and 'AllAssociation.nsh' needs
+; Registry_plug-in, Application_Association_Registration_plug-in 
+; Unicode version of them can be downloaded from:
+; http://sourceforge.net/projects/findkillprocuni/files/bin/
+; http://nsis.sourceforge.net/Application_Association_Registration_plug-in
+; http://nsis.sourceforge.net/Registry_plug-in
+
+RequestExecutionLevel admin
+
+; WinVer.nsh was added in the same release that RequestExecutionLevel so check
+; if ___WINVER__NSH___ is defined to determine if RequestExecutionLevel is
+; available.
+!include /NONFATAL WinVer.nsh
+
+!addplugindir "wininstall\"
+
+!include "FileFunc.nsh"
+!include "wininstall\AllAssociation.nsh"
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
@@ -7,6 +27,7 @@ SetCompressor /SOLID /FINAL lzma
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
+!define PRODUCT_CAPABILITIES_KEY "Software\${PRODUCT_NAME}\Capabilities"
 
 !include "MUI.nsh"
 !define MUI_ABORTWARNING
@@ -66,8 +87,16 @@ ShowUnInstDetails show
 
 Section !$(TITLE_SecMain) SecMain
   SectionIn RO
-  KillProcDLL::KillProc "qupzilla.exe"
-  Sleep 100
+  FindProcDLL::FindProc "qupzilla.exe"
+  IntCmp $R0 1 0 notRunning
+  MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION "$(MSG_RunningInstance)" /SD IDOK IDCANCEL AbortInstallation
+    KillProcDLL::KillProc "qupzilla.exe"
+	Sleep 100
+	Goto notRunning
+AbortInstallation:
+  Abort "$(MSG_InstallationCanceled)"
+
+notRunning:
   SetOverwrite on
 
   SetOutPath "$INSTDIR"
@@ -107,6 +136,7 @@ Section !$(TITLE_SecMain) SecMain
   SetOutPath "$INSTDIR\sqldrivers"
   File "sqldrivers\qsqlite4.dll"
 
+  call RegisterCapabilities
 SectionEnd
 
 SectionGroup $(TITLE_SecThemes) SecThemes
@@ -282,11 +312,20 @@ SetOutPath "$INSTDIR\plugins"
 File "plugins\*.dll"
 SectionEnd
 
-Section $(TITLE_SecExtensions) SecExtensions
-  SetOutPath "$INSTDIR"
-  ${registerExtension} "$INSTDIR\qupzilla.exe" ".htm" $(FILE_Htm)
-  ${registerExtension} "$INSTDIR\qupzilla.exe" ".html" $(FILE_Html)
-SectionEnd
+SectionGroup $(TITLE_SecSetASDefault) SecSetASDefault
+	Section $(TITLE_SecExtensions) SecExtensions
+	  SetOutPath "$INSTDIR"
+	  ${RegisterAssociation} ".htm" "$INSTDIR\qupzilla.exe" "QupZilla.HTM" $(FILE_Htm) "$INSTDIR\qupzilla.exe,1" "file"
+	  ${RegisterAssociation} ".html" "$INSTDIR\qupzilla.exe" "QupZilla.HTML" $(FILE_Html) "$INSTDIR\qupzilla.exe,1" "file"
+	  ${UpdateSystemIcons}
+	SectionEnd
+
+    Section $(TITLE_SecProtocols) SecProtocols
+	  ${RegisterAssociation} "http" "$INSTDIR\qupzilla.exe" "QupZilla.HTTP" "URL:HyperText Transfer Protocol" "$INSTDIR\qupzilla.exe,0" "protocol"
+	  ${RegisterAssociation} "https" "$INSTDIR\qupzilla.exe" "QupZilla.HTTPS" "URL:HyperText Transfer Protocol with Privacy" "$INSTDIR\qupzilla.exe,0" "protocol"
+	  ${UpdateSystemIcons}
+    SectionEnd
+SectionGroupEnd
 
 Section -StartMenu
   SetOutPath "$INSTDIR"
@@ -309,6 +348,9 @@ SectionEnd
   !insertmacro MUI_DESCRIPTION_TEXT ${SecDesktop} $(DESC_SecDesktop)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecExtensions} $(DESC_SecExtensions)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecThemes} $(DESC_SecThemes)
+
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecSetASDefault} $(DESC_SecSetASDefault)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecProtocols} $(DESC_SecProtocols)
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Section -Uninstaller
@@ -318,6 +360,14 @@ Section -Uninstaller
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\Uninstall.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\qupzilla.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "QupZilla Team"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "HelpLink" "https://github.com/QupZilla/qupzilla/wiki"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "InstallLocation" "$INSTDIR"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "InstallSource" "$EXEDIR"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "http://www.qupzilla.com"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLUpdateInfo" "http://blog.qupzilla.com/"
+  ${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
+  WriteRegDWORD ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "EstimatedSize" "$0"
 SectionEnd
 
 Section -MSVC
@@ -329,22 +379,43 @@ Section -MSVC
 SectionEnd
 
 Section Uninstall
-  KillProcDLL::KillProc "qupzilla.exe"
-  Sleep 100
+  FindProcDLL::FindProc "qupzilla.exe"
+  IntCmp $R0 1 0 notRunning
+  MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION "$(MSG_RunningInstance)" /SD IDOK IDCANCEL AbortInstallation
+    KillProcDLL::KillProc "qupzilla.exe"
+	Sleep 100
+	Goto notRunning
+AbortInstallation:
+  Abort "$(MSG_InstallationCanceled)"
 
+notRunning:
   SetShellVarContext all
   Delete "$DESKTOP\QupZilla.lnk"
   RMDir /r "$INSTDIR"
   RMDir /r "$SMPROGRAMS\QupZilla"
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
-  ${unregisterExtension} ".htm" $(FILE_Htm)
-  ${unregisterExtension} ".html" $(FILE_Html)
+
+  DeleteRegKey HKLM "Software\${PRODUCT_NAME}"
+  DeleteRegValue HKLM "SOFTWARE\RegisteredApplications" "${PRODUCT_NAME}"
+
+  ${UnRegisterAssociation} ".htm" "QupZilla.HTM" "$INSTDIR\qupzilla.exe" "file"
+  ${UnRegisterAssociation} ".html" "QupZilla.HTML" "$INSTDIR\qupzilla.exe" "file"
+  ${UnRegisterAssociation} "http" "QupZilla.HTTP" "$INSTDIR\qupzilla.exe" "protocol"
+  ${UnRegisterAssociation} "https" "QupZilla.HTTPS" "$INSTDIR\qupzilla.exe" "protocol"
+  ${UpdateSystemIcons}
 SectionEnd
 
 BrandingText "${PRODUCT_NAME} ${PRODUCT_VERSION} Installer"
 
 Function .onInit
+		;Prevent Multiple Instances
+        System::Call 'kernel32::CreateMutexA(i 0, i 0, t "QupZillaInstaller-4ECB4694-2C39-4f93-9122-A986344C4E7B") i .r1 ?e'
+        Pop $R0
+        StrCmp $R0 0 +3
+          MessageBox MB_OK|MB_ICONEXCLAMATION "QupZilla installer is already running!" /SD IDOK
+        Abort
+
         ;Language selection dialog¨
         ;Return when running silent instalation
         
@@ -397,4 +468,29 @@ Function .onInit
         Pop $LANGUAGE
         StrCmp $LANGUAGE "cancel" 0 +2
                 Abort
+FunctionEnd
+
+Function RegisterCapabilities
+	!ifdef ___WINVER__NSH___
+		${If} ${AtLeastWinVista}
+			; even if we don't associate QupZilla as default for ".htm" and ".html"
+			; we need to write these ProgIds for future use!
+			;(e.g.: user uses "Default Programs" on Win7 or Vista to set QupZilla as default.)
+			${CreateProgId} "QupZilla.HTM" "$INSTDIR\qupzilla.exe" $(FILE_Htm) "$INSTDIR\qupzilla.exe,1"
+			${CreateProgId} "QupZilla.HTML" "$INSTDIR\qupzilla.exe" $(FILE_Html) "$INSTDIR\qupzilla.exe,1"
+			${CreateProgId} "QupZilla.HTTP" "$INSTDIR\qupzilla.exe" "URL:HyperText Transfer Protocol" "$INSTDIR\qupzilla.exe,0"
+			${CreateProgId} "QupZilla.HTTPS" "$INSTDIR\qupzilla.exe" "URL:HyperText Transfer Protocol with Privacy" "$INSTDIR\qupzilla.exe,0"
+
+			; note: these lines just introduce capabilities of QupZilla to OS and don't change defaults!
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}" "ApplicationDescription" "$(PRODUCT_DESC)"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}" "ApplicationIcon" "$INSTDIR\qupzilla.exe,0"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}" "ApplicationName" "${PRODUCT_NAME}"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\FileAssociations" ".htm" "QupZilla.HTM"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\FileAssociations" ".html" "QupZilla.HTML"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\URLAssociations" "http" "QupZilla.HTTP"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\URLAssociations" "https" "QupZilla.HTTPS"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\Startmenu" "StartMenuInternet" "$INSTDIR\qupzilla.exe"
+			WriteRegStr HKLM "SOFTWARE\RegisteredApplications" "${PRODUCT_NAME}" "${PRODUCT_CAPABILITIES_KEY}"
+		${EndIf}
+	!endif
 FunctionEnd
