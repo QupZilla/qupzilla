@@ -310,8 +310,8 @@ SectionGroup $(TITLE_SecSetASDefault) SecSetASDefault
 	SectionEnd
 
     Section $(TITLE_SecProtocols) SecProtocols
-	  ${RegisterAssociation} "http" "$INSTDIR\qupzilla.exe" "QupZilla.HTML" "" "$INSTDIR\qupzilla.exe,0" "protocol"
-	  ${RegisterAssociation} "https" "$INSTDIR\qupzilla.exe" "QupZilla.HTML" "" "$INSTDIR\qupzilla.exe,0" "protocol"
+	  ${RegisterAssociation} "http" "$INSTDIR\qupzilla.exe" "QupZilla.HTTP" "URL:HyperText Transfer Protocol" "$INSTDIR\qupzilla.exe,0" "protocol"
+	  ${RegisterAssociation} "https" "$INSTDIR\qupzilla.exe" "QupZilla.HTTPS" "URL:HyperText Transfer Protocol with Privacy" "$INSTDIR\qupzilla.exe,0" "protocol"
 	  ${UpdateSystemIcons}
     SectionEnd
 SectionGroupEnd
@@ -390,8 +390,8 @@ notRunning:
 
   ${UnRegisterAssociation} ".htm" "QupZilla.HTM" "$INSTDIR\qupzilla.exe" "file"
   ${UnRegisterAssociation} ".html" "QupZilla.HTML" "$INSTDIR\qupzilla.exe" "file"
-  ${UnRegisterAssociation} "http" "" "$INSTDIR\qupzilla.exe" "protocol"
-  ${UnRegisterAssociation} "https" "" "$INSTDIR\qupzilla.exe" "protocol"
+  ${UnRegisterAssociation} "http" "QupZilla.HTTP" "$INSTDIR\qupzilla.exe" "protocol"
+  ${UnRegisterAssociation} "https" "QupZilla.HTTPS" "$INSTDIR\qupzilla.exe" "protocol"
   ${UpdateSystemIcons}
 SectionEnd
 
@@ -467,6 +467,8 @@ Function RegisterCapabilities
 			;(e.g.: user uses "Default Programs" on Win7 or Vista to set QupZilla as default.)
 			${CreateProgId} "QupZilla.HTM" "$INSTDIR\qupzilla.exe" $(FILE_Htm) "$INSTDIR\qupzilla.exe,1"
 			${CreateProgId} "QupZilla.HTML" "$INSTDIR\qupzilla.exe" $(FILE_Html) "$INSTDIR\qupzilla.exe,1"
+			${CreateProgId} "QupZilla.HTTP" "$INSTDIR\qupzilla.exe" "URL:HyperText Transfer Protocol" "$INSTDIR\qupzilla.exe,0"
+			${CreateProgId} "QupZilla.HTTPS" "$INSTDIR\qupzilla.exe" "URL:HyperText Transfer Protocol with Privacy" "$INSTDIR\qupzilla.exe,0"
 
 			; note: these lines just introduce capabilities of QupZilla to OS and don't change defaults!
 			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}" "ApplicationDescription" "$(PRODUCT_DESC)"
@@ -474,14 +476,10 @@ Function RegisterCapabilities
 			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}" "ApplicationName" "${PRODUCT_NAME}"
 			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\FileAssociations" ".htm" "QupZilla.HTM"
 			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\FileAssociations" ".html" "QupZilla.HTML"
-			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\URLAssociations" "http" "QupZilla.HTML"
-			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\URLAssociations" "https" "QupZilla.HTML"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\URLAssociations" "http" "QupZilla.HTTP"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\URLAssociations" "https" "QupZilla.HTTPS"
 			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\Startmenu" "StartMenuInternet" "$INSTDIR\qupzilla.exe"
 			WriteRegStr HKLM "SOFTWARE\RegisteredApplications" "${PRODUCT_NAME}" "${PRODUCT_CAPABILITIES_KEY}"
 		${EndIf}
 	!endif
-FunctionEnd
-
-Function IsRunningInstance
-
 FunctionEnd
