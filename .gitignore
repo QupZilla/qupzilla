@@ -1,7 +1,7 @@
 build
 DEBIAN
 *.deb
-*.pro.user
+*.pro.user*
 *.autosave
 *~
 *.a
