@@ -858,12 +858,12 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="112"/>
         <source>Open bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>開啟書籤</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="113"/>
         <source>Open bookmark in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>在新分頁開啟書籤</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="115"/>
@@ -2842,7 +2842,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="601"/>
         <source>Show Reload / Stop buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>顯示重新整理/停止按鈕</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1630"/>
