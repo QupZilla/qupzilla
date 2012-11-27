@@ -446,7 +446,7 @@ void HistoryModel::init()
 {
     QSqlQuery query;
     query.exec("SELECT MIN(date) FROM history");
-    if (!query.next()) {
+    if (query.size() <= 0) {
         return;
     }
 
