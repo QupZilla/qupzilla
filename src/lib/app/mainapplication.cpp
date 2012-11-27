@@ -665,6 +665,7 @@ void MainApplication::saveSettings()
     m_networkmanager->saveCertificates();
     m_plugins->shutdown();
     qIconProvider->saveIconsToDatabase();
+    clearTempPath();
 
     AdBlockManager::instance()->save();
     QFile::remove(currentProfilePath() + "WebpageIcons.db");
@@ -990,6 +991,25 @@ void MainApplication::setProxyStyle(ProxyStyle* style)
 QString MainApplication::currentStyle() const
 {
     return m_proxyStyle->baseStyle()->objectName();
+}
+
+void MainApplication::clearTempPath()
+{
+    QString path = PROFILEDIR + "tmp/";
+    QDir dir(path);
+
+    if (dir.exists())
+        qz_removeDir(path);
+}
+
+QString MainApplication::tempPath() const
+{
+    QString path = PROFILEDIR + "tmp/";
+    QDir dir(path);
+    if (!dir.exists())
+        dir.mkdir(path);
+
+    return path;
 }
 
 MainApplication::~MainApplication()

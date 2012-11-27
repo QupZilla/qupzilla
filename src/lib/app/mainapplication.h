@@ -83,9 +83,11 @@ public:
 
     bool checkSettingsDir();
     void destroyRestoreManager();
+    void clearTempPath();
 
     void setProxyStyle(ProxyStyle* style);
     QString currentStyle() const;
+    QString tempPath() const;
 
     QupZilla* getWindow();
     CookieManager* cookieManager();
