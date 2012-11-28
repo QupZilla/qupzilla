@@ -380,14 +380,15 @@ void WebView::slotIconChanged()
 void WebView::slotUrlChanged(const QUrl &url)
 {
     static QStringList exceptions;
-    if (exceptions.isEmpty())
+    if (exceptions.isEmpty()) {
         exceptions << "google." << "twitter.";
+    }
 
     // Disable touch mocking on pages known not to work properly
     const QString &host = url.host();
     m_disableTouchMocking = false;
 
-    foreach (const QString &site, exceptions) {
+    foreach(const QString & site, exceptions) {
         if (host.contains(site)) {
             m_disableTouchMocking = true;
         }

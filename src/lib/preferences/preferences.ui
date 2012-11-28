@@ -119,6 +119,11 @@
      </item>
      <item>
       <property name="text">
+       <string>Keyboard Shortcuts</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>Downloads</string>
       </property>
      </item>
@@ -155,7 +160,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="stackedWidgetPage1">
       <layout class="QGridLayout" name="gridLayout_6">
@@ -1702,6 +1707,44 @@
           </widget>
          </item>
         </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_4">
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>&lt;b&gt;Shortcuts&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <spacer name="verticalSpacer_13">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="0">
+        <widget class="QCheckBox" name="switchTabsAlt">
+         <property name="text">
+          <string>Switch to tabs with Alt + number of tab</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="loadSpeedDialsCtrl">
+         <property name="text">
+          <string>Load speed dials with Ctrl + number of speed dial</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

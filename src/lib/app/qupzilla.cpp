@@ -582,7 +582,12 @@ void QupZilla::loadSettings()
     m_webViewWidth = settings.value("WebViewWidth", 2000).toInt();
     const QString &activeSideBar = settings.value("SideBar", "None").toString();
     settings.endGroup();
+
+    settings.beginGroup("Shortcuts");
+    m_useTabNumberShortcuts = settings.value("useTabNumberShortcuts", true).toBool();
+    m_useSpeedDialNumberShortcuts = settings.value("useSpeedDialNumberShortcuts", true).toBool();
     bool adBlockEnabled = settings.value("AdBlock/enabled", true).toBool();
+    settings.endGroup();
 
     m_adblockIcon->setEnabled(adBlockEnabled);
 
@@ -1727,14 +1732,14 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
     }
 
     if (number != -1) {
-        if (event->modifiers() & Qt::AltModifier) {
+        if (event->modifiers() & Qt::AltModifier && m_useTabNumberShortcuts) {
             if (number == 9) {
                 number = m_tabWidget->count();
             }
             m_tabWidget->setCurrentIndex(number - 1);
             return;
         }
-        if (event->modifiers() & Qt::ControlModifier) {
+        if (event->modifiers() & Qt::ControlModifier && m_useSpeedDialNumberShortcuts) {
             const QUrl &url = mApp->plugins()->speedDial()->urlForShortcut(number - 1);
             if (url.isValid()) {
                 loadAddress(url);

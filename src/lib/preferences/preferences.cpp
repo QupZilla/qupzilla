@@ -66,12 +66,13 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         ui->listWidget->item(2)->setIcon(QIcon::fromTheme("tab-new-background", QIcon(":/icons/preferences/applications-internet.png")));
         ui->listWidget->item(3)->setIcon(QIcon::fromTheme("preferences-system-network", QIcon(":/icons/preferences/applications-webbrowsers.png")));
         ui->listWidget->item(4)->setIcon(QIcon::fromTheme("preferences-desktop-font", QIcon(":/icons/preferences/applications-fonts.png")));
-        ui->listWidget->item(5)->setIcon(QIcon::fromTheme("download", QIcon(":/icons/preferences/mail-inbox.png")));
-        ui->listWidget->item(6)->setIcon(QIcon::fromTheme("user-identity", QIcon(":/icons/preferences/dialog-password.png")));
-        ui->listWidget->item(7)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
-        ui->listWidget->item(8)->setIcon(QIcon::fromTheme("preferences-desktop-notification", QIcon(":/icons/preferences/dialog-question.png")));
-        ui->listWidget->item(9)->setIcon(QIcon::fromTheme("preferences-plugin", QIcon(":/icons/preferences/extension.png")));
-        ui->listWidget->item(10)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
+        ui->listWidget->item(5)->setIcon(QIcon::fromTheme("preferences-desktop-keyboard-shortcuts", QIcon(":/icons/preferences/preferences-desktop-keyboard-shortcuts.png")));
+        ui->listWidget->item(6)->setIcon(QIcon::fromTheme("download", QIcon(":/icons/preferences/mail-inbox.png")));
+        ui->listWidget->item(7)->setIcon(QIcon::fromTheme("user-identity", QIcon(":/icons/preferences/dialog-password.png")));
+        ui->listWidget->item(8)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
+        ui->listWidget->item(9)->setIcon(QIcon::fromTheme("preferences-desktop-notification", QIcon(":/icons/preferences/dialog-question.png")));
+        ui->listWidget->item(10)->setIcon(QIcon::fromTheme("preferences-plugin", QIcon(":/icons/preferences/extension.png")));
+        ui->listWidget->item(11)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
     }
     else {
         ui->listWidget->item(0)->setIcon(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/preferences/preferences-desktop.png")));
@@ -79,12 +80,13 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         ui->listWidget->item(2)->setIcon(QIcon::fromTheme("applications-internet", QIcon(":/icons/preferences/applications-internet.png")));
         ui->listWidget->item(3)->setIcon(QIcon::fromTheme("applications-webbrowsers", QIcon(":/icons/preferences/applications-webbrowsers.png")));
         ui->listWidget->item(4)->setIcon(QIcon::fromTheme("applications-fonts", QIcon(":/icons/preferences/applications-fonts.png")));
-        ui->listWidget->item(5)->setIcon(QIcon::fromTheme("mail-inbox", QIcon(":/icons/preferences/mail-inbox.png")));
-        ui->listWidget->item(6)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
-        ui->listWidget->item(7)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
-        ui->listWidget->item(8)->setIcon(QIcon::fromTheme("dialog-question", QIcon(":/icons/preferences/dialog-question.png")));
-        ui->listWidget->item(9)->setIcon(QIcon::fromTheme("extension", QIcon(":/icons/preferences/extension.png")));
-        ui->listWidget->item(10)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
+        ui->listWidget->item(5)->setIcon(QIcon::fromTheme("preferences-desktop-keyboard-shortcuts", QIcon(":/icons/preferences/preferences-desktop-keyboard-shortcuts.png")));
+        ui->listWidget->item(6)->setIcon(QIcon::fromTheme("mail-inbox", QIcon(":/icons/preferences/mail-inbox.png")));
+        ui->listWidget->item(7)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
+        ui->listWidget->item(8)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
+        ui->listWidget->item(9)->setIcon(QIcon::fromTheme("dialog-question", QIcon(":/icons/preferences/dialog-question.png")));
+        ui->listWidget->item(10)->setIcon(QIcon::fromTheme("extension", QIcon(":/icons/preferences/extension.png")));
+        ui->listWidget->item(11)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
     }
 
     Settings settings;
@@ -324,6 +326,12 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->sizeFixed->setValue(settings.value("FixedFontSize", mApp->webSettings()->fontSize(QWebSettings::DefaultFixedFontSize)).toInt());
     ui->sizeMinimum->setValue(settings.value("MinimumFontSize", mApp->webSettings()->fontSize(QWebSettings::MinimumFontSize)).toInt());
     ui->sizeMinimumLogical->setValue(settings.value("MinimumLogicalFontSize", mApp->webSettings()->fontSize(QWebSettings::MinimumLogicalFontSize)).toInt());
+    settings.endGroup();
+
+    //KEYBOARD SHORTCUTS
+    settings.beginGroup("Shortcuts");
+    ui->switchTabsAlt->setChecked(settings.value("useTabNumberShortcuts", true).toBool());
+    ui->loadSpeedDialsCtrl->setChecked(settings.value("useSpeedDialNumberShortcuts", true).toBool());
     settings.endGroup();
 
     //PLUGINS
@@ -835,6 +843,12 @@ void Preferences::saveSettings()
     settings.setValue("FixedFontSize", ui->sizeFixed->value());
     settings.setValue("MinimumFontSize", ui->sizeMinimum->value());
     settings.setValue("MinimumLogicalFontSize", ui->sizeMinimumLogical->value());
+    settings.endGroup();
+
+    //KEYBOARD SHORTCUTS
+    settings.beginGroup("Shortcuts");
+    settings.setValue("useTabNumberShortcuts", ui->switchTabsAlt->isChecked());
+    settings.setValue("useSpeedDialNumberShortcuts", ui->loadSpeedDialsCtrl->isChecked());
     settings.endGroup();
 
     //BROWSING

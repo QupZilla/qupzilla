@@ -68,5 +68,6 @@
         <file>icons/sites/wikipedia.png</file>
         <file>icons/sites/yahoo.png</file>
         <file>icons/sites/youtube.png</file>
+        <file>icons/preferences/preferences-desktop-keyboard-shortcuts.png</file>
     </qresource>
 </RCC>

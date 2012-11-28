@@ -998,16 +998,18 @@ void MainApplication::clearTempPath()
     QString path = PROFILEDIR + "tmp/";
     QDir dir(path);
 
-    if (dir.exists())
+    if (dir.exists()) {
         qz_removeDir(path);
+    }
 }
 
 QString MainApplication::tempPath() const
 {
     QString path = PROFILEDIR + "tmp/";
     QDir dir(path);
-    if (!dir.exists())
+    if (!dir.exists()) {
         dir.mkdir(path);
+    }
 
     return path;
 }
