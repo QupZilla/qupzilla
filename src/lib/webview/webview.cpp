@@ -379,12 +379,18 @@ void WebView::slotIconChanged()
 
 void WebView::slotUrlChanged(const QUrl &url)
 {
-    // Disable touch mocking on all google pages as it just makes it buggy
-    if (url.host().contains(QLatin1String("google"))) {
-        m_disableTouchMocking = true;
-    }
-    else {
-        m_disableTouchMocking = false;
+    static QStringList exceptions;
+    if (exceptions.isEmpty())
+        exceptions << "google." << "twitter.";
+
+    // Disable touch mocking on pages known not to work properly
+    const QString &host = url.host();
+    m_disableTouchMocking = false;
+
+    foreach (const QString &site, exceptions) {
+        if (host.contains(site)) {
+            m_disableTouchMocking = true;
+        }
     }
 }
 
