@@ -101,7 +101,24 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->afterLaunch->setCurrentIndex(afterLaunch);
     ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool());
     ui->dontLoadTabsUntilSelected->setChecked(settings.value("Web-Browser-Settings/LoadTabsOnActivation", false).toBool());
-
+#ifdef Q_OS_WIN
+    ui->checkDefaultBrowser->setChecked(settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool());
+    if (mApp->associationManager()->isDefaultForAllCapabilities()) {
+        ui->checkNowDefaultBrowser->setText(tr("QupZilla is default"));
+        ui->checkNowDefaultBrowser->setEnabled(false);
+    }
+    else {
+        ui->checkNowDefaultBrowser->setText(tr("Make QupZilla default"));
+        ui->checkNowDefaultBrowser->setEnabled(true);
+        connect(ui->checkNowDefaultBrowser, SIGNAL(clicked()), this, SLOT(makeQupZillaDefault()));
+    }
+#else // just Windows
+    ui->hSpacerDefaultBrowser->changeSize(0, 0, QSizePolicy::Fixed, QSizePolicy::Fixed);
+    ui->hLayoutDefaultBrowser->invalidate();
+    delete ui->hLayoutDefaultBrowser;
+    delete ui->checkDefaultBrowser;
+    delete ui->checkNowDefaultBrowser;
+#endif
     ui->newTabFrame->setVisible(false);
     if (m_newTabUrl.isEmpty()) {
         ui->newTab->setCurrentIndex(0);
@@ -489,6 +506,16 @@ void Preferences::setNotificationPreviewVisible(bool state)
     }
 }
 
+void Preferences::makeQupZillaDefault()
+{
+#ifdef Q_OS_WIN
+    disconnect(ui->checkNowDefaultBrowser, SIGNAL(clicked()), this, SLOT(makeQupZillaDefault()));
+    mApp->associationManager()->registerAllAssociation();
+    ui->checkNowDefaultBrowser->setText(tr("QupZilla is default"));
+    ui->checkNowDefaultBrowser->setEnabled(false);
+#endif
+}
+
 void Preferences::allowCacheChanged(bool state)
 {
     ui->cacheFrame->setEnabled(state);
@@ -868,7 +895,9 @@ void Preferences::saveSettings()
     settings.setValue("LoadTabsOnActivation", ui->dontLoadTabsUntilSelected->isChecked());
     settings.setValue("DefaultZoom", ui->defaultZoom->value());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
-
+#ifdef Q_OS_WIN
+    settings.setValue("CheckDefaultBrowser", ui->checkDefaultBrowser->isChecked());
+#endif
     //Cache
     settings.setValue("maximumCachedPages", ui->pagesInCache->value());
     settings.setValue("AllowLocalCache", ui->allowCache->isChecked());
