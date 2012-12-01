@@ -93,6 +93,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_isRestoring(false)
     , m_startingAfterCrash(false)
     , m_databaseConnected(false)
+    , m_registerQAppAssociation(0)
 {
 #if defined(Q_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR;
@@ -254,10 +255,17 @@ MainApplication::MainApplication(int &argc, char** argv)
         int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
         settings.setValue("SessionRestore/isRunning", true);
 
+#ifndef PORTABLE_BUILD
+        bool alwaysCheckDefaultBrowser = settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool();
+        if (alwaysCheckDefaultBrowser) {
+            alwaysCheckDefaultBrowser = checkDefaultWebBrowser();
+            settings.setValue("Web-Browser-Settings/CheckDefaultBrowser", alwaysCheckDefaultBrowser);
+        }
+#endif
+
         if (checkUpdates) {
             new Updater(qupzilla);
         }
-
         if (m_startingAfterCrash || afterLaunch == 3) {
             m_restoreManager = new RestoreManager(m_activeProfil + "session.dat");
         }
@@ -806,6 +814,39 @@ void MainApplication::reloadUserStyleSheet()
     settings.beginGroup("Web-Browser-Settings");
     m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", QString()).toString()));
     settings.endGroup();
+}
+
+bool MainApplication::checkDefaultWebBrowser()
+{
+    bool showAgain = true;
+    if (!associationManager()->isDefaultForAllCapabilities()) {
+        CheckMessageBox notDefaultDialog(&showAgain, getWindow());
+        notDefaultDialog.setWindowTitle(tr("Default Browser"));
+        notDefaultDialog.setMessage(tr("QupZilla is not currently your default browser. Would you like to make it your default browser?"));
+        notDefaultDialog.setPixmap(style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(32,32));
+        notDefaultDialog.setShowAgainText(tr("Always perform this check when starting QupZilla."));
+
+        if (notDefaultDialog.exec() == QDialog::Accepted) {
+            associationManager()->registerAllAssociation();
+        }
+    }
+
+    return showAgain;
+}
+
+RegisterQAppAssociation* MainApplication::associationManager()
+{
+    if (!m_registerQAppAssociation) {
+        QString desc = tr("QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.");
+        QString fileIconPath = QApplication::applicationFilePath() + ",1";
+        QString appIconPath = QApplication::applicationFilePath() + ",0";
+        m_registerQAppAssociation = new RegisterQAppAssociation("QupZilla", QApplication::applicationFilePath(), appIconPath, desc, this);
+        m_registerQAppAssociation->addCapability(".html", "QupZilla.HTML", "HTML File", fileIconPath, RegisterQAppAssociation::FileAssociation);
+        m_registerQAppAssociation->addCapability(".htm", "QupZilla.HTM", "HTM File", fileIconPath, RegisterQAppAssociation::FileAssociation);
+        m_registerQAppAssociation->addCapability("http", "QupZilla.HTTP", "URL:HyperText Transfer Protocol", appIconPath, RegisterQAppAssociation::UrlAssociation);
+        m_registerQAppAssociation->addCapability("https", "QupZilla.HTTPS", "URL:HyperText Transfer Protocol with Privacy", appIconPath, RegisterQAppAssociation::UrlAssociation);
+    }
+    return m_registerQAppAssociation;
 }
 
 QUrl MainApplication::userStyleSheet(const QString &filePath) const
