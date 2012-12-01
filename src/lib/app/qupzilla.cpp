@@ -586,10 +586,9 @@ void QupZilla::loadSettings()
     settings.beginGroup("Shortcuts");
     m_useTabNumberShortcuts = settings.value("useTabNumberShortcuts", true).toBool();
     m_useSpeedDialNumberShortcuts = settings.value("useSpeedDialNumberShortcuts", true).toBool();
-    bool adBlockEnabled = settings.value("AdBlock/enabled", true).toBool();
     settings.endGroup();
 
-    m_adblockIcon->setEnabled(adBlockEnabled);
+    m_adblockIcon->setEnabled(settings.value("AdBlock/enabled", true).toBool());
 
     statusBar()->setVisible(showStatusBar);
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
