@@ -96,8 +96,10 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 
 #ifdef Q_OS_WIN
 #define DEFAULT_CHECK_UPDATES true
+#define DEFAULT_CHECK_DEFAULTBROWSER true
 #else
 #define DEFAULT_CHECK_UPDATES false
+#define DEFAULT_CHECK_DEFAULTBROWSER false
 #endif
 
 #ifdef Q_OS_WIN

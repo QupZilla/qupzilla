@@ -164,11 +164,86 @@
      </property>
      <widget class="QWidget" name="stackedWidgetPage1">
       <layout class="QGridLayout" name="gridLayout_6">
-       <item row="0" column="0" colspan="2">
-        <widget class="QLabel" name="label_24">
-         <property name="text">
-          <string>&lt;b&gt;Launching&lt;/b&gt;</string>
+       <item row="4" column="2">
+        <widget class="QFrame" name="newTabFrame">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLineEdit" name="newTabUrl"/>
+          </item>
+          <item>
+           <widget class="QToolButton" name="newTabUseCurrent">
+            <property name="text">
+             <string>Use current</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="12" column="1" colspan="3">
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
          </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>20</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="cannotDeleteActiveProfileLabel">
+            <property name="text">
+             <string>Note: You cannot delete active profile.</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="createProfile">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Create New</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="deleteProfile">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Delete</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
        <item row="1" column="0">
@@ -186,6 +261,16 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="0" column="0" colspan="2">
+        <widget class="QLabel" name="label_24">
+         <property name="text">
+          <string>&lt;b&gt;Launching&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="2">
+        <widget class="QComboBox" name="startProfile"/>
        </item>
        <item row="1" column="1">
         <widget class="QLabel" name="label_3">
@@ -270,103 +355,18 @@
          </item>
         </widget>
        </item>
-       <item row="8" column="0" colspan="2">
+       <item row="9" column="0" colspan="2">
         <widget class="QLabel" name="label_4">
          <property name="text">
           <string>&lt;b&gt;Profiles&lt;/b&gt;</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
+       <item row="11" column="1">
         <widget class="QLabel" name="label_5">
          <property name="text">
           <string>Startup profile:</string>
          </property>
-        </widget>
-       </item>
-       <item row="10" column="2">
-        <widget class="QComboBox" name="startProfile"/>
-       </item>
-       <item row="11" column="1" colspan="3">
-        <widget class="QFrame" name="frame">
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>20</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="cannotDeleteActiveProfileLabel">
-            <property name="text">
-             <string>Note: You cannot delete active profile.</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="createProfile">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Create New</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="deleteProfile">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Delete</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="4" column="2">
-        <widget class="QFrame" name="newTabFrame">
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <property name="margin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLineEdit" name="newTabUrl"/>
-          </item>
-          <item>
-           <widget class="QToolButton" name="newTabUseCurrent">
-            <property name="text">
-             <string>Use current</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </widget>
        </item>
        <item row="6" column="1" colspan="2">
@@ -376,35 +376,35 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
+       <item row="10" column="1">
         <widget class="QLabel" name="label_45">
          <property name="text">
           <string>Active profile:</string>
          </property>
         </widget>
        </item>
-       <item row="9" column="2">
+       <item row="10" column="2">
         <widget class="QLabel" name="activeProfile">
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
-       <item row="17" column="1" colspan="2">
+       <item row="18" column="1" colspan="2">
         <widget class="QLabel" name="label_17">
          <property name="text">
           <string>In order to change language, you must restart browser.</string>
          </property>
         </widget>
        </item>
-       <item row="13" column="0" colspan="3">
+       <item row="14" column="0" colspan="3">
         <widget class="QLabel" name="label_11">
          <property name="text">
           <string>&lt;b&gt;Language&lt;/b&gt;</string>
          </property>
         </widget>
        </item>
-       <item row="14" column="1">
+       <item row="15" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_13">
          <item>
           <widget class="QLabel" name="label_16">
@@ -427,7 +427,7 @@
          </item>
         </layout>
        </item>
-       <item row="14" column="2">
+       <item row="15" column="2">
         <widget class="QComboBox" name="languages"/>
        </item>
        <item row="5" column="1" colspan="2">
@@ -437,7 +437,7 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="0">
+       <item row="8" column="0">
         <spacer name="verticalSpacer_6">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -449,6 +449,40 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="7" column="1" colspan="2">
+        <layout class="QHBoxLayout" name="hLayoutDefaultBrowser">
+         <item>
+          <widget class="QCheckBox" name="checkDefaultBrowser">
+           <property name="text">
+            <string>Check to see if QupZilla is the default browser on startup</string>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="checkNowDefaultBrowser">
+           <property name="text">
+            <string>Check Now</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="hSpacerDefaultBrowser">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
