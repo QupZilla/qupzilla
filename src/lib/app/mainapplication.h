@@ -24,7 +24,6 @@
 #include <QUrl>
 #include <QWeakPointer>
 
-#include "registerqappassociation.h"
 #include "restoremanager.h"
 #include "qtsingleapplication.h"
 #include "qz_namespace.h"
@@ -50,6 +49,7 @@ class SearchEnginesManager;
 class DatabaseWriter;
 class UserAgentManager;
 class ProxyStyle;
+class RegisterQAppAssociation;
 
 class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {

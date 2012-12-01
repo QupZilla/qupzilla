@@ -30,7 +30,7 @@ class QT_QUPZILLA_EXPORT RegisterQAppAssociation : public QObject
 public:
     explicit RegisterQAppAssociation(QObject* parent = 0);
     explicit RegisterQAppAssociation(const QString &appRegisteredName, const QString &appPath,
-                               const QString &appIcon = "", const QString &appDesc = "", QObject* parent = 0);
+                                     const QString &appIcon = "", const QString &appDesc = "", QObject* parent = 0);
     ~RegisterQAppAssociation();
 
     enum AssociationType {
@@ -84,10 +84,10 @@ class QT_QUPZILLA_EXPORT CheckMessageBox : public QDialog
     Q_OBJECT
 
 public:
-    CheckMessageBox(bool *defaultShowAgainState = 0, QWidget *parent = 0, Qt::WindowFlags f = 0);
+    CheckMessageBox(bool* defaultShowAgainState = 0, QWidget* parent = 0, Qt::WindowFlags f = 0);
     CheckMessageBox(const QString &msg, const QPixmap &pixmap,
-                    const QString &str, bool *defaultShowAgainState,
-                    QWidget *parent = 0, Qt::WindowFlags f = 0);
+                    const QString &str, bool* defaultShowAgainState,
+                    QWidget* parent = 0, Qt::WindowFlags f = 0);
     ~CheckMessageBox();
 
     void setMessage(const QString &msg);
@@ -97,17 +97,17 @@ public:
 private:
     void setupUi();
 
-    bool *_showAgainState;
-    QGridLayout *gridLayout;
-    QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout_2;
-    QLabel *pixmapLabel;
-    QSpacerItem *verticalSpacer;
-    QVBoxLayout *verticalLayout;
-    QLabel *messageLabel;
-    QSpacerItem *horizontalSpacer;
-    QCheckBox *showAgainCheckBox;
-    QDialogButtonBox *buttonBox;
+    bool* _showAgainState;
+    QGridLayout* gridLayout;
+    QHBoxLayout* horizontalLayout;
+    QVBoxLayout* verticalLayout_2;
+    QLabel* pixmapLabel;
+    QSpacerItem* verticalSpacer;
+    QVBoxLayout* verticalLayout;
+    QLabel* messageLabel;
+    QSpacerItem* horizontalSpacer;
+    QCheckBox* showAgainCheckBox;
+    QDialogButtonBox* buttonBox;
 
 private slots:
     void showAgainStateChanged(bool checked);

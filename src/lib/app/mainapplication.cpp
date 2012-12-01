@@ -50,6 +50,7 @@
 #include "useragentmanager.h"
 #include "restoremanager.h"
 #include "proxystyle.h"
+#include "registerqappassociation.h"
 
 #ifdef Q_OS_MAC
 #include <QFileOpenEvent>
@@ -823,7 +824,7 @@ bool MainApplication::checkDefaultWebBrowser()
         CheckMessageBox notDefaultDialog(&showAgain, getWindow());
         notDefaultDialog.setWindowTitle(tr("Default Browser"));
         notDefaultDialog.setMessage(tr("QupZilla is not currently your default browser. Would you like to make it your default browser?"));
-        notDefaultDialog.setPixmap(style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(32,32));
+        notDefaultDialog.setPixmap(style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(32, 32));
         notDefaultDialog.setShowAgainText(tr("Always perform this check when starting QupZilla."));
 
         if (notDefaultDialog.exec() == QDialog::Accepted) {

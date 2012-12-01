@@ -28,14 +28,14 @@
 #include <QSettings>
 #include <QDir>
 
-RegisterQAppAssociation::RegisterQAppAssociation(QObject *parent) :
+RegisterQAppAssociation::RegisterQAppAssociation(QObject* parent) :
     QObject(parent)
 {
     setPerMachineRegisteration(false);
 }
 
 RegisterQAppAssociation::RegisterQAppAssociation(const QString &appRegisteredName, const QString &appPath, const QString &appIcon,
-                                     const QString &appDesc, QObject *parent)
+        const QString &appDesc, QObject* parent)
     : QObject(parent)
 {
     setPerMachineRegisteration(false);
@@ -47,12 +47,12 @@ RegisterQAppAssociation::~RegisterQAppAssociation()
 }
 
 void RegisterQAppAssociation::addCapability(const QString &assocName, const QString &progId,
-                                      const QString &desc, const QString &iconPath, AssociationType type)
+        const QString &desc, const QString &iconPath, AssociationType type)
 {
     _assocDescHash.insert(progId, QPair<QString, QString>(desc, QDir::toNativeSeparators(iconPath)));
     switch (type) {
     case FileAssociation:
-         _fileAssocHash.insert(assocName, progId);
+        _fileAssocHash.insert(assocName, progId);
         break;
     case UrlAssociation:
         _urlAssocHash.insert(assocName, progId);
@@ -70,7 +70,7 @@ void RegisterQAppAssociation::removeCapability(const QString &assocName)
 }
 
 void RegisterQAppAssociation::setAppInfo(const QString &appRegisteredName, const QString &appPath,
-                                   const QString &appIcon, const QString &appDesc)
+        const QString &appIcon, const QString &appDesc)
 {
     _appRegisteredName = appRegisteredName;
     _appPath = QDir::toNativeSeparators(appPath);
@@ -177,12 +177,11 @@ void RegisterQAppAssociation::registerAssociation(const QString &assocName, Asso
                                            assocName.toStdWString().c_str(),
                                            AT_FILEEXTENSION);
                 break;
-            case UrlAssociation:
-            {
+            case UrlAssociation: {
                 QSettings regCurrentUserRoot("HKEY_CURRENT_USER", QSettings::NativeFormat);
                 QString currentUrlDefault =
-                        regCurrentUserRoot.value("Software/Microsoft/Windows/Shell/Associations/UrlAssociations/"
-                                                 + assocName + "/UserChoice/Progid").toString();
+                    regCurrentUserRoot.value("Software/Microsoft/Windows/Shell/Associations/UrlAssociations/"
+                                             + assocName + "/UserChoice/Progid").toString();
                 hr = pAAR->SetAppAsDefault(_appRegisteredName.toStdWString().c_str(),
                                            assocName.toStdWString().c_str(),
                                            AT_URLPROTOCOL);
@@ -194,7 +193,7 @@ void RegisterQAppAssociation::registerAssociation(const QString &assocName, Asso
                                                 + "/shell/open/command/backup_progid", currentUrlDefault);
                 }
             }
-                break;
+            break;
 
             default:
                 break;
@@ -208,8 +207,7 @@ void RegisterQAppAssociation::registerAssociation(const QString &assocName, Asso
         regUserRoot.beginGroup("Software/Classes");
         QSettings regClassesRoot("HKEY_CLASSES_ROOT", QSettings::NativeFormat);
         switch (type) {
-        case FileAssociation:
-        {
+        case FileAssociation: {
             QString progId = _fileAssocHash.value(assocName);
             createProgId(progId);
             QString currentDefault = regClassesRoot.value(assocName + "/Default").toString();
@@ -220,13 +218,12 @@ void RegisterQAppAssociation::registerAssociation(const QString &assocName, Asso
             }
             regUserRoot.setValue(assocName + "/.", progId);
         }
-            break;
-        case UrlAssociation:
-        {
+        break;
+        case UrlAssociation: {
             QString progId = _urlAssocHash.value(assocName);
             createProgId(progId);
             QString currentDefault = regClassesRoot.value(assocName + "/shell/open/command/Default").toString();
-            QString command = "\""+_appPath+"\" \"%1\"";
+            QString command = "\"" + _appPath + "\" \"%1\"";
             if (!currentDefault.isEmpty()
                     && currentDefault != command
                     && regUserRoot.value(assocName + "/shell/open/command/backup_val").toString() != command) {
@@ -272,7 +269,7 @@ void RegisterQAppAssociation::registerAllAssociation()
     if (!isVistaOrNewer()) {
         // On Windows Vista or newer for updating icons 'pAAR->SetAppAsDefault()'
         // calls 'SHChangeNotify()'. Thus, we just need care about older Windows.
-        SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_FLUSHNOWAIT, 0 ,0);
+        SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_FLUSHNOWAIT, 0 , 0);
     }
 #endif
 }
@@ -286,7 +283,7 @@ void RegisterQAppAssociation::createProgId(const QString &progId)
     regUserRoot.setValue(progId + "/.", pair.first);
     regUserRoot.setValue(progId + "/shell/.", "open");
     regUserRoot.setValue(progId + "/DefaultIcon/.", pair.second);
-    regUserRoot.setValue(progId + "/shell/open/command/.", QString("\""+_appPath+"\" \"%1\""));
+    regUserRoot.setValue(progId + "/shell/open/command/.", QString("\"" + _appPath + "\" \"%1\""));
     regUserRoot.endGroup();
 #else
     Q_UNUSED(progId)
@@ -299,8 +296,7 @@ bool RegisterQAppAssociation::isDefaultApp(const QString &assocName, Association
     if (isVistaOrNewer()) {
         QSettings regCurrentUserRoot("HKEY_CURRENT_USER", QSettings::NativeFormat);
         switch (type) {
-        case FileAssociation:
-        {
+        case FileAssociation: {
             regCurrentUserRoot.beginGroup("Software/Microsoft/Windows/CurrentVersion/Explorer/FileExts");
             if (regCurrentUserRoot.childGroups().contains(assocName, Qt::CaseInsensitive)) {
                 return (_fileAssocHash.value(assocName)
@@ -312,8 +308,7 @@ bool RegisterQAppAssociation::isDefaultApp(const QString &assocName, Association
             }
             break;
         }
-        case UrlAssociation:
-        {
+        case UrlAssociation: {
             regCurrentUserRoot.beginGroup("Software/Microsoft/Windows/Shell/Associations/UrlAssociations");
             if (regCurrentUserRoot.childGroups().contains(assocName, Qt::CaseInsensitive)) {
                 return (_urlAssocHash.value(assocName)
@@ -324,7 +319,7 @@ bool RegisterQAppAssociation::isDefaultApp(const QString &assocName, Association
                 return false;
             }
         }
-            break;
+        break;
 
         default:
             break;
@@ -338,21 +333,19 @@ bool RegisterQAppAssociation::isDefaultApp(const QString &assocName, Association
             }
         }
         switch (type) {
-        case FileAssociation:
-        {
+        case FileAssociation: {
             return (_fileAssocHash.value(assocName)
                     == regClassesRoot.value(assocName + "/Default"));
         }
-            break;
-        case UrlAssociation:
-        {
+        break;
+        case UrlAssociation: {
             QString currentDefault = regClassesRoot.value(assocName + "/shell/open/command/Default").toString();
             currentDefault.remove("\"");
             currentDefault.remove("%1");
             currentDefault = currentDefault.trimmed();
             return (_appPath == currentDefault);
         }
-            break;
+        break;
 
         default:
             break;
@@ -388,9 +381,9 @@ bool RegisterQAppAssociation::isDefaultForAllCapabilities()
 /******** CheckMessageBox Class ********/
 /***************************************/
 
-CheckMessageBox::CheckMessageBox(bool *defaultShowAgainState, QWidget *parent, Qt::WindowFlags f)
+CheckMessageBox::CheckMessageBox(bool* defaultShowAgainState, QWidget* parent, Qt::WindowFlags f)
     : QDialog(parent, f | Qt::MSWindowsFixedSizeDialogHint),
-    _showAgainState(defaultShowAgainState)
+      _showAgainState(defaultShowAgainState)
 {
     setupUi();
     if (defaultShowAgainState) {
@@ -403,8 +396,8 @@ CheckMessageBox::CheckMessageBox(bool *defaultShowAgainState, QWidget *parent, Q
 }
 
 CheckMessageBox::CheckMessageBox(const QString &msg, const QPixmap &pixmap,
-                                 const QString &str, bool *defaultShowAgainState,
-                                 QWidget *parent, Qt::WindowFlags f)
+                                 const QString &str, bool* defaultShowAgainState,
+                                 QWidget* parent, Qt::WindowFlags f)
     : QDialog(parent, f | Qt::MSWindowsFixedSizeDialogHint),
       _showAgainState(defaultShowAgainState)
 {
@@ -482,7 +475,7 @@ void CheckMessageBox::setupUi()
     buttonBox = new QDialogButtonBox(this);
     buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
     buttonBox->setOrientation(Qt::Horizontal);
-    buttonBox->setStandardButtons(QDialogButtonBox::No|QDialogButtonBox::Yes);
+    buttonBox->setStandardButtons(QDialogButtonBox::No | QDialogButtonBox::Yes);
 
     gridLayout->addWidget(buttonBox, 1, 0, 1, 1);
 
