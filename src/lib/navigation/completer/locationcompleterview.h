@@ -42,20 +42,16 @@ public slots:
 
 private slots:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous);
-    void activateTab(TabPosition pos);private slots:
-    void receiveMessage(Qz::AppMessageType mes, bool state);
+    void activateTab(TabPosition pos);
 
 protected:
     void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
 
 private:
-    void loadSettings();
-
     bool m_ignoreNextMouseMove;
 
     QPersistentModelIndex m_hoveredIndex;
-    bool m_switchTabs;
 };
 
 #endif // LOCATIONCOMPLETERVIEW_H

@@ -33,6 +33,7 @@ LocationCompleter::LocationCompleter(QObject* parent)
         s_view = new LocationCompleterView;
 
         s_view->setModel(s_model);
+        s_view->setItemDelegate(new LocationCompleterDelegate(s_view));
     }
 }
 

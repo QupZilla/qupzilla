@@ -37,7 +37,6 @@ Q_DECLARE_METATYPE(TabPosition)
 
 class LocationCompleterModel : public QStandardItemModel
 {
-    Q_OBJECT
 public:
     enum Role {
         TitleRole = Qt::UserRole + 1,
@@ -52,10 +51,6 @@ public:
     void refreshCompletions(const QString &string);
     void showMostVisited();
 
-signals:
-
-public slots:
-
 private:
     enum Type {
         HistoryAndBookmarks = 0,
@@ -67,13 +62,8 @@ private:
     QSqlQuery createQuery(const QString &searchString, const QString &orderBy, const QList<QUrl> &alreadyFound,
                           int limit, bool bookmarks = false, bool exactMatch = false);
     TabPosition tabPositionForUrl(const QUrl& url) const;
-    void loadSettings();
 
     QString m_lastCompletion;
-    bool m_switchTabs;
-
-private slots:
-    void receiveMessage(Qz::AppMessageType mes, bool state);
 };
 
 #endif // LOCATIONCOMPLETERMODEL_H

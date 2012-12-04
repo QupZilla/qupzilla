@@ -32,6 +32,7 @@ void QzSettings::loadSettings()
     addCountryWithAlt = settings.value("AddCountryDomainWithAltKey", true).toBool();
     showLoadingProgress = settings.value("ShowLoadingProgress", false).toBool();
     showLocationSuggestions = settings.value("showSuggestions", 0).toInt();
+    showSwitchTab = settings.value("showSwitchTab", true).toBool();
     settings.endGroup();
 
     settings.beginGroup("SearchEngines");

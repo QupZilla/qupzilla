@@ -22,7 +22,7 @@
 #include "qupzilla.h"
 #include "history.h"
 #include "tabwidget.h"
-#include "settings.h"
+#include "qzsettings.h"
 
 #include <QKeyEvent>
 #include <QApplication>
@@ -44,11 +44,6 @@ LocationCompleterView::LocationCompleterView()
 
     setMouseTracking(true);
     installEventFilter(this);
-
-    connect(mApp, SIGNAL(message(Qz::AppMessageType,bool)), this, SLOT(receiveMessage(Qz::AppMessageType,bool)));
-
-    setItemDelegate(new LocationCompleterDelegate(this));
-    loadSettings();
 }
 
 QPersistentModelIndex LocationCompleterView::hoveredIndex() const
@@ -74,7 +69,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
         switch (keyEvent->key()) {
         case Qt::Key_Return:
         case Qt::Key_Enter:
-            if(m_switchTabs && !(keyEvent->modifiers() & Qt::ShiftModifier)) {
+            if(qzSettings->showSwitchTab && !(keyEvent->modifiers() & Qt::ShiftModifier)) {
                 QModelIndex idx = selectionModel()->currentIndex();
                 if(idx.isValid()) {
                     TabPosition pos = idx.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
@@ -161,7 +156,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 
         case Qt::Key_Shift:
             // don't switch if there is no hovered or selected index to not disturb typing
-            if(m_switchTabs && (selectionModel()->currentIndex().isValid() || m_hoveredIndex.isValid())) {
+            if(qzSettings->showSwitchTab && (selectionModel()->currentIndex().isValid() || m_hoveredIndex.isValid())) {
                 static_cast<LocationCompleterDelegate*>(itemDelegate())->drawSwitchToTab(false);
                 viewport()->update();
                 return true;
@@ -178,7 +173,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 
         switch(keyEvent->key()) {
             case Qt::Key_Shift:
-                if(m_switchTabs) {
+                if(qzSettings->showSwitchTab) {
                     static_cast<LocationCompleterDelegate*>(itemDelegate())->drawSwitchToTab(true);
                     viewport()->update();
                     return true;
@@ -217,7 +212,7 @@ void LocationCompleterView::close()
 
     QListView::hide();
     verticalScrollBar()->setValue(0);
-    if(m_switchTabs) {
+    if(qzSettings->showSwitchTab) {
         static_cast<LocationCompleterDelegate*>(itemDelegate())->drawSwitchToTab(true);
     }
 }
@@ -256,7 +251,7 @@ void LocationCompleterView::mouseMoveEvent(QMouseEvent* event)
 
 void LocationCompleterView::mouseReleaseEvent(QMouseEvent* event)
 {
-    if(m_switchTabs && !(event->modifiers() & Qt::ShiftModifier) && m_hoveredIndex.isValid()) {
+    if(qzSettings->showSwitchTab && !(event->modifiers() & Qt::ShiftModifier) && m_hoveredIndex.isValid()) {
         TabPosition pos = m_hoveredIndex.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
         if(pos.windowIndex != -1) {
             event->accept();
@@ -278,19 +273,4 @@ void LocationCompleterView::activateTab(TabPosition pos)
     QupZilla* win = mApp->mainWindows().at(pos.windowIndex);
     win->activateWindow();
     win->tabWidget()->setCurrentIndex(pos.tabIndex);
-}
-
-void LocationCompleterView::receiveMessage(Qz::AppMessageType mes, bool state)
-{
-    Q_UNUSED(state)
-    if(mes == Qz::AM_ReloadSettings) {
-        loadSettings();
-    }
-}
-
-void LocationCompleterView::loadSettings()
-{
-    Settings settings;
-    m_switchTabs = settings.value("AddressBar/showSwitchTab", true).toBool();
-    static_cast<LocationCompleterDelegate*>(itemDelegate())->drawSwitchToTab(m_switchTabs);
 }

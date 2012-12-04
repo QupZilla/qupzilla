@@ -28,8 +28,6 @@ LocationCompleterModel::LocationCompleterModel(QObject* parent)
     : QStandardItemModel(parent)
     , m_lastCompletion(QChar(QChar::Nbsp))
 {
-    connect(mApp, SIGNAL(message(Qz::AppMessageType,bool)), this, SLOT(receiveMessage(Qz::AppMessageType,bool)));
-    loadSettings();
 }
 
 bool countBiggerThan(const QStandardItem* i1, const QStandardItem* i2)
@@ -74,7 +72,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             item->setData(query.value(3), CountRole);
             item->setData(QVariant(true), BookmarkRole);
             item->setData(string, SearchStringRole);
-            if(m_switchTabs) {
+            if(qzSettings->showSwitchTab) {
                 item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(url)), TabPositionRole);
             }
 
@@ -100,7 +98,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             item->setData(query.value(3), CountRole);
             item->setData(QVariant(false), BookmarkRole);
             item->setData(string, SearchStringRole);
-            if(m_switchTabs) {
+            if(qzSettings->showSwitchTab) {
                 item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(url)), TabPositionRole);
             }
 
@@ -130,7 +128,7 @@ void LocationCompleterModel::showMostVisited()
         item->setData(query.value(0), IdRole);
         item->setData(query.value(2), TitleRole);
         item->setData(QVariant(false), BookmarkRole);
-        if(m_switchTabs) {
+        if(qzSettings->showSwitchTab) {
             item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(url)), TabPositionRole);
         }
 
@@ -215,18 +213,4 @@ TabPosition LocationCompleterModel::tabPositionForUrl(const QUrl& url) const
         }
     }
     return TabPosition();
-}
-
-void LocationCompleterModel::receiveMessage(Qz::AppMessageType mes, bool state)
-{
-    Q_UNUSED(state)
-    if(mes == Qz::AM_ReloadSettings) {
-        loadSettings();
-    }
-}
-
-void LocationCompleterModel::loadSettings()
-{
-    Settings settings;
-    m_switchTabs = settings.value("AddressBar/showSwitchTab", true).toBool();
 }

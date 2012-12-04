@@ -325,7 +325,6 @@ HEADERS  += \
     tools/focusselectlineedit.h \
     navigation/completer/locationcompleterdelegate.h \
     navigation/completer/locationcompleter.h \
-    navigation/completer/locationcompletermodel.h \
     navigation/completer/locationcompleterview.h \
     history/history.h \
     history/historymodel.h \
