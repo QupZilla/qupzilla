@@ -214,6 +214,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //AddressBar
     settings.beginGroup("AddressBar");
     ui->addressbarCompletion->setCurrentIndex(settings.value("showSuggestions", 0).toInt());
+    ui->completionShowSwitchTab->setChecked(settings.value("showSwitchTab", true).toBool());
     ui->selectAllOnFocus->setChecked(settings.value("SelectAllTextOnDoubleClick", true).toBool());
     ui->selectAllOnClick->setChecked(settings.value("SelectAllTextOnClick", false).toBool());
     ui->addCountryWithAlt->setChecked(settings.value("AddCountryDomainWithAltKey", true).toBool());
@@ -937,6 +938,7 @@ void Preferences::saveSettings()
     //AddressBar
     settings.beginGroup("AddressBar");
     settings.setValue("showSuggestions", ui->addressbarCompletion->currentIndex());
+    settings.setValue("showSwitchTab", ui->completionShowSwitchTab->isChecked());
     settings.setValue("SelectAllTextOnDoubleClick", ui->selectAllOnFocus->isChecked());
     settings.setValue("SelectAllTextOnClick", ui->selectAllOnClick->isChecked());
     settings.setValue("AddCountryDomainWithAltKey", ui->addCountryWithAlt->isChecked());
