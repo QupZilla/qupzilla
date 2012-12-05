@@ -160,9 +160,9 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>0</number>
      </property>
-     <widget class="QWidget" name="stackedWidgetPage1">
+     <widget class="QWidget" name="generalPage">
       <layout class="QGridLayout" name="gridLayout_6">
        <item row="4" column="2">
         <widget class="QFrame" name="newTabFrame">
@@ -486,7 +486,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="stackedWidgetPage2">
+     <widget class="QWidget" name="appearancePage">
       <layout class="QGridLayout" name="gridLayout_21">
        <item row="0" column="0">
         <widget class="QTabWidget" name="tabWidget_2">
@@ -647,14 +647,14 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="stackedWidgetPage3">
+     <widget class="QWidget" name="tabsPage">
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <widget class="QTabWidget" name="tabWidget_3">
          <property name="currentIndex">
           <number>0</number>
          </property>
-         <widget class="QWidget" name="tab_6">
+         <widget class="QWidget" name="tabsBehaviourPage">
           <attribute name="title">
            <string>Tabs behavior</string>
           </attribute>
@@ -770,7 +770,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="tab_7">
+         <widget class="QWidget" name="addressBarBehaviourPage">
           <attribute name="title">
            <string>Address Bar behavior</string>
           </attribute>
@@ -831,6 +831,16 @@
               </spacer>
              </item>
             </layout>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="completionShowSwitchTab">
+             <property name="toolTip">
+              <string>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</string>
+             </property>
+             <property name="text">
+              <string>Propose to switch tab if completed url is already loaded.</string>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QCheckBox" name="showLoadingInAddressBar">
@@ -963,7 +973,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="stackedWidgetPage4">
+     <widget class="QWidget" name="browsingPage">
       <layout class="QGridLayout" name="gridLayout_9">
        <item row="0" column="0">
         <widget class="QTabWidget" name="tabWidget">
@@ -1552,7 +1562,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page_2">
+     <widget class="QWidget" name="fontsPage">
       <layout class="QGridLayout" name="gridLayout_15">
        <item row="0" column="0" rowspan="2" colspan="3">
         <widget class="QLabel" name="label_27">
@@ -1744,7 +1754,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page_4">
+     <widget class="QWidget" name="shortcutsPage">
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <widget class="QLabel" name="label_13">
@@ -1782,7 +1792,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="downloadPage">
+     <widget class="QWidget" name="downloadsPage">
       <layout class="QGridLayout" name="gridLayout_10">
        <item row="0" column="0" colspan="4">
         <widget class="QLabel" name="label_23">
@@ -1941,7 +1951,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="stackedWidgetPage5">
+     <widget class="QWidget" name="passwordManagerPage">
       <layout class="QGridLayout" name="gridLayout_11">
        <item row="0" column="0" colspan="2">
         <widget class="QLabel" name="label_20">
@@ -2003,7 +2013,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="stackedWidgetPage6">
+     <widget class="QWidget" name="privacyPage">
       <layout class="QGridLayout" name="gridLayout_12">
        <item row="26" column="1" colspan="4">
         <widget class="QCheckBox" name="jscanAccessClipboard">
@@ -2188,7 +2198,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page_3">
+     <widget class="QWidget" name="notificationsPage">
       <layout class="QGridLayout" name="gridLayout_17">
        <item row="0" column="0" colspan="4">
         <widget class="QLabel" name="label_41">
@@ -2315,7 +2325,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page">
+     <widget class="QWidget" name="extensionsPage">
       <layout class="QGridLayout" name="gridLayout_14">
        <item row="0" column="0" colspan="2">
         <widget class="QFrame" name="horizontalFrame">
@@ -2334,7 +2344,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="stackedWidgetPage7">
+     <widget class="QWidget" name="otherPage">
       <layout class="QGridLayout" name="gridLayout_13">
        <item row="9" column="0" colspan="4">
         <widget class="QLabel" name="label_9">

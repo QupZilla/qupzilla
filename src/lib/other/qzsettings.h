@@ -37,6 +37,7 @@ public:
     bool addCountryWithAlt;
     bool showLoadingProgress;
     int showLocationSuggestions;
+    bool showSwitchTab;
 
     // SearchEngines
     bool showSearchSuggestions;

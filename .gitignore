@@ -26,3 +26,4 @@ Thumbs.db
 tests/modeltest
 *.pdb
 *.ilk
+*.kdev4
