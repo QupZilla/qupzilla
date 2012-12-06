@@ -137,6 +137,16 @@ void WebView::setPage(QWebPage* page)
     connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
 
     mApp->plugins()->emitWebPageCreated(m_page);
+
+    /* Set white background by default.
+       Fixes issue with dark themes.
+
+       See #602
+     */
+    QPalette pal = palette();
+    pal.setBrush(QPalette::Base, Qt::white);
+    page->setPalette(pal);
+
 }
 
 void WebView::load(const QUrl &url)
