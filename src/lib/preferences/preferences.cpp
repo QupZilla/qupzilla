@@ -474,8 +474,8 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     ui->caption->setText("<b>" + item->text() + "</b>");
     ui->stackedWidget->setCurrentIndex(index);
 
-    setNotificationPreviewVisible(index == 8);
-    if (index == 9) {
+    setNotificationPreviewVisible(index == 9);
+    if (index == 10) {
         m_pluginsList->load();
     }
 }
