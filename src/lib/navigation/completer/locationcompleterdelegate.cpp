@@ -28,6 +28,7 @@ LocationCompleterDelegate::LocationCompleterDelegate(LocationCompleterView* pare
     : QStyledItemDelegate(parent)
     , m_rowHeight(0)
     , m_padding(0)
+    , m_drawSwitchToTab(true)
     , m_view(parent)
 {
 }
@@ -109,8 +110,14 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
     QString link(opt.fontMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, linkRect.width()));
     painter->setFont(opt.font);
-
-    drawHighlightedTextLine(linkRect, link, searchText, painter, style, opt, colorLinkRole);
+    TabPosition pos = index.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
+    if(m_drawSwitchToTab && pos.windowIndex != -1) {
+        // TODO: select and paint a nice icon to give better feedback to the user.
+        drawTextLine(linkRect, tr("Switch to tab"), painter, style, opt, colorLinkRole);
+    }
+    else {
+        drawHighlightedTextLine(linkRect, link, searchText, painter, style, opt, colorLinkRole);
+    }
 
     // Draw line at the very bottom of item if the item is not highlighted
     if (!(opt.state & QStyle::State_Selected)) {
@@ -288,3 +295,9 @@ QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, co
 
     return QSize(200, m_rowHeight);
 }
+
+void LocationCompleterDelegate::drawSwitchToTab(bool enable)
+{
+    m_drawSwitchToTab = enable;
+}
+

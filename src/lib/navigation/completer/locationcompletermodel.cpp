@@ -19,6 +19,8 @@
 #include "iconprovider.h"
 #include "qzsettings.h"
 #include "mainapplication.h"
+#include "qupzilla.h"
+#include "tabwidget.h"
 
 #include <QSqlQuery>
 
@@ -70,6 +72,9 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             item->setData(query.value(3), CountRole);
             item->setData(QVariant(true), BookmarkRole);
             item->setData(string, SearchStringRole);
+            if(qzSettings->showSwitchTab) {
+                item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(url)), TabPositionRole);
+            }
 
             urlList.append(url);
             itemList.append(item);
@@ -93,6 +98,9 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             item->setData(query.value(3), CountRole);
             item->setData(QVariant(false), BookmarkRole);
             item->setData(string, SearchStringRole);
+            if(qzSettings->showSwitchTab) {
+                item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(url)), TabPositionRole);
+            }
 
             itemList.append(item);
         }
@@ -120,6 +128,9 @@ void LocationCompleterModel::showMostVisited()
         item->setData(query.value(0), IdRole);
         item->setData(query.value(2), TitleRole);
         item->setData(QVariant(false), BookmarkRole);
+        if(qzSettings->showSwitchTab) {
+            item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(url)), TabPositionRole);
+        }
 
         appendRow(item);
     }
@@ -185,4 +196,21 @@ QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const
     sqlQuery.addBindValue(limit);
 
     return sqlQuery;
+}
+
+TabPosition LocationCompleterModel::tabPositionForUrl(const QUrl& url) const
+{
+    for(int win=0; win < mApp->windowCount(); ++win) {
+        QupZilla* mainWin = mApp->mainWindows().at(win);
+        QList<WebTab*> tabs = mainWin->tabWidget()->allTabs();
+        for(int tab=0; tab < tabs.count(); ++tab) {
+            if(tabs[tab]->url() == url) {
+                TabPosition pos;
+                pos.windowIndex = win;
+                pos.tabIndex = tab;
+                return pos;
+            }
+        }
+    }
+    return TabPosition();
 }

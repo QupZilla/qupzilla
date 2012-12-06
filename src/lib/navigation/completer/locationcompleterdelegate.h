@@ -32,6 +32,8 @@ public:
     void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
+    void drawSwitchToTab(bool enable);
+
 private:
     void drawHighlightedTextLine(const QRect &rect, QString text, const QString &searchText,
                                  QPainter* painter, const QStyle* style, const QStyleOptionViewItemV4 &option,
@@ -45,6 +47,7 @@ private:
 
     mutable int m_rowHeight;
     mutable int m_padding;
+    bool m_drawSwitchToTab;
 
     LocationCompleterView* m_view;
 };

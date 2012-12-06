@@ -20,8 +20,20 @@
 
 #include <QStandardItemModel>
 
+#include "qz_namespace.h"
+
 class QSqlQuery;
 class QUrl;
+
+struct TabPosition {
+    int windowIndex;
+    int tabIndex;
+    TabPosition()
+     : windowIndex(-1)
+     , tabIndex(-1)
+    {}
+};
+Q_DECLARE_METATYPE(TabPosition)
 
 class LocationCompleterModel : public QStandardItemModel
 {
@@ -31,16 +43,13 @@ public:
         BookmarkRole = Qt::UserRole + 2,
         IdRole = Qt::UserRole + 3,
         SearchStringRole = Qt::UserRole + 4,
-        CountRole = Qt::UserRole + 5
+        CountRole = Qt::UserRole + 5,
+        TabPositionRole = Qt::UserRole + 6
     };
     explicit LocationCompleterModel(QObject* parent = 0);
 
     void refreshCompletions(const QString &string);
     void showMostVisited();
-
-signals:
-
-public slots:
 
 private:
     enum Type {
@@ -52,9 +61,9 @@ private:
 
     QSqlQuery createQuery(const QString &searchString, const QString &orderBy, const QList<QUrl> &alreadyFound,
                           int limit, bool bookmarks = false, bool exactMatch = false);
+    TabPosition tabPositionForUrl(const QUrl& url) const;
 
     QString m_lastCompletion;
-
 };
 
 #endif // LOCATIONCOMPLETERMODEL_H

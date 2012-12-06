@@ -77,6 +77,7 @@ void LocationCompleter::popupClosed()
     disconnect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex, QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
     disconnect(s_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(completionActivated()));
     disconnect(s_view, SIGNAL(closed()), this, SLOT(popupClosed()));
+    disconnect(s_view, SIGNAL(aboutToActivateTab(TabPosition)), m_locationBar, SLOT(clear()));
 }
 
 void LocationCompleter::showPopup()
@@ -102,6 +103,7 @@ void LocationCompleter::showPopup()
     connect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex, QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
     connect(s_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(completionActivated()));
     connect(s_view, SIGNAL(closed()), this, SLOT(popupClosed()));
+    connect(s_view, SIGNAL(aboutToActivateTab(TabPosition)), m_locationBar, SLOT(clear()));
 
     adjustPopupSize();
 }
