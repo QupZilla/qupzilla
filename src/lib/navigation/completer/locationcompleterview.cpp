@@ -269,8 +269,12 @@ void LocationCompleterView::mouseReleaseEvent(QMouseEvent* event)
 
 void LocationCompleterView::activateTab(TabPosition pos)
 {
-    emit aboutToActivateTab(pos);
     QupZilla* win = mApp->mainWindows().at(pos.windowIndex);
-    win->activateWindow();
-    win->tabWidget()->setCurrentIndex(pos.tabIndex);
+    if (mApp->getWindow() != win || mApp->getWindow()->tabWidget()->currentIndex() != pos.tabIndex) {
+        emit aboutToActivateTab(pos);
+        win->tabWidget()->setCurrentIndex(pos.tabIndex);
+        win->show();
+        win->activateWindow();
+        win->raise();
+    }
 }

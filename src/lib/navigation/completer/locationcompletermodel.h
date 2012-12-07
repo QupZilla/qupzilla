@@ -62,6 +62,8 @@ private:
     QSqlQuery createQuery(const QString &searchString, const QString &orderBy, const QList<QUrl> &alreadyFound,
                           int limit, bool bookmarks = false, bool exactMatch = false);
     TabPosition tabPositionForUrl(const QUrl& url) const;
+    TabPosition tabPositionForEncodedUrl(const QString& encodedUrl) const;
+    void refreshTabPositions();
 
     QString m_lastCompletion;
 };
