@@ -43,6 +43,7 @@
 #include "tabbedwebview.h"
 #include "clearprivatedata.h"
 #include "useragentdialog.h"
+#include "registerqappassociation.h"
 
 #include <QSettings>
 #include <QInputDialog>
