@@ -206,13 +206,16 @@ TabPosition LocationCompleterModel::tabPositionForUrl(const QUrl& url) const
 
 TabPosition LocationCompleterModel::tabPositionForEncodedUrl(const QString& encodedUrl) const
 {
-    for(int win=0; win < mApp->windowCount(); ++win) {
-        QupZilla* mainWin = mApp->mainWindows().at(win);
+    QList<QupZilla*> windows = mApp->mainWindows();
+    int currentWindowIdx = windows.indexOf(mApp->getWindow());
+    windows.prepend(mApp->getWindow());
+    for(int win=0; win < windows.count(); ++win) {
+        QupZilla* mainWin = windows.at(win);
         QList<WebTab*> tabs = mainWin->tabWidget()->allTabs();
         for(int tab=0; tab < tabs.count(); ++tab) {
             if(tabs[tab]->url().toEncoded() == encodedUrl) {
                 TabPosition pos;
-                pos.windowIndex = win;
+                pos.windowIndex = win == 0 ? currentWindowIdx : win-1;
                 pos.tabIndex = tab;
                 return pos;
             }

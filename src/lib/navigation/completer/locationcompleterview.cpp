@@ -23,6 +23,7 @@
 #include "history.h"
 #include "tabwidget.h"
 #include "qzsettings.h"
+#include "tabbedwebview.h"
 
 #include <QKeyEvent>
 #include <QApplication>
@@ -276,5 +277,8 @@ void LocationCompleterView::activateTab(TabPosition pos)
         win->show();
         win->activateWindow();
         win->raise();
+    }
+    else {
+        win->weView()->setFocus();
     }
 }
