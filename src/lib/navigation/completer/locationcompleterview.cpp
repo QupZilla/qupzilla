@@ -74,8 +74,8 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
                 if(idx.isValid()) {
                     TabPosition pos = idx.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
                     if(pos.windowIndex!= -1) {
-                        activateTab(pos);
                         close();
+                        activateTab(pos);
                         return true;
                     }
                 }
@@ -255,8 +255,8 @@ void LocationCompleterView::mouseReleaseEvent(QMouseEvent* event)
         TabPosition pos = m_hoveredIndex.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
         if(pos.windowIndex != -1) {
             event->accept();
-            activateTab(pos);
             close();
+            activateTab(pos);
         }
         else {
             QListView::mouseReleaseEvent(event);
