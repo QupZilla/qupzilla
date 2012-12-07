@@ -75,7 +75,6 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
                 if(idx.isValid()) {
                     TabPosition pos = idx.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
                     if(pos.windowIndex!= -1) {
-                        close();
                         activateTab(pos);
                         return true;
                     }
@@ -256,7 +255,6 @@ void LocationCompleterView::mouseReleaseEvent(QMouseEvent* event)
         TabPosition pos = m_hoveredIndex.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
         if(pos.windowIndex != -1) {
             event->accept();
-            close();
             activateTab(pos);
         }
         else {
@@ -273,12 +271,14 @@ void LocationCompleterView::activateTab(TabPosition pos)
     QupZilla* win = mApp->mainWindows().at(pos.windowIndex);
     if (mApp->getWindow() != win || mApp->getWindow()->tabWidget()->currentIndex() != pos.tabIndex) {
         emit aboutToActivateTab(pos);
+        close();
         win->tabWidget()->setCurrentIndex(pos.tabIndex);
         win->show();
         win->activateWindow();
         win->raise();
     }
     else {
+        close();
         win->weView()->setFocus();
     }
 }
