@@ -1491,11 +1491,11 @@ void QupZilla::showNavigationWithFullscreen()
         state = !m_tabWidget->getTabBar()->isVisible();
     }
 
+    m_tabWidget->getTabBar()->updateVisibilityWithFullscreen(state);
+
     if (m_navigationVisible) {
         m_navigationBar->setVisible(state);
     }
-
-    m_tabWidget->getTabBar()->updateVisibilityWithFullscreen(state);
 
     if (m_bookmarksToolBarVisible) {
         m_bookmarksToolbar->setVisible(state);
@@ -1510,7 +1510,7 @@ void QupZilla::fullScreen(bool make)
         m_navigationVisible = m_navigationBar->isVisible();
         m_bookmarksToolBarVisible = m_bookmarksToolbar->isVisible();
 
-        setWindowState(windowState() | Qt::WindowFullScreen);
+        showFullScreen();
 
         menuBar()->hide();
         statusBar()->hide();
@@ -1530,6 +1530,7 @@ void QupZilla::fullScreen(bool make)
     }
     else {
         setWindowState(windowState() & ~Qt::WindowFullScreen);
+        showMaximized();
 
         menuBar()->setVisible(m_menuBarVisible);
         statusBar()->setVisible(m_statusBarVisible);
