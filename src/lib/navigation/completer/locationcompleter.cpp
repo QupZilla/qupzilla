@@ -63,6 +63,10 @@ void LocationCompleter::showMostVisited()
 
 void LocationCompleter::currentChanged(const QModelIndex &index)
 {
+    if (!index.isValid()) {
+        return;
+    }
+
     QString completion = index.data().toString();
 
     if (completion.isEmpty()) {
