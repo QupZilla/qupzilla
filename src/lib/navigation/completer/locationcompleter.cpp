@@ -27,6 +27,7 @@ LocationCompleterModel* LocationCompleter::s_model = 0;
 LocationCompleter::LocationCompleter(QObject* parent)
     : QObject(parent)
     , m_locationBar(0)
+    , m_ignoreCurrentChangedSignal(false)
 {
     if (!s_view) {
         s_model = new LocationCompleterModel;
@@ -63,7 +64,8 @@ void LocationCompleter::showMostVisited()
 
 void LocationCompleter::currentChanged(const QModelIndex &index)
 {
-    if (!index.isValid()) {
+    if (m_ignoreCurrentChangedSignal) {
+        m_ignoreCurrentChangedSignal = false;
         return;
     }
 
@@ -120,6 +122,7 @@ void LocationCompleter::adjustPopupSize()
     popupHeight += 2 * s_view->frameWidth();
 
     s_view->resize(s_view->width(), popupHeight);
+    m_ignoreCurrentChangedSignal = true;
     s_view->setCurrentIndex(QModelIndex());
     s_view->show();
 
