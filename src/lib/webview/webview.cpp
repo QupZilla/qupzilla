@@ -803,7 +803,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
         m_clickedFrame = frameAtPos;
         QMenu* frameMenu = new QMenu(tr("This frame"));
         frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
-        frameMenu->addAction(QIcon(":/icons/menu/popup.png"), tr("Show this frame in new &tab"), this, SLOT(loadClickedFrameInNewTab()));
+        frameMenu->addAction(QIcon(":/icons/menu/new-tab.png"), tr("Show this frame in new &tab"), this, SLOT(loadClickedFrameInNewTab()));
         frameMenu->addSeparator();
         frameMenu->addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
         frameMenu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
@@ -844,7 +844,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     }
 
     menu->addSeparator();
-    menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(userDefinedOpenUrlInNewTab()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon(":/icons/menu/new-tab.png"), tr("Open link in new &tab"), this, SLOT(userDefinedOpenUrlInNewTab()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(hitTest.linkUrl());
     menu->addSeparator();
     menu->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());

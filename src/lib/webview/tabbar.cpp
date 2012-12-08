@@ -120,7 +120,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
     m_clickedTab = index;
 
     QMenu menu;
-    menu.addAction(QIcon(":/icons/menu/popup.png"), tr("&New tab"), p_QupZilla, SLOT(addTab()));
+    menu.addAction(QIcon(":/icons/menu/new-tab.png"), tr("&New tab"), p_QupZilla, SLOT(addTab()));
     menu.addSeparator();
     if (index != -1) {
         WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));

@@ -112,8 +112,14 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     painter->setFont(opt.font);
     TabPosition pos = index.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
     if(m_drawSwitchToTab && pos.windowIndex != -1) {
-        // TODO: select and paint a nice icon to give better feedback to the user.
-        drawTextLine(linkRect, tr("Switch to tab"), painter, style, opt, colorLinkRole);
+        const QIcon tabIcon = QIcon(":icons/menu/tab.png");
+        QRect iconRect(linkRect);
+        iconRect.setWidth(m_padding + 16 + m_padding);
+        tabIcon.paint(painter, iconRect);
+
+        QRect textRect(linkRect);
+        textRect.setX(textRect.x() + m_padding + 16 + m_padding);
+        drawTextLine(textRect, tr("Switch to tab"), painter, style, opt, colorLinkRole);
     }
     else {
         drawHighlightedTextLine(linkRect, link, searchText, painter, style, opt, colorLinkRole);
