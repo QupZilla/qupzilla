@@ -54,6 +54,7 @@ WebView::WebView(QWidget* parent)
     , m_actionStop(0)
     , m_actionsInitialized(false)
     , m_disableTouchMocking(false)
+    , m_isReloading(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
@@ -294,6 +295,7 @@ void WebView::zoomReset()
 
 void WebView::reload()
 {
+    m_isReloading = true;
     if (QWebView::url().isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
         load(m_aboutToLoadUrl);
         return;
@@ -357,12 +359,13 @@ void WebView::slotLoadFinished()
         m_actionReload->setEnabled(true);
     }
 
-    if (m_lastUrl != url()) {
+    if (!m_isReloading) {
         mApp->history()->addHistoryEntry(this);
     }
 
     mApp->autoFill()->completePage(page());
 
+    m_isReloading = false;
     m_lastUrl = url();
 }
 
