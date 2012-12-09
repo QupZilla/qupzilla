@@ -65,7 +65,6 @@ void LocationCompleter::showMostVisited()
 void LocationCompleter::currentChanged(const QModelIndex &index)
 {
     if (m_ignoreCurrentChangedSignal) {
-        m_ignoreCurrentChangedSignal = false;
         return;
     }
 
@@ -124,6 +123,7 @@ void LocationCompleter::adjustPopupSize()
     s_view->resize(s_view->width(), popupHeight);
     m_ignoreCurrentChangedSignal = true;
     s_view->setCurrentIndex(QModelIndex());
+    m_ignoreCurrentChangedSignal = false;
     s_view->show();
 
     m_originalText = m_locationBar->text();

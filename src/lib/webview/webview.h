@@ -169,6 +169,7 @@ private:
     bool m_actionsInitialized;
 
     bool m_disableTouchMocking;
+    bool m_isReloading;
 };
 
 #endif // WEBVIEW_H
