@@ -70,11 +70,11 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
         switch (keyEvent->key()) {
         case Qt::Key_Return:
         case Qt::Key_Enter:
-            if(qzSettings->showSwitchTab && !(keyEvent->modifiers() & Qt::ShiftModifier)) {
+            if (qzSettings->showSwitchTab && !(keyEvent->modifiers() & Qt::ShiftModifier)) {
                 QModelIndex idx = selectionModel()->currentIndex();
-                if(idx.isValid()) {
+                if (idx.isValid()) {
                     TabPosition pos = idx.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
-                    if(pos.windowIndex!= -1) {
+                    if (pos.windowIndex != -1) {
                         activateTab(pos);
                         return true;
                     }
@@ -156,7 +156,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 
         case Qt::Key_Shift:
             // don't switch if there is no hovered or selected index to not disturb typing
-            if(qzSettings->showSwitchTab && (selectionModel()->currentIndex().isValid() || m_hoveredIndex.isValid())) {
+            if (qzSettings->showSwitchTab && (selectionModel()->currentIndex().isValid() || m_hoveredIndex.isValid())) {
                 static_cast<LocationCompleterDelegate*>(itemDelegate())->drawSwitchToTab(false);
                 viewport()->update();
                 return true;
@@ -171,13 +171,13 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
     case QEvent::KeyRelease: {
         QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
 
-        switch(keyEvent->key()) {
-            case Qt::Key_Shift:
-                if(qzSettings->showSwitchTab) {
-                    static_cast<LocationCompleterDelegate*>(itemDelegate())->drawSwitchToTab(true);
-                    viewport()->update();
-                    return true;
-                }
+        switch (keyEvent->key()) {
+        case Qt::Key_Shift:
+            if (qzSettings->showSwitchTab) {
+                static_cast<LocationCompleterDelegate*>(itemDelegate())->drawSwitchToTab(true);
+                viewport()->update();
+                return true;
+            }
         }
     }
 
@@ -212,7 +212,7 @@ void LocationCompleterView::close()
 
     QListView::hide();
     verticalScrollBar()->setValue(0);
-    if(qzSettings->showSwitchTab) {
+    if (qzSettings->showSwitchTab) {
         static_cast<LocationCompleterDelegate*>(itemDelegate())->drawSwitchToTab(true);
     }
 }
@@ -251,9 +251,9 @@ void LocationCompleterView::mouseMoveEvent(QMouseEvent* event)
 
 void LocationCompleterView::mouseReleaseEvent(QMouseEvent* event)
 {
-    if(qzSettings->showSwitchTab && !(event->modifiers() & Qt::ShiftModifier) && m_hoveredIndex.isValid()) {
+    if (qzSettings->showSwitchTab && !(event->modifiers() & Qt::ShiftModifier) && m_hoveredIndex.isValid()) {
         TabPosition pos = m_hoveredIndex.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
-        if(pos.windowIndex != -1) {
+        if (pos.windowIndex != -1) {
             event->accept();
             activateTab(pos);
         }

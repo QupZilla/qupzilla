@@ -73,7 +73,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             item->setData(query.value(3), CountRole);
             item->setData(QVariant(true), BookmarkRole);
             item->setData(string, SearchStringRole);
-            if(qzSettings->showSwitchTab) {
+            if (qzSettings->showSwitchTab) {
                 item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(url)), TabPositionRole);
             }
 
@@ -99,7 +99,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             item->setData(query.value(3), CountRole);
             item->setData(QVariant(false), BookmarkRole);
             item->setData(string, SearchStringRole);
-            if(qzSettings->showSwitchTab) {
+            if (qzSettings->showSwitchTab) {
                 item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(url)), TabPositionRole);
             }
 
@@ -129,7 +129,7 @@ void LocationCompleterModel::showMostVisited()
         item->setData(query.value(0), IdRole);
         item->setData(query.value(2), TitleRole);
         item->setData(QVariant(false), BookmarkRole);
-        if(qzSettings->showSwitchTab) {
+        if (qzSettings->showSwitchTab) {
             item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(url)), TabPositionRole);
         }
 
@@ -199,23 +199,23 @@ QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const
     return sqlQuery;
 }
 
-TabPosition LocationCompleterModel::tabPositionForUrl(const QUrl& url) const
+TabPosition LocationCompleterModel::tabPositionForUrl(const QUrl &url) const
 {
     return tabPositionForEncodedUrl(url.toEncoded());
 }
 
-TabPosition LocationCompleterModel::tabPositionForEncodedUrl(const QString& encodedUrl) const
+TabPosition LocationCompleterModel::tabPositionForEncodedUrl(const QString &encodedUrl) const
 {
     QList<QupZilla*> windows = mApp->mainWindows();
     int currentWindowIdx = windows.indexOf(mApp->getWindow());
     windows.prepend(mApp->getWindow());
-    for(int win=0; win < windows.count(); ++win) {
+    for (int win = 0; win < windows.count(); ++win) {
         QupZilla* mainWin = windows.at(win);
         QList<WebTab*> tabs = mainWin->tabWidget()->allTabs();
-        for(int tab=0; tab < tabs.count(); ++tab) {
-            if(tabs[tab]->url().toEncoded() == encodedUrl) {
+        for (int tab = 0; tab < tabs.count(); ++tab) {
+            if (tabs[tab]->url().toEncoded() == encodedUrl) {
                 TabPosition pos;
-                pos.windowIndex = win == 0 ? currentWindowIdx : win-1;
+                pos.windowIndex = win == 0 ? currentWindowIdx : win - 1;
                 pos.tabIndex = tab;
                 return pos;
             }

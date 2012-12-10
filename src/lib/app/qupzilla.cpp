@@ -312,7 +312,7 @@ void QupZilla::setupMenu()
     QKeySequence quitSequence = QKeySequence(QKeySequence::Quit);
 #ifdef Q_WS_X11
     // QKeySequence::Quit returns a non-empty sequence on X11 only when running Gnome or Kde
-    if(quitSequence.isEmpty()) {
+    if (quitSequence.isEmpty()) {
         quitSequence = QKeySequence(Qt::CTRL + Qt::Key_Q);
     }
 #endif
