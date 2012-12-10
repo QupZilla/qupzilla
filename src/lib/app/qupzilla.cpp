@@ -309,7 +309,14 @@ void QupZilla::setupMenu()
 
     m_actionQuit = new QAction(QIcon::fromTheme("application-exit"), tr("Quit"), 0);
     m_actionQuit->setMenuRole(QAction::QuitRole);
-    m_actionQuit->setShortcut(QKeySequence(QKeySequence::Quit));
+    QKeySequence quitSequence = QKeySequence(QKeySequence::Quit);
+#ifdef Q_WS_X11
+    // QKeySequence::Quit returns a non-empty sequence on X11 only when running Gnome or Kde
+    if(quitSequence.isEmpty()) {
+        quitSequence = QKeySequence(Qt::CTRL + Qt::Key_Q);
+    }
+#endif
+    m_actionQuit->setShortcut(quitSequence);
     connect(m_actionQuit, SIGNAL(triggered()), this, SLOT(quitApp()));
 
     /*************
