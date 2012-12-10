@@ -1942,7 +1942,7 @@
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="122"/>
         <source>Switch to tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Активирај језичак</translation>
     </message>
 </context>
 <context>
@@ -1950,22 +1950,22 @@
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="825"/>
         <source>Default Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Подразумијевани прегледач</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="826"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
-        <translation type="unfinished"></translation>
+        <translation>Капзила тренутно није ваш подразумијевани прегледач веба. Да ли желите да поставите за подразумијеваног прегледача?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="828"/>
         <source>Always perform this check when starting QupZilla.</source>
-        <translation type="unfinished"></translation>
+        <translation>Увијек изврши ову провјеру по покретању Капзиле.</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="841"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
-        <translation type="unfinished"></translation>
+        <translation>Капзила је нов, брз и сигуран веб прегледач отвореног кода. Лиценциран под издањем 3 ГПЛ лиценце или (по вашем нахођењу) било којим каснијим издањем лиценце. Базиран на ВебКит језгру и Кјут радном окружењу.</translation>
     </message>
 </context>
 <context>
@@ -2548,12 +2548,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="838"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</source>
-        <translation type="unfinished"></translation>
+        <translation>Притисните Shift тастер да учитате УРЛ у текућем језичку.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="841"/>
         <source>Propose to switch tab if completed url is already loaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>Предлажи активирање језичка ако је УРЛ већ отворен.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="848"/>
@@ -2791,17 +2791,18 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1762"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>&lt;b&gt;Пречице&lt;/b&gt;</translatorcomment>
+        <translation>&lt;b&gt;Пречице&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1782"/>
         <source>Switch to tabs with Alt + number of tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Активирај језичке са Alt + број језичка</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1789"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Учитавај брза бирања са Ctrl + број брзог бирања</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1800"/>
@@ -2829,17 +2830,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="122"/>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Пречице тастатуре</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="458"/>
         <source>Check to see if QupZilla is the default browser on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Провјера подразумијеваног прегледача по старту</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="468"/>
         <source>Check Now</source>
-        <translation type="unfinished"></translation>
+        <translation>Провјери одмах</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="640"/>
@@ -3093,12 +3094,12 @@
         <location filename="../src/lib/preferences/preferences.cpp" line="108"/>
         <location filename="../src/lib/preferences/preferences.cpp" line="516"/>
         <source>QupZilla is default</source>
-        <translation type="unfinished"></translation>
+        <translation>Капзила је подразумијевана</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="112"/>
         <source>Make QupZilla default</source>
-        <translation type="unfinished"></translation>
+        <translation>Постави за подразумијеван</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="500"/>
@@ -4312,13 +4313,14 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/other/registerqappassociation.cpp" line="120"/>
         <source>Warning!</source>
-        <translation type="unfinished"></translation>
+        <translation>Упозорење!</translation>
     </message>
     <message>
         <location filename="../src/lib/other/registerqappassociation.cpp" line="121"/>
         <source>There are some problems. Please, reinstall QupZilla.
 Maybe relaunch with administrator right do a magic for you! ;)</source>
-        <translation type="unfinished"></translation>
+        <translation>Појавио се проблем. Поново инсталирајте Капзилу,
+или је покушајте покренути са административним привилегијама.</translation>
     </message>
 </context>
 <context>
