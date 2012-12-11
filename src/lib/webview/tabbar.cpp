@@ -227,7 +227,13 @@ QSize TabBar::tabSizeHint(int index) const
 
                 // Fill any empty space (we've got from rounding) with active tab
                 if (index == currentIndex()) {
-                    m_activeTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + m_activeTabWidth;
+                    if (adjustingActiveTab) {
+                        m_activeTabWidth = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH
+                                            - maxWidthForTab * (normalTabsCount - 1)) + m_activeTabWidth;
+                    }
+                    else {
+                        m_activeTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
+                    }
                     adjustingActiveTab = true;
                     size.setWidth(m_activeTabWidth);
                 }
@@ -255,7 +261,13 @@ QSize TabBar::tabSizeHint(int index) const
 
             // Fill any empty space (we've got from rounding) with active tab
             if (index == currentIndex()) {
-                m_activeTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + m_activeTabWidth;
+                if (adjustingActiveTab) {
+                    m_activeTabWidth = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH
+                                        - maxWidthForTab * (normalTabsCount - 1)) + m_activeTabWidth;
+                }
+                else {
+                    m_activeTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
+                }
                 adjustingActiveTab = true;
                 size.setWidth(m_activeTabWidth);
             }
