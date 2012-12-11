@@ -1575,26 +1575,26 @@
     <name>LocationCompleterDelegate</name>
     <message>
         <source>Switch to tab</source>
-        <translation type="unfinished"></translation>
+        <translation>タブの切り替え</translation>
     </message>
 </context>
 <context>
     <name>MainApplication</name>
     <message>
         <source>Default Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>既定のブラウザ</translation>
     </message>
     <message>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaは現在既定のブラウザに設定されていません。既定のブラウザに設定しますか？</translation>
     </message>
     <message>
         <source>Always perform this check when starting QupZilla.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaの起動時に毎回既定のブラウザか確認する。</translation>
     </message>
     <message>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaは新しい、高速で安全なオープンソースのブラウザです。QupZillaはGPL version3(任意で)それ以降のバージョンでリリースされています。WebkitとQtフレームワークをもとに作成されています。</translation>
     </message>
 </context>
 <context>
@@ -2553,43 +2553,43 @@
     </message>
     <message>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>キーボードショートカット</translation>
     </message>
     <message>
         <source>Check to see if QupZilla is the default browser on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaがデフォルトブラウザか起動時に確認する</translation>
     </message>
     <message>
         <source>Check Now</source>
-        <translation type="unfinished"></translation>
+        <translation>確認する</translation>
     </message>
     <message>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</source>
-        <translation type="unfinished"></translation>
+        <translation>Shihtキーを押したときに、タブを切り替えずにページを更新する。</translation>
     </message>
     <message>
         <source>Propose to switch tab if completed url is already loaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの読み込みが完了していた場合、タブを切り替える。</translation>
     </message>
     <message>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;ショートカット&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Switch to tabs with Alt + number of tab</source>
-        <translation type="unfinished"></translation>
+        <translation>タブをAltキーと数字キーで切り替え</translation>
     </message>
     <message>
         <source>Load speed dials with Ctrl + number of speed dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrlキーと数字キーでスピードダイアルの項目を読み込む</translation>
     </message>
     <message>
         <source>QupZilla is default</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilllaは既定のブラウザです</translation>
     </message>
     <message>
         <source>Make QupZilla default</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaを規定にする</translation>
     </message>
 </context>
 <context>
@@ -2676,11 +2676,11 @@
     <message>
         <source>&amp;New Window</source>
         <translatorcomment>保留</translatorcomment>
-        <translation>新規ウィンドウを開く(&amp;N)</translation>
+        <translation>新しいウィンドウ(&amp;N)</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation>新しいタブを開く</translation>
+        <translation>新しいタブ</translation>
     </message>
     <message>
         <source>Open Location</source>
@@ -3515,12 +3515,12 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>RegisterQAppAssociation</name>
     <message>
         <source>Warning!</source>
-        <translation type="unfinished"></translation>
+        <translation>警告！</translation>
     </message>
     <message>
         <source>There are some problems. Please, reinstall QupZilla.
 Maybe relaunch with administrator right do a magic for you! ;)</source>
-        <translation type="unfinished"></translation>
+        <translation>問題が発生しています。QupZillaを再インストールしてください。管理者権限で再インストール後には問題は解決されるはずです(^_^)</translation>
     </message>
 </context>
 <context>
@@ -4050,7 +4050,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>TabBar</name>
     <message>
         <source>&amp;New tab</source>
-        <translation>新しいタブを開く(&amp;N)</translation>
+        <translation>新しいタブ(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Stop Tab</source>
