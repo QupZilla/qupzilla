@@ -27,3 +27,4 @@ tests/modeltest
 *.pdb
 *.ilk
 *.kdev4
+*.swp
