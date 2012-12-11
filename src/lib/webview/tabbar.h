@@ -109,7 +109,7 @@ private:
     int m_pinnedTabsCount;
 
     mutable int m_normalTabWidth;
-    mutable int m_lastTabWidth;
+    mutable int m_activeTabWidth;
 
     QPoint m_dragStartPosition;
 };
