@@ -8,6 +8,7 @@ Type=Application
 Icon=qupzilla
 Categories=Network;WebBrowser;
 Comment=A fast and secure web browser
+Comment [ca]=Un navegador ràpid i segur
 Comment[cs]=Rychlý a bezpečný webový prohlížeč
 Comment[de]=Ein schneller und sicherer Web Browser
 Comment[el]=Ένας γρήγορος και ασφαλής περιηγητής ιστού
@@ -33,6 +34,7 @@ Comment[zh_CN]=安全又快速的浏览器
 Comment[ja]=高速で安全なブラウザ
 Comment[fa]=مرورگر سبک و ایمن وب
 GenericName=Web Browser
+GenericName[ca]=Navegador web
 GenericName[cs]=Webový prohlížeč
 GenericName[de]=Web Browser
 GenericName[el]=Περιηγητής ιστού
@@ -65,6 +67,7 @@ X-Ayatana-Desktop-Shortcuts=NewTab;NewWindow;PrivateBrowsing;
 
 [X-NewTab Shortcut Group]
 Name=Open new tab
+Name[ca]=Obre una nova pestanya
 Name[cs]=Otevřít nový panel
 Name[de]=Neuen Tab öffnen
 Name[el]=Άνοιγμα νέας καρτέλας
@@ -94,6 +97,7 @@ TargetEnvironment=Unity
 
 [X-NewWindow Shortcut Group]
 Name=Open new window
+Name[ca]=Obre una nova finestra
 Name[cs]=Otevřít nové okno
 Name[de]=Neues Fenster öffnen
 Name[el]=Άνοιγμα νέου παράθυρου
@@ -123,6 +127,7 @@ TargetEnvironment=Unity
 
 [X-PrivateBrowsing Shortcut Group]
 Name=Start private browsing
+Name[ca]=Inicia la navegació privada
 Name[cs]=Spustit soukromé prohlížení
 Name[de]=Privaten Modus starten
 Name[el]=Έναρξη ιδιωτικής περιήγησης

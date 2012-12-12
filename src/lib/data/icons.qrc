@@ -19,7 +19,7 @@
         <file>icons/locationbar/unknownpage.png</file>
         <file>icons/menu/history.png</file>
         <file>icons/menu/history_entry.png</file>
-        <file>icons/menu/popup.png</file>
+        <file>icons/menu/new-tab.png</file>
         <file>icons/menu/qt.png</file>
         <file>icons/menu/rss.png</file>
         <file>icons/other/about.png</file>
@@ -68,5 +68,7 @@
         <file>icons/sites/wikipedia.png</file>
         <file>icons/sites/yahoo.png</file>
         <file>icons/sites/youtube.png</file>
+        <file>icons/preferences/preferences-desktop-keyboard-shortcuts.png</file>
+        <file>icons/menu/tab.png</file>
     </qresource>
 </RCC>

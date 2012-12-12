@@ -43,6 +43,7 @@
 #include "tabbedwebview.h"
 #include "clearprivatedata.h"
 #include "useragentdialog.h"
+#include "registerqappassociation.h"
 
 #include <QSettings>
 #include <QInputDialog>
@@ -66,12 +67,13 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         ui->listWidget->item(2)->setIcon(QIcon::fromTheme("tab-new-background", QIcon(":/icons/preferences/applications-internet.png")));
         ui->listWidget->item(3)->setIcon(QIcon::fromTheme("preferences-system-network", QIcon(":/icons/preferences/applications-webbrowsers.png")));
         ui->listWidget->item(4)->setIcon(QIcon::fromTheme("preferences-desktop-font", QIcon(":/icons/preferences/applications-fonts.png")));
-        ui->listWidget->item(5)->setIcon(QIcon::fromTheme("download", QIcon(":/icons/preferences/mail-inbox.png")));
-        ui->listWidget->item(6)->setIcon(QIcon::fromTheme("user-identity", QIcon(":/icons/preferences/dialog-password.png")));
-        ui->listWidget->item(7)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
-        ui->listWidget->item(8)->setIcon(QIcon::fromTheme("preferences-desktop-notification", QIcon(":/icons/preferences/dialog-question.png")));
-        ui->listWidget->item(9)->setIcon(QIcon::fromTheme("preferences-plugin", QIcon(":/icons/preferences/extension.png")));
-        ui->listWidget->item(10)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
+        ui->listWidget->item(5)->setIcon(QIcon::fromTheme("preferences-desktop-keyboard-shortcuts", QIcon(":/icons/preferences/preferences-desktop-keyboard-shortcuts.png")));
+        ui->listWidget->item(6)->setIcon(QIcon::fromTheme("download", QIcon(":/icons/preferences/mail-inbox.png")));
+        ui->listWidget->item(7)->setIcon(QIcon::fromTheme("user-identity", QIcon(":/icons/preferences/dialog-password.png")));
+        ui->listWidget->item(8)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
+        ui->listWidget->item(9)->setIcon(QIcon::fromTheme("preferences-desktop-notification", QIcon(":/icons/preferences/dialog-question.png")));
+        ui->listWidget->item(10)->setIcon(QIcon::fromTheme("preferences-plugin", QIcon(":/icons/preferences/extension.png")));
+        ui->listWidget->item(11)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
     }
     else {
         ui->listWidget->item(0)->setIcon(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/preferences/preferences-desktop.png")));
@@ -79,12 +81,13 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         ui->listWidget->item(2)->setIcon(QIcon::fromTheme("applications-internet", QIcon(":/icons/preferences/applications-internet.png")));
         ui->listWidget->item(3)->setIcon(QIcon::fromTheme("applications-webbrowsers", QIcon(":/icons/preferences/applications-webbrowsers.png")));
         ui->listWidget->item(4)->setIcon(QIcon::fromTheme("applications-fonts", QIcon(":/icons/preferences/applications-fonts.png")));
-        ui->listWidget->item(5)->setIcon(QIcon::fromTheme("mail-inbox", QIcon(":/icons/preferences/mail-inbox.png")));
-        ui->listWidget->item(6)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
-        ui->listWidget->item(7)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
-        ui->listWidget->item(8)->setIcon(QIcon::fromTheme("dialog-question", QIcon(":/icons/preferences/dialog-question.png")));
-        ui->listWidget->item(9)->setIcon(QIcon::fromTheme("extension", QIcon(":/icons/preferences/extension.png")));
-        ui->listWidget->item(10)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
+        ui->listWidget->item(5)->setIcon(QIcon::fromTheme("preferences-desktop-keyboard-shortcuts", QIcon(":/icons/preferences/preferences-desktop-keyboard-shortcuts.png")));
+        ui->listWidget->item(6)->setIcon(QIcon::fromTheme("mail-inbox", QIcon(":/icons/preferences/mail-inbox.png")));
+        ui->listWidget->item(7)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
+        ui->listWidget->item(8)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
+        ui->listWidget->item(9)->setIcon(QIcon::fromTheme("dialog-question", QIcon(":/icons/preferences/dialog-question.png")));
+        ui->listWidget->item(10)->setIcon(QIcon::fromTheme("extension", QIcon(":/icons/preferences/extension.png")));
+        ui->listWidget->item(11)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
     }
 
     Settings settings;
@@ -99,7 +102,24 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->afterLaunch->setCurrentIndex(afterLaunch);
     ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool());
     ui->dontLoadTabsUntilSelected->setChecked(settings.value("Web-Browser-Settings/LoadTabsOnActivation", false).toBool());
-
+#ifdef Q_OS_WIN
+    ui->checkDefaultBrowser->setChecked(settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool());
+    if (mApp->associationManager()->isDefaultForAllCapabilities()) {
+        ui->checkNowDefaultBrowser->setText(tr("QupZilla is default"));
+        ui->checkNowDefaultBrowser->setEnabled(false);
+    }
+    else {
+        ui->checkNowDefaultBrowser->setText(tr("Make QupZilla default"));
+        ui->checkNowDefaultBrowser->setEnabled(true);
+        connect(ui->checkNowDefaultBrowser, SIGNAL(clicked()), this, SLOT(makeQupZillaDefault()));
+    }
+#else // just Windows
+    ui->hSpacerDefaultBrowser->changeSize(0, 0, QSizePolicy::Fixed, QSizePolicy::Fixed);
+    ui->hLayoutDefaultBrowser->invalidate();
+    delete ui->hLayoutDefaultBrowser;
+    delete ui->checkDefaultBrowser;
+    delete ui->checkNowDefaultBrowser;
+#endif
     ui->newTabFrame->setVisible(false);
     if (m_newTabUrl.isEmpty()) {
         ui->newTab->setCurrentIndex(0);
@@ -195,6 +215,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //AddressBar
     settings.beginGroup("AddressBar");
     ui->addressbarCompletion->setCurrentIndex(settings.value("showSuggestions", 0).toInt());
+    ui->completionShowSwitchTab->setChecked(settings.value("showSwitchTab", true).toBool());
     ui->selectAllOnFocus->setChecked(settings.value("SelectAllTextOnDoubleClick", true).toBool());
     ui->selectAllOnClick->setChecked(settings.value("SelectAllTextOnClick", false).toBool());
     ui->addCountryWithAlt->setChecked(settings.value("AddCountryDomainWithAltKey", true).toBool());
@@ -326,6 +347,12 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->sizeMinimumLogical->setValue(settings.value("MinimumLogicalFontSize", mApp->webSettings()->fontSize(QWebSettings::MinimumLogicalFontSize)).toInt());
     settings.endGroup();
 
+    //KEYBOARD SHORTCUTS
+    settings.beginGroup("Shortcuts");
+    ui->switchTabsAlt->setChecked(settings.value("useTabNumberShortcuts", true).toBool());
+    ui->loadSpeedDialsCtrl->setChecked(settings.value("useSpeedDialNumberShortcuts", true).toBool());
+    settings.endGroup();
+
     //PLUGINS
     m_pluginsList = new PluginsManager(this);
     ui->pluginsFrame->addWidget(m_pluginsList);
@@ -448,8 +475,8 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     ui->caption->setText("<b>" + item->text() + "</b>");
     ui->stackedWidget->setCurrentIndex(index);
 
-    setNotificationPreviewVisible(index == 8);
-    if (index == 9) {
+    setNotificationPreviewVisible(index == 9);
+    if (index == 10) {
         m_pluginsList->load();
     }
 }
@@ -479,6 +506,16 @@ void Preferences::setNotificationPreviewVisible(bool state)
             mApp->desktopNotifications()->nativeNotificationPreview();
         }
     }
+}
+
+void Preferences::makeQupZillaDefault()
+{
+#ifdef Q_OS_WIN
+    disconnect(ui->checkNowDefaultBrowser, SIGNAL(clicked()), this, SLOT(makeQupZillaDefault()));
+    mApp->associationManager()->registerAllAssociation();
+    ui->checkNowDefaultBrowser->setText(tr("QupZilla is default"));
+    ui->checkNowDefaultBrowser->setEnabled(false);
+#endif
 }
 
 void Preferences::allowCacheChanged(bool state)
@@ -837,6 +874,12 @@ void Preferences::saveSettings()
     settings.setValue("MinimumLogicalFontSize", ui->sizeMinimumLogical->value());
     settings.endGroup();
 
+    //KEYBOARD SHORTCUTS
+    settings.beginGroup("Shortcuts");
+    settings.setValue("useTabNumberShortcuts", ui->switchTabsAlt->isChecked());
+    settings.setValue("useSpeedDialNumberShortcuts", ui->loadSpeedDialsCtrl->isChecked());
+    settings.endGroup();
+
     //BROWSING
     settings.beginGroup("Web-Browser-Settings");
     settings.setValue("allowFlash", ui->allowPlugins->isChecked());
@@ -854,7 +897,9 @@ void Preferences::saveSettings()
     settings.setValue("LoadTabsOnActivation", ui->dontLoadTabsUntilSelected->isChecked());
     settings.setValue("DefaultZoom", ui->defaultZoom->value());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
-
+#ifdef Q_OS_WIN
+    settings.setValue("CheckDefaultBrowser", ui->checkDefaultBrowser->isChecked());
+#endif
     //Cache
     settings.setValue("maximumCachedPages", ui->pagesInCache->value());
     settings.setValue("AllowLocalCache", ui->allowCache->isChecked());
@@ -894,6 +939,7 @@ void Preferences::saveSettings()
     //AddressBar
     settings.beginGroup("AddressBar");
     settings.setValue("showSuggestions", ui->addressbarCompletion->currentIndex());
+    settings.setValue("showSwitchTab", ui->completionShowSwitchTab->isChecked());
     settings.setValue("SelectAllTextOnDoubleClick", ui->selectAllOnFocus->isChecked());
     settings.setValue("SelectAllTextOnClick", ui->selectAllOnClick->isChecked());
     settings.setValue("AddCountryDomainWithAltKey", ui->addCountryWithAlt->isChecked());

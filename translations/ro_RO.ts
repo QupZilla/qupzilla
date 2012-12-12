@@ -1540,6 +1540,32 @@ nu a putut fi găsit!</translation>
     </message>
 </context>
 <context>
+    <name>LocationCompleterDelegate</name>
+    <message>
+        <source>Switch to tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainApplication</name>
+    <message>
+        <source>Default Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Always perform this check when starting QupZilla.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NavigationBar</name>
     <message>
         <source>No Named Page</source>
@@ -2462,6 +2488,46 @@ nu a putut fi găsit!</translation>
         <source>Show Reload / Stop buttons</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Keyboard Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check to see if QupZilla is the default browser on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Propose to switch tab if completed url is already loaded.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to tabs with Alt + number of tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load speed dials with Ctrl + number of speed dial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla is default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make QupZilla default</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3363,6 +3429,18 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <source>Window %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RegisterQAppAssociation</name>
+    <message>
+        <source>Warning!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There are some problems. Please, reinstall QupZilla.
+Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

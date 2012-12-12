@@ -54,6 +54,7 @@ WebView::WebView(QWidget* parent)
     , m_actionStop(0)
     , m_actionsInitialized(false)
     , m_disableTouchMocking(false)
+    , m_isReloading(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
@@ -137,6 +138,16 @@ void WebView::setPage(QWebPage* page)
     connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
 
     mApp->plugins()->emitWebPageCreated(m_page);
+
+    /* Set white background by default.
+       Fixes issue with dark themes.
+
+       See #602
+     */
+    QPalette pal = palette();
+    pal.setBrush(QPalette::Base, Qt::white);
+    page->setPalette(pal);
+
 }
 
 void WebView::load(const QUrl &url)
@@ -284,6 +295,7 @@ void WebView::zoomReset()
 
 void WebView::reload()
 {
+    m_isReloading = true;
     if (QWebView::url().isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
         load(m_aboutToLoadUrl);
         return;
@@ -347,12 +359,13 @@ void WebView::slotLoadFinished()
         m_actionReload->setEnabled(true);
     }
 
-    if (m_lastUrl != url()) {
+    if (!m_isReloading) {
         mApp->history()->addHistoryEntry(this);
     }
 
     mApp->autoFill()->completePage(page());
 
+    m_isReloading = false;
     m_lastUrl = url();
 }
 
@@ -379,12 +392,19 @@ void WebView::slotIconChanged()
 
 void WebView::slotUrlChanged(const QUrl &url)
 {
-    // Disable touch mocking on all google pages as it just makes it buggy
-    if (url.host().contains(QLatin1String("google"))) {
-        m_disableTouchMocking = true;
+    static QStringList exceptions;
+    if (exceptions.isEmpty()) {
+        exceptions << "google." << "twitter.";
     }
-    else {
-        m_disableTouchMocking = false;
+
+    // Disable touch mocking on pages known not to work properly
+    const QString &host = url.host();
+    m_disableTouchMocking = false;
+
+    foreach(const QString & site, exceptions) {
+        if (host.contains(site)) {
+            m_disableTouchMocking = true;
+        }
     }
 }
 
@@ -786,7 +806,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
         m_clickedFrame = frameAtPos;
         QMenu* frameMenu = new QMenu(tr("This frame"));
         frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
-        frameMenu->addAction(QIcon(":/icons/menu/popup.png"), tr("Show this frame in new &tab"), this, SLOT(loadClickedFrameInNewTab()));
+        frameMenu->addAction(QIcon(":/icons/menu/new-tab.png"), tr("Show this frame in new &tab"), this, SLOT(loadClickedFrameInNewTab()));
         frameMenu->addSeparator();
         frameMenu->addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
         frameMenu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
@@ -827,7 +847,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     }
 
     menu->addSeparator();
-    menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(userDefinedOpenUrlInNewTab()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon(":/icons/menu/new-tab.png"), tr("Open link in new &tab"), this, SLOT(userDefinedOpenUrlInNewTab()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(hitTest.linkUrl());
     menu->addSeparator();
     menu->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());

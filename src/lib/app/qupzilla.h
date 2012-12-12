@@ -283,8 +283,12 @@ private:
     int m_webViewWidth;
     bool m_usingTransparentBackground;
 
-    //Used for F11 FullScreen remember visibility
-    //of menubar and statusbar
+    // Shortcuts
+    bool m_useTabNumberShortcuts;
+    bool m_useSpeedDialNumberShortcuts;
+
+    // Used for F11 FullScreen remember visibility
+    // of menubar and statusbar
     bool m_menuBarVisible;
     bool m_statusBarVisible;
     bool m_navigationVisible;

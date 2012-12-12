@@ -46,7 +46,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     , m_clickedTab(0)
     , m_pinnedTabsCount(0)
     , m_normalTabWidth(0)
-    , m_lastTabWidth(0)
+    , m_activeTabWidth(0)
 {
     setObjectName("tabbar");
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -120,7 +120,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
     m_clickedTab = index;
 
     QMenu menu;
-    menu.addAction(QIcon(":/icons/menu/popup.png"), tr("&New tab"), p_QupZilla, SLOT(addTab()));
+    menu.addAction(QIcon(":/icons/menu/new-tab.png"), tr("&New tab"), p_QupZilla, SLOT(addTab()));
     menu.addSeparator();
     if (index != -1) {
         WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
@@ -174,15 +174,19 @@ QSize TabBar::tabSizeHint(int index) const
     }
 
     static int PINNED_TAB_WIDTH = -1;
+    static int MINIMUM_ACTIVE_TAB_WIDTH = -1;
 
     if (PINNED_TAB_WIDTH == -1) {
         PINNED_TAB_WIDTH = 16 + style()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
+        MINIMUM_ACTIVE_TAB_WIDTH = PINNED_TAB_WIDTH + style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, 0, this);
+        // just a hack: we want to be sure buttonAddTab and buttonListTabs can't cover the active tab
+        MINIMUM_ACTIVE_TAB_WIDTH = qMax(MINIMUM_ACTIVE_TAB_WIDTH, 6 + m_tabWidget->buttonListTabs()->width() + m_tabWidget->buttonAddTab()->width());
     }
 
     QSize size = QTabBar::tabSizeHint(index);
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
     TabBar* tabBar = const_cast <TabBar*>(this);
-    bool adjustingLastTab = false;
+    bool adjustingActiveTab = false;
 
     if (webTab && webTab->isPinned()) {
         size.setWidth(PINNED_TAB_WIDTH);
@@ -200,24 +204,41 @@ QSize TabBar::tabSizeHint(int index) const
             // to try avoid overflowing tabs into tabbar buttons
 
             int maxWidthForTab = availableWidth / normalTabsCount;
+            m_activeTabWidth = maxWidthForTab;
+            if (m_activeTabWidth < MINIMUM_ACTIVE_TAB_WIDTH) {
+                maxWidthForTab = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH) / (normalTabsCount - 1);
+                m_activeTabWidth = MINIMUM_ACTIVE_TAB_WIDTH;
+                adjustingActiveTab = true;
+            }
+
             if (maxWidthForTab < PINNED_TAB_WIDTH) {
                 // FIXME: It overflows now
 
                 m_normalTabWidth = PINNED_TAB_WIDTH;
-                size.setWidth(m_normalTabWidth);
+                if (index == currentIndex()) {
+                    size.setWidth(m_activeTabWidth);
+                }
+                else {
+                    size.setWidth(m_normalTabWidth);
+                }
             }
             else {
                 m_normalTabWidth = maxWidthForTab;
 
-                // Fill any empty space (we've got from rounding) with last tab
-                if (index == count() - 1) {
-                    m_lastTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
-                    adjustingLastTab = true;
-                    size.setWidth(m_lastTabWidth);
+                // Fill any empty space (we've got from rounding) with active tab
+                if (index == currentIndex()) {
+                    if (adjustingActiveTab) {
+                        m_activeTabWidth = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH
+                                            - maxWidthForTab * (normalTabsCount - 1)) + m_activeTabWidth;
+                    }
+                    else {
+                        m_activeTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
+                    }
+                    adjustingActiveTab = true;
+                    size.setWidth(m_activeTabWidth);
                 }
                 else {
-                    m_lastTabWidth = maxWidthForTab;
-                    size.setWidth(m_lastTabWidth);
+                    size.setWidth(m_normalTabWidth);
                 }
 
                 if (tabsClosable()) {
@@ -230,17 +251,28 @@ QSize TabBar::tabSizeHint(int index) const
         }
         else {
             int maxWidthForTab = availableWidth / normalTabsCount;
+            m_activeTabWidth = maxWidthForTab;
+            if (m_activeTabWidth < MINIMUM_ACTIVE_TAB_WIDTH) {
+                maxWidthForTab = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH) / (normalTabsCount - 1);
+                m_activeTabWidth = MINIMUM_ACTIVE_TAB_WIDTH;
+                adjustingActiveTab = true;
+            }
             m_normalTabWidth = maxWidthForTab;
 
-            // Fill any empty space (we've got from rounding) with last tab
-            if (index == count() - 1) {
-                m_lastTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
-                adjustingLastTab = true;
-                size.setWidth(m_lastTabWidth);
+            // Fill any empty space (we've got from rounding) with active tab
+            if (index == currentIndex()) {
+                if (adjustingActiveTab) {
+                    m_activeTabWidth = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH
+                                        - maxWidthForTab * (normalTabsCount - 1)) + m_activeTabWidth;
+                }
+                else {
+                    m_activeTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
+                }
+                adjustingActiveTab = true;
+                size.setWidth(m_activeTabWidth);
             }
             else {
-                m_lastTabWidth = maxWidthForTab;
-                size.setWidth(m_lastTabWidth);
+                size.setWidth(m_normalTabWidth);
             }
 
             // Restore close buttons according to preferences
@@ -255,10 +287,10 @@ QSize TabBar::tabSizeHint(int index) const
         }
     }
 
-    if (index == count() - 1) {
+    if (index == currentIndex()) {
         int xForAddTabButton = (PINNED_TAB_WIDTH * m_pinnedTabsCount) + (count() - m_pinnedTabsCount) * (m_normalTabWidth);
-        if (adjustingLastTab) {
-            xForAddTabButton += m_lastTabWidth - m_normalTabWidth;
+        if (adjustingActiveTab) {
+            xForAddTabButton += m_activeTabWidth - m_normalTabWidth;
         }
 
         // RTL Support

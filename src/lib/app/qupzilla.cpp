@@ -309,7 +309,14 @@ void QupZilla::setupMenu()
 
     m_actionQuit = new QAction(QIcon::fromTheme("application-exit"), tr("Quit"), 0);
     m_actionQuit->setMenuRole(QAction::QuitRole);
-    m_actionQuit->setShortcut(QKeySequence(QKeySequence::Quit));
+    QKeySequence quitSequence = QKeySequence(QKeySequence::Quit);
+#ifdef Q_WS_X11
+    // QKeySequence::Quit returns a non-empty sequence on X11 only when running Gnome or Kde
+    if (quitSequence.isEmpty()) {
+        quitSequence = QKeySequence(Qt::CTRL + Qt::Key_Q);
+    }
+#endif
+    m_actionQuit->setShortcut(quitSequence);
     connect(m_actionQuit, SIGNAL(triggered()), this, SLOT(quitApp()));
 
     /*************
@@ -317,7 +324,7 @@ void QupZilla::setupMenu()
      *************/
     m_menuFile = new QMenu(tr("&File"));
     m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("&New Window"), this, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
-    m_menuFile->addAction(QIcon(":/icons/menu/popup.png"), tr("New Tab"), this, SLOT(addTab()))->setShortcut(QKeySequence("Ctrl+T"));
+    m_menuFile->addAction(QIcon(":/icons/menu/new-tab.png"), tr("New Tab"), this, SLOT(addTab()))->setShortcut(QKeySequence("Ctrl+T"));
     m_menuFile->addAction(QIcon::fromTheme("document-open-remote"), tr("Open Location"), this, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
     m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File"), this, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
     m_menuFile->addAction(tr("Close Tab"), m_tabWidget, SLOT(closeTab()))->setShortcut(QKeySequence("Ctrl+W"));
@@ -582,9 +589,13 @@ void QupZilla::loadSettings()
     m_webViewWidth = settings.value("WebViewWidth", 2000).toInt();
     const QString &activeSideBar = settings.value("SideBar", "None").toString();
     settings.endGroup();
-    bool adBlockEnabled = settings.value("AdBlock/enabled", true).toBool();
 
-    m_adblockIcon->setEnabled(adBlockEnabled);
+    settings.beginGroup("Shortcuts");
+    m_useTabNumberShortcuts = settings.value("useTabNumberShortcuts", true).toBool();
+    m_useSpeedDialNumberShortcuts = settings.value("useSpeedDialNumberShortcuts", true).toBool();
+    settings.endGroup();
+
+    m_adblockIcon->setEnabled(settings.value("AdBlock/enabled", true).toBool());
 
     statusBar()->setVisible(showStatusBar);
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
@@ -1727,14 +1738,14 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
     }
 
     if (number != -1) {
-        if (event->modifiers() & Qt::AltModifier) {
+        if (event->modifiers() & Qt::AltModifier && m_useTabNumberShortcuts) {
             if (number == 9) {
                 number = m_tabWidget->count();
             }
             m_tabWidget->setCurrentIndex(number - 1);
             return;
         }
-        if (event->modifiers() & Qt::ControlModifier) {
+        if (event->modifiers() & Qt::ControlModifier && m_useSpeedDialNumberShortcuts) {
             const QUrl &url = mApp->plugins()->speedDial()->urlForShortcut(number - 1);
             if (url.isValid()) {
                 loadAddress(url);

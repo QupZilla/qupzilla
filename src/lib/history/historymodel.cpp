@@ -450,11 +450,14 @@ void HistoryModel::init()
         return;
     }
 
+    const qint64 &minTimestamp = query.value(0).toLongLong();
+    if (minTimestamp <= 0) {
+        return;
+    }
+
     const QDate &today = QDate::currentDate();
     const QDate &week = today.addDays(1 - today.dayOfWeek());
     const QDate &month = QDate(today.year(), today.month(), 1);
-
-    const qint64 &minTimestamp = query.value(0).toLongLong();
     const qint64 &currentTimestamp = QDateTime::currentMSecsSinceEpoch();
 
     qint64 timestamp = currentTimestamp;

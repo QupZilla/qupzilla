@@ -55,6 +55,7 @@ private:
 
     LocationBar* m_locationBar;
     QString m_originalText;
+    bool m_ignoreCurrentChangedSignal;
 
     static LocationCompleterView* s_view;
     static LocationCompleterModel* s_model;

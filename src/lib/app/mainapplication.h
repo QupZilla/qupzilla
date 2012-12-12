@@ -49,6 +49,7 @@ class SearchEnginesManager;
 class DatabaseWriter;
 class UserAgentManager;
 class ProxyStyle;
+class RegisterQAppAssociation;
 
 class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -83,9 +84,11 @@ public:
 
     bool checkSettingsDir();
     void destroyRestoreManager();
+    void clearTempPath();
 
     void setProxyStyle(ProxyStyle* style);
     QString currentStyle() const;
+    QString tempPath() const;
 
     QupZilla* getWindow();
     CookieManager* cookieManager();
@@ -106,6 +109,7 @@ public:
     DatabaseWriter* dbWriter() { return m_dbWriter; }
     UserAgentManager* uaManager() { return m_uaManager; }
     RestoreManager* restoreManager() { return m_restoreManager; }
+    RegisterQAppAssociation* associationManager();
 
 #ifdef Q_OS_MAC
     bool event(QEvent* e);
@@ -121,6 +125,7 @@ public slots:
 
     void startPrivateBrowsing();
     void reloadUserStyleSheet();
+    bool checkDefaultWebBrowser();
 
 signals:
     void message(Qz::AppMessageType mes, bool state);
@@ -173,6 +178,8 @@ private:
 
     bool m_databaseConnected;
     QList<PostLaunchAction> m_postLaunchActions;
+
+    RegisterQAppAssociation* m_registerQAppAssociation;
 };
 
 #endif // MAINAPPLICATION_H

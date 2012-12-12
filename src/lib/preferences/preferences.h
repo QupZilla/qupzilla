@@ -88,6 +88,8 @@ private slots:
 
     void setNotificationPreviewVisible(bool state);
 
+    void makeQupZillaDefault();
+
 private:
     void closeEvent(QCloseEvent* event);
 

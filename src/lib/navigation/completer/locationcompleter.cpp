@@ -27,6 +27,7 @@ LocationCompleterModel* LocationCompleter::s_model = 0;
 LocationCompleter::LocationCompleter(QObject* parent)
     : QObject(parent)
     , m_locationBar(0)
+    , m_ignoreCurrentChangedSignal(false)
 {
     if (!s_view) {
         s_model = new LocationCompleterModel;
@@ -63,6 +64,10 @@ void LocationCompleter::showMostVisited()
 
 void LocationCompleter::currentChanged(const QModelIndex &index)
 {
+    if (m_ignoreCurrentChangedSignal) {
+        return;
+    }
+
     QString completion = index.data().toString();
 
     if (completion.isEmpty()) {
@@ -77,6 +82,7 @@ void LocationCompleter::popupClosed()
     disconnect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex, QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
     disconnect(s_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(completionActivated()));
     disconnect(s_view, SIGNAL(closed()), this, SLOT(popupClosed()));
+    disconnect(s_view, SIGNAL(aboutToActivateTab(TabPosition)), m_locationBar, SLOT(clear()));
 }
 
 void LocationCompleter::showPopup()
@@ -102,6 +108,7 @@ void LocationCompleter::showPopup()
     connect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex, QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
     connect(s_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(completionActivated()));
     connect(s_view, SIGNAL(closed()), this, SLOT(popupClosed()));
+    connect(s_view, SIGNAL(aboutToActivateTab(TabPosition)), m_locationBar, SLOT(clear()));
 
     adjustPopupSize();
 }
@@ -114,7 +121,9 @@ void LocationCompleter::adjustPopupSize()
     popupHeight += 2 * s_view->frameWidth();
 
     s_view->resize(s_view->width(), popupHeight);
+    m_ignoreCurrentChangedSignal = true;
     s_view->setCurrentIndex(QModelIndex());
+    m_ignoreCurrentChangedSignal = false;
     s_view->show();
 
     m_originalText = m_locationBar->text();

@@ -182,7 +182,7 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
         }
     }
     else {
-        fileNameChoosed(QDir::tempPath() + "/" + m_h_fileName, true);
+        fileNameChoosed(mApp->tempPath() + "/" + m_h_fileName, true);
     }
 }
 
@@ -210,7 +210,7 @@ void DownloadFileHelper::fileNameChoosed(const QString &name, bool fileNameAutoG
         m_fileName = qz_ensureUniqueFilename(m_fileName);
     }
 
-    if (!m_path.contains(QDir::tempPath())) {
+    if (!m_path.contains(mApp->tempPath())) {
         m_lastDownloadPath = m_path;
     }
 

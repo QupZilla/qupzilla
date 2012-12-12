@@ -78,7 +78,7 @@ void DesktopNotificationsFactory::showNotification(const QPixmap &icon, const QS
         break;
     case DesktopNative:
 #if defined(Q_WS_X11) && !defined(DISABLE_DBUS)
-        QFile tmp(QDir::tempPath() + "/qupzilla_notif.png");
+        QFile tmp(mApp->tempPath() + "/qupzilla_notif.png");
         tmp.open(QFile::WriteOnly);
         icon.save(tmp.fileName());
 
@@ -105,7 +105,7 @@ void DesktopNotificationsFactory::showNotification(const QPixmap &icon, const QS
 void DesktopNotificationsFactory::nativeNotificationPreview()
 {
 #if defined(Q_WS_X11) && !defined(DISABLE_DBUS)
-    QFile tmp(QDir::tempPath() + "/qupzilla_notif.png");
+    QFile tmp(mApp->tempPath() + "/qupzilla_notif.png");
     tmp.open(QFile::WriteOnly);
     QPixmap(":icons/preferences/dialog-question.png").save(tmp.fileName());
 
