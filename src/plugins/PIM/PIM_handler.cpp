@@ -121,8 +121,9 @@ void PIM_Handler::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitT
             continue;
         }
 
-        QAction* action = pimMenu->addAction(m_translations[PI_Type(i)], this, SLOT(pimInsert()));
+        QAction* action = pimMenu->addAction(info, this, SLOT(pimInsert()));
         action->setData(info);
+        action->setStatusTip(m_translations[PI_Type(i)]);
     }
 
     pimMenu->addSeparator();
