@@ -1952,7 +1952,7 @@
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="122"/>
         <source>Switch to tab</source>
-        <translation type="unfinished"></translation>
+        <translation>切換至分頁</translation>
     </message>
 </context>
 <context>
@@ -1960,22 +1960,22 @@
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="825"/>
         <source>Default Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>預設網頁瀏覽器</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="826"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla並非您現在的預設網頁瀏覽器。是否要設為預設網頁瀏覽器?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="828"/>
         <source>Always perform this check when starting QupZilla.</source>
-        <translation type="unfinished"></translation>
+        <translation>啟動QupZilla總是顯示此確認。</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="841"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla是一個新穎、快速、安全且開放原始碼的WWW瀏覽器。QupZilla使用GPLv3或是(在您的選擇下)更新的版本。QupZilla是基於WebKit內合及Qt框架。</translation>
     </message>
 </context>
 <context>
@@ -2323,7 +2323,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="122"/>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>鍵盤快捷鍵</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="375"/>
@@ -2333,12 +2333,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="458"/>
         <source>Check to see if QupZilla is the default browser on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>啟動時檢查QupZilla是否為預設瀏覽器</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="468"/>
         <source>Check Now</source>
-        <translation type="unfinished"></translation>
+        <translation>現在檢查</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="498"/>
@@ -2421,7 +2421,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="719"/>
         <source>Activate last tab when closing active tab</source>
-        <translation>關閉分頁時啟動最後一個分頁</translation>
+        <translation>關閉分頁時切換至前一個使用的分頁</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="747"/>
@@ -2625,12 +2625,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="838"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</source>
-        <translation type="unfinished"></translation>
+        <translation>按下&quot;Shift&quot;以使用現在的分頁載入位址而非新分頁。</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="841"/>
         <source>Propose to switch tab if completed url is already loaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>如果相同的位址已載入則建議切換分頁。</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="848"/>
@@ -2838,17 +2838,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1762"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;快捷鍵&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1782"/>
         <source>Switch to tabs with Alt + number of tab</source>
-        <translation type="unfinished"></translation>
+        <translation>使用&quot;Alt&quot;加上數字鍵切換分頁</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1789"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
-        <translation type="unfinished"></translation>
+        <translation>使用&quot;Ctrl&quot;加上數字鍵載入快速撥號</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1886"/>
@@ -3113,12 +3113,12 @@
         <location filename="../src/lib/preferences/preferences.cpp" line="108"/>
         <location filename="../src/lib/preferences/preferences.cpp" line="516"/>
         <source>QupZilla is default</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla已設為預設網頁瀏覽器</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="112"/>
         <source>Make QupZilla default</source>
-        <translation type="unfinished"></translation>
+        <translation>將QupZilla設為預設網頁瀏覽器</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="500"/>
@@ -4339,13 +4339,14 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/other/registerqappassociation.cpp" line="120"/>
         <source>Warning!</source>
-        <translation type="unfinished"></translation>
+        <translation>警告!</translation>
     </message>
     <message>
         <location filename="../src/lib/other/registerqappassociation.cpp" line="121"/>
         <source>There are some problems. Please, reinstall QupZilla.
 Maybe relaunch with administrator right do a magic for you! ;)</source>
-        <translation type="unfinished"></translation>
+        <translation>有問題發生了。請重新安裝QupZilla。
+也許用系統管理員重新啟動QupZilla會奇蹟似的復活! ;)</translation>
     </message>
 </context>
 <context>
