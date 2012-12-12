@@ -114,6 +114,12 @@ void PIM_Handler::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitT
 
     QMenu* pimMenu = new QMenu(tr("Insert Personal Information"));
     pimMenu->setIcon(QIcon(":/PIM/data/PIM.png"));
+    
+    if (!m_allInfo[PI_FirstName].isEmpty() && !m_allInfo[PI_LastName].isEmpty()) {
+        const QString fullname = m_allInfo[PI_FirstName] + " " + m_allInfo[PI_LastName];
+        QAction* action = pimMenu->addAction(fullname, this, SLOT(pimInsert()));
+        action->setData(fullname);
+    }
 
     for (int i = 0; i < PI_Max; ++i) {
         const QString &info = m_allInfo[PI_Type(i)];
