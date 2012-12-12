@@ -1955,7 +1955,7 @@
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="122"/>
         <source>Switch to tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Zu Tab wechseln</translation>
     </message>
 </context>
 <context>
@@ -1963,22 +1963,22 @@
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="825"/>
         <source>Default Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard Browser</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="826"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla ist aktuell nicht als Standard Browser konfiguriert. Möchten Sie QupZilla als Standard Browser einrichten?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="828"/>
         <source>Always perform this check when starting QupZilla.</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese Überprüfung immer beim Start von QupZilla durchführen.</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="841"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla ist ein neuer, schneller und sicherer, quelloffener Web Browser. QupZilla ist lizensiert unter GPL Version 3 oder später. Er nutzt Webkit und das Qt Framework.</translation>
     </message>
 </context>
 <context>
@@ -2661,12 +2661,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="838"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die &lt;Umschalt&gt;-Taste drücken, um die URL im aktuellen Tab zu öffnen und nicht den Tab zu wechseln.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="841"/>
         <source>Propose to switch tab if completed url is already loaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tab Wechsel vorschlagen, wenn die URL schon vollständig geladen ist.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="848"/>
@@ -2821,17 +2821,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1762"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Tastenkombinationen&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1782"/>
         <source>Switch to tabs with Alt + number of tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Zwischen den Tabs mit &lt;ALT&gt; + Nummer des Tabs wechseln</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1789"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Schnellwahlfeld mit &lt;STRG&gt; + Nummer des Feldes laden</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1800"/>
@@ -2919,17 +2919,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="122"/>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Tastenkombinationen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="458"/>
         <source>Check to see if QupZilla is the default browser on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Bei Start prüfen, ob QupZilla als Standard Browser eingerichtet ist</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="468"/>
         <source>Check Now</source>
-        <translation type="unfinished"></translation>
+        <translation>Jetzt prüfen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="640"/>
@@ -3119,12 +3119,12 @@
         <location filename="../src/lib/preferences/preferences.cpp" line="108"/>
         <location filename="../src/lib/preferences/preferences.cpp" line="516"/>
         <source>QupZilla is default</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla ist als Standard Browser eingerichtet</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="112"/>
         <source>Make QupZilla default</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla als Standard Browser einrichten</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="500"/>
@@ -4345,13 +4345,14 @@ Bitte fügen Sie welche über das RSS Symbol in der Navigationsleiste hinzu.</tr
     <message>
         <location filename="../src/lib/other/registerqappassociation.cpp" line="120"/>
         <source>Warning!</source>
-        <translation type="unfinished"></translation>
+        <translation>Warnung!</translation>
     </message>
     <message>
         <location filename="../src/lib/other/registerqappassociation.cpp" line="121"/>
         <source>There are some problems. Please, reinstall QupZilla.
 Maybe relaunch with administrator right do a magic for you! ;)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ein Problem ist aufgetreten. Bitte installieren Sie QupZilla erneut.
+Sie können auch zu Testzwecken versuchen, QupZilla mit Administratorrechten zu starten</translation>
     </message>
 </context>
 <context>
