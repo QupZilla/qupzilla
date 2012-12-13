@@ -25,6 +25,33 @@ LangString DESC_SecProtocols ${LANG_ENGLISH} "Associate QupZilla with http and h
 LangString MSG_RunningInstance ${LANG_ENGLISH} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_InstallationCanceled ${LANG_ENGLISH} "Process canceled by user."
 
+﻿;;;;Catalan
+LangString PRODUCT_DESC  ${LANG_CATALAN} "El QupZilla és un navegador web de codi obert nou, ràpid i segur. QupZilla està llicenciat sota GPL versió 3.0 o (si ho preferiu) qualsevol versió posterior. Està basat en WebKit i Qt."
+;
+LangString TITLE_SecMain ${LANG_CATALAN} "Components principals"
+LangString TITLE_SecTranslations ${LANG_CATALAN} "Traduccions"
+LangString TITLE_SecPlugins ${LANG_CATALAN} "Complements"
+LangString TITLE_SecDesktop ${LANG_CATALAN} "Icona de l'escriptori"
+LangString TITLE_SecExtensions ${LANG_CATALAN} "Associacions de fitxers"
+LangString TITLE_SecThemes ${LANG_CATALAN} "Temes"
+LangString TITLE_SecSetASDefault ${LANG_CATALAN} "Navegador per defecte"
+LangString TITLE_SecProtocols ${LANG_CATALAN} "Associacions de protocols"
+
+LangString FILE_Htm ${LANG_CATALAN} "Fitxer HTM"
+LangString FILE_Html ${LANG_CATALAN} "Fitxer HTML"
+;
+LangString DESC_SecMain ${LANG_CATALAN} "Components principals de l'aplicació."
+LangString DESC_SecTranslations ${LANG_CATALAN} "Altres traduccions disponibles per instal·lar. L'idioma predeterminat és l'anglès."
+LangString DESC_SecPlugins ${LANG_CATALAN} "Altres plugins disponibles per instal·lar."
+LangString DESC_SecDesktop ${LANG_CATALAN} "Afegeix una drecera a l'escriptori."
+LangString DESC_SecExtensions ${LANG_CATALAN} "Associa el QupZilla amb els fitxers .htm i .html"
+LangString DESC_SecThemes ${LANG_CATALAN} "Temes addicionals per al QupZilla"
+LangString DESC_SecSetASDefault ${LANG_CATALAN} "Fes que el Qupzilla sigui el navegador predeterminat"
+LangString DESC_SecProtocols ${LANG_CATALAN} "Associa el QupZilla amb els protocols http i https"
+;
+LangString MSG_RunningInstance ${LANG_CATALAN} "El QupZilla ja està actiu. Voleu que l'instal·lador provi d'aturar-lo?"
+LangString MSG_InstallationCanceled ${LANG_CATALAN} "L'usuari ha cancel·lat el procés."
+
 ;;;;Czech
 LangString TITLE_SecMain ${LANG_CZECH} "Hlavní komponenty"
 LangString TITLE_SecTranslations ${LANG_CZECH} "Překlady"
