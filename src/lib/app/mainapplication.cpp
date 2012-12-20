@@ -866,7 +866,7 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
         file.close();
     }
 
-    const QString &encodedStyle = userStyle.toAscii().toBase64();
+    const QString &encodedStyle = userStyle.toLatin1().toBase64();
     const QString &dataString = QString("data:text/css;charset=utf-8;base64,%1").arg(encodedStyle);
 
     return QUrl(dataString);

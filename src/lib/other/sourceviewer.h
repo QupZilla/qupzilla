@@ -19,7 +19,7 @@
 #define SOURCEVIEWER_H
 
 #include <QWidget>
-#include <QWeakPointer>
+#include <QPointer>
 
 #include "qz_namespace.h"
 
@@ -53,7 +53,7 @@ private slots:
 private:
     QBoxLayout* m_layout;
     PlainEditWithLines* m_sourceEdit;
-    QWeakPointer<QWebFrame> m_frame;
+    QPointer<QWebFrame> m_frame;
     QStatusBar* m_statusBar;
 
     QString m_selectedHtml;

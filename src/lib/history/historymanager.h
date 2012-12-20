@@ -19,7 +19,7 @@
 #define HISTORYMANAGER_H
 
 #include <QWidget>
-#include <QWeakPointer>
+#include <QPointer>
 
 #include "qz_namespace.h"
 #include "historyview.h"
@@ -58,7 +58,7 @@ private:
     QupZilla* getQupZilla();
 
     Ui::HistoryManager* ui;
-    QWeakPointer<QupZilla> p_QupZilla;
+    QPointer<QupZilla> p_QupZilla;
 };
 
 #endif // HISTORYMANAGER_H

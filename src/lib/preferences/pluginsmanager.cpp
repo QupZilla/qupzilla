@@ -21,10 +21,10 @@
 #include "mainapplication.h"
 #include "plugininterface.h"
 #include "pluginlistdelegate.h"
+#include "globalfunctions.h"
 #include "settings.h"
 
 #include <QInputDialog>
-#include <QTextDocument>
 #include <QMessageBox>
 #include <QTimer>
 
@@ -177,7 +177,7 @@ void PluginsManager::refresh()
         }
         item->setIcon(icon);
 
-        QString pluginInfo = QString("<b>%1</b> %2<br/><i>%3</i><br/>%4").arg(spec.name, spec.version, Qt::escape(spec.author), spec.info);
+        QString pluginInfo = QString("<b>%1</b> %2<br/><i>%3</i><br/>%4").arg(spec.name, spec.version, qz_escape(spec.author), spec.info);
         item->setToolTip(pluginInfo);
 
         item->setText(spec.name);

@@ -19,6 +19,7 @@
 #define USERAGENTMANAGER_H
 
 #include <QHash>
+#include <QString>
 
 #include "qz_namespace.h"
 

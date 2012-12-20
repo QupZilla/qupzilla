@@ -18,15 +18,20 @@
 #include "certificateinfowidget.h"
 #include "ui_certificateinfowidget.h"
 #include "mainapplication.h"
+#include "globalfunctions.h"
 
 #include <QSslCertificate>
-#include <QTextDocument>
 #include <QDateTime>
 
 QString CertificateInfoWidget::certificateItemText(const QSslCertificate &cert)
 {
+#if QT_VERSION >= 0x050000
+    QString commonName = cert.subjectInfo(QSslCertificate::CommonName).isEmpty() ? QString() : cert.subjectInfo(QSslCertificate::CommonName).at(0);
+    QString organization = cert.subjectInfo(QSslCertificate::Organization).isEmpty() ? QString() : cert.subjectInfo(QSslCertificate::Organization).at(0);
+#else
     QString commonName = cert.subjectInfo(QSslCertificate::CommonName);
     QString organization = cert.subjectInfo(QSslCertificate::Organization);
+#endif
 
     if (commonName.isEmpty()) {
         return clearCertSpecialSymbols(organization);
@@ -37,7 +42,7 @@ QString CertificateInfoWidget::certificateItemText(const QSslCertificate &cert)
 
 QString CertificateInfoWidget::clearCertSpecialSymbols(const QString &string)
 {
-    QString n = Qt::escape(string);
+    QString n = qz_escape(string);
 
     if (!n.contains(QLatin1String("\\"))) {
         return n;
@@ -285,6 +290,15 @@ QString CertificateInfoWidget::clearCertSpecialSymbols(const QString &string)
     return n;
 }
 
+QString CertificateInfoWidget::clearCertSpecialSymbols(const QStringList &stringList)
+{
+    if (stringList.isEmpty()) {
+        return QString();
+    }
+
+    return clearCertSpecialSymbols(stringList.at(0));
+}
+
 QString CertificateInfoWidget::showCertInfo(const QString &string)
 {
     if (string.isEmpty()) {
@@ -293,6 +307,15 @@ QString CertificateInfoWidget::showCertInfo(const QString &string)
     else {
         return clearCertSpecialSymbols(string);
     }
+}
+
+QString CertificateInfoWidget::showCertInfo(const QStringList &stringList)
+{
+    if (stringList.isEmpty()) {
+        return QString();
+    }
+
+    return showCertInfo(stringList.at(0));
 }
 
 CertificateInfoWidget::CertificateInfoWidget(const QSslCertificate &cert, QWidget* parent)

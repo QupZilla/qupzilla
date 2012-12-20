@@ -103,7 +103,7 @@ void RSSNotification::addRss()
     switch (ui->comboBox->itemData(index).toInt()) {
     case WebApplication: {
         const RssApp &app = m_rssApps.at(index);
-        const QUrl &url = QUrl::fromEncoded(QString(app.address + QUrl::toPercentEncoding(m_url.toString())).toAscii());
+        const QUrl &url = QUrl::fromEncoded(QString(app.address + QUrl::toPercentEncoding(m_url.toString())).toLatin1());
 
         m_view->openUrlInNewTab(url, Qz::NT_SelectedTab);
         success = true;

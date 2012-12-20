@@ -19,7 +19,7 @@
 #define WEBTAB_H
 
 #include <QWidget>
-#include <QWeakPointer>
+#include <QPointer>
 #include <QIcon>
 #include <QUrl>
 
@@ -102,7 +102,7 @@ private:
     QupZilla* p_QupZilla;
     TabbedWebView* m_view;
     QVBoxLayout* m_layout;
-    QWeakPointer<LocationBar> m_locationBar;
+    QPointer<LocationBar> m_locationBar;
 
     SavedTab m_savedTab;
 

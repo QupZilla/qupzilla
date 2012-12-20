@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "globalfunctions.h"
 
+#include <QTextDocument>
+#include <QDateTime>
 #include <QByteArray>
 #include <QPixmap>
 #include <QPainter>
@@ -25,9 +27,14 @@
 #include <QDir>
 #include <QWidget>
 #include <QApplication>
+#include <QSslCertificate>
 #include <QDesktopWidget>
 #include <QUrl>
 #include <QIcon>
+
+#if QT_VERSION >= 0x050000
+#include <QUrlQuery>
+#endif
 
 QByteArray qz_pixmapToByteArray(const QPixmap &pix)
 {
@@ -166,11 +173,19 @@ QString qz_urlEncodeQueryString(const QUrl &url)
     QString returnString = url.toString(QUrl::RemoveQuery | QUrl::RemoveFragment);
 
     if (url.hasQuery()) {
+#if QT_VERSION >= 0x050000
+        returnString += QLatin1Char('?') + url.query(QUrl::FullyEncoded);
+#else
         returnString += QLatin1Char('?') + url.encodedQuery();
+#endif
     }
 
     if (url.hasFragment()) {
+#if QT_VERSION >= 0x050000
+        returnString += QLatin1Char('#') + url.fragment(QUrl::FullyEncoded);
+#else
         returnString += QLatin1Char('#') + url.encodedFragment();
+#endif
     }
 
     returnString.replace(QLatin1Char(' '), QLatin1String("%20"));
@@ -340,6 +355,28 @@ QString QT_QUPZILLA_EXPORT qz_applyDirectionToPage(QString &pageContents)
     pageContents.replace(QLatin1String("%LEFT_STR%"), left_str);
 
     return pageContents;
+}
+
+// Qt5 migration help functions
+bool QT_QUPZILLA_EXPORT qz_isCertificateValid(const QSslCertificate &cert)
+{
+#if QT_VERSION >= 0x050000
+    const QDateTime currentTime = QDateTime::currentDateTime();
+    return currentTime >= cert.effectiveDate() &&
+           currentTime <= cert.expiryDate() &&
+           !cert.isBlacklisted();
+#else
+    return cert.isValid();
+#endif
+}
+
+QString QT_QUPZILLA_EXPORT qz_escape(const QString &string)
+{
+#if QT_VERSION >= 0x050000
+    return string.toHtmlEscaped();
+#else
+    return qz_escape(string);
+#endif
 }
 
 QString qz_buildSystem()

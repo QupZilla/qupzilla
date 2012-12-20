@@ -15,6 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
+#include "globalfunctions.h"
 #include "siteinfowidget.h"
 #include "ui_siteinfowidget.h"
 #include "qupzilla.h"
@@ -39,7 +40,7 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
     WebPage* webPage = view->page();
     QUrl url = view->url();
 
-    if (webPage->sslCertificate().isValid()) {
+    if (qz_isCertificateValid(webPage->sslCertificate())) {
         ui->secureLabel->setText(tr("Your connection to this site is <b>secured</b>."));
         ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/accept.png"));
     }

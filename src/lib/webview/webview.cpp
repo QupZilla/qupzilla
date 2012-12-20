@@ -504,7 +504,7 @@ void WebView::searchSelectedText()
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
     if (QAction* act = qobject_cast<QAction*>(sender())) {
         if (act->data().isValid()) {
-            engine = qVariantValue<SearchEngine>(act->data());
+            engine = act->data().value<SearchEngine>();
         }
     }
 
@@ -517,7 +517,7 @@ void WebView::searchSelectedTextInBackgroundTab()
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
     if (QAction* act = qobject_cast<QAction*>(sender())) {
         if (act->data().isValid()) {
-            engine = qVariantValue<SearchEngine>(act->data());
+            engine = act->data().value<SearchEngine>();
         }
     }
 

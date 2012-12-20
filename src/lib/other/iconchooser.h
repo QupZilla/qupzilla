@@ -38,7 +38,7 @@ public:
     explicit IconChooser(QWidget* parent = 0);
     ~IconChooser();
 
-    QIcon exec();
+    QIcon getIcon();
 
 private slots:
     void chooseFile();

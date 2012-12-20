@@ -23,6 +23,7 @@
 #include "globalfunctions.h"
 #include "settings.h"
 
+#include <QNetworkCookie>
 #include <QMessageBox>
 #include <QDateTime>
 #include <QShortcut>
@@ -153,7 +154,7 @@ void CookieManager::slotRefreshTable()
     ui->cookieTree->clear();
 
     int counter = 0;
-    QWeakPointer<CookieManager> guard = this;
+    QPointer<CookieManager> guard = this;
     QHash<QString, QTreeWidgetItem*> hash;
     for (int i = 0; i < allCookies.count(); ++i) {
         const QNetworkCookie &cookie = allCookies.at(i);

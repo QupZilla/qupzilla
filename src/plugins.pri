@@ -27,8 +27,13 @@ INCLUDEPATH += $$PWD/lib/3rdparty\
 
 TEMPLATE = lib
 CONFIG += plugin
-QT *= webkit network
 DESTDIR = $$PWD/../bin/plugins/
+
+isEqual(QT_MAJOR_VERSION, 5) {
+    QT *= webkitwidgets network
+} else {
+    QT *= webkit network
+}
 
 OBJECTS_DIR = build
 MOC_DIR = build

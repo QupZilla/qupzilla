@@ -28,6 +28,7 @@
 #include "pluginproxy.h"
 
 #include <QMenu>
+#include <QMimeData>
 #include <QMouseEvent>
 #include <QStyleOption>
 #include <QApplication>
@@ -213,7 +214,6 @@ QSize TabBar::tabSizeHint(int index) const
 
             if (maxWidthForTab < PINNED_TAB_WIDTH) {
                 // FIXME: It overflows now
-
                 m_normalTabWidth = PINNED_TAB_WIDTH;
                 if (index == currentIndex()) {
                     size.setWidth(m_activeTabWidth);

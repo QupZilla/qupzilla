@@ -14,5 +14,10 @@ lessThan(QT_VERSION, 4.7) {
 mac|unix: system(test -d bin/plugins || mkdir bin/plugins)
 
 TEMPLATE = subdirs
-SUBDIRS = src/lib src/main src/plugins
+SUBDIRS = src/lib src/main
 CONFIG += ordered
+
+# TODO: Fix plugins for Qt5
+!isEqual(QT_MAJOR_VERSION, 5) {
+    SUBDIRS += src/plugins
+}

@@ -25,8 +25,14 @@
 #include <QWebFrame>
 #include <QTimer>
 #include <QMovie>
-#include <QtConcurrentRun>
 #include <QPushButton>
+
+#if QT_VERSION >= 0x050000
+#include <QtConcurrent/QtConcurrentRun>
+#else
+#include <QtConcurrentRun>
+#endif
+
 
 PageScreen::PageScreen(WebView* view, QWidget* parent)
     : QDialog(parent)

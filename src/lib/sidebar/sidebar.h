@@ -20,7 +20,7 @@
 
 #include <QWidget>
 #include <QHash>
-#include <QWeakPointer>
+#include <QPointer>
 
 #include "qz_namespace.h"
 
@@ -67,7 +67,7 @@ public:
     void sideBarRemoved(const QString &id);
     void closeSideBar();
 
-    static QHash<QString, QWeakPointer<SideBarInterface> > s_sidebars;
+    static QHash<QString, QPointer<SideBarInterface> > s_sidebars;
     static void addSidebar(const QString &id, SideBarInterface* interface);
     static void removeSidebar(const QString &id);
 
@@ -78,7 +78,7 @@ private:
     void updateActions();
 
     QupZilla* p_QupZilla;
-    QWeakPointer<SideBar> m_sideBar;
+    QPointer<SideBar> m_sideBar;
     QMenu* m_menu;
 
     QString m_activeBar;

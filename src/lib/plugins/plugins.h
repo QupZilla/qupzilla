@@ -20,7 +20,7 @@
 
 #include <QObject>
 #include <QVariant>
-#include <QWeakPointer>
+#include <QPointer>
 
 #include "qz_namespace.h"
 #include "plugininterface.h"

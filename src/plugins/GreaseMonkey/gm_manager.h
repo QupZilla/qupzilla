@@ -20,7 +20,7 @@
 
 #include <QObject>
 #include <QStringList>
-#include <QWeakPointer>
+#include <QPointer>
 
 class QUrl;
 class QNetworkRequest;
@@ -68,7 +68,7 @@ private slots:
 private:
     QString m_settingsPath;
     QString m_bootstrap;
-    QWeakPointer<GM_Settings> m_settings;
+    QPointer<GM_Settings> m_settings;
 
     QStringList m_disabledScripts;
     QList<GM_Script*> m_endScripts;

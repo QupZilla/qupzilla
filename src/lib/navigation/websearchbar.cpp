@@ -29,6 +29,8 @@
 #include "searchenginesdialog.h"
 #include "networkmanager.h"
 
+#include <QMimeData>
+#include <QAbstractItemView>
 #include <QCompleter>
 #include <QStringListModel>
 #include <QMenu>

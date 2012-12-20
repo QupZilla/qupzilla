@@ -18,7 +18,7 @@
 #ifndef WEBSEARCHBAR_H
 #define WEBSEARCHBAR_H
 
-#include <QWeakPointer>
+#include <QPointer>
 
 #include "qz_namespace.h"
 #include "lineedit.h"
@@ -91,7 +91,7 @@ private:
     WebSearchBar_Button* m_buttonSearch;
     ButtonWithMenu* m_boxSearchType;
     SearchEnginesManager* m_searchManager;
-    QWeakPointer<SearchEnginesDialog> m_searchDialog;
+    QPointer<SearchEnginesDialog> m_searchDialog;
 
     QAction* m_pasteAndGoAction;
     QAction* m_clearAction;

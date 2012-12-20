@@ -19,6 +19,8 @@
 #define COMMANDLINEOPTIONS_H
 
 #include <QPair>
+#include <QString>
+#include <QList>
 #include <iostream>
 
 #include "qz_namespace.h"

@@ -20,6 +20,8 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QKeyEvent>
+#include <QMimeData>
+#include <QDrag>
 #include <QMenu>
 
 SqueezeLabelV2::SqueezeLabelV2(QWidget* parent)

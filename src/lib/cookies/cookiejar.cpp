@@ -20,6 +20,7 @@
 #include "mainapplication.h"
 #include "settings.h"
 
+#include <QNetworkCookie>
 #include <QDateTime>
 #include <QDebug>
 

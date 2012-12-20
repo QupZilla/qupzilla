@@ -30,6 +30,10 @@
 #include <QWebFrame>
 #include <QNetworkRequest>
 
+#if QT_VERSION >= 0x050000
+#include <QUrlQuery>
+#endif
+
 AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
     , p_QupZilla(mainClass)
@@ -224,8 +228,11 @@ void AutoFillModel::completePage(WebPage* page)
     // Why not to use encodedQueryItems = QByteArrays ?
     // Because we need to filter "+" characters that must be spaces
     // (not real "+" characters "%2B")
-
+#if QT_VERSION >= 0x050000
+    QueryItems arguments = QUrlQuery(QUrl::fromEncoded("http://bla.com/?" + data)).queryItems();
+#else
     QueryItems arguments = QUrl::fromEncoded("http://bla.com/?" + data).queryItems();
+#endif
     for (int i = 0; i < arguments.count(); i++) {
         QString key = arguments.at(i).first;
         QString value = arguments.at(i).second;
@@ -345,7 +352,11 @@ QString AutoFillModel::getValueFromData(const QByteArray &data, QWebElement elem
 
     QString value = element.evaluateJavaScript("this.value").toString();
     if (value.isEmpty()) {
+#if QT_VERSION >= 0x050000
+        QueryItems queryItems = QUrlQuery(QUrl::fromEncoded("http://a.b/?" + data)).queryItems();
+#else
         QueryItems queryItems = QUrl::fromEncoded("http://a.b/?" + data).queryItems();
+#endif
         for (int i = 0; i < queryItems.count(); i++) {
             QueryItem item = queryItems.at(i);
 
@@ -404,7 +415,11 @@ QByteArray AutoFillModel::convertWebKitFormBoundaryIfNecessary(const QByteArray 
 
 bool AutoFillModel::dataContains(const QByteArray &data, const QString &attributeName)
 {
+#if QT_VERSION >= 0x050000
+    QueryItems queryItems = QUrlQuery(QUrl::fromEncoded("http://a.b/?" + data)).queryItems();
+#else
     QueryItems queryItems = QUrl::fromEncoded("http://a.b/?" + data).queryItems();
+#endif
 
     for (int i = 0; i < queryItems.count(); i++) {
         QueryItem item = queryItems.at(i);

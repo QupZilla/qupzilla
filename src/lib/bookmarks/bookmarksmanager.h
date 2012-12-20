@@ -19,7 +19,7 @@
 #define BOOKMARKSMANAGER_H
 
 #include <QWidget>
-#include <QWeakPointer>
+#include <QPointer>
 
 #include "bookmarksmodel.h"
 #include "qz_namespace.h"
@@ -84,7 +84,7 @@ private:
 
     bool m_isRefreshing;
     Ui::BookmarksManager* ui;
-    QWeakPointer<QupZilla> p_QupZilla;
+    QPointer<QupZilla> p_QupZilla;
     BookmarksModel* m_bookmarksModel;
 };
 

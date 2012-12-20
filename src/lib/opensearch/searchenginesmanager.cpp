@@ -32,6 +32,10 @@
 #include <QMessageBox>
 #include <QWebElement>
 
+#if QT_VERSION >= 0x050000
+#include <QUrlQuery>
+#endif
+
 #define ENSURE_LOADED if (!m_settingsLoaded) loadSettings();
 
 QIcon SearchEnginesManager::iconForSearchEngine(const QUrl &url)
@@ -224,7 +228,21 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     if (actionUrl.isRelative()) {
         actionUrl = view->url().resolved(actionUrl);
     }
+#if QT_VERSION >= 0x050000
+    QUrlQuery query(actionUrl);
+    query.addQueryItem(element.attribute("name"), "%s");
 
+    QWebElementCollection allInputs = formElement.findAll("input");
+    foreach(QWebElement e, allInputs) {
+        if (element == e || !e.hasAttribute("name")) {
+            continue;
+        }
+
+        query.addQueryItem(e.attribute("name"), e.evaluateJavaScript("this.value").toString());
+    }
+
+    actionUrl.setQuery(query);
+#else
     actionUrl.addQueryItem(element.attribute("name"), "%s");
 
     QList<QPair<QByteArray, QByteArray> > queryItems;
@@ -242,6 +260,7 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     }
 
     actionUrl.setEncodedQueryItems(queryItems + actionUrl.encodedQueryItems());
+#endif
 
     SearchEngine engine;
     engine.name = view->title();

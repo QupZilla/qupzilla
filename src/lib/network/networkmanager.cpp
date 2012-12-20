@@ -38,7 +38,6 @@
 #include <QLineEdit>
 #include <QCheckBox>
 #include <QDialogButtonBox>
-#include <QTextDocument>
 #include <QNetworkDiskCache>
 #include <QDir>
 #include <QSslSocket>
@@ -130,7 +129,7 @@ void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
 {
     if (!reply->sslConfiguration().isNull()) {
         QSslCertificate cert = reply->sslConfiguration().peerCertificate();
-        if (!cert.isValid() || reply->property("downReply").toBool()) {
+        if (!qz_isCertificateValid(cert) || reply->property("downReply").toBool()) {
             return;
         }
 
@@ -269,7 +268,7 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
 
     label->setText(tr("A username and password are being requested by %1. "
-                      "The site says: \"%2\"").arg(reply->url().toEncoded(), Qt::escape(auth->realm())));
+                      "The site says: \"%2\"").arg(reply->url().toEncoded(), qz_escape(auth->realm())));
     formLa->addRow(label);
 
     formLa->addRow(userLab, user);

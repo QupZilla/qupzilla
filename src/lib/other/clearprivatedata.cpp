@@ -28,6 +28,7 @@
 #include "iconprovider.h"
 #include "globalfunctions.h"
 
+#include <QNetworkCookie>
 #include <QWebDatabase>
 #include <QWebSettings>
 #include <QNetworkDiskCache>

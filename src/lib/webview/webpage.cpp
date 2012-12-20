@@ -196,11 +196,11 @@ void WebPage::progress(int prog)
 {
     m_loadProgress = prog;
 
-    bool secStatus = sslCertificate().isValid();
+    bool secStatus = qz_isCertificateValid(sslCertificate());
 
     if (secStatus != m_secureStatus) {
         m_secureStatus = secStatus;
-        emit privacyChanged(sslCertificate().isValid());
+        emit privacyChanged(qz_isCertificateValid(sslCertificate()));
     }
 }
 
@@ -451,7 +451,7 @@ void WebPage::setSSLCertificate(const QSslCertificate &cert)
 
 QSslCertificate WebPage::sslCertificate()
 {
-    if (url().scheme() == QLatin1String("https") && m_sslCert.isValid()) {
+    if (url().scheme() == QLatin1String("https") && qz_isCertificateValid(m_sslCert)) {
         return m_sslCert;
     }
 

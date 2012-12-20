@@ -18,6 +18,7 @@
 #include "treewidget.h"
 #include "bookmarksmodel.h"
 
+#include <QMimeData>
 #include <QMouseEvent>
 #include <QSqlDatabase>
 #include <QApplication>
@@ -455,7 +456,10 @@ void TreeWidget::setDragDropReceiver(bool enable, QObject* receiver)
     viewport()->setAcceptDrops(enable);
     setDropIndicatorShown(enable);
     if (enable) {
+// TODO: It won't probably work in Qt5
+#if QT_VERSION < 0x050000
         model()->setSupportedDragActions(Qt::CopyAction);
+#endif
         connect(this, SIGNAL(folderParentChanged(QString, bool, bool*)), receiver, SLOT(changeFolderParent(QString, bool, bool*)));
         connect(this, SIGNAL(bookmarkParentChanged(int, QString, QString, bool*)), receiver, SLOT(changeBookmarkParent(int, QString, QString, bool*)));
         connect(this, SIGNAL(linkWasDroped(QUrl, QString, QVariant, QString, bool*)), receiver, SLOT(bookmarkDropedLink(QUrl, QString, QVariant, QString, bool*)));

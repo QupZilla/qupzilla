@@ -25,7 +25,7 @@
 #include <QUrl>
 #include <QNetworkAccessManager>
 #include <QFormLayout>
-#include <QWeakPointer>
+#include <QPointer>
 #include <QDialogButtonBox>
 #include <QToolButton>
 #include <QInputDialog>
@@ -72,7 +72,7 @@ private:
 
     Ui::RSSManager* ui;
     QToolButton* m_reloadButton;
-    QWeakPointer<QupZilla> p_QupZilla;
+    QPointer<QupZilla> p_QupZilla;
 };
 
 #endif // RSSMANAGER_H

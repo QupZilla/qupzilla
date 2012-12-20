@@ -33,6 +33,7 @@
 
 #include <QMovie>
 #include <QMenu>
+#include <QMimeData>
 #include <QStackedWidget>
 #include <QMouseEvent>
 #include <QWebHistory>

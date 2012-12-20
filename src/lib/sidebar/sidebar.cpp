@@ -26,7 +26,7 @@
 
 #include <QMenu>
 
-QHash<QString, QWeakPointer<SideBarInterface> > SideBarManager::s_sidebars;
+QHash<QString, QPointer<SideBarInterface> > SideBarManager::s_sidebars;
 
 SideBar::SideBar(SideBarManager* manager, QupZilla* mainClass)
     : QWidget(mainClass)
@@ -134,7 +134,7 @@ void SideBarManager::refreshMenu()
     act->setShortcut(QKeySequence("Ctrl+H"));
     act->setData("History");
 
-    foreach(const QWeakPointer<SideBarInterface> &sidebar, s_sidebars) {
+    foreach(const QPointer<SideBarInterface> &sidebar, s_sidebars) {
         if (!sidebar) {
             continue;
         }

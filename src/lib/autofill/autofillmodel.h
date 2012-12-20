@@ -18,6 +18,7 @@
 #ifndef AUTOFILLMODEL_H
 #define AUTOFILLMODEL_H
 
+#include <QObject>
 #include <QPair>
 
 #include "qz_namespace.h"

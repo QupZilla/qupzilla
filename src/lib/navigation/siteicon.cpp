@@ -20,6 +20,8 @@
 #include "tabbedwebview.h"
 #include "globalfunctions.h"
 
+#include <QDrag>
+#include <QMimeData>
 #include <QApplication>
 #include <QContextMenuEvent>
 

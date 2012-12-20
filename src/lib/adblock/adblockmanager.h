@@ -20,7 +20,7 @@
 
 #include <QObject>
 #include <QStringList>
-#include <QWeakPointer>
+#include <QPointer>
 
 #include "qz_namespace.h"
 
@@ -81,7 +81,7 @@ private:
     QList<AdBlockSubscription*> m_subscriptions;
     QStringList m_disabledRules;
 
-    QWeakPointer<AdBlockDialog> m_adBlockDialog;
+    QPointer<AdBlockDialog> m_adBlockDialog;
 };
 
 #endif // ADBLOCKMANAGER_H

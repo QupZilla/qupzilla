@@ -22,7 +22,7 @@
 #include <QTime>
 #include <QHash>
 #include <QWebElement>
-#include <QWeakPointer>
+#include <QPointer>
 
 class QKeyEvent;
 class QWebElement;
@@ -57,7 +57,7 @@ private:
     void makeAccessKeyLabel(const QChar &accessKey, const QWebElement &element);
     void handleAccessKey(QKeyEvent* event);
 
-    QWeakPointer<WebView> m_view;
+    QPointer<WebView> m_view;
 
     QList<QLabel*> m_accessKeyLabels;
     QHash<QChar, QWebElement> m_accessKeyNodes;

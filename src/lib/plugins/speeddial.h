@@ -19,7 +19,7 @@
 #define SPEEDDIAL_H
 
 #include <QObject>
-#include <QWeakPointer>
+#include <QPointer>
 
 #include "qz_namespace.h"
 
@@ -97,7 +97,7 @@ private:
     int m_sizeOfSpeedDials;
     int m_sdcentered;
 
-    QList<QWeakPointer<QWebFrame> > m_webFrames;
+    QList<QPointer<QWebFrame> > m_webFrames;
     QList<Page> m_webPages;
 
     bool m_loaded;

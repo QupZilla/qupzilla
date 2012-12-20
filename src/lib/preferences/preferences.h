@@ -19,7 +19,7 @@
 #define PREFERENCES_H
 
 #include <QDialog>
-#include <QWeakPointer>
+#include <QPointer>
 
 #include "qz_namespace.h"
 
@@ -98,7 +98,7 @@ private:
     AutoFillManager* m_autoFillManager;
     PluginsManager* m_pluginsList;
     ThemeManager* m_themesManager;
-    QWeakPointer<DesktopNotification> m_notification;
+    QPointer<DesktopNotification> m_notification;
 
     QString m_homepage;
     QString m_newTabUrl;

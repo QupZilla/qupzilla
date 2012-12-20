@@ -131,7 +131,7 @@ AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const
     QString fileName = qz_filterCharsFromFilename(title.toLower()) + ".txt";
     QString filePath = qz_ensureUniqueFilename(mApp->currentProfilePath() + "adblock/" + fileName);
 
-    QByteArray data = QString("Title: %1\nUrl: %2\n[Adblock Plus 1.1.1]").arg(title, url).toAscii();
+    QByteArray data = QString("Title: %1\nUrl: %2\n[Adblock Plus 1.1.1]").arg(title, url).toLatin1();
 
     QFile file(filePath);
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {

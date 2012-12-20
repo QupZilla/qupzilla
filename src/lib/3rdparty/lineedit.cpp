@@ -86,7 +86,8 @@ void LineEdit::init()
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter | Qt::AlignLeft);
     mainLayout->addItem(horizontalSpacer);
     mainLayout->addWidget(m_rightWidget, 0, Qt::AlignVCenter | Qt::AlignRight);
-    //by this we undo reversing of layout when direction is RTL. //TODO: don't do this and show reversed icon when needed
+    // by this we undo reversing of layout when direction is RTL.
+    // TODO: don't do this and show reversed icon when needed
     mainLayout->setDirection(isRightToLeft() ? QBoxLayout::RightToLeft : QBoxLayout::LeftToRight);
 
     setWidgetSpacing(3);

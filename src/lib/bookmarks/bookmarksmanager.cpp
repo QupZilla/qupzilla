@@ -169,7 +169,7 @@ void BookmarksManager::changeIcon()
     QIcon icon;
 
     IconChooser chooser(this);
-    icon = chooser.exec();
+    icon = chooser.getIcon();
 
     if (!icon.isNull()) {
         m_bookmarksModel->changeIcon(id, icon);

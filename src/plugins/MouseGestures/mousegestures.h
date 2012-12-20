@@ -19,7 +19,7 @@
 #define MOUSEGESTURES_H
 
 #include <QObject>
-#include <QWeakPointer>
+#include <QPointer>
 
 class QMouseEvent;
 
@@ -56,8 +56,8 @@ private slots:
 
 private:
     QjtMouseGestureFilter* m_filter;
-    QWeakPointer<MouseGesturesSettingsDialog> m_settings;
-    QWeakPointer<WebView> m_view;
+    QPointer<MouseGesturesSettingsDialog> m_settings;
+    QPointer<WebView> m_view;
 };
 
 #endif // MOUSEGESTURES_H

@@ -45,7 +45,7 @@
 #include <QToolButton>
 #include <QToolTip>
 #include <QVBoxLayout>
-#include <QWindowsStyle>
+//#include <QWindowsStyle>
 
 using namespace Core;
 using namespace Internal;
@@ -250,7 +250,7 @@ FancyTabBar::FancyTabBar(QWidget* parent)
     : QWidget(parent)
 {
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
-    setStyle(new QWindowsStyle);
+    //setStyle(new QWindowsStyle);
     setMinimumWidth(qMax(2 * m_rounding, 40));
     setAttribute(Qt::WA_Hover, true);
     setFocusPolicy(Qt::NoFocus);

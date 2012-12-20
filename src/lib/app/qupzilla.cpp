@@ -87,6 +87,10 @@
 #include <X11/Xatom.h>
 #endif
 
+#if QT_VERSION < 0x050000
+#include "qwebkitversion.h"
+#endif
+
 const QString QupZilla::VERSION = "1.3.5";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
@@ -1842,7 +1846,7 @@ void QupZilla::disconnectObjects()
         tab->view()->page()->disconnectObjects();
     }
 
-    foreach(const QWeakPointer<QWidget> &pointer, m_deleteOnCloseWidgets) {
+    foreach(const QPointer<QWidget> &pointer, m_deleteOnCloseWidgets) {
         if (pointer) {
             pointer.data()->deleteLater();
         }

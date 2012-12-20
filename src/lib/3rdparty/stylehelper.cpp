@@ -29,13 +29,13 @@
 
 #include "stylehelper.h"
 
-#include <QtGui/QPixmapCache>
-#include <QtGui/QWidget>
+#include <QPixmapCache>
+#include <QWidget>
 #include <QtCore/QRect>
-#include <QtGui/QPainter>
-#include <QtGui/QApplication>
-#include <QtGui/QPalette>
-#include <QtGui/QStyleOption>
+#include <QPainter>
+#include <QApplication>
+#include <QPalette>
+#include <QStyleOption>
 #include <QtCore/QObject>
 
 // Clamps float color values within (0, 255)

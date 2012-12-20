@@ -89,7 +89,7 @@ void EditSearchEngine::hideIconLabels()
 void EditSearchEngine::chooseIcon()
 {
     IconChooser chooser(this);
-    QIcon icon = chooser.exec();
+    QIcon icon = chooser.getIcon();
 
     if (!icon.isNull()) {
         setIcon(icon);

@@ -32,8 +32,8 @@
 
 #include "qz_namespace.h"
 
-#include <QtGui/QColor>
-#include <QtGui/QStyle>
+#include <QColor>
+#include <QStyle>
 
 QT_BEGIN_NAMESPACE
 class QPalette;

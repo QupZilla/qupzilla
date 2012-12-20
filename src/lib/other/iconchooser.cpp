@@ -75,7 +75,7 @@ void IconChooser::searchIcon(const QString &string)
     }
 }
 
-QIcon IconChooser::exec()
+QIcon IconChooser::getIcon()
 {
     QIcon icon;
     int status = QDialog::exec();

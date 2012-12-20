@@ -40,6 +40,7 @@
 #include "qzsettings.h"
 #include "colors.h"
 
+#include <QMimeData>
 #include <QClipboard>
 #include <QTimer>
 #include <QContextMenuEvent>

@@ -20,7 +20,7 @@
 
 #include <QWebInspector>
 #include <QDockWidget>
-#include <QWeakPointer>
+#include <QPointer>
 #include <QHash>
 
 #include "qz_namespace.h"
@@ -56,9 +56,9 @@ public slots:
 
 private:
     QupZilla* p_QupZilla;
-    QHash<QWebPage*, QWeakPointer<WebInspector> > m_inspectors;
+    QHash<QWebPage*, QPointer<WebInspector> > m_inspectors;
 
-    QWeakPointer<WebInspector> m_currentInspector;
+    QPointer<WebInspector> m_currentInspector;
 };
 
 #endif // WEBINSPECTORDOCKWIDGET_H

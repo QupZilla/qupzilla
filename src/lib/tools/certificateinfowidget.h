@@ -35,8 +35,16 @@ public:
     explicit CertificateInfoWidget(const QSslCertificate &cert, QWidget* parent = 0);
     ~CertificateInfoWidget();
 
+    // Qt5 compatibility
+    // QSslCertificate::subjectInfo returns:
+    //      QString     in Qt 4
+    //      QStringList in Qt 5
+    //
     static QString showCertInfo(const QString &string);
+    static QString showCertInfo(const QStringList &stringList);
     static QString clearCertSpecialSymbols(const QString &string);
+    static QString clearCertSpecialSymbols(const QStringList &stringList);
+
     static QString certificateItemText(const QSslCertificate &cert);
 
 private:

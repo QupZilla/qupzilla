@@ -146,12 +146,11 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     }
 
     //SECURITY
-    if (cert.isValid()) {
+    if (qz_isCertificateValid(cert)) {
         ui->securityLabel->setText(tr("<b>Connection is Encrypted.</b>"));
         ui->certLabel->setText(tr("<b>Your connection to this page is secured with this certificate: </b>"));
         m_certWidget = new CertificateInfoWidget(cert);
         ui->certFrame->addWidget(m_certWidget);
-
     }
     else {
         ui->securityLabel->setText(tr("<b>Connection Not Encrypted.</b>"));

@@ -22,7 +22,7 @@
 
 #include <QList>
 #include <QUrl>
-#include <QWeakPointer>
+#include <QPointer>
 
 #include "restoremanager.h"
 #include "qtsingleapplication.h"
@@ -164,7 +164,7 @@ private:
     DatabaseWriter* m_dbWriter;
     UserAgentManager* m_uaManager;
 
-    QList<QWeakPointer<QupZilla> > m_mainWindows;
+    QList<QPointer<QupZilla> > m_mainWindows;
 
     QString m_activeProfil;
     QString m_activeLanguage;

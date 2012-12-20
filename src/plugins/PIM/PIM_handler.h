@@ -24,7 +24,7 @@
 #include <QMessageBox>
 #include <QWebHitTestResult>
 #include <QMenu>
-#include <QWeakPointer>
+#include <QPointer>
 #include <QHash>
 
 class WebView;
@@ -81,8 +81,8 @@ private:
     QHash<PI_Type, QStringList> m_infoMatches;
     QHash<PI_Type, QString> m_translations;
 
-    QWeakPointer<PIM_Settings> m_settings;
-    QWeakPointer<WebView> m_view;
+    QPointer<PIM_Settings> m_settings;
+    QPointer<WebView> m_view;
     QWebElement m_element;
 
     QString m_settingsFile;

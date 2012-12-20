@@ -23,6 +23,7 @@
 
 #include "qz_namespace.h"
 
+class QSslCertificate;
 class QFontMetrics;
 class QPixmap;
 class QIcon;
@@ -55,6 +56,10 @@ QPixmap QT_QUPZILLA_EXPORT qz_createPixmapForSite(const QIcon &icon, const QStri
 QString QT_QUPZILLA_EXPORT qz_applyDirectionToPage(QString &pageContents);
 
 QString QT_QUPZILLA_EXPORT qz_buildSystem();
+
+// Qt5 migration help functions
+bool QT_QUPZILLA_EXPORT qz_isCertificateValid(const QSslCertificate &cert);
+QString QT_QUPZILLA_EXPORT qz_escape(const QString &string);
 
 template <typename T>
 bool qz_listContainsIndex(const QList<T> &list, int index)

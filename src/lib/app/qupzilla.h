@@ -20,7 +20,6 @@
 
 #include <QMainWindow>
 #include <QUrl>
-#include "qwebkitversion.h"
 
 #include "restoremanager.h"
 #include "qz_namespace.h"
@@ -265,11 +264,11 @@ private:
 
     QLabel* m_privateBrowsing;
     AdBlockIcon* m_adblockIcon;
-    QWeakPointer<WebInspectorDockWidget> m_webInspectorDock;
+    QPointer<WebInspectorDockWidget> m_webInspectorDock;
 
     BookmarksToolbar* m_bookmarksToolbar;
     TabWidget* m_tabWidget;
-    QWeakPointer<SideBar> m_sideBar;
+    QPointer<SideBar> m_sideBar;
     SideBarManager* m_sideBarManager;
     StatusBarMessage* m_statusBarMessage;
     NavigationBar* m_navigationBar;
@@ -294,7 +293,7 @@ private:
     bool m_navigationVisible;
     bool m_bookmarksToolBarVisible;
 
-    QList<QWeakPointer<QWidget> > m_deleteOnCloseWidgets;
+    QList<QPointer<QWidget> > m_deleteOnCloseWidgets;
 };
 
 #endif // QUPZILLA_H

@@ -22,7 +22,7 @@
 
 #include <QObject>
 #include <QPoint>
-#include <QWeakPointer>
+#include <QPointer>
 
 class QPixmap;
 
@@ -48,7 +48,7 @@ private:
     Type m_notifType;
     QPoint m_position;
 
-    QWeakPointer<DesktopNotification> m_desktopNotif;
+    QPointer<DesktopNotification> m_desktopNotif;
     quint32 m_uint;
 };
 

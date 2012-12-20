@@ -19,6 +19,7 @@
 #ifndef REGISTERQAPPASSOCIATION_H
 #define REGISTERQAPPASSOCIATION_H
 
+#include <QObject>
 #include <QHash>
 #include <QPair>
 

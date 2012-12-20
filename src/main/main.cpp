@@ -31,6 +31,12 @@
 #include <QDateTime>
 #include <QTextStream>
 
+#if QT_VERSION >= 0x050000
+#include <QWebPage>
+#else
+#include "qwebkitversion.h"
+#endif
+
 void qupzilla_signal_handler(int s)
 {
     switch (s) {
