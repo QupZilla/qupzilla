@@ -891,9 +891,6 @@ void MainApplication::aboutToCloseWindow(QupZilla* window)
     m_mainWindows.removeOne(window);
 }
 
-// Version of session.dat file
-static const int sessionVersion = 0x0003;
-
 bool MainApplication::saveStateSlot()
 {
     if (m_isPrivateSession || m_isRestoring || m_mainWindows.count() == 0 || m_restoreManager) {
@@ -904,7 +901,7 @@ bool MainApplication::saveStateSlot()
     file.open(QIODevice::WriteOnly);
     QDataStream stream(&file);
 
-    stream << sessionVersion;
+    stream << Qz::sessionVersion;
     stream << m_mainWindows.count();
 
     for (int i = 0; i < m_mainWindows.count(); i++) {

@@ -20,8 +20,9 @@
 #define RESTOREMANAGER_H
 
 #include "webtab.h"
+#include "qz_namespace.h"
 
-class RestoreManager
+class QT_QUPZILLA_EXPORT RestoreManager
 {
 public:
     struct WindowData {
