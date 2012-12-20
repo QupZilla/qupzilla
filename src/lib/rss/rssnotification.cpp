@@ -62,6 +62,8 @@ RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView*
               << RssApp("Yahoo!", "http://add.my.yahoo.com/rss?url=", QIcon(":/icons/sites/yahoo.png"));
 
 #ifdef Q_WS_X11
+    // TODO: Not really clever solution.
+    // It should look in PATH
     if (QFile("/usr/bin/akregator").exists()) {
         m_rssApps << RssApp("Akregator", "/usr/bin/akregator -a ", QIcon(":/icons/sites/akregator.png"), DesktopApplication);
     }

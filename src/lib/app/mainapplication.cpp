@@ -357,6 +357,7 @@ void MainApplication::loadSettings()
         m_websettings->enablePersistentStorage(m_activeProfil);
         m_websettings->setAttribute(QWebSettings::LocalStorageEnabled, settings.value("HTML5StorageEnabled", true).toBool());
     }
+
     m_websettings->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
     m_websettings->setAttribute(QWebSettings::PluginsEnabled, settings.value("allowFlash", true).toBool());
     m_websettings->setAttribute(QWebSettings::JavascriptEnabled, settings.value("allowJavaScript", true).toBool());
@@ -854,8 +855,7 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
 {
     // Set default white background for all sites
     // Fixes issue with dark themes when sites don't set background
-
-    QString userStyle /*= "body{background-color:white;}"*/;
+    QString userStyle /*= "html{background-color:white;}"*/;
     userStyle += AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}";
 
     QFile file(filePath);
