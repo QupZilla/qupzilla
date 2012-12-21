@@ -1156,6 +1156,8 @@ void WebView::setZoom(int zoom)
 ///
 bool WebView::eventFilter(QObject* obj, QEvent* event)
 {
+// This hack is no longer needed with Qt 5
+#if QT_VERSION < 0x050000
     if (obj != this || m_disableTouchMocking) {
         return false;
     }
@@ -1215,7 +1217,7 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
 
         return false;
     }
-
+#endif
     return QWebView::eventFilter(obj, event);
 }
 
