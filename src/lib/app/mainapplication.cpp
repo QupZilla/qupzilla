@@ -372,6 +372,10 @@ void MainApplication::loadSettings()
     m_websettings->setMaximumPagesInCache(settings.value("maximumCachedPages", 3).toInt());
     m_websettings->setDefaultTextEncoding(settings.value("DefaultEncoding", m_websettings->defaultTextEncoding()).toString());
 
+#if QT_VERSION >= 0x050000
+    m_websettings->setAttribute(QWebSettings::ScrollAnimatorEnabled, settings.value("AnimateScrolling", true).toBool());
+#endif
+
 #ifdef USE_WEBGL
     m_websettings->setAttribute(QWebSettings::WebGLEnabled, true);
     m_websettings->setAttribute(QWebSettings::AcceleratedCompositingEnabled, true);

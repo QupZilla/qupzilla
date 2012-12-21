@@ -99,8 +99,8 @@ void CookieJar::loadSettings()
 
 #if QT_VERSION >= 0x050000
     mApp->webSettings()->setThirdPartyCookiePolicy(m_blockThirdParty ?
-                                                       QWebSettings::AlwaysBlockThirdPartyCookies :
-                                                       QWebSettings::AlwaysAllowThirdPartyCookies);
+            QWebSettings::AlwaysBlockThirdPartyCookies :
+            QWebSettings::AlwaysAllowThirdPartyCookies);
 #endif
 }
 

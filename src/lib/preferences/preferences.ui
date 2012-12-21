@@ -167,7 +167,16 @@
        <item row="4" column="2">
         <widget class="QFrame" name="newTabFrame">
          <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
@@ -498,7 +507,16 @@
            <string>Themes</string>
           </attribute>
           <layout class="QGridLayout" name="gridLayout_22">
-           <property name="margin">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
             <number>0</number>
            </property>
            <item row="0" column="0">
@@ -1033,6 +1051,13 @@
               <widget class="QCheckBox" name="linksInFocusChain">
                <property name="text">
                 <string extracomment="focus also links on page (basically &lt;a&gt; elements) when pressing Tab key">Include links in focus chain</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="animateScrolling">
+               <property name="text">
+                <string>Animated scrolling</string>
                </property>
               </widget>
              </item>
@@ -2336,7 +2361,16 @@
           </sizepolicy>
          </property>
          <layout class="QHBoxLayout" name="pluginsFrame">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
          </layout>

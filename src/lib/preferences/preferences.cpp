@@ -244,6 +244,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->allowDNSPrefetch->setChecked(settings.value("DNS-Prefetch", false).toBool());
     ui->linksInFocusChain->setChecked(settings.value("IncludeLinkInFocusChain", false).toBool());
     ui->zoomTextOnly->setChecked(settings.value("zoomTextOnly", false).toBool());
+    ui->animateScrolling->setChecked(settings.value("AnimateScrolling", true).toBool());
     ui->printEBackground->setChecked(settings.value("PrintElementBackground", true).toBool());
     ui->wheelScroll->setValue(settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt());
     ui->defaultZoom->setValue(settings.value("DefaultZoom", 100).toInt());
@@ -890,6 +891,7 @@ void Preferences::saveSettings()
     settings.setValue("JavaScriptCanAccessClipboard", ui->jscanAccessClipboard->isChecked());
     settings.setValue("IncludeLinkInFocusChain", ui->linksInFocusChain->isChecked());
     settings.setValue("zoomTextOnly", ui->zoomTextOnly->isChecked());
+    settings.setValue("AnimateScrolling", ui->animateScrolling->isChecked());
     settings.setValue("PrintElementBackground", ui->printEBackground->isChecked());
     settings.setValue("wheelScrollLines", ui->wheelScroll->value());
     settings.setValue("DoNotTrack", ui->doNotTrack->isChecked());
