@@ -1010,7 +1010,8 @@ void QupZilla::aboutToShowEncodingMenu()
     const QString &activeCodec = mApp->webSettings()->defaultTextEncoding();
 
     foreach(const QByteArray & name, available) {
-        if (QTextCodec::codecForName(name)->aliases().contains(name)) {
+        QTextCodec* codec = QTextCodec::codecForName(name);
+        if (codec && codec->aliases().contains(name)) {
             continue;
         }
 
