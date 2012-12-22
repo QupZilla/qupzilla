@@ -401,6 +401,12 @@ void QupZilla::setupMenu()
     m_menuEncoding = new QMenu(this);
     actionEncoding->setMenu(m_menuEncoding);
     connect(m_menuEncoding, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
+#if QT_VERSION >= 0x050000
+    m_actionCaretBrowsing = new QAction(tr("Enable &Caret Browsing"), this);
+    m_actionCaretBrowsing->setCheckable(true);
+    m_actionCaretBrowsing->setShortcut(QKeySequence("F7"));
+    connect(m_actionCaretBrowsing, SIGNAL(triggered()), this, SLOT(triggerCaretBrowsing()));
+#endif
 
     QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
 #ifndef Q_OS_MAC
@@ -422,6 +428,9 @@ void QupZilla::setupMenu()
     m_menuView->addAction(QIcon::fromTheme("zoom-out"), tr("Zoom &Out"), this, SLOT(zoomOut()))->setShortcut(QKeySequence("Ctrl+-"));
     m_menuView->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(zoomReset()))->setShortcut(QKeySequence("Ctrl+0"));
     m_menuView->addSeparator();
+#if QT_VERSION >= 0x050000
+    m_menuView->addAction(m_actionCaretBrowsing);
+#endif
     m_menuView->addAction(actionEncoding);
     m_menuView->addSeparator();
     m_menuView->addAction(QIcon::fromTheme("text-html"), tr("&Page Source"), this, SLOT(showSource()))->setShortcut(QKeySequence("Ctrl+U"));
@@ -969,6 +978,10 @@ void QupZilla::aboutToShowViewMenu()
 #endif
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
+
+#if QT_VERSION >= 0x050000
+    m_actionCaretBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled));
+#endif
 }
 
 void QupZilla::aboutToShowEditMenu()
@@ -1074,6 +1087,20 @@ void QupZilla::changeEncoding()
         reload();
     }
 }
+
+#if QT_VERSION >= 0x050000
+void QupZilla::triggerCaretBrowsing()
+{
+    bool enable = !mApp->webSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled);
+
+    Settings settings;
+    settings.beginGroup("Web-Browser-Settings");
+    settings.setValue("CaretBrowsing", enable);
+    settings.endGroup();
+
+    mApp->webSettings()->setAttribute(QWebSettings::CaretBrowsingEnabled, enable);
+}
+#endif
 
 void QupZilla::bookmarkPage()
 {

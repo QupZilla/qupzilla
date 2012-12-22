@@ -188,6 +188,10 @@ private slots:
     void fullScreen(bool make);
     void changeEncoding();
 
+#if QT_VERSION >= 0x050000
+    void triggerCaretBrowsing();
+#endif
+
     void closeWindow();
     bool quitApp();
 #ifdef Q_OS_WIN
@@ -260,6 +264,7 @@ private:
     QAction* m_actionPrivateBrowsing;
     QAction* m_actionStop;
     QAction* m_actionReload;
+    QAction* m_actionCaretBrowsing;
     QAction* m_actionRestoreTab;
 
     QLabel* m_privateBrowsing;

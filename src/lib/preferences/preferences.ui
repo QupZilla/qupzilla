@@ -1062,6 +1062,13 @@
               </widget>
              </item>
              <item>
+              <widget class="QCheckBox" name="caretBrowsing">
+               <property name="text">
+                <string>Enable caret browsing</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QCheckBox" name="zoomTextOnly">
                <property name="text">
                 <string>Zoom text only</string>
