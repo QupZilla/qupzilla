@@ -61,9 +61,11 @@ QString UserAgentManager::userAgentForUrl(const QUrl &url) const
         }
     }
 
+#if QT_VERSION < 0x050000
     if (host.contains(QLatin1String("google"))) {
         return m_fakeUserAgent;
     }
+#endif
 
     return m_globalUserAgent;
 }
