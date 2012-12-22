@@ -2591,6 +2591,10 @@
         <source>Make QupZilla default</source>
         <translation>QupZillaを規定にする</translation>
     </message>
+    <message>
+        <source>Animated scrolling</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

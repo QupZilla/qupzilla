@@ -249,12 +249,12 @@
 <context>
     <name>AdBlockManager</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/adblockschemehandler.cpp" line="58"/>
+        <location filename="../src/lib/network/schemehandlers/adblockschemehandler.cpp" line="67"/>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
         <translation>Anda ingin menambahkan &lt;b&gt;%1&lt;/b&gt;?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/adblockschemehandler.cpp" line="60"/>
+        <location filename="../src/lib/network/schemehandlers/adblockschemehandler.cpp" line="69"/>
         <source>AdBlock Subscription</source>
         <translation>Langganan AdBlock</translation>
     </message>
@@ -1223,8 +1223,8 @@
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="114"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="218"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="233"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="219"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="234"/>
         <source>Server:</source>
         <translation>Server:</translation>
     </message>
@@ -1250,12 +1250,12 @@
         <location filename="../src/lib/cookies/cookiemanager.ui" line="172"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="182"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="192"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="119"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="120"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="121"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="122"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="123"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="124"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="125"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation>&lt;cookie tidak dipilih&gt;</translation>
     </message>
@@ -1302,53 +1302,53 @@
         <translation>Cookie dari server-server ini akan SELALU ditolak</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="139"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="140"/>
         <source>Remove cookie</source>
         <translation>Hapus cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="54"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="55"/>
         <source>Search</source>
         <translation>Cari</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="66"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="67"/>
         <source>Confirmation</source>
         <translation>Konfirmasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="67"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="68"/>
         <source>Are you sure to delete all cookies on your computer?</source>
         <translation>Anda yakin untuk menghapus seluruh cookie di komputer anda?</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="218"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="219"/>
         <source>Add to whitelist</source>
         <translation>Tambahkan ke daftar putih</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="233"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="234"/>
         <source>Add to blacklist</source>
         <translation>Tambahkan ke daftar hitam</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="224"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="126"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="127"/>
         <source>Remove cookies</source>
         <translation>Hapus cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="136"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="137"/>
         <source>Secure only</source>
         <translation>Hanya yang aman</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="136"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="137"/>
         <source>All connections</source>
         <translation>Seluruh koneksi</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="137"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="138"/>
         <source>Session cookie</source>
         <translation>Cookie sesi</translation>
     </message>
@@ -1356,13 +1356,13 @@
 <context>
     <name>DownloadFileHelper</name>
     <message>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="157"/>
         <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="162"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="167"/>
         <source>Save file as...</source>
         <translation>Simpan berkas sebagai...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="266"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="281"/>
         <source>NoNameDownload</source>
         <translation>PengunduhanTanpaNama</translation>
     </message>
@@ -1919,33 +1919,33 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="65"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="66"/>
         <source>Add RSS from this page...</source>
         <translation>Tambahkan RSS dari halaman ini...</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="122"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="123"/>
         <source>Enter URL address or search on %1</source>
         <translation>Masukkan URL alamat atau cari di %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="315"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="316"/>
         <source>Paste And &amp;Go</source>
         <translation>Tempel dan &amp;Tuju</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="321"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="322"/>
         <source>Clear All</source>
         <translation>Bersihkan Semua</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="526"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="527"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.co.id</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/siteicon.cpp" line="33"/>
+        <location filename="../src/lib/navigation/siteicon.cpp" line="35"/>
         <source>Show information about this page</source>
         <translation>Tampilkan informasi tentang halaman ini</translation>
     </message>
@@ -1961,22 +1961,22 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="825"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="830"/>
         <source>Default Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="826"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="831"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="828"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="833"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="841"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="846"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2029,75 +2029,75 @@
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="191"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="229"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="190"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="228"/>
         <source>SSL Certificate Error!</source>
         <translation>Sertifikat SSL Salah!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="192"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="191"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>Halaman yang akan anda buka memiliki kesalahan di sertifikat SSL sebagai berikut:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="207"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="206"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organisasi: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="209"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="208"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Nama Domain: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="211"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="210"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Tanggal Kadaluarsa: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="217"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="216"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Kesalahan: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="225"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Apa anda ingin membuat sebuah pengecualian untuk sertifikat ini?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="249"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="248"/>
         <source>Authorization required</source>
         <translation>Otorisasi dibutuhkan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="256"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="315"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="255"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="314"/>
         <source>Username: </source>
         <translation>Nama user:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="257"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="316"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="256"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="315"/>
         <source>Password: </source>
         <translation>Sandi:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="262"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="261"/>
         <source>Save username and password on this site</source>
         <translation>Simpan nama user dan sandi untuk situs ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="271"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="270"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Nama user dan sandi diminta oleh %1. Situs mengatakan: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="308"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
         <source>Proxy authorization required</source>
         <translation>Otorisasi proxy dibutuhkan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="328"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="327"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Nama user dan sandi diminta oleh proxy %1. </translation>
     </message>
@@ -2110,7 +2110,7 @@
         <translation>Halaman Layar</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="57"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="63"/>
         <source>Save Page Screen...</source>
         <translation>Simpan Halaman Layar....</translation>
     </message>
@@ -2212,145 +2212,145 @@
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="268"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="277"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
         <translation>&lt;b&gt;Pembukaan&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="278"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="287"/>
         <source>After launch: </source>
         <translation>Purna Pembukaan:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="286"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="295"/>
         <source>Open blank page</source>
         <translation>Buka halaman kosong</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="291"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="343"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="300"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="352"/>
         <source>Open homepage</source>
         <translation>Buka halaman rumah</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="296"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="348"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="305"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="357"/>
         <source>Open speed dial</source>
         <translation>Buka panggilan cepat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="301"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="310"/>
         <source>Restore session</source>
         <translation>Kembalikan sesi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="309"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="318"/>
         <source>Homepage: </source>
         <translation>Halaman Rumah:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="330"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="339"/>
         <source>On new tab: </source>
         <translation>Di tab baru:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="338"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="347"/>
         <source>Open blank tab</source>
         <translation>Buka tab kosong</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="353"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="362"/>
         <source>Open other page...</source>
         <translation>Buka halaman lain...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="361"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="370"/>
         <source>&lt;b&gt;Profiles&lt;/b&gt;</source>
         <translation>&lt;b&gt;Profil&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="368"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="377"/>
         <source>Startup profile:</source>
         <translation>Profil Awal:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="226"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="235"/>
         <source>Create New</source>
         <translation>Buat Baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="242"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="251"/>
         <source>Delete</source>
         <translation>Hapus</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="210"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="766"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="219"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="767"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Catatan: Anda tidak dapat menghapus profil aktif.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="375"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="384"/>
         <source>Check for updates on start</source>
         <translation>Cek perbaruan saat mulai</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="498"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="507"/>
         <source>Themes</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="511"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="529"/>
         <source>Advanced options</source>
         <translation>Opsi Lanjutan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="517"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="535"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
         <translation>&lt;b&gt;Jendela Peramban&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="555"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="573"/>
         <source>Show StatusBar on start</source>
         <translation>Tampilkan StatusBar saat mulai</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="562"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="580"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>Tampilkan ToolBar Bookmark saat mulai</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="569"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="587"/>
         <source>Show Navigation ToolBar on start</source>
         <translation>Tampilkan ToolBar Navigasi saat mulai</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="578"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="596"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
         <translation>&lt;b&gt;ToolBar Navigasi&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="585"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="603"/>
         <source>Show Home button</source>
         <translation>Tampilkan tombol Rumah</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="592"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="610"/>
         <source>Show Back / Forward buttons</source>
         <translation>Tampilkan tombol Mundur / Maju</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="633"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="651"/>
         <source>Show Add Tab button</source>
         <translation>Tampilkan tombol Tambah Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="599"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="617"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
         <translation>&lt;b&gt;Latar&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="619"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="637"/>
         <source>Use transparent background</source>
         <translation>Gunakan latar transparan</translation>
     </message>
@@ -2359,7 +2359,7 @@
         <translation type="obsolete">&lt;b&gt;Perilaku Tab&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="712"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="730"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>Sembunyikan tab jika hanya ada satu tab</translation>
     </message>
@@ -2368,124 +2368,124 @@
         <translation type="obsolete">&lt;b&gt;Perilaku Bilah Alamat&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="929"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="947"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>Pilih seluruh teks dengan mengklik dua kali pada bilah alamat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="943"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="961"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Tambahkan domain .co.id dengan menekan tombol ALT</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="719"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="737"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Pindah ke tab terakhir saat menutup tab aktif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="747"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="765"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Konfirmasi saat menutup beberapa tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="936"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="954"/>
         <source>Select all text by clicking in address bar</source>
         <translation>Pilih seluruh teks dengan mengklik pada bilah alamat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="985"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1003"/>
         <source>Web Configuration</source>
         <translation>Konfigurasi Web</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1007"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1025"/>
         <source>Allow JAVA</source>
         <translation>Ijinkan JAVA</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1000"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1018"/>
         <source>Allow JavaScript</source>
         <translation>Ijinkan JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="179"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="321"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="188"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="330"/>
         <source>Use current</source>
         <translation>Gunakan yang sekarang</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="382"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="391"/>
         <source>Active profile:</source>
         <translation>Profil Aktif:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="740"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="758"/>
         <source>Don&apos;t quit upon closing last tab</source>
         <translation>Jangan berhenti saat menutup tab terakhir</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="754"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="772"/>
         <source>Closed tabs list instead of opened in tab bar</source>
         <translation>Tutup daftar tab daripada membukanya di bilah tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="726"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="744"/>
         <source>Open new tabs after active tab</source>
         <translation>Buka tab baru setelah tab aktif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1014"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1032"/>
         <source>Allow DNS Prefetch</source>
         <translation>Ijinkan Prapengambilan DNS</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2021"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2046"/>
         <source>JavaScript can access clipboard</source>
         <translation>JavaScript dapat mengakses clipboard</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2086"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2111"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Kirimkan kepala Do Not Track ke server</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1042"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1067"/>
         <source>Zoom text only</source>
         <translation>Hanya perbesar teks</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1028"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1046"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translatorcomment>ketika anda mencetak halaman (dengan printer), opsi ini menentukan apakah elemen html latar akan dicetak atau tidak </translatorcomment>
         <translation>Cetak elemen latar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1035"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1053"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translatorcomment>Ikutsertakan tautan pada saat memindah fokus (blok kursor) dengan tombol tab</translatorcomment>
         <translation>Ikutsertakan tautan dalam rantai fokus</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1021"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1039"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translatorcomment>mendeteksi kemungkinan adanya serangan XSS saat mengeksekusi javascript</translatorcomment>
         <translation>Aktifkan Audit XSS</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1059"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1084"/>
         <source>Mouse wheel scrolls</source>
         <translation>Putaran roda mouse</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1079"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1104"/>
         <source>lines on page</source>
         <translation>baris pada halaman</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1090"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1115"/>
         <source>Default zoom on pages: </source>
         <translation>Default perbesaran pada halaman: </translation>
     </message>
@@ -2495,27 +2495,27 @@
         <translation>Ekstensi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="436"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="445"/>
         <source>Don&apos;t load tabs until selected</source>
         <translation>Jangan muat tab sebelum dipilih</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="667"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="685"/>
         <source>Show tab previews</source>
         <translation>Tampilkan pratayang tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="690"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="708"/>
         <source>Make tab previews animated</source>
         <translation>Animasikan pratayang tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="626"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="644"/>
         <source>Show web search bar</source>
         <translation>Tampilkan panel pencarian web</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="659"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="677"/>
         <source>Tabs behavior</source>
         <translation>Perilaku tab</translation>
     </message>
@@ -2524,318 +2524,323 @@
         <translation type="obsolete">Tampilkan tombol tutup pada tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="733"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="751"/>
         <source>Automatically switch to newly opened tab</source>
         <translation>Otomatis pindah ke tab baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="775"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="793"/>
         <source>Address Bar behavior</source>
         <translation>Perilaku Bilah Alamat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="783"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="801"/>
         <source>Suggest when typing into address bar:</source>
         <translation>Sarankan saat mengetik di panel alamat:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="797"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="815"/>
         <source>History and Bookmarks</source>
         <translation>Sejarah dan Bookmark</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="802"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="820"/>
         <source>History</source>
         <translation>Sejarah</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="807"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="825"/>
         <source>Bookmarks</source>
         <translation>Bookmark</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="812"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="830"/>
         <source>Nothing</source>
         <translation>Tidak ada</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="838"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="856"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="841"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="859"/>
         <source>Propose to switch tab if completed url is already loaded.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="848"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="866"/>
         <source>Show loading progress in address bar</source>
         <translation>Tampilkan perkembangan pemuatan di bilah alamat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="859"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="877"/>
         <source>Fill</source>
         <translation>Isi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="864"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="882"/>
         <source>Bottom</source>
         <translation>Bawah</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="869"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="887"/>
         <source>Top</source>
         <translation>Atas</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="877"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="895"/>
         <source>If unchecked the bar will adapt to the background color.</source>
         <translation>Bilah akan menggunakan warna latar jika tidak dipilih.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="880"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="898"/>
         <source>custom color:</source>
         <translation>warna khusus:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="890"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="908"/>
         <source>Select color</source>
         <translation>Pilih warna</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="900"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="918"/>
         <source>Many styles use Highlight color for the progressbar.</source>
         <translation>Banyak gaya menggunakan Penyorotan berwarna pada bilah perkembangan.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="903"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="921"/>
         <source>set to &quot;Highlight&quot; color</source>
         <translation>Ubah ke &quot;Penyorotan&quot; berwana</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="950"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="968"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head&gt;/&lt;body&gt;&lt;p&gt;Jika diaktifkan maka mesin pencarian utama akan digunakan untuk pencarian tanpa shortcut di bilah alamat dan tidak menggunakan mesin pencari yang telah dipilih di bilah pencarian web&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="953"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="971"/>
         <source>Search with Default Engine</source>
         <translation>Cari menggunakan Mesin Pencari Utama</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="993"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1011"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
         <translation>Ijinkan Pengaya Netscape (pengaya Flash)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1142"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1060"/>
+        <source>Animated scrolling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1167"/>
         <source>Local Storage</source>
         <translation>Penyimpan Lokal</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1150"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1175"/>
         <source>Maximum pages in cache: </source>
         <translation>Halaman maksimum dalam cache: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1169"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1194"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1210"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1235"/>
         <source>Allow storing network cache on disk</source>
         <translation>Ijinkan menyimpan cache jaringan di dalam disk</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1220"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1245"/>
         <source>Maximum </source>
         <translation>Maksimum </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1227"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1252"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1254"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1279"/>
         <source>Allow saving history</source>
         <translation>Ijinkan menyimpan sejarah</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1261"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1286"/>
         <source>Delete history on close</source>
         <translation>Hapus sejarah saat berhenti</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1317"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1342"/>
         <source>Delete now</source>
         <translation>Hapus sekarang</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1356"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1381"/>
         <source>Proxy Configuration</source>
         <translation>Konfigurasi Proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1365"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1390"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1370"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1395"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1383"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1521"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1408"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1546"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1402"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1496"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1427"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1521"/>
         <source>Username:</source>
         <translation>Nama User:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1412"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1503"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1437"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1528"/>
         <source>Password:</source>
         <translation>Sandi:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1438"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1463"/>
         <source>Don&apos;t use on:</source>
         <translation>Jangan gunakan di:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1445"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1470"/>
         <source>Manual configuration</source>
         <translation>Konfigurasi Manual</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1452"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1477"/>
         <source>System proxy configuration</source>
         <translation>Konfigurasi proxy sistem</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1459"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1484"/>
         <source>Do not use proxy</source>
         <translation>Jangan gunakan proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1482"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1507"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Pengecualian&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1489"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1514"/>
         <source>Server:</source>
         <translation>Server:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1540"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1565"/>
         <source>Use different proxy for https connection</source>
         <translation>Gunakan proxy berbeda untuk koneksi https</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1570"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1595"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Famili Huruf&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1583"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1608"/>
         <source>Standard</source>
         <translation>Standar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1590"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1615"/>
         <source>Fixed</source>
         <translation>Fixed</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1600"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1625"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1610"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1635"/>
         <source>Sans Serif</source>
         <translation>Sans-Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1620"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1645"/>
         <source>Cursive</source>
         <translation>Cursive</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1672"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1697"/>
         <source>Fantasy</source>
         <translation>Fantasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1679"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1704"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ukuran Huruf&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1688"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1713"/>
         <source>Fixed Font Size</source>
         <translation>Ukuran Huruf Fixed</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1695"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1720"/>
         <source>Default Font Size</source>
         <translation>Ukuran Huruf Default</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1722"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1747"/>
         <source>Minimum Font Size</source>
         <translation>Ukuran Huruf Minimum</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1729"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1754"/>
         <source>Minimum Logical Font Size</source>
         <translation>Ukuran Logis Minimal Huruf</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1762"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1787"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1782"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1807"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1789"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1814"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1800"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1825"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Lokasi Unduhan&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1807"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1832"/>
         <source>Ask everytime for download location</source>
         <translation>Konfirmasi lokasi tiap kali mengunduh</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1814"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1839"/>
         <source>Use defined location: </source>
         <translation>Gunakan lokasi tetap: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="893"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1826"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1931"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2369"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="911"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1851"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1956"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2403"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -2845,94 +2850,94 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="458"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="467"/>
         <source>Check to see if QupZilla is the default browser on startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="468"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="477"/>
         <source>Check Now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="640"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="658"/>
         <source>Show Reload / Stop buttons</source>
         <translation>Tampilkan tombol Muat-ulang / Berhenti</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1864"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1889"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Opsi Pengunduhan&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1871"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1896"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Gunakan dialog berkas asli sistem
 (dapat menimbulkan masalah pada pengunduhan yang menggunakan SSL)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1879"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1904"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Tutup manajer pengunduhan setelah pengunduhan selesai</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1886"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1911"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Manajer pengunduhan eksternal&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1893"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1918"/>
         <source>Use external download manager</source>
         <translation>Gunakan manajer pengunduhan eksternal</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1905"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1930"/>
         <source>Executable:</source>
         <translation>Eksekutor:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1912"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1937"/>
         <source>Arguments:</source>
         <translation>Argumen:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1919"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1944"/>
         <source>Leave blank if unsure</source>
         <translation>Biarkan kosong jika ragu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1959"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1984"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Opsi pengisian otomatis&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1966"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1991"/>
         <source>Allow saving passwords from sites</source>
         <translation>Ijinkan menyimpan sandi dari situs</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2049"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2074"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookie&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2449"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2483"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ganti identitas peramban&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2474"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2508"/>
         <source>User Agent Manager</source>
         <translation>Manajer Agen Pengguna</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2042"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2067"/>
         <source>Filter tracking cookies</source>
         <translation>Saring cookie penelusuran</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2192"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2217"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Peringatan&lt;/b&gt; Opsi kecocokan domain dan penyaringan cookie penelusuran dapat menyebabkan ditolaknya cookie dari beberapa situs. Jika anda mendapatkan masalah dengan cookie, coba nonaktifkan opsi ini dahulu!</translation>
     </message>
@@ -2941,128 +2946,128 @@
         <translation type="obsolete">Ganti identitas peramban:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2056"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2081"/>
         <source>Allow storing of cookies</source>
         <translation>Ijinkan untuk menyimpan cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1284"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1309"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>Ijinkan untuk menyimpan secara lokal isi web HTML5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1291"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1316"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Hapus isi web HTML5 yang disimpan secara lokal saat berhenti</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2100"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2125"/>
         <source>Manage CA certificates</source>
         <translation>Kelola Sertifikat CA</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2162"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2187"/>
         <source>Delete cookies on close</source>
         <translation>Hapus cookie saat berhenti</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2079"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2104"/>
         <source>Match domain exactly</source>
         <translation>Cocokkan domain</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2142"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2167"/>
         <source>Cookies Manager</source>
         <translation>Manajer Cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2185"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2210"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sertifikat SSL&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2093"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2352"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2118"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2386"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Lainnya&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2035"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2060"/>
         <source>Send Referer header to servers</source>
         <translation>Kirimkan kepala Acuan ke server</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2028"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2053"/>
         <source>Block popup windows</source>
         <translation>Blokir jendela popup</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2155"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2180"/>
         <source>Certificate Manager</source>
         <translation>Manajer Sertifikat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2206"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2231"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Notifikasi&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2213"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2238"/>
         <source>Use OSD Notifications</source>
         <translation>Gunakan Notifikasi OSD</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2223"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2248"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Gunakan Notifikasi Asli Sistem (hanya Linux)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2255"/>
         <source>Do not use Notifications</source>
         <translation>Jangan gunakan Notifikasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2281"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2306"/>
         <source>Expiration timeout:</source>
         <translation>Batas waktu notifikasi:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2294"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2319"/>
         <source> seconds</source>
         <translation> detik</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2303"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2328"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Catatan: &lt;/b&gt;Anda dapat mengubah posisi OSD Notifikasi dengan menggeretnya di layar.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="403"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="412"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;Bahasa&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="424"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="433"/>
         <source>Available translations: </source>
         <translation>Terjemahan yang tersedia: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="396"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="405"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>Untuk mengganti bahasa, peramban harus direstart.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2359"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2393"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>StyleSheet yang otomatis dimuat untuk semua website: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2378"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2412"/>
         <source>Languages</source>
         <translation>Bahasa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2400"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2434"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Bahasa utama untuk situs web&lt;/b&gt;</translation>
     </message>
@@ -3118,7 +3123,7 @@
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="108"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="516"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="517"/>
         <source>QupZilla is default</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3128,73 +3133,73 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="500"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="501"/>
         <source>OSD Notification</source>
         <translation>OSD Notifikasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="501"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="502"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Geret OSD di layar untuk memposisikannya.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="539"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="540"/>
         <source>Choose download location...</source>
         <translation>Pilih lokasi unduhan...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="553"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="554"/>
         <source>Choose stylesheet location...</source>
         <translation>Pilih lokasi stylesheet...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="564"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="565"/>
         <source>Deleted</source>
         <translation>Terhapus</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="570"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="571"/>
         <source>Choose executable location...</source>
         <translation>Pilih lokasi eksekutor...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="720"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="721"/>
         <source>New Profile</source>
         <translation>Profil Baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="720"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="721"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Masukkan nama profil baru:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="727"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="731"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="728"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="732"/>
         <source>Error!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="727"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="728"/>
         <source>This profile already exists!</source>
         <translation>Profil tersebut sudah ada!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="731"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="732"/>
         <source>Cannot create profile directory!</source>
         <translation>Tidak dapat membuat direktori profil!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="751"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="752"/>
         <source>Confirmation</source>
         <translation>Konfirmasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="752"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="753"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Anda yakin untuk menghapus secara permanen profil &quot;%1&quot;? Profil yang terhapus tidak dapat dikembalikan!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1035"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1037"/>
         <source>Select Color</source>
         <translation>Pilih Warna</translation>
     </message>
@@ -3207,7 +3212,7 @@
         <translation>Bukan berkas OpenSearch 1.1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/certificateinfowidget.cpp" line="291"/>
+        <location filename="../src/lib/tools/certificateinfowidget.cpp" line="305"/>
         <source>&lt;not set in certificate&gt;</source>
         <translation>&lt;tidak tertera di sertifikat&gt;</translation>
     </message>
@@ -3222,7 +3227,7 @@
         <translation>Simpan berkas sebagai...</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/globalfunctions.cpp" line="271"/>
+        <location filename="../src/lib/tools/globalfunctions.cpp" line="286"/>
         <source>Unknown size</source>
         <translation>Ukuran tidak diketahui</translation>
     </message>
@@ -3263,143 +3268,143 @@
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="286"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="290"/>
         <source>Private Browsing Enabled</source>
         <translation>Perambahan Privat Aktif</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="290"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="294"/>
         <source>IP Address of current page</source>
         <translation>Alamat IP halaman ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="468"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="472"/>
         <source>&amp;Tools</source>
         <translation>&amp;Peralatan</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="491"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="495"/>
         <source>&amp;Help</source>
         <translation>Bant&amp;uan</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="456"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="460"/>
         <source>&amp;Bookmarks</source>
         <translation>&amp;Bookmark</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="431"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="435"/>
         <source>Hi&amp;story</source>
         <translation>&amp;Sejarah</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="325"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="329"/>
         <source>&amp;File</source>
         <translation>&amp;Berkas</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="326"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="330"/>
         <source>&amp;New Window</source>
         <translation>Je&amp;ndela Baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="327"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="331"/>
         <source>New Tab</source>
         <translation>Tab Baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="328"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="332"/>
         <source>Open Location</source>
         <translation>Buka Lokasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="329"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="333"/>
         <source>Open &amp;File</source>
         <translation>Buka &amp;Berkas</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="330"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="619"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="334"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="651"/>
         <source>Close Tab</source>
         <translation>Tutup Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="331"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="335"/>
         <source>Close Window</source>
         <translation>Tutup Jendela</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="334"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="338"/>
         <source>&amp;Save Page As...</source>
         <translation>&amp;Simpan Halaman Sebagai...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="335"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="339"/>
         <source>Save Page Screen</source>
         <translation>Simpan Halaman Layar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="336"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="340"/>
         <source>Send Link...</source>
         <translation>Kirimkan Tautan...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="340"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="344"/>
         <source>Import bookmarks...</source>
         <translation>Impor bookmark...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="310"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="314"/>
         <source>Quit</source>
         <translation>Berhenti</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="352"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="356"/>
         <source>&amp;Edit</source>
         <translation>&amp;Sunting</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="353"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="357"/>
         <source>&amp;Undo</source>
         <translation>&amp;Undo</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="354"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="358"/>
         <source>&amp;Redo</source>
         <translation>&amp;Redo</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="356"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="360"/>
         <source>&amp;Cut</source>
         <translation>&amp;Potong</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="357"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="361"/>
         <source>C&amp;opy</source>
         <translation>S&amp;alin</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="358"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="362"/>
         <source>&amp;Paste</source>
         <translation>&amp;Tempel</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="360"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="364"/>
         <source>Select &amp;All</source>
         <translation>PIlih Semu&amp;a</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="361"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="365"/>
         <source>&amp;Find</source>
         <translation>&amp;Cari</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="305"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="309"/>
         <source>Pr&amp;eferences</source>
         <translation>Pr&amp;eferensi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="117"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="121"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
@@ -3412,283 +3417,283 @@
         <translation type="obsolete">&lt;b&gt;Qupzilla rusak :-(&lt;/b&gt;&lt;br/&gt;Ups, sesi terakhir dari QupZilla telah diinterupsi secara mendadak. Kami minta maaf untuk hal ini. Apakah anda ingin mengembalikan kondisi terakhir yang tersimpan?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="337"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="341"/>
         <source>&amp;Print...</source>
         <translation>&amp;Cetak...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="372"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="376"/>
         <source>&amp;View</source>
         <translation>&amp;Tampilan</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="373"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="377"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Toolbar &amp;Navigasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="376"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="380"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Toolbar &amp;Bookmark</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="379"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="383"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Bilah Sta&amp;tus</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="383"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="387"/>
         <source>&amp;Menu Bar</source>
         <translation>Bilah &amp;Menu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="387"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="391"/>
         <source>&amp;Fullscreen</source>
         <translation>&amp;Fullscreen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="391"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="395"/>
         <source>&amp;Stop</source>
         <translation>&amp;Berhenti</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="394"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="398"/>
         <source>&amp;Reload</source>
         <translation>&amp;Muat Ulang</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="397"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="401"/>
         <source>Character &amp;Encoding</source>
         <translation>&amp;Encoding Karakter</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="402"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="406"/>
         <source>Toolbars</source>
         <translation>Toolbar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="408"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="412"/>
         <source>Sidebars</source>
         <translation>Sidebar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="418"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="422"/>
         <source>Zoom &amp;In</source>
         <translation>Zoom &amp;In</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="419"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="423"/>
         <source>Zoom &amp;Out</source>
         <translation>Zoom &amp;Out</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="420"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="424"/>
         <source>Reset</source>
         <translation>Reset</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="424"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="428"/>
         <source>&amp;Page Source</source>
         <translation>&amp;Page Source</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="440"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="444"/>
         <source>Closed Tabs</source>
         <translation>Tab Tertutup</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="443"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="447"/>
         <source>Recently Visited</source>
         <translation>Kunjungan Terakhir</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="446"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="450"/>
         <source>Most Visited</source>
         <translation>Terbanyak Dikunjungi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="476"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="480"/>
         <source>Web In&amp;spector</source>
         <translation>In&amp;spektur Web</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="502"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="506"/>
         <source>Configuration Information</source>
         <translation>Konfirmasi Informasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="522"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="526"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Restore &amp;Closed Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="704"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="708"/>
         <source> (Private Browsing)</source>
         <translation>(Perambahan Privat)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1785"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1790"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
         <translation>Masih ada %1 tab yang terbuka dan sesi anda tidak akan disimpan. 
 Anda yakin untuk berhenti dari QupZilla?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1786"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1791"/>
         <source>Don&apos;t ask again</source>
         <translation>Jangan tanya lagi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1787"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1792"/>
         <source>There are still open tabs</source>
         <translation>Masih ada tab yang terbuka</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="457"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="461"/>
         <source>Bookmark &amp;This Page</source>
         <translation>Bookmark &amp;Halaman Ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="458"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="462"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Bookmark Selur&amp;uh Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="459"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="463"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>Organisir &amp;Bookmark</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="814"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="844"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="903"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="932"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="957"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="818"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="848"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="907"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="936"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="961"/>
         <source>Empty</source>
         <translation>Kosong</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="432"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="436"/>
         <source>&amp;Back</source>
         <translation>&amp;Mundur</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="433"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="437"/>
         <source>&amp;Forward</source>
         <translation>&amp;Maju</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="434"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="438"/>
         <source>&amp;Home</source>
         <translation>Ruma&amp;h</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="435"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="439"/>
         <source>Show &amp;All History</source>
         <translation>Tampilkan Selur&amp;uh Sejarah</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="906"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="910"/>
         <source>Restore All Closed Tabs</source>
         <translation>Kembalikan Seluruh Tab Yang Ditutup</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="907"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="911"/>
         <source>Clear list</source>
         <translation>Bersihkan daftar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="493"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="497"/>
         <source>About &amp;Qt</source>
         <translation>Tentang &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="497"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="501"/>
         <source>Information about application</source>
         <translation>Informasi tentang aplikasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1383"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1388"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="301"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="305"/>
         <source>&amp;About QupZilla</source>
         <translation>Tent&amp;ang QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="503"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="507"/>
         <source>Report &amp;Issue</source>
         <translation>Laporkan &amp;Isu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="469"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="473"/>
         <source>&amp;Web Search</source>
         <translation>Pencarian &amp;Web</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="470"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="474"/>
         <source>Page &amp;Info</source>
         <translation>&amp;Info Halaman</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="472"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="476"/>
         <source>&amp;Download Manager</source>
         <translation>Manajer &amp;Pengun&amp;duhan</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="473"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="477"/>
         <source>&amp;Cookies Manager</source>
         <translation>Manajer &amp;Cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="474"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="478"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="475"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="479"/>
         <source>RSS &amp;Reader</source>
         <translation>Pembaca &amp;RSS</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="477"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="481"/>
         <source>Clear Recent &amp;History</source>
         <translation>Bersihkan Sejara&amp;h Terkini</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="478"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="482"/>
         <source>&amp;Private Browsing</source>
         <translation>Perambahan &amp;Privat</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1002"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1006"/>
         <source>Other</source>
         <translation>Lainnya</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1476"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1481"/>
         <source>HTML files</source>
         <translation>Berkas HTML</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1476"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1481"/>
         <source>Image files</source>
         <translation>Berkas gambar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1476"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1481"/>
         <source>Text files</source>
         <translation>Berkas teks</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1476"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1481"/>
         <source>All files</source>
         <translation>Semua berkas</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1478"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1483"/>
         <source>Open file...</source>
         <translation>Buka berkas...</translation>
     </message>
@@ -3696,427 +3701,427 @@ Anda yakin untuk berhenti dari QupZilla?</translation>
 <context>
     <name>QupZillaSchemeReply</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="69"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="68"/>
         <source>No Error</source>
         <translation>Tiada Kesalahan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="75"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="74"/>
         <source>Not Found</source>
         <translation>Tidak Ditemukan</translation>
     </message>
     <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="145"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="146"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="147"/>
         <source>Report Issue</source>
         <translation>Laporan Isu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="150"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="149"/>
         <source>Your E-mail</source>
         <translation>Surel Anda</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="151"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="150"/>
         <source>Issue type</source>
         <translation>Tipe isu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="152"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="151"/>
         <source>Issue description</source>
         <translation>Deskripsi isu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="153"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="152"/>
         <source>Send</source>
         <translation>Kirim</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="174"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="173"/>
         <source>Start Page</source>
         <translation>Halaman Awal</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="178"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="177"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="196"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="197"/>
         <source>About QupZilla</source>
         <translation>Tentang QupZilla</translation>
     </message>
     <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="345"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="346"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="347"/>
         <source>Configuration Information</source>
         <translation>Informasi Konfigurasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="350"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
         <source>Browser Identification</source>
         <translation>Indentitas Peramban</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="350"/>
         <source>Paths</source>
         <translation>Lokasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="199"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="198"/>
         <source>Copyright</source>
         <translation>Hak Cipta</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="202"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="358"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="201"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
         <source>Version</source>
         <translation>Versi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="207"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="206"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
         <source>WebKit version</source>
         <translation>Versi WebKit</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="363"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="362"/>
         <source>Application version</source>
         <translation>Versi Aplikasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="367"/>
         <source>Qt version</source>
         <translation>Versi Qt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="370"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
         <source>Build time</source>
         <translation>Waktu pembangunan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="370"/>
         <source>Platform</source>
         <translation>Platform</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
         <source>Preferences</source>
         <translation>Preferensi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="148"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="147"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
         <translation>Jika anda mengalami permasalahan dengan QupZilla, mohon nonaktifkan dahulu semua ekstensi. &lt;br/&gt;Jika hal ini tidak dapat membantu, silakan isi form berikut ini: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
         <source>Build Configuration</source>
         <translation>Konfigurasi Pembangunan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
         <source>Option</source>
         <translation>Opsi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
         <source>Value</source>
         <translation>Nilai</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
         <source>Extensions</source>
         <translation>Ekstensi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
         <source>Name</source>
         <translation>Nama</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="359"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="358"/>
         <source>Author</source>
         <translation>Penulis</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="360"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="359"/>
         <source>Description</source>
         <translation>Deskripsi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
         <source>Settings</source>
         <translation>Pengaturan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
         <source>Saved session</source>
         <translation>Sesi tersimpan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
         <source>Pinned tabs</source>
         <translation>Tab dipinkan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
         <source>Data</source>
         <translation>Data</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
         <source>Themes</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
         <source>Translations</source>
         <translation>Terjemahan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="208"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="207"/>
         <source>Main developer</source>
         <translation>Pengembang Utama</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="154"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="153"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
         <translation>Surel tidak diwajibkan&lt;br/&gt;&lt;b&gt;Catatan: &lt;/b&gt;Mohon baca petunjuk bagaimana mengirimkan laporan bug &lt;a href=%1&gt;di sini&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="175"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="174"/>
         <source>Search on Web</source>
         <translation>Cari di Web</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="176"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="175"/>
         <source>Search results provided by DuckDuckGo</source>
         <translation>Hasil pencarian disediakan oleh DuckDuckGo</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="179"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="178"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Perambahan Privat&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="210"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="209"/>
         <source>Contributors</source>
         <translation>Kontributor</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="221"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="220"/>
         <source>Translators</source>
         <translation>Translator</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="274"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="273"/>
         <source>Speed Dial</source>
         <translation>Panggilan Cepat</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="275"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="274"/>
         <source>Add New Page</source>
         <translation>Tambah Halaman Baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="279"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="278"/>
         <source>Are you sure to remove this speed dial?</source>
         <translation>Anda yakin untuk menghapus panggilan cepat ini?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="283"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="282"/>
         <source>Apply</source>
         <translation>Terapkan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="284"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="283"/>
         <source>Close</source>
         <translation>Tutup</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="286"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="285"/>
         <source>Speed Dial settings</source>
         <translation>Pengaturan Panggilan Cepat</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="287"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="286"/>
         <source>Placement: </source>
         <translation>Peletakan: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="288"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="287"/>
         <source>Auto</source>
         <translation>Oto</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="289"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="288"/>
         <source>Cover</source>
         <translation>Penutup</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="289"/>
         <source>Fit</source>
         <translation>Pas</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
         <source>Fit Width</source>
         <translation>Pas Lebar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
         <source>Fit Height</source>
         <translation>Pas Tinggi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
         <source>Use background image</source>
         <translation>Gunakan gambar latar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
         <source>Select image</source>
         <translation>Pilih gambar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
         <source>Maximum pages in a row:</source>
         <translation>Maksimum halaman dalam satu baris:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
         <source>Change size of pages:</source>
         <translation>Ubah ukuran halaman:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
         <source>Center speed dials</source>
         <translation>Ketengahkan panggilan cepat</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="324"/>
         <source>Restore Session</source>
         <translation>Kembalikan Sesi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
         <source>Oops, QupZilla crashed.</source>
         <translation>Oops, QupZilla rusak.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="327"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
         <translation>Kami mohon maaf untuk ini. Apakah anda ingin mengembalikan sesi terakhir yang tersimpan?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="328"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="327"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
         <translation>Coba tutup satu atau lebih tab yang anda yakini bermasalah</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="329"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="328"/>
         <source>Or you can start completely new session</source>
         <translation>Atau anda dapat memulai sesi yang baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Halaman ini memuat informasi tentang konfigurasi terakhir Qupzilla yang relevan untuk perbaikan. Harap mengikutsertakan informasi ini saat mengirimkan laporan kerusakan.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="427"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="426"/>
         <source>No available extensions.</source>
         <translation>Ekstensi tidak tersedia.</translation>
     </message>
     <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="383"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
         <source>Disabled</source>
         <translation>Dinonaktifkan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="398"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="391"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="397"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
         <translation>&lt;b&gt;Aktifkan&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
         <source>Debug build</source>
         <translation>Pembangunan debug</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="406"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
         <source>WebGL support</source>
         <translation>Dukungan WebGL</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="406"/>
         <source>Windows 7 API</source>
         <translation>API Windows 7</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
         <source>KDE integration</source>
         <translation>Integrasi KDE</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="409"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
         <source>Portable build</source>
         <translation>Pembangunan portabel</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="280"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="279"/>
         <source>Load title from page</source>
         <translation>Muat judul dari halaman</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="276"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="275"/>
         <source>Edit</source>
         <translation>Sunting</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="277"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="276"/>
         <source>Remove</source>
         <translation>Hapus</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="155"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="154"/>
         <source>Please fill out all required fields!</source>
         <translation>Harap isi semua bagian yang dibutuhkan!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="198"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="197"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="347"/>
         <source>Information about version</source>
         <translation>Informasi tentang versi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="278"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="277"/>
         <source>Reload</source>
         <translation>Muat Ulang</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="281"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="280"/>
         <source>Url</source>
         <translation>Url</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="282"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="281"/>
         <source>Title</source>
         <translation>Judul</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="285"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="284"/>
         <source>New Page</source>
         <translation>Halaman Baru</translation>
     </message>
@@ -4276,32 +4281,32 @@ Silakan tambahi dengan menggunakan icon RSS di bilah navigasi bilamana situs men
         <translation>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="78"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="80"/>
         <source>Internal Reader</source>
         <translation>Pembaca internal</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="79"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="81"/>
         <source>Other...</source>
         <translation>Lainnya...</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="122"/>
         <source>Liferea not running</source>
         <translation>Liferea tidak aktif</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="122"/>
         <source>Liferea must be running in order to add new feed.</source>
         <translation>Liferea harus aktif untuk dapat menambahkan feed baru.</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="132"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="134"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
         <translation>Untuk menambahkan RSS feed ke aplikasi lainnya, gunakan informasi ini:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Judul: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Alamat url dari feed ini telah disalin ke clipboard anda.</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="135"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="137"/>
         <source>Add feed into other application</source>
         <translation>Tambahkan feed ke aplikasi lain</translation>
     </message>
@@ -4502,7 +4507,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="48"/>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="270"/>
         <source>Add Search Engine</source>
         <translation>Tambah Mesin Pencari</translation>
     </message>
@@ -4525,27 +4530,27 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="332"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="351"/>
         <source>Search Engine Added</source>
         <translation>Mesin Pencari Ditambahkan</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="332"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="351"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>Mesin Pencari &quot;%1&quot; telah berhasil ditambahkan.</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="339"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="358"/>
         <source>Search Engine is not valid!</source>
         <translation>Mesin Pencari tidak valid!</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="340"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="359"/>
         <source>Error</source>
         <translation>Kesalahan</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="340"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="359"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Kesalahan saat menambahkan Mesin Pencari &lt;br/&gt;&lt;b&gt;Pesan Kesalahan: &lt;/b&gt; %1</translation>
     </message>
@@ -4722,53 +4727,53 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
         <translation>&lt;b&gt;Koneksi anda ke halaman ini diamankan oleh sertifikat ini: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="157"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="156"/>
         <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
         <translation>&lt;b&gt;Koneksi Tidak Diacak.&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="158"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="157"/>
         <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
         <translation>&lt;b&gt;Koneksi anda ke halaman ini tidak diamankan!&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="183"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="182"/>
         <source>Copy Image Location</source>
         <translation>Salin Lokasi Gambar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="184"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="183"/>
         <source>Copy Image Name</source>
         <translation>Salin Nama Gambar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="186"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="185"/>
         <source>Save Image to Disk</source>
         <translation>Simpan Gambar ke Disk</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="226"/>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="238"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="225"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="237"/>
         <source>Error!</source>
         <translation>Kesalahan!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="226"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="225"/>
         <source>This preview is not available!</source>
         <translation>Pratayang ini tidak tersedia!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="232"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="231"/>
         <source>Save image...</source>
         <translation>Simpan gambar...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="238"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="237"/>
         <source>Cannot write to file!</source>
         <translation>Tidak dapat menulis ke berkas!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="276"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="275"/>
         <source>Preview not available</source>
         <translation>Pratayang tidak tersedia</translation>
     </message>
@@ -4781,38 +4786,38 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
         <translation>Selanjutnya...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="43"/>
+        <location filename="../src/lib/webview/siteinfowidget.cpp" line="44"/>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
         <translation>Koneksi anda ke situs ini &lt;b&gt;diamankan&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="47"/>
+        <location filename="../src/lib/webview/siteinfowidget.cpp" line="48"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
         <translation>Koneksi anda ke situs ini &lt;b&gt;tidak diamankan&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="66"/>
+        <location filename="../src/lib/webview/siteinfowidget.cpp" line="67"/>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
         <translation>Anda &lt;b&gt;belum pernah&lt;/b&gt;mengunjungi situs ini sebelumnya.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="73"/>
+        <location filename="../src/lib/webview/siteinfowidget.cpp" line="74"/>
         <source>first</source>
         <translation>satu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="76"/>
+        <location filename="../src/lib/webview/siteinfowidget.cpp" line="77"/>
         <source>second</source>
         <translation>dua</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="79"/>
+        <location filename="../src/lib/webview/siteinfowidget.cpp" line="80"/>
         <source>third</source>
         <translation>tiga</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="62"/>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="81"/>
+        <location filename="../src/lib/webview/siteinfowidget.cpp" line="63"/>
+        <location filename="../src/lib/webview/siteinfowidget.cpp" line="82"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
         <translation>Ini adalah kunjungan anda ke situs ini yang ke &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
@@ -4995,7 +5000,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
 <context>
     <name>SqueezeLabelV2</name>
     <message>
-        <location filename="../src/lib/3rdparty/squeezelabelv2.cpp" line="62"/>
+        <location filename="../src/lib/3rdparty/squeezelabelv2.cpp" line="64"/>
         <source>Copy</source>
         <translation>Salin</translation>
     </message>
@@ -5003,72 +5008,72 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="123"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="124"/>
         <source>&amp;New tab</source>
         <translation>&amp;Tab Baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="131"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="132"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Hentikan Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="134"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="135"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Muat Ulang Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="137"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="138"/>
         <source>&amp;Duplicate Tab</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="138"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="139"/>
         <source>Un&amp;pin Tab</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="138"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="139"/>
         <source>&amp;Pin Tab</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="140"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="141"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Muat &amp;Ulang Seluruh Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="141"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="142"/>
         <source>&amp;Bookmark This Tab</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="142"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="143"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="149"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="149"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="150"/>
         <source>Cl&amp;ose</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="153"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="154"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Muat &amp;Ulang Seluruh Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="154"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="155"/>
         <source>Bookmark &amp;All Ta&amp;bs</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="156"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="157"/>
         <source>Restore &amp;Closed Tab</source>
         <translation></translation>
     </message>
@@ -5076,49 +5081,49 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="133"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="134"/>
         <source>List of tabs</source>
         <translation>Daftar tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="51"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="52"/>
         <source>New Tab</source>
         <translation>Tab Baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="234"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="235"/>
         <source>Loading...</source>
         <translation>Memuat...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="238"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="239"/>
         <source>No Named Page</source>
         <translation>Halaman Tanpa Nama</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="256"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="257"/>
         <source>Currently you have %1 opened tabs</source>
         <translation>Saat ini anda memiliki %1 tab yang terbuka</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="273"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="274"/>
         <location filename="../src/lib/webview/tabwidget.h" line="103"/>
         <location filename="../src/lib/webview/tabwidget.h" line="104"/>
         <source>New tab</source>
         <translation>Tab baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="692"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="693"/>
         <source>Empty</source>
         <translation>Kosong</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="695"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="696"/>
         <source>Restore All Closed Tabs</source>
         <translation>Kembalikan Semua Tab Yang Ditutup</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="696"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="697"/>
         <source>Clear list</source>
         <translation>Bersihkan daftar</translation>
     </message>
@@ -5446,32 +5451,32 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
 <context>
     <name>WebSearchBar</name>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="107"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="109"/>
         <source>Manage Search Engines</source>
         <translation>Kelola Mesin Pencari</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="236"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="238"/>
         <source>Add %1 ...</source>
         <translation>Tambah %1...</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="259"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="261"/>
         <source>Paste And &amp;Search</source>
         <translation>Tempel dan &amp;Cari</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="265"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="267"/>
         <source>Clear All</source>
         <translation>Bersihkan Semua</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="309"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="311"/>
         <source>Show suggestions</source>
         <translation>Tampilkan saran</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="314"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="316"/>
         <source>Search when engine changed</source>
         <translation>Cari setelah mesin diganti</translation>
     </message>

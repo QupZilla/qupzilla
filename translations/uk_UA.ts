@@ -2536,6 +2536,10 @@
         <source>Make QupZilla default</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Animated scrolling</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
