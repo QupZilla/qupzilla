@@ -96,7 +96,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_databaseConnected(false)
     , m_registerQAppAssociation(0)
 {
-#if defined(Q_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
+#if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR;
 #else
     DATADIR = qApp->applicationDirPath() + "/";
@@ -309,7 +309,7 @@ void MainApplication::loadSettings()
     cssFile.open(QFile::ReadOnly);
     QString css = cssFile.readAll();
     cssFile.close();
-#ifdef Q_WS_X11
+#ifdef QZ_WS_X11
     if (QFile(m_activeThemePath + "linux.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "linux.css");
         cssFile.open(QFile::ReadOnly);

@@ -66,9 +66,12 @@ equals(d_disable_dbus, "true") { DEFINES *= DISABLE_DBUS }
 
     DEFINES *= USE_DATADIR=\\\"""$$data_folder/"\\\""
 
-    #Git revision
+    # Git revision
     rev = $$system(cd ../ && sh $$PWD/../scripts/getrevision.sh)
     !equals(rev, ""): DEFINES *= GIT_REVISION=\\\"""$$rev"\\\""
+
+    # Define QZ_WS_X11 even with Qt5
+    DEFINES *= QZ_WS_X11
 }
 
 isEmpty(QMAKE_LRELEASE) {

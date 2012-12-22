@@ -61,7 +61,7 @@ RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView*
               << RssApp("Netvibes", "http://www.netvibes.com/subscribe.php?url=", QIcon(":/icons/sites/netvibes.png"))
               << RssApp("Yahoo!", "http://add.my.yahoo.com/rss?url=", QIcon(":/icons/sites/yahoo.png"));
 
-#ifdef Q_WS_X11
+#ifdef QZ_WS_X11
     // TODO: Not really clever solution.
     // It should look in PATH
     if (QFile("/usr/bin/akregator").exists()) {

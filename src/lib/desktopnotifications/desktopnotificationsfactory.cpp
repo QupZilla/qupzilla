@@ -23,7 +23,7 @@
 #include <QFile>
 #include <QDir>
 
-#if defined(Q_WS_X11) && !defined(DISABLE_DBUS)
+#if defined(QZ_WS_X11) && !defined(DISABLE_DBUS)
 #include <QDBusInterface>
 #endif
 
@@ -40,7 +40,7 @@ void DesktopNotificationsFactory::loadSettings()
     settings.beginGroup("Notifications");
     m_enabled = settings.value("Enabled", true).toBool();
     m_timeout = settings.value("Timeout", 6000).toInt();
-#ifdef Q_WS_X11
+#ifdef QZ_WS_X11
     m_notifType = settings.value("UseNativeDesktop", true).toBool() ? DesktopNative : PopupWidget;
 #else
     m_notifType = PopupWidget;
@@ -51,7 +51,7 @@ void DesktopNotificationsFactory::loadSettings()
 
 bool DesktopNotificationsFactory::supportsNativeNotifications() const
 {
-#if defined(Q_WS_X11) && !defined(DISABLE_DBUS)
+#if defined(QZ_WS_X11) && !defined(DISABLE_DBUS)
     return true;
 #else
     return false;
@@ -77,7 +77,7 @@ void DesktopNotificationsFactory::showNotification(const QPixmap &icon, const QS
         m_desktopNotif.data()->show();
         break;
     case DesktopNative:
-#if defined(Q_WS_X11) && !defined(DISABLE_DBUS)
+#if defined(QZ_WS_X11) && !defined(DISABLE_DBUS)
         QFile tmp(mApp->tempPath() + "/qupzilla_notif.png");
         tmp.open(QFile::WriteOnly);
         icon.save(tmp.fileName());
@@ -104,7 +104,7 @@ void DesktopNotificationsFactory::showNotification(const QPixmap &icon, const QS
 
 void DesktopNotificationsFactory::nativeNotificationPreview()
 {
-#if defined(Q_WS_X11) && !defined(DISABLE_DBUS)
+#if defined(QZ_WS_X11) && !defined(DISABLE_DBUS)
     QFile tmp(mApp->tempPath() + "/qupzilla_notif.png");
     tmp.open(QFile::WriteOnly);
     QPixmap(":icons/preferences/dialog-question.png").save(tmp.fileName());

@@ -35,7 +35,7 @@ public:
     bool isRunning() const;
 
 private:
-#ifdef Q_WS_X11
+#ifdef QZ_WS_X11
     bool IsNumeric(const char* ccharptr_CharacterList) const;
 
     pid_t GetPIDbyName(const char* cchrptr_ProcessName) const;

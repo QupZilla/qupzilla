@@ -158,7 +158,7 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
     case QStyle::SP_MessageBoxWarning:
         return QIcon::fromTheme("dialog-warning", mApp->style()->standardIcon(QStyle::SP_MessageBoxWarning));
 
-#ifdef Q_WS_X11
+#ifdef QZ_WS_X11
     default:
         return mApp->style()->standardIcon(icon);
 #else

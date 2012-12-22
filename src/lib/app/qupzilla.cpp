@@ -81,15 +81,14 @@
 #include <QWebHistory>
 #include <QMessageBox>
 
-#ifdef Q_WS_X11
+#if QT_VERSION < 0x050000
+#include "qwebkitversion.h"
+#ifdef QZ_WS_X11
 #include <QX11Info>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
-#endif
-
-#if QT_VERSION < 0x050000
-#include "qwebkitversion.h"
-#endif
+#endif // QZ_WS_X11
+#endif // QT_VERSION
 
 const QString QupZilla::VERSION = "1.3.5";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
@@ -126,7 +125,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
 
     m_isStarting = true;
 
-#ifndef Q_WS_X11
+#ifndef QZ_WS_X11
     setUpdatesEnabled(false);
 #endif
 
@@ -139,7 +138,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
 
 void QupZilla::postLaunch()
 {
-#ifdef Q_WS_X11
+#ifdef QZ_WS_X11
     setUpdatesEnabled(false);
 #endif
 
@@ -314,7 +313,7 @@ void QupZilla::setupMenu()
     m_actionQuit = new QAction(QIcon::fromTheme("application-exit"), tr("Quit"), 0);
     m_actionQuit->setMenuRole(QAction::QuitRole);
     QKeySequence quitSequence = QKeySequence(QKeySequence::Quit);
-#ifdef Q_WS_X11
+#ifdef QZ_WS_X11
     // QKeySequence::Quit returns a non-empty sequence on X11 only when running Gnome or Kde
     if (quitSequence.isEmpty()) {
         quitSequence = QKeySequence(Qt::CTRL + Qt::Key_Q);
@@ -364,7 +363,7 @@ void QupZilla::setupMenu()
     m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &All"), this, SLOT(editSelectAll()))->setShortcut(QKeySequence("Ctrl+A"));
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
     m_menuEdit->addSeparator();
-#ifdef Q_WS_X11
+#ifdef QZ_WS_X11
     m_menuEdit->addAction(m_actionPreferences);
 #endif
     connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEditMenu()));
@@ -485,7 +484,7 @@ void QupZilla::setupMenu()
     connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), mApp, SLOT(startPrivateBrowsing()));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
-#if !defined(Q_WS_X11) && !defined(Q_OS_MAC)
+#if !defined(QZ_WS_X11) && !defined(Q_OS_MAC)
     m_menuTools->addAction(m_actionPreferences);
 #endif
 
@@ -633,7 +632,7 @@ void QupZilla::loadSettings()
         return;
     }
     //Opacity
-#ifdef Q_WS_X11
+#ifdef QZ_WS_X11
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_NoSystemBackground, false);
     QPalette pal = palette();
@@ -1887,7 +1886,7 @@ bool QupZilla::quitApp()
 
 QByteArray QupZilla::saveState(int version) const
 {
-#ifdef Q_WS_X11
+#if defined(QZ_WS_X11) && QT_VERSION < 0x050000
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
@@ -1902,7 +1901,7 @@ QByteArray QupZilla::saveState(int version) const
 
 bool QupZilla::restoreState(const QByteArray &state, int version)
 {
-#ifdef Q_WS_X11
+#if defined(QZ_WS_X11) && QT_VERSION < 0x050000
     QByteArray windowState;
     int desktopId = -1;
 
@@ -1918,7 +1917,7 @@ bool QupZilla::restoreState(const QByteArray &state, int version)
 #endif
 }
 
-#ifdef Q_WS_X11
+#if defined(QZ_WS_X11) && QT_VERSION < 0x050000
 int QupZilla::getCurrentVirtualDesktop() const
 {
     Display* display = QX11Info::display();
