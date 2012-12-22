@@ -214,7 +214,7 @@ private:
     bool eventFilter(QObject* object, QEvent* event);
 #endif
 
-#if defined(QZ_WS_X11) && QT_VERSION < 0x050000
+#ifdef QZ_WS_X11
     int getCurrentVirtualDesktop() const;
     void moveToVirtualDesktop(int desktopId);
 #endif

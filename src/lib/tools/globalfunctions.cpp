@@ -34,6 +34,9 @@
 
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
+#include <qpa/qplatformnativeinterface.h>
+#else
+#include <QX11Info>
 #endif
 
 QByteArray qz_pixmapToByteArray(const QPixmap &pix)
@@ -376,6 +379,17 @@ QString QT_QUPZILLA_EXPORT qz_escape(const QString &string)
     return string.toHtmlEscaped();
 #else
     return qz_escape(string);
+#endif
+}
+
+void QT_QUPZILLA_EXPORT* qz_X11Display(const QWidget* widget)
+{
+    Q_UNUSED(widget)
+
+#if QT_VERSION >= 0x050000
+    return qApp->platformNativeInterface()->nativeResourceForWindow("display", widget->windowHandle());
+#else
+    return QX11Info::display();
 #endif
 }
 

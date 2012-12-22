@@ -83,12 +83,12 @@
 
 #if QT_VERSION < 0x050000
 #include "qwebkitversion.h"
+#endif
+
 #ifdef QZ_WS_X11
-#include <QX11Info>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
-#endif // QZ_WS_X11
-#endif // QT_VERSION
+#endif
 
 const QString QupZilla::VERSION = "1.3.5";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
@@ -1913,7 +1913,7 @@ bool QupZilla::quitApp()
 
 QByteArray QupZilla::saveState(int version) const
 {
-#if defined(QZ_WS_X11) && QT_VERSION < 0x050000
+#ifdef QZ_WS_X11
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
@@ -1928,7 +1928,7 @@ QByteArray QupZilla::saveState(int version) const
 
 bool QupZilla::restoreState(const QByteArray &state, int version)
 {
-#if defined(QZ_WS_X11) && QT_VERSION < 0x050000
+#ifdef QZ_WS_X11
     QByteArray windowState;
     int desktopId = -1;
 
@@ -1944,10 +1944,10 @@ bool QupZilla::restoreState(const QByteArray &state, int version)
 #endif
 }
 
-#if defined(QZ_WS_X11) && QT_VERSION < 0x050000
+#ifdef QZ_WS_X11
 int QupZilla::getCurrentVirtualDesktop() const
 {
-    Display* display = QX11Info::display();
+    Display* display = static_cast<Display*>(qz_X11Display(this));
     Atom actual_type;
     int actual_format;
     unsigned long nitems;
@@ -1980,7 +1980,7 @@ void QupZilla::moveToVirtualDesktop(int desktopId)
         return;
     }
 
-    Display* display = QX11Info::display();
+    Display* display = static_cast<Display*>(qz_X11Display(this));
 
     Atom net_wm_desktop = XInternAtom(display, "_NET_WM_DESKTOP", False);
     if (net_wm_desktop == None) {
@@ -1988,7 +1988,8 @@ void QupZilla::moveToVirtualDesktop(int desktopId)
     }
 
     // Fixes issue when the property wasn't set on some X servers
-    setVisible(true);
+    // hmmm does it?
+    //setVisible(true);
 
     XChangeProperty(display, winId(), net_wm_desktop, XA_CARDINAL,
                     32, PropModeReplace, (unsigned char*) &desktopId, 1L);

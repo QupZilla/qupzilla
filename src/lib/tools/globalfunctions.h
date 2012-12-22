@@ -61,6 +61,10 @@ QString QT_QUPZILLA_EXPORT qz_buildSystem();
 bool QT_QUPZILLA_EXPORT qz_isCertificateValid(const QSslCertificate &cert);
 QString QT_QUPZILLA_EXPORT qz_escape(const QString &string);
 
+#ifdef QZ_WS_X11
+void QT_QUPZILLA_EXPORT* qz_X11Display(const QWidget* widget);
+#endif
+
 template <typename T>
 bool qz_listContainsIndex(const QList<T> &list, int index)
 {
