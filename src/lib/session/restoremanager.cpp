@@ -30,6 +30,11 @@ RestoreData RestoreManager::restoreData() const
     return m_data;
 }
 
+bool RestoreManager::isValid() const
+{
+    return !m_data.isEmpty();
+}
+
 void RestoreManager::createFromFile(const QString &file)
 {
     if (!QFile::exists(file)) {
@@ -42,6 +47,7 @@ void RestoreManager::createFromFile(const QString &file)
 
     int version;
     stream >> version;
+
     if (version != Qz::sessionVersion) {
         return;
     }

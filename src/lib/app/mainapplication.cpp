@@ -269,6 +269,9 @@ MainApplication::MainApplication(int &argc, char** argv)
         }
         if (m_startingAfterCrash || afterLaunch == 3) {
             m_restoreManager = new RestoreManager(m_activeProfil + "session.dat");
+            if (!m_restoreManager->isValid()) {
+                destroyRestoreManager();
+            }
         }
     }
 

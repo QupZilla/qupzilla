@@ -34,6 +34,7 @@ public:
     RestoreManager(const QString &sessionFile);
 
     QList<RestoreManager::WindowData> restoreData() const;
+    bool isValid() const;
 
 private:
     void createFromFile(const QString &file);

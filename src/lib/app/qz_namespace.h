@@ -30,9 +30,9 @@ namespace Qz
 {
 // Version of session.dat file
 #if QT_VERSION >= 0x050000
-static const int sessionVersion = 0x0003 & 0x050000;
+static const int sessionVersion = 0x0003 | 0x050000;
 #else
-static const int sessionVersion = 0x0003 & 0x040000;
+static const int sessionVersion = 0x0003;
 #endif
 
 enum AppMessageType {
