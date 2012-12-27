@@ -378,7 +378,7 @@ QString QT_QUPZILLA_EXPORT qz_escape(const QString &string)
 #if QT_VERSION >= 0x050000
     return string.toHtmlEscaped();
 #else
-    return qz_escape(string);
+    return Qt::escape(string);
 #endif
 }
 
