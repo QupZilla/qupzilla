@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>302</width>
-    <height>126</height>
+    <height>226</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -43,6 +43,34 @@
        </property>
        <property name="text">
         <string>Allow JavaScript to open popup windows</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="jscanChangeSize">
+       <property name="text">
+        <string>Allow JavaScript to change window size</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="jscanHideMenu">
+       <property name="text">
+        <string>Allow JavaScript to hide menu bar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="jscanHideStatus">
+       <property name="text">
+        <string>Allow JavaScript to hide status bar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="jscanHideTool">
+       <property name="text">
+        <string>Allow JavaScript to hide tool bar</string>
        </property>
       </widget>
      </item>

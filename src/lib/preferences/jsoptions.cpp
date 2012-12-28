@@ -33,6 +33,10 @@ JsOptions::JsOptions(QWidget* parent)
     settings.beginGroup("Web-Browser-Settings");
     ui->jscanCloseWindow->setChecked(settings.value("allowJavaScriptCloseWindow", false).toBool());
     ui->jscanOpenWindow->setChecked(settings.value("allowJavaScriptOpenWindow", false).toBool());
+    ui->jscanChangeSize->setChecked(settings.value("allowJavaScriptGeometryChange", false).toBool());
+    ui->jscanHideMenu->setChecked(settings.value("allowJavaScriptHideMenuBar", false).toBool());
+    ui->jscanHideStatus->setChecked(settings.value("allowJavaScriptHideStatusBar", false).toBool());
+    ui->jscanHideTool->setChecked(settings.value("allowJavaScriptHideToolBar", false).toBool());
     ui->jscanAccessClipboard->setChecked(settings.value("allowJavaScriptAccessClipboard", false).toBool());
     settings.endGroup();
 
@@ -45,6 +49,10 @@ void JsOptions::accept()
     settings.beginGroup("Web-Browser-Settings");
     settings.setValue("allowJavaScriptCloseWindow", ui->jscanCloseWindow->isChecked());
     settings.setValue("allowJavaScriptOpenWindow", ui->jscanOpenWindow->isChecked());
+    settings.setValue("allowJavaScriptGeometryChange", ui->jscanChangeSize->isChecked());
+    settings.setValue("allowJavaScriptHideMenuBar", ui->jscanHideMenu->isChecked());
+    settings.setValue("allowJavaScriptHideStatusBar", ui->jscanHideStatus->isChecked());
+    settings.setValue("allowJavaScriptHideToolBar", ui->jscanHideTool->isChecked());
     settings.setValue("allowJavaScriptAccessClipboard", ui->jscanAccessClipboard->isChecked());
     settings.endGroup();
     
