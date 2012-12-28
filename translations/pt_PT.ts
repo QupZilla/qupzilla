@@ -2656,7 +2656,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1060"/>
         <source>Animated scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Deslocação animada</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1167"/>
