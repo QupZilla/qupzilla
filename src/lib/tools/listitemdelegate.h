@@ -15,26 +15,27 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef PLUGINLISTDELEGATE_H
-#define PLUGINLISTDELEGATE_H
+#ifndef LISTITEMDELEGATE_H
+#define LISTITEMDELEGATE_H
 
 #include <QStyledItemDelegate>
 
 #include "qz_namespace.h"
 
-class QListWidget;
-
-class QT_QUPZILLA_EXPORT PluginListDelegate : public QStyledItemDelegate
+class QT_QUPZILLA_EXPORT ListItemDelegate : public QStyledItemDelegate
 {
 public:
-    explicit PluginListDelegate(QListWidget* parent);
+    explicit ListItemDelegate(int iconSize, QWidget* parent);
+
+    int itemHeight() const;
 
     void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 private:
-    mutable int m_rowHeight;
+    int m_iconSize;
+    mutable int m_itemHeight;
     mutable int m_padding;
 };
 
-#endif // PLUGINLISTDELEGATE_H
+#endif // LISTITEMDELEGATE_H

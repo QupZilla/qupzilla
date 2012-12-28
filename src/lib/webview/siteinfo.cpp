@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "siteinfo.h"
 #include "ui_siteinfo.h"
+#include "listitemdelegate.h"
 #include "webview.h"
 #include "webpage.h"
 #include "mainapplication.h"
@@ -53,11 +54,16 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
+    ListItemDelegate* delegate = new ListItemDelegate(24, ui->listWidget);
+    ui->listWidget->setItemDelegate(delegate);
+
     ui->listWidget->item(0)->setIcon(QIcon::fromTheme("document-properties", QIcon(":/icons/preferences/document-properties.png")));
     ui->listWidget->item(1)->setIcon(QIcon::fromTheme("applications-graphics", QIcon(":/icons/preferences/applications-graphics.png")));
     ui->listWidget->item(2)->setIcon(QIcon::fromTheme("text-x-sql", QIcon(":/icons/preferences/text-x-sql.png")));
     ui->listWidget->item(3)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
     ui->listWidget->item(0)->setSelected(true);
+
+    ui->listWidget->setFixedHeight(delegate->itemHeight());
 
     WebPage* webPage = view->page();
     QWebFrame* frame = view->page()->mainFrame();

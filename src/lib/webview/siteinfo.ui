@@ -16,18 +16,6 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QListWidget" name="listWidget">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>53</height>
-      </size>
-     </property>
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
      </property>
@@ -40,8 +28,8 @@
      <property name="movement">
       <enum>QListView::Static</enum>
      </property>
-     <property name="flow">
-      <enum>QListView::LeftToRight</enum>
+     <property name="resizeMode">
+      <enum>QListView::Adjust</enum>
      </property>
      <property name="viewMode">
       <enum>QListView::IconMode</enum>
