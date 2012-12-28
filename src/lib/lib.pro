@@ -195,7 +195,8 @@ SOURCES += \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/schemehandlers/adblockschemehandler.cpp \
     network/schemehandlers/fileschemehandler.cpp \
-    other/registerqappassociation.cpp
+    other/registerqappassociation.cpp \
+    tools/listitemdelegate.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -353,7 +354,8 @@ HEADERS  += \
     network/schemehandlers/qupzillaschemehandler.h \
     network/schemehandlers/adblockschemehandler.h \
     network/schemehandlers/fileschemehandler.h \
-    other/registerqappassociation.h
+    other/registerqappassociation.h \
+    tools/listitemdelegate.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
