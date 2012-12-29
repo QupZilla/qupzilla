@@ -39,6 +39,7 @@ RecoveryWidget::RecoveryWidget(WebView* view, QupZilla* mainClass)
         const RestoreManager::WindowData &wd = data.at(i);
 
         QTreeWidgetItem* root = new QTreeWidgetItem(ui->treeWidget);
+        root->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt::ItemIsTristate);
         root->setText(0, tr("Window %1").arg((i + 1)));
         root->setCheckState(0, Qt::Checked);
 
@@ -46,6 +47,7 @@ RecoveryWidget::RecoveryWidget(WebView* view, QupZilla* mainClass)
             const WebTab::SavedTab &st = wd.tabsState.at(tab);
 
             QTreeWidgetItem* child = new QTreeWidgetItem(root);
+            child->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
             child->setCheckState(0, Qt::Checked);
             child->setIcon(0, st.icon);
             child->setText(0, st.title);
@@ -54,22 +56,8 @@ RecoveryWidget::RecoveryWidget(WebView* view, QupZilla* mainClass)
 
     ui->treeWidget->expandAll();
 
-    connect(ui->treeWidget, SIGNAL(itemChanged(QTreeWidgetItem*, int)), SLOT(onItemChanged(QTreeWidgetItem*, int)));
     connect(ui->restoreSession, SIGNAL(clicked()), this, SLOT(restoreSession()));
     connect(ui->newSession, SIGNAL(clicked()), this, SLOT(newSession()));
-}
-
-void RecoveryWidget::onItemChanged(QTreeWidgetItem* item, int column)
-{
-    if (column != 0 || item->childCount() == 0) {
-        return;
-    }
-
-    bool disabled = item->checkState(0) == Qt::Unchecked;
-
-    for (int i = 0; i < item->childCount(); ++i) {
-        item->child(i)->setDisabled(disabled);
-    }
 }
 
 void RecoveryWidget::restoreSession()

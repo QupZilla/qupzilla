@@ -40,8 +40,6 @@ public:
     ~RecoveryWidget();
 
 private slots:
-    void onItemChanged(QTreeWidgetItem* item, int column);
-
     void restoreSession();
     void newSession();
 
