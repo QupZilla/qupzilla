@@ -382,6 +382,7 @@ QString QT_QUPZILLA_EXPORT qz_escape(const QString &string)
 #endif
 }
 
+#ifdef QZ_WS_X11
 void QT_QUPZILLA_EXPORT* qz_X11Display(const QWidget* widget)
 {
     Q_UNUSED(widget)
@@ -392,6 +393,7 @@ void QT_QUPZILLA_EXPORT* qz_X11Display(const QWidget* widget)
     return QX11Info::display();
 #endif
 }
+#endif
 
 QString qz_buildSystem()
 {
