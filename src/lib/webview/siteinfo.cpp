@@ -34,6 +34,7 @@
 #include <QClipboard>
 #include <QWebSecurityOrigin>
 #include <QWebDatabase>
+#include <QTimer>
 
 QString SiteInfo::showCertInfo(const QString &string)
 {
@@ -50,20 +51,19 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     , ui(new Ui::SiteInfo)
     , m_certWidget(0)
     , m_view(view)
+    , m_delegate(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    ListItemDelegate* delegate = new ListItemDelegate(24, ui->listWidget);
-    ui->listWidget->setItemDelegate(delegate);
+    m_delegate = new ListItemDelegate(24, ui->listWidget);
+    ui->listWidget->setItemDelegate(m_delegate);
 
     ui->listWidget->item(0)->setIcon(QIcon::fromTheme("document-properties", QIcon(":/icons/preferences/document-properties.png")));
     ui->listWidget->item(1)->setIcon(QIcon::fromTheme("applications-graphics", QIcon(":/icons/preferences/applications-graphics.png")));
     ui->listWidget->item(2)->setIcon(QIcon::fromTheme("text-x-sql", QIcon(":/icons/preferences/text-x-sql.png")));
     ui->listWidget->item(3)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
     ui->listWidget->item(0)->setSelected(true);
-
-    ui->listWidget->setFixedHeight(delegate->itemHeight());
 
     WebPage* webPage = view->page();
     QWebFrame* frame = view->page()->mainFrame();
@@ -175,6 +175,8 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     ui->treeImages->sortByColumn(-1);
 
     ui->treeTags->sortByColumn(-1);
+
+    QTimer::singleShot(0, this, SLOT(heightChange()));
 }
 
 void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)
@@ -242,6 +244,13 @@ void SiteInfo::downloadImage()
     if (!m_activePixmap.save(filePath)) {
         QMessageBox::critical(this, tr("Error!"), tr("Cannot write to file!"));
         return;
+    }
+}
+
+void SiteInfo::heightChange()
+{
+    if (m_delegate) {
+        ui->listWidget->setFixedHeight(m_delegate->itemHeight());
     }
 }
 
