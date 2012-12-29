@@ -46,10 +46,10 @@ void QzSettings::loadSettings()
     loadTabsOnActivation = settings.value("LoadTabsOnActivation", false).toBool();
     autoOpenProtocols = settings.value("AutomaticallyOpenProtocols", QStringList()).toStringList();
     blockedProtocols = settings.value("BlockOpeningProtocols", QStringList()).toStringList();
-    allowJsGeometryChange = settings.value("allowJavaScriptGeometryChange", false).toBool();
-    allowJsHideMenuBar = settings.value("allowJavaScriptHideMenuBar", false).toBool();
-    allowJsHideStatusBar = settings.value("allowJavaScriptHideStatusBar", false).toBool();
-    allowJsHideToolBar = settings.value("allowJavaScriptHideToolBar", false).toBool();
+    allowJsGeometryChange = settings.value("allowJavaScriptGeometryChange", true).toBool();
+    allowJsHideMenuBar = settings.value("allowJavaScriptHideMenuBar", true).toBool();
+    allowJsHideStatusBar = settings.value("allowJavaScriptHideStatusBar", true).toBool();
+    allowJsHideToolBar = settings.value("allowJavaScriptHideToolBar", true).toBool();
     settings.endGroup();
 
     settings.beginGroup("Browser-Tabs-Settings");

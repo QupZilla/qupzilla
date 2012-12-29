@@ -33,10 +33,10 @@ JsOptions::JsOptions(QWidget* parent)
     settings.beginGroup("Web-Browser-Settings");
     ui->jscanCloseWindow->setChecked(settings.value("allowJavaScriptCloseWindow", false).toBool());
     ui->jscanOpenWindow->setChecked(settings.value("allowJavaScriptOpenWindow", false).toBool());
-    ui->jscanChangeSize->setChecked(settings.value("allowJavaScriptGeometryChange", false).toBool());
-    ui->jscanHideMenu->setChecked(settings.value("allowJavaScriptHideMenuBar", false).toBool());
-    ui->jscanHideStatus->setChecked(settings.value("allowJavaScriptHideStatusBar", false).toBool());
-    ui->jscanHideTool->setChecked(settings.value("allowJavaScriptHideToolBar", false).toBool());
+    ui->jscanChangeSize->setChecked(settings.value("allowJavaScriptGeometryChange", true).toBool());
+    ui->jscanHideMenu->setChecked(settings.value("allowJavaScriptHideMenuBar", true).toBool());
+    ui->jscanHideStatus->setChecked(settings.value("allowJavaScriptHideStatusBar", true).toBool());
+    ui->jscanHideTool->setChecked(settings.value("allowJavaScriptHideToolBar", true).toBool());
     ui->jscanAccessClipboard->setChecked(settings.value("allowJavaScriptAccessClipboard", false).toBool());
     settings.endGroup();
 
