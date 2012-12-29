@@ -6,14 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>302</width>
-    <height>226</height>
+    <width>214</width>
+    <height>247</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>JavaScript Options</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Allow JavaScript to:</string>
+     </property>
+    </widget>
+   </item>
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
@@ -32,7 +39,7 @@
      <item>
       <widget class="QCheckBox" name="jscanCloseWindow">
        <property name="text">
-        <string>Allow JavaScript to close windows</string>
+        <string>Close windows</string>
        </property>
       </widget>
      </item>
@@ -42,42 +49,42 @@
         <string>If enabled, pages will be allowed to automatically open popup windows</string>
        </property>
        <property name="text">
-        <string>Allow JavaScript to open popup windows</string>
+        <string>Open popup windows</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QCheckBox" name="jscanChangeSize">
        <property name="text">
-        <string>Allow JavaScript to change window size</string>
+        <string>Change window size</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QCheckBox" name="jscanHideMenu">
        <property name="text">
-        <string>Allow JavaScript to hide menu bar</string>
+        <string>Hide menu bar</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QCheckBox" name="jscanHideStatus">
        <property name="text">
-        <string>Allow JavaScript to hide status bar</string>
+        <string>Hide status bar</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QCheckBox" name="jscanHideTool">
        <property name="text">
-        <string>Allow JavaScript to hide tool bar</string>
+        <string>Hide tool bar</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QCheckBox" name="jscanAccessClipboard">
        <property name="text">
-        <string>Allow JavaScript to access clipboard</string>
+        <string>Access clipboard</string>
        </property>
       </widget>
      </item>
