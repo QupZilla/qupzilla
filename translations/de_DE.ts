@@ -2731,7 +2731,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1060"/>
         <source>Animated scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Animierter Bildlauf</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1167"/>
