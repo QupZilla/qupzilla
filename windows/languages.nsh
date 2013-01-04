@@ -89,6 +89,8 @@ LangString DESC_SecExtensions ${LANG_SLOVAK} "Associovat QupZillu s .htm a .html
 LangString DESC_SecThemes ${LANG_SLOVAK} "Dodatečné témy pre QupZillu"
 
 ;;;;German
+LangString PRODUCT_DESC  ${LANG_GERMAN} "QupZilla ist ein neuer, schneller und sicherer, quelloffener Web Browser. QupZilla ist lizensiert unter GPL Version 3 oder später. Er nutzt Webkit und das Qt Framework."
+;
 LangString TITLE_SecMain ${LANG_GERMAN} "Hauptkomponenten"
 LangString TITLE_SecTranslations ${LANG_GERMAN} "Übersetzungen"
 LangString TITLE_SecPlugins ${LANG_GERMAN} "Plugins"
