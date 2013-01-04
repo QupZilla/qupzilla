@@ -55,7 +55,7 @@ QByteArray AcceptLanguage::generateHeader(const QStringList &langs)
 
     int counter = 8;
     for (int i = 1; i < langs.count(); i++) {
-        QString s = ", " + langs.at(i) + ";q=0,";
+        QString s = ", " + langs.at(i) + ";q=0.";
         s.append(QString::number(counter));
         if (counter != 2) {
             counter -= 2;
