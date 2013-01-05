@@ -30,6 +30,7 @@
 #include "pluginsmanager.h"
 #include "qtwin.h"
 #include "sslmanager.h"
+#include "jsoptions.h"
 #include "networkproxyfactory.h"
 #include "networkmanager.h"
 #include "desktopnotificationsfactory.h"
@@ -252,7 +253,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->xssAuditing->setChecked(settings.value("XSSAuditing", false).toBool());
 
     if (!ui->allowJavaScript->isChecked()) {
-        ui->blockPopup->setEnabled(false);
+        ui->jsOptionsButton->setEnabled(false);
     }
     connect(ui->allowJavaScript, SIGNAL(toggled(bool)), this, SLOT(allowJavaScriptChanged(bool)));
     //Cache
@@ -289,8 +290,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->deleteHtml5storageOnClose->setChecked(settings.value("deleteHTML5StorageOnClose", false).toBool());
     connect(ui->html5storage, SIGNAL(toggled(bool)), this, SLOT(allowHtml5storageChanged(bool)));
     // Other
-    ui->blockPopup->setChecked(!settings.value("allowJavaScriptOpenWindow", false).toBool());
-    ui->jscanAccessClipboard->setChecked(settings.value("JavaScriptCanAccessClipboard", true).toBool());
     ui->doNotTrack->setChecked(settings.value("DoNotTrack", false).toBool());
     ui->sendReferer->setChecked(settings.value("SendReferer", true).toBool());
 
@@ -458,6 +457,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->preferredLanguages, SIGNAL(clicked()), this, SLOT(showAcceptLanguage()));
     connect(ui->deleteHtml5storage, SIGNAL(clicked()), this, SLOT(deleteHtml5storage()));
     connect(ui->uaManager, SIGNAL(clicked()), this, SLOT(openUserAgentManager()));
+    connect(ui->jsOptionsButton, SIGNAL(clicked()), this, SLOT(openJsOptions()));
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
@@ -604,7 +604,7 @@ void Preferences::setManualProxyConfigurationEnabled(bool state)
 
 void Preferences::allowJavaScriptChanged(bool state)
 {
-    ui->blockPopup->setEnabled(state);
+    ui->jsOptionsButton->setEnabled(state);
 }
 
 void Preferences::saveHistoryChanged(bool stat)
@@ -634,6 +634,12 @@ void Preferences::showCookieManager()
 void Preferences::openSslManager()
 {
     SSLManager* m = new SSLManager(this);
+    m->show();
+}
+
+void Preferences::openJsOptions()
+{
+    JsOptions* m = new JsOptions(this);
     m->show();
 }
 
@@ -886,10 +892,8 @@ void Preferences::saveSettings()
     settings.beginGroup("Web-Browser-Settings");
     settings.setValue("allowFlash", ui->allowPlugins->isChecked());
     settings.setValue("allowJavaScript", ui->allowJavaScript->isChecked());
-    settings.setValue("allowJavaScriptOpenWindow", !ui->blockPopup->isChecked());
     settings.setValue("allowJava", ui->allowJava->isChecked());
     settings.setValue("DNS-Prefetch", ui->allowDNSPrefetch->isChecked());
-    settings.setValue("JavaScriptCanAccessClipboard", ui->jscanAccessClipboard->isChecked());
     settings.setValue("IncludeLinkInFocusChain", ui->linksInFocusChain->isChecked());
     settings.setValue("zoomTextOnly", ui->zoomTextOnly->isChecked());
     settings.setValue("CaretBrowsing", ui->caretBrowsing->isChecked());
