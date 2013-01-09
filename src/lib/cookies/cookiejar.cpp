@@ -24,6 +24,7 @@
 #include <QWebSettings>
 #include <QDateTime>
 #include <QDebug>
+#include <QWebPage> // QTWEBKIT_VERSION_CHECK macro
 
 //#define COOKIE_DEBUG
 
@@ -97,7 +98,7 @@ void CookieJar::loadSettings()
     m_blacklist = settings.value("blacklist", QStringList()).toStringList();
     settings.endGroup();
 
-#if QT_VERSION >= 0x050000
+#if QT_VERSION >= 0x050000 || (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 3, 0))
     mApp->webSettings()->setThirdPartyCookiePolicy(m_blockThirdParty ?
             QWebSettings::AlwaysBlockThirdPartyCookies :
             QWebSettings::AlwaysAllowThirdPartyCookies);
@@ -136,7 +137,7 @@ bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie
     }
 
 // This feature is now natively in QtWebKit in Qt 5
-#if QT_VERSION < 0x050000
+#if QT_VERSION < 0x050000 && (QTWEBKIT_VERSION < QTWEBKIT_VERSION_CHECK(2, 3, 0))
     if (m_blockThirdParty) {
         bool result = blockThirdParty(cookieDomain, domain);
         if (result) {
