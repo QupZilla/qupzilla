@@ -375,7 +375,7 @@ void MainApplication::loadSettings()
     m_websettings->setMaximumPagesInCache(settings.value("maximumCachedPages", 3).toInt());
     m_websettings->setDefaultTextEncoding(settings.value("DefaultEncoding", m_websettings->defaultTextEncoding()).toString());
 
-#if QT_VERSION >= 0x050000
+#if QT_VERSION >= 0x050000 || (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 3, 0))
     m_websettings->setAttribute(QWebSettings::CaretBrowsingEnabled, settings.value("CaretBrowsing", false).toBool());
     m_websettings->setAttribute(QWebSettings::ScrollAnimatorEnabled, settings.value("AnimateScrolling", true).toBool());
 #endif

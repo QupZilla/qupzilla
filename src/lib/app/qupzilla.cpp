@@ -401,11 +401,14 @@ void QupZilla::setupMenu()
     m_menuEncoding = new QMenu(this);
     actionEncoding->setMenu(m_menuEncoding);
     connect(m_menuEncoding, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
-#if QT_VERSION >= 0x050000
     m_actionCaretBrowsing = new QAction(tr("Enable &Caret Browsing"), this);
+    m_actionCaretBrowsing->setVisible(false);
     m_actionCaretBrowsing->setCheckable(true);
     m_actionCaretBrowsing->setShortcut(QKeySequence("F7"));
     connect(m_actionCaretBrowsing, SIGNAL(triggered()), this, SLOT(triggerCaretBrowsing()));
+
+#if QT_VERSION >= 0x050000 || (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 3, 0))
+    m_actionCaretBrowsing->setVisible(true);
 #endif
 
     QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
@@ -428,9 +431,7 @@ void QupZilla::setupMenu()
     m_menuView->addAction(QIcon::fromTheme("zoom-out"), tr("Zoom &Out"), this, SLOT(zoomOut()))->setShortcut(QKeySequence("Ctrl+-"));
     m_menuView->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(zoomReset()))->setShortcut(QKeySequence("Ctrl+0"));
     m_menuView->addSeparator();
-#if QT_VERSION >= 0x050000
     m_menuView->addAction(m_actionCaretBrowsing);
-#endif
     m_menuView->addAction(actionEncoding);
     m_menuView->addSeparator();
     m_menuView->addAction(QIcon::fromTheme("text-html"), tr("&Page Source"), this, SLOT(showSource()))->setShortcut(QKeySequence("Ctrl+U"));
@@ -1088,9 +1089,9 @@ void QupZilla::changeEncoding()
     }
 }
 
-#if QT_VERSION >= 0x050000
 void QupZilla::triggerCaretBrowsing()
 {
+#if QT_VERSION >= 0x050000 || (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 3, 0))
     bool enable = !mApp->webSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled);
 
     Settings settings;
@@ -1099,8 +1100,8 @@ void QupZilla::triggerCaretBrowsing()
     settings.endGroup();
 
     mApp->webSettings()->setAttribute(QWebSettings::CaretBrowsingEnabled, enable);
-}
 #endif
+}
 
 void QupZilla::bookmarkPage()
 {

@@ -20,7 +20,9 @@
 #include "mainapplication.h"
 #include "settings.h"
 
+#include <QWebPage> // QTWEBKIT_VERSION_CHECK macro
 #include <QFileDialog>
+#include <QDebug>
 
 JsOptions::JsOptions(QWidget* parent)
     : QDialog(parent)
@@ -38,6 +40,10 @@ JsOptions::JsOptions(QWidget* parent)
     ui->jscanHideTool->setChecked(settings.value("allowJavaScriptHideToolBar", true).toBool());
     ui->jscanAccessClipboard->setChecked(settings.value("allowJavaScriptAccessClipboard", false).toBool());
     settings.endGroup();
+
+#if (QTWEBKIT_VERSION < QTWEBKIT_VERSION_CHECK(2, 2, 0)) && QT_VERSION < 0x050000
+    ui->jscanCloseWindow->setHidden(true);
+#endif
 }
 
 void JsOptions::accept()

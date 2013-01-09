@@ -460,6 +460,11 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     ui->version->setText(" QupZilla v" + QupZilla::VERSION);
     ui->listWidget->setCurrentRow(currentSettingsPage);
+
+#if QT_VERSION < 0x050000 && (QTWEBKIT_VERSION < QTWEBKIT_VERSION_CHECK(2, 3, 0))
+    ui->caretBrowsing->setHidden(true);
+    ui->animateScrolling->setHidden(true);
+#endif
 }
 
 void Preferences::showStackedPage(QListWidgetItem* item)
