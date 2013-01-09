@@ -42,7 +42,7 @@ public:
     explicit BookmarksManager(QupZilla* mainClass, QWidget* parent = 0);
     ~BookmarksManager();
     void addBookmark(WebView* view);
-    void insertBookmark(const QUrl &url, const QString &title, const QIcon &icon);
+    void insertBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder = QString());
     void setMainWindow(QupZilla* window);
 
     void search(const QString &string);
@@ -56,7 +56,8 @@ private slots:
     void deleteItem();
     void itemChanged(QTreeWidgetItem* item);
     void addSubfolder();
-    void addFolder();
+    void addFolder(QWidget *parent = 0, QString* folder = 0, bool showInsertDialog = false,
+                   const QString &bookmarkTitle = QString(), WebView* = 0);
     void renameFolder();
     void contextMenuRequested(const QPoint &position);
     void loadInNewTab();
@@ -87,5 +88,4 @@ private:
     QPointer<QupZilla> p_QupZilla;
     BookmarksModel* m_bookmarksModel;
 };
-
 #endif // BOOKMARKSMANAGER_H

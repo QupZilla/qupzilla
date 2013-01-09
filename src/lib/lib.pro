@@ -196,7 +196,8 @@ SOURCES += \
     network/schemehandlers/adblockschemehandler.cpp \
     network/schemehandlers/fileschemehandler.cpp \
     other/registerqappassociation.cpp \
-    tools/listitemdelegate.cpp
+    tools/listitemdelegate.cpp \
+    bookmarks/bookmarkstree.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -355,7 +356,8 @@ HEADERS  += \
     network/schemehandlers/adblockschemehandler.h \
     network/schemehandlers/fileschemehandler.h \
     other/registerqappassociation.h \
-    tools/listitemdelegate.h
+    tools/listitemdelegate.h \
+    bookmarks/bookmarkstree.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

@@ -23,6 +23,8 @@
 #include "speeddial.h"
 #include "webview.h"
 #include "qupzilla.h"
+#include "bookmarkstree.h"
+#include "browsinglibrary.h"
 
 #include <QToolTip>
 #include <QSqlQuery>
@@ -41,6 +43,12 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
     , m_edited(false)
 {
     ui->setupUi(this);
+    m_bookmarksTree = new BookmarksTree(this);
+    m_bookmarksTree->setViewType(BookmarksTree::ComboFolderView);
+    m_bookmarksTree->header()->hide();
+    m_bookmarksTree->setColumnCount(1);
+    ui->folder->setModel(m_bookmarksTree->model());
+    ui->folder->setView(m_bookmarksTree);
 
     // The locationbar's direction is direction of its text,
     // it dynamically changes and so, it's not good choice for this widget.
@@ -54,26 +62,37 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
                                  tr("Remove from Speed Dial"));
 
     loadBookmark();
+
+    connect(ui->folder, SIGNAL(activated(int)), this, SLOT(comboItemActive(int)));
+    connect(m_bookmarksTree, SIGNAL(requestNewFolder(QWidget*,QString*,bool,QString,WebView*)),
+            reinterpret_cast<QObject*>(mApp->browsingLibrary()->bookmarksManager()), SLOT(addFolder(QWidget*,QString*,bool,QString,WebView*)));
 }
 
 void BookmarksWidget::loadBookmark()
 {
     // Bookmark folders
-    ui->folder->addItem(QIcon(":/icons/other/unsortedbookmarks.png"), _bookmarksUnsorted, "unsorted");
-    ui->folder->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksMenu, "bookmarksMenu");
-    ui->folder->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksToolbar, "bookmarksToolbar");
-    QSqlQuery query;
-    query.exec("SELECT name FROM folders");
-    while (query.next()) {
-        ui->folder->addItem(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString(), query.value(0).toString());
-    }
+    m_bookmarksTree->refreshTree();
 
     m_bookmarkId = m_bookmarksModel->bookmarkId(m_url);
 
     if (m_bookmarkId > 0) {
         BookmarksModel::Bookmark bookmark = m_bookmarksModel->getBookmark(m_bookmarkId);
         ui->name->setText(bookmark.title);
-        ui->folder->setCurrentIndex(ui->folder->findData(bookmark.folder));
+
+        int index = ui->folder->findData(bookmark.folder);
+        // QComboBox::findData() returns index related to the item's parent
+        if (index == -1) { // subfolder
+            QModelIndex rootIndex = ui->folder->rootModelIndex();
+            ui->folder->setRootModelIndex(ui->folder->model()->index(ui->folder->findText(_bookmarksToolbar),0));
+            // subfolder's name and its stored data are the same
+            index = ui->folder->findText(bookmark.folder);
+            ui->folder->setCurrentIndex(index);
+            ui->folder->setRootModelIndex(rootIndex);
+        }
+        else {
+            ui->folder->setCurrentIndex(index);
+        }
+
         ui->saveRemove->setText(tr("Remove"));
         connect(ui->name, SIGNAL(textEdited(QString)), SLOT(bookmarkEdited()));
         connect(ui->folder, SIGNAL(currentIndexChanged(int)), SLOT(bookmarkEdited()));
@@ -111,11 +130,16 @@ void BookmarksWidget::bookmarkEdited()
     ui->saveRemove->setText(tr("Save"));
 }
 
+void BookmarksWidget::comboItemActive(int index)
+{
+    m_bookmarksTree->activeItemChange(index, ui->folder, ui->name->text(), m_view);
+}
+
 void BookmarksWidget::on_saveRemove_clicked(bool)
 {
     if (m_bookmarkId > 0) {
         if (m_edited) {
-            m_bookmarksModel->editBookmark(m_bookmarkId, ui->name->text(), QUrl(), ui->folder->itemData(ui->folder->currentIndex()).toString());
+            m_bookmarksModel->editBookmark(m_bookmarkId, ui->name->text(), QUrl(), BookmarksModel::fromTranslatedFolder(ui->folder->currentText()));
         }
         else {
             m_bookmarksModel->removeBookmark(m_url);
@@ -123,7 +147,7 @@ void BookmarksWidget::on_saveRemove_clicked(bool)
         }
     }
     else {
-        m_bookmarksModel->saveBookmark(m_url, ui->name->text(), m_view->icon(), ui->folder->currentText());
+        m_bookmarksModel->saveBookmark(m_url, ui->name->text(), m_view->icon(), BookmarksModel::fromTranslatedFolder(ui->folder->currentText()));
     }
     QTimer::singleShot(HIDE_DELAY, this, SLOT(close()));
 }
