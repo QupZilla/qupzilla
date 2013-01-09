@@ -66,7 +66,8 @@ void BookmarksModel::setShowingOnlyIconsInToolbar(bool state)
 bool BookmarksModel::isFolder(const QString &name)
 {
     if (name == QLatin1String("bookmarksToolbar") || name == QLatin1String("bookmarksMenu")
-            || name == QLatin1String("unsorted")) {
+            || name == QLatin1String("unsorted") || name == _bookmarksToolbar
+            || name == _bookmarksMenu || name == _bookmarksUnsorted) {
         return true;
     }
 
