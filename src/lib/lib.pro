@@ -92,6 +92,7 @@ SOURCES += \
     autofill/autofillnotification.cpp \
     rss/rssnotification.cpp \
     preferences/sslmanager.cpp \
+    preferences/jsoptions.cpp \
     tools/animatedwidget.cpp \
     tools/htmlhighlighter.cpp \
     tools/colors.cpp \
@@ -248,6 +249,7 @@ HEADERS  += \
     autofill/autofillnotification.h \
     rss/rssnotification.h \
     preferences/sslmanager.h \
+    preferences/jsoptions.h \
     tools/animatedwidget.h \
     tools/htmlhighlighter.h \
     other/sourceviewersearch.h \
@@ -374,6 +376,7 @@ FORMS    += \
     autofill/autofillnotification.ui \
     rss/rssnotification.ui \
     preferences/sslmanager.ui \
+    preferences/jsoptions.ui \
     other/clearprivatedata.ui \
     other/sourceviewersearch.ui \
     adblock/adblockdialog.ui \

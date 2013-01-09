@@ -21,6 +21,7 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
+#include "qzsettings.h"
 
 #include <QTimer>
 #include <QStatusBar>
@@ -56,7 +57,7 @@ PopupWebPage::PopupWebPage(QWebPage::WebWindowType type, QupZilla* mainClass)
 
 void PopupWebPage::slotGeometryChangeRequested(const QRect &rect)
 {
-    if (rect.isValid()) {
+    if (rect.isValid() && qzSettings->allowJsGeometryChange) {
         m_geometry = rect;
         m_createNewWindow = true;
     }
@@ -64,16 +65,19 @@ void PopupWebPage::slotGeometryChangeRequested(const QRect &rect)
 
 void PopupWebPage::slotMenuBarVisibilityChangeRequested(bool visible)
 {
+    if (!qzSettings->allowJsHideMenuBar) return;
     m_menuBarVisible = visible;
 }
 
 void PopupWebPage::slotStatusBarVisibilityChangeRequested(bool visible)
 {
+    if (!qzSettings->allowJsHideStatusBar) return;
     m_statusBarVisible = visible;
 }
 
 void PopupWebPage::slotToolBarVisibilityChangeRequested(bool visible)
 {
+    if (!qzSettings->allowJsHideToolBar) return;
     m_toolBarVisible = visible;
 }
 

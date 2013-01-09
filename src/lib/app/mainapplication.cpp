@@ -367,7 +367,7 @@ void MainApplication::loadSettings()
     m_websettings->setAttribute(QWebSettings::JavascriptCanOpenWindows, settings.value("allowJavaScriptOpenWindow", false).toBool());
     m_websettings->setAttribute(QWebSettings::JavaEnabled, settings.value("allowJava", true).toBool());
     m_websettings->setAttribute(QWebSettings::DnsPrefetchEnabled, settings.value("DNS-Prefetch", false).toBool());
-    m_websettings->setAttribute(QWebSettings::JavascriptCanAccessClipboard, settings.value("JavaScriptCanAccessClipboard", true).toBool());
+    m_websettings->setAttribute(QWebSettings::JavascriptCanAccessClipboard, settings.value("allowJavaScriptAccessClipboard", true).toBool());
     m_websettings->setAttribute(QWebSettings::LinksIncludedInFocusChain, settings.value("IncludeLinkInFocusChain", false).toBool());
     m_websettings->setAttribute(QWebSettings::ZoomTextOnly, settings.value("zoomTextOnly", false).toBool());
     m_websettings->setAttribute(QWebSettings::PrintElementBackgrounds, settings.value("PrintElementBackground", true).toBool());
@@ -387,7 +387,7 @@ void MainApplication::loadSettings()
 
 #if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
     m_websettings->setAttribute(QWebSettings::HyperlinkAuditingEnabled, true);
-    m_websettings->setAttribute(QWebSettings::JavascriptCanCloseWindows, true);
+    m_websettings->setAttribute(QWebSettings::JavascriptCanCloseWindows, settings.value("allowJavaScriptCloseWindow", false).toBool());
 #endif
 
     setWheelScrollLines(settings.value("wheelScrollLines", wheelScrollLines()).toInt());
