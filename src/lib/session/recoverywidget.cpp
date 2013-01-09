@@ -39,7 +39,7 @@ RecoveryWidget::RecoveryWidget(WebView* view, QupZilla* mainClass)
         const RestoreManager::WindowData &wd = data.at(i);
 
         QTreeWidgetItem* root = new QTreeWidgetItem(ui->treeWidget);
-        root->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt::ItemIsTristate);
+        root->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsTristate);
         root->setText(0, tr("Window %1").arg((i + 1)));
         root->setCheckState(0, Qt::Checked);
 
@@ -47,7 +47,7 @@ RecoveryWidget::RecoveryWidget(WebView* view, QupZilla* mainClass)
             const WebTab::SavedTab &st = wd.tabsState.at(tab);
 
             QTreeWidgetItem* child = new QTreeWidgetItem(root);
-            child->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
+            child->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
             child->setCheckState(0, Qt::Checked);
             child->setIcon(0, st.icon);
             child->setText(0, st.title);

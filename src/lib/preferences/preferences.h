@@ -63,7 +63,6 @@ private slots:
     void openUserAgentManager();
     void openJsOptions();
 
-    void allowJavaScriptChanged(bool state);
     void saveHistoryChanged(bool state);
     void saveCookiesChanged(bool state);
     void allowHtml5storageChanged(bool state);

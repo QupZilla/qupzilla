@@ -252,10 +252,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->defaultZoom->setValue(settings.value("DefaultZoom", 100).toInt());
     ui->xssAuditing->setChecked(settings.value("XSSAuditing", false).toBool());
 
-    if (!ui->allowJavaScript->isChecked()) {
-        ui->jsOptionsButton->setEnabled(false);
-    }
-    connect(ui->allowJavaScript, SIGNAL(toggled(bool)), this, SLOT(allowJavaScriptChanged(bool)));
     //Cache
     ui->pagesInCache->setValue(settings.value("maximumCachedPages", 3).toInt());
     connect(ui->pagesInCache, SIGNAL(valueChanged(int)), this, SLOT(pageCacheValueChanged(int)));
@@ -602,11 +598,6 @@ void Preferences::setManualProxyConfigurationEnabled(bool state)
     ui->useHttpsProxy->setEnabled(state);
 }
 
-void Preferences::allowJavaScriptChanged(bool state)
-{
-    ui->jsOptionsButton->setEnabled(state);
-}
-
 void Preferences::saveHistoryChanged(bool stat)
 {
     ui->deleteHistoryOnClose->setEnabled(stat);
@@ -639,8 +630,8 @@ void Preferences::openSslManager()
 
 void Preferences::openJsOptions()
 {
-    JsOptions* m = new JsOptions(this);
-    m->show();
+    JsOptions options(this);
+    options.exec();
 }
 
 void Preferences::showAcceptLanguage()

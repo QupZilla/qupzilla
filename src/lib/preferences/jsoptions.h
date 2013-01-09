@@ -31,15 +31,14 @@ class QT_QUPZILLA_EXPORT JsOptions : public QDialog
 {
     Q_OBJECT
 
-public slots:
-    void accept();
-
 public:
     explicit JsOptions(QWidget* parent = 0);
     ~JsOptions();
 
-private:
+public slots:
+    void accept();
 
+private:
     Ui::JsOptions* ui;
 };
 

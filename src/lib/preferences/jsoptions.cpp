@@ -26,7 +26,6 @@ JsOptions::JsOptions(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::JsOptions)
 {
-    setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
     Settings settings;
@@ -39,8 +38,6 @@ JsOptions::JsOptions(QWidget* parent)
     ui->jscanHideTool->setChecked(settings.value("allowJavaScriptHideToolBar", true).toBool());
     ui->jscanAccessClipboard->setChecked(settings.value("allowJavaScriptAccessClipboard", false).toBool());
     settings.endGroup();
-
-    connect(ui->jsoptsbbox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
 }
 
 void JsOptions::accept()
@@ -55,7 +52,7 @@ void JsOptions::accept()
     settings.setValue("allowJavaScriptHideToolBar", ui->jscanHideTool->isChecked());
     settings.setValue("allowJavaScriptAccessClipboard", ui->jscanAccessClipboard->isChecked());
     settings.endGroup();
-    
+
     QDialog::close();
 }
 
