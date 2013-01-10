@@ -2617,7 +2617,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1060"/>
         <source>Animated scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Анимирано клизање</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1167"/>
@@ -5585,7 +5585,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="856"/>
         <source>&amp;Copy link address</source>
-        <translation>&amp;Копирај адресу везе</translation>
+        <translation>&amp;Копирај везу</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="868"/>
