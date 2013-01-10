@@ -118,38 +118,5 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>collapseAll</sender>
-   <signal>clicked()</signal>
-   <receiver>bookmarksTree</receiver>
-   <slot>collapseAll()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>208</x>
-     <y>446</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>344</x>
-     <y>218</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>expandAll</sender>
-   <signal>clicked()</signal>
-   <receiver>bookmarksTree</receiver>
-   <slot>expandAll()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>127</x>
-     <y>446</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>344</x>
-     <y>218</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
