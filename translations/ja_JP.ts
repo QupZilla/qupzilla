@@ -2593,7 +2593,8 @@
     </message>
     <message>
         <source>Animated scrolling</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>意訳</translatorcomment>
+        <translation type="unfinished">スムーススクロール</translation>
     </message>
 </context>
 <context>
