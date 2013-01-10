@@ -14,27 +14,7 @@
    <string>Bookmarks</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0" colspan="4">
-    <widget class="QPushButton" name="addFolder">
-     <property name="text">
-      <string>Add Folder</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="4">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="6">
+   <item row="1" column="8">
     <widget class="ClickableLabel" name="optimizeDb">
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
@@ -47,7 +27,7 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="5">
+   <item row="1" column="7">
     <widget class="ClickableLabel" name="importBookmarks">
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
@@ -60,7 +40,27 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="0" colspan="7">
+   <item row="1" column="6">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="0" colspan="4">
+    <widget class="QPushButton" name="addFolder">
+     <property name="text">
+      <string>Add Folder</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="9">
     <widget class="BookmarksTree" name="bookmarksTree">
      <property name="contextMenuPolicy">
       <enum>Qt::CustomContextMenu</enum>
@@ -89,6 +89,20 @@
      </column>
     </widget>
    </item>
+   <item row="1" column="4">
+    <widget class="QPushButton" name="expandAll">
+     <property name="text">
+      <string>Expand All</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="5">
+    <widget class="QPushButton" name="collapseAll">
+     <property name="text">
+      <string>Collapse All</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -104,5 +118,38 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>collapseAll</sender>
+   <signal>clicked()</signal>
+   <receiver>bookmarksTree</receiver>
+   <slot>collapseAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>208</x>
+     <y>446</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>218</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>expandAll</sender>
+   <signal>clicked()</signal>
+   <receiver>bookmarksTree</receiver>
+   <slot>expandAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>127</x>
+     <y>446</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>218</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
