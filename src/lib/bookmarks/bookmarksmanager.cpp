@@ -656,18 +656,12 @@ void BookmarksManager::insertBookmark(const QUrl &url, const QString &title, con
 
     int index = combo->findText(BookmarksModel::toTranslatedFolder(folder.isEmpty() ? m_bookmarksModel->lastFolder() : folder));
     // QComboBox::find() returns index related to the item's parent
-    if (index == -1) { // subfolder or a deleted lastFolder
+    if (index == -1) { // subfolder
         QModelIndex rootIndex = combo->rootModelIndex();
         combo->setRootModelIndex(combo->model()->index(combo->findText(_bookmarksToolbar),0));
         index = combo->findText(BookmarksModel::toTranslatedFolder(folder.isEmpty() ? m_bookmarksModel->lastFolder() : folder));
-        if (index == -1) { // deleted lastFolder
-            combo->setRootModelIndex(rootIndex);
-            combo->setCurrentIndex(0);
-        }
-        else {
-            combo->setCurrentIndex(index);
-            combo->setRootModelIndex(rootIndex);
-        }
+        combo->setCurrentIndex(index);
+        combo->setRootModelIndex(rootIndex);
     }
     else {
         combo->setCurrentIndex(index);
@@ -725,18 +719,12 @@ void BookmarksManager::insertAllTabs()
 
     int index = combo->findText(BookmarksModel::toTranslatedFolder(m_bookmarksModel->lastFolder()));
     // QComboBox::find() returns index related to the item's parent
-    if (index == -1) { // subfolder or a deleted lastFolder
+    if (index == -1) { // subfolder
         QModelIndex rootIndex = combo->rootModelIndex();
         combo->setRootModelIndex(combo->model()->index(combo->findText(_bookmarksToolbar),0));
         index = combo->findText(BookmarksModel::toTranslatedFolder(m_bookmarksModel->lastFolder()));
-        if (index == -1) { // deleted lastFolder
-            combo->setRootModelIndex(rootIndex);
-            combo->setCurrentIndex(0);
-        }
-        else {
-            combo->setCurrentIndex(index);
-            combo->setRootModelIndex(rootIndex);
-        }
+        combo->setCurrentIndex(index);
+        combo->setRootModelIndex(rootIndex);
     }
     else {
         combo->setCurrentIndex(index);

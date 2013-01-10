@@ -411,6 +411,10 @@ void BookmarksModel::removeFolder(const QString &name)
     query.bindValue(0, name);
     query.exec();
 
+    if (name == m_lastFolder) {
+        setLastFolder("unsorted");
+    }
+
     emit folderDeleted(name);
 
     mApp->sendMessages(Qz::AM_BookmarksChanged, true);
