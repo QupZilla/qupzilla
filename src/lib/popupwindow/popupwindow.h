@@ -25,6 +25,7 @@
 class QVBoxLayout;
 class QStatusBar;
 
+class QupZilla;
 class PopupWebView;
 class PopupWebPage;
 class PopupStatusBarMessage;
@@ -35,7 +36,7 @@ class QT_QUPZILLA_EXPORT PopupWindow : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PopupWindow(PopupWebView* view, bool showStatusBar);
+    explicit PopupWindow(PopupWebView* view, QupZilla* mainClass);
 
     QStatusBar* statusBar();
     PopupWebView* webView();
@@ -60,6 +61,7 @@ private slots:
 private:
     void closeEvent(QCloseEvent* event);
 
+    QupZilla* p_QupZilla;
     PopupWebView* m_view;
     PopupWebPage* m_page;
     PopupLocationBar* m_locationBar;

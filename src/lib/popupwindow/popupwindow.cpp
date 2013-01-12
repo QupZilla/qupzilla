@@ -20,6 +20,7 @@
 #include "popupwebpage.h"
 #include "popupstatusbarmessage.h"
 #include "progressbar.h"
+#include "qupzilla.h"
 #include "popuplocationbar.h"
 #include "globalfunctions.h"
 
@@ -28,8 +29,9 @@
 #include <QWebFrame>
 #include <QCloseEvent>
 
-PopupWindow::PopupWindow(PopupWebView* view, bool showStatusBar)
+PopupWindow::PopupWindow(PopupWebView* view, QupZilla *mainClass)
     : QWidget()
+    , p_QupZilla(mainClass)
     , m_view(view)
     , m_page(qobject_cast<PopupWebPage*>(view->page()))
 {
@@ -42,7 +44,7 @@ PopupWindow::PopupWindow(PopupWebView* view, bool showStatusBar)
 
     m_statusBar = new QStatusBar(this);
     m_statusBar->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
-    m_statusBar->setVisible(showStatusBar);
+    m_statusBar->setVisible(p_QupZilla->statusBar()->isVisible());
 
     m_progressBar = new ProgressBar(m_statusBar);
     m_statusBar->addPermanentWidget(m_progressBar);

@@ -112,7 +112,7 @@ void PopupWebPage::checkBehaviour()
         PopupWebView* view = new PopupWebView;
         view->setWebPage(this);
 
-        PopupWindow* popup = new PopupWindow(view, p_QupZilla->statusBar()->isVisible());
+        PopupWindow* popup = new PopupWindow(view, p_QupZilla);
         popup->setWindowGeometry(m_geometry);
         popup->setMenuBarVisibility(m_menuBarVisible);
         popup->setStatusBarVisibility(m_statusBarVisible);
