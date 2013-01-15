@@ -40,6 +40,7 @@ BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent)
     , m_bookmarksModel(mApp->bookmarksModel())
 {
     ui->setupUi(this);
+    ui->bookmarksTree->setViewType(BookmarksTree::SideBarView);
 
     ui->bookmarksTree->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->bookmarksTree->setDragDropReceiver(true, m_bookmarksModel);
@@ -335,65 +336,7 @@ void BookmarksSideBar::keyPressEvent(QKeyEvent* event)
 void BookmarksSideBar::refreshTable()
 {
     m_isRefreshing = true;
-    ui->bookmarksTree->setUpdatesEnabled(false);
-    ui->bookmarksTree->clear();
-
-    QSqlQuery query;
-    QTreeWidgetItem* newItem = new QTreeWidgetItem(ui->bookmarksTree);
-    newItem->setText(0, _bookmarksMenu);
-    newItem->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
-    newItem->setFlags((newItem->flags() & ~Qt::ItemIsDragEnabled) | Qt::ItemIsDropEnabled);
-    ui->bookmarksTree->addTopLevelItem(newItem);
-
-    query.exec("SELECT name FROM folders WHERE subfolder!='yes'");
-    while (query.next()) {
-        newItem = new QTreeWidgetItem(ui->bookmarksTree);
-        newItem->setText(0, query.value(0).toString());
-        newItem->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
-        newItem->setFlags(newItem->flags() | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled);
-        ui->bookmarksTree->addTopLevelItem(newItem);
-    }
-
-    query.exec("SELECT title, url, id, folder, icon FROM bookmarks");
-    while (query.next()) {
-        QString title = query.value(0).toString();
-        QUrl url = query.value(1).toUrl();
-        int id = query.value(2).toInt();
-        QString folder = query.value(3).toString();
-        QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(4).toByteArray()));
-        QTreeWidgetItem* item;
-        if (folder == QLatin1String("bookmarksMenu")) {
-            folder = _bookmarksMenu;
-        }
-        if (folder == QLatin1String("bookmarksToolbar")) {
-            continue;
-        }
-
-        if (folder != QLatin1String("unsorted")) {
-            QList<QTreeWidgetItem*> findParent = ui->bookmarksTree->findItems(folder, 0);
-            if (findParent.count() != 1) {
-                continue;
-            }
-
-            item = new QTreeWidgetItem(findParent.at(0));
-
-        }
-        else {
-            item = new QTreeWidgetItem(ui->bookmarksTree);
-        }
-
-        item->setText(0, title);
-        item->setText(1, url.toEncoded());
-        item->setToolTip(0, url.toEncoded());
-
-        item->setData(0, Qt::UserRole + 10, id);
-        item->setIcon(0, icon);
-        item->setFlags(item->flags() | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled);
-        ui->bookmarksTree->addTopLevelItem(item);
-    }
-    ui->bookmarksTree->expandAll();
-
-    ui->bookmarksTree->setUpdatesEnabled(true);
+    ui->bookmarksTree->refreshTree();
     m_isRefreshing = false;
 
     ui->search->setFocus();

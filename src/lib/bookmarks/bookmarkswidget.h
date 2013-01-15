@@ -33,6 +33,7 @@ class WebView;
 class SpeedDial;
 class BookmarksModel;
 class QupZilla;
+class BookmarksTree;
 
 class QT_QUPZILLA_EXPORT BookmarksWidget : public LocationBarPopup
 {
@@ -47,6 +48,7 @@ signals:
 private slots:
     void on_saveRemove_clicked(bool);
     void bookmarkEdited();
+    void comboItemActive(int index);
 
     void toggleSpeedDial();
 
@@ -62,6 +64,7 @@ private:
     BookmarksModel* m_bookmarksModel;
     SpeedDial* m_speedDial;
     bool m_edited;
+    BookmarksTree* m_bookmarksTree;
 };
 
 #endif // BOOKMARKSWIDGET_H
