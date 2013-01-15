@@ -34,7 +34,7 @@
     </widget>
    </item>
    <item>
-    <widget class="TreeWidget" name="bookmarksTree">
+    <widget class="BookmarksTree" name="bookmarksTree">
      <property name="contextMenuPolicy">
       <enum>Qt::CustomContextMenu</enum>
      </property>
@@ -61,9 +61,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TreeWidget</class>
+   <class>BookmarksTree</class>
    <extends>QTreeWidget</extends>
-   <header>treewidget.h</header>
+   <header>bookmarkstree.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

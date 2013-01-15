@@ -14,8 +14,54 @@
    <string>Bookmarks</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="7">
-    <widget class="TreeWidget" name="bookmarksTree">
+   <item row="1" column="8">
+    <widget class="ClickableLabel" name="optimizeDb">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Optimize Database</string>
+     </property>
+     <property name="html-link-look" stdset="0">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="7">
+    <widget class="ClickableLabel" name="importBookmarks">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Import Bookmarks</string>
+     </property>
+     <property name="html-link-look" stdset="0">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="6">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="0" colspan="4">
+    <widget class="QPushButton" name="addFolder">
+     <property name="text">
+      <string>Add Folder</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="9">
+    <widget class="BookmarksTree" name="bookmarksTree">
      <property name="contextMenuPolicy">
       <enum>Qt::CustomContextMenu</enum>
      </property>
@@ -43,49 +89,17 @@
      </column>
     </widget>
    </item>
-   <item row="1" column="0" colspan="4">
-    <widget class="QPushButton" name="addFolder">
-     <property name="text">
-      <string>Add Folder</string>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="4">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="6">
-    <widget class="ClickableLabel" name="optimizeDb">
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
+    <widget class="QPushButton" name="expandAll">
      <property name="text">
-      <string>Optimize Database</string>
-     </property>
-     <property name="html-link-look" stdset="0">
-      <bool>true</bool>
+      <string>Expand All</string>
      </property>
     </widget>
    </item>
    <item row="1" column="5">
-    <widget class="ClickableLabel" name="importBookmarks">
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
+    <widget class="QPushButton" name="collapseAll">
      <property name="text">
-      <string>Import Bookmarks</string>
-     </property>
-     <property name="html-link-look" stdset="0">
-      <bool>true</bool>
+      <string>Collapse All</string>
      </property>
     </widget>
    </item>
@@ -93,14 +107,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TreeWidget</class>
-   <extends>QTreeWidget</extends>
-   <header>treewidget.h</header>
-  </customwidget>
-  <customwidget>
    <class>ClickableLabel</class>
    <extends>QLabel</extends>
    <header>clickablelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>BookmarksTree</class>
+   <extends>QTreeWidget</extends>
+   <header>bookmarkstree.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
