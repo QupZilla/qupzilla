@@ -237,7 +237,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="153"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
-        <translation>Geblockte URL (AdBlock Regel) - zum Bearbeiten anklicken</translation>
+        <translation>Geblockte URL (AdBlock Regel) – zum Bearbeiten anklicken</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="140"/>
@@ -256,7 +256,7 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/adblockschemehandler.cpp" line="69"/>
         <source>AdBlock Subscription</source>
-        <translation>AdBlock Abonnement</translation>
+        <translation>AdBlock-Abonnement</translation>
     </message>
 </context>
 <context>
@@ -501,7 +501,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="93"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation>&lt;b&gt;Hinweis:&lt;/b&gt; Aktuell ist es nur beim Import von HTML Dateien möglich, auch Ordner zu importieren.</translation>
+        <translation>&lt;b&gt;Hinweis:&lt;/b&gt; Aktuell ist es nur beim Import von HTML-Dateien möglich, auch Ordner zu importieren.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="135"/>
@@ -511,7 +511,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="224"/>
         <source>Fetching icons, please wait...</source>
-        <translation>Hole Symbole, bitte warten Sie...</translation>
+        <translation>Hole Symbole, bitte warten...</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="312"/>
@@ -570,27 +570,27 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="286"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation>Mozilla Firefox speichert die Lesezeichen in der Datei &lt;b&gt;places.sqlite&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter</translation>
+        <translation>Mozilla Firefox speichert die Lesezeichen in der Datei &lt;b&gt;places.sqlite&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="301"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Google Chrome speichert die Lesezeichen in der Datei &lt;b&gt;Bookmarks&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter</translation>
+        <translation>Google Chrome speichert die Lesezeichen in der Datei &lt;b&gt;Bookmarks&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="317"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Opera speichert die Lesezeichen in der Datei &lt;b&gt;bookmarks.adr&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter</translation>
+        <translation>Opera speichert die Lesezeichen in der Datei &lt;b&gt;bookmarks.adr&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="332"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation>Sie können Lesezeichen von jedem Browser importieren, der den Export von Lesezeichen im HTML Format unterstützt. Diese Exportdatei hat gewöhnlich diese Endungen</translation>
+        <translation>Sie können Lesezeichen von jedem Browser importieren, der den Export von Lesezeichen im HTML-Format unterstützt. Diese Exportdatei hat gewöhnlich diese Endungen </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="341"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation>Internet Explorer speichert die Lesezeichen im &lt;b&gt;Favorites&lt;/b&gt; Ordner. Dieser Ordner ist gewöhnlich zu finden unter</translation>
+        <translation>Internet Explorer speichert die Lesezeichen im &lt;b&gt;Favorites&lt;/b&gt;-Ordner. Dieser Ordner ist gewöhnlich zu finden unter </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="288"/>
@@ -629,7 +629,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/chromeimporter.cpp" line="90"/>
         <source>Cannot evaluate JSON code.</source>
-        <translation>JSON Format kann nicht ausgewertet werden.</translation>
+        <translation>JSON-Format kann nicht ausgewertet werden.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/firefoximporter.cpp" line="42"/>
@@ -1108,7 +1108,7 @@
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="57"/>
         <source>Clear cookies from Adobe Flash Player</source>
-        <translation>Cookies vom Adobe Flash Player löschen</translation>
+        <translation>Cookies von Adobe Flash Player löschen</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="77"/>
@@ -1486,11 +1486,11 @@
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="363"/>
-        <source>Sorry, the file 
- %1 
+        <source>Sorry, the file
+ %1
  was not found!</source>
-        <translation>Datei 
- %1 
+        <translation>Datei
+ %1
  konnte nicht gefunden werden!</translation>
     </message>
     <message>
@@ -1900,7 +1900,7 @@
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="61"/>
         <source>Site Url:</source>
-        <translation></translation>
+        <translation>Adresse der Seite:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.cpp" line="38"/>
@@ -1921,7 +1921,7 @@
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="66"/>
         <source>Add RSS from this page...</source>
-        <translation>RSS Feed von dieser Seite hinzufügen...</translation>
+        <translation>RSS-Feed von dieser Seite hinzufügen...</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="123"/>
@@ -1968,7 +1968,7 @@
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="831"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
-        <translation>QupZilla ist aktuell nicht als Standard Browser konfiguriert. Möchten Sie QupZilla als Standard Browser einrichten?</translation>
+        <translation>QupZilla ist aktuell nicht als Standard-Browser konfiguriert. Möchten Sie QupZilla als Standard-Browser einrichten?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="833"/>
@@ -1978,7 +1978,7 @@
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="846"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
-        <translation>QupZilla ist ein neuer, schneller und sicherer, quelloffener Web Browser. QupZilla ist lizensiert unter GPL Version 3 oder später. Er nutzt Webkit und das Qt Framework.</translation>
+        <translation>QupZilla ist ein neuer, schneller und sicherer, quelloffener Webbrowser. QupZilla ist lizenziert unter GPL Version 3 oder später. Er nutzt Webkit und das Qt-Framework.</translation>
     </message>
 </context>
 <context>
@@ -2032,7 +2032,7 @@
         <location filename="../src/lib/network/networkmanager.cpp" line="190"/>
         <location filename="../src/lib/network/networkmanager.cpp" line="228"/>
         <source>SSL Certificate Error!</source>
-        <translation>SSL Zertifikatsfehler!</translation>
+        <translation>SSL-Zertifikatsfehler!</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="206"/>
@@ -2057,12 +2057,12 @@
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="191"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation>Beim Laden dieser Seite sind folgende SSL Zertifikatsfehler aufgetreten:</translation>
+        <translation>Beim Laden dieser Seite sind folgende SSL-Zertifikatsfehler aufgetreten:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
         <source>Would you like to make an exception for this certificate?</source>
-        <translation>Möchten Sie eine Ausnahme für dieses Zertifkat zulassen?</translation>
+        <translation>Möchten Sie eine Ausnahme für dieses Zertifikat zulassen?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="248"/>
@@ -2319,7 +2319,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Adress-Leisten Verhalten&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Adressleisten-Verhalten&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="412"/>
@@ -2363,7 +2363,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1003"/>
         <source>Web Configuration</source>
-        <translation>Web Konfiguration</translation>
+        <translation>Web-Konfiguration</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1245"/>
@@ -2416,7 +2416,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="132"/>
         <source>Password Manager</source>
-        <translation>Passwort Manager</translation>
+        <translation>Passwort-Manager</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1984"/>
@@ -2462,7 +2462,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1032"/>
         <source>Allow DNS Prefetch</source>
-        <translation>DNS Prefetch erlauben</translation>
+        <translation>DNS-Prefetch erlauben</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2046"/>
@@ -2489,7 +2489,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2111"/>
         <source>Send Do Not Track header to servers</source>
-        <translation>Do Not Track Kopfzeile zum Server senden</translation>
+        <translation>„Do Not Track“-Kopfzeile zum Server senden</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="287"/>
@@ -2568,7 +2568,7 @@
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translatorcomment>Prevents cross-site scripting</translatorcomment>
-        <translation>Aktiviere XSS Prüfung</translation>
+        <translation>Aktiviere XSS-Prüfung</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1084"/>
@@ -2587,7 +2587,7 @@
     </message>
     <message>
         <source>Change browser identification:</source>
-        <translation type="obsolete">Browser Identifizierung ändern:</translation>
+        <translation type="obsolete">Browser-Identifizierung ändern:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="147"/>
@@ -2731,7 +2731,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1060"/>
         <source>Animated scrolling</source>
-        <translation type="unfinished">Animierter Bildlauf</translation>
+        <translation>Animierter Bildlauf</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1167"/>
@@ -2898,12 +2898,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2167"/>
         <source>Cookies Manager</source>
-        <translation>Cookie Manager</translation>
+        <translation>Cookie-Manager</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2210"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
-        <translation>&lt;b&gt;SSL Zertifikate&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;SSL-Zertifikate&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2118"/>
@@ -2919,7 +2919,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2053"/>
         <source>Block popup windows</source>
-        <translation>PopUp Fenster blockieren</translation>
+        <translation>PopUp-Fenster blockieren</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="122"/>
@@ -2929,7 +2929,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="467"/>
         <source>Check to see if QupZilla is the default browser on startup</source>
-        <translation>Bei Start prüfen, ob QupZilla als Standard Browser eingerichtet ist</translation>
+        <translation>Bei Start prüfen, ob QupZilla als Standard-Browser eingerichtet ist</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="477"/>
@@ -3068,27 +3068,27 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="961"/>
         <source>Add .co.uk domain by pressing ALT key</source>
-        <translation>Zum Hinzufügen der .co.uk Domäne drücken Sie bitte die ALT-Taste</translation>
+        <translation>Zum Hinzufügen der .de Domäne drücken Sie bitte die ALT-Taste</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1309"/>
         <source>Allow local storage of HTML5 web content</source>
-        <translation>Das lokale Speichern von HTML5 Inhalten erlauben</translation>
+        <translation>Das lokale Speichern von HTML5-Inhalten erlauben</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1316"/>
         <source>Delete locally stored HTML5 web content on close</source>
-        <translation>Lokale HTML5 Speicherinhalte beim Verlassen löschen</translation>
+        <translation>Lokale HTML5-Speicherinhalte beim Verlassen löschen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1911"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Externer Download Manager&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Externer Download-Manager&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1918"/>
         <source>Use external download manager</source>
-        <translation>Externen Download Manager benutzen</translation>
+        <translation>Externen Download-Manager benutzen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1930"/>
@@ -3108,7 +3108,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2217"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;Warnung:&lt;/b&gt; Das Einschalten der Optionen &quot;Genaue Übereinstimmung&quot; und &quot;Seitenfremde Inhalte&quot; kann dazu führen, dass Cookies von Webseiten zurückgewiesen werden. Tritt dieses Problem auf, deaktivieren Sie bitte zunächst diese Optionen!</translation>
+        <translation>&lt;b&gt;Warnung:&lt;/b&gt; Das Einschalten der Optionen „Genaue Übereinstimmung“ und „Seitenfremde Inhalte“ kann dazu führen, dass Cookies von Webseiten zurückgewiesen werden. Tritt dieses Problem auf, deaktivieren Sie bitte zunächst diese Optionen!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="433"/>
@@ -3124,17 +3124,17 @@
         <location filename="../src/lib/preferences/preferences.cpp" line="108"/>
         <location filename="../src/lib/preferences/preferences.cpp" line="517"/>
         <source>QupZilla is default</source>
-        <translation>QupZilla ist als Standard Browser eingerichtet</translation>
+        <translation>QupZilla ist als Standard-Browser eingerichtet</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="112"/>
         <source>Make QupZilla default</source>
-        <translation>QupZilla als Standard Browser einrichten</translation>
+        <translation>QupZilla als Standard-Browser einrichten</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="501"/>
         <source>OSD Notification</source>
-        <translation>OSD Benachrichtigung</translation>
+        <translation>OSD-Benachrichtigung</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="502"/>
@@ -3195,7 +3195,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="753"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation>Möchten Sie wirklich das Profil &quot;%1&quot; dauerhaft entfernen? Diese Aktion kann nicht rückgängig gemacht werden!</translation>
+        <translation>Möchten Sie wirklich das Profil „%1” dauerhaft entfernen? Diese Aktion kann nicht rückgängig gemacht werden!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="1037"/>
@@ -3208,7 +3208,7 @@
     <message>
         <location filename="../src/lib/opensearch/opensearchreader.cpp" line="108"/>
         <source>The file is not an OpenSearch 1.1 file.</source>
-        <translation>Diese Datei besitzt kein gültiges OpenSearch 1.1 Format.</translation>
+        <translation>Diese Datei besitzt kein gültiges OpenSearch-1.1-Format.</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.cpp" line="305"/>
@@ -3256,12 +3256,12 @@
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="364"/>
         <source>Open download manager</source>
-        <translation>Download Manager öffnen</translation>
+        <translation>Download-Manager öffnen</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="364"/>
         <source>Opens a download manager if browser is running</source>
-        <translation>Öffnet den Download Manager bei gestartetem Browser</translation>
+        <translation>Öffnet den Download-Manager bei gestartetem Browser</translation>
     </message>
 </context>
 <context>
@@ -3285,7 +3285,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="294"/>
         <source>IP Address of current page</source>
-        <translation>IP Adresse der aktuellen Seite</translation>
+        <translation>IP-Adresse der aktuellen Seite</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="121"/>
@@ -3448,7 +3448,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1481"/>
         <source>HTML files</source>
-        <translation>HTML Dateien</translation>
+        <translation>HTML-Dateien</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1481"/>
@@ -3467,7 +3467,7 @@
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1790"/>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. 
+        <source>There are still %1 open tabs and your session won&apos;t be stored.
 Are you sure to quit QupZilla?</source>
         <translation>Es sind noch %1 Tabs geöffnet und Ihre Sitzung wird nicht gespeichert. Möchten Sie QupZilla wirklich beenden?</translation>
     </message>
@@ -3658,12 +3658,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="476"/>
         <source>&amp;Download Manager</source>
-        <translation>&amp;Download Manager</translation>
+        <translation>&amp;Download-Manager</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="477"/>
         <source>&amp;Cookies Manager</source>
-        <translation>&amp;Cookie Manager</translation>
+        <translation>&amp;Cookie-Manager</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="478"/>
@@ -3673,7 +3673,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="479"/>
         <source>RSS &amp;Reader</source>
-        <translation>RSS &amp;Reader</translation>
+        <translation>RSS-&amp;Reader</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="481"/>
@@ -3711,7 +3711,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="149"/>
         <source>Your E-mail</source>
-        <translation>Ihre E-Mail Adresse</translation>
+        <translation>Ihre E-Mail-Adresse</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="150"/>
@@ -3789,7 +3789,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
         <source>Browser Identification</source>
-        <translation>Browser Indentifizierung</translation>
+        <translation>Browser-Identifizierung</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="350"/>
@@ -3827,7 +3827,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
         <source>WebGL support</source>
-        <translation>WebGL Unterstützung</translation>
+        <translation>WebGL-Unterstützung</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="406"/>
@@ -3837,12 +3837,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
         <source>KDE integration</source>
-        <translation>KDE Integration</translation>
+        <translation>KDE-Integration</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
         <source>Portable build</source>
-        <translation>Portable Version</translation>
+        <translation>Portable-Version</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="426"/>
@@ -3887,7 +3887,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="279"/>
         <source>Load title from page</source>
-        <translation>Titel von der Web-Seite laden</translation>
+        <translation>Titel von der Webseite laden</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="275"/>
@@ -3946,7 +3946,7 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="206"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
         <source>WebKit version</source>
-        <translation>WebKit Version</translation>
+        <translation>WebKit-Version</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
@@ -3956,12 +3956,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="362"/>
         <source>Application version</source>
-        <translation>QupZilla Version</translation>
+        <translation>QupZilla-Version</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="367"/>
         <source>Qt version</source>
-        <translation>Qt Version</translation>
+        <translation>Qt-Version</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
@@ -4129,7 +4129,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="14"/>
         <source>RSS Reader</source>
-        <translation>RSS Reader</translation>
+        <translation>RSS-Reader</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="33"/>
@@ -4141,8 +4141,8 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/rss/rssmanager.cpp" line="127"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
-        <translation>Sie haben noch keine RSS Feeds abonniert.&lt;br/&gt;
-Bitte fügen Sie welche über das RSS Symbol in der Navigationsleiste hinzu.</translation>
+        <translation>Sie haben noch keine RSS-Feeds abonniert.&lt;br/&gt;
+Bitte fügen Sie welche über das RSS-Symbol in der Navigationsleiste hinzu.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="52"/>
@@ -4162,7 +4162,7 @@ Bitte fügen Sie welche über das RSS Symbol in der Navigationsleiste hinzu.</tr
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="74"/>
         <source>Delete feed</source>
-        <translation>Feed Löschen</translation>
+        <translation>Feed löschen</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="97"/>
@@ -4203,17 +4203,17 @@ Bitte fügen Sie welche über das RSS Symbol in der Navigationsleiste hinzu.</tr
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="196"/>
         <source>Feed title: </source>
-        <translation>Feed Titel: </translation>
+        <translation>Feed-Titel: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="197"/>
         <source>Feed URL: </source>
-        <translation>Feed URL: </translation>
+        <translation>Feed-URL: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="203"/>
         <source>Edit RSS Feed</source>
-        <translation>RSS Feed bearbeiten</translation>
+        <translation>RSS-Feed bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="245"/>
@@ -4233,7 +4233,7 @@ Bitte fügen Sie welche über das RSS Symbol in der Navigationsleiste hinzu.</tr
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="405"/>
         <source>RSS feed duplicated</source>
-        <translation>Doppelter RSS Feed vorhanden</translation>
+        <translation>Doppelter RSS-Feed vorhanden</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="405"/>
@@ -4276,12 +4276,12 @@ Bitte fügen Sie welche über das RSS Symbol in der Navigationsleiste hinzu.</tr
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="56"/>
         <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
-        <translation>RSS Feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
+        <translation>RSS-Feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="80"/>
         <source>Internal Reader</source>
-        <translation>Interner RSS Reader</translation>
+        <translation>Interner RSS-Reader</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="81"/>
@@ -4314,7 +4314,7 @@ Bitte fügen Sie welche über das RSS Symbol in der Navigationsleiste hinzu.</tr
     <message>
         <location filename="../src/lib/rss/rsswidget.ui" line="56"/>
         <source>Add RSS Feeds from this site</source>
-        <translation>RSS Feed von dieser Seite hinzufügen</translation>
+        <translation>RSS-Feed von dieser Seite hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="49"/>
@@ -4434,7 +4434,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="217"/>
         <source>Ignore all SSL Warnings</source>
-        <translation>Alle SSL Warnungen ignorieren</translation>
+        <translation>Alle SSL-Warnungen ignorieren</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="58"/>
@@ -5179,7 +5179,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="30"/>
         <source>Stop</source>
-        <translation>Stop</translation>
+        <translation>Stopp</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="38"/>
@@ -5210,7 +5210,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="14"/>
         <source>User Agent Manager</source>
-        <translation>User Agent Manager</translation>
+        <translation>User-Agent-Manager</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="20"/>
@@ -5220,12 +5220,12 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="48"/>
         <source>Use different User Agents for specified sites</source>
-        <translation>Unterschiedliche User Agents für bestimmte Web-Seiten nutzen</translation>
+        <translation>Unterschiedliche User Agents für bestimmte Webseiten nutzen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="89"/>
         <source>Site</source>
-        <translation>Web-Seite</translation>
+        <translation>Webseite</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="94"/>
@@ -5250,12 +5250,12 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="84"/>
         <source>Add new site</source>
-        <translation>Neue Web-Seite hinzufügen</translation>
+        <translation>Neue Webseite hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="122"/>
         <source>Edit site</source>
-        <translation>Web-Seite bearbeiten</translation>
+        <translation>Webseite bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="195"/>
@@ -5296,16 +5296,16 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <translation>Mit externer Anwendung öffnen</translation>
     </message>
     <message>
-        <source>To show this page, QupZilla must resend request which do it again 
+        <source>To show this page, QupZilla must resend request which do it again
 (like searching on making an shoping, which has been already done.)</source>
-        <translation type="obsolete">Um diese Seite anzeigen zu können, muss QupZilla eine erneute Abfrage an den Server versenden 
+        <translation type="obsolete">Um diese Seite anzeigen zu können, muss QupZilla eine erneute Abfrage an den Server versenden
 </translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="474"/>
-        <source>To show this page, QupZilla must resend request which do it again 
+        <source>To show this page, QupZilla must resend request which do it again
 (like searching on making an shopping, which has been already done.)</source>
-        <translation>Um diese Seite anzeigen zu können, muss QupZilla eine erneute Abfrage an den Server versenden 
+        <translation>Um diese Seite anzeigen zu können, muss QupZilla eine erneute Abfrage an den Server versenden
 </translation>
     </message>
     <message>
@@ -5396,7 +5396,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="743"/>
         <source>Error code %1</source>
-        <translation>Fehler Code %1</translation>
+        <translation>Fehler-Code %1</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="755"/>
@@ -5416,7 +5416,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="765"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
-        <translation>Bitte überprüfen Sie die Adresse auf Tippfehler wie &lt;b&gt;ww.&lt;/b&gt;example.com anstatt &lt;b&gt;www.&lt;/b&gt;example.com</translation>
+        <translation>Bitte überprüfen Sie die Adresse auf Tippfehler wie &lt;b&gt;ww.&lt;/b&gt;beispiel.com anstatt &lt;b&gt;www.&lt;/b&gt;beispiel.com</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="766"/>
@@ -5436,7 +5436,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="868"/>
         <source>JavaScript alert</source>
-        <translation>JavaScript Warnmeldung</translation>
+        <translation>JavaScript-Warnmeldung</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="876"/>
