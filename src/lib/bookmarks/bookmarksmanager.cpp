@@ -631,9 +631,9 @@ void BookmarksManager::insertBookmark(const QUrl &url, const QString &title, con
     QLabel* label = new QLabel(dialog);
     QLineEdit* edit = new QLineEdit(dialog);
     QComboBox* combo = new QComboBox(dialog);
-    BookmarksTree *bookmarksTree = new BookmarksTree(dialog);
-    connect(bookmarksTree, SIGNAL(requestNewFolder(QWidget*,QString*,bool,QString,WebView*)),
-            this, SLOT(addFolder(QWidget*,QString*,bool,QString,WebView*)));
+    BookmarksTree* bookmarksTree = new BookmarksTree(dialog);
+    connect(bookmarksTree, SIGNAL(requestNewFolder(QWidget*, QString*, bool, QString, WebView*)),
+            this, SLOT(addFolder(QWidget*, QString*, bool, QString, WebView*)));
     bookmarksTree->setViewType(BookmarksTree::ComboFolderView);
     bookmarksTree->header()->hide();
     bookmarksTree->setColumnCount(1);
@@ -658,7 +658,7 @@ void BookmarksManager::insertBookmark(const QUrl &url, const QString &title, con
     // QComboBox::find() returns index related to the item's parent
     if (index == -1) { // subfolder
         QModelIndex rootIndex = combo->rootModelIndex();
-        combo->setRootModelIndex(combo->model()->index(combo->findText(_bookmarksToolbar),0));
+        combo->setRootModelIndex(combo->model()->index(combo->findText(_bookmarksToolbar), 0));
         index = combo->findText(BookmarksModel::toTranslatedFolder(folder.isEmpty() ? m_bookmarksModel->lastFolder() : folder));
         combo->setCurrentIndex(index);
         combo->setRootModelIndex(rootIndex);
@@ -697,9 +697,9 @@ void BookmarksManager::insertAllTabs()
     QBoxLayout* layout = new QBoxLayout(QBoxLayout::TopToBottom, dialog);
     QLabel* label = new QLabel(dialog);
     QComboBox* combo = new QComboBox(dialog);
-    BookmarksTree *bookmarksTree = new BookmarksTree(dialog);
-    connect(bookmarksTree, SIGNAL(requestNewFolder(QWidget*,QString*,bool,QString,WebView*)),
-            this, SLOT(addFolder(QWidget*,QString*,bool,QString,WebView*)));
+    BookmarksTree* bookmarksTree = new BookmarksTree(dialog);
+    connect(bookmarksTree, SIGNAL(requestNewFolder(QWidget*, QString*, bool, QString, WebView*)),
+            this, SLOT(addFolder(QWidget*, QString*, bool, QString, WebView*)));
     bookmarksTree->setViewType(BookmarksTree::ComboFolderView);
     bookmarksTree->header()->hide();
     bookmarksTree->setColumnCount(1);
@@ -721,7 +721,7 @@ void BookmarksManager::insertAllTabs()
     // QComboBox::find() returns index related to the item's parent
     if (index == -1) { // subfolder
         QModelIndex rootIndex = combo->rootModelIndex();
-        combo->setRootModelIndex(combo->model()->index(combo->findText(_bookmarksToolbar),0));
+        combo->setRootModelIndex(combo->model()->index(combo->findText(_bookmarksToolbar), 0));
         index = combo->findText(BookmarksModel::toTranslatedFolder(m_bookmarksModel->lastFolder()));
         combo->setCurrentIndex(index);
         combo->setRootModelIndex(rootIndex);

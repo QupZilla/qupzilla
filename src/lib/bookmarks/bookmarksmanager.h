@@ -56,7 +56,7 @@ private slots:
     void deleteItem();
     void itemChanged(QTreeWidgetItem* item);
     void addSubfolder();
-    void addFolder(QWidget *parent = 0, QString* folder = 0, bool showInsertDialog = false,
+    void addFolder(QWidget* parent = 0, QString* folder = 0, bool showInsertDialog = false,
                    const QString &bookmarkTitle = QString(), WebView* = 0);
     void renameFolder();
     void contextMenuRequested(const QPoint &position);

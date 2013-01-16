@@ -64,8 +64,8 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
     loadBookmark();
 
     connect(ui->folder, SIGNAL(activated(int)), this, SLOT(comboItemActive(int)));
-    connect(m_bookmarksTree, SIGNAL(requestNewFolder(QWidget*,QString*,bool,QString,WebView*)),
-            reinterpret_cast<QObject*>(mApp->browsingLibrary()->bookmarksManager()), SLOT(addFolder(QWidget*,QString*,bool,QString,WebView*)));
+    connect(m_bookmarksTree, SIGNAL(requestNewFolder(QWidget*, QString*, bool, QString, WebView*)),
+            reinterpret_cast<QObject*>(mApp->browsingLibrary()->bookmarksManager()), SLOT(addFolder(QWidget*, QString*, bool, QString, WebView*)));
 }
 
 void BookmarksWidget::loadBookmark()
@@ -83,7 +83,7 @@ void BookmarksWidget::loadBookmark()
         // QComboBox::findData() returns index related to the item's parent
         if (index == -1) { // subfolder
             QModelIndex rootIndex = ui->folder->rootModelIndex();
-            ui->folder->setRootModelIndex(ui->folder->model()->index(ui->folder->findText(_bookmarksToolbar),0));
+            ui->folder->setRootModelIndex(ui->folder->model()->index(ui->folder->findText(_bookmarksToolbar), 0));
             // subfolder's name and its stored data are the same
             index = ui->folder->findText(bookmark.folder);
             ui->folder->setCurrentIndex(index);

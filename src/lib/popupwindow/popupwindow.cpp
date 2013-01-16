@@ -29,7 +29,7 @@
 #include <QWebFrame>
 #include <QCloseEvent>
 
-PopupWindow::PopupWindow(PopupWebView* view, QupZilla *mainClass)
+PopupWindow::PopupWindow(PopupWebView* view, QupZilla* mainClass)
     : QWidget()
     , p_QupZilla(mainClass)
     , m_view(view)

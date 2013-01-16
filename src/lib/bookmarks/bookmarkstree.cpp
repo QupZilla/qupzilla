@@ -24,7 +24,7 @@
 #include <QSqlQuery>
 #include <QComboBox>
 
-BookmarksTree::BookmarksTree(QWidget *parent)
+BookmarksTree::BookmarksTree(QWidget* parent)
     : TreeWidget(parent)
     , m_viewType(ManagerView)
 {
@@ -47,7 +47,7 @@ void BookmarksTree::setViewType(BookmarksTree::BookmarkView viewType)
     }
 }
 
-void BookmarksTree::drawBranches(QPainter *painter, const QRect &rect, const QModelIndex &index) const
+void BookmarksTree::drawBranches(QPainter* painter, const QRect &rect, const QModelIndex &index) const
 {
     if (m_viewType == ComboFolderView) {
         return;
@@ -111,7 +111,7 @@ void BookmarksTree::refreshTree()
         addTopLevelItem(newItem);
     }
     if (m_viewType == ComboFolderView) {
-        QTreeWidgetItem *newFolder = new QTreeWidgetItem(rootItem);
+        QTreeWidgetItem* newFolder = new QTreeWidgetItem(rootItem);
         newFolder->setText(0, tr("New Folder..."));
         newFolder->setData(0, Qt::UserRole + 12, "NEW_FOLDER");
         newFolder->setIcon(0, style()->standardIcon(QStyle::SP_FileDialogNewFolder));
@@ -204,7 +204,7 @@ void BookmarksTree::refreshTree()
     setUpdatesEnabled(true);
 }
 
-void BookmarksTree::activeItemChange(int index, QComboBox *combo, const QString &title, WebView* view)
+void BookmarksTree::activeItemChange(int index, QComboBox* combo, const QString &title, WebView* view)
 {
     if (!combo) {
         combo = qobject_cast<QComboBox*>(sender());
@@ -225,7 +225,7 @@ void BookmarksTree::activeItemChange(int index, QComboBox *combo, const QString 
                 // QComboBox::find() returns index related to the item's parent
                 if (ind == -1) {
                     QModelIndex rootIndex = combo->rootModelIndex();
-                    combo->setRootModelIndex(combo->model()->index(combo->findText(_bookmarksToolbar),0));
+                    combo->setRootModelIndex(combo->model()->index(combo->findText(_bookmarksToolbar), 0));
                     combo->setCurrentIndex(combo->findText(folder));
                     combo->setRootModelIndex(rootIndex);
                 }
