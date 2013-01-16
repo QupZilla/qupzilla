@@ -173,4 +173,7 @@ void TestPlugin::actionSlot()
 // Export plugin macro
 // This macro has to be only in class derived from PluginInterface
 // Don't call it in other files!
+
+#if QT_VERSION < 0x050000
 Q_EXPORT_PLUGIN2(ExamplePlugin, TestPlugin)
+#endif

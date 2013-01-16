@@ -98,4 +98,6 @@ void GM_Plugin::webPageCreated(WebPage* page)
     connect(page->mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), m_manager, SLOT(pageLoadStart()));
 }
 
+#if QT_VERSION < 0x050000
 Q_EXPORT_PLUGIN2(GreaseMonkey, GM_Plugin)
+#endif

@@ -53,6 +53,6 @@ private:
     BookmarkView m_viewType;
 
 signals:
-    void requestNewFolder(QWidget*,QString*,bool,QString,WebView*);
+    void requestNewFolder(QWidget*, QString*, bool, QString, WebView*);
 };
 #endif // BOOKMARKSTREE_H

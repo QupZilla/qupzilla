@@ -17,7 +17,4 @@ TEMPLATE = subdirs
 SUBDIRS = src/lib src/main
 CONFIG += ordered
 
-# TODO: Fix plugins for Qt5
-!isEqual(QT_MAJOR_VERSION, 5) {
-    SUBDIRS += src/plugins
-}
+SUBDIRS += src/plugins

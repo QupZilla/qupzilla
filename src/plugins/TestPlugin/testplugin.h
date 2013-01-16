@@ -31,12 +31,16 @@
 #include <QMessageBox>
 #include <QWebElement>
 #include <QVBoxLayout>
-#include <QWeakPointer>
+#include <QPointer>
 
 class TestPlugin : public QObject, public PluginInterface
 {
     Q_OBJECT
     Q_INTERFACES(PluginInterface)
+
+#if QT_VERSION >= 0x050000
+    Q_PLUGIN_METADATA(IID "QupZilla.Browser.plugin.TestPlugin")
+#endif
 
 public:
     explicit TestPlugin();
@@ -57,7 +61,7 @@ private slots:
     void actionSlot();
 
 private:
-    QWeakPointer<QDialog> m_settings;
+    QPointer<QDialog> m_settings;
 
     WebView* m_view;
     QString m_settingsPath;
