@@ -228,17 +228,21 @@ void AutoFillModel::completePage(WebPage* page)
     // Why not to use encodedQueryItems = QByteArrays ?
     // Because we need to filter "+" characters that must be spaces
     // (not real "+" characters "%2B")
+    //
+    // DO NOT TOUCH! It works now with both Qt 4 & Qt 5 ...
 #if QT_VERSION >= 0x050000
     QueryItems arguments = QUrlQuery(QUrl::fromEncoded("http://bla.com/?" + data)).queryItems();
 #else
+    data.replace('+', ' ');
     QueryItems arguments = QUrl::fromEncoded("http://bla.com/?" + data).queryItems();
 #endif
     for (int i = 0; i < arguments.count(); i++) {
         QString key = arguments.at(i).first;
         QString value = arguments.at(i).second;
+#if QT_VERSION >= 0x050000
         key.replace(QLatin1Char('+'), QLatin1Char(' '));
         value.replace(QLatin1Char('+'), QLatin1Char(' '));
-
+#endif
         key = QUrl::fromEncoded(key.toUtf8()).toString();
         value = QUrl::fromEncoded(value.toUtf8()).toString();
 
