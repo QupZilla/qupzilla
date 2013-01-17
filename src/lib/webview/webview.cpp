@@ -15,6 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
+
 #include "webview.h"
 #include "webpage.h"
 #include "mainapplication.h"
@@ -22,6 +23,7 @@
 #include "iconprovider.h"
 #include "history.h"
 #include "autofillmodel.h"
+#include "pluginproxy.h"
 #include "downloadmanager.h"
 #include "sourceviewer.h"
 #include "siteinfo.h"
@@ -31,7 +33,6 @@
 #include "settings.h"
 #include "qzsettings.h"
 #include "enhancedmenu.h"
-#include "pluginproxy.h"
 
 #include <QDir>
 #include <QTimer>
