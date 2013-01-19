@@ -137,7 +137,8 @@ void FileSchemeReply::loadPage()
 QString FileSchemeReply::loadDirectory()
 {
     const QDir &dir = QDir(request().url().toLocalFile());
-    const QFileInfoList &list = dir.entryInfoList(QDir::AllEntries | QDir::Hidden, QDir::Name | QDir::DirsFirst);
+    const QFileInfoList &list = dir.entryInfoList(QDir::AllEntries | QDir::Hidden,
+                                                  QDir::Name | QDir::DirsFirst | QDir::IgnoreCase);
 
     static QString sPage;
 
