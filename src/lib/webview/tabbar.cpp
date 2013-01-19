@@ -194,6 +194,10 @@ QSize TabBar::tabSizeHint(int index) const
     }
     else {
         int availableWidth = width() - (PINNED_TAB_WIDTH * m_pinnedTabsCount) - m_tabWidget->buttonListTabs()->width() - m_tabWidget->buttonAddTab()->width();
+        if (availableWidth < 0) {
+            return QSize(-1, -1);
+        }
+
         int normalTabsCount = count() - m_pinnedTabsCount;
         if (availableWidth >= MAXIMUM_TAB_WIDTH * normalTabsCount) {
             m_normalTabWidth = MAXIMUM_TAB_WIDTH;
