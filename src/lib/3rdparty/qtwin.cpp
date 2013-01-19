@@ -84,7 +84,11 @@ public:
     void removeWidget(QWidget* widget) {
         widgets.removeAll(widget);
     }
+#if (QT_VERSION < 0x050000)
     bool winEvent(MSG* message, long* result);
+#else
+    bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
+#endif
 
 private:
     QWidgetList widgets;
@@ -93,7 +97,7 @@ private:
 static bool resolveLibs()
 {
     if (!pDwmIsCompositionEnabled) {
-        QLibrary dwmLib(QString::fromAscii("dwmapi"));
+        QLibrary dwmLib(QString::fromLatin1("dwmapi"));
         pDwmIsCompositionEnabled = (PtrDwmIsCompositionEnabled)dwmLib.resolve("DwmIsCompositionEnabled");
         pDwmExtendFrameIntoClientArea = (PtrDwmExtendFrameIntoClientArea)dwmLib.resolve("DwmExtendFrameIntoClientArea");
         pDwmEnableBlurBehindWindow = (PtrDwmEnableBlurBehindWindow)dwmLib.resolve("DwmEnableBlurBehindWindow");
@@ -164,9 +168,13 @@ bool QtWin::enableBlurBehindWindow(QWidget* widget, bool enable)
         bb.fEnable = enable;
         bb.dwFlags = DWM_BB_ENABLE;
         bb.hRgnBlur = NULL;
+
         widget->setAttribute(Qt::WA_TranslucentBackground, enable);
         widget->setAttribute(Qt::WA_NoSystemBackground, enable);
-        hr = pDwmEnableBlurBehindWindow(widget->winId(), &bb);
+        // Qt5: setting WA_TranslucentBackground without the following line hides the widget!!
+        widget->setWindowOpacity(1);
+
+        hr = pDwmEnableBlurBehindWindow(hwndOfWidget(widget) , &bb);
         if (SUCCEEDED(hr)) {
             result = true;
             windowNotifier()->addWidget(widget);
@@ -202,16 +210,18 @@ bool QtWin::extendFrameIntoClientArea(QWidget* widget, int left, int top, int ri
     bool result = false;
 #ifdef Q_OS_WIN
     if (resolveLibs()) {
-        QLibrary dwmLib(QString::fromAscii("dwmapi"));
+        QLibrary dwmLib(QString::fromLatin1("dwmapi"));
         HRESULT hr = S_OK;
         MARGINS m = {left, right, top, bottom};
-        hr = pDwmExtendFrameIntoClientArea(widget->winId(), &m);
+        hr = pDwmExtendFrameIntoClientArea(hwndOfWidget(widget), &m);
         if (SUCCEEDED(hr)) {
             result = true;
             windowNotifier()->addWidget(widget);
             widgetsBlurState.insert(widget, true);
         }
         widget->setAttribute(Qt::WA_TranslucentBackground, result);
+        // Qt5: setting WA_TranslucentBackground without the following line hides the widget!!
+        widget->setWindowOpacity(1);
     }
 #endif
     return result;
@@ -230,7 +240,7 @@ QColor QtWin::colorizationColor()
     if (resolveLibs()) {
         DWORD color = 0;
         BOOL opaque = FALSE;
-        QLibrary dwmLib(QString::fromAscii("dwmapi"));
+        QLibrary dwmLib(QString::fromLatin1("dwmapi"));
         HRESULT hr = S_OK;
         hr = pDwmGetColorizationColor(&color, &opaque);
         if (SUCCEEDED(hr)) {
@@ -242,6 +252,16 @@ QColor QtWin::colorizationColor()
 }
 
 #ifdef Q_OS_WIN
+HWND QtWin::hwndOfWidget(const QWidget* widget)
+{
+    if (widget) {
+        return reinterpret_cast<HWND>(widget->winId());
+    }
+    else {
+        return 0;
+    }
+}
+
 WindowNotifier* QtWin::windowNotifier()
 {
     static WindowNotifier* windowNotifierInstance = 0;
@@ -253,8 +273,15 @@ WindowNotifier* QtWin::windowNotifier()
 
 
 /* Notify all enabled windows that the DWM state changed */
+#if (QT_VERSION < 0x050000)
 bool WindowNotifier::winEvent(MSG* message, long* result)
 {
+#else
+bool WindowNotifier::nativeEvent(const QByteArray &eventType, void* _message, long* result)
+{
+    Q_UNUSED(eventType)
+    MSG* message = static_cast<MSG*>(_message);
+#endif
     if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
         bool compositionEnabled = QtWin::isCompositionEnabled();
         foreach(QWidget * widget, widgets) {
@@ -270,7 +297,11 @@ bool WindowNotifier::winEvent(MSG* message, long* result)
             }
         }
     }
+#if (QT_VERSION < 0x050000)
     return QWidget::winEvent(message, result);
+#else
+    return QWidget::nativeEvent(eventType, _message, result);
+#endif
 }
 
 #ifdef W7API

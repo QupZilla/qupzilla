@@ -38,6 +38,8 @@
   * these functions will simply not do anything.
   */
 #ifdef Q_OS_WIN
+// Qt5 compile issue: http://comments.gmane.org/gmane.comp.lib.qt.user/4711
+#define NOMINMAX
 #ifdef W7API
 #include <ShlObj.h>
 #include <shlwapi.h>
@@ -62,6 +64,9 @@ public:
     static QColor colorizationColor();
 
     static void setupJumpList();
+#ifdef Q_OS_WIN
+    static HWND hwndOfWidget(const QWidget* widget);
+#endif
 
 private:
     static WindowNotifier* windowNotifier();

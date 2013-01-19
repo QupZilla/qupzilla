@@ -208,7 +208,11 @@ private:
     void disconnectObjects();
 
 #ifdef Q_OS_WIN
+#if (QT_VERSION < 0x050000)
     bool winEvent(MSG* message, long* result);
+#else
+    bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
+#endif
     bool eventFilter(QObject* object, QEvent* event);
 #endif
 

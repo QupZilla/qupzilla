@@ -661,6 +661,8 @@ void QupZilla::loadSettings()
         m_usingTransparentBackground = true;
 
         applyBlurToMainWindow();
+        update();
+
         //install event filter
         menuBar()->installEventFilter(this);
         m_navigationBar->installEventFilter(this);
@@ -1998,8 +2000,15 @@ void QupZilla::moveToVirtualDesktop(int desktopId)
 #endif
 
 #ifdef Q_OS_WIN
+#if (QT_VERSION < 0x050000)
 bool QupZilla::winEvent(MSG* message, long* result)
 {
+#else
+bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* result)
+{
+    Q_UNUSED(eventType)
+    MSG* message = static_cast<MSG*>(_message);
+#endif
     if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
         Settings settings;
         settings.beginGroup("Browser-View-Settings");
@@ -2039,7 +2048,11 @@ bool QupZilla::winEvent(MSG* message, long* result)
             setUpdatesEnabled(true);
         }
     }
+#if (QT_VERSION < 0x050000)
     return QMainWindow::winEvent(message, result);
+#else
+    return QMainWindow::nativeEvent(eventType, _message, result);
+#endif
 }
 
 void QupZilla::applyBlurToMainWindow(bool force)

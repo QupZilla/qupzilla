@@ -66,16 +66,24 @@ Qt::HANDLE QtLockedFile::getMutexHandle(int idx, bool doCreate)
 
     Qt::HANDLE mutex;
     if (doCreate) {
+#if (QT_VERSION < 0x050000)
         QT_WA( { mutex = CreateMutexW(NULL, FALSE, (TCHAR*)mname.utf16()); },
         { mutex = CreateMutexA(NULL, FALSE, mname.toLocal8Bit().constData()); });
+#else // QT_WA removed from Qt5: http://qt-project.org/forums/viewthread/22994/#107379
+        mutex = CreateMutexW(NULL, FALSE, (TCHAR*)mname.utf16());
+#endif
         if (!mutex) {
             qErrnoWarning("QtLockedFile::lock(): CreateMutex failed");
             return 0;
         }
     }
     else {
+#if (QT_VERSION < 0x050000)
         QT_WA( { mutex = OpenMutexW(SYNCHRONIZE | MUTEX_MODIFY_STATE, FALSE, (TCHAR*)mname.utf16()); },
         { mutex = OpenMutexA(SYNCHRONIZE | MUTEX_MODIFY_STATE, FALSE, mname.toLocal8Bit().constData()); });
+#else // QT_WA removed from Qt5: http://qt-project.org/forums/viewthread/22994/#107379
+        mutex = OpenMutexW(SYNCHRONIZE | MUTEX_MODIFY_STATE, FALSE, (TCHAR*)mname.utf16());
+#endif
         if (!mutex) {
             if (GetLastError() != ERROR_FILE_NOT_FOUND) {
                 qErrnoWarning("QtLockedFile::lock(): OpenMutex failed");
