@@ -197,7 +197,9 @@ SOURCES += \
     network/schemehandlers/fileschemehandler.cpp \
     other/registerqappassociation.cpp \
     tools/listitemdelegate.cpp \
-    bookmarks/bookmarkstree.cpp
+    bookmarks/bookmarkstree.cpp \
+    tools/html5permissions/html5permissionsmanager.cpp \
+    tools/html5permissions/html5permissionsnotification.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -357,7 +359,9 @@ HEADERS  += \
     network/schemehandlers/fileschemehandler.h \
     other/registerqappassociation.h \
     tools/listitemdelegate.h \
-    bookmarks/bookmarkstree.h
+    bookmarks/bookmarkstree.h \
+    tools/html5permissions/html5permissionsmanager.h \
+    tools/html5permissions/html5permissionsnotification.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -403,7 +407,8 @@ FORMS    += \
     other/iconchooser.ui \
     adblock/adblockaddsubscriptiondialog.ui \
     preferences/useragentdialog.ui \
-    session/recoverywidget.ui
+    session/recoverywidget.ui \
+    tools/html5permissions/html5permissionsnotification.ui
 
 RESOURCES += \
     data/icons.qrc \

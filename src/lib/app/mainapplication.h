@@ -50,6 +50,7 @@ class DatabaseWriter;
 class UserAgentManager;
 class ProxyStyle;
 class RegisterQAppAssociation;
+class HTML5PermissionsManager;
 
 class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -105,6 +106,7 @@ public:
     SearchEnginesManager* searchEnginesManager();
     QNetworkDiskCache* networkCache();
     DesktopNotificationsFactory* desktopNotifications();
+    HTML5PermissionsManager* html5permissions();
 
     DatabaseWriter* dbWriter() { return m_dbWriter; }
     UserAgentManager* uaManager() { return m_uaManager; }
@@ -161,6 +163,7 @@ private:
     SearchEnginesManager* m_searchEnginesManager;
     RestoreManager* m_restoreManager;
     ProxyStyle* m_proxyStyle;
+    HTML5PermissionsManager* m_html5permissions;
     DatabaseWriter* m_dbWriter;
     UserAgentManager* m_uaManager;
 

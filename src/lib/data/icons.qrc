@@ -70,5 +70,7 @@
         <file>icons/sites/youtube.png</file>
         <file>icons/preferences/preferences-desktop-keyboard-shortcuts.png</file>
         <file>icons/menu/tab.png</file>
+        <file>icons/other/geolocation.png</file>
+        <file>icons/other/notification.png</file>
     </qresource>
 </RCC>

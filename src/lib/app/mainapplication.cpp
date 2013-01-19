@@ -51,6 +51,7 @@
 #include "restoremanager.h"
 #include "proxystyle.h"
 #include "registerqappassociation.h"
+#include "html5permissions/html5permissionsmanager.h"
 
 #ifdef Q_OS_MAC
 #include <QFileOpenEvent>
@@ -86,6 +87,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_searchEnginesManager(0)
     , m_restoreManager(0)
     , m_proxyStyle(0)
+    , m_html5permissions(0)
     , m_dbWriter(new DatabaseWriter(this))
     , m_uaManager(new UserAgentManager)
     , m_isPrivateSession(false)
@@ -800,6 +802,14 @@ DesktopNotificationsFactory* MainApplication::desktopNotifications()
         m_desktopNotifications = new DesktopNotificationsFactory(this);
     }
     return m_desktopNotifications;
+}
+
+HTML5PermissionsManager *MainApplication::html5permissions()
+{
+    if (!m_html5permissions) {
+        m_html5permissions = new HTML5PermissionsManager(this);
+    }
+    return m_html5permissions;
 }
 
 void MainApplication::startPrivateBrowsing()

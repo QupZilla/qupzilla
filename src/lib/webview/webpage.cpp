@@ -36,6 +36,7 @@
 #include "qzsettings.h"
 #include "useragentmanager.h"
 #include "recoverywidget.h"
+#include "html5permissions/html5permissionsmanager.h"
 #include "schemehandlers/fileschemehandler.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
@@ -394,8 +395,7 @@ void WebPage::windowCloseRequested()
 #ifdef USE_QTWEBKIT_2_2
 void WebPage::featurePermissionRequested(QWebFrame* frame, const QWebPage::Feature &feature)
 {
-    // We should probably ask user here ... -,-
-    setFeaturePermission(frame, feature, PermissionGrantedByUser);
+    mApp->html5permissions()->requestPermissions(this, frame, feature);
 }
 #endif
 

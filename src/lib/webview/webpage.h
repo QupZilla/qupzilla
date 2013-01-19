@@ -53,8 +53,6 @@ public:
     void setWebView(TabbedWebView* view);
     void populateNetworkRequest(QNetworkRequest &request);
 
-    TabbedWebView* getView() { return m_view; }
-
     void setSSLCertificate(const QSslCertificate &cert);
     QSslCertificate sslCertificate();
 
