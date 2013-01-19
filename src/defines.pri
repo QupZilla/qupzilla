@@ -15,6 +15,10 @@ win32-msvc* {
     LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
 }
 
+isEqual(QT_VERSION, 4.8.0)|greaterThan(QT_VERSION, 4.8.0) {
+    DEFINES *= USE_QTWEBKIT_2_2
+}
+
 DEFINES *= QT_NO_URL_CAST_FROM_STRING
 DEFINES *= QT_USE_QSTRINGBUILDER
 

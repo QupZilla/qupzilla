@@ -35,16 +35,16 @@ Linux / Unix
 ----------------------------------------------------------------------------------
 
   There is no extra dependency, you only need Qt tools.
-  
+
 MAC OS X
 ----------------------------------------------------------------------------------
 
   There is no extra dependency, you only need Qt tools and XCode.
   After successful compilation, you need to run macdeploy.sh script to correctly
   build the application bundle. You will do it with following command:
-    
+
     $ ./scripts/macdeploy.sh <path-to-macdeployqt>
-    
+
   You need to specifiy path to macdeployqt (usually in QTDIR/bin/macdeployqt) only
   if it is not in PATH.
 
@@ -53,7 +53,7 @@ OS/2
 
   I cannot provide support for QupZilla on OS/2 as I don't have access to
   machine with OS/2, but it is possible to get QupZilla working there.
-  
+
   Builds are provided by netlabs.org (http://svn.netlabs.org/qtapps/wiki/QT4%20Networking)
 
 FreeBSD
@@ -88,16 +88,6 @@ Available Defines
 
                           example:
                           $ export USE_WEBGL="true"
-
-   USE_QTWEBKIT_2_2       Enable support for Geolocation and Notifications API.
-                          You need to have QtWebKit version at least 2.2 to pass compilation
-                          with this define.
-                          Note: In order to get support for Geolocation and Notifications,
-                          your QtWebKit has to be compiled with its support.
-                          (disabled by default)
-
-                          example:
-                          $ export USE_QTWEBKIT_2_2="true"
 
    NONBLOCK_JS_DIALOGS    Enable non-blocking JavaScript dialogs from alert() prompt()
                           and confirm() functions. They are shown inside page and are not
