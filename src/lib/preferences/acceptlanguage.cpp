@@ -77,6 +77,7 @@ AcceptLanguage::AcceptLanguage(QWidget* parent)
     Settings settings;
     settings.beginGroup("Language");
     QStringList langs = settings.value("acceptLanguage", defaultLanguage()).toStringList();
+    settings.endGroup();
 
     foreach(const QString & code, langs) {
         QString code_ = code;

@@ -21,6 +21,7 @@
 #include "popupstatusbarmessage.h"
 #include "progressbar.h"
 #include "qupzilla.h"
+#include "qzsettings.h"
 #include "popuplocationbar.h"
 #include "globalfunctions.h"
 
@@ -152,8 +153,17 @@ void PopupWindow::closeEvent(QCloseEvent* event)
     event->accept();
 }
 
+void PopupWindow::titleChanged()
+{
+    setWindowTitle(tr("%1 - QupZilla").arg(m_view->title()));
+}
+
 void PopupWindow::setWindowGeometry(const QRect &newRect)
 {
+    if (!qzSettings->allowJsGeometryChange) {
+        return;
+    }
+
     if (newRect.isValid()) {
         QRect oldRect = rect();
         move(newRect.topLeft());
@@ -175,20 +185,27 @@ void PopupWindow::setWindowGeometry(const QRect &newRect)
 
 void PopupWindow::setStatusBarVisibility(bool visible)
 {
+    if (!qzSettings->allowJsHideStatusBar) {
+        return;
+    }
+
     Q_UNUSED(visible)
 }
 
 void PopupWindow::setMenuBarVisibility(bool visible)
 {
+    if (!qzSettings->allowJsHideMenuBar) {
+        return;
+    }
+
     Q_UNUSED(visible)
 }
 
 void PopupWindow::setToolBarVisibility(bool visible)
 {
-    Q_UNUSED(visible)
-}
+    if (!qzSettings->allowJsHideToolBar) {
+        return;
+    }
 
-void PopupWindow::titleChanged()
-{
-    setWindowTitle(tr("%1 - QupZilla").arg(m_view->title()));
+    Q_UNUSED(visible)
 }
