@@ -15,7 +15,7 @@ class QT_QUPZILLA_EXPORT HTML5PermissionsManager : public QObject
 public:
     explicit HTML5PermissionsManager(QObject* parent);
 
-#ifdef USE_QTWEBKIT_2_2
+#if QTWEBKIT_FROM_2_2
     void requestPermissions(WebPage* page, QWebFrame* frame, const QWebPage::Feature &feature);
     void rememberPermissions(const QString &host, const QWebPage::Feature &feature,
                              const QWebPage::PermissionPolicy &policy);

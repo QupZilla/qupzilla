@@ -88,7 +88,7 @@ void BookmarksTree::refreshTree()
     }
     addTopLevelItem(newItem);
 
-    QTreeWidgetItem* bookmarksToolbar;
+    QTreeWidgetItem* bookmarksToolbar = 0;
     if (m_viewType != SideBarView) {
         bookmarksToolbar = new QTreeWidgetItem(rootItem);
         bookmarksToolbar->setText(0, _bookmarksToolbar);

@@ -540,7 +540,7 @@ void WebView::bookmarkLink()
 
 void WebView::showSourceOfSelection()
 {
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+#if QTWEBKIT_FROM_2_2
     showSource(page()->mainFrame(), selectedHtml());
 #endif
 }
@@ -778,7 +778,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
     mApp->plugins()->populateWebViewMenu(menu, this, hitTest);
 
 
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+#if QTWEBKIT_FROM_2_2
     //    still bugged? in 4.8 RC (it shows selection of webkit's internal source, not html from page)
     //    it may or may not be bug, but this implementation is useless for us
     //
@@ -1158,7 +1158,7 @@ void WebView::setZoom(int zoom)
 bool WebView::eventFilter(QObject* obj, QEvent* event)
 {
 // This hack is no longer needed with QtWebKit 2.3 (bundled in Qt 5)
-#if QT_VERSION < 0x050000 && (QTWEBKIT_VERSION < QTWEBKIT_VERSION_CHECK(2, 3, 0))
+#if QTWEBKIT_TO_2_3
     if (obj != this || m_disableTouchMocking) {
         return false;
     }

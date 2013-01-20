@@ -12,7 +12,7 @@ HTML5PermissionsManager::HTML5PermissionsManager(QObject *parent)
     loadSettings();
 }
 
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+#if QTWEBKIT_FROM_2_2
 void HTML5PermissionsManager::requestPermissions(WebPage* page, QWebFrame *frame, const QWebPage::Feature &feature)
 {
     if (!frame || !page) {

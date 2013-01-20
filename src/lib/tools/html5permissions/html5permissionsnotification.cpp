@@ -6,7 +6,7 @@
 
 #include <QWebFrame>
 
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+#if QTWEBKIT_FROM_2_2
 HTML5PermissionsNotification::HTML5PermissionsNotification(const QString &host, QWebFrame *frame, const QWebPage::Feature &feature)
     : AnimatedWidget(AnimatedWidget::Down, 300, 0)
     , ui(new Ui::HTML5PermissionsNotification)
@@ -75,4 +75,4 @@ HTML5PermissionsNotification::~HTML5PermissionsNotification()
 {
     delete ui;
 }
-#endif // (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+#endif // QTWEBKIT_FROM_2_2

@@ -407,7 +407,7 @@ void QupZilla::setupMenu()
     m_actionCaretBrowsing->setShortcut(QKeySequence("F7"));
     connect(m_actionCaretBrowsing, SIGNAL(triggered()), this, SLOT(triggerCaretBrowsing()));
 
-#if QT_VERSION >= 0x050000 || (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 3, 0))
+#if QTWEBKIT_FROM_2_3
     m_actionCaretBrowsing->setVisible(true);
 #endif
 
@@ -1093,7 +1093,7 @@ void QupZilla::changeEncoding()
 
 void QupZilla::triggerCaretBrowsing()
 {
-#if QT_VERSION >= 0x050000 || (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 3, 0))
+#if QTWEBKIT_FROM_2_3
     bool enable = !mApp->webSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled);
 
     Settings settings;

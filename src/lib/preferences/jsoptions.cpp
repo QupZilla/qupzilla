@@ -41,7 +41,7 @@ JsOptions::JsOptions(QWidget* parent)
     ui->jscanAccessClipboard->setChecked(settings.value("allowJavaScriptAccessClipboard", false).toBool());
     settings.endGroup();
 
-#if (QTWEBKIT_VERSION < QTWEBKIT_VERSION_CHECK(2, 2, 0)) && QT_VERSION < 0x050000
+#if QTWEBKIT_TO_2_2
     ui->jscanCloseWindow->setHidden(true);
 #endif
 }
