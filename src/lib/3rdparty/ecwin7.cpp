@@ -32,7 +32,7 @@ EcWin7::EcWin7()
 }
 
 // Init taskbar communication
-void EcWin7::init(WId wid)
+void EcWin7::init(HWND wid)
 {
     mWindowId = wid;
     mTaskbarMessageId = RegisterWindowMessage(L"TaskbarButtonCreated");

@@ -367,9 +367,16 @@ void DownloadItem::openFile()
 void DownloadItem::openFolder()
 {
 #ifdef Q_OS_WIN
-    QString winFileName = m_path + m_fileName;
-    winFileName.replace(QLatin1Char('/'), "\\");
-    QProcess::startDetached("explorer.exe /e,/select,\"" + winFileName + "\"");
+    if (m_fileName.endsWith(" ")) {
+        // explorer.exe don't support filenames that end with SPACE
+        QDesktopServices::openUrl(QUrl::fromLocalFile(m_path));
+    }
+    else {
+        QString winFileName = m_path + m_fileName;
+        winFileName.replace(QLatin1Char('/'), "\\");
+        QString shExArg = "/e,/select,\""+winFileName+"\"";
+        ShellExecute(NULL, NULL, TEXT("explorer.exe"), shExArg.toStdWString().c_str(), NULL, SW_SHOW);
+    }
 #else
     QDesktopServices::openUrl(QUrl::fromLocalFile(m_path));
 #endif
