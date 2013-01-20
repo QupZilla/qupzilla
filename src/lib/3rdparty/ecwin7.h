@@ -27,7 +27,7 @@
 
 // Windows only data definitions
 #ifdef W7TASKBAR
-
+#define NOMINMAX
 #include <windows.h>
 #include <initguid.h>
 #define CMIC_MASK_ASYNCOK SEE_MASK_ASYNCOK
@@ -45,7 +45,7 @@ public:
 
     // Initialization methods
     EcWin7();
-    void init(WId wid);
+    void init(HWND wid);
     bool winEvent(MSG* message, long* result);
 
     // Overlay icon handling
@@ -63,7 +63,7 @@ public:
     void setProgressState(ToolBarProgressState state);
 
 private:
-    WId mWindowId;
+    HWND mWindowId;
     UINT mTaskbarMessageId;
     ITaskbarList3* mTaskbar;
     HICON mOverlayIcon;
