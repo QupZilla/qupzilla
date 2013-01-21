@@ -804,7 +804,7 @@ DesktopNotificationsFactory* MainApplication::desktopNotifications()
     return m_desktopNotifications;
 }
 
-HTML5PermissionsManager *MainApplication::html5permissions()
+HTML5PermissionsManager* MainApplication::html5permissions()
 {
     if (!m_html5permissions) {
         m_html5permissions = new HTML5PermissionsManager(this);

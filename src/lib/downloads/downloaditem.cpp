@@ -374,7 +374,7 @@ void DownloadItem::openFolder()
     else {
         QString winFileName = m_path + m_fileName;
         winFileName.replace(QLatin1Char('/'), "\\");
-        QString shExArg = "/e,/select,\""+winFileName+"\"";
+        QString shExArg = "/e,/select,\"" + winFileName + "\"";
         ShellExecute(NULL, NULL, TEXT("explorer.exe"), shExArg.toStdWString().c_str(), NULL, SW_SHOW);
     }
 #else

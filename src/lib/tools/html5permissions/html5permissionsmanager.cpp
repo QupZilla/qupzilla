@@ -6,14 +6,14 @@
 #include <QWebFrame>
 #include <QDebug>
 
-HTML5PermissionsManager::HTML5PermissionsManager(QObject *parent)
+HTML5PermissionsManager::HTML5PermissionsManager(QObject* parent)
     : QObject(parent)
 {
     loadSettings();
 }
 
 #if QTWEBKIT_FROM_2_2
-void HTML5PermissionsManager::requestPermissions(WebPage* page, QWebFrame *frame, const QWebPage::Feature &feature)
+void HTML5PermissionsManager::requestPermissions(WebPage* page, QWebFrame* frame, const QWebPage::Feature &feature)
 {
     if (!frame || !page) {
         return;
@@ -66,7 +66,7 @@ void HTML5PermissionsManager::requestPermissions(WebPage* page, QWebFrame *frame
 }
 
 void HTML5PermissionsManager::rememberPermissions(const QString &host, const QWebPage::Feature &feature,
-                                                  const QWebPage::PermissionPolicy &policy)
+        const QWebPage::PermissionPolicy &policy)
 {
     if (host.isEmpty()) {
         return;
