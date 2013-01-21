@@ -13,5 +13,4 @@ lupdate $ARGUMENTS ../src/lib/lib.pro -ts ../translations/empty.ts
 ## uncomment it now
 sed -i 's/##temp/include(3rdparty/g' ../src/lib/lib.pro
 
-read -p "Press [ENTER] to close terminal"
-exit
+exit 0

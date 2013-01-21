@@ -18,4 +18,4 @@ case $1 in
         ;;
 esac
 
-exit;
+exit 0

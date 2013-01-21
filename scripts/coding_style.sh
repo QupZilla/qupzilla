@@ -10,7 +10,7 @@ function format_sources {
        --convert-tabs --indent-preprocessor --break-closing-brackets \
        --align-pointer=type --align-reference=name \
        `find -type f -name '*.cpp'`
-       
+
     find . -name "*.orig" -print0 | xargs -0 rm -rf
 }
 
@@ -21,7 +21,7 @@ function format_headers {
        --indent-preprocessor --convert-tabs \
        --align-pointer=type --align-reference=name \
        `find -type f -name '*.h'`
-       
+
     find . -name "*.orig" -print0 | xargs -0 rm -rf
 }
 
@@ -31,6 +31,5 @@ format_sources
 
 echo "running astyle for *.h ..."
 format_headers
-       
-read -p "Press [ENTER] to close terminal"
-exit
+
+exit 0

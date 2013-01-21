@@ -7,5 +7,4 @@ do
  lupdate $pluginPro -no-obsolete
 done
 
-read -p "Press [ENTER] to close terminal"
-exit
+exit 0

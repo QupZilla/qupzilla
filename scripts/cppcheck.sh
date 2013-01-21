@@ -22,5 +22,4 @@ check_code
 cd ../main
 check_code
 
-read -p "Press [ENTER] to close terminal"
-exit
+exit 0
