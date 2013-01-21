@@ -57,10 +57,15 @@ PopupWebPage::PopupWebPage(QWebPage::WebWindowType type, QupZilla* mainClass)
 void PopupWebPage::slotGeometryChangeRequested(const QRect &rect)
 {
     /* Very ugly hack for QtWebKit 2.3
-     * It now sends QRect(0, 25, 100x100) if the popup window
+     * It now sends QRect(0, y, 100x100) if the popup window
      * geometry was not set in window.open call.
      */
-    if (rect.isValid() && rect != QRect(0, 25, 100, 100)) {
+
+    if (rect.isValid()
+#if QTWEBKIT_FROM_2_3
+            && rect.size() != QSize(100, 100) && rect.y() != 0
+#endif
+       ) {
         m_geometry = rect;
         m_createNewWindow = true;
     }
