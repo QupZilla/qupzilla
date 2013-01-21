@@ -201,6 +201,7 @@ IconProvider
     margin-bottom:2px;
     margin-right: 2px;
     qproperty-pixmap: url(images/search-icon.png);
+    qproperty-themeIcon: "edit-find";
 }
 
 #websearchbar-searchprovider-comobobox

@@ -18,10 +18,25 @@
 #include "clickablelabel.h"
 
 #include <QMouseEvent>
+#include <QIcon>
 
 ClickableLabel::ClickableLabel(QWidget* parent)
     : QLabel(parent)
 {
+}
+
+void ClickableLabel::setThemeIcon(const QString &name)
+{
+    QIcon icon(name);
+
+    if (!icon.isNull()) {
+        setPixmap(icon.pixmap(size()));
+    }
+}
+
+QString ClickableLabel::themeIcon() const
+{
+    return m_themeIcon;
 }
 
 void ClickableLabel::mouseReleaseEvent(QMouseEvent* ev)
