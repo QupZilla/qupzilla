@@ -24,7 +24,7 @@
 #include "followredirectreply.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 
 #include <QFile>
 #include <QSettings>
@@ -55,8 +55,8 @@ void GM_Downloader::scriptDownloaded()
     QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
     if (m_reply->error() == QNetworkReply::NoError && response.contains("// ==UserScript==")) {
-        const QString &filePath = m_manager->scriptsDirectory() + qz_getFileNameFromUrl(m_reply->url());
-        m_fileName = qz_ensureUniqueFilename(filePath);
+        const QString &filePath = m_manager->scriptsDirectory() + QzTools::getFileNameFromUrl(m_reply->url());
+        m_fileName = QzTools::ensureUniqueFilename(filePath);
 
         QFile file(m_fileName);
 
@@ -101,7 +101,7 @@ void GM_Downloader::requireDownloaded()
 
     if (m_reply->error() == QNetworkReply::NoError && !response.isEmpty()) {
         const QString &filePath = m_manager->settinsPath() + "/greasemonkey/requires/require.js";
-        const QString &fileName = qz_ensureUniqueFilename(filePath, "%1");
+        const QString &fileName = QzTools::ensureUniqueFilename(filePath, "%1");
 
         QFile file(fileName);
 

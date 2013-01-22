@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "fileschemehandler.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "iconprovider.h"
 #include "downloadoptionsdialog.h"
 #include "mainapplication.h"
@@ -81,7 +81,7 @@ void FileSchemeHandler::handleUrl(const QUrl &url)
         // Save
         const QString &savePath = QFileDialog::getSaveFileName(mApp->getWindow(),
                                   QObject::tr("Save file as..."),
-                                  QDir::homePath() + "/" + qz_getFileNameFromUrl(url));
+                                  QDir::homePath() + "/" + QzTools::getFileNameFromUrl(url));
 
         if (!savePath.isEmpty()) {
             file.copy(savePath);
@@ -143,15 +143,15 @@ QString FileSchemeReply::loadDirectory()
     static QString sPage;
 
     if (sPage.isEmpty()) {
-        sPage = qz_readAllFileContents(":/html/dirlist.html");
+        sPage = QzTools::readAllFileContents(":/html/dirlist.html");
         sPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
-        sPage.replace(QLatin1String("%UP-IMG%"), qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_FileDialogToParent).pixmap(22)));
+        sPage.replace(QLatin1String("%UP-IMG%"), QzTools::pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_FileDialogToParent).pixmap(22)));
         sPage.replace(QLatin1String("%UP-DIR-TEXT%"), tr("Up to higher level directory"));
         sPage.replace(QLatin1String("%SHOW-HIDDEN-TEXT%"), tr("Show hidden files"));
         sPage.replace(QLatin1String("%NAME%"), tr("Name"));
         sPage.replace(QLatin1String("%SIZE%"), tr("Size"));
         sPage.replace(QLatin1String("%MODIFIED%"), tr("Last modified"));
-        sPage = qz_applyDirectionToPage(sPage);
+        sPage = QzTools::applyDirectionToPage(sPage);
     }
 
     QString page = sPage;
@@ -182,14 +182,14 @@ QString FileSchemeReply::loadDirectory()
         }
 
         line += QLatin1String("><td class=\"td-name\" style=\"background-image:url(data:image/png;base64,");
-        line += qz_pixmapToByteArray(QFileIconProvider().icon(info).pixmap(16));
+        line += QzTools::pixmapToByteArray(QFileIconProvider().icon(info).pixmap(16));
         line += QLatin1String(");\">");
         line += QLatin1String("<a href=\"");
         line += QUrl::fromLocalFile(info.absoluteFilePath()).toEncoded();
         line += QLatin1String("\">");
         line += info.fileName();
         line += QLatin1String("</a></td><td class=\"td-size\">");
-        line += info.isDir() ? QString() : qz_fileSizeToString(info.size());
+        line += info.isDir() ? QString() : QzTools::fileSizeToString(info.size());
         line += QLatin1String("</td><td>");
         line += info.lastModified().toString("dd.MM.yyyy");
         line += QLatin1String("</td><td>");

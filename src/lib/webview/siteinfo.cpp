@@ -23,7 +23,7 @@
 #include "mainapplication.h"
 #include "downloaditem.h"
 #include "certificateinfowidget.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "iconprovider.h"
 
 #include <QMenu>
@@ -74,7 +74,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     //GENERAL
     ui->heading->setText(QString("<b>%1</b>:").arg(title));
     ui->siteAddress->setText(view->url().toString());
-    ui->sizeLabel->setText(qz_fileSizeToString(webPage->totalBytes()));
+    ui->sizeLabel->setText(QzTools::fileSizeToString(webPage->totalBytes()));
     QString encoding;
 
     //Meta
@@ -152,7 +152,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     }
 
     //SECURITY
-    if (qz_isCertificateValid(cert)) {
+    if (QzTools::isCertificateValid(cert)) {
         ui->securityLabel->setText(tr("<b>Connection is Encrypted.</b>"));
         ui->certLabel->setText(tr("<b>Your connection to this page is secured with this certificate: </b>"));
         m_certWidget = new CertificateInfoWidget(cert);
@@ -212,7 +212,7 @@ void SiteInfo::databaseItemChanged(QListWidgetItem* item)
 
     ui->databaseName->setText(QString("%1 (%2)").arg(db.displayName(), db.name()));
     ui->databasePath->setText(db.fileName());
-    ui->databaseSize->setText(qz_fileSizeToString(db.size()));
+    ui->databaseSize->setText(QzTools::fileSizeToString(db.size()));
 }
 
 void SiteInfo::copyActionData()
@@ -234,7 +234,7 @@ void SiteInfo::downloadImage()
         return;
     }
 
-    QString imageFileName = qz_getFileNameFromUrl(QUrl(item->text(1)));
+    QString imageFileName = QzTools::getFileNameFromUrl(QUrl(item->text(1)));
 
     QString filePath = QFileDialog::getSaveFileName(this, tr("Save image..."), QDir::homePath() + "/" + imageFileName);
     if (filePath.isEmpty()) {
@@ -268,7 +268,7 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
     if (imageUrl.scheme() == QLatin1String("data")) {
         QByteArray encodedUrl = item->text(1).toUtf8();
         QByteArray imageData = encodedUrl.mid(encodedUrl.indexOf(',') + 1);
-        m_activePixmap = qz_pixmapFromByteArray(imageData);
+        m_activePixmap = QzTools::pixmapFromByteArray(imageData);
     }
     else if (imageUrl.scheme() == QLatin1String("file")) {
         m_activePixmap = QPixmap(imageUrl.toLocalFile());

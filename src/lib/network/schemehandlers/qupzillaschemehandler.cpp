@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "qupzillaschemehandler.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "qupzilla.h"
 #include "mainapplication.h"
 #include "tabbedwebview.h"
@@ -138,7 +138,7 @@ QString QupZillaSchemeReply::reportbugPage()
         return bPage;
     }
 
-    bPage.append(qz_readAllFileContents(":html/reportbug.html"));
+    bPage.append(QzTools::readAllFileContents(":html/reportbug.html"));
     bPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
     bPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
 
@@ -152,7 +152,7 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace(QLatin1String("%SEND%"), tr("Send"));
     bPage.replace(QLatin1String("%E-MAIL-OPTIONAL%"), tr("E-mail is optional<br/><b>Note: </b>Please read how to make a bug report <a href=%1>here</a> first.").arg("https://github.com/QupZilla/qupzilla/wiki/Bug-Reports target=_blank"));
     bPage.replace(QLatin1String("%FIELDS-ARE-REQUIRED%"), tr("Please fill out all required fields!"));
-    bPage = qz_applyDirectionToPage(bPage);
+    bPage = QzTools::applyDirectionToPage(bPage);
 
     return bPage;
 }
@@ -165,7 +165,7 @@ QString QupZillaSchemeReply::startPage()
         return sPage;
     }
 
-    sPage.append(qz_readAllFileContents(":html/start.html"));
+    sPage.append(QzTools::readAllFileContents(":html/start.html"));
     sPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
     sPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
     sPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/about.png"));
@@ -176,7 +176,7 @@ QString QupZillaSchemeReply::startPage()
     sPage.replace(QLatin1String("%WWW%"), QupZilla::WIKIADDRESS);
     sPage.replace(QLatin1String("%ABOUT-QUPZILLA%"), tr("About QupZilla"));
     sPage.replace(QLatin1String("%PRIVATE-BROWSING%"), mApp->isPrivateSession() ? tr("<h1>Private Browsing</h1>") : QString());
-    sPage = qz_applyDirectionToPage(sPage);
+    sPage = QzTools::applyDirectionToPage(sPage);
 
     return sPage;
 }
@@ -186,11 +186,11 @@ QString QupZillaSchemeReply::aboutPage()
     static QString aPage;
 
     if (aPage.isEmpty()) {
-        aPage.append(qz_readAllFileContents(":html/about.html"));
+        aPage.append(QzTools::readAllFileContents(":html/about.html"));
         aPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
         aPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
         aPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/about.png"));
-        aPage.replace(QLatin1String("%COPYRIGHT-INCLUDE%"), qz_escape(qz_readAllFileContents(":html/copyright")));
+        aPage.replace(QLatin1String("%COPYRIGHT-INCLUDE%"), QzTools::escape(QzTools::readAllFileContents(":html/copyright")));
 
         aPage.replace(QLatin1String("%TITLE%"), tr("About QupZilla"));
         aPage.replace(QLatin1String("%ABOUT-QUPZILLA%"), tr("About QupZilla"));
@@ -247,7 +247,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Stanislav Kuznietsov", "stanislav_kuznetsov@ukr.net") + " (Ukrainian)<br/>" +
                       authorString("Seyyed Razi Alavizadeh", "s.r.alavizadeh@gmail.com") + " (Persian)"
                      );
-        aPage = qz_applyDirectionToPage(aPage);
+        aPage = QzTools::applyDirectionToPage(aPage);
     }
 
     return aPage;
@@ -258,7 +258,7 @@ QString QupZillaSchemeReply::speeddialPage()
     static QString dPage;
 
     if (dPage.isEmpty()) {
-        dPage.append(qz_readAllFileContents(":html/speeddial.html"));
+        dPage.append(QzTools::readAllFileContents(":html/speeddial.html"));
         dPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
         dPage.replace(QLatin1String("%IMG_PLUS%"), QLatin1String("qrc:html/plus.png"));
         dPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border-small.png"));
@@ -294,7 +294,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%TXT_NRROWS%"), tr("Maximum pages in a row:"));
         dPage.replace(QLatin1String("%TXT_SDSIZE%"), tr("Change size of pages:"));
         dPage.replace(QLatin1String("%TXT_CNTRDLS%"), tr("Center speed dials"));
-        dPage = qz_applyDirectionToPage(dPage);
+        dPage = QzTools::applyDirectionToPage(dPage);
     }
 
     QString page = dPage;
@@ -315,10 +315,10 @@ QString QupZillaSchemeReply::restorePage()
     static QString rPage;
 
     if (rPage.isEmpty()) {
-        rPage.append(qz_readAllFileContents(":html/restore.html"));
+        rPage.append(QzTools::readAllFileContents(":html/restore.html"));
         rPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
         rPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
-        rPage.replace(QLatin1String("%IMAGE%"), qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
+        rPage.replace(QLatin1String("%IMAGE%"), QzTools::pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
 
 
         rPage.replace(QLatin1String("%TITLE%"), tr("Restore Session"));
@@ -326,7 +326,7 @@ QString QupZillaSchemeReply::restorePage()
         rPage.replace(QLatin1String("%APOLOGIZE%"), tr("We apologize for this. Would you like to restore the last saved state?"));
         rPage.replace(QLatin1String("%TRY-REMOVING%"), tr("Try removing one or more tabs that you think cause troubles"));
         rPage.replace(QLatin1String("%START-NEW%"), tr("Or you can start completely new session"));
-        rPage = qz_applyDirectionToPage(rPage);
+        rPage = QzTools::applyDirectionToPage(rPage);
     }
 
     return rPage;
@@ -337,7 +337,7 @@ QString QupZillaSchemeReply::configPage()
     static QString cPage;
 
     if (cPage.isEmpty()) {
-        cPage.append(qz_readAllFileContents(":html/config.html"));
+        cPage.append(QzTools::readAllFileContents(":html/config.html"));
         cPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
         cPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
         cPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/about.png"));
@@ -367,7 +367,7 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), QzTools::buildSystem()));
 
         cPage.replace(QLatin1String("%PATHS-TEXT%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->currentProfilePath()) +
@@ -407,7 +407,7 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("KDE integration"), KDEIntegration) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Portable build"), portableBuild));
 
-        cPage = qz_applyDirectionToPage(cPage);
+        cPage = QzTools::applyDirectionToPage(cPage);
     }
 
     QString page = cPage;
@@ -419,7 +419,7 @@ QString QupZillaSchemeReply::configPage()
     foreach(const Plugins::Plugin & plugin, availablePlugins) {
         PluginSpec spec = plugin.pluginSpec;
         pluginsString.append(QString("<tr><td>%1</td><td>%2</td><td>%3</td><td>%4</td></tr>").arg(
-                                 spec.name, spec.version, qz_escape(spec.author), spec.description));
+                                 spec.name, spec.version, QzTools::escape(spec.author), spec.description));
     }
 
     if (pluginsString.isEmpty()) {
@@ -461,7 +461,7 @@ QString QupZillaSchemeReply::configPage()
                 keyString = QLatin1String("\"empty\"");
             }
 
-            groupString.append(QString("<tr><td>%1</td><td>%2</td></tr>").arg(key, qz_escape(keyString)));
+            groupString.append(QString("<tr><td>%1</td><td>%2</td></tr>").arg(key, QzTools::escape(keyString)));
         }
 
         settings->endGroup();

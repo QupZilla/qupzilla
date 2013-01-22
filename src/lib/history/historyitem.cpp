@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "historyitem.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 
 HistoryItem::HistoryItem(HistoryItem* parent)
     : canFetchMore(false)
@@ -82,7 +82,7 @@ void HistoryItem::insertChild(int row, HistoryItem* child)
 
 void HistoryItem::removeChild(int row)
 {
-    if (qz_listContainsIndex(m_children, row)) {
+    if (QzTools::listContainsIndex(m_children, row)) {
         removeChild(m_children.at(row));
     }
 }
@@ -94,7 +94,7 @@ void HistoryItem::removeChild(HistoryItem* child)
 
 HistoryItem* HistoryItem::child(int row) const
 {
-    if (qz_listContainsIndex(m_children, row)) {
+    if (QzTools::listContainsIndex(m_children, row)) {
         return m_children.at(row);
     }
 

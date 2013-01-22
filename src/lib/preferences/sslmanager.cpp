@@ -19,7 +19,7 @@
 #include "ui_sslmanager.h"
 #include "networkmanager.h"
 #include "mainapplication.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "certificateinfowidget.h"
 
 #include <QFileDialog>
@@ -166,7 +166,7 @@ void SSLManager::showCertificateInfo(const QSslCertificate &cert)
     connect(b, SIGNAL(clicked(QAbstractButton*)), w, SLOT(close()));
     w->layout()->addWidget(b);
     w->resize(w->sizeHint());
-    qz_centerWidgetToParent(w, this);
+    QzTools::centerWidgetToParent(w, this);
     w->show();
 }
 

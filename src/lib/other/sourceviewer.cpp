@@ -19,7 +19,7 @@
 #include "tabbedwebview.h"
 #include "htmlhighlighter.h"
 #include "sourceviewersearch.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "iconprovider.h"
 #include "enhancedmenu.h"
 #include "plaineditwithlines.h"
@@ -65,7 +65,7 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     new HtmlHighlighter(m_sourceEdit->document());
 
     resize(650, 600);
-    qz_centerWidgetToParent(this, frame->page()->view());
+    QzTools::centerWidgetToParent(this, frame->page()->view());
 
     QMenu* menuFile = new QMenu(tr("File"));
     menuFile->addAction(QIcon::fromTheme("document-save"), tr("Save as..."), this, SLOT(save()))->setShortcut(QKeySequence("Ctrl+S"));

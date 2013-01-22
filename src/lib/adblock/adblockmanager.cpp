@@ -21,7 +21,7 @@
 #include "adblockblockednetworkreply.h"
 #include "mainapplication.h"
 #include "webpage.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "networkmanager.h"
 #include "qupzilla.h"
 #include "settings.h"
@@ -128,8 +128,8 @@ AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const
         return 0;
     }
 
-    QString fileName = qz_filterCharsFromFilename(title.toLower()) + ".txt";
-    QString filePath = qz_ensureUniqueFilename(mApp->currentProfilePath() + "adblock/" + fileName);
+    QString fileName = QzTools::filterCharsFromFilename(title.toLower()) + ".txt";
+    QString filePath = QzTools::ensureUniqueFilename(mApp->currentProfilePath() + "adblock/" + fileName);
 
     QByteArray data = QString("Title: %1\nUrl: %2\n[Adblock Plus 1.1.1]").arg(title, url).toLatin1();
 

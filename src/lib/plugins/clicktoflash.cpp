@@ -43,7 +43,7 @@
 #include "pluginproxy.h"
 #include "squeezelabelv2.h"
 #include "webpage.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "qupzilla.h"
 
 #include <QHBoxLayout>
@@ -228,17 +228,17 @@ void ClickToFlash::load()
            So asynchronous JavaScript code is used to remove element from page and then substitute
            it with unblocked Flash. The JavaScript code is:
 
-               var qz_c2f_clone = this.cloneNode(true);
-               var qz_c2f_parentNode = this.parentNode;
-               var qz_c2f_substituteElement = document.createElement(this.tagName);
+               var QzTools::c2f_clone = this.cloneNode(true);
+               var QzTools::c2f_parentNode = this.parentNode;
+               var QzTools::c2f_substituteElement = document.createElement(this.tagName);
 
-               qz_c2f_substituteElement.width = this.width;
-               qz_c2f_substituteElement.height = this.height;
+               QzTools::c2f_substituteElement.width = this.width;
+               QzTools::c2f_substituteElement.height = this.height;
 
-               this.parentNode.replaceChild(qz_c2f_substituteElement, this);
+               this.parentNode.replaceChild(QzTools::c2f_substituteElement, this);
 
                setTimeout(function(){
-                   qz_c2f_parentNode.replaceChild(qz_c2f_clone, qz_c2f_substituteElement);
+                   QzTools::c2f_parentNode.replaceChild(QzTools::c2f_clone, QzTools::c2f_substituteElement);
                }, 250);
 
         */
@@ -249,11 +249,11 @@ void ClickToFlash::load()
 
         m_element.setAttribute("type", "application/futuresplash");
 
-        QString js = "var qz_c2f_clone=this.cloneNode(true);var qz_c2f_parentNode=this.parentNode;"
-                     "var qz_c2f_substituteElement=document.createElement(this.tagName);"
-                     "qz_c2f_substituteElement.width=this.width;qz_c2f_substituteElement.height=this.height;"
-                     "this.parentNode.replaceChild(qz_c2f_substituteElement,this);setTimeout(function(){"
-                     "qz_c2f_parentNode.replaceChild(qz_c2f_clone,qz_c2f_substituteElement);},250);";
+        QString js = "var QzTools::c2f_clone=this.cloneNode(true);var QzTools::c2f_parentNode=this.parentNode;"
+                     "var QzTools::c2f_substituteElement=document.createElement(this.tagName);"
+                     "QzTools::c2f_substituteElement.width=this.width;QzTools::c2f_substituteElement.height=this.height;"
+                     "this.parentNode.replaceChild(QzTools::c2f_substituteElement,this);setTimeout(function(){"
+                     "QzTools::c2f_parentNode.replaceChild(QzTools::c2f_clone,QzTools::c2f_substituteElement);},250);";
 
         m_element.evaluateJavaScript(js);
     }
@@ -312,6 +312,6 @@ void ClickToFlash::showInfo()
     }
 
     widg->setMaximumHeight(500);
-    qz_centerWidgetToParent(widg, m_page->view());
+    QzTools::centerWidgetToParent(widg, m_page->view());
     widg->show();
 }

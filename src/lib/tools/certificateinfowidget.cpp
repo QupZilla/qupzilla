@@ -18,7 +18,7 @@
 #include "certificateinfowidget.h"
 #include "ui_certificateinfowidget.h"
 #include "mainapplication.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 
 #include <QSslCertificate>
 #include <QDateTime>
@@ -42,7 +42,7 @@ QString CertificateInfoWidget::certificateItemText(const QSslCertificate &cert)
 
 QString CertificateInfoWidget::clearCertSpecialSymbols(const QString &string)
 {
-    QString n = qz_escape(string);
+    QString n = QzTools::escape(string);
 
     if (!n.contains(QLatin1String("\\"))) {
         return n;

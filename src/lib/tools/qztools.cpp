@@ -15,7 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "globalfunctions.h"
+#include "qztools.h"
 
 #include <QTextDocument>
 #include <QDateTime>
@@ -39,7 +39,7 @@
 #include <QX11Info>
 #endif
 
-QByteArray qz_pixmapToByteArray(const QPixmap &pix)
+QByteArray QzTools::pixmapToByteArray(const QPixmap &pix)
 {
     QByteArray bytes;
     QBuffer buffer(&bytes);
@@ -51,7 +51,7 @@ QByteArray qz_pixmapToByteArray(const QPixmap &pix)
     return QByteArray();
 }
 
-QPixmap qz_pixmapFromByteArray(const QByteArray &data)
+QPixmap QzTools::pixmapFromByteArray(const QByteArray &data)
 {
     QPixmap image;
     QByteArray bArray = QByteArray::fromBase64(data);
@@ -60,7 +60,7 @@ QPixmap qz_pixmapFromByteArray(const QByteArray &data)
     return image;
 }
 
-QString qz_readAllFileContents(const QString &filename)
+QString QzTools::readAllFileContents(const QString &filename)
 {
     QFile file(filename);
     if (file.open(QFile::ReadOnly)) {
@@ -72,7 +72,7 @@ QString qz_readAllFileContents(const QString &filename)
     return QByteArray();
 }
 
-void qz_centerWidgetOnScreen(QWidget* w)
+void QzTools::centerWidgetOnScreen(QWidget* w)
 {
     const QRect screen = QApplication::desktop()->screenGeometry();
     const QRect &size = w->geometry();
@@ -80,7 +80,7 @@ void qz_centerWidgetOnScreen(QWidget* w)
 }
 
 // Very, very, very simplified QDialog::adjustPosition from qdialog.cpp
-void qz_centerWidgetToParent(QWidget* w, QWidget* parent)
+void QzTools::centerWidgetToParent(QWidget* w, QWidget* parent)
 {
     if (!parent || !w) {
         return;
@@ -95,7 +95,7 @@ void qz_centerWidgetToParent(QWidget* w, QWidget* parent)
     w->move(p);
 }
 
-bool qz_removeFile(const QString &fullFileName)
+bool QzTools::removeFile(const QString &fullFileName)
 {
     QFile f(fullFileName);
     if (f.exists()) {
@@ -106,7 +106,7 @@ bool qz_removeFile(const QString &fullFileName)
     }
 }
 
-void qz_removeDir(const QString &d)
+void QzTools::removeDir(const QString &d)
 {
     QDir dir(d);
     if (dir.exists()) {
@@ -115,10 +115,10 @@ void qz_removeDir(const QString &d)
         for (int l = 0; l < list.size(); l++) {
             fi = list.at(l);
             if (fi.isDir() && fi.fileName() != QLatin1String(".") && fi.fileName() != QLatin1String("..")) {
-                qz_removeDir(fi.absoluteFilePath());
+                QzTools::removeDir(fi.absoluteFilePath());
             }
             else if (fi.isFile()) {
-                qz_removeFile(fi.absoluteFilePath());
+                QzTools::removeFile(fi.absoluteFilePath());
             }
 
         }
@@ -126,7 +126,7 @@ void qz_removeDir(const QString &d)
     }
 }
 
-QString qz_samePartOfStrings(const QString &one, const QString &other)
+QString QzTools::samePartOfStrings(const QString &one, const QString &other)
 {
     int i = 0;
     int maxSize = qMin(one.size(), other.size());
@@ -139,12 +139,12 @@ QString qz_samePartOfStrings(const QString &one, const QString &other)
     return one.left(i);
 }
 
-QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
+QUrl QzTools::makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
 {
     QString baseUrlPath = baseUrl.path();
     QString rUrlPath = rUrl.path();
 
-    QString samePart = qz_samePartOfStrings(baseUrlPath, rUrlPath);
+    QString samePart = QzTools::samePartOfStrings(baseUrlPath, rUrlPath);
 
     QUrl returnUrl;
     if (samePart.isEmpty()) {
@@ -171,7 +171,7 @@ QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
     return returnUrl;
 }
 
-QString qz_urlEncodeQueryString(const QUrl &url)
+QString QzTools::urlEncodeQueryString(const QUrl &url)
 {
     QString returnString = url.toString(QUrl::RemoveQuery | QUrl::RemoveFragment);
 
@@ -196,7 +196,7 @@ QString qz_urlEncodeQueryString(const QUrl &url)
     return returnString;
 }
 
-QString qz_ensureUniqueFilename(const QString &name, const QString &appendFormat)
+QString QzTools::ensureUniqueFilename(const QString &name, const QString &appendFormat)
 {
     if (!QFile::exists(name)) {
         return name;
@@ -220,7 +220,7 @@ QString qz_ensureUniqueFilename(const QString &name, const QString &appendFormat
     return tmpFileName;
 }
 
-QString qz_getFileNameFromUrl(const QUrl &url)
+QString QzTools::getFileNameFromUrl(const QUrl &url)
 {
     QString fileName = url.toString(QUrl::RemoveFragment | QUrl::RemoveQuery | QUrl::RemoveScheme | QUrl::RemovePort);
     if (fileName.indexOf(QLatin1Char('/')) != -1) {
@@ -229,16 +229,16 @@ QString qz_getFileNameFromUrl(const QUrl &url)
         fileName.remove(QLatin1Char('/'));
     }
 
-    fileName = qz_filterCharsFromFilename(fileName);
+    fileName = filterCharsFromFilename(fileName);
 
     if (fileName.isEmpty()) {
-        fileName = qz_filterCharsFromFilename(url.host().replace(QLatin1Char('.'), QLatin1Char('-')));
+        fileName = filterCharsFromFilename(url.host().replace(QLatin1Char('.'), QLatin1Char('-')));
     }
 
     return fileName;
 }
 
-QString qz_filterCharsFromFilename(const QString &name)
+QString QzTools::filterCharsFromFilename(const QString &name)
 {
     QString value = name;
 
@@ -255,7 +255,7 @@ QString qz_filterCharsFromFilename(const QString &name)
     return value;
 }
 
-QString qz_alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width)
+QString QzTools::alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width)
 {
     int pos = 0;
     QString returnString;
@@ -283,7 +283,7 @@ QString qz_alignTextToWidth(const QString &string, const QString &text, const QF
     return returnString;
 }
 
-QString qz_fileSizeToString(qint64 size)
+QString QzTools::fileSizeToString(qint64 size)
 {
     if (size < 0) {
         return QObject::tr("Unknown size");
@@ -305,7 +305,7 @@ QString qz_fileSizeToString(qint64 size)
 }
 
 
-QPixmap qz_createPixmapForSite(const QIcon &icon, const QString &title, const QString &url)
+QPixmap QzTools::createPixmapForSite(const QIcon &icon, const QString &title, const QString &url)
 {
     const QFontMetrics fontMetrics = QApplication::fontMetrics();
     const int padding = 4;
@@ -341,7 +341,7 @@ QPixmap qz_createPixmapForSite(const QIcon &icon, const QString &title, const QS
     return pixmap;
 }
 
-QString QT_QUPZILLA_EXPORT qz_applyDirectionToPage(QString &pageContents)
+QString QzTools::applyDirectionToPage(QString &pageContents)
 {
     QString direction = QLatin1String("ltr");
     QString right_str = QLatin1String("right");
@@ -361,7 +361,7 @@ QString QT_QUPZILLA_EXPORT qz_applyDirectionToPage(QString &pageContents)
 }
 
 // Qt5 migration help functions
-bool QT_QUPZILLA_EXPORT qz_isCertificateValid(const QSslCertificate &cert)
+bool QzTools::isCertificateValid(const QSslCertificate &cert)
 {
 #if QT_VERSION >= 0x050000
     const QDateTime currentTime = QDateTime::currentDateTime();
@@ -373,7 +373,7 @@ bool QT_QUPZILLA_EXPORT qz_isCertificateValid(const QSslCertificate &cert)
 #endif
 }
 
-QString QT_QUPZILLA_EXPORT qz_escape(const QString &string)
+QString QzTools::escape(const QString &string)
 {
 #if QT_VERSION >= 0x050000
     return string.toHtmlEscaped();
@@ -383,7 +383,7 @@ QString QT_QUPZILLA_EXPORT qz_escape(const QString &string)
 }
 
 #ifdef QZ_WS_X11
-void QT_QUPZILLA_EXPORT* qz_X11Display(const QWidget* widget)
+void* QzTools::X11Display(const QWidget* widget)
 {
     Q_UNUSED(widget)
 
@@ -395,7 +395,7 @@ void QT_QUPZILLA_EXPORT* qz_X11Display(const QWidget* widget)
 }
 #endif
 
-QString qz_buildSystem()
+QString QzTools::buildSystem()
 {
 #ifdef Q_OS_LINUX
     return "Linux";

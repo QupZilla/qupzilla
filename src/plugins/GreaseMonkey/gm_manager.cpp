@@ -21,7 +21,7 @@
 #include "settings/gm_settings.h"
 
 #include "webpage.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "mainapplication.h"
 #include "desktopnotificationsfactory.h"
 
@@ -78,7 +78,7 @@ QString GM_Manager::requireScripts(const QStringList &urlList) const
     foreach(const QString & url, urlList) {
         if (settings.contains(url)) {
             const QString &fileName = settings.value(url).toString();
-            script.append(qz_readAllFileContents(fileName).trimmed() + '\n');
+            script.append(QzTools::readAllFileContents(fileName).trimmed() + '\n');
         }
     }
 
@@ -240,7 +240,7 @@ void GM_Manager::load()
         }
     }
 
-    m_bootstrap = qz_readAllFileContents(":gm/data/bootstrap.min.js");
+    m_bootstrap = QzTools::readAllFileContents(":gm/data/bootstrap.min.js");
 }
 
 bool GM_Manager::canRunOnScheme(const QString &scheme)

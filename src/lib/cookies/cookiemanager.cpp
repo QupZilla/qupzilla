@@ -20,7 +20,7 @@
 #include "qupzilla.h"
 #include "cookiejar.h"
 #include "mainapplication.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "settings.h"
 
 #include <QNetworkCookie>
@@ -37,7 +37,7 @@ CookieManager::CookieManager(QWidget* parent)
     , m_refreshCookieJar(true)
 {
     ui->setupUi(this);
-    qz_centerWidgetOnScreen(this);
+    QzTools::centerWidgetOnScreen(this);
 
     // Stored Cookies
     connect(ui->cookieTree, SIGNAL(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)), this, SLOT(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)));

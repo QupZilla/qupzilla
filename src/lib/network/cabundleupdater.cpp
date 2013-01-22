@@ -19,7 +19,7 @@
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "qupzilla.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 
 #include <QTimer>
 #include <QDateTime>
@@ -79,7 +79,7 @@ void CaBundleUpdater::replyFinished()
         }
 
         m_latestBundleVersion = response.toInt();
-        int currentBundleVersion = qz_readAllFileContents(m_bundleVersionFileName).trimmed().toInt();
+        int currentBundleVersion = QzTools::readAllFileContents(m_bundleVersionFileName).trimmed().toInt();
 
         if (m_latestBundleVersion == 0) {
             return;

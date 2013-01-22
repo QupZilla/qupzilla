@@ -19,7 +19,7 @@
 #include "webview.h"
 #include "webpage.h"
 #include "mainapplication.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "iconprovider.h"
 #include "history.h"
 #include "autofillmodel.h"
@@ -440,7 +440,7 @@ void WebView::copyLinkToClipboard()
 void WebView::savePageAs()
 {
     QNetworkRequest request(url());
-    QString suggestedFileName = qz_getFileNameFromUrl(url());
+    QString suggestedFileName = QzTools::getFileNameFromUrl(url());
     if (!suggestedFileName.contains(QLatin1Char('.'))) {
         suggestedFileName.append(QLatin1String(".html"));
     }
@@ -490,7 +490,7 @@ void WebView::showSource(QWebFrame* frame, const QString &selectedHtml)
     }
 
     SourceViewer* source = new SourceViewer(frame, selectedHtml);
-    qz_centerWidgetToParent(source, this);
+    QzTools::centerWidgetToParent(source, this);
     source->show();
 }
 

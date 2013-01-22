@@ -26,7 +26,7 @@
 #include "clickablelabel.h"
 #include "ui_clearprivatedata.h"
 #include "iconprovider.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 
 #include <QNetworkCookie>
 #include <QWebDatabase>
@@ -65,7 +65,7 @@ void ClearPrivateData::clearLocalStorage()
 {
     const QString &profile = mApp->currentProfilePath();
 
-    qz_removeDir(profile + "LocalStorage");
+    QzTools::removeDir(profile + "LocalStorage");
 }
 
 void ClearPrivateData::clearWebDatabases()
@@ -73,7 +73,7 @@ void ClearPrivateData::clearWebDatabases()
     const QString &profile = mApp->currentProfilePath();
 
     QWebDatabase::removeAllDatabases();
-    qz_removeDir(profile + "Databases");
+    QzTools::removeDir(profile + "Databases");
 }
 
 void ClearPrivateData::clearCache()

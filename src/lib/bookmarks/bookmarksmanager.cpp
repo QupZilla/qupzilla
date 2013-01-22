@@ -25,7 +25,7 @@
 #include "bookmarksmodel.h"
 #include "iconprovider.h"
 #include "browsinglibrary.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "bookmarksimportdialog.h"
 #include "iconchooser.h"
 #include "webtab.h"

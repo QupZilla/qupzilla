@@ -37,7 +37,7 @@
 #include "qtwin.h"
 #include "mainapplication.h"
 #include "webhistoryinterface.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "profileupdater.h"
 #include "searchenginesmanager.h"
 #include "databasewriter.h"
@@ -1057,7 +1057,7 @@ void MainApplication::clearTempPath()
     QDir dir(path);
 
     if (dir.exists()) {
-        qz_removeDir(path);
+        QzTools::removeDir(path);
     }
 }
 

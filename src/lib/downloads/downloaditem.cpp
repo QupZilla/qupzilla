@@ -24,7 +24,7 @@
 #include "downloadmanager.h"
 #include "iconprovider.h"
 #include "networkmanager.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 
 #include <QMenu>
 #include <QClipboard>
@@ -255,8 +255,8 @@ void DownloadItem::updateDownloadInfo(double currSpeed, qint64 received, qint64 
     QString remTime = remaingTimeToString(time);
     m_remTime = time;
 
-    QString currSize = qz_fileSizeToString(received);
-    QString fileSize = qz_fileSizeToString(total);
+    QString currSize = QzTools::fileSizeToString(received);
+    QString fileSize = QzTools::fileSizeToString(total);
 
     if (fileSize == tr("Unknown size")) {
         ui->downloadInfo->setText(tr("%2 - unknown size (%3)").arg(currSize, speed));

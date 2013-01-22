@@ -56,7 +56,7 @@
 #include "pagescreen.h"
 #include "webinspectordockwidget.h"
 #include "bookmarksimportdialog.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "reloadstopbutton.h"
 #include "enhancedmenu.h"
 #include "settings.h"
@@ -1286,7 +1286,7 @@ void QupZilla::showSource(QWebFrame* frame, const QString &selectedHtml)
     }
 
     SourceViewer* source = new SourceViewer(frame, selectedHtml);
-    qz_centerWidgetToParent(source, this);
+    QzTools::centerWidgetToParent(source, this);
     source->show();
 }
 
@@ -1953,7 +1953,7 @@ bool QupZilla::restoreState(const QByteArray &state, int version)
 #ifdef QZ_WS_X11
 int QupZilla::getCurrentVirtualDesktop() const
 {
-    Display* display = static_cast<Display*>(qz_X11Display(this));
+    Display* display = static_cast<Display*>(QzTools::X11Display(this));
     Atom actual_type;
     int actual_format;
     unsigned long nitems;
@@ -1986,7 +1986,7 @@ void QupZilla::moveToVirtualDesktop(int desktopId)
         return;
     }
 
-    Display* display = static_cast<Display*>(qz_X11Display(this));
+    Display* display = static_cast<Display*>(QzTools::X11Display(this));
 
     Atom net_wm_desktop = XInternAtom(display, "_NET_WM_DESKTOP", False);
     if (net_wm_desktop == None) {

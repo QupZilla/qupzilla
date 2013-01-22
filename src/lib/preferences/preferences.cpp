@@ -38,7 +38,7 @@
 #include "navigationbar.h"
 #include "thememanager.h"
 #include "acceptlanguage.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "autofillmodel.h"
 #include "settings.h"
 #include "tabbedwebview.h"
@@ -722,7 +722,7 @@ void Preferences::buttonClicked(QAbstractButton* button)
 void Preferences::createProfile()
 {
     QString name = QInputDialog::getText(this, tr("New Profile"), tr("Enter the new profile's name:"));
-    name = qz_filterCharsFromFilename(name);
+    name = QzTools::filterCharsFromFilename(name);
     if (name.isEmpty()) {
         return;
     }
@@ -758,7 +758,7 @@ void Preferences::deleteProfile()
         return;
     }
 
-    qz_removeDir(mApp->PROFILEDIR + "profiles/" + name);
+    QzTools::removeDir(mApp->PROFILEDIR + "profiles/" + name);
     ui->startProfile->removeItem(ui->startProfile->currentIndex());
 }
 

@@ -18,7 +18,7 @@
 #include "siteicon.h"
 #include "locationbar.h"
 #include "tabbedwebview.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 
 #include <QDrag>
 #include <QMimeData>
@@ -82,7 +82,7 @@ void SiteIcon::mouseMoveEvent(QMouseEvent* e)
     mime->setImageData(icon().pixmap(16, 16).toImage());
 
     drag->setMimeData(mime);
-    drag->setPixmap(qz_createPixmapForSite(icon(), title, url.toString()));
+    drag->setPixmap(QzTools::createPixmapForSite(icon(), title, url.toString()));
 
     drag->exec();
 }

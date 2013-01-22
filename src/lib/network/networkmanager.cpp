@@ -25,7 +25,7 @@
 #include "adblockmanager.h"
 #include "networkproxyfactory.h"
 #include "certificateinfowidget.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "acceptlanguage.h"
 #include "cabundleupdater.h"
 #include "settings.h"
@@ -53,7 +53,7 @@ static QString fileNameForCert(const QSslCertificate &cert)
     QString certFileName = CertificateInfoWidget::certificateItemText(cert);
     certFileName.remove(QLatin1Char(' '));
     certFileName.append(QLatin1String(".crt"));
-    certFileName = qz_filterCharsFromFilename(certFileName);
+    certFileName = QzTools::filterCharsFromFilename(certFileName);
 
     while (certFileName.startsWith(QLatin1Char('.'))) {
         certFileName = certFileName.mid(1);
@@ -134,7 +134,7 @@ void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
 {
     if (!reply->sslConfiguration().isNull()) {
         QSslCertificate cert = reply->sslConfiguration().peerCertificate();
-        if (!qz_isCertificateValid(cert) || reply->property("downReply").toBool()) {
+        if (!QzTools::isCertificateValid(cert) || reply->property("downReply").toBool()) {
             return;
         }
 
@@ -273,7 +273,7 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
 
     label->setText(tr("A username and password are being requested by %1. "
-                      "The site says: \"%2\"").arg(reply->url().toEncoded(), qz_escape(auth->realm())));
+                      "The site says: \"%2\"").arg(reply->url().toEncoded(), QzTools::escape(auth->realm())));
     formLa->addRow(label);
 
     formLa->addRow(userLab, user);
@@ -455,7 +455,7 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     }
 
     QString certFileName = fileNameForCert(cert);
-    QString fileName = qz_ensureUniqueFilename(mApp->currentProfilePath() + "certificates/" + certFileName);
+    QString fileName = QzTools::ensureUniqueFilename(mApp->currentProfilePath() + "certificates/" + certFileName);
 
     QFile file(fileName);
     if (file.open(QFile::WriteOnly)) {

@@ -22,7 +22,7 @@
 #include "tabbar.h"
 #include "tabwidget.h"
 #include "locationbar.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "qzsettings.h"
 
 #include <QVBoxLayout>

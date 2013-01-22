@@ -22,7 +22,7 @@
 #include "rssmanager.h"
 #include "mainapplication.h"
 #include "downloaditem.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "settings.h"
 #include "history.h"
 
@@ -47,7 +47,7 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     m_historyManager->restoreState(settings.value("historyState", QByteArray()).toByteArray());
     settings.endGroup();
 
-    qz_centerWidgetOnScreen(this);
+    QzTools::centerWidgetOnScreen(this);
 
     ui->tabs->AddTab(m_historyManager, QIcon(":/icons/other/bighistory.png"), tr("History"));
     ui->tabs->AddTab(m_bookmarksManager, QIcon(":/icons/other/bigstar.png"), tr("Bookmarks"));
@@ -141,9 +141,9 @@ void BrowsingLibrary::optimizeDatabase()
 {
     mApp->setOverrideCursor(Qt::WaitCursor);
     QString profilePath = mApp->currentProfilePath();
-    QString sizeBefore = qz_fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
+    QString sizeBefore = QzTools::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
     mApp->history()->optimizeHistory();
-    QString sizeAfter = qz_fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
+    QString sizeAfter = QzTools::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
     mApp->restoreOverrideCursor();
     QMessageBox::information(this, tr("Database Optimized"), tr("Database successfully optimized.<br/><br/><b>Database Size Before: </b>%1<br/><b>Database Size After: </b>%2").arg(sizeBefore, sizeAfter));
 }

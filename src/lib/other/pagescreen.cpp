@@ -19,7 +19,7 @@
 #include "ui_pagescreen.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 
 #include <QFileDialog>
 #include <QWebFrame>
@@ -61,7 +61,7 @@ PageScreen::PageScreen(WebView* view, QWidget* parent)
 void PageScreen::dialogAccepted()
 {
     const QString &suggestedPath = QString("%1/%2.png").arg(QDir::homePath(),
-                                   qz_filterCharsFromFilename(m_pageTitle));
+                                   QzTools::filterCharsFromFilename(m_pageTitle));
     m_filePath = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."), suggestedPath);
 
     if (!m_filePath.isEmpty()) {

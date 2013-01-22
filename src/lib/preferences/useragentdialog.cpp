@@ -18,7 +18,7 @@
 #include "useragentdialog.h"
 #include "ui_useragentdialog.h"
 #include "useragentmanager.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "mainapplication.h"
 #include "settings.h"
 
@@ -33,7 +33,7 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
 {
     ui->setupUi(this);
 
-    const QString &os = qz_buildSystem();
+    const QString &os = QzTools::buildSystem();
     m_knownUserAgents << QString("Opera/9.80 (%1) Presto/2.10.229 Version/11.61").arg(os)
                       << QString("Mozilla/5.0 (%1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7").arg(os)
                       << QString("Mozilla/5.0 (%1) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1").arg(os)

@@ -46,7 +46,7 @@
 #include "adblockmanager.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "followredirectreply.h"
 
 #include <QFile>
@@ -257,7 +257,7 @@ QString AdBlockSubscription::elementHidingRulesForDomain(const QString &domain) 
 
 const AdBlockRule* AdBlockSubscription::rule(int offset) const
 {
-    if (!qz_listContainsIndex(m_rules, offset)) {
+    if (!QzTools::listContainsIndex(m_rules, offset)) {
         return 0;
     }
 
@@ -271,7 +271,7 @@ QList<AdBlockRule> AdBlockSubscription::allRules() const
 
 const AdBlockRule* AdBlockSubscription::enableRule(int offset)
 {
-    if (!qz_listContainsIndex(m_rules, offset)) {
+    if (!QzTools::listContainsIndex(m_rules, offset)) {
         return 0;
     }
 
@@ -289,7 +289,7 @@ const AdBlockRule* AdBlockSubscription::enableRule(int offset)
 
 const AdBlockRule* AdBlockSubscription::disableRule(int offset)
 {
-    if (!qz_listContainsIndex(m_rules, offset)) {
+    if (!QzTools::listContainsIndex(m_rules, offset)) {
         return 0;
     }
 
@@ -479,7 +479,7 @@ int AdBlockCustomList::addRule(const AdBlockRule &rule)
 
 bool AdBlockCustomList::removeRule(int offset)
 {
-    if (!qz_listContainsIndex(m_rules, offset)) {
+    if (!QzTools::listContainsIndex(m_rules, offset)) {
         return false;
     }
 
@@ -497,7 +497,7 @@ bool AdBlockCustomList::removeRule(int offset)
 
 const AdBlockRule* AdBlockCustomList::replaceRule(const AdBlockRule &rule, int offset)
 {
-    if (!qz_listContainsIndex(m_rules, offset)) {
+    if (!QzTools::listContainsIndex(m_rules, offset)) {
         return 0;
     }
 

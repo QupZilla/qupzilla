@@ -18,7 +18,7 @@
 #include "thememanager.h"
 #include "ui_thememanager.h"
 #include "mainapplication.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "settings.h"
 #include "licenseviewer.h"
 #include "preferences.h"
@@ -114,10 +114,10 @@ ThemeManager::Theme ThemeManager::parseTheme(const QString &name)
     }
 
     if (QFile(path + "theme.license").exists()) {
-        info.license = qz_readAllFileContents(path + "theme.license");
+        info.license = QzTools::readAllFileContents(path + "theme.license");
     }
 
-    QString theme_info = qz_readAllFileContents(path + "theme.info");
+    QString theme_info = QzTools::readAllFileContents(path + "theme.info");
 
     QRegExp rx("Name:(.*)\\n");
     rx.setMinimal(true);

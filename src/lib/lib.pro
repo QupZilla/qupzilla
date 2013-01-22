@@ -127,7 +127,7 @@ SOURCES += \
     navigation/navigationbar.cpp \
     navigation/reloadstopbutton.cpp \
     preferences/thememanager.cpp \
-    tools/globalfunctions.cpp \
+    tools/qztools.cpp \
     other/pagescreen.cpp \
     downloads/downloadfilehelper.cpp \
     tools/certificateinfowidget.cpp \
@@ -286,7 +286,7 @@ HEADERS  += \
     navigation/navigationbar.h \
     navigation/reloadstopbutton.h \
     preferences/thememanager.h \
-    tools/globalfunctions.h \
+    tools/qztools.h \
     other/pagescreen.h \
     downloads/downloadfilehelper.h \
     tools/certificateinfowidget.h \

@@ -18,7 +18,7 @@
 #include "popuplocationbar.h"
 #include "popupwebview.h"
 #include "toolbutton.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "iconprovider.h"
 
 #include <QMovie>
@@ -86,7 +86,7 @@ void PopupLocationBar::stopLoading()
 
 void PopupLocationBar::showUrl(const QUrl &url)
 {
-    setText(qz_urlEncodeQueryString(url));
+    setText(QzTools::urlEncodeQueryString(url));
     setCursorPosition(0);
 }
 

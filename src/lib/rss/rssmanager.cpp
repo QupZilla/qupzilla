@@ -23,7 +23,7 @@
 #include "treewidget.h"
 #include "iconprovider.h"
 #include "browsinglibrary.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "followredirectreply.h"
 #include "networkmanager.h"
 #include "qzsettings.h"

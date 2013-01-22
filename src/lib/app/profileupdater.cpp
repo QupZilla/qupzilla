@@ -18,7 +18,7 @@
 #include "profileupdater.h"
 #include "qupzilla.h"
 #include "updater.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "mainapplication.h"
 
 #include <QDir>
@@ -112,8 +112,8 @@ void ProfileUpdater::copyDataToProfile()
 
     QFile browseData(m_profilePath + "browsedata.db");
     if (browseData.exists()) {
-        const QString &browseDataBackup = qz_ensureUniqueFilename(m_profilePath + "browsedata-backup.db");
-        const QString &settingsBackup = qz_ensureUniqueFilename(m_profilePath + "settings-backup.ini");
+        const QString &browseDataBackup = QzTools::ensureUniqueFilename(m_profilePath + "browsedata-backup.db");
+        const QString &settingsBackup = QzTools::ensureUniqueFilename(m_profilePath + "settings-backup.ini");
         browseData.copy(browseDataBackup);
         QFile(m_profilePath + "settings.ini").copy(settingsBackup);
         const QString &text = "Incompatible profile version has been detected. To avoid losing your profile data, they were "

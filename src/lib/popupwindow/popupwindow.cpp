@@ -23,7 +23,7 @@
 #include "qupzilla.h"
 #include "qzsettings.h"
 #include "popuplocationbar.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 
 #include <QVBoxLayout>
 #include <QStatusBar>
@@ -174,7 +174,7 @@ void PopupWindow::setWindowGeometry(const QRect &newRect)
         resize(newSize);
 
         if (newRect.topLeft() == QPoint(0, 0) && oldRect.topLeft() == QPoint(0, 0)) {
-            qz_centerWidgetOnScreen(this);
+            QzTools::centerWidgetOnScreen(this);
         }
     }
 }

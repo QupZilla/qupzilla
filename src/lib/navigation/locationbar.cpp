@@ -35,7 +35,7 @@
 #include "goicon.h"
 #include "rssicon.h"
 #include "downicon.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "iconprovider.h"
 #include "qzsettings.h"
 #include "colors.h"
@@ -162,7 +162,7 @@ QUrl LocationBar::createUrl()
 
 QString LocationBar::convertUrlToText(const QUrl &url) const
 {
-    QString stringUrl = qz_urlEncodeQueryString(url);
+    QString stringUrl = QzTools::urlEncodeQueryString(url);
 
     if (stringUrl == QLatin1String("qupzilla:speeddial") || stringUrl == QLatin1String("about:blank")) {
         stringUrl = "";

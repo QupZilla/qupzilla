@@ -25,7 +25,7 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 
 #include <QFile>
 #include <QDir>
@@ -66,7 +66,7 @@ void GM_AddScriptDialog::showSource()
         return;
     }
 
-    const QString &tmpFileName = qz_ensureUniqueFilename(mApp->tempPath() + "/tmp-userscript.js");
+    const QString &tmpFileName = QzTools::ensureUniqueFilename(mApp->tempPath() + "/tmp-userscript.js");
 
     if (QFile::copy(m_script->fileName(), tmpFileName)) {
         int index = qz->tabWidget()->addView(QUrl::fromLocalFile(tmpFileName), Qz::NT_SelectedTabAtTheEnd);

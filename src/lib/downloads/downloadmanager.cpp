@@ -25,7 +25,7 @@
 #include "networkmanager.h"
 #include "qtwin.h"
 #include "desktopnotificationsfactory.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "webpage.h"
 #include "downloadfilehelper.h"
 #include "settings.h"
@@ -48,7 +48,7 @@ DownloadManager::DownloadManager(QWidget* parent)
     }
 #endif
     ui->clearButton->setIcon(QIcon::fromTheme("edit-clear"));
-    qz_centerWidgetOnScreen(this);
+    QzTools::centerWidgetOnScreen(this);
 
     m_networkManager = mApp->networkManager();
 

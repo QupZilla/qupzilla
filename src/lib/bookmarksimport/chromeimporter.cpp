@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "chromeimporter.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "bookmarksimportdialog.h"
 
 #include <QScriptEngine>

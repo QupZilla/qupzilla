@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "licenseviewer.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 
 LicenseViewer::LicenseViewer(QWidget* parent)
     : QTextBrowser()
@@ -26,10 +26,10 @@ LicenseViewer::LicenseViewer(QWidget* parent)
 
     resize(450, 500);
 
-    qz_centerWidgetToParent(this, parent);
+    QzTools::centerWidgetToParent(this, parent);
 }
 
 void LicenseViewer::setLicenseFile(const QString &fileName)
 {
-    setText(qz_readAllFileContents(fileName));
+    setText(QzTools::readAllFileContents(fileName));
 }

@@ -25,7 +25,7 @@
 #include "mainapplication.h"
 #include "checkboxdialog.h"
 #include "widget.h"
-#include "globalfunctions.h"
+#include "qztools.h"
 #include "speeddial.h"
 #include "popupwebpage.h"
 #include "popupwebview.h"
@@ -197,11 +197,11 @@ void WebPage::progress(int prog)
 {
     m_loadProgress = prog;
 
-    bool secStatus = qz_isCertificateValid(sslCertificate());
+    bool secStatus = QzTools::isCertificateValid(sslCertificate());
 
     if (secStatus != m_secureStatus) {
         m_secureStatus = secStatus;
-        emit privacyChanged(qz_isCertificateValid(sslCertificate()));
+        emit privacyChanged(QzTools::isCertificateValid(sslCertificate()));
     }
 }
 
@@ -328,7 +328,7 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
 
     CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, view());
 
-    const QString &wrappedUrl = qz_alignTextToWidth(url.toString(), "<br/>", dialog.fontMetrics(), 450);
+    const QString &wrappedUrl = QzTools::alignTextToWidth(url.toString(), "<br/>", dialog.fontMetrics(), 450);
     const QString &text = tr("QupZilla cannot handle <b>%1:</b> links. The requested link "
                              "is <ul><li>%2</li></ul>Do you want QupZilla to try "
                              "open this link in system application?").arg(protocol, wrappedUrl);
@@ -451,7 +451,7 @@ void WebPage::setSSLCertificate(const QSslCertificate &cert)
 
 QSslCertificate WebPage::sslCertificate()
 {
-    if (url().scheme() == QLatin1String("https") && qz_isCertificateValid(m_sslCert)) {
+    if (url().scheme() == QLatin1String("https") && QzTools::isCertificateValid(m_sslCert)) {
         return m_sslCert;
     }
 
@@ -703,13 +703,13 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     QString rule = exOption->errorString;
                     rule.remove(QLatin1String("AdBlock: "));
 
-                    QString errString = qz_readAllFileContents(":/html/adblockPage.html");
+                    QString errString = QzTools::readAllFileContents(":/html/adblockPage.html");
                     errString.replace(QLatin1String("%TITLE%"), tr("AdBlocked Content"));
                     errString.replace(QLatin1String("%IMAGE%"), QLatin1String("qrc:html/adblock_big.png"));
                     errString.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:html/adblock_big.png"));
 
                     errString.replace(QLatin1String("%RULE%"), tr("Blocked by <i>%1</i>").arg(rule));
-                    errString = qz_applyDirectionToPage(errString);
+                    errString = QzTools::applyDirectionToPage(errString);
 
                     exReturn->baseUrl = exOption->url;
                     exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();
@@ -754,8 +754,8 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     QString errString = file.readAll();
     errString.replace(QLatin1String("%TITLE%"), tr("Failed loading page"));
 
-    errString.replace(QLatin1String("%IMAGE%"), qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
-    errString.replace(QLatin1String("%FAVICON%"), qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
+    errString.replace(QLatin1String("%IMAGE%"), QzTools::pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
+    errString.replace(QLatin1String("%FAVICON%"), QzTools::pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
     errString.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
 
     QString heading2 = loadedUrl.host().isEmpty() ? tr("QupZilla can't load page.") : tr("QupZilla can't load page from %1.").arg(loadedUrl.host());
@@ -766,7 +766,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     errString.replace(QLatin1String("%LI-2%"), tr("If you are unable to load any pages, check your computer's network connection."));
     errString.replace(QLatin1String("%LI-3%"), tr("If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web."));
     errString.replace(QLatin1String("%TRY-AGAIN%"), tr("Try Again"));
-    errString = qz_applyDirectionToPage(errString);
+    errString = QzTools::applyDirectionToPage(errString);
 
     exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();
     return true;
