@@ -58,7 +58,7 @@
 
 // Version for Qt < 4.8 has one issue, it will wrongly
 // count .co.uk (and others) as second-level domain
-QString toSecondLevelDomain(const QUrl &url)
+static QString toSecondLevelDomain(const QUrl &url)
 {
 #if QT_VERSION >= 0x040800
     const QString &topLevelDomain = url.topLevelDomain();

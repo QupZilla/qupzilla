@@ -28,7 +28,8 @@
 
 //#define COOKIE_DEBUG
 
-bool blockThirdParty(QString string, QString domain)
+#if QTWEBKIT_TO_2_3
+static bool blockThirdParty(QString string, QString domain)
 {
     if (string.isEmpty()) {
         // Some cookies have empty domain() ... bug?
@@ -45,8 +46,9 @@ bool blockThirdParty(QString string, QString domain)
 
     return !domain.endsWith(string);
 }
+#endif
 
-bool matchDomain(const QString &domain, const QString &filter)
+static bool matchDomain(const QString &domain, const QString &filter)
 {
     // According to RFC 6265
 
@@ -63,7 +65,7 @@ bool matchDomain(const QString &domain, const QString &filter)
     return (index > 0 && filter[0] == QLatin1Char('.'));
 }
 
-int listContainsDomain(const QStringList &list, const QString &domain)
+static int listContainsDomain(const QStringList &list, const QString &domain)
 {
     if (domain.isEmpty()) {
         return -1;
@@ -136,7 +138,7 @@ bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie
         }
     }
 
-// This feature is now natively in QtWebKit in Qt 5
+// This feature is now natively in QtWebKit 2.3
 #if QTWEBKIT_TO_2_3
     if (m_blockThirdParty) {
         bool result = blockThirdParty(cookieDomain, domain);

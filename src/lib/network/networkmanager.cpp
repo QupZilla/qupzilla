@@ -48,12 +48,17 @@
 #include <QDirIterator>
 #include <QDebug>
 
-QString fileNameForCert(const QSslCertificate &cert)
+static QString fileNameForCert(const QSslCertificate &cert)
 {
     QString certFileName = CertificateInfoWidget::certificateItemText(cert);
     certFileName.remove(QLatin1Char(' '));
     certFileName.append(QLatin1String(".crt"));
     certFileName = qz_filterCharsFromFilename(certFileName);
+
+    while (certFileName.startsWith(QLatin1Char('.'))) {
+        certFileName = certFileName.mid(1);
+    }
+
     return certFileName;
 }
 

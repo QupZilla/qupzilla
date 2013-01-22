@@ -24,7 +24,7 @@
 #include <QDateTime>
 #include <QTimer>
 
-QString dateTimeToString(const QDateTime &dateTime)
+static QString dateTimeToString(const QDateTime &dateTime)
 {
     const QDateTime &current = QDateTime::currentDateTime();
     if (current.date() == dateTime.date()) {

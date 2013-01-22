@@ -30,7 +30,7 @@ LocationCompleterModel::LocationCompleterModel(QObject* parent)
 {
 }
 
-bool countBiggerThan(const QStandardItem* i1, const QStandardItem* i2)
+static bool countBiggerThan(const QStandardItem* i1, const QStandardItem* i2)
 {
     return i1->data(LocationCompleterModel::CountRole).toInt() >
            i2->data(LocationCompleterModel::CountRole).toInt();

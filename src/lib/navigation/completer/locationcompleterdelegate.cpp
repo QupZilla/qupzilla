@@ -132,7 +132,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     }
 }
 
-bool sizeBiggerThan(const QString &s1, const QString &s2)
+static bool sizeBiggerThan(const QString &s1, const QString &s2)
 {
     return s1.size() > s2.size();
 }
