@@ -76,4 +76,14 @@ private:
     DownloadManager* m_manager;
 };
 
+#include <QFileDialog>
+class QT_QUPZILLA_EXPORT FileDialog : public QFileDialog
+{
+    Q_OBJECT
+public:
+    FileDialog(QWidget *parent = 0);
+
+protected:
+    void accept();
+};
 #endif // DOWNLOADFILEHELPER_H

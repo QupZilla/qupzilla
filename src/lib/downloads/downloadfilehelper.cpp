@@ -31,7 +31,6 @@
 #include <QTemporaryFile>
 #include <QWebHistory>
 #include <QDebug>
-#include <QFileDialog>
 
 #if QT_VERSION >= 0x050000
 #include <QStandardPaths>
@@ -162,7 +161,7 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
                 fileNameChoosed(QFileDialog::getSaveFileName(mApp->getWindow(), tr("Save file as..."), m_lastDownloadPath + m_h_fileName));
             }
             else {
-                QFileDialog* dialog = new QFileDialog(mApp->getWindow());
+                FileDialog* dialog = new FileDialog(mApp->getWindow());
                 dialog->setAttribute(Qt::WA_DeleteOnClose);
                 dialog->setWindowTitle(tr("Save file as..."));
                 dialog->setAcceptMode(QFileDialog::AcceptSave);
@@ -297,4 +296,19 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
 DownloadFileHelper::~DownloadFileHelper()
 {
     delete m_iconProvider;
+}
+
+FileDialog::FileDialog(QWidget *parent)
+    : QFileDialog(parent)
+{
+}
+
+void FileDialog::accept()
+{
+    if (!selectedFiles().isEmpty()) {
+        QFileInfo selectedFile(selectedFiles().at(0));
+        QString fileName = selectedFile.fileName().trimmed();
+        selectFile(selectedFile.path()+"/"+fileName);
+    }
+    QFileDialog::accept();
 }
