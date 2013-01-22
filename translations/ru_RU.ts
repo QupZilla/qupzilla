@@ -5712,7 +5712,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="838"/>
         <source>Show so&amp;urce code</source>
-        <translation>Показать &amp;исходый код</translation>
+        <translation>Показать &amp;исходный код</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="839"/>
