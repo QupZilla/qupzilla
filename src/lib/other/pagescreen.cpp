@@ -33,6 +33,14 @@
 #include <QtConcurrentRun>
 #endif
 
+static QSize limitSize(const QSize &originalSize)
+{
+    if (originalSize.height() > 20000) {
+        return QSize(originalSize.width(), 20000);
+    }
+
+    return originalSize;
+}
 
 PageScreen::PageScreen(WebView* view, QWidget* parent)
     : QDialog(parent)
@@ -77,7 +85,7 @@ void PageScreen::createThumbnail()
 {
     QWebPage* page = m_view->page();
     QSize originalSize = page->viewportSize();
-    page->setViewportSize(page->mainFrame()->contentsSize());
+    page->setViewportSize(limitSize(page->mainFrame()->contentsSize()));
 
     m_pageImage = QImage(page->viewportSize(), QImage::Format_ARGB32_Premultiplied);
     QPainter painter(&m_pageImage);
