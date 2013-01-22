@@ -27,7 +27,7 @@ ClickableLabel::ClickableLabel(QWidget* parent)
 
 void ClickableLabel::setThemeIcon(const QString &name)
 {
-    QIcon icon(name);
+    QIcon icon = QIcon::fromTheme(name);
 
     if (!icon.isNull()) {
         setPixmap(icon.pixmap(size()));
