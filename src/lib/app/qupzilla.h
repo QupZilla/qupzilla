@@ -133,6 +133,7 @@ private slots:
     void goHomeInNewTab();
     void stop();
     void reload();
+	void closeTab();
     void reloadByPassCache();
     void aboutQupZilla();
     void addTab();

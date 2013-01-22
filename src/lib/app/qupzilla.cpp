@@ -554,6 +554,9 @@ void QupZilla::setupMenu()
     QShortcut* openLocationAction = new QShortcut(QKeySequence("Alt+D"), this);
     connect(openLocationAction, SIGNAL(activated()), this, SLOT(openLocation()));
 
+    QShortcut* closeTabAction = new QShortcut(QKeySequence("Ctrl+F4"), this);
+    connect(closeTabAction, SIGNAL(activated()), this, SLOT(closeTab()));
+
     // Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
     foreach(QAction * action, actions) {
@@ -1188,6 +1191,11 @@ void QupZilla::stop()
 void QupZilla::reload()
 {
     weView()->reload();
+}
+
+void QupZilla::closeTab()
+{
+    weView()->closeView();
 }
 
 void QupZilla::reloadByPassCache()
