@@ -1,3 +1,25 @@
+Version 1.4.0
+    * not yet released
+    * highlighting host in address in locationbar
+    * can now be compiled using Qt 5
+    * QtWebKit 2.3 new features - caret browsing, animated scrolling
+    * asking user whether to allow site to use notifications/geolocation
+    * option to set JavaScript privacy permissions
+    * option to specify default search engine used in locationbar
+    * option to disable search suggestions in websearchbar
+    * option to search only whole words in source viewer
+    * option to hide reload/stop buttons in navigationbar
+    * option to disable alt/ctrl + numbers shortcuts
+    * option to switch to tab from locationbar popup completer
+    * use .qupzilla/tmp instead of /tmp for temporary data
+    * fixed cookie domain handling according to RFC 6265
+    * fixed qvalue format in Accept-Language HTTP header
+    * fixed sorting files case insensitively in file scheme handler
+    * fixed possible crash in saving page screen of a really long page
+    * X11: fixed Ctrl+Q shortcut for DEs other than KDE and Gnome
+    * windows: improved installer allows registering as default web browser
+    * windows: check and set as default browser from preferences
+
 Version 1.3.5
     * released 16 September 2012
     * new Persian translation

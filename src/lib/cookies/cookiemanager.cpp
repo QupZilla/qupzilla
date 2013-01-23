@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -46,11 +46,26 @@ CookieManager::CookieManager(QWidget* parent)
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->close2, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->search, SIGNAL(textChanged(QString)), ui->cookieTree, SLOT(filterString(QString)));
+
     // Cookie Filtering
     connect(ui->whiteAdd, SIGNAL(clicked()), this, SLOT(addWhitelist()));
     connect(ui->whiteRemove, SIGNAL(clicked()), this, SLOT(removeWhitelist()));
     connect(ui->blackAdd, SIGNAL(clicked()), this, SLOT(addBlacklist()));
     connect(ui->blackRemove, SIGNAL(clicked()), this, SLOT(removeBlacklist()));
+
+    // Cookie Settings
+    Settings settings;
+    settings.beginGroup("Cookie-Settings");
+    ui->saveCookies->setChecked(settings.value("allowCookies", true).toBool());
+    if (!ui->saveCookies->isChecked()) {
+        ui->deleteCookiesOnClose->setEnabled(false);
+    }
+    ui->deleteCookiesOnClose->setChecked(settings.value("deleteCookiesOnClose", false).toBool());
+    ui->matchExactly->setChecked(settings.value("allowCookiesFromVisitedDomainOnly", false).toBool());
+    ui->filterTracking->setChecked(settings.value("filterTrackingCookie", false).toBool());
+    settings.endGroup();
+
+    connect(ui->saveCookies, SIGNAL(toggled(bool)), this, SLOT(saveCookiesChanged(bool)));
 
     ui->search->setPlaceholderText(tr("Search"));
     ui->cookieTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
@@ -257,6 +272,11 @@ void CookieManager::deletePressed()
     }
 }
 
+void CookieManager::saveCookiesChanged(bool state)
+{
+    ui->deleteCookiesOnClose->setEnabled(state);
+}
+
 void CookieManager::closeEvent(QCloseEvent* e)
 {
     QStringList whitelist;
@@ -272,6 +292,10 @@ void CookieManager::closeEvent(QCloseEvent* e)
 
     Settings settings;
     settings.beginGroup("Cookie-Settings");
+    settings.setValue("allowCookies", ui->saveCookies->isChecked());
+    settings.setValue("deleteCookiesOnClose", ui->deleteCookiesOnClose->isChecked());
+    settings.setValue("allowCookiesFromVisitedDomainOnly", ui->matchExactly->isChecked());
+    settings.setValue("filterTrackingCookie", ui->filterTracking->isChecked());
     settings.setValue("whitelist", whitelist);
     settings.setValue("blacklist", blacklist);
     settings.endGroup();

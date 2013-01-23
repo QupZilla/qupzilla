@@ -2029,51 +2029,124 @@
      </widget>
      <widget class="QWidget" name="privacyPage">
       <layout class="QGridLayout" name="gridLayout_12">
-       <item row="9" column="1" colspan="4">
-        <widget class="QCheckBox" name="saveCookies">
-         <property name="text">
-          <string>Allow storing of cookies</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="1">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="22" column="1" colspan="4">
+       <item row="21" column="1" colspan="3">
         <widget class="QCheckBox" name="sendReferer">
          <property name="text">
           <string>Send Referer header to servers</string>
          </property>
         </widget>
        </item>
-       <item row="13" column="1" colspan="3">
-        <widget class="QCheckBox" name="filterTracking">
-         <property name="text">
-          <string>Filter tracking cookies</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0" colspan="5">
+       <item row="8" column="0" colspan="3">
         <widget class="QLabel" name="label_12">
          <property name="text">
           <string>&lt;b&gt;Cookies&lt;/b&gt;</string>
          </property>
         </widget>
        </item>
-       <item row="13" column="0">
+       <item row="22" column="1" colspan="3">
+        <widget class="QCheckBox" name="doNotTrack">
+         <property name="text">
+          <string>Send Do Not Track header to servers</string>
+         </property>
+        </widget>
+       </item>
+       <item row="19" column="0" colspan="4">
+        <widget class="QLabel" name="label_50">
+         <property name="text">
+          <string>&lt;b&gt;Other&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="16" column="0" colspan="3">
+        <widget class="QLabel" name="label_49">
+         <property name="text">
+          <string>Manage CA certificates</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="27" column="0" colspan="4">
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="16" column="3">
+        <widget class="QPushButton" name="sslManagerButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Certificate Manager</string>
+         </property>
+        </widget>
+       </item>
+       <item row="14" column="0" colspan="4">
+        <widget class="QLabel" name="label_48">
+         <property name="text">
+          <string>&lt;b&gt;SSL Certificates&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="17" column="0" colspan="4">
+        <widget class="QLabel" name="label_61">
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>&lt;b&gt;JavaScript&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="18" column="0" colspan="3">
+        <widget class="QLabel" name="label_25">
+         <property name="mouseTracking">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Manage JavaScript privacy options</string>
+         </property>
+        </widget>
+       </item>
+       <item row="18" column="3">
+        <widget class="QPushButton" name="jsOptionsButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>JavaScript options</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="3">
+        <widget class="QPushButton" name="cookieManagerBut">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Cookies Manager</string>
+         </property>
+        </widget>
+       </item>
+       <item row="21" column="0">
         <spacer name="horizontalSpacer_20">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -2089,38 +2162,14 @@
          </property>
         </spacer>
        </item>
-       <item row="12" column="1" colspan="4">
-        <widget class="QCheckBox" name="matchExactly">
+       <item row="12" column="0" colspan="3">
+        <widget class="QLabel" name="label_19">
          <property name="text">
-          <string>Match domain exactly</string>
+          <string>Manage Cookies</string>
          </property>
         </widget>
        </item>
-       <item row="23" column="1" colspan="4">
-        <widget class="QCheckBox" name="doNotTrack">
-         <property name="text">
-          <string>Send Do Not Track header to servers</string>
-         </property>
-        </widget>
-       </item>
-       <item row="20" column="0" colspan="5">
-        <widget class="QLabel" name="label_50">
-         <property name="text">
-          <string>&lt;b&gt;Other&lt;/b&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="17" column="0" colspan="4">
-        <widget class="QLabel" name="label_49">
-         <property name="text">
-          <string>Manage CA certificates</string>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="4">
+       <item row="8" column="3">
         <spacer name="horizontalSpacer_22">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -2132,102 +2181,6 @@
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="28" column="0" colspan="5">
-        <spacer name="verticalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="13" column="4">
-        <widget class="QPushButton" name="cookieManagerBut">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Cookies Manager</string>
-         </property>
-        </widget>
-       </item>
-       <item row="17" column="4">
-        <widget class="QPushButton" name="sslManagerButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Certificate Manager</string>
-         </property>
-        </widget>
-       </item>
-       <item row="15" column="0" colspan="5">
-        <widget class="QLabel" name="label_48">
-         <property name="text">
-          <string>&lt;b&gt;SSL Certificates&lt;/b&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="14" column="0" colspan="5">
-        <widget class="QLabel" name="label_19">
-         <property name="text">
-          <string>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</string>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="2" colspan="2">
-        <widget class="QCheckBox" name="deleteCookiesOnClose">
-         <property name="text">
-          <string>Delete cookies on close</string>
-         </property>
-        </widget>
-       </item>
-       <item row="18" column="0" colspan="5">
-        <widget class="QLabel" name="label_61">
-         <property name="mouseTracking">
-          <bool>true</bool>
-         </property>
-         <property name="text">
-          <string>&lt;b&gt;JavaScript&lt;/b&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="19" column="0" colspan="4">
-        <widget class="QLabel" name="label_25">
-         <property name="mouseTracking">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>Manage JavaScript privacy options</string>
-         </property>
-        </widget>
-       </item>
-       <item row="19" column="4">
-        <widget class="QPushButton" name="jsOptionsButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>JavaScript options</string>
-         </property>
-        </widget>
        </item>
       </layout>
      </widget>

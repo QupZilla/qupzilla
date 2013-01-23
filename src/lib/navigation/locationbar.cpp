@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -637,7 +637,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
         switch (m_progressStyle) {
         case ProgressFilled: {
             QRect bar = contentsRect.adjusted(0, 1, 0, -1);
-            bar.setWidth(bar.width()*m_loadProgress / 100);
+            bar.setWidth(bar.width() * m_loadProgress / 100);
             const int roundness = bar.height() / 4.0;
             p.drawRoundedRect(bar, roundness, roundness);
             break;
@@ -647,7 +647,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
             outlinePen.setColor(outlinePen.color().darker(130));
             p.setPen(outlinePen);
             QRect bar(contentsRect.x(), contentsRect.bottom() - 3,
-                      contentsRect.width()*m_loadProgress / 100.0, 3);
+                      contentsRect.width() * m_loadProgress / 100.0, 3);
             p.drawRoundedRect(bar, 1, 1);
             break;
         }
@@ -656,7 +656,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
             outlinePen.setColor(outlinePen.color().darker(130));
             p.setPen(outlinePen);
             QRect bar(contentsRect.x(), contentsRect.top() + 1,
-                      contentsRect.width()*m_loadProgress / 100.0, 3);
+                      contentsRect.width() * m_loadProgress / 100.0, 3);
             p.drawRoundedRect(bar, 1, 1);
             break;
         }

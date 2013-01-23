@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -292,18 +292,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //CSS Style
     ui->userStyleSheet->setText(settings.value("userStyleSheet", "").toString());
     connect(ui->chooseUserStylesheet, SIGNAL(clicked()), this, SLOT(chooseUserStyleClicked()));
-    settings.endGroup();
-
-    //Cookies
-    settings.beginGroup("Cookie-Settings");
-    ui->saveCookies->setChecked(settings.value("allowCookies", true).toBool());
-    if (!ui->saveCookies->isChecked()) {
-        ui->deleteCookiesOnClose->setEnabled(false);
-    }
-    connect(ui->saveCookies, SIGNAL(toggled(bool)), this, SLOT(saveCookiesChanged(bool)));
-    ui->deleteCookiesOnClose->setChecked(settings.value("deleteCookiesOnClose", false).toBool());
-    ui->matchExactly->setChecked(settings.value("allowCookiesFromVisitedDomainOnly", false).toBool());
-    ui->filterTracking->setChecked(settings.value("filterTrackingCookie", false).toBool());
     settings.endGroup();
 
     //DOWNLOADS
@@ -606,11 +594,6 @@ void Preferences::setManualProxyConfigurationEnabled(bool state)
 void Preferences::saveHistoryChanged(bool stat)
 {
     ui->deleteHistoryOnClose->setEnabled(stat);
-}
-
-void Preferences::saveCookiesChanged(bool state)
-{
-    ui->deleteCookiesOnClose->setEnabled(state);
 }
 
 void Preferences::allowHtml5storageChanged(bool stat)
@@ -921,14 +904,6 @@ void Preferences::saveSettings()
     settings.setValue("HTML5StorageEnabled", ui->html5storage->isChecked());
     settings.setValue("deleteHTML5StorageOnClose", ui->deleteHtml5storageOnClose->isChecked());
     settings.setValue("SendReferer", ui->sendReferer->isChecked());
-    settings.endGroup();
-
-    //Cookies
-    settings.beginGroup("Cookie-Settings");
-    settings.setValue("allowCookies", ui->saveCookies->isChecked());
-    settings.setValue("deleteCookiesOnClose", ui->deleteCookiesOnClose->isChecked());
-    settings.setValue("allowCookiesFromVisitedDomainOnly", ui->matchExactly->isChecked());
-    settings.setValue("filterTrackingCookie", ui->filterTracking->isChecked());
     settings.endGroup();
 
     //NOTIFICATIONS

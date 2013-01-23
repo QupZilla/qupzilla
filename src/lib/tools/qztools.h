@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,47 +30,48 @@ class QIcon;
 class QWidget;
 class QUrl;
 
-namespace QzTools {
-    QByteArray QT_QUPZILLA_EXPORT pixmapToByteArray(const QPixmap &pix);
-    QPixmap QT_QUPZILLA_EXPORT pixmapFromByteArray(const QByteArray &data);
+namespace QzTools
+{
+QByteArray QT_QUPZILLA_EXPORT pixmapToByteArray(const QPixmap &pix);
+QPixmap QT_QUPZILLA_EXPORT pixmapFromByteArray(const QByteArray &data);
 
-    QString QT_QUPZILLA_EXPORT readAllFileContents(const QString &filename);
+QString QT_QUPZILLA_EXPORT readAllFileContents(const QString &filename);
 
-    void QT_QUPZILLA_EXPORT centerWidgetOnScreen(QWidget* w);
-    void QT_QUPZILLA_EXPORT centerWidgetToParent(QWidget* w, QWidget* parent);
+void QT_QUPZILLA_EXPORT centerWidgetOnScreen(QWidget* w);
+void QT_QUPZILLA_EXPORT centerWidgetToParent(QWidget* w, QWidget* parent);
 
-    bool QT_QUPZILLA_EXPORT removeFile(const QString &fullFileName);
-    void QT_QUPZILLA_EXPORT removeDir(const QString &d);
+bool QT_QUPZILLA_EXPORT removeFile(const QString &fullFileName);
+void QT_QUPZILLA_EXPORT removeDir(const QString &d);
 
-    QString QT_QUPZILLA_EXPORT samePartOfStrings(const QString &one, const QString &other);
-    QUrl QT_QUPZILLA_EXPORT makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
-    QString QT_QUPZILLA_EXPORT urlEncodeQueryString(const QUrl &url);
+QString QT_QUPZILLA_EXPORT samePartOfStrings(const QString &one, const QString &other);
+QUrl QT_QUPZILLA_EXPORT makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
+QString QT_QUPZILLA_EXPORT urlEncodeQueryString(const QUrl &url);
 
-    QString QT_QUPZILLA_EXPORT ensureUniqueFilename(const QString &name, const QString &appendFormat = QString("(%1)"));
-    QString QT_QUPZILLA_EXPORT getFileNameFromUrl(const QUrl &url);
-    QString QT_QUPZILLA_EXPORT filterCharsFromFilename(const QString &name);
+QString QT_QUPZILLA_EXPORT ensureUniqueFilename(const QString &name, const QString &appendFormat = QString("(%1)"));
+QString QT_QUPZILLA_EXPORT getFileNameFromUrl(const QUrl &url);
+QString QT_QUPZILLA_EXPORT filterCharsFromFilename(const QString &name);
 
-    QString QT_QUPZILLA_EXPORT alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width);
-    QString QT_QUPZILLA_EXPORT fileSizeToString(qint64 size);
+QString QT_QUPZILLA_EXPORT alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width);
+QString QT_QUPZILLA_EXPORT fileSizeToString(qint64 size);
 
-    QPixmap QT_QUPZILLA_EXPORT createPixmapForSite(const QIcon &icon, const QString &title, const QString &url);
-    QString QT_QUPZILLA_EXPORT applyDirectionToPage(QString &pageContents);
+QPixmap QT_QUPZILLA_EXPORT createPixmapForSite(const QIcon &icon, const QString &title, const QString &url);
+QString QT_QUPZILLA_EXPORT applyDirectionToPage(QString &pageContents);
 
-    QString QT_QUPZILLA_EXPORT buildSystem();
+QString QT_QUPZILLA_EXPORT buildSystem();
 
-    // Qt5 migration help functions
-    bool QT_QUPZILLA_EXPORT isCertificateValid(const QSslCertificate &cert);
-    QString QT_QUPZILLA_EXPORT escape(const QString &string);
+// Qt5 migration help functions
+bool QT_QUPZILLA_EXPORT isCertificateValid(const QSslCertificate &cert);
+QString QT_QUPZILLA_EXPORT escape(const QString &string);
 
-    #ifdef QZ_WS_X11
-    void QT_QUPZILLA_EXPORT* X11Display(const QWidget* widget);
-    #endif
+#ifdef QZ_WS_X11
+void QT_QUPZILLA_EXPORT* X11Display(const QWidget* widget);
+#endif
 
-    template <typename T>
-    bool listContainsIndex(const QList<T> &list, int index)
-    {
-        return (index >= 0 && list.count() > index);
-    }
+template <typename T>
+bool listContainsIndex(const QList<T> &list, int index)
+{
+    return (index >= 0 && list.count() > index);
+}
 
 } // namespace
 
