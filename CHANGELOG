@@ -12,6 +12,7 @@ Version 1.4.0
     * option to disable alt/ctrl + numbers shortcuts
     * option to switch to tab from locationbar popup completer
     * use .qupzilla/tmp instead of /tmp for temporary data
+    * saving passwords should now work for much more sites
     * fixed loading NYTimes skimmer page
     * fixed cookie domain handling according to RFC 6265
     * fixed qvalue format in Accept-Language HTTP header

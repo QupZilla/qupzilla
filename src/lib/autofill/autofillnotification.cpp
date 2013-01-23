@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -32,8 +32,20 @@ AutoFillNotification::AutoFillNotification(const QUrl &url, const QByteArray &da
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
-    ui->label->setText(tr("Do you want QupZilla to remember the password for <b>%1</b> on %2?").arg(user, url.host()));
     ui->closeButton->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));
+
+    QString hostPart;
+    QString userPart;
+
+    if (!url.host().isEmpty()) {
+        hostPart = tr("on %1").arg(url.host());
+    }
+
+    if (!user.isEmpty()) {
+        userPart = tr("for <b>%1</b>").arg(user);
+    }
+
+    ui->label->setText(tr("Do you want QupZilla to remember the password %1 %2?").arg(userPart, hostPart));
 
     connect(ui->remember, SIGNAL(clicked()), this, SLOT(remember()));
     connect(ui->never, SIGNAL(clicked()), this, SLOT(never()));

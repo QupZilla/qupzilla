@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -248,10 +248,10 @@ void AutoFillModel::completePage(WebPage* page)
 
         for (int i = 0; i < inputs.count(); i++) {
             QWebElement element = inputs.at(i);
+            const QString &typeAttr = element.attribute("type");
 
-            if (element.attribute("type") != QLatin1String("text")
-                    && element.attribute("type") != QLatin1String("password")
-                    && !element.attribute("type").isEmpty()) {
+            if (typeAttr != QLatin1String("text") && typeAttr != QLatin1String("password")
+                    && typeAttr != QLatin1String("email") && !typeAttr.isEmpty()) {
                 continue;
             }
 
@@ -261,7 +261,7 @@ void AutoFillModel::completePage(WebPage* page)
         }
     }
 }
-
+#include <QDebug>
 void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgoingData)
 {
     // Don't save in private browsing
@@ -334,11 +334,26 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     // We need to find username, we suppose that username is first not empty input[type=text] in form
     // Tell me better solution. Maybe first try to find name="user", name="username" ?
 
-    foreach(const QWebElement & element, foundForm.findAll("input[type=\"text\"]")) {
-        usernameName = element.attribute("name");
-        usernameValue = getValueFromData(data, element);
+    bool found = false;
+    QStringList selectors;
+    selectors << "input[type=\"text\"][name*=\"user\"]"
+              << "input[type=\"text\"][name*=\"name\"]"
+              << "input[type=\"text\"]"
+              << "input[type=\"email\"]"
+              << "input:not([type=\"hidden\"])";
 
-        if (!usernameName.isEmpty() && !usernameValue.isEmpty()) {
+    foreach(const QString & selector, selectors) {
+        foreach(const QWebElement & element, foundForm.findAll(selector)) {
+            usernameName = element.attribute("name");
+            usernameValue = getValueFromData(data, element);
+
+            if (!usernameName.isEmpty() && !usernameValue.isEmpty()) {
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
             break;
         }
     }
