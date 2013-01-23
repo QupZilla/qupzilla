@@ -45,6 +45,7 @@ CookieManager::CookieManager(QWidget* parent)
     connect(ui->removeOne, SIGNAL(clicked()), this, SLOT(removeCookie()));
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->close2, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
+    connect(ui->close3, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->search, SIGNAL(textChanged(QString)), ui->cookieTree, SLOT(filterString(QString)));
 
     // Cookie Filtering
