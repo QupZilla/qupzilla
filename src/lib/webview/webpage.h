@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -95,6 +95,9 @@ private slots:
     void printFrame(QWebFrame* frame);
     void downloadRequested(const QNetworkRequest &request);
     void windowCloseRequested();
+
+    void dbQuotaExceeded(QWebFrame* frame);
+    void appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota);
 
 #ifdef USE_QTWEBKIT_2_2
     void featurePermissionRequested(QWebFrame* frame, const QWebPage::Feature &feature);

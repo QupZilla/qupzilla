@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -58,6 +58,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QWebFrame>
+#include <QWebSecurityOrigin>
 
 QString WebPage::s_lastUploadLocation = QDir::homePath();
 QUrl WebPage::s_lastUnsupportedUrl;
@@ -92,11 +93,25 @@ WebPage::WebPage(QupZilla* mainClass)
     connect(this, SIGNAL(downloadRequested(QNetworkRequest)), this, SLOT(downloadRequested(QNetworkRequest)));
     connect(this, SIGNAL(windowCloseRequested()), this, SLOT(windowCloseRequested()));
 
+    connect(this, SIGNAL(databaseQuotaExceeded(QWebFrame*, QString)),
+            this, SLOT(dbQuotaExceeded(QWebFrame*)));
+
     connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
 
 #if QTWEBKIT_FROM_2_2
-    connect(this, SIGNAL(featurePermissionRequested(QWebFrame*, QWebPage::Feature)), this, SLOT(featurePermissionRequested(QWebFrame*, QWebPage::Feature)));
+    connect(this, SIGNAL(featurePermissionRequested(QWebFrame*, QWebPage::Feature)),
+            this, SLOT(featurePermissionRequested(QWebFrame*, QWebPage::Feature)));
 #endif
+
+#if QTWEBKIT_FROM_2_3
+    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*, quint64, quint64)),
+            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*, quint64)));
+#else
+    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*, quint64)),
+            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*, quint64)));
+
+#endif
+
 
     s_livingPages.append(this);
 }
@@ -392,6 +407,27 @@ void WebPage::windowCloseRequested()
     webView->closeView();
 }
 
+void WebPage::dbQuotaExceeded(QWebFrame* frame)
+{
+    if (!frame) {
+        return;
+    }
+
+    const QWebSecurityOrigin &origin = frame->securityOrigin();
+    const qint64 oldQuota = origin.databaseQuota();
+
+    frame->securityOrigin().setDatabaseQuota(oldQuota * 2);
+}
+
+void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota)
+{
+    if (!origin) {
+        return;
+    }
+
+    origin->setApplicationCacheQuota(originalQuota * 2);
+}
+
 #if QTWEBKIT_FROM_2_2
 void WebPage::featurePermissionRequested(QWebFrame* frame, const QWebPage::Feature &feature)
 {
@@ -504,7 +540,8 @@ QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
     return new PopupWebPage(type, p_QupZilla);
 }
 
-QObject* WebPage::createPlugin(const QString &classid, const QUrl &url, const QStringList &paramNames, const QStringList &paramValues)
+QObject* WebPage::createPlugin(const QString &classid, const QUrl &url,
+                               const QStringList &paramNames, const QStringList &paramValues)
 {
     Q_UNUSED(url)
     Q_UNUSED(paramNames)
