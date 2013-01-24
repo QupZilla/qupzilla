@@ -62,7 +62,8 @@ void PopupWebPage::slotGeometryChangeRequested(const QRect &rect)
      */
 
     if (rect.isValid()
-#if QTWEBKIT_FROM_2_3
+//#if QTWEBKIT_FROM_2_3
+#if 0
             && rect.size() != QSize(100, 100)
 #endif
        ) {

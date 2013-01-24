@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@
 #include "pluginproxy.h"
 #include "bookmarksmodel.h"
 #include "downloadmanager.h"
-#include "autofillmodel.h"
+#include "autofill.h"
 #include "adblockmanager.h"
 #include "desktopnotificationsfactory.h"
 #include "iconprovider.h"
@@ -770,10 +770,10 @@ DownloadManager* MainApplication::downManager()
     return m_downloadManager;
 }
 
-AutoFillModel* MainApplication::autoFill()
+AutoFill* MainApplication::autoFill()
 {
     if (!m_autofill) {
-        m_autofill = new AutoFillModel(getWindow());
+        m_autofill = new AutoFill(getWindow());
     }
     return m_autofill;
 }

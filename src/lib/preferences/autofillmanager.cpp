@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "autofillmanager.h"
-#include "autofillmodel.h"
+#include "autofill.h"
 #include "ui_autofillmanager.h"
 
 #include <QMenu>
@@ -224,7 +224,7 @@ void AutoFillManager::importPasswords()
         return;
     }
 
-    bool status = AutoFillModel::importPasswords(file.readAll());
+    bool status = AutoFill::importPasswords(file.readAll());
     file.close();
 
     ui->importExportLabel->setText(status ? tr("Successfully imported") : tr("Error while importing!"));
@@ -244,7 +244,7 @@ void AutoFillManager::exportPasswords()
         return;
     }
 
-    file.write(AutoFillModel::exportPasswords());
+    file.write(AutoFill::exportPasswords());
     file.close();
 
     ui->importExportLabel->setText(tr("Successfully exported"));

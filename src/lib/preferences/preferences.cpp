@@ -39,7 +39,7 @@
 #include "thememanager.h"
 #include "acceptlanguage.h"
 #include "qztools.h"
-#include "autofillmodel.h"
+#include "autofill.h"
 #include "settings.h"
 #include "tabbedwebview.h"
 #include "clearprivatedata.h"

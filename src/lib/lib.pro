@@ -48,7 +48,6 @@ SOURCES += \
     app/qupzilla.cpp \
     app/mainapplication.cpp \
     app/autosaver.cpp \
-    autofill/autofillmodel.cpp \
     preferences/autofillmanager.cpp \
     bookmarks/bookmarkstoolbar.cpp \
     bookmarks/bookmarksmanager.cpp \
@@ -199,7 +198,9 @@ SOURCES += \
     tools/listitemdelegate.cpp \
     bookmarks/bookmarkstree.cpp \
     tools/html5permissions/html5permissionsmanager.cpp \
-    tools/html5permissions/html5permissionsnotification.cpp
+    tools/html5permissions/html5permissionsnotification.cpp \
+    autofill/pageformcompleter.cpp \
+    autofill/autofill.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -208,7 +209,6 @@ HEADERS  += \
     app/qupzilla.h \
     app/mainapplication.h \
     app/autosaver.h \
-    autofill/autofillmodel.h \
     preferences/autofillmanager.h \
     bookmarks/bookmarkstoolbar.h \
     bookmarks/bookmarksmanager.h \
@@ -361,7 +361,9 @@ HEADERS  += \
     tools/listitemdelegate.h \
     bookmarks/bookmarkstree.h \
     tools/html5permissions/html5permissionsmanager.h \
-    tools/html5permissions/html5permissionsnotification.h
+    tools/html5permissions/html5permissionsnotification.h \
+    autofill/pageformcompleter.h \
+    autofill/autofill.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

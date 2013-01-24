@@ -198,7 +198,7 @@ QString QzTools::getFileNameFromUrl(const QUrl &url)
     QString fileName = url.toString(QUrl::RemoveFragment | QUrl::RemoveQuery | QUrl::RemoveScheme | QUrl::RemovePort);
 
     if (fileName.endsWith(QLatin1Char('/'))) {
-            fileName = fileName.mid(0, fileName.length() - 1);
+        fileName = fileName.mid(0, fileName.length() - 1);
     }
 
     if (fileName.indexOf(QLatin1Char('/')) != -1) {
