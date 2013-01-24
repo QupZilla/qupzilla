@@ -44,7 +44,6 @@ bool QT_QUPZILLA_EXPORT removeFile(const QString &fullFileName);
 void QT_QUPZILLA_EXPORT removeDir(const QString &d);
 
 QString QT_QUPZILLA_EXPORT samePartOfStrings(const QString &one, const QString &other);
-QUrl QT_QUPZILLA_EXPORT makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
 QString QT_QUPZILLA_EXPORT urlEncodeQueryString(const QUrl &url);
 
 QString QT_QUPZILLA_EXPORT ensureUniqueFilename(const QString &name, const QString &appendFormat = QString("(%1)"));

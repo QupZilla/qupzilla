@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -69,7 +69,7 @@ QString QzTools::readAllFileContents(const QString &filename)
         return a;
     }
 
-    return QByteArray();
+    return QString();
 }
 
 void QzTools::centerWidgetOnScreen(QWidget* w)
@@ -126,10 +126,15 @@ void QzTools::removeDir(const QString &d)
     }
 }
 
+/* Finds same part of @one in @other from the beginning */
 QString QzTools::samePartOfStrings(const QString &one, const QString &other)
 {
-    int i = 0;
     int maxSize = qMin(one.size(), other.size());
+    if (maxSize <= 0) {
+        return QString();
+    }
+
+    int i = 0;
     while (one.at(i) == other.at(i)) {
         i++;
         if (i == maxSize) {
@@ -137,38 +142,6 @@ QString QzTools::samePartOfStrings(const QString &one, const QString &other)
         }
     }
     return one.left(i);
-}
-
-QUrl QzTools::makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
-{
-    QString baseUrlPath = baseUrl.path();
-    QString rUrlPath = rUrl.path();
-
-    QString samePart = QzTools::samePartOfStrings(baseUrlPath, rUrlPath);
-
-    QUrl returnUrl;
-    if (samePart.isEmpty()) {
-        returnUrl = rUrl;
-    }
-    else if (samePart == QLatin1String("/")) {
-        returnUrl = QUrl(rUrl.path());
-    }
-    else {
-        samePart = samePart.left(samePart.lastIndexOf(QLatin1Char('/')) + 1);
-        int slashCount = samePart.count(QLatin1Char('/')) + 1;
-        if (samePart.startsWith(QLatin1Char('/'))) {
-            slashCount--;
-        }
-        if (samePart.endsWith(QLatin1Char('/'))) {
-            slashCount--;
-        }
-
-        rUrlPath.remove(samePart);
-        rUrlPath.prepend(QString("..""/").repeated(slashCount));
-        returnUrl = QUrl(rUrlPath);
-    }
-
-    return returnUrl;
 }
 
 QString QzTools::urlEncodeQueryString(const QUrl &url)
@@ -223,6 +196,11 @@ QString QzTools::ensureUniqueFilename(const QString &name, const QString &append
 QString QzTools::getFileNameFromUrl(const QUrl &url)
 {
     QString fileName = url.toString(QUrl::RemoveFragment | QUrl::RemoveQuery | QUrl::RemoveScheme | QUrl::RemovePort);
+
+    if (fileName.endsWith(QLatin1Char('/'))) {
+            fileName = fileName.mid(0, fileName.length() - 1);
+    }
+
     if (fileName.indexOf(QLatin1Char('/')) != -1) {
         int pos = fileName.lastIndexOf(QLatin1Char('/'));
         fileName = fileName.mid(pos);
@@ -232,7 +210,7 @@ QString QzTools::getFileNameFromUrl(const QUrl &url)
     fileName = filterCharsFromFilename(fileName);
 
     if (fileName.isEmpty()) {
-        fileName = filterCharsFromFilename(url.host().replace(QLatin1Char('.'), QLatin1Char('-')));
+        fileName = filterCharsFromFilename(url.host());
     }
 
     return fileName;
@@ -289,18 +267,17 @@ QString QzTools::fileSizeToString(qint64 size)
         return QObject::tr("Unknown size");
     }
 
-    double _size = (double)size;
-    _size /= 1024; //kB
+    double _size = size / 1024.0; // KB
     if (_size < 1000) {
         return QString::number(_size > 1 ? _size : 1, 'f', 0) + " KB";
     }
 
-    _size /= 1024; //MB
+    _size /= 1024; // MB
     if (_size < 1000) {
         return QString::number(_size, 'f', 1) + " MB";
     }
 
-    _size /= 1024; //GB
+    _size /= 1024; // GB
     return QString::number(_size, 'f', 2) + " GB";
 }
 

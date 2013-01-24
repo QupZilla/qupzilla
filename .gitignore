@@ -30,3 +30,4 @@ tests/modeltest
 *.swp
 *_manifest.*
 *.embed.manifest
+bin/autotests
