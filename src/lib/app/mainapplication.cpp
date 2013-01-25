@@ -970,7 +970,13 @@ bool MainApplication::restoreStateSlot(QupZilla* window, RestoreData recoveryDat
         newWin->restoreWindowState(recoveryData.takeFirst());
     }
     else {
-        window->restoreWindowState(recoveryData.takeFirst());
+        // QTabWidget::count() - count of tabs is not updated after closing
+        // recovery tab ...
+        int tabCount = window->tabWidget()->count();
+        RestoreManager::WindowData data = recoveryData.takeFirst();
+        data.currentTab += tabCount;
+
+        window->restoreWindowState(data);
     }
 
     foreach(const RestoreManager::WindowData & data, recoveryData) {
