@@ -15,21 +15,38 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "qztoolstest.h"
-#include "formcompletertest.h"
+#ifndef FORMPAGECOMPLETERTEST_H
+#define FORMPAGECOMPLETERTEST_H
 
+#include <QObject>
 #include <QtTest/QtTest>
 
-int main(int argc, char *argv[])
+class QWebView;
+struct PageFormData;
+
+class FormCompleterTest : public QObject
 {
-    QApplication app(argc, argv);
-    QTEST_DISABLE_KEYPAD_NAVIGATION;
+    Q_OBJECT
 
-    QzToolsTest qzToolsTest;
-    QTest::qExec(&qzToolsTest, argc, argv);
+private slots:
+    void initTestCase();
+    void cleanupTestCase();
 
-    FormCompleterTest formCompleterTest;
-    QTest::qExec(&formCompleterTest, argc, argv);
+    void init();
 
-    return 0;
-}
+    void completePageTest1();
+    void completePageTest2();
+    void completePageTest3();
+
+    void extractFormTest1();
+    void extractFormTest2();
+
+private:
+    void completeWithData(const QString &html, const QByteArray &data);
+    PageFormData extractFormData(const QString &html, const QByteArray &data);
+    QVariant getElementByIdValue(const QString &id);
+    QWebView *view;
+
+};
+
+#endif // FORMPAGECOMPLETERTEST_H

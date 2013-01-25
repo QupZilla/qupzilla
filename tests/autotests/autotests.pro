@@ -46,8 +46,10 @@ INCLUDEPATH += $$PWD/../../src/lib/3rdparty\
                $$PWD/../../src/lib/popupwindow\
 
 HEADERS += \
-    qztoolstest.h
+    qztoolstest.h \
+    formcompletertest.h
 
 SOURCES += \
     qztoolstest.cpp \
-    main.cpp
+    main.cpp \
+    formcompletertest.cpp
