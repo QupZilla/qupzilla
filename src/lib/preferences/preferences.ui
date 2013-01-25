@@ -728,6 +728,13 @@
             </widget>
            </item>
            <item>
+            <widget class="QCheckBox" name="openNewEmptyTabAfterActive">
+             <property name="text">
+              <string>Open new empty tabs after active tab</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QCheckBox" name="switchToNewTabs">
              <property name="text">
               <string>Automatically switch to newly opened tab</string>

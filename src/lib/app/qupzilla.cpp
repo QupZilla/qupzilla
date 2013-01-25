@@ -1477,7 +1477,7 @@ void QupZilla::aboutQupZilla()
 
 void QupZilla::addTab()
 {
-    m_tabWidget->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd, true);
+    m_tabWidget->addView(QUrl(), Qz::NT_SelectedNewEmptyTab, true);
 }
 
 void QupZilla::webSearch()

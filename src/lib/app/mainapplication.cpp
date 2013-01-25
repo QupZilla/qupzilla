@@ -290,7 +290,7 @@ void MainApplication::postLaunch()
     }
 
     if (m_postLaunchActions.contains(OpenNewTab)) {
-        getWindow()->tabWidget()->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd);
+        getWindow()->tabWidget()->addView(QUrl(), Qz::NT_SelectedNewEmptyTab);
     }
 
     AutoSaver* saver = new AutoSaver();
@@ -550,7 +550,8 @@ void MainApplication::addNewTab(const QUrl &url)
     if (!getWindow()) {
         return;
     }
-    getWindow()->tabWidget()->addView(url, Qz::NT_SelectedTabAtTheEnd);
+
+    getWindow()->tabWidget()->addView(url, url.isEmpty() ? Qz::NT_SelectedNewEmptyTab : Qz::NT_SelectedTabAtTheEnd);
 }
 
 QupZilla* MainApplication::makeNewWindow(Qz::BrowserWindow type, const QUrl &startUrl)
