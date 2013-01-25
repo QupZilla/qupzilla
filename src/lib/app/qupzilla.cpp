@@ -985,7 +985,7 @@ void QupZilla::aboutToShowViewMenu()
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
 
-#if QT_VERSION >= 0x050000
+#if QTWEBKIT_FROM_2_3
     m_actionCaretBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled));
 #endif
 }
@@ -1421,6 +1421,11 @@ void QupZilla::currentTabChanged()
     m_ipLabel->setText(view->getIp());
     view->setFocus();
 
+    SearchToolBar* search = searchToolBar();
+    if (search) {
+        search->setWebView(view);
+    }
+
     updateLoadingActions();
 
     // Setting correct tab order (LocationBar -> WebSearchBar -> WebView)
@@ -1483,19 +1488,14 @@ void QupZilla::webSearch()
 
 void QupZilla::searchOnPage()
 {
-    if (m_mainLayout->count() == 4) {
-        SearchToolBar* search = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(3)->widget());
-        if (!search) {
-            return;
-        }
+    SearchToolBar* toolBar = searchToolBar();
 
-        search->focusSearchLine();
-        return;
+    if (!toolBar) {
+        toolBar = new SearchToolBar(weView(), this);
+        m_mainLayout->insertWidget(3, toolBar);
     }
 
-    SearchToolBar* search = new SearchToolBar(this);
-    m_mainLayout->insertWidget(3, search);
-    search->focusSearchLine();
+    toolBar->focusSearchLine();
 
 #ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
@@ -1855,6 +1855,17 @@ void QupZilla::closeEvent(QCloseEvent* event)
 
     disconnectObjects();
     event->accept();
+}
+
+SearchToolBar* QupZilla::searchToolBar()
+{
+    SearchToolBar* toolBar = 0;
+
+    if (m_mainLayout->count() == 4) {
+        toolBar = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(3)->widget());
+    }
+
+    return toolBar;
 }
 
 void QupZilla::disconnectObjects()

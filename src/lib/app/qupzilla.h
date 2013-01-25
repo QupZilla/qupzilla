@@ -202,6 +202,8 @@ private:
     void keyReleaseEvent(QKeyEvent* event);
     void closeEvent(QCloseEvent* event);
 
+    SearchToolBar* searchToolBar();
+
     void setupUi();
     void setupMenu();
 

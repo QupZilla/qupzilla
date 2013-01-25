@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,6 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "searchtoolbar.h"
-#include "qupzilla.h"
 #include "tabbedwebview.h"
 #include "lineedit.h"
 #include "ui_searchtoolbar.h"
@@ -25,10 +24,10 @@
 #include <QKeyEvent>
 #include <QShortcut>
 
-SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
+SearchToolBar::SearchToolBar(WebView* view, QWidget* parent)
     : AnimatedWidget(AnimatedWidget::Up, 300, parent)
     , ui(new Ui::SearchToolbar)
-    , p_QupZilla(mainClass)
+    , m_view(view)
     , m_findFlags(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
@@ -53,7 +52,12 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
     QShortcut* findPreviousAction = new QShortcut(QKeySequence("Shift+F3"), this);
     connect(findPreviousAction, SIGNAL(activated()), this, SLOT(findPrevious()));
 
-    mainClass->installEventFilter(this);
+    parent->installEventFilter(this);
+}
+
+void SearchToolBar::setWebView(WebView* view)
+{
+    m_view = view;
 }
 
 void SearchToolBar::focusSearchLine()
@@ -66,7 +70,7 @@ void SearchToolBar::hide()
     AnimatedWidget::hide();
 
     searchText(QString());
-    p_QupZilla->weView()->setFocus();
+    m_view->setFocus();
 }
 
 void SearchToolBar::findNext()
@@ -97,13 +101,11 @@ void SearchToolBar::updateFindFlags()
 
 void SearchToolBar::highlightChanged()
 {
-    WebView* view = p_QupZilla->weView();
-
     if (ui->highligh->isChecked()) {
-        view->findText(ui->lineEdit->text(), m_findFlags | QWebPage::HighlightAllOccurrences);
+        m_view->findText(ui->lineEdit->text(), m_findFlags | QWebPage::HighlightAllOccurrences);
     }
     else {
-        view->findText(QString(), QWebPage::HighlightAllOccurrences);
+        m_view->findText(QString(), QWebPage::HighlightAllOccurrences);
     }
 }
 
@@ -116,12 +118,10 @@ void SearchToolBar::caseSensitivityChanged()
 
 void SearchToolBar::searchText(const QString &text)
 {
-    WebView* view = p_QupZilla->weView();
-
     // Clear highlighting on page
-    view->findText(QString(), QWebPage::HighlightAllOccurrences);
+    m_view->findText(QString(), QWebPage::HighlightAllOccurrences);
 
-    bool found = view->findText(text, m_findFlags);
+    bool found = m_view->findText(text, m_findFlags);
 
     if (text.isEmpty()) {
         found = true;
@@ -130,10 +130,10 @@ void SearchToolBar::searchText(const QString &text)
     if (ui->highligh->isChecked()) {
         m_findFlags = QWebPage::HighlightAllOccurrences;
         updateFindFlags();
-        view->findText(text, m_findFlags);
+        m_view->findText(text, m_findFlags);
     }
     else {
-        view->findText(QString(), QWebPage::HighlightAllOccurrences);
+        m_view->findText(QString(), QWebPage::HighlightAllOccurrences);
     }
 
     if (!found) {

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,15 +30,17 @@ class SearchToolbar;
 
 class QLineEdit;
 
-class QupZilla;
+class WebView;
 class LineEdit;
 
 class QT_QUPZILLA_EXPORT SearchToolBar : public AnimatedWidget
 {
     Q_OBJECT
 public:
-    explicit SearchToolBar(QupZilla* mainClass, QWidget* parent = 0);
+    explicit SearchToolBar(WebView* view, QWidget* parent = 0);
     ~SearchToolBar();
+
+    void setWebView(WebView* view);
 
     void focusSearchLine();
     bool eventFilter(QObject* obj, QEvent* event);
@@ -58,7 +60,7 @@ public slots:
 
 private:
     Ui::SearchToolbar* ui;
-    QupZilla* p_QupZilla;
+    WebView* m_view;
 
     QWebPage::FindFlags m_findFlags;
 };

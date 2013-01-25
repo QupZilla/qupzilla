@@ -56,20 +56,11 @@ PopupWebPage::PopupWebPage(QWebPage::WebWindowType type, QupZilla* mainClass)
 
 void PopupWebPage::slotGeometryChangeRequested(const QRect &rect)
 {
-    /* Very ugly hack for QtWebKit 2.3
-     * It now sends QRect(0, y, 100x100) if the popup window
-     * geometry was not set in window.open call.
-     */
-
-    if (rect.isValid()
-//#if QTWEBKIT_FROM_2_3
-#if 0
-            && rect.size() != QSize(100, 100)
-#endif
-       ) {
-        m_geometry = rect;
+    if (rect.isValid()) {
         m_createNewWindow = true;
     }
+
+    m_geometry = rect;
 }
 
 void PopupWebPage::slotMenuBarVisibilityChangeRequested(bool visible)
@@ -108,11 +99,19 @@ void PopupWebPage::slotLoadFinished(bool state)
 
 void PopupWebPage::checkBehaviour()
 {
+    // If menubar/statusbar/toolbar visibility is explicitly set in window.open call,
+    // at least one of those variables will be false.
+    // If so, we should open new window.
+
+    if (!m_createNewWindow && (!m_menuBarVisible || !m_statusBarVisible || !m_toolBarVisible)) {
+        m_createNewWindow = true;
+    }
+
     if (m_createNewWindow) {
         PopupWebView* view = new PopupWebView;
         view->setWebPage(this);
 
-        PopupWindow* popup = new PopupWindow(view, p_QupZilla);
+        PopupWindow* popup = new PopupWindow(view);
         popup->setWindowGeometry(m_geometry);
         popup->setMenuBarVisibility(m_menuBarVisible);
         popup->setStatusBarVisibility(m_statusBarVisible);

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,32 +19,33 @@
 #define POPUPWINDOW_H
 
 #include <QWidget>
+#include <QPointer>
 
 #include "qz_namespace.h"
 
 class QVBoxLayout;
 class QStatusBar;
+class QMenuBar;
+class QMenu;
 
-class QupZilla;
 class PopupWebView;
 class PopupWebPage;
 class PopupStatusBarMessage;
 class PopupLocationBar;
 class ProgressBar;
+class SearchToolBar;
 
 class QT_QUPZILLA_EXPORT PopupWindow : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PopupWindow(PopupWebView* view, QupZilla* mainClass);
+    explicit PopupWindow(PopupWebView* view);
 
     QStatusBar* statusBar();
     PopupWebView* webView();
 
-signals:
-
 public slots:
-    void setWindowGeometry(const QRect &newRect);
+    void setWindowGeometry(QRect newRect);
     void setStatusBarVisibility(bool visible);
     void setMenuBarVisibility(bool visible);
     void setToolBarVisibility(bool visible);
@@ -58,10 +59,21 @@ private slots:
     void loadProgress(int value);
     void loadFinished();
 
+    void editUndo();
+    void editRedo();
+    void editCut();
+    void editCopy();
+    void editPaste();
+    void editSelectAll();
+
+    void aboutToShowEditMenu();
+
+    void savePageScreen();
+    void searchOnPage();
+
 private:
     void closeEvent(QCloseEvent* event);
 
-    QupZilla* p_QupZilla;
     PopupWebView* m_view;
     PopupWebPage* m_page;
     PopupLocationBar* m_locationBar;
@@ -70,7 +82,12 @@ private:
 
     QVBoxLayout* m_layout;
     QStatusBar* m_statusBar;
-
+    QMenuBar* m_menuBar;
+    QMenu* m_menuEdit;
+    QMenu* m_menuView;
+    QAction* m_actionReload;
+    QAction* m_actionStop;
+    QPointer<SearchToolBar> m_search;
 };
 
 #endif // POPUPWINDOW_H

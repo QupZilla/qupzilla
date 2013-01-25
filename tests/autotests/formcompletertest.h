@@ -45,6 +45,7 @@ private:
     void completeWithData(const QString &html, const QByteArray &data);
     PageFormData extractFormData(const QString &html, const QByteArray &data);
     QVariant getElementByIdValue(const QString &id);
+
     QWebView *view;
 
 };
