@@ -145,8 +145,11 @@ private slots:
     void aboutToShowClosedTabsMenu();
     void aboutToShowBookmarksMenu();
     void aboutToShowViewMenu();
+    void aboutToHideViewMenu();
     void aboutToShowEditMenu();
     void aboutToHideEditMenu();
+    void aboutToShowToolsMenu();
+    void aboutToHideToolsMenu();
     void aboutToShowEncodingMenu();
 
     void searchOnPage();
@@ -270,6 +273,8 @@ private:
     QAction* m_actionReload;
     QAction* m_actionCaretBrowsing;
     QAction* m_actionRestoreTab;
+    QAction* m_actionPageInfo;
+    QAction* m_actionPageSource;
 
     QLabel* m_privateBrowsing;
     AdBlockIcon* m_adblockIcon;

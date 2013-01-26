@@ -66,7 +66,9 @@ WebView::WebView(QWidget* parent)
     // Zoom levels same as in firefox
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
 
+#if QTWEBKIT_TO_2_3
     installEventFilter(this);
+#endif
 }
 
 QIcon WebView::icon() const

@@ -434,9 +434,12 @@ void QupZilla::setupMenu()
     m_menuView->addAction(m_actionCaretBrowsing);
     m_menuView->addAction(actionEncoding);
     m_menuView->addSeparator();
-    m_menuView->addAction(QIcon::fromTheme("text-html"), tr("&Page Source"), this, SLOT(showSource()))->setShortcut(QKeySequence("Ctrl+U"));
+    m_actionPageSource = m_menuView->addAction(QIcon::fromTheme("text-html"), tr("&Page Source"), this, SLOT(showSource()));
+    m_actionPageSource->setShortcut(QKeySequence("Ctrl+U"));
+    m_actionPageSource->setEnabled(false);
     m_menuView->addAction(m_actionShowFullScreen);
     connect(m_menuView, SIGNAL(aboutToShow()), this, SLOT(aboutToShowViewMenu()));
+    connect(m_menuView, SIGNAL(aboutToHide()), this, SLOT(aboutToHideViewMenu()));
 
     /****************
      * History Menu *
@@ -480,7 +483,9 @@ void QupZilla::setupMenu()
      **************/
     m_menuTools = new QMenu(tr("&Tools"));
     m_menuTools->addAction(tr("&Web Search"), this, SLOT(webSearch()))->setShortcut(QKeySequence("Ctrl+K"));
-    m_menuTools->addAction(QIcon::fromTheme("dialog-information"), tr("Page &Info"), this, SLOT(showPageInfo()))->setShortcut(QKeySequence("Ctrl+I"));
+    m_actionPageInfo = m_menuTools->addAction(QIcon::fromTheme("dialog-information"), tr("Page &Info"), this, SLOT(showPageInfo()));
+    m_actionPageInfo->setShortcut(QKeySequence("Ctrl+I"));
+    m_actionPageInfo->setEnabled(false);
     m_menuTools->addSeparator();
     m_menuTools->addAction(tr("&Download Manager"), this, SLOT(showDownloadManager()))->setShortcut(QKeySequence("Ctrl+Y"));
     m_menuTools->addAction(tr("&Cookies Manager"), this, SLOT(showCookieManager()));
@@ -497,6 +502,8 @@ void QupZilla::setupMenu()
 #if !defined(QZ_WS_X11) && !defined(Q_OS_MAC)
     m_menuTools->addAction(m_actionPreferences);
 #endif
+    connect(m_menuTools, SIGNAL(aboutToShow()), this, SLOT(aboutToShowToolsMenu()));
+    connect(m_menuTools, SIGNAL(aboutToHide()), this, SLOT(aboutToHideToolsMenu()));
 
     /*************
      * Help Menu *
@@ -985,9 +992,16 @@ void QupZilla::aboutToShowViewMenu()
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
 
+    m_actionPageSource->setEnabled(true);
+
 #if QTWEBKIT_FROM_2_3
     m_actionCaretBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled));
 #endif
+}
+
+void QupZilla::aboutToHideViewMenu()
+{
+    m_actionPageSource->setEnabled(false);
 }
 
 void QupZilla::aboutToShowEditMenu()
@@ -1012,6 +1026,16 @@ void QupZilla::aboutToHideEditMenu()
 
     m_menuEdit->actions().at(8)->setEnabled(true);
     m_actionPreferences->setEnabled(true);
+}
+
+void QupZilla::aboutToShowToolsMenu()
+{
+    m_actionPageInfo->setEnabled(true);
+}
+
+void QupZilla::aboutToHideToolsMenu()
+{
+    m_actionPageInfo->setEnabled(false);
 }
 
 void QupZilla::aboutToShowEncodingMenu()
@@ -1738,6 +1762,20 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
     case Qt::Key_Equal:
         if (event->modifiers() == Qt::ControlModifier) {
             weView()->zoomIn();
+            event->accept();
+        }
+        break;
+
+    case Qt::Key_I:
+        if (event->modifiers() == Qt::ControlModifier) {
+            showPageInfo();
+            event->accept();
+        }
+        break;
+
+    case Qt::Key_U:
+        if (event->modifiers() == Qt::ControlModifier) {
+            showSource();
             event->accept();
         }
         break;
