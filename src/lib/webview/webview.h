@@ -20,10 +20,12 @@
 
 #include <QWebView>
 #include <QWebElement>
+#include <QNetworkAccessManager>
 
 #include "qz_namespace.h"
 
 class WebPage;
+class NetworkManager;
 
 class QT_QUPZILLA_EXPORT WebView : public QWebView
 {
@@ -86,6 +88,8 @@ protected slots:
     void slotLoadFinished();
     void slotIconChanged();
     void slotUrlChanged(const QUrl &url);
+
+	void sourceDownloaded();
 
     // Context menu slots
     void openUrlInNewWindow();
@@ -167,6 +171,7 @@ private:
     QAction* m_actionReload;
     QAction* m_actionStop;
     bool m_actionsInitialized;
+	NetworkManager* m_networkManager;
 
     bool m_disableTouchMocking;
     bool m_isReloading;

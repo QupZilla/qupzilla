@@ -33,6 +33,8 @@
 #include "settings.h"
 #include "qzsettings.h"
 #include "enhancedmenu.h"
+#include "followredirectreply.h"
+#include "networkmanager.h"
 
 #include <QDir>
 #include <QTimer>
@@ -43,6 +45,7 @@
 #include <QClipboard>
 #include <QTouchEvent>
 #include <QPrintPreviewDialog>
+#include <QDebug>
 
 WebView::WebView(QWidget* parent)
     : QWebView(parent)
@@ -57,6 +60,8 @@ WebView::WebView(QWidget* parent)
     , m_disableTouchMocking(false)
     , m_isReloading(false)
 {
+	m_networkManager = mApp->networkManager();
+
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
@@ -166,6 +171,13 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
         page()->mainFrame()->evaluateJavaScript(scriptSource);
         return;
     }
+	else if (reqUrl.scheme() == QLatin1String("view-source")) {
+		QString urlSource = QUrl::fromPercentEncoding(reqUrl.toString().mid(12).toUtf8());
+
+	    FollowRedirectReply* reply = new FollowRedirectReply(QUrl(urlSource), m_networkManager);
+	    connect(reply, SIGNAL(finished()), this, SLOT(sourceDownloaded()));
+		return;
+	}
 
     if (reqUrl.isEmpty() || isUrlValid(reqUrl)) {
         QWebView::load(request, operation, body);
@@ -179,6 +191,22 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
 
     emit urlChanged(searchUrl);
     m_aboutToLoadUrl = searchUrl;
+}
+
+void WebView::sourceDownloaded(){
+    FollowRedirectReply* reply = qobject_cast<FollowRedirectReply*> (sender());
+    if (!reply) {
+        return;
+    }
+
+    QString html = reply->readAll();
+	html.replace("<", "&lt;");
+	html.replace(">", "&gt;");
+    QUrl replyUrl = reply->url();
+
+	page()->mainFrame()->setHtml("<pre>"+html+"</pre>");
+	//setTitle(tr("Source of ") + replyUrl.toString());
+	emit urlChanged(replyUrl);
 }
 
 bool WebView::loadingError() const
