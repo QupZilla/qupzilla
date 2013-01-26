@@ -507,6 +507,10 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
     }
 
     if (type == QWebPage::NavigationTypeFormResubmitted) {
+        // Don't show this dialog if app is still starting
+        if (!view()->isVisible()) {
+            return false;
+        }
         QString message = tr("To show this page, QupZilla must resend request which do it again \n"
                              "(like searching on making an shopping, which has been already done.)");
         bool result = (QMessageBox::question(view(), tr("Confirm form resubmission"),
