@@ -20,6 +20,7 @@
 #include <QWebPage>
 #include <QWebFrame>
 #include <QWebElement>
+#include <QDebug>
 
 PageFormCompleter::PageFormCompleter(QWebPage* page)
     : m_page(page)
@@ -39,6 +40,11 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
     QByteArray data = convertWebKitFormBoundaryIfNecessary(postData);
     PageFormData formData = {false, QString(), QString(), data};
 
+    if (!data.contains('=')) {
+        qDebug() << "PageFormCompleter: Invalid form data" << data;
+        return formData;
+    }
+
     /* Find all form elements in page (in all frames) */
     QList<QWebFrame*> frames;
     frames.append(m_page->mainFrame());
@@ -48,13 +54,16 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
         frames += frame->childFrames();
     }
 
+    const QueryItems &queryItems = createQueryItems(data);
+
     /* Find form that contains password value sent in data */
     foreach(const QWebElement & formElement, allForms) {
-        foreach(const QWebElement & inputElement, formElement.findAll("input[type=\"password\"]")) {
+        const QWebElementCollection &inputs = formElement.findAll("input[type=\"password\"]");
+        foreach(QWebElement inputElement, inputs) {
             passwordName = inputElement.attribute("name");
-            passwordValue = getValueFromData(data, inputElement);
+            passwordValue = inputElement.evaluateJavaScript("this.value").toString();
 
-            if (!passwordValue.isEmpty() && dataContains(data, passwordName)) {
+            if (queryItemsContains(queryItems, passwordName, passwordValue)) {
                 foundForm = formElement;
                 break;
             }
@@ -79,9 +88,10 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
               << "input:not([type=\"hidden\"])";
 
     foreach(const QString & selector, selectors) {
-        foreach(const QWebElement & element, foundForm.findAll(selector)) {
+        const QWebElementCollection &inputs = foundForm.findAll(selector);
+        foreach(QWebElement element, inputs) {
             usernameName = element.attribute("name");
-            usernameValue = getValueFromData(data, element);
+            usernameValue = element.evaluateJavaScript("this.value").toString();
 
             if (!usernameName.isEmpty() && !usernameValue.isEmpty()) {
                 found = true;
@@ -147,45 +157,22 @@ void PageFormCompleter::completePage(const QByteArray &data) const
     }
 }
 
-bool PageFormCompleter::dataContains(const QByteArray &data, const QString &attributeName) const
+bool PageFormCompleter::queryItemsContains(const QueryItems &queryItems, const QString &attributeName,
+                                           const QString &attributeValue) const
 {
-    const QueryItems &queryItems = createQueryItems(data);
+    if (attributeName.isEmpty() || attributeValue.isEmpty()) {
+        return false;
+    }
 
     for (int i = 0; i < queryItems.count(); i++) {
         const QueryItem &item = queryItems.at(i);
 
         if (item.first == attributeName) {
-            return !item.second.isEmpty();
+            return item.second == attributeValue;
         }
     }
 
     return false;
-}
-
-QString PageFormCompleter::getValueFromData(const QByteArray &data, QWebElement element) const
-{
-    QString name = element.attribute("name");
-    if (name.isEmpty()) {
-        return QString();
-    }
-
-    QString value = element.evaluateJavaScript("this.value").toString();
-
-    if (!value.isEmpty()) {
-        return value;
-    }
-
-    const QueryItems &queryItems = createQueryItems(data);
-
-    for (int i = 0; i < queryItems.count(); i++) {
-        const QueryItem &item = queryItems.at(i);
-
-        if (item.first == name) {
-            value = item.second.toUtf8();
-        }
-    }
-
-    return value;
 }
 
 QByteArray PageFormCompleter::convertWebKitFormBoundaryIfNecessary(const QByteArray &data) const

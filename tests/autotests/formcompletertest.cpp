@@ -145,13 +145,14 @@ void FormCompleterTest::extractFormTest1()
 
 void FormCompleterTest::extractFormTest2()
 {
-    // Test special characters
+    // Test special characters (even in input name)
 
-    QByteArray data = "username=tst_username&password=tst_password";
+    QByteArray data = "use%C2%B6+_nam%C4%8D=%2B%C4%9B+%2B%2B+%C3%A9%C3%AD%C2%A7%60%5D%7C%7E%C4%9111+%2B%21%3A"
+            "&pA+%5DsQ+%2Bword=%2B%C4%9B%C5%A1+asn%7E%C4%91%C2%B0%23%26%23+%7C%E2%82%AC";
 
     QString html = QString::fromUtf8("<form name='form1' method='post' action='foo.php'>"
-                   "<input id='id1' type='text' name='username' value='+ě ++ éí§`]|~đ11 +!:'>"
-                   "<input id='id2' type='password' name='password' value='+ěš asn~đ°#&# |\€'>"
+                   "<input id='id1' type='text' name='use¶ _namč' value='+ě ++ éí§`]|~đ11 +!:'>"
+                   "<input id='id2' type='password' name='pA ]sQ +word' value='+ěš asn~đ°#&# |€'>"
                    "<input type='submit' value='submit' name='submit'>"
                    "</form>");
 
@@ -159,7 +160,33 @@ void FormCompleterTest::extractFormTest2()
 
     QVERIFY(form.found == true);
     QCOMPARE(form.username, QString::fromUtf8("+ě ++ éí§`]|~đ11 +!:"));
-    QCOMPARE(form.password, QString::fromUtf8("+ěš asn~đ°#&# |\€"));
+    QCOMPARE(form.password, QString::fromUtf8("+ěš asn~đ°#&# |€"));
+}
+
+void FormCompleterTest::extractFormTest3()
+{
+    // Test detecting sent form between 2 identical forms
+    // but only one form is filled with correct data
+
+    QByteArray data = "username=tst_username&password=tst_password";
+
+    QString html = "<form name='form1' method='post' action='foo.php'>"
+                   "<input id='id1' type='text' name='username' value='wrong_username'>"
+                   "<input id='id2' type='password' name='password' value='wrong_password'>"
+                   "<input type='submit' value='submit' name='submit'>"
+                   "</form>";
+
+    QString html2 = "<form name='form2' method='post' action='foo2.php'>"
+                   "<input id='id3' type='text' name='username' value='tst_username'>"
+                   "<input id='id4' type='password' name='password' value='tst_password'>"
+                   "<input type='submit' value='submit' name='submit'>"
+                   "</form>";
+
+    PageFormData form = extractFormData(html + html2, data);
+
+    QVERIFY(form.found == true);
+    QCOMPARE(form.username, QString("tst_username"));
+    QCOMPARE(form.password, QString("tst_password"));
 }
 
 void FormCompleterTest::completeWithData(const QString &html, const QByteArray &data)

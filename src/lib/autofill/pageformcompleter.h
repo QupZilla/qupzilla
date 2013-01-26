@@ -46,8 +46,8 @@ private:
     typedef QPair<QString, QString> QueryItem;
     typedef QList<QPair<QString, QString> > QueryItems;
 
-    bool dataContains(const QByteArray &data, const QString &attributeName) const;
-    QString getValueFromData(const QByteArray &data, QWebElement element) const;
+    bool queryItemsContains(const QueryItems &queryItems, const QString &attributeName,
+                            const QString &attributeValue) const;
     QByteArray convertWebKitFormBoundaryIfNecessary(const QByteArray &data) const;
     QueryItems createQueryItems(const QByteArray &data) const;
 
