@@ -566,12 +566,30 @@ void WebView::userDefinedOpenUrlInNewTab(const QUrl &url, bool invert)
         position = (position == Qz::NT_SelectedTab) ? Qz::NT_NotSelectedTab : Qz::NT_SelectedTab;
     }
 
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
-        openUrlInNewTab(action->data().toUrl(), position);
+    QUrl actionUrl;
+
+    if (!url.isEmpty()) {
+        actionUrl = url;
     }
-    else {
-        openUrlInNewTab(url, position);
+    else if (QAction* action = qobject_cast<QAction*>(sender())) {
+        actionUrl = action->data().toUrl();
     }
+
+    openUrlInNewTab(actionUrl, position);
+}
+
+void WebView::userDefinedOpenUrlInBgTab(const QUrl &url)
+{
+    QUrl actionUrl;
+
+    if (!url.isEmpty()) {
+        actionUrl = url;
+    }
+    else if (QAction* action = qobject_cast<QAction*>(sender())) {
+        actionUrl = action->data().toUrl();
+    }
+
+    userDefinedOpenUrlInNewTab(actionUrl, true);
 }
 
 void WebView::loadClickedFrame()
@@ -584,14 +602,19 @@ void WebView::loadClickedFrame()
     load(frameUrl);
 }
 
-void WebView::loadClickedFrameInNewTab()
+void WebView::loadClickedFrameInNewTab(bool invert)
 {
     QUrl frameUrl = m_clickedFrame->baseUrl();
     if (frameUrl.isEmpty()) {
         frameUrl = m_clickedFrame->requestedUrl();
     }
 
-    openUrlInNewTab(frameUrl, Qz::NT_SelectedTab);
+    userDefinedOpenUrlInNewTab(frameUrl, invert);
+}
+
+void WebView::loadClickedFrameInBgTab()
+{
+    loadClickedFrameInNewTab(true);
 }
 
 void WebView::reloadClickedFrame()
@@ -777,7 +800,6 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
     menu->addSeparator();
     mApp->plugins()->populateWebViewMenu(menu, this, hitTest);
 
-
 #if QTWEBKIT_FROM_2_2
     //    still bugged? in 4.8 RC (it shows selection of webkit's internal source, not html from page)
     //    it may or may not be bug, but this implementation is useless for us
@@ -805,9 +827,12 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
 
     if (frameAtPos && page()->mainFrame() != frameAtPos) {
         m_clickedFrame = frameAtPos;
-        QMenu* frameMenu = new QMenu(tr("This frame"));
+        Menu* frameMenu = new Menu(tr("This frame"));
         frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
-        frameMenu->addAction(QIcon(":/icons/menu/new-tab.png"), tr("Show this frame in new &tab"), this, SLOT(loadClickedFrameInNewTab()));
+        Action* act = new Action(QIcon(":/icons/menu/new-tab.png"), tr("Show this frame in new &tab"));
+        connect(act, SIGNAL(triggered()), this, SLOT(loadClickedFrameInNewTab()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(loadClickedFrameInBgTab()));
+        frameMenu->addAction(act);
         frameMenu->addSeparator();
         frameMenu->addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
         frameMenu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
@@ -848,7 +873,11 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     }
 
     menu->addSeparator();
-    menu->addAction(QIcon(":/icons/menu/new-tab.png"), tr("Open link in new &tab"), this, SLOT(userDefinedOpenUrlInNewTab()))->setData(hitTest.linkUrl());
+    Action* act = new Action(QIcon(":/icons/menu/new-tab.png"), tr("Open link in new &tab"));
+    act->setData(hitTest.linkUrl());
+    connect(act, SIGNAL(triggered()), this, SLOT(userDefinedOpenUrlInNewTab()));
+    connect(act, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInBgTab()));
+    menu->addAction(act);
     menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(hitTest.linkUrl());
     menu->addSeparator();
     menu->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());

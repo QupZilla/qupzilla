@@ -158,7 +158,7 @@ void PageFormCompleter::completePage(const QByteArray &data) const
 }
 
 bool PageFormCompleter::queryItemsContains(const QueryItems &queryItems, const QString &attributeName,
-                                           const QString &attributeValue) const
+        const QString &attributeValue) const
 {
     if (attributeName.isEmpty() || attributeValue.isEmpty()) {
         return false;
