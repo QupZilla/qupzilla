@@ -206,7 +206,7 @@ void WebView::sourceDownloaded(){
 
 	page()->mainFrame()->setHtml("<pre>"+html+"</pre>");
 	//setTitle(tr("Source of ") + replyUrl.toString());
-	emit urlChanged(replyUrl);
+	emit urlChanged(QUrl("view-source:"+replyUrl.toString()));
 }
 
 bool WebView::loadingError() const
