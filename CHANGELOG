@@ -13,6 +13,7 @@ Version 1.4.0
     * option to switch to tab from locationbar popup completer
     * use .qupzilla/tmp instead of /tmp for temporary data
     * saving passwords should now work for much more sites
+    * don't steal Ctrl+B/U/I shortcuts from page
     * fixed crash with context menu in websearchbar and locationbar
     * fixed loading NYTimes skimmer page
     * fixed cookie domain handling according to RFC 6265
