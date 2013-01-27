@@ -200,13 +200,23 @@ void WebView::sourceDownloaded(){
     }
 
     QString html = reply->readAll();
+	QRegExp rx("<meta.*charset=[\"]?([a-z0-9-]+)");
+	QString charset = "";
+	if (rx.indexIn(html, 0) != -1)
+		charset = rx.cap(1);
+	else
+		charset = "utf-8";
+	
 	html.replace("<", "&lt;");
 	html.replace(">", "&gt;");
-    QUrl replyUrl = reply->url();
+    QUrl replyUrl = QUrl("view-source:"+reply->url().toString());
 
-	page()->mainFrame()->setHtml("<pre>"+html+"</pre>");
+	html = "<html><head><title>"+replyUrl.toString()+"</title></head><body><pre>"+html+"</pre></body></html>";
+	QByteArray baHtml = html.toAscii();
+
+	page()->mainFrame()->setContent(baHtml, "text/html; charset="+charset, replyUrl);
 	//setTitle(tr("Source of ") + replyUrl.toString());
-	emit urlChanged(QUrl("view-source:"+replyUrl.toString()));
+	emit urlChanged(replyUrl);
 }
 
 bool WebView::loadingError() const
@@ -517,9 +527,7 @@ void WebView::showSource(QWebFrame* frame, const QString &selectedHtml)
         frame = page()->mainFrame();
     }
 
-    SourceViewer* source = new SourceViewer(frame, selectedHtml);
-    QzTools::centerWidgetToParent(source, this);
-    source->show();
+	openUrlInNewTab(QUrl("view-source:"+frame->url().toString()), Qz::NT_SelectedTab);
 }
 
 void WebView::showSiteInfo()
