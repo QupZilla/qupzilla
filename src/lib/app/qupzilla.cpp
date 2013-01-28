@@ -1524,7 +1524,7 @@ void QupZilla::searchOnPage()
 #ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
         applyBlurToMainWindow();
-        search->installEventFilter(this);
+        toolBar->installEventFilter(this);
     }
 #endif
 }

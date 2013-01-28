@@ -57,6 +57,7 @@ QPixmap QT_QUPZILLA_EXPORT createPixmapForSite(const QIcon &icon, const QString 
 QString QT_QUPZILLA_EXPORT applyDirectionToPage(QString &pageContents);
 
 QString QT_QUPZILLA_EXPORT buildSystem();
+QIcon QT_QUPZILLA_EXPORT iconFromFileName(const QString &fileName);
 
 // Qt5 migration help functions
 bool QT_QUPZILLA_EXPORT isCertificateValid(const QSslCertificate &cert);
