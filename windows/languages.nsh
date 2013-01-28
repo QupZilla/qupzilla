@@ -1,4 +1,4 @@
-﻿;;;;English
+;;;;English
 LangString PRODUCT_DESC  ${LANG_ENGLISH} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 ;
 LangString TITLE_SecMain ${LANG_ENGLISH} "Main Components"
@@ -391,6 +391,60 @@ LangString DESC_SecProtocols ${LANG_FARSI} "کوپزیلا را به پروتک�
 LangString MSG_RunningInstance ${LANG_FARSI} "کوپزیلا هم‌اکنون در حال اجراست! آیا می‌خواهید برنامه نصب تلاش کند به اجرای آن خاتمه دهد؟"
 LangString MSG_InstallationCanceled ${LANG_FARSI} "فرایند توسط کاربر لغو گردید."
 
+;;;;Serbian
+LangString PRODUCT_DESC  ${LANG_SERBIAN} "Капзила је нови, брз и сигуран веб прегледач отвореног кода. Лиценцирана под ГПЛ в3 лиценцом или (по властитом нахођењу) каснијим издањем те лиценце. Заснована на ВебКит језгри и Кјут програмском окружењу."
+;
+LangString TITLE_SecMain ${LANG_SERBIAN} "Главне компоненте"
+LangString TITLE_SecTranslations ${LANG_SERBIAN} "Преводи"
+LangString TITLE_SecPlugins ${LANG_SERBIAN} "Проширења"
+LangString TITLE_SecDesktop ${LANG_SERBIAN} "Икона на радној површи"
+LangString TITLE_SecExtensions ${LANG_SERBIAN} "Придружења фајлова"
+LangString TITLE_SecThemes ${LANG_SERBIAN} "Теме"
+LangString TITLE_SecSetASDefault ${LANG_SERBIAN} "Подразумеван прегледач"
+LangString TITLE_SecProtocols ${LANG_SERBIAN} "Придружења протокола"
+
+LangString FILE_Htm ${LANG_SERBIAN} "ХТМ фајл"
+LangString FILE_Html ${LANG_SERBIAN} "ХТМЛ фајл"
+;
+LangString DESC_SecMain ${LANG_SERBIAN} "Главне компоненте програма."
+LangString DESC_SecTranslations ${LANG_SERBIAN} "Остали доступни преводи. Енглески је подразумеван."
+LangString DESC_SecPlugins ${LANG_SERBIAN} "Остала проширења - прикључци."
+LangString DESC_SecDesktop ${LANG_SERBIAN} "Покретач програма на радној површи."
+LangString DESC_SecExtensions ${LANG_SERBIAN} "Отварај .htm и .html фајлове у Капзили."
+LangString DESC_SecThemes ${LANG_SERBIAN} "Додатне теме за Капзилу"
+LangString DESC_SecSetASDefault ${LANG_SERBIAN} "Постави Капзилу за подразумевани веб прегледач."
+LangString DESC_SecProtocols ${LANG_SERBIAN} "Отварај http и https протоколе у Капзили."
+;
+LangString MSG_RunningInstance ${LANG_SERBIAN} "Капзила је већ покренута! Желите ли да инсталатер покуша да је угаси?"
+LangString MSG_InstallationCanceled ${LANG_SERBIAN} "Корисник је отказао процес."
+
+;;;;SerbianLatin
+LangString PRODUCT_DESC  ${LANG_SERBIANLATIN} "Kapzila je novi, brz i siguran veb pregledač otvorenog koda. Licencirana pod GPL v3 licencom ili (po vlastitom nahođenju) kasnijim izdanjem te licence. Zasnovana na VebKit jezgri i Kjut programskom okruženju."
+;
+LangString TITLE_SecMain ${LANG_SERBIANLATIN} "Glavne komponente"
+LangString TITLE_SecTranslations ${LANG_SERBIANLATIN} "Prevodi"
+LangString TITLE_SecPlugins ${LANG_SERBIANLATIN} "Proširenja"
+LangString TITLE_SecDesktop ${LANG_SERBIANLATIN} "Ikona na radnoj površi"
+LangString TITLE_SecExtensions ${LANG_SERBIANLATIN} "Pridruženja fajlova"
+LangString TITLE_SecThemes ${LANG_SERBIANLATIN} "Teme"
+LangString TITLE_SecSetASDefault ${LANG_SERBIANLATIN} "Podrazumevan pregledač"
+LangString TITLE_SecProtocols ${LANG_SERBIANLATIN} "Pridruženja protokola"
+
+LangString FILE_Htm ${LANG_SERBIANLATIN} "HTM fajl"
+LangString FILE_Html ${LANG_SERBIANLATIN} "HTML fajl"
+;
+LangString DESC_SecMain ${LANG_SERBIANLATIN} "Glavne komponente programa."
+LangString DESC_SecTranslations ${LANG_SERBIANLATIN} "Ostali dostupni prevodi. Engleski je podrazumevan."
+LangString DESC_SecPlugins ${LANG_SERBIANLATIN} "Ostala proširenja - priključci."
+LangString DESC_SecDesktop ${LANG_SERBIANLATIN} "Pokretač programa na radnoj površi."
+LangString DESC_SecExtensions ${LANG_SERBIANLATIN} "Otvaraj .htm i .html fajlove u Kapzili."
+LangString DESC_SecThemes ${LANG_SERBIANLATIN} "Dodatne teme za Kapzilu"
+LangString DESC_SecSetASDefault ${LANG_SERBIANLATIN} "Postavi Kapzilu za podrazumevani veb pregledač."
+LangString DESC_SecProtocols ${LANG_SERBIANLATIN} "Otvaraj http i https protokole u Kapzili."
+;
+LangString MSG_RunningInstance ${LANG_SERBIANLATIN} "Kapzila je već pokrenuta! Želite li da instalater pokuša da je ugasi?"
+LangString MSG_InstallationCanceled ${LANG_SERBIANLATIN} "Korisnik je otkazao proces."
+
 ;;;;;;;;;
 ;;;;;;;;;
 ; Unfinished translations
@@ -466,6 +520,8 @@ LangString PRODUCT_DESC ${LANG_UKRAINIAN} "QupZilla is a new, fast and secure op
 LangString PRODUCT_DESC ${LANG_KOREAN} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_RUSSIAN} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_SPANISH} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
+LangString PRODUCT_DESC ${LANG_SERBIAN} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
+LangString PRODUCT_DESC ${LANG_SERBIANLATIN} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 
 LangString TITLE_SecSetASDefault ${LANG_CZECH} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_SLOVAK} "Default Browser"
@@ -486,6 +542,8 @@ LangString TITLE_SecSetASDefault ${LANG_UKRAINIAN} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_KOREAN} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_RUSSIAN} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_SPANISH} "Default Browser"
+LangString TITLE_SecSetASDefault ${LANG_SERBIAN} "Default Browser"
+LangString TITLE_SecSetASDefault ${LANG_SERBIANLATIN} "Default Browser"
 
 LangString TITLE_SecProtocols ${LANG_CZECH} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_SLOVAK} "Protocol Associations"
@@ -506,6 +564,8 @@ LangString TITLE_SecProtocols ${LANG_UKRAINIAN} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_KOREAN} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_RUSSIAN} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_SPANISH} "Protocol Associations"
+LangString TITLE_SecProtocols ${LANG_SERBIAN} "Protocol Associations"
+LangString TITLE_SecProtocols ${LANG_SERBIANLATIN} "Protocol Associations"
 
 LangString DESC_SecSetASDefault ${LANG_CZECH} "Set Qupzilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_SLOVAK} "Set Qupzilla as default internet browser"
@@ -526,6 +586,8 @@ LangString DESC_SecSetASDefault ${LANG_UKRAINIAN} "Set Qupzilla as default inter
 LangString DESC_SecSetASDefault ${LANG_KOREAN} "Set Qupzilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_RUSSIAN} "Set Qupzilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_SPANISH} "Set Qupzilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_SERBIAN} "Set Qupzilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_SERBIANLATIN} "Set Qupzilla as default internet browser"
 
 LangString DESC_SecProtocols ${LANG_CZECH} "Associate QupZilla with http and https protocols"
 LangString DESC_SecProtocols ${LANG_SLOVAK} "Associate QupZilla with http and https protocols"
@@ -546,6 +608,8 @@ LangString DESC_SecProtocols ${LANG_UKRAINIAN} "Associate QupZilla with http and
 LangString DESC_SecProtocols ${LANG_KOREAN} "Associate QupZilla with http and https protocols"
 LangString DESC_SecProtocols ${LANG_RUSSIAN} "Associate QupZilla with http and https protocols"
 LangString DESC_SecProtocols ${LANG_SPANISH} "Associate QupZilla with http and https protocols"
+LangString DESC_SecProtocols ${LANG_SERBIAN} "Associate QupZilla with http and https protocols"
+LangString DESC_SecProtocols ${LANG_SERBIANLATIN} "Associate QupZilla with http and https protocols"
 
 LangString MSG_RunningInstance ${LANG_CZECH} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_SLOVAK} "QupZilla is already running! Do you want the installer try to terminate it?"
@@ -566,6 +630,8 @@ LangString MSG_RunningInstance ${LANG_UKRAINIAN} "QupZilla is already running! D
 LangString MSG_RunningInstance ${LANG_KOREAN} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_RUSSIAN} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_SPANISH} "QupZilla is already running! Do you want the installer try to terminate it?"
+LangString MSG_RunningInstance ${LANG_SERBIAN} "QupZilla is already running! Do you want the installer try to terminate it?"
+LangString MSG_RunningInstance ${LANG_SERBIANLATIN} "QupZilla is already running! Do you want the installer try to terminate it?"
 
 LangString MSG_InstallationCanceled ${LANG_CZECH} "Process canceled by user."
 LangString MSG_InstallationCanceled ${LANG_SLOVAK} "Process canceled by user."
@@ -586,3 +652,5 @@ LangString MSG_InstallationCanceled ${LANG_UKRAINIAN} "Process canceled by user.
 LangString MSG_InstallationCanceled ${LANG_KOREAN} "Process canceled by user."
 LangString MSG_InstallationCanceled ${LANG_RUSSIAN} "Process canceled by user."
 LangString MSG_InstallationCanceled ${LANG_SPANISH} "Process canceled by user."
+LangString MSG_InstallationCanceled ${LANG_SERBIAN} "Process canceled by user."
+LangString MSG_InstallationCanceled ${LANG_SERBIANLATIN} "Process canceled by user."
