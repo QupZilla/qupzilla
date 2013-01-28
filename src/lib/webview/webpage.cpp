@@ -341,6 +341,9 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
         return;
     }
 
+	if (protocol == QLatin1String("view-source"))
+		return;
+
     CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, view());
 
     const QString &wrappedUrl = QzTools::alignTextToWidth(url.toString(), "<br/>", dialog.fontMetrics(), 450);

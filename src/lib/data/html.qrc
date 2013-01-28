@@ -25,5 +25,6 @@
         <file>html/restore.html</file>
         <file>html/dirlist.html</file>
         <file>html/hdd-icon.png</file>
+        <file>html/view-source.css</file>
     </qresource>
 </RCC>

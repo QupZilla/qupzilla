@@ -35,6 +35,7 @@
 #include "enhancedmenu.h"
 #include "followredirectreply.h"
 #include "networkmanager.h"
+#include "sourcehighlighter.h"
 
 #include <QDir>
 #include <QTimer>
@@ -207,11 +208,12 @@ void WebView::sourceDownloaded(){
 	else
 		charset = "utf-8";
 	
-	html.replace("<", "&lt;");
-	html.replace(">", "&gt;");
     QUrl replyUrl = QUrl("view-source:"+reply->url().toString());
 
-	html = "<html><head><title>"+replyUrl.toString()+"</title></head><body><pre>"+html+"</pre></body></html>";
+	//html = "<html><head><title>"+replyUrl.toString()+"</title></head><body><pre>"+html+"</pre></body></html>";
+	SourceHighlighter sh(html);
+	sh.setTitle(replyUrl.toString());
+	html = sh.highlight();
 	QByteArray baHtml = html.toAscii();
 
 	page()->mainFrame()->setContent(baHtml, "text/html; charset="+charset, replyUrl);
@@ -244,7 +246,7 @@ bool WebView::isUrlValid(const QUrl &url)
 {
     const QString &urlScheme = url.scheme();
     if (urlScheme == QLatin1String("data") || urlScheme == QLatin1String("qrc") ||
-            urlScheme == QLatin1String("mailto")) {
+            urlScheme == QLatin1String("mailto") || urlScheme == QLatin1String("view-source")) {
         return true;
     }
 
@@ -339,6 +341,10 @@ void WebView::reload()
         load(m_aboutToLoadUrl);
         return;
     }
+	else if (QWebView::url().scheme() == QLatin1String("view-source")){
+		load(QWebView::url());
+		return;
+	}
 
     QWebView::reload();
 }

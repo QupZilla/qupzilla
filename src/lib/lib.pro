@@ -199,7 +199,8 @@ SOURCES += \
     tools/listitemdelegate.cpp \
     bookmarks/bookmarkstree.cpp \
     tools/html5permissions/html5permissionsmanager.cpp \
-    tools/html5permissions/html5permissionsnotification.cpp
+    tools/html5permissions/html5permissionsnotification.cpp \
+    tools/sourcehighlighter.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -361,7 +362,8 @@ HEADERS  += \
     tools/listitemdelegate.h \
     bookmarks/bookmarkstree.h \
     tools/html5permissions/html5permissionsmanager.h \
-    tools/html5permissions/html5permissionsnotification.h
+    tools/html5permissions/html5permissionsnotification.h \
+    tools/sourcehighlighter.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
