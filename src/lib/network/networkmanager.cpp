@@ -32,6 +32,7 @@
 #include "schemehandlers/adblockschemehandler.h"
 #include "schemehandlers/qupzillaschemehandler.h"
 #include "schemehandlers/fileschemehandler.h"
+#include "schemehandlers/ftpschemehandler.h"
 
 #include <QFormLayout>
 #include <QLabel>
@@ -76,6 +77,7 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
     m_schemeHandlers["qupzilla"] = new QupZillaSchemeHandler();
     m_schemeHandlers["abp"] = new AdBlockSchemeHandler();
     m_schemeHandlers["file"] = new FileSchemeHandler();
+    m_schemeHandlers["ftp"] = new FtpSchemeHandler();
 
     m_proxyFactory = new NetworkProxyFactory();
     setProxyFactory(m_proxyFactory);
@@ -306,6 +308,92 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     }
 }
 
+void NetworkManager::ftpAuthentication(const QUrl &url, QAuthenticator* auth)
+{
+    QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
+    FtpDownloader* ftp = 0;
+    if (!reply) {
+        ftp = qobject_cast<FtpDownloader*>(sender());
+    }
+
+    if (!auth) {
+        auth = FTP_AUTHENTICATOR(url);
+    }
+
+    QString lastUser = auth->user();
+    QString lastPass = auth->password();
+
+    if (lastUser.isEmpty() && lastPass.isEmpty()) {
+        // The auth is empty but url contains user's info
+        lastUser = url.userName();
+        lastPass = url.password();
+    }
+
+    QDialog* dialog = new QDialog(mApp->getWindow());
+    dialog->setWindowTitle(tr("FTP authorization required"));
+
+    QFormLayout* formLa = new QFormLayout(dialog);
+
+    QLabel* label = new QLabel(dialog);
+    QLabel* userLab = new QLabel(dialog);
+    QLabel* passLab = new QLabel(dialog);
+    userLab->setText(tr("Username: "));
+    passLab->setText(tr("Password: "));
+
+    QCheckBox* anonymousLogin = new QCheckBox(dialog);
+    QLineEdit* user = new QLineEdit(lastUser, dialog);
+    QLineEdit* pass = new QLineEdit(lastPass, dialog);
+    anonymousLogin->setText(tr("Login anonymously"));
+    connect(anonymousLogin, SIGNAL(toggled(bool)), user, SLOT(setDisabled(bool)));
+    connect(anonymousLogin, SIGNAL(toggled(bool)), pass, SLOT(setDisabled(bool)));
+    anonymousLogin->setChecked(lastUser.isEmpty() && lastPass.isEmpty());
+    pass->setEchoMode(QLineEdit::Password);
+
+    QDialogButtonBox* box = new QDialogButtonBox(dialog);
+    box->addButton(QDialogButtonBox::Ok);
+    box->addButton(QDialogButtonBox::Cancel);
+    connect(box, SIGNAL(rejected()), dialog, SLOT(reject()));
+    connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
+
+    int port = 21;
+    if (url.port() != -1) {
+        port = url.port();
+    }
+
+    label->setText(tr("A username and password are being requested by %1:%2.")
+                   .arg(url.host(), QString::number(port)));
+
+    formLa->addRow(label);
+
+    formLa->addRow(anonymousLogin);
+    formLa->addRow(userLab, user);
+    formLa->addRow(passLab, pass);
+
+    formLa->addWidget(box);
+
+    if (dialog->exec() != QDialog::Accepted) {
+        if (reply) {
+            reply->abort();
+            // is it safe?
+            reply->deleteLater();
+        }
+        else if (ftp) {
+            ftp->abort();
+            ftp->close();
+        }
+        return;
+    }
+
+    if (!anonymousLogin->isChecked()) {
+        auth->setUser(user->text());
+        auth->setPassword(pass->text());
+    }
+    else {
+        auth->setUser(QString());
+        auth->setPassword(QString());
+    }
+}
+
 void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator* auth)
 {
     QDialog* dialog = new QDialog(p_QupZilla);
@@ -357,6 +445,16 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     if (m_schemeHandlers.contains(req.url().scheme())) {
         reply = m_schemeHandlers[req.url().scheme()]->createRequest(op, req, outgoingData);
         if (reply) {
+            if (req.url().scheme() == "ftp") {
+                QVariant v = req.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
+                WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
+                if (webPage) {
+                    connect(reply, SIGNAL(downloadRequest(const QNetworkRequest &)),
+                            webPage, SLOT(downloadRequested(const QNetworkRequest &)));
+                }
+                connect(reply, SIGNAL(ftpAuthenticationRequierd(const QUrl &, QAuthenticator*)),
+                        this, SLOT(ftpAuthentication(const QUrl &, QAuthenticator*)));
+            }
             return reply;
         }
     }

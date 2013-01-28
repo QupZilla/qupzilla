@@ -63,6 +63,7 @@ signals:
 
 private slots:
     void authentication(QNetworkReply* reply, QAuthenticator* auth);
+    void ftpAuthentication(const QUrl &url, QAuthenticator* auth);
     void proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator* auth);
     void sslError(QNetworkReply* reply, QList<QSslError> errors);
     void setSSLConfiguration(QNetworkReply* reply);
