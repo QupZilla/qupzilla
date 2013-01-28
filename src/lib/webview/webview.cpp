@@ -155,7 +155,7 @@ void WebView::setPage(QWebPage* page)
 
 void WebView::load(const QUrl &url)
 {
-    load(QNetworkRequest(url));
+    WebView::load(QNetworkRequest(url));
 }
 
 void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operation operation, const QByteArray &body)
@@ -164,7 +164,15 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
 
     if (reqUrl.scheme() == QLatin1String("javascript")) {
         // Getting scriptSource from PercentEncoding to properly load bookmarklets
-        QString scriptSource = QUrl::fromPercentEncoding(reqUrl.toString().mid(11).toUtf8());
+        QString scriptSource;
+        if (reqUrl.path().contains(' '))
+        {
+            scriptSource = reqUrl.toString().mid(11).toUtf8();
+        }
+        else
+        {
+            scriptSource = QUrl::fromPercentEncoding(reqUrl.toString().mid(11).toUtf8());
+        }
         page()->mainFrame()->evaluateJavaScript(scriptSource);
         return;
     }
