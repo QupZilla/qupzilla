@@ -2036,7 +2036,7 @@
      </widget>
      <widget class="QWidget" name="privacyPage">
       <layout class="QGridLayout" name="gridLayout_12">
-       <item row="21" column="1" colspan="3">
+       <item row="24" column="1" colspan="3">
         <widget class="QCheckBox" name="sendReferer">
          <property name="text">
           <string>Send Referer header to servers</string>
@@ -2050,14 +2050,14 @@
          </property>
         </widget>
        </item>
-       <item row="22" column="1" colspan="3">
+       <item row="25" column="1" colspan="3">
         <widget class="QCheckBox" name="doNotTrack">
          <property name="text">
           <string>Send Do Not Track header to servers</string>
          </property>
         </widget>
        </item>
-       <item row="19" column="0" colspan="4">
+       <item row="22" column="0" colspan="4">
         <widget class="QLabel" name="label_50">
          <property name="text">
           <string>&lt;b&gt;Other&lt;/b&gt;</string>
@@ -2074,7 +2074,7 @@
          </property>
         </widget>
        </item>
-       <item row="27" column="0" colspan="4">
+       <item row="30" column="0" colspan="4">
         <spacer name="verticalSpacer_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -2153,7 +2153,7 @@
          </property>
         </widget>
        </item>
-       <item row="21" column="0">
+       <item row="24" column="0">
         <spacer name="horizontalSpacer_20">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -2188,6 +2188,33 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="20" column="0" colspan="4">
+        <widget class="QLabel" name="label_62">
+         <property name="text">
+          <string>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="21" column="0" colspan="3">
+        <widget class="QLabel" name="label_63">
+         <property name="text">
+          <string>Manage HTML5 permissions</string>
+         </property>
+        </widget>
+       </item>
+       <item row="21" column="3">
+        <widget class="QPushButton" name="html5permissions">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>HTML5 Permisions</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

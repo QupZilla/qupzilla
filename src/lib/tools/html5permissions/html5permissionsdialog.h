@@ -15,39 +15,43 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef HTML5PERMISSIONSNOTIFICATION_H
-#define HTML5PERMISSIONSNOTIFICATION_H
+#ifndef HTML5PERMISSIONSDIALOG_H
+#define HTML5PERMISSIONSDIALOG_H
 
-#include <QString>
-
-#include "animatedwidget.h"
-#include "webpage.h"
+#include <QDialog>
+#include <QStringList>
 
 namespace Ui
 {
-class HTML5PermissionsNotification;
+class HTML5PermissionsDialog;
 }
 
-class HTML5PermissionsNotification : public AnimatedWidget
+class HTML5PermissionsDialog : public QDialog
 {
     Q_OBJECT
 
-#ifdef USE_QTWEBKIT_2_2
 public:
-    explicit HTML5PermissionsNotification(const QString &host, QWebFrame* frame, const QWebPage::Feature &feature);
-    ~HTML5PermissionsNotification();
+    explicit HTML5PermissionsDialog(QWidget* parent = 0);
+    ~HTML5PermissionsDialog();
 
 private slots:
-    void grantPermissions();
-    void denyPermissions();
+    void removeNotifEntry();
+    void removeGeoEntry();
+
+    void saveSettings();
 
 private:
-    Ui::HTML5PermissionsNotification* ui;
+    enum Role { Allow, Deny };
 
-    QString m_host;
-    QWebFrame* m_frame;
-    QWebPage::Feature m_feature;
-#endif
+    void loadSettings();
+
+    Ui::HTML5PermissionsDialog* ui;
+
+    QStringList m_notificationsGranted;
+    QStringList m_notificationsDenied;
+
+    QStringList m_geolocationGranted;
+    QStringList m_geolocationDenied;
 };
 
-#endif // HTML5PERMISSIONSNOTIFICATION_H
+#endif // HTML5PERMISSIONSDIALOG_H

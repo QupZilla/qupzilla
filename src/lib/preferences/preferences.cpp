@@ -45,6 +45,7 @@
 #include "clearprivatedata.h"
 #include "useragentdialog.h"
 #include "registerqappassociation.h"
+#include "html5permissions/html5permissionsdialog.h"
 
 #include <QSettings>
 #include <QInputDialog>
@@ -438,6 +439,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //CONNECTS
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
     connect(ui->cookieManagerBut, SIGNAL(clicked()), this, SLOT(showCookieManager()));
+    connect(ui->html5permissions, SIGNAL(clicked()), this, SLOT(showHtml5Permissions()));
     connect(ui->sslManagerButton, SIGNAL(clicked()), this, SLOT(openSslManager()));
     connect(ui->preferredLanguages, SIGNAL(clicked()), this, SLOT(showAcceptLanguage()));
     connect(ui->deleteHtml5storage, SIGNAL(clicked()), this, SLOT(deleteHtml5storage()));
@@ -453,6 +455,10 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 #if QTWEBKIT_TO_2_3
     ui->caretBrowsing->setHidden(true);
     ui->animateScrolling->setHidden(true);
+#endif
+
+#if QTWEBKIT_TO_2_2
+    ui->html5permissions->setDisabled(true);
 #endif
 }
 
@@ -609,6 +615,12 @@ void Preferences::showCookieManager()
 
     m->show();
     m->raise();
+}
+
+void Preferences::showHtml5Permissions()
+{
+    HTML5PermissionsDialog dialog(this);
+    dialog.exec();
 }
 
 void Preferences::openSslManager()

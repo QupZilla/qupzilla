@@ -199,8 +199,9 @@ SOURCES += \
     bookmarks/bookmarkstree.cpp \
     tools/html5permissions/html5permissionsmanager.cpp \
     tools/html5permissions/html5permissionsnotification.cpp \
+    tools/html5permissions/html5permissionsdialog.cpp \
     autofill/pageformcompleter.cpp \
-    autofill/autofill.cpp
+    autofill/autofill.cpp \
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -362,8 +363,9 @@ HEADERS  += \
     bookmarks/bookmarkstree.h \
     tools/html5permissions/html5permissionsmanager.h \
     tools/html5permissions/html5permissionsnotification.h \
+    tools/html5permissions/html5permissionsdialog.h \
     autofill/pageformcompleter.h \
-    autofill/autofill.h
+    autofill/autofill.h \
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -410,7 +412,8 @@ FORMS    += \
     adblock/adblockaddsubscriptiondialog.ui \
     preferences/useragentdialog.ui \
     session/recoverywidget.ui \
-    tools/html5permissions/html5permissionsnotification.ui
+    tools/html5permissions/html5permissionsnotification.ui \
+    tools/html5permissions/html5permissionsdialog.ui \
 
 RESOURCES += \
     data/icons.qrc \

@@ -53,6 +53,7 @@ private slots:
 
     void chooseDownPath();
     void showCookieManager();
+    void showHtml5Permissions();
     void useActualHomepage();
     void useActualNewTab();
     void openSslManager();
