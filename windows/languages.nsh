@@ -97,9 +97,11 @@ LangString TITLE_SecPlugins ${LANG_GERMAN} "Plugins"
 LangString TITLE_SecDesktop ${LANG_GERMAN} "Desktop Symbol"
 LangString TITLE_SecExtensions ${LANG_GERMAN} "Dateiverknüpfungen"
 LangString TITLE_SecThemes ${LANG_GERMAN} "Themen"
+LangString TITLE_SecSetASDefault ${LANG_GERMAN} "Standard-Browser"
+LangString TITLE_SecProtocols ${LANG_GERMAN} "Protokollverknüpfungen"
 
-LangString FILE_Htm ${LANG_GERMAN} "HTM Datei"
-LangString FILE_Html ${LANG_GERMAN} "HTML Datei"
+LangString FILE_Htm ${LANG_GERMAN} "HTM-Datei"
+LangString FILE_Html ${LANG_GERMAN} "HTML-Datei"
 
 LangString DESC_SecMain ${LANG_GERMAN} "Hauptkomponenten der Anwendung."
 LangString DESC_SecTranslations ${LANG_GERMAN} "Weitere Übersetzungen sind verfügbar. Die Standardsprache ist Englisch."
@@ -107,6 +109,8 @@ LangString DESC_SecPlugins ${LANG_GERMAN} "Weitere Plugins stehen zur Verfügung
 LangString DESC_SecDesktop ${LANG_GERMAN} "Starter zum Desktop hinzufügen."
 LangString DESC_SecExtensions ${LANG_GERMAN} "Verknüpfe QupZilla mit .htm und .html Dateien"
 LangString DESC_SecThemes ${LANG_GERMAN} "Weitere Themen für QupZilla"
+LangString DESC_SecSetASDefault ${LANG_GERMAN} "Qupzilla als Standard-Browser verwenden"
+LangString DESC_SecProtocols ${LANG_GERMAN} "Verknüpfe QupZilla mit HTTP- und HTTPS-Protokoll"
 
 ;;;;Dutch
 LangString TITLE_SecMain ${LANG_DUTCH} "Hoofdonderdelen"
