@@ -302,22 +302,31 @@ LangString DESC_SecExtensions ${LANG_GEORGIAN} "QupZilla-ს ასოცირ�
 LangString DESC_SecThemes ${LANG_GEORGIAN} "დამატებითი თემები QupZilla-სთვის"
 
 ;;;;Japanese
+LangString PRODUCT_DESC ${LANG_JAPANESE} "QupZilla は新しくて、高速で、安全なオープンソース WWW ブラウザです。 QupZilla は GPL version 3 (任意の)それ以降のバージョンでライセンスされています。WebKit コアと Qt Framework ベースで開発されています。"
+;
 LangString TITLE_SecMain ${LANG_JAPANESE} "メインコンポーネント"
 LangString TITLE_SecTranslations ${LANG_JAPANESE} "言語ファイル"
 LangString TITLE_SecPlugins ${LANG_JAPANESE} "エクステンション(拡張機能)"
 LangString TITLE_SecDesktop ${LANG_JAPANESE} "デスクトップアイコン"
 LangString TITLE_SecExtensions ${LANG_JAPANESE} "ファイルの関連付け"
 LangString TITLE_SecThemes ${LANG_JAPANESE} "テーマ"
+LangString TITLE_SecSetASDefault ${LANG_JAPANESE} "既定のブラウザ"
+LangString TITLE_SecProtocols ${LANG_JAPANESE} "プロトコルの関連付け"
 
-LangString FILE_Htm ${LANG_JAPANESE} "HTMファイル"
-LangString FILE_Html ${LANG_JAPANESE} "HTMLファイル"
+LangString FILE_Htm ${LANG_JAPANESE} "HTM ファイル"
+LangString FILE_Html ${LANG_JAPANESE} "HTML ファイル"
 ;
 LangString DESC_SecMain ${LANG_JAPANESE} "アプリケーションのメインとなる部分です。"
-LangString DESC_SecTranslations ${LANG_JAPANESE} "他の言語でもQupZillaを使えるようになります。デフォルトでは英語です。"
+LangString DESC_SecTranslations ${LANG_JAPANESE} "他の言語でも QupZilla を使えるようになります。デフォルトでは英語です。"
 LangString DESC_SecPlugins ${LANG_JAPANESE} "プラグイン(拡張機能)を追加してダウンロードします。"
 LangString DESC_SecDesktop ${LANG_JAPANESE} "デスクトップにアイコンを作成します。"
-LangString DESC_SecExtensions ${LANG_JAPANESE} "QupZillaにhtm、htmlファイルを関連付けます。"
-LangString DESC_SecThemes ${LANG_JAPANESE} "QupZillaのデフォルトテーマ以外のテーマをダウンロードします。"
+LangString DESC_SecExtensions ${LANG_JAPANESE} "QupZilla に htm, html ファイルを関連付けます。"
+LangString DESC_SecThemes ${LANG_JAPANESE} "QupZilla のデフォルトテーマ以外のテーマをダウンロードします。"
+LangString DESC_SecSetASDefault ${LANG_JAPANESE} "QupZilla を既定の Web ブラウザに設定する。"
+LangString DESC_SecProtocols ${LANG_JAPANESE} "QupZilla を http, https プロトコルに関連付けます。"
+;
+LangString MSG_RunningInstance ${LANG_JAPANESE} "QupZilla は起動中です！インストーラーによって終了させますか？"
+LangString MSG_InstallationCanceled ${LANG_JAPANESE} "プロセスはユーザーによって中止されました。"
 
 ;;;;SWEDISH
 LangString TITLE_SecMain ${LANG_SWEDISH} "Huvudkomponenter"
