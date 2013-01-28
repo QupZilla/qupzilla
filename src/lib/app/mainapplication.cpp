@@ -211,6 +211,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     setApplicationVersion(QupZilla::VERSION);
     setOrganizationDomain("qupzilla");
     QDesktopServices::setUrlHandler("http", this, "addNewTab");
+    QDesktopServices::setUrlHandler("ftp", this, "addNewTab");
 
     checkSettingsDir();
 
@@ -414,6 +415,7 @@ void MainApplication::loadSettings()
 
     // Allows to load files from qrc: scheme in qupzilla: pages
     QWebSecurityOrigin::addLocalScheme("qupzilla");
+    QWebSecurityOrigin::addLocalScheme("ftp");
 
     if (m_isPrivateSession) {
         m_websettings->setAttribute(QWebSettings::PrivateBrowsingEnabled, true);

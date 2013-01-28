@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -35,6 +35,7 @@ class DownloadItem;
 class QListWidgetItem;
 
 class DownloadManager;
+class FtpDownloader;
 
 class QT_QUPZILLA_EXPORT DownloadItem : public QWidget
 {
@@ -67,7 +68,7 @@ private slots:
     void openFile();
     void openFolder();
     void readyRead();
-    void error(QNetworkReply::NetworkError);
+    void error();
     void updateDownload();
     void customContextMenuRequested(const QPoint &pos);
     void clear();
@@ -77,6 +78,7 @@ private slots:
 
 private:
     void startDownloading();
+    void startDownloadingFromFtp(const QUrl &url);
 
     void timerEvent(QTimerEvent* event);
     void updateDownloadInfo(double currSpeed, qint64 received, qint64 total);
@@ -85,6 +87,7 @@ private:
 
     QListWidgetItem* m_item;
     QNetworkReply* m_reply;
+    FtpDownloader* m_ftpDownloader;
     QString m_path;
     QString m_fileName;
     QTime* m_downTimer;

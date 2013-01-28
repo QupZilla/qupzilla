@@ -501,7 +501,7 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
 
     const QString &scheme = request.url().scheme();
 
-    if (scheme == QLatin1String("mailto") || scheme == QLatin1String("ftp")) {
+    if (scheme == QLatin1String("mailto")) {
         desktopServicesOpen(request.url());
         return false;
     }

@@ -31,6 +31,8 @@
 #include <QDesktopWidget>
 #include <QUrl>
 #include <QIcon>
+#include <QFileIconProvider>
+#include <QTemporaryFile>
 
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
@@ -425,4 +427,13 @@ QString QzTools::buildSystem()
 #ifdef Q_OS_HAIKU
     return "Haiku";
 #endif
+}
+
+QIcon QzTools::iconFromFileName(const QString &fileName)
+{
+    QFileInfo tempInfo(fileName);
+    QTemporaryFile tempFile(QDir::tempPath() + "/XXXXXX." + tempInfo.suffix());
+    tempFile.open();
+    tempInfo.setFile(tempFile.fileName());
+    return QFileIconProvider().icon(tempInfo);
 }

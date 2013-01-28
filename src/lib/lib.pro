@@ -9,6 +9,9 @@ TEMPLATE = lib
 
 DEFINES *= QUPZILLA_SHAREDLIBRARY
 
+isEqual(QT_MAJOR_VERSION, 5) {
+    include(3rdparty/qftp.pri)
+}
 include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
 include(../../translations/translations.pri)
@@ -202,6 +205,7 @@ SOURCES += \
     tools/html5permissions/html5permissionsdialog.cpp \
     autofill/pageformcompleter.cpp \
     autofill/autofill.cpp \
+    network/schemehandlers/ftpschemehandler.cpp \
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -366,6 +370,7 @@ HEADERS  += \
     tools/html5permissions/html5permissionsdialog.h \
     autofill/pageformcompleter.h \
     autofill/autofill.h \
+    network/schemehandlers/ftpschemehandler.h \
 
 FORMS    += \
     preferences/autofillmanager.ui \

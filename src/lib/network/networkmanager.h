@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -63,6 +63,7 @@ signals:
 
 private slots:
     void authentication(QNetworkReply* reply, QAuthenticator* auth);
+    void ftpAuthentication(const QUrl &url, QAuthenticator* auth);
     void proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator* auth);
     void sslError(QNetworkReply* reply, QList<QSslError> errors);
     void setSSLConfiguration(QNetworkReply* reply);
