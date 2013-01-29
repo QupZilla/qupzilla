@@ -360,15 +360,15 @@
     </message>
     <message>
         <source>on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1</translation>
     </message>
     <message>
         <source>for &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Do you want QupZilla to remember the password %1 %2?</source>
-        <translation type="unfinished"></translation>
+        <translation>Qupzillaに%2で使用する&lt;b&gt;%1&lt;/b&gt;のパスワードを記憶させますか?</translation>
     </message>
 </context>
 <context>
@@ -632,15 +632,15 @@
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべてのフォルダを開く</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべてたたむ</translation>
     </message>
     <message>
         <source>Choose parent folder for new folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>新しいフォルダの親フォルダの選択:</translation>
     </message>
 </context>
 <context>
@@ -764,11 +764,11 @@
     <name>BookmarksTree</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished">ブックマーク</translation>
+        <translation>ブックマーク</translation>
     </message>
     <message>
         <source>New Folder...</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいフォルダ...</translation>
     </message>
 </context>
 <context>
@@ -1114,31 +1114,31 @@
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">設定</translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cookieの設定&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Allow storing of cookies</source>
-        <translation type="unfinished">Cookieを許可する</translation>
+        <translation>Cookieを許可する</translation>
     </message>
     <message>
         <source>Delete cookies on close</source>
-        <translation type="unfinished">終了時にCookieを削除する</translation>
+        <translation>終了時にCookieを削除する</translation>
     </message>
     <message>
         <source>Match domain exactly</source>
-        <translation type="unfinished">ファーストパーティのCookieのみ許可</translation>
+        <translation>ファーストパーティのCookieのみ許可</translation>
     </message>
     <message>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished">トラッキングCookieのフィルタリング</translation>
+        <translation>トラッキングCookieのフィルタリング</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished">&lt;b&gt;警告&lt;/b&gt;  「ファーストパーティのCookieのみ許可」や「トラッキングCookieのフィルタリング」は一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
+        <translation>&lt;b&gt;警告&lt;/b&gt; 「ファーストパーティのCookieのみ許可」や「トラッキングCookieのフィルタリング」は一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
     </message>
 </context>
 <context>
@@ -1427,104 +1427,104 @@
     <name>FtpDownloader</name>
     <message>
         <source>Canceled!</source>
-        <translation type="unfinished"></translation>
+        <translation>中断されました！</translation>
     </message>
 </context>
 <context>
     <name>FtpSchemeReply</name>
     <message>
         <source>Unknown command</source>
-        <translation type="unfinished"></translation>
+        <translation>Unknown command</translation>
     </message>
     <message>
         <source>Up to higher level directory</source>
-        <translation type="unfinished">一つ上のディレクトリに移動する</translation>
+        <translation>一つ上のディレクトリに移動する</translation>
     </message>
     <message>
         <source>Show hidden files</source>
-        <translation type="unfinished">隠しファイルの表示</translation>
+        <translation>隠しファイルの表示</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">名前</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">サイズ</translation>
+        <translation>サイズ</translation>
     </message>
     <message>
         <source>Last modified</source>
-        <translation type="unfinished">更新日時</translation>
+        <translation>更新日時</translation>
     </message>
     <message>
         <source>Index for %1</source>
-        <translation type="unfinished">%1 のインデックス</translation>
+        <translation>%1 のインデックス</translation>
     </message>
     <message>
         <source>Folder is empty.</source>
-        <translation type="unfinished">このフォルダーは空です。</translation>
+        <translation>このフォルダーは空です。</translation>
     </message>
 </context>
 <context>
     <name>HTML5PermissionsDialog</name>
     <message>
         <source>HTML5 Permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML5 パーミッション</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished">通知</translation>
+        <translation>通知</translation>
     </message>
     <message>
         <source>Site</source>
-        <translation type="unfinished">サイト</translation>
+        <translation>サイト</translation>
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>挙動</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">削除</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Geolocation</source>
-        <translation type="unfinished"></translation>
+        <translation>ジオロケーション</translation>
     </message>
     <message>
         <source>Allow</source>
-        <translation type="unfinished"></translation>
+        <translation>許可</translation>
     </message>
     <message>
         <source>Deny</source>
-        <translation type="unfinished"></translation>
+        <translation>拒否</translation>
     </message>
 </context>
 <context>
     <name>HTML5PermissionsNotification</name>
     <message>
         <source>Remember</source>
-        <translation type="unfinished">記憶させる</translation>
+        <translation>記憶させる</translation>
     </message>
     <message>
         <source>Allow</source>
-        <translation type="unfinished"></translation>
+        <translation>許可</translation>
     </message>
     <message>
         <source>Deny</source>
-        <translation type="unfinished"></translation>
+        <translation>拒否</translation>
     </message>
     <message>
         <source>this site</source>
-        <translation type="unfinished"></translation>
+        <translation>このサイト</translation>
     </message>
     <message>
         <source>Allow %1 to show desktop notifications?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1のデスクトップ通知を許可しますか？</translation>
     </message>
     <message>
         <source>Allow %1 to locate your position?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1が位置を特定することを許可しますか？</translation>
     </message>
 </context>
 <context>
@@ -1705,39 +1705,39 @@
     <name>JsOptions</name>
     <message>
         <source>JavaScript Options</source>
-        <translation type="unfinished"></translation>
+        <translation>JavaScriptオプション</translation>
     </message>
     <message>
         <source>Allow JavaScript to:</source>
-        <translation type="unfinished"></translation>
+        <translation>以下をJavaScriptに許可する:</translation>
     </message>
     <message>
         <source>Close windows</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィンドウを閉じる</translation>
     </message>
     <message>
         <source>Open popup windows</source>
-        <translation type="unfinished"></translation>
+        <translation>ポップアップウィンドウを開く</translation>
     </message>
     <message>
         <source>Change window size</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィンドウサイズの変更</translation>
     </message>
     <message>
         <source>Hide menu bar</source>
-        <translation type="unfinished"></translation>
+        <translation>メニューバーを隠す</translation>
     </message>
     <message>
         <source>Hide status bar</source>
-        <translation type="unfinished"></translation>
+        <translation>ステータスバーを隠す</translation>
     </message>
     <message>
         <source>Hide tool bar</source>
-        <translation type="unfinished"></translation>
+        <translation>ツールバーを隠す</translation>
     </message>
     <message>
         <source>Access clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>クリップボードへのアクセスを許可</translation>
     </message>
 </context>
 <context>
@@ -1899,15 +1899,15 @@
     </message>
     <message>
         <source>FTP authorization required</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP 認証が必要です</translation>
     </message>
     <message>
         <source>Login anonymously</source>
-        <translation type="unfinished"></translation>
+        <translation>匿名ログイン</translation>
     </message>
     <message>
         <source>A username and password are being requested by %1:%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>ユーザー名とパスワードが%1から要求されています:%2。</translation>
     </message>
 </context>
 <context>
@@ -1990,7 +1990,7 @@
     <name>PopupWebView</name>
     <message>
         <source>Inspect Element</source>
-        <translation type="unfinished">要素の調査</translation>
+        <translation>要素の調査</translation>
     </message>
 </context>
 <context>
@@ -2001,87 +2001,87 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">ファイル</translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <source>&amp;Save Page As...</source>
-        <translation type="unfinished">名前を付けてページを保存(&amp;S)...</translation>
+        <translation>名前を付けてページを保存(&amp;S)...</translation>
     </message>
     <message>
         <source>Save Page Screen</source>
-        <translation type="unfinished">ページのスクリーンショットを保存</translation>
+        <translation>ページのスクリーンショットを保存</translation>
     </message>
     <message>
         <source>Send Link...</source>
-        <translation type="unfinished">ページのURLをメールで送信する...</translation>
+        <translation>ページのURLをメールで送信する...</translation>
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation type="unfinished">ページの印刷(&amp;P)...</translation>
+        <translation>ページの印刷(&amp;P)...</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">閉じる</translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">編集</translation>
+        <translation>編集</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation type="unfinished">元に戻す(&amp;Ｕ)</translation>
+        <translation>元に戻す(&amp;Ｕ)</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation type="unfinished">やり直す(&amp;R)</translation>
+        <translation>やり直す(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Cut</source>
-        <translation type="unfinished">切り取り(&amp;C)</translation>
+        <translation>切り取り(&amp;C)</translation>
     </message>
     <message>
         <source>C&amp;opy</source>
-        <translation type="unfinished">コピー(&amp;O)</translation>
+        <translation>コピー(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished">貼り付け(&amp;P)</translation>
+        <translation>貼り付け(&amp;P)</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべて選択</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished"></translation>
+        <translation>ページ内検索</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished">表示</translation>
+        <translation>表示</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">中止(&amp;S)</translation>
+        <translation>中止(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Reload</source>
-        <translation type="unfinished">更新(&amp;R)</translation>
+        <translation>更新(&amp;R)</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished">ページの拡大(&amp;I)</translation>
+        <translation>ページの拡大(&amp;I)</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished">ページの縮小(&amp;O)</translation>
+        <translation>ページの縮小(&amp;O)</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished">リセット</translation>
+        <translation>リセット</translation>
     </message>
     <message>
         <source>&amp;Page Source</source>
-        <translation type="unfinished">ページのソースを表示(&amp;P)</translation>
+        <translation>ページのソースを表示(&amp;P)</translation>
     </message>
 </context>
 <context>
@@ -2907,47 +2907,47 @@
     </message>
     <message>
         <source>Open new empty tabs after active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しい空白のタブをアクティブなタブの後ろに開く</translation>
     </message>
     <message>
         <source>Enable caret browsing</source>
-        <translation type="unfinished"></translation>
+        <translation>キャレットブラウジングを有効にする</translation>
     </message>
     <message>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Manage JavaScript privacy options</source>
-        <translation type="unfinished"></translation>
+        <translation>JavaScriptプライバシーオプションの管理</translation>
     </message>
     <message>
         <source>JavaScript options</source>
-        <translation type="unfinished"></translation>
+        <translation>JavaScriptオプション</translation>
     </message>
     <message>
         <source>Manage Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookieの管理</translation>
     </message>
     <message>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;HTML5　パーミッション&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Manage HTML5 permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML5 パーミッション管理</translation>
     </message>
     <message>
         <source>HTML5 Permisions</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML5 パーミッション</translation>
     </message>
     <message>
         <source>Custom color:</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタムカラー:</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished">リセット</translation>
+        <translation>リセット</translation>
     </message>
 </context>
 <context>
@@ -3352,7 +3352,7 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Enable &amp;Caret Browsing</source>
-        <translation type="unfinished"></translation>
+        <translation>キャレットブラウジングを有効にする(&amp;C)</translation>
     </message>
 </context>
 <context>
