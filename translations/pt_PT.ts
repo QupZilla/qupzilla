@@ -444,17 +444,17 @@
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="39"/>
         <source>on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>em %1</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="43"/>
         <source>for &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>para &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="46"/>
         <source>Do you want QupZilla to remember the password %1 %2?</source>
-        <translation type="unfinished"></translation>
+        <translation>Pretende que o QupZilla memorize a senha %1 %2?</translation>
     </message>
 </context>
 <context>
@@ -676,12 +676,12 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="95"/>
         <source>Expand All</source>
-        <translation type="unfinished"></translation>
+        <translation>Expandir</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="102"/>
         <source>Collapse All</source>
-        <translation type="unfinished"></translation>
+        <translation>Recolher</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="59"/>
@@ -706,7 +706,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="116"/>
         <source>Choose parent folder for new folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>Escolha a pasta para colocar a nova pasta: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="121"/>
@@ -957,12 +957,12 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstree.cpp" line="68"/>
         <source>Bookmarks</source>
-        <translation type="unfinished">Marcadores</translation>
+        <translation>Marcadores</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstree.cpp" line="115"/>
         <source>New Folder...</source>
-        <translation type="unfinished"></translation>
+        <translation>Nova pasta...</translation>
     </message>
 </context>
 <context>
@@ -1346,37 +1346,37 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="364"/>
         <source>Settings</source>
-        <translation type="unfinished">Definições</translation>
+        <translation>Definições</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="370"/>
         <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Definições de cookies&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="377"/>
         <source>Allow storing of cookies</source>
-        <translation type="unfinished">Permitir armazenamento de cookies</translation>
+        <translation>Permitir armazenamento de cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="416"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished">Eliminar cookies ao fechar</translation>
+        <translation>Eliminar cookies ao fechar</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
         <source>Match domain exactly</source>
-        <translation type="unfinished">Coincidente com domínio</translation>
+        <translation>Coincidente com o domínio</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished">Filtrar cookies de rastreio</translation>
+        <translation>Filtrar cookies de rastreio</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished">&lt;b&gt;Aviso:&lt;/b&gt; as opções Coincidente com domínio e Filtrar cookies de rastreio podem recusar alguns cookies nos sítios visitados. Se ocorrem problemas, tente desativar estas opções!</translation>
+        <translation>&lt;b&gt;Aviso:&lt;/b&gt; as opções Coincidente com o domínio e Filtrar cookies de rastreio podem recusar alguns cookies nos sítios visitados. Se ocorrem problemas, tente desativar estas opções!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="156"/>
@@ -1777,7 +1777,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="356"/>
         <source>Canceled!</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelado!</translation>
     </message>
 </context>
 <context>
@@ -1785,42 +1785,42 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="105"/>
         <source>Unknown command</source>
-        <translation type="unfinished"></translation>
+        <translation>Comando desconhecido</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="246"/>
         <source>Up to higher level directory</source>
-        <translation type="unfinished">Subir um diretório</translation>
+        <translation>Ir para o diretório superior</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="247"/>
         <source>Show hidden files</source>
-        <translation type="unfinished">Mostrar ficheiros ocultos</translation>
+        <translation>Mostrar ficheiros ocultos</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="248"/>
         <source>Name</source>
-        <translation type="unfinished">Nome</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="249"/>
         <source>Size</source>
-        <translation type="unfinished">Tamanho</translation>
+        <translation>Tamanho</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="250"/>
         <source>Last modified</source>
-        <translation type="unfinished">Última modificação</translation>
+        <translation>Última modificação</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="255"/>
         <source>Index for %1</source>
-        <translation type="unfinished">Índice de %1</translation>
+        <translation>Índice de %1</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="308"/>
         <source>Folder is empty.</source>
-        <translation type="unfinished">A pasta está vazia.</translation>
+        <translation>A pasta está vazia.</translation>
     </message>
 </context>
 <context>
@@ -1828,47 +1828,47 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="14"/>
         <source>HTML5 Permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Pernissões HTML5</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="24"/>
         <source>Notifications</source>
-        <translation type="unfinished">Notificações</translation>
+        <translation>Notificações</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="40"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="94"/>
         <source>Site</source>
-        <translation type="unfinished">Sítio</translation>
+        <translation>Sítio</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="45"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="99"/>
         <source>Behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Comportamento</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="68"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="122"/>
         <source>Remove</source>
-        <translation type="unfinished">Remover</translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="78"/>
         <source>Geolocation</source>
-        <translation type="unfinished"></translation>
+        <translation>Geolocalização</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="35"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="53"/>
         <source>Allow</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="44"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="62"/>
         <source>Deny</source>
-        <translation type="unfinished"></translation>
+        <translation>Recusar</translation>
     </message>
 </context>
 <context>
@@ -1876,32 +1876,32 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="62"/>
         <source>Remember</source>
-        <translation type="unfinished">Memorizar</translation>
+        <translation>Memorizar</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="69"/>
         <source>Allow</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="76"/>
         <source>Deny</source>
-        <translation type="unfinished"></translation>
+        <translation>Recusar</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="39"/>
         <source>this site</source>
-        <translation type="unfinished"></translation>
+        <translation>este sítio</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="43"/>
         <source>Allow %1 to show desktop notifications?</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir que %1 mostre as notificações do ambiente de trabalho?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="47"/>
         <source>Allow %1 to locate your position?</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir que %1 aceda à sua localização?</translation>
     </message>
 </context>
 <context>
@@ -2124,47 +2124,47 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="14"/>
         <source>JavaScript Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opções JavaScript</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="20"/>
         <source>Allow JavaScript to:</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir aos JavaScripts:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="42"/>
         <source>Close windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar janelas</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="49"/>
         <source>Open popup windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir janelas emergentes</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="56"/>
         <source>Change window size</source>
-        <translation type="unfinished"></translation>
+        <translation>Alterar o tamanho da janela</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="63"/>
         <source>Hide menu bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a barra de menu</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="70"/>
         <source>Hide status bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a barra de estado</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="77"/>
         <source>Hide tool bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a barra de ferramentas</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="84"/>
         <source>Access clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Aceder à área de transferência</translation>
     </message>
 </context>
 <context>
@@ -2355,17 +2355,17 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="333"/>
         <source>FTP authorization required</source>
-        <translation type="unfinished"></translation>
+        <translation>Requer autorização FTP</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="346"/>
         <source>Login anonymously</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar sessão em modo anónimo</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="363"/>
         <source>A username and password are being requested by %1:%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Estão a ser solicitados o nome de utilizador e a senha para %1:%2.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="400"/>
@@ -2472,7 +2472,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/popupwindow/popupwebview.cpp" line="97"/>
         <source>Inspect Element</source>
-        <translation type="unfinished">Inspecionar elemento</translation>
+        <translation>Inspecionar elemento</translation>
     </message>
 </context>
 <context>
@@ -2480,107 +2480,107 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="61"/>
         <source>File</source>
-        <translation type="unfinished">Ficheiro</translation>
+        <translation>Ficheiro</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="62"/>
         <source>&amp;Save Page As...</source>
-        <translation type="unfinished">Gra&amp;var página como...</translation>
+        <translation>Gra&amp;var página como...</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="63"/>
         <source>Save Page Screen</source>
-        <translation type="unfinished">Gravar ecrã da página</translation>
+        <translation>Gravar ecrã da página</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="64"/>
         <source>Send Link...</source>
-        <translation type="unfinished">Enviar ligação...</translation>
+        <translation>Enviar ligação...</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="65"/>
         <source>&amp;Print...</source>
-        <translation type="unfinished">Im&amp;primir...</translation>
+        <translation>Im&amp;primir...</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="67"/>
         <source>Close</source>
-        <translation type="unfinished">Fechar</translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="70"/>
         <source>Edit</source>
-        <translation type="unfinished">Editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="71"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished">An&amp;ular</translation>
+        <translation>An&amp;ular</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="72"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished">&amp;Refazer</translation>
+        <translation>&amp;Refazer</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="74"/>
         <source>&amp;Cut</source>
-        <translation type="unfinished">&amp;Cortar</translation>
+        <translation>&amp;Cortar</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="75"/>
         <source>C&amp;opy</source>
-        <translation type="unfinished">C&amp;opiar</translation>
+        <translation>C&amp;opiar</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="76"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished">Co&amp;lar</translation>
+        <translation>Co&amp;lar</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="78"/>
         <source>Select All</source>
-        <translation type="unfinished">Selecionar tudo</translation>
+        <translation>Selecionar tudo</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="79"/>
         <source>Find</source>
-        <translation type="unfinished">Localizar</translation>
+        <translation>Localizar</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="83"/>
         <source>View</source>
-        <translation type="unfinished">Ver</translation>
+        <translation>Ver</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="84"/>
         <source>&amp;Stop</source>
-        <translation type="unfinished">&amp;Parar</translation>
+        <translation>&amp;Parar</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="86"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished">&amp;Recarregar</translation>
+        <translation>&amp;Recarregar</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="89"/>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished">Ampl&amp;iar</translation>
+        <translation>Ampl&amp;iar</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="90"/>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished">Red&amp;uzir</translation>
+        <translation>Red&amp;uzir</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="91"/>
         <source>Reset</source>
-        <translation type="unfinished">Restaurar</translation>
+        <translation>Restaurar</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="93"/>
         <source>&amp;Page Source</source>
-        <translation type="unfinished">Código fonte da &amp;página</translation>
+        <translation>Código fonte da &amp;página</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="276"/>
@@ -3035,12 +3035,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="950"/>
         <source>Custom color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor personalizada:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="976"/>
         <source>Reset</source>
-        <translation type="unfinished">Restaurar</translation>
+        <translation>Restaurar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1035"/>
@@ -3055,7 +3055,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1091"/>
         <source>Enable caret browsing</source>
-        <translation type="unfinished"></translation>
+        <translation>Ativar navegação caret</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1198"/>
@@ -3271,7 +3271,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="733"/>
         <source>Open new empty tabs after active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir os separadores vazios após o separador ativo</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1735"/>
@@ -3453,37 +3453,37 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2151"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2161"/>
         <source>Manage JavaScript privacy options</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerir opções dos JavaScript</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2174"/>
         <source>JavaScript options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opções JavaScript</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2210"/>
         <source>Manage Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerir cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Permissões HTML5&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2237"/>
         <source>Manage HTML5 permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerir permissões HTML5</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2250"/>
         <source>HTML5 Permisions</source>
-        <translation type="unfinished"></translation>
+        <translation>Permissões HTML5</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2414"/>
@@ -3898,7 +3898,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="404"/>
         <source>Enable &amp;Caret Browsing</source>
-        <translation type="unfinished"></translation>
+        <translation>Ativar navegação &amp;caret</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="414"/>
