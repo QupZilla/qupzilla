@@ -126,7 +126,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="14"/>
         <source>AdBlock Configuration</source>
-        <translation>Подешавање Адблока</translation>
+        <translation>Подешавања Адблока</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="20"/>
@@ -437,10 +437,6 @@
 </context>
 <context>
     <name>AutoFillNotification</name>
-    <message>
-        <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation type="obsolete">Желите ли да Капзила упамти лозинку за &lt;b&gt;%1&lt;/b&gt; на %2?</translation>
-    </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="39"/>
         <source>on %1</source>
@@ -968,10 +964,6 @@
 <context>
     <name>BookmarksWidget</name>
     <message>
-        <source>Organize Bookmarks</source>
-        <translation type="obsolete">Организуј обиљеживаче</translation>
-    </message>
-    <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="93"/>
         <source>Name:</source>
         <translation>Име:</translation>
@@ -991,10 +983,6 @@
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="130"/>
         <source>Save</source>
         <translation>Сачувај</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="obsolete">Затвори</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="62"/>
@@ -2581,7 +2569,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="20"/>
         <source>Preferences</source>
-        <translation>Подешавање</translation>
+        <translation>Подешавања</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="43"/>
@@ -2764,7 +2752,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1027"/>
         <source>Web Configuration</source>
-        <translation>Веб подешавање</translation>
+        <translation>Веб поставке</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1049"/>
@@ -2810,17 +2798,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1340"/>
         <source>Allow local storage of HTML5 web content</source>
-        <translatorcomment>Дозволи локално смештање ХТМЛ5 веб садржаја</translatorcomment>
         <translation>Дозволи локално смјештање ХТМЛ5 веб садржаја</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1347"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Обриши локални ХТМЛ5 веб садржај по затварању</translation>
-    </message>
-    <message>
-        <source>JavaScript can access clipboard</source>
-        <translation type="obsolete">Јаваскрипта може приступити клипборду</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2091"/>
@@ -2896,10 +2879,6 @@
         <translation>Понашање језичака</translation>
     </message>
     <message>
-        <source>Show close button on tabs</source>
-        <translation type="obsolete">Прикажи дугме за затварање на језичцима</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="740"/>
         <source>Automatically switch to newly opened tab</source>
         <translation>Аутоматски фокусирај новоотворени језичак</translation>
@@ -2965,29 +2944,9 @@
         <translation>Врх</translation>
     </message>
     <message>
-        <source>If unchecked the bar will adapt to the background color.</source>
-        <translation type="obsolete">Ако није попуњено, трака ће се прилагодити боји позадине.</translation>
-    </message>
-    <message>
-        <source>custom color:</source>
-        <translation type="obsolete">Посебна боја:</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="966"/>
         <source>Select color</source>
         <translation>Изабери боју</translation>
-    </message>
-    <message>
-        <source>Many styles use Highlight color for the progressbar.</source>
-        <translation type="obsolete">Многи стилови користе боју истицања за траку напретка.</translation>
-    </message>
-    <message>
-        <source>set to &quot;Highlight&quot; color</source>
-        <translation type="obsolete">Постави на боју „истицања“</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ако је омогућено подразумијевани мотор претраге ће бити коришћен за претрагу без пречице претраге у траци адресе умјесто текућег мотора претраге у траци веб претраге.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="876"/>
@@ -2997,12 +2956,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="950"/>
         <source>Custom color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Посебна боја:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="976"/>
         <source>Reset</source>
-        <translation type="unfinished">Стварна величина</translation>
+        <translation>Подразумијевана</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1035"/>
@@ -3067,7 +3026,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1412"/>
         <source>Proxy Configuration</source>
-        <translation>Подешавање проксија</translation>
+        <translation>Поставке проксија</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1421"/>
@@ -3195,7 +3154,6 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1818"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
-        <translatorcomment>&lt;b&gt;Пречице&lt;/b&gt;</translatorcomment>
         <translation>&lt;b&gt;Пречице&lt;/b&gt;</translation>
     </message>
     <message>
@@ -3359,26 +3317,6 @@
         <translation>Менаџер идентификације прегледача</translation>
     </message>
     <message>
-        <source>Filter tracking cookies</source>
-        <translation type="obsolete">Пречишћај колачиће пратиоце</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="obsolete">&lt;b&gt;Упозорење:&lt;/b&gt; Тачно поклапање домена и пречишћање колачића пратиоца може довести до одбијања неких колачића са сајтова. Ако имате проблема са колачићима, искључите ове опције!</translation>
-    </message>
-    <message>
-        <source>Allow storing of cookies</source>
-        <translation type="obsolete">Дозволи успремање колачића</translation>
-    </message>
-    <message>
-        <source>Delete cookies on close</source>
-        <translation type="obsolete">Обриши колачиће по затварању</translation>
-    </message>
-    <message>
-        <source>Match domain exactly</source>
-        <translation type="obsolete">Поклапај домен тачно</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2187"/>
         <source>Cookies Manager</source>
         <translation>Менаџер колачића</translation>
@@ -3398,10 +3336,6 @@
         <location filename="../src/lib/preferences/preferences.ui" line="2077"/>
         <source>Send Referer header to servers</source>
         <translation>Шаљи заглавље пратиоца серверима</translation>
-    </message>
-    <message>
-        <source>Block popup windows</source>
-        <translation type="obsolete">Блокирај искачуће прозоре</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2134"/>
@@ -3808,7 +3742,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="308"/>
         <source>Pr&amp;eferences</source>
-        <translation>По&amp;дешавање</translation>
+        <translation>По&amp;дешавања</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="120"/>
@@ -4348,7 +4282,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="288"/>
         <source>Speed Dial settings</source>
-        <translation>Подешавање брзог бирања</translation>
+        <translation>Поставке брзог бирања</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="289"/>
