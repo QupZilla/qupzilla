@@ -1716,10 +1716,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If enabled, pages will be allowed to automatically open popup windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Open popup windows</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2830,11 +2826,11 @@
     </message>
     <message>
         <source>If unchecked the bar will adapt to the background color.</source>
-        <translation>チェックを外すとバーの色は背景色をもとに設定されます。</translation>
+        <translation type="obsolete">チェックを外すとバーの色は背景色をもとに設定されます。</translation>
     </message>
     <message>
         <source>custom color:</source>
-        <translation>カスタムカラー:</translation>
+        <translation type="obsolete">カスタムカラー:</translation>
     </message>
     <message>
         <source>Select color</source>
@@ -2842,15 +2838,15 @@
     </message>
     <message>
         <source>Many styles use Highlight color for the progressbar.</source>
-        <translation>多くのスタイルがプログレスバーにハイライトカラーを使用します。</translation>
+        <translation type="obsolete">多くのスタイルがプログレスバーにハイライトカラーを使用します。</translation>
     </message>
     <message>
         <source>set to &quot;Highlight&quot; color</source>
-        <translation>ハイライトカラーに設定する</translation>
+        <translation type="obsolete">ハイライトカラーに設定する</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;デフォルトの検索エンジンを有効にした場合、ショートカットなしでのロケーションバーからの検索は検索バーのエンジンではなく、デフォルト検索エンジンによって行われます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;デフォルトの検索エンジンを有効にした場合、ショートカットなしでのロケーションバーからの検索は検索バーのエンジンではなく、デフォルト検索エンジンによって行われます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Search with Default Engine</source>
@@ -2944,6 +2940,14 @@
     <message>
         <source>HTML5 Permisions</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">リセット</translation>
     </message>
 </context>
 <context>

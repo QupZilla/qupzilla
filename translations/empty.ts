@@ -1664,10 +1664,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If enabled, pages will be allowed to automatically open popup windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Open popup windows</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2701,27 +2697,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If unchecked the bar will adapt to the background color.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>custom color:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Many styles use Highlight color for the progressbar.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>set to &quot;Highlight&quot; color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2814,6 +2790,14 @@
     </message>
     <message>
         <source>HTML5 Permisions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

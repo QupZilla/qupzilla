@@ -232,7 +232,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     QColor pbColor = settings.value("CustomProgressColor", p_QupZilla->palette().color(QPalette::Highlight)).value<QColor>();
     setProgressBarColorIcon(pbColor);
     connect(ui->customColorToolButton, SIGNAL(clicked(bool)), SLOT(selectCustomProgressBarColor()));
-    connect(ui->setProgressBarColorToHighlightButton, SIGNAL(clicked()), SLOT(setProgressBarColorIcon()));
+    connect(ui->resetProgressBarcolor, SIGNAL(clicked()), SLOT(setProgressBarColorIcon()));
     settings.endGroup();
 
     settings.beginGroup("SearchEngines");
