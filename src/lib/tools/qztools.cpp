@@ -433,8 +433,14 @@ QString QzTools::buildSystem()
 QIcon QzTools::iconFromFileName(const QString &fileName)
 {
     QFileInfo tempInfo(fileName);
+    if (m_iconCache.contains(tempInfo.suffix())) {
+        return m_iconCache.value(tempInfo.suffix());
+    }
+
     QTemporaryFile tempFile(mApp->tempPath() + "/XXXXXX." + tempInfo.suffix());
     tempFile.open();
     tempInfo.setFile(tempFile.fileName());
-    return QFileIconProvider().icon(tempInfo);
+    QIcon icon(QFileIconProvider().icon(tempInfo));
+    m_iconCache.insert(tempInfo.suffix(), icon);
+    return icon;
 }
