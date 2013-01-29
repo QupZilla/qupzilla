@@ -444,17 +444,17 @@
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="39"/>
         <source>on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>на %1</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="43"/>
         <source>for &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>за &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="46"/>
         <source>Do you want QupZilla to remember the password %1 %2?</source>
-        <translation type="unfinished"></translation>
+        <translation>Желите ли да Капзила упамти лозинку %1 %2?</translation>
     </message>
 </context>
 <context>
@@ -676,12 +676,12 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="95"/>
         <source>Expand All</source>
-        <translation type="unfinished"></translation>
+        <translation>Рашири све</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="102"/>
         <source>Collapse All</source>
-        <translation type="unfinished"></translation>
+        <translation>Сажми све</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="59"/>
@@ -706,7 +706,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="116"/>
         <source>Choose parent folder for new folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>Родитељска фасцикла:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="121"/>
@@ -791,7 +791,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="675"/>
         <source>Add New Bookmark</source>
-        <translation>Додај нови обележивач</translation>
+        <translation>Додавање обележивача</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="734"/>
@@ -957,12 +957,12 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstree.cpp" line="68"/>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Обележивачи</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstree.cpp" line="115"/>
         <source>New Folder...</source>
-        <translation type="unfinished"></translation>
+        <translation>Нова фасцикла...</translation>
     </message>
 </context>
 <context>
@@ -1338,37 +1338,37 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="364"/>
         <source>Settings</source>
-        <translation type="unfinished">Подешавања</translation>
+        <translation>Подешавања</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="370"/>
         <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Поставке колачића&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="377"/>
         <source>Allow storing of cookies</source>
-        <translation type="unfinished">Дозволи успремање колачића</translation>
+        <translation>Дозволи успремање колачића</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="416"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished">Обриши колачиће по затварању</translation>
+        <translation>Обриши колачиће по затварању</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
         <source>Match domain exactly</source>
-        <translation type="unfinished">Поклапај домен тачно</translation>
+        <translation>Поклапај домен тачно</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished">Пречишћај колачиће пратиоце</translation>
+        <translation>Пречишћај колачиће пратиоце</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished">&lt;b&gt;Упозорење:&lt;/b&gt; Тачно поклапање домена и пречишћање колачића пратиоца може довести до одбијања неких колачића са сајтова. Ако имате проблема са колачићима, искључите ове опције!</translation>
+        <translation>&lt;b&gt;Упозорење:&lt;/b&gt; Тачно поклапање домена и пречишћање колачића пратиоца може довести до одбијања неких колачића са сајтова. Ако имате проблема са колачићима, искључите ове опције!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="156"/>
@@ -1765,7 +1765,7 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="356"/>
         <source>Canceled!</source>
-        <translation type="unfinished"></translation>
+        <translation>Отказано!</translation>
     </message>
 </context>
 <context>
@@ -1773,42 +1773,42 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="105"/>
         <source>Unknown command</source>
-        <translation type="unfinished"></translation>
+        <translation>Непозната наредба</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="246"/>
         <source>Up to higher level directory</source>
-        <translation type="unfinished">У родитељску фасциклу</translation>
+        <translation>У родитељску фасциклу</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="247"/>
         <source>Show hidden files</source>
-        <translation type="unfinished">Прикажи скривене фајлове</translation>
+        <translation>Прикажи скривене фајлове</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="248"/>
         <source>Name</source>
-        <translation type="unfinished">Име</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="249"/>
         <source>Size</source>
-        <translation type="unfinished">Величина</translation>
+        <translation>Величина</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="250"/>
         <source>Last modified</source>
-        <translation type="unfinished">Измењено</translation>
+        <translation>Измењено</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="255"/>
         <source>Index for %1</source>
-        <translation type="unfinished">Индекс од %1</translation>
+        <translation>Индекс од %1</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="308"/>
         <source>Folder is empty.</source>
-        <translation type="unfinished">Фасцикла је празна.</translation>
+        <translation>Фасцикла је празна.</translation>
     </message>
 </context>
 <context>
@@ -1816,47 +1816,47 @@
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="14"/>
         <source>HTML5 Permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>ХТМЛ5 дозволе</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="24"/>
         <source>Notifications</source>
-        <translation type="unfinished">Обавештења</translation>
+        <translation>Обавештења</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="40"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="94"/>
         <source>Site</source>
-        <translation type="unfinished">сајт</translation>
+        <translation>сајт</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="45"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="99"/>
         <source>Behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>радња</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="68"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="122"/>
         <source>Remove</source>
-        <translation type="unfinished">Уклони</translation>
+        <translation>Уклони</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="78"/>
         <source>Geolocation</source>
-        <translation type="unfinished"></translation>
+        <translation>Геолокација</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="35"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="53"/>
         <source>Allow</source>
-        <translation type="unfinished"></translation>
+        <translation>дозволи</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="44"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="62"/>
         <source>Deny</source>
-        <translation type="unfinished"></translation>
+        <translation>одбиј</translation>
     </message>
 </context>
 <context>
@@ -1864,32 +1864,32 @@
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="62"/>
         <source>Remember</source>
-        <translation type="unfinished">Упамти</translation>
+        <translation>Упамти</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="69"/>
         <source>Allow</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволи</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="76"/>
         <source>Deny</source>
-        <translation type="unfinished"></translation>
+        <translation>Одбиј</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="39"/>
         <source>this site</source>
-        <translation type="unfinished"></translation>
+        <translation>овај сајт</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="43"/>
         <source>Allow %1 to show desktop notifications?</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволи да %1 приказује обавештења на радној површи?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="47"/>
         <source>Allow %1 to locate your position?</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволи да %1 пронађе ваш положај?</translation>
     </message>
 </context>
 <context>
@@ -2112,52 +2112,52 @@
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="14"/>
         <source>JavaScript Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Опције Јаваскрипти</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="20"/>
         <source>Allow JavaScript to:</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволи јаваскрипти да:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="42"/>
         <source>Close windows</source>
-        <translation type="unfinished"></translation>
+        <translation>затвори прозор</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="49"/>
         <source>If enabled, pages will be allowed to automatically open popup windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Ако је омогућено страница ће аутоматски отварати искачиће прозоре</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="52"/>
         <source>Open popup windows</source>
-        <translation type="unfinished"></translation>
+        <translation>отвори искачући прозор</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="59"/>
         <source>Change window size</source>
-        <translation type="unfinished"></translation>
+        <translation>промени величину прозора</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="66"/>
         <source>Hide menu bar</source>
-        <translation type="unfinished"></translation>
+        <translation>сакрије траку менија</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="73"/>
         <source>Hide status bar</source>
-        <translation type="unfinished"></translation>
+        <translation>сакрије траку стања</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="80"/>
         <source>Hide tool bar</source>
-        <translation type="unfinished"></translation>
+        <translation>сакрије траку алатки</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="87"/>
         <source>Access clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>приступи клипборду</translation>
     </message>
 </context>
 <context>
@@ -2348,17 +2348,17 @@
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="333"/>
         <source>FTP authorization required</source>
-        <translation type="unfinished"></translation>
+        <translation>Потребно овлашћење за ФТП</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="346"/>
         <source>Login anonymously</source>
-        <translation type="unfinished"></translation>
+        <translation>Анонимна пријава</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="363"/>
         <source>A username and password are being requested by %1:%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1:%2 захтева корисничко име и шифру.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="400"/>
@@ -2465,7 +2465,7 @@
     <message>
         <location filename="../src/lib/popupwindow/popupwebview.cpp" line="97"/>
         <source>Inspect Element</source>
-        <translation type="unfinished">Провери елемент</translation>
+        <translation>Провери елемент</translation>
     </message>
 </context>
 <context>
@@ -2473,107 +2473,107 @@
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="61"/>
         <source>File</source>
-        <translation type="unfinished">Фајл</translation>
+        <translation>Фајл</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="62"/>
         <source>&amp;Save Page As...</source>
-        <translation type="unfinished">&amp;Сачувај страницу као...</translation>
+        <translation>&amp;Сачувај страницу као...</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="63"/>
         <source>Save Page Screen</source>
-        <translation type="unfinished">Сачувај снимак странице</translation>
+        <translation>Сачувај снимак странице</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="64"/>
         <source>Send Link...</source>
-        <translation type="unfinished">Пошаљи везу...</translation>
+        <translation>Пошаљи везу...</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="65"/>
         <source>&amp;Print...</source>
-        <translation type="unfinished">&amp;Штампај...</translation>
+        <translation>&amp;Штампај...</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="67"/>
         <source>Close</source>
-        <translation type="unfinished">Затвори</translation>
+        <translation>Затвори</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="70"/>
         <source>Edit</source>
-        <translation type="unfinished">Уреди</translation>
+        <translation>Уреди</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="71"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished">&amp;Опозови</translation>
+        <translation>&amp;Опозови</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="72"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished">&amp;Понови</translation>
+        <translation>&amp;Понови</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="74"/>
         <source>&amp;Cut</source>
-        <translation type="unfinished">&amp;Исеци</translation>
+        <translation>&amp;Исеци</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="75"/>
         <source>C&amp;opy</source>
-        <translation type="unfinished">&amp;Копирај</translation>
+        <translation>&amp;Копирај</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="76"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished">&amp;Налепи</translation>
+        <translation>&amp;Налепи</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="78"/>
         <source>Select All</source>
-        <translation type="unfinished">Изабери све</translation>
+        <translation>Изабери све</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="79"/>
         <source>Find</source>
-        <translation type="unfinished">Нађи</translation>
+        <translation>Нађи</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="83"/>
         <source>View</source>
-        <translation type="unfinished">Приказ</translation>
+        <translation>Приказ</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="84"/>
         <source>&amp;Stop</source>
-        <translation type="unfinished">&amp;Заустави</translation>
+        <translation>&amp;Заустави</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="86"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished">&amp;Учитај поново</translation>
+        <translation>&amp;Учитај поново</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="89"/>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished">У&amp;величај</translation>
+        <translation>У&amp;величај</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="90"/>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished">У&amp;мањи</translation>
+        <translation>У&amp;мањи</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="91"/>
         <source>Reset</source>
-        <translation type="unfinished">Стварна величина</translation>
+        <translation>Стварна величина</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="93"/>
         <source>&amp;Page Source</source>
-        <translation type="unfinished">&amp;Извор странице</translation>
+        <translation>&amp;Извор странице</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="276"/>
@@ -3016,7 +3016,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1056"/>
         <source>Enable caret browsing</source>
-        <translation type="unfinished"></translation>
+        <translation>Прегледање помоћу курсора</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1163"/>
@@ -3252,7 +3252,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="733"/>
         <source>Open new empty tabs after active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Отварај празне језичке после активног</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1885"/>
@@ -3314,37 +3314,37 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2116"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Јаваскрипте&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2126"/>
         <source>Manage JavaScript privacy options</source>
-        <translation type="unfinished"></translation>
+        <translation>Управљај поставкама приватности</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2139"/>
         <source>JavaScript options</source>
-        <translation type="unfinished"></translation>
+        <translation>Поставке јаваскрипти</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2175"/>
         <source>Manage Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Управљај колачићима</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2195"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;ХТМЛ5 дозволе&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2202"/>
         <source>Manage HTML5 permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Управљај ХТМЛ5 одобрењима</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2215"/>
         <source>HTML5 Permisions</source>
-        <translation type="unfinished"></translation>
+        <translation>ХТМЛ5 дозволе</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2469"/>
@@ -3866,7 +3866,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="404"/>
         <source>Enable &amp;Caret Browsing</source>
-        <translation type="unfinished"></translation>
+        <translation>Прегледање ку&amp;рсором</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="414"/>
