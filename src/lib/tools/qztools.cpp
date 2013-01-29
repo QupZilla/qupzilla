@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "qztools.h"
+#include "mainapplication.h"
 
 #include <QTextDocument>
 #include <QDateTime>
@@ -432,7 +433,7 @@ QString QzTools::buildSystem()
 QIcon QzTools::iconFromFileName(const QString &fileName)
 {
     QFileInfo tempInfo(fileName);
-    QTemporaryFile tempFile(QDir::tempPath() + "/XXXXXX." + tempInfo.suffix());
+    QTemporaryFile tempFile(mApp->tempPath() + "/XXXXXX." + tempInfo.suffix());
     tempFile.open();
     tempInfo.setFile(tempFile.fileName());
     return QFileIconProvider().icon(tempInfo);
