@@ -842,7 +842,7 @@ bool MainApplication::checkDefaultWebBrowser()
 #ifdef Q_OS_WIN
     bool showAgain = true;
     if (!associationManager()->isDefaultForAllCapabilities()) {
-        CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, this);
+        CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No);
         dialog.setText(tr("QupZilla is not currently your default browser. Would you like to make it your default browser?"));
         dialog.setCheckBoxText(tr("Always perform this check when starting QupZilla."));
         dialog.setWindowTitle(tr("Default Browser"));

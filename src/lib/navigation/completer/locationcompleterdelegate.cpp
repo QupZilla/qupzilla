@@ -119,7 +119,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
         QRect textRect(linkRect);
         textRect.setX(textRect.x() + m_padding + 16 + m_padding);
-        drawTextLine(textRect, m_view->tr("Switch to tab"), painter, style, opt, colorLinkRole);
+        drawTextLine(textRect, LocationCompleterView::tr("Switch to tab"), painter, style, opt, colorLinkRole);
     }
     else {
         drawHighlightedTextLine(linkRect, link, searchText, painter, style, opt, colorLinkRole);
