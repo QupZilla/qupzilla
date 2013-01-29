@@ -165,7 +165,7 @@ void FtpSchemeReply::setContent()
 
 void FtpSchemeReply::abort()
 {
-    setError(QNetworkReply::OperationCanceledError, tr("Canceled!"));
+    setError(QNetworkReply::OperationCanceledError, "QupZilla:No Error");
     emit error(QNetworkReply::OperationCanceledError);
     emit finished();
     m_ftp->close();
