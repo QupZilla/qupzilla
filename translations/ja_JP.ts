@@ -356,7 +356,19 @@
     <message>
         <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
         <translatorcomment>Firefoｘのパクリ</translatorcomment>
-        <translation>Qupzillaに%2で使用する&lt;b&gt;%1&lt;/b&gt;のパスワードを記憶させますか?</translation>
+        <translation type="obsolete">Qupzillaに%2で使用する&lt;b&gt;%1&lt;/b&gt;のパスワードを記憶させますか?</translation>
+    </message>
+    <message>
+        <source>on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>for &lt;b&gt;%1&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want QupZilla to remember the password %1 %2?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -618,6 +630,18 @@
         <source>Change icon</source>
         <translation>アイコンの変更</translation>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose parent folder for new folder: </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -734,6 +758,17 @@
     <message>
         <source>Open bookmark in new tab</source>
         <translation>ブックマークを新しいタブで開く</translation>
+    </message>
+</context>
+<context>
+    <name>BookmarksTree</name>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished">ブックマーク</translation>
+    </message>
+    <message>
+        <source>New Folder...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1077,6 +1112,34 @@
         <source>Add to blacklist</source>
         <translation>ブラックリストに追加する</translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished">設定</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow storing of cookies</source>
+        <translation type="unfinished">Cookieを許可する</translation>
+    </message>
+    <message>
+        <source>Delete cookies on close</source>
+        <translation type="unfinished">終了時にCookieを削除する</translation>
+    </message>
+    <message>
+        <source>Match domain exactly</source>
+        <translation type="unfinished">ファーストパーティのCookieのみ許可</translation>
+    </message>
+    <message>
+        <source>Filter tracking cookies</source>
+        <translation type="unfinished">トラッキングCookieのフィルタリング</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
+        <translation type="unfinished">&lt;b&gt;警告&lt;/b&gt;  「ファーストパーティのCookieのみ許可」や「トラッキングCookieのフィルタリング」は一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
+    </message>
 </context>
 <context>
     <name>DownloadFileHelper</name>
@@ -1361,6 +1424,110 @@
     </message>
 </context>
 <context>
+    <name>FtpDownloader</name>
+    <message>
+        <source>Canceled!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FtpSchemeReply</name>
+    <message>
+        <source>Unknown command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up to higher level directory</source>
+        <translation type="unfinished">一つ上のディレクトリに移動する</translation>
+    </message>
+    <message>
+        <source>Show hidden files</source>
+        <translation type="unfinished">隠しファイルの表示</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">名前</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished">サイズ</translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished">更新日時</translation>
+    </message>
+    <message>
+        <source>Index for %1</source>
+        <translation type="unfinished">%1 のインデックス</translation>
+    </message>
+    <message>
+        <source>Folder is empty.</source>
+        <translation type="unfinished">このフォルダーは空です。</translation>
+    </message>
+</context>
+<context>
+    <name>HTML5PermissionsDialog</name>
+    <message>
+        <source>HTML5 Permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Notifications</source>
+        <translation type="unfinished">通知</translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished">サイト</translation>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">削除</translation>
+    </message>
+    <message>
+        <source>Geolocation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deny</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HTML5PermissionsNotification</name>
+    <message>
+        <source>Remember</source>
+        <translation type="unfinished">記憶させる</translation>
+    </message>
+    <message>
+        <source>Allow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deny</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>this site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow %1 to show desktop notifications?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow %1 to locate your position?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>History</name>
     <message>
         <source>No Named Page</source>
@@ -1535,6 +1702,49 @@
     </message>
 </context>
 <context>
+    <name>JsOptions</name>
+    <message>
+        <source>JavaScript Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow JavaScript to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If enabled, pages will be allowed to automatically open popup windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open popup windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change window size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide menu bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide status bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide tool bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Access clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LicenseViewer</name>
     <message>
         <source>License Viewer</source>
@@ -1691,6 +1901,18 @@
         <source>A username and password are being requested by proxy %1. </source>
         <translation>%1プロキシがユーザー名とパスワードを要求しています。</translation>
     </message>
+    <message>
+        <source>FTP authorization required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login anonymously</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A username and password are being requested by %1:%2.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PageScreen</name>
@@ -1769,10 +1991,101 @@
     </message>
 </context>
 <context>
+    <name>PopupWebView</name>
+    <message>
+        <source>Inspect Element</source>
+        <translation type="unfinished">要素の調査</translation>
+    </message>
+</context>
+<context>
     <name>PopupWindow</name>
     <message>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">ファイル</translation>
+    </message>
+    <message>
+        <source>&amp;Save Page As...</source>
+        <translation type="unfinished">名前を付けてページを保存(&amp;S)...</translation>
+    </message>
+    <message>
+        <source>Save Page Screen</source>
+        <translation type="unfinished">ページのスクリーンショットを保存</translation>
+    </message>
+    <message>
+        <source>Send Link...</source>
+        <translation type="unfinished">ページのURLをメールで送信する...</translation>
+    </message>
+    <message>
+        <source>&amp;Print...</source>
+        <translation type="unfinished">ページの印刷(&amp;P)...</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">閉じる</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">編集</translation>
+    </message>
+    <message>
+        <source>&amp;Undo</source>
+        <translation type="unfinished">元に戻す(&amp;Ｕ)</translation>
+    </message>
+    <message>
+        <source>&amp;Redo</source>
+        <translation type="unfinished">やり直す(&amp;R)</translation>
+    </message>
+    <message>
+        <source>&amp;Cut</source>
+        <translation type="unfinished">切り取り(&amp;C)</translation>
+    </message>
+    <message>
+        <source>C&amp;opy</source>
+        <translation type="unfinished">コピー(&amp;O)</translation>
+    </message>
+    <message>
+        <source>&amp;Paste</source>
+        <translation type="unfinished">貼り付け(&amp;P)</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">表示</translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished">中止(&amp;S)</translation>
+    </message>
+    <message>
+        <source>&amp;Reload</source>
+        <translation type="unfinished">更新(&amp;R)</translation>
+    </message>
+    <message>
+        <source>Zoom &amp;In</source>
+        <translation type="unfinished">ページの拡大(&amp;I)</translation>
+    </message>
+    <message>
+        <source>Zoom &amp;Out</source>
+        <translation type="unfinished">ページの縮小(&amp;O)</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">リセット</translation>
+    </message>
+    <message>
+        <source>&amp;Page Source</source>
+        <translation type="unfinished">ページのソースを表示(&amp;P)</translation>
     </message>
 </context>
 <context>
@@ -2257,23 +2570,23 @@
     </message>
     <message>
         <source>Filter tracking cookies</source>
-        <translation>トラッキングCookieのフィルタリング</translation>
+        <translation type="obsolete">トラッキングCookieのフィルタリング</translation>
     </message>
     <message>
         <source>Allow storing of cookies</source>
-        <translation>Cookieを許可する</translation>
+        <translation type="obsolete">Cookieを許可する</translation>
     </message>
     <message>
         <source>Delete cookies on close</source>
-        <translation>終了時にCookieを削除する</translation>
+        <translation type="obsolete">終了時にCookieを削除する</translation>
     </message>
     <message>
         <source>Match domain exactly</source>
-        <translation>ファーストパーティのCookieのみ許可</translation>
+        <translation type="obsolete">ファーストパーティのCookieのみ許可</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;警告&lt;/b&gt;  「ファーストパーティのCookieのみ許可」や「トラッキングCookieのフィルタリング」は一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
+        <translation type="obsolete">&lt;b&gt;警告&lt;/b&gt;  「ファーストパーティのCookieのみ許可」や「トラッキングCookieのフィルタリング」は一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
     </message>
     <message>
         <source>Cookies Manager</source>
@@ -2285,7 +2598,7 @@
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
-        <translation>Javascriptがクリップボードにアクセスすることを許可</translation>
+        <translation type="obsolete">Javascriptがクリップボードにアクセスすることを許可</translation>
     </message>
     <message>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
@@ -2301,7 +2614,7 @@
     </message>
     <message>
         <source>Block popup windows</source>
-        <translation>ポップアップウィンドウのブロック</translation>
+        <translation type="obsolete">ポップアップウィンドウのブロック</translation>
     </message>
     <message>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
@@ -2595,6 +2908,42 @@
         <source>Animated scrolling</source>
         <translatorcomment>意訳</translatorcomment>
         <translation>スムーススクロール</translation>
+    </message>
+    <message>
+        <source>Open new empty tabs after active tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable caret browsing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage JavaScript privacy options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>JavaScript options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage Cookies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage HTML5 permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HTML5 Permisions</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2996,6 +3345,10 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>There are still open tabs</source>
         <translation>まだ開いているタブがあります</translation>
+    </message>
+    <message>
+        <source>Enable &amp;Caret Browsing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
