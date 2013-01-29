@@ -69,7 +69,7 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, const Do
     m_reply = reply;
 
     QFileInfo fileInfo(m_h_fileName);
-    QTemporaryFile tempFile("XXXXXX." + fileInfo.suffix());
+    QTemporaryFile tempFile(QDir::tempPath()+"/XXXXXX." + fileInfo.suffix());
     tempFile.open();
     tempFile.write(m_reply->peek(1024 * 1024));
     QFileInfo tempInfo(tempFile.fileName());
