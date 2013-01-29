@@ -56,7 +56,6 @@
 #ifdef Q_OS_MAC
 #include <QFileOpenEvent>
 #endif
-#include <QWebSecurityOrigin>
 #include <QNetworkDiskCache>
 #include <QDesktopServices>
 #include <QTranslator>
@@ -412,10 +411,6 @@ void MainApplication::loadSettings()
 
     m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, qIconProvider->emptyWebIcon().pixmap(16, 16));
     m_websettings->setWebGraphic(QWebSettings::MissingImageGraphic, QPixmap());
-
-    // Allows to load files from qrc: scheme in qupzilla: pages
-    QWebSecurityOrigin::addLocalScheme("qupzilla");
-    QWebSecurityOrigin::addLocalScheme("ftp");
 
     if (m_isPrivateSession) {
         m_websettings->setAttribute(QWebSettings::PrivateBrowsingEnabled, true);

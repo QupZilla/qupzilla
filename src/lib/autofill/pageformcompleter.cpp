@@ -20,6 +20,9 @@
 #include <QWebPage>
 #include <QWebFrame>
 #include <QWebElement>
+#if QT_VERSION >= 0x050000
+#include <QUrlQuery>
+#endif
 #include <QDebug>
 
 PageFormCompleter::PageFormCompleter(QWebPage* page)
