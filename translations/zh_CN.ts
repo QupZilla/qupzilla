@@ -2431,36 +2431,31 @@
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="49"/>
-        <source>If enabled, pages will be allowed to automatically open popup windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="52"/>
         <source>Open popup windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="59"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="56"/>
         <source>Change window size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="66"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="63"/>
         <source>Hide menu bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="73"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="70"/>
         <source>Hide status bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="80"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="77"/>
         <source>Hide tool bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="87"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="84"/>
         <source>Access clipboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3257,12 +3252,12 @@
         <translation type="obsolete">&lt;b&gt;地址栏行为&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="936"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="855"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>双击地址栏选择所有文字</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="950"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="869"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>按 ALT 键添加 .co.uk</translation>
     </message>
@@ -3277,7 +3272,7 @@
         <translation>关闭多个标签时总是询问</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="992"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1027"/>
         <source>Web Configuration</source>
         <translation>Web 配置</translation>
     </message>
@@ -3286,7 +3281,7 @@
         <translation type="obsolete">载入图像</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1014"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1049"/>
         <source>Allow JAVA</source>
         <translation>允许 Java</translation>
     </message>
@@ -3296,7 +3291,7 @@
         <translation>启动后:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1007"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1042"/>
         <source>Allow JavaScript</source>
         <translation>允许 JavaScript</translation>
     </message>
@@ -3309,17 +3304,17 @@
         <translation type="obsolete">拦截弹出窗口</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1021"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1056"/>
         <source>Allow DNS Prefetch</source>
         <translation>允许 DNS 预取</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1305"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1340"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>允许本地存储 HTML5 网页内容</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1312"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1347"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>删除本地存储的 HTML5 网页内容</translation>
     </message>
@@ -3328,23 +3323,23 @@
         <translation type="obsolete">JavaScript 可访问剪贴板</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2056"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2091"/>
         <source>Send Do Not Track header to servers</source>
         <translation>发送不跟踪头到服务器</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1063"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1098"/>
         <source>Zoom text only</source>
         <translation>仅缩放文本</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1042"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1077"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translation>包括焦点链中的链接</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1035"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1070"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>打印元素的背景</translation>
@@ -3372,7 +3367,7 @@
         <translation>隐藏标签栏当只有一个标签时</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="943"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="862"/>
         <source>Select all text by clicking in address bar</source>
         <translation>通过点击地址栏选择所有文本</translation>
     </message>
@@ -3392,23 +3387,23 @@
         <translation>在激活的标签后打开新标签</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1028"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1063"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>启用 XSS 审计</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1080"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1115"/>
         <source>Mouse wheel scrolls</source>
         <translation>滚动鼠标滚轮</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1100"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1135"/>
         <source>lines on page</source>
         <translation>页面行数</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1111"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1146"/>
         <source>Default zoom on pages: </source>
         <translation>默认网页缩放:</translation>
     </message>
@@ -3417,32 +3412,32 @@
         <translation type="obsolete">进入隐私浏览模式时询问</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1163"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1198"/>
         <source>Local Storage</source>
         <translation>本地存储</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1171"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1206"/>
         <source>Maximum pages in cache: </source>
         <translation>高速缓存中的最大页面:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1190"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1225"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1231"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1266"/>
         <source>Allow storing network cache on disk</source>
         <translation>允许在磁盘上存储网络缓存</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1276"/>
         <source>Maximum </source>
         <translation>最大</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1283"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
@@ -3451,190 +3446,190 @@
         <translation type="obsolete">允许存储网页图标</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1275"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1310"/>
         <source>Allow saving history</source>
         <translation>允许保存历史</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1282"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1317"/>
         <source>Delete history on close</source>
         <translation>关闭时删除历史记录</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1338"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1373"/>
         <source>Delete now</source>
         <translation>立即删除</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1377"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1412"/>
         <source>Proxy Configuration</source>
         <translation>代理配置</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1386"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1421"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1391"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1426"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1404"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1542"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1439"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1577"/>
         <source>Port:</source>
         <translation>端口:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1423"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1517"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1458"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1552"/>
         <source>Username:</source>
         <translation>用户名:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1433"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1524"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1468"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1559"/>
         <source>Password:</source>
         <translation>密码:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1459"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1494"/>
         <source>Don&apos;t use on:</source>
         <translation>不要使用:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1466"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1501"/>
         <source>Manual configuration</source>
         <translation>手动配置</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1473"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1508"/>
         <source>System proxy configuration</source>
         <translation>系统代理配置</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1480"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1515"/>
         <source>Do not use proxy</source>
         <translation>不使用代理</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1503"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1538"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
         <translation>&lt;b&gt;例外&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1510"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1545"/>
         <source>Server:</source>
         <translation>服务器:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1561"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1596"/>
         <source>Use different proxy for https connection</source>
         <translation>使用不同代理连接 https</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1591"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1626"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;字体系列&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1604"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1639"/>
         <source>Standard</source>
         <translation>标准字体</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1611"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1646"/>
         <source>Fixed</source>
         <translation>等宽字体</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1621"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1656"/>
         <source>Serif</source>
         <translation>衬线字体</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1631"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1666"/>
         <source>Sans Serif</source>
         <translation>无衬线字体</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1641"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1676"/>
         <source>Cursive</source>
         <translation>手写字体</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1783"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1818"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1803"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1838"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1810"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1845"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1907"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1942"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;外部下载管理器&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1914"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1949"/>
         <source>Use external download manager</source>
         <translation>使用外部下载管理器</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1926"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1961"/>
         <source>Executable:</source>
         <translation>可执行文件:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1933"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1968"/>
         <source>Arguments:</source>
         <translation>参数:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1940"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1975"/>
         <source>Leave blank if unsure</source>
         <translation>如果不确定请留空</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2116"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2151"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2126"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2161"/>
         <source>Manage JavaScript privacy options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2139"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2174"/>
         <source>JavaScript options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2175"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2210"/>
         <source>Manage Cookies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2195"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2202"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2237"/>
         <source>Manage HTML5 permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2215"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2250"/>
         <source>HTML5 Permisions</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3643,12 +3638,12 @@
         <translation type="obsolete">追踪 Cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2070"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2105"/>
         <source>Manage CA certificates</source>
         <translation>管理 CA 证书</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2099"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2134"/>
         <source>Certificate Manager</source>
         <translation>证书管理</translation>
     </message>
@@ -3657,12 +3652,12 @@
         <translation type="obsolete">&lt;b&gt;警告:&lt;/b&gt; 完全匹配域和过滤器跟踪 Cookie 选项可能会导致拒绝一些网站的 Cookie. 如果您有与 Cookie 的问题, 首先尝试禁用此选项!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2469"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2504"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;更改浏览器识别&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2494"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2529"/>
         <source>User Agent Manager</source>
         <translation>用户字符串管理</translation>
     </message>
@@ -3679,55 +3674,55 @@
         <translation type="obsolete">等宽字体</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1693"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1728"/>
         <source>Fantasy</source>
         <translation>幻想字体</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1700"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1735"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;字体大小&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1709"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1744"/>
         <source>Fixed Font Size</source>
         <translation>固定字体大小</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1716"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1751"/>
         <source>Default Font Size</source>
         <translation>默认字体大小</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1743"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1778"/>
         <source>Minimum Font Size</source>
         <translation>最小字体大小</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1750"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1785"/>
         <source>Minimum Logical Font Size</source>
         <translation>最小的逻辑字体大小</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1821"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1856"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;下载位置&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1828"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
         <source>Ask everytime for download location</source>
         <translation>每次询问下载位置</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1835"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1870"/>
         <source>Use defined location: </source>
         <translation>使用定义的位置:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="900"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1847"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1952"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2389"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="969"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1882"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1987"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2424"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -3742,38 +3737,48 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1056"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="950"/>
+        <source>Custom color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="976"/>
+        <source>Reset</source>
+        <translation type="unfinished">重置</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1091"/>
         <source>Enable caret browsing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1885"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1920"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;下载选项&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1892"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1927"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>使用本地系统文件对话框 (可能会导致下载 SSL 保护内容的问题)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1900"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1935"/>
         <source>Close download manager when downloading finishes</source>
         <translation>下载完成后关闭下载管理器</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1980"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2015"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;自动填充选项&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1987"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2022"/>
         <source>Allow saving passwords from sites</source>
         <translation>允许保存网站密码</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2049"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2084"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookie&lt;/b&gt;</translation>
     </message>
@@ -3798,12 +3803,12 @@
         <translation type="obsolete">&lt;b&gt;警告:&lt;/b&gt; 完全匹配域和过滤器跟踪 Cookie 选项可能会导致拒绝一些网站的 Cookie. 如果您有与 Cookie 的问题, 首先尝试禁用此选项!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2152"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2187"/>
         <source>Cookies Manager</source>
         <translation>管理 Cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2106"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2141"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL 证书&lt;/b&gt;</translation>
     </message>
@@ -3816,13 +3821,13 @@
         <translation type="obsolete">在 SSL 管理器编辑 CA 证书</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2063"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2372"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2098"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2407"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;其它&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2042"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2077"/>
         <source>Send Referer header to servers</source>
         <translation>将引用者标头发送到服务器</translation>
     </message>
@@ -3891,67 +3896,62 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="855"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="899"/>
         <source>Show loading progress in address bar</source>
         <translation>在地址栏显示进度</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="866"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="932"/>
         <source>Fill</source>
         <translation>填充</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="871"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="937"/>
         <source>Bottom</source>
         <translation>底部</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="876"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="942"/>
         <source>Top</source>
         <translation>顶部</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="884"/>
         <source>If unchecked the bar will adapt to the background color.</source>
-        <translation>如未选定, 该栏会尝试使用背景颜色.</translation>
+        <translation type="obsolete">如未选定, 该栏会尝试使用背景颜色.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="887"/>
         <source>custom color:</source>
-        <translation>自定义颜色:</translation>
+        <translation type="obsolete">自定义颜色:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="897"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="966"/>
         <source>Select color</source>
         <translation>选择颜色</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="907"/>
         <source>Many styles use Highlight color for the progressbar.</source>
-        <translation>很多样式使用高亮颜色显示进度栏.</translation>
+        <translation type="obsolete">很多样式使用高亮颜色显示进度栏.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="910"/>
         <source>set to &quot;Highlight&quot; color</source>
-        <translation>设为高亮颜色</translation>
+        <translation type="obsolete">设为高亮颜色</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="957"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如启用, 将在地址栏使用默认引擎搜索, 而不是使用搜索栏中当前选中的引擎.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如启用, 将在地址栏使用默认引擎搜索, 而不是使用搜索栏中当前选中的引擎.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="960"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="876"/>
         <source>Search with Default Engine</source>
         <translation>使用默认引擎搜索</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1000"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1035"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
         <translation>允许 Netscape 插件 (Flash 插件)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1049"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1084"/>
         <source>Animated scrolling</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3960,37 +3960,37 @@
         <translation type="obsolete">阻止弹出窗口</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2226"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2261"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;通知&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2233"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2268"/>
         <source>Use OSD Notifications</source>
         <translation>使用 OSD 的通知</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2243"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2278"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>使用本机的系统通知 (仅限Linux)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2250"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2285"/>
         <source>Do not use Notifications</source>
         <translation>不要使用通知</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2301"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2336"/>
         <source>Expiration timeout:</source>
         <translation>到期超时:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2314"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2349"/>
         <source> seconds</source>
         <translation>秒</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2323"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2358"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;注意: &lt;/b&gt; 您可以在屏幕上拖动以改变 OSD ​​通知的位置.</translation>
     </message>
@@ -4014,17 +4014,17 @@
         <translation type="obsolete">&lt;b&gt;用户 CSS 样式表&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2379"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2414"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>所有网站自动加载的样式表:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2398"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2433"/>
         <source>Languages</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2420"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2455"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;网站首选的语言&lt;/b&gt;</translation>
     </message>
@@ -6694,208 +6694,208 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="obsolete">新标签</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="885"/>
+        <location filename="../src/lib/webview/webview.cpp" line="889"/>
         <source>Open link in new &amp;tab</source>
         <translation>在新标签打开链接 &amp;T</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="890"/>
+        <location filename="../src/lib/webview/webview.cpp" line="894"/>
         <source>Open link in new &amp;window</source>
         <translation>在新窗口打开链接 &amp;T</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="892"/>
+        <location filename="../src/lib/webview/webview.cpp" line="896"/>
         <source>B&amp;ookmark link</source>
         <translation>书签链接 &amp;O</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="893"/>
+        <location filename="../src/lib/webview/webview.cpp" line="897"/>
         <source>&amp;Save link as...</source>
         <translation>链接另存为 &amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="894"/>
+        <location filename="../src/lib/webview/webview.cpp" line="898"/>
         <source>Send link...</source>
         <translation>发送链接...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="895"/>
+        <location filename="../src/lib/webview/webview.cpp" line="899"/>
         <source>&amp;Copy link address</source>
         <translation>复制链接地址 &amp;C</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="907"/>
+        <location filename="../src/lib/webview/webview.cpp" line="911"/>
         <source>Show i&amp;mage</source>
         <translation>显示图像 &amp;M</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="912"/>
+        <location filename="../src/lib/webview/webview.cpp" line="916"/>
         <source>Copy im&amp;age</source>
         <translation>复制图像 &amp;A</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="913"/>
+        <location filename="../src/lib/webview/webview.cpp" line="917"/>
         <source>Copy image ad&amp;dress</source>
         <translation>复制图像地址 &amp;D</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="915"/>
+        <location filename="../src/lib/webview/webview.cpp" line="919"/>
         <source>&amp;Save image as...</source>
         <translation>图像另存为 &amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="916"/>
+        <location filename="../src/lib/webview/webview.cpp" line="920"/>
         <source>Send image...</source>
         <translation>发送图像...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="825"/>
+        <location filename="../src/lib/webview/webview.cpp" line="829"/>
         <source>&amp;Back</source>
         <translation>后退 &amp;B</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="829"/>
+        <location filename="../src/lib/webview/webview.cpp" line="833"/>
         <source>&amp;Forward</source>
         <translation>前进 &amp;F</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="742"/>
-        <location filename="../src/lib/webview/webview.cpp" line="846"/>
+        <location filename="../src/lib/webview/webview.cpp" line="746"/>
+        <location filename="../src/lib/webview/webview.cpp" line="850"/>
         <source>&amp;Reload</source>
         <translation>刷新 &amp;R</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="721"/>
+        <location filename="../src/lib/webview/webview.cpp" line="725"/>
         <source>Create Search Engine</source>
         <translation>创建搜索引擎</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="743"/>
+        <location filename="../src/lib/webview/webview.cpp" line="747"/>
         <source>S&amp;top</source>
         <translation>停止 &amp;T</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="839"/>
+        <location filename="../src/lib/webview/webview.cpp" line="843"/>
         <source>This frame</source>
         <translation>此帧</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="840"/>
+        <location filename="../src/lib/webview/webview.cpp" line="844"/>
         <source>Show &amp;only this frame</source>
         <translation>仅显示此帧 &amp;O</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="841"/>
+        <location filename="../src/lib/webview/webview.cpp" line="845"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>在新标签显示帧 &amp;T</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="847"/>
+        <location filename="../src/lib/webview/webview.cpp" line="851"/>
         <source>Print frame</source>
         <translation>打印帧</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="849"/>
+        <location filename="../src/lib/webview/webview.cpp" line="853"/>
         <source>Zoom &amp;in</source>
         <translation>放大 &amp;I</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="850"/>
+        <location filename="../src/lib/webview/webview.cpp" line="854"/>
         <source>&amp;Zoom out</source>
         <translation>缩小 &amp;Z</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="851"/>
+        <location filename="../src/lib/webview/webview.cpp" line="855"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="853"/>
+        <location filename="../src/lib/webview/webview.cpp" line="857"/>
         <source>Show so&amp;urce of frame</source>
         <translation>显示帧源码 &amp;U</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="859"/>
+        <location filename="../src/lib/webview/webview.cpp" line="863"/>
         <source>Book&amp;mark page</source>
         <translation>加入书签 &amp;M</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="860"/>
+        <location filename="../src/lib/webview/webview.cpp" line="864"/>
         <source>&amp;Save page as...</source>
         <translation>保存网页为 &amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="861"/>
+        <location filename="../src/lib/webview/webview.cpp" line="865"/>
         <source>&amp;Copy page link</source>
         <translation>复制网页链接 &amp;C</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="862"/>
+        <location filename="../src/lib/webview/webview.cpp" line="866"/>
         <source>Send page link...</source>
         <translation>发送网页链接...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="863"/>
+        <location filename="../src/lib/webview/webview.cpp" line="867"/>
         <source>&amp;Print page</source>
         <translation>打印网页 &amp;P</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="935"/>
+        <location filename="../src/lib/webview/webview.cpp" line="939"/>
         <source>Send text...</source>
         <translation>发送信息...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="940"/>
+        <location filename="../src/lib/webview/webview.cpp" line="944"/>
         <source>Google Translate</source>
         <translation>谷歌翻译</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="945"/>
+        <location filename="../src/lib/webview/webview.cpp" line="949"/>
         <source>Dictionary</source>
         <translation>字典</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="960"/>
+        <location filename="../src/lib/webview/webview.cpp" line="964"/>
         <source>Go to &amp;web address</source>
         <translation>打开网页地址 &amp;W</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="980"/>
+        <location filename="../src/lib/webview/webview.cpp" line="984"/>
         <source>Search with...</source>
         <translation>使用搜索...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1007"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1011"/>
         <source>&amp;Play</source>
         <translation>播放 &amp;P</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1007"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1011"/>
         <source>&amp;Pause</source>
         <translation>暂停 &amp;P</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1008"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1012"/>
         <source>Un&amp;mute</source>
         <translation>取消静音 &amp;M</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1008"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1012"/>
         <source>&amp;Mute</source>
         <translation>静音 &amp;M</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1010"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1014"/>
         <source>&amp;Copy Media Address</source>
         <translation>复制媒体地址 &amp;C</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1011"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1015"/>
         <source>&amp;Send Media Address</source>
         <translation>发送媒体地址 &amp;S</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1012"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1016"/>
         <source>Save Media To &amp;Disk</source>
         <translation>保存媒体到本地 &amp;D</translation>
     </message>
@@ -6904,22 +6904,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="obsolete">发送网页...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="865"/>
+        <location filename="../src/lib/webview/webview.cpp" line="869"/>
         <source>Select &amp;all</source>
         <translation>选取所有 &amp;A</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="870"/>
+        <location filename="../src/lib/webview/webview.cpp" line="874"/>
         <source>Validate page</source>
         <translation>验证网页</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="873"/>
+        <location filename="../src/lib/webview/webview.cpp" line="877"/>
         <source>Show so&amp;urce code</source>
         <translation>显示源代码 &amp;U</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="874"/>
+        <location filename="../src/lib/webview/webview.cpp" line="878"/>
         <source>Show info ab&amp;out site</source>
         <translation>显示网站信息 &amp;O</translation>
     </message>
@@ -6928,12 +6928,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="obsolete">显示网页检查 &amp;I</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="974"/>
+        <location filename="../src/lib/webview/webview.cpp" line="978"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>使用 %2 搜索 &quot;%1 ..&quot; </translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="104"/>
+        <location filename="../src/lib/webview/webview.cpp" line="108"/>
         <source>No Named Page</source>
         <translation>无命名页面</translation>
     </message>

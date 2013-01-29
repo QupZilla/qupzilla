@@ -850,87 +850,6 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="showLoadingInAddressBar">
-             <property name="text">
-              <string>Show loading progress in address bar</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QWidget" name="adressProgressSettings" native="true">
-             <layout class="QHBoxLayout" name="horizontalLayout_18">
-              <item>
-               <widget class="QComboBox" name="progressStyleSelector">
-                <item>
-                 <property name="text">
-                  <string>Fill</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Bottom</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Top</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBoxCustomProgressColor">
-                <property name="toolTip">
-                 <string>If unchecked the bar will adapt to the background color.</string>
-                </property>
-                <property name="text">
-                 <string>custom color:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="progressBarColorSelector" native="true">
-                <layout class="QHBoxLayout" name="horizontalLayout_19">
-                 <item>
-                  <widget class="QToolButton" name="customColorToolButton">
-                   <property name="toolTip">
-                    <string>Select color</string>
-                   </property>
-                   <property name="text">
-                    <string>...</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QToolButton" name="setProgressBarColorToHighlightButton">
-                   <property name="toolTip">
-                    <string>Many styles use Highlight color for the progressbar.</string>
-                   </property>
-                   <property name="text">
-                    <string>set to &quot;Highlight&quot; color</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_9">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
             <widget class="QCheckBox" name="selectAllOnFocus">
              <property name="text">
               <string>Select all text by double clicking in address bar</string>
@@ -953,12 +872,128 @@
            </item>
            <item>
             <widget class="QCheckBox" name="searchWithDefaultEngine">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
              <property name="text">
               <string>Search with Default Engine</string>
              </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="showLoadingInAddressBar">
+             <property name="text">
+              <string>Show loading progress in address bar</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="adressProgressSettings" native="true">
+             <layout class="QHBoxLayout" name="horizontalLayout_18">
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QComboBox" name="progressStyleSelector">
+                <item>
+                 <property name="text">
+                  <string>Fill</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Bottom</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Top</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBoxCustomProgressColor">
+                <property name="text">
+                 <string>Custom color:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="progressBarColorSelector" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_19">
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QToolButton" name="customColorToolButton">
+                   <property name="toolTip">
+                    <string>Select color</string>
+                   </property>
+                   <property name="text">
+                    <string>...</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QToolButton" name="resetProgressBarcolor">
+                   <property name="text">
+                    <string>Reset</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_9">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
             </widget>
            </item>
            <item>

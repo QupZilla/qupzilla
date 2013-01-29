@@ -2139,36 +2139,31 @@
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="49"/>
-        <source>If enabled, pages will be allowed to automatically open popup windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="52"/>
         <source>Open popup windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="59"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="56"/>
         <source>Change window size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="66"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="63"/>
         <source>Hide menu bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="73"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="70"/>
         <source>Hide status bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="80"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="77"/>
         <source>Hide tool bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="87"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="84"/>
         <source>Access clipboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2763,12 +2758,12 @@
         <translation type="obsolete">&lt;b&gt;Perilaku Bilah Alamat&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="936"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="855"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>Pilih seluruh teks dengan mengklik dua kali pada bilah alamat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="950"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="869"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Tambahkan domain .co.id dengan menekan tombol ALT</translation>
     </message>
@@ -2783,22 +2778,22 @@
         <translation>Konfirmasi saat menutup beberapa tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="943"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="862"/>
         <source>Select all text by clicking in address bar</source>
         <translation>Pilih seluruh teks dengan mengklik pada bilah alamat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="992"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1027"/>
         <source>Web Configuration</source>
         <translation>Konfigurasi Web</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1014"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1049"/>
         <source>Allow JAVA</source>
         <translation>Ijinkan JAVA</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1007"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1042"/>
         <source>Allow JavaScript</source>
         <translation>Ijinkan JavaScript</translation>
     </message>
@@ -2829,7 +2824,7 @@
         <translation>Buka tab baru setelah tab aktif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1021"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1056"/>
         <source>Allow DNS Prefetch</source>
         <translation>Ijinkan Prapengambilan DNS</translation>
     </message>
@@ -2838,48 +2833,48 @@
         <translation type="obsolete">JavaScript dapat mengakses clipboard</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2056"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2091"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Kirimkan kepala Do Not Track ke server</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1063"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1098"/>
         <source>Zoom text only</source>
         <translation>Hanya perbesar teks</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1035"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1070"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translatorcomment>ketika anda mencetak halaman (dengan printer), opsi ini menentukan apakah elemen html latar akan dicetak atau tidak </translatorcomment>
         <translation>Cetak elemen latar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1042"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1077"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translatorcomment>Ikutsertakan tautan pada saat memindah fokus (blok kursor) dengan tombol tab</translatorcomment>
         <translation>Ikutsertakan tautan dalam rantai fokus</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1028"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1063"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translatorcomment>mendeteksi kemungkinan adanya serangan XSS saat mengeksekusi javascript</translatorcomment>
         <translation>Aktifkan Audit XSS</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1080"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1115"/>
         <source>Mouse wheel scrolls</source>
         <translation>Putaran roda mouse</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1100"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1135"/>
         <source>lines on page</source>
         <translation>baris pada halaman</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1111"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1146"/>
         <source>Default zoom on pages: </source>
         <translation>Default perbesaran pada halaman: </translation>
     </message>
@@ -2963,283 +2958,288 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="855"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="899"/>
         <source>Show loading progress in address bar</source>
         <translation>Tampilkan perkembangan pemuatan di bilah alamat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="866"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="932"/>
         <source>Fill</source>
         <translation>Isi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="871"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="937"/>
         <source>Bottom</source>
         <translation>Bawah</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="876"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="942"/>
         <source>Top</source>
         <translation>Atas</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="884"/>
         <source>If unchecked the bar will adapt to the background color.</source>
-        <translation>Bilah akan menggunakan warna latar jika tidak dipilih.</translation>
+        <translation type="obsolete">Bilah akan menggunakan warna latar jika tidak dipilih.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="887"/>
         <source>custom color:</source>
-        <translation>warna khusus:</translation>
+        <translation type="obsolete">warna khusus:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="897"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="966"/>
         <source>Select color</source>
         <translation>Pilih warna</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="907"/>
         <source>Many styles use Highlight color for the progressbar.</source>
-        <translation>Banyak gaya menggunakan Penyorotan berwarna pada bilah perkembangan.</translation>
+        <translation type="obsolete">Banyak gaya menggunakan Penyorotan berwarna pada bilah perkembangan.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="910"/>
         <source>set to &quot;Highlight&quot; color</source>
-        <translation>Ubah ke &quot;Penyorotan&quot; berwana</translation>
+        <translation type="obsolete">Ubah ke &quot;Penyorotan&quot; berwana</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="957"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;/&lt;body&gt;&lt;p&gt;Jika diaktifkan maka mesin pencarian utama akan digunakan untuk pencarian tanpa shortcut di bilah alamat dan tidak menggunakan mesin pencari yang telah dipilih di bilah pencarian web&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;head&gt;/&lt;body&gt;&lt;p&gt;Jika diaktifkan maka mesin pencarian utama akan digunakan untuk pencarian tanpa shortcut di bilah alamat dan tidak menggunakan mesin pencari yang telah dipilih di bilah pencarian web&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="960"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="876"/>
         <source>Search with Default Engine</source>
         <translation>Cari menggunakan Mesin Pencari Utama</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1000"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="950"/>
+        <source>Custom color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="976"/>
+        <source>Reset</source>
+        <translation type="unfinished">Reset</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1035"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
         <translation>Ijinkan Pengaya Netscape (pengaya Flash)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1049"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1084"/>
         <source>Animated scrolling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1056"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1091"/>
         <source>Enable caret browsing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1163"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1198"/>
         <source>Local Storage</source>
         <translation>Penyimpan Lokal</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1171"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1206"/>
         <source>Maximum pages in cache: </source>
         <translation>Halaman maksimum dalam cache: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1190"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1225"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1231"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1266"/>
         <source>Allow storing network cache on disk</source>
         <translation>Ijinkan menyimpan cache jaringan di dalam disk</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1276"/>
         <source>Maximum </source>
         <translation>Maksimum </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1283"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1275"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1310"/>
         <source>Allow saving history</source>
         <translation>Ijinkan menyimpan sejarah</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1282"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1317"/>
         <source>Delete history on close</source>
         <translation>Hapus sejarah saat berhenti</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1338"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1373"/>
         <source>Delete now</source>
         <translation>Hapus sekarang</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1377"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1412"/>
         <source>Proxy Configuration</source>
         <translation>Konfigurasi Proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1386"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1421"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1391"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1426"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1404"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1542"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1439"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1577"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1423"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1517"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1458"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1552"/>
         <source>Username:</source>
         <translation>Nama User:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1433"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1524"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1468"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1559"/>
         <source>Password:</source>
         <translation>Sandi:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1459"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1494"/>
         <source>Don&apos;t use on:</source>
         <translation>Jangan gunakan di:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1466"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1501"/>
         <source>Manual configuration</source>
         <translation>Konfigurasi Manual</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1473"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1508"/>
         <source>System proxy configuration</source>
         <translation>Konfigurasi proxy sistem</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1480"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1515"/>
         <source>Do not use proxy</source>
         <translation>Jangan gunakan proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1503"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1538"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Pengecualian&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1510"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1545"/>
         <source>Server:</source>
         <translation>Server:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1561"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1596"/>
         <source>Use different proxy for https connection</source>
         <translation>Gunakan proxy berbeda untuk koneksi https</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1591"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1626"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Famili Huruf&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1604"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1639"/>
         <source>Standard</source>
         <translation>Standar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1611"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1646"/>
         <source>Fixed</source>
         <translation>Fixed</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1621"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1656"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1631"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1666"/>
         <source>Sans Serif</source>
         <translation>Sans-Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1641"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1676"/>
         <source>Cursive</source>
         <translation>Cursive</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1693"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1728"/>
         <source>Fantasy</source>
         <translation>Fantasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1700"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1735"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ukuran Huruf&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1709"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1744"/>
         <source>Fixed Font Size</source>
         <translation>Ukuran Huruf Fixed</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1716"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1751"/>
         <source>Default Font Size</source>
         <translation>Ukuran Huruf Default</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1743"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1778"/>
         <source>Minimum Font Size</source>
         <translation>Ukuran Huruf Minimum</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1750"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1785"/>
         <source>Minimum Logical Font Size</source>
         <translation>Ukuran Logis Minimal Huruf</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1783"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1818"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1803"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1838"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1810"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1845"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1821"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1856"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Lokasi Unduhan&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1828"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
         <source>Ask everytime for download location</source>
         <translation>Konfirmasi lokasi tiap kali mengunduh</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1835"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1870"/>
         <source>Use defined location: </source>
         <translation>Gunakan lokasi tetap: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="900"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1847"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1952"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2389"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="969"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1882"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1987"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2424"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -3269,104 +3269,104 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1885"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1920"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Opsi Pengunduhan&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1892"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1927"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Gunakan dialog berkas asli sistem
 (dapat menimbulkan masalah pada pengunduhan yang menggunakan SSL)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1900"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1935"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Tutup manajer pengunduhan setelah pengunduhan selesai</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1907"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1942"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Manajer pengunduhan eksternal&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1914"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1949"/>
         <source>Use external download manager</source>
         <translation>Gunakan manajer pengunduhan eksternal</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1926"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1961"/>
         <source>Executable:</source>
         <translation>Eksekutor:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1933"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1968"/>
         <source>Arguments:</source>
         <translation>Argumen:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1940"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1975"/>
         <source>Leave blank if unsure</source>
         <translation>Biarkan kosong jika ragu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1980"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2015"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Opsi pengisian otomatis&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1987"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2022"/>
         <source>Allow saving passwords from sites</source>
         <translation>Ijinkan menyimpan sandi dari situs</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2049"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2084"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookie&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2116"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2151"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2126"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2161"/>
         <source>Manage JavaScript privacy options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2139"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2174"/>
         <source>JavaScript options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2175"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2210"/>
         <source>Manage Cookies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2195"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2202"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2237"/>
         <source>Manage HTML5 permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2215"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2250"/>
         <source>HTML5 Permisions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2469"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2504"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ganti identitas peramban&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2494"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2529"/>
         <source>User Agent Manager</source>
         <translation>Manajer Agen Pengguna</translation>
     </message>
@@ -3387,17 +3387,17 @@
         <translation type="obsolete">Ijinkan untuk menyimpan cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1305"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1340"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>Ijinkan untuk menyimpan secara lokal isi web HTML5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1312"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1347"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Hapus isi web HTML5 yang disimpan secara lokal saat berhenti</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2070"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2105"/>
         <source>Manage CA certificates</source>
         <translation>Kelola Sertifikat CA</translation>
     </message>
@@ -3410,23 +3410,23 @@
         <translation type="obsolete">Cocokkan domain</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2152"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2187"/>
         <source>Cookies Manager</source>
         <translation>Manajer Cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2106"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2141"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sertifikat SSL&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2063"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2372"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2098"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2407"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Lainnya&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2042"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2077"/>
         <source>Send Referer header to servers</source>
         <translation>Kirimkan kepala Acuan ke server</translation>
     </message>
@@ -3435,42 +3435,42 @@
         <translation type="obsolete">Blokir jendela popup</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2099"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2134"/>
         <source>Certificate Manager</source>
         <translation>Manajer Sertifikat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2226"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2261"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Notifikasi&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2233"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2268"/>
         <source>Use OSD Notifications</source>
         <translation>Gunakan Notifikasi OSD</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2243"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2278"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Gunakan Notifikasi Asli Sistem (hanya Linux)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2250"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2285"/>
         <source>Do not use Notifications</source>
         <translation>Jangan gunakan Notifikasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2301"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2336"/>
         <source>Expiration timeout:</source>
         <translation>Batas waktu notifikasi:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2314"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2349"/>
         <source> seconds</source>
         <translation> detik</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2323"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2358"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Catatan: &lt;/b&gt;Anda dapat mengubah posisi OSD Notifikasi dengan menggeretnya di layar.</translation>
     </message>
@@ -3490,17 +3490,17 @@
         <translation>Untuk mengganti bahasa, peramban harus direstart.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2379"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2414"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>StyleSheet yang otomatis dimuat untuk semua website: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2398"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2433"/>
         <source>Languages</source>
         <translation>Bahasa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2420"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2455"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Bahasa utama untuk situs web&lt;/b&gt;</translation>
     </message>
@@ -5922,238 +5922,238 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="104"/>
+        <location filename="../src/lib/webview/webview.cpp" line="108"/>
         <source>No Named Page</source>
         <translation>Halaman Tanpa Nama</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="721"/>
+        <location filename="../src/lib/webview/webview.cpp" line="725"/>
         <source>Create Search Engine</source>
         <translation>Buat Mesin Pencari</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="825"/>
+        <location filename="../src/lib/webview/webview.cpp" line="829"/>
         <source>&amp;Back</source>
         <translation>&amp;Mundur</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="829"/>
+        <location filename="../src/lib/webview/webview.cpp" line="833"/>
         <source>&amp;Forward</source>
         <translation>&amp;Maju</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="742"/>
-        <location filename="../src/lib/webview/webview.cpp" line="846"/>
+        <location filename="../src/lib/webview/webview.cpp" line="746"/>
+        <location filename="../src/lib/webview/webview.cpp" line="850"/>
         <source>&amp;Reload</source>
         <translation>&amp;Muat Ulang</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="743"/>
+        <location filename="../src/lib/webview/webview.cpp" line="747"/>
         <source>S&amp;top</source>
         <translation>Ber&amp;henti</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="839"/>
+        <location filename="../src/lib/webview/webview.cpp" line="843"/>
         <source>This frame</source>
         <translation>Bingkai ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="840"/>
+        <location filename="../src/lib/webview/webview.cpp" line="844"/>
         <source>Show &amp;only this frame</source>
         <translation>Hanya &amp;tampilkan bingkai ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="841"/>
+        <location filename="../src/lib/webview/webview.cpp" line="845"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>Tampilkan bingkai ini di &amp;tab baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="847"/>
+        <location filename="../src/lib/webview/webview.cpp" line="851"/>
         <source>Print frame</source>
         <translation>Cetak bingkai</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="849"/>
+        <location filename="../src/lib/webview/webview.cpp" line="853"/>
         <source>Zoom &amp;in</source>
         <translation>Zoom &amp;in</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="850"/>
+        <location filename="../src/lib/webview/webview.cpp" line="854"/>
         <source>&amp;Zoom out</source>
         <translation>Zoom &amp;out</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="851"/>
+        <location filename="../src/lib/webview/webview.cpp" line="855"/>
         <source>Reset</source>
         <translation>Reset</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="853"/>
+        <location filename="../src/lib/webview/webview.cpp" line="857"/>
         <source>Show so&amp;urce of frame</source>
         <translation>Tampilkan su&amp;mber dari bingkai</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="859"/>
+        <location filename="../src/lib/webview/webview.cpp" line="863"/>
         <source>Book&amp;mark page</source>
         <translation>Book&amp;mark halaman</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="860"/>
+        <location filename="../src/lib/webview/webview.cpp" line="864"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Simpan halaman sebagai...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="861"/>
+        <location filename="../src/lib/webview/webview.cpp" line="865"/>
         <source>&amp;Copy page link</source>
         <translation>&amp;Salin tautan halaman</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="862"/>
+        <location filename="../src/lib/webview/webview.cpp" line="866"/>
         <source>Send page link...</source>
         <translation>Kirimkan tautan halaman...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="863"/>
+        <location filename="../src/lib/webview/webview.cpp" line="867"/>
         <source>&amp;Print page</source>
         <translation>Cetak &amp;halaman</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="865"/>
+        <location filename="../src/lib/webview/webview.cpp" line="869"/>
         <source>Select &amp;all</source>
         <translation>PIlih semu&amp;a</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="870"/>
+        <location filename="../src/lib/webview/webview.cpp" line="874"/>
         <source>Validate page</source>
         <translation>Validasi halaman</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="873"/>
+        <location filename="../src/lib/webview/webview.cpp" line="877"/>
         <source>Show so&amp;urce code</source>
         <translation>Tampilkan kode su&amp;mber</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="874"/>
+        <location filename="../src/lib/webview/webview.cpp" line="878"/>
         <source>Show info ab&amp;out site</source>
         <translation>Tampilkan inf&amp;o tentang situs</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="885"/>
+        <location filename="../src/lib/webview/webview.cpp" line="889"/>
         <source>Open link in new &amp;tab</source>
         <translation>Buka tautan di &amp;tab baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="890"/>
+        <location filename="../src/lib/webview/webview.cpp" line="894"/>
         <source>Open link in new &amp;window</source>
         <translation>Buka tautan di &amp;jendela baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="892"/>
+        <location filename="../src/lib/webview/webview.cpp" line="896"/>
         <source>B&amp;ookmark link</source>
         <translation>B&amp;ookmark tautan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="893"/>
+        <location filename="../src/lib/webview/webview.cpp" line="897"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Simpan tautan sebagai...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="894"/>
+        <location filename="../src/lib/webview/webview.cpp" line="898"/>
         <source>Send link...</source>
         <translation>Kirimkan tautan...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="895"/>
+        <location filename="../src/lib/webview/webview.cpp" line="899"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Salin alamat tautan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="907"/>
+        <location filename="../src/lib/webview/webview.cpp" line="911"/>
         <source>Show i&amp;mage</source>
         <translation>Tampilkan &amp;gambar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="912"/>
+        <location filename="../src/lib/webview/webview.cpp" line="916"/>
         <source>Copy im&amp;age</source>
         <translation>Salin g&amp;ambar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="913"/>
+        <location filename="../src/lib/webview/webview.cpp" line="917"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Salin a&amp;lamat gambar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="915"/>
+        <location filename="../src/lib/webview/webview.cpp" line="919"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Simpan gambar sebagai...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="916"/>
+        <location filename="../src/lib/webview/webview.cpp" line="920"/>
         <source>Send image...</source>
         <translation>Kirimkan gambar...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="935"/>
+        <location filename="../src/lib/webview/webview.cpp" line="939"/>
         <source>Send text...</source>
         <translation>Kirimkan teks...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="940"/>
+        <location filename="../src/lib/webview/webview.cpp" line="944"/>
         <source>Google Translate</source>
         <translation>Terjemahan Google</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="945"/>
+        <location filename="../src/lib/webview/webview.cpp" line="949"/>
         <source>Dictionary</source>
         <translation>Kamus</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="960"/>
+        <location filename="../src/lib/webview/webview.cpp" line="964"/>
         <source>Go to &amp;web address</source>
         <translation>Buka alamat &amp;web</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="974"/>
+        <location filename="../src/lib/webview/webview.cpp" line="978"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Cari &quot;%1..&quot; dengan %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="980"/>
+        <location filename="../src/lib/webview/webview.cpp" line="984"/>
         <source>Search with...</source>
         <translation>Cari dengan...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1007"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1011"/>
         <source>&amp;Play</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1007"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1011"/>
         <source>&amp;Pause</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1008"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1012"/>
         <source>Un&amp;mute</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1008"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1012"/>
         <source>&amp;Mute</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1010"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1014"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Salin Alamat Media</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1011"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1015"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Kirimkan Alamat Media</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1012"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1016"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Simpan Media ke &amp;Disk</translation>
     </message>

@@ -2135,36 +2135,31 @@
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="49"/>
-        <source>If enabled, pages will be allowed to automatically open popup windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="52"/>
         <source>Open popup windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="59"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="56"/>
         <source>Change window size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="66"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="63"/>
         <source>Hide menu bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="73"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="70"/>
         <source>Hide status bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="80"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="77"/>
         <source>Hide tool bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/jsoptions.ui" line="87"/>
+        <location filename="../src/lib/preferences/jsoptions.ui" line="84"/>
         <source>Access clipboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2793,12 +2788,12 @@
         <translation type="obsolete">&lt;b&gt;Comportamiento de la barra de direcciones&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="936"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="855"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>Seleccionar todo el texto haciendo doble click en la barra de direcciones</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="950"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="869"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Agregar dominio .co.uk pulsando la tecla ALT</translation>
     </message>
@@ -2813,32 +2808,32 @@
         <translation>Preguntar al cerrar múltiples pestañas</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="992"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1027"/>
         <source>Web Configuration</source>
         <translation>Configuración web</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1014"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1049"/>
         <source>Allow JAVA</source>
         <translation>Permitir JAVA</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1007"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1042"/>
         <source>Allow JavaScript</source>
         <translation>Permitir JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1021"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1056"/>
         <source>Allow DNS Prefetch</source>
         <translation>Permitir DNS Prefetch</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1305"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1340"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>Permitir el almacenamiento local de contenido de red HTML5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1312"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1347"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Borrar el contenido de red HTML5 almacenado localmente al cerrar</translation>
     </message>
@@ -2847,23 +2842,23 @@
         <translation type="obsolete">JavaScript puede acceder al portapapeles</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2056"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2091"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Decir a los sitios web que no quiero ser rastreado</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1063"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1098"/>
         <source>Zoom text only</source>
         <translation>Ampliar sólo el texto</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1042"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1077"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translation>Incluir enlaces en la cadena de foco</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1035"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1070"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>Imprimir fondo del elemento</translation>
@@ -2891,7 +2886,7 @@
         <translation>Ocultar pestañas cuando sólo haya una pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="943"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="862"/>
         <source>Select all text by clicking in address bar</source>
         <translation>Seleccionar todo el texto al hacer click en la barra de direcciones</translation>
     </message>
@@ -2911,23 +2906,23 @@
         <translation>Abrir pestañas nuevas junto a la pestaña activa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1028"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1063"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>Habilitar Auditoría XSS</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1080"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1115"/>
         <source>Mouse wheel scrolls</source>
         <translation>La rueda del ratón desplaza</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1100"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1135"/>
         <source>lines on page</source>
         <translation>líneas en la página</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1111"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1146"/>
         <source>Default zoom on pages: </source>
         <translation>Ampliación predeterminada en las páginas:</translation>
     </message>
@@ -3032,255 +3027,240 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="855"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="899"/>
         <source>Show loading progress in address bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="866"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="932"/>
         <source>Fill</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="871"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="937"/>
         <source>Bottom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="876"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="942"/>
         <source>Top</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="884"/>
-        <source>If unchecked the bar will adapt to the background color.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="887"/>
-        <source>custom color:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="897"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="966"/>
         <source>Select color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="907"/>
-        <source>Many styles use Highlight color for the progressbar.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="910"/>
-        <source>set to &quot;Highlight&quot; color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="957"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="960"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="876"/>
         <source>Search with Default Engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1000"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="950"/>
+        <source>Custom color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="976"/>
+        <source>Reset</source>
+        <translation type="unfinished">Reiniciar tamaño</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1035"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
         <translation>Permitir agregados de netscape</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1049"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1084"/>
         <source>Animated scrolling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1056"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1091"/>
         <source>Enable caret browsing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1163"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1198"/>
         <source>Local Storage</source>
         <translation>Almacenamiento local</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1171"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1206"/>
         <source>Maximum pages in cache: </source>
         <translation>Número máximo de páginas en caché:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1190"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1225"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1231"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1266"/>
         <source>Allow storing network cache on disk</source>
         <translation>Almacenar caché de la red en el disco</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1276"/>
         <source>Maximum </source>
         <translation>Máximo</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1283"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1275"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1310"/>
         <source>Allow saving history</source>
         <translation>Guardar el historial</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1282"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1317"/>
         <source>Delete history on close</source>
         <translation>Eliminar el historial al cerrar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1338"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1373"/>
         <source>Delete now</source>
         <translation>Eliminar ahora</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1377"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1412"/>
         <source>Proxy Configuration</source>
         <translation>Configuración proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1386"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1421"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1391"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1426"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1404"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1542"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1439"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1577"/>
         <source>Port:</source>
         <translation>Puerto:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1423"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1517"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1458"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1552"/>
         <source>Username:</source>
         <translation>Nombre de usuario:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1433"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1524"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1468"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1559"/>
         <source>Password:</source>
         <translation>Contraseña:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1459"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1494"/>
         <source>Don&apos;t use on:</source>
         <translation>No utilizar en:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1466"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1501"/>
         <source>Manual configuration</source>
         <translation>Configuración manual</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1473"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1508"/>
         <source>System proxy configuration</source>
         <translation>Configuración proxy del sistema</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1480"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1515"/>
         <source>Do not use proxy</source>
         <translation>No utilizar proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1503"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1538"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Exepciones&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1510"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1545"/>
         <source>Server:</source>
         <translation>Servidor:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1561"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1596"/>
         <source>Use different proxy for https connection</source>
         <translation>Usar un proxy distinto para protocolo tipo https</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1591"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1626"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Familias de fuentes&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1604"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1639"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1611"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1646"/>
         <source>Fixed</source>
         <translation>Fijo</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1621"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1656"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1631"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1666"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1641"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1676"/>
         <source>Cursive</source>
         <translation>Cursiva</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1783"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1818"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1803"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1838"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1810"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1845"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1907"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1942"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Gestor de descargas externo&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1914"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1949"/>
         <source>Use external download manager</source>
         <translation>Utilizar un gestor de descargas externo</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1926"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1961"/>
         <source>Executable:</source>
         <translation>Ejecutable:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1933"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1968"/>
         <source>Arguments:</source>
         <translation>Argumentos:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1940"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1975"/>
         <source>Leave blank if unsure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3289,7 +3269,7 @@
         <translation type="obsolete">Filtrar cookies de rastreo</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2099"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2134"/>
         <source>Certificate Manager</source>
         <translation>Manejador de certificados</translation>
     </message>
@@ -3298,12 +3278,12 @@
         <translation type="obsolete">&lt;b&gt;Aviso:&lt;/b&gt; Las opciones Coincidir con el dominio exacto y Filtrar cookies de rastreo pueden ocasionar que se denieguen algunas cookies de los sitios. ¡Si tiene problemas con las cookies, intente deshabilitar estas opciones primero!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2469"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2504"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2494"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2529"/>
         <source>User Agent Manager</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3312,87 +3292,87 @@
         <translation type="obsolete">Cambiar la identificación del navegador:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1693"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1728"/>
         <source>Fantasy</source>
         <translation>Fantasy</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1700"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1735"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Tamaño de las fuentes&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1709"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1744"/>
         <source>Fixed Font Size</source>
         <translation>Tamaño de la fuente fija</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1716"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1751"/>
         <source>Default Font Size</source>
         <translation>Tamaño de la fuente predeterminada</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1743"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1778"/>
         <source>Minimum Font Size</source>
         <translation>Tamaño mínimo de la fuente</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1750"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1785"/>
         <source>Minimum Logical Font Size</source>
         <translation>Tamaño mínimo de la fuente lógica</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1821"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1856"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ubicación de la descarga&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1828"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
         <source>Ask everytime for download location</source>
         <translation>Preguntar siempre dónde descargar los archivos</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1835"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1870"/>
         <source>Use defined location: </source>
         <translation>Utilizar una ubicación predefinida:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="900"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1847"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1952"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2389"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="969"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1882"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1987"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2424"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1885"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1920"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Opciones de descarga&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1892"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1927"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Utilizar diálogo nativo del sistema de archivos
 (podría causar problemas al descargar contenido seguro SSL)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1900"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1935"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Cerrar el gestor de descargas cuando las descargas finalicen</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1980"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2015"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Opciones de autocompletado&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1987"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2022"/>
         <source>Allow saving passwords from sites</source>
         <translation>Permitir guardar contraseñas de los sitios</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2049"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2084"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
@@ -3401,7 +3381,7 @@
         <translation type="obsolete">Permitir almacenar cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2070"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2105"/>
         <source>Manage CA certificates</source>
         <translation>Manejar certificados CA</translation>
     </message>
@@ -3414,23 +3394,23 @@
         <translation type="obsolete">Coincidir con el dominio exacto</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2152"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2187"/>
         <source>Cookies Manager</source>
         <translation>Gestor de cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2106"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2141"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;Certificados SSL&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2063"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2372"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2098"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2407"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Otros&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2042"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2077"/>
         <source>Send Referer header to servers</source>
         <translation>Enviar el encabezado del referente a los servidores</translation>
     </message>
@@ -3439,37 +3419,37 @@
         <translation type="obsolete">Bloquear ventanas emergentes</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2226"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2261"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Notificaciones&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2233"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2268"/>
         <source>Use OSD Notifications</source>
         <translation>Utilizar notificaciones OSD</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2243"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2278"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Utilizar sistema de notificaciones nativo (sólo Linux)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2250"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2285"/>
         <source>Do not use Notifications</source>
         <translation>No utilizar notificaciones</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2301"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2336"/>
         <source>Expiration timeout:</source>
         <translation>Duración:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2314"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2349"/>
         <source> seconds</source>
         <translation> segundos</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2323"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2358"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Nota: &lt;/b&gt;Puede cambiar la posición de la notificación OSD arrastrándola por la pantalla.</translation>
     </message>
@@ -3489,52 +3469,52 @@
         <translation>Para aplicar el cambio de idioma, debe reiniciar el navegador.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2116"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2151"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2126"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2161"/>
         <source>Manage JavaScript privacy options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2139"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2174"/>
         <source>JavaScript options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2175"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2210"/>
         <source>Manage Cookies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2195"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2202"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2237"/>
         <source>Manage HTML5 permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2215"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2250"/>
         <source>HTML5 Permisions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2379"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2414"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>Hoja de estilos cargada automáticamente en todos los sitios web:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2398"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2433"/>
         <source>Languages</source>
         <translation>Idiomas</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2420"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2455"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Idioma preferido para mostrar las páginas web&lt;/b&gt;</translation>
     </message>
@@ -5910,238 +5890,238 @@ Después de Agregar o eliminar rutas de certificados, es necesario reiniciar Qup
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="861"/>
+        <location filename="../src/lib/webview/webview.cpp" line="865"/>
         <source>&amp;Copy page link</source>
         <translation>Cop&amp;iar el enlace de la página</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="862"/>
+        <location filename="../src/lib/webview/webview.cpp" line="866"/>
         <source>Send page link...</source>
         <translation>Enviar enlace de la página...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="863"/>
+        <location filename="../src/lib/webview/webview.cpp" line="867"/>
         <source>&amp;Print page</source>
         <translation>&amp;Imprimir página</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="870"/>
+        <location filename="../src/lib/webview/webview.cpp" line="874"/>
         <source>Validate page</source>
         <translation>Validar página</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="935"/>
+        <location filename="../src/lib/webview/webview.cpp" line="939"/>
         <source>Send text...</source>
         <translation>Enviar texto...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="940"/>
+        <location filename="../src/lib/webview/webview.cpp" line="944"/>
         <source>Google Translate</source>
         <translation>Traductor de Google</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="945"/>
+        <location filename="../src/lib/webview/webview.cpp" line="949"/>
         <source>Dictionary</source>
         <translation>Diccionario</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="960"/>
+        <location filename="../src/lib/webview/webview.cpp" line="964"/>
         <source>Go to &amp;web address</source>
         <translation>Ir a &amp;dirección web</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="885"/>
+        <location filename="../src/lib/webview/webview.cpp" line="889"/>
         <source>Open link in new &amp;tab</source>
         <translation>Abrir enlace en una nueva &amp;pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="890"/>
+        <location filename="../src/lib/webview/webview.cpp" line="894"/>
         <source>Open link in new &amp;window</source>
         <translation>Abrir enlace en una nueva &amp;ventana</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="892"/>
+        <location filename="../src/lib/webview/webview.cpp" line="896"/>
         <source>B&amp;ookmark link</source>
         <translation>Agregar enlace a &amp;favoritos</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="893"/>
+        <location filename="../src/lib/webview/webview.cpp" line="897"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Guardar enlace como...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="894"/>
+        <location filename="../src/lib/webview/webview.cpp" line="898"/>
         <source>Send link...</source>
         <translation>Enviar enlace...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="895"/>
+        <location filename="../src/lib/webview/webview.cpp" line="899"/>
         <source>&amp;Copy link address</source>
         <translation>Copi&amp;ar la ruta del enlace</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="907"/>
+        <location filename="../src/lib/webview/webview.cpp" line="911"/>
         <source>Show i&amp;mage</source>
         <translation>Mostrar &amp;imágen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="912"/>
+        <location filename="../src/lib/webview/webview.cpp" line="916"/>
         <source>Copy im&amp;age</source>
         <translation>Co&amp;piar imágen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="913"/>
+        <location filename="../src/lib/webview/webview.cpp" line="917"/>
         <source>Copy image ad&amp;dress</source>
         <translation>C&amp;opiar la ruta de la imágen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="915"/>
+        <location filename="../src/lib/webview/webview.cpp" line="919"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Guardar imágen como...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="916"/>
+        <location filename="../src/lib/webview/webview.cpp" line="920"/>
         <source>Send image...</source>
         <translation>Enviar imágen...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="825"/>
+        <location filename="../src/lib/webview/webview.cpp" line="829"/>
         <source>&amp;Back</source>
         <translation>&amp;Anterior</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="721"/>
+        <location filename="../src/lib/webview/webview.cpp" line="725"/>
         <source>Create Search Engine</source>
         <translation>Crear manejador de busqueda</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="829"/>
+        <location filename="../src/lib/webview/webview.cpp" line="833"/>
         <source>&amp;Forward</source>
         <translation>&amp;Siguiente</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="742"/>
-        <location filename="../src/lib/webview/webview.cpp" line="846"/>
+        <location filename="../src/lib/webview/webview.cpp" line="746"/>
+        <location filename="../src/lib/webview/webview.cpp" line="850"/>
         <source>&amp;Reload</source>
         <translation>&amp;Recargar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="743"/>
+        <location filename="../src/lib/webview/webview.cpp" line="747"/>
         <source>S&amp;top</source>
         <translation>&amp;Detener</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="839"/>
+        <location filename="../src/lib/webview/webview.cpp" line="843"/>
         <source>This frame</source>
         <translation>Este marco</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="840"/>
+        <location filename="../src/lib/webview/webview.cpp" line="844"/>
         <source>Show &amp;only this frame</source>
         <translation>M&amp;ostrar solamente este marco</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="841"/>
+        <location filename="../src/lib/webview/webview.cpp" line="845"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>Mostrar este marco en una nueva &amp;pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="847"/>
+        <location filename="../src/lib/webview/webview.cpp" line="851"/>
         <source>Print frame</source>
         <translation>Imprimir marco</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="849"/>
+        <location filename="../src/lib/webview/webview.cpp" line="853"/>
         <source>Zoom &amp;in</source>
         <translation>&amp;Aumentar tamaño</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="850"/>
+        <location filename="../src/lib/webview/webview.cpp" line="854"/>
         <source>&amp;Zoom out</source>
         <translation>&amp;Reducir tamaño</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="851"/>
+        <location filename="../src/lib/webview/webview.cpp" line="855"/>
         <source>Reset</source>
         <translation>Reiniciar tamaño</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="853"/>
+        <location filename="../src/lib/webview/webview.cpp" line="857"/>
         <source>Show so&amp;urce of frame</source>
         <translation>Mostrar código f&amp;uente del marco</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="859"/>
+        <location filename="../src/lib/webview/webview.cpp" line="863"/>
         <source>Book&amp;mark page</source>
         <translation>Agregar esta página a &amp;favoritos</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="860"/>
+        <location filename="../src/lib/webview/webview.cpp" line="864"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Guardar como...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="980"/>
+        <location filename="../src/lib/webview/webview.cpp" line="984"/>
         <source>Search with...</source>
         <translation>Buscar con...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1007"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1011"/>
         <source>&amp;Play</source>
         <translation>&amp;Reproducir</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1007"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1011"/>
         <source>&amp;Pause</source>
         <translation>&amp;Pausa</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1008"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1012"/>
         <source>Un&amp;mute</source>
         <translation>&amp;Activar sonido</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1008"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1012"/>
         <source>&amp;Mute</source>
         <translation>&amp;Desactivar sonido</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1010"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1014"/>
         <source>&amp;Copy Media Address</source>
         <translation>Copi&amp;ar la ruta del contenido media</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1011"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1015"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Enviar la ruta del contenido media</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1012"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1016"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Guardar el contenido media al &amp;disco</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="865"/>
+        <location filename="../src/lib/webview/webview.cpp" line="869"/>
         <source>Select &amp;all</source>
         <translation>Seleccionar &amp;todo</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="873"/>
+        <location filename="../src/lib/webview/webview.cpp" line="877"/>
         <source>Show so&amp;urce code</source>
         <translation>Ver código &amp;fuente de la página</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="874"/>
+        <location filename="../src/lib/webview/webview.cpp" line="878"/>
         <source>Show info ab&amp;out site</source>
         <translation>Ver &amp;información de la página</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="974"/>
+        <location filename="../src/lib/webview/webview.cpp" line="978"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Buscar &quot;%1 ..&quot; con %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="104"/>
+        <location filename="../src/lib/webview/webview.cpp" line="108"/>
         <source>No Named Page</source>
         <translation>Pagina sin nombre</translation>
     </message>
