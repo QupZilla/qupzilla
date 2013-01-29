@@ -22,6 +22,7 @@
 #include "iconprovider.h"
 #include "mainapplication.h"
 
+#include <QWebSecurityOrigin>
 #include <QFileIconProvider>
 #include <QTextStream>
 #include <QDateTime>
@@ -202,6 +203,7 @@ void FtpSchemeReply::loadPage()
         }
     }
 
+    QWebSecurityOrigin::addLocalScheme("ftp");
     open(ReadOnly | Unbuffered);
     QTextStream stream(&m_buffer);
     stream.setCodec("UTF-8");
@@ -220,6 +222,7 @@ void FtpSchemeReply::loadPage()
     emit readyRead();
     emit finished();
     m_ftp->close();
+    QWebSecurityOrigin::removeLocalScheme("ftp");
 }
 
 QString FtpSchemeReply::loadDirectory()
