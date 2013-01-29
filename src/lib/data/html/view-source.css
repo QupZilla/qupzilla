@@ -6,11 +6,18 @@ body{
 table{
 	border-collapse: separate;
 	border-spacing: 0px;
+	width: 100%;
 }
 
 td{
 	vertical-align: top;
+}
+
+.line-content{
 	font-size: 14px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	word-break: break-all;
 }
 
 .line-number{
@@ -21,7 +28,7 @@ td{
 	background-color: #eee;
 	text-align: right;
 	color:gray;
-	font-size: 10px;
+	font-size: 12px;
 
 	border-right: 1px solid gray;
 }

@@ -36,11 +36,12 @@ QString SourceHighlighter::highlight()
 	m_source.replace("<", "&lt;");
 	m_source.replace(">", "&gt;");
 	QStringList rows = m_source.split(QRegExp("(\r\n)|([\r\n])"));
-	QString result = "<table width='100%' border='0'>";
+	QString result = "<table border='0'>";
 	for (int i = 0; i < rows.size(); i++){
-		result += "<tr><td class='line-number'>"+QString::number(i+1)+"</td><td>"+rows.at(i)+"</td></tr>";
+		result += "<tr><td class='line-number'>"+QString::number(i+1)+"</td><td class='line-content'>"+rows.at(i)+"</td></tr>";
 	}
 	result += "</table>";
+	//result += "<a target='_blank' href='1.html'>123</a>";
 
 
 	return "<html><head><link rel='stylesheet' href='qrc:html/view-source.css' type='text/css'><title>"+m_title+"</title></head><body>"+result+"</body></html>";
