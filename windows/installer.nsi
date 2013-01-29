@@ -319,6 +319,7 @@ SectionGroup $(TITLE_SecSetASDefault) SecSetASDefault
     Section $(TITLE_SecProtocols) SecProtocols
 	  ${RegisterAssociation} "http" "$INSTDIR\qupzilla.exe" "QupZilla.HTTP" "URL:HyperText Transfer Protocol" "$INSTDIR\qupzilla.exe,0" "protocol"
 	  ${RegisterAssociation} "https" "$INSTDIR\qupzilla.exe" "QupZilla.HTTPS" "URL:HyperText Transfer Protocol with Privacy" "$INSTDIR\qupzilla.exe,0" "protocol"
+	  ${RegisterAssociation} "ftp" "$INSTDIR\qupzilla.exe" "QupZilla.FTP" "URL:File Transfer Protocol" "$INSTDIR\qupzilla.exe,0" "protocol"
 	  ${UpdateSystemIcons}
     SectionEnd
 SectionGroupEnd
@@ -399,6 +400,7 @@ notRunning:
   ${UnRegisterAssociation} ".html" "QupZilla.HTML" "$INSTDIR\qupzilla.exe" "file"
   ${UnRegisterAssociation} "http" "QupZilla.HTTP" "$INSTDIR\qupzilla.exe" "protocol"
   ${UnRegisterAssociation} "https" "QupZilla.HTTPS" "$INSTDIR\qupzilla.exe" "protocol"
+  ${UnRegisterAssociation} "ftp" "QupZilla.FTP" "$INSTDIR\qupzilla.exe" "protocol"
   ${UpdateSystemIcons}
 SectionEnd
 
@@ -476,6 +478,7 @@ Function RegisterCapabilities
 			${CreateProgId} "QupZilla.HTML" "$INSTDIR\qupzilla.exe" $(FILE_Html) "$INSTDIR\qupzilla.exe,1"
 			${CreateProgId} "QupZilla.HTTP" "$INSTDIR\qupzilla.exe" "URL:HyperText Transfer Protocol" "$INSTDIR\qupzilla.exe,0"
 			${CreateProgId} "QupZilla.HTTPS" "$INSTDIR\qupzilla.exe" "URL:HyperText Transfer Protocol with Privacy" "$INSTDIR\qupzilla.exe,0"
+			${CreateProgId} "QupZilla.FTP" "$INSTDIR\qupzilla.exe" "URL:File Transfer Protocol" "$INSTDIR\qupzilla.exe,0"
 
 			; note: these lines just introduce capabilities of QupZilla to OS and don't change defaults!
 			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}" "ApplicationDescription" "$(PRODUCT_DESC)"
@@ -485,6 +488,7 @@ Function RegisterCapabilities
 			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\FileAssociations" ".html" "QupZilla.HTML"
 			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\URLAssociations" "http" "QupZilla.HTTP"
 			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\URLAssociations" "https" "QupZilla.HTTPS"
+			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\URLAssociations" "ftp" "QupZilla.FTP"
 			WriteRegStr HKLM "${PRODUCT_CAPABILITIES_KEY}\Startmenu" "StartMenuInternet" "$INSTDIR\qupzilla.exe"
 			WriteRegStr HKLM "SOFTWARE\RegisteredApplications" "${PRODUCT_NAME}" "${PRODUCT_CAPABILITIES_KEY}"
 		${EndIf}

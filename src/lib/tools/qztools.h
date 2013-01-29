@@ -20,6 +20,7 @@
 
 #include <QList>
 #include <QString>
+#include <QHash>
 
 #include "qz_namespace.h"
 
@@ -72,6 +73,8 @@ bool listContainsIndex(const QList<T> &list, int index)
 {
     return (index >= 0 && list.count() > index);
 }
+
+static QHash<QString, QIcon> m_iconCache;
 
 } // namespace
 
