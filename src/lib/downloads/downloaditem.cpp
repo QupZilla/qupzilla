@@ -37,6 +37,10 @@
 #include <QDesktopServices>
 #include <QProcess>
 
+#ifdef Q_OS_WIN
+#include "Shlwapi.h"
+#endif
+
 //#define DOWNMANAGER_DEBUG
 
 DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QString &path, const QString &fileName, const QPixmap &fileIcon, QTime* timer, bool openAfterFinishedDownload, const QUrl &downloadPage, DownloadManager* manager)
@@ -423,16 +427,10 @@ void DownloadItem::openFile()
 void DownloadItem::openFolder()
 {
 #ifdef Q_OS_WIN
-    if (m_fileName.endsWith(" ")) {
-        // explorer.exe don't support filenames that end with SPACE
-        QDesktopServices::openUrl(QUrl::fromLocalFile(m_path));
-    }
-    else {
-        QString winFileName = m_path + m_fileName;
-        winFileName.replace(QLatin1Char('/'), "\\");
-        QString shExArg = "/e,/select,\"" + winFileName + "\"";
-        ShellExecute(NULL, NULL, TEXT("explorer.exe"), shExArg.toStdWString().c_str(), NULL, SW_SHOW);
-    }
+    QString winFileName = m_path + m_fileName;
+    winFileName.replace(QLatin1Char('/'), "\\");
+    QString shExArg = "/e,/select,\"" + winFileName + "\"";
+    ShellExecute(NULL, NULL, TEXT("explorer.exe"), shExArg.toStdWString().c_str(), NULL, SW_SHOW);
 #else
     QDesktopServices::openUrl(QUrl::fromLocalFile(m_path));
 #endif

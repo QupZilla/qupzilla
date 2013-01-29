@@ -34,6 +34,7 @@
 #include <QIcon>
 #include <QFileIconProvider>
 #include <QTemporaryFile>
+#include <QHash>
 
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
@@ -340,6 +341,26 @@ QString QzTools::applyDirectionToPage(QString &pageContents)
     return pageContents;
 }
 
+QIcon QzTools::iconFromFileName(const QString &fileName)
+{
+    static QHash<QString, QIcon> iconCache;
+
+    QFileInfo tempInfo(fileName);
+    if (iconCache.contains(tempInfo.suffix())) {
+        return iconCache.value(tempInfo.suffix());
+    }
+
+    QFileIconProvider iconProvider;
+    QTemporaryFile tempFile(mApp->tempPath() + "/XXXXXX." + tempInfo.suffix());
+    tempFile.open();
+    tempInfo.setFile(tempFile.fileName());
+
+    QIcon icon(iconProvider.icon(tempInfo));
+    iconCache.insert(tempInfo.suffix(), icon);
+
+    return icon;
+}
+
 // Qt5 migration help functions
 bool QzTools::isCertificateValid(const QSslCertificate &cert)
 {
@@ -428,19 +449,4 @@ QString QzTools::buildSystem()
 #ifdef Q_OS_HAIKU
     return "Haiku";
 #endif
-}
-
-QIcon QzTools::iconFromFileName(const QString &fileName)
-{
-    QFileInfo tempInfo(fileName);
-    if (m_iconCache.contains(tempInfo.suffix())) {
-        return m_iconCache.value(tempInfo.suffix());
-    }
-
-    QTemporaryFile tempFile(mApp->tempPath() + "/XXXXXX." + tempInfo.suffix());
-    tempFile.open();
-    tempInfo.setFile(tempFile.fileName());
-    QIcon icon(QFileIconProvider().icon(tempInfo));
-    m_iconCache.insert(tempInfo.suffix(), icon);
-    return icon;
 }
