@@ -81,6 +81,10 @@ QIcon WebView::icon() const
         return qIconProvider->standardIcon(QStyle::SP_DriveHDIcon);
     }
 
+    if (url().scheme() == QLatin1String("ftp")) {
+        return qIconProvider->standardIcon(QStyle::SP_ComputerIcon);
+    }
+
     if (!QWebView::icon().isNull()) {
         return QWebView::icon();
     }

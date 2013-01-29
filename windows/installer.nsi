@@ -3,7 +3,7 @@
 ;
 ; For compiling this script you need following plugins:
 ; FindProcDLL_plug-in, KillProcDLL_plug-in and 'AllAssociation.nsh' needs
-; Registry_plug-in, Application_Association_Registration_plug-in 
+; Registry_plug-in, Application_Association_Registration_plug-in
 ; Unicode version of them can be downloaded from:
 ; http://sourceforge.net/projects/findkillprocuni/files/bin/
 ; http://nsis.sourceforge.net/Application_Association_Registration_plug-in
@@ -69,10 +69,6 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Polish"
 !insertmacro MUI_LANGUAGE "Ukrainian"
 !insertmacro MUI_LANGUAGE "farsi"
-
-!insertmacro MUI_LANGUAGE "Korean"
-!insertmacro MUI_LANGUAGE "Russian"
-!insertmacro MUI_LANGUAGE "Spanish"
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
@@ -409,7 +405,7 @@ SectionEnd
 BrandingText "${PRODUCT_NAME} ${PRODUCT_VERSION} Installer"
 
 Function .onInit
-		;Prevent Multiple Instances
+        ;Prevent Multiple Instances
         System::Call 'kernel32::CreateMutexA(i 0, i 0, t "QupZillaInstaller-4ECB4694-2C39-4f93-9122-A986344C4E7B") i .r1 ?e'
         Pop $R0
         StrCmp $R0 0 +3
@@ -418,7 +414,7 @@ Function .onInit
 
         ;Language selection dialog¨
         ;Return when running silent instalation
-        
+
         IfSilent 0 +2
           return
 
