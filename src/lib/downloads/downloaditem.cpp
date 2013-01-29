@@ -320,13 +320,19 @@ void DownloadItem::stop(bool askForDeleteFile)
         return;
     }
     m_downloadStopped = true;
-    QString host = m_reply ? m_reply->url().host() : m_ftpDownloader->url().host();
+    QString host;
+    if (m_reply) {
+        host = m_reply->url().host();
+    }
+    else if (m_ftpDownloader) {
+        host = m_ftpDownloader->url().host();
+    }
     m_openAfterFinish = false;
     m_timer.stop();
     if (m_reply) {
         m_reply->abort();
     }
-    else {
+    else if (m_ftpDownloader) {
         m_ftpDownloader->abort();
         m_ftpDownloader->close();
     }
@@ -454,8 +460,8 @@ void DownloadItem::error()
         ui->downloadInfo->setText(tr("Error: ") + m_reply->errorString());
     }
     else if (m_ftpDownloader && m_ftpDownloader->error() != QFtp::NoError) {
-        ui->downloadInfo->setText(tr("Error: ") + m_ftpDownloader->errorString());
         stop(false);
+        ui->downloadInfo->setText(tr("Error: ") + m_ftpDownloader->errorString());
     }
 }
 
@@ -464,9 +470,10 @@ void DownloadItem::updateDownload()
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__ ;
 #endif
-    bool downoaderIsFinished = (m_reply && m_reply->isFinished())
-                               || (m_ftpDownloader && m_ftpDownloader->isFinished());
-    if (ui->progressBar->maximum() == 0 && m_outputFile.isOpen() && downoaderIsFinished) {
+     // after caling stop() (from readyRead()) m_reply will be a dangling pointer,
+     // thus it should be checked after m_outputFile.isOpen()
+    if (ui->progressBar->maximum() == 0 && m_outputFile.isOpen() &&
+            ((m_reply && m_reply->isFinished()) || (m_ftpDownloader && m_ftpDownloader->isFinished()))) {
         downloadProgress(0, 0);
         finished();
     }
