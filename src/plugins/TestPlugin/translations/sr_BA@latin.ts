@@ -6,27 +6,27 @@
     <message>
         <location filename="../testplugin.cpp" line="112"/>
         <source>Close</source>
-        <translation>Затвори</translation>
+        <translation>Zatvori</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="123"/>
         <source>Example Plugin Settings</source>
-        <translation>Подешавања пробног прикључка</translation>
+        <translation>Podešavanja probnog priključka</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="149"/>
         <source>My first plugin action</source>
-        <translation>Радња мог првог прикључка</translation>
+        <translation>Radnja mog prvog priključka</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="164"/>
         <source>Hello</source>
-        <translation>Здраво</translation>
+        <translation>Zdravo</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="164"/>
         <source>First plugin action works :-)</source>
-        <translation>Радња прикључка ради :-)</translation>
+        <translation>Radnja priključka radi :-)</translation>
     </message>
 </context>
 <context>

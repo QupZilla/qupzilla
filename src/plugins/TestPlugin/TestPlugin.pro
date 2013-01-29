@@ -27,8 +27,10 @@ TRANSLATIONS += translations/cs_CZ.ts\
                 translations/pt_PT.ts\
                 translations/ro_RO.ts\
                 translations/sk_SK.ts\
-                translations/sr_BA.ts\
-                translations/sr_RS.ts\
+                translations/sr_BA.ts \
+                translations/sr_BA@latin.ts \
+                translations/sr_RS.ts \
+                translations/sr_RS@latin.ts \
                 translations/sv_SE.ts\
                 translations/zh_CN.ts\
                 translations/zh_TW.ts\

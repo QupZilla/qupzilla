@@ -33,7 +33,9 @@ TRANSLATIONS = \
     translations/ro_RO.ts \
     translations/ru_RU.ts \
     translations/sr_BA.ts \
+    translations/sr_BA@latin.ts \
     translations/sr_RS.ts \
+    translations/sr_RS@latin.ts \
     translations/sv_SE.ts \
     translations/uk_UA.ts \
     translations/zh_TW.ts \
