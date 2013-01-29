@@ -1,5 +1,5 @@
 /* ============================================================
-* Copyright (C) 2012  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2012-2013  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 * This file is part of QupZilla - WebKit based browser 2010-2012
 * by  David Rosca <nowrep@gmail.com>
 *
@@ -22,8 +22,6 @@
 #ifdef Q_OS_WIN
 #include "ShlObj.h"
 #include <QMessageBox>
-#endif
-
 #include <QStringList>
 #include <QSettings>
 #include <QDir>
@@ -80,28 +78,19 @@ void RegisterQAppAssociation::setAppInfo(const QString &appRegisteredName, const
 
 bool RegisterQAppAssociation::isPerMachineRegisteration()
 {
-#ifdef Q_OS_WIN
     return (_UserRootKey == "HKEY_LOCAL_MACHINE");
-#else
-    return false;
-#endif
 }
 
 void RegisterQAppAssociation::setPerMachineRegisteration(bool enable)
 {
-#ifdef Q_OS_WIN
     if (enable) {
         _UserRootKey = "HKEY_LOCAL_MACHINE";
     }
     else {
         _UserRootKey = "HKEY_CURRENT_USER";
     }
-#else
-    Q_UNUSED(enable)
-#endif
 }
 
-#ifdef Q_OS_WIN
 bool RegisterQAppAssociation::registerAppCapabilities()
 {
     if (!isVistaOrNewer()) {
@@ -157,11 +146,9 @@ bool RegisterQAppAssociation::isVistaOrNewer()
     return (QSysInfo::windowsVersion() >= QSysInfo::WV_VISTA &&
             QSysInfo::windowsVersion() <= QSysInfo::WV_NT_based);
 }
-#endif
 
 void RegisterQAppAssociation::registerAssociation(const QString &assocName, AssociationType type)
 {
-#ifdef Q_OS_WIN
     if (isVistaOrNewer()) { // Vista and newer
         IApplicationAssociationRegistration* pAAR;
 
@@ -239,19 +226,13 @@ void RegisterQAppAssociation::registerAssociation(const QString &assocName, Asso
         }
         regUserRoot.endGroup();
     }
-#else
-    Q_UNUSED(assocName)
-    Q_UNUSED(type)
-#endif
 }
 
 void RegisterQAppAssociation::registerAllAssociation()
 {
-#ifdef Q_OS_WIN
     if (isVistaOrNewer() && !registerAppCapabilities()) {
         return;
     }
-#endif
 
     QHash<QString, QString>::const_iterator i = _fileAssocHash.constBegin();
     while (i != _fileAssocHash.constEnd()) {
@@ -265,18 +246,15 @@ void RegisterQAppAssociation::registerAllAssociation()
         ++i;
     }
 
-#ifdef Q_OS_WIN
     if (!isVistaOrNewer()) {
         // On Windows Vista or newer for updating icons 'pAAR->SetAppAsDefault()'
         // calls 'SHChangeNotify()'. Thus, we just need care about older Windows.
         SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_FLUSHNOWAIT, 0 , 0);
     }
-#endif
 }
 
 void RegisterQAppAssociation::createProgId(const QString &progId)
 {
-#ifdef Q_OS_WIN
     QSettings regUserRoot(_UserRootKey, QSettings::NativeFormat);
     regUserRoot.beginGroup("Software/Classes");
     QPair<QString, QString> pair = _assocDescHash.value(progId);
@@ -285,14 +263,10 @@ void RegisterQAppAssociation::createProgId(const QString &progId)
     regUserRoot.setValue(progId + "/DefaultIcon/.", pair.second);
     regUserRoot.setValue(progId + "/shell/open/command/.", QString("\"" + _appPath + "\" \"%1\""));
     regUserRoot.endGroup();
-#else
-    Q_UNUSED(progId)
-#endif
 }
 
 bool RegisterQAppAssociation::isDefaultApp(const QString &assocName, AssociationType type)
 {
-#ifdef Q_OS_WIN
     if (isVistaOrNewer()) {
         QSettings regCurrentUserRoot("HKEY_CURRENT_USER", QSettings::NativeFormat);
         switch (type) {
@@ -351,10 +325,7 @@ bool RegisterQAppAssociation::isDefaultApp(const QString &assocName, Association
             break;
         }
     }
-#else
-    Q_UNUSED(assocName)
-    Q_UNUSED(type)
-#endif
+
     return false;
 }
 
@@ -376,124 +347,4 @@ bool RegisterQAppAssociation::isDefaultForAllCapabilities()
     }
     return result;
 }
-
-/***************************************/
-/******** CheckMessageBox Class ********/
-/***************************************/
-
-CheckMessageBox::CheckMessageBox(bool* defaultShowAgainState, QWidget* parent, Qt::WindowFlags f)
-    : QDialog(parent, f | Qt::MSWindowsFixedSizeDialogHint),
-      _showAgainState(defaultShowAgainState)
-{
-    setupUi();
-    if (defaultShowAgainState) {
-        showAgainCheckBox->setChecked(*defaultShowAgainState);
-    }
-    else {
-        showAgainCheckBox->hide();
-        disconnect(showAgainCheckBox, SIGNAL(toggled(bool)), this, SLOT(showAgainStateChanged(bool)));
-    }
-}
-
-CheckMessageBox::CheckMessageBox(const QString &msg, const QPixmap &pixmap,
-                                 const QString &str, bool* defaultShowAgainState,
-                                 QWidget* parent, Qt::WindowFlags f)
-    : QDialog(parent, f | Qt::MSWindowsFixedSizeDialogHint),
-      _showAgainState(defaultShowAgainState)
-{
-    setupUi();
-    setMessage(msg);
-    setPixmap(pixmap);
-    if (defaultShowAgainState) {
-        setShowAgainText(str);
-    }
-}
-
-CheckMessageBox::~CheckMessageBox()
-{
-}
-
-void CheckMessageBox::setMessage(const QString &msg)
-{
-    messageLabel->setText(msg);
-}
-
-void CheckMessageBox::setShowAgainText(const QString &str)
-{
-    showAgainCheckBox->setText(str);
-}
-
-void CheckMessageBox::setPixmap(const QPixmap &pixmap)
-{
-    pixmapLabel->setPixmap(pixmap);
-}
-
-void CheckMessageBox::setupUi()
-{
-    setObjectName(QString::fromUtf8("CheckMessageBox"));
-    gridLayout = new QGridLayout(this);
-    gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-    horizontalLayout = new QHBoxLayout();
-    horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-    verticalLayout_2 = new QVBoxLayout();
-    verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-    pixmapLabel = new QLabel(this);
-    pixmapLabel->setObjectName(QString::fromUtf8("pixmapLabel"));
-
-    verticalLayout_2->addWidget(pixmapLabel);
-
-    verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-    verticalLayout_2->addItem(verticalSpacer);
-
-
-    horizontalLayout->addLayout(verticalLayout_2);
-
-    verticalLayout = new QVBoxLayout();
-    verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-    messageLabel = new QLabel(this);
-    messageLabel->setObjectName(QString::fromUtf8("messageLabel"));
-    messageLabel->setWordWrap(true);
-
-    verticalLayout->addWidget(messageLabel);
-
-    horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-    verticalLayout->addItem(horizontalSpacer);
-
-    showAgainCheckBox = new QCheckBox(this);
-    showAgainCheckBox->setObjectName(QString::fromUtf8("showAgainCheckBox"));
-
-    verticalLayout->addWidget(showAgainCheckBox);
-
-
-    horizontalLayout->addLayout(verticalLayout);
-
-
-    gridLayout->addLayout(horizontalLayout, 0, 0, 1, 1);
-
-    buttonBox = new QDialogButtonBox(this);
-    buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-    buttonBox->setOrientation(Qt::Horizontal);
-    buttonBox->setStandardButtons(QDialogButtonBox::No | QDialogButtonBox::Yes);
-
-    gridLayout->addWidget(buttonBox, 1, 0, 1, 1);
-
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-
-    if (_showAgainState) {
-        showAgainCheckBox->setChecked(*_showAgainState);
-        connect(showAgainCheckBox, SIGNAL(toggled(bool)), this, SLOT(showAgainStateChanged(bool)));
-    }
-    else {
-        showAgainCheckBox->hide();
-    }
-}
-
-void CheckMessageBox::showAgainStateChanged(bool checked)
-{
-    if (_showAgainState) {
-        *_showAgainState = checked;
-    }
-}
+#endif

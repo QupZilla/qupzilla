@@ -50,6 +50,7 @@
 #include "useragentmanager.h"
 #include "restoremanager.h"
 #include "proxystyle.h"
+#include "checkboxdialog.h"
 #include "registerqappassociation.h"
 #include "html5permissions/html5permissionsmanager.h"
 
@@ -95,7 +96,9 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_isRestoring(false)
     , m_startingAfterCrash(false)
     , m_databaseConnected(false)
+#ifdef Q_OS_WIN
     , m_registerQAppAssociation(0)
+#endif
 {
 #if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR;
@@ -836,22 +839,29 @@ void MainApplication::reloadUserStyleSheet()
 
 bool MainApplication::checkDefaultWebBrowser()
 {
+#ifdef Q_OS_WIN
     bool showAgain = true;
     if (!associationManager()->isDefaultForAllCapabilities()) {
-        CheckMessageBox notDefaultDialog(&showAgain, getWindow());
-        notDefaultDialog.setWindowTitle(tr("Default Browser"));
-        notDefaultDialog.setMessage(tr("QupZilla is not currently your default browser. Would you like to make it your default browser?"));
-        notDefaultDialog.setPixmap(style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(32, 32));
-        notDefaultDialog.setShowAgainText(tr("Always perform this check when starting QupZilla."));
+        CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, this);
+        dialog.setText(tr("QupZilla is not currently your default browser. Would you like to make it your default browser?"));
+        dialog.setCheckBoxText(tr("Always perform this check when starting QupZilla."));
+        dialog.setWindowTitle(tr("Default Browser"));
+        dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning));
 
-        if (notDefaultDialog.exec() == QDialog::Accepted) {
+        if (dialog.exec() == QDialog::Accepted) {
             associationManager()->registerAllAssociation();
         }
+
+        showAgain = dialog.isChecked();
     }
 
     return showAgain;
+#else
+    return false;
+#endif
 }
 
+#ifdef Q_OS_WIN
 RegisterQAppAssociation* MainApplication::associationManager()
 {
     if (!m_registerQAppAssociation) {
@@ -867,6 +877,7 @@ RegisterQAppAssociation* MainApplication::associationManager()
     }
     return m_registerQAppAssociation;
 }
+#endif
 
 QUrl MainApplication::userStyleSheet(const QString &filePath) const
 {

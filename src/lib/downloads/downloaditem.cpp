@@ -468,8 +468,8 @@ void DownloadItem::updateDownload()
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__ ;
 #endif
-     // after caling stop() (from readyRead()) m_reply will be a dangling pointer,
-     // thus it should be checked after m_outputFile.isOpen()
+    // after caling stop() (from readyRead()) m_reply will be a dangling pointer,
+    // thus it should be checked after m_outputFile.isOpen()
     if (ui->progressBar->maximum() == 0 && m_outputFile.isOpen() &&
             ((m_reply && m_reply->isFinished()) || (m_ftpDownloader && m_ftpDownloader->isFinished()))) {
         downloadProgress(0, 0);

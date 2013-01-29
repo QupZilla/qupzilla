@@ -111,7 +111,10 @@ public:
     DatabaseWriter* dbWriter() { return m_dbWriter; }
     UserAgentManager* uaManager() { return m_uaManager; }
     RestoreManager* restoreManager() { return m_restoreManager; }
+
+#ifdef Q_OS_WIN
     RegisterQAppAssociation* associationManager();
+#endif
 
 #ifdef Q_OS_MAC
     bool event(QEvent* e);
@@ -182,7 +185,9 @@ private:
     bool m_databaseConnected;
     QList<PostLaunchAction> m_postLaunchActions;
 
+#ifdef Q_OS_WIN
     RegisterQAppAssociation* m_registerQAppAssociation;
+#endif
 };
 
 #endif // MAINAPPLICATION_H
