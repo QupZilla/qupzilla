@@ -1538,23 +1538,23 @@
         <translation>Nije nađeno</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="413"/>
-        <source>Sorry, the file
- %1
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="139"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="446"/>
+        <source>Error: Cannot write to file!</source>
+        <translation>Greška: ne mogu da upišem fajl!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="423"/>
+        <source>Sorry, the file 
+ %1 
  was not found!</source>
         <translation>Fajl
  %1
  nije nađen!</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="135"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="442"/>
-        <source>Error: Cannot write to file!</source>
-        <translation>Greška: ne mogu da upišem fajl!</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="454"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="458"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="462"/>
         <source>Error: </source>
         <translation>Greška:</translation>
     </message>
@@ -2186,7 +2186,7 @@
     </message>
 </context>
 <context>
-    <name>LocationCompleterDelegate</name>
+    <name>LocationCompleterView</name>
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="122"/>
         <source>Switch to tab</source>
@@ -3871,7 +3871,7 @@
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1860"/>
-        <source>There are still %1 open tabs and your session won&apos;t be stored.
+        <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
         <translation>Još uvek imate %1 otvorenih jezičaka a vaša sesija neće biti sačuvana.
 Želite li zaista da napustite Kapzilu?</translation>
@@ -5635,7 +5635,7 @@ Nakon dodavanja ili uklanjanja putanja sertifikata potrebno je da ponovo pokrene
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="514"/>
-        <source>To show this page, QupZilla must resend request which do it again
+        <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
         <translation>Da bi prikazala ovu stranicu Kapzila mora ponovo da pošalje zahtev za učitavanjem.</translation>
     </message>
