@@ -1786,7 +1786,7 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="356"/>
         <source>Canceled!</source>
-        <translation type="unfinished"></translation>
+        <translation>Abgebrochen!</translation>
     </message>
 </context>
 <context>
@@ -1794,42 +1794,42 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="105"/>
         <source>Unknown command</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Befehl</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="246"/>
         <source>Up to higher level directory</source>
-        <translation type="unfinished">Übergeordnetes Verzeichnis</translation>
+        <translation>Übergeordnetes Verzeichnis</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="247"/>
         <source>Show hidden files</source>
-        <translation type="unfinished">Versteckte Dateien anzeigen</translation>
+        <translation>Versteckte Dateien anzeigen</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="248"/>
         <source>Name</source>
-        <translation type="unfinished">Name</translation>
+        <translation>Name</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="249"/>
         <source>Size</source>
-        <translation type="unfinished">Größe</translation>
+        <translation>Größe</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="250"/>
         <source>Last modified</source>
-        <translation type="unfinished">Zuletzt geändert</translation>
+        <translation>Zuletzt geändert</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="255"/>
         <source>Index for %1</source>
-        <translation type="unfinished">Index für %1</translation>
+        <translation>Index für %1</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="308"/>
         <source>Folder is empty.</source>
-        <translation type="unfinished">Ordner ist leer.</translation>
+        <translation>Ordner ist leer.</translation>
     </message>
 </context>
 <context>
@@ -1837,47 +1837,47 @@
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="14"/>
         <source>HTML5 Permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML5-Berechtigungen</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="24"/>
         <source>Notifications</source>
-        <translation type="unfinished">Benachrichtigungen</translation>
+        <translation>Benachrichtigungen</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="40"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="94"/>
         <source>Site</source>
-        <translation type="unfinished">Webseite</translation>
+        <translation>Webseite</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="45"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="99"/>
         <source>Behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Verhalten</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="68"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="122"/>
         <source>Remove</source>
-        <translation type="unfinished">Entfernen</translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="78"/>
         <source>Geolocation</source>
-        <translation type="unfinished"></translation>
+        <translation>Ortung</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="35"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="53"/>
         <source>Allow</source>
-        <translation type="unfinished"></translation>
+        <translation>Zulassen</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="44"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="62"/>
         <source>Deny</source>
-        <translation type="unfinished"></translation>
+        <translation>Abweisen</translation>
     </message>
 </context>
 <context>
@@ -1885,32 +1885,32 @@
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="62"/>
         <source>Remember</source>
-        <translation type="unfinished">Speichern</translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="69"/>
         <source>Allow</source>
-        <translation type="unfinished"></translation>
+        <translation>Zulassen</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="76"/>
         <source>Deny</source>
-        <translation type="unfinished"></translation>
+        <translation>Abweisen</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="39"/>
         <source>this site</source>
-        <translation type="unfinished"></translation>
+        <translation>diese Webseite</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="43"/>
         <source>Allow %1 to show desktop notifications?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 die Anzeige von Desktop-Benachrichtigungen erlauben?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="47"/>
         <source>Allow %1 to locate your position?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 die Bestimmung Ihrer Position erlauben?</translation>
     </message>
 </context>
 <context>
@@ -3377,17 +3377,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;HTML5-Berechtigungen&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2237"/>
         <source>Manage HTML5 permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML5-Berechtigungnen verwalten</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2250"/>
         <source>HTML5 Permisions</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2261"/>
