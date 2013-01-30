@@ -21,7 +21,6 @@
 #include <QNetworkReply>
 #include <QBuffer>
 
-#include "followredirectreply.h"
 #include "schemehandler.h"
 #include "qz_namespace.h"
 
@@ -31,9 +30,6 @@ public:
     explicit ViewSourceSchemeHandler();
 
     QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
-
-//private slots:
-//	void finished();
 };
 
 class QT_QUPZILLA_EXPORT ViewSourceSchemeReply : public QNetworkReply
@@ -49,13 +45,10 @@ protected:
     void abort() { }
 
 private slots:
-    //void delayedFinish();
     void loadPage();
-	//void finished();
-	void readData();
 
 private:
-	FollowRedirectReply* m_reply;
+	QNetworkReply* m_reply;
     QBuffer m_buffer;
 };
 

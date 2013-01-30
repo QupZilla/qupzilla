@@ -172,13 +172,6 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
         page()->mainFrame()->evaluateJavaScript(scriptSource);
         return;
     }
-	/*else if (reqUrl.scheme() == QLatin1String("view-source")) {
-		QString urlSource = QUrl::fromPercentEncoding(reqUrl.toString().mid(12).toUtf8());
-
-	    FollowRedirectReply* reply = new FollowRedirectReply(QUrl(urlSource), m_networkManager);
-	    connect(reply, SIGNAL(finished()), this, SLOT(sourceDownloaded()));
-		return;
-	}*/
 
     if (reqUrl.isEmpty() || isUrlValid(reqUrl)) {
         QWebView::load(request, operation, body);
@@ -192,33 +185,6 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
 
     emit urlChanged(searchUrl);
     m_aboutToLoadUrl = searchUrl;
-}
-
-void WebView::sourceDownloaded(){
-    FollowRedirectReply* reply = qobject_cast<FollowRedirectReply*> (sender());
-    if (!reply) {
-        return;
-    }
-
-    QString html = QString::fromUtf8(reply->readAll());
-	QRegExp rx("<meta.*charset=[\"]?([a-z0-9-]+)");
-	QString charset = "";
-	if (rx.indexIn(html, 0) != -1)
-		charset = rx.cap(1);
-	else
-		charset = "utf-8";
-	
-    QUrl replyUrl = QUrl("view-source:"+reply->url().toString());
-
-	//html = "<html><head><title>"+replyUrl.toString()+"</title></head><body><pre>"+html+"</pre></body></html>";
-	SourceHighlighter sh(html);
-	sh.setTitle(replyUrl.toString());
-	html = sh.highlight();
-	QByteArray baHtml = html.toAscii();
-
-	page()->mainFrame()->setContent(baHtml, "text/html; charset="+charset, replyUrl);
-	//setTitle(tr("Source of ") + replyUrl.toString());
-	emit urlChanged(replyUrl);
 }
 
 bool WebView::loadingError() const
@@ -404,20 +370,14 @@ void WebView::slotLoadFinished()
         m_actionReload->setEnabled(true);
     }
 
-    if (!m_isReloading) {
+    if (!m_isReloading && url().scheme() != QLatin1String("view-source")) {
         mApp->history()->addHistoryEntry(this);
     }
 
     mApp->autoFill()->completePage(page());
 
     m_isReloading = false;
-	// bad
-	if (url().scheme() == QLatin1String("view-source")){
-		m_lastUrl = QUrl(title());
-		emit urlChanged(m_lastUrl);
-	}
-	else
-		m_lastUrl = url();
+    m_lastUrl = url();
 }
 
 void WebView::frameStateChanged()

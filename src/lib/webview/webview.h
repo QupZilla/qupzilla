@@ -89,8 +89,6 @@ protected slots:
     void slotIconChanged();
     void slotUrlChanged(const QUrl &url);
 
-	void sourceDownloaded();
-
     // Context menu slots
     void openUrlInNewWindow();
     void sendLinkByMail();
