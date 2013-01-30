@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -177,11 +177,16 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
 
 void CookieJar::saveCookies()
 {
-    if (m_deleteOnClose || mApp->isPrivateSession()) {
+    if (mApp->isPrivateSession()) {
         return;
     }
 
-    QList<QNetworkCookie> allCookies = getAllCookies();
+    QList<QNetworkCookie> allCookies;
+
+    // If we are deleting cookies on close, let's just save empty cookie list
+    if (!m_deleteOnClose) {
+        allCookies = getAllCookies();
+    }
 
     QFile file(m_activeProfil + "cookies.dat");
     file.open(QIODevice::WriteOnly);

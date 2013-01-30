@@ -671,14 +671,10 @@ void MainApplication::saveSettings()
     settings.endGroup();
 
     settings.beginGroup("Web-Browser-Settings");
-    bool deleteCookies = settings.value("deleteCookiesOnClose", false).toBool();
     bool deleteHistory = settings.value("deleteHistoryOnClose", false).toBool();
     bool deleteHtml5Storage = settings.value("deleteHTML5StorageOnClose", false).toBool();
     settings.endGroup();
 
-    if (deleteCookies) {
-        m_cookiejar->clearCookies();
-    }
     if (deleteHistory) {
         m_historymodel->clearHistory();
     }
