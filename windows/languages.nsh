@@ -115,10 +115,13 @@ LangString DESC_SecMain ${LANG_GERMAN} "Hauptkomponenten der Anwendung."
 LangString DESC_SecTranslations ${LANG_GERMAN} "Weitere Übersetzungen sind verfügbar. Die Standardsprache ist Englisch."
 LangString DESC_SecPlugins ${LANG_GERMAN} "Weitere Plugins stehen zur Verfügung."
 LangString DESC_SecDesktop ${LANG_GERMAN} "Starter zum Desktop hinzufügen."
-LangString DESC_SecExtensions ${LANG_GERMAN} "Verknüpfe QupZilla mit .htm und .html Dateien"
+LangString DESC_SecExtensions ${LANG_GERMAN} "Verknüpfe QupZilla mit *.htm(l) Dateien"
 LangString DESC_SecThemes ${LANG_GERMAN} "Weitere Themen für QupZilla"
 LangString DESC_SecSetASDefault ${LANG_GERMAN} "Qupzilla als Standard-Browser verwenden"
-LangString DESC_SecProtocols ${LANG_GERMAN} "Verknüpfe QupZilla mit HTTP- und HTTPS-Protokoll"
+LangString DESC_SecProtocols ${LANG_GERMAN} "Verknüpfe QupZilla mit HTTP(S)- und FTP-Protokoll"
+;
+LangString MSG_RunningInstance ${LANG_GERMAN} "QupZilla ist bereits gestartet! Soll die Installationsroutine versuchen, QupZilla zu beenden?"
+LangString MSG_InstallationCanceled ${LANG_GERMAN} "Die Installation wurde vom Benutzer abgebrochen."
 
 ;;;;Dutch
 LangString TITLE_SecMain ${LANG_DUTCH} "Hoofdonderdelen"
