@@ -172,13 +172,13 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
         page()->mainFrame()->evaluateJavaScript(scriptSource);
         return;
     }
-	else if (reqUrl.scheme() == QLatin1String("view-source")) {
+	/*else if (reqUrl.scheme() == QLatin1String("view-source")) {
 		QString urlSource = QUrl::fromPercentEncoding(reqUrl.toString().mid(12).toUtf8());
 
 	    FollowRedirectReply* reply = new FollowRedirectReply(QUrl(urlSource), m_networkManager);
 	    connect(reply, SIGNAL(finished()), this, SLOT(sourceDownloaded()));
 		return;
-	}
+	}*/
 
     if (reqUrl.isEmpty() || isUrlValid(reqUrl)) {
         QWebView::load(request, operation, body);
@@ -200,7 +200,7 @@ void WebView::sourceDownloaded(){
         return;
     }
 
-    QString html = reply->readAll();
+    QString html = QString::fromUtf8(reply->readAll());
 	QRegExp rx("<meta.*charset=[\"]?([a-z0-9-]+)");
 	QString charset = "";
 	if (rx.indexIn(html, 0) != -1)
@@ -411,7 +411,13 @@ void WebView::slotLoadFinished()
     mApp->autoFill()->completePage(page());
 
     m_isReloading = false;
-    m_lastUrl = url();
+	// bad
+	if (url().scheme() == QLatin1String("view-source")){
+		m_lastUrl = QUrl(title());
+		emit urlChanged(m_lastUrl);
+	}
+	else
+		m_lastUrl = url();
 }
 
 void WebView::frameStateChanged()

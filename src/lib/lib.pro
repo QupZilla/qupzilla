@@ -195,6 +195,7 @@ SOURCES += \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/schemehandlers/adblockschemehandler.cpp \
     network/schemehandlers/fileschemehandler.cpp \
+	network/schemehandlers/viewsourceschemehandler.cpp \
     other/registerqappassociation.cpp \
     tools/listitemdelegate.cpp \
     bookmarks/bookmarkstree.cpp \
@@ -358,6 +359,7 @@ HEADERS  += \
     network/schemehandlers/qupzillaschemehandler.h \
     network/schemehandlers/adblockschemehandler.h \
     network/schemehandlers/fileschemehandler.h \
+	network/schemehandlers/viewsourceschemehandler.h \
     other/registerqappassociation.h \
     tools/listitemdelegate.h \
     bookmarks/bookmarkstree.h \
