@@ -204,10 +204,10 @@ SOURCES += \
     tools/html5permissions/html5permissionsmanager.cpp \
     tools/html5permissions/html5permissionsnotification.cpp \
     tools/html5permissions/html5permissionsdialog.cpp \
-    tools/sourcehighlighter.cpp
+    tools/sourcehighlighter.cpp \
     autofill/pageformcompleter.cpp \
     autofill/autofill.cpp \
-    network/schemehandlers/ftpschemehandler.cpp \
+    network/schemehandlers/ftpschemehandler.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -371,10 +371,10 @@ HEADERS  += \
     tools/html5permissions/html5permissionsmanager.h \
     tools/html5permissions/html5permissionsnotification.h \
     tools/html5permissions/html5permissionsdialog.h \
-    tools/sourcehighlighter.h
+    tools/sourcehighlighter.h \
     autofill/pageformcompleter.h \
     autofill/autofill.h \
-    network/schemehandlers/ftpschemehandler.h \
+    network/schemehandlers/ftpschemehandler.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
