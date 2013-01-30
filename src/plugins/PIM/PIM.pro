@@ -1,4 +1,4 @@
-TARGET = PIM
+TARGET = $$qtLibraryTarget(PIM)
 os2: TARGET  = PIM
 
 SOURCES = \

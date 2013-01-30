@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -24,16 +24,18 @@
 #include <QWebFrame>
 #include <QDebug>
 #include <QElapsedTimer>
+#include <QFileSystemWatcher>
 
 GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
-    : m_manager(manager)
-    , m_namespace("GreaseMonkeyNS")
-    , m_startAt(DocumentEnd)
+    : QObject(manager)
+    , m_manager(manager)
+    , m_fileWatcher(new QFileSystemWatcher(this))
     , m_fileName(filePath)
-    , m_enabled(true)
-    , m_valid(false)
 {
-    parseScript(filePath);
+    parseScript();
+
+    connect(m_fileWatcher, SIGNAL(fileChanged(QString)),
+            this, SLOT(watchedFileChanged(QString)));
 }
 
 bool GM_Script::isValid() const
@@ -78,7 +80,7 @@ GM_Script::StartAt GM_Script::startAt() const
 
 bool GM_Script::isEnabled() const
 {
-    return m_enabled;
+    return m_valid && m_enabled;
 }
 
 void GM_Script::setEnabled(bool enable)
@@ -120,7 +122,7 @@ QString GM_Script::fileName() const
 
 bool GM_Script::match(const QString &urlString)
 {
-    if (!m_enabled) {
+    if (!isEnabled()) {
         return false;
     }
 
@@ -139,12 +141,37 @@ bool GM_Script::match(const QString &urlString)
     return false;
 }
 
-void GM_Script::parseScript(const QString &filePath)
+void GM_Script::watchedFileChanged(const QString &file)
 {
-    QFile file(filePath);
+    if (m_fileName == file) {
+        parseScript();
+
+        m_manager->removeScript(this, false);
+        m_manager->addScript(this);
+    }
+}
+
+void GM_Script::parseScript()
+{
+    m_name.clear();
+    m_namespace = "GreaseMonkeyNS";
+    m_description.clear();
+    m_version.clear();
+    m_include.clear();
+    m_exclude.clear();
+    m_downloadUrl.clear();
+    m_startAt = DocumentEnd;
+    m_enabled = true;
+    m_valid = false;
+
+    QFile file(m_fileName);
     if (!file.open(QFile::ReadOnly)) {
-        qWarning() << "GreaseMonkey: Cannot open file for reading" << filePath;
+        qWarning() << "GreaseMonkey: Cannot open file for reading" << m_fileName;
         return;
+    }
+
+    if (!m_fileWatcher->files().contains(m_fileName)) {
+        m_fileWatcher->addPath(m_fileName);
     }
 
     QString fileData = QString::fromUtf8(file.readAll());
@@ -154,7 +181,7 @@ void GM_Script::parseScript(const QString &filePath)
     QString metadataBlock = rx.cap(1).trimmed();
 
     if (metadataBlock.isEmpty()) {
-        qWarning() << "GreaseMonkey: File does not contain metadata block" << filePath;
+        qWarning() << "GreaseMonkey: File does not contain metadata block" << m_fileName;
         return;
     }
 

@@ -1,4 +1,4 @@
-TARGET = MouseGestures
+TARGET = $$qtLibraryTarget(MouseGestures)
 os2: TARGET = MouseGes
 
 INCLUDEPATH = 3rdparty

@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,14 +25,16 @@
 #include <QUrl>
 
 class QWebFrame;
+class QFileSystemWatcher;
 
 class GM_Manager;
 class GM_UrlMatcher;
 
-class GM_Script
+class GM_Script : public QObject
 {
+    Q_OBJECT
 public:
-    GM_Script(GM_Manager* manager, const QString &filePath);
+    explicit GM_Script(GM_Manager* manager, const QString &filePath);
 
     enum StartAt { DocumentStart, DocumentEnd };
 
@@ -58,10 +60,14 @@ public:
 
     bool match(const QString &urlString);
 
+private slots:
+    void watchedFileChanged(const QString &file);
+
 private:
-    void parseScript(const QString &filePath);
+    void parseScript();
 
     GM_Manager* m_manager;
+    QFileSystemWatcher* m_fileWatcher;
 
     QString m_name;
     QString m_namespace;

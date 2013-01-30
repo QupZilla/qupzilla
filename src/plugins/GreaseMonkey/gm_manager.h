@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -50,7 +50,7 @@ public:
     void disableScript(GM_Script* script);
 
     bool addScript(GM_Script* script);
-    bool removeScript(GM_Script* script);
+    bool removeScript(GM_Script* script, bool removeFile = true);
 
     void showNotification(const QString &message, const QString &title = QString());
 

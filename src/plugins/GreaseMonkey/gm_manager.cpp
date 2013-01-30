@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -152,7 +152,7 @@ bool GM_Manager::addScript(GM_Script* script)
     return true;
 }
 
-bool GM_Manager::removeScript(GM_Script* script)
+bool GM_Manager::removeScript(GM_Script* script, bool removeFile)
 {
     if (!script) {
         return false;
@@ -166,8 +166,11 @@ bool GM_Manager::removeScript(GM_Script* script)
     }
 
     m_disabledScripts.removeOne(script->fullName());
-    QFile::remove(script->fileName());
-    delete script;
+
+    if (removeFile) {
+        QFile::remove(script->fileName());
+        delete script;
+    }
 
     emit scriptsChanged();
     return true;

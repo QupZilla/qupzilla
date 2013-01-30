@@ -1,4 +1,4 @@
-TARGET = AccessKeysNavigation
+TARGET = $$qtLibraryTarget(AccessKeysNavigation)
 os2: TARGET  = AcKeyNav
 
 SOURCES = \

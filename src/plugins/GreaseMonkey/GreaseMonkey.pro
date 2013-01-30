@@ -1,4 +1,4 @@
-TARGET = GreaseMonkey
+TARGET = $$qtLibraryTarget(GreaseMonkey)
 os2: TARGET = GreaseMo
 
 INCLUDEPATH += . settings\

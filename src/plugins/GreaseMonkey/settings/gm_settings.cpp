@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -34,10 +34,16 @@ GM_Settings::GM_Settings(GM_Manager* manager, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    connect(ui->listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(showItemInfo(QListWidgetItem*)));
-    connect(ui->listWidget, SIGNAL(removeItemRequested(QListWidgetItem*)), this, SLOT(removeItem(QListWidgetItem*)));
-    connect(ui->openDirectory, SIGNAL(clicked()), this, SLOT(openScriptsDirectory()));
-    connect(ui->link, SIGNAL(clicked(QPoint)), this, SLOT(openUserscripts()));
+    connect(ui->listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)),
+            this, SLOT(showItemInfo(QListWidgetItem*)));
+    connect(ui->listWidget, SIGNAL(removeItemRequested(QListWidgetItem*)),
+            this, SLOT(removeItem(QListWidgetItem*)));
+    connect(ui->openDirectory, SIGNAL(clicked()),
+            this, SLOT(openScriptsDirectory()));
+    connect(ui->link, SIGNAL(clicked(QPoint)),
+            this, SLOT(openUserscripts()));
+    connect(manager, SIGNAL(scriptsChanged()),
+            this, SLOT(loadScripts()));
 
     loadScripts();
 }
@@ -97,7 +103,10 @@ void GM_Settings::openScriptsDirectory()
 
 void GM_Settings::loadScripts()
 {
-    disconnect(ui->listWidget, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
+    disconnect(ui->listWidget, SIGNAL(itemChanged(QListWidgetItem*)),
+               this, SLOT(itemChanged(QListWidgetItem*)));
+
+    ui->listWidget->clear();
 
     foreach(GM_Script * script, m_manager->allScripts()) {
         QListWidgetItem* item = new QListWidgetItem(ui->listWidget);
