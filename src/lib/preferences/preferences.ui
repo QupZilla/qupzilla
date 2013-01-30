@@ -2247,7 +2247,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>HTML5 Permisions</string>
+          <string>HTML5 Permissions</string>
          </property>
         </widget>
        </item>

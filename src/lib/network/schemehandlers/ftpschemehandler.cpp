@@ -353,7 +353,7 @@ void FtpDownloader::setError(QFtp::Error err, const QString &errStr)
 
 void FtpDownloader::abort()
 {
-    setError(QFtp::UnknownError, tr("Canceled!"));
+    setError(QFtp::UnknownError, tr("Cancelled!"));
     QFtp::abort();
 }
 
