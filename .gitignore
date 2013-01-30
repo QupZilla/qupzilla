@@ -31,3 +31,4 @@ tests/modeltest
 *_manifest.*
 *.embed.manifest
 bin/autotests
+.clang_complete

@@ -1538,7 +1538,13 @@
         <translation>Nije nađeno</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="413"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="139"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="446"/>
+        <source>Error: Cannot write to file!</source>
+        <translation>Greška: ne mogu da upišem fajl!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="423"/>
         <source>Sorry, the file
  %1
  was not found!</source>
@@ -1547,14 +1553,8 @@
  nije nađen!</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="135"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="442"/>
-        <source>Error: Cannot write to file!</source>
-        <translation>Greška: ne mogu da upišem fajl!</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="454"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="458"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="462"/>
         <source>Error: </source>
         <translation>Greška:</translation>
     </message>
@@ -2186,7 +2186,7 @@
     </message>
 </context>
 <context>
-    <name>LocationCompleterDelegate</name>
+    <name>LocationCompleterView</name>
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="122"/>
         <source>Switch to tab</source>
