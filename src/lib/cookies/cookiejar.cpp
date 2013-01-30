@@ -62,7 +62,8 @@ static bool matchDomain(const QString &domain, const QString &filter)
 
     int index = domain.indexOf(filter);
 
-    return (index > 0 && filter[0] == QLatin1Char('.'));
+    return (index == 1 && domain[0] == QLatin1Char('.')) ||
+           (index > 0 && filter[0] == QLatin1Char('.'));
 }
 
 static int listContainsDomain(const QStringList &list, const QString &domain)
@@ -183,9 +184,23 @@ void CookieJar::saveCookies()
 
     QList<QNetworkCookie> allCookies;
 
-    // If we are deleting cookies on close, let's just save empty cookie list
     if (!m_deleteOnClose) {
+        // If we are deleting cookies on close, let's just save empty cookie list
         allCookies = getAllCookies();
+    }
+    else {
+        // Do not delete whitelisted cookies
+        QList<QNetworkCookie> cookies = getAllCookies();
+        int count = cookies.count();
+
+        for (int i = 0; i < count; i++) {
+            const QNetworkCookie &cookie = cookies.at(i);
+            int result = listContainsDomain(m_whitelist, cookie.domain());
+
+            if (result == 1) {
+                allCookies.append(cookie);
+            }
+        }
     }
 
     QFile file(m_activeProfil + "cookies.dat");
