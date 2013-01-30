@@ -3,6 +3,7 @@ Version 1.4.0
     * highlighting host in address in locationbar
     * can now be compiled using Qt 5
     * QtWebKit 2.3 new features - caret browsing, animated scrolling
+    * added support for FTP listing files and downloading
     * asking user whether to allow site to use notifications/geolocation
     * option to set JavaScript privacy permissions
     * option to specify default search engine used in locationbar
@@ -13,6 +14,8 @@ Version 1.4.0
     * option to switch to tab from locationbar popup completer
     * use .qupzilla/tmp instead of /tmp for temporary data
     * saving passwords should now work for much more sites
+    * don't steal Ctrl+B/U/I shortcuts from page
+    * fixed crash with context menu in websearchbar and locationbar
     * fixed loading NYTimes skimmer page
     * fixed cookie domain handling according to RFC 6265
     * fixed qvalue format in Accept-Language HTTP header

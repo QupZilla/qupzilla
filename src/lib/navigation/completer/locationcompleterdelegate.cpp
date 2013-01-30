@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -119,7 +119,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
         QRect textRect(linkRect);
         textRect.setX(textRect.x() + m_padding + 16 + m_padding);
-        drawTextLine(textRect, tr("Switch to tab"), painter, style, opt, colorLinkRole);
+        drawTextLine(textRect, LocationCompleterView::tr("Switch to tab"), painter, style, opt, colorLinkRole);
     }
     else {
         drawHighlightedTextLine(linkRect, link, searchText, painter, style, opt, colorLinkRole);

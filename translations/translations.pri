@@ -14,7 +14,9 @@ TRANSLATIONS += $$PWD/cs_CZ.ts\
                 $$PWD/pt_PT.ts\
                 $$PWD/pt_BR.ts\
                 $$PWD/sr_BA.ts\
+                $$PWD/sr_BA@latin.ts\
                 $$PWD/sr_RS.ts\
+                $$PWD/sr_RS@latin.ts\
                 $$PWD/sv_SE.ts\
                 $$PWD/id_ID.ts\
                 $$PWD/ka_GE.ts\

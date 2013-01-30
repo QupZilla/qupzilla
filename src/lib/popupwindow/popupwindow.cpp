@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,21 +20,24 @@
 #include "popupwebpage.h"
 #include "popupstatusbarmessage.h"
 #include "progressbar.h"
-#include "qupzilla.h"
+#include "pagescreen.h"
+#include "searchtoolbar.h"
 #include "qzsettings.h"
 #include "popuplocationbar.h"
 #include "qztools.h"
+#include "iconprovider.h"
 
 #include <QVBoxLayout>
 #include <QStatusBar>
 #include <QWebFrame>
 #include <QCloseEvent>
+#include <QMenuBar>
 
-PopupWindow::PopupWindow(PopupWebView* view, QupZilla* mainClass)
+PopupWindow::PopupWindow(PopupWebView* view)
     : QWidget()
-    , p_QupZilla(mainClass)
     , m_view(view)
     , m_page(qobject_cast<PopupWebPage*>(view->page()))
+    , m_search(0)
 {
     m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0, 0, 0, 0);
@@ -45,14 +48,61 @@ PopupWindow::PopupWindow(PopupWebView* view, QupZilla* mainClass)
 
     m_statusBar = new QStatusBar(this);
     m_statusBar->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
-    m_statusBar->setVisible(p_QupZilla->statusBar()->isVisible());
 
     m_progressBar = new ProgressBar(m_statusBar);
     m_statusBar->addPermanentWidget(m_progressBar);
     m_progressBar->hide();
 
+    m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_statusBarMessage = new PopupStatusBarMessage(this);
 
+    m_menuBar = new QMenuBar(this);
+
+    QMenu* menuFile = new QMenu(tr("File"));
+    menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), m_view, SLOT(savePageAs()))->setShortcut(QKeySequence("Ctrl+S"));
+    menuFile->addAction(tr("Save Page Screen"), this, SLOT(savePageScreen()));
+    menuFile->addAction(QIcon::fromTheme("mail-message-new"), tr("Send Link..."), m_view, SLOT(sendPageByMail()));
+    menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print..."), m_view, SLOT(printPage()))->setShortcut(QKeySequence("Ctrl+P"));
+    menuFile->addSeparator();
+    menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close"), this, SLOT(close()))->setShortcut(QKeySequence("Ctrl+W"));
+    m_menuBar->addMenu(menuFile);
+
+    m_menuEdit = new QMenu(tr("Edit"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("&Undo"), this, SLOT(editUndo()))->setShortcut(QKeySequence("Ctrl+Z"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-redo"), tr("&Redo"), this, SLOT(editRedo()))->setShortcut(QKeySequence("Ctrl+Shift+Z"));
+    m_menuEdit->addSeparator();
+    m_menuEdit->addAction(QIcon::fromTheme("edit-cut"), tr("&Cut"), this, SLOT(editCut()))->setShortcut(QKeySequence("Ctrl+X"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-copy"), tr("C&opy"), this, SLOT(editCopy()))->setShortcut(QKeySequence("Ctrl+C"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-paste"), tr("&Paste"), this, SLOT(editPaste()))->setShortcut(QKeySequence("Ctrl+V"));
+    m_menuEdit->addSeparator();
+    m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select All"), m_view, SLOT(selectAll()))->setShortcut(QKeySequence("Ctrl+A"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
+    connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEditMenu()));
+    m_menuBar->addMenu(m_menuEdit);
+
+    m_menuView = new QMenu(tr("View"));
+    m_actionStop = m_menuView->addAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), m_view, SLOT(stop()));
+    m_actionStop->setShortcut(QKeySequence("Esc"));
+    m_actionReload = m_menuView->addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), m_view, SLOT(reload()));
+    m_actionReload->setShortcut(QKeySequence("F5"));
+    m_menuView->addSeparator();
+    m_menuView->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &In"), m_view, SLOT(zoomIn()))->setShortcut(QKeySequence("Ctrl++"));
+    m_menuView->addAction(QIcon::fromTheme("zoom-out"), tr("Zoom &Out"), m_view, SLOT(zoomOut()))->setShortcut(QKeySequence("Ctrl+-"));
+    m_menuView->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), m_view, SLOT(zoomReset()))->setShortcut(QKeySequence("Ctrl+0"));
+    m_menuView->addSeparator();
+    m_menuView->addAction(QIcon::fromTheme("text-html"), tr("&Page Source"), m_view, SLOT(showSource()))->setShortcut(QKeySequence("Ctrl+U"));
+    m_menuBar->addMenu(m_menuView);
+
+    // Make shortcuts available even with hidden menubar
+    QList<QAction*> actions = m_menuBar->actions();
+    foreach(QAction * action, actions) {
+        if (action->menu()) {
+            actions += action->menu()->actions();
+        }
+        addAction(action);
+    }
+
+    m_layout->insertWidget(0, m_menuBar);
     m_layout->addWidget(m_locationBar);
     m_layout->addWidget(m_view);
     m_layout->addWidget(m_statusBar);
@@ -125,6 +175,11 @@ void PopupWindow::loadStarted()
     m_progressBar->show();
 
     m_locationBar->startLoading();
+
+    if (m_actionStop) {
+        m_actionStop->setEnabled(true);
+        m_actionReload->setEnabled(false);
+    }
 }
 
 void PopupWindow::loadProgress(int value)
@@ -138,6 +193,11 @@ void PopupWindow::loadFinished()
     m_progressBar->hide();
 
     m_locationBar->stopLoading();
+
+    if (m_actionStop) {
+        m_actionStop->setEnabled(false);
+        m_actionReload->setEnabled(true);
+    }
 }
 
 void PopupWindow::closeEvent(QCloseEvent* event)
@@ -153,15 +213,78 @@ void PopupWindow::closeEvent(QCloseEvent* event)
     event->accept();
 }
 
+void PopupWindow::editSelectAll()
+{
+    m_view->selectAll();
+}
+
+void PopupWindow::aboutToShowEditMenu()
+{
+    m_menuEdit->actions().at(0)->setEnabled(m_view->pageAction(QWebPage::Undo)->isEnabled());
+    m_menuEdit->actions().at(1)->setEnabled(m_view->pageAction(QWebPage::Redo)->isEnabled());
+    // Separator
+    m_menuEdit->actions().at(3)->setEnabled(m_view->pageAction(QWebPage::Cut)->isEnabled());
+    m_menuEdit->actions().at(4)->setEnabled(m_view->pageAction(QWebPage::Copy)->isEnabled());
+    m_menuEdit->actions().at(5)->setEnabled(m_view->pageAction(QWebPage::Paste)->isEnabled());
+    // Separator
+    m_menuEdit->actions().at(7)->setEnabled(m_view->pageAction(QWebPage::SelectAll)->isEnabled());
+}
+
+void PopupWindow::savePageScreen()
+{
+    PageScreen* pageScreen = new PageScreen(m_view, this);
+    pageScreen->show();
+}
+
+void PopupWindow::searchOnPage()
+{
+    if (!m_search) {
+        m_search = new SearchToolBar(m_view, this);
+        m_layout->insertWidget(m_layout->count() - 1, m_search);
+    }
+
+    m_search->focusSearchLine();
+}
+
+void PopupWindow::editUndo()
+{
+    m_view->triggerPageAction(QWebPage::Undo);
+}
+
+void PopupWindow::editRedo()
+{
+    m_view->triggerPageAction(QWebPage::Redo);
+}
+
+void PopupWindow::editCut()
+{
+    m_view->triggerPageAction(QWebPage::Cut);
+}
+
+void PopupWindow::editCopy()
+{
+    m_view->triggerPageAction(QWebPage::Copy);
+}
+
+void PopupWindow::editPaste()
+{
+    m_view->triggerPageAction(QWebPage::Paste);
+}
+
 void PopupWindow::titleChanged()
 {
     setWindowTitle(tr("%1 - QupZilla").arg(m_view->title()));
 }
 
-void PopupWindow::setWindowGeometry(const QRect &newRect)
+void PopupWindow::setWindowGeometry(QRect newRect)
 {
     if (!qzSettings->allowJsGeometryChange) {
         return;
+    }
+
+    // left/top was set while width/height not
+    if (!newRect.topLeft().isNull() && newRect.size().isNull()) {
+        newRect.setSize(QSize(550, 585));
     }
 
     if (newRect.isValid()) {
@@ -179,33 +302,19 @@ void PopupWindow::setWindowGeometry(const QRect &newRect)
     }
 }
 
-// From my testing, these 3 slots are always fired with false
-// visible argument (even if true should be passed)
-// So for now, we just do nothing here
-
 void PopupWindow::setStatusBarVisibility(bool visible)
 {
-    if (!qzSettings->allowJsHideStatusBar) {
-        return;
-    }
-
-    Q_UNUSED(visible)
+    m_statusBar->setVisible(qzSettings->allowJsHideStatusBar ? visible : true);
 }
 
 void PopupWindow::setMenuBarVisibility(bool visible)
 {
-    if (!qzSettings->allowJsHideMenuBar) {
-        return;
-    }
-
-    Q_UNUSED(visible)
+    m_menuBar->setVisible(qzSettings->allowJsHideMenuBar ? visible : true);
 }
 
 void PopupWindow::setToolBarVisibility(bool visible)
 {
-    if (!qzSettings->allowJsHideToolBar) {
-        return;
-    }
-
+    // Does nothing now
+    // m_toolBar->setVisible(qzSettings->allowJsHideToolBar ? visible : true);
     Q_UNUSED(visible)
 }

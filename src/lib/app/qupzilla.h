@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@ class TabbedWebView;
 class LineEdit;
 class SearchToolBar;
 class BookmarksToolbar;
-class AutoFillModel;
+class AutoFill;
 class MainApplication;
 class WebTab;
 class AdBlockIcon;
@@ -145,8 +145,11 @@ private slots:
     void aboutToShowClosedTabsMenu();
     void aboutToShowBookmarksMenu();
     void aboutToShowViewMenu();
+    void aboutToHideViewMenu();
     void aboutToShowEditMenu();
     void aboutToHideEditMenu();
+    void aboutToShowToolsMenu();
+    void aboutToHideToolsMenu();
     void aboutToShowEncodingMenu();
 
     void searchOnPage();
@@ -201,6 +204,8 @@ private:
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
     void closeEvent(QCloseEvent* event);
+
+    SearchToolBar* searchToolBar();
 
     void setupUi();
     void setupMenu();
@@ -268,6 +273,8 @@ private:
     QAction* m_actionReload;
     QAction* m_actionCaretBrowsing;
     QAction* m_actionRestoreTab;
+    QAction* m_actionPageInfo;
+    QAction* m_actionPageSource;
 
     QLabel* m_privateBrowsing;
     AdBlockIcon* m_adblockIcon;

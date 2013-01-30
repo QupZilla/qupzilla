@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@
 #include "iconprovider.h"
 #include "networkmanager.h"
 #include "qztools.h"
+#include "schemehandlers/ftpschemehandler.h"
 
 #include <QMenu>
 #include <QClipboard>
@@ -36,6 +37,10 @@
 #include <QDesktopServices>
 #include <QProcess>
 
+#ifdef Q_OS_WIN
+#include "Shlwapi.h"
+#endif
+
 //#define DOWNMANAGER_DEBUG
 
 DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QString &path, const QString &fileName, const QPixmap &fileIcon, QTime* timer, bool openAfterFinishedDownload, const QUrl &downloadPage, DownloadManager* manager)
@@ -43,6 +48,7 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
     , ui(new Ui::DownloadItem)
     , m_item(item)
     , m_reply(reply)
+    , m_ftpDownloader(0)
     , m_path(path)
     , m_fileName(fileName)
     , m_downTimer(timer)
@@ -90,7 +96,18 @@ void DownloadItem::setTotalSize(qint64 total)
 void DownloadItem::startDownloading()
 {
     QUrl locationHeader = m_reply->header(QNetworkRequest::LocationHeader).toUrl();
-    if (locationHeader.isValid()) {
+
+    bool hasFtpUrlInHeader = locationHeader.isValid() && (locationHeader.scheme() == "ftp");
+    if (m_reply->url().scheme() == "ftp" || hasFtpUrlInHeader) {
+        QUrl url = hasFtpUrlInHeader ? locationHeader : m_reply->url();
+        m_reply->abort();
+        m_reply->deleteLater();
+        m_reply = 0;
+
+        startDownloadingFromFtp(url);
+        return;
+    }
+    else if (locationHeader.isValid()) {
         m_reply->abort();
         m_reply->deleteLater();
 
@@ -101,7 +118,7 @@ void DownloadItem::startDownloading()
     connect(m_reply, SIGNAL(finished()), this, SLOT(finished()));
     connect(m_reply, SIGNAL(readyRead()), this, SLOT(readyRead()));
     connect(m_reply, SIGNAL(downloadProgress(qint64, qint64)), this, SLOT(downloadProgress(qint64, qint64)));
-    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(error(QNetworkReply::NetworkError)));
+    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(error()));
     connect(m_reply, SIGNAL(metaDataChanged()), this, SLOT(metaDataChanged()));
 
     m_downloading = true;
@@ -111,7 +128,32 @@ void DownloadItem::startDownloading()
 
     if (m_reply->error() != QNetworkReply::NoError) {
         stop(false);
-        error(m_reply->error());
+        error();
+    }
+}
+
+void DownloadItem::startDownloadingFromFtp(const QUrl &url)
+{
+    if (!m_outputFile.isOpen() && !m_outputFile.open(QIODevice::WriteOnly)) {
+        stop(false);
+        ui->downloadInfo->setText(tr("Error: Cannot write to file!"));
+        return;
+    }
+
+    m_ftpDownloader = new FtpDownloader(this);
+    connect(m_ftpDownloader, SIGNAL(finished()), this, SLOT(finished()));
+    connect(m_ftpDownloader, SIGNAL(dataTransferProgress(qint64, qint64)), this, SLOT(downloadProgress(qint64, qint64)));
+    connect(m_ftpDownloader, SIGNAL(errorOccured(QFtp::Error)), this, SLOT(error()));
+    connect(m_ftpDownloader, SIGNAL(ftpAuthenticationRequierd(const QUrl &, QAuthenticator*)), mApp->networkManager(), SLOT(ftpAuthentication(const QUrl &, QAuthenticator*)));
+
+    m_ftpDownloader->download(url, &m_outputFile);
+    m_downloading = true;
+    m_timer.start(1000, this);
+
+    QTimer::singleShot(200, this, SLOT(updateDownload()));
+
+    if (m_ftpDownloader->error() != QFtp::NoError) {
+        error();
     }
 }
 
@@ -141,13 +183,20 @@ void DownloadItem::finished()
     qDebug() << __FUNCTION__ << m_reply;
 #endif
     m_timer.stop();
-    ui->downloadInfo->setText(tr("Done - %1").arg(m_reply->url().host()));
+
+    QString host = m_reply ? m_reply->url().host() : m_ftpDownloader->url().host();
+    ui->downloadInfo->setText(tr("Done - %1").arg(host));
     ui->progressBar->hide();
     ui->button->hide();
     ui->frame->hide();
     m_outputFile.close();
 
-    m_reply->deleteLater();
+    if (m_reply) {
+        m_reply->deleteLater();
+    }
+    else {
+        m_ftpDownloader->deleteLater();
+    }
 
     m_item->setSizeHint(sizeHint());
 #if QT_VERSION == 0x040700 // Workaround
@@ -271,18 +320,29 @@ void DownloadItem::stop(bool askForDeleteFile)
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__;
 #endif
-
     if (m_downloadStopped) {
         return;
     }
     m_downloadStopped = true;
-
+    QString host;
+    if (m_reply) {
+        host = m_reply->url().host();
+    }
+    else if (m_ftpDownloader) {
+        host = m_ftpDownloader->url().host();
+    }
     m_openAfterFinish = false;
     m_timer.stop();
-    m_reply->abort();
+    if (m_reply) {
+        m_reply->abort();
+    }
+    else if (m_ftpDownloader) {
+        m_ftpDownloader->abort();
+        m_ftpDownloader->close();
+    }
     QString outputfile = QFileInfo(m_outputFile).absoluteFilePath();
     m_outputFile.close();
-    ui->downloadInfo->setText(tr("Cancelled - %1").arg(m_reply->url().host()));
+    ui->downloadInfo->setText(tr("Cancelled - %1").arg(host));
     ui->progressBar->hide();
     ui->button->hide();
     m_item->setSizeHint(sizeHint());
@@ -367,16 +427,10 @@ void DownloadItem::openFile()
 void DownloadItem::openFolder()
 {
 #ifdef Q_OS_WIN
-    if (m_fileName.endsWith(" ")) {
-        // explorer.exe don't support filenames that end with SPACE
-        QDesktopServices::openUrl(QUrl::fromLocalFile(m_path));
-    }
-    else {
-        QString winFileName = m_path + m_fileName;
-        winFileName.replace(QLatin1Char('/'), "\\");
-        QString shExArg = "/e,/select,\"" + winFileName + "\"";
-        ShellExecute(NULL, NULL, TEXT("explorer.exe"), shExArg.toStdWString().c_str(), NULL, SW_SHOW);
-    }
+    QString winFileName = m_path + m_fileName;
+    winFileName.replace(QLatin1Char('/'), "\\");
+    QString shExArg = "/e,/select,\"" + winFileName + "\"";
+    ShellExecute(NULL, NULL, TEXT("explorer.exe"), shExArg.toStdWString().c_str(), NULL, SW_SHOW);
 #else
     QDesktopServices::openUrl(QUrl::fromLocalFile(m_path));
 #endif
@@ -395,13 +449,17 @@ void DownloadItem::readyRead()
     m_outputFile.write(m_reply->readAll());
 }
 
-void DownloadItem::error(QNetworkReply::NetworkError error)
+void DownloadItem::error()
 {
 #ifdef DOWNMANAGER_DEBUG
-    qDebug() << __FUNCTION__ << error;
+    qDebug() << __FUNCTION__ << (m_reply ? m_reply->error() : m_ftpDownloader->error());
 #endif
-    if (error != QNetworkReply::NoError) {
+    if (m_reply && m_reply->error() != QNetworkReply::NoError) {
         ui->downloadInfo->setText(tr("Error: ") + m_reply->errorString());
+    }
+    else if (m_ftpDownloader && m_ftpDownloader->error() != QFtp::NoError) {
+        stop(false);
+        ui->downloadInfo->setText(tr("Error: ") + m_ftpDownloader->errorString());
     }
 }
 
@@ -410,7 +468,10 @@ void DownloadItem::updateDownload()
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__ ;
 #endif
-    if (ui->progressBar->maximum() == 0 && m_outputFile.isOpen() && m_reply->isFinished()) {
+    // after caling stop() (from readyRead()) m_reply will be a dangling pointer,
+    // thus it should be checked after m_outputFile.isOpen()
+    if (ui->progressBar->maximum() == 0 && m_outputFile.isOpen() &&
+            ((m_reply && m_reply->isFinished()) || (m_ftpDownloader && m_ftpDownloader->isFinished()))) {
         downloadProgress(0, 0);
         finished();
     }

@@ -17,18 +17,16 @@
 * ============================================================ */
 #include "autofillnotification.h"
 #include "ui_autofillnotification.h"
-#include "autofillmodel.h"
+#include "autofill.h"
 #include "mainapplication.h"
 #include "animatedwidget.h"
 #include "iconprovider.h"
 
-AutoFillNotification::AutoFillNotification(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass, QWidget* parent)
-    : AnimatedWidget(AnimatedWidget::Down, 300, parent)
+AutoFillNotification::AutoFillNotification(const QUrl &url, const PageFormData &formData)
+    : AnimatedWidget(AnimatedWidget::Down, 300, 0)
     , ui(new Ui::AutoFillWidget)
     , m_url(url)
-    , m_data(data)
-    , m_user(user)
-    , m_pass(pass)
+    , m_formData(formData)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
@@ -41,8 +39,8 @@ AutoFillNotification::AutoFillNotification(const QUrl &url, const QByteArray &da
         hostPart = tr("on %1").arg(url.host());
     }
 
-    if (!user.isEmpty()) {
-        userPart = tr("for <b>%1</b>").arg(user);
+    if (!m_formData.username.isEmpty()) {
+        userPart = tr("for <b>%1</b>").arg(m_formData.username);
     }
 
     ui->label->setText(tr("Do you want QupZilla to remember the password %1 %2?").arg(userPart, hostPart));
@@ -63,7 +61,7 @@ void AutoFillNotification::never()
 
 void AutoFillNotification::remember()
 {
-    mApp->autoFill()->addEntry(m_url, m_data, m_user, m_pass);
+    mApp->autoFill()->addEntry(m_url, m_formData);
     hide();
 }
 

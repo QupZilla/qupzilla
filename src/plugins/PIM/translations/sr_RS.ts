@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="sr_RS" sourcelanguage="en_US">
+<TS version="2.0" language="sr_RS">
 <context>
     <name>PIM_Handler</name>
     <message>

@@ -1,5 +1,5 @@
 /* ============================================================
-* Copyright (C) 2012  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2012-2013  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 * This file is part of QupZilla - WebKit based browser 2010-2012
 * by  David Rosca <nowrep@gmail.com>
 *
@@ -25,6 +25,8 @@
 
 #include "qz_namespace.h"
 
+#ifdef Q_OS_WIN
+
 class QT_QUPZILLA_EXPORT RegisterQAppAssociation : public QObject
 {
     Q_OBJECT
@@ -48,10 +50,8 @@ public:
 
     bool isPerMachineRegisteration();
     void setPerMachineRegisteration(bool enable);
-#ifdef Q_OS_WIN
     bool registerAppCapabilities();
     bool isVistaOrNewer();
-#endif
     void registerAssociation(const QString &assocName, AssociationType type);
     void createProgId(const QString &progId);
 
@@ -65,52 +65,12 @@ private:
     QString _appPath;
     QString _appIcon;
     QString _appDesc;
-#ifdef Q_OS_WIN
     QString _UserRootKey;
-#endif
 
     QHash<QString, QString> _fileAssocHash; // (extention, progId)
     QHash<QString, QString> _urlAssocHash; // (protocol, progId)
     QHash<QString, QPair<QString, QString> > _assocDescHash; // (progId, (desc, icon))
 };
+#endif
 
-#include <QDialog>
-#include <QLabel>
-#include <QGridLayout>
-#include <QCheckBox>
-#include <QDialogButtonBox>
-
-class QT_QUPZILLA_EXPORT CheckMessageBox : public QDialog
-{
-    Q_OBJECT
-
-public:
-    CheckMessageBox(bool* defaultShowAgainState = 0, QWidget* parent = 0, Qt::WindowFlags f = 0);
-    CheckMessageBox(const QString &msg, const QPixmap &pixmap,
-                    const QString &str, bool* defaultShowAgainState,
-                    QWidget* parent = 0, Qt::WindowFlags f = 0);
-    ~CheckMessageBox();
-
-    void setMessage(const QString &msg);
-    void setShowAgainText(const QString &str);
-    void setPixmap(const QPixmap &pixmap);
-
-private:
-    void setupUi();
-
-    bool* _showAgainState;
-    QGridLayout* gridLayout;
-    QHBoxLayout* horizontalLayout;
-    QVBoxLayout* verticalLayout_2;
-    QLabel* pixmapLabel;
-    QSpacerItem* verticalSpacer;
-    QVBoxLayout* verticalLayout;
-    QLabel* messageLabel;
-    QSpacerItem* horizontalSpacer;
-    QCheckBox* showAgainCheckBox;
-    QDialogButtonBox* buttonBox;
-
-private slots:
-    void showAgainStateChanged(bool checked);
-};
 #endif // REGISTERQAPPASSOCIATION_H

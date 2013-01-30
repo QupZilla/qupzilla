@@ -591,6 +591,33 @@ void LocationBar::hideProgress()
 
 void LocationBar::paintEvent(QPaintEvent* event)
 {
+    if (m_completer.isPopupVisible()) {
+        // We need to draw cursor
+        LineEdit::paintEvent(event);
+
+        QStyleOptionFrameV3 option;
+        initStyleOption(&option);
+
+        int lm, tm, rm, bm;
+        getTextMargins(&lm, &tm, &rm, &bm);
+
+        QRect contentsRect = style()->subElementRect(QStyle::SE_LineEditContents, &option, this);
+        contentsRect.adjust(lm, tm, -rm, -bm);
+
+        const QFontMetrics &fm = fontMetrics();
+
+        QString textPart = text().left(cursorPosition()) + " ";
+        int cursorXpos = lm + fontMetrics().width(textPart);
+        int cursorYpos = contentsRect.y() + (contentsRect.height() - fm.height() + 1) / 2;
+        int cursorWidth = style()->pixelMetric(QStyle::PM_TextCursorWidth, &option, this);
+        int cursorHeight = fontMetrics().height();
+
+        QPainter p(this);
+        QRect cursorRect(cursorXpos, cursorYpos, cursorWidth, cursorHeight);
+        p.fillRect(cursorRect, option.palette.text().color());
+        return;
+    }
+
     if (hasFocus() || text().isEmpty() || m_forceLineEditPaintEvent) {
         LineEdit::paintEvent(event);
         if (m_forceLineEditPaintEvent) {

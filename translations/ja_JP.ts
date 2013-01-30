@@ -356,6 +356,18 @@
     <message>
         <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
         <translatorcomment>Firefoｘのパクリ</translatorcomment>
+        <translation type="obsolete">Qupzillaに%2で使用する&lt;b&gt;%1&lt;/b&gt;のパスワードを記憶させますか?</translation>
+    </message>
+    <message>
+        <source>on %1</source>
+        <translation>%1</translation>
+    </message>
+    <message>
+        <source>for &lt;b&gt;%1&lt;/b&gt;</source>
+        <translation>&lt;b&gt;%1&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Do you want QupZilla to remember the password %1 %2?</source>
         <translation>Qupzillaに%2で使用する&lt;b&gt;%1&lt;/b&gt;のパスワードを記憶させますか?</translation>
     </message>
 </context>
@@ -618,6 +630,18 @@
         <source>Change icon</source>
         <translation>アイコンの変更</translation>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation>すべてのフォルダを開く</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>すべてたたむ</translation>
+    </message>
+    <message>
+        <source>Choose parent folder for new folder: </source>
+        <translation>新しいフォルダの親フォルダの選択:</translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -734,6 +758,17 @@
     <message>
         <source>Open bookmark in new tab</source>
         <translation>ブックマークを新しいタブで開く</translation>
+    </message>
+</context>
+<context>
+    <name>BookmarksTree</name>
+    <message>
+        <source>Bookmarks</source>
+        <translation>ブックマーク</translation>
+    </message>
+    <message>
+        <source>New Folder...</source>
+        <translation>新しいフォルダ...</translation>
     </message>
 </context>
 <context>
@@ -1077,6 +1112,34 @@
         <source>Add to blacklist</source>
         <translation>ブラックリストに追加する</translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation>設定</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Cookieの設定&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Allow storing of cookies</source>
+        <translation>Cookieを許可する</translation>
+    </message>
+    <message>
+        <source>Delete cookies on close</source>
+        <translation>終了時にCookieを削除する</translation>
+    </message>
+    <message>
+        <source>Match domain exactly</source>
+        <translation>ファーストパーティのCookieのみ許可</translation>
+    </message>
+    <message>
+        <source>Filter tracking cookies</source>
+        <translation>トラッキングCookieのフィルタリング</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
+        <translation>&lt;b&gt;警告&lt;/b&gt; 「ファーストパーティのCookieのみ許可」や「トラッキングCookieのフィルタリング」は一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
+    </message>
 </context>
 <context>
     <name>DownloadFileHelper</name>
@@ -1361,6 +1424,110 @@
     </message>
 </context>
 <context>
+    <name>FtpDownloader</name>
+    <message>
+        <source>Canceled!</source>
+        <translation>中断されました！</translation>
+    </message>
+</context>
+<context>
+    <name>FtpSchemeReply</name>
+    <message>
+        <source>Unknown command</source>
+        <translation>Unknown command</translation>
+    </message>
+    <message>
+        <source>Up to higher level directory</source>
+        <translation>一つ上のディレクトリに移動する</translation>
+    </message>
+    <message>
+        <source>Show hidden files</source>
+        <translation>隠しファイルの表示</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>名前</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>サイズ</translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation>更新日時</translation>
+    </message>
+    <message>
+        <source>Index for %1</source>
+        <translation>%1 のインデックス</translation>
+    </message>
+    <message>
+        <source>Folder is empty.</source>
+        <translation>このフォルダーは空です。</translation>
+    </message>
+</context>
+<context>
+    <name>HTML5PermissionsDialog</name>
+    <message>
+        <source>HTML5 Permissions</source>
+        <translation>HTML5 パーミッション</translation>
+    </message>
+    <message>
+        <source>Notifications</source>
+        <translation>通知</translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation>サイト</translation>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation>挙動</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>削除</translation>
+    </message>
+    <message>
+        <source>Geolocation</source>
+        <translation>ジオロケーション</translation>
+    </message>
+    <message>
+        <source>Allow</source>
+        <translation>許可</translation>
+    </message>
+    <message>
+        <source>Deny</source>
+        <translation>拒否</translation>
+    </message>
+</context>
+<context>
+    <name>HTML5PermissionsNotification</name>
+    <message>
+        <source>Remember</source>
+        <translation>記憶させる</translation>
+    </message>
+    <message>
+        <source>Allow</source>
+        <translation>許可</translation>
+    </message>
+    <message>
+        <source>Deny</source>
+        <translation>拒否</translation>
+    </message>
+    <message>
+        <source>this site</source>
+        <translation>このサイト</translation>
+    </message>
+    <message>
+        <source>Allow %1 to show desktop notifications?</source>
+        <translation>%1のデスクトップ通知を許可しますか？</translation>
+    </message>
+    <message>
+        <source>Allow %1 to locate your position?</source>
+        <translation>%1が位置を特定することを許可しますか？</translation>
+    </message>
+</context>
+<context>
     <name>History</name>
     <message>
         <source>No Named Page</source>
@@ -1535,6 +1702,45 @@
     </message>
 </context>
 <context>
+    <name>JsOptions</name>
+    <message>
+        <source>JavaScript Options</source>
+        <translation>JavaScriptオプション</translation>
+    </message>
+    <message>
+        <source>Allow JavaScript to:</source>
+        <translation>以下をJavaScriptに許可する:</translation>
+    </message>
+    <message>
+        <source>Close windows</source>
+        <translation>ウィンドウを閉じる</translation>
+    </message>
+    <message>
+        <source>Open popup windows</source>
+        <translation>ポップアップウィンドウを開く</translation>
+    </message>
+    <message>
+        <source>Change window size</source>
+        <translation>ウィンドウサイズの変更</translation>
+    </message>
+    <message>
+        <source>Hide menu bar</source>
+        <translation>メニューバーを隠す</translation>
+    </message>
+    <message>
+        <source>Hide status bar</source>
+        <translation>ステータスバーを隠す</translation>
+    </message>
+    <message>
+        <source>Hide tool bar</source>
+        <translation>ツールバーを隠す</translation>
+    </message>
+    <message>
+        <source>Access clipboard</source>
+        <translation>クリップボードへのアクセスを許可</translation>
+    </message>
+</context>
+<context>
     <name>LicenseViewer</name>
     <message>
         <source>License Viewer</source>
@@ -1691,6 +1897,18 @@
         <source>A username and password are being requested by proxy %1. </source>
         <translation>%1プロキシがユーザー名とパスワードを要求しています。</translation>
     </message>
+    <message>
+        <source>FTP authorization required</source>
+        <translation>FTP 認証が必要です</translation>
+    </message>
+    <message>
+        <source>Login anonymously</source>
+        <translation>匿名ログイン</translation>
+    </message>
+    <message>
+        <source>A username and password are being requested by %1:%2.</source>
+        <translation>ユーザー名とパスワードが%1から要求されています:%2。</translation>
+    </message>
 </context>
 <context>
     <name>PageScreen</name>
@@ -1769,10 +1987,101 @@
     </message>
 </context>
 <context>
+    <name>PopupWebView</name>
+    <message>
+        <source>Inspect Element</source>
+        <translation>要素の調査</translation>
+    </message>
+</context>
+<context>
     <name>PopupWindow</name>
     <message>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation>ファイル</translation>
+    </message>
+    <message>
+        <source>&amp;Save Page As...</source>
+        <translation>名前を付けてページを保存(&amp;S)...</translation>
+    </message>
+    <message>
+        <source>Save Page Screen</source>
+        <translation>ページのスクリーンショットを保存</translation>
+    </message>
+    <message>
+        <source>Send Link...</source>
+        <translation>ページのURLをメールで送信する...</translation>
+    </message>
+    <message>
+        <source>&amp;Print...</source>
+        <translation>ページの印刷(&amp;P)...</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>閉じる</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>編集</translation>
+    </message>
+    <message>
+        <source>&amp;Undo</source>
+        <translation>元に戻す(&amp;Ｕ)</translation>
+    </message>
+    <message>
+        <source>&amp;Redo</source>
+        <translation>やり直す(&amp;R)</translation>
+    </message>
+    <message>
+        <source>&amp;Cut</source>
+        <translation>切り取り(&amp;C)</translation>
+    </message>
+    <message>
+        <source>C&amp;opy</source>
+        <translation>コピー(&amp;O)</translation>
+    </message>
+    <message>
+        <source>&amp;Paste</source>
+        <translation>貼り付け(&amp;P)</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation>すべて選択</translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation>ページ内検索</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation>表示</translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation>中止(&amp;S)</translation>
+    </message>
+    <message>
+        <source>&amp;Reload</source>
+        <translation>更新(&amp;R)</translation>
+    </message>
+    <message>
+        <source>Zoom &amp;In</source>
+        <translation>ページの拡大(&amp;I)</translation>
+    </message>
+    <message>
+        <source>Zoom &amp;Out</source>
+        <translation>ページの縮小(&amp;O)</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>リセット</translation>
+    </message>
+    <message>
+        <source>&amp;Page Source</source>
+        <translation>ページのソースを表示(&amp;P)</translation>
     </message>
 </context>
 <context>
@@ -2257,23 +2566,23 @@
     </message>
     <message>
         <source>Filter tracking cookies</source>
-        <translation>トラッキングCookieのフィルタリング</translation>
+        <translation type="obsolete">トラッキングCookieのフィルタリング</translation>
     </message>
     <message>
         <source>Allow storing of cookies</source>
-        <translation>Cookieを許可する</translation>
+        <translation type="obsolete">Cookieを許可する</translation>
     </message>
     <message>
         <source>Delete cookies on close</source>
-        <translation>終了時にCookieを削除する</translation>
+        <translation type="obsolete">終了時にCookieを削除する</translation>
     </message>
     <message>
         <source>Match domain exactly</source>
-        <translation>ファーストパーティのCookieのみ許可</translation>
+        <translation type="obsolete">ファーストパーティのCookieのみ許可</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;警告&lt;/b&gt;  「ファーストパーティのCookieのみ許可」や「トラッキングCookieのフィルタリング」は一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
+        <translation type="obsolete">&lt;b&gt;警告&lt;/b&gt;  「ファーストパーティのCookieのみ許可」や「トラッキングCookieのフィルタリング」は一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
     </message>
     <message>
         <source>Cookies Manager</source>
@@ -2285,7 +2594,7 @@
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
-        <translation>Javascriptがクリップボードにアクセスすることを許可</translation>
+        <translation type="obsolete">Javascriptがクリップボードにアクセスすることを許可</translation>
     </message>
     <message>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
@@ -2301,7 +2610,7 @@
     </message>
     <message>
         <source>Block popup windows</source>
-        <translation>ポップアップウィンドウのブロック</translation>
+        <translation type="obsolete">ポップアップウィンドウのブロック</translation>
     </message>
     <message>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
@@ -2517,11 +2826,11 @@
     </message>
     <message>
         <source>If unchecked the bar will adapt to the background color.</source>
-        <translation>チェックを外すとバーの色は背景色をもとに設定されます。</translation>
+        <translation type="obsolete">チェックを外すとバーの色は背景色をもとに設定されます。</translation>
     </message>
     <message>
         <source>custom color:</source>
-        <translation>カスタムカラー:</translation>
+        <translation type="obsolete">カスタムカラー:</translation>
     </message>
     <message>
         <source>Select color</source>
@@ -2529,15 +2838,15 @@
     </message>
     <message>
         <source>Many styles use Highlight color for the progressbar.</source>
-        <translation>多くのスタイルがプログレスバーにハイライトカラーを使用します。</translation>
+        <translation type="obsolete">多くのスタイルがプログレスバーにハイライトカラーを使用します。</translation>
     </message>
     <message>
         <source>set to &quot;Highlight&quot; color</source>
-        <translation>ハイライトカラーに設定する</translation>
+        <translation type="obsolete">ハイライトカラーに設定する</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;デフォルトの検索エンジンを有効にした場合、ショートカットなしでのロケーションバーからの検索は検索バーのエンジンではなく、デフォルト検索エンジンによって行われます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;デフォルトの検索エンジンを有効にした場合、ショートカットなしでのロケーションバーからの検索は検索バーのエンジンではなく、デフォルト検索エンジンによって行われます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Search with Default Engine</source>
@@ -2594,7 +2903,51 @@
     <message>
         <source>Animated scrolling</source>
         <translatorcomment>意訳</translatorcomment>
-        <translation type="unfinished">スムーススクロール</translation>
+        <translation>スムーススクロール</translation>
+    </message>
+    <message>
+        <source>Open new empty tabs after active tab</source>
+        <translation>新しい空白のタブをアクティブなタブの後ろに開く</translation>
+    </message>
+    <message>
+        <source>Enable caret browsing</source>
+        <translation>キャレットブラウジングを有効にする</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
+        <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Manage JavaScript privacy options</source>
+        <translation>JavaScriptプライバシーオプションの管理</translation>
+    </message>
+    <message>
+        <source>JavaScript options</source>
+        <translation>JavaScriptオプション</translation>
+    </message>
+    <message>
+        <source>Manage Cookies</source>
+        <translation>Cookieの管理</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
+        <translation>&lt;b&gt;HTML5　パーミッション&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Manage HTML5 permissions</source>
+        <translation>HTML5 パーミッション管理</translation>
+    </message>
+    <message>
+        <source>HTML5 Permisions</source>
+        <translation>HTML5 パーミッション</translation>
+    </message>
+    <message>
+        <source>Custom color:</source>
+        <translation>カスタムカラー:</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>リセット</translation>
     </message>
 </context>
 <context>
@@ -2996,6 +3349,10 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>There are still open tabs</source>
         <translation>まだ開いているタブがあります</translation>
+    </message>
+    <message>
+        <source>Enable &amp;Caret Browsing</source>
+        <translation>キャレットブラウジングを有効にする(&amp;C)</translation>
     </message>
 </context>
 <context>

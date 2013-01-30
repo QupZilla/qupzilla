@@ -9,6 +9,9 @@ TEMPLATE = lib
 
 DEFINES *= QUPZILLA_SHAREDLIBRARY
 
+isEqual(QT_MAJOR_VERSION, 5) {
+    include(3rdparty/qftp.pri)
+}
 include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
 include(../../translations/translations.pri)
@@ -48,7 +51,6 @@ SOURCES += \
     app/qupzilla.cpp \
     app/mainapplication.cpp \
     app/autosaver.cpp \
-    autofill/autofillmodel.cpp \
     preferences/autofillmanager.cpp \
     bookmarks/bookmarkstoolbar.cpp \
     bookmarks/bookmarksmanager.cpp \
@@ -201,7 +203,11 @@ SOURCES += \
     bookmarks/bookmarkstree.cpp \
     tools/html5permissions/html5permissionsmanager.cpp \
     tools/html5permissions/html5permissionsnotification.cpp \
+    tools/html5permissions/html5permissionsdialog.cpp \
     tools/sourcehighlighter.cpp
+    autofill/pageformcompleter.cpp \
+    autofill/autofill.cpp \
+    network/schemehandlers/ftpschemehandler.cpp \
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -210,7 +216,6 @@ HEADERS  += \
     app/qupzilla.h \
     app/mainapplication.h \
     app/autosaver.h \
-    autofill/autofillmodel.h \
     preferences/autofillmanager.h \
     bookmarks/bookmarkstoolbar.h \
     bookmarks/bookmarksmanager.h \
@@ -365,7 +370,11 @@ HEADERS  += \
     bookmarks/bookmarkstree.h \
     tools/html5permissions/html5permissionsmanager.h \
     tools/html5permissions/html5permissionsnotification.h \
+    tools/html5permissions/html5permissionsdialog.h \
     tools/sourcehighlighter.h
+    autofill/pageformcompleter.h \
+    autofill/autofill.h \
+    network/schemehandlers/ftpschemehandler.h \
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -412,7 +421,8 @@ FORMS    += \
     adblock/adblockaddsubscriptiondialog.ui \
     preferences/useragentdialog.ui \
     session/recoverywidget.ui \
-    tools/html5permissions/html5permissionsnotification.ui
+    tools/html5permissions/html5permissionsnotification.ui \
+    tools/html5permissions/html5permissionsdialog.ui \
 
 RESOURCES += \
     data/icons.qrc \

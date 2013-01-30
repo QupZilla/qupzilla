@@ -15,13 +15,14 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "autofillmodel.h"
+#include "autofill.h"
 #include "qupzilla.h"
 #include "webpage.h"
 #include "tabbedwebview.h"
 #include "popupwebview.h"
 #include "mainapplication.h"
 #include "autofillnotification.h"
+#include "pageformcompleter.h"
 #include "databasewriter.h"
 #include "settings.h"
 
@@ -34,7 +35,7 @@
 #include <QUrlQuery>
 #endif
 
-AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject* parent)
+AutoFill::AutoFill(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
     , p_QupZilla(mainClass)
     , m_isStoring(false)
@@ -42,7 +43,7 @@ AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject* parent)
     loadSettings();
 }
 
-void AutoFillModel::loadSettings()
+void AutoFill::loadSettings()
 {
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
@@ -50,7 +51,7 @@ void AutoFillModel::loadSettings()
     settings.endGroup();
 }
 
-bool AutoFillModel::isStored(const QUrl &url)
+bool AutoFill::isStored(const QUrl &url)
 {
     if (!isStoringEnabled(url)) {
         return false;
@@ -73,7 +74,7 @@ bool AutoFillModel::isStored(const QUrl &url)
     return false;
 }
 
-bool AutoFillModel::isStoringEnabled(const QUrl &url)
+bool AutoFill::isStoringEnabled(const QUrl &url)
 {
     if (!m_isStoring) {
         return false;
@@ -96,7 +97,7 @@ bool AutoFillModel::isStoringEnabled(const QUrl &url)
     return true;
 }
 
-void AutoFillModel::blockStoringfor(const QUrl &url)
+void AutoFill::blockStoringfor(const QUrl &url)
 {
     QString server = url.host();
     if (server.isEmpty()) {
@@ -109,7 +110,7 @@ void AutoFillModel::blockStoringfor(const QUrl &url)
     mApp->dbWriter()->executeQuery(query);
 }
 
-QString AutoFillModel::getUsername(const QUrl &url)
+QString AutoFill::getUsername(const QUrl &url)
 {
     QString server = url.host();
     if (server.isEmpty()) {
@@ -125,7 +126,7 @@ QString AutoFillModel::getUsername(const QUrl &url)
     return query.value(0).toString();
 }
 
-QString AutoFillModel::getPassword(const QUrl &url)
+QString AutoFill::getPassword(const QUrl &url)
 {
     QString server = url.host();
     if (server.isEmpty()) {
@@ -142,7 +143,7 @@ QString AutoFillModel::getPassword(const QUrl &url)
 }
 
 ///HTTP Authorization
-void AutoFillModel::addEntry(const QUrl &url, const QString &name, const QString &pass)
+void AutoFill::addEntry(const QUrl &url, const QString &name, const QString &pass)
 {
     QSqlQuery query;
     query.prepare("SELECT username FROM autofill WHERE server=?");
@@ -166,7 +167,7 @@ void AutoFillModel::addEntry(const QUrl &url, const QString &name, const QString
 }
 
 ///WEB Form
-void AutoFillModel::addEntry(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass)
+void AutoFill::addEntry(const QUrl &url, const PageFormData &formData)
 {
     QSqlQuery query;
     query.prepare("SELECT data FROM autofill WHERE server=?");
@@ -184,13 +185,13 @@ void AutoFillModel::addEntry(const QUrl &url, const QByteArray &data, const QStr
 
     query.prepare("INSERT INTO autofill (server, data, username, password) VALUES (?,?,?,?)");
     query.bindValue(0, server);
-    query.bindValue(1, data);
-    query.bindValue(2, user);
-    query.bindValue(3, pass);
+    query.bindValue(1, formData.postData);
+    query.bindValue(2, formData.username);
+    query.bindValue(3, formData.password);
     mApp->dbWriter()->executeQuery(query);
 }
 
-void AutoFillModel::completePage(WebPage* page)
+void AutoFill::completePage(WebPage* page)
 {
     if (!page) {
         return;
@@ -199,15 +200,6 @@ void AutoFillModel::completePage(WebPage* page)
     QUrl pageUrl = page->url();
     if (!isStored(pageUrl)) {
         return;
-    }
-
-    QWebElementCollection inputs;
-    QList<QWebFrame*> frames;
-    frames.append(page->mainFrame());
-    while (!frames.isEmpty()) {
-        QWebFrame* frame = frames.takeFirst();
-        inputs.append(frame->findAllElements("input"));
-        frames += frame->childFrames();
     }
 
     QString server = pageUrl.host();
@@ -225,51 +217,16 @@ void AutoFillModel::completePage(WebPage* page)
         return;
     }
 
-    // Why not to use encodedQueryItems = QByteArrays ?
-    // Because we need to filter "+" characters that must be spaces
-    // (not real "+" characters "%2B")
-    //
-    // DO NOT TOUCH! It works now with both Qt 4 & Qt 5 ...
-#if QT_VERSION >= 0x050000
-    QueryItems arguments = QUrlQuery(QUrl::fromEncoded("http://bla.com/?" + data)).queryItems();
-#else
-    data.replace('+', ' ');
-    QueryItems arguments = QUrl::fromEncoded("http://bla.com/?" + data).queryItems();
-#endif
-    for (int i = 0; i < arguments.count(); i++) {
-        QString key = arguments.at(i).first;
-        QString value = arguments.at(i).second;
-#if QT_VERSION >= 0x050000
-        key.replace(QLatin1Char('+'), QLatin1Char(' '));
-        value.replace(QLatin1Char('+'), QLatin1Char(' '));
-#endif
-        key = QUrl::fromEncoded(key.toUtf8()).toString();
-        value = QUrl::fromEncoded(value.toUtf8()).toString();
-
-        for (int i = 0; i < inputs.count(); i++) {
-            QWebElement element = inputs.at(i);
-            const QString &typeAttr = element.attribute("type");
-
-            if (typeAttr != QLatin1String("text") && typeAttr != QLatin1String("password")
-                    && typeAttr != QLatin1String("email") && !typeAttr.isEmpty()) {
-                continue;
-            }
-
-            if (key == element.attribute("name")) {
-                element.setAttribute("value", value);
-            }
-        }
-    }
+    PageFormCompleter completer(page);
+    completer.completePage(data);
 }
 
-void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgoingData)
+void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingData)
 {
     // Don't save in private browsing
     if (mApp->isPrivateSession()) {
         return;
     }
-
-    const QByteArray &data = convertWebKitFormBoundaryIfNecessary(outgoingData);
 
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
     WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
@@ -281,6 +238,8 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
         return;
     }
 
+    PageFormCompleter completer(webPage);
+
 //    v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101));
 //    QWebPage::NavigationType type = (QWebPage::NavigationType)v.toInt();
 
@@ -288,170 +247,18 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
 //        return;
 //    }
 
-    QString usernameName;
-    QString usernameValue;
-    QString passwordName;
-    QString passwordValue;
-
     const QUrl &siteUrl = webPage->url();
+    const PageFormData &formData = completer.extractFormData(outgoingData);
 
-    if (!isStoringEnabled(siteUrl)) {
+    if (!isStoringEnabled(siteUrl) || isStored(siteUrl) || !formData.found) {
         return;
     }
 
-    QWebElementCollection allForms; // All form elements on page
-    QWebElement foundForm;          // Sent form element
-
-    QList<QWebFrame*> frames;
-    frames.append(webPage->mainFrame());  // Find all form elements
-    while (!frames.isEmpty()) {
-        QWebFrame* frame = frames.takeFirst();
-        allForms.append(frame->findAllElements("form"));
-        frames += frame->childFrames();
-    }
-
-    foreach(const QWebElement & formElement, allForms) {
-        foreach(const QWebElement & inputElement, formElement.findAll("input[type=\"password\"]")) {
-            passwordName = inputElement.attribute("name");
-            passwordValue = getValueFromData(data, inputElement);
-
-            if (!passwordValue.isEmpty() && dataContains(data, passwordName)) {
-                foundForm = formElement;
-                break;
-            }
-        }
-
-        if (!foundForm.isNull()) {
-            break;
-        }
-    }
-
-    // Return if data for this page is already stored or no password element found in sent data
-    if (foundForm.isNull() || isStored(siteUrl)) {
-        return;
-    }
-
-    // We need to find username, we suppose that username is first not empty input[type=text] in form
-    // Tell me better solution. Maybe first try to find name="user", name="username" ?
-
-    bool found = false;
-    QStringList selectors;
-    selectors << "input[type=\"text\"][name*=\"user\"]"
-              << "input[type=\"text\"][name*=\"name\"]"
-              << "input[type=\"text\"]"
-              << "input[type=\"email\"]"
-              << "input:not([type=\"hidden\"])";
-
-    foreach(const QString & selector, selectors) {
-        foreach(const QWebElement & element, foundForm.findAll(selector)) {
-            usernameName = element.attribute("name");
-            usernameValue = getValueFromData(data, element);
-
-            if (!usernameName.isEmpty() && !usernameValue.isEmpty()) {
-                found = true;
-                break;
-            }
-        }
-
-        if (found) {
-            break;
-        }
-    }
-
-    AutoFillNotification* aWidget = new AutoFillNotification(siteUrl, data, usernameValue, passwordValue);
+    AutoFillNotification* aWidget = new AutoFillNotification(siteUrl, formData);
     webView->addNotification(aWidget);
 }
 
-QString AutoFillModel::getValueFromData(const QByteArray &data, QWebElement element)
-{
-    QString name = element.attribute("name");
-    if (name.isEmpty()) {
-        return QString();
-    }
-
-    QString value = element.evaluateJavaScript("this.value").toString();
-    if (value.isEmpty()) {
-#if QT_VERSION >= 0x050000
-        QueryItems queryItems = QUrlQuery(QUrl::fromEncoded("http://a.b/?" + data)).queryItems();
-#else
-        QueryItems queryItems = QUrl::fromEncoded("http://a.b/?" + data).queryItems();
-#endif
-        for (int i = 0; i < queryItems.count(); i++) {
-            QueryItem item = queryItems.at(i);
-
-            if (item.first == name) {
-                value = item.second.toUtf8();
-            }
-        }
-    }
-
-    return value;
-}
-
-QByteArray AutoFillModel::convertWebKitFormBoundaryIfNecessary(const QByteArray &data)
-{
-    /* Sometimes, data are passed in this format:
-
-        ------WebKitFormBoundary0bBp3bFMdGwqanMp
-        Content-Disposition: form-data; name="name-of-attribute"
-
-        value-of-attribute
-        ------WebKitFormBoundary0bBp3bFMdGwqanMp--
-
-       So this function converts this format into url
-    */
-
-    if (!data.contains(QByteArray("------WebKitFormBoundary"))) {
-        return data;
-    }
-
-    QByteArray formatedData;
-    QRegExp rx("name=\"(.*)------WebKitFormBoundary");
-    rx.setMinimal(true);
-
-    int pos = 0;
-    while ((pos = rx.indexIn(data, pos)) != -1) {
-        QString string = rx.cap(1);
-        pos += rx.matchedLength();
-
-        int endOfAttributeName = string.indexOf(QLatin1Char('"'));
-        if (endOfAttributeName == -1) {
-            continue;
-        }
-
-        QString attrName = string.left(endOfAttributeName);
-        QString attrValue = string.mid(endOfAttributeName + 1).trimmed().remove(QLatin1Char('\n'));
-
-        if (attrName.isEmpty() || attrValue.isEmpty()) {
-            continue;
-        }
-
-        formatedData.append(attrName + "=" + attrValue + "&");
-    }
-
-    return formatedData;
-}
-
-bool AutoFillModel::dataContains(const QByteArray &data, const QString &attributeName)
-{
-#if QT_VERSION >= 0x050000
-    QueryItems queryItems = QUrlQuery(QUrl::fromEncoded("http://a.b/?" + data)).queryItems();
-#else
-    QueryItems queryItems = QUrl::fromEncoded("http://a.b/?" + data).queryItems();
-#endif
-
-    for (int i = 0; i < queryItems.count(); i++) {
-        QueryItem item = queryItems.at(i);
-
-        if (item.first == attributeName) {
-            return !item.second.isEmpty();
-        }
-    }
-
-    return false;
-}
-
-QByteArray AutoFillModel::exportPasswords()
+QByteArray AutoFill::exportPasswords()
 {
     QByteArray output;
 
@@ -487,7 +294,7 @@ QByteArray AutoFillModel::exportPasswords()
     return output;
 }
 
-bool AutoFillModel::importPasswords(const QByteArray &data)
+bool AutoFill::importPasswords(const QByteArray &data)
 {
     QSqlDatabase db = QSqlDatabase::database();
     db.transaction();

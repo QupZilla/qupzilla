@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -75,7 +75,9 @@ enum NewTabPositionFlag {
     NT_NotSelectedTab = 2,
     NT_CleanTab = 4,
     NT_TabAtTheEnd = 8,
+    NT_NewEmptyTab = 16,
 
+    NT_SelectedNewEmptyTab = NT_SelectedTab | NT_TabAtTheEnd | NT_NewEmptyTab,
     NT_SelectedTabAtTheEnd = NT_SelectedTab | NT_TabAtTheEnd,
     NT_NotSelectedTabAtTheEnd = NT_NotSelectedTab | NT_TabAtTheEnd,
     NT_CleanSelectedTabAtTheEnd = NT_SelectedTab | NT_TabAtTheEnd | NT_CleanTab,
@@ -102,11 +104,11 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 
 #ifdef Q_OS_WIN
 #define DEFAULT_CHECK_UPDATES true
-#define DEFAULT_CHECK_DEFAULTBROWSER true
 #else
 #define DEFAULT_CHECK_UPDATES false
-#define DEFAULT_CHECK_DEFAULTBROWSER false
 #endif
+
+#define DEFAULT_CHECK_DEFAULTBROWSER false
 
 #ifdef Q_OS_WIN
 #define DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG false

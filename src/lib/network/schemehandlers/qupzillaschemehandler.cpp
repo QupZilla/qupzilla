@@ -30,6 +30,7 @@
 #include <QTextStream>
 #include <QTimer>
 #include <QSettings>
+#include <QWebSecurityOrigin>
 
 static QString authorString(const char* name, const QString &mail)
 {
@@ -78,6 +79,7 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* pa
 
 void QupZillaSchemeReply::loadPage()
 {
+    QWebSecurityOrigin::addLocalScheme("qupzilla");
     QTextStream stream(&m_buffer);
     stream.setCodec("UTF-8");
 
@@ -112,6 +114,7 @@ void QupZillaSchemeReply::loadPage()
 
     emit readyRead();
     emit finished();
+    QWebSecurityOrigin::removeLocalScheme("qupzilla");
 }
 
 void QupZillaSchemeReply::delayedFinish()

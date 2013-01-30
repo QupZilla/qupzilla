@@ -350,7 +350,19 @@
     <name>AutoFillNotification</name>
     <message>
         <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation>Doriți ca QupZilla să rețină parola pentru &lt;b&gt;%1&lt;/b&gt; pe %2?</translation>
+        <translation type="obsolete">Doriți ca QupZilla să rețină parola pentru &lt;b&gt;%1&lt;/b&gt; pe %2?</translation>
+    </message>
+    <message>
+        <source>on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>for &lt;b&gt;%1&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want QupZilla to remember the password %1 %2?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -608,6 +620,18 @@
         <source>Change icon</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose parent folder for new folder: </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -723,6 +747,17 @@
     </message>
     <message>
         <source>Open bookmark in new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BookmarksTree</name>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished">Semne de carte</translation>
+    </message>
+    <message>
+        <source>New Folder...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1055,6 +1090,34 @@
         <source>Add to blacklist</source>
         <translation>Adaugă la blacklist</translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished">Setări</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow storing of cookies</source>
+        <translation type="unfinished">Permite stocarea de cookie-uri</translation>
+    </message>
+    <message>
+        <source>Delete cookies on close</source>
+        <translation type="unfinished">Șterge cookie-uri la închidere</translation>
+    </message>
+    <message>
+        <source>Match domain exactly</source>
+        <translation type="unfinished">Potrivește domeniul exact</translation>
+    </message>
+    <message>
+        <source>Filter tracking cookies</source>
+        <translation type="unfinished">Filtreaza cookie-urile de urmărire</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
+        <translation type="unfinished">&lt;b&gt;Avertisment:&lt;/b&gt; Potrivirea exactă a domeniilor și filtrarea cookie-urilor de urmărire poate duce la interzicerea unor cookie-uri de pe site-uri. Dacă aveți probleme cu cookie-uri, încercați să dezactivați această opțiune întâi!</translation>
+    </message>
 </context>
 <context>
     <name>DownloadFileHelper</name>
@@ -1331,6 +1394,110 @@ nu a putut fi găsit!</translation>
     </message>
 </context>
 <context>
+    <name>FtpDownloader</name>
+    <message>
+        <source>Canceled!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FtpSchemeReply</name>
+    <message>
+        <source>Unknown command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up to higher level directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show hidden files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nume</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Index for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder is empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HTML5PermissionsDialog</name>
+    <message>
+        <source>HTML5 Permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Notifications</source>
+        <translation type="unfinished">Notificări</translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Geolocation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deny</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HTML5PermissionsNotification</name>
+    <message>
+        <source>Remember</source>
+        <translation type="unfinished">Reține</translation>
+    </message>
+    <message>
+        <source>Allow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deny</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>this site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow %1 to show desktop notifications?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow %1 to locate your position?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>History</name>
     <message>
         <source>No Named Page</source>
@@ -1505,6 +1672,45 @@ nu a putut fi găsit!</translation>
     </message>
 </context>
 <context>
+    <name>JsOptions</name>
+    <message>
+        <source>JavaScript Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow JavaScript to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open popup windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change window size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide menu bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide status bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide tool bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Access clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LicenseViewer</name>
     <message>
         <source>License Viewer</source>
@@ -1658,6 +1864,18 @@ nu a putut fi găsit!</translation>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Un nume de utilizator și o parolă sunt cerute de proxy %1. </translation>
     </message>
+    <message>
+        <source>FTP authorization required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login anonymously</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A username and password are being requested by %1:%2.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PageScreen</name>
@@ -1733,10 +1951,101 @@ nu a putut fi găsit!</translation>
     </message>
 </context>
 <context>
+    <name>PopupWebView</name>
+    <message>
+        <source>Inspect Element</source>
+        <translation type="unfinished">Inspectează element</translation>
+    </message>
+</context>
+<context>
     <name>PopupWindow</name>
     <message>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Fișier</translation>
+    </message>
+    <message>
+        <source>&amp;Save Page As...</source>
+        <translation type="unfinished">&amp;Salvează pagina ca...</translation>
+    </message>
+    <message>
+        <source>Save Page Screen</source>
+        <translation type="unfinished">Salvează ecranul paginii</translation>
+    </message>
+    <message>
+        <source>Send Link...</source>
+        <translation type="unfinished">Trimite legătura...</translation>
+    </message>
+    <message>
+        <source>&amp;Print...</source>
+        <translation type="unfinished">&amp;Tipărește...</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Închide</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Undo</source>
+        <translation type="unfinished">&amp;Anulează</translation>
+    </message>
+    <message>
+        <source>&amp;Redo</source>
+        <translation type="unfinished">&amp;Refă</translation>
+    </message>
+    <message>
+        <source>&amp;Cut</source>
+        <translation type="unfinished">&amp;Taie</translation>
+    </message>
+    <message>
+        <source>C&amp;opy</source>
+        <translation type="unfinished">C&amp;opiază</translation>
+    </message>
+    <message>
+        <source>&amp;Paste</source>
+        <translation type="unfinished">&amp;Lipește</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished">Selectează tot</translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished">Caută</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">Vizualizare</translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished">&amp;Stop</translation>
+    </message>
+    <message>
+        <source>&amp;Reload</source>
+        <translation type="unfinished">&amp;Reîncarcă</translation>
+    </message>
+    <message>
+        <source>Zoom &amp;In</source>
+        <translation type="unfinished">&amp;Apropie</translation>
+    </message>
+    <message>
+        <source>Zoom &amp;Out</source>
+        <translation type="unfinished">&amp;Depărtează</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">Resetează</translation>
+    </message>
+    <message>
+        <source>&amp;Page Source</source>
+        <translation type="unfinished">&amp;Sursa paginii</translation>
     </message>
 </context>
 <context>
@@ -2206,23 +2515,23 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Filter tracking cookies</source>
-        <translation>Filtreaza cookie-urile de urmărire</translation>
+        <translation type="obsolete">Filtreaza cookie-urile de urmărire</translation>
     </message>
     <message>
         <source>Allow storing of cookies</source>
-        <translation>Permite stocarea de cookie-uri</translation>
+        <translation type="obsolete">Permite stocarea de cookie-uri</translation>
     </message>
     <message>
         <source>Delete cookies on close</source>
-        <translation>Șterge cookie-uri la închidere</translation>
+        <translation type="obsolete">Șterge cookie-uri la închidere</translation>
     </message>
     <message>
         <source>Match domain exactly</source>
-        <translation>Potrivește domeniul exact</translation>
+        <translation type="obsolete">Potrivește domeniul exact</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;Avertisment:&lt;/b&gt; Potrivirea exactă a domeniilor și filtrarea cookie-urilor de urmărire poate duce la interzicerea unor cookie-uri de pe site-uri. Dacă aveți probleme cu cookie-uri, încercați să dezactivați această opțiune întâi!</translation>
+        <translation type="obsolete">&lt;b&gt;Avertisment:&lt;/b&gt; Potrivirea exactă a domeniilor și filtrarea cookie-urilor de urmărire poate duce la interzicerea unor cookie-uri de pe site-uri. Dacă aveți probleme cu cookie-uri, încercați să dezactivați această opțiune întâi!</translation>
     </message>
     <message>
         <source>Cookies Manager</source>
@@ -2234,7 +2543,7 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
-        <translation>JavaScript poate accesa clipboard-ul</translation>
+        <translation type="obsolete">JavaScript poate accesa clipboard-ul</translation>
     </message>
     <message>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
@@ -2250,7 +2559,7 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Block popup windows</source>
-        <translation>Blochează ferestrele de popup</translation>
+        <translation type="obsolete">Blochează ferestrele de popup</translation>
     </message>
     <message>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
@@ -2453,27 +2762,7 @@ nu a putut fi găsit!</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If unchecked the bar will adapt to the background color.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>custom color:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Many styles use Highlight color for the progressbar.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>set to &quot;Highlight&quot; color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2531,6 +2820,50 @@ nu a putut fi găsit!</translation>
     <message>
         <source>Animated scrolling</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open new empty tabs after active tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable caret browsing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage JavaScript privacy options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>JavaScript options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage Cookies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage HTML5 permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HTML5 Permisions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">Resetează</translation>
     </message>
 </context>
 <context>
@@ -2926,6 +3259,10 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
     <message>
         <source>There are still open tabs</source>
         <translation>Încă sunt taburi deschise</translation>
+    </message>
+    <message>
+        <source>Enable &amp;Caret Browsing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

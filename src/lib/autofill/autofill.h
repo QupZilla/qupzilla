@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -29,14 +29,12 @@ class QNetworkRequest;
 
 class QupZilla;
 class WebPage;
+struct PageFormData;
 
-class QT_QUPZILLA_EXPORT AutoFillModel : public QObject
+class QT_QUPZILLA_EXPORT AutoFill : public QObject
 {
 public:
-    typedef QPair<QString, QString> QueryItem;
-    typedef QList<QPair<QString, QString> > QueryItems;
-
-    explicit AutoFillModel(QupZilla* mainClass, QObject* parent = 0);
+    explicit AutoFill(QupZilla* mainClass, QObject* parent = 0);
 
     void loadSettings();
 
@@ -47,7 +45,7 @@ public:
     QString getUsername(const QUrl &url);
     QString getPassword(const QUrl &url);
     void addEntry(const QUrl &url, const QString &name, const QString &pass);
-    void addEntry(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass);
+    void addEntry(const QUrl &url, const PageFormData &formData);
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
     void completePage(WebPage* frame);
@@ -56,10 +54,6 @@ public:
     static bool importPasswords(const QByteArray &data);
 
 private:
-    bool dataContains(const QByteArray &data, const QString &attributeName);
-    QString getValueFromData(const QByteArray &data, QWebElement element);
-    QByteArray convertWebKitFormBoundaryIfNecessary(const QByteArray &data);
-
     QupZilla* p_QupZilla;
     bool m_isStoring;
 

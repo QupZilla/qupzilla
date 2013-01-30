@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -69,7 +69,7 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, const Do
     m_reply = reply;
 
     QFileInfo fileInfo(m_h_fileName);
-    QTemporaryFile tempFile("XXXXXX." + fileInfo.suffix());
+    QTemporaryFile tempFile(mApp->tempPath() + "/XXXXXX." + fileInfo.suffix());
     tempFile.open();
     tempFile.write(m_reply->peek(1024 * 1024));
     QFileInfo tempInfo(tempFile.fileName());

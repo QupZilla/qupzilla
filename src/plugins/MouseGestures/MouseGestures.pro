@@ -1,4 +1,4 @@
-TARGET = MouseGestures
+TARGET = $$qtLibraryTarget(MouseGestures)
 os2: TARGET = MouseGes
 
 INCLUDEPATH = 3rdparty
@@ -42,7 +42,9 @@ TRANSLATIONS = \
     translations/ru_RU.ts \
     translations/sk_SK.ts \
     translations/sr_BA.ts \
+    translations/sr_BA@latin.ts \
     translations/sr_RS.ts \
+    translations/sr_RS@latin.ts \
     translations/sv_SE.ts \
     translations/uk_UA.ts \
     translations/zh_TW.ts \

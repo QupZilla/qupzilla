@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -62,7 +62,8 @@ static bool matchDomain(const QString &domain, const QString &filter)
 
     int index = domain.indexOf(filter);
 
-    return (index > 0 && filter[0] == QLatin1Char('.'));
+    return (index == 1 && domain[0] == QLatin1Char('.')) ||
+           (index > 0 && filter[0] == QLatin1Char('.'));
 }
 
 static int listContainsDomain(const QStringList &list, const QString &domain)
@@ -177,11 +178,30 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
 
 void CookieJar::saveCookies()
 {
-    if (m_deleteOnClose || mApp->isPrivateSession()) {
+    if (mApp->isPrivateSession()) {
         return;
     }
 
-    QList<QNetworkCookie> allCookies = getAllCookies();
+    QList<QNetworkCookie> allCookies;
+
+    if (!m_deleteOnClose) {
+        // If we are deleting cookies on close, let's just save empty cookie list
+        allCookies = getAllCookies();
+    }
+    else {
+        // Do not delete whitelisted cookies
+        QList<QNetworkCookie> cookies = getAllCookies();
+        int count = cookies.count();
+
+        for (int i = 0; i < count; i++) {
+            const QNetworkCookie &cookie = cookies.at(i);
+            int result = listContainsDomain(m_whitelist, cookie.domain());
+
+            if (result == 1) {
+                allCookies.append(cookie);
+            }
+        }
+    }
 
     QFile file(m_activeProfil + "cookies.dat");
     file.open(QIODevice::WriteOnly);

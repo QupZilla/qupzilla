@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -270,7 +270,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
     m_menu->addAction(tr("Inspect Element"), this, SLOT(inspectElement()));
 
     if (!m_menu->isEmpty()) {
-        //Prevent choosing first option with double rightclick
+        // Prevent choosing first option with double rightclick
         const QPoint &pos = event->globalPos();
         QPoint p(pos.x(), pos.y() + 1);
 

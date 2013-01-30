@@ -1,4 +1,4 @@
-TARGET = GreaseMonkey
+TARGET = $$qtLibraryTarget(GreaseMonkey)
 os2: TARGET = GreaseMo
 
 INCLUDEPATH += . settings\
@@ -47,7 +47,9 @@ TRANSLATIONS = \
     translations/pt_BR.ts \
     translations/pt_PT.ts \
     translations/sr_BA.ts \
+    translations/sr_BA@latin.ts \
     translations/sr_RS.ts \
+    translations/sr_RS@latin.ts \
     translations/uk_UA.ts \
     translations/fa_IR.ts \
 

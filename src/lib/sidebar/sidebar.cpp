@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -126,7 +126,7 @@ void SideBarManager::refreshMenu()
     m_menu->clear();
     QAction* act = m_menu->addAction(SideBar::tr("Bookmarks"), this, SLOT(slotShowSideBar()));
     act->setCheckable(true);
-    act->setShortcut(QKeySequence("Ctrl+B"));
+    act->setShortcut(QKeySequence("Ctrl+Shift+B"));
     act->setData("Bookmarks");
 
     act = m_menu->addAction(SideBar::tr("History"), this, SLOT(slotShowSideBar()));

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -107,12 +107,14 @@ protected slots:
 
     // To support user's option whether to open in selected or background tab
     void userDefinedOpenUrlInNewTab(const QUrl &url = QUrl(), bool invert = false);
+    void userDefinedOpenUrlInBgTab(const QUrl &url = QUrl());
 
     void createSearchEngine();
 
     // Clicked frame actions
     void loadClickedFrame();
-    void loadClickedFrameInNewTab();
+    void loadClickedFrameInNewTab(bool invert = false);
+    void loadClickedFrameInBgTab();
     void reloadClickedFrame();
     void printClickedFrame();
     void clickedFrameZoomIn();

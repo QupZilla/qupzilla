@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -64,7 +64,7 @@ void AddTabButton::mouseReleaseEvent(QMouseEvent* event)
         QUrl guessedUrl = WebView::guessUrlFromString(selectionClipboard);
 
         if (!guessedUrl.isEmpty()) {
-            m_tabWidget->addView(guessedUrl, Qz::NT_SelectedTabAtTheEnd);
+            m_tabWidget->addView(guessedUrl, Qz::NT_SelectedNewEmptyTab);
         }
     }
 
@@ -93,7 +93,7 @@ void AddTabButton::dropEvent(QDropEvent* event)
     }
 
     foreach(const QUrl & url, mime->urls()) {
-        m_tabWidget->addView(url, Qz::NT_SelectedTabAtTheEnd);
+        m_tabWidget->addView(url, Qz::NT_SelectedNewEmptyTab);
     }
 }
 
@@ -151,6 +151,7 @@ void TabWidget::loadSettings()
     m_dontQuitWithOneTab = settings.value("dontQuitWithOneTab", false).toBool();
     m_closedInsteadOpened = settings.value("closedInsteadOpenedTabs", false).toBool();
     m_newTabAfterActive = settings.value("newTabAfterActive", true).toBool();
+    m_newEmptyTabAfterActive = settings.value("newEmptyTabAfterActive", false).toBool();
     settings.endGroup();
 
     settings.beginGroup("Web-URL-Settings");
@@ -288,7 +289,13 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         url = m_urlOnNewTab;
     }
 
-    if (position == -1 && m_newTabAfterActive && !(openFlags & Qz::NT_TabAtTheEnd)) {
+    bool openAfterActive = m_newTabAfterActive && !(openFlags & Qz::NT_TabAtTheEnd);
+
+    if (openFlags == Qz::NT_SelectedNewEmptyTab && m_newEmptyTabAfterActive) {
+        openAfterActive = true;
+    }
+
+    if (openAfterActive && position == -1) {
         // If we are opening newBgTab from pinned tab, make sure it won't be
         // opened between other pinned tabs
         if (openFlags & Qz::NT_NotSelectedTab && m_lastBackgroundTabIndex != -1) {

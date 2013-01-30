@@ -504,12 +504,16 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
 
     const QString &scheme = request.url().scheme();
 
-    if (scheme == QLatin1String("mailto") || scheme == QLatin1String("ftp")) {
+    if (scheme == QLatin1String("mailto")) {
         desktopServicesOpen(request.url());
         return false;
     }
 
     if (type == QWebPage::NavigationTypeFormResubmitted) {
+        // Don't show this dialog if app is still starting
+        if (!view()->isVisible()) {
+            return false;
+        }
         QString message = tr("To show this page, QupZilla must resend request which do it again \n"
                              "(like searching on making an shopping, which has been already done.)");
         bool result = (QMessageBox::question(view(), tr("Confirm form resubmission"),

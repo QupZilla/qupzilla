@@ -350,7 +350,19 @@
     <name>AutoFillNotification</name>
     <message>
         <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation>გსურთ რომ QupZilla-მ საიტზე %2 &lt;b&gt;%1&lt;/b&gt;-ის პაროლი დაიმახსოვროს?</translation>
+        <translation type="obsolete">გსურთ რომ QupZilla-მ საიტზე %2 &lt;b&gt;%1&lt;/b&gt;-ის პაროლი დაიმახსოვროს?</translation>
+    </message>
+    <message>
+        <source>on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>for &lt;b&gt;%1&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want QupZilla to remember the password %1 %2?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -608,6 +620,18 @@
         <source>Change icon</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose parent folder for new folder: </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -723,6 +747,17 @@
     </message>
     <message>
         <source>Open bookmark in new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BookmarksTree</name>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished">სანიშნები</translation>
+    </message>
+    <message>
+        <source>New Folder...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1055,6 +1090,34 @@
         <source>Add to blacklist</source>
         <translation>შავ სიაში დამატება</translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished">პარამეტრები</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow storing of cookies</source>
+        <translation type="unfinished">ფუნთუშების შენახვის დაშვება</translation>
+    </message>
+    <message>
+        <source>Delete cookies on close</source>
+        <translation type="unfinished">ფუნთუშების წაშლა დახურვისას</translation>
+    </message>
+    <message>
+        <source>Match domain exactly</source>
+        <translation type="unfinished">დომეინთან ზუსტი დამთხვევა</translation>
+    </message>
+    <message>
+        <source>Filter tracking cookies</source>
+        <translation type="unfinished">ფუნთუშებზე თვალთვალის ფილტრი</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
+        <translation type="unfinished">&lt;b&gt;გაფრთხილება:&lt;/b&gt; დომეინის ზუსტი დამთხვევა და ფუნთუშების თვალთვალის ფილტრმა შესაძლოა გამოიწვიოს საიტებიდან ზოგიერთი ფუნთუშის უარყოფა. თუ ფუნთუშებთან დაკავშირებით პრობლემები გაქვთ, პირველ რიგში ცადეთ ამ პარამეტრების გათიშვა!</translation>
+    </message>
 </context>
 <context>
     <name>DownloadFileHelper</name>
@@ -1331,6 +1394,110 @@
     </message>
 </context>
 <context>
+    <name>FtpDownloader</name>
+    <message>
+        <source>Canceled!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FtpSchemeReply</name>
+    <message>
+        <source>Unknown command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up to higher level directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show hidden files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">სახელი</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Index for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder is empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HTML5PermissionsDialog</name>
+    <message>
+        <source>HTML5 Permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Notifications</source>
+        <translation type="unfinished">შეტყობინებები</translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">წაშლა</translation>
+    </message>
+    <message>
+        <source>Geolocation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deny</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HTML5PermissionsNotification</name>
+    <message>
+        <source>Remember</source>
+        <translation type="unfinished">დამახსოვრება</translation>
+    </message>
+    <message>
+        <source>Allow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deny</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>this site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow %1 to show desktop notifications?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow %1 to locate your position?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>History</name>
     <message>
         <source>No Named Page</source>
@@ -1505,6 +1672,45 @@
     </message>
 </context>
 <context>
+    <name>JsOptions</name>
+    <message>
+        <source>JavaScript Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow JavaScript to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open popup windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change window size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide menu bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide status bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide tool bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Access clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LicenseViewer</name>
     <message>
         <source>License Viewer</source>
@@ -1658,6 +1864,18 @@
         <source>A username and password are being requested by proxy %1. </source>
         <translation>%1 პროქსი ითხოვს მომხმარებლის სახელს და პაროლს. </translation>
     </message>
+    <message>
+        <source>FTP authorization required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login anonymously</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A username and password are being requested by %1:%2.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PageScreen</name>
@@ -1733,10 +1951,101 @@
     </message>
 </context>
 <context>
+    <name>PopupWebView</name>
+    <message>
+        <source>Inspect Element</source>
+        <translation type="unfinished">ელემენტზე დაკვირვება</translation>
+    </message>
+</context>
+<context>
     <name>PopupWindow</name>
     <message>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">ფაილი</translation>
+    </message>
+    <message>
+        <source>&amp;Save Page As...</source>
+        <translation type="unfinished">გვერდის &amp;შენახვა როგორც...</translation>
+    </message>
+    <message>
+        <source>Save Page Screen</source>
+        <translation type="unfinished">გვერდის ასლის შენახვა</translation>
+    </message>
+    <message>
+        <source>Send Link...</source>
+        <translation type="unfinished">ბმულის გაგზავნა...</translation>
+    </message>
+    <message>
+        <source>&amp;Print...</source>
+        <translation type="unfinished">&amp;ამობეჭდვა...</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">დახურვა</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">რედაქტირება</translation>
+    </message>
+    <message>
+        <source>&amp;Undo</source>
+        <translation type="unfinished">&amp;დაბრუნება</translation>
+    </message>
+    <message>
+        <source>&amp;Redo</source>
+        <translation type="unfinished">&amp;აღდგენა</translation>
+    </message>
+    <message>
+        <source>&amp;Cut</source>
+        <translation type="unfinished">&amp;ამოჭრა</translation>
+    </message>
+    <message>
+        <source>C&amp;opy</source>
+        <translation type="unfinished">კ&amp;ოპირება</translation>
+    </message>
+    <message>
+        <source>&amp;Paste</source>
+        <translation type="unfinished">&amp;ჩასმა</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished">ყველას არჩევა</translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished">პოვნა</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">ხედი</translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished">&amp;შეჩერება</translation>
+    </message>
+    <message>
+        <source>&amp;Reload</source>
+        <translation type="unfinished">&amp;გადატვირთვა</translation>
+    </message>
+    <message>
+        <source>Zoom &amp;In</source>
+        <translation type="unfinished">მიახლ&amp;ოება</translation>
+    </message>
+    <message>
+        <source>Zoom &amp;Out</source>
+        <translation type="unfinished">დაშორ&amp;ება</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">ჩამოყრა</translation>
+    </message>
+    <message>
+        <source>&amp;Page Source</source>
+        <translation type="unfinished">&amp;გვერდის წყარო</translation>
     </message>
 </context>
 <context>
@@ -2204,23 +2513,23 @@
     </message>
     <message>
         <source>Filter tracking cookies</source>
-        <translation>ფუნთუშებზე თვალთვალის ფილტრი</translation>
+        <translation type="obsolete">ფუნთუშებზე თვალთვალის ფილტრი</translation>
     </message>
     <message>
         <source>Allow storing of cookies</source>
-        <translation>ფუნთუშების შენახვის დაშვება</translation>
+        <translation type="obsolete">ფუნთუშების შენახვის დაშვება</translation>
     </message>
     <message>
         <source>Delete cookies on close</source>
-        <translation>ფუნთუშების წაშლა დახურვისას</translation>
+        <translation type="obsolete">ფუნთუშების წაშლა დახურვისას</translation>
     </message>
     <message>
         <source>Match domain exactly</source>
-        <translation>დომეინთან ზუსტი დამთხვევა</translation>
+        <translation type="obsolete">დომეინთან ზუსტი დამთხვევა</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;გაფრთხილება:&lt;/b&gt; დომეინის ზუსტი დამთხვევა და ფუნთუშების თვალთვალის ფილტრმა შესაძლოა გამოიწვიოს საიტებიდან ზოგიერთი ფუნთუშის უარყოფა. თუ ფუნთუშებთან დაკავშირებით პრობლემები გაქვთ, პირველ რიგში ცადეთ ამ პარამეტრების გათიშვა!</translation>
+        <translation type="obsolete">&lt;b&gt;გაფრთხილება:&lt;/b&gt; დომეინის ზუსტი დამთხვევა და ფუნთუშების თვალთვალის ფილტრმა შესაძლოა გამოიწვიოს საიტებიდან ზოგიერთი ფუნთუშის უარყოფა. თუ ფუნთუშებთან დაკავშირებით პრობლემები გაქვთ, პირველ რიგში ცადეთ ამ პარამეტრების გათიშვა!</translation>
     </message>
     <message>
         <source>Cookies Manager</source>
@@ -2232,7 +2541,7 @@
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
-        <translation>JavaScript-ს შეუძლია გაცვლის ბუფერთან წვდომა</translation>
+        <translation type="obsolete">JavaScript-ს შეუძლია გაცვლის ბუფერთან წვდომა</translation>
     </message>
     <message>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
@@ -2248,7 +2557,7 @@
     </message>
     <message>
         <source>Block popup windows</source>
-        <translation>ამომხტარი ფანჯრების დაბლოკვა</translation>
+        <translation type="obsolete">ამომხტარი ფანჯრების დაბლოკვა</translation>
     </message>
     <message>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
@@ -2451,27 +2760,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If unchecked the bar will adapt to the background color.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>custom color:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Many styles use Highlight color for the progressbar.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>set to &quot;Highlight&quot; color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If enabled the default engine will be taken for searching without search shortcut in the address bar instead of the engine currently selected in the web search bar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2529,6 +2818,50 @@
     <message>
         <source>Animated scrolling</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open new empty tabs after active tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable caret browsing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage JavaScript privacy options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>JavaScript options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage Cookies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage HTML5 permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HTML5 Permisions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">ჩამოყრა</translation>
     </message>
 </context>
 <context>
@@ -2924,6 +3257,10 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>There are still open tabs</source>
         <translation>რამდენიმე ჩანართი კვლავ გახსნილია</translation>
+    </message>
+    <message>
+        <source>Enable &amp;Caret Browsing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
