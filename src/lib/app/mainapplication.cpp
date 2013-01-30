@@ -70,6 +70,10 @@
 #define NO_SYSTEM_DATAPATH
 #endif
 
+#if QT_VERSION < 0x050000
+#include "qwebkitversion.h"
+#endif
+
 MainApplication::MainApplication(int &argc, char** argv)
     : QtSingleApplication(argc, argv)
     , m_cookiemanager(0)
@@ -790,8 +794,9 @@ SearchEnginesManager* MainApplication::searchEnginesManager()
 QNetworkDiskCache* MainApplication::networkCache()
 {
     if (!m_networkCache) {
+        const QString &cachePath = "networkcache/" + qWebKitVersion() + "/";
         m_networkCache = new QNetworkDiskCache(this);
-        m_networkCache->setCacheDirectory(m_activeProfil + "/networkcache");
+        m_networkCache->setCacheDirectory(m_activeProfil + cachePath);
     }
 
     return m_networkCache;
