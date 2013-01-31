@@ -1374,7 +1374,7 @@
 <context>
     <name>FtpDownloader</name>
     <message>
-        <source>Canceled!</source>
+        <source>Cancelled!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1724,7 +1724,7 @@
     </message>
 </context>
 <context>
-    <name>LocationCompleterDelegate</name>
+    <name>LocationCompleterView</name>
     <message>
         <source>Switch to tab</source>
         <translation type="unfinished"></translation>
@@ -2789,15 +2789,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>HTML5 Permisions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom color:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HTML5 Permissions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
