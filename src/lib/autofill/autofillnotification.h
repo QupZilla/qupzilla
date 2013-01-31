@@ -36,16 +36,19 @@ class QT_QUPZILLA_EXPORT AutoFillNotification : public AnimatedWidget
     Q_OBJECT
 
 public:
-    explicit AutoFillNotification(const QUrl &url, const PageFormData &formData);
+    explicit AutoFillNotification(const QUrl &url,
+                                  const PageFormData &formData, bool updateData);
     ~AutoFillNotification();
 
 private slots:
+    void update();
     void remember();
     void never();
 
 private:
     Ui::AutoFillWidget* ui;
 
+    bool m_updateData;
     QUrl m_url;
     PageFormData m_formData;
 };

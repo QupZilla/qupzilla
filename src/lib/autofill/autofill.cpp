@@ -191,6 +191,30 @@ void AutoFill::addEntry(const QUrl &url, const PageFormData &formData)
     mApp->dbWriter()->executeQuery(query);
 }
 
+void AutoFill::updateEntry(const QUrl &url, const PageFormData &formData)
+{
+    QSqlQuery query;
+    query.prepare("SELECT data FROM autofill WHERE server=?");
+    query.addBindValue(url.host());
+    query.exec();
+
+    if (!query.next()) {
+        return;
+    }
+
+    QString server = url.host();
+    if (server.isEmpty()) {
+        server = url.toString();
+    }
+
+    query.prepare("UPDATE autofill SET data=?, username=?, password=? WHERE server=?");
+    query.addBindValue(formData.postData);
+    query.addBindValue(formData.username);
+    query.addBindValue(formData.password);
+    query.addBindValue(server);
+    mApp->dbWriter()->executeQuery(query);
+}
+
 void AutoFill::completePage(WebPage* page)
 {
     if (!page) {
@@ -238,23 +262,32 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
         return;
     }
 
-    PageFormCompleter completer(webPage);
-
-//    v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101));
-//    QWebPage::NavigationType type = (QWebPage::NavigationType)v.toInt();
-
-//    if (type != QWebPage::NavigationTypeFormSubmitted) {
-//        return;
-//    }
-
     const QUrl &siteUrl = webPage->url();
-    const PageFormData &formData = completer.extractFormData(outgoingData);
 
-    if (!isStoringEnabled(siteUrl) || isStored(siteUrl) || !formData.found) {
+    if (!isStoringEnabled(siteUrl)) {
         return;
     }
 
-    AutoFillNotification* aWidget = new AutoFillNotification(siteUrl, formData);
+    PageFormCompleter completer(webPage);
+    const PageFormData &formData = completer.extractFormData(outgoingData);
+
+    if (!formData.found) {
+        return;
+    }
+
+    bool updateData = false;
+    if (isStored(siteUrl)) {
+        const QString &user = getUsername(siteUrl);
+        const QString &pass = getPassword(siteUrl);
+
+        if (user == formData.username && pass == formData.password) {
+            return;
+        }
+
+        updateData = true;
+    }
+
+    AutoFillNotification* aWidget = new AutoFillNotification(siteUrl, formData, updateData);
     webView->addNotification(aWidget);
 }
 

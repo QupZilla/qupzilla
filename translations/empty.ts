@@ -345,6 +345,10 @@
         <source>Successfully exported</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AutoFillNotification</name>
@@ -360,6 +364,10 @@
         <source>Do you want QupZilla to remember the password %1 %2?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Do you want QupZilla to update saved password %1?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AutoFillWidget</name>
@@ -373,6 +381,10 @@
     </message>
     <message>
         <source>Not Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
