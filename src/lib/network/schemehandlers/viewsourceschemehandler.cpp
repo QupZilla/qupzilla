@@ -97,9 +97,9 @@ void ViewSourceSchemeReply::loadPage(){
 		sh.setTitle("view-source:"+m_reply->url().toString());
 		html = sh.highlight();
 	
-		QTextCodec *codec = QTextCodec::codecForHtml(html.toAscii());
+		QTextCodec *codec = QTextCodec::codecForHtml(html.toStdString().c_str());
 	    stream.setCodec(codec);
-		stream << html.toAscii();
+		stream << html;
 	}
 
 	stream.flush();
