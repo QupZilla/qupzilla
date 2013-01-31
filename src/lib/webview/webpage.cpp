@@ -418,7 +418,7 @@ void WebPage::dbQuotaExceeded(QWebFrame* frame)
     frame->securityOrigin().setDatabaseQuota(oldQuota * 2);
 }
 
-#if QTWEBKIT_FROM_2_2
+#if USE_QTWEBKIT_2_2
 void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota)
 {
     if (!origin) {
