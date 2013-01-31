@@ -46,8 +46,6 @@
 #include "qurlinfo.h"
 #include <QtCore/qobject.h>
 
-QT_BEGIN_HEADER
-
 class QFtpPrivate;
 
 class QFtp : public QObject
@@ -155,7 +153,5 @@ private:
     Q_PRIVATE_SLOT(d, void _q_piConnectState(int))
     Q_PRIVATE_SLOT(d, void _q_piFtpReply(int, const QString &))
 };
-
-QT_END_HEADER
 
 #endif // QFTP_H
