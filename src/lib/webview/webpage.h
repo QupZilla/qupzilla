@@ -23,6 +23,7 @@
 
 #include "qz_namespace.h"
 
+class QWebSecurityOrigin;
 class QFileSystemWatcher;
 class QEventLoop;
 
@@ -97,9 +98,9 @@ private slots:
     void windowCloseRequested();
 
     void dbQuotaExceeded(QWebFrame* frame);
-    void appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota);
 
 #ifdef USE_QTWEBKIT_2_2
+    void appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota);
     void featurePermissionRequested(QWebFrame* frame, const QWebPage::Feature &feature);
 #endif
 

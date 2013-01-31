@@ -106,10 +106,9 @@ WebPage::WebPage(QupZilla* mainClass)
 #if QTWEBKIT_FROM_2_3
     connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*, quint64, quint64)),
             this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*, quint64)));
-#else
+#elif QTWEBKIT_FROM_2_2
     connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*, quint64)),
             this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*, quint64)));
-
 #endif
 
 
@@ -419,6 +418,7 @@ void WebPage::dbQuotaExceeded(QWebFrame* frame)
     frame->securityOrigin().setDatabaseQuota(oldQuota * 2);
 }
 
+#if QTWEBKIT_FROM_2_2
 void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota)
 {
     if (!origin) {
@@ -428,7 +428,6 @@ void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 original
     origin->setApplicationCacheQuota(originalQuota * 2);
 }
 
-#if QTWEBKIT_FROM_2_2
 void WebPage::featurePermissionRequested(QWebFrame* frame, const QWebPage::Feature &feature)
 {
     mApp->html5permissions()->requestPermissions(this, frame, feature);
