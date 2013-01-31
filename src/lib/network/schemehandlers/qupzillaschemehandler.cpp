@@ -390,7 +390,7 @@ QString QupZillaSchemeReply::configPage()
 #ifdef QUPZILLA_DEBUG_BUILD
         debugBuild = tr("<b>Enabled</b>");
 #endif
-#ifdef USE_WEBGL
+#if defined (USE_WEBGL) || QTWEBKIT_FROM_2_3
         webGLEnabled = tr("<b>Enabled</b>");
 #endif
 #if defined(Q_OS_WIN) && defined(W7API)
