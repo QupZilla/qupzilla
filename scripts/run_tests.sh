@@ -5,5 +5,5 @@ cd ../tests/autotests
 qmake DEFINES+=NO_SYSTEM_DATAPATH && make
 cd ../../bin
 
-clear
 ./autotests
+exit $?

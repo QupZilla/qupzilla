@@ -189,6 +189,26 @@ void FormCompleterTest::extractFormTest3()
     QCOMPARE(form.password, QString("tst_password"));
 }
 
+void FormCompleterTest::extractFormTest4()
+{
+    // Test extracting form that contains only password
+    // as editable input
+
+    QByteArray data = "username=tst_username&password=tst_password";
+
+    QString html = "<form name='form2' method='post' action='foo2.php'>"
+                   "<input id='id3' type='hidden' name='username' value='tst_username'>"
+                   "<input id='id4' type='password' name='password' value='tst_password'>"
+                   "<input type='submit' value='submit' name='submit'>"
+                   "</form>";
+
+    PageFormData form = extractFormData(html, data);
+
+    QVERIFY(form.found == true);
+    QCOMPARE(form.username, QString());
+    QCOMPARE(form.password, QString("tst_password"));
+}
+
 void FormCompleterTest::completeWithData(const QString &html, const QByteArray &data)
 {
     view->setHtml(html);
