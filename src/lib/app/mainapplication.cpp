@@ -399,10 +399,8 @@ void MainApplication::loadSettings()
     m_websettings->setAttribute(QWebSettings::JavascriptCanCloseWindows, settings.value("allowJavaScriptCloseWindow", false).toBool());
 #endif
 
-    const QUrl &styleSheet = userStyleSheet(settings.value("userStyleSheet", QString()).toString(),
-                                            settings.value("ignoreSystemColors", false).toBool());
-    m_websettings->setUserStyleSheetUrl(styleSheet);
     setWheelScrollLines(settings.value("wheelScrollLines", wheelScrollLines()).toInt());
+    m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", QString()).toString()));
     settings.endGroup();
 
     settings.beginGroup("Browser-Fonts");
@@ -836,8 +834,7 @@ void MainApplication::reloadUserStyleSheet()
 {
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
-    m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", QString()).toString(),
-                                        settings.value("ignoreSystemColors", false).toBool()));
+    m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", QString()).toString()));
     settings.endGroup();
 }
 
@@ -883,18 +880,11 @@ RegisterQAppAssociation* MainApplication::associationManager()
 }
 #endif
 
-QUrl MainApplication::userStyleSheet(const QString &filePath, bool ignoreSystemColors) const
+QUrl MainApplication::userStyleSheet(const QString &filePath) const
 {
-    QString userStyle;
-
-    if (ignoreSystemColors) {
-        // Set default white background for all sites
-        // Fixes issue with dark themes when sites don't set background
-        // But it also brings issues with background of iframes that assumes
-        // background will by default will be transparent
-        userStyle += "html{background-color:white;}";
-    }
-
+    // Set default white background for all sites
+    // Fixes issue with dark themes when sites don't set background
+    QString userStyle = "html{background-color:white;}";
     userStyle += AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}";
 
     QFile file(filePath);
