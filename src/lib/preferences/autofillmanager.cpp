@@ -38,6 +38,7 @@ AutoFillManager::AutoFillManager(QWidget* parent)
     connect(ui->removeAllPass, SIGNAL(clicked()), this, SLOT(removeAllPass()));
     connect(ui->editPass, SIGNAL(clicked()), this, SLOT(editPass()));
     connect(ui->showPasswords, SIGNAL(clicked()), this, SLOT(showPasswords()));
+    connect(ui->search, SIGNAL(textChanged(QString)), ui->treePass, SLOT(filterString(QString)));
 
     connect(ui->removeExcept, SIGNAL(clicked()), this, SLOT(removeExcept()));
     connect(ui->removeAllExcept, SIGNAL(clicked()), this, SLOT(removeAllExcept()));
@@ -47,6 +48,7 @@ AutoFillManager::AutoFillManager(QWidget* parent)
     menu->addAction(tr("Export Passwords to File..."), this, SLOT(exportPasswords()));
     ui->importExport->setMenu(menu);
     ui->importExport->setPopupMode(QToolButton::InstantPopup);
+    ui->search->setPlaceholderText(tr("Search"));
 
     QTimer::singleShot(0, this, SLOT(loadPasswords()));
 }
