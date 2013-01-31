@@ -7,7 +7,7 @@ fi
 ## circular inclusions workaround - we comment that buggy line
 sed -i 's/include(3rdparty/##temp/g' ../src/lib/lib.pro
 
-lupdate $ARGUMENTS ../src/lib/lib.pro
+#lupdate $ARGUMENTS ../src/lib/lib.pro
 lupdate $ARGUMENTS ../src/lib/lib.pro -ts ../translations/empty.ts
 
 ## uncomment it now
