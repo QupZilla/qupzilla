@@ -26,25 +26,33 @@ SourceHighlighter::SourceHighlighter(QString source)
 
 }
 
-void SourceHighlighter::setTitle(QString title)
+void SourceHighlighter::setUrl(QUrl url)
 {
-	m_title = title;
+	m_url = url;
+	m_title = "view-source:"+url.toString();
 }
 
 QString SourceHighlighter::highlight()
 {
+	m_source.replace(QRegExp("&(#?[0-9a-z]+;)", Qt::CaseInsensitive), "&amp;\\1");
 	m_source.replace("<", "&lt;");
 	m_source.replace(">", "&gt;");
+
+	// urls highlight
+	m_source.replace(QRegExp("((src|href)[\\s]*=[\\s]*[\"'])([^\"']+)", Qt::CaseInsensitive),
+			"\\1<a target=\"_blank\" href=\"\\3\">\\3</a>");
+
+
 	QStringList rows = m_source.split(QRegExp("(\r\n)|([\r\n])"));
 	QString result = "<table border='0'>";
 	for (int i = 0; i < rows.size(); i++){
 		result += "<tr><td class='line-number'>"+QString::number(i+1)+"</td><td class='line-content'>"+rows.at(i)+"</td></tr>";
 	}
 	result += "</table>";
-	//result += "<a target='_blank' href='1.html'>123</a>";
+	
+	QString base = "<base href='"+m_url.resolved(QUrl("/")).toString()+"'>";
 
-
-	return "<html><head><link rel='stylesheet' href='qrc:html/view-source.css' type='text/css'><title>"+m_title+"</title></head><body>"+result+"</body></html>";
+	return "<html><head>"+base+"<link rel='stylesheet' href='qrc:html/view-source.css' type='text/css'><title>"+m_title+"</title></head><body>"+result+"</body></html>";
 }
 
 SourceHighlighter::~SourceHighlighter()

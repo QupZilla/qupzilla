@@ -19,6 +19,7 @@
 #define SOURCEHIGHLIGHTER_H
 
 #include <QObject>
+#include <QUrl>
 
 #include "qz_namespace.h"
 
@@ -30,11 +31,12 @@ public:
 	explicit SourceHighlighter(QString source);
 	~SourceHighlighter();
 
-	void setTitle(QString title);
+	void setUrl(QUrl url);
 	QString highlight();
 
 private:
 	QString m_source;
+	QUrl m_url;
 	QString m_title;
 };
 

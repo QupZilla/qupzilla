@@ -49,16 +49,17 @@ QNetworkReply* ViewSourceSchemeHandler::createRequest(QNetworkAccessManager::Ope
 ViewSourceSchemeReply::ViewSourceSchemeReply(const QNetworkRequest &req, QObject* parent)
     : QNetworkReply(parent)
 {
-    setOperation(QNetworkAccessManager::GetOperation);
-    setRequest(req);
-    setUrl(req.url());
+	setOperation(QNetworkAccessManager::GetOperation);
+	setRequest(req);
+	setUrl(req.url());
 
-	QUrl sourceUrl = QUrl(req.url().toString().mid(12).toUtf8());
+	//QUrl sourceUrl = QUrl(req.url().toString().mid(12).toUtf8());
+	QUrl sourceUrl = QUrl(req.url().path());
 	m_reply = mApp->networkManager()->get(QNetworkRequest(sourceUrl));
 	connect(m_reply, SIGNAL(finished()), this, SLOT(loadPage()));
 
-    m_buffer.open(QIODevice::ReadWrite);
-    setError(QNetworkReply::NoError, tr("No Error"));
+	m_buffer.open(QIODevice::ReadWrite);
+	setError(QNetworkReply::NoError, tr("No Error"));
 
 	open(QIODevice::ReadOnly);
 }
@@ -87,33 +88,33 @@ void ViewSourceSchemeReply::loadPage(){
 			<< "</head>";
 	}
 	else{
-	    QString html = m_reply->readAll();
-	
+		QString html = m_reply->readAll();
+
 		QRegExp rx("<meta.*charset=[\"]?([a-z0-9-]+)");
 		if (rx.indexIn(html, 0) != -1)
 			charset = rx.cap(1);
-	
+
 		SourceHighlighter sh(html);
-		sh.setTitle("view-source:"+m_reply->url().toString());
+		sh.setUrl(m_reply->url());
 		html = sh.highlight();
-	
-		QTextCodec *codec = QTextCodec::codecForHtml(html.toStdString().c_str());
-	    stream.setCodec(codec);
+
+		QTextCodec *codec = QTextCodec::codecForHtml(html.toUtf8());
+		stream.setCodec(codec);
 		stream << html;
 	}
 
 	stream.flush();
-    m_buffer.reset();
+	m_buffer.reset();
 
 	setHeader(QNetworkRequest::ContentTypeHeader, QString("text/html; charset="+charset));
-    setHeader(QNetworkRequest::ContentLengthHeader, m_buffer.bytesAvailable());
-    setAttribute(QNetworkRequest::HttpStatusCodeAttribute, 200);
-    setAttribute(QNetworkRequest::HttpReasonPhraseAttribute, QByteArray("Ok"));
+	setHeader(QNetworkRequest::ContentLengthHeader, m_buffer.bytesAvailable());
+	setAttribute(QNetworkRequest::HttpStatusCodeAttribute, 200);
+	setAttribute(QNetworkRequest::HttpReasonPhraseAttribute, QByteArray("Ok"));
 
-    emit metaDataChanged();
-    emit downloadProgress(m_buffer.size(), m_buffer.size());
+	emit metaDataChanged();
+	emit downloadProgress(m_buffer.size(), m_buffer.size());
 
-    emit readyRead();
-    emit finished();
+	emit readyRead();
+	emit finished();
 	QWebSecurityOrigin::removeLocalScheme("view-source");
 }
