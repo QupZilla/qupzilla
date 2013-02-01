@@ -64,7 +64,6 @@ SOURCES += \
     network/networkmanagerproxy.cpp \
     network/networkmanager.cpp \
     other/updater.cpp \
-    other/sourceviewer.cpp \
     preferences/preferences.cpp \
     rss/rssmanager.cpp \
     other/clearprivatedata.cpp \
@@ -98,7 +97,6 @@ SOURCES += \
     tools/animatedwidget.cpp \
     tools/htmlhighlighter.cpp \
     tools/colors.cpp \
-    other/sourceviewersearch.cpp \
     adblock/adblocksubscription.cpp \
     adblock/adblockrule.cpp \
     adblock/adblockmanager.cpp \
@@ -228,7 +226,6 @@ HEADERS  += \
     network/networkmanagerproxy.h \
     network/networkmanager.h \
     other/updater.h \
-    other/sourceviewer.h \
     preferences/preferences.h \
     rss/rssmanager.h \
     other/clearprivatedata.h \
@@ -262,7 +259,6 @@ HEADERS  += \
     preferences/jsoptions.h \
     tools/animatedwidget.h \
     tools/htmlhighlighter.h \
-    other/sourceviewersearch.h \
     adblock/adblocksubscription.h \
     adblock/adblockrule.h \
     adblock/adblockmanager.h \
@@ -397,7 +393,6 @@ FORMS    += \
     preferences/sslmanager.ui \
     preferences/jsoptions.ui \
     other/clearprivatedata.ui \
-    other/sourceviewersearch.ui \
     adblock/adblockdialog.ui \
     tools/docktitlebarwidget.ui \
     sidebar/bookmarkssidebar.ui \

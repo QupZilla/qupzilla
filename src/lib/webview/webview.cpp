@@ -25,7 +25,6 @@
 #include "autofill.h"
 #include "pluginproxy.h"
 #include "downloadmanager.h"
-#include "sourceviewer.h"
 #include "siteinfo.h"
 #include "searchenginesmanager.h"
 #include "browsinglibrary.h"
@@ -33,9 +32,7 @@
 #include "settings.h"
 #include "qzsettings.h"
 #include "enhancedmenu.h"
-#include "followredirectreply.h"
 #include "networkmanager.h"
-#include "sourcehighlighter.h"
 
 #include <QDir>
 #include <QTimer>
