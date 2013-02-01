@@ -15,25 +15,22 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "qztoolstest.h"
-#include "formcompletertest.h"
-#include "cookiestest.h"
+#ifndef COOKIESTEST_H
+#define COOKIESTEST_H
 
-#include <QtTest/QtTest>
+#include <QObject>
 
-int main(int argc, char *argv[])
+class CookiesTest : public QObject
 {
-    QApplication app(argc, argv);
-    QTEST_DISABLE_KEYPAD_NAVIGATION;
+    Q_OBJECT
 
-    QzToolsTest qzToolsTest;
-    QTest::qExec(&qzToolsTest, argc, argv);
+private slots:
+    void domainMatchingTest_data();
+    void domainMatchingTest();
 
-    FormCompleterTest formCompleterTest;
-    QTest::qExec(&formCompleterTest, argc, argv);
+    void listMatchesDomainTest_data();
+    void listMatchesDomainTest();
 
-    CookiesTest cookiesTest;
-    QTest::qExec(&cookiesTest, argc, argv);
+};
 
-    return 0;
-}
+#endif // COOKIESTEST_H
