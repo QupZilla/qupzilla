@@ -50,9 +50,9 @@ QString SourceHighlighter::highlight()
 	}
 	result += "</table>";
 	
-	QString base = "<base href='"+m_url.resolved(QUrl("/")).toString()+"'>";
+	QString base = m_url.toString().replace(QRegExp("[^/]+$"), ""); 
 
-	return "<html><head>"+base+"<link rel='stylesheet' href='qrc:html/view-source.css' type='text/css'><title>"+m_title+"</title></head><body>"+result+"</body></html>";
+	return "<html><head><base href='"+base+"'><link rel='stylesheet' href='qrc:html/view-source.css' type='text/css'><title>"+m_title+"</title></head><body>"+result+"</body></html>";
 }
 
 SourceHighlighter::~SourceHighlighter()
