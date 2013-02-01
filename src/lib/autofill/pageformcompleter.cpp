@@ -43,6 +43,10 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
     QByteArray data = convertWebKitFormBoundaryIfNecessary(postData);
     PageFormData formData = {false, QString(), QString(), data};
 
+    if (data.isEmpty()) {
+        return formData;
+    }
+
     if (!data.contains('=')) {
         qDebug() << "PageFormCompleter: Invalid form data" << data;
         return formData;
@@ -88,7 +92,7 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
               << "input[type=\"text\"][name*=\"name\"]"
               << "input[type=\"text\"]"
               << "input[type=\"email\"]"
-              << "input:not([type=\"hidden\"])";
+              << "input:not([type=\"hidden\"][type=\"password\"])";
 
     foreach(const QString & selector, selectors) {
         const QWebElementCollection &inputs = foundForm.findAll(selector);
@@ -105,10 +109,6 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
         if (found) {
             break;
         }
-    }
-
-    if (!found) {
-        return formData;
     }
 
     formData.found = true;

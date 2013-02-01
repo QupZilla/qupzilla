@@ -43,7 +43,7 @@ LangString DESC_SecDesktop ${LANG_CZECH} "Přidat zástupce na plochu."
 LangString DESC_SecExtensions ${LANG_CZECH} "Associovat QupZillu s .htm(l) soubory"
 LangString DESC_SecThemes ${LANG_CZECH} "Dodatečná témata pro QupZillu"
 
-LangString PRODUCT_DESC ${LANG_CZECH} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
+LangString PRODUCT_DESC ${LANG_CZECH} "QupZilla je nový, rychlý a bezpečný open-source WWW prohlížeč. QupZilla je licencována pod GPL verze 3 nebo (podle vaší volby) jakékoliv vyšší verze. Prohlížeč je založen na jádru WebKit a Qt Frameworku."
 LangString TITLE_SecSetASDefault ${LANG_CZECH} "Výchozí prohlížeč"
 LangString TITLE_SecProtocols ${LANG_CZECH} "Asociace protokolů"
 LangString DESC_SecSetASDefault ${LANG_CZECH} "Nastavit QupZillu jako výchozí internetový prohlížeč"

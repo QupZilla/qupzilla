@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -41,6 +41,9 @@ public:
     void clearCookies();
 
     void setAllowCookies(bool allow);
+
+    static bool matchDomain(QString cookieDomain, QString siteDomain);
+    static bool listMatchesDomain(const QStringList &list, const QString &cookieDomain);
 
 private:
     bool rejectCookie(const QString &domain, const QNetworkCookie &cookie) const;

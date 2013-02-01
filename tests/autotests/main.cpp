@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "qztoolstest.h"
 #include "formcompletertest.h"
+#include "cookiestest.h"
 
 #include <QtTest/QtTest>
 
@@ -30,6 +31,9 @@ int main(int argc, char *argv[])
 
     FormCompleterTest formCompleterTest;
     QTest::qExec(&formCompleterTest, argc, argv);
+
+    CookiesTest cookiesTest;
+    QTest::qExec(&cookiesTest, argc, argv);
 
     return 0;
 }
