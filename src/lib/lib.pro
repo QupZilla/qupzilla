@@ -202,7 +202,6 @@ SOURCES += \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/schemehandlers/adblockschemehandler.cpp \
     network/schemehandlers/fileschemehandler.cpp \
-    other/registerqappassociation.cpp \
     tools/listitemdelegate.cpp \
     bookmarks/bookmarkstree.cpp \
     tools/html5permissions/html5permissionsmanager.cpp \
@@ -367,7 +366,6 @@ HEADERS  += \
     network/schemehandlers/qupzillaschemehandler.h \
     network/schemehandlers/adblockschemehandler.h \
     network/schemehandlers/fileschemehandler.h \
-    other/registerqappassociation.h \
     tools/listitemdelegate.h \
     bookmarks/bookmarkstree.h \
     tools/html5permissions/html5permissionsmanager.h \
@@ -436,6 +434,11 @@ RESOURCES += \
     INSTALLS += target
 
     LIBS += -lX11
+}
+
+win {
+    HEADERS += other/registerqappassociation.h
+    SOURCES += other/registerqappassociation.cpp
 }
 
 message(===========================================)

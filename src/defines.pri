@@ -17,7 +17,7 @@ win32-msvc* {
 
 # Check for pkg-config availability
 system(pkg-config --version > /dev/null) {
-    QTWEBKIT_VERSION = $$system(pkg-config --modversion QtWebKit)
+    QTWEBKIT_VERSION = $$system(PKG_CONFIG_PATH=$$[QT_INSTALL_LIBS]/pkgconfig pkg-config --modversion QtWebKit)
     QTWEBKIT_VERSION_MAJOR = $$section(QTWEBKIT_VERSION, ".", 0, 0)
     QTWEBKIT_VERSION_MINOR = $$section(QTWEBKIT_VERSION, ".", 1, 1)
 
