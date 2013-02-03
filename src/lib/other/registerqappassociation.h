@@ -25,8 +25,6 @@
 
 #include "qz_namespace.h"
 
-#ifdef Q_OS_WIN
-
 class QT_QUPZILLA_EXPORT RegisterQAppAssociation : public QObject
 {
     Q_OBJECT
@@ -71,6 +69,5 @@ private:
     QHash<QString, QString> _urlAssocHash; // (protocol, progId)
     QHash<QString, QPair<QString, QString> > _assocDescHash; // (progId, (desc, icon))
 };
-#endif
 
 #endif // REGISTERQAPPASSOCIATION_H

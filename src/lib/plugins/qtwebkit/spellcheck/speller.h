@@ -15,25 +15,43 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "qztoolstest.h"
-#include "formcompletertest.h"
-#include "cookiestest.h"
+#ifndef SPELLER_H
+#define SPELLER_H
 
-#include <QtTest/QtTest>
+#include <QStringList>
 
-int main(int argc, char *argv[])
+class QTextCodec;
+class Hunspell;
+
+class Speller
 {
-    QApplication app(argc, argv);
-    QTEST_DISABLE_KEYPAD_NAVIGATION;
+public:
+    explicit Speller();
+    ~Speller();
 
-    QzToolsTest qzToolsTest;
-    QTest::qExec(&qzToolsTest, argc, argv);
+    bool initialize();
 
-    FormCompleterTest formCompleterTest;
-    QTest::qExec(&formCompleterTest, argc, argv);
+    QString backend() const;
+    QString language() const;
 
-    CookiesTest cookiesTest;
-    QTest::qExec(&cookiesTest, argc, argv);
+    void learnWord(const QString &word);
+    void ignoreWordInSpellDocument(const QString &word);
 
-    return 0;
-}
+    bool isMisspelled(const QString &string);
+    QStringList suggest(const QString &word);
+
+private:
+    bool dictionaryExists(const QString &path);
+    QString parseLanguage(const QString &path);
+    QString getDictionaryPath();
+
+    static Hunspell* s_hunspell;
+    static QTextCodec* s_codec;
+    static QString s_dictionaryPath;
+    static QString s_langugage;
+    static bool s_initialized;
+
+    QStringList m_ignoredWords;
+};
+
+#endif // SPELLER_H

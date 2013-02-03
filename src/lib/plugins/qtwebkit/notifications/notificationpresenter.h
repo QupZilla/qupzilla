@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,42 +15,17 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef AUTOFILLWIDGET_H
-#define AUTOFILLWIDGET_H
+#ifndef NOTIFICATIONPRESENTER_H
+#define NOTIFICATIONPRESENTER_H
 
-#include <QUrl>
+#include "qwebkitplatformplugin.h"
 
-#include "qz_namespace.h"
-#include "animatedwidget.h"
-#include "pageformcompleter.h"
-
-namespace Ui
+class NotificationPresenter : public QWebNotificationPresenter
 {
-class AutoFillWidget;
-}
-
-class AnimatedWidget;
-
-class QT_QUPZILLA_EXPORT AutoFillNotification : public AnimatedWidget
-{
-    Q_OBJECT
-
 public:
-    explicit AutoFillNotification(const QUrl &url,
-                                  const PageFormData &formData, bool updateData);
-    ~AutoFillNotification();
+    explicit NotificationPresenter();
 
-private slots:
-    void update();
-    void remember();
-    void never();
-
-private:
-    Ui::AutoFillWidget* ui;
-
-    bool m_updateData;
-    QUrl m_url;
-    PageFormData m_formData;
+    void showNotification(const QWebNotificationData* data);
 };
 
-#endif // AUTOFILLWIDGET_H
+#endif // NOTIFICATIONPRESENTER_H

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,42 +15,25 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef AUTOFILLWIDGET_H
-#define AUTOFILLWIDGET_H
+#ifndef QTWEBKITPLUGIN_H
+#define QTWEBKITPLUGIN_H
 
-#include <QUrl>
+#include "qwebkitplatformplugin.h"
 
-#include "qz_namespace.h"
-#include "animatedwidget.h"
-#include "pageformcompleter.h"
-
-namespace Ui
-{
-class AutoFillWidget;
-}
-
-class AnimatedWidget;
-
-class QT_QUPZILLA_EXPORT AutoFillNotification : public AnimatedWidget
+class QtWebKitPlugin : public QObject, public QWebKitPlatformPlugin
 {
     Q_OBJECT
+    Q_INTERFACES(QWebKitPlatformPlugin)
+
+#if QT_VERSION >= 0x050000
+    Q_PLUGIN_METADATA(IID "org.qtwebkit.QtWebKit.QtWebKitPlugins")
+#endif
 
 public:
-    explicit AutoFillNotification(const QUrl &url,
-                                  const PageFormData &formData, bool updateData);
-    ~AutoFillNotification();
+    explicit QtWebKitPlugin();
 
-private slots:
-    void update();
-    void remember();
-    void never();
-
-private:
-    Ui::AutoFillWidget* ui;
-
-    bool m_updateData;
-    QUrl m_url;
-    PageFormData m_formData;
+    bool supportsExtension(Extension ext) const;
+    QObject* createExtension(Extension ext) const;
 };
 
-#endif // AUTOFILLWIDGET_H
+#endif // QTWEBKITPLUGIN_H

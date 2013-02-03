@@ -15,8 +15,24 @@ win32-msvc* {
     LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
 }
 
-isEqual(QT_VERSION, 4.8.0)|greaterThan(QT_VERSION, 4.8.0) {
-    DEFINES *= USE_QTWEBKIT_2_2
+# Check for pkg-config availability
+system(pkg-config --version > /dev/null) {
+    QTWEBKIT_VERSION = $$system(PKG_CONFIG_PATH=$$[QT_INSTALL_LIBS]/pkgconfig pkg-config --modversion QtWebKit)
+    QTWEBKIT_VERSION_MAJOR = $$section(QTWEBKIT_VERSION, ".", 0, 0)
+    QTWEBKIT_VERSION_MINOR = $$section(QTWEBKIT_VERSION, ".", 1, 1)
+
+    greaterThan(QTWEBKIT_VERSION_MAJOR, 3):greaterThan(QTWEBKIT_VERSION_MINOR, 8) {
+        DEFINES *= USE_QTWEBKIT_2_2
+    }
+
+    greaterThan(QTWEBKIT_VERSION_MAJOR, 3):greaterThan(QTWEBKIT_VERSION_MINOR, 9) {
+        DEFINES *= USE_QTWEBKIT_2_3
+    }
+}
+else {
+    isEqual(QT_VERSION, 4.8.0)|greaterThan(QT_VERSION, 4.8.0) {
+        DEFINES *= USE_QTWEBKIT_2_2
+    }
 }
 
 DEFINES *= QT_NO_URL_CAST_FROM_STRING

@@ -345,6 +345,10 @@
         <source>Successfully exported</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AutoFillNotification</name>
@@ -360,6 +364,10 @@
         <source>Do you want QupZilla to remember the password %1 %2?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Do you want QupZilla to update saved password %1?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AutoFillWidget</name>
@@ -373,6 +381,10 @@
     </message>
     <message>
         <source>Not Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1374,7 +1386,7 @@
 <context>
     <name>FtpDownloader</name>
     <message>
-        <source>Canceled!</source>
+        <source>Cancelled!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1724,7 +1736,7 @@
     </message>
 </context>
 <context>
-    <name>LocationCompleterDelegate</name>
+    <name>LocationCompleterView</name>
     <message>
         <source>Switch to tab</source>
         <translation type="unfinished"></translation>
@@ -2789,15 +2801,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>HTML5 Permisions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom color:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HTML5 Permissions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

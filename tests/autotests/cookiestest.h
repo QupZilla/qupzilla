@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,42 +15,22 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef AUTOFILLWIDGET_H
-#define AUTOFILLWIDGET_H
+#ifndef COOKIESTEST_H
+#define COOKIESTEST_H
 
-#include <QUrl>
+#include <QObject>
 
-#include "qz_namespace.h"
-#include "animatedwidget.h"
-#include "pageformcompleter.h"
-
-namespace Ui
-{
-class AutoFillWidget;
-}
-
-class AnimatedWidget;
-
-class QT_QUPZILLA_EXPORT AutoFillNotification : public AnimatedWidget
+class CookiesTest : public QObject
 {
     Q_OBJECT
 
-public:
-    explicit AutoFillNotification(const QUrl &url,
-                                  const PageFormData &formData, bool updateData);
-    ~AutoFillNotification();
-
 private slots:
-    void update();
-    void remember();
-    void never();
+    void domainMatchingTest_data();
+    void domainMatchingTest();
 
-private:
-    Ui::AutoFillWidget* ui;
+    void listMatchesDomainTest_data();
+    void listMatchesDomainTest();
 
-    bool m_updateData;
-    QUrl m_url;
-    PageFormData m_formData;
 };
 
-#endif // AUTOFILLWIDGET_H
+#endif // COOKIESTEST_H

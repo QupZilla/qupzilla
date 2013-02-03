@@ -1,9 +1,10 @@
 QupZilla Web Browser
 ----------------------------------------------------------------------------------------
 
-Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)   
-Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)   
-IRC: `#qupzilla` at `irc.freenode.net`
+Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)  
+Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)  
+IRC: `#qupzilla` at `irc.freenode.net`  
+Translations: [https://www.transifex.com](https://www.transifex.com/projects/p/qupzilla)
 
 About QupZilla
 ----------------------------------------------------------------------------------------
@@ -54,6 +55,13 @@ On Mac OS X: To deploy QupZilla in bundle, run this command:
     $ ./scripts/macdeploy.sh full-path-to-macdeployqt
 
 You need to specify path to `macdeployqt` only if it is not in PATH.
+
+If you see errors like
+```
+webview/webpage.cpp: error: no ‘void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin*, quint64)’ member function declared in class ‘WebPage’
+webview/webpage.cpp: error: no ‘void WebPage::featurePermissionRequested(QWebFrame*, const QWebPage::Feature&)’ member function declared in class ‘WebPage’
+```
+run `qmake -r DEFINES+=USE_QTWEBKIT_2_2 && make` to fix it.
 
 Current version
 ----------------------------------------------------------------------------------------

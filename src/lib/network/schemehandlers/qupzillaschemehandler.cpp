@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -390,7 +390,7 @@ QString QupZillaSchemeReply::configPage()
 #ifdef QUPZILLA_DEBUG_BUILD
         debugBuild = tr("<b>Enabled</b>");
 #endif
-#if defined (USE_WEBGL) || QTWEBKIT_FROM_2_3
+#if defined (USE_WEBGL) || (QTWEBKIT_FROM_2_3 && defined(QZ_WS_X11))
         webGLEnabled = tr("<b>Enabled</b>");
 #endif
 #if defined(Q_OS_WIN) && defined(W7API)

@@ -74,6 +74,11 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     , m_pinned(false)
     , m_inspectorVisible(false)
 {
+    setObjectName("webtab");
+
+    // This fixes background of pages with dark themes
+    setStyleSheet("#webtab {background-color:white;}");
+
     m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
