@@ -15,48 +15,41 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SOURCEVIEWERSEARCH_H
-#define SOURCEVIEWERSEARCH_H
+#ifndef VIEWSOURCESCHEMEHANDLER_H
+#define VIEWSOURCESCHEMEHANDLER_H
 
-#include <QTextDocument>
+#include <QNetworkReply>
+#include <QBuffer>
 
+#include "schemehandler.h"
 #include "qz_namespace.h"
-#include "animatedwidget.h"
 
-namespace Ui
+class QT_QUPZILLA_EXPORT ViewSourceSchemeHandler : public SchemeHandler
 {
-class SourceViewerSearch;
-}
+public:
+    explicit ViewSourceSchemeHandler();
 
-class SourceViewer;
+    QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
+};
 
-class QT_QUPZILLA_EXPORT SourceViewerSearch : public AnimatedWidget
+class QT_QUPZILLA_EXPORT ViewSourceSchemeReply : public QNetworkReply
 {
     Q_OBJECT
 public:
-    explicit SourceViewerSearch(SourceViewer* parent = 0);
+    explicit ViewSourceSchemeReply(const QNetworkRequest &req, QObject* parent = 0);
 
-    void activateLineEdit();
-    bool eventFilter(QObject* obj, QEvent* event);
+    qint64 bytesAvailable() const;
 
-signals:
-    void performSearch();
-
-public slots:
+protected:
+    qint64 readData(char* data, qint64 maxSize);
+    void abort() { }
 
 private slots:
-    void next();
-    void previous();
-    void searchWholeWords();
-    void find();
-    bool find(QTextDocument::FindFlags);
+    void loadPage();
 
 private:
-    SourceViewer* m_sourceViewer;
-    Ui::SourceViewerSearch* ui;
-
-    QString m_lastSearchedString;
-    QTextDocument::FindFlags m_findFlags;
+	QNetworkReply* m_reply;
+    QBuffer m_buffer;
 };
 
-#endif // SOURCEVIEWERSEARCH_H
+#endif // VIEWSOURCESCHEMEHANDLER_H

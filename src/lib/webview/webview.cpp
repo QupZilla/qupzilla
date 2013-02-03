@@ -25,7 +25,6 @@
 #include "autofill.h"
 #include "pluginproxy.h"
 #include "downloadmanager.h"
-#include "sourceviewer.h"
 #include "siteinfo.h"
 #include "searchenginesmanager.h"
 #include "browsinglibrary.h"
@@ -33,6 +32,7 @@
 #include "settings.h"
 #include "qzsettings.h"
 #include "enhancedmenu.h"
+#include "networkmanager.h"
 
 #include <QDir>
 #include <QTimer>
@@ -43,6 +43,7 @@
 #include <QClipboard>
 #include <QTouchEvent>
 #include <QPrintPreviewDialog>
+#include <QDebug>
 
 WebView::WebView(QWidget* parent)
     : QWebView(parent)
@@ -57,6 +58,8 @@ WebView::WebView(QWidget* parent)
     , m_disableTouchMocking(false)
     , m_isReloading(false)
 {
+	m_networkManager = mApp->networkManager();
+
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
@@ -219,7 +222,7 @@ bool WebView::isUrlValid(const QUrl &url)
 {
     const QString &urlScheme = url.scheme();
     if (urlScheme == QLatin1String("data") || urlScheme == QLatin1String("qrc") ||
-            urlScheme == QLatin1String("mailto")) {
+            urlScheme == QLatin1String("mailto") || urlScheme == QLatin1String("view-source")) {
         return true;
     }
 
@@ -314,6 +317,10 @@ void WebView::reload()
         load(m_aboutToLoadUrl);
         return;
     }
+	else if (QWebView::url().scheme() == QLatin1String("view-source")){
+		load(QWebView::url());
+		return;
+	}
 
     QWebView::reload();
 }
@@ -373,7 +380,7 @@ void WebView::slotLoadFinished()
         m_actionReload->setEnabled(true);
     }
 
-    if (!m_isReloading) {
+    if (!m_isReloading && url().scheme() != QLatin1String("view-source")) {
         mApp->history()->addHistoryEntry(this);
     }
 
@@ -502,9 +509,7 @@ void WebView::showSource(QWebFrame* frame, const QString &selectedHtml)
         frame = page()->mainFrame();
     }
 
-    SourceViewer* source = new SourceViewer(frame, selectedHtml);
-    QzTools::centerWidgetToParent(source, this);
-    source->show();
+	openUrlInNewTab(QUrl("view-source:"+frame->url().toString()), Qz::NT_SelectedTab);
 }
 
 void WebView::showSiteInfo()

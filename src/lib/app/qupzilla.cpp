@@ -33,7 +33,6 @@
 #include "bookmarksmanager.h"
 #include "bookmarkstoolbar.h"
 #include "clearprivatedata.h"
-#include "sourceviewer.h"
 #include "siteinfo.h"
 #include "preferences.h"
 #include "networkmanager.h"
@@ -1309,9 +1308,7 @@ void QupZilla::showSource(QWebFrame* frame, const QString &selectedHtml)
         frame = weView()->page()->mainFrame();
     }
 
-    SourceViewer* source = new SourceViewer(frame, selectedHtml);
-    QzTools::centerWidgetToParent(source, this);
-    source->show();
+	m_tabWidget->addView(QUrl("view-source:"+frame->url().toString()), Qz::NT_SelectedTabAtTheEnd);
 }
 
 void QupZilla::showPageInfo()

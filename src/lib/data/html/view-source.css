@@ -1,0 +1,34 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+table{
+	border-collapse: separate;
+	border-spacing: 0px;
+	width: 100%;
+}
+
+td{
+	vertical-align: top;
+}
+
+.line-content{
+	font-size: 14px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.line-number{
+	width: 1px;
+	padding-left: 10px;
+	padding-right: 2px;
+	padding-top: 2px;
+	background-color: #eee;
+	text-align: right;
+	color:gray;
+	font-size: 12px;
+
+	border-right: 1px solid gray;
+}

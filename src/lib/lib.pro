@@ -69,7 +69,6 @@ SOURCES += \
     network/networkmanagerproxy.cpp \
     network/networkmanager.cpp \
     other/updater.cpp \
-    other/sourceviewer.cpp \
     preferences/preferences.cpp \
     rss/rssmanager.cpp \
     other/clearprivatedata.cpp \
@@ -103,7 +102,6 @@ SOURCES += \
     tools/animatedwidget.cpp \
     tools/htmlhighlighter.cpp \
     tools/colors.cpp \
-    other/sourceviewersearch.cpp \
     adblock/adblocksubscription.cpp \
     adblock/adblockrule.cpp \
     adblock/adblockmanager.cpp \
@@ -202,15 +200,17 @@ SOURCES += \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/schemehandlers/adblockschemehandler.cpp \
     network/schemehandlers/fileschemehandler.cpp \
+	network/schemehandlers/viewsourceschemehandler.cpp \
     other/registerqappassociation.cpp \
     tools/listitemdelegate.cpp \
     bookmarks/bookmarkstree.cpp \
     tools/html5permissions/html5permissionsmanager.cpp \
     tools/html5permissions/html5permissionsnotification.cpp \
     tools/html5permissions/html5permissionsdialog.cpp \
+    tools/sourcehighlighter.cpp \
     autofill/pageformcompleter.cpp \
     autofill/autofill.cpp \
-    network/schemehandlers/ftpschemehandler.cpp \
+    network/schemehandlers/ftpschemehandler.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -231,7 +231,6 @@ HEADERS  += \
     network/networkmanagerproxy.h \
     network/networkmanager.h \
     other/updater.h \
-    other/sourceviewer.h \
     preferences/preferences.h \
     rss/rssmanager.h \
     other/clearprivatedata.h \
@@ -265,7 +264,6 @@ HEADERS  += \
     preferences/jsoptions.h \
     tools/animatedwidget.h \
     tools/htmlhighlighter.h \
-    other/sourceviewersearch.h \
     adblock/adblocksubscription.h \
     adblock/adblockrule.h \
     adblock/adblockmanager.h \
@@ -367,15 +365,17 @@ HEADERS  += \
     network/schemehandlers/qupzillaschemehandler.h \
     network/schemehandlers/adblockschemehandler.h \
     network/schemehandlers/fileschemehandler.h \
+	network/schemehandlers/viewsourceschemehandler.h \
     other/registerqappassociation.h \
     tools/listitemdelegate.h \
     bookmarks/bookmarkstree.h \
     tools/html5permissions/html5permissionsmanager.h \
     tools/html5permissions/html5permissionsnotification.h \
     tools/html5permissions/html5permissionsdialog.h \
+    tools/sourcehighlighter.h \
     autofill/pageformcompleter.h \
     autofill/autofill.h \
-    network/schemehandlers/ftpschemehandler.h \
+    network/schemehandlers/ftpschemehandler.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -398,7 +398,6 @@ FORMS    += \
     preferences/sslmanager.ui \
     preferences/jsoptions.ui \
     other/clearprivatedata.ui \
-    other/sourceviewersearch.ui \
     adblock/adblockdialog.ui \
     tools/docktitlebarwidget.ui \
     sidebar/bookmarkssidebar.ui \

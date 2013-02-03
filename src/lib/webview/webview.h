@@ -20,10 +20,12 @@
 
 #include <QWebView>
 #include <QWebElement>
+#include <QNetworkAccessManager>
 
 #include "qz_namespace.h"
 
 class WebPage;
+class NetworkManager;
 
 class QT_QUPZILLA_EXPORT WebView : public QWebView
 {
@@ -169,6 +171,7 @@ private:
     QAction* m_actionReload;
     QAction* m_actionStop;
     bool m_actionsInitialized;
+	NetworkManager* m_networkManager;
 
     bool m_disableTouchMocking;
     bool m_isReloading;

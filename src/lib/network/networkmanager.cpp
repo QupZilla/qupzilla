@@ -32,6 +32,7 @@
 #include "schemehandlers/adblockschemehandler.h"
 #include "schemehandlers/qupzillaschemehandler.h"
 #include "schemehandlers/fileschemehandler.h"
+#include "schemehandlers/viewsourceschemehandler.h"
 #include "schemehandlers/ftpschemehandler.h"
 
 #include <QFormLayout>
@@ -77,6 +78,7 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
     m_schemeHandlers["qupzilla"] = new QupZillaSchemeHandler();
     m_schemeHandlers["abp"] = new AdBlockSchemeHandler();
     m_schemeHandlers["file"] = new FileSchemeHandler();
+    m_schemeHandlers["view-source"] = new ViewSourceSchemeHandler();
     m_schemeHandlers["ftp"] = new FtpSchemeHandler();
 
     m_proxyFactory = new NetworkProxyFactory();
