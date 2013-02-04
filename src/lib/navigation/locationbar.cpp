@@ -614,6 +614,9 @@ void LocationBar::paintEvent(QPaintEvent* event)
 
         QPainter p(this);
         QRect cursorRect(cursorXpos, cursorYpos, cursorWidth, cursorHeight);
+        if (isRightToLeft()) {
+            cursorRect = style()->visualRect(Qt::RightToLeft, contentsRect, cursorRect);
+        }
         p.fillRect(cursorRect, option.palette.text().color());
         return;
     }
