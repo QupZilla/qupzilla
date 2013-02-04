@@ -48,10 +48,12 @@ INCLUDEPATH += $$PWD/../../src/lib/3rdparty\
 HEADERS += \
     qztoolstest.h \
     formcompletertest.h \
-    cookiestest.h
+    cookiestest.h \
+    downloadstest.h
 
 SOURCES += \
     qztoolstest.cpp \
     main.cpp \
     formcompletertest.cpp \
-    cookiestest.cpp
+    cookiestest.cpp \
+    downloadstest.cpp
