@@ -35,7 +35,7 @@ public:
     void drawSwitchToTab(bool enable);
 
 private:
-    void drawHighlightedTextLine(const QRect &rect, QString text, const QString &searchText,
+    void drawHighlightedTextLine(const QRect &rect, const QString &text, const QString &searchText,
                                  QPainter* painter, const QStyle* style, const QStyleOptionViewItemV4 &option,
                                  const QPalette::ColorRole &role) const;
 
