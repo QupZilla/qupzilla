@@ -25,6 +25,7 @@
 #include "qupzilla.h"
 #include "bookmarkstree.h"
 #include "browsinglibrary.h"
+#include "bookmarksmanager.h"
 
 #include <QToolTip>
 #include <QSqlQuery>
@@ -65,7 +66,7 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
 
     connect(ui->folder, SIGNAL(activated(int)), this, SLOT(comboItemActive(int)));
     connect(m_bookmarksTree, SIGNAL(requestNewFolder(QWidget*, QString*, bool, QString, WebView*)),
-            reinterpret_cast<QObject*>(mApp->browsingLibrary()->bookmarksManager()), SLOT(addFolder(QWidget*, QString*, bool, QString, WebView*)));
+            mApp->browsingLibrary()->bookmarksManager(), SLOT(addFolder(QWidget*, QString*, bool, QString, WebView*)));
 }
 
 void BookmarksWidget::loadBookmark()
