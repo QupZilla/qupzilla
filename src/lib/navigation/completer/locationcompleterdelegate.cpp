@@ -137,7 +137,7 @@ static bool sizeBiggerThan(const QString &s1, const QString &s2)
     return s1.size() > s2.size();
 }
 
-void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QString text, const QString &searchText,
+void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, const QString &text, const QString &searchText,
         QPainter* painter, const QStyle* style, const QStyleOptionViewItemV4 &option,
         const QPalette::ColorRole &role) const
 {
@@ -204,9 +204,12 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
 
         if (!normalPart.isEmpty()) {
             int width = normalMetrics.width(normalPart);
-            const QRect &nRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
+            QRect nRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
 
             if (nRect.width() > 0) {
+                if (text.isRightToLeft()) {
+                    nRect = style->visualRect(Qt::RightToLeft, rect, nRect);
+                }
                 painter->setFont(normalFont);
                 drawTextLine(nRect, normalPart, painter, style, option, role);
 
@@ -216,15 +219,19 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
 
         if (!boldPart.isEmpty()) {
             int width = boldMetrics.width(boldPart);
-            const QRect &bRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
+            QRect bRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
 
             if (bRect.width() > 0) {
+                if (text.isRightToLeft()) {
+                    bRect = style->visualRect(Qt::RightToLeft, rect, bRect);
+                }
                 painter->setFont(boldFont);
                 drawTextLine(bRect, boldPart, painter, style, option, role);
 
                 // Paint manually line under text instead of using QFont::underline
                 QRect underlineRect(bRect.left(), bRect.top() + boldMetrics.ascent() + 1,
                                     bRect.width(), boldFont.pointSize() > 8 ? 2 : 1);
+
                 painter->fillRect(underlineRect, option.palette.color(role));
 
                 lastRectPos += bRect.width();
@@ -235,10 +242,12 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
             const QString &lastText = text.mid(lastEndPos);
 
             int width = normalMetrics.width(lastText);
-            QRect nRect(lastRectPos, rect.top(), width, rect.height());
-
+            QRect nRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
+            if (text.isRightToLeft()) {
+                nRect = style->visualRect(Qt::RightToLeft, rect, nRect);
+            }
             painter->setFont(normalFont);
-            drawTextLine(adjustRect(rect, nRect), lastText, painter, style, option, role);
+            drawTextLine(nRect, lastText, painter, style, option, role);
         }
     }
 }
