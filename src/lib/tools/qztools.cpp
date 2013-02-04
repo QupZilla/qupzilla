@@ -35,6 +35,7 @@
 #include <QFileIconProvider>
 #include <QTemporaryFile>
 #include <QHash>
+#include <QSysInfo>
 
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
@@ -441,7 +442,37 @@ QString QzTools::buildSystem()
     return "UnixWare 7 / Open UNIX 8";
 #endif
 #ifdef Q_OS_WIN32
-    return "Windows";
+    QString str = "Windows";
+
+    switch (QSysInfo::windowsVersion()) {
+    case QSysInfo::WV_NT:
+        str.append(" NT");
+        break;
+
+    case QSysInfo::WV_2000:
+        str.append(" 2000");
+        break;
+
+    case QSysInfo::WV_XP:
+        str.append(" XP");
+        break;
+    case QSysInfo::WV_2003:
+        str.append(" XP Pro x64");
+        break;
+
+    case QSysInfo::WV_VISTA:
+        str.append(" Vista");
+        break;
+
+    case QSysInfo::WV_WINDOWS7:
+        str.append(" 7");
+        break;
+
+    default:
+        break;
+    }
+
+    return str;
 #endif
 #ifdef Q_OS_UNIX
     return "Unix";

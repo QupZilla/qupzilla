@@ -153,9 +153,19 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace(QLatin1String("%TYPE%"), tr("Issue type"));
     bPage.replace(QLatin1String("%DESCRIPTION%"), tr("Issue description"));
     bPage.replace(QLatin1String("%SEND%"), tr("Send"));
-    bPage.replace(QLatin1String("%E-MAIL-OPTIONAL%"), tr("E-mail is optional<br/><b>Note: </b>Please read how to make a bug report <a href=%1>here</a> first.").arg("https://github.com/QupZilla/qupzilla/wiki/Bug-Reports target=_blank"));
+    bPage.replace(QLatin1String("%E-MAIL-OPTIONAL%"), tr("E-mail is optional<br/><b>Note: </b>Please read how to make a "
+                  "bug report <a href=%1>here</a> first.").arg("https://github.com/QupZilla/qupzilla/wiki/Bug-Reports target=_blank"));
     bPage.replace(QLatin1String("%FIELDS-ARE-REQUIRED%"), tr("Please fill out all required fields!"));
-    bPage = QzTools::applyDirectionToPage(bPage);
+
+    bPage.replace(QLatin1String("%INFO_OS%"), QzTools::buildSystem());
+    bPage.replace(QLatin1String("%INFO_APP%"), QupZilla::VERSION
+#ifdef GIT_REVISION
+                  + " (" + GIT_REVISION + ")"
+#endif
+                 );
+    bPage.replace(QLatin1String("%INFO_QT%"), QString("%1 (built with %2)").arg(qVersion(), QT_VERSION_STR));
+    bPage.replace(QLatin1String("%INFO_WEBKIT%"), QupZilla::WEBKITVERSION),
+                  bPage = QzTools::applyDirectionToPage(bPage);
 
     return bPage;
 }
