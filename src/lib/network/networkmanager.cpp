@@ -283,11 +283,17 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     formLa->addRow(save);
 
     formLa->addWidget(box);
+    bool shouldUpdateEntry = false;
     AutoFill* fill = mApp->autoFill();
+    QString storedUser;
+    QString storedPassword;
     if (fill->isStored(reply->url())) {
         save->setChecked(true);
-        user->setText(fill->getUsername(reply->url()));
-        pass->setText(fill->getPassword(reply->url()));
+        shouldUpdateEntry = true;
+        storedUser = fill->getUsername(reply->url());
+        storedPassword = fill->getPassword(reply->url());
+        user->setText(storedUser);
+        pass->setText(storedPassword);
     }
     emit wantsFocus(reply->url());
 
@@ -304,7 +310,14 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     auth->setPassword(pass->text());
 
     if (save->isChecked()) {
-        fill->addEntry(reply->url(), user->text(), pass->text());
+        if (shouldUpdateEntry) {
+            if (storedUser != user->text() || storedPassword != pass->text()) {
+                fill->updateEntry(reply->url(), user->text(), pass->text());
+            }
+        }
+        else {
+            fill->addEntry(reply->url(), user->text(), pass->text());
+        }
     }
 }
 

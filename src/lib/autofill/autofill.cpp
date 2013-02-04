@@ -146,17 +146,17 @@ QString AutoFill::getPassword(const QUrl &url)
 void AutoFill::addEntry(const QUrl &url, const QString &name, const QString &pass)
 {
     QSqlQuery query;
+    QString server = url.host();
+    if (server.isEmpty()) {
+        server = url.toString();
+    }
+
     query.prepare("SELECT username FROM autofill WHERE server=?");
-    query.addBindValue(url.host());
+    query.addBindValue(server);
     query.exec();
 
     if (query.next()) {
         return;
-    }
-
-    QString server = url.host();
-    if (server.isEmpty()) {
-        server = url.toString();
     }
 
     query.prepare("INSERT INTO autofill (server, username, password) VALUES (?,?,?)");
@@ -170,17 +170,17 @@ void AutoFill::addEntry(const QUrl &url, const QString &name, const QString &pas
 void AutoFill::addEntry(const QUrl &url, const PageFormData &formData)
 {
     QSqlQuery query;
+    QString server = url.host();
+    if (server.isEmpty()) {
+        server = url.toString();
+    }
+
     query.prepare("SELECT data FROM autofill WHERE server=?");
-    query.addBindValue(url.host());
+    query.addBindValue(server);
     query.exec();
 
     if (query.next()) {
         return;
-    }
-
-    QString server = url.host();
-    if (server.isEmpty()) {
-        server = url.toString();
     }
 
     query.prepare("INSERT INTO autofill (server, data, username, password) VALUES (?,?,?,?)");
@@ -191,20 +191,43 @@ void AutoFill::addEntry(const QUrl &url, const PageFormData &formData)
     mApp->dbWriter()->executeQuery(query);
 }
 
-void AutoFill::updateEntry(const QUrl &url, const PageFormData &formData)
+void AutoFill::updateEntry(const QUrl &url, const QString &name, const QString &pass)
 {
     QSqlQuery query;
-    query.prepare("SELECT data FROM autofill WHERE server=?");
-    query.addBindValue(url.host());
+    QString server = url.host();
+    if (server.isEmpty()) {
+        server = url.toString();
+    }
+
+    query.prepare("SELECT username FROM autofill WHERE server=?");
+    query.addBindValue(server);
     query.exec();
 
     if (!query.next()) {
         return;
     }
 
+    query.prepare("UPDATE autofill SET username=?, password=? WHERE server=?");
+    query.bindValue(0, name);
+    query.bindValue(1, pass);
+    query.bindValue(2, server);
+    mApp->dbWriter()->executeQuery(query);
+}
+
+void AutoFill::updateEntry(const QUrl &url, const PageFormData &formData)
+{
+    QSqlQuery query;
     QString server = url.host();
     if (server.isEmpty()) {
         server = url.toString();
+    }
+
+    query.prepare("SELECT data FROM autofill WHERE server=?");
+    query.addBindValue(server);
+    query.exec();
+
+    if (!query.next()) {
+        return;
     }
 
     query.prepare("UPDATE autofill SET data=?, username=?, password=? WHERE server=?");

@@ -48,6 +48,7 @@ public:
     void addEntry(const QUrl &url, const QString &name, const QString &pass);
     void addEntry(const QUrl &url, const PageFormData &formData);
 
+    void updateEntry(const QUrl &url, const QString &name, const QString &pass);
     void updateEntry(const QUrl &url, const PageFormData &formData);
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
