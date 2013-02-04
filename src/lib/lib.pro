@@ -9,13 +9,18 @@ TEMPLATE = lib
 
 DEFINES *= QUPZILLA_SHAREDLIBRARY
 
-isEqual(QT_MAJOR_VERSION, 5) {
-    include(3rdparty/qftp.pri)
-}
 include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
 include(../../translations/translations.pri)
 #include(../../tests/modeltest/modeltest.pri)
+
+isEqual(QT_MAJOR_VERSION, 5) {
+    include(3rdparty/qftp.pri)
+}
+
+contains(DEFINES, USE_QTWEBKIT_2_2) {
+    include(plugins/qtwebkit/qtwebkit-plugins.pri)
+}
 
 unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
 
@@ -196,7 +201,6 @@ SOURCES += \
     network/schemehandlers/adblockschemehandler.cpp \
     network/schemehandlers/fileschemehandler.cpp \
 	network/schemehandlers/viewsourceschemehandler.cpp \
-    other/registerqappassociation.cpp \
     tools/listitemdelegate.cpp \
     bookmarks/bookmarkstree.cpp \
     tools/html5permissions/html5permissionsmanager.cpp \
@@ -361,7 +365,6 @@ HEADERS  += \
     network/schemehandlers/adblockschemehandler.h \
     network/schemehandlers/fileschemehandler.h \
 	network/schemehandlers/viewsourceschemehandler.h \
-    other/registerqappassociation.h \
     tools/listitemdelegate.h \
     bookmarks/bookmarkstree.h \
     tools/html5permissions/html5permissionsmanager.h \
@@ -430,6 +433,11 @@ RESOURCES += \
     INSTALLS += target
 
     LIBS += -lX11
+}
+
+win {
+    HEADERS += other/registerqappassociation.h
+    SOURCES += other/registerqappassociation.cpp
 }
 
 message(===========================================)

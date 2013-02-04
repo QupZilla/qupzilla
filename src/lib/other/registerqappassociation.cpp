@@ -19,7 +19,6 @@
 
 #include "registerqappassociation.h"
 
-#ifdef Q_OS_WIN
 #include "ShlObj.h"
 #include <QMessageBox>
 #include <QStringList>
@@ -347,4 +346,3 @@ bool RegisterQAppAssociation::isDefaultForAllCapabilities()
     }
     return result;
 }
-#endif

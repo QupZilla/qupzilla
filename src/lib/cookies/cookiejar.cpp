@@ -146,9 +146,8 @@ void CookieJar::saveCookies()
 
         for (int i = 0; i < count; i++) {
             const QNetworkCookie &cookie = cookies.at(i);
-            int result = listMatchesDomain(m_whitelist, cookie.domain());
 
-            if (result == 1) {
+            if (listMatchesDomain(m_whitelist, cookie.domain())) {
                 allCookies.append(cookie);
             }
         }
