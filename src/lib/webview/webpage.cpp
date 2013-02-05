@@ -527,7 +527,7 @@ void WebPage::populateNetworkRequest(QNetworkRequest &request)
 {
     WebPage* pagePointer = this;
 
-    QVariant variant = qVariantFromValue((void*) pagePointer);
+    QVariant variant = QVariant::fromValue((void*) pagePointer);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);
 
     if (m_lastRequestUrl == request.url()) {

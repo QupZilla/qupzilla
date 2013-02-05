@@ -119,7 +119,7 @@ void GM_Settings::loadScripts()
 
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
         item->setCheckState(script->isEnabled() ? Qt::Checked : Qt::Unchecked);
-        item->setData(Qt::UserRole + 10, qVariantFromValue((void*)script));
+        item->setData(Qt::UserRole + 10, QVariant::fromValue((void*)script));
 
         ui->listWidget->addItem(item);
     }

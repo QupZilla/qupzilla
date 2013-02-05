@@ -198,7 +198,7 @@ void CookieManager::slotRefreshTable()
 
         item->setText(0, "." + cookieDomain);
         item->setText(1, cookie.name());
-        item->setData(0, Qt::UserRole + 10, qVariantFromValue(cookie));
+        item->setData(0, Qt::UserRole + 10, QVariant::fromValue(cookie));
         ui->cookieTree->addTopLevelItem(item);
 
         ++counter;

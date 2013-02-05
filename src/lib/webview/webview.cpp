@@ -1001,7 +1001,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     SearchEnginesManager* searchManager = mApp->searchEnginesManager();
     foreach(const SearchEngine & en, searchManager->allEngines()) {
         Action* act = new Action(en.icon, en.name);
-        act->setData(qVariantFromValue(en));
+        act->setData(QVariant::fromValue(en));
 
         connect(act, SIGNAL(triggered()), this, SLOT(searchSelectedText()));
         connect(act, SIGNAL(middleClicked()), this, SLOT(searchSelectedTextInBackgroundTab()));

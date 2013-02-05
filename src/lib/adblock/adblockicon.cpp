@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -140,7 +140,7 @@ void AdBlockIcon::createMenu(QMenu* menu)
             QString actionText = tr("%1 with (%2)").arg(address, pair.first.filter()).replace(QLatin1Char('&'), QLatin1String("&&"));
 
             QAction* action = menu->addAction(actionText, manager, SLOT(showRule()));
-            action->setData(qVariantFromValue((void*)&pair.first));
+            action->setData(QVariant::fromValue((void*)&pair.first));
         }
     }
 
@@ -156,7 +156,7 @@ void AdBlockIcon::createMenu(QMenu* menu)
             QString actionText = tr("%1 with (%2)").arg(address, entry.rule->filter()).replace(QLatin1Char('&'), QLatin1String("&&"));
 
             QAction* action = menu->addAction(actionText, manager, SLOT(showRule()));
-            action->setData(qVariantFromValue((void*)entry.rule));
+            action->setData(QVariant::fromValue((void*)entry.rule));
         }
     }
 }
