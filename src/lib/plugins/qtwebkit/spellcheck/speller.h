@@ -19,6 +19,7 @@
 #define SPELLER_H
 
 #include <QStringList>
+#include <QFile>
 
 class QTextCodec;
 class Hunspell;
@@ -26,32 +27,39 @@ class Hunspell;
 class Speller
 {
 public:
+    struct Language {
+        QString code;
+        QString name;
+    };
+
     explicit Speller();
     ~Speller();
 
-    bool initialize();
+    bool isEnabled() const;
+    void loadSettings();
 
-    QString backend() const;
-    QString language() const;
+    Language language() const;
+    QList<Language> availableLanguages() const;
 
     void learnWord(const QString &word);
-    void ignoreWordInSpellDocument(const QString &word);
 
     bool isMisspelled(const QString &string);
     QStringList suggest(const QString &word);
 
 private:
-    bool dictionaryExists(const QString &path);
-    QString parseLanguage(const QString &path);
-    QString getDictionaryPath();
+    void initialize();
 
-    static Hunspell* s_hunspell;
-    static QTextCodec* s_codec;
-    static QString s_dictionaryPath;
-    static QString s_langugage;
-    static bool s_initialized;
+    bool dictionaryExists(const QString &path) const;
+    QString getDictionaryPath() const;
+    QString nameForLanguage(const QString &code) const;
 
-    QStringList m_ignoredWords;
+    QString m_dictionaryPath;
+    QTextCodec* m_textCodec;
+    Hunspell* m_hunspell;
+
+    QFile m_userDictionary;
+    Language m_language;
+    bool m_enabled;
 };
 
 #endif // SPELLER_H

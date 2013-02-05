@@ -51,6 +51,7 @@ class UserAgentManager;
 class ProxyStyle;
 class RegisterQAppAssociation;
 class HTML5PermissionsManager;
+class Speller;
 
 class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -77,11 +78,12 @@ public:
 
     inline static MainApplication* getInstance() { return static_cast<MainApplication*>(QCoreApplication::instance()); }
     inline QString currentProfilePath() { return m_activeProfil; }
-    inline QString currentLanguage() { return m_activeLanguage; }
     inline bool isPrivateSession() { return m_isPrivateSession; }
     inline bool isClosing() { return m_isClosing; }
     inline bool isStartingAfterCrash() { return m_startingAfterCrash; }
     inline int windowCount() { return m_mainWindows.count(); }
+
+    QString currentLanguage();
 
     bool checkSettingsDir();
     void destroyRestoreManager();
@@ -107,6 +109,7 @@ public:
     QNetworkDiskCache* networkCache();
     DesktopNotificationsFactory* desktopNotifications();
     HTML5PermissionsManager* html5permissions();
+    Speller* speller();
 
     DatabaseWriter* dbWriter() { return m_dbWriter; }
     UserAgentManager* uaManager() { return m_uaManager; }
@@ -167,6 +170,7 @@ private:
     RestoreManager* m_restoreManager;
     ProxyStyle* m_proxyStyle;
     HTML5PermissionsManager* m_html5permissions;
+    Speller* m_speller;
     DatabaseWriter* m_dbWriter;
     UserAgentManager* m_uaManager;
 

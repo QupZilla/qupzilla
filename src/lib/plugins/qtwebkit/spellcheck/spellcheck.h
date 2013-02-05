@@ -28,8 +28,7 @@ class SpellCheck : public QWebSpellChecker
     Q_OBJECT
 
 public:
-    SpellCheck();
-    ~SpellCheck();
+    explicit SpellCheck();
 
     bool isContinousSpellCheckingEnabled() const;
     void toggleContinousSpellChecking();

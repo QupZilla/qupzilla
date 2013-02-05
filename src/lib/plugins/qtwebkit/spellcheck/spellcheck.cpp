@@ -20,17 +20,12 @@
 
 #include "spellcheck.h"
 #include "speller.h"
+#include "mainapplication.h"
 
 SpellCheck::SpellCheck()
     : QWebSpellChecker()
-    , m_speller(0)
+    , m_speller(mApp->speller())
 {
-    m_speller = new Speller();
-
-    if (!m_speller->initialize()) {
-        delete m_speller;
-        m_speller = 0;
-    }
 }
 
 bool SpellCheck::isContinousSpellCheckingEnabled() const
@@ -175,9 +170,4 @@ bool SpellCheck::startOfWord(const QTextBoundaryFinder::BoundaryReasons &reasons
     return (reasons & QTextBoundaryFinder::StartOfItem) &&
            (type & QTextBoundaryFinder::Word);
 #endif
-}
-
-SpellCheck::~SpellCheck()
-{
-    delete m_speller;
 }

@@ -53,6 +53,7 @@
 #include "checkboxdialog.h"
 #include "registerqappassociation.h"
 #include "html5permissions/html5permissionsmanager.h"
+#include "qtwebkit/spellcheck/speller.h"
 
 #ifdef Q_OS_MAC
 #include <QFileOpenEvent>
@@ -92,6 +93,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_restoreManager(0)
     , m_proxyStyle(0)
     , m_html5permissions(0)
+    , m_speller(0)
     , m_dbWriter(new DatabaseWriter(this))
     , m_uaManager(new UserAgentManager)
     , m_isPrivateSession(false)
@@ -496,6 +498,11 @@ QList<QupZilla*> MainApplication::mainWindows()
     return list;
 }
 
+QString MainApplication::currentLanguage()
+{
+    return  m_activeLanguage;
+}
+
 void MainApplication::sendMessages(Qz::AppMessageType mes, bool state)
 {
     emit message(mes, state);
@@ -814,6 +821,14 @@ HTML5PermissionsManager* MainApplication::html5permissions()
     return m_html5permissions;
 }
 
+Speller* MainApplication::speller()
+{
+    if (!m_speller) {
+        m_speller = new Speller();
+    }
+    return m_speller;
+}
+
 void MainApplication::startPrivateBrowsing()
 {
     QStringList args;
@@ -1089,4 +1104,5 @@ QString MainApplication::tempPath() const
 MainApplication::~MainApplication()
 {
     delete m_uaManager;
+    delete m_speller;
 }
