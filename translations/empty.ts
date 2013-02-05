@@ -4198,6 +4198,18 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>Enter line number</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Load in page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source loaded in page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot load in page. Page has been closed.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SourceViewerSearch</name>

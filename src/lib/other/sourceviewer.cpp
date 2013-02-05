@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -68,6 +68,7 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     QzTools::centerWidgetToParent(this, frame->page()->view());
 
     QMenu* menuFile = new QMenu(tr("File"));
+    menuFile->addAction(tr("Load in page"), this, SLOT(loadInPage()));
     menuFile->addAction(QIcon::fromTheme("document-save"), tr("Save as..."), this, SLOT(save()))->setShortcut(QKeySequence("Ctrl+S"));
     menuFile->addSeparator();
     menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close"), this, SLOT(close()))->setShortcut(QKeySequence("Ctrl+W"));
@@ -130,6 +131,17 @@ void SourceViewer::pasteAvailable()
     m_actionPaste->setEnabled(m_sourceEdit->canPaste());
 }
 
+void SourceViewer::loadInPage()
+{
+    if (m_frame) {
+        m_frame.data()->setHtml(m_sourceEdit->toPlainText(), m_frame.data()->baseUrl());
+        m_statusBar->showMessage(tr("Source loaded in page"));
+    }
+    else {
+        m_statusBar->showMessage(tr("Cannot load in page. Page has been closed."));
+    }
+}
+
 void SourceViewer::loadSource()
 {
     m_actionUndo->setEnabled(false);
@@ -143,7 +155,7 @@ void SourceViewer::loadSource()
     html.remove(QRegExp("<style type=\"text/css\">\n/\\* AdBlock for QupZilla \\*/\n.*\\{display: none !important;\\}\n</style>"));
     m_sourceEdit->setPlainText(html);
 
-    //Highlight selectedHtml
+    // Highlight selectedHtml
     if (!m_selectedHtml.isEmpty()) {
         m_sourceEdit->find(m_selectedHtml, QTextDocument::FindWholeWords);
     }
@@ -187,7 +199,7 @@ void SourceViewer::reload()
 {
     if (m_frame) {
         m_sourceEdit->clear();
-        m_sourceEdit->setPlainText(m_frame.data()->toHtml());
+        loadSource();
 
         m_statusBar->showMessage(tr("Source reloaded"));
     }
