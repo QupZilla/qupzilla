@@ -34,6 +34,10 @@
 #include "qzsettings.h"
 #include "enhancedmenu.h"
 
+#ifdef USE_HUNSPELL
+#include "qtwebkit/spellcheck/speller.h"
+#endif
+
 #include <QDir>
 #include <QTimer>
 #include <QDesktopServices>
@@ -753,6 +757,16 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         m_actionStop->setEnabled(isLoading());
     }
 
+    int spellCheckActionCount = 0;
+
+#ifdef USE_HUNSPELL
+    // Show spellcheck menu as the first
+    if (hitTest.isContentEditable() && !hitTest.isContentSelected()) {
+        mApp->speller()->populateContextMenu(menu, hitTest);
+        spellCheckActionCount = menu->actions().count();
+    }
+#endif
+
     if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != QLatin1String("javascript")) {
         createLinkContextMenu(menu, hitTest);
     }
@@ -766,7 +780,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
     }
 
     if (hitTest.isContentEditable()) {
-        if (menu->isEmpty()) {
+        if (menu->actions().count() == spellCheckActionCount) {
             QMenu* pageMenu = page()->createStandardContextMenu();
 
             int i = 0;
@@ -939,7 +953,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText);
     menu->addSeparator();
 
-    QString langCode = mApp->currentLanguage().left(2);
+    QString langCode = mApp->currentLanguageFile().left(2);
     QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
     Action* gtwact = new Action(QIcon(":icons/sites/translate.png"), tr("Google Translate"));
     gtwact->setData(googleTranslateUrl);

@@ -53,7 +53,10 @@
 #include "checkboxdialog.h"
 #include "registerqappassociation.h"
 #include "html5permissions/html5permissionsmanager.h"
+
+#ifdef USE_HUNSPELL
 #include "qtwebkit/spellcheck/speller.h"
+#endif
 
 #ifdef Q_OS_MAC
 #include <QFileOpenEvent>
@@ -93,7 +96,9 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_restoreManager(0)
     , m_proxyStyle(0)
     , m_html5permissions(0)
+#ifdef USE_HUNSPELL
     , m_speller(0)
+#endif
     , m_dbWriter(new DatabaseWriter(this))
     , m_uaManager(new UserAgentManager)
     , m_isPrivateSession(false)
@@ -498,9 +503,45 @@ QList<QupZilla*> MainApplication::mainWindows()
     return list;
 }
 
-QString MainApplication::currentLanguage()
+bool MainApplication::isClosing() const
 {
-    return  m_activeLanguage;
+    return m_isClosing;
+}
+
+bool MainApplication::isPrivateSession() const
+{
+    return m_isPrivateSession;
+}
+
+bool MainApplication::isStartingAfterCrash() const
+{
+    return m_startingAfterCrash;
+}
+
+int MainApplication::windowCount() const
+{
+    return m_mainWindows.count();
+}
+
+QString MainApplication::currentLanguageFile() const
+{
+    return m_activeLanguage;
+}
+
+QString MainApplication::currentLanguage() const
+{
+    QString lang = m_activeLanguage;
+
+    if (lang.isEmpty()) {
+        return "en_US";
+    }
+
+    return lang.left(lang.length() - 3);
+}
+
+QString MainApplication::currentProfilePath() const
+{
+    return m_activeProfil;
 }
 
 void MainApplication::sendMessages(Qz::AppMessageType mes, bool state)
@@ -626,7 +667,11 @@ void MainApplication::connectDatabase()
 void MainApplication::translateApp()
 {
     Settings settings;
-    const QString &file = settings.value("Language/language", QLocale::system().name()).toString();
+    QString file = settings.value("Language/language", QLocale::system().name()).toString();
+
+    if (!file.isEmpty() && !file.endsWith(QLatin1String(".qm"))) {
+        file.append(".qm");
+    }
 
     QTranslator* app = new QTranslator(this);
     app->load(file, TRANSLATIONSDIR);
@@ -821,13 +866,15 @@ HTML5PermissionsManager* MainApplication::html5permissions()
     return m_html5permissions;
 }
 
+#ifdef USE_HUNSPELL
 Speller* MainApplication::speller()
 {
     if (!m_speller) {
-        m_speller = new Speller();
+        m_speller = new Speller(this);
     }
     return m_speller;
 }
+#endif
 
 void MainApplication::startPrivateBrowsing()
 {
@@ -1104,5 +1151,4 @@ QString MainApplication::tempPath() const
 MainApplication::~MainApplication()
 {
     delete m_uaManager;
-    delete m_speller;
 }

@@ -218,7 +218,7 @@ PluginInterface* Plugins::initPlugin(PluginInterface* interface, QPluginLoader* 
         return 0;
     }
 
-    qApp->installTranslator(interface->getTranslator(mApp->currentLanguage()));
+    qApp->installTranslator(interface->getTranslator(mApp->currentLanguageFile()));
 
     return interface;
 }

@@ -18,21 +18,34 @@
 #ifndef SPELLER_H
 #define SPELLER_H
 
+#include <QWebElement>
 #include <QStringList>
 #include <QFile>
 
 class QTextCodec;
 class Hunspell;
 
-class Speller
+class QMenu;
+class QWebHitTestResult;
+
+class Speller : public QObject
 {
+    Q_OBJECT
+
 public:
     struct Language {
         QString code;
         QString name;
+
+        bool operator==(const Language &other) {
+            return this->name == other.name &&
+                   this->name.left(2) == other.name.left(2);
+            // Compare only first two chars of name.
+            // So "cs_CZ - CzechRepublic" == "cs - CzechRepublic"
+        }
     };
 
-    explicit Speller();
+    explicit Speller(QObject* parent);
     ~Speller();
 
     bool isEnabled() const;
@@ -41,13 +54,22 @@ public:
     Language language() const;
     QList<Language> availableLanguages() const;
 
-    void learnWord(const QString &word);
+    QString dictionaryPath() const;
+    void showSettings(QWidget* parent);
+    void populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
 
     bool isMisspelled(const QString &string);
     QStringList suggest(const QString &word);
 
+    static bool isValidWord(const QString &str);
+
+private slots:
+    void addToDictionary();
+    void replaceWord();
+
 private:
     void initialize();
+    void putWord(const QString &word);
 
     bool dictionaryExists(const QString &path) const;
     QString getDictionaryPath() const;
@@ -60,6 +82,11 @@ private:
     QFile m_userDictionary;
     Language m_language;
     bool m_enabled;
+
+    // Replacing word
+    QWebElement m_element;
+    int m_startPos;
+    int m_endPos;
 };
 
 #endif // SPELLER_H

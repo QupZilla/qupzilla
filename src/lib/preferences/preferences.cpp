@@ -372,8 +372,8 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //OTHER
     //Languages
     QString activeLanguage;
-    if (!mApp->currentLanguage().isEmpty()) {
-        activeLanguage = mApp->currentLanguage();
+    if (!mApp->currentLanguageFile().isEmpty()) {
+        activeLanguage = mApp->currentLanguageFile();
         QLocale locale(activeLanguage);
         QString country = QLocale::countryToString(locale.country());
         QString language = QLocale::languageToString(locale.language());
