@@ -4242,6 +4242,68 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
 </context>
 <context>
+    <name>SpellCheckDialog</name>
+    <message>
+        <source>SpellCheck</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Dictionary path&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;User dictionary&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Using Hunspell library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose dictionary path...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new word...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new word:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Speller</name>
+    <message>
+        <source>No suggestions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SqueezeLabelV2</name>
     <message>
         <source>Copy</source>
@@ -4815,6 +4877,14 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Create Search Engine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check &amp;Spelling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Languages</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

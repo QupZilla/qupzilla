@@ -30,7 +30,7 @@ SpellCheck::SpellCheck()
 
 bool SpellCheck::isContinousSpellCheckingEnabled() const
 {
-    return m_speller->isEnabled();
+    return mApp->speller()->isEnabled();
 }
 
 void SpellCheck::toggleContinousSpellChecking()

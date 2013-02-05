@@ -52,10 +52,9 @@ public:
     void loadSettings();
 
     Language language() const;
-    QList<Language> availableLanguages() const;
+    QList<Language> availableLanguages();
 
     QString dictionaryPath() const;
-    void showSettings(QWidget* parent);
     void populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
 
     bool isMisspelled(const QString &string);
@@ -63,9 +62,16 @@ public:
 
     static bool isValidWord(const QString &str);
 
+public slots:
+    void populateLanguagesMenu();
+    void toggleEnableSpellChecking();
+
 private slots:
     void addToDictionary();
     void replaceWord();
+
+    void showSettings();
+    void changeLanguage();
 
 private:
     void initialize();
@@ -81,6 +87,7 @@ private:
 
     QFile m_userDictionary;
     Language m_language;
+    QList<Language> m_availableLanguages;
     bool m_enabled;
 
     // Replacing word
@@ -88,5 +95,7 @@ private:
     int m_startPos;
     int m_endPos;
 };
+
+Q_DECLARE_METATYPE(Speller::Language)
 
 #endif // SPELLER_H

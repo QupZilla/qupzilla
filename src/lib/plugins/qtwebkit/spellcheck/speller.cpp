@@ -61,7 +61,10 @@ void Speller::loadSettings()
     settings.endGroup();
 
     m_userDictionary.setFileName(mApp->currentProfilePath() + "userdictionary.txt");
-    initialize();
+
+    if (m_enabled) {
+        initialize();
+    }
 }
 
 void Speller::initialize()
@@ -112,9 +115,11 @@ Speller::Language Speller::language() const
     return m_language;
 }
 
-QList<Speller::Language> Speller::availableLanguages() const
+QList<Speller::Language> Speller::availableLanguages()
 {
-    QList<Language> languages;
+    if (!m_availableLanguages.isEmpty()) {
+        return m_availableLanguages;
+    }
 
     QDirIterator it(m_dictionaryPath, QStringList("*.dic"), QDir::Files);
 
@@ -129,12 +134,12 @@ QList<Speller::Language> Speller::availableLanguages() const
         lang.code = it.fileInfo().baseName();
         lang.name = nameForLanguage(lang.code);
 
-        if (!languages.contains(lang)) {
-            languages.append(lang);
+        if (!m_availableLanguages.contains(lang)) {
+            m_availableLanguages.append(lang);
         }
     }
 
-    return languages;
+    return m_availableLanguages;
 }
 
 QString Speller::dictionaryPath() const
@@ -142,20 +147,12 @@ QString Speller::dictionaryPath() const
     return m_dictionaryPath;
 }
 
-void Speller::showSettings(QWidget* parent)
-{
-    SpellCheckDialog dialog(parent);
-
-    if (dialog.exec() == QDialog::Accepted) {
-        loadSettings();
-    }
-}
-
 void Speller::populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
 {
     m_element = hitTest.element();
 
-    if (m_element.isNull()) {
+    if (!m_enabled || m_element.isNull() ||
+            m_element.attribute(QLatin1String("type")) == QLatin1String("password")) {
         return;
     }
 
@@ -205,8 +202,8 @@ void Speller::addToDictionary()
             return;
         }
 
-        m_userDictionary.write(word.toUtf8());
-        m_userDictionary.write("\n");
+        QTextStream stream(&m_userDictionary);
+        stream << word << endl;
         m_userDictionary.close();
     }
 }
@@ -232,6 +229,33 @@ void Speller::replaceWord()
         m_element.evaluateJavaScript(QString("this.value='%1'").arg(text));
         m_element.evaluateJavaScript(QString("this.selectionStart=this.selectionEnd=%1").arg(cursorPos));
     }
+}
+
+void Speller::showSettings()
+{
+    SpellCheckDialog dialog;
+
+    if (dialog.exec() == QDialog::Accepted) {
+        loadSettings();
+    }
+}
+
+void Speller::changeLanguage()
+{
+    QAction* act = qobject_cast<QAction*>(sender());
+
+    if (!act) {
+        return;
+    }
+
+    Language lang = act->data().value<Language>();
+
+    Settings settings;
+    settings.beginGroup("SpellCheck");
+    settings.setValue("language", lang.code);
+    settings.endGroup();
+
+    loadSettings();
 }
 
 void Speller::putWord(const QString &word)
@@ -288,6 +312,43 @@ bool Speller::isValidWord(const QString &str)
     }
 
     return false;
+}
+
+void Speller::populateLanguagesMenu()
+{
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+
+    if (!menu || !menu->isEmpty()) {
+        return;
+    }
+
+    const QList<Language> langs = availableLanguages();
+    foreach(const Language & lang, langs) {
+        QAction* act = menu->addAction(lang.name, this, SLOT(changeLanguage()));
+        act->setCheckable(true);
+        act->setChecked(m_language == lang);
+        act->setData(QVariant::fromValue(lang));
+    }
+
+    if (menu->isEmpty()) {
+        QAction* act = menu->addAction(tr("Empty"));
+        act->setEnabled(false);
+    }
+
+    menu->addSeparator();
+    menu->addAction(tr("Settings"), this, SLOT(showSettings()));
+}
+
+void Speller::toggleEnableSpellChecking()
+{
+    m_enabled = !m_enabled;
+
+    Settings settings;
+    settings.beginGroup("SpellCheck");
+    settings.setValue("enabled", m_enabled);
+    settings.endGroup();
+
+    loadSettings();
 }
 
 bool Speller::dictionaryExists(const QString &path) const

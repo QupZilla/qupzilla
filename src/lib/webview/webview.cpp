@@ -814,6 +814,8 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         if (hitTest.element().tagName().toLower() == QLatin1String("input")) {
             checkForForm(menu, hitTest.element());
         }
+
+        createSpellCheckContextMenu(menu);
     }
 
     if (!selectedText().isEmpty()) {
@@ -1028,6 +1030,22 @@ void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy Media Address"), this, SLOT(copyLinkToClipboard()))->setData(videoUrl);
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendLinkByMail()))->setData(videoUrl);
     menu->addAction(QIcon::fromTheme("document-save"), tr("Save Media To &Disk"), this, SLOT(downloadUrlToDisk()))->setData(videoUrl);
+}
+
+void WebView::createSpellCheckContextMenu(QMenu* menu)
+{
+    menu->addSeparator();
+
+    QAction* act = menu->addAction(tr("Check &Spelling"), mApp->speller(), SLOT(toggleEnableSpellChecking()));
+    act->setCheckable(true);
+    act->setChecked(mApp->speller()->isEnabled());
+
+    if (mApp->speller()->isEnabled()) {
+        QMenu* men = menu->addMenu(tr("Languages"));
+        connect(men, SIGNAL(aboutToShow()), mApp->speller(), SLOT(populateLanguagesMenu()));
+    }
+
+    menu->addSeparator();
 }
 
 void WebView::pauseMedia()
