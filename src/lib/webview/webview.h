@@ -121,6 +121,7 @@ protected slots:
     void showClickedFrameSource();
 
 protected:
+    bool event(QEvent* event);
     void wheelEvent(QWheelEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>214</width>
-    <height>261</height>
+    <width>240</width>
+    <height>286</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -75,6 +75,13 @@
       <widget class="QCheckBox" name="jscanHideTool">
        <property name="text">
         <string>Hide tool bar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="jscanDisableContextMenu">
+       <property name="text">
+        <string>Disable or change context menu</string>
        </property>
       </widget>
      </item>
