@@ -221,10 +221,8 @@ void Speller::replaceWord()
 
         text.replace(m_startPos, m_endPos - m_startPos, word);
         text.replace(QLatin1Char('\\'), QLatin1String("\\\\"));
+        text.replace(QLatin1Char('\n'), QLatin1String("\\n"));
         text.replace(QLatin1Char('\''), QLatin1String("\\'"));
-
-        word.replace(QLatin1Char('\\'), QLatin1String("\\\\"));
-        word.replace(QLatin1Char('\''), QLatin1String("\\'"));
 
         m_element.evaluateJavaScript(QString("this.value='%1'").arg(text));
         m_element.evaluateJavaScript(QString("this.selectionStart=this.selectionEnd=%1").arg(cursorPos));

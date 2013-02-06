@@ -4248,10 +4248,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Dictionary path&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Change...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4281,6 +4277,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Add new word:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Dictionary path&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
