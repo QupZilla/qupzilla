@@ -255,8 +255,14 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 
 QPixmap WebTab::renderTabPreview()
 {
+    TabbedWebView* currentWebView = p_QupZilla->weView();
     WebPage* page = m_view->page();
-    QSize oldSize = page->viewportSize();
+    const QSize oldSize = currentWebView ? currentWebView->page()->viewportSize() : page->viewportSize();
+    const QPoint originalScrollPosition = page->mainFrame()->scrollPosition();
+
+    // Hack to ensure rendering the same preview before and after the page was shown for the first tie
+    // This can occur eg. with opening background tabs
+    page->setViewportSize(oldSize);
 
     const int previewWidth = 230;
     const int previewHeight = 150;
@@ -276,6 +282,9 @@ QPixmap WebTab::renderTabPreview()
     p.end();
 
     page->setViewportSize(oldSize);
+    // Restore also scrollbar positions, to prevent messing scrolling to anchor links
+    page->mainFrame()->setScrollBarValue(Qt::Vertical, originalScrollPosition.y());
+    page->mainFrame()->setScrollBarValue(Qt::Horizontal, originalScrollPosition.x());
 
     return pageImage.scaled(previewWidth, previewHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 }

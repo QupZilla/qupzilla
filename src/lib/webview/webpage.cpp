@@ -620,6 +620,10 @@ void WebPage::cleanBlockedObjects()
 
     QWebElement bodyElement = docElement.findFirst("body");
     bodyElement.appendInside("<style type=\"text/css\">\n/* AdBlock for QupZilla */\n" + elementHiding);
+
+    if (!view()->isVisible() && !url().fragment().isEmpty()) {
+        mainFrame()->scrollToAnchor(url().fragment());
+    }
 }
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
