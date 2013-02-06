@@ -53,8 +53,8 @@ ViewSourceSchemeReply::ViewSourceSchemeReply(const QNetworkRequest &req, QObject
 	setRequest(req);
 	setUrl(req.url());
 
-	//QUrl sourceUrl = QUrl(req.url().toString().mid(12).toUtf8());
-	QUrl sourceUrl = QUrl(req.url().path());
+	QUrl sourceUrl = QUrl(req.url().toString().mid(12).toUtf8());
+	//QUrl sourceUrl = QUrl(req.url().path()); // not have GET parameters
 	m_reply = mApp->networkManager()->get(QNetworkRequest(sourceUrl));
 	connect(m_reply, SIGNAL(finished()), this, SLOT(loadPage()));
 
