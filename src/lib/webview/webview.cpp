@@ -682,8 +682,13 @@ void WebView::showClickedFrameSource()
 bool WebView::event(QEvent* event)
 {
     if (event->type() == QEvent::ContextMenu && !qzSettings->allowJsDisableContextMenu) {
-        contextMenuEvent(static_cast<QContextMenuEvent*>(event));
-        return true;
+        QContextMenuEvent* ev = static_cast<QContextMenuEvent*>(event);
+        const QWebHitTestResult &hitTest = page()->mainFrame()->hitTestContent(ev->pos());
+
+        if (!hitTest.isContentEditable()) {
+            contextMenuEvent(ev);
+            return true;
+        }
     }
 
     return QWebView::event(event);
