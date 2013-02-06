@@ -1034,6 +1034,8 @@ void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
 
 void WebView::createSpellCheckContextMenu(QMenu* menu)
 {
+    Q_UNUSED(menu)
+#ifdef USE_HUNSPELL
     menu->addSeparator();
 
     QAction* act = menu->addAction(tr("Check &Spelling"), mApp->speller(), SLOT(toggleEnableSpellChecking()));
@@ -1046,6 +1048,7 @@ void WebView::createSpellCheckContextMenu(QMenu* menu)
     }
 
     menu->addSeparator();
+#endif
 }
 
 void WebView::pauseMedia()

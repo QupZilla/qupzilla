@@ -8,7 +8,19 @@ SOURCES += $$PWD/qtwebkitplugin.cpp \
 
 DEFINES *= QT_STATICPLUGIN
 
+
 unix:contains(DEFINES, USE_QTWEBKIT_2_3):system(pkg-config --exists hunspell) {
+    buildSpellcheck = true
+    LIBS += $$system(pkg-config --libs hunspell)
+}
+
+win {
+    # QtWebKit 2.3 and Hunspell is now needed to build on Windows
+    buildSpellcheck = true
+    LIBS += $PWD/../../../../bin/libhunspell.dll
+}
+
+equals(buildSpellcheck, true) {
     HEADERS += $$PWD/spellcheck/spellcheck.h \
         $$PWD/spellcheck/speller.h \
         $$PWD/spellcheck/spellcheckdialog.h \
@@ -20,9 +32,4 @@ unix:contains(DEFINES, USE_QTWEBKIT_2_3):system(pkg-config --exists hunspell) {
     FORMS += $$PWD/spellcheck/spellcheckdialog.ui
 
     DEFINES *= USE_HUNSPELL
-    LIBS += $$system(pkg-config --libs hunspell)
-}
-
-win{
-# TODO
 }

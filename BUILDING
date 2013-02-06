@@ -21,15 +21,12 @@ General
 Microsoft Windows
 ----------------------------------------------------------------------------------
 
-  You need Microsoft Visual C++ Compiler 2008 or higher and Qt Libraries 4.7.0
-  or higher in order to build QupZilla.
-  Building with Microsoft Visual C++ Compiler 2010 is possible only with Qt 4.8.0
-  and higher. If you try to compile with Qt 4.7, you will get random crashes when
-  running QupZilla.
-  Building with MingW is perhaps possible too, but MingW QtWebKit crashes with
-  every Flash, so MingW is not officially supported.
-  If you don't meet this, please use precompiled version, which is also in smart
-  windows installer.
+  You need Microsoft Visual C++ Compiler 2010 or higher, Qt Libraries 4.8.0
+  or higher, QtWebKit 2.3 or higher and Hunspell library in order to build QupZilla.
+  It is possible, with small changes, to build also with older Microsoft compilers
+  or without Hunspell spellchecking.
+  However, it is not expected from Windows users to build their software, so only
+  one configuration is supported by default.
 
 Linux / Unix
 ----------------------------------------------------------------------------------
@@ -84,6 +81,7 @@ Available Defines
    USE_WEBGL              Enable WebGL. You need to build QupZilla with WebKit built
                           with WebGL support, otherwise you won't be able to compile
                           without errors.
+                          Only for QtWebKit lower than 2.3
                           (disabled by default)
 
                           example:

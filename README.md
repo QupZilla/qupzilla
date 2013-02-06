@@ -37,7 +37,17 @@ Compiling
 ----------------------------------------------------------------------------------------
 
 Before you start compiling, make sure that you have installed the Qt (>=4.7) development libraries
-and you have read the BUILDING information.
+and you have read the BUILDING information.  
+
+**Linux**  
+
+ * pkg-config is optional (to correctly detect versions of QtWebKit)
+ * pkg-config is required for Hunspell spellcheck
+ * Hunspell developer package for spellcheck
+ 
+**Windows**  
+ * QtWebKit 2.3 is required
+ * Hunspell library is required for spellcheck
 
 Then you can start compiling by running this commands:
 
