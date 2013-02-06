@@ -32,3 +32,4 @@ tests/modeltest
 *.embed.manifest
 bin/autotests
 .clang_complete
+.tx/
