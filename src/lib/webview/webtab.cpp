@@ -260,7 +260,7 @@ QPixmap WebTab::renderTabPreview()
     const QSize oldSize = currentWebView ? currentWebView->page()->viewportSize() : page->viewportSize();
     const QPoint originalScrollPosition = page->mainFrame()->scrollPosition();
 
-    // Hack to ensure rendering the same preview before and after the page was shown for the first tie
+    // Hack to ensure rendering the same preview before and after the page was shown for the first time
     // This can occur eg. with opening background tabs
     page->setViewportSize(oldSize);
 

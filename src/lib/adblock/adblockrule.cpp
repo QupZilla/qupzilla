@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -112,6 +112,8 @@ AdBlockRule::AdBlockRule(const QString &filter, AdBlockSubscription* subscriptio
     , m_subdocumentException(false)
     , m_xmlhttprequest(false)
     , m_xmlhttprequestException(false)
+    , m_image(false)
+    , m_imageException(false)
     , m_document(false)
     , m_elemhide(false)
     , m_caseSensitivity(Qt::CaseInsensitive)
@@ -241,6 +243,11 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
         if (m_xmlhttprequest && !matchXmlHttpRequest(request)) {
             return false;
         }
+
+        // Check image restriction
+        if (m_image && !matchImage(encodedUrl)) {
+            return false;
+        }
     }
 
     return matched;
@@ -348,6 +355,16 @@ bool AdBlockRule::matchXmlHttpRequest(const QNetworkRequest &request) const
     return m_xmlhttprequestException ? !match : match;
 }
 
+bool AdBlockRule::matchImage(const QString &encodedUrl) const
+{
+    bool match = encodedUrl.endsWith(QLatin1String(".png")) ||
+                 encodedUrl.endsWith(QLatin1String(".jpg")) ||
+                 encodedUrl.endsWith(QLatin1String(".gif")) ||
+                 encodedUrl.endsWith(QLatin1String(".jpeg"));
+
+    return m_imageException ? !match : match;
+}
+
 void AdBlockRule::parseFilter()
 {
     QString parsedLine = m_filter;
@@ -414,6 +431,11 @@ void AdBlockRule::parseFilter()
             else if (option.endsWith(QLatin1String("xmlhttprequest"))) {
                 m_xmlhttprequest = true;
                 m_xmlhttprequestException = option.startsWith(QLatin1Char('~'));
+                ++handledOptions;
+            }
+            else if (option.endsWith(QLatin1String("image"))) {
+                m_image = true;
+                m_imageException = option.startsWith(QLatin1Char('~'));
                 ++handledOptions;
             }
             else if (option == QLatin1String("document") && m_exception) {

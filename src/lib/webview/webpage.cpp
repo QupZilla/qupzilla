@@ -621,6 +621,8 @@ void WebPage::cleanBlockedObjects()
     QWebElement bodyElement = docElement.findFirst("body");
     bodyElement.appendInside("<style type=\"text/css\">\n/* AdBlock for QupZilla */\n" + elementHiding);
 
+    // When hiding some elements, scroll position of page will change
+    // If user loaded anchor link in background tab (and didn't show it yet), fix the scroll position
     if (!view()->isVisible() && !url().fragment().isEmpty()) {
         mainFrame()->scrollToAnchor(url().fragment());
     }
