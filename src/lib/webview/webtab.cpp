@@ -257,12 +257,14 @@ QPixmap WebTab::renderTabPreview()
 {
     TabbedWebView* currentWebView = p_QupZilla->weView();
     WebPage* page = m_view->page();
-    const QSize oldSize = currentWebView ? currentWebView->page()->viewportSize() : page->viewportSize();
+    const QSize oldSize = page->viewportSize();
     const QPoint originalScrollPosition = page->mainFrame()->scrollPosition();
 
     // Hack to ensure rendering the same preview before and after the page was shown for the first time
     // This can occur eg. with opening background tabs
-    page->setViewportSize(oldSize);
+    if (currentWebView) {
+        page->setViewportSize(currentWebView->size());
+    }
 
     const int previewWidth = 230;
     const int previewHeight = 150;

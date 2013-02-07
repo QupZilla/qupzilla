@@ -100,6 +100,16 @@ Available Defines
                           example:
                           $ export NONBLOCK_JS_DIALOGS="true"
 
+   ENABLE_OPACITY_EFFECT  Enable opacity effect on animated tab previews. Tab previews
+                          will then fade-in on show.
+                          However, this feature may result in wrong scrolling into
+                          anchor (#) links. Rendering of opacity effect may also be
+                          garbled due to Flash.
+                          (disabled by default)
+
+                          example:
+                          $ export ENABLE_OPACITY_EFFECT="true"
+
 
  Windows specific defines:
 
