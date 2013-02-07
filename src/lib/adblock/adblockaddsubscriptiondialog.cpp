@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -39,6 +39,7 @@ AdBlockAddSubscriptionDialog::AdBlockAddSubscriptionDialog(QWidget* parent)
                          << Subscription("Schacks Adblock Plus liste (Danish)", "http://adblock.schack.dk/block.txt")
                          << Subscription("Xfiles (Italian)", "http://mozilla.gfsolone.com/filtri.txt")
                          << Subscription("EasyPrivacy (English)", "http://easylist-downloads.adblockplus.org/easyprivacy.txt")
+                         << Subscription("RU Adlist (Russian)", "https://ruadlist.googlecode.com/hg/advblock.txt")
                          << Subscription("Antisocial (English)", "http://adversity.googlecode.com/hg/Antisocial.txt");
 
     foreach(const Subscription & subscription, m_knownSubscriptions) {
