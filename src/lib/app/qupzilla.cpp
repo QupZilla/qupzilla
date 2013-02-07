@@ -601,32 +601,6 @@ void QupZilla::setupMenu()
 #endif
 }
 
-void QupZilla::setEnabledSelectedMenuActions(QMenu* menu, const QList<int> indexList)
-{
-    // we don't use this on other platforms
-#ifdef Q_OS_MAC
-    if (!menu) {
-        return;
-    }
-
-    // we mean all actions by empty list
-    if (indexList.isEmpty()) {
-        foreach (QAction * act, menu->actions()) {
-            act->setEnabled(true);
-        }
-        return;
-    }
-
-    foreach (int index, indexList) {
-        Q_ASSERT(index < 0 || index >= menu->actions().size());
-        menu->actions().at(index)->setEnabled(true);
-    }
-#else
-    Q_UNUSED(menu);
-    Q_UNUSED(indexList);
-#endif
-}
-
 void QupZilla::loadSettings()
 {
     Settings settings;
@@ -816,8 +790,6 @@ void QupZilla::aboutToShowFileMenu()
 {
 #ifndef Q_OS_MAC
     m_actionCloseWindow->setEnabled(mApp->windowCount() > 1);
-#else
-    setEnabledSelectedMenuActionsons(m_menuFile);
 #endif
 }
 
@@ -828,8 +800,6 @@ void QupZilla::aboutToHideFileMenu()
 
 void QupZilla::aboutToShowBookmarksMenu()
 {
-    setEnabledSelectedMenuActions(m_menuBookmarks, QList<int>() << 0 << 1 << 2);
-
     if (!MENU_RECEIVER->bookmarksMenuChanged()) {
         if (m_menuBookmarksAction) {
             m_menuBookmarksAction->setVisible(m_bookmarksToolbar->isVisible());
@@ -944,8 +914,6 @@ void QupZilla::aboutToShowBookmarksMenu()
 
 void QupZilla::aboutToShowHistoryMenu()
 {
-    // 2=Home, 3=Show all History, 7=Closed Tabs
-    setEnabledSelectedMenuActions(m_menuHistory, QList<int>() << 2 << 3 << 7);
     TabbedWebView* view = weView();
     if (!view) {
         return;
@@ -1046,15 +1014,7 @@ void QupZilla::aboutToShowViewMenu()
     m_actionPageSource->setEnabled(true);
 
 #if QTWEBKIT_FROM_2_3
-    m_actionCaretBrowsing->setEnabled(true);
     m_actionCaretBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled));
-#endif
-#ifdef Q_OS_MAC
-    // 7,8,9=Zoom actions, 12=Character Encoding, 15=Fullscreen
-    setEnabledSelectedMenuActionsons(m_menuView, QList<int>()
-                                     << 0 << 1 << 2 << 7 << 8 << 9 << 12 << 15);
-    // for updating reload and stop actions
-    updateLoadingActions();
 #endif
 }
 
@@ -1075,9 +1035,6 @@ void QupZilla::aboutToShowEditMenu()
     m_menuEdit->actions().at(5)->setEnabled(view->pageAction(QWebPage::Paste)->isEnabled());
     // Separator
     m_menuEdit->actions().at(7)->setEnabled(view->pageAction(QWebPage::SelectAll)->isEnabled());
-
-    // Find action
-    m_menuEdit->actions().at(8)->setEnabled(true);
 }
 
 void QupZilla::aboutToHideEditMenu()
@@ -1093,9 +1050,6 @@ void QupZilla::aboutToHideEditMenu()
 void QupZilla::aboutToShowToolsMenu()
 {
     m_actionPageInfo->setEnabled(true);
-
-    // enable all
-    setEnabledSelectedMenuActions(m_menuTools);
 }
 
 void QupZilla::aboutToHideToolsMenu()

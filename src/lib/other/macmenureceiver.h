@@ -36,6 +36,7 @@ public:
     bool bookmarksMenuChanged();
 
 private:
+    void setEnabledSelectedMenuActions(QMenu* menu, const QList<int> indexList = QList<int>());
     void setDisabledSelectedMenuActions(QMenu* menu, const QList<int> indexList = QList<int>());
     bool callSlot(const char *member, bool makeIfNoWindow = false,
                   QGenericArgument val0 = QGenericArgument(0),

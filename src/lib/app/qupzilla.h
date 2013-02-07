@@ -215,7 +215,6 @@ private:
 
     void setupUi();
     void setupMenu();
-    void setEnabledSelectedMenuActions(QMenu* menu, const QList<int> indexList = QList<int>());
 
     void disconnectObjects();
 

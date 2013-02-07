@@ -36,6 +36,26 @@ bool MacMenuReceiver::bookmarksMenuChanged()
     return mApp->getWindow() && mApp->getWindow()->bookmarksMenuChanged();
 }
 
+void MacMenuReceiver::setEnabledSelectedMenuActions(QMenu* menu, const QList<int> indexList)
+{
+    if (!menu || mApp->windowCount() == 0) {
+        return;
+    }
+
+    // we mean all actions by empty list
+    if (indexList.isEmpty()) {
+        foreach (QAction * act, menu->actions()) {
+            act->setEnabled(true);
+        }
+        return;
+    }
+
+    foreach (int index, indexList) {
+        Q_ASSERT(index < 0 || index >= menu->actions().size());
+        menu->actions().at(index)->setEnabled(true);
+    }
+}
+
 void MacMenuReceiver::setDisabledSelectedMenuActions(QMenu* menu, const QList<int> indexList)
 {
     if (!menu) {
@@ -408,8 +428,10 @@ void MacMenuReceiver::loadActionUrlInNewNotSelectedTab(QObject* obj)
 // about to show/hide slots
 void MacMenuReceiver::aboutToShowFileMenu()
 {
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+    setEnabledSelectedMenuActions(menu);
     if (!callSlot("aboutToShowFileMenu")) {
-        setDisabledSelectedMenuActions(qobject_cast<QMenu*>(sender()), QList<int>()
+        setDisabledSelectedMenuActions(menu, QList<int>()
                                        << 4 << 5 << 7 << 8 << 9 << 10 << 12);
     }
 }
@@ -421,8 +443,11 @@ void MacMenuReceiver::aboutToHideFileMenu()
 
 void MacMenuReceiver::aboutToShowHistoryMenu()
 {
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+    // 2=Home, 3=Show all History, 7=Closed Tabs
+    setEnabledSelectedMenuActions(menu, QList<int>() << 2 << 3 << 7);
     if (!callSlot("aboutToShowHistoryMenu")) {
-        setDisabledSelectedMenuActions(qobject_cast<QMenu*>(sender()), QList<int>()
+        setDisabledSelectedMenuActions(menu, QList<int>()
                                        << 0 << 1 << 2 << 3 << 7);
     }
 }
@@ -439,16 +464,26 @@ void MacMenuReceiver::aboutToShowClosedTabsMenu()
 
 void MacMenuReceiver::aboutToShowBookmarksMenu()
 {
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+    setEnabledSelectedMenuActions(menu, QList<int>() << 0 << 1 << 2);
     if (!callSlot("aboutToShowBookmarksMenu")) {
-        setDisabledSelectedMenuActions(qobject_cast<QMenu*>(sender()), QList<int>()
-                                       << 0 << 1 << 2);
+        setDisabledSelectedMenuActions(menu, QList<int>() << 0 << 1 << 2);
     }
 }
 
 void MacMenuReceiver::aboutToShowViewMenu()
 {
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+    // 7,8,9=Zoom actions, 12=Character Encoding, 15=Fullscreen
+    setEnabledSelectedMenuActions(menu, QList<int>()
+                                     << 0 << 1 << 2 << 7 << 8 << 9 << 11 << 12 << 15);
+    // for updating reload and stop actions
+    if (mApp->getWindow()) {
+        mApp->getWindow()->updateLoadingActions();
+    }
+
     if (!callSlot("aboutToShowViewMenu")) {
-        setDisabledSelectedMenuActions(qobject_cast<QMenu*>(sender()));
+        setDisabledSelectedMenuActions(menu);
     }
 }
 
@@ -459,8 +494,11 @@ void MacMenuReceiver::aboutToHideViewMenu()
 
 void MacMenuReceiver::aboutToShowEditMenu()
 {
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+    // 8=Find
+    setEnabledSelectedMenuActions(menu, QList<int>() << 8);
     if (!callSlot("aboutToShowEditMenu")) {
-        setDisabledSelectedMenuActions(qobject_cast<QMenu*>(sender()));
+        setDisabledSelectedMenuActions(menu);
     }
 }
 
@@ -471,8 +509,11 @@ void MacMenuReceiver::aboutToHideEditMenu()
 
 void MacMenuReceiver::aboutToShowToolsMenu()
 {
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+    // enable all
+    setEnabledSelectedMenuActions(menu);
     if (!callSlot("aboutToShowToolsMenu")) {
-        setDisabledSelectedMenuActions(qobject_cast<QMenu*>(sender()), QList<int>()
+        setDisabledSelectedMenuActions(menu, QList<int>()
                                        << 0 << 1 << 3 << 4 << 6 << 7 << 8);
     }
 }
