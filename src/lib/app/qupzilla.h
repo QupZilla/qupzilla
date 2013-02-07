@@ -103,6 +103,8 @@ public:
     inline bool isClosing() { return m_isClosing; }
     inline QUrl homepageUrl() { return m_homepage; }
 
+    inline bool bookmarksMenuChanged() { return m_bookmarksMenuChanged; }
+
 signals:
     void startingCompleted();
     void message(Qz::AppMessageType mes, bool state);
@@ -195,6 +197,10 @@ private slots:
 
     void closeWindow();
     bool quitApp();
+    void closeTab();
+    void restoreClosedTab(QObject* obj = 0);
+    void restoreAllClosedTabs();
+    void clearClosedTabsList();
 #ifdef Q_OS_WIN
     void applyBlurToMainWindow(bool force = false);
 #endif

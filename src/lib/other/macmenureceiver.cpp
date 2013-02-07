@@ -31,6 +31,11 @@ MacMenuReceiver::MacMenuReceiver(QObject* parent)
 {
 }
 
+bool MacMenuReceiver::bookmarksMenuChanged()
+{
+    return mApp->getWindow() && mApp->getWindow()->bookmarksMenuChanged();
+}
+
 void MacMenuReceiver::setDisabledSelectedMenuActions(QMenu* menu, const QList<int> indexList)
 {
     if (!menu) {
@@ -333,6 +338,30 @@ void MacMenuReceiver::bookmarkPage()
 void MacMenuReceiver::loadFolderBookmarks(Menu* menu)
 {
     callSlot("loadFolderBookmarks", false, Q_ARG(Menu*, menu));
+}
+
+void MacMenuReceiver::closeTab()
+{
+    callSlot("closeTab");
+}
+
+void MacMenuReceiver::restoreClosedTab(QObject* obj)
+{
+    if (!obj) {
+        obj = sender();
+    }
+
+    callSlot("restoreClosedTab", false, Q_ARG(QObject*, obj));
+}
+
+void MacMenuReceiver::restoreAllClosedTabs()
+{
+    callSlot("restoreAllClosedTabs");
+}
+
+void MacMenuReceiver::clearClosedTabsList()
+{
+    callSlot("clearClosedTabsList");
 }
 
 void MacMenuReceiver::showPageInfo()

@@ -348,7 +348,7 @@ void QupZilla::setupMenu()
     m_menuFile->addAction(QIcon(":/icons/menu/new-tab.png"), tr("New Tab"), MENU_RECEIVER, SLOT(addTab()))->setShortcut(QKeySequence("Ctrl+T"));
     m_menuFile->addAction(QIcon::fromTheme("document-open-remote"), tr("Open Location"), MENU_RECEIVER, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
     m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File"), MENU_RECEIVER, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
-    m_menuFile->addAction(tr("Close Tab"), m_tabWidget, SLOT(closeTab()))->setShortcut(QKeySequence("Ctrl+W"));
+    m_menuFile->addAction(tr("Close Tab"), MENU_RECEIVER, SLOT(closeTab()))->setShortcut(QKeySequence("Ctrl+W"));
     m_actionCloseWindow = m_menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close Window"), MENU_RECEIVER, SLOT(closeWindow()));
     m_actionCloseWindow->setShortcut(QKeySequence("Ctrl+Shift+W"));
     m_menuFile->addSeparator();
@@ -558,7 +558,7 @@ void QupZilla::setupMenu()
      *****************/
     m_actionRestoreTab = new QAction(QIcon::fromTheme("user-trash"), tr("Restore &Closed Tab"), this);
     m_actionRestoreTab->setShortcut(QKeySequence("Ctrl+Shift+T"));
-    connect(m_actionRestoreTab, SIGNAL(triggered()), m_tabWidget, SLOT(restoreClosedTab()));
+    connect(m_actionRestoreTab, SIGNAL(triggered()), MENU_RECEIVER, SLOT(restoreClosedTab()));
     addAction(m_actionRestoreTab);
 
     QShortcut* reloadByPassCacheAction = new QShortcut(QKeySequence("Ctrl+F5"), this);
@@ -579,7 +579,7 @@ void QupZilla::setupMenu()
     connect(openLocationAction, SIGNAL(activated()), MENU_RECEIVER, SLOT(openLocation()));
 
     QShortcut* closeTabAction = new QShortcut(QKeySequence("Ctrl+F4"), this);
-    connect(closeTabAction, SIGNAL(activated()), m_tabWidget, SLOT(closeTab()));
+    connect(closeTabAction, SIGNAL(activated()), MENU_RECEIVER, SLOT(closeTab()));
 
     // Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
@@ -830,7 +830,7 @@ void QupZilla::aboutToShowBookmarksMenu()
 {
     setEnabledSelectedMenuActions(m_menuBookmarks, QList<int>() << 0 << 1 << 2);
 
-    if (!m_bookmarksMenuChanged) {
+    if (!MENU_RECEIVER->bookmarksMenuChanged()) {
         if (m_menuBookmarksAction) {
             m_menuBookmarksAction->setVisible(m_bookmarksToolbar->isVisible());
         }
@@ -971,7 +971,7 @@ void QupZilla::aboutToShowClosedTabsMenu()
             title.truncate(40);
             title += "..";
         }
-        m_menuClosedTabs->addAction(_iconForUrl(tab.url), title, m_tabWidget, SLOT(restoreClosedTab()))->setData(i);
+        m_menuClosedTabs->addAction(_iconForUrl(tab.url), title, MENU_RECEIVER, SLOT(restoreClosedTab()))->setData(i);
         i++;
     }
     m_menuClosedTabs->addSeparator();
@@ -979,8 +979,8 @@ void QupZilla::aboutToShowClosedTabsMenu()
         m_menuClosedTabs->addAction(tr("Empty"))->setEnabled(false);
     }
     else {
-        m_menuClosedTabs->addAction(tr("Restore All Closed Tabs"), m_tabWidget, SLOT(restoreAllClosedTabs()));
-        m_menuClosedTabs->addAction(tr("Clear list"), m_tabWidget, SLOT(clearClosedTabsList()));
+        m_menuClosedTabs->addAction(tr("Restore All Closed Tabs"), MENU_RECEIVER, SLOT(restoreAllClosedTabs()));
+        m_menuClosedTabs->addAction(tr("Clear list"), MENU_RECEIVER, SLOT(clearClosedTabsList()));
     }
 }
 
@@ -2049,6 +2049,29 @@ bool QupZilla::quitApp()
 
     mApp->quitApplication();
     return true;
+}
+
+void QupZilla::closeTab()
+{
+    m_tabWidget->closeTab();
+}
+
+void QupZilla::restoreClosedTab(QObject* obj)
+{
+    if (!obj) {
+        obj = sender();
+    }
+    m_tabWidget->restoreClosedTab(obj);
+}
+
+void QupZilla::restoreAllClosedTabs()
+{
+    m_tabWidget->restoreAllClosedTabs();
+}
+
+void QupZilla::clearClosedTabsList()
+{
+    m_tabWidget->clearClosedTabsList();
 }
 
 QByteArray QupZilla::saveState(int version) const

@@ -33,6 +33,8 @@ class QT_QUPZILLA_EXPORT MacMenuReceiver : public QObject
 public:
     MacMenuReceiver(QObject* parent = 0);
 
+    bool bookmarksMenuChanged();
+
 private:
     void setDisabledSelectedMenuActions(QMenu* menu, const QList<int> indexList = QList<int>());
     bool callSlot(const char *member, bool makeIfNoWindow = false,
@@ -119,5 +121,10 @@ private slots:
     void loadActionUrlInNewTab(QObject* obj = 0);
     void loadActionUrlInNewNotSelectedTab(QObject* obj = 0);
     void loadFolderBookmarks(Menu* menu);
+
+    void closeTab();
+    void restoreClosedTab(QObject* obj = 0);
+    void restoreAllClosedTabs();
+    void clearClosedTabsList();
 };
 #endif // MACMENURECEIVER_H
