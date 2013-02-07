@@ -507,7 +507,7 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
 
     if (type == QWebPage::NavigationTypeFormResubmitted) {
         // Don't show this dialog if app is still starting
-        if (!view()->isVisible()) {
+        if (!view() || !view()->isVisible()) {
             return false;
         }
         QString message = tr("To show this page, QupZilla must resend request which do it again \n"
@@ -611,7 +611,7 @@ void WebPage::cleanBlockedObjects()
     }
 
     // Apply domain-specific element hiding rules
-    QString elementHiding = AdBlockManager::instance()->elementHidingRulesForDomain(url());
+    QString elementHiding = manager->elementHidingRulesForDomain(url());
     if (elementHiding.isEmpty()) {
         return;
     }
@@ -623,7 +623,7 @@ void WebPage::cleanBlockedObjects()
 
     // When hiding some elements, scroll position of page will change
     // If user loaded anchor link in background tab (and didn't show it yet), fix the scroll position
-    if (!view()->isVisible() && !url().fragment().isEmpty()) {
+    if (view() && !view()->isVisible() && !url().fragment().isEmpty()) {
         mainFrame()->scrollToAnchor(url().fragment());
     }
 }
