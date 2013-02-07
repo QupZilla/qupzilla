@@ -113,9 +113,9 @@ public slots:
 
     void showWebInspector(bool toggle = true);
     void showBookmarksToolbar();
-    void loadActionUrl();
-    void loadActionUrlInNewTab();
-    void loadActionUrlInNewNotSelectedTab();
+    void loadActionUrl(QObject* obj = 0);
+    void loadActionUrlInNewTab(QObject* obj = 0);
+    void loadActionUrlInNewNotSelectedTab(QObject* obj = 0);
     void loadFolderBookmarks(Menu* menu);
 
     void bookmarkPage();
@@ -189,7 +189,7 @@ private slots:
     void zoomOut();
     void zoomReset();
     void fullScreen(bool make);
-    void changeEncoding();
+    void changeEncoding(QObject *obj = 0);
 
     void triggerCaretBrowsing();
 
@@ -209,6 +209,7 @@ private:
 
     void setupUi();
     void setupMenu();
+    void setEnabledSelectedMenuActions(QMenu* menu, const QList<int> indexList = QList<int>());
 
     void disconnectObjects();
 
