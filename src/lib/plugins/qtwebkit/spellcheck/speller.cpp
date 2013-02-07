@@ -107,7 +107,8 @@ void Speller::initialize()
         m_userDictionary.close();
     }
 
-    qDebug() << "SpellCheck: Language =" << language().code;
+    qDebug() << "SpellCheck: Language =" << language().code
+             << (m_textCodec ? m_textCodec->name() : "invalid text codec");
 }
 
 Speller::Language Speller::language() const
@@ -194,7 +195,7 @@ void Speller::populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
 void Speller::addToDictionary()
 {
     if (QAction* act = qobject_cast<QAction*>(sender())) {
-        QString word = act->data().toString();
+        const QString &word = act->data().toString();
         putWord(word);
 
         if (!m_userDictionary.open(QFile::WriteOnly | QFile::Append)) {
@@ -258,12 +259,15 @@ void Speller::changeLanguage()
 
 void Speller::putWord(const QString &word)
 {
-    if (!m_hunspell || !m_textCodec) {
+    if (!m_hunspell || !m_textCodec || word.isEmpty()) {
         return;
     }
 
-    const char* encodedWord = m_textCodec->fromUnicode(word).constData();
-    m_hunspell->add(encodedWord);
+    const QByteArray &data = m_textCodec->fromUnicode(word);
+
+    if (m_hunspell->add(data.constData()) != 0) {
+        qWarning() << "SpellCheck: Error while adding" << word << "word!";
+    }
 }
 
 bool Speller::isMisspelled(const QString &string)
@@ -272,8 +276,9 @@ bool Speller::isMisspelled(const QString &string)
         return false;
     }
 
-    const char* encodedString = m_textCodec->fromUnicode(string).constData();
-    return m_hunspell->spell(encodedString) == 0;
+    const QByteArray &data = m_textCodec->fromUnicode(string);
+
+    return m_hunspell->spell(data.constData()) == 0;
 }
 
 QStringList Speller::suggest(const QString &word)
@@ -283,8 +288,8 @@ QStringList Speller::suggest(const QString &word)
     }
 
     char** suggestions;
-    const char* encodedWord = m_textCodec->fromUnicode(word).constData();
-    int count = m_hunspell->suggest(&suggestions, encodedWord);
+    const QByteArray &data = m_textCodec->fromUnicode(word);
+    int count = m_hunspell->suggest(&suggestions, data.constData());
 
     QStringList suggests;
     for (int i = 0; i < count; ++i) {

@@ -114,11 +114,11 @@ void TabPreview::hideAnimated()
 
         connect(&m_opacityTimeLine, SIGNAL(finished()), this, SLOT(hide()));
     }
-    else {
+    else
+#endif
+    {
         QFrame::hide();
     }
-#endif
-    QFrame::hide();
 }
 
 void TabPreview::hide()
