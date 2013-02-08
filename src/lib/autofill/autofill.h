@@ -36,6 +36,10 @@ struct AutoFillData {
     QString username;
     QString password;
     QByteArray postData;
+
+    bool isValid() const {
+        return id > -1;
+    }
 };
 
 class QT_QUPZILLA_EXPORT AutoFill : public QObject
@@ -49,14 +53,16 @@ public:
     bool isStoringEnabled(const QUrl &url);
     void blockStoringforUrl(const QUrl &url);
 
-    QList<AutoFillData> getFormData(const QUrl &url);
+    AutoFillData getFirstFormData(const QUrl &url);
+    QList<AutoFillData> getFormData(const QUrl &url, int limit = 0);
+
     void updateLastUsed(int id);
 
     void addEntry(const QUrl &url, const QString &name, const QString &pass);
     void addEntry(const QUrl &url, const PageFormData &formData);
 
     void updateEntry(const QUrl &url, const QString &name, const QString &pass);
-    void updateEntry(const QUrl &url, const PageFormData &formData);
+    void updateEntry(const PageFormData &formData, const AutoFillData &updateData);
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
     void completePage(WebPage* frame);

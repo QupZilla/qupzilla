@@ -4,6 +4,7 @@ Version 1.4.0
     * can now be compiled using Qt 5
     * QtWebKit 2.3 new features - caret browsing, animated scrolling
     * added support for FTP listing files and downloading
+    * added support for saving passwords of multiple users per site
     * asking user whether to allow site to use notifications/geolocation
     * option to set JavaScript privacy permissions
     * option to specify default search engine used in locationbar

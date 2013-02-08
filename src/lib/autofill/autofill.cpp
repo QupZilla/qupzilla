@@ -110,7 +110,21 @@ void AutoFill::blockStoringforUrl(const QUrl &url)
     mApp->dbWriter()->executeQuery(query);
 }
 
-QList<AutoFillData> AutoFill::getFormData(const QUrl &url)
+AutoFillData AutoFill::getFirstFormData(const QUrl &url)
+{
+    QList<AutoFillData> list = getFormData(url, 1);
+
+    if (list.isEmpty()) {
+        AutoFillData data;
+        data.id = -1;
+
+        return data;
+    }
+
+    return list.first();
+}
+
+QList<AutoFillData> AutoFill::getFormData(const QUrl &url, int limit)
 {
     QList<AutoFillData> list;
 
@@ -119,10 +133,20 @@ QList<AutoFillData> AutoFill::getFormData(const QUrl &url)
         server = url.toString();
     }
 
+    QString queryString = "SELECT id, username, password, data FROM autofill "
+                          "WHERE server=? ORDER BY last_used DESC";
+    if (limit > 0) {
+        queryString.append(QLatin1String(" LIMIT ?"));
+    }
+
     QSqlQuery query;
-    query.prepare("SELECT id, username, password, data FROM autofill "
-                  "WHERE server=? ORDER BY last_used DESC");
+    query.prepare(queryString);
     query.addBindValue(server);
+
+    if (limit > 0) {
+        query.addBindValue(limit);
+    }
+
     query.exec();
 
     while (query.next()) {
@@ -136,6 +160,7 @@ QList<AutoFillData> AutoFill::getFormData(const QUrl &url)
     }
 
     return list;
+
 }
 
 void AutoFill::updateLastUsed(int id)
@@ -224,27 +249,15 @@ void AutoFill::updateEntry(const QUrl &url, const QString &name, const QString &
     mApp->dbWriter()->executeQuery(query);
 }
 
-void AutoFill::updateEntry(const QUrl &url, const PageFormData &formData)
+void AutoFill::updateEntry(const PageFormData &formData, const AutoFillData &updateData)
 {
     QSqlQuery query;
-    QString server = url.host();
-    if (server.isEmpty()) {
-        server = url.toString();
-    }
-
-    query.prepare("SELECT data FROM autofill WHERE server=?");
-    query.addBindValue(server);
-    query.exec();
-
-    if (!query.next()) {
-        return;
-    }
-
-    query.prepare("UPDATE autofill SET data=?, username=?, password=? WHERE server=?");
+    query.prepare("UPDATE autofill SET data=?, username=?, password=? WHERE id=?");
     query.addBindValue(formData.postData);
     query.addBindValue(formData.username);
     query.addBindValue(formData.password);
-    query.addBindValue(server);
+    query.addBindValue(updateData.id);
+
     mApp->dbWriter()->executeQuery(query);
 }
 
@@ -259,23 +272,12 @@ void AutoFill::completePage(WebPage* page)
         return;
     }
 
-    QString server = pageUrl.host();
-    if (server.isEmpty()) {
-        server = pageUrl.toString();
-    }
+    const AutoFillData data = getFirstFormData(pageUrl);
 
-    QSqlQuery query;
-    query.prepare("SELECT data FROM autofill WHERE server=?");
-    query.addBindValue(server);
-    query.exec();
-    query.next();
-    QByteArray data = query.value(0).toByteArray();
-    if (data.isEmpty()) {
-        return;
+    if (data.isValid()) {
+        PageFormCompleter completer(page);
+        completer.completePage(data.postData);
     }
-
-    PageFormCompleter completer(page);
-    completer.completePage(data);
 }
 
 void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingData)
@@ -308,16 +310,23 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
         return;
     }
 
-    bool updateData = false;
+    AutoFillData updateData = { -1, QString(), QString(), QByteArray() };
+
     if (isStored(siteUrl)) {
-        const AutoFillData data = getFormData(siteUrl).first();
+        const QList<AutoFillData> &list = getFormData(siteUrl);
 
-        if (data.username == formData.username && data.password == formData.password) {
-            updateLastUsed(data.id);
-            return;
+        foreach(const AutoFillData & data, list) {
+            if (data.username == formData.username) {
+                updateLastUsed(data.id);
+
+                if (data.password == formData.password) {
+                    return;
+                }
+
+                updateData = data;
+                break;
+            }
         }
-
-        updateData = true;
     }
 
     AutoFillNotification* aWidget = new AutoFillNotification(siteUrl, formData, updateData);

@@ -289,14 +289,16 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     QString storedUser;
     QString storedPassword;
     if (fill->isStored(reply->url())) {
-        const AutoFillData &data = fill->getFormData(reply->url()).first();
+        const AutoFillData &data = fill->getFirstFormData(reply->url());
 
-        save->setChecked(true);
-        shouldUpdateEntry = true;
-        storedUser = data.username;
-        storedPassword = data.password;
-        user->setText(storedUser);
-        pass->setText(storedPassword);
+        if (data.isValid()) {
+            save->setChecked(true);
+            shouldUpdateEntry = true;
+            storedUser = data.username;
+            storedPassword = data.password;
+            user->setText(storedUser);
+            pass->setText(storedPassword);
+        }
     }
     emit wantsFocus(reply->url());
 
