@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -92,7 +92,7 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    const HistoryEntry &entry = item->historyEntry;
+    const HistoryEntry entry = item->historyEntry;
 
     switch (role) {
     case IdRole:
@@ -450,7 +450,7 @@ void HistoryModel::init()
         return;
     }
 
-    const qint64 &minTimestamp = query.value(0).toLongLong();
+    const qint64 minTimestamp = query.value(0).toLongLong();
     if (minTimestamp <= 0) {
         return;
     }
@@ -458,7 +458,7 @@ void HistoryModel::init()
     const QDate &today = QDate::currentDate();
     const QDate &week = today.addDays(1 - today.dayOfWeek());
     const QDate &month = QDate(today.year(), today.month(), 1);
-    const qint64 &currentTimestamp = QDateTime::currentMSecsSinceEpoch();
+    const qint64 currentTimestamp = QDateTime::currentMSecsSinceEpoch();
 
     qint64 timestamp = currentTimestamp;
     while (timestamp > minTimestamp) {

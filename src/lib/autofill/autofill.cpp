@@ -292,7 +292,7 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
     }
 
     PageFormCompleter completer(webPage);
-    const PageFormData &formData = completer.extractFormData(outgoingData);
+    const PageFormData formData = completer.extractFormData(outgoingData);
 
     if (!formData.found) {
         return;

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -120,7 +120,7 @@ QUrl SearchEnginesManager::searchUrl(const Engine &engine, const QString &string
 
 QUrl SearchEnginesManager::searchUrl(const QString &string)
 {
-    const Engine &en = qzSettings->searchWithDefaultEngine ? m_defaultEngine : m_activeEngine;
+    const Engine en = qzSettings->searchWithDefaultEngine ? m_defaultEngine : m_activeEngine;
     return searchUrl(en, string);
 }
 

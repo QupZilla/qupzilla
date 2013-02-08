@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -457,7 +457,7 @@ bool AdBlockCustomList::containsFilter(const QString &filter) const
 bool AdBlockCustomList::removeFilter(const QString &filter)
 {
     for (int i = 0; i < m_rules.count(); ++i) {
-        const AdBlockRule &rule = m_rules.at(i);
+        const AdBlockRule rule = m_rules.at(i);
 
         if (rule.filter() == filter) {
             return removeRule(i);

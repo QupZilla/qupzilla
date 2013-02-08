@@ -797,33 +797,35 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
     if (hitTest.isContentEditable()) {
         if (menu->actions().count() == spellCheckActionCount) {
             QMenu* pageMenu = page()->createStandardContextMenu();
-
-            int i = 0;
-            foreach(QAction * act, pageMenu->actions()) {
-                if (act->isSeparator()) {
-                    menu->addSeparator();
-                    continue;
-                }
-
-                // Hiding double Direction + Fonts menu (bug in QtWebKit 2.2)
-                if (i <= 1 && act->menu()) {
-                    if (act->menu()->actions().contains(pageAction(QWebPage::SetTextDirectionDefault)) ||
-                            act->menu()->actions().contains(pageAction(QWebPage::ToggleBold))) {
-                        act->setVisible(false);
+            // Apparently createStandardContextMenu() can return null pointer
+            if (pageMenu) {
+                int i = 0;
+                foreach(QAction * act, pageMenu->actions()) {
+                    if (act->isSeparator()) {
+                        menu->addSeparator();
+                        continue;
                     }
+
+                    // Hiding double Direction + Fonts menu (bug in QtWebKit 2.2)
+                    if (i <= 1 && act->menu()) {
+                        if (act->menu()->actions().contains(pageAction(QWebPage::SetTextDirectionDefault)) ||
+                                act->menu()->actions().contains(pageAction(QWebPage::ToggleBold))) {
+                            act->setVisible(false);
+                        }
+                    }
+
+                    menu->addAction(act);
+
+                    ++i;
                 }
 
-                menu->addAction(act);
+                if (menu->actions().last() == pageAction(QWebPage::InspectElement)) {
+                    // We have own Inspect Element action
+                    menu->actions().last()->setVisible(false);
+                }
 
-                ++i;
+                delete pageMenu;
             }
-
-            if (menu->actions().last() == pageAction(QWebPage::InspectElement)) {
-                // We have own Inspect Element action
-                menu->actions().last()->setVisible(false);
-            }
-
-            delete pageMenu;
         }
 
         if (hitTest.element().tagName().toLower() == QLatin1String("input")) {

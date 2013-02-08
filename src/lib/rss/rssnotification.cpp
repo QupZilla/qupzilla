@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -104,7 +104,7 @@ void RSSNotification::addRss()
 
     switch (ui->comboBox->itemData(index).toInt()) {
     case WebApplication: {
-        const RssApp &app = m_rssApps.at(index);
+        const RssApp app = m_rssApps.at(index);
         const QUrl &url = QUrl::fromEncoded(QString(app.address + QUrl::toPercentEncoding(m_url.toString())).toLatin1());
 
         m_view->openUrlInNewTab(url, Qz::NT_SelectedTab);
@@ -113,7 +113,7 @@ void RSSNotification::addRss()
     }
 
     case DesktopApplication: {
-        const RssApp &app = m_rssApps.at(index);
+        const RssApp app = m_rssApps.at(index);
         if (app.title == QLatin1String("Akregator")) {
             success = startExternalProcess("/usr/bin/akregator", QStringList() << "-a" << m_url.toEncoded());
         }

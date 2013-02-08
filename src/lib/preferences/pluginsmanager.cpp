@@ -111,7 +111,7 @@ void PluginsManager::save()
         QListWidgetItem* item = ui->list->item(i);
 
         if (item->checkState() == Qt::Checked) {
-            const Plugins::Plugin &plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
+            const Plugins::Plugin plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
 
             allowedPlugins.append(plugin.fullPath);
         }
@@ -227,7 +227,7 @@ void PluginsManager::currentChanged(QListWidgetItem* item)
         return;
     }
 
-    const Plugins::Plugin &plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
+    const Plugins::Plugin plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
     bool showSettings = plugin.pluginSpec.hasSettings;
 
     if (!plugin.isLoaded()) {

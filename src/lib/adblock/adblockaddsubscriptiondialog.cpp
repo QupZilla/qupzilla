@@ -62,7 +62,7 @@ QString AdBlockAddSubscriptionDialog::url() const
 
 void AdBlockAddSubscriptionDialog::indexChanged(int index)
 {
-    const Subscription &subscription = m_knownSubscriptions.at(index);
+    const Subscription subscription = m_knownSubscriptions.at(index);
 
     int pos = subscription.title.indexOf(QLatin1Char('('));
     QString title = subscription.title;

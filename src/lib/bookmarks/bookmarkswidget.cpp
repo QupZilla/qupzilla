@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -57,7 +57,7 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
 
     connect(ui->speeddialButton, SIGNAL(clicked(QPoint)), this, SLOT(toggleSpeedDial()));
 
-    const SpeedDial::Page &page = m_speedDial->pageForUrl(m_url);
+    const SpeedDial::Page page = m_speedDial->pageForUrl(m_url);
     ui->speeddialButton->setText(page.url.isEmpty() ?
                                  tr("Add to Speed Dial") :
                                  tr("Remove from Speed Dial"));
@@ -108,9 +108,8 @@ void BookmarksWidget::loadBookmark()
 
 void BookmarksWidget::toggleSpeedDial()
 {
-    const SpeedDial::Page &page = m_speedDial->pageForUrl(m_url);
+    const SpeedDial::Page page = m_speedDial->pageForUrl(m_url);
 
-    QString const dialText("<a href='toggle_dial'>%1</a>");
     if (page.url.isEmpty()) {
         m_speedDial->addPage(m_url, m_view->title());
 

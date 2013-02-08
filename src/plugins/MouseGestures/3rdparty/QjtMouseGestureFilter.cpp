@@ -211,7 +211,7 @@ bool QjtMouseGestureFilter::paintEvent(QObject* obj, QPaintEvent* event)
         QWidget* wid = static_cast<QWidget*>(obj);
         QPainter painter(wid);
         painter.drawPixmap(0, 0, d->px);
-        const Gesture::PosList &points = d->mgr->currentPath();
+        const Gesture::PosList points = d->mgr->currentPath();
         painter.save();
         QPen pe;
         pe.setColor(Qt::red);

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012 Franz Fellner <alpine.art.de@googlemail.com>
+* Copyright (C) 2010-2013 Franz Fellner <alpine.art.de@googlemail.com>
 *                         David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -33,10 +33,10 @@ RecoveryWidget::RecoveryWidget(WebView* view, QupZilla* mainClass)
 
     setCursor(Qt::ArrowCursor);
 
-    const RestoreData &data = mApp->restoreManager()->restoreData();
+    const RestoreData data = mApp->restoreManager()->restoreData();
 
     for (int i = 0; i < data.size(); ++i) {
-        const RestoreManager::WindowData &wd = data.at(i);
+        const RestoreManager::WindowData wd = data.at(i);
 
         QTreeWidgetItem* root = new QTreeWidgetItem(ui->treeWidget);
         root->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsTristate);
@@ -44,7 +44,7 @@ RecoveryWidget::RecoveryWidget(WebView* view, QupZilla* mainClass)
         root->setCheckState(0, Qt::Checked);
 
         for (int tab = 0; tab < wd.tabsState.size(); ++tab) {
-            const WebTab::SavedTab &st = wd.tabsState.at(tab);
+            const WebTab::SavedTab st = wd.tabsState.at(tab);
 
             QTreeWidgetItem* child = new QTreeWidgetItem(root);
             child->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
