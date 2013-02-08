@@ -29,12 +29,9 @@
 MacMenuReceiver::MacMenuReceiver(QObject* parent)
     : QObject(parent)
     , m_macMenuBar(0)
+    , m_menuBookmarksAction(0)
+    , m_bookmarksMenuChanged(true)
 {
-}
-
-bool MacMenuReceiver::bookmarksMenuChanged()
-{
-    return mApp->getWindow() && mApp->getWindow()->bookmarksMenuChanged();
 }
 
 void MacMenuReceiver::setEnabledSelectedMenuActions(QMenu* menu, const QList<int> indexList)

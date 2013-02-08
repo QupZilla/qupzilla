@@ -830,7 +830,7 @@ void QupZilla::receiveMessage(Qz::AppMessageType mes, bool state)
         break;
 
     case Qz::AM_BookmarksChanged:
-        m_bookmarksMenuChanged = true;
+        setBookmarksMenuChanged(true);
         break;
 
     default:
@@ -853,13 +853,13 @@ void QupZilla::aboutToHideFileMenu()
 
 void QupZilla::aboutToShowBookmarksMenu()
 {
-    if (!MENU_RECEIVER->bookmarksMenuChanged()) {
-        if (m_menuBookmarksAction) {
-            m_menuBookmarksAction->setVisible(m_bookmarksToolbar->isVisible());
+    if (!bookmarksMenuChanged()) {
+        if (menuBookmarksAction()) {
+            menuBookmarksAction()->setVisible(m_bookmarksToolbar->isVisible());
         }
         return;
     }
-    m_bookmarksMenuChanged = false;
+    setBookmarksMenuChanged(false);
 
     while (m_menuBookmarks->actions().count() != 4) {
         QAction* act = m_menuBookmarks->actions().at(4);
@@ -910,7 +910,7 @@ void QupZilla::aboutToShowBookmarksMenu()
     if (menuBookmarks->isEmpty()) {
         menuBookmarks->addAction(tr("Empty"))->setEnabled(false);
     }
-    m_menuBookmarksAction = m_menuBookmarks->addMenu(menuBookmarks);
+    setMenuBookmarksAction(m_menuBookmarks->addMenu(menuBookmarks));
 
     query.exec("SELECT name FROM folders");
     while (query.next()) {
@@ -962,7 +962,7 @@ void QupZilla::aboutToShowBookmarksMenu()
         m_menuBookmarks->addAction(act);
     }
 
-    m_menuBookmarksAction->setVisible(m_bookmarksToolbar->isVisible());
+    menuBookmarksAction()->setVisible(m_bookmarksToolbar->isVisible());
 }
 
 void QupZilla::aboutToShowHistoryMenu()
@@ -1060,7 +1060,10 @@ void QupZilla::aboutToShowViewMenu()
     m_actionShowToolbar->setChecked(m_navigationBar->isVisible());
 #ifndef Q_OS_MAC
     m_actionShowMenubar->setChecked(menuBar()->isVisible());
+#else
+    m_sideBarManager->setSideBarMenu(m_menuView->actions().at(1)->menu());
 #endif
+
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
 
@@ -2079,6 +2082,42 @@ void QupZilla::restoreAllClosedTabs()
 void QupZilla::clearClosedTabsList()
 {
     m_tabWidget->clearClosedTabsList();
+}
+
+bool QupZilla::bookmarksMenuChanged()
+{
+#ifdef Q_OS_MAC
+    return mApp->macMenuReceiver()->bookmarksMenuChanged();
+#else
+    return m_bookmarksMenuChanged;
+#endif
+}
+
+void QupZilla::setBookmarksMenuChanged(bool changed)
+{
+#ifdef Q_OS_MAC
+    mApp->macMenuReceiver()->setBookmarksMenuChanged(changed);
+#else
+    m_bookmarksMenuChanged = changed;
+#endif
+}
+
+QAction* QupZilla::menuBookmarksAction()
+{
+#ifdef Q_OS_MAC
+    return mApp->macMenuReceiver()->menuBookmarksAction();
+#else
+    return m_menuBookmarksAction;
+#endif
+}
+
+void QupZilla::setMenuBookmarksAction(QAction* action)
+{
+#ifdef Q_OS_MAC
+    mApp->macMenuReceiver()->setMenuBookmarksAction(action);
+#else
+    m_menuBookmarksAction = action;
+#endif
 }
 
 QByteArray QupZilla::saveState(int version) const

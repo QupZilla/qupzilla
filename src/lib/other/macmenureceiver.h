@@ -37,7 +37,12 @@ public:
 
     inline QMenuBar* menuBar() { return m_macMenuBar; }
     inline void setMenuBar(QMenuBar* menuBar) { m_macMenuBar = menuBar; }
-    bool bookmarksMenuChanged();
+
+    inline bool bookmarksMenuChanged() { return m_bookmarksMenuChanged; }
+    inline void setBookmarksMenuChanged(bool changed) { m_bookmarksMenuChanged = changed; }
+
+    inline QAction* menuBookmarksAction() { return m_menuBookmarksAction; }
+    inline void setMenuBookmarksAction(QAction* action) { m_menuBookmarksAction = action; }
 
 private:
     void setEnabledSelectedMenuActions(QMenu* menu, const QList<int> indexList = QList<int>());
@@ -47,6 +52,8 @@ private:
                   QGenericArgument val1 = QGenericArgument());
 
     QMenuBar* m_macMenuBar;
+    bool m_bookmarksMenuChanged;
+    QAction* m_menuBookmarksAction;
 
 private slots:
     void goNext();

@@ -103,8 +103,6 @@ public:
     inline bool isClosing() { return m_isClosing; }
     inline QUrl homepageUrl() { return m_homepage; }
 
-    inline bool bookmarksMenuChanged() { return m_bookmarksMenuChanged; }
-
 signals:
     void startingCompleted();
     void message(Qz::AppMessageType mes, bool state);
@@ -235,6 +233,12 @@ private:
     int getCurrentVirtualDesktop() const;
     void moveToVirtualDesktop(int desktopId);
 #endif
+
+    bool bookmarksMenuChanged();
+    void setBookmarksMenuChanged(bool changed);
+
+    QAction* menuBookmarksAction();
+    void setMenuBookmarksAction(QAction* action);
 
     bool m_historyMenuChanged;
     bool m_bookmarksMenuChanged;
