@@ -284,14 +284,17 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
 
     formLa->addWidget(box);
     bool shouldUpdateEntry = false;
+
     AutoFill* fill = mApp->autoFill();
     QString storedUser;
     QString storedPassword;
     if (fill->isStored(reply->url())) {
+        const AutoFillData &data = fill->getFormData(reply->url()).first();
+
         save->setChecked(true);
         shouldUpdateEntry = true;
-        storedUser = fill->getUsername(reply->url());
-        storedPassword = fill->getPassword(reply->url());
+        storedUser = data.username;
+        storedPassword = data.password;
         user->setText(storedUser);
         pass->setText(storedPassword);
     }

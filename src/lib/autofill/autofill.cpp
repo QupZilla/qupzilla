@@ -97,7 +97,7 @@ bool AutoFill::isStoringEnabled(const QUrl &url)
     return true;
 }
 
-void AutoFill::blockStoringfor(const QUrl &url)
+void AutoFill::blockStoringforUrl(const QUrl &url)
 {
     QString server = url.host();
     if (server.isEmpty()) {
@@ -110,36 +110,44 @@ void AutoFill::blockStoringfor(const QUrl &url)
     mApp->dbWriter()->executeQuery(query);
 }
 
-QString AutoFill::getUsername(const QUrl &url)
+QList<AutoFillData> AutoFill::getFormData(const QUrl &url)
 {
+    QList<AutoFillData> list;
+
     QString server = url.host();
     if (server.isEmpty()) {
         server = url.toString();
     }
 
     QSqlQuery query;
-    query.prepare("SELECT username FROM autofill WHERE server=?");
+    query.prepare("SELECT id, username, password, data FROM autofill "
+                  "WHERE server=? ORDER BY last_used DESC");
     query.addBindValue(server);
     query.exec();
 
-    query.next();
-    return query.value(0).toString();
+    while (query.next()) {
+        AutoFillData data;
+        data.id = query.value(0).toInt();
+        data.username = query.value(1).toString();
+        data.password = query.value(2).toString();
+        data.postData = query.value(3).toByteArray();
+
+        list.append(data);
+    }
+
+    return list;
 }
 
-QString AutoFill::getPassword(const QUrl &url)
+void AutoFill::updateLastUsed(int id)
 {
-    QString server = url.host();
-    if (server.isEmpty()) {
-        server = url.toString();
+    if (id < 0) {
+        return;
     }
 
     QSqlQuery query;
-    query.prepare("SELECT password FROM autofill WHERE server=?");
-    query.addBindValue(server);
+    query.prepare("UPDATE autofill SET last_used=strftime('%s', 'now') WHERE id=?");
+    query.addBindValue(id);
     query.exec();
-
-    query.next();
-    return query.value(0).toString();
 }
 
 ///HTTP Authorization
@@ -159,7 +167,8 @@ void AutoFill::addEntry(const QUrl &url, const QString &name, const QString &pas
         return;
     }
 
-    query.prepare("INSERT INTO autofill (server, username, password) VALUES (?,?,?)");
+    query.prepare("INSERT INTO autofill (server, username, password, last_used) "
+                  "VALUES (?,?,?,strftime('%s', 'now'))");
     query.bindValue(0, server);
     query.bindValue(1, name);
     query.bindValue(2, pass);
@@ -183,7 +192,8 @@ void AutoFill::addEntry(const QUrl &url, const PageFormData &formData)
         return;
     }
 
-    query.prepare("INSERT INTO autofill (server, data, username, password) VALUES (?,?,?,?)");
+    query.prepare("INSERT INTO autofill (server, data, username, password, last_used) "
+                  "VALUES (?,?,?,?,strftime('%s', 'now'))");
     query.bindValue(0, server);
     query.bindValue(1, formData.postData);
     query.bindValue(2, formData.username);
@@ -300,10 +310,10 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
 
     bool updateData = false;
     if (isStored(siteUrl)) {
-        const QString &user = getUsername(siteUrl);
-        const QString &pass = getPassword(siteUrl);
+        const AutoFillData data = getFormData(siteUrl).first();
 
-        if (user == formData.username && pass == formData.password) {
+        if (data.username == formData.username && data.password == formData.password) {
+            updateLastUsed(data.id);
             return;
         }
 

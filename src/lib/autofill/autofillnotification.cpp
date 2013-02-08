@@ -73,7 +73,7 @@ void AutoFillNotification::update()
 
 void AutoFillNotification::never()
 {
-    mApp->autoFill()->blockStoringfor(m_url);
+    mApp->autoFill()->blockStoringforUrl(m_url);
     hide();
 }
 

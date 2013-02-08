@@ -19,7 +19,7 @@
 #define AUTOFILLMODEL_H
 
 #include <QObject>
-#include <QPair>
+#include <QList>
 
 #include "qz_namespace.h"
 
@@ -31,6 +31,13 @@ class QupZilla;
 class WebPage;
 struct PageFormData;
 
+struct AutoFillData {
+    int id;
+    QString username;
+    QString password;
+    QByteArray postData;
+};
+
 class QT_QUPZILLA_EXPORT AutoFill : public QObject
 {
 public:
@@ -40,10 +47,10 @@ public:
 
     bool isStored(const QUrl &url);
     bool isStoringEnabled(const QUrl &url);
-    void blockStoringfor(const QUrl &url);
+    void blockStoringforUrl(const QUrl &url);
 
-    QString getUsername(const QUrl &url);
-    QString getPassword(const QUrl &url);
+    QList<AutoFillData> getFormData(const QUrl &url);
+    void updateLastUsed(int id);
 
     void addEntry(const QUrl &url, const QString &name, const QString &pass);
     void addEntry(const QUrl &url, const PageFormData &formData);
