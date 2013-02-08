@@ -114,9 +114,6 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     , m_startingUrl(startUrl)
     , m_startBehaviour(type)
     , m_menuBookmarksAction(0)
-#ifdef Q_OS_MAC
-    , m_macMenuBar(new QMenuBar())
-#endif
     , m_actionPrivateBrowsing(0)
     , m_sideBarManager(new SideBarManager(this))
     , m_statusBarMessage(new StatusBarMessage(this))
@@ -318,6 +315,17 @@ void QupZilla::setupUi()
 
 void QupZilla::setupMenu()
 {
+#ifdef Q_OS_MAC
+    if (menuBar()) {
+        setupMacMenu();
+        setupOtherActions();
+        return;
+    }
+    else {
+        mApp->macMenuReceiver()->setMenuBar(new QMenuBar(0));
+    }
+#endif
+
     // Standard actions - needed on Mac to be placed correctly in "application" menu
     m_actionAbout = new QAction(QIcon(":/icons/qupzilla.png"), tr("&About QupZilla"), 0);
     m_actionAbout->setMenuRole(QAction::AboutRole);
@@ -403,6 +411,9 @@ void QupZilla::setupMenu()
     m_actionShowMenubar = new QAction(tr("&Menu Bar"), this);
     m_actionShowMenubar->setCheckable(true);
     connect(m_actionShowMenubar, SIGNAL(triggered(bool)), MENU_RECEIVER, SLOT(showMenubar()));
+    m_menuEncoding = new QMenu(this);
+#else
+    m_menuEncoding = new QMenu(0);
 #endif
     m_actionShowFullScreen = new QAction(tr("&Fullscreen"), MENU_RECEIVER);
     m_actionShowFullScreen->setCheckable(true);
@@ -415,7 +426,6 @@ void QupZilla::setupMenu()
     connect(m_actionReload, SIGNAL(triggered()), MENU_RECEIVER, SLOT(reload()));
     m_actionReload->setShortcut(QKeySequence("F5"));
     QAction* actionEncoding = new QAction(tr("Character &Encoding"), MENU_RECEIVER);
-    m_menuEncoding = new QMenu(this);
     actionEncoding->setMenu(m_menuEncoding);
     connect(m_menuEncoding, SIGNAL(aboutToShow()), MENU_RECEIVER, SLOT(aboutToShowEncodingMenu()));
     m_actionCaretBrowsing = new QAction(tr("Enable &Caret Browsing"), MENU_RECEIVER);
@@ -556,6 +566,21 @@ void QupZilla::setupMenu()
     /*****************
      * Other Actions *
      *****************/
+    setupOtherActions();
+
+#ifndef Q_OS_MAC
+    m_superMenu->addMenu(m_menuFile);
+    m_superMenu->addMenu(m_menuEdit);
+    m_superMenu->addMenu(m_menuView);
+    m_superMenu->addMenu(m_menuHistory);
+    m_superMenu->addMenu(m_menuBookmarks);
+    m_superMenu->addMenu(m_menuTools);
+    m_superMenu->addMenu(m_menuHelp);
+#endif
+}
+
+void QupZilla::setupOtherActions()
+{
     m_actionRestoreTab = new QAction(QIcon::fromTheme("user-trash"), tr("Restore &Closed Tab"), this);
     m_actionRestoreTab->setShortcut(QKeySequence("Ctrl+Shift+T"));
     connect(m_actionRestoreTab, SIGNAL(triggered()), MENU_RECEIVER, SLOT(restoreClosedTab()));
@@ -589,17 +614,45 @@ void QupZilla::setupMenu()
         }
         addAction(action);
     }
-
-#ifndef Q_OS_MAC
-    m_superMenu->addMenu(m_menuFile);
-    m_superMenu->addMenu(m_menuEdit);
-    m_superMenu->addMenu(m_menuView);
-    m_superMenu->addMenu(m_menuHistory);
-    m_superMenu->addMenu(m_menuBookmarks);
-    m_superMenu->addMenu(m_menuTools);
-    m_superMenu->addMenu(m_menuHelp);
-#endif
 }
+
+#ifdef Q_OS_MAC
+void QupZilla::setupMacMenu()
+{
+    // menus
+    m_menuFile = menuBar()->actions().at(0)->menu();
+    m_menuEdit = menuBar()->actions().at(1)->menu();
+    m_menuView = menuBar()->actions().at(2)->menu();
+    m_menuHistory = qobject_cast<Menu*>(menuBar()->actions().at(3)->menu());
+    m_menuBookmarks = qobject_cast<Menu*>(menuBar()->actions().at(4)->menu());
+    m_menuTools = menuBar()->actions().at(5)->menu();
+    m_menuHelp = menuBar()->actions().at(6)->menu();
+
+    m_menuEncoding = m_menuView->actions().at(12)->menu();
+
+    m_menuHistoryRecent = qobject_cast<Menu*>(m_menuHistory->actions().at(5)->menu());
+    m_menuHistoryMost = qobject_cast<Menu*>(m_menuHistory->actions().at(6)->menu());
+    m_menuClosedTabs = m_menuHistory->actions().at(7)->menu();
+
+    // actions
+    m_actionCloseWindow = m_menuFile->actions().at(5);
+    m_actionQuit = m_menuFile->actions().at(13);
+    m_actionAbout = m_menuFile->actions().at(14);
+    m_actionPreferences = m_menuFile->actions().at(15);
+
+    m_actionShowToolbar = m_menuView->actions().at(0)->menu()->actions().at(0);
+    m_actionShowBookmarksToolbar = m_menuView->actions().at(0)->menu()->actions().at(1);
+    m_actionShowStatusbar = m_menuView->actions().at(2);
+    m_actionStop =  m_menuView->actions().at(4);
+    m_actionReload =  m_menuView->actions().at(5);
+    m_actionCaretBrowsing = m_menuView->actions().at(11);
+    m_actionPageSource =  m_menuView->actions().at(14);
+    m_actionShowFullScreen = m_menuView->actions().at(15);
+
+    m_actionPageInfo = m_menuTools->actions().at(1);
+    m_actionPrivateBrowsing = m_menuTools->actions().at(9);
+}
+#endif
 
 void QupZilla::loadSettings()
 {
@@ -712,7 +765,7 @@ void QupZilla::goBack()
 QMenuBar* QupZilla::menuBar() const
 {
 #ifdef Q_OS_MAC
-    return m_macMenuBar;
+    return mApp->macMenuReceiver()->menuBar();
 #else
     return QMainWindow::menuBar();
 #endif

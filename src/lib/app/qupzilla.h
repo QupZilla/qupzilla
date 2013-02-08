@@ -215,6 +215,10 @@ private:
 
     void setupUi();
     void setupMenu();
+    void setupOtherActions();
+#ifdef Q_OS_MAC
+    void setupMacMenu();
+#endif
 
     void disconnectObjects();
 
@@ -255,9 +259,6 @@ private:
     Menu* m_menuHistoryMost;
     QMenu* m_menuEncoding;
     QAction* m_menuBookmarksAction;
-#ifdef Q_OS_MAC
-    QMenuBar* m_macMenuBar;
-#endif
 
     QAction* m_actionAbout;
     QAction* m_actionPreferences;

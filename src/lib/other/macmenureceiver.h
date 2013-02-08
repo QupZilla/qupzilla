@@ -26,6 +26,8 @@
 class QWebFrame;
 class Menu;
 class QMenu;
+class QAction;
+class QMenuBar;
 
 class QT_QUPZILLA_EXPORT MacMenuReceiver : public QObject
 {
@@ -33,6 +35,8 @@ class QT_QUPZILLA_EXPORT MacMenuReceiver : public QObject
 public:
     MacMenuReceiver(QObject* parent = 0);
 
+    inline QMenuBar* menuBar() { return m_macMenuBar; }
+    inline void setMenuBar(QMenuBar* menuBar) { m_macMenuBar = menuBar; }
     bool bookmarksMenuChanged();
 
 private:
@@ -41,6 +45,8 @@ private:
     bool callSlot(const char *member, bool makeIfNoWindow = false,
                   QGenericArgument val0 = QGenericArgument(0),
                   QGenericArgument val1 = QGenericArgument());
+
+    QMenuBar* m_macMenuBar;
 
 private slots:
     void goNext();
