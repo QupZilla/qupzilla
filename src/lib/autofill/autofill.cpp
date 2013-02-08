@@ -184,6 +184,7 @@ void AutoFill::addEntry(const QUrl &url, const QString &name, const QString &pas
         server = url.toString();
     }
 
+    // Multiple-usernames for HTTP Authorization not supported
     query.prepare("SELECT username FROM autofill WHERE server=?");
     query.addBindValue(server);
     query.exec();
@@ -203,20 +204,12 @@ void AutoFill::addEntry(const QUrl &url, const QString &name, const QString &pas
 ///WEB Form
 void AutoFill::addEntry(const QUrl &url, const PageFormData &formData)
 {
-    QSqlQuery query;
     QString server = url.host();
     if (server.isEmpty()) {
         server = url.toString();
     }
 
-    query.prepare("SELECT data FROM autofill WHERE server=?");
-    query.addBindValue(server);
-    query.exec();
-
-    if (query.next()) {
-        return;
-    }
-
+    QSqlQuery query;
     query.prepare("INSERT INTO autofill (server, data, username, password, last_used) "
                   "VALUES (?,?,?,?,strftime('%s', 'now'))");
     query.bindValue(0, server);
@@ -261,23 +254,29 @@ void AutoFill::updateEntry(const PageFormData &formData, const AutoFillData &upd
     mApp->dbWriter()->executeQuery(query);
 }
 
-void AutoFill::completePage(WebPage* page)
+QList<AutoFillData> AutoFill::completePage(WebPage* page)
 {
+    QList<AutoFillData> list;
+
     if (!page) {
-        return;
+        return list;
     }
 
     QUrl pageUrl = page->url();
     if (!isStored(pageUrl)) {
-        return;
+        return list;
     }
 
-    const AutoFillData data = getFirstFormData(pageUrl);
+    list = getFormData(pageUrl);
 
-    if (data.isValid()) {
+    if (!list.isEmpty()) {
+        const AutoFillData data = getFirstFormData(pageUrl);
+
         PageFormCompleter completer(page);
         completer.completePage(data.postData);
     }
+
+    return list;
 }
 
 void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingData)

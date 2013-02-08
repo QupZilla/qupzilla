@@ -175,6 +175,12 @@ IconProvider
     qproperty-pixmap: url(images/navigation-dropdown.png);
 }
 
+#locationbar-autofillicon
+{
+    margin-bottom: 1px;
+    qproperty-pixmap: url(images/key.png);
+}
+
 /*BookmarksToolbar*/
 #bookmarksbar QToolButton
 {

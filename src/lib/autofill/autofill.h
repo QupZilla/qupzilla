@@ -65,7 +65,7 @@ public:
     void updateEntry(const PageFormData &formData, const AutoFillData &updateData);
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
-    void completePage(WebPage* frame);
+    QList<AutoFillData> completePage(WebPage* page);
 
     static QByteArray exportPasswords();
     static bool importPasswords(const QByteArray &data);

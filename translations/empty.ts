@@ -248,6 +248,13 @@
     </message>
 </context>
 <context>
+    <name>AutoFillIcon</name>
+    <message>
+        <source>Choose username to login</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AutoFillManager</name>
     <message>
         <source>Passwords</source>
@@ -368,9 +375,10 @@
         <source>Do you want QupZilla to update saved password %1?</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>AutoFillWidget</name>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Remember</source>
         <translation type="unfinished"></translation>
@@ -383,8 +391,23 @@
         <source>Not Now</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>AutoFillWidget</name>
     <message>
-        <source>Update</source>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose username to login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login as &lt;b&gt;%1&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

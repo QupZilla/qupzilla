@@ -229,6 +229,7 @@ void WebPage::finished()
         mainFrame()->setZoomFactor(mainFrame()->zoomFactor() - 1);
     }
 
+    // File scheme watcher
     if (url().scheme() == QLatin1String("file")) {
         QFileInfo info(url().toLocalFile());
         if (info.isFile()) {
@@ -248,6 +249,10 @@ void WebPage::finished()
         m_fileWatcher->removePaths(m_fileWatcher->files());
     }
 
+    // Autofill
+    m_autoFillData = mApp->autoFill()->completePage(this);
+
+    // AdBlock
     cleanBlockedObjects();
 }
 
@@ -569,6 +574,21 @@ void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)
     if (!m_adBlockedEntries.contains(entry)) {
         m_adBlockedEntries.append(entry);
     }
+}
+
+QList<WebPage::AdBlockedEntry> WebPage::adBlockedEntries() const
+{
+    return m_adBlockedEntries;
+}
+
+bool WebPage::hasMultipleUsernames() const
+{
+    return m_autoFillData.count() > 1;
+}
+
+QList<AutoFillData> WebPage::autoFillData() const
+{
+    return m_autoFillData;
 }
 
 void WebPage::cleanBlockedObjects()

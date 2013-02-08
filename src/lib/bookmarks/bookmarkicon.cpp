@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
 * ============================================================ */
 #include "bookmarkicon.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
 #include "tabbedwebview.h"
 #include "locationbar.h"
 #include "bookmarksmodel.h"
@@ -27,9 +26,8 @@
 #include <QStyle>
 #include <QContextMenuEvent>
 
-BookmarkIcon::BookmarkIcon(QupZilla* mainClass, QWidget* parent)
+BookmarkIcon::BookmarkIcon(QWidget* parent)
     : ClickableLabel(parent)
-    , p_QupZilla(mainClass)
     , m_bookmarksModel(0)
     , m_speedDial(mApp->plugins()->speedDial())
 {

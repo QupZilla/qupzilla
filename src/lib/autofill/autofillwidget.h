@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,44 +15,41 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef AUTOFILLNOTIFICATION_H
-#define AUTOFILLNOTIFICATION_H
+#ifndef AUTOFILLWIDGET_H
+#define AUTOFILLWIDGET_H
 
-#include <QUrl>
+#include <QWidget>
+#include <QList>
 
 #include "qz_namespace.h"
-#include "animatedwidget.h"
-#include "pageformcompleter.h"
-#include "autofill.h"
+#include "locationbarpopup.h"
 
 namespace Ui
 {
-class AutoFillNotification;
+class AutoFillWidget;
 }
 
-class AnimatedWidget;
+class WebView;
+struct AutoFillData;
 
-class QT_QUPZILLA_EXPORT AutoFillNotification : public AnimatedWidget
+class QT_QUPZILLA_EXPORT AutoFillWidget : public LocationBarPopup
 {
     Q_OBJECT
 
 public:
-    explicit AutoFillNotification(const QUrl &url,
-                                  const PageFormData &formData,
-                                  const AutoFillData &updateData);
-    ~AutoFillNotification();
+    explicit AutoFillWidget(WebView* view, QWidget* parent = 0);
+    ~AutoFillWidget();
+
+    void setFormData(const QList<AutoFillData> &data);
 
 private slots:
-    void update();
-    void remember();
-    void never();
+    void loginToPage();
 
 private:
-    Ui::AutoFillNotification* ui;
+    Ui::AutoFillWidget* ui;
 
-    QUrl m_url;
-    PageFormData m_formData;
-    AutoFillData m_updateData;
+    WebView* m_view;
+    QList<AutoFillData> m_data;
 };
 
-#endif // AUTOFILLNOTIFICATION_H
+#endif // AUTOFILLWIDGET_H

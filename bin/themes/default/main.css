@@ -184,6 +184,11 @@ IconProvider
     qproperty-pixmap: url(images/arrow-down.gif);
 }
 
+#locationbar-autofillicon
+{
+    qproperty-pixmap: url(images/key.png);
+}
+
 /*WebSearchBar*/
 #websearchbar
 {

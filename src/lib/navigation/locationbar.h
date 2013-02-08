@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,11 +28,12 @@ class QupZilla;
 class LineEdit;
 class LocationCompleter;
 class ClickableLabel;
-class BookmarkIcon;
 class TabbedWebView;
+class BookmarkIcon;
 class SiteIcon;
 class GoIcon;
 class RssIcon;
+class AutoFillIcon;
 
 class QT_QUPZILLA_EXPORT LocationBar : public LineEdit
 {
@@ -66,6 +67,7 @@ private slots:
     void showSiteInfo();
     void rssIconClicked();
     void bookmarkIconClicked();
+    void autofillIconClicked();
     void urlEnter();
     void clearIcon();
     void showRSSIcon(bool state);
@@ -111,6 +113,7 @@ private:
     GoIcon* m_goIcon;
     RssIcon* m_rssIcon;
     SiteIcon* m_siteIcon;
+    AutoFillIcon* m_autofillIcon;
 
     QupZilla* p_QupZilla;
     TabbedWebView* m_webView;

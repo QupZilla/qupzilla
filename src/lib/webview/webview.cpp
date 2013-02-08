@@ -22,7 +22,6 @@
 #include "qztools.h"
 #include "iconprovider.h"
 #include "history.h"
-#include "autofill.h"
 #include "pluginproxy.h"
 #include "downloadmanager.h"
 #include "sourceviewer.h"
@@ -380,8 +379,6 @@ void WebView::slotLoadFinished()
     if (!m_isReloading) {
         mApp->history()->addHistoryEntry(this);
     }
-
-    mApp->autoFill()->completePage(page());
 
     m_isReloading = false;
     m_lastUrl = url();

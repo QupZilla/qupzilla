@@ -210,6 +210,8 @@ SOURCES += \
     autofill/pageformcompleter.cpp \
     autofill/autofill.cpp \
     network/schemehandlers/ftpschemehandler.cpp \
+    autofill/autofillicon.cpp \
+    autofill/autofillwidget.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -374,6 +376,8 @@ HEADERS  += \
     autofill/pageformcompleter.h \
     autofill/autofill.h \
     network/schemehandlers/ftpschemehandler.h \
+    autofill/autofillicon.h \
+    autofill/autofillwidget.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -422,6 +426,7 @@ FORMS    += \
     session/recoverywidget.ui \
     tools/html5permissions/html5permissionsnotification.ui \
     tools/html5permissions/html5permissionsdialog.ui \
+    autofill/autofillwidget.ui
 
 RESOURCES += \
     data/icons.qrc \

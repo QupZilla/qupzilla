@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AutoFillWidget</class>
- <widget class="QWidget" name="AutoFillWidget">
+ <class>AutoFillNotification</class>
+ <widget class="QWidget" name="AutoFillNotification">
   <property name="geometry">
    <rect>
     <x>0</x>

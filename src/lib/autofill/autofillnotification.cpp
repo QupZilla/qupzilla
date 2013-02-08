@@ -24,7 +24,7 @@
 
 AutoFillNotification::AutoFillNotification(const QUrl &url, const PageFormData &formData, const AutoFillData &updateData)
     : AnimatedWidget(AnimatedWidget::Down, 300, 0)
-    , ui(new Ui::AutoFillWidget)
+    , ui(new Ui::AutoFillNotification)
     , m_url(url)
     , m_formData(formData)
     , m_updateData(updateData)

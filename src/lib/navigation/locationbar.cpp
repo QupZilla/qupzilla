@@ -39,6 +39,8 @@
 #include "iconprovider.h"
 #include "qzsettings.h"
 #include "colors.h"
+#include "autofillicon.h"
+#include "autofillwidget.h"
 
 #include <QMimeData>
 #include <QClipboard>
@@ -60,20 +62,22 @@ LocationBar::LocationBar(QupZilla* mainClass)
     setObjectName("locationbar");
     setDragEnabled(true);
 
-    m_bookmarkIcon = new BookmarkIcon(p_QupZilla);
+    m_bookmarkIcon = new BookmarkIcon(this);
     m_goIcon = new GoIcon(this);
     m_rssIcon = new RssIcon(this);
     m_rssIcon->setToolTip(tr("Add RSS from this page..."));
     m_siteIcon = new SiteIcon(this);
+    m_autofillIcon = new AutoFillIcon(this);
     DownIcon* down = new DownIcon(this);
 
-    ////RTL Support
-    ////if we don't add 'm_siteIcon' by following code, then we should use suitable padding-left value
-    //// but then, when typing RTL text the layout dynamically changed and within RTL layout direction
-    //// padding-left is equivalent to padding-right and vice versa, and because style sheet is
-    //// not changed dynamically this create padding problems.
+    // RTL Support
+    // if we don't add 'm_siteIcon' by following code, then we should use suitable padding-left value
+    // but then, when typing RTL text the layout dynamically changed and within RTL layout direction
+    // padding-left is equivalent to padding-right and vice versa, and because style sheet is
+    // not changed dynamically this create padding problems.
     addWidget(m_siteIcon, LineEdit::LeftSide);
 
+    addWidget(m_autofillIcon, LineEdit::RightSide);
     addWidget(m_goIcon, LineEdit::RightSide);
     addWidget(m_bookmarkIcon, LineEdit::RightSide);
     addWidget(m_rssIcon, LineEdit::RightSide);
@@ -88,6 +92,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
     connect(m_bookmarkIcon, SIGNAL(clicked(QPoint)), this, SLOT(bookmarkIconClicked()));
+    connect(m_autofillIcon, SIGNAL(clicked(QPoint)), this, SLOT(autofillIconClicked()));
     connect(down, SIGNAL(clicked(QPoint)), this, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp->searchEnginesManager(), SIGNAL(defaultEngineChanged()), this, SLOT(updatePlaceHolderText()));
@@ -97,6 +102,11 @@ LocationBar::LocationBar(QupZilla* mainClass)
 
     clearIcon();
     updatePlaceHolderText();
+
+    // Hide icons by default
+    m_goIcon->hide();
+    m_rssIcon->hide();
+    m_autofillIcon->hide();
 }
 
 void LocationBar::setWebView(TabbedWebView* view)
@@ -244,8 +254,15 @@ void LocationBar::rssIconClicked()
 
 void LocationBar::bookmarkIconClicked()
 {
-    BookmarksWidget* bWidget = new BookmarksWidget(p_QupZilla, m_webView, this);
+    BookmarksWidget* bWidget = new BookmarksWidget(m_webView, this);
     bWidget->showAt(this);
+}
+
+void LocationBar::autofillIconClicked()
+{
+    AutoFillWidget* widget = new AutoFillWidget(m_webView, this);
+    widget->setFormData(m_autofillIcon->formData());
+    widget->showAt(this);
 }
 
 void LocationBar::showRSSIcon(bool state)
@@ -534,14 +551,10 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
     LineEdit::keyReleaseEvent(event);
 }
 
-LocationBar::~LocationBar()
-{
-    delete m_bookmarkIcon;
-}
-
 void LocationBar::onLoadStarted()
 {
     m_progressVisible = true;
+    m_autofillIcon->hide();
 }
 
 void LocationBar::onLoadProgress(int progress)
@@ -556,6 +569,13 @@ void LocationBar::onLoadFinished()
 {
     if (qzSettings->showLoadingProgress) {
         QTimer::singleShot(700, this, SLOT(hideProgress()));
+    }
+
+    WebPage* page = qobject_cast<WebPage*>(m_webView->page());
+
+    if (page && page->hasMultipleUsernames()) {
+        m_autofillIcon->setFormData(page->autoFillData());
+        m_autofillIcon->show();
     }
 }
 
@@ -731,4 +751,8 @@ void LocationBar::paintEvent(QPaintEvent* event)
     }
 
     p.drawText(currentRect, currentText, opt);
+}
+
+LocationBar::~LocationBar()
+{
 }

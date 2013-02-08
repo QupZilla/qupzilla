@@ -22,6 +22,7 @@
 #include <QSslCertificate>
 
 #include "qz_namespace.h"
+#include "autofill.h"
 
 class QWebSecurityOrigin;
 class QFileSystemWatcher;
@@ -62,7 +63,10 @@ public:
     void javaScriptAlert(QWebFrame* originatingFrame, const QString &msg);
 
     void addAdBlockRule(const AdBlockRule* rule, const QUrl &url);
-    QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
+    QList<AdBlockedEntry> adBlockedEntries() const;
+
+    bool hasMultipleUsernames() const;
+    QList<AutoFillData> autoFillData() const;
 
     void scheduleAdjustPage();
     bool isRunningLoop();
@@ -133,6 +137,7 @@ private:
     QSslCertificate m_sslCert;
     QList<QSslCertificate> m_rejectedSslCerts;
     QList<AdBlockedEntry> m_adBlockedEntries;
+    QList<AutoFillData> m_autoFillData;
 
     QWebPage::NavigationType m_lastRequestType;
     QUrl m_lastRequestUrl;

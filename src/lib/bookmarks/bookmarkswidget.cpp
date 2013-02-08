@@ -33,10 +33,9 @@
 
 #define HIDE_DELAY 270
 
-BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* parent)
+BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
     : LocationBarPopup(parent)
     , ui(new Ui::BookmarksWidget)
-    , p_QupZilla(mainClass)
     , m_url(view->url())
     , m_view(view)
     , m_bookmarksModel(mApp->bookmarksModel())
