@@ -59,6 +59,7 @@
 #endif
 
 #ifdef Q_OS_MAC
+#include "macmenureceiver.h"
 #include <QFileOpenEvent>
 #endif
 #include <QNetworkDiskCache>
@@ -109,6 +110,9 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_databaseConnected(false)
 #ifdef Q_OS_WIN
     , m_registerQAppAssociation(0)
+#endif
+#ifdef Q_OS_MAC
+    , m_macMenuReceiver(0)
 #endif
 {
 #if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
@@ -608,7 +612,7 @@ void MainApplication::addNewTab(const QUrl &url)
 
 QupZilla* MainApplication::makeNewWindow(Qz::BrowserWindow type, const QUrl &startUrl)
 {
-    if (m_mainWindows.count() == 0) {
+    if (m_mainWindows.count() == 0 && type != Qz::BW_MacFirstWindow) {
         type = Qz::BW_FirstAppWindow;
     }
 
@@ -619,6 +623,14 @@ QupZilla* MainApplication::makeNewWindow(Qz::BrowserWindow type, const QUrl &sta
 }
 
 #ifdef Q_OS_MAC
+MacMenuReceiver* MainApplication::macMenuReceiver()
+{
+    if (!m_macMenuReceiver) {
+        m_macMenuReceiver = new MacMenuReceiver(this);
+    }
+    return m_macMenuReceiver;
+}
+
 bool MainApplication::event(QEvent* e)
 {
     switch (e->type()) {

@@ -113,9 +113,9 @@ public slots:
 
     void showWebInspector(bool toggle = true);
     void showBookmarksToolbar();
-    void loadActionUrl();
-    void loadActionUrlInNewTab();
-    void loadActionUrlInNewNotSelectedTab();
+    void loadActionUrl(QObject* obj = 0);
+    void loadActionUrlInNewTab(QObject* obj = 0);
+    void loadActionUrlInNewNotSelectedTab(QObject* obj = 0);
     void loadFolderBookmarks(Menu* menu);
 
     void bookmarkPage();
@@ -189,12 +189,16 @@ private slots:
     void zoomOut();
     void zoomReset();
     void fullScreen(bool make);
-    void changeEncoding();
+    void changeEncoding(QObject *obj = 0);
 
     void triggerCaretBrowsing();
 
     void closeWindow();
     bool quitApp();
+    void closeTab();
+    void restoreClosedTab(QObject* obj = 0);
+    void restoreAllClosedTabs();
+    void clearClosedTabsList();
 #ifdef Q_OS_WIN
     void applyBlurToMainWindow(bool force = false);
 #endif
@@ -209,6 +213,10 @@ private:
 
     void setupUi();
     void setupMenu();
+    void setupOtherActions();
+#ifdef Q_OS_MAC
+    void setupMacMenu();
+#endif
 
     void disconnectObjects();
 
@@ -225,6 +233,12 @@ private:
     int getCurrentVirtualDesktop() const;
     void moveToVirtualDesktop(int desktopId);
 #endif
+
+    bool bookmarksMenuChanged();
+    void setBookmarksMenuChanged(bool changed);
+
+    QAction* menuBookmarksAction();
+    void setMenuBookmarksAction(QAction* action);
 
     bool m_historyMenuChanged;
     bool m_bookmarksMenuChanged;
@@ -249,9 +263,6 @@ private:
     Menu* m_menuHistoryMost;
     QMenu* m_menuEncoding;
     QAction* m_menuBookmarksAction;
-#ifdef Q_OS_MAC
-    QMenuBar* m_macMenuBar;
-#endif
 
     QAction* m_actionAbout;
     QAction* m_actionPreferences;
