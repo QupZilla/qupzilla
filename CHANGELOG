@@ -18,6 +18,7 @@ Version 1.4.0
     * saving passwords should now work for much more sites
     * don't steal Ctrl+B/U/I shortcuts from page
     * disabled by default opacity effect on tab previews - see BUILDING
+    * improved showing navigation toolbar in fullscreen
     * fixed scrolling to anchor in background tabs
     * fixed parsing UTF-8 filenames in Content-Disposition header
     * fixed crash with context menu in websearchbar and locationbar

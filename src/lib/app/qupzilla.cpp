@@ -2115,11 +2115,14 @@ bool QupZilla::quitApp()
         Settings settings;
         settings.beginGroup("Browser-View-Settings");
         settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
-        settings.setValue("WindowGeometry", saveGeometry());
         settings.setValue("LocationBarWidth", m_navigationBar->splitter()->sizes().at(0));
         settings.setValue("WebSearchBarWidth", m_navigationBar->splitter()->sizes().at(1));
         settings.setValue("SideBarWidth", m_sideBarWidth);
         settings.setValue("WebViewWidth", m_webViewWidth);
+
+        if (!isFullScreen()) {
+            settings.setValue("WindowGeometry", saveGeometry());
+        }
         settings.endGroup();
     }
 
