@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -399,6 +399,8 @@ void TabBar::currentTabChanged(int index)
 
     showCloseButton(index);
     hideCloseButton(m_tabWidget->lastTabIndex());
+
+    m_tabWidget->currentTabChanged(index);
 }
 
 void TabBar::bookmarkTab()
@@ -482,6 +484,7 @@ void TabBar::tabRemoved(int index)
 {
     Q_UNUSED(index)
 
+    m_tabWidget->showNavigationBar(p_QupZilla->navigationContainer());
     showCloseButton(currentIndex());
 }
 

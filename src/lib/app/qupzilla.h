@@ -87,21 +87,23 @@ public:
     TabbedWebView* weView(int index) const;
     LocationBar* locationBar() const;
 
-    inline TabWidget* tabWidget() { return m_tabWidget; }
-    inline BookmarksToolbar* bookmarksToolbar() { return m_bookmarksToolbar; }
-    inline StatusBarMessage* statusBarMessage() { return m_statusBarMessage; }
-    inline NavigationBar* navigationBar() { return m_navigationBar; }
-    inline SideBarManager* sideBarManager() { return m_sideBarManager; }
-    inline ProgressBar* progressBar() { return m_progressBar; }
-    inline QLabel* ipLabel() { return m_ipLabel; }
-    inline AdBlockIcon* adBlockIcon() { return m_adblockIcon; }
-    inline QMenu* menuHelp() { return m_menuHelp; }
-    inline QAction* actionRestoreTab() { return m_actionRestoreTab; }
-    inline QAction* actionReload() { return m_actionReload; }
-    inline QMenu* superMenu() { return m_superMenu; }
+    TabWidget* tabWidget() { return m_tabWidget; }
+    BookmarksToolbar* bookmarksToolbar() { return m_bookmarksToolbar; }
+    StatusBarMessage* statusBarMessage() { return m_statusBarMessage; }
+    NavigationBar* navigationBar() { return m_navigationBar; }
+    SideBarManager* sideBarManager() { return m_sideBarManager; }
+    ProgressBar* progressBar() { return m_progressBar; }
+    QLabel* ipLabel() { return m_ipLabel; }
+    AdBlockIcon* adBlockIcon() { return m_adblockIcon; }
+    QMenu* menuHelp() { return m_menuHelp; }
+    QAction* actionRestoreTab() { return m_actionRestoreTab; }
+    QAction* actionReload() { return m_actionReload; }
+    QMenu* superMenu() { return m_superMenu; }
 
-    inline bool isClosing() { return m_isClosing; }
-    inline QUrl homepageUrl() { return m_homepage; }
+    QWidget* navigationContainer();
+
+    bool isClosing() { return m_isClosing; }
+    QUrl homepageUrl() { return m_homepage; }
 
 signals:
     void startingCompleted();
@@ -189,9 +191,10 @@ private slots:
     void zoomOut();
     void zoomReset();
     void fullScreen(bool make);
-    void changeEncoding(QObject *obj = 0);
+    void changeEncoding(QObject* obj = 0);
 
     void triggerCaretBrowsing();
+    void triggerTabsOnTop(bool enable);
 
     void closeWindow();
     bool quitApp();
@@ -275,6 +278,7 @@ private:
 #ifndef Q_OS_MAC
     QAction* m_actionShowMenubar;
 #endif
+    QAction* m_actionTabsOnTop;
     QAction* m_actionShowFullScreen;
     QAction* m_actionShowBookmarksSideBar;
     QAction* m_actionShowHistorySideBar;
@@ -291,6 +295,7 @@ private:
     AdBlockIcon* m_adblockIcon;
     QPointer<WebInspectorDockWidget> m_webInspectorDock;
 
+    QWidget* m_navigationContainer;
     BookmarksToolbar* m_bookmarksToolbar;
     TabWidget* m_tabWidget;
     QPointer<SideBar> m_sideBar;

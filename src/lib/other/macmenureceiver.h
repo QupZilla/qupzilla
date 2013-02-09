@@ -120,6 +120,7 @@ private slots:
     void changeEncoding(QObject* obj = 0);
 
     void triggerCaretBrowsing();
+    void triggerTabsOnTop(bool enable);
 
     void closeWindow();
     void quitApp();

@@ -55,6 +55,7 @@ void QzSettings::loadSettings()
 
     settings.beginGroup("Browser-Tabs-Settings");
     newTabPosition = settings.value("OpenNewTabsSelected", false).toBool() ? Qz::NT_SelectedTab : Qz::NT_NotSelectedTab;
+    tabsOnTop = settings.value("TabsOnTop", true).toBool();
     settings.endGroup();
 }
 
@@ -62,10 +63,12 @@ void QzSettings::saveSettings()
 {
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
-
     settings.setValue("AutomaticallyOpenProtocols", autoOpenProtocols);
     settings.setValue("BlockOpeningProtocols", blockedProtocols);
+    settings.endGroup();
 
+    settings.beginGroup("Browser-Tabs-Settings");
+    settings.setValue("TabsOnTop", tabsOnTop);
     settings.endGroup();
 }
 

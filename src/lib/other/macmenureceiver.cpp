@@ -313,12 +313,15 @@ void MacMenuReceiver::changeEncoding(QObject* obj)
     callSlot("changeEncoding", false, Q_ARG(QObject*, obj));
 }
 
-
 void MacMenuReceiver::triggerCaretBrowsing()
 {
     callSlot("triggerCaretBrowsing");
 }
 
+void MacMenuReceiver::triggerTabsOnTop(bool enable)
+{
+    callSlot("triggerTabsOnTop", false, Q_ARG(bool, enable));
+}
 
 void MacMenuReceiver::closeWindow()
 {
@@ -330,7 +333,6 @@ void MacMenuReceiver::quitApp()
     if (!callSlot("quitApp")) {
         mApp->quitApplication();
     }
-
 }
 
 void MacMenuReceiver::printPage(QWebFrame* frame)

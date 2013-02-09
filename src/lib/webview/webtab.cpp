@@ -70,6 +70,7 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
 WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     : QWidget()
     , p_QupZilla(mainClass)
+    , m_navigationContainer(0)
     , m_locationBar(locationBar)
     , m_pinned(false)
     , m_inspectorVisible(false)
@@ -84,6 +85,7 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     m_layout->setSpacing(0);
 
     m_view = new TabbedWebView(p_QupZilla, this);
+    m_view->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     WebPage* page = new WebPage(p_QupZilla);
     m_view->setWebPage(page);
     m_layout->addWidget(m_view);
@@ -293,17 +295,31 @@ QPixmap WebTab::renderTabPreview()
 
 void WebTab::showNotification(QWidget* notif)
 {
-    if (m_layout->count() > 1) {
+    const int notifPos = m_navigationContainer ? 2 : 1;
+
+    if (m_layout->count() > notifPos) {
         delete m_layout->itemAt(0)->widget();
     }
 
-    m_layout->insertWidget(0, notif);
+    m_layout->insertWidget(notifPos - 1, notif);
     notif->show();
 }
 
 int WebTab::tabIndex() const
 {
     return m_view->tabIndex();
+}
+
+void WebTab::showNavigationBar(QWidget* bar)
+{
+    if (bar) {
+        m_navigationContainer = bar;
+        m_layout->insertWidget(0, m_navigationContainer);
+
+        // Needed to prevent flickering when closing tabs
+        m_navigationContainer->setUpdatesEnabled(true);
+        m_navigationContainer->show();
+    }
 }
 
 void WebTab::pinTab(int index)
@@ -337,5 +353,16 @@ void WebTab::disconnectObjects()
 
 WebTab::~WebTab()
 {
+    if (m_navigationContainer) {
+        m_layout->removeWidget(m_navigationContainer);
+
+        // Needed to prevent flickering when closing tabs
+        m_navigationContainer->setUpdatesEnabled(false);
+        m_navigationContainer->hide();
+
+        // Needed to prevent deleting m_navigationContainer in ~QWidget
+        m_navigationContainer->setParent(p_QupZilla);
+    }
+
     delete m_locationBar.data();
 }

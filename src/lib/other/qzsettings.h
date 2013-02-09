@@ -58,6 +58,7 @@ public:
 
     // Browser-Tabs-Settings
     Qz::NewTabPositionFlag newTabPosition;
+    bool tabsOnTop;
 };
 
 #define qzSettings Settings::staticSettings()

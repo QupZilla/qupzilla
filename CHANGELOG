@@ -5,6 +5,7 @@ Version 1.4.0
     * QtWebKit 2.3 new features - caret browsing, animated scrolling
     * added support for FTP listing files and downloading
     * added support for saving passwords of multiple users per site
+    * added support for showing tabs on top
     * asking user whether to allow site to use notifications/geolocation
     * option to set JavaScript privacy permissions
     * option to specify default search engine used in locationbar
@@ -28,6 +29,7 @@ Version 1.4.0
     * X11: fixed Ctrl+Q shortcut for DEs other than KDE and Gnome
     * windows: improved installer allows registering as default web browser
     * windows: check and set as default browser from preferences
+    * mac: fixed not working global menu after closing browser window
 
 Version 1.3.5
     * released 16 September 2012

@@ -446,7 +446,7 @@ win32 {
     SOURCES += other/registerqappassociation.cpp
 }
 
-macx {
+mac {
     HEADERS += other/macmenureceiver.h
     SOURCES += other/macmenureceiver.cpp
 }

@@ -30,6 +30,7 @@
 #include "locationbar.h"
 #include "websearchbar.h"
 #include "settings.h"
+#include "qzsettings.h"
 
 #include <QMovie>
 #include <QMenu>
@@ -111,7 +112,6 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     m_tabBar = new TabBar(p_QupZilla, this);
     setTabBar(m_tabBar);
 
-    connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
     connect(this, SIGNAL(currentChanged(int)), p_QupZilla, SLOT(refreshHistory()));
 
     connect(m_tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
@@ -429,12 +429,13 @@ void TabWidget::currentTabChanged(int index)
     WebTab* webTab = weTab(index);
     LocationBar* locBar = webTab->locationBar();
 
-    if (m_locationBars->indexOf(locBar) != -1) {
+    if (locBar && m_locationBars->indexOf(locBar) != -1) {
         m_locationBars->setCurrentWidget(locBar);
     }
 
     webTab->setCurrentTab();
     p_QupZilla->currentTabChanged();
+    showNavigationBar(p_QupZilla->navigationContainer());
 }
 
 void TabWidget::tabMoved(int before, int after)
@@ -586,6 +587,25 @@ int TabWidget::lastTabIndex() const
     return m_lastTabIndex;
 }
 
+void TabWidget::showNavigationBar(QWidget* bar)
+{
+    WebTab* tab = weTab();
+
+    if (tab) {
+        tab->showNavigationBar(bar);
+    }
+}
+
+TabBar* TabWidget::getTabBar() const
+{
+    return m_tabBar;
+}
+
+ClosedTabsManager* TabWidget::closedTabsManager() const
+{
+    return m_closedTabsManager;
+}
+
 void TabWidget::reloadAllTabs()
 {
     for (int i = 0; i < count(); i++) {
@@ -687,9 +707,24 @@ void TabWidget::clearClosedTabsList()
     m_closedTabsManager->clearList();
 }
 
-bool TabWidget::canRestoreTab()
+bool TabWidget::canRestoreTab() const
 {
     return m_closedTabsManager->isClosedTabAvailable();
+}
+
+QStackedWidget* TabWidget::locationBars() const
+{
+    return m_locationBars;
+}
+
+ToolButton* TabWidget::buttonListTabs() const
+{
+    return m_buttonListTabs;
+}
+
+AddTabButton* TabWidget::buttonAddTab() const
+{
+    return m_buttonAddTab;
 }
 
 void TabWidget::aboutToShowClosedTabsMenu()

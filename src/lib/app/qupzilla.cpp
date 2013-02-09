@@ -60,6 +60,7 @@
 #include "reloadstopbutton.h"
 #include "enhancedmenu.h"
 #include "settings.h"
+#include "qzsettings.h"
 #include "webtab.h"
 #include "speeddial.h"
 #include "qtwin.h"
@@ -289,9 +290,16 @@ void QupZilla::setupUi()
     m_navigationBar->setSplitterSizes(locationBarWidth, websearchBarWidth);
     m_bookmarksToolbar = new BookmarksToolbar(this);
 
+    m_navigationContainer = new QWidget(this);
+    QVBoxLayout* l = new QVBoxLayout(m_navigationContainer);
+    l->setContentsMargins(0, 0, 0, 0);
+    l->setSpacing(0);
+    l->addWidget(m_navigationBar);
+    l->addWidget(m_bookmarksToolbar);
+    m_navigationContainer->setLayout(l);
+
     m_mainSplitter->addWidget(m_tabWidget);
-    m_mainLayout->addWidget(m_navigationBar);
-    m_mainLayout->addWidget(m_bookmarksToolbar);
+    m_mainLayout->addWidget(m_navigationContainer);
     m_mainLayout->addWidget(m_mainSplitter);
     m_mainSplitter->setCollapsible(0, false);
 
@@ -415,6 +423,9 @@ void QupZilla::setupMenu()
 #else
     m_menuEncoding = new QMenu(0);
 #endif
+    m_actionTabsOnTop = new QAction(tr("&Tabs on Top"), MENU_RECEIVER);
+    m_actionTabsOnTop->setCheckable(true);
+    connect(m_actionTabsOnTop, SIGNAL(triggered(bool)), this, SLOT(triggerTabsOnTop(bool)));
     m_actionShowFullScreen = new QAction(tr("&Fullscreen"), MENU_RECEIVER);
     m_actionShowFullScreen->setCheckable(true);
     m_actionShowFullScreen->setShortcut(QKeySequence("F11"));
@@ -444,6 +455,8 @@ void QupZilla::setupMenu()
 #endif
     toolbarsMenu->addAction(m_actionShowToolbar);
     toolbarsMenu->addAction(m_actionShowBookmarksToolbar);
+    toolbarsMenu->addSeparator();
+    toolbarsMenu->addAction(m_actionTabsOnTop);
     QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
     m_sideBarManager->setSideBarMenu(sidebarsMenu);
 
@@ -791,6 +804,15 @@ LocationBar* QupZilla::locationBar() const
     return qobject_cast<LocationBar*>(m_tabWidget->locationBars()->currentWidget());
 }
 
+QWidget* QupZilla::navigationContainer()
+{
+    if (!qzSettings->tabsOnTop) {
+        return 0;
+    }
+
+    return m_navigationContainer;
+}
+
 void QupZilla::setWindowTitle(const QString &t)
 {
     QString title = t;
@@ -1066,6 +1088,7 @@ void QupZilla::aboutToShowViewMenu()
 
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
+    m_actionTabsOnTop->setChecked(qzSettings->tabsOnTop);
 
     m_actionPageSource->setEnabled(true);
 
@@ -1307,7 +1330,7 @@ void QupZilla::reloadByPassCache()
     weView()->triggerPageAction(QWebPage::ReloadAndBypassCache);
 }
 
-void QupZilla::loadActionUrl(QObject *obj)
+void QupZilla::loadActionUrl(QObject* obj)
 {
     if (!obj) {
         obj = sender();
@@ -1526,6 +1549,18 @@ void QupZilla::showBookmarkImport()
     b->show();
 }
 
+void QupZilla::triggerTabsOnTop(bool enable)
+{
+    if (enable) {
+        m_tabWidget->showNavigationBar(m_navigationContainer);
+    }
+    else {
+        m_mainLayout->insertWidget(0, m_navigationContainer);
+    }
+
+    qzSettings->tabsOnTop = enable;
+}
+
 void QupZilla::refreshHistory()
 {
     m_navigationBar->refreshHistory();
@@ -1610,10 +1645,11 @@ void QupZilla::webSearch()
 void QupZilla::searchOnPage()
 {
     SearchToolBar* toolBar = searchToolBar();
+    const int searchPos = qzSettings->tabsOnTop ? 1 : 2;
 
     if (!toolBar) {
         toolBar = new SearchToolBar(weView(), this);
-        m_mainLayout->insertWidget(3, toolBar);
+        m_mainLayout->insertWidget(searchPos, toolBar);
     }
 
     toolBar->focusSearchLine();
@@ -1995,9 +2031,10 @@ void QupZilla::closeEvent(QCloseEvent* event)
 SearchToolBar* QupZilla::searchToolBar()
 {
     SearchToolBar* toolBar = 0;
+    const int searchPos = qzSettings->tabsOnTop ? 1 : 2;
 
-    if (m_mainLayout->count() == 4) {
-        toolBar = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(3)->widget());
+    if (m_mainLayout->count() == searchPos + 1) {
+        toolBar = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(searchPos)->widget());
     }
 
     return toolBar;
@@ -2242,11 +2279,9 @@ bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* re
                 m_sideBar.data()->installEventFilter(this);
             }
 
-            if (m_mainLayout->count() == 4) {
-                SearchToolBar* search = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(3)->widget());
-                if (search) {
-                    search->installEventFilter(this);
-                }
+            SearchToolBar* search = searchToolBar();
+            if (search) {
+                search->installEventFilter(this);
             }
 
             if (m_webInspectorDock) {
@@ -2291,11 +2326,9 @@ void QupZilla::applyBlurToMainWindow(bool force)
     topMargin += m_bookmarksToolbar->isVisible() ? m_bookmarksToolbar->height() : 0;
     topMargin += m_tabWidget->getTabBar()->height();
 
-    if (m_mainLayout->count() == 4) {
-        SearchToolBar* search = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(3)->widget());
-        if (search) {
-            bottomMargin += search->height();
-        }
+    SearchToolBar* search = searchToolBar();
+    if (search) {
+        bottomMargin += search->height();
     }
 
     bottomMargin += statusBar()->isVisible() ? statusBar()->height() : 0;

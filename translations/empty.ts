@@ -3229,6 +3229,10 @@ Are you sure to quit QupZilla?</source>
         <source>Enable &amp;Caret Browsing</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Tabs on Top</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
