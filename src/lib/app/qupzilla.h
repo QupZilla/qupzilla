@@ -29,6 +29,7 @@ class QLabel;
 class QVBoxLayout;
 class QSplitter;
 class QWebFrame;
+class QTimer;
 
 class Menu;
 class TabWidget;
@@ -66,8 +67,11 @@ public:
     ~QupZilla();
 
     void loadSettings();
-    void showNavigationWithFullscreen();
     void saveSideBarWidth();
+
+    bool fullScreenNavigationVisible() const;
+    void showNavigationWithFullScreen();
+    void hideNavigationWithFullScreen();
 
     void currentTabChanged();
     void updateLoadingActions();
@@ -203,6 +207,8 @@ private slots:
     void restoreClosedTab(QObject* obj = 0);
     void restoreAllClosedTabs();
     void clearClosedTabsList();
+    void hideNavigationSlot();
+
 #ifdef Q_OS_WIN
     void applyBlurToMainWindow(bool force = false);
 #endif
@@ -318,12 +324,10 @@ private:
     bool m_useTabNumberShortcuts;
     bool m_useSpeedDialNumberShortcuts;
 
-    // Used for F11 FullScreen remember visibility
-    // of menubar and statusbar
+    // Used for F11 FullScreen remember visibility of menubar and statusbar
     bool m_menuBarVisible;
     bool m_statusBarVisible;
-    bool m_navigationVisible;
-    bool m_bookmarksToolBarVisible;
+    QTimer* m_hideNavigationTimer;
 
     QList<QPointer<QWidget> > m_deleteOnCloseWidgets;
 };

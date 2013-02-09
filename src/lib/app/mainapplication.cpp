@@ -752,6 +752,7 @@ void MainApplication::saveSettings()
     qIconProvider->saveIconsToDatabase();
     clearTempPath();
 
+    qzSettings->saveSettings();
     AdBlockManager::instance()->save();
     QFile::remove(currentProfilePath() + "WebpageIcons.db");
     Settings::syncSettings();

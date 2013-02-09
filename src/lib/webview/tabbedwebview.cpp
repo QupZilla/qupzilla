@@ -37,8 +37,6 @@
 #include <QWebFrame>
 #include <QContextMenuEvent>
 
-bool TabbedWebView::m_navigationVisible = false;
-
 TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     : WebView(webTab)
     , p_QupZilla(mainClass)
@@ -314,13 +312,11 @@ void TabbedWebView::getFocus(const QUrl &urla)
 void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
 {
     if (m_mouseTrack) {
-        if (m_navigationVisible) {
-            m_navigationVisible = false;
-            p_QupZilla->showNavigationWithFullscreen();
+        if (p_QupZilla->fullScreenNavigationVisible()) {
+            p_QupZilla->hideNavigationWithFullScreen();
         }
         else if (event->y() < 5) {
-            m_navigationVisible = true;
-            p_QupZilla->showNavigationWithFullscreen();
+            p_QupZilla->showNavigationWithFullScreen();
         }
     }
 

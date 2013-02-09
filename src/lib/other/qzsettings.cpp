@@ -55,7 +55,7 @@ void QzSettings::loadSettings()
 
     settings.beginGroup("Browser-Tabs-Settings");
     newTabPosition = settings.value("OpenNewTabsSelected", false).toBool() ? Qz::NT_SelectedTab : Qz::NT_NotSelectedTab;
-    tabsOnTop = settings.value("TabsOnTop", true).toBool();
+    tabsOnTop = settings.value("TabsOnTop", false).toBool();
     settings.endGroup();
 }
 

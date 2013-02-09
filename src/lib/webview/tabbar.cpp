@@ -87,14 +87,18 @@ void TabBar::loadSettings()
 
 void TabBar::updateVisibilityWithFullscreen(bool visible)
 {
+    // It is needed to save original geometry, otherwise
+    // tabbar will get 3px height in fullscreen once it was hidden
+    QTabBar::setVisible(visible);
+
     if (visible) {
+        setGeometry(m_originalGeometry);
         emit showButtons();
     }
     else {
+        m_originalGeometry = geometry();
         emit hideButtons();
     }
-
-    QTabBar::setVisible(visible);
 }
 
 void TabBar::setVisible(bool visible)
@@ -107,6 +111,7 @@ void TabBar::setVisible(bool visible)
         emit showButtons();
     }
     else {
+        m_originalGeometry = geometry();
         emit hideButtons();
     }
 
@@ -534,7 +539,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
         }
     }
 
-    //Tab Preview
+    // Tab Preview
 
     const int tab = tabAt(event->pos());
 
@@ -587,7 +592,8 @@ bool TabBar::event(QEvent* event)
 
     case QEvent::ToolTip:
         if (m_showTabPreviews) {
-            if (!m_tabPreview->isVisible()) {
+            QHelpEvent* ev = static_cast<QHelpEvent*>(event);
+            if (tabAt(ev->pos()) != -1 && !m_tabPreview->isVisible()) {
                 showTabPreview();
             }
             return true;
