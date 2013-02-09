@@ -656,7 +656,7 @@
          </property>
          <widget class="QWidget" name="tabsBehaviourPage">
           <attribute name="title">
-           <string>Tabs behavior</string>
+           <string>Tabs behaviour</string>
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
@@ -779,7 +779,7 @@
          </widget>
          <widget class="QWidget" name="addressBarBehaviourPage">
           <attribute name="title">
-           <string>Address Bar behavior</string>
+           <string>Address Bar behaviour</string>
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
