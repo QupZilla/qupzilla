@@ -1076,7 +1076,9 @@ void QupZilla::aboutToShowViewMenu()
 
 void QupZilla::aboutToHideViewMenu()
 {
+#ifndef Q_OS_MAC
     m_actionPageSource->setEnabled(false);
+#endif
 }
 
 void QupZilla::aboutToShowEditMenu()
@@ -1095,9 +1097,11 @@ void QupZilla::aboutToShowEditMenu()
 
 void QupZilla::aboutToHideEditMenu()
 {
+#ifndef Q_OS_MAC
     foreach(QAction * act, m_menuEdit->actions()) {
         act->setEnabled(false);
     }
+#endif
 
     m_menuEdit->actions().at(8)->setEnabled(true);
     m_actionPreferences->setEnabled(true);
@@ -1110,7 +1114,9 @@ void QupZilla::aboutToShowToolsMenu()
 
 void QupZilla::aboutToHideToolsMenu()
 {
+#ifndef Q_OS_MAC
     m_actionPageInfo->setEnabled(false);
+#endif
 }
 
 void QupZilla::aboutToShowEncodingMenu()

@@ -182,9 +182,6 @@ private:
 #endif
     DatabaseWriter* m_dbWriter;
     UserAgentManager* m_uaManager;
-#ifdef Q_OS_MAC
-    MacMenuReceiver* m_macMenuReceiver;
-#endif
     QList<QPointer<QupZilla> > m_mainWindows;
 
     QString m_activeProfil;
@@ -202,6 +199,9 @@ private:
 
 #ifdef Q_OS_WIN
     RegisterQAppAssociation* m_registerQAppAssociation;
+#endif
+#ifdef Q_OS_MAC
+    MacMenuReceiver* m_macMenuReceiver;
 #endif
 };
 

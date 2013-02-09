@@ -29,8 +29,8 @@
 MacMenuReceiver::MacMenuReceiver(QObject* parent)
     : QObject(parent)
     , m_macMenuBar(0)
-    , m_menuBookmarksAction(0)
     , m_bookmarksMenuChanged(true)
+    , m_menuBookmarksAction(0)
 {
 }
 
@@ -49,7 +49,7 @@ void MacMenuReceiver::setEnabledSelectedMenuActions(QMenu* menu, const QList<int
     }
 
     foreach (int index, indexList) {
-        Q_ASSERT(index < 0 || index >= menu->actions().size());
+        Q_ASSERT(index >= 0 && index < menu->actions().size());
         menu->actions().at(index)->setEnabled(true);
     }
 }
@@ -69,7 +69,7 @@ void MacMenuReceiver::setDisabledSelectedMenuActions(QMenu* menu, const QList<in
     }
 
     foreach (int index, indexList) {
-        Q_ASSERT(index < 0 || index >= menu->actions().size());
+        Q_ASSERT(index >= 0 && index < menu->actions().size());
         menu->actions().at(index)->setDisabled(true);
     }
 }
