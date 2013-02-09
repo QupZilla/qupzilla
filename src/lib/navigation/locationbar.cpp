@@ -453,10 +453,10 @@ void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton && qzSettings->selectAllOnDoubleClick) {
         selectAll();
+        return;
     }
-    else {
-        QLineEdit::mouseDoubleClickEvent(event);
-    }
+
+    QLineEdit::mouseDoubleClickEvent(event);
 }
 
 void LocationBar::mousePressEvent(QMouseEvent* event)
@@ -467,6 +467,24 @@ void LocationBar::mousePressEvent(QMouseEvent* event)
     }
 
     LineEdit::mousePressEvent(event);
+}
+
+void LocationBar::mouseReleaseEvent(QMouseEvent* event)
+{
+    // Workaround issue in QLineEdit::setDragEnabled
+    // It will incorrectly set cursor position at the end
+    // of selection when clicking into selected text
+    bool wasSelectedText = !selectedText().isEmpty();
+
+    LineEdit::mouseReleaseEvent(event);
+
+    bool isSelectedText = !selectedText().isEmpty();
+
+    if (wasSelectedText && !isSelectedText) {
+        QMouseEvent ev(QEvent::MouseButtonPress, event->pos(), event->button(),
+                       event->buttons(), event->modifiers());
+        mousePressEvent(&ev);
+    }
 }
 
 void LocationBar::keyPressEvent(QKeyEvent* event)

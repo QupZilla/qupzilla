@@ -95,6 +95,7 @@ private:
     void focusOutEvent(QFocusEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
     void dropEvent(QDropEvent* event);
