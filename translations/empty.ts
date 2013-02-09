@@ -395,10 +395,6 @@
 <context>
     <name>AutoFillWidget</name>
     <message>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Choose username to login</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1463,10 +1459,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Behavior</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1480,6 +1472,10 @@
     </message>
     <message>
         <source>Deny</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behaviour</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1854,10 +1850,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Authorization required</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Username: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1874,15 +1866,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Proxy authorization required</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>A username and password are being requested by proxy %1. </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FTP authorization required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1891,6 +1875,18 @@
     </message>
     <message>
         <source>A username and password are being requested by %1:%2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Authorisation required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP authorisation required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proxy authorisation required</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2712,14 +2708,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Tabs behavior</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Address Bar behavior</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Show loading progress in address bar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2837,6 +2825,14 @@
     </message>
     <message>
         <source>HTML5 Permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tabs behaviour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address Bar behaviour</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

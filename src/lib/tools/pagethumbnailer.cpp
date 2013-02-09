@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -92,7 +92,12 @@ void PageThumbnailer::setLoadTitle(bool load)
 
 QString PageThumbnailer::title()
 {
-    return m_title;
+    QString title = m_title.isEmpty() ? m_url.host() : m_title;
+    if (title.isEmpty()) {
+        title = m_url.toString();
+    }
+
+    return title;
 }
 
 void PageThumbnailer::setEnableFlash(bool enable)
@@ -116,7 +121,7 @@ void PageThumbnailer::createThumbnail(bool status)
         return;
     }
 
-    m_title = m_page->mainFrame()->title();
+    m_title = m_page->mainFrame()->title().trimmed();
 
     QPixmap pixmap(2 * m_size);
 
