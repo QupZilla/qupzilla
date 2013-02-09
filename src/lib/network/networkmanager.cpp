@@ -252,7 +252,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
 void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
 {
     QDialog* dialog = new QDialog(p_QupZilla);
-    dialog->setWindowTitle(tr("Authorization required"));
+    dialog->setWindowTitle(tr("Authorisation required"));
 
     QFormLayout* formLa = new QFormLayout(dialog);
 
@@ -348,7 +348,7 @@ void NetworkManager::ftpAuthentication(const QUrl &url, QAuthenticator* auth)
     }
 
     QDialog* dialog = new QDialog(mApp->getWindow());
-    dialog->setWindowTitle(tr("FTP authorization required"));
+    dialog->setWindowTitle(tr("FTP authorisation required"));
 
     QFormLayout* formLa = new QFormLayout(dialog);
 
@@ -415,7 +415,7 @@ void NetworkManager::ftpAuthentication(const QUrl &url, QAuthenticator* auth)
 void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator* auth)
 {
     QDialog* dialog = new QDialog(p_QupZilla);
-    dialog->setWindowTitle(tr("Proxy authorization required"));
+    dialog->setWindowTitle(tr("Proxy authorisation required"));
 
     QFormLayout* formLa = new QFormLayout(dialog);
 
