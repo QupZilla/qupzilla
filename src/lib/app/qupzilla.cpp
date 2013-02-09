@@ -63,6 +63,7 @@
 #include "qzsettings.h"
 #include "webtab.h"
 #include "speeddial.h"
+#include "menubar.h"
 #include "qtwin.h"
 
 #include <QKeyEvent>
@@ -332,6 +333,8 @@ void QupZilla::setupMenu()
     else {
         mApp->macMenuReceiver()->setMenuBar(new QMenuBar(0));
     }
+#else
+    setMenuBar(new MenuBar(this));
 #endif
 
     // Standard actions - needed on Mac to be placed correctly in "application" menu
@@ -449,18 +452,18 @@ void QupZilla::setupMenu()
     m_actionCaretBrowsing->setVisible(true);
 #endif
 
-    QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
+    m_toolbarsMenu = new QMenu(tr("Toolbars"));
 #ifndef Q_OS_MAC
-    toolbarsMenu->addAction(m_actionShowMenubar);
+    m_toolbarsMenu->addAction(m_actionShowMenubar);
 #endif
-    toolbarsMenu->addAction(m_actionShowToolbar);
-    toolbarsMenu->addAction(m_actionShowBookmarksToolbar);
-    toolbarsMenu->addSeparator();
-    toolbarsMenu->addAction(m_actionTabsOnTop);
+    m_toolbarsMenu->addAction(m_actionShowToolbar);
+    m_toolbarsMenu->addAction(m_actionShowBookmarksToolbar);
+    m_toolbarsMenu->addSeparator();
+    m_toolbarsMenu->addAction(m_actionTabsOnTop);
     QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
     m_sideBarManager->setSideBarMenu(sidebarsMenu);
 
-    m_menuView->addMenu(toolbarsMenu);
+    m_menuView->addMenu(m_toolbarsMenu);
     m_menuView->addMenu(sidebarsMenu);
     m_menuView->addAction(m_actionShowStatusbar);
     m_menuView->addSeparator();
@@ -565,8 +568,6 @@ void QupZilla::setupMenu()
     /************
      * Menu Bar *
      ************/
-    menuBar()->setObjectName("mainwindow-menubar");
-    menuBar()->setCursor(Qt::ArrowCursor);
     menuBar()->addMenu(m_menuFile);
     menuBar()->addMenu(m_menuEdit);
     menuBar()->addMenu(m_menuView);
@@ -574,7 +575,6 @@ void QupZilla::setupMenu()
     menuBar()->addMenu(m_menuBookmarks);
     menuBar()->addMenu(m_menuTools);
     menuBar()->addMenu(m_menuHelp);
-    menuBar()->setContextMenuPolicy(Qt::CustomContextMenu);
 
     /*****************
      * Other Actions *
@@ -804,13 +804,20 @@ LocationBar* QupZilla::locationBar() const
     return qobject_cast<LocationBar*>(m_tabWidget->locationBars()->currentWidget());
 }
 
-QWidget* QupZilla::navigationContainer()
+QWidget* QupZilla::navigationContainer() const
 {
     if (!qzSettings->tabsOnTop) {
         return 0;
     }
 
     return m_navigationContainer;
+}
+
+void QupZilla::popupToolbarsMenu(const QPoint &pos)
+{
+    aboutToShowViewMenu();
+    m_toolbarsMenu->exec(pos);
+    aboutToHideViewMenu();
 }
 
 void QupZilla::setWindowTitle(const QString &t)

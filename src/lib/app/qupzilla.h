@@ -95,12 +95,13 @@ public:
     ProgressBar* progressBar() { return m_progressBar; }
     QLabel* ipLabel() { return m_ipLabel; }
     AdBlockIcon* adBlockIcon() { return m_adblockIcon; }
-    QMenu* menuHelp() { return m_menuHelp; }
     QAction* actionRestoreTab() { return m_actionRestoreTab; }
     QAction* actionReload() { return m_actionReload; }
+    QMenu* menuHelp() { return m_menuHelp; }
     QMenu* superMenu() { return m_superMenu; }
 
-    QWidget* navigationContainer();
+    QWidget* navigationContainer() const;
+    void popupToolbarsMenu(const QPoint &pos);
 
     bool isClosing() { return m_isClosing; }
     QUrl homepageUrl() { return m_homepage; }
@@ -259,6 +260,7 @@ private:
     QMenu* m_menuTools;
     QMenu* m_menuHelp;
     QMenu* m_menuView;
+    QMenu* m_toolbarsMenu;
     Menu* m_menuBookmarks;
     Menu* m_menuHistory;
     QMenu* m_menuClosedTabs;

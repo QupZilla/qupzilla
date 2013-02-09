@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -33,6 +33,7 @@
 #include <QHBoxLayout>
 #include <QStackedWidget>
 #include <QWebHistory>
+#include <QMouseEvent>
 
 QString NavigationBar::titleForUrl(QString title, const QUrl &url)
 {
@@ -145,6 +146,9 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     m_layout->addWidget(m_supMenu);
 #endif
     m_layout->addWidget(m_exitFullscreen);
+
+    setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
 
     connect(m_menuBack, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryBackMenu()));
     connect(m_menuForward, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryNextMenu()));
@@ -268,6 +272,11 @@ void NavigationBar::clearHistory()
     QWebHistory* history = p_QupZilla->weView()->page()->history();
     history->clear();
     refreshHistory();
+}
+
+void NavigationBar::contextMenuRequested(const QPoint &pos)
+{
+    p_QupZilla->popupToolbarsMenu(mapToGlobal(pos));
 }
 
 void NavigationBar::goAtHistoryIndex()

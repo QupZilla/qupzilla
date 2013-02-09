@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -43,15 +43,15 @@ public:
     void showReloadButton();
     void showStopButton();
 
-    inline ToolButton* buttonBack() { return m_buttonBack; }
-    inline ToolButton* buttonNext() { return m_buttonNext; }
-    inline ToolButton* buttonHome() { return m_buttonHome; }
-    inline ToolButton* buttonAddTab() { return m_buttonAddTab; }
-    inline ToolButton* buttonSuperMenu() { return m_supMenu; }
-    inline ToolButton* buttonExitFullscreen() { return m_exitFullscreen; }
-    inline ReloadStopButton* buttonReloadStop() { return m_reloadStop; }
-    inline WebSearchBar* searchLine() { return m_searchLine; }
-    inline QSplitter* splitter() { return m_navigationSplitter; }
+    ToolButton* buttonBack() { return m_buttonBack; }
+    ToolButton* buttonNext() { return m_buttonNext; }
+    ToolButton* buttonHome() { return m_buttonHome; }
+    ToolButton* buttonAddTab() { return m_buttonAddTab; }
+    ToolButton* buttonSuperMenu() { return m_supMenu; }
+    ToolButton* buttonExitFullscreen() { return m_exitFullscreen; }
+    ReloadStopButton* buttonReloadStop() { return m_reloadStop; }
+    WebSearchBar* searchLine() { return m_searchLine; }
+    QSplitter* splitter() { return m_navigationSplitter; }
 
 signals:
 
@@ -71,6 +71,8 @@ private slots:
     void goAtHistoryIndexInNewTab(int index = -1);
 
     void clearHistory();
+
+    void contextMenuRequested(const QPoint &pos);
 
 private:
     QString titleForUrl(QString title, const QUrl &url);
