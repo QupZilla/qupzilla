@@ -47,7 +47,7 @@ public:
 private:
     void setEnabledSelectedMenuActions(QMenu* menu, const QList<int> indexList = QList<int>());
     void setDisabledSelectedMenuActions(QMenu* menu, const QList<int> indexList = QList<int>());
-    bool callSlot(const char *member, bool makeIfNoWindow = false,
+    bool callSlot(const char* member, bool makeIfNoWindow = false,
                   QGenericArgument val0 = QGenericArgument(0),
                   QGenericArgument val1 = QGenericArgument());
 
@@ -117,7 +117,7 @@ private slots:
     void zoomOut();
     void zoomReset();
     void fullScreen(bool make);
-    void changeEncoding(QObject *obj = 0);
+    void changeEncoding(QObject* obj = 0);
 
     void triggerCaretBrowsing();
 

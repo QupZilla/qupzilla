@@ -42,13 +42,13 @@ void MacMenuReceiver::setEnabledSelectedMenuActions(QMenu* menu, const QList<int
 
     // we mean all actions by empty list
     if (indexList.isEmpty()) {
-        foreach (QAction * act, menu->actions()) {
+        foreach(QAction * act, menu->actions()) {
             act->setEnabled(true);
         }
         return;
     }
 
-    foreach (int index, indexList) {
+    foreach(int index, indexList) {
         Q_ASSERT(index >= 0 && index < menu->actions().size());
         menu->actions().at(index)->setEnabled(true);
     }
@@ -62,19 +62,19 @@ void MacMenuReceiver::setDisabledSelectedMenuActions(QMenu* menu, const QList<in
 
     // we mean all actions by empty list
     if (indexList.isEmpty()) {
-        foreach (QAction * act, menu->actions()) {
+        foreach(QAction * act, menu->actions()) {
             act->setDisabled(true);
         }
         return;
     }
 
-    foreach (int index, indexList) {
+    foreach(int index, indexList) {
         Q_ASSERT(index >= 0 && index < menu->actions().size());
         menu->actions().at(index)->setDisabled(true);
     }
 }
 
-bool MacMenuReceiver::callSlot(const char *member, bool makeIfNoWindow, QGenericArgument val0, QGenericArgument val1)
+bool MacMenuReceiver::callSlot(const char* member, bool makeIfNoWindow, QGenericArgument val0, QGenericArgument val1)
 {
     //qDebug("MacMenuReceiver::callSlot: \'QupZilla::%s()\'", member);
 
@@ -408,7 +408,7 @@ void MacMenuReceiver::loadActionUrlInNewTab(QObject* obj)
     }
 
     if (!callSlot("loadActionUrlInNewTab", false, Q_ARG(QObject*, obj))) {
-            callSlot("loadActionUrl", true, Q_ARG(QObject*, obj));
+        callSlot("loadActionUrl", true, Q_ARG(QObject*, obj));
     }
 }
 
@@ -474,7 +474,7 @@ void MacMenuReceiver::aboutToShowViewMenu()
     QMenu* menu = qobject_cast<QMenu*>(sender());
     // 7,8,9=Zoom actions, 12=Character Encoding, 15=Fullscreen
     setEnabledSelectedMenuActions(menu, QList<int>()
-                                     << 0 << 1 << 2 << 7 << 8 << 9 << 11 << 12 << 15);
+                                  << 0 << 1 << 2 << 7 << 8 << 9 << 11 << 12 << 15);
     // for updating reload and stop actions
     if (mApp->getWindow()) {
         mApp->getWindow()->updateLoadingActions();
