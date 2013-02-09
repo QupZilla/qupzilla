@@ -641,15 +641,18 @@ int TabWidget::duplicateTab(int index)
     return id;
 }
 
-void TabWidget::restoreClosedTab()
+void TabWidget::restoreClosedTab(QObject* obj)
 {
+    if (!obj) {
+        obj = sender();
+    }
     if (!m_closedTabsManager->isClosedTabAvailable()) {
         return;
     }
 
     ClosedTabsManager::Tab tab;
 
-    QAction* action = qobject_cast<QAction*>(sender());
+    QAction* action = qobject_cast<QAction*>(obj);
     if (action && action->data().toInt() != 0) {
         tab = m_closedTabsManager->getTabAt(action->data().toInt());
     }

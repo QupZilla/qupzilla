@@ -14,10 +14,10 @@ unix:contains(DEFINES, USE_QTWEBKIT_2_3):system(pkg-config --exists hunspell) {
     LIBS += $$system(pkg-config --libs hunspell)
 }
 
-win {
+win32 {
     # QtWebKit 2.3 and Hunspell is now needed to build on Windows
     buildSpellcheck = true
-    LIBS += $PWD/../../../../bin/libhunspell.dll
+    LIBS += $$PWD/../../../../bin/libhunspell.lib
 }
 
 equals(buildSpellcheck, true) {

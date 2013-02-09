@@ -52,6 +52,9 @@ class ProxyStyle;
 class RegisterQAppAssociation;
 class HTML5PermissionsManager;
 class Speller;
+#ifdef Q_OS_MAC
+class MacMenuReceiver;
+#endif
 
 class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -123,6 +126,7 @@ public:
 #endif
 
 #ifdef Q_OS_MAC
+    MacMenuReceiver* macMenuReceiver();
     bool event(QEvent* e);
 #endif
 
@@ -178,7 +182,6 @@ private:
 #endif
     DatabaseWriter* m_dbWriter;
     UserAgentManager* m_uaManager;
-
     QList<QPointer<QupZilla> > m_mainWindows;
 
     QString m_activeProfil;
@@ -196,6 +199,9 @@ private:
 
 #ifdef Q_OS_WIN
     RegisterQAppAssociation* m_registerQAppAssociation;
+#endif
+#ifdef Q_OS_MAC
+    MacMenuReceiver* m_macMenuReceiver;
 #endif
 };
 

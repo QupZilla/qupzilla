@@ -441,9 +441,14 @@ RESOURCES += \
     LIBS += -lX11
 }
 
-win {
+win32 {
     HEADERS += other/registerqappassociation.h
     SOURCES += other/registerqappassociation.cpp
+}
+
+macx {
+    HEADERS += other/macmenureceiver.h
+    SOURCES += other/macmenureceiver.cpp
 }
 
 message(===========================================)

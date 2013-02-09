@@ -33,3 +33,6 @@ tests/modeltest
 bin/autotests
 .clang_complete
 .tx/
+bin/qupzilla.app
+.DS_Store
+*.dylib
