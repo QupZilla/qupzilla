@@ -44,6 +44,7 @@ and you have read the BUILDING information.
  * pkg-config is optional (to correctly detect versions of QtWebKit)
  * pkg-config is required for Hunspell spellcheck
  * Hunspell development package for spellcheck
+ * QtWebKit 2.3 is needed to have support for spellcheck
  
 **Windows**  
  * QtWebKit 2.3 is required

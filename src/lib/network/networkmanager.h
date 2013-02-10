@@ -58,7 +58,6 @@ public:
     void disconnectObjects();
 
 signals:
-    void wantsFocus(const QUrl &url);
     void sslDialogClosed();
 
 private slots:

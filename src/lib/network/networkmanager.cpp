@@ -21,6 +21,7 @@
 #include "networkmanagerproxy.h"
 #include "mainapplication.h"
 #include "webpage.h"
+#include "tabbedwebview.h"
 #include "pluginproxy.h"
 #include "adblockmanager.h"
 #include "networkproxyfactory.h"
@@ -300,9 +301,20 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
             pass->setText(storedPassword);
         }
     }
-    emit wantsFocus(reply->url());
 
-    //Do not save when private browsing is enabled
+    // Try to set the originating WebTab as a current tab
+    QWebFrame* frame = qobject_cast<QWebFrame*>(reply->request().originatingObject());
+    if (frame) {
+        WebPage* page = qobject_cast<WebPage*>(frame->page());
+        if (page) {
+            TabbedWebView* view = qobject_cast<TabbedWebView*>(page->view());
+            if (view) {
+                view->setAsCurrentTab();
+            }
+        }
+    }
+
+    // Do not save when private browsing is enabled
     if (mApp->isPrivateSession()) {
         save->setVisible(false);
     }

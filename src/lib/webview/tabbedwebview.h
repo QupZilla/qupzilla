@@ -58,6 +58,7 @@ signals:
 
 public slots:
     void titleChanged();
+    void setAsCurrentTab();
 
     void stop();
     void showIcon();
@@ -76,7 +77,6 @@ private slots:
     void slotLoadFinished();
     void urlChanged(const QUrl &url);
     void linkHovered(const QString &link, const QString &title, const QString &content);
-    void getFocus(const QUrl &urla);
     void setIp(const QHostInfo &info);
     void checkRss();
     void slotIconChanged();

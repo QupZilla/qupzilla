@@ -57,8 +57,6 @@ TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
 
     connect(this, SIGNAL(statusBarMessage(QString)), p_QupZilla->statusBar(), SLOT(showMessage(QString)));
 
-    connect(mApp->networkManager(), SIGNAL(wantsFocus(QUrl)), this, SLOT(getFocus(QUrl)));
-
     connect(p_QupZilla, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
 
     // Tracking mouse also on tabs created in fullscreen
@@ -302,11 +300,9 @@ void TabbedWebView::openNewTab()
     m_tabWidget->addView(QUrl());
 }
 
-void TabbedWebView::getFocus(const QUrl &urla)
+void TabbedWebView::setAsCurrentTab()
 {
-    if (urla == url()) {
-        m_tabWidget->setCurrentWidget(m_webTab);
-    }
+    m_tabWidget->setCurrentWidget(m_webTab);
 }
 
 void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
