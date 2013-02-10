@@ -262,8 +262,10 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->allowCache->setChecked(settings.value("AllowLocalCache", true).toBool());
     ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
     ui->MBlabel->setText(settings.value("LocalCacheSize", 50).toString() + " MB");
+    ui->cachePath->setText(settings.value("CachePath", QString("%1networkcache/").arg(mApp->currentProfilePath())).toString());
     connect(ui->allowCache, SIGNAL(clicked(bool)), this, SLOT(allowCacheChanged(bool)));
     connect(ui->cacheMB, SIGNAL(valueChanged(int)), this, SLOT(cacheValueChanged(int)));
+    connect(ui->changeCachePath, SIGNAL(clicked()), this, SLOT(changeCachePathClicked()));
     allowCacheChanged(ui->allowCache->isChecked());
 
     //PASSWORD MANAGER
@@ -520,6 +522,9 @@ void Preferences::allowCacheChanged(bool state)
 {
     ui->cacheFrame->setEnabled(state);
     ui->cacheMB->setEnabled(state);
+    ui->storeCacheLabel->setEnabled(state);
+    ui->cachePath->setEnabled(state);
+    ui->changeCachePath->setEnabled(state);
 }
 
 void Preferences::useActualHomepage()
@@ -534,7 +539,7 @@ void Preferences::useActualNewTab()
 
 void Preferences::chooseDownPath()
 {
-    QString userFileName = QFileDialog::getExistingDirectory(p_QupZilla, tr("Choose download location..."), QDir::homePath());
+    QString userFileName = QFileDialog::getExistingDirectory(this, tr("Choose download location..."), QDir::homePath());
     if (userFileName.isEmpty()) {
         return;
     }
@@ -548,7 +553,7 @@ void Preferences::chooseDownPath()
 
 void Preferences::chooseUserStyleClicked()
 {
-    QString file = QFileDialog::getOpenFileName(p_QupZilla, tr("Choose stylesheet location..."), QDir::homePath(), "*.css");
+    QString file = QFileDialog::getOpenFileName(this, tr("Choose stylesheet location..."), QDir::homePath(), "*.css");
     if (file.isEmpty()) {
         return;
     }
@@ -565,7 +570,7 @@ void Preferences::deleteHtml5storage()
 
 void Preferences::chooseExternalDownloadManager()
 {
-    QString path = QFileDialog::getOpenFileName(p_QupZilla, tr("Choose executable location..."), QDir::homePath());
+    QString path = QFileDialog::getOpenFileName(this, tr("Choose executable location..."), QDir::homePath());
     if (path.isEmpty()) {
         return;
     }
@@ -654,14 +659,6 @@ void Preferences::afterLaunchChanged(int value)
 void Preferences::cacheValueChanged(int value)
 {
     ui->MBlabel->setText(QString::number(value) + " MB");
-    if (value == 0) {
-        ui->allowCache->setChecked(false);
-        allowCacheChanged(false);
-    }
-    else if (!ui->allowCache->isChecked()) {
-        ui->allowCache->setChecked(true);
-        allowCacheChanged(true);
-    }
 }
 
 void Preferences::pageCacheValueChanged(int value)
@@ -687,6 +684,16 @@ void Preferences::useDifferentProxyForHttpsChanged(bool state)
 void Preferences::showTabPreviewsChanged(bool state)
 {
     ui->animatedTabPreviews->setEnabled(state);
+}
+
+void Preferences::changeCachePathClicked()
+{
+    QString path = QFileDialog::getExistingDirectory(this, tr("Choose cache path..."), ui->cachePath->text());
+    if (path.isEmpty()) {
+        return;
+    }
+
+    ui->cachePath->setText(path);
 }
 
 void Preferences::showPassManager(bool state)
@@ -905,6 +912,7 @@ void Preferences::saveSettings()
     settings.setValue("maximumCachedPages", ui->pagesInCache->value());
     settings.setValue("AllowLocalCache", ui->allowCache->isChecked());
     settings.setValue("LocalCacheSize", ui->cacheMB->value());
+    settings.setValue("CachePath", ui->cachePath->text());
     //CSS Style
     settings.setValue("userStyleSheet", ui->userStyleSheet->text());
 

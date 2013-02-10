@@ -1200,32 +1200,6 @@
           <layout class="QGridLayout" name="gridLayout_19">
            <item row="0" column="0" colspan="2">
             <layout class="QGridLayout" name="gridLayout_4">
-             <item row="0" column="0" colspan="2">
-              <widget class="QLabel" name="label_10">
-               <property name="text">
-                <string>Maximum pages in cache: </string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLabel" name="pageCacheLabel">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>20</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>1</string>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="3">
               <widget class="QFrame" name="frame_2">
                <property name="frameShape">
@@ -1260,13 +1234,6 @@
                </layout>
               </widget>
              </item>
-             <item row="1" column="0" colspan="4">
-              <widget class="QCheckBox" name="allowCache">
-               <property name="text">
-                <string>Allow storing network cache on disk</string>
-               </property>
-              </widget>
-             </item>
              <item row="2" column="1">
               <widget class="QFrame" name="cacheFrame">
                <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -1299,6 +1266,63 @@
                 <enum>Qt::Horizontal</enum>
                </property>
               </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLabel" name="pageCacheLabel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>20</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" colspan="2">
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>Maximum pages in cache: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="4">
+              <widget class="QCheckBox" name="allowCache">
+               <property name="text">
+                <string>Allow storing network cache on disk</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="storeCacheLabel">
+               <property name="text">
+                <string>Store cache in:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="3">
+              <layout class="QHBoxLayout" name="horizontalLayout_20">
+               <item>
+                <widget class="QLineEdit" name="cachePath"/>
+               </item>
+               <item>
+                <widget class="QToolButton" name="changeCachePath">
+                 <property name="text">
+                  <string>...</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
             </layout>
            </item>

@@ -2824,6 +2824,14 @@
         <source>Address Bar behaviour</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Store cache in:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose cache path...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

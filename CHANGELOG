@@ -14,6 +14,7 @@ Version 1.4.0
     * option to hide reload/stop buttons in navigationbar
     * option to disable alt/ctrl + numbers shortcuts
     * option to switch to tab from locationbar popup completer
+    * option to set where to store network cache
     * use .qupzilla/tmp instead of /tmp for temporary data
     * saving passwords should now work for much more sites
     * don't steal Ctrl+B/U/I shortcuts from page

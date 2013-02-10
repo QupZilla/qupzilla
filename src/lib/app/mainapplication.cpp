@@ -855,9 +855,13 @@ SearchEnginesManager* MainApplication::searchEnginesManager()
 QNetworkDiskCache* MainApplication::networkCache()
 {
     if (!m_networkCache) {
-        const QString &cachePath = "networkcache/" + qWebKitVersion() + "/";
+        Settings settings;
+        const QString &basePath = settings.value("Web-Browser-Settings/CachePath",
+                                  QString("%1networkcache/").arg(m_activeProfil)).toString();
+
+        const QString &cachePath = basePath + "/" + qWebKitVersion() + "/";
         m_networkCache = new QNetworkDiskCache(this);
-        m_networkCache->setCacheDirectory(m_activeProfil + cachePath);
+        m_networkCache->setCacheDirectory(cachePath);
     }
 
     return m_networkCache;

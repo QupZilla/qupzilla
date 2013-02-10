@@ -88,14 +88,14 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
 void NetworkManager::loadSettings()
 {
     Settings settings;
-    settings.beginGroup("Web-Browser-Settings");
 
-    if (settings.value("AllowLocalCache", true).toBool() && !mApp->isPrivateSession()) {
+    if (settings.value("Web-Browser-Settings/AllowLocalCache", true).toBool() && !mApp->isPrivateSession()) {
         QNetworkDiskCache* cache = mApp->networkCache();
         cache->setMaximumCacheSize(settings.value("MaximumCacheSize", 50).toInt() * 1024 * 1024); //MegaBytes
         setCache(cache);
     }
 
+    settings.beginGroup("Web-Browser-Settings");
     m_doNotTrack = settings.value("DoNotTrack", false).toBool();
     m_sendReferer = settings.value("SendReferer", true).toBool();
     settings.endGroup();

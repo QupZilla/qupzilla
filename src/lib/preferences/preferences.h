@@ -73,6 +73,7 @@ private slots:
     void useExternalDownManagerChanged(bool state);
     void useDifferentProxyForHttpsChanged(bool state);
     void showTabPreviewsChanged(bool state);
+    void changeCachePathClicked();
 
     void newTabChanged(int value);
     void afterLaunchChanged(int value);
