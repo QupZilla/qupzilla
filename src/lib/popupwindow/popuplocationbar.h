@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,9 @@ class QLabel;
 
 class PopupSiteIcon;
 class PopupWebView;
+class AutoFillIcon;
+class BookmarkIcon;
+class RssIcon;
 
 class QT_QUPZILLA_EXPORT PopupLocationBar : public LineEdit
 {
@@ -42,16 +45,19 @@ public:
     void startLoading();
     void stopLoading();
 
-signals:
-
 public slots:
     void showUrl(const QUrl &url);
-    void showIcon();
+    void showSiteIcon();
+    void showRSSIcon(bool state);
 
 private:
     PopupWebView* m_view;
-    PopupSiteIcon* m_siteIcon;
     QLabel* m_loadingAnimation;
+
+    PopupSiteIcon* m_siteIcon;
+    AutoFillIcon* m_autofillIcon;
+    BookmarkIcon* m_bookmarkIcon;
+    RssIcon* m_rssIcon;
 };
 
 #endif // POPUPLOCATIONBAR_H

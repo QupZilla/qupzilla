@@ -114,7 +114,7 @@ PopupWindow::PopupWindow(PopupWebView* view)
     connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
     connect(m_view, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
     connect(m_view, SIGNAL(urlChanged(QUrl)), m_locationBar, SLOT(showUrl(QUrl)));
-    connect(m_view, SIGNAL(iconChanged()), m_locationBar, SLOT(showIcon()));
+    connect(m_view, SIGNAL(iconChanged()), m_locationBar, SLOT(showSiteIcon()));
     connect(m_view, SIGNAL(statusBarMessage(QString)), this, SLOT(showStatusBarMessage(QString)));
     connect(m_view, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
     connect(m_view, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
@@ -154,11 +154,11 @@ PopupWebView* PopupWindow::webView()
 
 void PopupWindow::showNotification(QWidget* notif)
 {
-    if (m_layout->count() > 3) {
-        delete m_layout->itemAt(1)->widget();
+    if (m_layout->count() > 4) {
+        delete m_layout->itemAt(2)->widget();
     }
 
-    m_layout->insertWidget(1, notif);
+    m_layout->insertWidget(2, notif);
     notif->show();
 }
 
