@@ -255,6 +255,7 @@ void PopupWindow::searchOnPage()
 {
     if (!m_search) {
         m_search = new SearchToolBar(m_view, this);
+        m_search.data()->showMinimalInPopupWindow();
         m_layout->insertWidget(m_layout->count() - 1, m_search);
     }
 

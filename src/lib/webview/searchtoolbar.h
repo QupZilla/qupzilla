@@ -41,6 +41,7 @@ public:
     ~SearchToolBar();
 
     void setWebView(WebView* view);
+    void showMinimalInPopupWindow();
 
     void focusSearchLine();
     bool eventFilter(QObject* obj, QEvent* event);
