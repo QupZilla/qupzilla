@@ -67,6 +67,7 @@ private slots:
     void editSelectAll();
 
     void aboutToShowEditMenu();
+    void aboutToHideEditMenu();
 
     void savePageScreen();
     void searchOnPage();
