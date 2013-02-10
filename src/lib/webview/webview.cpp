@@ -59,6 +59,8 @@ WebView::WebView(QWidget* parent)
     , m_actionsInitialized(false)
     , m_disableTouchMocking(false)
     , m_isReloading(false)
+    , m_hasRss(false)
+    , m_rssChecked(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
@@ -218,6 +220,11 @@ void WebView::fakeLoadingProgress(int progress)
     emit loadProgress(progress);
 }
 
+bool WebView::hasRss() const
+{
+    return m_hasRss;
+}
+
 bool WebView::isUrlValid(const QUrl &url)
 {
     const QString &urlScheme = url.scheme();
@@ -359,11 +366,18 @@ void WebView::slotLoadStarted()
         m_actionStop->setEnabled(true);
         m_actionReload->setEnabled(false);
     }
+
+    m_rssChecked = false;
+    emit rssChanged(false);
 }
 
 void WebView::slotLoadProgress(int progress)
 {
     m_progress = progress;
+
+    if (m_progress > 60) {
+        checkRss();
+    }
 }
 
 void WebView::slotLoadFinished()
@@ -393,6 +407,20 @@ void WebView::frameStateChanged()
 void WebView::emitChangedUrl()
 {
     emit urlChanged(url());
+}
+
+void WebView::checkRss()
+{
+    if (m_rssChecked) {
+        return;
+    }
+
+    m_rssChecked = true;
+    QWebFrame* frame = page()->mainFrame();
+    const QWebElementCollection &links = frame->findAllElements("link[type=\"application/rss+xml\"]");
+
+    m_hasRss = links.count() != 0;
+    emit rssChanged(m_hasRss);
 }
 
 void WebView::slotIconChanged()

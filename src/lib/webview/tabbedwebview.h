@@ -43,9 +43,7 @@ public:
     TabWidget* tabWidget() const;
 
     QString getIp() const;
-
     int tabIndex() const;
-    bool hasRss() { return m_hasRss; }
 
     QWidget* overlayForJsAlert();
     void disconnectObjects();
@@ -53,7 +51,6 @@ public:
 signals:
     void wantsCloseTab(int);
     void ipChanged(QString);
-    void rssChanged(bool);
     void changed();
 
 public slots:
@@ -78,7 +75,6 @@ private slots:
     void urlChanged(const QUrl &url);
     void linkHovered(const QString &link, const QString &title, const QString &content);
     void setIp(const QHostInfo &info);
-    void checkRss();
     void slotIconChanged();
 
     void inspectElement();
@@ -98,8 +94,6 @@ private:
     Menu* m_menu;
 
     bool m_mouseTrack;
-    bool m_hasRss;
-    bool m_rssChecked;
 
 };
 

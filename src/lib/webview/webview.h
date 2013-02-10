@@ -46,6 +46,8 @@ public:
     int loadingProgress() const;
     void fakeLoadingProgress(int progress);
 
+    bool hasRss() const;
+
     void addNotification(QWidget* notif);
     bool eventFilter(QObject* obj, QEvent* event);
 
@@ -59,6 +61,7 @@ signals:
     void viewportResized(QSize);
     void showNotification(QWidget*);
     void privacyChanged(bool);
+    void rssChanged(bool);
 
 public slots:
     void zoomIn();
@@ -150,6 +153,7 @@ private slots:
     void muteMedia();
     void frameStateChanged();
     void emitChangedUrl();
+    void checkRss();
 
 private:
     QList<int> m_zoomLevels;
@@ -174,6 +178,9 @@ private:
 
     bool m_disableTouchMocking;
     bool m_isReloading;
+
+    bool m_hasRss;
+    bool m_rssChecked;
 };
 
 #endif // WEBVIEW_H

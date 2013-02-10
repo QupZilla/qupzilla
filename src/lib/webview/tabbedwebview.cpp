@@ -44,8 +44,6 @@ TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     , m_webTab(webTab)
     , m_menu(new Menu(this))
     , m_mouseTrack(false)
-    , m_hasRss(false)
-    , m_rssChecked(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
@@ -128,9 +126,7 @@ void TabbedWebView::urlChanged(const QUrl &url)
 
 void TabbedWebView::loadProgress(int prog)
 {
-    if (prog > 60) {
-        checkRss();
-    }
+    Q_UNUSED(prog)
 
     if (isCurrent()) {
         p_QupZilla->updateLoadingActions();
@@ -147,9 +143,6 @@ void TabbedWebView::userLoadAction(const QUrl &url)
 
 void TabbedWebView::slotLoadStarted()
 {
-    m_rssChecked = false;
-    emit rssChanged(false);
-
     m_tabWidget->startTabAnimation(tabIndex());
 
     if (title().isNull()) {
@@ -237,20 +230,6 @@ QWidget* TabbedWebView::overlayForJsAlert()
 void TabbedWebView::closeView()
 {
     emit wantsCloseTab(tabIndex());
-}
-
-void TabbedWebView::checkRss()
-{
-    if (m_rssChecked) {
-        return;
-    }
-
-    m_rssChecked = true;
-    QWebFrame* frame = page()->mainFrame();
-    const QWebElementCollection &links = frame->findAllElements("link[type=\"application/rss+xml\"]");
-
-    m_hasRss = links.count() != 0;
-    emit rssChanged(m_hasRss);
 }
 
 void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
