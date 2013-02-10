@@ -50,7 +50,6 @@ void QzSettings::loadSettings()
     allowJsHideMenuBar = settings.value("allowJavaScriptHideMenuBar", true).toBool();
     allowJsHideStatusBar = settings.value("allowJavaScriptHideStatusBar", true).toBool();
     allowJsHideToolBar = settings.value("allowJavaScriptHideToolBar", true).toBool();
-    allowJsDisableContextMenu = settings.value("allowJavaScriptDisableContextMenu", true).toBool();
     settings.endGroup();
 
     settings.beginGroup("Browser-Tabs-Settings");

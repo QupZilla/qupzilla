@@ -704,21 +704,6 @@ void WebView::showClickedFrameSource()
     showSource(m_clickedFrame);
 }
 
-bool WebView::event(QEvent* event)
-{
-    if (event->type() == QEvent::ContextMenu && !qzSettings->allowJsDisableContextMenu) {
-        QContextMenuEvent* ev = static_cast<QContextMenuEvent*>(event);
-        const QWebHitTestResult &hitTest = page()->mainFrame()->hitTestContent(ev->pos());
-
-        if (!hitTest.isContentEditable()) {
-            contextMenuEvent(ev);
-            return true;
-        }
-    }
-
-    return QWebView::event(event);
-}
-
 void WebView::printPage(QWebFrame* frame)
 {
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);

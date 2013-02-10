@@ -51,7 +51,6 @@ public:
     bool allowJsHideMenuBar;
     bool allowJsHideStatusBar;
     bool allowJsHideToolBar;
-    bool allowJsDisableContextMenu;
 
     QStringList autoOpenProtocols;
     QStringList blockedProtocols;

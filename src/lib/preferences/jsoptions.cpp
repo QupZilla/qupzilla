@@ -39,7 +39,6 @@ JsOptions::JsOptions(QWidget* parent)
     ui->jscanHideMenu->setChecked(settings.value("allowJavaScriptHideMenuBar", true).toBool());
     ui->jscanHideStatus->setChecked(settings.value("allowJavaScriptHideStatusBar", true).toBool());
     ui->jscanHideTool->setChecked(settings.value("allowJavaScriptHideToolBar", true).toBool());
-    ui->jscanDisableContextMenu->setChecked(settings.value("allowJavaScriptDisableContextMenu", true).toBool());
     ui->jscanAccessClipboard->setChecked(settings.value("allowJavaScriptAccessClipboard", false).toBool());
     settings.endGroup();
 
@@ -60,7 +59,6 @@ void JsOptions::accept()
     settings.setValue("allowJavaScriptHideMenuBar", ui->jscanHideMenu->isChecked());
     settings.setValue("allowJavaScriptHideStatusBar", ui->jscanHideStatus->isChecked());
     settings.setValue("allowJavaScriptHideToolBar", ui->jscanHideTool->isChecked());
-    settings.setValue("allowJavaScriptDisableContextMenu", ui->jscanDisableContextMenu->isChecked());
     settings.setValue("allowJavaScriptAccessClipboard", ui->jscanAccessClipboard->isChecked());
     settings.endGroup();
 
