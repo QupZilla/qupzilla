@@ -22,13 +22,15 @@
 #include <QStringList>
 #include <QFile>
 
+#include "qz_namespace.h"
+
 class QTextCodec;
 class Hunspell;
 
 class QMenu;
 class QWebHitTestResult;
 
-class Speller : public QObject
+class QT_QUPZILLA_EXPORT Speller : public QObject
 {
     Q_OBJECT
 

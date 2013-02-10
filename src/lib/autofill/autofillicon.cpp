@@ -16,13 +16,14 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "autofillicon.h"
+#include "autofillwidget.h"
 
 AutoFillIcon::AutoFillIcon(QWidget* parent)
     : ClickableLabel(parent)
 {
     setObjectName("locationbar-autofillicon");
     setCursor(Qt::PointingHandCursor);
-    setToolTip(tr("Choose username to login"));
+    setToolTip(AutoFillWidget::tr("Choose username to login"));
     setFocusPolicy(Qt::ClickFocus);
 }
 

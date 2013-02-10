@@ -334,7 +334,7 @@ void Speller::populateLanguagesMenu()
     }
 
     if (menu->isEmpty()) {
-        QAction* act = menu->addAction(tr("Empty"));
+        QAction* act = menu->addAction(tr("No suggestions"));
         act->setEnabled(false);
     }
 

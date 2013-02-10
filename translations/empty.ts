@@ -248,13 +248,6 @@
     </message>
 </context>
 <context>
-    <name>AutoFillIcon</name>
-    <message>
-        <source>Choose username to login</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>AutoFillManager</name>
     <message>
         <source>Passwords</source>
@@ -4319,10 +4312,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Add to dictionary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

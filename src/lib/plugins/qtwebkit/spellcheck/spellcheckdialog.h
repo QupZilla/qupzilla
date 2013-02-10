@@ -20,12 +20,14 @@
 
 #include <QDialog>
 
+#include "qz_namespace.h"
+
 namespace Ui
 {
 class SpellCheckDialog;
 }
 
-class SpellCheckDialog : public QDialog
+class QT_QUPZILLA_EXPORT SpellCheckDialog : public QDialog
 {
     Q_OBJECT
 
