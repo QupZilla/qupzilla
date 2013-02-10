@@ -1726,10 +1726,6 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <source>Add RSS from this page...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Enter URL address or search on %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3740,6 +3736,13 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <source>There are some problems. Please, reinstall QupZilla.
 Maybe relaunch with administrator right do a magic for you! ;)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RssIcon</name>
+    <message>
+        <source>Add RSS from this page...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

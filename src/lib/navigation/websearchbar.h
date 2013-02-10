@@ -76,7 +76,6 @@ private:
     void focusOutEvent(QFocusEvent* e);
     void dropEvent(QDropEvent* event);
     void keyPressEvent(QKeyEvent* event);
-    void mouseReleaseEvent(QMouseEvent* event);
 
     void completeMenuWithAvailableEngines(QMenu* menu);
     void contextMenuEvent(QContextMenuEvent* event);

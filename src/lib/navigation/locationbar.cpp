@@ -21,12 +21,9 @@
 #include "rssmanager.h"
 #include "mainapplication.h"
 #include "clickablelabel.h"
-#include "siteinfowidget.h"
-#include "rsswidget.h"
 #include "webpage.h"
 #include "tabwidget.h"
 #include "bookmarkicon.h"
-#include "bookmarkswidget.h"
 #include "progressbar.h"
 #include "statusbarmessage.h"
 #include "toolbutton.h"
@@ -40,13 +37,13 @@
 #include "qzsettings.h"
 #include "colors.h"
 #include "autofillicon.h"
-#include "autofillwidget.h"
 
 #include <QMimeData>
 #include <QClipboard>
 #include <QTimer>
 #include <QContextMenuEvent>
-#include <QDebug>
+#include <QAction>
+#include <QMenu>
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit(mainClass)
@@ -65,8 +62,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     m_bookmarkIcon = new BookmarkIcon(this);
     m_goIcon = new GoIcon(this);
     m_rssIcon = new RssIcon(this);
-    m_rssIcon->setToolTip(tr("Add RSS from this page..."));
-    m_siteIcon = new SiteIcon(this);
+    m_siteIcon = new SiteIcon(p_QupZilla, this);
     m_autofillIcon = new AutoFillIcon(this);
     DownIcon* down = new DownIcon(this);
 
@@ -88,11 +84,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     connect(&m_completer, SIGNAL(completionActivated()), this, SLOT(urlEnter()));
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
-    connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
-    connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
-    connect(m_bookmarkIcon, SIGNAL(clicked(QPoint)), this, SLOT(bookmarkIconClicked()));
-    connect(m_autofillIcon, SIGNAL(clicked(QPoint)), this, SLOT(autofillIconClicked()));
     connect(down, SIGNAL(clicked(QPoint)), this, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp->searchEnginesManager(), SIGNAL(defaultEngineChanged()), this, SLOT(updatePlaceHolderText()));
@@ -112,6 +104,11 @@ LocationBar::LocationBar(QupZilla* mainClass)
 void LocationBar::setWebView(TabbedWebView* view)
 {
     m_webView = view;
+
+    m_bookmarkIcon->setWebView(m_webView);
+    m_rssIcon->setWebView(m_webView);
+    m_siteIcon->setWebView(m_webView);
+    m_autofillIcon->setWebView(m_webView);
 
     connect(m_webView, SIGNAL(loadStarted()), SLOT(onLoadStarted()));
     connect(m_webView, SIGNAL(loadProgress(int)), SLOT(onLoadProgress(int)));
@@ -232,37 +229,6 @@ void LocationBar::hideGoButton()
 void LocationBar::showMostVisited()
 {
     m_completer.complete(QString());
-}
-
-void LocationBar::showSiteInfo()
-{
-    QUrl url = p_QupZilla->weView()->url();
-
-    if (url.isEmpty() || url.scheme() == QLatin1String("qupzilla")) {
-        return;
-    }
-
-    SiteInfoWidget* info = new SiteInfoWidget(p_QupZilla);
-    info->showAt(this);
-}
-
-void LocationBar::rssIconClicked()
-{
-    RSSWidget* rss = new RSSWidget(m_webView, this);
-    rss->showAt(this);
-}
-
-void LocationBar::bookmarkIconClicked()
-{
-    BookmarksWidget* bWidget = new BookmarksWidget(m_webView, this);
-    bWidget->showAt(this);
-}
-
-void LocationBar::autofillIconClicked()
-{
-    AutoFillWidget* widget = new AutoFillWidget(m_webView, this);
-    widget->setFormData(m_autofillIcon->formData());
-    widget->showAt(this);
 }
 
 void LocationBar::showRSSIcon(bool state)
@@ -467,24 +433,6 @@ void LocationBar::mousePressEvent(QMouseEvent* event)
     }
 
     LineEdit::mousePressEvent(event);
-}
-
-void LocationBar::mouseReleaseEvent(QMouseEvent* event)
-{
-    // Workaround issue in QLineEdit::setDragEnabled
-    // It will incorrectly set cursor position at the end
-    // of selection when clicking into selected text
-    bool wasSelectedText = !selectedText().isEmpty();
-
-    LineEdit::mouseReleaseEvent(event);
-
-    bool isSelectedText = !selectedText().isEmpty();
-
-    if (wasSelectedText && !isSelectedText) {
-        QMouseEvent ev(QEvent::MouseButtonPress, event->pos(), event->button(),
-                       event->buttons(), event->modifiers());
-        mousePressEvent(&ev);
-    }
 }
 
 void LocationBar::keyPressEvent(QKeyEvent* event)

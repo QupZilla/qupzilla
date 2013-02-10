@@ -387,21 +387,3 @@ void WebSearchBar::keyPressEvent(QKeyEvent* event)
 
     LineEdit::keyPressEvent(event);
 }
-
-void WebSearchBar::mouseReleaseEvent(QMouseEvent* event)
-{
-    // Workaround issue in QLineEdit::setDragEnabled
-    // It will incorrectly set cursor position at the end
-    // of selection when clicking into selected text
-    bool wasSelectedText = !selectedText().isEmpty();
-
-    LineEdit::mouseReleaseEvent(event);
-
-    bool isSelectedText = !selectedText().isEmpty();
-
-    if (wasSelectedText && !isSelectedText) {
-        QMouseEvent ev(QEvent::MouseButtonPress, event->pos(), event->button(),
-                       event->buttons(), event->modifiers());
-        mousePressEvent(&ev);
-    }
-}

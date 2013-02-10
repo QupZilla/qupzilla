@@ -25,18 +25,23 @@
 #include "qz_namespace.h"
 
 class SpeedDial;
+class WebView;
 
 class QT_QUPZILLA_EXPORT BookmarkIcon : public ClickableLabel
 {
     Q_OBJECT
 public:
     explicit BookmarkIcon(QWidget* parent = 0);
+
+    void setWebView(WebView* view);
     void checkBookmark(const QUrl &url, bool forceCheck = false);
 
 private slots:
     void bookmarkAdded(const BookmarksModel::Bookmark &bookmark);
     void bookmarkDeleted(const BookmarksModel::Bookmark &bookmark);
     void speedDialChanged();
+
+    void iconClicked();
 
 private:
     void contextMenuEvent(QContextMenuEvent* ev);
@@ -47,6 +52,7 @@ private:
 
     BookmarksModel* m_bookmarksModel;
     SpeedDial* m_speedDial;
+    WebView* m_view;
 
     QUrl m_lastUrl;
 

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,18 +22,29 @@
 #include "toolbutton.h"
 
 class LocationBar;
+class WebView;
+class QupZilla;
 
 class QT_QUPZILLA_EXPORT SiteIcon : public ToolButton
 {
+    Q_OBJECT
+
 public:
-    explicit SiteIcon(LocationBar* parent);
+    explicit SiteIcon(QupZilla* window, LocationBar* parent);
+
+    void setWebView(WebView* view);
+
+private slots:
+    void iconClicked();
 
 private:
     void contextMenuEvent(QContextMenuEvent* e);
     void mousePressEvent(QMouseEvent* e);
     void mouseMoveEvent(QMouseEvent* e);
 
+    QupZilla* p_QupZilla;
     LocationBar* m_locationBar;
+    WebView* m_view;
 
     QPoint m_dragStartPosition;
 };

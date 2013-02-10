@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "siteicon.h"
+#include "siteinfowidget.h"
 #include "locationbar.h"
 #include "tabbedwebview.h"
 #include "qztools.h"
@@ -25,15 +26,40 @@
 #include <QApplication>
 #include <QContextMenuEvent>
 
-SiteIcon::SiteIcon(LocationBar* parent)
+SiteIcon::SiteIcon(QupZilla* window, LocationBar* parent)
     : ToolButton(parent)
+    , p_QupZilla(window)
     , m_locationBar(parent)
+    , m_view(0)
 {
     setObjectName("locationbar-siteicon");
     setToolButtonStyle(Qt::ToolButtonIconOnly);
     setCursor(Qt::ArrowCursor);
     setToolTip(LocationBar::tr("Show information about this page"));
     setFocusPolicy(Qt::ClickFocus);
+
+    connect(this, SIGNAL(clicked()), this, SLOT(iconClicked()));
+}
+
+void SiteIcon::setWebView(WebView* view)
+{
+    m_view = view;
+}
+
+void SiteIcon::iconClicked()
+{
+    if (!m_view || !p_QupZilla) {
+        return;
+    }
+
+    QUrl url = m_view->url();
+
+    if (url.isEmpty() || url.scheme() == QLatin1String("qupzilla")) {
+        return;
+    }
+
+    SiteInfoWidget* info = new SiteInfoWidget(p_QupZilla);
+    info->showAt(parentWidget());
 }
 
 void SiteIcon::contextMenuEvent(QContextMenuEvent* e)

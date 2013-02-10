@@ -1,3 +1,20 @@
+/* ============================================================
+* QupZilla - WebKit based browser
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+* ============================================================ */
 #include "lineedit.h"
 
 #include <QEvent>
@@ -47,11 +64,11 @@ void LineEdit::setLeftMargin(int margin)
 
 void LineEdit::init()
 {
-    ////we use setTextMargins() instead of padding property, and we should
-    //// uncomment following line or just update padding property of LineEdit's
-    //// subclasses in all themes and use same value for padding-left and padding-right,
-    //// with this new implementation padding-left and padding-right show padding from
-    //// edges of m_leftWidget and m_rightWidget.
+    // We use setTextMargins() instead of padding property, and we should
+    // uncomment following line or just update padding property of LineEdit's
+    // subclasses in all themes and use same value for padding-left and padding-right,
+    // with this new implementation padding-left and padding-right show padding from
+    // edges of m_leftWidget and m_rightWidget.
 
     mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -180,7 +197,31 @@ void LineEdit::updateTextMargins()
     int top = 0;
     int bottom = 0;
     setTextMargins(left, top, right, bottom);
-//    updateSideWidgetLocations();
+    //    updateSideWidgetLocations();
+}
+
+void LineEdit::mouseReleaseEvent(QMouseEvent* event)
+{
+    // Workaround issue in QLineEdit::setDragEnabled(true)
+    // It will incorrectly set cursor position at the end
+    // of selection when clicking (and not dragging) into selected text
+
+    if (!dragEnabled()) {
+        QLineEdit::mouseReleaseEvent(event);
+        return;
+    }
+
+    bool wasSelectedText = !selectedText().isEmpty();
+
+    QLineEdit::mouseReleaseEvent(event);
+
+    bool isSelectedText = !selectedText().isEmpty();
+
+    if (wasSelectedText && !isSelectedText) {
+        QMouseEvent ev(QEvent::MouseButtonPress, event->pos(), event->button(),
+                       event->buttons(), event->modifiers());
+        mousePressEvent(&ev);
+    }
 }
 
 //void LineEdit::updateSideWidgetLocations()

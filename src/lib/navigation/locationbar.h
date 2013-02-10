@@ -57,21 +57,18 @@ public slots:
     void setText(const QString &text);
 
 protected:
-    virtual void paintEvent(QPaintEvent* event);
+    void paintEvent(QPaintEvent* event);
 
 private slots:
+    void showMostVisited();
+    void textEdit();
+    void urlEnter();
+    void pasteAndGo();
+
+    void clearIcon();
     void siteIconChanged();
     void setPrivacy(bool state);
-    void textEdit();
-    void showMostVisited();
-    void showSiteInfo();
-    void rssIconClicked();
-    void bookmarkIconClicked();
-    void autofillIconClicked();
-    void urlEnter();
-    void clearIcon();
     void showRSSIcon(bool state);
-    void pasteAndGo();
 
     void updatePlaceHolderText();
     void showCompletion(const QString &newText);
@@ -95,7 +92,6 @@ private:
     void focusOutEvent(QFocusEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
-    void mouseReleaseEvent(QMouseEvent* event);
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
     void dropEvent(QDropEvent* event);

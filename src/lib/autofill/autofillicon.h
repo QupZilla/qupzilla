@@ -22,17 +22,27 @@
 #include "clickablelabel.h"
 #include "autofill.h"
 
-struct AutoFillData;
+class WebView;
 
 class QT_QUPZILLA_EXPORT AutoFillIcon : public ClickableLabel
 {
+    Q_OBJECT
+
 public:
     explicit AutoFillIcon(QWidget* parent = 0);
 
+    void setWebView(WebView* view);
     void setFormData(const QList<AutoFillData> &data);
-    QList<AutoFillData> formData() const;
+
+private slots:
+    void iconClicked();
 
 private:
+    void contextMenuEvent(QContextMenuEvent* ev);
+    void mousePressEvent(QMouseEvent* ev);
+
+    WebView* m_view;
+
     QList<AutoFillData> m_data;
 
 };

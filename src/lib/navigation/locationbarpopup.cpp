@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  Franz Fellner <alpine.art.de@googlemail.com>
+* Copyright (C) 2010-2013  Franz Fellner <alpine.art.de@googlemail.com>
 *                          David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -16,9 +16,9 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include <QLayout>
-
 #include "locationbarpopup.h"
+
+#include <QLayout>
 
 LocationBarPopup::LocationBarPopup(QWidget* parent)
     : QFrame(parent, Qt::Popup)
@@ -32,6 +32,11 @@ LocationBarPopup::LocationBarPopup(QWidget* parent)
 
 void LocationBarPopup::showAt(QWidget* parent)
 {
+    if (!parent) {
+        return;
+    }
+
+    // Calculate sizes before showing
     layout()->invalidate();
     layout()->activate();
 
@@ -45,4 +50,14 @@ void LocationBarPopup::showAt(QWidget* parent)
     move(p);
 
     QFrame::show();
+}
+
+void LocationBarPopup::setPopupAlignment(Qt::Alignment alignment)
+{
+    m_alignment = alignment;
+}
+
+Qt::Alignment LocationBarPopup::popupAlignment() const
+{
+    return m_alignment;
 }

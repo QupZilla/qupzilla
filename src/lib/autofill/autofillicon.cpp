@@ -18,13 +18,23 @@
 #include "autofillicon.h"
 #include "autofillwidget.h"
 
+#include <QContextMenuEvent>
+
 AutoFillIcon::AutoFillIcon(QWidget* parent)
     : ClickableLabel(parent)
+    , m_view(0)
 {
     setObjectName("locationbar-autofillicon");
     setCursor(Qt::PointingHandCursor);
     setToolTip(AutoFillWidget::tr("Choose username to login"));
     setFocusPolicy(Qt::ClickFocus);
+
+    connect(this, SIGNAL(clicked(QPoint)), this, SLOT(iconClicked()));
+}
+
+void AutoFillIcon::setWebView(WebView* view)
+{
+    m_view = view;
 }
 
 void AutoFillIcon::setFormData(const QList<AutoFillData> &data)
@@ -32,7 +42,27 @@ void AutoFillIcon::setFormData(const QList<AutoFillData> &data)
     m_data = data;
 }
 
-QList<AutoFillData> AutoFillIcon::formData() const
+void AutoFillIcon::iconClicked()
 {
-    return m_data;
+    if (!m_view) {
+        return;
+    }
+
+    AutoFillWidget* widget = new AutoFillWidget(m_view, this);
+    widget->setFormData(m_data);
+    widget->showAt(parentWidget());
+}
+
+void AutoFillIcon::contextMenuEvent(QContextMenuEvent* ev)
+{
+    // Prevent propagating to LocationBar
+    ev->accept();
+}
+
+void AutoFillIcon::mousePressEvent(QMouseEvent* ev)
+{
+    ClickableLabel::mousePressEvent(ev);
+
+    // Prevent propagating to LocationBar
+    ev->accept();
 }

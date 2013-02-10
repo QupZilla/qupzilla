@@ -16,10 +16,11 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "bookmarkicon.h"
+#include "bookmarksmodel.h"
+#include "bookmarkswidget.h"
 #include "mainapplication.h"
 #include "tabbedwebview.h"
 #include "locationbar.h"
-#include "bookmarksmodel.h"
 #include "pluginproxy.h"
 #include "speeddial.h"
 
@@ -30,6 +31,7 @@ BookmarkIcon::BookmarkIcon(QWidget* parent)
     : ClickableLabel(parent)
     , m_bookmarksModel(0)
     , m_speedDial(mApp->plugins()->speedDial())
+    , m_view(0)
 {
     setObjectName("locationbar-bookmarkicon");
     setCursor(Qt::PointingHandCursor);
@@ -40,6 +42,12 @@ BookmarkIcon::BookmarkIcon(QWidget* parent)
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(bookmarkAdded(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(bookmarkDeleted(BookmarksModel::Bookmark)));
     connect(m_speedDial, SIGNAL(pagesChanged()), this, SLOT(speedDialChanged()));
+    connect(this, SIGNAL(clicked(QPoint)), this, SLOT(iconClicked()));
+}
+
+void BookmarkIcon::setWebView(WebView* view)
+{
+    m_view = view;
 }
 
 void BookmarkIcon::checkBookmark(const QUrl &url, bool forceCheck)
@@ -75,6 +83,16 @@ void BookmarkIcon::bookmarkAdded(const BookmarksModel::Bookmark &bookmark)
 void BookmarkIcon::speedDialChanged()
 {
     checkBookmark(m_lastUrl, true);
+}
+
+void BookmarkIcon::iconClicked()
+{
+    if (!m_view) {
+        return;
+    }
+
+    BookmarksWidget* widget = new BookmarksWidget(m_view, parentWidget());
+    widget->showAt(parentWidget());
 }
 
 void BookmarkIcon::setBookmarkSaved()
