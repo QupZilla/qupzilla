@@ -82,6 +82,7 @@ public:
     static MainApplication* getInstance() { return static_cast<MainApplication*>(QCoreApplication::instance()); }
 
     bool isClosing() const;
+    bool isRestoring() const;
     bool isPrivateSession() const;
     bool isStartingAfterCrash() const;
     int windowCount() const;

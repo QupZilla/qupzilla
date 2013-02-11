@@ -512,6 +512,11 @@ bool MainApplication::isClosing() const
     return m_isClosing;
 }
 
+bool MainApplication::isRestoring() const
+{
+    return m_isRestoring;
+}
+
 bool MainApplication::isPrivateSession() const
 {
     return m_isPrivateSession;

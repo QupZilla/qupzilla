@@ -24,6 +24,7 @@
 #include "locationbar.h"
 #include "qztools.h"
 #include "qzsettings.h"
+#include "mainapplication.h"
 
 #include <QVBoxLayout>
 #include <QWebHistory>
@@ -111,11 +112,12 @@ TabbedWebView* WebTab::view() const
 void WebTab::setCurrentTab()
 {
     if (!isRestored()) {
-        if (isVisible()) {
-            QTimer::singleShot(0, this, SLOT(slotRestore()));
+        // When session is being restored, restore the tab immediately
+        if (mApp->isRestoring()) {
+            slotRestore();
         }
         else {
-            slotRestore();
+            QTimer::singleShot(0, this, SLOT(slotRestore()));
         }
     }
 }
