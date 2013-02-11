@@ -212,7 +212,8 @@ SOURCES += \
     network/schemehandlers/ftpschemehandler.cpp \
     autofill/autofillicon.cpp \
     autofill/autofillwidget.cpp \
-    tools/menubar.cpp
+    tools/menubar.cpp \
+    navigation/navigationcontainer.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -379,7 +380,8 @@ HEADERS  += \
     network/schemehandlers/ftpschemehandler.h \
     autofill/autofillicon.h \
     autofill/autofillwidget.h \
-    tools/menubar.h
+    tools/menubar.h \
+    navigation/navigationcontainer.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

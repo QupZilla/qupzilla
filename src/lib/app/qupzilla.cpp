@@ -59,6 +59,7 @@
 #include "qztools.h"
 #include "reloadstopbutton.h"
 #include "enhancedmenu.h"
+#include "navigationcontainer.h"
 #include "settings.h"
 #include "qzsettings.h"
 #include "webtab.h"
@@ -297,7 +298,7 @@ void QupZilla::setupUi()
     m_navigationBar->setSplitterSizes(locationBarWidth, websearchBarWidth);
     m_bookmarksToolbar = new BookmarksToolbar(this);
 
-    m_navigationContainer = new QWidget(this);
+    m_navigationContainer = new NavigationContainer(this);
     QVBoxLayout* l = new QVBoxLayout(m_navigationContainer);
     l->setContentsMargins(0, 0, 0, 0);
     l->setSpacing(0);
