@@ -111,7 +111,12 @@ TabbedWebView* WebTab::view() const
 void WebTab::setCurrentTab()
 {
     if (!isRestored()) {
-        QTimer::singleShot(0, this, SLOT(slotRestore()));
+        if (isVisible()) {
+            QTimer::singleShot(0, this, SLOT(slotRestore()));
+        }
+        else {
+            slotRestore();
+        }
     }
 }
 
