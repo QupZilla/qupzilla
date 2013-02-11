@@ -30,6 +30,7 @@
 #include <QWebFrame>
 #include <QLabel>
 #include <QStyle>
+#include <QTimer>
 
 WebTab::SavedTab::SavedTab(WebTab* webTab)
 {
@@ -110,9 +111,7 @@ TabbedWebView* WebTab::view() const
 void WebTab::setCurrentTab()
 {
     if (!isRestored()) {
-        p_restoreTab(m_savedTab);
-
-        m_savedTab.clear();
+        QTimer::singleShot(0, this, SLOT(slotRestore()));
     }
 }
 
@@ -303,6 +302,12 @@ void WebTab::showNotification(QWidget* notif)
 
     m_layout->insertWidget(notifPos - 1, notif);
     notif->show();
+}
+
+void WebTab::slotRestore()
+{
+    p_restoreTab(m_savedTab);
+    m_savedTab.clear();
 }
 
 int WebTab::tabIndex() const
