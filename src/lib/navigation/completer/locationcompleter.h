@@ -36,7 +36,8 @@ public:
 
     void setLocationBar(LocationBar* locationBar);
 
-    bool isPopupVisible();
+    bool showingMostVisited() const;
+    bool isPopupVisible() const;
     void closePopup();
 
 signals:
@@ -58,6 +59,7 @@ private:
     LocationBar* m_locationBar;
     QString m_originalText;
     bool m_ignoreCurrentChangedSignal;
+    bool m_showingMostVisited;
 
     static LocationCompleterView* s_view;
     static LocationCompleterModel* s_model;

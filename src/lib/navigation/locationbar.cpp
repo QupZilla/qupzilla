@@ -85,7 +85,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
-    connect(down, SIGNAL(clicked(QPoint)), this, SLOT(showMostVisited()));
+    connect(down, SIGNAL(clicked(QPoint)), &m_completer, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp->searchEnginesManager(), SIGNAL(defaultEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp, SIGNAL(message(Qz::AppMessageType, bool)), SLOT(onMessage(Qz::AppMessageType, bool)));
@@ -224,11 +224,6 @@ void LocationBar::hideGoButton()
     m_goIcon->hide();
 
     updateTextMargins();
-}
-
-void LocationBar::showMostVisited()
-{
-    m_completer.complete(QString());
 }
 
 void LocationBar::showRSSIcon(bool state)
@@ -577,8 +572,9 @@ void LocationBar::hideProgress()
 
 void LocationBar::paintEvent(QPaintEvent* event)
 {
-    if (m_completer.isPopupVisible()) {
-        // We need to draw cursor
+    if (m_completer.isPopupVisible() && !m_completer.showingMostVisited()) {
+        // We need to draw cursor when popup is visible
+        // But don't paint it if we are just showing most visited sites
         LineEdit::paintEvent(event);
 
         QStyleOptionFrameV3 option;

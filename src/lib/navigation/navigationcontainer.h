@@ -20,7 +20,9 @@
 
 #include <QWidget>
 
-class NavigationContainer : public QWidget
+#include "qzsettings.h"
+
+class QT_QUPZILLA_EXPORT NavigationContainer : public QWidget
 {
 public:
     explicit NavigationContainer(QWidget* parent = 0);

@@ -28,6 +28,7 @@ LocationCompleter::LocationCompleter(QObject* parent)
     : QObject(parent)
     , m_locationBar(0)
     , m_ignoreCurrentChangedSignal(false)
+    , m_showingMostVisited(false)
 {
     if (!s_view) {
         s_model = new LocationCompleterModel;
@@ -43,28 +44,33 @@ void LocationCompleter::setLocationBar(LocationBar* locationBar)
     m_locationBar = locationBar;
 }
 
-bool LocationCompleter::isPopupVisible()
+bool LocationCompleter::showingMostVisited() const
+{
+    return m_showingMostVisited;
+}
+
+bool LocationCompleter::isPopupVisible() const
 {
     return s_view->isVisible();
 }
 
 void LocationCompleter::closePopup()
 {
+    m_showingMostVisited = false;
     s_view->close();
 }
 
 void LocationCompleter::complete(const QString &string)
 {
-    s_model->refreshCompletions(string);
+    m_showingMostVisited = string.isEmpty();
 
+    s_model->refreshCompletions(string);
     showPopup();
 }
 
 void LocationCompleter::showMostVisited()
 {
-    s_model->refreshCompletions(QString());
-
-    showPopup();
+    complete(QString());
 }
 
 void LocationCompleter::currentChanged(const QModelIndex &index)

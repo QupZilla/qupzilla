@@ -60,7 +60,6 @@ protected:
     void paintEvent(QPaintEvent* event);
 
 private slots:
-    void showMostVisited();
     void textEdit();
     void urlEnter();
     void pasteAndGo();
