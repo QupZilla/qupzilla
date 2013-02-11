@@ -327,6 +327,7 @@ private:
     // Used for F11 FullScreen remember visibility of menubar and statusbar
     bool m_menuBarVisible;
     bool m_statusBarVisible;
+    Qt::WindowStates m_windowStates;
     QTimer* m_hideNavigationTimer;
 
     QList<QPointer<QWidget> > m_deleteOnCloseWidgets;

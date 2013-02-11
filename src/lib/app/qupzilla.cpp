@@ -1735,7 +1735,8 @@ void QupZilla::fullScreen(bool make)
         m_menuBarVisible = menuBar()->isVisible();
         m_statusBarVisible = statusBar()->isVisible();
 
-        setWindowState(windowState() | Qt::WindowFullScreen);
+        m_windowStates = windowState();
+        showFullScreen();
 
         menuBar()->hide();
         statusBar()->hide();
@@ -1754,7 +1755,8 @@ void QupZilla::fullScreen(bool make)
 #endif
     }
     else {
-        setWindowState(windowState() & ~Qt::WindowFullScreen);
+        showNormal();
+        setWindowState(m_windowStates);
 
         menuBar()->setVisible(m_menuBarVisible);
         statusBar()->setVisible(m_statusBarVisible);
