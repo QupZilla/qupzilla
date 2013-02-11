@@ -213,7 +213,8 @@ SOURCES += \
     autofill/autofillicon.cpp \
     autofill/autofillwidget.cpp \
     tools/menubar.cpp \
-    navigation/navigationcontainer.cpp
+    navigation/navigationcontainer.cpp \
+    tools/horizontallistwidget.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -381,7 +382,8 @@ HEADERS  += \
     autofill/autofillicon.h \
     autofill/autofillwidget.h \
     tools/menubar.h \
-    navigation/navigationcontainer.h
+    navigation/navigationcontainer.h \
+    tools/horizontallistwidget.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

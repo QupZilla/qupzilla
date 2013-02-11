@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,30 +15,23 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef LISTITEMDELEGATE_H
-#define LISTITEMDELEGATE_H
+#ifndef HORIZONTALLISTWIDGET_H
+#define HORIZONTALLISTWIDGET_H
 
-#include <QStyledItemDelegate>
+#include <QListWidget>
 
-#include "qz_namespace.h"
-
-class QT_QUPZILLA_EXPORT ListItemDelegate : public QStyledItemDelegate
+class HorizontalListWidget : public QListWidget
 {
 public:
-    explicit ListItemDelegate(int iconSize, QWidget* parent);
-
-    void setUpdateParentHeight(bool update);
-    int itemHeight() const;
-
-    void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    explicit HorizontalListWidget(QWidget* parent = 0);
 
 private:
-    int m_iconSize;
-    bool m_updateParentHeight;
+    void mousePressEvent(QMouseEvent* event);
+    void mouseMoveEvent(QMouseEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
+    void wheelEvent(QWheelEvent* event);
 
-    mutable int m_itemHeight;
-    mutable int m_padding;
+    bool m_mouseDown;
 };
 
-#endif // LISTITEMDELEGATE_H
+#endif // HORIZONTALLISTWIDGET_H
