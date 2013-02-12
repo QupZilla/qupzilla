@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "updater.h"
 #include "qupzilla.h"
+#include "qztools.h"
 #include "mainapplication.h"
 #include "tabwidget.h"
 #include "desktopnotificationsfactory.h"
@@ -93,7 +94,11 @@ bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
 
 void Updater::start()
 {
-    startDownloadingUpdateInfo(QUrl(QupZilla::WWWADDRESS + "/update.php?v=" + QupZilla::VERSION));
+    QUrl url = QUrl(QString("%1/update.php?v=%2&os=%3").arg(QupZilla::WWWADDRESS,
+                    QupZilla::VERSION,
+                    QzTools::buildSystem()));
+
+    startDownloadingUpdateInfo(url);
 }
 
 void Updater::startDownloadingUpdateInfo(const QUrl &url)
