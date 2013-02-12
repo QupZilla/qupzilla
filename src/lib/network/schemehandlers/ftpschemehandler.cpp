@@ -70,7 +70,6 @@ FtpSchemeReply::FtpSchemeReply(const QNetworkRequest &request, QObject* parent)
     , m_port(21)
     , m_anonymousLoginChecked(false)
     , m_request(request)
-    , m_probablyFileForDownload("")
     , m_isGoingToDownload(false)
 {
     m_ftp = new QFtp(this);
@@ -107,7 +106,7 @@ void FtpSchemeReply::processCommand(int id, bool err)
         break;
 
     case QFtp::Login:
-        if (url().path() == "" || url().path() == "/") {
+        if (url().path().isEmpty() || url().path() == QLatin1String("/")) {
             m_ftp->list();
         }
         else {
@@ -128,7 +127,7 @@ void FtpSchemeReply::processCommand(int id, bool err)
                     break;
                 }
             }
-            m_probablyFileForDownload = "";
+            m_probablyFileForDownload.clear();
             m_isGoingToDownload = false;
             abort();
         }
@@ -224,8 +223,8 @@ void FtpSchemeReply::loadPage()
 QString FtpSchemeReply::loadDirectory()
 {
     QUrl u = url();
-    if (!u.path().endsWith("/")) {
-        u.setPath(u.path() + "/");
+    if (!u.path().endsWith(QLatin1Char('/'))) {
+        u.setPath(u.path() + QLatin1String("/"));
     }
 
     QString base_path = u.path();
@@ -277,7 +276,7 @@ QString FtpSchemeReply::loadDirectory()
         QUrl itemUrl = u.resolved(QUrl(QUrl::toPercentEncoding(item.name())));
         QString itemPath = itemUrl.path();
 
-        if (itemPath.endsWith("/")) {
+        if (itemPath.endsWith(QLatin1Char('/'))) {
             itemPath.remove(itemPath.size() - 1, 1);
         }
 
@@ -333,13 +332,13 @@ void FtpSchemeReply::ftpReplyErrorHandler(int id)
             abort();
             return;
         }
-        QStringList sections = url().path().split("/", QString::SkipEmptyParts);
+        QStringList sections = url().path().split(QLatin1Char('/'), QString::SkipEmptyParts);
         if (!sections.isEmpty()) {
             m_probablyFileForDownload = sections.takeLast();
         }
         if (!m_probablyFileForDownload.isEmpty()) {
             m_isGoingToDownload = true;
-            QString parentOfPath = "/"+sections.join("/")+"/";
+            QString parentOfPath = QString("/%1/").arg(sections.join(QLatin1String("/")));
             m_ftpCdId = m_ftp->cd(parentOfPath);
         }
         else {
