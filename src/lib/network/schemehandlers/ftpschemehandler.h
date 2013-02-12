@@ -72,13 +72,18 @@ private slots:
 
 private:
     void setContent();
+    void ftpReplyErrorHandler(int id);
+
     QFtp* m_ftp;
     QList<QUrlInfo> m_items;
     int m_ftpLoginId;
+    int m_ftpCdId;
     int m_port;
     QBuffer m_buffer;
     bool m_anonymousLoginChecked;
     QNetworkRequest m_request;
+    QString m_probablyFileForDownload;
+    bool m_isGoingToDownload;
 
 signals:
     void ftpAuthenticationRequierd(const QUrl &, QAuthenticator*);

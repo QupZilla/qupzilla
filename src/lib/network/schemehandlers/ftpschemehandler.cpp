@@ -66,9 +66,12 @@ QAuthenticator* FtpSchemeHandler::ftpAuthenticator(const QUrl &url)
 FtpSchemeReply::FtpSchemeReply(const QNetworkRequest &request, QObject* parent)
     : QNetworkReply(parent)
     , m_ftpLoginId(-1)
+    , m_ftpCdId(-1)
     , m_port(21)
     , m_anonymousLoginChecked(false)
     , m_request(request)
+    , m_probablyFileForDownload("")
+    , m_isGoingToDownload(false)
 {
     m_ftp = new QFtp(this);
     connect(m_ftp, SIGNAL(listInfo(QUrlInfo)), this, SLOT(processListInfo(QUrlInfo)));
@@ -89,22 +92,7 @@ FtpSchemeReply::FtpSchemeReply(const QNetworkRequest &request, QObject* parent)
 void FtpSchemeReply::processCommand(int id, bool err)
 {
     if (err) {
-        if (m_ftpLoginId == id) {
-            if (!m_anonymousLoginChecked) {
-                m_anonymousLoginChecked = true;
-                FTP_AUTHENTICATOR(url())->setUser(QString());
-                FTP_AUTHENTICATOR(url())->setPassword(QString());
-                m_ftpLoginId = m_ftp->login();
-                return;
-            }
-
-            emit ftpAuthenticationRequierd(url(), FTP_AUTHENTICATOR(url()));
-            m_ftpLoginId = m_ftp->login(FTP_AUTHENTICATOR(url())->user(), FTP_AUTHENTICATOR(url())->password());
-            return;
-        }
-        setError(ContentNotFoundError, tr("Unknown command"));
-        emit error(ContentNotFoundError);
-        emit finished();
+        ftpReplyErrorHandler(id);
         return;
     }
 
@@ -119,11 +107,34 @@ void FtpSchemeReply::processCommand(int id, bool err)
         break;
 
     case QFtp::Login:
-        m_ftp->list(url().path());
+        if (url().path() == "" || url().path() == "/") {
+            m_ftp->list();
+        }
+        else {
+            m_ftpCdId = m_ftp->cd(url().path());
+        }
+        break;
+
+    case QFtp::Cd:
+        m_ftp->list();
         break;
 
     case QFtp::List:
-        loadPage();
+        if (m_isGoingToDownload) {
+            foreach(const QUrlInfo & item, m_items) {
+                if (item.isFile() && item.name() == m_probablyFileForDownload) {
+                    emit downloadRequest(m_request);
+                    abort();
+                    break;
+                }
+            }
+            m_probablyFileForDownload = "";
+            m_isGoingToDownload = false;
+            abort();
+        }
+        else {
+            loadPage();
+        }
         break;
 
     case QFtp::Get:
@@ -188,21 +199,6 @@ qint64 FtpSchemeReply::readData(char* data, qint64 maxSize)
 
 void FtpSchemeReply::loadPage()
 {
-    if (m_items.size() == 1 && m_items.at(0).isFile()) {
-        QUrlInfo item = m_items.at(0);
-        if (url().path() == url().resolved(QUrl(item.name())).path()) {
-            setHeader(QNetworkRequest::ContentLengthHeader, m_buffer.bytesAvailable());
-            // the following code can be used to open known contents
-            // and download unsupported contents, but there is some problem
-            // for example: it loads PDFs as text file!
-            // m_ftp->get(url().path());
-
-            emit downloadRequest(m_request);
-            abort();
-            return;
-        }
-    }
-
     QWebSecurityOrigin::addLocalScheme("ftp");
     open(ReadOnly | Unbuffered);
     QTextStream stream(&m_buffer);
@@ -278,8 +274,9 @@ QString FtpSchemeReply::loadDirectory()
         }
 
         QString line = QLatin1String("<tr");
-        QUrl itemUrl = u.resolved(QUrl(item.name()));
+        QUrl itemUrl = u.resolved(QUrl(QUrl::toPercentEncoding(item.name())));
         QString itemPath = itemUrl.path();
+
         if (itemPath.endsWith("/")) {
             itemPath.remove(itemPath.size() - 1, 1);
         }
@@ -315,6 +312,47 @@ QString FtpSchemeReply::loadDirectory()
     return page;
 }
 
+void FtpSchemeReply::ftpReplyErrorHandler(int id)
+{
+    if (m_ftpLoginId == id) {
+        if (!m_anonymousLoginChecked) {
+            m_anonymousLoginChecked = true;
+            FTP_AUTHENTICATOR(url())->setUser(QString());
+            FTP_AUTHENTICATOR(url())->setPassword(QString());
+            m_ftpLoginId = m_ftp->login();
+            return;
+        }
+
+        emit ftpAuthenticationRequierd(url(), FTP_AUTHENTICATOR(url()));
+        m_ftpLoginId = m_ftp->login(FTP_AUTHENTICATOR(url())->user(), FTP_AUTHENTICATOR(url())->password());
+        return;
+    }
+    else if (m_ftpCdId == id) {
+        if (m_isGoingToDownload) {
+            m_isGoingToDownload = false;
+            abort();
+            return;
+        }
+        QStringList sections = url().path().split("/", QString::SkipEmptyParts);
+        if (!sections.isEmpty()) {
+            m_probablyFileForDownload = sections.takeLast();
+        }
+        if (!m_probablyFileForDownload.isEmpty()) {
+            m_isGoingToDownload = true;
+            QString parentOfPath = "/"+sections.join("/")+"/";
+            m_ftpCdId = m_ftp->cd(parentOfPath);
+        }
+        else {
+            abort();
+        }
+        return;
+    }
+    else {
+        setError(ContentNotFoundError, tr("Unknown command"));
+        emit error(ContentNotFoundError);
+        emit finished();
+    }
+}
 
 FtpDownloader::FtpDownloader(QObject* parent)
     : QFtp(parent)
