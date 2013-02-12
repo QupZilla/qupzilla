@@ -410,26 +410,6 @@ void LocationBar::focusOutEvent(QFocusEvent* event)
     }
 }
 
-void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
-{
-    if (event->button() == Qt::LeftButton && qzSettings->selectAllOnDoubleClick) {
-        selectAll();
-        return;
-    }
-
-    QLineEdit::mouseDoubleClickEvent(event);
-}
-
-void LocationBar::mousePressEvent(QMouseEvent* event)
-{
-    if (cursorPosition() == 0 && qzSettings->selectAllOnClick) {
-        selectAll();
-        return;
-    }
-
-    LineEdit::mousePressEvent(event);
-}
-
 void LocationBar::keyPressEvent(QKeyEvent* event)
 {
     switch (event->key()) {

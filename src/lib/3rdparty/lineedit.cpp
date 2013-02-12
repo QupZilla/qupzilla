@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "lineedit.h"
+#include "qzsettings.h"
 
 #include <QEvent>
 #include <QLayout>
@@ -23,7 +24,6 @@
 #include <QPainter>
 #include <QFocusEvent>
 
-#include <qdebug.h>
 SideWidget::SideWidget(QWidget* parent)
     : QWidget(parent)
 {
@@ -41,7 +41,7 @@ LineEdit::LineEdit(QWidget* parent)
     : QLineEdit(parent)
     , m_leftLayout(0)
     , m_rightLayout(0)
-    , m_leftMargin(0)
+    , m_leftMargin(-1)
 {
     init();
 }
@@ -186,18 +186,22 @@ int LineEdit::textMargin(WidgetPosition position) const
 
 void LineEdit::updateTextMargins()
 {
-    int left;
-    if (m_leftMargin == 0) {
-        left = m_leftWidget->sizeHint().width();
-    }
-    else {
-        left = m_leftMargin;
-    }
+    int left = m_leftMargin < 0 ? m_leftWidget->sizeHint().width() : m_leftMargin;
     int right = m_rightWidget->sizeHint().width();
     int top = 0;
     int bottom = 0;
     setTextMargins(left, top, right, bottom);
     //    updateSideWidgetLocations();
+}
+
+void LineEdit::mousePressEvent(QMouseEvent* event)
+{
+    if (cursorPosition() == 0 && qzSettings->selectAllOnClick) {
+        selectAll();
+        return;
+    }
+
+    QLineEdit::mousePressEvent(event);
 }
 
 void LineEdit::mouseReleaseEvent(QMouseEvent* event)
@@ -224,34 +228,12 @@ void LineEdit::mouseReleaseEvent(QMouseEvent* event)
     }
 }
 
-//void LineEdit::updateSideWidgetLocations()
-//{
-//    QStyleOptionFrameV2 opt;
-//    initStyleOption(&opt);
-//    QRect textRect = style()->subElementRect(QStyle::SE_LineEditContents, &opt, this);
-//    int spacing = m_rightLayout->spacing();
-//    textRect.adjust(spacing, 0, -spacing, 0);
+void LineEdit::mouseDoubleClickEvent(QMouseEvent* event)
+{
+    if (event->button() == Qt::LeftButton && qzSettings->selectAllOnDoubleClick) {
+        selectAll();
+        return;
+    }
 
-//    int left = textMargin(LineEdit::LeftSide);
-
-//    int midHeight = textRect.center().y() + 1;
-
-//    if (m_leftLayout->count() > 0) {
-//        int leftHeight = midHeight - m_leftWidget->height() / 2;
-//        int leftWidth = m_leftWidget->width();
-//        if (leftWidth == 0) {
-//            leftHeight = midHeight - m_leftWidget->sizeHint().height() / 2;
-//        }
-//        m_leftWidget->move(textRect.x(), leftHeight);
-//    }
-//    textRect.setX(left);
-//    textRect.setY(midHeight - m_rightWidget->sizeHint().height() / 2);
-//    textRect.setHeight(m_rightWidget->sizeHint().height());
-//    m_rightWidget->setGeometry(textRect);
-//}
-
-//void LineEdit::resizeEvent(QResizeEvent* event)
-//{
-//    updateSideWidgetLocations();
-//    QLineEdit::resizeEvent(event);
-//}
+    QLineEdit::mouseDoubleClickEvent(event);
+}
