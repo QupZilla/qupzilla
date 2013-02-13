@@ -56,6 +56,8 @@ QString QT_QUPZILLA_EXPORT fileSizeToString(qint64 size);
 QPixmap QT_QUPZILLA_EXPORT createPixmapForSite(const QIcon &icon, const QString &title, const QString &url);
 QString QT_QUPZILLA_EXPORT applyDirectionToPage(QString &pageContents);
 
+QString QT_QUPZILLA_EXPORT resolveFromPath(const QString &name);
+
 QIcon QT_QUPZILLA_EXPORT iconFromFileName(const QString &fileName);
 
 QString QT_QUPZILLA_EXPORT buildSystem();

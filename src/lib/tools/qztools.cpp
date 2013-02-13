@@ -362,6 +362,26 @@ QIcon QzTools::iconFromFileName(const QString &fileName)
     return icon;
 }
 
+QString QT_QUPZILLA_EXPORT QzTools::resolveFromPath(const QString &name)
+{
+    const QString &path = qgetenv("PATH").trimmed();
+
+    if (path.isEmpty()) {
+        return QString();
+    }
+
+    QStringList dirs = path.split(QLatin1Char(':'), QString::SkipEmptyParts);
+
+    foreach(const QString & dir, dirs) {
+        QDir d(dir);
+        if (d.exists(name)) {
+            return d.absoluteFilePath(name);
+        }
+    }
+
+    return QString();
+}
+
 // Qt5 migration help functions
 bool QzTools::isCertificateValid(const QSslCertificate &cert)
 {
