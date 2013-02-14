@@ -59,6 +59,7 @@ QString QT_QUPZILLA_EXPORT applyDirectionToPage(QString &pageContents);
 QString QT_QUPZILLA_EXPORT resolveFromPath(const QString &name);
 
 QIcon QT_QUPZILLA_EXPORT iconFromFileName(const QString &fileName);
+bool QT_QUPZILLA_EXPORT isUtf8(const char* string);
 
 QString QT_QUPZILLA_EXPORT buildSystem();
 

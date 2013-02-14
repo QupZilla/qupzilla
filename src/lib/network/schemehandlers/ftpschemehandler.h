@@ -65,7 +65,7 @@ protected:
 
 private slots:
     void processCommand(int id, bool err);
-    void processListInfo(const QUrlInfo &urlInfo);
+    void processListInfo(QUrlInfo urlInfo);
     void processData();
     QString loadDirectory();
     void loadPage();

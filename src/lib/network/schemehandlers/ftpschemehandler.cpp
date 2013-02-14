@@ -110,7 +110,7 @@ void FtpSchemeReply::processCommand(int id, bool err)
             m_ftp->list();
         }
         else {
-            m_ftpCdId = m_ftp->cd(url().path());
+            m_ftpCdId = m_ftp->cd(QString::fromLatin1(QByteArray::fromPercentEncoding(url().path().toUtf8())));
         }
         break;
 
@@ -122,6 +122,13 @@ void FtpSchemeReply::processCommand(int id, bool err)
         if (m_isGoingToDownload) {
             foreach(const QUrlInfo & item, m_items) {
                 if (item.isFile() && item.name() == m_probablyFileForDownload) {
+                    QByteArray decodedUrl = QByteArray::fromPercentEncoding(url().toString().toUtf8());
+                    if (QzTools::isUtf8(decodedUrl.constData())) {
+                        m_request.setUrl(QUrl(QString::fromUtf8(decodedUrl)));
+                    }
+                    else {
+                        m_request.setUrl(QUrl(QString::fromLatin1(decodedUrl)));
+                    }
                     emit downloadRequest(m_request);
                     abort();
                     break;
@@ -145,8 +152,13 @@ void FtpSchemeReply::processCommand(int id, bool err)
     }
 }
 
-void FtpSchemeReply::processListInfo(const QUrlInfo &urlInfo)
+void FtpSchemeReply::processListInfo(QUrlInfo urlInfo)
 {
+    QByteArray nameLatin1 = urlInfo.name().toLatin1();
+    if (QzTools::isUtf8(nameLatin1.constData())) {
+        urlInfo.setName(QString::fromUtf8(nameLatin1));
+    }
+
     m_items.append(urlInfo);
 }
 
@@ -247,7 +259,16 @@ QString FtpSchemeReply::loadDirectory()
     }
 
     QString page = sPage;
-    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(url().toString()));
+
+    QByteArray titleByteArray = QByteArray::fromPercentEncoding(url().toString().toUtf8());
+    QString title;
+    if (QzTools::isUtf8(titleByteArray.constData())) {
+        title = QString::fromUtf8(titleByteArray);
+    }
+    else {
+        title = QString::fromLatin1(titleByteArray);
+    }
+    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(title));
 
     QString upDirDisplay = QLatin1String("none");
     QString tBody;
@@ -334,12 +355,18 @@ void FtpSchemeReply::ftpReplyErrorHandler(int id)
         }
         QStringList sections = url().path().split(QLatin1Char('/'), QString::SkipEmptyParts);
         if (!sections.isEmpty()) {
-            m_probablyFileForDownload = sections.takeLast();
+            QByteArray lastSection = QByteArray::fromPercentEncoding(sections.takeLast().toUtf8());
+            if (QzTools::isUtf8(lastSection.constData())) {
+                m_probablyFileForDownload = QString::fromUtf8(lastSection);
+            }
+            else {
+                m_probablyFileForDownload = QString::fromLatin1(lastSection);
+            }
         }
         if (!m_probablyFileForDownload.isEmpty()) {
             m_isGoingToDownload = true;
             QString parentOfPath = QString("/%1/").arg(sections.join(QLatin1String("/")));
-            m_ftpCdId = m_ftp->cd(parentOfPath);
+            m_ftpCdId = m_ftp->cd(QString::fromLatin1(QByteArray::fromPercentEncoding(parentOfPath.toUtf8())));
         }
         else {
             abort();
@@ -368,7 +395,7 @@ FtpDownloader::FtpDownloader(QObject* parent)
 
 void FtpDownloader::download(const QUrl &url, QIODevice* dev)
 {
-    m_url = url;
+    m_url = QUrl(QString::fromLatin1(QByteArray::fromPercentEncoding(url.toString().toUtf8())));
     m_dev = dev;
     QString server = m_url.host();
     if (server.isEmpty()) {
