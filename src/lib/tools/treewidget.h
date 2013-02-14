@@ -55,7 +55,7 @@ signals:
     void folderParentChanged(const QString &name, bool isSubfolder, bool* ok);
 
 public slots:
-    void filterString(QString string);
+    void filterString(const QString &string);
     void clear();
 
 private slots:

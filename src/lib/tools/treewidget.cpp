@@ -326,7 +326,7 @@ QList<QTreeWidgetItem*> TreeWidget::allItems()
     return m_allTreeItems;
 }
 
-void TreeWidget::filterString(QString string)
+void TreeWidget::filterString(const QString &string)
 {
     expandAll();
     QList<QTreeWidgetItem*> _allItems = allItems();
