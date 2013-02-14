@@ -42,6 +42,7 @@ public:
     int pinnedTabsCount();
     int normalTabsCount();
 
+    bool isChangingTab() { return m_isChangingTab; }
     void updatePinnedTabCloseButton(int index);
 
     void disconnectObjects();
@@ -105,6 +106,7 @@ private:
     QTimer* m_tabPreviewTimer;
 
     bool m_showTabPreviews;
+    bool m_isChangingTab;
 
     int m_clickedTab;
     int m_pinnedTabsCount;

@@ -50,6 +50,7 @@ RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView*
     , m_url(url)
     , m_view(parent)
 {
+    setAutoFillBackground(true);
     setAttribute(Qt::WA_DeleteOnClose);
 
     ui->setupUi(widget());

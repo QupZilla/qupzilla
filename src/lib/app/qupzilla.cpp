@@ -1579,6 +1579,12 @@ void QupZilla::triggerTabsOnTop(bool enable)
     }
 
     qzSettings->tabsOnTop = enable;
+
+#ifdef Q_OS_WIN
+    if (QtWin::isCompositionEnabled()) {
+        applyBlurToMainWindow();
+    }
+#endif
 }
 
 void QupZilla::refreshHistory()
@@ -2339,7 +2345,9 @@ bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* re
 
 void QupZilla::applyBlurToMainWindow(bool force)
 {
-    if (!force && (m_actionShowFullScreen->isChecked() || !m_usingTransparentBackground)) {
+    if (!force && (m_actionShowFullScreen->isChecked()
+                   || !m_usingTransparentBackground
+                   || m_tabWidget->getTabBar()->isChangingTab())) {
         return;
     }
     int topMargin = 0;

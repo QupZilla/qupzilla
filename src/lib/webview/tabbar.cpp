@@ -44,6 +44,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     , m_tabWidget(tabWidget)
     , m_tabPreview(new TabPreview(mainClass, tabWidget))
     , m_showTabPreviews(false)
+    , m_isChangingTab(false)
     , m_clickedTab(0)
     , m_pinnedTabsCount(0)
     , m_normalTabWidth(0)
@@ -399,13 +400,14 @@ void TabBar::currentTabChanged(int index)
     if (!validIndex(index)) {
         return;
     }
-
+    m_isChangingTab = true;
     hideTabPreview(false);
 
     showCloseButton(index);
     hideCloseButton(m_tabWidget->lastTabIndex());
 
     m_tabWidget->currentTabChanged(index);
+    m_isChangingTab = false;
 }
 
 void TabBar::bookmarkTab()
