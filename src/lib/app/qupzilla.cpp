@@ -435,10 +435,14 @@ void QupZilla::setupMenu()
 #endif
     m_actionTabsOnTop = new QAction(tr("&Tabs on Top"), MENU_RECEIVER);
     m_actionTabsOnTop->setCheckable(true);
-    connect(m_actionTabsOnTop, SIGNAL(triggered(bool)), this, SLOT(triggerTabsOnTop(bool)));
+    connect(m_actionTabsOnTop, SIGNAL(triggered(bool)), MENU_RECEIVER, SLOT(triggerTabsOnTop(bool)));
     m_actionShowFullScreen = new QAction(tr("&Fullscreen"), MENU_RECEIVER);
     m_actionShowFullScreen->setCheckable(true);
+#ifndef Q_OS_MAC
     m_actionShowFullScreen->setShortcut(QKeySequence("F11"));
+#else
+    m_actionShowFullScreen->setShortcut(QKeySequence("Ctrl+F11"));
+#endif
     connect(m_actionShowFullScreen, SIGNAL(triggered(bool)), MENU_RECEIVER, SLOT(fullScreen(bool)));
     m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), MENU_RECEIVER);
     connect(m_actionStop, SIGNAL(triggered()), MENU_RECEIVER, SLOT(stop()));
@@ -648,6 +652,7 @@ void QupZilla::setupMacMenu()
     m_menuTools = menuBar()->actions().at(5)->menu();
     m_menuHelp = menuBar()->actions().at(6)->menu();
 
+    m_toolbarsMenu = m_menuView->actions().at(0)->menu();
     m_menuEncoding = m_menuView->actions().at(12)->menu();
 
     m_menuHistoryRecent = qobject_cast<Menu*>(m_menuHistory->actions().at(5)->menu());
@@ -662,6 +667,7 @@ void QupZilla::setupMacMenu()
 
     m_actionShowToolbar = m_menuView->actions().at(0)->menu()->actions().at(0);
     m_actionShowBookmarksToolbar = m_menuView->actions().at(0)->menu()->actions().at(1);
+    m_actionTabsOnTop = m_menuView->actions().at(0)->menu()->actions().at(3);
     m_actionShowStatusbar = m_menuView->actions().at(2);
     m_actionStop =  m_menuView->actions().at(4);
     m_actionReload =  m_menuView->actions().at(5);
