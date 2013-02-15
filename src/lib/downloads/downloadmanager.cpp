@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,10 +30,9 @@
 #include "downloadfilehelper.h"
 #include "settings.h"
 
+#include <QMessageBox>
 #include <QCloseEvent>
 #include <QDir>
-#include <QProcess>
-#include <QMessageBox>
 
 DownloadManager::DownloadManager(QWidget* parent)
     : QWidget(parent)
@@ -102,16 +101,7 @@ void DownloadManager::keyPressEvent(QKeyEvent* e)
 
 void DownloadManager::startExternalManager(const QUrl &url)
 {
-    QStringList arguments = m_externalArguments.split(QLatin1Char(' '), QString::SkipEmptyParts);
-    arguments << url.toString();
-
-    bool success = QProcess::startDetached(m_externalExecutable, arguments);
-
-    if (!success) {
-        QString info = "<ul><li><b>" + tr("Executable: ") + "</b>" + m_externalExecutable + "</li><li><b>" + tr("Arguments: ") + "</b>" + arguments.join(" ") + "</li></ul>";
-        QMessageBox::critical(this, tr("Cannot start external download manager"), tr("Cannot start external download manager! %1").arg(info));
-    }
-
+    QzTools::startExternalProcess(m_externalExecutable, m_externalArguments);
     m_lastDownloadOption = ExternalManager;
 }
 

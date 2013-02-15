@@ -28,20 +28,7 @@
 
 #include <QMessageBox>
 #include <QClipboard>
-#include <QProcess>
 #include <QFile>
-
-static bool startExternalProcess(const QString &program, const QStringList &arguments)
-{
-    if (!QProcess::startDetached(program, arguments)) {
-        QString info = "<ul><li><b>" + RSSNotification::tr("Executable: ") + "</b>" + program + "</li><li><b>" + RSSNotification::tr("Arguments: ") + "</b>" + arguments.join(" ") + "</li></ul>";
-        QMessageBox::critical(0, RSSNotification::tr("Cannot start external program"), RSSNotification::tr("Cannot start external program! %1").arg(info));
-
-        return false;
-    }
-
-    return true;
-}
 
 RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView* parent)
     : AnimatedWidget(AnimatedWidget::Down, 300, parent)
@@ -56,11 +43,37 @@ RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView*
     ui->closeButton->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));
     ui->label->setText(tr("RSS feed <b>\"%1\"</b>").arg(title));
 
-    m_rssApps << RssApp("Bloglines", "http://www.bloglines.com/sub?url=", QIcon(":/icons/sites/bloglines.png"))
-              << RssApp("Google Reader", "http://www.google.com/ig/add?feedurl=", QIcon(":/icons/sites/google.png"))
-              << RssApp("My AOL", "http://feeds.my.aol.com/add.jsp?url=", QIcon(":/icons/sites/aol.png"))
-              << RssApp("Netvibes", "http://www.netvibes.com/subscribe.php?url=", QIcon(":/icons/sites/netvibes.png"))
-              << RssApp("Yahoo!", "http://add.my.yahoo.com/rss?url=", QIcon(":/icons/sites/yahoo.png"));
+    RssApp bloglines;
+    bloglines.type = WebApplication;
+    bloglines.title = "Bloglines";
+    bloglines.icon = QIcon(":/icons/sites/bloglines.png");
+    bloglines.address = "http://www.bloglines.com/sub?url=";
+
+    RssApp greader;
+    greader.type = WebApplication;
+    greader.title = "Google Reader";
+    greader.icon = QIcon(":/icons/sites/google.png");
+    greader.address = "http://www.google.com/ig/add?feedurl=";
+
+    RssApp myaol;
+    myaol.type = WebApplication;
+    myaol.title = "My AOL";
+    myaol.icon = QIcon(":/icons/sites/aol.png");
+    myaol.address = "http://feeds.my.aol.com/add.jsp?url=";
+
+    RssApp netvibes;
+    netvibes.type = WebApplication;
+    netvibes.title = "Netvibes";
+    netvibes.icon = QIcon(":/icons/sites/netvibes.png");
+    netvibes.address = "http://www.netvibes.com/subscribe.php?url=";
+
+    RssApp yahoo;
+    yahoo.type = WebApplication;
+    yahoo.title = "Yahoo!";
+    yahoo.icon = QIcon(":/icons/sites/yahoo.png");
+    yahoo.address = "http://add.my.yahoo.com/rss?url=";
+
+    m_rssApps << bloglines << greader << myaol << netvibes << yahoo;
 
 #ifdef QZ_WS_X11
     const QString &akregatorBin = QzTools::resolveFromPath("akregator");
@@ -68,11 +81,24 @@ RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView*
     const QString &lifereaAddFeedBin = QzTools::resolveFromPath("liferea-add-feed");
 
     if (!akregatorBin.isEmpty()) {
-        m_rssApps << RssApp("Akregator", akregatorBin + " -a ", QIcon(":/icons/sites/akregator.png"), DesktopApplication);
+        RssApp akregator;
+        akregator.type = DesktopApplication;
+        akregator.title = "Akregator";
+        akregator.icon = QIcon(":/icons/sites/akregator.png");
+        akregator.executable = akregatorBin;
+        akregator.arguments = "-a";
+
+        m_rssApps << akregator;
     }
 
     if (!lifereaBin.isEmpty() && !lifereaAddFeedBin.isEmpty()) {
-        m_rssApps << RssApp("Liferea", lifereaAddFeedBin + " ", QIcon(":/icons/sites/liferea.png"), DesktopApplication);
+        RssApp liferea;
+        liferea.type = DesktopApplication;
+        liferea.title = "Liferea";
+        liferea.icon = QIcon(":/icons/sites/liferea.png");
+        liferea.executable = lifereaAddFeedBin;
+
+        m_rssApps << liferea;
     }
 #endif
 
@@ -117,18 +143,15 @@ void RSSNotification::addRss()
 
     case DesktopApplication: {
         const RssApp app = m_rssApps.at(index);
-        if (app.title == QLatin1String("Akregator")) {
-            success = startExternalProcess("/usr/bin/akregator", QStringList() << "-a" << m_url.toEncoded());
-        }
-        else if (app.title == QLatin1String("Liferea")) {
+        if (app.title == QLatin1String("Liferea")) {
             if (!ProcessInfo("liferea").isRunning()) {
                 QMessageBox::warning(this, tr("Liferea not running"), tr("Liferea must be running in order to add new feed."));
                 success = false;
-            }
-            else {
-                success = startExternalProcess("/usr/bin/liferea-add-feed", QStringList(m_url.toEncoded()));
+                break;
             }
         }
+        const QString &arguments = QString("%1 %2").arg(app.arguments, QString::fromUtf8(m_url.toEncoded()));
+        success = QzTools::startExternalProcess(app.executable, arguments);
         break;
     }
 

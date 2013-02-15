@@ -36,6 +36,8 @@
 #include <QTemporaryFile>
 #include <QHash>
 #include <QSysInfo>
+#include <QProcess>
+#include <QMessageBox>
 
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
@@ -546,6 +548,24 @@ QStringList QzTools::splitCommandArguments(const QString &command)
     }
 
     return r;
+}
+
+bool QzTools::startExternalProcess(const QString &executable, const QString &args)
+{
+    const QStringList &arguments = splitCommandArguments(args);
+
+    bool success = QProcess::startDetached(executable, arguments);
+
+    if (!success) {
+        QString info = "<ul><li><b>%1</b>%2</li><li><b>%3</b>%4</li></ul>";
+        info = info.arg(QObject::tr("Executable: "), executable,
+                        QObject::tr("Arguments: "), arguments.join(QLatin1String(" ")));
+
+        QMessageBox::critical(0, QObject::tr("Cannot start external program"),
+                              QObject::tr("Cannot start external program! %1").arg(info));
+    }
+
+    return success;
 }
 
 // Qt5 migration help functions

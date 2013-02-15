@@ -35,7 +35,6 @@
 #include <QFileInfo>
 #include <QMessageBox>
 #include <QDesktopServices>
-#include <QProcess>
 
 #ifdef Q_OS_WIN
 #include "Shlwapi.h"

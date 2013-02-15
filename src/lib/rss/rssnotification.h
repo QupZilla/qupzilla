@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -47,17 +47,12 @@ private slots:
 private:
     enum AppType { WebApplication, DesktopApplication, Internal, Other };
     struct RssApp {
-        QString title;
-        QString address;
-        QIcon icon;
         AppType type;
-
-        RssApp(const QString &t, const QString &a, const QIcon &i, AppType ty = WebApplication) {
-            title = t;
-            address = a;
-            icon = i;
-            type = ty;
-        }
+        QString title;
+        QIcon icon;
+        QString address;
+        QString executable;
+        QString arguments;
     };
 
     Ui::RSSNotification* ui;
