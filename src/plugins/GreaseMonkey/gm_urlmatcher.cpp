@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 #include <QDebug>
 #include <QStringList>
 
-bool wildcardMatch(const QString &string, const QString &pattern)
+static bool wildcardMatch(const QString &string, const QString &pattern)
 {
     int stringSize = string.size();
     int patternSize = pattern.size();

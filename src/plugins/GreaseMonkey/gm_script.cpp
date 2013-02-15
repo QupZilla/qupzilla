@@ -187,7 +187,7 @@ void GM_Script::parseScript()
 
     QStringList requireList;
 
-    const QStringList &lines = metadataBlock.split(QLatin1Char('\n'));
+    const QStringList &lines = metadataBlock.split(QLatin1Char('\n'), QString::SkipEmptyParts);
     foreach(QString line, lines) {
         if (!line.startsWith(QLatin1String("// @"))) {
             continue;

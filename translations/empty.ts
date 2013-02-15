@@ -1254,22 +1254,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Executable: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Arguments: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot start external download manager</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot start external download manager! %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2851,6 +2835,22 @@
         <source>Unknown size</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Executable: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external program! %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QtWin</name>
@@ -3654,22 +3654,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Executable: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Arguments: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot start external program</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot start external program! %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

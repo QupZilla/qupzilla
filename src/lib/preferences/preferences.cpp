@@ -993,7 +993,7 @@ void Preferences::saveSettings()
     settings.setValue("HttpsUsername", ui->httpsProxyUsername->text());
     settings.setValue("HttpsPassword", ui->httpsProxyPassword->text());
 
-    settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(QLatin1Char(',')));
+    settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(QLatin1Char(','), QString::SkipEmptyParts));
     settings.endGroup();
 
     //Profiles

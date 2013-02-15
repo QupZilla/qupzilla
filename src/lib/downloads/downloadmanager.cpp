@@ -101,7 +101,7 @@ void DownloadManager::keyPressEvent(QKeyEvent* e)
 
 void DownloadManager::startExternalManager(const QUrl &url)
 {
-    QzTools::startExternalProcess(m_externalExecutable, m_externalArguments);
+    QzTools::startExternalProcess(m_externalExecutable, m_externalArguments + url.toEncoded());
     m_lastDownloadOption = ExternalManager;
 }
 

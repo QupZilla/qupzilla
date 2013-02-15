@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -236,7 +236,7 @@ void SpeedDial::changed(const QString &allPages)
         return;
     }
 
-    const QStringList &entries = allPages.split(QLatin1String("\";"));
+    const QStringList &entries = allPages.split(QLatin1String("\";"), QString::SkipEmptyParts);
     m_webPages.clear();
 
     foreach(const QString & entry, entries) {
@@ -244,7 +244,7 @@ void SpeedDial::changed(const QString &allPages)
             continue;
         }
 
-        const QStringList &tmp = entry.split(QLatin1String("\"|"));
+        const QStringList &tmp = entry.split(QLatin1String("\"|"), QString::SkipEmptyParts);
         if (tmp.count() != 2) {
             continue;
         }
