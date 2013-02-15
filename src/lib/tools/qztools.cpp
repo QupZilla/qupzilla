@@ -462,6 +462,92 @@ bool QzTools::isUtf8(const char* string)
     return true;
 }
 
+static inline bool isQuote(const QChar &c)
+{
+    return (c == QLatin1Char('"') || c == QLatin1Char('\''));
+}
+
+// Function  splits command line into arguments
+// eg. /usr/bin/foo -o test -b "bar bar" -s="sed sed"
+//  => '/usr/bin/foo' '-o' 'test' '-b' 'bar bar' '-s=sed sed'
+QStringList QzTools::splitCommandArguments(const QString &command)
+{
+    QString line = command.trimmed();
+
+    if (line.isEmpty()) {
+        return QStringList();
+    }
+
+    QChar SPACE(' ');
+    QChar EQUAL('=');
+    QChar BSLASH('\\');
+    QChar QUOTE('"');
+    QStringList r;
+
+    int equalPos = -1; // Position of = in opt="value"
+    int startPos = isQuote(line.at(0)) ? 1 : 0;
+    bool inWord = !isQuote(line.at(0));
+    bool inQuote = !inWord;
+
+    if (inQuote) {
+        QUOTE = line.at(0);
+    }
+
+    const int strlen = line.length();
+    for (int i = 0; i < strlen; ++i) {
+        const QChar &c = line.at(i);
+
+        if (inQuote && c == QUOTE && i > 0 && line.at(i - 1) != BSLASH) {
+            QString str = line.mid(startPos, i - startPos);
+            if (equalPos > -1) {
+                str.remove(equalPos - startPos + 1, 1);
+            }
+
+            inQuote = false;
+            if (!str.isEmpty()) {
+                r.append(str);
+            }
+            continue;
+        }
+        else if (!inQuote && isQuote(c)) {
+            inQuote = true;
+            QUOTE = c;
+
+            if (!inWord) {
+                startPos = i + 1;
+            }
+            else if (i > 0 && line.at(i - 1) == EQUAL) {
+                equalPos = i - 1;
+            }
+        }
+
+        if (inQuote) {
+            continue;
+        }
+
+        if (inWord && (c == SPACE || i == strlen - 1)) {
+            int len = (i == strlen - 1) ? -1 : i - startPos;
+            const QString &str = line.mid(startPos, len);
+
+            inWord = false;
+            if (!str.isEmpty()) {
+                r.append(str);
+            }
+        }
+        else if (!inWord && c != SPACE) {
+            inWord = true;
+            startPos = i;
+        }
+    }
+
+    // Unmatched quote
+    if (inQuote) {
+        return QStringList();
+    }
+
+    return r;
+}
+
 // Qt5 migration help functions
 bool QzTools::isCertificateValid(const QSslCertificate &cert)
 {

@@ -57,6 +57,7 @@ QPixmap QT_QUPZILLA_EXPORT createPixmapForSite(const QIcon &icon, const QString 
 QString QT_QUPZILLA_EXPORT applyDirectionToPage(QString &pageContents);
 
 QString QT_QUPZILLA_EXPORT resolveFromPath(const QString &name);
+QStringList QT_QUPZILLA_EXPORT splitCommandArguments(const QString &command);
 
 QIcon QT_QUPZILLA_EXPORT iconFromFileName(const QString &fileName);
 bool QT_QUPZILLA_EXPORT isUtf8(const char* string);
