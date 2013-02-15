@@ -75,6 +75,10 @@ void DownloadManager::loadSettings()
     m_externalExecutable = settings.value("ExternalManagerExecutable", QString()).toString();
     m_externalArguments = settings.value("ExternalManagerArguments", QString()).toString();
     settings.endGroup();
+
+    if (!m_externalArguments.contains(QLatin1String("%d"))) {
+        m_externalArguments.append(QLatin1String(" %d"));
+    }
 }
 
 void DownloadManager::show()
@@ -101,7 +105,10 @@ void DownloadManager::keyPressEvent(QKeyEvent* e)
 
 void DownloadManager::startExternalManager(const QUrl &url)
 {
-    QzTools::startExternalProcess(m_externalExecutable, m_externalArguments + url.toEncoded());
+    QString arguments = m_externalArguments;
+    arguments.replace(QLatin1String("%d"), url.toEncoded());
+
+    QzTools::startExternalProcess(m_externalExecutable, arguments);
     m_lastDownloadOption = ExternalManager;
 }
 

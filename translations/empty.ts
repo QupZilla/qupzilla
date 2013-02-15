@@ -2812,6 +2812,10 @@
         <source>Choose cache path...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
