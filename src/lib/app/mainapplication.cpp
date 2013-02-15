@@ -1058,7 +1058,6 @@ bool MainApplication::restoreStateSlot(QupZilla* window, RestoreData recoveryDat
         // Instead create new one and restore pinned tabs there
 
         QupZilla* newWin = makeNewWindow(Qz::BW_OtherRestoredWindow);
-        newWin->tabWidget()->restorePinnedTabs();
         newWin->restoreWindowState(recoveryData.takeFirst());
     }
     else {

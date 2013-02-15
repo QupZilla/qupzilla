@@ -115,7 +115,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     , m_isClosing(false)
     , m_isStarting(false)
     , m_startingUrl(startUrl)
-    , m_startBehaviour(type)
+    , m_windowType(type)
     , m_menuBookmarksAction(0)
     , m_actionPrivateBrowsing(0)
     , m_sideBarManager(new SideBarManager(this))
@@ -157,10 +157,6 @@ void QupZilla::postLaunch()
 
     loadSettings();
 
-    if (m_startBehaviour == Qz::BW_FirstAppWindow) {
-        m_tabWidget->restorePinnedTabs();
-    }
-
     Settings settings;
     int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
     bool addTab = true;
@@ -184,7 +180,7 @@ void QupZilla::postLaunch()
         break;
     }
 
-    switch (m_startBehaviour) {
+    switch (m_windowType) {
     case Qz::BW_FirstAppWindow:
         if (mApp->isStartingAfterCrash()) {
             addTab = true;
@@ -223,7 +219,7 @@ void QupZilla::postLaunch()
         }
     }
 
-    if (m_tabWidget->getTabBar()->normalTabsCount() <= 0 && m_startBehaviour != Qz::BW_OtherRestoredWindow) {
+    if (m_tabWidget->getTabBar()->normalTabsCount() <= 0 && m_windowType != Qz::BW_OtherRestoredWindow) {
         //Something went really wrong .. add one tab
         QNetworkRequest request(m_homepage);
         request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
@@ -268,7 +264,7 @@ void QupZilla::setupUi()
             setGeometry(QRect(20, 20, 800, 550));
         }
 
-        if (m_startBehaviour == Qz::BW_NewWindow) {
+        if (m_windowType == Qz::BW_NewWindow) {
             // Moving window +40 x,y to be visible that this is new window
             QPoint p = pos();
             p.setX(p.x() + 40);
@@ -809,6 +805,11 @@ TabbedWebView* QupZilla::weView(int index) const
 LocationBar* QupZilla::locationBar() const
 {
     return qobject_cast<LocationBar*>(m_tabWidget->locationBars()->currentWidget());
+}
+
+Qz::BrowserWindow QupZilla::windowType() const
+{
+    return m_windowType;
 }
 
 QWidget* QupZilla::navigationContainer() const
@@ -2257,7 +2258,7 @@ int QupZilla::getCurrentVirtualDesktop() const
 void QupZilla::moveToVirtualDesktop(int desktopId)
 {
     // Don't move when window is already visible or it is first app window
-    if (desktopId < 0 || isVisible() || m_startBehaviour == Qz::BW_FirstAppWindow) {
+    if (desktopId < 0 || isVisible() || m_windowType == Qz::BW_FirstAppWindow) {
         return;
     }
 

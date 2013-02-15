@@ -854,7 +854,6 @@ void TabWidget::restorePinnedTabs()
         }
 
         m_tabBar->updatePinnedTabCloseButton(addedIndex);
-//        m_tabBar->moveTab(addedIndex, i);
     }
 
     m_isRestoringState = false;
@@ -891,6 +890,12 @@ QByteArray TabWidget::saveState()
 bool TabWidget::restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab)
 {
     m_isRestoringState = true;
+
+    Qz::BrowserWindow type = p_QupZilla->windowType();
+
+    if (type == Qz::BW_FirstAppWindow || type == Qz::BW_MacFirstWindow) {
+        restorePinnedTabs();
+    }
 
     for (int i = 0; i < tabs.size(); ++i) {
         WebTab::SavedTab tab = tabs.at(i);

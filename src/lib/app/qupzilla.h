@@ -91,6 +91,7 @@ public:
     TabbedWebView* weView(int index) const;
     LocationBar* locationBar() const;
 
+    Qz::BrowserWindow windowType() const;
     TabWidget* tabWidget() { return m_tabWidget; }
     BookmarksToolbar* bookmarksToolbar() { return m_bookmarksToolbar; }
     StatusBarMessage* statusBarMessage() { return m_statusBarMessage; }
@@ -256,7 +257,7 @@ private:
     bool m_isStarting;
     QUrl m_startingUrl;
     QUrl m_homepage;
-    Qz::BrowserWindow m_startBehaviour;
+    Qz::BrowserWindow m_windowType;
 
     QVBoxLayout* m_mainLayout;
     QSplitter* m_mainSplitter;
