@@ -774,6 +774,7 @@ void QupZilla::loadSettings()
         m_navigationBar->installEventFilter(this);
         m_bookmarksToolbar->installEventFilter(this);
         statusBar()->installEventFilter(this);
+        m_navigationContainer->installEventFilter(this);
     }
 #endif
 }
@@ -2345,9 +2346,7 @@ bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* re
 
 void QupZilla::applyBlurToMainWindow(bool force)
 {
-    if (!force && (m_actionShowFullScreen->isChecked()
-                   || !m_usingTransparentBackground
-                   || m_tabWidget->getTabBar()->isChangingTab())) {
+    if (!force && (m_actionShowFullScreen->isChecked() || !m_usingTransparentBackground)) {
         return;
     }
     int topMargin = 0;
@@ -2389,10 +2388,23 @@ void QupZilla::applyBlurToMainWindow(bool force)
 bool QupZilla::eventFilter(QObject* object, QEvent* event)
 {
     switch (event->type()) {
-    case QEvent::DeferredDelete:
-    case QEvent::Show:
     case QEvent::Hide:
+        if (object == m_navigationContainer) {
+            m_navigationBar->removeEventFilter(this);
+            m_bookmarksToolbar->removeEventFilter(this);
+            break;
+        }
+    case QEvent::Show:
+        if (object == m_navigationContainer) {
+            m_navigationBar->installEventFilter(this);
+            m_bookmarksToolbar->installEventFilter(this);
+            break;
+        }
     case QEvent::Resize:
+    case QEvent::DeferredDelete:
+        if (object == m_navigationContainer) {
+            break;
+        }
         applyBlurToMainWindow();
         break;
     default:
