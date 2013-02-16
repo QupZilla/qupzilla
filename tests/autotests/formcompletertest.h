@@ -42,6 +42,7 @@ private slots:
     void extractFormTest2();
     void extractFormTest3();
     void extractFormTest4();
+    void extractFormTest5();
 
 private:
     void completeWithData(const QString &html, const QByteArray &data);

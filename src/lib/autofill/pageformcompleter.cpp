@@ -32,13 +32,8 @@ PageFormCompleter::PageFormCompleter(QWebPage* page)
 
 PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) const
 {
-    QString usernameName;
     QString usernameValue;
-    QString passwordName;
     QString passwordValue;
-
-    QWebElementCollection allForms;
-    QWebElement foundForm;
 
     QByteArray data = convertWebKitFormBoundaryIfNecessary(postData);
     PageFormData formData = {false, QString(), QString(), data};
@@ -52,63 +47,39 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
         return formData;
     }
 
-    /* Find all form elements in page (in all frames) */
-    QList<QWebFrame*> frames;
-    frames.append(m_page->mainFrame());
-    while (!frames.isEmpty()) {
-        QWebFrame* frame = frames.takeFirst();
-        allForms.append(frame->findAllElements("form"));
-        frames += frame->childFrames();
-    }
-
+    const QWebElementCollection &allForms = getAllElementsFromPage(m_page, "form");
     const QueryItems &queryItems = createQueryItems(data);
 
-    /* Find form that contains password value sent in data */
+    // Find form that contains password value sent in data
     foreach(const QWebElement & formElement, allForms) {
+        bool found = false;
         const QWebElementCollection &inputs = formElement.findAll("input[type=\"password\"]");
+
         foreach(QWebElement inputElement, inputs) {
-            passwordName = inputElement.attribute("name");
-            passwordValue = inputElement.evaluateJavaScript("this.value").toString();
+            const QString &passName = inputElement.attribute("name");
+            const QString &passValue = inputElement.evaluateJavaScript("this.value").toString();
 
-            if (queryItemsContains(queryItems, passwordName, passwordValue)) {
-                foundForm = formElement;
-                break;
-            }
-        }
+            if (queryItemsContains(queryItems, passName, passValue)) {
+                // Set passwordValue if not empty (to make it possible extract forms without username field)
+                passwordValue = passValue;
 
-        if (!foundForm.isNull()) {
-            break;
-        }
-    }
-
-    if (foundForm.isNull()) {
-        return formData;
-    }
-
-    /* Try to find username (or email) field in the form. */
-    bool found = false;
-    QStringList selectors;
-    selectors << "input[type=\"text\"][name*=\"user\"]"
-              << "input[type=\"text\"][name*=\"name\"]"
-              << "input[type=\"text\"]"
-              << "input[type=\"email\"]"
-              << "input:not([type=\"hidden\"][type=\"password\"])";
-
-    foreach(const QString & selector, selectors) {
-        const QWebElementCollection &inputs = foundForm.findAll(selector);
-        foreach(QWebElement element, inputs) {
-            usernameName = element.attribute("name");
-            usernameValue = element.evaluateJavaScript("this.value").toString();
-
-            if (!usernameName.isEmpty() && !usernameValue.isEmpty()) {
-                found = true;
-                break;
+                const QueryItem &item = findUsername(formElement);
+                if (queryItemsContains(queryItems, item.first, item.second)) {
+                    usernameValue = item.second;
+                    found = true;
+                    break;
+                }
             }
         }
 
         if (found) {
             break;
         }
+    }
+
+    // It is necessary only to find password, as there may be form without username field
+    if (passwordValue.isEmpty()) {
+        return formData;
     }
 
     formData.found = true;
@@ -122,19 +93,12 @@ void PageFormCompleter::completePage(const QByteArray &data) const
 {
     const QueryItems &queryItems = createQueryItems(data);
 
-    /* Input types that are being completed */
+    // Input types that are being completed
     QStringList inputTypes;
     inputTypes << "text" << "password" << "email";
 
-    /* Find all input elements in the page */
-    QWebElementCollection inputs;
-    QList<QWebFrame*> frames;
-    frames.append(m_page->mainFrame());
-    while (!frames.isEmpty()) {
-        QWebFrame* frame = frames.takeFirst();
-        inputs.append(frame->findAllElements("input"));
-        frames += frame->childFrames();
-    }
+    // Find all input elements in the page
+    const QWebElementCollection &inputs = getAllElementsFromPage(m_page, "input");
 
     for (int i = 0; i < queryItems.count(); i++) {
         const QString &key = queryItems.at(i).first;
@@ -222,6 +186,34 @@ QByteArray PageFormCompleter::convertWebKitFormBoundaryIfNecessary(const QByteAr
     return formatedData;
 }
 
+PageFormCompleter::QueryItem PageFormCompleter::findUsername(const QWebElement &form) const
+{
+    // Try to find username (or email) field in the form.
+    QStringList selectors;
+    selectors << "input[type=\"text\"][name*=\"user\"]"
+              << "input[type=\"text\"][name*=\"name\"]"
+              << "input[type=\"text\"]"
+              << "input[type=\"email\"]"
+              << "input:not([type=\"hidden\"][type=\"password\"])";
+
+    foreach(const QString & selector, selectors) {
+        const QWebElementCollection &inputs = form.findAll(selector);
+        foreach(QWebElement element, inputs) {
+            const QString &name = element.attribute("name");
+            const QString &value = element.evaluateJavaScript("this.value").toString();
+
+            if (!name.isEmpty() && !value.isEmpty()) {
+                QueryItem item;
+                item.first = name;
+                item.second = value;
+                return item;
+            }
+        }
+    }
+
+    return QueryItem();
+}
+
 PageFormCompleter::QueryItems PageFormCompleter::createQueryItems(const QByteArray &data) const
 {
     /* Why not to use encodedQueryItems = QByteArrays ?
@@ -246,4 +238,19 @@ PageFormCompleter::QueryItems PageFormCompleter::createQueryItems(const QByteArr
 #endif
 
     return arguments;
+}
+
+QWebElementCollection PageFormCompleter::getAllElementsFromPage(QWebPage* page, const QString &selector) const
+{
+    QWebElementCollection list;
+
+    QList<QWebFrame*> frames;
+    frames.append(page->mainFrame());
+    while (!frames.isEmpty()) {
+        QWebFrame* frame = frames.takeFirst();
+        list.append(frame->findAllElements(selector));
+        frames += frame->childFrames();
+    }
+
+    return list;
 }

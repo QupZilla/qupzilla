@@ -209,6 +209,60 @@ void FormCompleterTest::extractFormTest4()
     QCOMPARE(form.password, QString("tst_password"));
 }
 
+void FormCompleterTest::extractFormTest5()
+{
+    // Twitter.com : Multiple almost same forms
+
+    QByteArray data = "session%5Busername_or_email%5D=user1&session%5Bpassword%5D=pass&"
+                      "return_to_ssl=true&scribe_log=&redirect_after_login=%2F&"
+                      "authenticity_token=0d37030972c34b021d4a5ebab35817821dc0358b";
+
+    QString html = "<!-- 1) -->"
+                   "<form action='https://twitter.com/sessions' class='js-signin signin' method='post'>"
+                   "<input class='js-username-field email-input' type='text' name='session[username_or_email]'"
+                   "autocomplete='on' value='user2'>"
+                   "<input class='js-password-field' type='password' value='pass' name='session[password]'>"
+                   "<input type='checkbox' value='1' name='remember_me'>"
+                   "<button type='submit' class='btn submit'>Login</button>"
+                   "<input type='hidden' name='scribe_log'>"
+                   "<input type='hidden' name='redirect_after_login' value='/'>"
+                   "<input type='hidden' value='0d37030972c34b021d4a5ebab35817821dc0358b' name='authenticity_token'>"
+                   "</form>"
+
+                   "<!-- 2) Correct -->"
+                   "<form action='https://twitter.com/sessions' class='signin' method='post'>"
+                   "<input type='text' id='signin-email' class='text-input email-input'"
+                   "name='session[username_or_email]' title='' autocomplete='on' tabindex='1' value='user1'>"
+                   "<input type='password' id='signin-password' class='text-'"
+                   "name='session[password]' title='' tabindex='2' value='pass'>"
+                   "<button type='submit' class='submit btn primary-btn flex-table-btn js-submit' tabindex='4'>"
+                   "<input type='checkbox' value='1' name='remember_me' tabindex='3'>"
+                   "<input type='hidden' name='return_to_ssl' value='true'>"
+                   "<input type='hidden' name='scribe_log'>"
+                   "<input type='hidden' name='redirect_after_login' value='/'>"
+                   "<input type='hidden' value='0d37030972c34b021d4a5ebab35817821dc0358b' name='authenticity_token'>"
+                   "</form>"
+
+                   "<!-- 3) -->"
+                   "<form action='https://twitter.com/sessions' class='signin' method='post'>"
+                   "<input class='js-username-field email-input' type='text' "
+                   "name='session[username_or_email]' autocomplete='on' value='user2' tabindex='1'>"
+                   "<input class='js-password-field' type='password' name='session[password]' tabindex='2' value='pass'>"
+                   "<input type='hidden' value='0d37030972c34b021d4a5ebab35817821dc0358b' name='authenticity_token'>"
+                   "<input type='hidden' name='scribe_log'>"
+                   "<input type='hidden' name='redirect_after_login' value='/'>"
+                   "<input type='hidden' value='0d37030972c34b021d4a5ebab35817821dc0358b' name='authenticity_token'>"
+                   "<button type='submit' class='submit btn primary-btn' tabindex='4'></button>"
+                   "<input type='checkbox' value='1' name='remember_me' tabindex='3'>"
+                   "</form>";
+
+    PageFormData form = extractFormData(html, data);
+
+    QVERIFY(form.found == true);
+    QCOMPARE(form.username, QString("user1"));
+    QCOMPARE(form.password, QString("pass"));
+}
+
 void FormCompleterTest::completeWithData(const QString &html, const QByteArray &data)
 {
     view->setHtml(html);
