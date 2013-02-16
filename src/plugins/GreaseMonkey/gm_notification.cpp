@@ -31,6 +31,7 @@ GM_Notification::GM_Notification(GM_Manager* manager, const QString &tmpfileName
     , m_tmpFileName(tmpfileName)
     , m_fileName(fileName)
 {
+    setAutoFillBackground(true);
     ui->setupUi(widget());
 
     ui->close->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));

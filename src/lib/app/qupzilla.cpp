@@ -431,10 +431,14 @@ void QupZilla::setupMenu()
 #endif
     m_actionTabsOnTop = new QAction(tr("&Tabs on Top"), MENU_RECEIVER);
     m_actionTabsOnTop->setCheckable(true);
-    connect(m_actionTabsOnTop, SIGNAL(triggered(bool)), this, SLOT(triggerTabsOnTop(bool)));
+    connect(m_actionTabsOnTop, SIGNAL(triggered(bool)), MENU_RECEIVER, SLOT(triggerTabsOnTop(bool)));
     m_actionShowFullScreen = new QAction(tr("&Fullscreen"), MENU_RECEIVER);
     m_actionShowFullScreen->setCheckable(true);
+#ifndef Q_OS_MAC
     m_actionShowFullScreen->setShortcut(QKeySequence("F11"));
+#else
+    m_actionShowFullScreen->setShortcut(QKeySequence("Ctrl+F11"));
+#endif
     connect(m_actionShowFullScreen, SIGNAL(triggered(bool)), MENU_RECEIVER, SLOT(fullScreen(bool)));
     m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), MENU_RECEIVER);
     connect(m_actionStop, SIGNAL(triggered()), MENU_RECEIVER, SLOT(stop()));
@@ -644,6 +648,7 @@ void QupZilla::setupMacMenu()
     m_menuTools = menuBar()->actions().at(5)->menu();
     m_menuHelp = menuBar()->actions().at(6)->menu();
 
+    m_toolbarsMenu = m_menuView->actions().at(0)->menu();
     m_menuEncoding = m_menuView->actions().at(12)->menu();
 
     m_menuHistoryRecent = qobject_cast<Menu*>(m_menuHistory->actions().at(5)->menu());
@@ -658,6 +663,7 @@ void QupZilla::setupMacMenu()
 
     m_actionShowToolbar = m_menuView->actions().at(0)->menu()->actions().at(0);
     m_actionShowBookmarksToolbar = m_menuView->actions().at(0)->menu()->actions().at(1);
+    m_actionTabsOnTop = m_menuView->actions().at(0)->menu()->actions().at(3);
     m_actionShowStatusbar = m_menuView->actions().at(2);
     m_actionStop =  m_menuView->actions().at(4);
     m_actionReload =  m_menuView->actions().at(5);
@@ -764,6 +770,7 @@ void QupZilla::loadSettings()
         m_navigationBar->installEventFilter(this);
         m_bookmarksToolbar->installEventFilter(this);
         statusBar()->installEventFilter(this);
+        m_navigationContainer->installEventFilter(this);
     }
 #endif
 }
@@ -1574,6 +1581,12 @@ void QupZilla::triggerTabsOnTop(bool enable)
     }
 
     qzSettings->tabsOnTop = enable;
+
+#ifdef Q_OS_WIN
+    if (QtWin::isCompositionEnabled()) {
+        applyBlurToMainWindow();
+    }
+#endif
 }
 
 void QupZilla::refreshHistory()
@@ -2376,10 +2389,23 @@ void QupZilla::applyBlurToMainWindow(bool force)
 bool QupZilla::eventFilter(QObject* object, QEvent* event)
 {
     switch (event->type()) {
-    case QEvent::DeferredDelete:
-    case QEvent::Show:
     case QEvent::Hide:
+        if (object == m_navigationContainer) {
+            m_navigationBar->removeEventFilter(this);
+            m_bookmarksToolbar->removeEventFilter(this);
+            break;
+        }
+    case QEvent::Show:
+        if (object == m_navigationContainer) {
+            m_navigationBar->installEventFilter(this);
+            m_bookmarksToolbar->installEventFilter(this);
+            break;
+        }
     case QEvent::Resize:
+    case QEvent::DeferredDelete:
+        if (object == m_navigationContainer) {
+            break;
+        }
         applyBlurToMainWindow();
         break;
     default:
