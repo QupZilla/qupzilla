@@ -158,6 +158,10 @@ void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem
 
 void CookieManager::refreshTable()
 {
+    disconnect(ui->search, SIGNAL(textChanged(QString)), ui->cookieTree, SLOT(filterString(QString)));
+    ui->search->clear();
+    connect(ui->search, SIGNAL(textChanged(QString)), ui->cookieTree, SLOT(filterString(QString)));
+
     QTimer::singleShot(0, this, SLOT(slotRefreshTable()));
     QTimer::singleShot(0, this, SLOT(slotRefreshFilters()));
 }
