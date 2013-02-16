@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -113,9 +113,34 @@ void qupzilla_signal_handler(int s)
 }
 #endif
 
+void msgHandler(QtMsgType type, const char* msg)
+{
+    // Skip this debug message as it may occur in a large amount over time
+    if (strcmp("QFont::setPixelSize: Pixel size <= 0 (0)", msg) == 0) {
+        return;
+    }
+
+    switch (type) {
+    case QtDebugMsg:
+    case QtWarningMsg:
+    case QtCriticalMsg:
+        fprintf(stderr, "%s\n", msg);
+        break;
+
+    case QtFatalMsg:
+        fprintf(stderr, "Fatal: %s\n", msg);
+        abort();
+
+    default:
+        break;
+    }
+}
+
+
 int main(int argc, char* argv[])
 {
     QT_REQUIRE_VERSION(argc, argv, "4.7.0");
+    qInstallMsgHandler(&msgHandler);
 
 #if defined(QZ_WS_X11) && QT_VERSION < 0x050000
     QApplication::setGraphicsSystem("raster"); // Better overall performance on X11
