@@ -13,6 +13,10 @@ unix: VERSION = 1.3.5
 win32-msvc* {
     DEFINES *= W7API
     LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
+    # QSysInfo::WV_VISTA is 128
+    !lessThan(QMAKE_HOST.version, 128) {
+        LIBS += Dwmapi.lib
+    }
 }
 
 # Check for pkg-config availability
