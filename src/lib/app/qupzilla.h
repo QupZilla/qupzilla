@@ -196,7 +196,7 @@ private slots:
     void zoomIn();
     void zoomOut();
     void zoomReset();
-    void fullScreen(bool make);
+    void toggleFullScreen(bool make);
     void changeEncoding(QObject* obj = 0);
 
     void triggerCaretBrowsing();
@@ -215,6 +215,7 @@ private slots:
 #endif
 
 private:
+    bool event(QEvent* event);
     void resizeEvent(QResizeEvent* event);
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);

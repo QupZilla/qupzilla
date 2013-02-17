@@ -439,7 +439,7 @@ void QupZilla::setupMenu()
 #else
     m_actionShowFullScreen->setShortcut(QKeySequence("Ctrl+F11"));
 #endif
-    connect(m_actionShowFullScreen, SIGNAL(triggered(bool)), MENU_RECEIVER, SLOT(fullScreen(bool)));
+    connect(m_actionShowFullScreen, SIGNAL(triggered(bool)), MENU_RECEIVER, SLOT(toggleFullScreen(bool)));
     m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), MENU_RECEIVER);
     connect(m_actionStop, SIGNAL(triggered()), MENU_RECEIVER, SLOT(stop()));
     m_actionStop->setShortcut(QKeySequence("Esc"));
@@ -1743,55 +1743,75 @@ void QupZilla::hideNavigationSlot()
     }
 }
 
-void QupZilla::fullScreen(bool make)
+bool QupZilla::event(QEvent* event)
+{
+    switch (event->type()) {
+    case QEvent::WindowStateChange: {
+        QWindowStateChangeEvent* ev = static_cast<QWindowStateChangeEvent*>(event);
+
+        if (!(ev->oldState() & Qt::WindowFullScreen) && windowState() & Qt::WindowFullScreen) {
+            // Enter fullscreen
+            m_windowStates = ev->oldState();
+
+            m_menuBarVisible = menuBar()->isVisible();
+            m_statusBarVisible = statusBar()->isVisible();
+            menuBar()->hide();
+            statusBar()->hide();
+            bookmarksToolbar()->hide();
+            m_navigationContainer->hide();
+            m_tabWidget->getTabBar()->hide();
+#ifndef Q_OS_MAC
+            m_navigationBar->buttonSuperMenu()->hide();
+#endif
+            m_hideNavigationTimer->stop();
+            m_actionShowFullScreen->setChecked(true);
+            m_navigationBar->buttonExitFullscreen()->setVisible(true);
+            emit setWebViewMouseTracking(true);
+#ifdef Q_OS_WIN
+            if (m_usingTransparentBackground) {
+                QtWin::extendFrameIntoClientArea(this, 0, 0, 0 , 0);
+                QtWin::enableBlurBehindWindow(this, false);
+            }
+#endif
+        }
+        else if (ev->oldState() & Qt::WindowFullScreen && !(windowState() & Qt::WindowFullScreen)) {
+            // Leave fullscreen
+            setWindowState(m_windowStates);
+
+            menuBar()->setVisible(m_menuBarVisible);
+            statusBar()->setVisible(m_statusBarVisible);
+            m_navigationContainer->show();
+            m_tabWidget->showTabBar();
+#ifndef Q_OS_MAC
+            m_navigationBar->buttonSuperMenu()->setVisible(!m_menuBarVisible);
+#endif
+            m_hideNavigationTimer->stop();
+            m_actionShowFullScreen->setChecked(false);
+            m_navigationBar->buttonExitFullscreen()->setVisible(false);
+            emit setWebViewMouseTracking(false);
+#ifdef Q_OS_WIN
+            if (m_usingTransparentBackground) {
+                applyBlurToMainWindow(true);
+            }
+#endif
+        }
+    }
+
+    default:
+        break;
+    }
+
+    return QMainWindow::event(event);
+}
+
+void QupZilla::toggleFullScreen(bool make)
 {
     if (make) {
-        m_menuBarVisible = menuBar()->isVisible();
-        m_statusBarVisible = statusBar()->isVisible();
-
-        m_windowStates = windowState();
         showFullScreen();
-
-        menuBar()->hide();
-        statusBar()->hide();
-        bookmarksToolbar()->hide();
-        m_navigationContainer->hide();
-        m_tabWidget->getTabBar()->hide();
-#ifndef Q_OS_MAC
-        m_navigationBar->buttonSuperMenu()->hide();
-#endif
-
-#ifdef Q_OS_WIN
-        if (m_usingTransparentBackground) {
-            QtWin::extendFrameIntoClientArea(this, 0, 0, 0 , 0);
-            QtWin::enableBlurBehindWindow(this, false);
-        }
-#endif
     }
     else {
         showNormal();
-        setWindowState(m_windowStates);
-
-        menuBar()->setVisible(m_menuBarVisible);
-        statusBar()->setVisible(m_statusBarVisible);
-        m_navigationContainer->show();
-        m_tabWidget->showTabBar();
-#ifndef Q_OS_MAC
-        m_navigationBar->buttonSuperMenu()->setVisible(!m_menuBarVisible);
-#endif
-
-#ifdef Q_OS_WIN
-        if (m_usingTransparentBackground) {
-            applyBlurToMainWindow(true);
-        }
-#endif
     }
-
-    m_hideNavigationTimer->stop();
-    m_actionShowFullScreen->setChecked(make);
-    m_navigationBar->buttonExitFullscreen()->setVisible(make);
-
-    emit setWebViewMouseTracking(make);
 }
 
 void QupZilla::savePage()
@@ -1841,26 +1861,35 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
     }
 
     int number = -1;
+    TabbedWebView* view = weView();
 
     switch (event->key()) {
     case Qt::Key_Back:
-        weView()->back();
-        event->accept();
+        if (view) {
+            weView()->back();
+            event->accept();
+        }
         break;
 
     case Qt::Key_Forward:
-        weView()->forward();
-        event->accept();
+        if (view) {
+            weView()->forward();
+            event->accept();
+        }
         break;
 
     case Qt::Key_Stop:
-        weView()->stop();
-        event->accept();
+        if (view) {
+            weView()->stop();
+            event->accept();
+        }
         break;
 
     case Qt::Key_Refresh:
-        weView()->reload();
-        event->accept();
+        if (view) {
+            weView()->reload();
+            event->accept();
+        }
         break;
 
     case Qt::Key_HomePage:
@@ -1933,7 +1962,7 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
         break;
 
     case Qt::Key_Equal:
-        if (event->modifiers() == Qt::ControlModifier) {
+        if (view && event->modifiers() == Qt::ControlModifier) {
             weView()->zoomIn();
             event->accept();
         }
