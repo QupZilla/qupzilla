@@ -301,13 +301,13 @@ QPixmap WebTab::renderTabPreview()
 
 void WebTab::showNotification(QWidget* notif)
 {
-    const int notifPos = m_navigationContainer ? 2 : 1;
+    const int notifPos = qzSettings->tabsOnTop ? 1 : 0;
 
-    if (m_layout->count() > notifPos) {
-        delete m_layout->itemAt(0)->widget();
+    if (m_layout->count() > notifPos + 1) {
+        delete m_layout->itemAt(notifPos)->widget();
     }
 
-    m_layout->insertWidget(notifPos - 1, notif);
+    m_layout->insertWidget(notifPos, notif);
     notif->show();
 }
 
