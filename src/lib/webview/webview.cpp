@@ -1226,6 +1226,74 @@ void WebView::keyPressEvent(QKeyEvent* event)
         }
         break;
 
+    case Qt::Key_Up:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            triggerPageAction(QWebPage::SelectPreviousLine);
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_Down:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            triggerPageAction(QWebPage::SelectNextLine);
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_Left:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            if (event->modifiers() == Qt::ShiftModifier) {
+                triggerPageAction(QWebPage::SelectPreviousChar);
+            }
+            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
+                triggerPageAction(QWebPage::SelectPreviousWord);
+            }
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_Right:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            if (event->modifiers() == Qt::ShiftModifier) {
+                triggerPageAction(QWebPage::SelectNextChar);
+            }
+            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
+                triggerPageAction(QWebPage::SelectNextWord);
+            }
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_Home:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            if (event->modifiers() == Qt::ShiftModifier) {
+                triggerPageAction(QWebPage::SelectStartOfLine);
+            }
+            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
+                triggerPageAction(QWebPage::SelectStartOfDocument);
+            }
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_End:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            if (event->modifiers() == Qt::ShiftModifier) {
+                triggerPageAction(QWebPage::SelectEndOfLine);
+            }
+            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
+                triggerPageAction(QWebPage::SelectEndOfDocument);
+            }
+            event->accept();
+            return;
+        }
+        break;
+
     default:
         break;
     }
