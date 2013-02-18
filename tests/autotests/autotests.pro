@@ -1,11 +1,11 @@
 isEqual(QT_MAJOR_VERSION, 5) {
-    QT += webkitwidgets network widgets printsupport sql script gui-private
+    QT += webkitwidgets network widgets printsupport sql script gui-private testlib
 } else {
     QT += core gui webkit sql network script
+    CONFIG += qtestlib
 }
 
 TARGET = autotests
-CONFIG += qtestlib
 
 !unix|mac: LIBS += -L$$PWD/../../bin -lQupZilla
 !mac:unix: LIBS += $$PWD/../../bin/libQupZilla.so

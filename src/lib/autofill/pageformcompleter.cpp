@@ -214,27 +214,17 @@ PageFormCompleter::QueryItem PageFormCompleter::findUsername(const QWebElement &
     return QueryItem();
 }
 
-PageFormCompleter::QueryItems PageFormCompleter::createQueryItems(const QByteArray &data) const
+PageFormCompleter::QueryItems PageFormCompleter::createQueryItems(QByteArray data) const
 {
-    /* Why not to use encodedQueryItems = QByteArrays ?
-     * Because we need to filter "+" characters that must be spaces
-     * (not real "+" characters "%2B")
-     *
-     * DO NOT TOUCH! It works now with both Qt 4 & Qt 5 ...
-     */
-#if QT_VERSION >= 0x050000
-    QueryItems arguments = QUrlQuery(QUrl::fromEncoded("http://foo.com/?" + data)).queryItems();
-#else
-    QByteArray dataCopy = data;
-    dataCopy.replace('+', ' ');
-    QueryItems arguments = QUrl::fromEncoded("http://foo.com/?" + dataCopy).queryItems();
-#endif
+    // QUrlQuery/QUrl never encodes/decodes + and spaces
+    data.replace('+', ' ');
 
 #if QT_VERSION >= 0x050000
-    for (int i = 0; i < arguments.count(); i++) {
-        arguments[i].first.replace(QLatin1Char('+'), QLatin1Char(' '));
-        arguments[i].second.replace(QLatin1Char('+'), QLatin1Char(' '));
-    }
+    QUrlQuery query;
+    query.setQuery(data);
+    QueryItems arguments = query.queryItems(QUrl::FullyDecoded);
+#else
+    QueryItems arguments = QUrl::fromEncoded("http://foo.com/?" + data).queryItems();
 #endif
 
     return arguments;

@@ -111,7 +111,6 @@ WebPage::WebPage(QupZilla* mainClass)
             this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*, quint64)));
 #endif
 
-
     s_livingPages.append(this);
 }
 
