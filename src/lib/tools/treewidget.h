@@ -28,6 +28,7 @@ class QT_QUPZILLA_EXPORT TreeWidget : public QTreeWidget
 public:
     explicit TreeWidget(QWidget* parent = 0);
     enum ItemShowMode { ItemsCollapsed = 0, ItemsExpanded = 1 };
+    ItemShowMode defaultItemShowMode() { return m_showMode; }
     void setDefaultItemShowMode(ItemShowMode mode) { m_showMode = mode; }
     QList<QTreeWidgetItem*> allItems();
     bool appendToParentItem(const QString &parentText, QTreeWidgetItem* item);

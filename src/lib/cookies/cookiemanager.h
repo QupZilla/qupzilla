@@ -57,6 +57,8 @@ private slots:
     void deletePressed();
     void saveCookiesChanged(bool state);
 
+    void filterString(const QString &string);
+
 private:
     void closeEvent(QCloseEvent* e);
     void keyPressEvent(QKeyEvent* e);

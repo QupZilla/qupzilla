@@ -46,7 +46,7 @@ CookieManager::CookieManager(QWidget* parent)
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->close2, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->close3, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
-    connect(ui->search, SIGNAL(textChanged(QString)), ui->cookieTree, SLOT(filterString(QString)));
+    connect(ui->search, SIGNAL(textChanged(QString)), this, SLOT(filterString(QString)));
 
     // Cookie Filtering
     connect(ui->whiteAdd, SIGNAL(clicked()), this, SLOT(addWhitelist()));
@@ -158,9 +158,9 @@ void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem
 
 void CookieManager::refreshTable()
 {
-    disconnect(ui->search, SIGNAL(textChanged(QString)), ui->cookieTree, SLOT(filterString(QString)));
+    disconnect(ui->search, SIGNAL(textChanged(QString)), this, SLOT(filterString(QString)));
     ui->search->clear();
-    connect(ui->search, SIGNAL(textChanged(QString)), ui->cookieTree, SLOT(filterString(QString)));
+    connect(ui->search, SIGNAL(textChanged(QString)), this, SLOT(filterString(QString)));
 
     QTimer::singleShot(0, this, SLOT(slotRefreshTable()));
     QTimer::singleShot(0, this, SLOT(slotRefreshFilters()));
@@ -280,6 +280,23 @@ void CookieManager::deletePressed()
 void CookieManager::saveCookiesChanged(bool state)
 {
     ui->deleteCookiesOnClose->setEnabled(state);
+}
+
+void CookieManager::filterString(const QString &string)
+{
+    if (string.isEmpty()) {
+        for (int i = 0; i < ui->cookieTree->topLevelItemCount(); ++i) {
+            ui->cookieTree->topLevelItem(i)->setHidden(false);
+            ui->cookieTree->topLevelItem(i)->setExpanded(ui->cookieTree->defaultItemShowMode() == TreeWidget::ItemsExpanded);
+        }
+    }
+    else {
+        for (int i = 0; i < ui->cookieTree->topLevelItemCount(); ++i) {
+            QString text = "." + ui->cookieTree->topLevelItem(i)->text(0);
+            ui->cookieTree->topLevelItem(i)->setHidden(!text.contains(string, Qt::CaseInsensitive));
+            ui->cookieTree->topLevelItem(i)->setExpanded(true);
+        }
+    }
 }
 
 void CookieManager::closeEvent(QCloseEvent* e)
