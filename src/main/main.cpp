@@ -113,6 +113,7 @@ void qupzilla_signal_handler(int s)
 }
 #endif
 
+#if (QT_VERSION < 0x050000)
 void msgHandler(QtMsgType type, const char* msg)
 {
     // Skip this debug message as it may occur in a large amount over time
@@ -135,12 +136,36 @@ void msgHandler(QtMsgType type, const char* msg)
         break;
     }
 }
+#else
+void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+    QByteArray localMsg = msg.toLocal8Bit();
+    switch (type) {
+    case QtDebugMsg:
+    case QtWarningMsg:
+    case QtCriticalMsg:
+        fprintf(stderr, "%s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+        break;
 
+    case QtFatalMsg:
+        fprintf(stderr, "Fatal: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+        abort();
+
+    default:
+        break;
+    }
+}
+#endif
 
 int main(int argc, char* argv[])
 {
     QT_REQUIRE_VERSION(argc, argv, "4.7.0");
+
+#if (QT_VERSION < 0x050000)
     qInstallMsgHandler(&msgHandler);
+#else
+    qInstallMessageHandler(&msgHandler);
+#endif
 
 #if defined(QZ_WS_X11) && QT_VERSION < 0x050000
     QApplication::setGraphicsSystem("raster"); // Better overall performance on X11

@@ -56,4 +56,8 @@ QObject* QtWebKitPlugin::createExtension(Extension ext) const
 Q_EXPORT_PLUGIN2(qtwebkitplugins, QtWebKitPlugin)
 #endif
 
+#if (QT_VERSION < 0x050000)
 Q_IMPORT_PLUGIN(qtwebkitplugins)
+#else
+Q_IMPORT_PLUGIN(QtWebKitPlugin)
+#endif
