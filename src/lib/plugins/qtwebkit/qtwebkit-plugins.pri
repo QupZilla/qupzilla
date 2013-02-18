@@ -17,7 +17,7 @@ unix:contains(DEFINES, USE_QTWEBKIT_2_3):system(pkg-config --exists hunspell) {
 win32 {
     # QtWebKit 2.3 and Hunspell is now needed to build on Windows
     buildSpellcheck = true
-    LIBS += $$PWD/../../../../bin/libhunspell.lib
+    LIBS += -llibhunspell
 }
 
 equals(buildSpellcheck, true) {
