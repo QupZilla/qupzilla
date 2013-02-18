@@ -231,7 +231,7 @@ void QupZilla::postLaunch()
 
 #ifdef Q_OS_MAC
     // fill menus even if user don't call them
-    if (m_startBehaviour == Qz::BW_FirstAppWindow) {
+    if (m_windowType == Qz::BW_FirstAppWindow) {
         aboutToShowBookmarksMenu();
         aboutToShowHistoryMostMenu();
         aboutToShowHistoryRecentMenu();
@@ -1581,12 +1581,6 @@ void QupZilla::triggerTabsOnTop(bool enable)
     }
 
     qzSettings->tabsOnTop = enable;
-
-#ifdef Q_OS_WIN
-    if (QtWin::isCompositionEnabled()) {
-        applyBlurToMainWindow();
-    }
-#endif
 }
 
 void QupZilla::refreshHistory()
