@@ -204,7 +204,7 @@ void QupZilla::postLaunch()
     show();
 
     if (!m_startingUrl.isEmpty()) {
-        startUrl = QUrl::fromUserInput(m_startingUrl.toString());
+        startUrl = m_startingUrl;
         addTab = true;
     }
 

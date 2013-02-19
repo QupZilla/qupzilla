@@ -564,12 +564,12 @@ void MainApplication::receiveAppMessage(QString message)
     QUrl actUrl;
 
     if (message.startsWith(QLatin1String("URL:"))) {
-        QUrl url = QUrl::fromUserInput(message.mid(4));
+        const QUrl &url = QUrl::fromUserInput(message.mid(4));
         addNewTab(url);
         actWin = getWindow();
     }
     else if (message.startsWith(QLatin1String("ACTION:"))) {
-        QString text = message.mid(7);
+        const QString &text = message.mid(7);
         if (text == QLatin1String("NewTab")) {
             addNewTab();
         }
@@ -589,8 +589,11 @@ void MainApplication::receiveAppMessage(QString message)
         }
     }
 
-    if (!actWin && !isClosing()) { // It can only occur if download manager window was still open
-        makeNewWindow(Qz::BW_NewWindow, actUrl);
+    if (!actWin) {
+        if (!isClosing()) {
+            // It can only occur if download manager window was still opened
+            makeNewWindow(Qz::BW_NewWindow, actUrl);
+        }
         return;
     }
 
