@@ -479,6 +479,12 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     if (index == 10) {
         m_pluginsList->load();
     }
+
+    // Update size
+    QWidget* w = ui->stackedWidget->currentWidget();
+    if (w) {
+        w->setMinimumSize(w->sizeHint());
+    }
 }
 
 void Preferences::setNotificationPreviewVisible(bool state)

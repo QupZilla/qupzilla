@@ -10,12 +10,6 @@
     <height>500</height>
    </rect>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>800</width>
-    <height>500</height>
-   </size>
-  </property>
   <property name="windowTitle">
    <string>Preferences</string>
   </property>
@@ -158,9 +152,6 @@
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="currentIndex">
-      <number>0</number>
      </property>
      <widget class="QWidget" name="generalPage">
       <layout class="QGridLayout" name="gridLayout_6">
@@ -648,8 +639,8 @@
       </layout>
      </widget>
      <widget class="QWidget" name="tabsPage">
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
         <widget class="QTabWidget" name="tabWidget_3">
          <property name="currentIndex">
           <number>0</number>
