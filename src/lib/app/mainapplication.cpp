@@ -901,7 +901,7 @@ Speller* MainApplication::speller()
 }
 #endif
 
-void MainApplication::startPrivateBrowsing()
+void MainApplication::startPrivateBrowsing(const QUrl &initialUrl)
 {
     QStringList args;
     foreach(const QString & arg, arguments()) {
@@ -913,6 +913,10 @@ void MainApplication::startPrivateBrowsing()
     }
 
     args.append(QLatin1String("--private-browsing"));
+
+    if (!initialUrl.isEmpty()) {
+        args.append(initialUrl.toEncoded());
+    }
 
     if (!QProcess::startDetached(applicationFilePath(), args)) {
         qWarning() << "MainApplication: Cannot start new browser process for private browsing!" << applicationFilePath() << args;
