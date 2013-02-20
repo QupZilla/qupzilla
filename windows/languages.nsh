@@ -382,6 +382,15 @@ LangString DESC_SecDesktop ${LANG_POLISH} "Dodaj skrót do pulpitu."
 LangString DESC_SecExtensions ${LANG_POLISH} "Skojarz przeglądarkę QupZilla z plikami .htm i .html"
 LangString DESC_SecThemes ${LANG_POLISH} "Dodatkowe motywy dla przeglądarki QupZilla"
 
+LangString MSG_InstallationCanceled ${LANG_POLISH} "Proces anulowany przez użytkownika."
+LangString MSG_RunningInstance ${LANG_POLISH} "QupZilla jest już uruchomiona! Chcesz aby instalator spróbował ją wyłączyć?"
+LangString DESC_SecProtocols ${LANG_POLISH} "Skojarz QupZille z linkami http(s) i protokołem ftp"
+LangString DESC_SecSetASDefault ${LANG_POLISH} "Ustaw QupZille jako domyślną przeglądarke"
+LangString TITLE_SecProtocols ${LANG_POLISH} "Protokół Skojarzeń"
+LangString TITLE_SecSetASDefault ${LANG_POLISH} "Domyślna Przeglądarka"
+
+LangString PRODUCT_DESC ${LANG_POLISH} "QupZilla jest nową, szybką i bezpieczną zbudowaną na otwartych źródłach przeglądarką . QupZilla podlega licencji GPL wersji 3 lub każdej późniejszej. Bazuje na silniku WebKit oraz Frameworku Qt."
+
 ;;;;Ukrainian
 LangString TITLE_SecMain ${LANG_UKRAINIAN} "Основні компоненти"
 LangString TITLE_SecTranslations ${LANG_UKRAINIAN} "Переклади"
@@ -494,7 +503,6 @@ LangString PRODUCT_DESC ${LANG_INDONESIAN} "QupZilla is a new, fast and secure o
 LangString PRODUCT_DESC ${LANG_GEORGIAN} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_JAPANESE} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_SWEDISH} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
-LangString PRODUCT_DESC ${LANG_POLISH} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_UKRAINIAN} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 
 LangString TITLE_SecSetASDefault ${LANG_SLOVAK} "Default Browser"
@@ -508,7 +516,6 @@ LangString TITLE_SecSetASDefault ${LANG_INDONESIAN} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_GEORGIAN} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_JAPANESE} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_SWEDISH} "Default Browser"
-LangString TITLE_SecSetASDefault ${LANG_POLISH} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_UKRAINIAN} "Default Browser"
 
 LangString TITLE_SecProtocols ${LANG_SLOVAK} "Protocol Associations"
@@ -522,7 +529,6 @@ LangString TITLE_SecProtocols ${LANG_INDONESIAN} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_GEORGIAN} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_JAPANESE} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_SWEDISH} "Protocol Associations"
-LangString TITLE_SecProtocols ${LANG_POLISH} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_UKRAINIAN} "Protocol Associations"
 
 LangString DESC_SecSetASDefault ${LANG_SLOVAK} "Set Qupzilla as default internet browser"
@@ -536,7 +542,6 @@ LangString DESC_SecSetASDefault ${LANG_INDONESIAN} "Set Qupzilla as default inte
 LangString DESC_SecSetASDefault ${LANG_GEORGIAN} "Set Qupzilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_JAPANESE} "Set Qupzilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_SWEDISH} "Set Qupzilla as default internet browser"
-LangString DESC_SecSetASDefault ${LANG_POLISH} "Set Qupzilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_UKRAINIAN} "Set Qupzilla as default internet browser"
 
 LangString DESC_SecProtocols ${LANG_SLOVAK} "Associate QupZilla with http(s) and ftp protocols"
@@ -550,7 +555,6 @@ LangString DESC_SecProtocols ${LANG_INDONESIAN} "Associate QupZilla with http(s)
 LangString DESC_SecProtocols ${LANG_GEORGIAN} "Associate QupZilla with http(s) and ftp protocols"
 LangString DESC_SecProtocols ${LANG_JAPANESE} "Associate QupZilla with http(s) and ftp protocols"
 LangString DESC_SecProtocols ${LANG_SWEDISH} "Associate QupZilla with http(s) and ftp protocols"
-LangString DESC_SecProtocols ${LANG_POLISH} "Associate QupZilla with http(s) and ftp protocols"
 LangString DESC_SecProtocols ${LANG_UKRAINIAN} "Associate QupZilla with http(s) and ftp protocols"
 
 LangString MSG_RunningInstance ${LANG_SLOVAK} "QupZilla is already running! Do you want the installer try to terminate it?"
@@ -564,7 +568,6 @@ LangString MSG_RunningInstance ${LANG_INDONESIAN} "QupZilla is already running! 
 LangString MSG_RunningInstance ${LANG_GEORGIAN} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_JAPANESE} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_SWEDISH} "QupZilla is already running! Do you want the installer try to terminate it?"
-LangString MSG_RunningInstance ${LANG_POLISH} "QupZilla is already running! Do you want the installer try to terminate it?"
 
 LangString MSG_InstallationCanceled ${LANG_SLOVAK} "Process cancelled by user."
 LangString MSG_InstallationCanceled ${LANG_DUTCH} "Process cancelled by user."
@@ -577,5 +580,4 @@ LangString MSG_InstallationCanceled ${LANG_INDONESIAN} "Process cancelled by use
 LangString MSG_InstallationCanceled ${LANG_GEORGIAN} "Process cancelled by user."
 LangString MSG_InstallationCanceled ${LANG_JAPANESE} "Process cancelled by user."
 LangString MSG_InstallationCanceled ${LANG_SWEDISH} "Process cancelled by user."
-LangString MSG_InstallationCanceled ${LANG_POLISH} "Process cancelled by user."
 LangString MSG_InstallationCanceled ${LANG_UKRAINIAN} "Process cancelled by user."
