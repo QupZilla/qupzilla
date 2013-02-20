@@ -78,7 +78,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QToolButton" name="close">
+    <widget class="MacToolButton" name="close">
      <property name="text">
       <string/>
      </property>
@@ -89,6 +89,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MacToolButton</class>
+   <extends>QToolButton</extends>
+   <header>mactoolbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
