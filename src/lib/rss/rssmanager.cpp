@@ -43,7 +43,9 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     , p_QupZilla(mainClass)
 {
     ui->setupUi(this);
-
+#ifdef Q_OS_MAC
+    ui->tabWidget->setDocumentMode(false);
+#endif
     ui->tabWidget->setElideMode(Qt::ElideRight);
     m_networkManager = mApp->networkManager();
 
