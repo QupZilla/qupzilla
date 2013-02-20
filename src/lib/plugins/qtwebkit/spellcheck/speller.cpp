@@ -99,6 +99,7 @@ void Speller::initialize()
         else {
             QString word;
             QTextStream stream(&m_userDictionary);
+            stream.setCodec("UTF-8");
             while (!stream.atEnd()) {
                 stream >> word;
                 putWord(word);
@@ -204,6 +205,7 @@ void Speller::addToDictionary()
         }
 
         QTextStream stream(&m_userDictionary);
+        stream.setCodec("UTF-8");
         stream << word << endl;
         m_userDictionary.close();
     }

@@ -166,6 +166,7 @@ void FtpSchemeReply::processData()
 {
     open(ReadOnly | Unbuffered);
     QTextStream stream(&m_buffer);
+    stream.setCodec("UTF-8");
 
     stream << m_ftp->readAll();
 

@@ -103,6 +103,7 @@ void AdBlockSubscription::loadSubscription(const QStringList &disabledRules)
     }
 
     QTextStream textStream(&file);
+    textStream.setCodec("UTF-8");
     // Header is on 3rd line
     textStream.readLine(1024);
     textStream.readLine(1024);
@@ -422,6 +423,7 @@ void AdBlockCustomList::saveSubscription()
     }
 
     QTextStream textStream(&file);
+    textStream.setCodec("UTF-8");
     textStream << "Title: " << title() << endl;
     textStream << "Url: " << url().toString() << endl;
     textStream << "[Adblock Plus 1.1.1]" << endl;

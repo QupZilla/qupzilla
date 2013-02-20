@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -213,6 +213,7 @@ void AdBlockManager::load()
         }
 
         QTextStream textStream(&file);
+        textStream.setCodec("UTF-8");
         QString title = textStream.readLine(1024).remove(QLatin1String("Title: "));
         QUrl url = QUrl(textStream.readLine(1024).remove(QLatin1String("Url: ")));
 

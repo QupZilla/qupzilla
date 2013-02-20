@@ -43,6 +43,7 @@ SpellCheckDialog::SpellCheckDialog(QWidget* parent)
     else {
         QString word;
         QTextStream stream(&file);
+        stream.setCodec("UTF-8");
 
         while (!stream.atEnd()) {
             stream >> word;
@@ -120,6 +121,7 @@ void SpellCheckDialog::saveSettings()
     }
 
     QTextStream stream(&file);
+    stream.setCodec("UTF-8");
     int count = ui->userDictList->count();
 
     for (int i = 0; i < count; ++i) {
