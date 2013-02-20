@@ -24,7 +24,9 @@ ListItemDelegate::ListItemDelegate(int iconSize, QWidget* parent)
     : QStyledItemDelegate(parent)
     , m_iconSize(iconSize)
     , m_updateParentHeight(false)
+    , m_uniformItemSizes(false)
     , m_itemHeight(0)
+    , m_itemWidth(0)
     , m_padding(0)
 {
 }
@@ -32,6 +34,11 @@ ListItemDelegate::ListItemDelegate(int iconSize, QWidget* parent)
 void ListItemDelegate::setUpdateParentHeight(bool update)
 {
     m_updateParentHeight = update;
+}
+
+void ListItemDelegate::setUniformItemSizes(bool uniform)
+{
+    m_uniformItemSizes = uniform;
 }
 
 int ListItemDelegate::itemHeight() const
@@ -91,10 +98,25 @@ QSize ListItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QMode
         // Update height of parent widget
         QWidget* p = qobject_cast<QWidget*>(parent());
         if (p && m_updateParentHeight) {
-            p->setFixedHeight(m_itemHeight);
+            p->setFixedHeight(m_itemHeight
+#ifdef Q_OS_WIN
+                              + 4 // Vertical padding 2px on Windows
+#endif
+                             );
         }
     }
 
     int width = 2 * m_padding + option.fontMetrics.width(index.data(Qt::DisplayRole).toString());
-    return QSize(width > (m_iconSize + 2 * m_padding) ? width : m_iconSize + 2 * m_padding, m_itemHeight);
+    width = width > (m_iconSize + 2 * m_padding) ? width : m_iconSize + 2 * m_padding;
+
+    if (m_uniformItemSizes) {
+        if (width > m_itemWidth) {
+            m_itemWidth = width;
+        }
+        else {
+            width = m_itemWidth;
+        }
+    }
+
+    return QSize(width, m_itemHeight);
 }

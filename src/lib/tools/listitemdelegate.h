@@ -28,6 +28,8 @@ public:
     explicit ListItemDelegate(int iconSize, QWidget* parent);
 
     void setUpdateParentHeight(bool update);
+    void setUniformItemSizes(bool uniform);
+
     int itemHeight() const;
 
     void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
@@ -36,8 +38,10 @@ public:
 private:
     int m_iconSize;
     bool m_updateParentHeight;
+    bool m_uniformItemSizes;
 
     mutable int m_itemHeight;
+    mutable int m_itemWidth;
     mutable int m_padding;
 };
 

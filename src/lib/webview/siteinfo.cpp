@@ -57,6 +57,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
 
     ListItemDelegate* delegate = new ListItemDelegate(24, ui->listWidget);
     delegate->setUpdateParentHeight(true);
+    delegate->setUniformItemSizes(true);
     ui->listWidget->setItemDelegate(delegate);
 
     ui->listWidget->item(0)->setIcon(QIcon::fromTheme("document-properties", QIcon(":/icons/preferences/document-properties.png")));
