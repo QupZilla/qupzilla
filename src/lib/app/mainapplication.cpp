@@ -905,7 +905,9 @@ void MainApplication::startPrivateBrowsing()
 {
     QStringList args;
     foreach(const QString & arg, arguments()) {
-        if (arg.startsWith(QLatin1Char('-'))) {
+        if (arg.startsWith(QLatin1Char('-')) &&
+            arg != "--private-browsing" &&
+            arg != "-pb") {
             args.append(arg);
         }
     }
