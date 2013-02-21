@@ -121,7 +121,9 @@ void FtpSchemeReply::processCommand(int id, bool err)
     case QFtp::List:
         if (m_isGoingToDownload) {
             foreach(const QUrlInfo & item, m_items) {
-                if (item.isFile() && item.name() == m_probablyFileForDownload) {
+                // don't check if it's a file or not,
+                // seems it's a QFtp's bug: for link to a file isDir() returns true
+                if (item.name() == m_probablyFileForDownload) {
                     QByteArray decodedUrl = QByteArray::fromPercentEncoding(url().toString().toUtf8());
                     if (QzTools::isUtf8(decodedUrl.constData())) {
                         m_request.setUrl(QUrl(QString::fromUtf8(decodedUrl)));
@@ -302,10 +304,19 @@ QString FtpSchemeReply::loadDirectory()
             itemPath.remove(itemPath.size() - 1, 1);
         }
 
+        QIcon itemIcon;
+        if (item.isSymLink()) {
+            itemIcon = qIconProvider->standardIcon(QStyle::SP_DirLinkIcon);
+        }
+        else if (item.isFile()) {
+            itemIcon = QzTools::iconFromFileName(itemPath);
+        }
+        else {
+            itemIcon = QFileIconProvider().icon(QFileIconProvider::Folder);
+        }
+
         line += QLatin1String("><td class=\"td-name\" style=\"background-image:url(data:image/png;base64,");
-        line += QzTools::pixmapToByteArray(item.isFile()
-                                           ? QzTools::iconFromFileName(itemPath).pixmap(16)
-                                           : QFileIconProvider().icon(QFileIconProvider::Folder).pixmap(16));
+        line += QzTools::pixmapToByteArray(itemIcon.pixmap(16));
         line += QLatin1String(");\">");
         line += QLatin1String("<a href=\"");
         line += itemUrl.toEncoded();
