@@ -214,7 +214,8 @@ SOURCES += \
     autofill/autofillwidget.cpp \
     tools/menubar.cpp \
     navigation/navigationcontainer.cpp \
-    tools/horizontallistwidget.cpp
+    tools/horizontallistwidget.cpp \
+    tools/mactoolbutton.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -383,7 +384,8 @@ HEADERS  += \
     autofill/autofillwidget.h \
     tools/menubar.h \
     navigation/navigationcontainer.h \
-    tools/horizontallistwidget.h
+    tools/horizontallistwidget.h \
+    tools/mactoolbutton.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

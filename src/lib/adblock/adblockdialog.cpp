@@ -36,7 +36,9 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setupUi(this);
-
+#ifdef Q_OS_MAC
+    tabWidget->setDocumentMode(false);
+#endif
     adblockCheckBox->setChecked(m_manager->isEnabled());
 
     QMenu* menu = new QMenu(buttonMenu);

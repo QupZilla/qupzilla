@@ -30,7 +30,7 @@
     <widget class="QLabel" name="label"/>
    </item>
    <item>
-    <widget class="QToolButton" name="closeButton">
+    <widget class="MacToolButton" name="closeButton">
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
      </property>
@@ -50,6 +50,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MacToolButton</class>
+   <extends>QToolButton</extends>
+   <header>mactoolbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
