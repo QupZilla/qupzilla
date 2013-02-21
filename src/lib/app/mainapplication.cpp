@@ -128,7 +128,15 @@ MainApplication::MainApplication(int &argc, char** argv)
 #ifdef PORTABLE_BUILD
     PROFILEDIR = DATADIR + "profiles/";
 #else
-    PROFILEDIR = QDir::homePath() + "/.qupzilla/";
+    bool confPathExists = QDir(QDir::homePath() + "/.config/qupzilla").exists();
+    bool homePathExists = QDir(QDir::homePath() + "/.qupzilla").exists();
+
+    if (homePathExists && !confPathExists) {
+        PROFILEDIR = QDir::homePath() + "/.qupzilla/";
+    }
+    else {
+        PROFILEDIR = QDir::homePath() + "/.config/qupzilla/";
+    }
 #endif
 
     TRANSLATIONSDIR = DATADIR + "locale/";
@@ -1089,7 +1097,7 @@ bool MainApplication::checkSettingsDir()
     /*
     $HOMEDIR
         |
-    .qupzilla/
+    .config/qupzilla/
         |
     profiles/-----------
         |              |
@@ -1113,7 +1121,7 @@ bool MainApplication::checkSettingsDir()
     dir.mkdir("profiles");
     dir.cd("profiles");
 
-    //.qupzilla/profiles
+    //.config/qupzilla/profiles
     QFile(PROFILEDIR + "profiles/profiles.ini").remove();
     QFile(":data/profiles.ini").copy(PROFILEDIR + "profiles/profiles.ini");
     QFile(PROFILEDIR + "profiles/profiles.ini").setPermissions(QFile::ReadUser | QFile::WriteUser);
@@ -1121,7 +1129,7 @@ bool MainApplication::checkSettingsDir()
     dir.mkdir("default");
     dir.cd("default");
 
-    //.qupzilla/profiles/default
+    //.config/qupzilla/profiles/default
     QFile(PROFILEDIR + "profiles/default/browsedata.db").remove();
     QFile(":data/browsedata.db").copy(PROFILEDIR + "profiles/default/browsedata.db");
     QFile(PROFILEDIR + "profiles/default/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
