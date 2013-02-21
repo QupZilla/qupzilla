@@ -319,7 +319,7 @@ void TabBar::showCloseButton(int index)
     }
 
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
-    QAbstractButton* button = qobject_cast<QAbstractButton*>(tabButton(index, QTabBar::RightSide));
+    QAbstractButton* button = qobject_cast<QAbstractButton*>(tabButton(index, closeButtonPosition()));
 
     if (button || (webTab && webTab->isPinned())) {
         return;
@@ -327,7 +327,7 @@ void TabBar::showCloseButton(int index)
 
     QAbstractButton* closeButton = new CloseButton(this);
     connect(closeButton, SIGNAL(clicked()), this, SLOT(closeTabFromButton()));
-    setTabButton(index, QTabBar::RightSide, closeButton);
+    setTabButton(index, closeButtonPosition(), closeButton);
 }
 
 void TabBar::hideCloseButton(int index)
@@ -336,12 +336,12 @@ void TabBar::hideCloseButton(int index)
         return;
     }
 
-    CloseButton* button = qobject_cast<CloseButton*>(tabButton(index, QTabBar::RightSide));
+    CloseButton* button = qobject_cast<CloseButton*>(tabButton(index, closeButtonPosition()));
     if (!button) {
         return;
     }
 
-    setTabButton(index, QTabBar::RightSide, 0);
+    setTabButton(index, closeButtonPosition(), 0);
     button->deleteLater();
 }
 
@@ -352,7 +352,7 @@ void TabBar::updatePinnedTabCloseButton(int index)
     }
 
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
-    QAbstractButton* button = qobject_cast<QAbstractButton*>(tabButton(index, QTabBar::RightSide));
+    QAbstractButton* button = qobject_cast<QAbstractButton*>(tabButton(index, closeButtonPosition()));
 
     bool pinned = webTab && webTab->isPinned();
 
@@ -383,7 +383,7 @@ void TabBar::closeTabFromButton()
     int tabToClose = -1;
 
     for (int i = 0; i < count(); ++i) {
-        if (tabButton(i, QTabBar::RightSide) == button) {
+        if (tabButton(i, closeButtonPosition()) == button) {
             tabToClose = i;
             break;
         }
@@ -461,6 +461,16 @@ int TabBar::pinnedTabsCount()
 int TabBar::normalTabsCount()
 {
     return count() - m_pinnedTabsCount;
+}
+
+QTabBar::ButtonPosition TabBar::iconButtonPosition()
+{
+    return (closeButtonPosition() == QTabBar::RightSide ? QTabBar::LeftSide : QTabBar::RightSide);
+}
+
+QTabBar::ButtonPosition TabBar::closeButtonPosition()
+{
+    return (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, this);
 }
 
 void TabBar::showTabPreview()
@@ -709,10 +719,9 @@ void CloseButton::paintEvent(QPaintEvent*)
         opt.state |= QStyle::State_Sunken;
     }
 
-    if (const QTabBar* tb = qobject_cast<const QTabBar*>(parent())) {
+    if (TabBar* tb = qobject_cast<TabBar*>(parent())) {
         int index = tb->currentIndex();
-        QTabBar::ButtonPosition position = (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, tb);
-        if (tb->tabButton(index, position) == this) {
+        if (tb->tabButton(index, tb->closeButtonPosition()) == this) {
             opt.state |= QStyle::State_Selected;
         }
     }

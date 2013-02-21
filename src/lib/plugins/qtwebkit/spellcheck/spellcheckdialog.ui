@@ -31,7 +31,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="changeDictPath">
+      <widget class="MacToolButton" name="changeDictPath">
        <property name="text">
         <string>Change...</string>
        </property>
@@ -123,6 +123,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MacToolButton</class>
+   <extends>QToolButton</extends>
+   <header>mactoolbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>

@@ -468,10 +468,10 @@ void TabWidget::startTabAnimation(int index)
         return;
     }
 
-    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, QTabBar::LeftSide));
+    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, m_tabBar->iconButtonPosition()));
     if (!label) {
         label = new QLabel();
-        m_tabBar->setTabButton(index, QTabBar::LeftSide, label);
+        m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), label);
     }
 
     if (label->movie()) {
@@ -492,7 +492,7 @@ void TabWidget::stopTabAnimation(int index)
         return;
     }
 
-    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, QTabBar::LeftSide));
+    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, m_tabBar->iconButtonPosition()));
 
     if (label && label->movie()) {
         label->movie()->stop();
@@ -512,11 +512,11 @@ void TabWidget::setTabIcon(int index, const QIcon &icon)
         return;
     }
 
-    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, QTabBar::LeftSide));
+    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, m_tabBar->iconButtonPosition()));
     if (!label) {
         label = new QLabel();
         label->resize(16, 16);
-        m_tabBar->setTabButton(index, QTabBar::LeftSide, label);
+        m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), label);
     }
 
     label->setPixmap(icon.pixmap(16, 16));

@@ -18,7 +18,7 @@
     <number>4</number>
    </property>
    <item>
-    <widget class="QToolButton" name="closeButton">
+    <widget class="MacToolButton" name="closeButton">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -57,7 +57,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QToolButton" name="previous">
+    <widget class="MacToolButton" name="previous">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -70,7 +70,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QToolButton" name="next">
+    <widget class="MacToolButton" name="next">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -83,7 +83,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QToolButton" name="highligh">
+    <widget class="MacToolButton" name="highligh">
      <property name="text">
       <string>Highlight</string>
      </property>
@@ -93,7 +93,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QToolButton" name="caseSensitive">
+    <widget class="MacToolButton" name="caseSensitive">
      <property name="text">
       <string>Case sensitive</string>
      </property>
@@ -129,6 +129,11 @@
    <class>FocusSelectLineEdit</class>
    <extends>QLineEdit</extends>
    <header>focusselectlineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MacToolButton</class>
+   <extends>QToolButton</extends>
+   <header>mactoolbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

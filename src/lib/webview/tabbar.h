@@ -42,6 +42,9 @@ public:
     int pinnedTabsCount();
     int normalTabsCount();
 
+    QTabBar::ButtonPosition iconButtonPosition();
+    QTabBar::ButtonPosition closeButtonPosition();
+
     void updatePinnedTabCloseButton(int index);
 
     void disconnectObjects();

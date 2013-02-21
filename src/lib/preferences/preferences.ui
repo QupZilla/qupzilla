@@ -165,7 +165,7 @@
            <widget class="QLineEdit" name="newTabUrl"/>
           </item>
           <item>
-           <widget class="QToolButton" name="newTabUseCurrent">
+           <widget class="MacToolButton" name="newTabUseCurrent">
             <property name="text">
              <string>Use current</string>
             </property>
@@ -307,7 +307,7 @@
           <widget class="QLineEdit" name="homepage"/>
          </item>
          <item>
-          <widget class="QToolButton" name="useCurrentBut">
+          <widget class="MacToolButton" name="useCurrentBut">
            <property name="text">
             <string>Use current</string>
            </property>
@@ -952,7 +952,7 @@
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QToolButton" name="customColorToolButton">
+                  <widget class="MacToolButton" name="customColorToolButton">
                    <property name="toolTip">
                     <string>Select color</string>
                    </property>
@@ -962,7 +962,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QToolButton" name="resetProgressBarcolor">
+                  <widget class="MacToolButton" name="resetProgressBarcolor">
                    <property name="text">
                     <string>Reset</string>
                    </property>
@@ -1307,7 +1307,7 @@
                 <widget class="QLineEdit" name="cachePath"/>
                </item>
                <item>
-                <widget class="QToolButton" name="changeCachePath">
+                <widget class="MacToolButton" name="changeCachePath">
                  <property name="text">
                   <string>...</string>
                  </property>
@@ -1892,7 +1892,7 @@
           <widget class="QLineEdit" name="downLoc"/>
          </item>
          <item>
-          <widget class="QToolButton" name="downButt">
+          <widget class="MacToolButton" name="downButt">
            <property name="text">
             <string>...</string>
            </property>
@@ -1997,7 +1997,7 @@
             <widget class="QLineEdit" name="externalDownExecutable"/>
            </item>
            <item>
-            <widget class="QToolButton" name="chooseExternalDown">
+            <widget class="MacToolButton" name="chooseExternalDown">
              <property name="text">
               <string>...</string>
              </property>
@@ -2441,7 +2441,7 @@
         <widget class="QLineEdit" name="userStyleSheet"/>
        </item>
        <item row="11" column="2">
-        <widget class="QToolButton" name="chooseUserStylesheet">
+        <widget class="MacToolButton" name="chooseUserStylesheet">
          <property name="text">
           <string>...</string>
          </property>
@@ -2573,6 +2573,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MacToolButton</class>
+   <extends>QToolButton</extends>
+   <header>mactoolbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>buttonBox</tabstop>
   <tabstop>afterLaunch</tabstop>
