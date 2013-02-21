@@ -552,7 +552,6 @@ void LocationBar::hideProgress()
 
 void LocationBar::paintEvent(QPaintEvent* event)
 {
-#ifndef Q_OS_MAC
     if (m_completer.isPopupVisible() && !m_completer.showingMostVisited()) {
         // We need to draw cursor when popup is visible
         // But don't paint it if we are just showing most visited sites
@@ -569,8 +568,8 @@ void LocationBar::paintEvent(QPaintEvent* event)
 
         const QFontMetrics &fm = fontMetrics();
 
-        QString textPart = text().left(cursorPosition()) + " ";
-        int cursorXpos = lm + fontMetrics().width(textPart);
+        QString textPart = text().left(cursorPosition());
+        int cursorXpos = lm + fontMetrics().width(textPart) + 3;
         int cursorYpos = contentsRect.y() + (contentsRect.height() - fm.height() + 1) / 2;
         int cursorWidth = style()->pixelMetric(QStyle::PM_TextCursorWidth, &option, this);
         int cursorHeight = fontMetrics().height();
@@ -583,7 +582,6 @@ void LocationBar::paintEvent(QPaintEvent* event)
         p.fillRect(cursorRect, option.palette.text().color());
         return;
     }
-#endif
 
     if (hasFocus() || text().isEmpty() || m_forceLineEditPaintEvent) {
         LineEdit::paintEvent(event);
