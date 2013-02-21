@@ -158,10 +158,7 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
     case QStyle::SP_MessageBoxWarning:
         return QIcon::fromTheme("dialog-warning", mApp->style()->standardIcon(QStyle::SP_MessageBoxWarning));
 
-#ifdef QZ_WS_X11
-    default:
-        return mApp->style()->standardIcon(icon);
-#else
+#ifndef QZ_WS_X11
     case QStyle::SP_DialogCloseButton:
         return QIcon(":/icons/faenza/close.png");
 
@@ -170,6 +167,9 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
 
     case QStyle::SP_BrowserReload:
         return QIcon(":/icons/faenza/reload.png");
+
+    case QStyle::SP_FileDialogToParent:
+        return QIcon(":/icons/faenza/go-up.png");
 
     case QStyle::SP_ArrowForward:
         //RTL Support
@@ -188,10 +188,9 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
         else {
             return QIcon(":/icons/faenza/back.png");
         }
-
-    default:
-        return QIcon();
 #endif
+    default:
+        return mApp->style()->standardIcon(icon);
     }
 }
 
