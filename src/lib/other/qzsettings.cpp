@@ -65,10 +65,6 @@ void QzSettings::saveSettings()
     settings.setValue("AutomaticallyOpenProtocols", autoOpenProtocols);
     settings.setValue("BlockOpeningProtocols", blockedProtocols);
     settings.endGroup();
-
-    settings.beginGroup("Browser-Tabs-Settings");
-    settings.setValue("TabsOnTop", tabsOnTop);
-    settings.endGroup();
 }
 
 

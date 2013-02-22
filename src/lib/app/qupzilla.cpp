@@ -1580,6 +1580,9 @@ void QupZilla::triggerTabsOnTop(bool enable)
         m_mainLayout->insertWidget(0, m_navigationContainer);
     }
 
+    Settings settings;
+    settings.setValue("Browser-Tabs-Settings/TabsOnTop", enable);
+
     qzSettings->tabsOnTop = enable;
 }
 
