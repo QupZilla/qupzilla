@@ -71,6 +71,7 @@ private slots:
 
     void updatePlaceHolderText();
     void showCompletion(const QString &newText);
+    void completionPopupClosed();
 
     void onLoadStarted();
     void onLoadProgress(int progress);
@@ -123,7 +124,9 @@ private:
     ProgressStyle m_progressStyle;
     QColor m_progressColor;
 
-    bool m_forceLineEditPaintEvent;
+    bool m_forcePaintEvent;
+    bool m_drawCursor;
+    bool m_popupClosed;
 };
 
 #endif // LOCATIONBAR_H

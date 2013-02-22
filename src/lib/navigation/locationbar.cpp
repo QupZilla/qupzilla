@@ -54,7 +54,9 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_holdingAlt(false)
     , m_loadProgress(0)
     , m_progressVisible(false)
-    , m_forceLineEditPaintEvent(false)
+    , m_forcePaintEvent(false)
+    , m_drawCursor(true)
+    , m_popupClosed(false)
 {
     setObjectName("locationbar");
     setDragEnabled(true);
@@ -82,6 +84,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     m_completer.setLocationBar(this);
     connect(&m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));
     connect(&m_completer, SIGNAL(completionActivated()), this, SLOT(urlEnter()));
+    connect(&m_completer, SIGNAL(popupClosed()), this, SLOT(completionPopupClosed()));
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
@@ -118,7 +121,7 @@ void LocationBar::setWebView(TabbedWebView* view)
 void LocationBar::setText(const QString &text)
 {
     LineEdit::setText(text);
-    m_forceLineEditPaintEvent = true;
+    m_forcePaintEvent = true;
     setCursorPosition(0);
 }
 
@@ -136,6 +139,12 @@ void LocationBar::showCompletion(const QString &newText)
 
     // Move cursor to the end
     end(false);
+}
+
+void LocationBar::completionPopupClosed()
+{
+    m_popupClosed = true;
+    m_drawCursor = true;
 }
 
 QUrl LocationBar::createUrl()
@@ -172,7 +181,7 @@ QString LocationBar::convertUrlToText(const QUrl &url) const
     QString stringUrl = QzTools::urlEncodeQueryString(url);
 
     if (stringUrl == QLatin1String("qupzilla:speeddial") || stringUrl == QLatin1String("about:blank")) {
-        stringUrl = "";
+        stringUrl.clear();
     }
 
     return stringUrl;
@@ -193,6 +202,11 @@ void LocationBar::textEdit()
     }
     else {
         m_completer.closePopup();
+    }
+
+    // Decide whether to draw cursor
+    if (text().length() <= 1 && m_drawCursor && !m_popupClosed) {
+        m_drawCursor = false;
     }
 
     showGoButton();
@@ -401,7 +415,8 @@ void LocationBar::focusOutEvent(QFocusEvent* event)
         return;
     }
 
-    m_forceLineEditPaintEvent = true;
+    m_popupClosed = false;
+    m_forcePaintEvent = true;
     setCursorPosition(0);
     hideGoButton();
 
@@ -552,11 +567,10 @@ void LocationBar::hideProgress()
 
 void LocationBar::paintEvent(QPaintEvent* event)
 {
-    if (m_completer.isPopupVisible() && !m_completer.showingMostVisited()) {
+    if (m_drawCursor && m_completer.isPopupVisible() && !m_completer.showingMostVisited()) {
         // We need to draw cursor when popup is visible
         // But don't paint it if we are just showing most visited sites
         LineEdit::paintEvent(event);
-
         QStyleOptionFrameV3 option;
         initStyleOption(&option);
 
@@ -569,7 +583,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
         const QFontMetrics &fm = fontMetrics();
 
         QString textPart = text().left(cursorPosition());
-        int cursorXpos = lm + fontMetrics().width(textPart) + 3;
+        int cursorXpos = contentsRect.x() + 3 + fontMetrics().width(textPart);
         int cursorYpos = contentsRect.y() + (contentsRect.height() - fm.height() + 1) / 2;
         int cursorWidth = style()->pixelMetric(QStyle::PM_TextCursorWidth, &option, this);
         int cursorHeight = fontMetrics().height();
@@ -583,10 +597,10 @@ void LocationBar::paintEvent(QPaintEvent* event)
         return;
     }
 
-    if (hasFocus() || text().isEmpty() || m_forceLineEditPaintEvent) {
+    if (hasFocus() || text().isEmpty() || m_forcePaintEvent) {
         LineEdit::paintEvent(event);
-        if (m_forceLineEditPaintEvent) {
-            m_forceLineEditPaintEvent = false;
+        if (m_forcePaintEvent) {
+            m_forcePaintEvent = false;
             update();
         }
         return;

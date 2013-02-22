@@ -43,6 +43,7 @@ public:
 signals:
     void showCompletion(const QString &);
     void completionActivated();
+    void popupClosed();
 
 public slots:
     void complete(const QString &string);
@@ -50,7 +51,7 @@ public slots:
 
 private slots:
     void currentChanged(const QModelIndex &index);
-    void popupClosed();
+    void slotPopupClosed();
 
 private:
     void showPopup();
