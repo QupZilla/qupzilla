@@ -51,6 +51,7 @@ private slots:
 
 private:
     QString loadDirectory();
+    QString clickableSections(const QString &path);
 
     QBuffer m_buffer;
     QString m_pageName;
