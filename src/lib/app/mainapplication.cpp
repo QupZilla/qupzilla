@@ -977,7 +977,18 @@ RegisterQAppAssociation* MainApplication::associationManager()
 
 QUrl MainApplication::userStyleSheet(const QString &filePath) const
 {
-    QString userStyle = AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}";
+    QString userStyle;
+
+#ifdef Q_OS_WIN
+    // Don't grey out selection on losing focus (to prevent graying out found text)
+    QPalette pal = style()->standardPalette();
+    QString highlightColor = pal.color(QPalette::Highlight).name();
+    QString highlightedTextColor = pal.color(QPalette::HighlightedText).name();
+
+    userStyle += QString("::selection {background: %1; color: %2;} ").arg(highlightColor, highlightedTextColor);
+#endif
+
+    userStyle += AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}";
 
     QFile file(filePath);
     if (!filePath.isEmpty() && file.open(QFile::ReadOnly)) {

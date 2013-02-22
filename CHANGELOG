@@ -33,6 +33,8 @@ Version 1.4.0
     * fixed possible crash in saving page screen of a really long page
     * fixed showing window in fullscreen with XFCE
     * X11: fixed Ctrl+Q shortcut for DEs other than KDE and Gnome
+    * windows: fixed color of found text when searching on page
+    * windows: fixed navigating to file links and x: labels in file: scheme handler
     * windows: fixed downloading utf-8 encoded adblock subscriptions
     * windows: improved installer allows registering as default web browser
     * windows: check and set as default browser from preferences
