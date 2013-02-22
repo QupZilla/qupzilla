@@ -2373,6 +2373,10 @@ bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* re
 
 void QupZilla::applyBlurToMainWindow(bool force)
 {
+    if (isClosing()) {
+        return;
+    }
+
     if (!force && (m_actionShowFullScreen->isChecked() || !m_usingTransparentBackground)) {
         return;
     }
