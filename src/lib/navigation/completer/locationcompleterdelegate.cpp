@@ -108,7 +108,11 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw link
     const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading() + 2;
     QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
-    QString link(opt.fontMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, linkRect.width()));
+    // Let's assume that more than 500 characters won't fit in line on any display...
+    // Fixes performance when trying to get elidedText for a really long
+    // (length() > 1000000) urls - data: urls can get that long
+    const QString &linkUrl = index.data(Qt::DisplayRole).toString().left(500);
+    QString link(opt.fontMetrics.elidedText(linkUrl, Qt::ElideRight, linkRect.width()));
     painter->setFont(opt.font);
     TabPosition pos = index.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
     if (m_drawSwitchToTab && pos.windowIndex != -1) {
