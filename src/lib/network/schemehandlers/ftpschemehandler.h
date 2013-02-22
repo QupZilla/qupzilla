@@ -73,6 +73,7 @@ private slots:
 private:
     void setContent();
     void ftpReplyErrorHandler(int id);
+    QString clickableSections(const QString &path);
 
     QFtp* m_ftp;
     QList<QUrlInfo> m_items;
