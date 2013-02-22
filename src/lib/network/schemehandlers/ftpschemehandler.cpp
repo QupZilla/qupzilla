@@ -272,6 +272,7 @@ QString FtpSchemeReply::loadDirectory()
         title = QString::fromLatin1(titleByteArray);
     }
     page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(title));
+    page.replace(QLatin1String("%CLICKABLE-TITLE%"), tr("Index for %1").arg(clickableSections(title)));
 
     QString upDirDisplay = QLatin1String("none");
     QString tBody;
@@ -342,6 +343,26 @@ QString FtpSchemeReply::loadDirectory()
     page.replace(QLatin1String("%SHOW-HIDDEN-DISPLAY%"), QLatin1String("none"));
 
     return page;
+}
+
+QString FtpSchemeReply::clickableSections(const QString &path)
+{
+    QString title = path;
+    title.remove(QLatin1String("ftp://"));
+    QStringList sections = title.split(QLatin1Char('/'), QString::SkipEmptyParts);
+    if (sections.isEmpty()) {
+        return QString("<a href=\"%1\">%1</a>").arg(path);
+    }
+    sections[0].prepend(QLatin1String("ftp://"));
+
+    title.clear();
+    for (int i = 0; i < sections.size(); ++i) {
+        QStringList currentParentSections = sections.mid(0, i + 1);
+        QUrl currentParentUrl = QUrl(currentParentSections.join(QLatin1String("/")));
+        title += QString("<a href=\"%1\">%2</a>/").arg(currentParentUrl.toEncoded(), sections.at(i));
+    }
+
+    return title;
 }
 
 void FtpSchemeReply::ftpReplyErrorHandler(int id)

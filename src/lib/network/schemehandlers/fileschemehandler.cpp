@@ -168,7 +168,10 @@ QString FileSchemeReply::loadDirectory()
     }
 
     QString page = sPage;
-    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(request().url().toLocalFile()));
+    QString title = request().url().toLocalFile();
+    title.replace(QLatin1Char('/'), QDir::separator());
+    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(title));
+    page.replace(QLatin1String("%CLICKABLE-TITLE%"), tr("Index for %1").arg(clickableSections(title)));
 
     QString upDirDisplay = QLatin1String("none");
     QString showHiddenDisplay = QLatin1String("none");
@@ -221,4 +224,29 @@ QString FileSchemeReply::loadDirectory()
     page.replace(QLatin1String("%SHOW-HIDDEN-DISPLAY%"), showHiddenDisplay);
 
     return page;
+}
+
+QString FileSchemeReply::clickableSections(const QString &path)
+{
+    QString title = path;
+    const QString dirSeparator = QDir::separator();
+    QStringList sections = title.split(dirSeparator, QString::SkipEmptyParts);
+    if (sections.isEmpty()) {
+        return QString("<a href=\"%1\">%1</a>").arg(path);
+    }
+
+    title.clear();
+#ifndef Q_OS_WIN
+    title = QString("<a href=\"%1\">%1</a>").arg(dirSeparator);
+#endif
+    for (int i = 0; i < sections.size(); ++i) {
+        QStringList currentParentSections = sections.mid(0, i + 1);
+        QString localFile = currentParentSections.join(QLatin1String("/"));
+#ifndef Q_OS_WIN
+        localFile.prepend(dirSeparator);
+#endif
+        title += QString("<a href=\"%1\">%2</a>%3").arg(QUrl::fromLocalFile(localFile).toEncoded(), sections.at(i), dirSeparator);
+    }
+
+    return title;
 }
