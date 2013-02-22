@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,11 +25,16 @@ ProxyStyle::ProxyStyle()
 
 int ProxyStyle::styleHint(StyleHint hint, const QStyleOption* option, const QWidget* widget, QStyleHintReturn* returnData) const
 {
-    if (hint == QStyle::SH_Menu_Scrollable) {
+    switch (hint) {
+    case QStyle::SH_Menu_Scrollable:
         return int(true);
-    }
 
-    return QProxyStyle::styleHint(hint, option, widget, returnData);
+    case QStyle::SH_ScrollBar_ContextMenu:
+        return int(false);
+
+    default:
+        return QProxyStyle::styleHint(hint, option, widget, returnData);
+    }
 }
 
 int ProxyStyle::pixelMetric(PixelMetric metric, const QStyleOption* option, const QWidget* widget) const

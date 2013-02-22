@@ -29,7 +29,7 @@ MacToolButton::MacToolButton(QWidget* parent)
 void MacToolButton::setIconSize(const QSize &size)
 {
     QPushButton::setIconSize(size);
-    m_buttonFixedSize = QSize(size.width()+2, size.height()+2);
+    m_buttonFixedSize = QSize(size.width() + 2, size.height() + 2);
 }
 
 void MacToolButton::setAutoRaise(bool enable)
