@@ -44,12 +44,25 @@ QNetworkReply* FileSchemeHandler::createRequest(QNetworkAccessManager::Operation
     }
 
     // Only list directories
-    QFileInfo fileInfo(request.url().toLocalFile());
+    QString filePath = request.url().toLocalFile();
+    QFileInfo fileInfo(filePath);
     if (!fileInfo.isDir() || !fileInfo.isReadable() || !fileInfo.exists()) {
         return 0;
     }
+#ifdef Q_OS_WIN
+    QNetworkRequest req = request;
 
+    if (filePath.endsWith(QLatin1Char(':'))) {
+        filePath.append(QLatin1Char('/'));
+        req.setUrl(QUrl::fromLocalFile(filePath));
+    }
+    else if (filePath.endsWith(QLatin1String(".lnk"))) {
+        req.setUrl(QUrl::fromLocalFile(fileInfo.canonicalFilePath()));
+    }
+    FileSchemeReply* reply = new FileSchemeReply(req);
+#else
     FileSchemeReply* reply = new FileSchemeReply(request);
+#endif
     return reply;
 }
 
