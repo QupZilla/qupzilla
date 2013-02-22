@@ -161,10 +161,12 @@ int main(int argc, char* argv[])
 {
     QT_REQUIRE_VERSION(argc, argv, "4.7.0");
 
+#ifndef Q_OS_WIN
 #if (QT_VERSION < 0x050000)
     qInstallMsgHandler(&msgHandler);
 #else
     qInstallMessageHandler(&msgHandler);
+#endif
 #endif
 
 #if defined(QZ_WS_X11) && QT_VERSION < 0x050000

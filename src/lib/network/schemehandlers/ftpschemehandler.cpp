@@ -312,7 +312,7 @@ QString FtpSchemeReply::loadDirectory()
             itemIcon = QzTools::iconFromFileName(itemPath);
         }
         else {
-            itemIcon = QFileIconProvider().icon(QFileIconProvider::Folder);
+            itemIcon = qIconProvider->standardIcon(QStyle::SP_DirIcon);
         }
 
         line += QLatin1String("><td class=\"td-name\" style=\"background-image:url(data:image/png;base64,");
