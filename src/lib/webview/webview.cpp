@@ -475,7 +475,7 @@ void WebView::sendPageByMail()
 void WebView::copyLinkToClipboard()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        QApplication::clipboard()->setText(action->data().toString());
+        QApplication::clipboard()->setText(action->data().toUrl().toEncoded());
     }
 }
 
@@ -912,9 +912,8 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
     menu->addSeparator();
     if (url().scheme() == QLatin1String("http") || url().scheme() == QLatin1String("https")) {
-//        bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
-//        if (result)
-        menu->addAction(tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(QUrl("http://validator.w3.org/check?uri=" + url().toString()));
+        const QByteArray &w3url = "http://validator.w3.org/check?uri=" + QUrl::toPercentEncoding(url().toEncoded());
+        menu->addAction(tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(QUrl::fromEncoded(w3url));
     }
 
     menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
