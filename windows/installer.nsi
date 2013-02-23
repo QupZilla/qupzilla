@@ -300,6 +300,12 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\fa_IR.qm"
   File "locale\qt_fa.qm"
   SectionEnd
+  
+  Section "Catalan"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ca_ES.qm"
+  File "locale\qt_ca.qm"
+  SectionEnd
 
 SectionGroupEnd
 

@@ -118,7 +118,9 @@ void AboutDialog::showAuthors()
                                                "Gábor Oberle<br/>"
                                                "Piccoro McKay Lenz<br/>"
                                                "Stanislav Kuznietsov<br/>"
-                                               "Seyyed Razi Alavizadeh")
+                                               "Seyyed Razi Alavizadeh<br/>"
+                                               "Guillem Prats<br/>"
+                                               "Clara Villalba")
                          );
         m_authorsHtml += "</div></center>";
     }

@@ -1,4 +1,5 @@
-TRANSLATIONS += $$PWD/cs_CZ.ts\
+TRANSLATIONS += $$PWD/ca_ES.ts\
+                $$PWD/cs_CZ.ts\
                 $$PWD/sk_SK.ts\
                 $$PWD/de_DE.ts\
                 $$PWD/nl_NL.ts\
