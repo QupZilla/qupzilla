@@ -890,6 +890,7 @@ QByteArray TabWidget::saveState()
 bool TabWidget::restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab)
 {
     m_isRestoringState = true;
+    setUpdatesEnabled(false);
 
     Qz::BrowserWindow type = p_QupZilla->windowType();
 
@@ -905,6 +906,8 @@ bool TabWidget::restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab
     }
 
     m_isRestoringState = false;
+    setUpdatesEnabled(true);
+
 
     setCurrentIndex(currentTab);
     currentTabChanged(currentTab);
