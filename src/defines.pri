@@ -17,21 +17,39 @@ win32-msvc* {
 
 # Check for pkg-config availability
 system(pkg-config --version > /dev/null) {
-    QTWEBKIT_VERSION = $$system(PKG_CONFIG_PATH=$$[QT_INSTALL_LIBS]/pkgconfig pkg-config --modversion QtWebKit)
+    isEqual(QT_MAJOR_VERSION, 5) {
+        MODNAME=Qt5WebKitWidgets
+    }
+    else {
+        MODNAME=QtWebKit
+    }
+
+    QTWEBKIT_VERSION = $$system(PKG_CONFIG_PATH=$$[QT_INSTALL_LIBS]/pkgconfig pkg-config --modversion $$MODNAME)
     QTWEBKIT_VERSION_MAJOR = $$section(QTWEBKIT_VERSION, ".", 0, 0)
     QTWEBKIT_VERSION_MINOR = $$section(QTWEBKIT_VERSION, ".", 1, 1)
 
-    greaterThan(QTWEBKIT_VERSION_MAJOR, 3):greaterThan(QTWEBKIT_VERSION_MINOR, 8) {
-        DEFINES *= USE_QTWEBKIT_2_2
+    isEqual(QT_MAJOR_VERSION, 5) {
+        greaterThan(QTWEBKIT_VERSION_MAJOR, 4) {
+            DEFINES *= USE_QTWEBKIT_2_2 USE_QTWEBKIT_2_3
+        }
     }
+    else { # Qt 4
+        greaterThan(QTWEBKIT_VERSION_MAJOR, 3):greaterThan(QTWEBKIT_VERSION_MINOR, 8) {
+            DEFINES *= USE_QTWEBKIT_2_2
+        }
 
-    greaterThan(QTWEBKIT_VERSION_MAJOR, 3):greaterThan(QTWEBKIT_VERSION_MINOR, 9) {
-        DEFINES *= USE_QTWEBKIT_2_3
+        greaterThan(QTWEBKIT_VERSION_MAJOR, 3):greaterThan(QTWEBKIT_VERSION_MINOR, 9) {
+            DEFINES *= USE_QTWEBKIT_2_3
+        }
     }
 }
 else {
     isEqual(QT_VERSION, 4.8.0)|greaterThan(QT_VERSION, 4.8.0) {
         DEFINES *= USE_QTWEBKIT_2_2
+    }
+
+    isEqual(QT_MAJOR_VERSION, 5) {
+        DEFINES *= USE_QTWEBKIT_2_2 USE_QTWEBKIT_2_3
     }
 }
 
