@@ -109,7 +109,6 @@ void NetworkManager::loadSettings()
     QSslConfiguration config = QSslConfiguration::defaultConfiguration();
     config.setPeerVerifyMode(QSslSocket::VerifyNone);
     QSslConfiguration::setDefaultConfiguration(config);
-#endif
 
     QString certDir = mApp->PROFILEDIR + "certificates";
     QString bundlePath = certDir + "/ca-bundle.crt";
@@ -129,6 +128,9 @@ void NetworkManager::loadSettings()
     }
 
     QSslSocket::setDefaultCaCertificates(QSslCertificate::fromPath(bundlePath));
+#else
+    QSslSocket::setDefaultCaCertificates(QSslSocket::systemCaCertificates());
+#endif
 
     m_proxyFactory->loadSettings();
 }
@@ -664,7 +666,9 @@ void NetworkManager::loadCertificates()
 
     QSslSocket::setDefaultCaCertificates(m_caCerts + m_localCerts);
 
+#ifdef Q_OS_WIN
     new CaBundleUpdater(this, this);
+#endif
 }
 
 void NetworkManager::disconnectObjects()
