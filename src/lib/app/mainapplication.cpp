@@ -979,12 +979,18 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
 {
     QString userStyle;
 
-#ifdef Q_OS_WIN
+#ifndef QZ_WS_X11
     // Don't grey out selection on losing focus (to prevent graying out found text)
+    QString highlightColor;
+    QString highlightedTextColor;
+#ifdef Q_OS_MAC
+    highlightColor = QLatin1String("#b6d6fc");
+    highlightedTextColor = QLatin1String("#000");
+#else
     QPalette pal = style()->standardPalette();
-    QString highlightColor = pal.color(QPalette::Highlight).name();
-    QString highlightedTextColor = pal.color(QPalette::HighlightedText).name();
-
+    highlightColor = pal.color(QPalette::Highlight).name();
+    highlightedTextColor = pal.color(QPalette::HighlightedText).name();
+#endif
     userStyle += QString("::selection {background: %1; color: %2;} ").arg(highlightColor, highlightedTextColor);
 #endif
 
