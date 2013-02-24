@@ -14,7 +14,7 @@
     <string>@EXECUTABLE@</string>
     <key>CFBundleIdentifier</key>
     <string>com.qupzilla.QupZilla</string>
-    
+
     <key>CFBundleDocumentTypes</key>
     <array>
       <dict>
@@ -37,12 +37,17 @@
         <string>Viewer</string>
       </dict>
     </array>
-    
+
     <key>CFBundleDevelopmentRegion</key>
     <string>English</string>
     <key>CFBundleName</key>
     <string>QupZilla</string>
     <key>CFBundleDisplayName</key>
     <string>QupZilla</string>
+
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
 </dict>
 </plist>
