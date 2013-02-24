@@ -436,7 +436,7 @@ FORMS    += \
 RESOURCES += \
     data/icons.qrc \
     data/html.qrc \
-    data/data.qrc
+    data/data.qrc \
 
 isEqual(QT_MAJOR_VERSION, 5) {
     include(3rdparty/qftp.pri)
@@ -455,6 +455,7 @@ isEqual(QT_MAJOR_VERSION, 5) {
 win32 {
     HEADERS += other/registerqappassociation.h
     SOURCES += other/registerqappassociation.cpp
+    RESOURCES += data/certs.qrc
 }
 
 mac {
