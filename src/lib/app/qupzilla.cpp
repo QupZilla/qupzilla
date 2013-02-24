@@ -1754,7 +1754,6 @@ bool QupZilla::event(QEvent* event)
             m_statusBarVisible = statusBar()->isVisible();
             menuBar()->hide();
             statusBar()->hide();
-            bookmarksToolbar()->hide();
             m_navigationContainer->hide();
             m_tabWidget->getTabBar()->hide();
 #ifndef Q_OS_MAC
