@@ -1754,7 +1754,6 @@ bool QupZilla::event(QEvent* event)
             m_statusBarVisible = statusBar()->isVisible();
             menuBar()->hide();
             statusBar()->hide();
-            bookmarksToolbar()->hide();
             m_navigationContainer->hide();
             m_tabWidget->getTabBar()->hide();
 #ifndef Q_OS_MAC
@@ -2373,6 +2372,10 @@ bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* re
 
 void QupZilla::applyBlurToMainWindow(bool force)
 {
+    if (isClosing()) {
+        return;
+    }
+
     if (!force && (m_actionShowFullScreen->isChecked() || !m_usingTransparentBackground)) {
         return;
     }
