@@ -231,6 +231,11 @@ void GM_Manager::load()
         const QString &absolutePath = gmDir.absoluteFilePath(fileName);
         GM_Script* script = new GM_Script(this, absolutePath);
 
+        if (!script->isValid()) {
+            delete script;
+            continue;
+        }
+
         if (m_disabledScripts.contains(script->fullName())) {
             script->setEnabled(false);
         }
