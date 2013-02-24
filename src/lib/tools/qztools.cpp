@@ -46,6 +46,14 @@
 #include <QX11Info>
 #endif
 
+#ifdef Q_OS_WIN
+#include <windows.h>
+#endif
+
+#ifdef Q_OS_MAC
+#include <CoreServices/CoreServices.h>
+#endif
+
 QByteArray QzTools::pixmapToByteArray(const QPixmap &pix)
 {
     QByteArray bytes;
@@ -603,7 +611,7 @@ void* QzTools::X11Display(const QWidget* widget)
 }
 #endif
 
-QString QzTools::buildSystem()
+QString QzTools::operatingSystem()
 {
 #ifdef Q_OS_LINUX
     return "Linux";
@@ -626,9 +634,6 @@ QString QzTools::buildSystem()
 #ifdef Q_OS_LYNX
     return "LynxOS";
 #endif
-#ifdef Q_OS_MAC
-    return "MAC OS";
-#endif
 #ifdef Q_OS_NETBSD
     return "NetBSD";
 #endif
@@ -646,6 +651,12 @@ QString QzTools::buildSystem()
 #endif
 #ifdef Q_OS_UNIXWARE
     return "UnixWare 7 / Open UNIX 8";
+#endif
+#ifdef Q_OS_UNIX
+    return "Unix";
+#endif
+#ifdef Q_OS_HAIKU
+    return "Haiku";
 #endif
 #ifdef Q_OS_WIN32
     QString str = "Windows";
@@ -675,15 +686,29 @@ QString QzTools::buildSystem()
         break;
 
     default:
+        OSVERSIONINFO osvi;
+        ZeroMemory(&osvi, sizeof(OSVERSIONINFO));
+        osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+        GetVersionEx(&osvi);
+
+        if (osvi.dwMajorVersion == 6 &&  osvi.dwMinorVersion == 2) {
+            str.append(" 8");
+        }
         break;
     }
 
     return str;
 #endif
-#ifdef Q_OS_UNIX
-    return "Unix";
-#endif
-#ifdef Q_OS_HAIKU
-    return "Haiku";
+#ifdef Q_OS_MAC
+    QString str = "Mac OS X";
+
+    SInt32 majorVersion;
+    SInt32 minorVersion;
+
+    if (Gestalt(gestaltSystemVersionMajor, &majorVersion) == noErr && Gestalt(gestaltSystemVersionMinor, &minorVersion) == noErr) {
+        str.append(QString(" %1.%2").arg(majorVersion, minorVersion));
+    }
+
+    return str;
 #endif
 }

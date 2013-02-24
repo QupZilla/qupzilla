@@ -96,7 +96,7 @@ void Updater::start()
 {
     QUrl url = QUrl(QString("%1/update.php?v=%2&os=%3").arg(QupZilla::WWWADDRESS,
                     QupZilla::VERSION,
-                    QzTools::buildSystem()));
+                    QzTools::operatingSystem()));
 
     startDownloadingUpdateInfo(url);
 }

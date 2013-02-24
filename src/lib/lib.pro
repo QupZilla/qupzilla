@@ -461,6 +461,8 @@ win32 {
 mac {
     HEADERS += other/macmenureceiver.h
     SOURCES += other/macmenureceiver.cpp
+
+    LIBS +=- framework CoreServices
 }
 
 message(===========================================)
