@@ -373,14 +373,14 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //OTHER
     //Languages
-    QString activeLanguage;
-    if (!mApp->currentLanguageFile().isEmpty()) {
-        activeLanguage = mApp->currentLanguageFile();
+    QString activeLanguage = mApp->currentLanguage();
+    if (!activeLanguage.isEmpty() && activeLanguage != QLatin1String("en_US")) {
         QLocale locale(activeLanguage);
         QString country = QLocale::countryToString(locale.country());
         QString language = QLocale::languageToString(locale.language());
         ui->languages->addItem(language + ", " + country + " (" + activeLanguage + ")", activeLanguage);
     }
+
     ui->languages->addItem("English (en_US)");
 
     QDir lanDir(mApp->TRANSLATIONSDIR);
