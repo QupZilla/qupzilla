@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "pageformcompleter.h"
+#include "qzregexp.h"
 
 #include <QWebPage>
 #include <QWebFrame>
@@ -160,7 +161,7 @@ QByteArray PageFormCompleter::convertWebKitFormBoundaryIfNecessary(const QByteAr
     }
 
     QByteArray formatedData;
-    QRegExp rx("name=\"(.*)------WebKitFormBoundary");
+    QzRegExp rx("name=\"(.*)------WebKitFormBoundary");
     rx.setMinimal(true);
 
     int pos = 0;

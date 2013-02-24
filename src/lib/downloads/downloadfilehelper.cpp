@@ -25,6 +25,7 @@
 #include "downloadmanager.h"
 #include "qztools.h"
 #include "settings.h"
+#include "qzregexp.h"
 
 #include <QFileIconProvider>
 #include <QListWidgetItem>
@@ -129,13 +130,13 @@ QString DownloadFileHelper::parseContentDisposition(const QByteArray &header)
     }
 
     // We try to use UTF-8 encoded filename first if present
-    if (value.contains(QRegExp("[ ;]{1,}filename*\\*\\s*=\\s*UTF-8''", Qt::CaseInsensitive))) {
-        QRegExp reg("filename\\s*\\*\\s*=\\s*UTF-8''([^;]*)", Qt::CaseInsensitive);
+    if (value.contains(QzRegExp("[ ;]{1,}filename*\\*\\s*=\\s*UTF-8''", Qt::CaseInsensitive))) {
+        QzRegExp reg("filename\\s*\\*\\s*=\\s*UTF-8''([^;]*)", Qt::CaseInsensitive);
         reg.indexIn(value);
         path = QUrl::fromPercentEncoding(reg.cap(1).toUtf8()).trimmed();
     }
-    else if (value.contains(QRegExp("[ ;]{1,}filename\\s*=", Qt::CaseInsensitive))) {
-        QRegExp reg("[ ;]{1,}filename\\s*=(.*)", Qt::CaseInsensitive);
+    else if (value.contains(QzRegExp("[ ;]{1,}filename\\s*=", Qt::CaseInsensitive))) {
+        QzRegExp reg("[ ;]{1,}filename\\s*=(.*)", Qt::CaseInsensitive);
         reg.indexIn(value);
         path = reg.cap(1).trimmed();
 
@@ -152,7 +153,7 @@ QString DownloadFileHelper::parseContentDisposition(const QByteArray &header)
             }
         }
         else {
-            QRegExp reg("([^;]*)", Qt::CaseInsensitive);
+            QzRegExp reg("([^;]*)", Qt::CaseInsensitive);
             reg.indexIn(path);
             path = reg.cap(1).trimmed();
         }

@@ -48,7 +48,7 @@
 #include "adblocksubscription.h"
 
 #include <QDebug>
-#include <QRegExp>
+#include "qzregexp.h"
 #include <QUrl>
 #include <QString>
 #include <QStringList>
@@ -467,7 +467,7 @@ void AdBlockRule::parseFilter()
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
         m_useRegExp = true;
-        m_regExp = QRegExp(parsedLine, m_caseSensitivity, QRegExp::RegExp);
+        m_regExp = QzRegExp(parsedLine, m_caseSensitivity);
         return;
     }
 
@@ -482,7 +482,7 @@ void AdBlockRule::parseFilter()
 
     // We can use fast string matching for domain here
     if (parsedLine.startsWith(QLatin1String("||")) && parsedLine.endsWith(QLatin1Char('^'))
-            && !parsedLine.contains(QRegExp("[/:?=&\\*]"))) {
+            && !parsedLine.contains(QzRegExp("[/:?=&\\*]"))) {
         parsedLine = parsedLine.mid(2);
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
@@ -492,7 +492,7 @@ void AdBlockRule::parseFilter()
     }
 
     // If rule contains only | at end, we can also use string matching
-    if (parsedLine.endsWith(QLatin1Char('|')) && !parsedLine.contains(QRegExp("[\\^\\*]"))
+    if (parsedLine.endsWith(QLatin1Char('|')) && !parsedLine.contains(QzRegExp("[\\^\\*]"))
             && parsedLine.count(QLatin1Char('|')) == 1) {
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
@@ -502,24 +502,24 @@ void AdBlockRule::parseFilter()
     }
 
     // If we still find a wildcard (*) or separator (^) or (|)
-    // we must modify parsedLine to comply with QRegExp
+    // we must modify parsedLine to comply with QzRegExp
     if (parsedLine.contains(QLatin1Char('*')) || parsedLine.contains(QLatin1Char('^'))
             || parsedLine.contains(QLatin1Char('|'))) {
-        parsedLine.replace(QRegExp(QLatin1String("\\*+")), QLatin1String("*"))       // remove multiple wildcards
-        .replace(QRegExp(QLatin1String("\\^\\|$")), QLatin1String("^"))    // remove anchors following separator placeholder
-        .replace(QRegExp(QLatin1String("^(\\*)")), QString())      // remove leading wildcards
-        .replace(QRegExp(QLatin1String("(\\*)$")), QString())
-        .replace(QRegExp(QLatin1String("(\\W)")), QLatin1String("\\\\1"))  // escape special symbols
-        .replace(QRegExp(QLatin1String("^\\\\\\|\\\\\\|")),
+        parsedLine.replace(QzRegExp(QLatin1String("\\*+")), QLatin1String("*"))       // remove multiple wildcards
+        .replace(QzRegExp(QLatin1String("\\^\\|$")), QLatin1String("^"))    // remove anchors following separator placeholder
+        .replace(QzRegExp(QLatin1String("^(\\*)")), QString())      // remove leading wildcards
+        .replace(QzRegExp(QLatin1String("(\\*)$")), QString())
+        .replace(QzRegExp(QLatin1String("(\\W)")), QLatin1String("\\\\1"))  // escape special symbols
+        .replace(QzRegExp(QLatin1String("^\\\\\\|\\\\\\|")),
                  QLatin1String("^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?"))   // process extended anchor at expression start
-        .replace(QRegExp(QLatin1String("\\\\\\^")),
+        .replace(QzRegExp(QLatin1String("\\\\\\^")),
                  QLatin1String("(?:[^\\w\\d\\-.%]|$)"))                    // process separator placeholders
-        .replace(QRegExp(QLatin1String("^\\\\\\|")), QLatin1String("^"))   // process anchor at expression start
-        .replace(QRegExp(QLatin1String("\\\\\\|$")), QLatin1String("$"))   // process anchor at expression end
-        .replace(QRegExp(QLatin1String("\\\\\\*")), QLatin1String(".*"));  // replace wildcards by .*
+        .replace(QzRegExp(QLatin1String("^\\\\\\|")), QLatin1String("^"))   // process anchor at expression start
+        .replace(QzRegExp(QLatin1String("\\\\\\|$")), QLatin1String("$"))   // process anchor at expression end
+        .replace(QzRegExp(QLatin1String("\\\\\\*")), QLatin1String(".*"));  // replace wildcards by .*
 
         m_useRegExp = true;
-        m_regExp = QRegExp(parsedLine, m_caseSensitivity, QRegExp::RegExp);
+        m_regExp = QzRegExp(parsedLine, m_caseSensitivity);
         return;
     }
 

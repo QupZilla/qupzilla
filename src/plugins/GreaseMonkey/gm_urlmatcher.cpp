@@ -80,22 +80,22 @@ void GM_UrlMatcher::parsePattern(QString pattern)
         pattern = pattern.mid(1);
         pattern = pattern.left(pattern.size() - 1);
 
-        m_regExp = QRegExp(pattern, Qt::CaseInsensitive);
+        m_regExp = QzRegExp(pattern, Qt::CaseInsensitive);
         m_useRegExp = true;
         return;
     }
 
     if (pattern.contains(QLatin1String(".tld"))) {
 
-        pattern.replace(QRegExp("(\\W)"), QLatin1String("\\\\1"))
-        .replace(QRegExp("\\*+"), QLatin1String("*"))
-        .replace(QRegExp("^\\\\\\|"), QLatin1String("^"))
-        .replace(QRegExp("\\\\\\|$"), QLatin1String("$"))
-        .replace(QRegExp("\\\\\\*"), QLatin1String(".*"))
+        pattern.replace(QzRegExp("(\\W)"), QLatin1String("\\\\1"))
+        .replace(QzRegExp("\\*+"), QLatin1String("*"))
+        .replace(QzRegExp("^\\\\\\|"), QLatin1String("^"))
+        .replace(QzRegExp("\\\\\\|$"), QLatin1String("$"))
+        .replace(QzRegExp("\\\\\\*"), QLatin1String(".*"))
         .replace(QLatin1String("\\.tld"), QLatin1String("\\.[a-z.]{2,6}"));
 
         m_useRegExp = true;
-        m_regExp = QRegExp(pattern, Qt::CaseInsensitive);
+        m_regExp = QzRegExp(pattern, Qt::CaseInsensitive);
     }
     else {
         m_matchString = pattern;

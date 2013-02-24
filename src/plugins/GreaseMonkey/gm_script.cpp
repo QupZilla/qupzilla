@@ -19,7 +19,7 @@
 #include "gm_manager.h"
 
 #include <QFile>
-#include <QRegExp>
+#include "qzregexp.h"
 #include <QStringList>
 #include <QWebFrame>
 #include <QDebug>
@@ -176,7 +176,7 @@ void GM_Script::parseScript()
 
     QString fileData = QString::fromUtf8(file.readAll());
 
-    QRegExp rx("// ==UserScript==(.*)// ==/UserScript==");
+    QzRegExp rx("// ==UserScript==(.*)// ==/UserScript==");
     rx.indexIn(fileData);
     QString metadataBlock = rx.cap(1).trimmed();
 

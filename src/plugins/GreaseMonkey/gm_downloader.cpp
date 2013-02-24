@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
 
 #include <QFile>
 #include <QSettings>
-#include <QRegExp>
+#include "qzregexp.h"
 #include <QDebug>
 
 GM_Downloader::GM_Downloader(const QNetworkRequest &request, GM_Manager* manager)
@@ -72,7 +72,7 @@ void GM_Downloader::scriptDownloaded()
         QSettings settings(m_manager->settinsPath() + "greasemonkey/requires/requires.ini", QSettings::IniFormat);
         settings.beginGroup("Files");
 
-        QRegExp rx("@require(.*)\\n");
+        QzRegExp rx("@require(.*)\\n");
         rx.setMinimal(true);
         rx.indexIn(response);
 

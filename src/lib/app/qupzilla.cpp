@@ -1732,7 +1732,7 @@ void QupZilla::hideNavigationWithFullScreen()
 void QupZilla::hideNavigationSlot()
 {
     TabbedWebView* view = weView();
-    bool mouseInView = view && view->geometry().contains(view->mapFromGlobal(QCursor::pos()));
+    bool mouseInView = view && view->underMouse();
 
     if (isFullScreen() && mouseInView) {
         m_navigationContainer->hide();

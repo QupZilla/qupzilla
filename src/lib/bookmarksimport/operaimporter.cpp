@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "operaimporter.h"
 #include "bookmarksimportdialog.h"
+#include "qzregexp.h"
 
 OperaImporter::OperaImporter(QObject* parent)
     : QObject(parent)
@@ -50,7 +51,7 @@ QList<BookmarksModel::Bookmark> OperaImporter::exportBookmarks()
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
 
-    QRegExp rx("#URL(.*)CREATED", Qt::CaseSensitive);
+    QzRegExp rx("#URL(.*)CREATED", Qt::CaseSensitive);
     rx.setMinimal(true);
 
     int pos = 0;
@@ -58,7 +59,7 @@ QList<BookmarksModel::Bookmark> OperaImporter::exportBookmarks()
         QString string = rx.cap(1);
         pos += rx.matchedLength();
 
-        QRegExp rx2("NAME=(.*)\\n");
+        QzRegExp rx2("NAME=(.*)\\n");
         rx2.setMinimal(true);
         rx2.indexIn(string);
         QString name = rx2.cap(1).trimmed();

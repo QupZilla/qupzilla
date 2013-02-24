@@ -50,6 +50,7 @@
 #include "useragentmanager.h"
 #include "restoremanager.h"
 #include "proxystyle.h"
+#include "qzregexp.h"
 #include "checkboxdialog.h"
 #include "registerqappassociation.h"
 #include "html5permissions/html5permissionsmanager.h"
@@ -375,7 +376,7 @@ void MainApplication::loadSettings()
     }
 
     QString relativePath = QDir::current().relativeFilePath(m_activeThemePath);
-    css.replace(QRegExp("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)", Qt::CaseSensitive, QRegExp::RegExp2),
+    css.replace(QzRegExp("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)", Qt::CaseSensitive),
                 QString("url(%1\\1)").arg(relativePath + "/"));
     setStyleSheet(css);
 

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -67,7 +67,7 @@ HtmlHighlighter::HtmlHighlighter(QTextDocument* parent)
     QStringList keywordPatterns;
     keywordPatterns << "</?([A-Za-z:0-9]{1,20})/?(>| )?" << ">" << "(<!DOCTYPE html>|<!DOCTYPE html PUBLIC)";
     foreach(const QString & pattern, keywordPatterns) {
-        rule.pattern = QRegExp(pattern);
+        rule.pattern = QzRegExp(pattern);
         rule.format = tagFormat;
         highlightingRules.append(rule);
     }
@@ -75,13 +75,13 @@ HtmlHighlighter::HtmlHighlighter(QTextDocument* parent)
     // options: <tag option1="" option2="">
     tagOptionsFormat.setForeground(Qt::black);
     tagOptionsFormat.setFontWeight(QFont::Bold);
-    rule.pattern = QRegExp("(\\S{2,20})=\"");
+    rule.pattern = QzRegExp("(\\S{2,20})=\"");
     rule.format = tagOptionsFormat;
     highlightingRules.append(rule);
 
     // " " strings
     quotationFormat.setForeground(Qt::darkGreen);
-    QRegExp rx("\".*\"");
+    QzRegExp rx("\".*\"");
     rx.setMinimal(true);
     rule.pattern = rx;
     rule.format = quotationFormat;
@@ -89,14 +89,14 @@ HtmlHighlighter::HtmlHighlighter(QTextDocument* parent)
 
     // <!-- --> comments
     multiLineCommentFormat.setForeground(Qt::gray);
-    commentStartExpression = QRegExp("<!--");
-    commentEndExpression = QRegExp("-->");
+    commentStartExpression = QzRegExp("<!--");
+    commentEndExpression = QzRegExp("-->");
 }
 
 void HtmlHighlighter::highlightBlock(const QString &text)
 {
     foreach(const HighlightingRule & rule, highlightingRules) {
-        QRegExp expression(rule.pattern);
+        QzRegExp expression(rule.pattern);
         int index = expression.indexIn(text);
         while (index >= 0) {
             int length = expression.matchedLength();

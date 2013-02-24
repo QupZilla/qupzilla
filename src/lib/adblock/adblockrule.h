@@ -47,10 +47,10 @@
 #define ADBLOCKRULE_H
 
 #include <QObject>
-#include <QRegExp>
 #include <QStringList>
 
 #include "qz_namespace.h"
+#include "qzregexp.h"
 
 class QNetworkRequest;
 class QUrl;
@@ -111,7 +111,7 @@ private:
     bool m_domainRestricted;
 
     bool m_useRegExp;
-    QRegExp m_regExp;
+    QzRegExp m_regExp;
 
     bool m_useDomainMatch;
     bool m_useEndsMatch;

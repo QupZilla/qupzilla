@@ -14,10 +14,6 @@ include(../defines.pri)
 include(../../translations/translations.pri)
 #include(../../tests/modeltest/modeltest.pri)
 
-isEqual(QT_MAJOR_VERSION, 5) {
-    include(3rdparty/qftp.pri)
-}
-
 contains(DEFINES, USE_QTWEBKIT_2_2) {
     include(plugins/qtwebkit/qtwebkit-plugins.pri)
 }
@@ -215,7 +211,7 @@ SOURCES += \
     tools/menubar.cpp \
     navigation/navigationcontainer.cpp \
     tools/horizontallistwidget.cpp \
-    tools/mactoolbutton.cpp
+    tools/mactoolbutton.cpp \
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -385,7 +381,8 @@ HEADERS  += \
     tools/menubar.h \
     navigation/navigationcontainer.h \
     tools/horizontallistwidget.h \
-    tools/mactoolbutton.h
+    tools/mactoolbutton.h \
+    tools/qzregexp.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -440,6 +437,12 @@ RESOURCES += \
     data/icons.qrc \
     data/html.qrc \
     data/data.qrc
+
+isEqual(QT_MAJOR_VERSION, 5) {
+    include(3rdparty/qftp.pri)
+
+    SOURCES += tools/qzregexp.cpp
+}
 
 !mac:unix {
     target.path = $$library_folder

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,9 +15,11 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include <QNetworkReply>
 #include "iconfetcher.h"
 #include "followredirectreply.h"
+#include "qzregexp.h"
+
+#include <QNetworkReply>
 
 IconFetcher::IconFetcher(QObject* parent)
     : QObject(parent)
@@ -48,7 +50,7 @@ void IconFetcher::pageDownloaded()
     QUrl replyUrl = reply->url();
     reply->deleteLater();
 
-    QRegExp rx("<link(.*)>", Qt::CaseInsensitive);
+    QzRegExp rx("<link(.*)>", Qt::CaseInsensitive);
     rx.setMinimal(true);
 
     QString shortcutIconTag;
@@ -72,7 +74,7 @@ void IconFetcher::pageDownloaded()
         newReply = new FollowRedirectReply(faviconUrl, m_manager);
     }
     else {
-        QRegExp rx("href=\"(.*)\"", Qt::CaseInsensitive);
+        QzRegExp rx("href=\"(.*)\"", Qt::CaseInsensitive);
         rx.setMinimal(true);
         rx.indexIn(shortcutIconTag);
         QUrl url = QUrl(rx.cap(1));

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 #include "htmlimporter.h"
 #include "bookmarksimportdialog.h"
 
-#include <QRegExp>
+#include "qzregexp.h"
 
 HtmlImporter::HtmlImporter(QObject* parent)
     : QObject(parent)
@@ -100,7 +100,7 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
 
         if (nearest == posOfFolder) {
             // Next is folder
-            QRegExp rx("<dt><h3(.*)>(.*)</h3>");
+            QzRegExp rx("<dt><h3(.*)>(.*)</h3>");
             rx.setMinimal(true);
             rx.indexIn(string);
 
@@ -121,14 +121,14 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
         }
         else {
             // Next is link
-            QRegExp rx("<dt><a(.*)>(.*)</a>");
+            QzRegExp rx("<dt><a(.*)>(.*)</a>");
             rx.setMinimal(true);
             rx.indexIn(string);
 
             QString arguments = rx.cap(1);
             QString linkName = rx.cap(2).trimmed();
 
-            QRegExp rx2("href=\"(.*)\"");
+            QzRegExp rx2("href=\"(.*)\"");
             rx2.setMinimal(true);
             rx2.indexIn(arguments);
 
