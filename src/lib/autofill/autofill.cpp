@@ -254,8 +254,10 @@ void AutoFill::updateEntry(const PageFormData &formData, const AutoFillData &upd
     mApp->dbWriter()->executeQuery(query);
 }
 
+// If password was filled in the page, returns all saved passwords on this page
 QList<AutoFillData> AutoFill::completePage(WebPage* page)
 {
+    bool completed = false;
     QList<AutoFillData> list;
 
     if (!page) {
@@ -273,7 +275,11 @@ QList<AutoFillData> AutoFill::completePage(WebPage* page)
         const AutoFillData data = getFirstFormData(pageUrl);
 
         PageFormCompleter completer(page);
-        completer.completePage(data.postData);
+        completed = completer.completePage(data.postData);
+    }
+
+    if (!completed) {
+        list.clear();
     }
 
     return list;

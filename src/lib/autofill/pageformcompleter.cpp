@@ -90,8 +90,10 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
     return formData;
 }
 
-void PageFormCompleter::completePage(const QByteArray &data) const
+// Returns if any data was actually filled in page
+bool PageFormCompleter::completePage(const QByteArray &data) const
 {
+    bool completed = false;
     const QueryItems &queryItems = createQueryItems(data);
 
     // Input types that are being completed
@@ -105,11 +107,6 @@ void PageFormCompleter::completePage(const QByteArray &data) const
         const QString &key = queryItems.at(i).first;
         const QString &value = queryItems.at(i).second;
 
-        /* Is it really necessary?
-        key = QUrl::fromEncoded(key.toUtf8()).toString();
-        value = QUrl::fromEncoded(value.toUtf8()).toString();
-        */
-
         for (int i = 0; i < inputs.count(); i++) {
             QWebElement element = inputs.at(i);
             const QString &typeAttr = element.attribute("type");
@@ -119,10 +116,13 @@ void PageFormCompleter::completePage(const QByteArray &data) const
             }
 
             if (key == element.attribute("name")) {
+                completed = true;
                 element.setAttribute("value", value);
             }
         }
     }
+
+    return completed;
 }
 
 bool PageFormCompleter::queryItemsContains(const QueryItems &queryItems, const QString &attributeName,

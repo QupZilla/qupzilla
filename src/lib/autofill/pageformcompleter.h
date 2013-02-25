@@ -41,7 +41,7 @@ public:
     explicit PageFormCompleter(QWebPage* page);
 
     PageFormData extractFormData(const QByteArray &postData) const;
-    void completePage(const QByteArray &data) const;
+    bool completePage(const QByteArray &data) const;
 
 private:
     typedef QPair<QString, QString> QueryItem;
