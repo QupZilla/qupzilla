@@ -64,10 +64,9 @@ static QString fileNameForCert(const QSslCertificate &cert)
     return certFileName;
 }
 
-NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
+NetworkManager::NetworkManager(QObject* parent)
     : NetworkManagerProxy(parent)
     , m_adblockManager(0)
-    , p_QupZilla(mainClass)
     , m_ignoreAllWarnings(false)
 {
     connect(this, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)), this, SLOT(authentication(QNetworkReply*, QAuthenticator*)));
@@ -254,7 +253,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
 
 void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
 {
-    QDialog* dialog = new QDialog(p_QupZilla);
+    QDialog* dialog = new QDialog();
     dialog->setWindowTitle(tr("Authorisation required"));
 
     QFormLayout* formLa = new QFormLayout(dialog);
@@ -428,7 +427,7 @@ void NetworkManager::ftpAuthentication(const QUrl &url, QAuthenticator* auth)
 
 void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator* auth)
 {
-    QDialog* dialog = new QDialog(p_QupZilla);
+    QDialog* dialog = new QDialog();
     dialog->setWindowTitle(tr("Proxy authorisation required"));
 
     QFormLayout* formLa = new QFormLayout(dialog);

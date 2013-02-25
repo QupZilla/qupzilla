@@ -810,7 +810,7 @@ QWebSettings* MainApplication::webSettings()
 NetworkManager* MainApplication::networkManager()
 {
     if (!m_networkmanager) {
-        m_networkmanager = new NetworkManager(getWindow());
+        m_networkmanager = new NetworkManager(this);
     }
     return m_networkmanager;
 }
