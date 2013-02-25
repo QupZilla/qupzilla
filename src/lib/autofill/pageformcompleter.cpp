@@ -39,17 +39,17 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
     QByteArray data = convertWebKitFormBoundaryIfNecessary(postData);
     PageFormData formData = {false, QString(), QString(), data};
 
-    if (data.isEmpty()) {
+    if (data.isEmpty() || !data.contains('=')) {
         return formData;
     }
 
-    if (!data.contains('=')) {
-        qDebug() << "PageFormCompleter: Invalid form data" << data;
+    const QueryItems &queryItems = createQueryItems(data);
+
+    if (queryItems.isEmpty()) {
         return formData;
     }
 
     const QWebElementCollection &allForms = getAllElementsFromPage(m_page, "form");
-    const QueryItems &queryItems = createQueryItems(data);
 
     // Find form that contains password value sent in data
     foreach(const QWebElement & formElement, allForms) {
