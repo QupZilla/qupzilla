@@ -32,6 +32,12 @@
 #include <QTimer>
 #include <QDebug>
 
+//#define ADBLOCK_DEBUG
+
+#ifdef ADBLOCK_DEBUG
+#include <QElapsedTimer>
+#endif
+
 AdBlockManager* AdBlockManager::s_adBlockManager = 0;
 
 AdBlockManager::AdBlockManager(QObject* parent)
@@ -75,6 +81,10 @@ QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
 
 QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
 {
+#ifdef ADBLOCK_DEBUG
+    QElapsedTimer timer;
+    timer.start();
+#endif
     const QString &urlString = request.url().toEncoded();
     const QString &urlDomain = request.url().host();
     const QString &urlScheme = request.url().scheme();
@@ -100,9 +110,17 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
             AdBlockBlockedNetworkReply* reply = new AdBlockBlockedNetworkReply(subscription, blockedRule, this);
             reply->setRequest(request);
 
+#ifdef ADBLOCK_DEBUG
+            qDebug() << "BLOCKED: " << timer.elapsed() << blockedRule->filter() << request.url();
+#endif
+
             return reply;
         }
     }
+
+#ifdef ADBLOCK_DEBUG
+            qDebug() << timer.elapsed() << request.url();
+#endif
 
     return 0;
 }
@@ -184,6 +202,11 @@ void AdBlockManager::load()
         return;
     }
 
+#ifdef ADBLOCK_DEBUG
+    QElapsedTimer timer;
+    timer.start();
+#endif
+
     Settings settings;
     settings.beginGroup("AdBlock");
     m_enabled = settings.value("enabled", m_enabled).toBool();
@@ -248,6 +271,10 @@ void AdBlockManager::load()
     if (lastUpdate.addDays(5) < QDateTime::currentDateTime()) {
         QTimer::singleShot(1000 * 60, this, SLOT(updateAllSubscriptions()));
     }
+
+#ifdef ADBLOCK_DEBUG
+    qDebug() << "AdBlock loaded in" << timer.elapsed();
+#endif
 
     m_loaded = true;
 }
