@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -61,7 +61,7 @@ public:
 
     bool urlIsStored(const QString &url);
 
-    QList<HistoryEntry> mostVisited(int count);
+    QVector<HistoryEntry> mostVisited(int count);
 
     bool clearHistory();
     bool optimizeHistory();
@@ -85,5 +85,8 @@ private:
 };
 
 typedef History::HistoryEntry HistoryEntry;
+
+// Hint to QVector to use std::realloc on item moving
+Q_DECLARE_TYPEINFO(HistoryEntry, Q_MOVABLE_TYPE);
 
 #endif // HISTORY_H

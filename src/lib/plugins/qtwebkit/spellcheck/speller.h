@@ -20,6 +20,7 @@
 
 #include <QWebElement>
 #include <QStringList>
+#include <QVector>
 #include <QFile>
 
 #include "qz_namespace.h"
@@ -54,7 +55,7 @@ public:
     void loadSettings();
 
     Language language() const;
-    QList<Language> availableLanguages();
+    QVector<Language> availableLanguages();
 
     QString dictionaryPath() const;
     void populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
@@ -89,7 +90,7 @@ private:
 
     QFile m_userDictionary;
     Language m_language;
-    QList<Language> m_availableLanguages;
+    QVector<Language> m_availableLanguages;
     bool m_enabled;
 
     // Replacing word
@@ -97,6 +98,9 @@ private:
     int m_startPos;
     int m_endPos;
 };
+
+// Hint to QVector to use std::realloc on item moving
+Q_DECLARE_TYPEINFO(Speller::Language, Q_MOVABLE_TYPE);
 
 Q_DECLARE_METATYPE(Speller::Language)
 

@@ -40,7 +40,7 @@ public:
     explicit AutoFillWidget(WebView* view, QWidget* parent = 0);
     ~AutoFillWidget();
 
-    void setFormData(const QList<AutoFillData> &data);
+    void setFormData(const QVector<AutoFillData> &data);
 
 private slots:
     void loginToPage();
@@ -49,7 +49,7 @@ private:
     Ui::AutoFillWidget* ui;
 
     WebView* m_view;
-    QList<AutoFillData> m_data;
+    QVector<AutoFillData> m_data;
 };
 
 #endif // AUTOFILLWIDGET_H

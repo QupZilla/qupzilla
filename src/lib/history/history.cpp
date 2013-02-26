@@ -214,9 +214,9 @@ bool History::urlIsStored(const QString &url)
     return query.next();
 }
 
-QList<HistoryEntry> History::mostVisited(int count)
+QVector<HistoryEntry> History::mostVisited(int count)
 {
-    QList<HistoryEntry> list;
+    QVector<HistoryEntry> list;
     QSqlQuery query;
     query.exec(QString("SELECT count, date, id, title, url FROM history ORDER BY count DESC LIMIT %1").arg(count));
     while (query.next()) {

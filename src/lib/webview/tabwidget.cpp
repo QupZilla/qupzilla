@@ -691,7 +691,7 @@ void TabWidget::restoreAllClosedTabs()
         return;
     }
 
-    const QList<ClosedTabsManager::Tab> &closedTabs = m_closedTabsManager->allClosedTabs();
+    const QVector<ClosedTabsManager::Tab> &closedTabs = m_closedTabsManager->allClosedTabs();
 
     foreach(const ClosedTabsManager::Tab & tab, closedTabs) {
         int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab);
@@ -755,7 +755,7 @@ void TabWidget::aboutToShowClosedTabsMenu()
     }
 }
 
-QList<WebTab*> TabWidget::allTabs(bool withPinned)
+QList<WebTab *> TabWidget::allTabs(bool withPinned)
 {
     QList<WebTab*> allTabs;
 
@@ -861,7 +861,7 @@ void TabWidget::restorePinnedTabs()
 
 QByteArray TabWidget::saveState()
 {
-    QList<WebTab::SavedTab> tabList;
+    QVector<WebTab::SavedTab> tabList;
 
     for (int i = 0; i < count(); ++i) {
         WebTab* webTab = weTab(i);
@@ -887,7 +887,7 @@ QByteArray TabWidget::saveState()
     return data;
 }
 
-bool TabWidget::restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab)
+bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab)
 {
     m_isRestoringState = true;
     setUpdatesEnabled(false);

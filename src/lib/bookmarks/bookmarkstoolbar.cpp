@@ -686,7 +686,7 @@ void BookmarksToolbar::refreshMostVisited()
 {
     m_menuMostVisited->clear();
 
-    QList<HistoryEntry> mostList = m_historyModel->mostVisited(10);
+    QVector<HistoryEntry> mostList = m_historyModel->mostVisited(10);
     foreach(const HistoryEntry & entry, mostList) {
         QString title = entry.title;
         if (title.length() > 40) {

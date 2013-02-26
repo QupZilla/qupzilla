@@ -54,7 +54,7 @@ public:
     void blockStoringforUrl(const QUrl &url);
 
     AutoFillData getFirstFormData(const QUrl &url);
-    QList<AutoFillData> getFormData(const QUrl &url, int limit = 0);
+    QVector<AutoFillData> getFormData(const QUrl &url, int limit = 0);
 
     void updateLastUsed(int id);
 
@@ -65,7 +65,7 @@ public:
     void updateEntry(const PageFormData &formData, const AutoFillData &updateData);
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
-    QList<AutoFillData> completePage(WebPage* page);
+    QVector<AutoFillData> completePage(WebPage* page);
 
     static QByteArray exportPasswords();
     static bool importPasswords(const QByteArray &data);
@@ -75,5 +75,8 @@ private:
     bool m_isStoring;
 
 };
+
+// Hint to QVector to use std::realloc on item moving
+Q_DECLARE_TYPEINFO(AutoFillData, Q_MOVABLE_TYPE);
 
 #endif // AUTOFILLMODEL_H

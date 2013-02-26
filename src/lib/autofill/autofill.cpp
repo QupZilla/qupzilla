@@ -112,7 +112,7 @@ void AutoFill::blockStoringforUrl(const QUrl &url)
 
 AutoFillData AutoFill::getFirstFormData(const QUrl &url)
 {
-    QList<AutoFillData> list = getFormData(url, 1);
+    const QVector<AutoFillData> &list = getFormData(url, 1);
 
     if (list.isEmpty()) {
         AutoFillData data;
@@ -124,9 +124,9 @@ AutoFillData AutoFill::getFirstFormData(const QUrl &url)
     return list.first();
 }
 
-QList<AutoFillData> AutoFill::getFormData(const QUrl &url, int limit)
+QVector<AutoFillData> AutoFill::getFormData(const QUrl &url, int limit)
 {
-    QList<AutoFillData> list;
+    QVector<AutoFillData> list;
 
     QString server = url.host();
     if (server.isEmpty()) {
@@ -255,10 +255,10 @@ void AutoFill::updateEntry(const PageFormData &formData, const AutoFillData &upd
 }
 
 // If password was filled in the page, returns all saved passwords on this page
-QList<AutoFillData> AutoFill::completePage(WebPage* page)
+QVector<AutoFillData> AutoFill::completePage(WebPage* page)
 {
     bool completed = false;
-    QList<AutoFillData> list;
+    QVector<AutoFillData> list;
 
     if (!page) {
         return list;
@@ -318,7 +318,7 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
     AutoFillData updateData = { -1, QString(), QString(), QByteArray() };
 
     if (isStored(siteUrl)) {
-        const QList<AutoFillData> &list = getFormData(siteUrl);
+        const QVector<AutoFillData> &list = getFormData(siteUrl);
 
         foreach(const AutoFillData & data, list) {
             if (data.username == formData.username) {

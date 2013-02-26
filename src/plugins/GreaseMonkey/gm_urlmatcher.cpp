@@ -52,6 +52,11 @@ static bool wildcardMatch(const QString &string, const QString &pattern)
     return true;
 }
 
+GM_UrlMatcher::GM_UrlMatcher()
+    : m_useRegExp(false)
+{
+}
+
 GM_UrlMatcher::GM_UrlMatcher(const QString &pattern)
     : m_pattern(pattern)
     , m_useRegExp(false)

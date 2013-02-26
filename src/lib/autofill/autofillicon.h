@@ -32,7 +32,7 @@ public:
     explicit AutoFillIcon(QWidget* parent = 0);
 
     void setWebView(WebView* view);
-    void setFormData(const QList<AutoFillData> &data);
+    void setFormData(const QVector<AutoFillData> &data);
 
 private slots:
     void iconClicked();
@@ -43,7 +43,7 @@ private:
 
     WebView* m_view;
 
-    QList<AutoFillData> m_data;
+    QVector<AutoFillData> m_data;
 
 };
 

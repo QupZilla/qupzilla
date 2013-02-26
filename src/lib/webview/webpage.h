@@ -20,6 +20,7 @@
 
 #include <QWebPage>
 #include <QSslCertificate>
+#include <QVector>
 
 #include "qz_namespace.h"
 #include "autofill.h"
@@ -63,10 +64,10 @@ public:
     void javaScriptAlert(QWebFrame* originatingFrame, const QString &msg);
 
     void addAdBlockRule(const AdBlockRule* rule, const QUrl &url);
-    QList<AdBlockedEntry> adBlockedEntries() const;
+    QVector<AdBlockedEntry> adBlockedEntries() const;
 
     bool hasMultipleUsernames() const;
-    QList<AutoFillData> autoFillData() const;
+    QVector<AutoFillData> autoFillData() const;
 
     void scheduleAdjustPage();
     bool isRunningLoop();
@@ -135,9 +136,9 @@ private:
     QEventLoop* m_runningLoop;
 
     QSslCertificate m_sslCert;
-    QList<QSslCertificate> m_rejectedSslCerts;
-    QList<AdBlockedEntry> m_adBlockedEntries;
-    QList<AutoFillData> m_autoFillData;
+    QVector<QSslCertificate> m_rejectedSslCerts;
+    QVector<AdBlockedEntry> m_adBlockedEntries;
+    QVector<AutoFillData> m_autoFillData;
 
     QWebPage::NavigationType m_lastRequestType;
     QUrl m_lastRequestUrl;

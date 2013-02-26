@@ -24,6 +24,7 @@
 class GM_UrlMatcher
 {
 public:
+    explicit GM_UrlMatcher();
     GM_UrlMatcher(const QString &pattern);
 
     QString pattern() const;
@@ -40,5 +41,8 @@ private:
 
     bool m_useRegExp;
 };
+
+// Hint to QVector to use std::realloc on item moving
+Q_DECLARE_TYPEINFO(GM_UrlMatcher, Q_MOVABLE_TYPE);
 
 #endif // GM_URLMATCHER_H

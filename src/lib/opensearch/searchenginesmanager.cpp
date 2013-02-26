@@ -392,7 +392,9 @@ void SearchEnginesManager::removeEngine(const Engine &engine)
 {
     ENSURE_LOADED;
 
-    if (!m_allEngines.contains(engine)) {
+    int index = m_allEngines.indexOf(engine);
+
+    if (index < 0) {
         return;
     }
 
@@ -402,11 +404,11 @@ void SearchEnginesManager::removeEngine(const Engine &engine)
     query.bindValue(1, engine.url);
     query.exec();
 
-    m_allEngines.removeOne(engine);
+    m_allEngines.remove(index);
     emit enginesChanged();
 }
 
-void SearchEnginesManager::setAllEngines(const QList<Engine> &engines)
+void SearchEnginesManager::setAllEngines(const QVector<Engine> &engines)
 {
     ENSURE_LOADED;
 
@@ -414,7 +416,7 @@ void SearchEnginesManager::setAllEngines(const QList<Engine> &engines)
     emit enginesChanged();
 }
 
-QList<SearchEngine> SearchEnginesManager::allEngines()
+QVector<SearchEngine> SearchEnginesManager::allEngines()
 {
     ENSURE_LOADED;
 

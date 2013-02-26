@@ -60,7 +60,7 @@ public:
     void loadSettings();
 
     QByteArray saveState();
-    bool restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab);
+    bool restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab);
     void closeRecoveryTab();
 
     void savePinnedTabs();

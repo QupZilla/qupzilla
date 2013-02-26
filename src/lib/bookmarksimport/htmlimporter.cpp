@@ -59,9 +59,9 @@ int qzMin(int a, int b)
     }
 }
 
-QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
+QVector<Bookmark> HtmlImporter::exportBookmarks()
 {
-    QList<BookmarksModel::Bookmark> list;
+    QVector<BookmarksModel::Bookmark> list;
 
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();

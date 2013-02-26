@@ -300,7 +300,7 @@ void HistoryModel::fetchMore(const QModelIndex &parent)
     query.addBindValue(parentItem->startTimestamp());
     query.exec();
 
-    QList<HistoryEntry> list;
+    QVector<HistoryEntry> list;
 
     while (query.next()) {
         HistoryEntry entry;

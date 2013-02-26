@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -91,7 +91,7 @@ public:
     bool createFolder(const QString &name);
     void removeFolder(const QString &name);
 
-    QList<Bookmark> folderBookmarks(const QString &name);
+    QVector<Bookmark> folderBookmarks(const QString &name);
 
     bool createSubfolder(const QString &name);
     bool isSubfolder(const QString &name);
@@ -132,6 +132,9 @@ private:
 
 typedef BookmarksModel::Bookmark Bookmark;
 
-Q_DECLARE_METATYPE(BookmarksModel::Bookmark)
+// Hint to QVector to use std::realloc on item moving
+Q_DECLARE_TYPEINFO(Bookmark, Q_MOVABLE_TYPE);
+
+Q_DECLARE_METATYPE(Bookmark)
 
 #endif // BOOKMARKSMODEL_H

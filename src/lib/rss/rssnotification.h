@@ -20,6 +20,7 @@
 
 #include <QUrl>
 #include <QIcon>
+#include <QVector>
 
 #include "qz_namespace.h"
 #include "animatedwidget.h"
@@ -61,7 +62,7 @@ private:
     QUrl m_url;
     WebView* m_view;
 
-    QList<RssApp> m_rssApps;
+    QVector<RssApp> m_rssApps;
 };
 
 #endif // RSSNOTIFICATION_H

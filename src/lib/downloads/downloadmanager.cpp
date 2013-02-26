@@ -128,9 +128,9 @@ bool DownloadManager::nativeEvent(const QByteArray &eventType, void* _message, l
 
 void DownloadManager::timerEvent(QTimerEvent* e)
 {
-    QList<QTime> remTimes;
-    QList<int> progresses;
-    QList<double> speeds;
+    QVector<QTime> remTimes;
+    QVector<int> progresses;
+    QVector<double> speeds;
 
     if (e->timerId() == m_timer.timerId()) {
         if (!ui->list->count()) {

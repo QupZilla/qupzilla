@@ -145,7 +145,8 @@ void AdBlockIcon::createMenu(QMenu* menu)
     }
 
     menu->addSeparator();
-    QList<WebPage::AdBlockedEntry> entries = page->adBlockedEntries();
+
+    QVector<WebPage::AdBlockedEntry> entries = page->adBlockedEntries();
     if (entries.isEmpty()) {
         menu->addAction(tr("No content blocked"))->setEnabled(false);
     }

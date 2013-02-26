@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -56,7 +56,7 @@ void ButtonWithMenu::addItem(const Item &item)
     emit itemAdded(item);
 }
 
-void ButtonWithMenu::addItems(const QList<Item> &items)
+void ButtonWithMenu::addItems(const QVector<Item> &items)
 {
     foreach(const Item & item, items) {
         addItem(item);
@@ -70,7 +70,7 @@ void ButtonWithMenu::removeItem(const Item &item)
         return;
     }
 
-    m_items.removeOne(item);
+    m_items.remove(index);
 
     if (m_items.count() == 0) {
         setIcon(QIcon());

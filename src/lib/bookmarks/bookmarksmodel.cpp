@@ -448,9 +448,9 @@ bool BookmarksModel::renameFolder(const QString &before, const QString &after)
     return true;
 }
 
-QList<Bookmark> BookmarksModel::folderBookmarks(const QString &name)
+QVector<Bookmark> BookmarksModel::folderBookmarks(const QString &name)
 {
-    QList<Bookmark> list;
+    QVector<Bookmark> list;
 
     QSqlQuery query;
     query.prepare("SELECT id, url, title, folder, icon FROM bookmarks WHERE folder=?");

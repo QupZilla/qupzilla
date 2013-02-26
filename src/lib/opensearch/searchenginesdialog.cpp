@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -231,7 +231,7 @@ void SearchEnginesDialog::accept()
         return;
     }
 
-    QList<SearchEngine> allEngines;
+    QVector<SearchEngine> allEngines;
 
     for (int i = 0; i < ui->treeWidget->topLevelItemCount(); i++) {
         QTreeWidgetItem* item = ui->treeWidget->topLevelItem(i);

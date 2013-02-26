@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012 Franz Fellner <alpine.art.de@googlemail.com>
+* Copyright (C) 2010-2013 Franz Fellner <alpine.art.de@googlemail.com>
 *                         David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -70,7 +70,7 @@ void RestoreManager::createFromFile(const QString &file)
                 continue;
             }
 
-            QList<WebTab::SavedTab> tabs;
+            QVector<WebTab::SavedTab> tabs;
             int tabListCount = 0;
             tabStream >> tabListCount;
             for (int i = 0; i < tabListCount; ++i) {

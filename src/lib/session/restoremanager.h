@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012 Franz Fellner <alpine.art.de@googlemail.com>
+* Copyright (C) 2010-2013 Franz Fellner <alpine.art.de@googlemail.com>
 *                         David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -28,20 +28,23 @@ public:
     struct WindowData {
         int currentTab;
         QByteArray windowState;
-        QList<WebTab::SavedTab> tabsState;
+        QVector<WebTab::SavedTab> tabsState;
     };
 
     RestoreManager(const QString &sessionFile);
 
-    QList<RestoreManager::WindowData> restoreData() const;
+    QVector<RestoreManager::WindowData> restoreData() const;
     bool isValid() const;
 
 private:
     void createFromFile(const QString &file);
 
-    QList<RestoreManager::WindowData> m_data;
+    QVector<RestoreManager::WindowData> m_data;
 };
 
-typedef QList<RestoreManager::WindowData> RestoreData;
+typedef QVector<RestoreManager::WindowData> RestoreData;
+
+// Hint to QVector to use std::realloc on item moving
+Q_DECLARE_TYPEINFO(RestoreManager::WindowData, Q_MOVABLE_TYPE);
 
 #endif // RESTOREMANAGER_H

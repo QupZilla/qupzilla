@@ -1087,14 +1087,16 @@ bool MainApplication::restoreStateSlot(QupZilla* window, RestoreData recoveryDat
         // Instead create new one and restore pinned tabs there
 
         QupZilla* newWin = makeNewWindow(Qz::BW_OtherRestoredWindow);
-        newWin->restoreWindowState(recoveryData.takeFirst());
+        newWin->restoreWindowState(recoveryData.first());
+        recoveryData.remove(0);
     }
     else {
         // QTabWidget::count() - count of tabs is not updated after closing
         // recovery tab ...
         int tabCount = window->tabWidget()->count();
-        RestoreManager::WindowData data = recoveryData.takeFirst();
+        RestoreManager::WindowData data = recoveryData.first();
         data.currentTab += tabCount;
+        recoveryData.remove(0);
 
         window->restoreWindowState(data);
     }

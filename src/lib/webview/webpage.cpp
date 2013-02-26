@@ -575,7 +575,7 @@ void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)
     }
 }
 
-QList<WebPage::AdBlockedEntry> WebPage::adBlockedEntries() const
+QVector<WebPage::AdBlockedEntry> WebPage::adBlockedEntries() const
 {
     return m_adBlockedEntries;
 }
@@ -585,7 +585,7 @@ bool WebPage::hasMultipleUsernames() const
     return m_autoFillData.count() > 1;
 }
 
-QList<AutoFillData> WebPage::autoFillData() const
+QVector<AutoFillData> WebPage::autoFillData() const
 {
     return m_autoFillData;
 }

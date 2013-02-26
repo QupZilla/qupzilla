@@ -21,7 +21,7 @@
 #include "gm_urlmatcher.h"
 
 #include <QObject>
-#include <QList>
+#include <QVector>
 #include <QUrl>
 
 class QWebFrame;
@@ -74,8 +74,8 @@ private:
     QString m_description;
     QString m_version;
 
-    QList<GM_UrlMatcher> m_include;
-    QList<GM_UrlMatcher> m_exclude;
+    QVector<GM_UrlMatcher> m_include;
+    QVector<GM_UrlMatcher> m_exclude;
 
     QUrl m_downloadUrl;
     StartAt m_startAt;

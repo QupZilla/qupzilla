@@ -37,7 +37,7 @@ void AutoFillIcon::setWebView(WebView* view)
     m_view = view;
 }
 
-void AutoFillIcon::setFormData(const QList<AutoFillData> &data)
+void AutoFillIcon::setFormData(const QVector<AutoFillData> &data)
 {
     m_data = data;
 }

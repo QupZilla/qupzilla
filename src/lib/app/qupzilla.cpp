@@ -1078,7 +1078,7 @@ void QupZilla::aboutToShowHistoryMostMenu()
 {
     m_menuHistoryMost->clear();
 
-    const QList<HistoryEntry> &mostList = mApp->history()->mostVisited(10);
+    const QVector<HistoryEntry> &mostList = mApp->history()->mostVisited(10);
 
     foreach(const HistoryEntry & entry, mostList) {
         QString title = entry.title;

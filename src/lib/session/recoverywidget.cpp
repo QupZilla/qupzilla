@@ -72,14 +72,14 @@ void RecoveryWidget::restoreSession()
     for (int win = ui->treeWidget->topLevelItemCount() - 1; win >= 0; --win) {
         QTreeWidgetItem* root = ui->treeWidget->topLevelItem(win);
         if (root->checkState(0) == Qt::Unchecked) {
-            data.removeAt(win);
+            data.remove(win);
             continue;
         }
 
         RestoreManager::WindowData &wd = data[win];
         for (int tab = root->childCount() - 1; tab >= 0; --tab) {
             if (root->child(tab)->checkState(0) == Qt::Unchecked) {
-                wd.tabsState.removeAt(tab);
+                wd.tabsState.remove(tab);
                 if (wd.currentTab >= tab) {
                     wd.currentTab--;
                 }
@@ -87,7 +87,7 @@ void RecoveryWidget::restoreSession()
         }
 
         if (wd.tabsState.isEmpty()) {
-            data.removeAt(win);
+            data.remove(win);
             continue;
         }
 

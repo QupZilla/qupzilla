@@ -33,7 +33,7 @@ AutoFillWidget::AutoFillWidget(WebView* view, QWidget* parent)
     ui->setupUi(this);
 }
 
-void AutoFillWidget::setFormData(const QList<AutoFillData> &data)
+void AutoFillWidget::setFormData(const QVector<AutoFillData> &data)
 {
     m_data = data;
 
@@ -66,7 +66,7 @@ void AutoFillWidget::loginToPage()
     bool ok;
     int index = button->property("data-index").toInt(&ok);
 
-    if (ok && QzTools::listContainsIndex(m_data, index)) {
+    if (ok && QzTools::vectorContainsIndex(m_data, index)) {
         const AutoFillData data = m_data.at(index);
 
         PageFormCompleter completer(m_view->page());

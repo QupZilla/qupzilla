@@ -49,9 +49,9 @@ bool ChromeImporter::openFile()
     return true;
 }
 
-QList<BookmarksModel::Bookmark> ChromeImporter::exportBookmarks()
+QVector<Bookmark> ChromeImporter::exportBookmarks()
 {
-    QList<BookmarksModel::Bookmark> list;
+    QVector<Bookmark> list;
 
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();

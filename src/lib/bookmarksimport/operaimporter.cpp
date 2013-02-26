@@ -44,9 +44,9 @@ bool OperaImporter::openFile()
     return true;
 }
 
-QList<BookmarksModel::Bookmark> OperaImporter::exportBookmarks()
+QVector<Bookmark> OperaImporter::exportBookmarks()
 {
-    QList<BookmarksModel::Bookmark> list;
+    QVector<Bookmark> list;
 
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
