@@ -61,6 +61,7 @@ class AdBlockRule
 {
 public:
     AdBlockRule(const QString &filter = QString(), AdBlockSubscription* subscription = 0);
+    ~AdBlockRule();
 
     AdBlockSubscription* subscription() const;
     void setSubscription(AdBlockSubscription* subscription);
@@ -110,8 +111,7 @@ private:
     bool m_internalDisabled;
     bool m_domainRestricted;
 
-    bool m_useRegExp;
-    QzRegExp m_regExp;
+    QzRegExp* m_regExp;
 
     bool m_useDomainMatch;
     bool m_useEndsMatch;

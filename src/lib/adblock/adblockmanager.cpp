@@ -375,3 +375,8 @@ void AdBlockManager::showRule()
         }
     }
 }
+
+AdBlockManager::~AdBlockManager()
+{
+    qDeleteAll(m_subscriptions);
+}

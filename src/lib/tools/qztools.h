@@ -79,6 +79,12 @@ bool listContainsIndex(const QList<T> &list, int index)
     return (index >= 0 && list.count() > index);
 }
 
+template <typename T>
+bool vectorContainsIndex(const QVector<T> &list, int index)
+{
+    return (index >= 0 && list.count() > index);
+}
+
 } // namespace
 
 #endif // GLOBALFUNCTIONS_H

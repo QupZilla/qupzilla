@@ -101,7 +101,7 @@ AdBlockRule::AdBlockRule(const QString &filter, AdBlockSubscription* subscriptio
     , m_exception(false)
     , m_internalDisabled(false)
     , m_domainRestricted(false)
-    , m_useRegExp(false)
+    , m_regExp(0)
     , m_useDomainMatch(false)
     , m_useEndsMatch(false)
     , m_thirdParty(false)
@@ -189,7 +189,7 @@ void AdBlockRule::setEnabled(bool enabled)
 
 bool AdBlockRule::isSlow() const
 {
-    return m_useRegExp;
+    return m_regExp != 0;
 }
 
 bool AdBlockRule::isInternalDisabled() const
@@ -211,8 +211,8 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
     else if (m_useEndsMatch) {
         matched = encodedUrl.endsWith(m_matchString, m_caseSensitivity);
     }
-    else if (m_useRegExp) {
-        matched = (m_regExp.indexIn(encodedUrl) != -1);
+    else if (m_regExp) {
+        matched = (m_regExp->indexIn(encodedUrl) != -1);
     }
     else {
         matched = encodedUrl.contains(m_matchString, m_caseSensitivity);
@@ -466,8 +466,7 @@ void AdBlockRule::parseFilter()
         parsedLine = parsedLine.mid(1);
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
-        m_useRegExp = true;
-        m_regExp = QzRegExp(parsedLine, m_caseSensitivity);
+        m_regExp = new QzRegExp(parsedLine, m_caseSensitivity);
         return;
     }
 
@@ -518,13 +517,11 @@ void AdBlockRule::parseFilter()
         .replace(QzRegExp(QLatin1String("\\\\\\|$")), QLatin1String("$"))   // process anchor at expression end
         .replace(QzRegExp(QLatin1String("\\\\\\*")), QLatin1String(".*"));  // replace wildcards by .*
 
-        m_useRegExp = true;
-        m_regExp = QzRegExp(parsedLine, m_caseSensitivity);
+        m_regExp = new QzRegExp(parsedLine, m_caseSensitivity);
         return;
     }
 
     // We haven't found anything that needs use of regexp, yay!
-    m_useRegExp = false;
     m_matchString = parsedLine;
 }
 
@@ -560,4 +557,9 @@ bool AdBlockRule::_matchDomain(const QString &domain, const QString &filter) con
     }
 
     return domain[index - 1] == QLatin1Char('.');
+}
+
+AdBlockRule::~AdBlockRule()
+{
+    delete m_regExp;
 }

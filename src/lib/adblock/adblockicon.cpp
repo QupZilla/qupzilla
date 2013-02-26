@@ -184,7 +184,7 @@ void AdBlockIcon::toggleCustomFilter()
         customList->removeFilter(filter);
     }
     else {
-        AdBlockRule rule(filter, customList);
+        AdBlockRule* rule = new AdBlockRule(filter, customList);
         customList->addRule(rule);
     }
 }

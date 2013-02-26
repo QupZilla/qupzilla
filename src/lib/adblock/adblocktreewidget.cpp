@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -101,19 +101,20 @@ void AdBlockTreeWidget::itemChanged(QTreeWidgetItem* item)
         // Disable rule
         const AdBlockRule* rule = m_subscription->disableRule(offset);
 
-        adjustItemFeatures(item, *rule);
+        adjustItemFeatures(item, rule);
     }
     else if (item->checkState(0) == Qt::Checked && !oldRule->isEnabled()) {
         // Enable rule
         const AdBlockRule* rule = m_subscription->enableRule(offset);
 
-        adjustItemFeatures(item, *rule);
+        adjustItemFeatures(item, rule);
     }
     else if (m_subscription->canEditRules()) {
         // Custom rule has been changed
-        const AdBlockRule* rule = m_subscription->replaceRule(AdBlockRule(item->text(0), m_subscription), offset);
+        AdBlockRule* newRule = new AdBlockRule(item->text(0), m_subscription);
+        const AdBlockRule* rule = m_subscription->replaceRule(newRule, offset);
 
-        adjustItemFeatures(item, *rule);
+        adjustItemFeatures(item, rule);
     }
 
     m_itemChangingBlock = false;
@@ -140,7 +141,7 @@ void AdBlockTreeWidget::addRule()
         return;
     }
 
-    AdBlockRule rule(newRule, m_subscription);
+    AdBlockRule* rule = new AdBlockRule(newRule, m_subscription);
     int offset = m_subscription->addRule(rule);
 
     QTreeWidgetItem* item = new QTreeWidgetItem();
@@ -177,14 +178,14 @@ void AdBlockTreeWidget::subscriptionUpdated()
     m_itemChangingBlock = false;
 }
 
-void AdBlockTreeWidget::adjustItemFeatures(QTreeWidgetItem* item, const AdBlockRule &rule)
+void AdBlockTreeWidget::adjustItemFeatures(QTreeWidgetItem* item, const AdBlockRule* rule)
 {
-    if (!rule.isEnabled()) {
+    if (!rule->isEnabled()) {
         QFont font;
         font.setItalic(true);
         item->setForeground(0, QColor(Qt::gray));
 
-        if (!rule.isComment()) {
+        if (!rule->isComment()) {
             item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
             item->setCheckState(0, Qt::Unchecked);
             item->setFont(0, font);
@@ -196,11 +197,11 @@ void AdBlockTreeWidget::adjustItemFeatures(QTreeWidgetItem* item, const AdBlockR
     item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
     item->setCheckState(0, Qt::Checked);
 
-    if (rule.isCssRule()) {
+    if (rule->isCssRule()) {
         item->setForeground(0, QColor(Qt::darkBlue));
         item->setFont(0, QFont());
     }
-    else if (rule.isException()) {
+    else if (rule->isException()) {
         item->setForeground(0, QColor(Qt::darkGreen));
         item->setFont(0, QFont());
     }
@@ -236,12 +237,12 @@ void AdBlockTreeWidget::refresh()
     m_topItem->setFont(0, boldFont);
     addTopLevelItem(m_topItem);
 
-    const QList<AdBlockRule> &allRules = m_subscription->allRules();
+    const QVector<AdBlockRule*> &allRules = m_subscription->allRules();
 
     int index = 0;
-    foreach(const AdBlockRule & rule, allRules) {
+    foreach(const AdBlockRule * rule, allRules) {
         QTreeWidgetItem* item = new QTreeWidgetItem(m_topItem);
-        item->setText(0, rule.filter());
+        item->setText(0, rule->filter());
         item->setData(0, Qt::UserRole + 10, index);
 
         if (m_subscription->canEditRules()) {

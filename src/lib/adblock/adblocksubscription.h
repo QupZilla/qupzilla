@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -46,8 +46,7 @@
 #ifndef ADBLOCKSUBSCRIPTION_H
 #define ADBLOCKSUBSCRIPTION_H
 
-#include <QVarLengthArray>
-#include <QList>
+#include <QVector>
 #include <QUrl>
 
 #include "qz_namespace.h"
@@ -64,6 +63,7 @@ class QT_QUPZILLA_EXPORT AdBlockSubscription : public QObject
     Q_OBJECT
 public:
     explicit AdBlockSubscription(const QString &title, QObject* parent = 0);
+    ~AdBlockSubscription();
 
     QString title() const;
 
@@ -85,7 +85,7 @@ public:
     QString elementHidingRulesForDomain(const QString &domain) const;
 
     const AdBlockRule* rule(int offset) const;
-    QList<AdBlockRule> allRules() const;
+    QVector<AdBlockRule*> allRules() const;
 
     const AdBlockRule* enableRule(int offset);
     const AdBlockRule* disableRule(int offset);
@@ -93,9 +93,9 @@ public:
     virtual bool canEditRules() const;
     virtual bool canBeRemoved() const;
 
-    virtual int addRule(const AdBlockRule &rule);
+    virtual int addRule(AdBlockRule* rule);
     virtual bool removeRule(int offset);
-    virtual const AdBlockRule* replaceRule(const AdBlockRule &rule, int offset);
+    virtual const AdBlockRule* replaceRule(AdBlockRule* rule, int offset);
 
 public slots:
     void updateSubscription();
@@ -113,15 +113,15 @@ protected:
 
     FollowRedirectReply* m_reply;
 
-    QList<AdBlockRule> m_rules;
+    QVector<AdBlockRule*> m_rules;
     QString m_elementHidingRules;
 
-    QVarLengthArray<const AdBlockRule*> m_networkExceptionRules;
-    QVarLengthArray<const AdBlockRule*> m_networkBlockRules;
-    QVarLengthArray<const AdBlockRule*> m_domainRestrictedCssRules;
+    QVector<const AdBlockRule*> m_networkExceptionRules;
+    QVector<const AdBlockRule*> m_networkBlockRules;
+    QVector<const AdBlockRule*> m_domainRestrictedCssRules;
 
-    QVarLengthArray<const AdBlockRule*> m_documentRules;
-    QVarLengthArray<const AdBlockRule*> m_elemhideRules;
+    QVector<const AdBlockRule*> m_documentRules;
+    QVector<const AdBlockRule*> m_elemhideRules;
 
 private:
     QString m_title;
@@ -157,9 +157,9 @@ public:
     bool containsFilter(const QString &filter) const;
     bool removeFilter(const QString &filter);
 
-    int addRule(const AdBlockRule &rule);
+    int addRule(AdBlockRule* rule);
     bool removeRule(int offset);
-    const AdBlockRule* replaceRule(const AdBlockRule &rule, int offset);
+    const AdBlockRule* replaceRule(AdBlockRule* rule, int offset);
 
 signals:
     void subscriptionEdited();
