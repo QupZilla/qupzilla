@@ -23,6 +23,7 @@ Version 1.4.0
     * improved showing navigation toolbar in fullscreen
     * moved config directory into ~/.config/qupzilla
     * certificates bundle is now only used on windows
+    * reduced memory usage of AdBlock (saves up to 30MB with just EasyList)
     * GreaseMonkey: reload script if source file changed on disk
     * GreaseMonkey: fixed don't loading invalid scripts
     * fixed opening browser with url with ampersand (%26) as command line argument

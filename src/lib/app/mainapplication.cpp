@@ -876,7 +876,7 @@ QNetworkDiskCache* MainApplication::networkCache()
         const QString &basePath = settings.value("Web-Browser-Settings/CachePath",
                                   QString("%1networkcache/").arg(m_activeProfil)).toString();
 
-        const QString &cachePath = basePath + "/" + qWebKitVersion() + "/";
+        const QString &cachePath = QString("%1/%2-Qt%3/").arg(basePath, qWebKitVersion(), qVersion());
         m_networkCache = new QNetworkDiskCache(this);
         m_networkCache->setCacheDirectory(cachePath);
     }
