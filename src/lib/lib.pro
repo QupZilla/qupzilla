@@ -462,7 +462,7 @@ mac {
     HEADERS += other/macmenureceiver.h
     SOURCES += other/macmenureceiver.cpp
 
-    LIBS +=- framework CoreServices
+    LIBS += -framework CoreServices
 }
 
 message(===========================================)

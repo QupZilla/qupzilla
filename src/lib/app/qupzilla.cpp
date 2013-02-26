@@ -1778,6 +1778,7 @@ bool QupZilla::event(QEvent* event)
             statusBar()->setVisible(m_statusBarVisible);
             m_navigationContainer->show();
             m_tabWidget->showTabBar();
+            m_tabWidget->getTabBar()->updateVisibilityWithFullscreen(true);
 #ifndef Q_OS_MAC
             m_navigationBar->buttonSuperMenu()->setVisible(!m_menuBarVisible);
 #endif

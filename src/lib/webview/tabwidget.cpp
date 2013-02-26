@@ -755,7 +755,7 @@ void TabWidget::aboutToShowClosedTabsMenu()
     }
 }
 
-QList<WebTab *> TabWidget::allTabs(bool withPinned)
+QList<WebTab*> TabWidget::allTabs(bool withPinned)
 {
     QList<WebTab*> allTabs;
 

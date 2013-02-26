@@ -119,7 +119,7 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
     }
 
 #ifdef ADBLOCK_DEBUG
-            qDebug() << timer.elapsed() << request.url();
+    qDebug() << timer.elapsed() << request.url();
 #endif
 
     return 0;

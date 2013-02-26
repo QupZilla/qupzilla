@@ -613,6 +613,18 @@ void* QzTools::X11Display(const QWidget* widget)
 
 QString QzTools::operatingSystem()
 {
+#ifdef Q_OS_MAC
+    QString str = "Mac OS X";
+
+    SInt32 majorVersion;
+    SInt32 minorVersion;
+
+    if (Gestalt(gestaltSystemVersionMajor, &majorVersion) == noErr && Gestalt(gestaltSystemVersionMinor, &minorVersion) == noErr) {
+        str.append(QString(" %1.%2").arg(majorVersion).arg(minorVersion));
+    }
+
+    return str;
+#endif
 #ifdef Q_OS_LINUX
     return "Linux";
 #endif
@@ -695,18 +707,6 @@ QString QzTools::operatingSystem()
             str.append(" 8");
         }
         break;
-    }
-
-    return str;
-#endif
-#ifdef Q_OS_MAC
-    QString str = "Mac OS X";
-
-    SInt32 majorVersion;
-    SInt32 minorVersion;
-
-    if (Gestalt(gestaltSystemVersionMajor, &majorVersion) == noErr && Gestalt(gestaltSystemVersionMinor, &minorVersion) == noErr) {
-        str.append(QString(" %1.%2").arg(majorVersion, minorVersion));
     }
 
     return str;
