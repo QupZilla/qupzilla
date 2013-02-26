@@ -472,6 +472,24 @@ bool QzTools::isUtf8(const char* string)
     return true;
 }
 
+// Matches domain (assumes both pattern and domain not starting with dot)
+//  pattern = domain to be matched
+//  domain = site domain
+bool QzTools::matchDomain(const QString &pattern, const QString &domain)
+{
+    if (pattern == domain) {
+        return true;
+    }
+
+    if (!domain.endsWith(pattern)) {
+        return false;
+    }
+
+    int index = domain.indexOf(pattern);
+
+    return index > 0 && domain[index - 1] == QLatin1Char('.');
+}
+
 static inline bool isQuote(const QChar &c)
 {
     return (c == QLatin1Char('"') || c == QLatin1Char('\''));

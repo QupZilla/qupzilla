@@ -46,6 +46,7 @@
 
 #include "adblockrule.h"
 #include "adblocksubscription.h"
+#include "qztools.h"
 
 #include <QDebug>
 #include "qzregexp.h"
@@ -206,12 +207,16 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
     bool matched = false;
 
     if (m_useDomainMatch) {
-        matched = _matchDomain(domain, m_matchString);
+        matched = isMatchingDomain(domain, m_matchString);
     }
     else if (m_useEndsMatch) {
         matched = encodedUrl.endsWith(m_matchString, m_caseSensitivity);
     }
     else if (m_regExp) {
+        if (!isMatchingRegExpStrings(encodedUrl)) {
+            return false;
+        }
+
         matched = (m_regExp->indexIn(encodedUrl) != -1);
     }
     else {
@@ -277,14 +282,14 @@ bool AdBlockRule::matchDomain(const QString &domain) const
 
     if (m_blockedDomains.isEmpty()) {
         foreach(const QString & d, m_allowedDomains) {
-            if (_matchDomain(domain, d)) {
+            if (isMatchingDomain(domain, d)) {
                 return true;
             }
         }
     }
     else if (m_allowedDomains.isEmpty()) {
         foreach(const QString & d, m_blockedDomains) {
-            if (_matchDomain(domain, d)) {
+            if (isMatchingDomain(domain, d)) {
                 return false;
             }
         }
@@ -292,13 +297,13 @@ bool AdBlockRule::matchDomain(const QString &domain) const
     }
     else {
         foreach(const QString & d, m_blockedDomains) {
-            if (_matchDomain(domain, d)) {
+            if (isMatchingDomain(domain, d)) {
                 return false;
             }
         }
 
         foreach(const QString & d, m_allowedDomains) {
-            if (_matchDomain(domain, d)) {
+            if (isMatchingDomain(domain, d)) {
                 return true;
             }
         }
@@ -388,6 +393,7 @@ void AdBlockRule::parseFilter()
 
         m_cssSelector = parsedLine.mid(pos + 2);
         m_cssSelector.remove('\\');
+
         // CSS rule cannot have more options -> stop parsing
         return;
     }
@@ -504,7 +510,9 @@ void AdBlockRule::parseFilter()
     // we must modify parsedLine to comply with QzRegExp
     if (parsedLine.contains(QLatin1Char('*')) || parsedLine.contains(QLatin1Char('^'))
             || parsedLine.contains(QLatin1Char('|'))) {
-        parsedLine.replace(QzRegExp(QLatin1String("\\*+")), QLatin1String("*"))       // remove multiple wildcards
+        QString parsedRegExp = parsedLine;
+
+        parsedRegExp.replace(QzRegExp(QLatin1String("\\*+")), QLatin1String("*"))       // remove multiple wildcards
         .replace(QzRegExp(QLatin1String("\\^\\|$")), QLatin1String("^"))    // remove anchors following separator placeholder
         .replace(QzRegExp(QLatin1String("^(\\*)")), QString())      // remove leading wildcards
         .replace(QzRegExp(QLatin1String("(\\*)$")), QString())
@@ -517,7 +525,8 @@ void AdBlockRule::parseFilter()
         .replace(QzRegExp(QLatin1String("\\\\\\|$")), QLatin1String("$"))   // process anchor at expression end
         .replace(QzRegExp(QLatin1String("\\\\\\*")), QLatin1String(".*"));  // replace wildcards by .*
 
-        m_regExp = new QzRegExp(parsedLine, m_caseSensitivity);
+        m_regExpStrings = parseRegExpFilter(parsedLine);
+        m_regExp = new QzRegExp(parsedRegExp, m_caseSensitivity);
         return;
     }
 
@@ -544,19 +553,41 @@ void AdBlockRule::parseDomains(const QString &domains, const QChar &separator)
     m_domainRestricted = (!m_blockedDomains.isEmpty() || !m_allowedDomains.isEmpty());
 }
 
-bool AdBlockRule::_matchDomain(const QString &domain, const QString &filter) const
+bool AdBlockRule::isMatchingDomain(const QString &domain, const QString &filter) const
 {
-    if (!domain.endsWith(filter)) {
-        return false;
+    return QzTools::matchDomain(filter, domain);
+}
+
+bool AdBlockRule::isMatchingRegExpStrings(const QString &url) const
+{
+    foreach(const QString & string, m_regExpStrings) {
+        if (!url.contains(string)) {
+            return false;
+        }
     }
 
-    int index = domain.indexOf(filter);
+    return true;
+}
 
-    if (index == 0 || filter[0] == QLatin1Char('.')) {
-        return true;
+// Split regexp filter into strings that can be used with QString::contains
+// Don't use parts that contains only 1 char and duplicated parts
+QStringList AdBlockRule::parseRegExpFilter(const QString &parsedFilter) const
+{
+    // Meta characters in AdBlock rules are | * ^
+    QStringList list = parsedFilter.split(QzRegExp("[|\\*\\^]"), QString::SkipEmptyParts);
+
+    list.removeDuplicates();
+
+    for (int i = 0; i < list.length(); ++i) {
+        const QString &part = list.at(i);
+
+        if (part.length() < 2) {
+            list.removeAt(i);
+            i--;
+        }
     }
 
-    return domain[index - 1] == QLatin1Char('.');
+    return list;
 }
 
 AdBlockRule::~AdBlockRule()

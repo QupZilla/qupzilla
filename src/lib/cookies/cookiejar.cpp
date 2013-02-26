@@ -19,6 +19,7 @@
 #include "qupzilla.h"
 #include "mainapplication.h"
 #include "settings.h"
+#include "qztools.h"
 
 #include <QNetworkCookie>
 #include <QWebSettings>
@@ -234,17 +235,7 @@ bool CookieJar::matchDomain(QString cookieDomain, QString siteDomain)
         siteDomain = siteDomain.mid(1);
     }
 
-    if (cookieDomain == siteDomain) {
-        return true;
-    }
-
-    if (!siteDomain.endsWith(cookieDomain)) {
-        return false;
-    }
-
-    int index = siteDomain.indexOf(cookieDomain);
-
-    return index > 0 && siteDomain[index - 1] == QLatin1Char('.');
+    return QzTools::matchDomain(cookieDomain, siteDomain);
 }
 
 bool CookieJar::listMatchesDomain(const QStringList &list, const QString &cookieDomain)

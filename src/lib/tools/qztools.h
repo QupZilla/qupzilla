@@ -63,6 +63,8 @@ bool QT_QUPZILLA_EXPORT startExternalProcess(const QString &executable, const QS
 QIcon QT_QUPZILLA_EXPORT iconFromFileName(const QString &fileName);
 bool QT_QUPZILLA_EXPORT isUtf8(const char* string);
 
+bool QT_QUPZILLA_EXPORT matchDomain(const QString &pattern, const QString &domain);
+
 QString QT_QUPZILLA_EXPORT operatingSystem();
 
 // Qt5 migration help functions

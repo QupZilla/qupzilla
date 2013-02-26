@@ -95,11 +95,14 @@ public:
     bool matchXmlHttpRequest(const QNetworkRequest &request) const;
     bool matchImage(const QString &encodedUrl) const;
 
+protected:
+    bool isMatchingDomain(const QString &domain, const QString &filter) const;
+    bool isMatchingRegExpStrings(const QString &url) const;
+    QStringList parseRegExpFilter(const QString &parsedFilter) const;
+
 private:
     void parseFilter();
     void parseDomains(const QString &domains, const QChar &separator);
-
-    bool _matchDomain(const QString &domain, const QString &filter) const;
 
     AdBlockSubscription* m_subscription;
     QString m_filter;
@@ -112,6 +115,7 @@ private:
     bool m_domainRestricted;
 
     QzRegExp* m_regExp;
+    QStringList m_regExpStrings;
 
     bool m_useDomainMatch;
     bool m_useEndsMatch;

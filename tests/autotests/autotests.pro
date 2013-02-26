@@ -49,11 +49,13 @@ HEADERS += \
     qztoolstest.h \
     formcompletertest.h \
     cookiestest.h \
-    downloadstest.h
+    downloadstest.h \
+    adblocktest.h
 
 SOURCES += \
     qztoolstest.cpp \
     main.cpp \
     formcompletertest.cpp \
     cookiestest.cpp \
-    downloadstest.cpp
+    downloadstest.cpp \
+    adblocktest.cpp

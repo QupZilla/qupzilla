@@ -15,33 +15,22 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "qztoolstest.h"
-#include "formcompletertest.h"
-#include "cookiestest.h"
-#include "downloadstest.h"
-#include "adblocktest.h"
+#ifndef ADBLOCKTEST_H
+#define ADBLOCKTEST_H
 
-#include <QtTest/QtTest>
+#include <QObject>
 
-int main(int argc, char *argv[])
+class AdBlockTest : public QObject
 {
-    QApplication app(argc, argv);
-    QTEST_DISABLE_KEYPAD_NAVIGATION;
+    Q_OBJECT
 
-    QzToolsTest qzToolsTest;
-    QTest::qExec(&qzToolsTest, argc, argv);
+private slots:
+    void isMatchingCookieTest_data();
+    void isMatchingCookieTest();
 
-    FormCompleterTest formCompleterTest;
-    QTest::qExec(&formCompleterTest, argc, argv);
+    void parseRegExpFilterTest_data();
+    void parseRegExpFilterTest();
 
-    CookiesTest cookiesTest;
-    QTest::qExec(&cookiesTest, argc, argv);
+};
 
-    DownloadsTest downloadsTest;
-    QTest::qExec(&downloadsTest, argc, argv);
-
-    AdBlockTest adblockTest;
-    QTest::qExec(&adblockTest, argc, argv);
-
-    return 0;
-}
+#endif // ADBLOCKTEST_H
