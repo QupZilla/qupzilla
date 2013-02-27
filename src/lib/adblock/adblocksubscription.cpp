@@ -172,7 +172,7 @@ void AdBlockSubscription::subscriptionDownloaded()
     m_reply = 0;
 }
 
-void AdBlockSubscription::saveDownloadedData(QByteArray &data)
+void AdBlockSubscription::saveDownloadedData(const QByteArray &data)
 {
     QFile file(m_filePath);
 
@@ -374,6 +374,11 @@ void AdBlockSubscription::populateCache()
     }
 }
 
+AdBlockSubscription::~AdBlockSubscription()
+{
+    qDeleteAll(m_rules);
+}
+
 // AdBlockEasyList
 
 AdBlockEasyList::AdBlockEasyList(QObject* parent)
@@ -388,7 +393,7 @@ bool AdBlockEasyList::canBeRemoved() const
     return false;
 }
 
-void AdBlockEasyList::saveDownloadedData(QByteArray &data)
+void AdBlockEasyList::saveDownloadedData(const QByteArray &data)
 {
     QFile file(filePath());
 
@@ -399,9 +404,12 @@ void AdBlockEasyList::saveDownloadedData(QByteArray &data)
 
     // Third-party advertisers rules are with start domain (||) placeholder which needs regexps
     // So we are ignoring it for keeping good performance
-    data = data.left(data.indexOf(QLatin1String("!-----------------------------Third-party adverts-----------------------------!")));
+    // But we will use whitelist rules at the end of list
 
-    file.write(data);
+    QByteArray part1 = data.left(data.indexOf(QLatin1String("!-----------------------------Third-party adverts-----------------------------!")));
+    QByteArray part2 = data.mid(data.indexOf(QLatin1String("!---------------------------------Whitelists----------------------------------!")));
+
+    file.write(part1 + part2);
     file.close();
 }
 
@@ -513,9 +521,4 @@ const AdBlockRule* AdBlockCustomList::replaceRule(AdBlockRule* rule, int offset)
     emit subscriptionEdited();
 
     return m_rules[offset];
-}
-
-AdBlockSubscription::~AdBlockSubscription()
-{
-    qDeleteAll(m_rules);
 }

@@ -107,7 +107,7 @@ protected slots:
     void subscriptionDownloaded();
 
 protected:
-    virtual void saveDownloadedData(QByteArray &data);
+    virtual void saveDownloadedData(const QByteArray &data);
 
     void populateCache();
 
@@ -140,7 +140,7 @@ public:
     bool canBeRemoved() const;
 
 protected:
-    void saveDownloadedData(QByteArray &data);
+    void saveDownloadedData(const QByteArray &data);
 };
 
 class AdBlockCustomList : public AdBlockSubscription
