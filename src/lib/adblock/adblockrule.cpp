@@ -97,27 +97,12 @@ static QString toSecondLevelDomain(const QUrl &url)
 
 AdBlockRule::AdBlockRule(const QString &filter, AdBlockSubscription* subscription)
     : m_subscription(subscription)
-    , m_enabled(true)
-    , m_cssRule(false)
-    , m_exception(false)
-    , m_internalDisabled(false)
-    , m_domainRestricted(false)
-    , m_regExp(0)
-    , m_useDomainMatch(false)
-    , m_useEndsMatch(false)
-    , m_thirdParty(false)
-    , m_thirdPartyException(false)
-    , m_object(false)
-    , m_objectException(false)
-    , m_subdocument(false)
-    , m_subdocumentException(false)
-    , m_xmlhttprequest(false)
-    , m_xmlhttprequestException(false)
-    , m_image(false)
-    , m_imageException(false)
-    , m_document(false)
-    , m_elemhide(false)
+    , m_type(StringContainsMatchRule)
     , m_caseSensitivity(Qt::CaseInsensitive)
+    , m_isEnabled(true)
+    , m_isException(false)
+    , m_isInternalDisabled(false)
+    , m_regExp(0)
 {
     setFilter(filter);
 }
@@ -145,7 +130,7 @@ void AdBlockRule::setFilter(const QString &filter)
 
 bool AdBlockRule::isCssRule() const
 {
-    return m_cssRule;
+    return m_type == CssRule;
 }
 
 QString AdBlockRule::cssSelector() const
@@ -155,22 +140,22 @@ QString AdBlockRule::cssSelector() const
 
 bool AdBlockRule::isDocument() const
 {
-    return m_document;
+    return hasOption(DocumentOption);
 }
 
 bool AdBlockRule::isElemhide() const
 {
-    return m_elemhide;
+    return hasOption(ElementHideOption);
 }
 
 bool AdBlockRule::isDomainRestricted() const
 {
-    return m_domainRestricted;
+    return hasOption(DomainRestrictedOption);
 }
 
 bool AdBlockRule::isException() const
 {
-    return m_exception;
+    return m_isException;
 }
 
 bool AdBlockRule::isComment() const
@@ -180,12 +165,12 @@ bool AdBlockRule::isComment() const
 
 bool AdBlockRule::isEnabled() const
 {
-    return m_enabled;
+    return m_isEnabled;
 }
 
 void AdBlockRule::setEnabled(bool enabled)
 {
-    m_enabled = enabled;
+    m_isEnabled = enabled;
 }
 
 bool AdBlockRule::isSlow() const
@@ -195,72 +180,12 @@ bool AdBlockRule::isSlow() const
 
 bool AdBlockRule::isInternalDisabled() const
 {
-    return m_internalDisabled;
-}
-
-bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const
-{
-    if (m_cssRule || !m_enabled || m_internalDisabled) {
-        return false;
-    }
-
-    bool matched = false;
-
-    if (m_useDomainMatch) {
-        matched = isMatchingDomain(domain, m_matchString);
-    }
-    else if (m_useEndsMatch) {
-        matched = encodedUrl.endsWith(m_matchString, m_caseSensitivity);
-    }
-    else if (m_regExp) {
-        if (!isMatchingRegExpStrings(encodedUrl)) {
-            return false;
-        }
-
-        matched = (m_regExp->indexIn(encodedUrl) != -1);
-    }
-    else {
-        matched = encodedUrl.contains(m_matchString, m_caseSensitivity);
-    }
-
-    if (matched) {
-        // Check domain restrictions
-        if (m_domainRestricted && !matchDomain(domain)) {
-            return false;
-        }
-
-        // Check third-party restriction
-        if (m_thirdParty && !matchThirdParty(request)) {
-            return false;
-        }
-
-        // Check object restrictions
-        if (m_object && !matchObject(request)) {
-            return false;
-        }
-
-        // Check subdocument restriction
-        if (m_subdocument && !matchSubdocument(request)) {
-            return false;
-        }
-
-        // Check xmlhttprequest restriction
-        if (m_xmlhttprequest && !matchXmlHttpRequest(request)) {
-            return false;
-        }
-
-        // Check image restriction
-        if (m_image && !matchImage(encodedUrl)) {
-            return false;
-        }
-    }
-
-    return matched;
+    return m_isInternalDisabled;
 }
 
 bool AdBlockRule::urlMatch(const QUrl &url) const
 {
-    if (!m_document && !m_elemhide) {
+    if (!hasOption(DocumentOption) && !hasOption(ElementHideOption)) {
         return false;
     }
 
@@ -270,13 +195,73 @@ bool AdBlockRule::urlMatch(const QUrl &url) const
     return networkMatch(QNetworkRequest(url), domain, encodedUrl);
 }
 
-bool AdBlockRule::matchDomain(const QString &domain) const
+bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const
 {
-    if (!m_enabled) {
+    if (m_type == CssRule || !m_isEnabled || m_isInternalDisabled) {
         return false;
     }
 
-    if (!m_domainRestricted) {
+    bool matched = false;
+
+    if (m_type == StringContainsMatchRule) {
+        matched = encodedUrl.contains(m_matchString, m_caseSensitivity);
+    }
+    else if (m_type == DomainMatchRule) {
+        matched = isMatchingDomain(domain, m_matchString);
+    }
+    else if (m_type == StringEndsMatchRule) {
+        matched = encodedUrl.endsWith(m_matchString, m_caseSensitivity);
+    }
+    else if (m_type == RegExpMatchRule) {
+        if (!isMatchingRegExpStrings(encodedUrl)) {
+            return false;
+        }
+
+        matched = (m_regExp->indexIn(encodedUrl) != -1);
+    }
+
+    if (matched) {
+        // Check domain restrictions
+        if (hasOption(DomainRestrictedOption) && !matchDomain(domain)) {
+            return false;
+        }
+
+        // Check third-party restriction
+        if (hasOption(ThirdPartyOption) && !matchThirdParty(request)) {
+            return false;
+        }
+
+        // Check object restrictions
+        if (hasOption(ObjectOption) && !matchObject(request)) {
+            return false;
+        }
+
+        // Check subdocument restriction
+        if (hasOption(SubdocumentOption) && !matchSubdocument(request)) {
+            return false;
+        }
+
+        // Check xmlhttprequest restriction
+        if (hasOption(XMLHttpRequestOption) && !matchXmlHttpRequest(request)) {
+            return false;
+        }
+
+        // Check image restriction
+        if (hasOption(ImageOption) && !matchImage(encodedUrl)) {
+            return false;
+        }
+    }
+
+    return matched;
+}
+
+bool AdBlockRule::matchDomain(const QString &domain) const
+{
+    if (!m_isEnabled) {
+        return false;
+    }
+
+    if (!hasOption(DomainRestrictedOption)) {
         return true;
     }
 
@@ -326,14 +311,14 @@ bool AdBlockRule::matchThirdParty(const QNetworkRequest &request) const
 
     bool match = refererHost != host;
 
-    return m_thirdPartyException ? !match : match;
+    return hasException(ThirdPartyOption) ? !match : match;
 }
 
 bool AdBlockRule::matchObject(const QNetworkRequest &request) const
 {
     bool match = request.attribute(QNetworkRequest::Attribute(QNetworkRequest::User + 150)).toString() == QLatin1String("object");
 
-    return m_objectException ? !match : match;
+    return hasException(ObjectOption) ? !match : match;
 }
 
 bool AdBlockRule::matchSubdocument(const QNetworkRequest &request) const
@@ -350,14 +335,14 @@ bool AdBlockRule::matchSubdocument(const QNetworkRequest &request) const
 
     bool match = !(originatingFrame == page->mainFrame());
 
-    return m_subdocumentException ? !match : match;
+    return hasException(SubdocumentOption) ? !match : match;
 }
 
 bool AdBlockRule::matchXmlHttpRequest(const QNetworkRequest &request) const
 {
     bool match = request.rawHeader("X-Requested-With") == QByteArray("XMLHttpRequest");
 
-    return m_xmlhttprequestException ? !match : match;
+    return hasException(XMLHttpRequestOption) ? !match : match;
 }
 
 bool AdBlockRule::matchImage(const QString &encodedUrl) const
@@ -367,7 +352,7 @@ bool AdBlockRule::matchImage(const QString &encodedUrl) const
                  encodedUrl.endsWith(QLatin1String(".gif")) ||
                  encodedUrl.endsWith(QLatin1String(".jpeg"));
 
-    return m_imageException ? !match : match;
+    return hasException(ImageOption) ? !match : match;
 }
 
 void AdBlockRule::parseFilter()
@@ -376,13 +361,13 @@ void AdBlockRule::parseFilter()
 
     // Empty rule or just comment
     if (m_filter.trimmed().isEmpty() || m_filter.startsWith(QLatin1Char('!'))) {
-        m_enabled = false;
+        m_isEnabled = false;
         return;
     }
 
     // CSS Element hiding rule
     if (parsedLine.contains(QLatin1String("##"))) {
-        m_cssRule = true;
+        m_type = CssRule;
         int pos = parsedLine.indexOf(QLatin1String("##"));
 
         // Domain restricted rule
@@ -400,7 +385,7 @@ void AdBlockRule::parseFilter()
 
     // Exception always starts with @@
     if (parsedLine.startsWith(QLatin1String("@@"))) {
-        m_exception = true;
+        m_isException = true;
         parsedLine = parsedLine.mid(2);
     }
 
@@ -420,47 +405,47 @@ void AdBlockRule::parseFilter()
                 ++handledOptions;
             }
             else if (option.endsWith(QLatin1String("third-party"))) {
-                m_thirdParty = true;
-                m_thirdPartyException = option.startsWith(QLatin1Char('~'));
+                setOption(ThirdPartyOption);
+                setException(ThirdPartyOption, option.startsWith(QLatin1Char('~')));
                 ++handledOptions;
             }
             else if (option.endsWith(QLatin1String("object"))) {
-                m_object = true;
-                m_objectException = option.startsWith(QLatin1Char('~'));
+                setOption(ObjectOption);
+                setException(ObjectOption, option.startsWith(QLatin1Char('~')));
                 ++handledOptions;
             }
             else if (option.endsWith(QLatin1String("subdocument"))) {
-                m_subdocument = true;
-                m_subdocumentException = option.startsWith(QLatin1Char('~'));
+                setOption(SubdocumentOption);
+                setException(SubdocumentOption, option.startsWith(QLatin1Char('~')));
                 ++handledOptions;
             }
             else if (option.endsWith(QLatin1String("xmlhttprequest"))) {
-                m_xmlhttprequest = true;
-                m_xmlhttprequestException = option.startsWith(QLatin1Char('~'));
+                setOption(XMLHttpRequestOption);
+                setException(XMLHttpRequestOption, option.startsWith(QLatin1Char('~')));
                 ++handledOptions;
             }
             else if (option.endsWith(QLatin1String("image"))) {
-                m_image = true;
-                m_imageException = option.startsWith(QLatin1Char('~'));
+                setOption(ImageOption);
+                setException(ImageOption, option.startsWith(QLatin1Char('~')));
                 ++handledOptions;
             }
-            else if (option == QLatin1String("document") && m_exception) {
-                m_document = true;
+            else if (option == QLatin1String("document") && m_isException) {
+                setOption(DocumentOption);
                 ++handledOptions;
             }
-            else if (option == QLatin1String("elemhide") && m_exception) {
-                m_elemhide = true;
+            else if (option == QLatin1String("elemhide") && m_isException) {
+                setOption(ElementHideOption);
                 ++handledOptions;
             }
             else if (option == QLatin1String("collapse")) {
-                // Hiding placeholders of blocked elements
+                // Hiding placeholders of blocked elements is enabled by default
                 ++handledOptions;
             }
         }
 
         // If we don't handle all options, it's safer to just disable this rule
         if (handledOptions != options.count()) {
-            m_internalDisabled = true;
+            m_isInternalDisabled = true;
             return;
         }
 
@@ -472,6 +457,7 @@ void AdBlockRule::parseFilter()
         parsedLine = parsedLine.mid(1);
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
+        m_type = RegExpMatchRule;
         m_regExp = new QzRegExp(parsedLine, m_caseSensitivity);
         return;
     }
@@ -491,7 +477,7 @@ void AdBlockRule::parseFilter()
         parsedLine = parsedLine.mid(2);
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
-        m_useDomainMatch = true;
+        m_type = DomainMatchRule;
         m_matchString = parsedLine;
         return;
     }
@@ -501,7 +487,7 @@ void AdBlockRule::parseFilter()
             && parsedLine.count(QLatin1Char('|')) == 1) {
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
-        m_useEndsMatch = true;
+        m_type = StringEndsMatchRule;
         m_matchString = parsedLine;
         return;
     }
@@ -525,12 +511,14 @@ void AdBlockRule::parseFilter()
         .replace(QzRegExp(QLatin1String("\\\\\\|$")), QLatin1String("$"))   // process anchor at expression end
         .replace(QzRegExp(QLatin1String("\\\\\\*")), QLatin1String(".*"));  // replace wildcards by .*
 
+        m_type = RegExpMatchRule;
         m_regExpStrings = parseRegExpFilter(parsedLine);
         m_regExp = new QzRegExp(parsedRegExp, m_caseSensitivity);
         return;
     }
 
     // We haven't found anything that needs use of regexp, yay!
+    m_type = StringContainsMatchRule;
     m_matchString = parsedLine;
 }
 
@@ -550,7 +538,9 @@ void AdBlockRule::parseDomains(const QString &domains, const QChar &separator)
         }
     }
 
-    m_domainRestricted = (!m_blockedDomains.isEmpty() || !m_allowedDomains.isEmpty());
+    if (!m_blockedDomains.isEmpty() || !m_allowedDomains.isEmpty()) {
+        setOption(DomainRestrictedOption);
+    }
 }
 
 bool AdBlockRule::isMatchingDomain(const QString &domain, const QString &filter) const
@@ -588,6 +578,28 @@ QStringList AdBlockRule::parseRegExpFilter(const QString &parsedFilter) const
     }
 
     return list;
+}
+
+bool AdBlockRule::hasOption(const AdBlockRule::RuleOption &opt) const
+{
+    return (m_options & opt);
+}
+
+bool AdBlockRule::hasException(const AdBlockRule::RuleOption &opt) const
+{
+    return (m_exceptions & opt);
+}
+
+void AdBlockRule::setOption(const AdBlockRule::RuleOption &opt)
+{
+    m_options |= opt;
+}
+
+void AdBlockRule::setException(const AdBlockRule::RuleOption &opt, bool on)
+{
+    if (on) {
+        m_exceptions |= opt;
+    }
 }
 
 AdBlockRule::~AdBlockRule()
