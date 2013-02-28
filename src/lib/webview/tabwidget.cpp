@@ -339,7 +339,7 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         webView->load(req);
     }
 
-    if (selectLine) {
+    if (selectLine && p_QupZilla->locationBar()->text().isEmpty()) {
         p_QupZilla->locationBar()->setFocus();
     }
 
