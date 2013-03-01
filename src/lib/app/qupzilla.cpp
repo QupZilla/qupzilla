@@ -703,6 +703,14 @@ void QupZilla::loadSettings()
     m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
     m_webViewWidth = settings.value("WebViewWidth", 2000).toInt();
     const QString &activeSideBar = settings.value("SideBar", "None").toString();
+
+    // Make sure both menubar and navigationbar are not hidden
+    // Fixes #781
+    if (!showNavigationToolbar) {
+        showMenuBar = true;
+        settings.setValue("showMenubar", true);
+    }
+
     settings.endGroup();
 
     settings.beginGroup("Shortcuts");
