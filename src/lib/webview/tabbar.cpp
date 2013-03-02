@@ -266,8 +266,8 @@ QSize TabBar::tabSizeHint(int index) const
                 // Fill any empty space (we've got from rounding) with active tab
                 if (index == currentIndex()) {
                     if (adjustingActiveTab) {
-                        m_activeTabWidth += (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH
-                                             - maxWidthForTab * (normalTabsCount - 1));
+                        m_activeTabWidth = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH
+                                            - maxWidthForTab * (normalTabsCount - 1)) + realTabWidth;
                     }
                     else {
                         m_activeTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
