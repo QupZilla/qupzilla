@@ -208,37 +208,66 @@ QSize TabBar::tabSizeHint(int index) const
             m_normalTabWidth = MAXIMUM_TAB_WIDTH;
             size.setWidth(m_normalTabWidth);
         }
-        else if (availableWidth < MINIMUM_TAB_WIDTH * normalTabsCount) {
-            // Tabs don't fit at all in tabbar even with MINIMUM_TAB_WIDTH
-            // We will try to use as low width of tabs as possible
-            // to try avoid overflowing tabs into tabbar buttons
-
+        else {
             int maxWidthForTab = availableWidth / normalTabsCount;
-            m_activeTabWidth = maxWidthForTab;
-            if (m_activeTabWidth < MINIMUM_ACTIVE_TAB_WIDTH) {
+            int realTabWidth = maxWidthForTab;
+            if (realTabWidth < MINIMUM_ACTIVE_TAB_WIDTH) {
                 maxWidthForTab = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH) / (normalTabsCount - 1);
-                m_activeTabWidth = MINIMUM_ACTIVE_TAB_WIDTH;
+                realTabWidth = MINIMUM_ACTIVE_TAB_WIDTH;
                 adjustingActiveTab = true;
             }
 
-            if (maxWidthForTab < PINNED_TAB_WIDTH) {
-                // FIXME: It overflows now
-                m_normalTabWidth = PINNED_TAB_WIDTH;
-                if (index == currentIndex()) {
-                    size.setWidth(m_activeTabWidth);
+            bool tryAdjusting = false;
+
+            if (availableWidth < MINIMUM_TAB_WIDTH * normalTabsCount) {
+                // Tabs don't fit at all in tabbar even with MINIMUM_TAB_WIDTH
+                // We will try to use as low width of tabs as possible
+                // to try avoid overflowing tabs into tabbar buttons
+                if (maxWidthForTab < PINNED_TAB_WIDTH) {
+                    // FIXME: It overflows now
+                    m_normalTabWidth = PINNED_TAB_WIDTH;
+                    if (index == currentIndex()) {
+                        size.setWidth(realTabWidth);
+                    }
+                    else {
+                        size.setWidth(m_normalTabWidth);
+                    }
                 }
                 else {
-                    size.setWidth(m_normalTabWidth);
+                    tryAdjusting = true;
+
+                    if (tabsClosable()) {
+                        // Hiding close buttons to save some space
+                        tabBar->setTabsClosable(false);
+
+                        tabBar->showCloseButton(currentIndex());
+                    }
                 }
             }
             else {
+                // Tabs fit into tabbar with size between MAXIMUM_TAB_WIDTH and MINIMUM_TAB_WIDTH
+                // There won't be any empty space in tabbar
+                tryAdjusting = true;
+
+                // Restore close buttons according to preferences
+                if (!tabsClosable()) {
+                    tabBar->setTabsClosable(true);
+
+                    // Hide close buttons on pinned tabs
+                    for (int i = 0; i < count(); ++i) {
+                        tabBar->updatePinnedTabCloseButton(i);
+                    }
+                }
+            }
+
+            if (tryAdjusting) {
                 m_normalTabWidth = maxWidthForTab;
 
                 // Fill any empty space (we've got from rounding) with active tab
                 if (index == currentIndex()) {
                     if (adjustingActiveTab) {
-                        m_activeTabWidth = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH
-                                            - maxWidthForTab * (normalTabsCount - 1)) + m_activeTabWidth;
+                        m_activeTabWidth += (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH
+                                             - maxWidthForTab * (normalTabsCount - 1));
                     }
                     else {
                         m_activeTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
@@ -249,56 +278,15 @@ QSize TabBar::tabSizeHint(int index) const
                 else {
                     size.setWidth(m_normalTabWidth);
                 }
-
-                if (tabsClosable()) {
-                    // Hiding close buttons to save some space
-                    tabBar->setTabsClosable(false);
-
-                    tabBar->showCloseButton(currentIndex());
-                }
-            }
-        }
-        else {
-            int maxWidthForTab = availableWidth / normalTabsCount;
-            m_activeTabWidth = maxWidthForTab;
-            if (m_activeTabWidth < MINIMUM_ACTIVE_TAB_WIDTH) {
-                maxWidthForTab = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH) / (normalTabsCount - 1);
-                m_activeTabWidth = MINIMUM_ACTIVE_TAB_WIDTH;
-                adjustingActiveTab = true;
-            }
-            m_normalTabWidth = maxWidthForTab;
-
-            // Fill any empty space (we've got from rounding) with active tab
-            if (index == currentIndex()) {
-                if (adjustingActiveTab) {
-                    m_activeTabWidth = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH
-                                        - maxWidthForTab * (normalTabsCount - 1)) + m_activeTabWidth;
-                }
-                else {
-                    m_activeTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
-                }
-                adjustingActiveTab = true;
-                size.setWidth(m_activeTabWidth);
-            }
-            else {
-                size.setWidth(m_normalTabWidth);
-            }
-
-            // Restore close buttons according to preferences
-            if (!tabsClosable()) {
-                tabBar->setTabsClosable(true);
-
-                // Hide close buttons on pinned tabs
-                for (int i = 0; i < count(); ++i) {
-                    tabBar->updatePinnedTabCloseButton(i);
-                }
             }
         }
     }
 
-    if (index == currentIndex()) {
+    if (index == count() - 1) {
+        WebTab* currentTab = qobject_cast<WebTab*>(m_tabWidget->widget(currentIndex()));
         int xForAddTabButton = (PINNED_TAB_WIDTH * m_pinnedTabsCount) + (count() - m_pinnedTabsCount) * (m_normalTabWidth);
-        if (adjustingActiveTab) {
+
+        if (currentTab && !currentTab->isPinned() && m_activeTabWidth > m_normalTabWidth) {
             xForAddTabButton += m_activeTabWidth - m_normalTabWidth;
         }
 
@@ -306,6 +294,7 @@ QSize TabBar::tabSizeHint(int index) const
         if (QApplication::layoutDirection() == Qt::RightToLeft) {
             xForAddTabButton = width() - xForAddTabButton;
         }
+
         emit tabBar->moveAddTabButton(xForAddTabButton);
     }
 
