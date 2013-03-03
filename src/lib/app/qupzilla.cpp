@@ -744,6 +744,7 @@ void QupZilla::loadSettings()
     if (m_usingTransparentBackground && !makeTransparent) {
         QtWin::extendFrameIntoClientArea(this, 0, 0, 0, 0);
         QtWin::enableBlurBehindWindow(this, false);
+        QtWin::enableBlurBehindWindow(m_tabWidget->getTabBar(), false);
         m_usingTransparentBackground = false;
     }
 #endif
@@ -770,6 +771,9 @@ void QupZilla::loadSettings()
 
         m_usingTransparentBackground = true;
 
+        if (!qzSettings->tabsOnTop) {
+            QtWin::enableBlurBehindWindow(m_tabWidget->getTabBar(), true);
+        }
         applyBlurToMainWindow();
         update();
 
@@ -1591,6 +1595,9 @@ void QupZilla::triggerTabsOnTop(bool enable)
     Settings settings;
     settings.setValue("Browser-Tabs-Settings/TabsOnTop", enable);
 
+    if (m_usingTransparentBackground) {
+        QtWin::enableBlurBehindWindow(m_tabWidget->getTabBar(), !enable);
+    }
     qzSettings->tabsOnTop = enable;
 }
 

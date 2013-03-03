@@ -471,6 +471,7 @@ void TabWidget::startTabAnimation(int index)
     QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, m_tabBar->iconButtonPosition()));
     if (!label) {
         label = new QLabel();
+        label->setObjectName("tab-icon");
         m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), label);
     }
 
@@ -515,6 +516,7 @@ void TabWidget::setTabIcon(int index, const QIcon &icon)
     QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, m_tabBar->iconButtonPosition()));
     if (!label) {
         label = new QLabel();
+        label->setObjectName("tab-icon");
         label->resize(16, 16);
         m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), label);
     }
