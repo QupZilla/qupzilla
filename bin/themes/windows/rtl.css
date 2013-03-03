@@ -17,3 +17,8 @@
 {
     qproperty-multiIcon: url(images/tabbar-addtab_rtl.png);
 }
+
+#tabbar::tab:last
+{
+    margin-left: 1px;
+}
