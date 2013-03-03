@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/privatewindowplugin">
+        <file>locale/de_DE.qm</file>
+    </qresource>
+</RCC>

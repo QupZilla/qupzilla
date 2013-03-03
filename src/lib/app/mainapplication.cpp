@@ -910,16 +910,22 @@ Speller* MainApplication::speller()
 }
 #endif
 
-void MainApplication::startPrivateBrowsing()
+void MainApplication::startPrivateBrowsing(const QUrl &initialUrl)
 {
     QStringList args;
     foreach(const QString & arg, arguments()) {
-        if (arg.startsWith(QLatin1Char('-'))) {
+        if (arg.startsWith(QLatin1Char('-')) &&
+            arg != "--private-browsing" &&
+            arg != "-pb") {
             args.append(arg);
         }
     }
 
     args.append(QLatin1String("--private-browsing"));
+
+    if (!initialUrl.isEmpty()) {
+        args.append(initialUrl.toEncoded());
+    }
 
     if (!QProcess::startDetached(applicationFilePath(), args)) {
         qWarning() << "MainApplication: Cannot start new browser process for private browsing!" << applicationFilePath() << args;

@@ -545,7 +545,10 @@ void QupZilla::setupMenu()
     m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), MENU_RECEIVER, SLOT(showClearPrivateData()))->setShortcut(QKeySequence("Ctrl+Shift+Del"));
     m_actionPrivateBrowsing = new QAction(tr("&Private Browsing"), MENU_RECEIVER);
     m_actionPrivateBrowsing->setShortcut(QKeySequence("Ctrl+Shift+P"));
-    m_actionPrivateBrowsing->setVisible(!mApp->isPrivateSession());
+    if (mApp->isPrivateSession())
+    {
+        m_actionPrivateBrowsing->setText(tr("New &Private Browsing Window"));
+    }
     connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), mApp, SLOT(startPrivateBrowsing()));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
