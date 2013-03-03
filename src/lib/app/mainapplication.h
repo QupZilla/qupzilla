@@ -94,7 +94,9 @@ public:
     void destroyRestoreManager();
     void clearTempPath();
 
+    ProxyStyle* proxyStyle() const;
     void setProxyStyle(ProxyStyle* style);
+
     QString currentStyle() const;
     QString tempPath() const;
 

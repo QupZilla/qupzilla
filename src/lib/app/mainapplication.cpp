@@ -1167,6 +1167,11 @@ void MainApplication::destroyRestoreManager()
     m_restoreManager = 0;
 }
 
+ProxyStyle* MainApplication::proxyStyle() const
+{
+    return m_proxyStyle;
+}
+
 void MainApplication::setProxyStyle(ProxyStyle* style)
 {
     m_proxyStyle = style;

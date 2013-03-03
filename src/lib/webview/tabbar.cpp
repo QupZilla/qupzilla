@@ -26,6 +26,7 @@
 #include "tabbedwebview.h"
 #include "mainapplication.h"
 #include "pluginproxy.h"
+#include "proxystyle.h"
 
 #include <QMenu>
 #include <QMimeData>
@@ -173,9 +174,11 @@ void TabBar::contextMenuRequested(const QPoint &position)
 
 QSize TabBar::tabSizeHint(int index) const
 {
-    if (!isVisible()) {
+    if (!isVisible() || !mApp->proxyStyle()) {
         // Don't calculate it when tabbar is not visible
         // It produces invalid size anyway
+        //
+        // We also need ProxyStyle to be set before calculating minimum sizes for tabs
         return QSize(-1, -1);
     }
 
@@ -183,9 +186,10 @@ QSize TabBar::tabSizeHint(int index) const
     static int MINIMUM_ACTIVE_TAB_WIDTH = -1;
 
     if (PINNED_TAB_WIDTH == -1) {
-        PINNED_TAB_WIDTH = 16 + style()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
-        MINIMUM_ACTIVE_TAB_WIDTH = PINNED_TAB_WIDTH + style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, 0, this);
-        // just a hack: we want to be sure buttonAddTab and buttonListTabs can't cover the active tab
+        PINNED_TAB_WIDTH = 16 + mApp->proxyStyle()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
+        MINIMUM_ACTIVE_TAB_WIDTH = PINNED_TAB_WIDTH + mApp->proxyStyle()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, 0, this);
+
+        // We want to be sure buttonAddTab and buttonListTabs can't cover the active tab
         MINIMUM_ACTIVE_TAB_WIDTH = qMax(MINIMUM_ACTIVE_TAB_WIDTH, 6 + m_tabWidget->buttonListTabs()->width() + m_tabWidget->buttonAddTab()->width());
     }
 
