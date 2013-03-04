@@ -1,0 +1,17 @@
+_qupzilla()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="-h --help -a --authors -v --version -p= --profile=
+          -ne --no-extensions -nt --new-tab -pb --private-browsing
+          -dm --download-manager -nr --no-remote -ct= --current-tab=
+          -ow= --open-window="
+
+    if [[ ${cur} == -* ]] ; then
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        return 0
+    fi
+}
+complete -F _qupzilla qupzilla
