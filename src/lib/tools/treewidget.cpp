@@ -328,49 +328,39 @@ QList<QTreeWidgetItem*> TreeWidget::allItems()
 
 void TreeWidget::filterString(const QString &string)
 {
-    expandAll();
     QList<QTreeWidgetItem*> _allItems = allItems();
-
-    if (string.isEmpty()) {
-        foreach(QTreeWidgetItem * item, _allItems)
-        item->setHidden(false);
-        for (int i = 0; i < topLevelItemCount(); i++) {
-            topLevelItem(i)->setHidden(false);
+    QList<QTreeWidgetItem*> parents;
+    bool stringIsEmpty = string.isEmpty();
+    foreach(QTreeWidgetItem * item, _allItems) {
+        bool containsString = stringIsEmpty || item->text(0).contains(string, Qt::CaseInsensitive);
+        if (containsString) {
+            item->setHidden(false);
+            if (item->parent()) {
+                if (!parents.contains(item->parent())) {
+                    parents << item->parent();
+                }
+            }
         }
-        if (m_showMode == ItemsCollapsed) {
-            collapseAll();
+        else {
+            item->setHidden(true);
+            if (item->parent()) {
+                item->parent()->setHidden(true);
+            }
         }
     }
-    else {
-        foreach(QTreeWidgetItem * item, _allItems) {
-            item->setHidden(!item->text(0).contains(string, Qt::CaseInsensitive));
-            item->setExpanded(true);
+
+    for(int i = 0; i < parents.size(); ++i) {
+        QTreeWidgetItem* parentItem = parents.at(i);
+        parentItem->setHidden(false);
+        if (stringIsEmpty) {
+            parentItem->setExpanded(m_showMode == ItemsExpanded);
         }
-        for (int i = 0; i < topLevelItemCount(); i++) {
-            topLevelItem(i)->setHidden(false);
+        else {
+            parentItem->setExpanded(true);
         }
 
-        QTreeWidgetItem* firstItem = topLevelItem(0);
-        QTreeWidgetItem* belowItem = itemBelow(firstItem);
-
-        int topLvlIndex = 0;
-        while (firstItem) {
-            if (firstItem->text(0).contains(string, Qt::CaseInsensitive)) {
-                firstItem->setHidden(false);
-            }
-            else if (!firstItem->parent() && !belowItem) {
-                firstItem->setHidden(true);
-            }
-            else if (!belowItem) {
-                break;
-            }
-            else if (!firstItem->parent() && !belowItem->parent()) {
-                firstItem->setHidden(true);
-            }
-
-            topLvlIndex++;
-            firstItem = topLevelItem(topLvlIndex);
-            belowItem = itemBelow(firstItem);
+        if (parentItem->parent() && !parents.contains(parentItem->parent())) {
+            parents << parentItem->parent();
         }
     }
 }
