@@ -76,8 +76,8 @@ void GM_Settings::removeItem(QListWidgetItem* item)
                                          tr("Are you sure you want to remove '%1'?").arg(script->name()),
                                          QMessageBox::Yes | QMessageBox::No);
 
-    if (button == QMessageBox::Yes && m_manager->removeScript(script)) {
-        delete item;
+    if (button == QMessageBox::Yes) {
+        m_manager->removeScript(script);
     }
 }
 
