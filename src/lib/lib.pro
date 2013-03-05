@@ -437,6 +437,7 @@ RESOURCES += \
     data/icons.qrc \
     data/html.qrc \
     data/data.qrc \
+    data/certs.qrc \
 
 isEqual(QT_MAJOR_VERSION, 5) {
     include(3rdparty/qftp.pri)
@@ -450,6 +451,8 @@ isEqual(QT_MAJOR_VERSION, 5) {
     INSTALLS += target
 
     LIBS += -lX11
+
+    RESOURCES -= data/certs.qrc
 }
 
 win32 {
@@ -461,6 +464,7 @@ win32 {
 mac {
     HEADERS += other/macmenureceiver.h
     SOURCES += other/macmenureceiver.cpp
+    RESOURCES -= data/certs.qrc
 
     LIBS += -framework CoreServices
 }
