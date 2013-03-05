@@ -100,7 +100,7 @@ void NetworkManager::loadSettings()
     settings.endGroup();
     m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
     // From doc:
     // QSslSocket::VerifyNone ... The connection will still be encrypted, and your socket
     // will still send its local certificate to the peer if it's requested.
@@ -665,7 +665,7 @@ void NetworkManager::loadCertificates()
 
     QSslSocket::setDefaultCaCertificates(m_caCerts + m_localCerts);
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
     new CaBundleUpdater(this, this);
 #endif
 }
