@@ -199,7 +199,7 @@ void ClickToFlash::findElement()
         elements.append(docElement.findAll(QLatin1String("embed")));
         elements.append(docElement.findAll(QLatin1String("object")));
 
-        foreach(const QWebElement & element, elements) {
+        foreach (const QWebElement &element, elements) {
             if (!checkElement(element) && !checkUrlOnElement(element)) {
                 continue;
             }
@@ -277,7 +277,7 @@ bool ClickToFlash::checkUrlOnElement(QWebElement el)
 bool ClickToFlash::checkElement(QWebElement el)
 {
     if (m_argumentNames == el.attributeNames()) {
-        foreach(const QString & name, m_argumentNames) {
+        foreach (const QString &name, m_argumentNames) {
             if (m_argumentValues.indexOf(el.attribute(name)) == -1) {
                 return false;
             }
@@ -297,7 +297,7 @@ void ClickToFlash::showInfo()
     lay->addRow(new QLabel(tr("<b>Attribute Name</b>")), new QLabel(tr("<b>Value</b>")));
 
     int i = 0;
-    foreach(const QString & name, m_argumentNames) {
+    foreach (const QString &name, m_argumentNames) {
         QString value = m_argumentValues.at(i);
         SqueezeLabelV2* valueLabel = new SqueezeLabelV2(value);
         valueLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);

@@ -42,13 +42,13 @@ void MacMenuReceiver::setEnabledSelectedMenuActions(QMenu* menu, const QList<int
 
     // we mean all actions by empty list
     if (indexList.isEmpty()) {
-        foreach(QAction * act, menu->actions()) {
+        foreach (QAction* act, menu->actions()) {
             act->setEnabled(true);
         }
         return;
     }
 
-    foreach(int index, indexList) {
+    foreach (int index, indexList) {
         Q_ASSERT(index >= 0 && index < menu->actions().size());
         menu->actions().at(index)->setEnabled(true);
     }
@@ -62,13 +62,13 @@ void MacMenuReceiver::setDisabledSelectedMenuActions(QMenu* menu, const QList<in
 
     // we mean all actions by empty list
     if (indexList.isEmpty()) {
-        foreach(QAction * act, menu->actions()) {
+        foreach (QAction* act, menu->actions()) {
             act->setDisabled(true);
         }
         return;
     }
 
-    foreach(int index, indexList) {
+    foreach (int index, indexList) {
         Q_ASSERT(index >= 0 && index < menu->actions().size());
         menu->actions().at(index)->setDisabled(true);
     }

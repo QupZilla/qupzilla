@@ -162,7 +162,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->startProfile->addItem(actProfileName);
     QDir profilesDir(mApp->PROFILEDIR + "profiles/");
     QStringList list_ = profilesDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-    foreach(const QString & name, list_) {
+    foreach (const QString &name, list_) {
         if (actProfileName == name) {
             continue;
         }
@@ -385,7 +385,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     QDir lanDir(mApp->TRANSLATIONSDIR);
     QStringList list = lanDir.entryList(QStringList("*.qm"));
-    foreach(const QString & name, list) {
+    foreach (const QString &name, list) {
         if (name.startsWith(QLatin1String("qt_"))) {
             continue;
         }
@@ -448,7 +448,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->uaManager, SIGNAL(clicked()), this, SLOT(openUserAgentManager()));
     connect(ui->jsOptionsButton, SIGNAL(clicked()), this, SLOT(openJsOptions()));
 
-    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
+    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
 
     ui->version->setText(" QupZilla v" + QupZilla::VERSION);

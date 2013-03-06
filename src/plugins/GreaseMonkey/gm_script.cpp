@@ -92,7 +92,7 @@ QStringList GM_Script::include() const
 {
     QStringList list;
 
-    foreach(const GM_UrlMatcher & matcher, m_include) {
+    foreach (const GM_UrlMatcher &matcher, m_include) {
         list.append(matcher.pattern());
     }
 
@@ -103,7 +103,7 @@ QStringList GM_Script::exclude() const
 {
     QStringList list;
 
-    foreach(const GM_UrlMatcher & matcher, m_exclude) {
+    foreach (const GM_UrlMatcher &matcher, m_exclude) {
         list.append(matcher.pattern());
     }
 
@@ -126,13 +126,13 @@ bool GM_Script::match(const QString &urlString)
         return false;
     }
 
-    foreach(const GM_UrlMatcher & matcher, m_exclude) {
+    foreach (const GM_UrlMatcher &matcher, m_exclude) {
         if (matcher.match(urlString)) {
             return false;
         }
     }
 
-    foreach(const GM_UrlMatcher & matcher, m_include) {
+    foreach (const GM_UrlMatcher &matcher, m_include) {
         if (matcher.match(urlString)) {
             return true;
         }
@@ -188,7 +188,7 @@ void GM_Script::parseScript()
     QStringList requireList;
 
     const QStringList &lines = metadataBlock.split(QLatin1Char('\n'), QString::SkipEmptyParts);
-    foreach(QString line, lines) {
+    foreach (QString line, lines) {
         if (!line.startsWith(QLatin1String("// @"))) {
             continue;
         }

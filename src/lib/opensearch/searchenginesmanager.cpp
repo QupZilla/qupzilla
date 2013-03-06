@@ -99,7 +99,7 @@ SearchEngine SearchEnginesManager::engineForShortcut(const QString &shortcut)
         return returnEngine;
     }
 
-    foreach(const Engine & en, m_allEngines) {
+    foreach (const Engine &en, m_allEngines) {
         if (en.shortcut == shortcut) {
             returnEngine = en;
             break;
@@ -171,7 +171,7 @@ void SearchEnginesManager::engineChangedImage()
         return;
     }
 
-    foreach(Engine e, m_allEngines) {
+    foreach (Engine e, m_allEngines) {
         if (e.name == engine->name() && e.url.contains(engine->searchUrl("%s").toString())
                 && !engine->image().isNull()) {
 
@@ -233,7 +233,7 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     query.addQueryItem(element.attribute("name"), "%s");
 
     QWebElementCollection allInputs = formElement.findAll("input");
-    foreach(QWebElement e, allInputs) {
+    foreach (QWebElement e, allInputs) {
         if (element == e || !e.hasAttribute("name")) {
             continue;
         }
@@ -247,7 +247,7 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
 
     QList<QPair<QByteArray, QByteArray> > queryItems;
     QWebElementCollection allInputs = formElement.findAll("input");
-    foreach(QWebElement e, allInputs) {
+    foreach (QWebElement e, allInputs) {
         if (element == e || !e.hasAttribute("name")) {
             continue;
         }
@@ -445,7 +445,7 @@ void SearchEnginesManager::saveSettings()
     QSqlQuery query;
     query.exec("DELETE FROM search_engines");
 
-    foreach(const Engine & en, m_allEngines) {
+    foreach (const Engine &en, m_allEngines) {
         query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, suggestionsUrl, suggestionsParameters) VALUES (?, ?, ?, ?, ?, ?)");
         query.bindValue(0, en.name);
         query.bindValue(1, qIconProvider->iconToBase64(en.icon));

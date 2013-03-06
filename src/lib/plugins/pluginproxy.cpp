@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -95,7 +95,7 @@ void PluginProxy::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitT
         return;
     }
 
-    foreach(PluginInterface * iPlugin, m_loadedPlugins) {
+    foreach (PluginInterface* iPlugin, m_loadedPlugins) {
         iPlugin->populateWebViewMenu(menu, view, r);
     }
 }
@@ -104,7 +104,7 @@ bool PluginProxy::processMouseDoubleClick(const Qz::ObjectName &type, QObject* o
 {
     bool accepted = false;
 
-    foreach(PluginInterface * iPlugin, m_mouseDoubleClickHandlers) {
+    foreach (PluginInterface* iPlugin, m_mouseDoubleClickHandlers) {
         if (iPlugin->mouseDoubleClick(type, obj, event)) {
             accepted = true;
         }
@@ -117,7 +117,7 @@ bool PluginProxy::processMousePress(const Qz::ObjectName &type, QObject* obj, QM
 {
     bool accepted = false;
 
-    foreach(PluginInterface * iPlugin, m_mousePressHandlers) {
+    foreach (PluginInterface* iPlugin, m_mousePressHandlers) {
         if (iPlugin->mousePress(type, obj, event)) {
             accepted = true;
         }
@@ -130,7 +130,7 @@ bool PluginProxy::processMouseRelease(const Qz::ObjectName &type, QObject* obj, 
 {
     bool accepted = false;
 
-    foreach(PluginInterface * iPlugin, m_mouseReleaseHandlers) {
+    foreach (PluginInterface* iPlugin, m_mouseReleaseHandlers) {
         if (iPlugin->mouseRelease(type, obj, event)) {
             accepted = true;
         }
@@ -143,7 +143,7 @@ bool PluginProxy::processMouseMove(const Qz::ObjectName &type, QObject* obj, QMo
 {
     bool accepted = false;
 
-    foreach(PluginInterface * iPlugin, m_mouseMoveHandlers) {
+    foreach (PluginInterface* iPlugin, m_mouseMoveHandlers) {
         if (iPlugin->mouseMove(type, obj, event)) {
             accepted = true;
         }
@@ -156,7 +156,7 @@ bool PluginProxy::processWheelEvent(const Qz::ObjectName &type, QObject* obj, QW
 {
     bool accepted = false;
 
-    foreach(PluginInterface * iPlugin, m_wheelEventHandlers) {
+    foreach (PluginInterface* iPlugin, m_wheelEventHandlers) {
         if (iPlugin->wheelEvent(type, obj, event)) {
             accepted = true;
         }
@@ -169,7 +169,7 @@ bool PluginProxy::processKeyPress(const Qz::ObjectName &type, QObject* obj, QKey
 {
     bool accepted = false;
 
-    foreach(PluginInterface * iPlugin, m_keyPressHandlers) {
+    foreach (PluginInterface* iPlugin, m_keyPressHandlers) {
         if (iPlugin->keyPress(type, obj, event)) {
             accepted = true;
         }
@@ -182,7 +182,7 @@ bool PluginProxy::processKeyRelease(const Qz::ObjectName &type, QObject* obj, QK
 {
     bool accepted = false;
 
-    foreach(PluginInterface * iPlugin, m_keyReleaseHandlers) {
+    foreach (PluginInterface* iPlugin, m_keyReleaseHandlers) {
         if (iPlugin->keyRelease(type, obj, event)) {
             accepted = true;
         }
@@ -193,7 +193,7 @@ bool PluginProxy::processKeyRelease(const Qz::ObjectName &type, QObject* obj, QK
 
 QNetworkReply* PluginProxy::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
 {
-    foreach(PluginInterface * iPlugin, m_loadedPlugins) {
+    foreach (PluginInterface* iPlugin, m_loadedPlugins) {
         QNetworkReply* reply = iPlugin->createRequest(op, request, outgoingData);
         if (reply) {
             return reply;

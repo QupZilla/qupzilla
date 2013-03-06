@@ -623,7 +623,7 @@ void FancyTabWidget::SetMode(Mode mode)
         side_layout_->insertWidget(0, bar);
         tab_bar_ = bar;
 
-        foreach(const Item & item, items_) {
+        foreach (const Item &item, items_) {
             if (item.type_ == Item::Type_Spacer) {
                 bar->addSpacer(item.spacer_size_);
             }
@@ -722,7 +722,7 @@ void FancyTabWidget::MakeTabBar(QTabBar::Shape shape, bool text, bool icons,
         side_layout_->insertWidget(0, bar);
     }
 
-    foreach(const Item & item, items_) {
+    foreach (const Item &item, items_) {
         if (item.type_ != Item::Type_Tab) {
             continue;
         }

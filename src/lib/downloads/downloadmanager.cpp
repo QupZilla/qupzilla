@@ -152,20 +152,22 @@ void DownloadManager::timerEvent(QTimerEvent* e)
         }
 
         QTime remaining;
-        foreach(const QTime & time, remTimes) {
+        foreach (const QTime &time, remTimes) {
             if (time > remaining) {
                 remaining = time;
             }
         }
 
         int progress = 0;
-        foreach(int prog, progresses)
-        progress += prog;
+        foreach (int prog, progresses) {
+            progress += prog;
+        }
         progress = progress / progresses.count();
 
         double speed = 0.00;
-        foreach(double spee, speeds)
-        speed += spee;
+        foreach (double spee, speeds) {
+            speed += spee;
+        }
 
         ui->speedLabel->setText(tr("%1% of %2 files (%3) %4 remaining").arg(QString::number(progress), QString::number(progresses.count()),
                                 DownloadItem::currentSpeedToString(speed),
@@ -228,7 +230,7 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, const Downl
     reply->setProperty("downReply", QVariant(true));
 
     DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog);
-    connect(h, SIGNAL(itemCreated(QListWidgetItem*, DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*, DownloadItem*)));
+    connect(h, SIGNAL(itemCreated(QListWidgetItem*,DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*,DownloadItem*)));
 
     h->setLastDownloadOption(m_lastDownloadOption);
     h->setDownloadManager(this);

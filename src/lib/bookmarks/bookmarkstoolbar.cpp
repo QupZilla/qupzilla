@@ -56,12 +56,12 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
 
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark, BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark, BookmarksModel::Bookmark)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(subfolderAdded(QString)), this, SLOT(subfolderAdded(QString)));
     connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(folderDeleted(QString)));
-    connect(m_bookmarksModel, SIGNAL(folderRenamed(QString, QString)), this, SLOT(folderRenamed(QString, QString)));
-    connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString, bool)), this, SLOT(changeFolderParent(QString, bool)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString, QByteArray, int, QUrl, QString, QString)), this, SLOT(changeBookmarkParent(QString, QByteArray, int, QUrl, QString, QString)));
+    connect(m_bookmarksModel, SIGNAL(folderRenamed(QString,QString)), this, SLOT(folderRenamed(QString,QString)));
+    connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString,bool)), this, SLOT(changeFolderParent(QString,bool)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString,QByteArray,int,QUrl,QString,QString)), this, SLOT(changeBookmarkParent(QString,QByteArray,int,QUrl,QString,QString)));
 
     setMaximumWidth(p_QupZilla->width());
 
@@ -334,7 +334,7 @@ void BookmarksToolbar::loadFolderBookmarksInTabs()
         return;
     }
 
-    foreach(const Bookmark & b, m_bookmarksModel->folderBookmarks(folder)) {
+    foreach (const Bookmark &b, m_bookmarksModel->folderBookmarks(folder)) {
         p_QupZilla->tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
     }
 }
@@ -621,7 +621,7 @@ void BookmarksToolbar::aboutToShowFolderMenu()
     menu->clear();
     QString folder = menu->title();
 
-    foreach(const Bookmark & b, m_bookmarksModel->folderBookmarks(folder)) {
+    foreach (const Bookmark &b, m_bookmarksModel->folderBookmarks(folder)) {
         QString title = b.title;
         if (title.length() > 40) {
             title.truncate(40);
@@ -687,7 +687,7 @@ void BookmarksToolbar::refreshMostVisited()
     m_menuMostVisited->clear();
 
     QVector<HistoryEntry> mostList = m_historyModel->mostVisited(10);
-    foreach(const HistoryEntry & entry, mostList) {
+    foreach (const HistoryEntry &entry, mostList) {
         QString title = entry.title;
         if (title.length() > 40) {
             title.truncate(40);

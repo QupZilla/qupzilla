@@ -52,11 +52,11 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
     const QWebElementCollection &allForms = getAllElementsFromPage(m_page, "form");
 
     // Find form that contains password value sent in data
-    foreach(const QWebElement & formElement, allForms) {
+    foreach (const QWebElement &formElement, allForms) {
         bool found = false;
         const QWebElementCollection &inputs = formElement.findAll("input[type=\"password\"]");
 
-        foreach(QWebElement inputElement, inputs) {
+        foreach (QWebElement inputElement, inputs) {
             const QString &passName = inputElement.attribute("name");
             const QString &passValue = inputElement.evaluateJavaScript("this.value").toString();
 
@@ -197,9 +197,9 @@ PageFormCompleter::QueryItem PageFormCompleter::findUsername(const QWebElement &
               << "input[type=\"email\"]"
               << "input:not([type=\"hidden\"][type=\"password\"])";
 
-    foreach(const QString & selector, selectors) {
+    foreach (const QString &selector, selectors) {
         const QWebElementCollection &inputs = form.findAll(selector);
-        foreach(QWebElement element, inputs) {
+        foreach (QWebElement element, inputs) {
             const QString &name = element.attribute("name");
             const QString &value = element.evaluateJavaScript("this.value").toString();
 

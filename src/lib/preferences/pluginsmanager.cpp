@@ -45,7 +45,7 @@ PluginsManager::PluginsManager(QWidget* parent)
     ui->list->setEnabled(appPluginsEnabled);
 
     connect(ui->butSettings, SIGNAL(clicked()), this, SLOT(settingsClicked()));
-    connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
+    connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
     connect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
     connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
 
@@ -62,7 +62,7 @@ PluginsManager::PluginsManager(QWidget* parent)
     QStringList whitelist = mApp->plugins()->c2f_getWhiteList();
     ui->allowClick2Flash->setChecked(settings.value("Enable", true).toBool());
     settings.endGroup();
-    foreach(const QString & site, whitelist) {
+    foreach (const QString &site, whitelist) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->whitelist);
         item->setText(0, site);
     }
@@ -167,7 +167,7 @@ void PluginsManager::refresh()
 
     const QList<Plugins::Plugin> &allPlugins = mApp->plugins()->getAvailablePlugins();
 
-    foreach(const Plugins::Plugin & plugin, allPlugins) {
+    foreach (const Plugins::Plugin &plugin, allPlugins) {
         PluginSpec spec = plugin.pluginSpec;
 
         QListWidgetItem* item = new QListWidgetItem(ui->list);

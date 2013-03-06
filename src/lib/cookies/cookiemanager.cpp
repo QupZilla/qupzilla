@@ -40,7 +40,7 @@ CookieManager::CookieManager(QWidget* parent)
     QzTools::centerWidgetOnScreen(this);
 
     // Stored Cookies
-    connect(ui->cookieTree, SIGNAL(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)), this, SLOT(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)));
+    connect(ui->cookieTree, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)));
     connect(ui->removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));
     connect(ui->removeOne, SIGNAL(clicked()), this, SLOT(removeCookie()));
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
@@ -102,7 +102,7 @@ void CookieManager::removeCookie()
 
     if (current->text(1).isEmpty()) {     //Remove whole cookie group
         const QString &domain = current->data(0, Qt::UserRole + 10).toString();
-        foreach(const QNetworkCookie & cookie, allCookies) {
+        foreach (const QNetworkCookie &cookie, allCookies) {
             if (cookie.domain() == domain || cookie.domain() == domain.mid(1)) {
                 allCookies.removeOne(cookie);
             }

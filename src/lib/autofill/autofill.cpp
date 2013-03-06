@@ -320,7 +320,7 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
     if (isStored(siteUrl)) {
         const QVector<AutoFillData> &list = getFormData(siteUrl);
 
-        foreach(const AutoFillData & data, list) {
+        foreach (const AutoFillData &data, list) {
             if (data.username == formData.username) {
                 updateLastUsed(data.id);
 

@@ -1493,15 +1493,15 @@ QFtp::QFtp(QObject* parent)
             SLOT(_q_piConnectState(int)));
     connect(&d->pi, SIGNAL(finished(QString)),
             SLOT(_q_piFinished(QString)));
-    connect(&d->pi, SIGNAL(error(int, QString)),
-            SLOT(_q_piError(int, QString)));
-    connect(&d->pi, SIGNAL(rawFtpReply(int, QString)),
-            SLOT(_q_piFtpReply(int, QString)));
+    connect(&d->pi, SIGNAL(error(int,QString)),
+            SLOT(_q_piError(int,QString)));
+    connect(&d->pi, SIGNAL(rawFtpReply(int,QString)),
+            SLOT(_q_piFtpReply(int,QString)));
 
     connect(&d->pi.dtp, SIGNAL(readyRead()),
             SIGNAL(readyRead()));
-    connect(&d->pi.dtp, SIGNAL(dataTransferProgress(qint64, qint64)),
-            SIGNAL(dataTransferProgress(qint64, qint64)));
+    connect(&d->pi.dtp, SIGNAL(dataTransferProgress(qint64,qint64)),
+            SIGNAL(dataTransferProgress(qint64,qint64)));
     connect(&d->pi.dtp, SIGNAL(listInfo(QUrlInfo)),
             SIGNAL(listInfo(QUrlInfo)));
 }

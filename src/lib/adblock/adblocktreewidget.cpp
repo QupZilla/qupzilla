@@ -36,7 +36,7 @@ AdBlockTreeWidget::AdBlockTreeWidget(AdBlockSubscription* subscription, QWidget*
     setAlternatingRowColors(true);
 
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
-    connect(this, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
+    connect(this, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
     connect(m_subscription, SIGNAL(subscriptionUpdated()), this, SLOT(subscriptionUpdated()));
 }
 
@@ -240,7 +240,7 @@ void AdBlockTreeWidget::refresh()
     const QVector<AdBlockRule*> &allRules = m_subscription->allRules();
 
     int index = 0;
-    foreach(const AdBlockRule * rule, allRules) {
+    foreach (const AdBlockRule* rule, allRules) {
         QTreeWidgetItem* item = new QTreeWidgetItem(m_topItem);
         item->setText(0, rule->filter());
         item->setData(0, Qt::UserRole + 10, index);

@@ -153,7 +153,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     if (argc > 1) {
         CommandLineOptions cmd(argc);
 
-        foreach(const CommandLineOptions::ActionPair & pair, cmd.getActions()) {
+        foreach (const CommandLineOptions::ActionPair &pair, cmd.getActions()) {
             switch (pair.action) {
             case Qz::CL_StartWithoutAddons:
                 noAddons = true;
@@ -220,7 +220,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     }
 
     if (isRunning()) {
-        foreach(const QString & message, messages) {
+        foreach (const QString &message, messages) {
             sendMessage(message);
         }
         m_isClosing = true;
@@ -266,7 +266,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     QupZilla* qupzilla = new QupZilla(Qz::BW_FirstAppWindow, startUrl);
     m_mainWindows.append(qupzilla);
 
-    connect(qupzilla, SIGNAL(message(Qz::AppMessageType, bool)), this, SLOT(sendMessages(Qz::AppMessageType, bool)));
+    connect(qupzilla, SIGNAL(message(Qz::AppMessageType,bool)), this, SLOT(sendMessages(Qz::AppMessageType,bool)));
     connect(qupzilla, SIGNAL(startingCompleted()), this, SLOT(restoreCursor()));
 
     loadSettings();
@@ -913,7 +913,7 @@ Speller* MainApplication::speller()
 void MainApplication::startPrivateBrowsing()
 {
     QStringList args;
-    foreach(const QString & arg, arguments()) {
+    foreach (const QString &arg, arguments()) {
         if (arg.startsWith(QLatin1Char('-'))) {
             args.append(arg);
         }
@@ -1101,7 +1101,7 @@ bool MainApplication::restoreStateSlot(QupZilla* window, RestoreData recoveryDat
         window->restoreWindowState(data);
     }
 
-    foreach(const RestoreManager::WindowData & data, recoveryData) {
+    foreach (const RestoreManager::WindowData &data, recoveryData) {
         QupZilla* window = makeNewWindow(Qz::BW_OtherRestoredWindow);
         window->restoreWindowState(data);
     }

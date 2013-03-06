@@ -146,7 +146,7 @@ void WebView::setPage(QWebPage* page)
     m_page = qobject_cast<WebPage*>(page);
 
     setZoom(qzSettings->defaultZoom);
-    connect(m_page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
+    connect(m_page, SIGNAL(saveFrameStateRequested(QWebFrame*,QWebHistoryItem*)), this, SLOT(frameStateChanged()));
     connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
 
     mApp->plugins()->emitWebPageCreated(m_page);
@@ -444,7 +444,7 @@ void WebView::slotUrlChanged(const QUrl &url)
     const QString &host = url.host();
     m_disableTouchMocking = false;
 
-    foreach(const QString & site, exceptions) {
+    foreach (const QString &site, exceptions) {
         if (host.contains(site)) {
             m_disableTouchMocking = true;
         }
@@ -810,7 +810,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
             // Apparently createStandardContextMenu() can return null pointer
             if (pageMenu) {
                 int i = 0;
-                foreach(QAction * act, pageMenu->actions()) {
+                foreach (QAction* act, pageMenu->actions()) {
                     if (act->isSeparator()) {
                         menu->addSeparator();
                         continue;
@@ -1025,7 +1025,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     // Search with ...
     Menu* swMenu = new Menu(tr("Search with..."), menu);
     SearchEnginesManager* searchManager = mApp->searchEnginesManager();
-    foreach(const SearchEngine & en, searchManager->allEngines()) {
+    foreach (const SearchEngine &en, searchManager->allEngines()) {
         Action* act = new Action(en.icon, en.name);
         act->setData(QVariant::fromValue(en));
 

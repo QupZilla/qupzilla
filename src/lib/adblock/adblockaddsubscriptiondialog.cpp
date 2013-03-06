@@ -42,7 +42,7 @@ AdBlockAddSubscriptionDialog::AdBlockAddSubscriptionDialog(QWidget* parent)
                          << Subscription("RU Adlist (Russian)", "https://ruadlist.googlecode.com/hg/advblock.txt")
                          << Subscription("Antisocial (English)", "http://adversity.googlecode.com/hg/Antisocial.txt");
 
-    foreach(const Subscription & subscription, m_knownSubscriptions) {
+    foreach (const Subscription &subscription, m_knownSubscriptions) {
         ui->comboBox->addItem(subscription.title);
     }
 

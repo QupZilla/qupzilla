@@ -38,7 +38,7 @@ static bool wildcardMatch(const QString &string, const QString &pattern)
         }
     }
 
-    foreach(const QString & part, parts) {
+    foreach (const QString &part, parts) {
         pos = string.indexOf(part, pos);
         if (pos == -1) {
             return false;

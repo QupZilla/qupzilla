@@ -108,7 +108,7 @@ void GM_Settings::loadScripts()
 
     ui->listWidget->clear();
 
-    foreach(GM_Script * script, m_manager->allScripts()) {
+    foreach (GM_Script* script, m_manager->allScripts()) {
         QListWidgetItem* item = new QListWidgetItem(ui->listWidget);
         QIcon icon = QIcon(":/gm/data/script.png");
         item->setIcon(icon);

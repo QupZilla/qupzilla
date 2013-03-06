@@ -151,7 +151,7 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, const
     // Look for longer parts first
     qSort(searchStrings.begin(), searchStrings.end(), sizeBiggerThan);
 
-    foreach(const QString & string, searchStrings) {
+    foreach (const QString &string, searchStrings) {
         int delimiter = text.indexOf(string, 0, Qt::CaseInsensitive);
 
         while (delimiter != -1) {

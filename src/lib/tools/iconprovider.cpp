@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -59,7 +59,7 @@ void IconProvider::saveIcon(WebView* view)
         return;
     }
 
-    foreach(const Icon & ic, m_iconBuffer) {
+    foreach (const Icon &ic, m_iconBuffer) {
         if (ic.url == item.url && ic.image == item.image) {
             return;
         }
@@ -70,7 +70,7 @@ void IconProvider::saveIcon(WebView* view)
 
 QImage IconProvider::iconForUrl(const QUrl &url)
 {
-    foreach(const Icon & ic, m_iconBuffer) {
+    foreach (const Icon &ic, m_iconBuffer) {
         if (ic.url == url) {
             return ic.image;
         }
@@ -89,7 +89,7 @@ QImage IconProvider::iconForUrl(const QUrl &url)
 
 QImage IconProvider::iconForDomain(const QUrl &url)
 {
-    foreach(const Icon & ic, m_iconBuffer) {
+    foreach (const Icon &ic, m_iconBuffer) {
         if (ic.url.host() == url.host()) {
             return ic.image;
         }
@@ -109,7 +109,7 @@ QImage IconProvider::iconForDomain(const QUrl &url)
 
 void IconProvider::saveIconsToDatabase()
 {
-    foreach(const Icon & ic, m_iconBuffer) {
+    foreach (const Icon &ic, m_iconBuffer) {
         QSqlQuery query;
         query.prepare("SELECT id FROM icons WHERE url = ?");
         query.bindValue(0, ic.url.toEncoded(QUrl::RemoveFragment));

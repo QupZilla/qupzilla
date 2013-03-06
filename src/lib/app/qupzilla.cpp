@@ -144,7 +144,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     m_hideNavigationTimer->setSingleShot(true);
     connect(m_hideNavigationTimer, SIGNAL(timeout()), this, SLOT(hideNavigationSlot()));
 
-    connect(mApp, SIGNAL(message(Qz::AppMessageType, bool)), this, SLOT(receiveMessage(Qz::AppMessageType, bool)));
+    connect(mApp, SIGNAL(message(Qz::AppMessageType,bool)), this, SLOT(receiveMessage(Qz::AppMessageType,bool)));
 
     QTimer::singleShot(0, this, SLOT(postLaunch()));
 }
@@ -628,7 +628,7 @@ void QupZilla::setupOtherActions()
 
     // Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
-    foreach(QAction * action, actions) {
+    foreach (QAction* action, actions) {
         if (action->menu()) {
             actions += action->menu()->actions();
         }
@@ -1042,7 +1042,7 @@ void QupZilla::aboutToShowClosedTabsMenu()
 {
     m_menuClosedTabs->clear();
     int i = 0;
-    foreach(const ClosedTabsManager::Tab & tab, m_tabWidget->closedTabsManager()->allClosedTabs()) {
+    foreach (const ClosedTabsManager::Tab &tab, m_tabWidget->closedTabsManager()->allClosedTabs()) {
         QString title = tab.title;
         if (title.length() > 40) {
             title.truncate(40);
@@ -1092,7 +1092,7 @@ void QupZilla::aboutToShowHistoryMostMenu()
 
     const QVector<HistoryEntry> &mostList = mApp->history()->mostVisited(10);
 
-    foreach(const HistoryEntry & entry, mostList) {
+    foreach (const HistoryEntry &entry, mostList) {
         QString title = entry.title;
         if (title.length() > 40) {
             title.truncate(40);
@@ -1155,7 +1155,7 @@ void QupZilla::aboutToShowEditMenu()
 void QupZilla::aboutToHideEditMenu()
 {
 #ifndef Q_OS_MAC
-    foreach(QAction * act, m_menuEdit->actions()) {
+    foreach (QAction* act, m_menuEdit->actions()) {
         act->setEnabled(false);
     }
 #endif
@@ -1189,7 +1189,7 @@ void QupZilla::aboutToShowEncodingMenu()
     qSort(available);
     const QString &activeCodec = mApp->webSettings()->defaultTextEncoding();
 
-    foreach(const QByteArray & name, available) {
+    foreach (const QByteArray &name, available) {
         QTextCodec* codec = QTextCodec::codecForName(name);
         if (codec && codec->aliases().contains(name)) {
             continue;
@@ -1404,7 +1404,7 @@ void QupZilla::loadFolderBookmarks(Menu* menu)
         return;
     }
 
-    foreach(const Bookmark & b, mApp->bookmarksModel()->folderBookmarks(folder)) {
+    foreach (const Bookmark &b, mApp->bookmarksModel()->folderBookmarks(folder)) {
         tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
     }
 }
@@ -2137,13 +2137,13 @@ void QupZilla::disconnectObjects()
     m_tabWidget->disconnectObjects();
     m_tabWidget->getTabBar()->disconnectObjects();
 
-    foreach(WebTab * tab, m_tabWidget->allTabs()) {
+    foreach (WebTab* tab, m_tabWidget->allTabs()) {
         tab->disconnectObjects();
         tab->view()->disconnectObjects();
         tab->view()->page()->disconnectObjects();
     }
 
-    foreach(const QPointer<QWidget> &pointer, m_deleteOnCloseWidgets) {
+    foreach (const QPointer<QWidget> &pointer, m_deleteOnCloseWidgets) {
         if (pointer) {
             pointer.data()->deleteLater();
         }

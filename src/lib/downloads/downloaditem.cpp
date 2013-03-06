@@ -116,7 +116,7 @@ void DownloadItem::startDownloading()
     m_reply->setParent(this);
     connect(m_reply, SIGNAL(finished()), this, SLOT(finished()));
     connect(m_reply, SIGNAL(readyRead()), this, SLOT(readyRead()));
-    connect(m_reply, SIGNAL(downloadProgress(qint64, qint64)), this, SLOT(downloadProgress(qint64, qint64)));
+    connect(m_reply, SIGNAL(downloadProgress(qint64,qint64)), this, SLOT(downloadProgress(qint64,qint64)));
     connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(error()));
     connect(m_reply, SIGNAL(metaDataChanged()), this, SLOT(metaDataChanged()));
 
@@ -141,9 +141,9 @@ void DownloadItem::startDownloadingFromFtp(const QUrl &url)
 
     m_ftpDownloader = new FtpDownloader(this);
     connect(m_ftpDownloader, SIGNAL(finished()), this, SLOT(finished()));
-    connect(m_ftpDownloader, SIGNAL(dataTransferProgress(qint64, qint64)), this, SLOT(downloadProgress(qint64, qint64)));
+    connect(m_ftpDownloader, SIGNAL(dataTransferProgress(qint64,qint64)), this, SLOT(downloadProgress(qint64,qint64)));
     connect(m_ftpDownloader, SIGNAL(errorOccured(QFtp::Error)), this, SLOT(error()));
-    connect(m_ftpDownloader, SIGNAL(ftpAuthenticationRequierd(const QUrl &, QAuthenticator*)), mApp->networkManager(), SLOT(ftpAuthentication(const QUrl &, QAuthenticator*)));
+    connect(m_ftpDownloader, SIGNAL(ftpAuthenticationRequierd(QUrl,QAuthenticator*)), mApp->networkManager(), SLOT(ftpAuthentication(QUrl,QAuthenticator*)));
 
     m_ftpDownloader->download(url, &m_outputFile);
     m_downloading = true;

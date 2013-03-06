@@ -75,7 +75,7 @@ QString GM_Manager::requireScripts(const QStringList &urlList) const
 
     QString script;
 
-    foreach(const QString & url, urlList) {
+    foreach (const QString &url, urlList) {
         if (settings.contains(url)) {
             const QString &fileName = settings.value(url).toString();
             script.append(QzTools::readAllFileContents(fileName).trimmed() + '\n');
@@ -107,13 +107,13 @@ QList<GM_Script*> GM_Manager::allScripts() const
 
 bool GM_Manager::containsScript(const QString &fullName) const
 {
-    foreach(GM_Script * script, m_startScripts) {
+    foreach (GM_Script* script, m_startScripts) {
         if (fullName == script->fullName()) {
             return true;
         }
     }
 
-    foreach(GM_Script * script, m_endScripts) {
+    foreach (GM_Script* script, m_endScripts) {
         if (fullName == script->fullName()) {
             return true;
         }
@@ -197,13 +197,13 @@ void GM_Manager::pageLoadStart()
         return;
     }
 
-    foreach(GM_Script * script, m_startScripts) {
+    foreach (GM_Script* script, m_startScripts) {
         if (script->match(urlString)) {
             frame->evaluateJavaScript(m_bootstrap + script->script());
         }
     }
 
-    foreach(GM_Script * script, m_endScripts) {
+    foreach (GM_Script* script, m_endScripts) {
         if (script->match(urlString)) {
             const QString &jscript = QString("window.addEventListener(\"DOMContentLoaded\","
                                              "function(e) { %1 }, false);").arg(m_bootstrap + script->script());
@@ -227,7 +227,7 @@ void GM_Manager::load()
     settings.beginGroup("GreaseMonkey");
     m_disabledScripts = settings.value("disabledScripts", QStringList()).toStringList();
 
-    foreach(const QString & fileName, gmDir.entryList(QStringList("*.js"), QDir::Files)) {
+    foreach (const QString &fileName, gmDir.entryList(QStringList("*.js"), QDir::Files)) {
         const QString &absolutePath = gmDir.absoluteFilePath(fileName);
         GM_Script* script = new GM_Script(this, absolutePath);
 

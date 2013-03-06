@@ -91,7 +91,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     connect(down, SIGNAL(clicked(QPoint)), &m_completer, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp->searchEnginesManager(), SIGNAL(defaultEngineChanged()), this, SLOT(updatePlaceHolderText()));
-    connect(mApp, SIGNAL(message(Qz::AppMessageType, bool)), SLOT(onMessage(Qz::AppMessageType, bool)));
+    connect(mApp, SIGNAL(message(Qz::AppMessageType,bool)), SLOT(onMessage(Qz::AppMessageType,bool)));
 
     loadSettings();
 
@@ -319,7 +319,7 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
     QMenu menu(this);
 
     int i = 0;
-    foreach(QAction * act, tempMenu->actions()) {
+    foreach (QAction* act, tempMenu->actions()) {
         menu.addAction(act);
 
         switch (i) {

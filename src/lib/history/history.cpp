@@ -142,7 +142,7 @@ void History::deleteHistoryEntry(const QList<int> &list)
     QSqlDatabase db = QSqlDatabase::database();
     db.transaction();
 
-    foreach(int index, list) {
+    foreach (int index, list) {
         QSqlQuery query;
         query.prepare("SELECT count, date, url, title FROM history WHERE id=?");
         query.addBindValue(index);

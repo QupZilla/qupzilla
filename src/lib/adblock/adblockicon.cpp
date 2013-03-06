@@ -152,7 +152,7 @@ void AdBlockIcon::createMenu(QMenu* menu)
     }
     else {
         menu->addAction(tr("Blocked URL (AdBlock Rule) - click to edit rule"))->setEnabled(false);
-        foreach(const WebPage::AdBlockedEntry & entry, entries) {
+        foreach (const WebPage::AdBlockedEntry &entry, entries) {
             QString address = entry.url.toString().right(55);
             QString actionText = tr("%1 with (%2)").arg(address, entry.rule->filter()).replace(QLatin1Char('&'), QLatin1String("&&"));
 

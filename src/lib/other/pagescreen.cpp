@@ -86,7 +86,7 @@ void PageScreen::saveScreen()
     }
     else {
         int part = 1;
-        foreach(const QImage & image, m_pageImages) {
+        foreach (const QImage &image, m_pageImages) {
             const QString &fileName = pathWithoutSuffix + ".part" + QString::number(part);
             image.save(fileName + ".png", "PNG");
             part++;
@@ -167,7 +167,7 @@ QImage PageScreen::scaleImage()
     QVector<QImage> scaledImages;
     int sumHeight = 0;
 
-    foreach(const QImage & image, m_pageImages) {
+    foreach (const QImage &image, m_pageImages) {
         QImage scaled = image.scaledToWidth(450, Qt::SmoothTransformation);
 
         scaledImages.append(scaled);
@@ -178,7 +178,7 @@ QImage PageScreen::scaleImage()
     QPainter painter(&finalImage);
 
     int offset = 0;
-    foreach(const QImage & image, scaledImages) {
+    foreach (const QImage &image, scaledImages) {
         painter.drawImage(0, offset, image);
         offset += image.height();
     }

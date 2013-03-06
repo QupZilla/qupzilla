@@ -64,8 +64,8 @@ BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
     loadBookmark();
 
     connect(ui->folder, SIGNAL(activated(int)), this, SLOT(comboItemActive(int)));
-    connect(m_bookmarksTree, SIGNAL(requestNewFolder(QWidget*, QString*, bool, QString, WebView*)),
-            mApp->browsingLibrary()->bookmarksManager(), SLOT(addFolder(QWidget*, QString*, bool, QString, WebView*)));
+    connect(m_bookmarksTree, SIGNAL(requestNewFolder(QWidget*,QString*,bool,QString,WebView*)),
+            mApp->browsingLibrary()->bookmarksManager(), SLOT(addFolder(QWidget*,QString*,bool,QString,WebView*)));
 }
 
 void BookmarksWidget::loadBookmark()

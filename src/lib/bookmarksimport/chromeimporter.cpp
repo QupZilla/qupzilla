@@ -67,7 +67,7 @@ QVector<Bookmark> ChromeImporter::exportBookmarks()
     }
 
     QScriptEngine* scriptEngine = new QScriptEngine();
-    foreach(QString parsedString, parsedBookmarks) {
+    foreach (QString parsedString, parsedBookmarks) {
         parsedString = "(" + parsedString + ")";
         if (scriptEngine->canEvaluate(parsedString)) {
             QScriptValue object = scriptEngine->evaluate(parsedString);

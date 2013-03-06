@@ -103,7 +103,7 @@ RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView*
     }
 #endif
 
-    foreach(const RssApp & app, m_rssApps) {
+    foreach (const RssApp &app, m_rssApps) {
         ui->comboBox->addItem(app.icon, app.title, QVariant(app.type));
     }
 

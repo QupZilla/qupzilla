@@ -29,7 +29,7 @@ HTML5PermissionsDialog::HTML5PermissionsDialog(QWidget* parent) :
 
     loadSettings();
 
-    foreach(const QString & site, m_notificationsGranted) {
+    foreach (const QString &site, m_notificationsGranted) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->notifTree);
         item->setText(0, site);
         item->setText(1, tr("Allow"));
@@ -38,7 +38,7 @@ HTML5PermissionsDialog::HTML5PermissionsDialog(QWidget* parent) :
         ui->notifTree->addTopLevelItem(item);
     }
 
-    foreach(const QString & site, m_notificationsDenied) {
+    foreach (const QString &site, m_notificationsDenied) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->notifTree);
         item->setText(0, site);
         item->setText(1, tr("Deny"));
@@ -47,7 +47,7 @@ HTML5PermissionsDialog::HTML5PermissionsDialog(QWidget* parent) :
         ui->notifTree->addTopLevelItem(item);
     }
 
-    foreach(const QString & site, m_geolocationGranted) {
+    foreach (const QString &site, m_geolocationGranted) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->geoTree);
         item->setText(0, site);
         item->setText(1, tr("Allow"));
@@ -56,7 +56,7 @@ HTML5PermissionsDialog::HTML5PermissionsDialog(QWidget* parent) :
         ui->geoTree->addTopLevelItem(item);
     }
 
-    foreach(const QString & site, m_geolocationDenied) {
+    foreach (const QString &site, m_geolocationDenied) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->geoTree);
         item->setText(0, site);
         item->setText(1, tr("Deny"));

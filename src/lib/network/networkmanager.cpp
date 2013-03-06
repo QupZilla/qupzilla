@@ -69,9 +69,9 @@ NetworkManager::NetworkManager(QObject* parent)
     , m_adblockManager(0)
     , m_ignoreAllWarnings(false)
 {
-    connect(this, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)), this, SLOT(authentication(QNetworkReply*, QAuthenticator*)));
-    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator*)), this, SLOT(proxyAuthentication(QNetworkProxy, QAuthenticator*)));
-    connect(this, SIGNAL(sslErrors(QNetworkReply*, QList<QSslError>)), this, SLOT(sslError(QNetworkReply*, QList<QSslError>)));
+    connect(this, SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)), this, SLOT(authentication(QNetworkReply*,QAuthenticator*)));
+    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)), this, SLOT(proxyAuthentication(QNetworkProxy,QAuthenticator*)));
+    connect(this, SIGNAL(sslErrors(QNetworkReply*,QList<QSslError>)), this, SLOT(sslError(QNetworkReply*,QList<QSslError>)));
     connect(this, SIGNAL(finished(QNetworkReply*)), this, SLOT(setSSLConfiguration(QNetworkReply*)));
 
     m_schemeHandlers["qupzilla"] = new QupZillaSchemeHandler();
@@ -175,7 +175,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     }
 
     QHash<QSslCertificate, QStringList> errorHash;
-    foreach(const QSslError & error, errors) {
+    foreach (const QSslError &error, errors) {
         // Weird behavior on Windows
         if (error.error() == QSslError::NoError) {
             continue;
@@ -220,7 +220,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
         certs += "</li></ul>";
 
         certs += "<ul>";
-        foreach(const QString & error, errors) {
+        foreach (const QString &error, errors) {
             certs += "<li>";
             certs += tr("<b>Error: </b>") + error;
             certs += "</li>";
@@ -241,7 +241,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
             return;
         }
 
-        foreach(const QSslCertificate & cert, errorHash.keys()) {
+        foreach (const QSslCertificate &cert, errorHash.keys()) {
             if (!m_localCerts.contains(cert)) {
                 addLocalCertificate(cert);
             }
@@ -480,11 +480,11 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
                 QVariant v = req.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
                 WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
                 if (webPage) {
-                    connect(reply, SIGNAL(downloadRequest(const QNetworkRequest &)),
-                            webPage, SLOT(downloadRequested(const QNetworkRequest &)));
+                    connect(reply, SIGNAL(downloadRequest(QNetworkRequest)),
+                            webPage, SLOT(downloadRequested(QNetworkRequest)));
                 }
-                connect(reply, SIGNAL(ftpAuthenticationRequierd(const QUrl &, QAuthenticator*)),
-                        this, SLOT(ftpAuthentication(const QUrl &, QAuthenticator*)));
+                connect(reply, SIGNAL(ftpAuthenticationRequierd(QUrl,QAuthenticator*)),
+                        this, SLOT(ftpAuthentication(QUrl,QAuthenticator*)));
             }
             return reply;
         }
@@ -625,7 +625,7 @@ void NetworkManager::loadCertificates()
 
     //CA Certificates
     m_caCerts = QSslSocket::defaultCaCertificates();
-    foreach(const QString & path, m_certPaths) {
+    foreach (const QString &path, m_certPaths) {
 #ifdef Q_OS_WIN
         // Used from Qt 4.7.4 qsslcertificate.cpp and modified because QSslCertificate::fromPath
         // is kind of a bugged on Windows, it does work only with full path to cert file

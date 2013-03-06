@@ -382,7 +382,7 @@ QString QzTools::resolveFromPath(const QString &name)
 
     QStringList dirs = path.split(QLatin1Char(':'), QString::SkipEmptyParts);
 
-    foreach(const QString & dir, dirs) {
+    foreach (const QString &dir, dirs) {
         QDir d(dir);
         if (d.exists(name)) {
             return d.absoluteFilePath(name);

@@ -138,7 +138,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     const QList<QWebDatabase> &databases = frame->securityOrigin().databases();
 
     int counter = 0;
-    foreach(const QWebDatabase & b, databases) {
+    foreach (const QWebDatabase &b, databases) {
         QListWidgetItem* item = new QListWidgetItem(ui->databaseList);
         item->setText(b.displayName());
         item->setData(Qt::UserRole + 10, counter);
@@ -168,9 +168,9 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     connect(ui->secDetailsButton, SIGNAL(clicked()), this, SLOT(securityDetailsClicked()));
     connect(ui->saveButton, SIGNAL(clicked(QAbstractButton*)), this, SLOT(downloadImage()));
 
-    connect(ui->databaseList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(databaseItemChanged(QListWidgetItem*)));
-    connect(ui->treeImages, SIGNAL(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)), this, SLOT(showImagePreview(QTreeWidgetItem*)));
-    connect(ui->treeImages, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(imagesCustomContextMenuRequested(const QPoint &)));
+    connect(ui->databaseList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(databaseItemChanged(QListWidgetItem*)));
+    connect(ui->treeImages, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(showImagePreview(QTreeWidgetItem*)));
+    connect(ui->treeImages, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(imagesCustomContextMenuRequested(QPoint)));
 
     ui->treeImages->setContextMenuPolicy(Qt::CustomContextMenu);
     ui->treeImages->sortByColumn(-1);

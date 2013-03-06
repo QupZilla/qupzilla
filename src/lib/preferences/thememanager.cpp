@@ -43,7 +43,7 @@ ThemeManager::ThemeManager(QWidget* parent, Preferences* preferences)
     QDir themeDir(mApp->THEMESDIR);
     QStringList list = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
 
-    foreach(const QString & name, list) {
+    foreach (const QString &name, list) {
         Theme themeInfo = parseTheme(name);
         if (!themeInfo.isValid) {
             continue;
@@ -61,7 +61,7 @@ ThemeManager::ThemeManager(QWidget* parent, Preferences* preferences)
         ui->listWidget->addItem(item);
     }
 
-    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(currentChanged()));
+    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentChanged()));
     connect(ui->license, SIGNAL(clicked(QPoint)), this, SLOT(showLicense()));
 
     currentChanged();

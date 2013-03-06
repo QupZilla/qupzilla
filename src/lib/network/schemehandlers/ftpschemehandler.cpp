@@ -75,8 +75,8 @@ FtpSchemeReply::FtpSchemeReply(const QNetworkRequest &request, QObject* parent)
     m_ftp = new QFtp(this);
     connect(m_ftp, SIGNAL(listInfo(QUrlInfo)), this, SLOT(processListInfo(QUrlInfo)));
     connect(m_ftp, SIGNAL(readyRead()), this, SLOT(processData()));
-    connect(m_ftp, SIGNAL(commandFinished(int, bool)), this, SLOT(processCommand(int, bool)));
-    connect(m_ftp, SIGNAL(dataTransferProgress(qint64, qint64)), this, SIGNAL(downloadProgress(qint64, qint64)));
+    connect(m_ftp, SIGNAL(commandFinished(int,bool)), this, SLOT(processCommand(int,bool)));
+    connect(m_ftp, SIGNAL(dataTransferProgress(qint64,qint64)), this, SIGNAL(downloadProgress(qint64,qint64)));
 
     m_buffer.open(QIODevice::ReadWrite);
 
@@ -120,7 +120,7 @@ void FtpSchemeReply::processCommand(int id, bool err)
 
     case QFtp::List:
         if (m_isGoingToDownload) {
-            foreach(const QUrlInfo & item, m_items) {
+            foreach (const QUrlInfo &item, m_items) {
                 // don't check if it's a file or not,
                 // seems it's a QFtp's bug: for link to a file isDir() returns true
                 if (item.name() == m_probablyFileForDownload) {
@@ -291,7 +291,7 @@ QString FtpSchemeReply::loadDirectory()
         }
     }
 
-    foreach(const QUrlInfo & item, m_items) {
+    foreach (const QUrlInfo &item, m_items) {
 
         if (item.name() == QLatin1String(".") || item.name() == QLatin1String("..")) {
             continue;
@@ -422,7 +422,7 @@ FtpDownloader::FtpDownloader(QObject* parent)
     , m_dev(0)
     , m_lastError(QFtp::NoError)
 {
-    connect(this, SIGNAL(commandFinished(int, bool)), this, SLOT(processCommand(int, bool)));
+    connect(this, SIGNAL(commandFinished(int,bool)), this, SLOT(processCommand(int,bool)));
     connect(this, SIGNAL(done(bool)), this, SLOT(onDone(bool)));
 }
 

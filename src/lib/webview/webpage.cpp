@@ -93,22 +93,22 @@ WebPage::WebPage(QupZilla* mainClass)
     connect(this, SIGNAL(downloadRequested(QNetworkRequest)), this, SLOT(downloadRequested(QNetworkRequest)));
     connect(this, SIGNAL(windowCloseRequested()), this, SLOT(windowCloseRequested()));
 
-    connect(this, SIGNAL(databaseQuotaExceeded(QWebFrame*, QString)),
+    connect(this, SIGNAL(databaseQuotaExceeded(QWebFrame*,QString)),
             this, SLOT(dbQuotaExceeded(QWebFrame*)));
 
     connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
 
 #if QTWEBKIT_FROM_2_2
-    connect(this, SIGNAL(featurePermissionRequested(QWebFrame*, QWebPage::Feature)),
-            this, SLOT(featurePermissionRequested(QWebFrame*, QWebPage::Feature)));
+    connect(this, SIGNAL(featurePermissionRequested(QWebFrame*,QWebPage::Feature)),
+            this, SLOT(featurePermissionRequested(QWebFrame*,QWebPage::Feature)));
 #endif
 
 #if QTWEBKIT_FROM_2_3
-    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*, quint64, quint64)),
-            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*, quint64)));
+    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*,quint64,quint64)),
+            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*,quint64)));
 #elif QTWEBKIT_FROM_2_2
-    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*, quint64)),
-            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*, quint64)));
+    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*,quint64)),
+            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*,quint64)));
 #endif
 
     s_livingPages.append(this);
@@ -162,7 +162,7 @@ bool WebPage::loadingError() const
 
 void WebPage::addRejectedCerts(const QList<QSslCertificate> &certs)
 {
-    foreach(const QSslCertificate & cert, certs) {
+    foreach (const QSslCertificate &cert, certs) {
         if (!m_rejectedSslCerts.contains(cert)) {
             m_rejectedSslCerts.append(cert);
         }
@@ -173,7 +173,7 @@ bool WebPage::containsRejectedCerts(const QList<QSslCertificate> &certs)
 {
     int matches = 0;
 
-    foreach(const QSslCertificate & cert, certs) {
+    foreach (const QSslCertificate &cert, certs) {
         if (m_rejectedSslCerts.contains(cert)) {
             ++matches;
         }
@@ -599,7 +599,7 @@ void WebPage::cleanBlockedObjects()
 
     const QWebElement &docElement = mainFrame()->documentElement();
 
-    foreach(const AdBlockedEntry & entry, m_adBlockedEntries) {
+    foreach (const AdBlockedEntry &entry, m_adBlockedEntries) {
         const QString &urlString = entry.url.toString();
         if (urlString.endsWith(QLatin1String(".js")) || urlString.endsWith(QLatin1String(".css"))) {
             continue;
@@ -619,7 +619,7 @@ void WebPage::cleanBlockedObjects()
         QString selector("img[src$=\"%1\"], iframe[src$=\"%1\"],embed[src$=\"%1\"]");
         QWebElementCollection elements = docElement.findAll(selector.arg(urlEnd));
 
-        foreach(QWebElement element, elements) {
+        foreach (QWebElement element, elements) {
             QString src = element.attribute("src");
             src.remove(QLatin1String("../"));
 
@@ -755,7 +755,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     QWebElementCollection elements;
                     elements.append(docElement.findAll("iframe"));
 
-                    foreach(QWebElement element, elements) {
+                    foreach (QWebElement element, elements) {
                         QString src = element.attribute("src");
                         if (exOption->url.toString().contains(src)) {
                             element.setStyleProperty("visibility", "hidden");

@@ -328,7 +328,7 @@ void Speller::populateLanguagesMenu()
     }
 
     const QVector<Language> langs = availableLanguages();
-    foreach(const Language & lang, langs) {
+    foreach (const Language &lang, langs) {
         QAction* act = menu->addAction(lang.name, this, SLOT(changeLanguage()));
         act->setCheckable(true);
         act->setChecked(m_language == lang);

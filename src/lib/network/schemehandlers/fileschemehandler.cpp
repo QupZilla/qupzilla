@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -185,7 +185,7 @@ QString FileSchemeReply::loadDirectory()
         page.replace(QLatin1String("%UP-DIR-LINK%"), QUrl::fromLocalFile(upDir.absolutePath()).toEncoded());
     }
 
-    foreach(const QFileInfo & info, list) {
+    foreach (const QFileInfo &info, list) {
         if (info.fileName() == QLatin1String(".") || info.fileName() == QLatin1String("..")) {
             continue;
         }

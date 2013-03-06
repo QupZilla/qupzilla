@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -36,10 +36,10 @@ void NetworkManagerProxy::setPrimaryNetworkAccessManager(NetworkManager* manager
     Q_ASSERT(manager);
     m_manager = manager;
 
-    connect(this, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)), m_manager, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)));
-    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator*)), m_manager, SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator*)));
+    connect(this, SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)), m_manager, SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)));
+    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)), m_manager, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)));
     connect(this, SIGNAL(finished(QNetworkReply*)), m_manager, SIGNAL(finished(QNetworkReply*)));
-    connect(this, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError> &)), m_manager, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError> &)));
+    connect(this, SIGNAL(sslErrors(QNetworkReply*,QList<QSslError>)), m_manager, SIGNAL(sslErrors(QNetworkReply*,QList<QSslError>)));
 }
 
 QNetworkReply* NetworkManagerProxy::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)

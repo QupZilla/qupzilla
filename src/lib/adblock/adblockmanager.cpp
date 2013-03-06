@@ -93,7 +93,7 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
         return 0;
     }
 
-    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+    foreach (AdBlockSubscription* subscription, m_subscriptions) {
         const AdBlockRule* blockedRule = subscription->match(request, urlDomain, urlString);
 
         if (blockedRule) {
@@ -185,7 +185,7 @@ bool AdBlockManager::removeSubscription(AdBlockSubscription* subscription)
 
 AdBlockCustomList* AdBlockManager::customList() const
 {
-    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+    foreach (AdBlockSubscription* subscription, m_subscriptions) {
         AdBlockCustomList* list = qobject_cast<AdBlockCustomList*>(subscription);
 
         if (list) {
@@ -224,7 +224,7 @@ void AdBlockManager::load()
         QDir(mApp->currentProfilePath()).mkdir("adblock");
     }
 
-    foreach(const QString & fileName, adblockDir.entryList(QStringList("*.txt"), QDir::Files)) {
+    foreach (const QString &fileName, adblockDir.entryList(QStringList("*.txt"), QDir::Files)) {
         if (fileName == QLatin1String("easylist.txt") || fileName == QLatin1String("customlist.txt")) {
             continue;
         }
@@ -264,7 +264,7 @@ void AdBlockManager::load()
     connect(customList, SIGNAL(subscriptionEdited()), mApp, SLOT(reloadUserStyleSheet()));
 
     // Load all subscriptions
-    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+    foreach (AdBlockSubscription* subscription, m_subscriptions) {
         subscription->loadSubscription(m_disabledRules);
     }
 
@@ -281,7 +281,7 @@ void AdBlockManager::load()
 
 void AdBlockManager::updateAllSubscriptions()
 {
-    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+    foreach (AdBlockSubscription* subscription, m_subscriptions) {
         subscription->updateSubscription();
     }
 
@@ -297,7 +297,7 @@ void AdBlockManager::save()
         return;
     }
 
-    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+    foreach (AdBlockSubscription* subscription, m_subscriptions) {
         subscription->saveSubscription();
     }
 
@@ -322,7 +322,7 @@ bool AdBlockManager::canRunOnScheme(const QString &scheme) const
 
 bool AdBlockManager::canBeBlocked(const QUrl &url) const
 {
-    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+    foreach (AdBlockSubscription* subscription, m_subscriptions) {
         if (subscription->adBlockDisabledForUrl(url)) {
             return false;
         }
@@ -339,7 +339,7 @@ QString AdBlockManager::elementHidingRules() const
 
     QString rules;
 
-    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+    foreach (AdBlockSubscription* subscription, m_subscriptions) {
         rules.append(subscription->elementHidingRules());
     }
 
@@ -355,7 +355,7 @@ QString AdBlockManager::elementHidingRulesForDomain(const QUrl &url) const
 {
     QString rules;
 
-    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+    foreach (AdBlockSubscription* subscription, m_subscriptions) {
         if (subscription->elemHideDisabledForUrl(url)) {
             return QString();
         }
@@ -373,7 +373,7 @@ QString AdBlockManager::elementHidingRulesForDomain(const QUrl &url) const
 
 AdBlockSubscription* AdBlockManager::subscriptionByName(const QString &name) const
 {
-    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+    foreach (AdBlockSubscription* subscription, m_subscriptions) {
         if (subscription->title() == name) {
             return subscription;
         }

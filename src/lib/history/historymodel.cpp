@@ -43,9 +43,9 @@ HistoryModel::HistoryModel(History* history)
     init();
 
     connect(m_history, SIGNAL(resetHistory()), this, SLOT(resetHistory()));
-    connect(m_history, SIGNAL(historyEntryAdded(const HistoryEntry &)), this, SLOT(historyEntryAdded(const HistoryEntry &)));
-    connect(m_history, SIGNAL(historyEntryDeleted(const HistoryEntry &)), this, SLOT(historyEntryDeleted(const HistoryEntry &)));
-    connect(m_history, SIGNAL(historyEntryEdited(const HistoryEntry &, const HistoryEntry &)), this, SLOT(historyEntryEdited(const HistoryEntry &, const HistoryEntry &)));
+    connect(m_history, SIGNAL(historyEntryAdded(HistoryEntry)), this, SLOT(historyEntryAdded(HistoryEntry)));
+    connect(m_history, SIGNAL(historyEntryDeleted(HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryEntry)));
+    connect(m_history, SIGNAL(historyEntryEdited(HistoryEntry,HistoryEntry)), this, SLOT(historyEntryEdited(HistoryEntry,HistoryEntry)));
 }
 
 QVariant HistoryModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -237,7 +237,7 @@ HistoryItem* HistoryModel::itemFromIndex(const QModelIndex &index) const
 
 void HistoryModel::removeTopLevelIndexes(const QList<QPersistentModelIndex> &indexes)
 {
-    foreach(const QPersistentModelIndex & index, indexes) {
+    foreach (const QPersistentModelIndex &index, indexes) {
         if (index.parent().isValid()) {
             continue;
         }
@@ -322,7 +322,7 @@ void HistoryModel::fetchMore(const QModelIndex &parent)
 
     beginInsertRows(parent, 0, list.size() - 1);
 
-    foreach(const HistoryEntry & entry, list) {
+    foreach (const HistoryEntry &entry, list) {
         HistoryItem* newItem = new HistoryItem(parentItem);
         newItem->historyEntry = entry;
     }

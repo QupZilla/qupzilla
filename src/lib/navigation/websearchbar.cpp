@@ -93,8 +93,8 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass)
 
     m_openSearchEngine = new OpenSearchEngine(this);
     m_openSearchEngine->setNetworkAccessManager(mApp->networkManager());
-    connect(m_openSearchEngine, SIGNAL(suggestions(const QStringList &)), this, SLOT(addSuggestions(const QStringList &)));
-    connect(this, SIGNAL(textEdited(const QString &)), m_openSearchEngine, SLOT(requestSuggestions(QString)));
+    connect(m_openSearchEngine, SIGNAL(suggestions(QStringList)), this, SLOT(addSuggestions(QStringList)));
+    connect(this, SIGNAL(textEdited(QString)), m_openSearchEngine, SLOT(requestSuggestions(QString)));
 
     QTimer::singleShot(0, this, SLOT(setupEngines()));
 }
@@ -153,7 +153,7 @@ void WebSearchBar::setupEngines()
 
     m_boxSearchType->clearItems();
 
-    foreach(const SearchEngine & en, m_searchManager->allEngines()) {
+    foreach (const SearchEngine &en, m_searchManager->allEngines()) {
         ButtonWithMenu::Item item;
         item.icon = en.icon;
         item.text = en.name;
@@ -221,7 +221,7 @@ void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
     QWebFrame* frame = view->page()->mainFrame();
 
     QWebElementCollection elements = frame->documentElement().findAll(QLatin1String("link[rel=search]"));
-    foreach(const QWebElement & element, elements) {
+    foreach (const QWebElement &element, elements) {
         if (element.attribute("type") != QLatin1String("application/opensearchdescription+xml")) {
             continue;
         }
@@ -272,7 +272,7 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
     QMenu menu(this);
 
     int i = 0;
-    foreach(QAction * act, tempMenu->actions()) {
+    foreach (QAction* act, tempMenu->actions()) {
         menu.addAction(act);
 
         switch (i) {

@@ -68,7 +68,7 @@ void BookmarksImportIconFetcher::slotStartFetching()
 {
     QNetworkAccessManager* manager = new QNetworkAccessManager(this);
 
-    foreach(const Pair & pair, m_pairs) {
+    foreach (const Pair &pair, m_pairs) {
         QVariant itemPointer = QVariant::fromValue((void*) pair.item);
 
         IconFetcher* fetcher = new IconFetcher(this);

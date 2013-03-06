@@ -96,7 +96,7 @@ PopupWindow::PopupWindow(PopupWebView* view)
 
     // Make shortcuts available even with hidden menubar
     QList<QAction*> actions = m_menuBar->actions();
-    foreach(QAction * action, actions) {
+    foreach (QAction* action, actions) {
         if (action->menu()) {
             actions += action->menu()->actions();
         }
@@ -120,7 +120,7 @@ PopupWindow::PopupWindow(PopupWebView* view)
     connect(m_view, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
     connect(m_view, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
 
-    connect(m_page, SIGNAL(linkHovered(QString, QString, QString)), this, SLOT(showStatusBarMessage(QString)));
+    connect(m_page, SIGNAL(linkHovered(QString,QString,QString)), this, SLOT(showStatusBarMessage(QString)));
     connect(m_page, SIGNAL(geometryChangeRequested(QRect)), this, SLOT(setWindowGeometry(QRect)));
     connect(m_page, SIGNAL(statusBarVisibilityChangeRequested(bool)), this, SLOT(setStatusBarVisibility(bool)));
     connect(m_page, SIGNAL(menuBarVisibilityChangeRequested(bool)), this, SLOT(setMenuBarVisibility(bool)));

@@ -93,7 +93,7 @@ void AddTabButton::dropEvent(QDropEvent* event)
         return;
     }
 
-    foreach(const QUrl & url, mime->urls()) {
+    foreach (const QUrl &url, mime->urls()) {
         m_tabWidget->addView(url, Qz::NT_SelectedNewEmptyTab);
     }
 }
@@ -120,7 +120,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     connect(m_tabBar, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
     connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
-    connect(m_tabBar, SIGNAL(tabMoved(int, int)), this, SLOT(tabMoved(int, int)));
+    connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
 
     connect(m_tabBar, SIGNAL(moveAddTabButton(int)), this, SLOT(moveAddTabButton(int)));
     connect(m_tabBar, SIGNAL(showButtons()), this, SLOT(showButtons()));
@@ -632,7 +632,7 @@ void TabWidget::closeAllButCurrent(int index)
 
     WebTab* akt = weTab(index);
 
-    foreach(WebTab * tab, allTabs(false)) {
+    foreach (WebTab* tab, allTabs(false)) {
         int tabIndex = tab->tabIndex();
         if (akt == widget(tabIndex)) {
             continue;
@@ -695,7 +695,7 @@ void TabWidget::restoreAllClosedTabs()
 
     const QVector<ClosedTabsManager::Tab> &closedTabs = m_closedTabsManager->allClosedTabs();
 
-    foreach(const ClosedTabsManager::Tab & tab, closedTabs) {
+    foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
         int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab);
         WebTab* webTab = weTab(index);
         webTab->p_restoreTab(tab.url, tab.history);
@@ -737,7 +737,7 @@ void TabWidget::aboutToShowClosedTabsMenu()
     else {
         m_menuTabs->clear();
         int i = 0;
-        foreach(const ClosedTabsManager::Tab & tab, closedTabsManager()->allClosedTabs()) {
+        foreach (const ClosedTabsManager::Tab &tab, closedTabsManager()->allClosedTabs()) {
             QString title = tab.title;
             if (title.length() > 40) {
                 title.truncate(40);
@@ -880,7 +880,7 @@ QByteArray TabWidget::saveState()
 
     stream << tabList.count();
 
-    foreach(const WebTab::SavedTab & tab, tabList) {
+    foreach (const WebTab::SavedTab &tab, tabList) {
         stream << tab;
     }
 
@@ -919,7 +919,7 @@ bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentT
 
 void TabWidget::closeRecoveryTab()
 {
-    foreach(WebTab * tab, allTabs(false)) {
+    foreach (WebTab* tab, allTabs(false)) {
         if (tab->url().toString() == QLatin1String("qupzilla:restore")) {
             closeTab(tab->tabIndex(), true);
         }

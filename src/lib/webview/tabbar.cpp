@@ -62,7 +62,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     setAcceptDrops(true);
 
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
-    connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
+    connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
     connect(m_tabWidget, SIGNAL(pinnedTabClosed()), this, SLOT(pinnedTabClosed()));
     connect(m_tabWidget, SIGNAL(pinnedTabAdded()), this, SLOT(pinnedTabAdded()));
 
@@ -642,7 +642,7 @@ void TabBar::dropEvent(QDropEvent* event)
 
     int index = tabAt(event->pos());
     if (index == -1) {
-        foreach(const QUrl & url, mime->urls()) {
+        foreach (const QUrl &url, mime->urls()) {
             m_tabWidget->addView(url, Qz::NT_SelectedTabAtTheEnd);
         }
     }

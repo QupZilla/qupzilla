@@ -284,7 +284,7 @@ bool WindowNotifier::nativeEvent(const QByteArray &eventType, void* _message, lo
 #endif
     if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
         bool compositionEnabled = QtWin::isCompositionEnabled();
-        foreach(QWidget * widget, widgets) {
+        foreach (QWidget* widget, widgets) {
             if (widget) {
                 widget->setAttribute(Qt::WA_NoSystemBackground, compositionEnabled);
                 bool isBlur = widgetsBlurState.value(widget, false);
@@ -364,7 +364,7 @@ void QtWin::populateFrequentSites(IObjectCollection* collection, const QString &
     History* history = mApp->history();
     QVector<HistoryEntry> mostList = history->mostVisited(6);
 
-    foreach(const HistoryEntry & entry, mostList) {
+    foreach (const HistoryEntry &entry, mostList) {
         collection->AddObject(CreateShellLink(entry.title, entry.url.toString(), appPath, QString(" " + entry.url.toEncoded()), appPath, 1));
     }
 

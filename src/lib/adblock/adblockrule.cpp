@@ -266,14 +266,14 @@ bool AdBlockRule::matchDomain(const QString &domain) const
     }
 
     if (m_blockedDomains.isEmpty()) {
-        foreach(const QString & d, m_allowedDomains) {
+        foreach (const QString &d, m_allowedDomains) {
             if (isMatchingDomain(domain, d)) {
                 return true;
             }
         }
     }
     else if (m_allowedDomains.isEmpty()) {
-        foreach(const QString & d, m_blockedDomains) {
+        foreach (const QString &d, m_blockedDomains) {
             if (isMatchingDomain(domain, d)) {
                 return false;
             }
@@ -281,13 +281,13 @@ bool AdBlockRule::matchDomain(const QString &domain) const
         return true;
     }
     else {
-        foreach(const QString & d, m_blockedDomains) {
+        foreach (const QString &d, m_blockedDomains) {
             if (isMatchingDomain(domain, d)) {
                 return false;
             }
         }
 
-        foreach(const QString & d, m_allowedDomains) {
+        foreach (const QString &d, m_allowedDomains) {
             if (isMatchingDomain(domain, d)) {
                 return true;
             }
@@ -395,7 +395,7 @@ void AdBlockRule::parseFilter()
         QStringList options = parsedLine.mid(optionsIndex + 1).split(QLatin1Char(','), QString::SkipEmptyParts);
 
         int handledOptions = 0;
-        foreach(const QString & option, options) {
+        foreach (const QString &option, options) {
             if (option.startsWith(QLatin1String("domain="))) {
                 parseDomains(option.mid(7), QLatin1Char('|'));
                 ++handledOptions;
@@ -526,7 +526,7 @@ void AdBlockRule::parseDomains(const QString &domains, const QChar &separator)
 {
     QStringList domainsList = domains.split(separator, QString::SkipEmptyParts);
 
-    foreach(const QString domain, domainsList) {
+    foreach (const QString domain, domainsList) {
         if (domain.isEmpty()) {
             continue;
         }
@@ -550,7 +550,7 @@ bool AdBlockRule::isMatchingDomain(const QString &domain, const QString &filter)
 
 bool AdBlockRule::isMatchingRegExpStrings(const QString &url) const
 {
-    foreach(const QString & string, m_regExpStrings) {
+    foreach (const QString &string, m_regExpStrings) {
         if (!url.contains(string)) {
             return false;
         }

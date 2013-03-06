@@ -66,7 +66,7 @@ HtmlHighlighter::HtmlHighlighter(QTextDocument* parent)
     tagFormat.setFontWeight(QFont::Bold);
     QStringList keywordPatterns;
     keywordPatterns << "</?([A-Za-z:0-9]{1,20})/?(>| )?" << ">" << "(<!DOCTYPE html>|<!DOCTYPE html PUBLIC)";
-    foreach(const QString & pattern, keywordPatterns) {
+    foreach (const QString &pattern, keywordPatterns) {
         rule.pattern = QzRegExp(pattern);
         rule.format = tagFormat;
         highlightingRules.append(rule);
@@ -95,7 +95,7 @@ HtmlHighlighter::HtmlHighlighter(QTextDocument* parent)
 
 void HtmlHighlighter::highlightBlock(const QString &text)
 {
-    foreach(const HighlightingRule & rule, highlightingRules) {
+    foreach (const HighlightingRule &rule, highlightingRules) {
         QzRegExp expression(rule.pattern);
         int index = expression.indexIn(text);
         while (index >= 0) {

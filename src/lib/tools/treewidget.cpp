@@ -34,7 +34,7 @@ TreeWidget::TreeWidget(QWidget* parent)
 {
     setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
 
-    connect(this, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(sheduleRefresh()));
+    connect(this, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(sheduleRefresh()));
 }
 
 void TreeWidget::clear()
@@ -123,7 +123,7 @@ QMimeData* TreeWidget::mimeData(const QList<QTreeWidgetItem*> items) const
     QByteArray encodedData;
 
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
-    foreach(const QTreeWidgetItem * item, items) {
+    foreach (const QTreeWidgetItem* item, items) {
         if (item) {
             QTreeWidgetItem* clonedItem = item->clone();
             bool parentIsRoot = false;
@@ -332,8 +332,9 @@ void TreeWidget::filterString(const QString &string)
     QList<QTreeWidgetItem*> _allItems = allItems();
 
     if (string.isEmpty()) {
-        foreach(QTreeWidgetItem * item, _allItems)
-        item->setHidden(false);
+        foreach (QTreeWidgetItem* item, _allItems) {
+            item->setHidden(false);
+        }
         for (int i = 0; i < topLevelItemCount(); i++) {
             topLevelItem(i)->setHidden(false);
         }
@@ -342,7 +343,7 @@ void TreeWidget::filterString(const QString &string)
         }
     }
     else {
-        foreach(QTreeWidgetItem * item, _allItems) {
+        foreach (QTreeWidgetItem* item, _allItems) {
             item->setHidden(!item->text(0).contains(string, Qt::CaseInsensitive));
             item->setExpanded(true);
         }
@@ -460,13 +461,13 @@ void TreeWidget::setDragDropReceiver(bool enable, QObject* receiver)
 #if QT_VERSION < 0x050000
         model()->setSupportedDragActions(Qt::CopyAction);
 #endif
-        connect(this, SIGNAL(folderParentChanged(QString, bool, bool*)), receiver, SLOT(changeFolderParent(QString, bool, bool*)));
-        connect(this, SIGNAL(bookmarkParentChanged(int, QString, QString, bool*)), receiver, SLOT(changeBookmarkParent(int, QString, QString, bool*)));
-        connect(this, SIGNAL(linkWasDroped(QUrl, QString, QVariant, QString, bool*)), receiver, SLOT(bookmarkDropedLink(QUrl, QString, QVariant, QString, bool*)));
+        connect(this, SIGNAL(folderParentChanged(QString,bool,bool*)), receiver, SLOT(changeFolderParent(QString,bool,bool*)));
+        connect(this, SIGNAL(bookmarkParentChanged(int,QString,QString,bool*)), receiver, SLOT(changeBookmarkParent(int,QString,QString,bool*)));
+        connect(this, SIGNAL(linkWasDroped(QUrl,QString,QVariant,QString,bool*)), receiver, SLOT(bookmarkDropedLink(QUrl,QString,QVariant,QString,bool*)));
     }
     else {
-        disconnect(this, SIGNAL(folderParentChanged(QString, bool, bool*)), receiver, SLOT(changeFolderParent(QString, bool, bool*)));
-        disconnect(this, SIGNAL(bookmarkParentChanged(int, QString, QString, bool*)), receiver, SLOT(changeBookmarkParent(int, QString, QString, bool*)));
-        disconnect(this, SIGNAL(linkWasDroped(QUrl, QString, QVariant, QString, bool*)), receiver, SLOT(bookmarkDropedLink(QUrl, QString, QVariant, QString, bool*)));
+        disconnect(this, SIGNAL(folderParentChanged(QString,bool,bool*)), receiver, SLOT(changeFolderParent(QString,bool,bool*)));
+        disconnect(this, SIGNAL(bookmarkParentChanged(int,QString,QString,bool*)), receiver, SLOT(changeBookmarkParent(int,QString,QString,bool*)));
+        disconnect(this, SIGNAL(linkWasDroped(QUrl,QString,QVariant,QString,bool*)), receiver, SLOT(bookmarkDropedLink(QUrl,QString,QVariant,QString,bool*)));
     }
 }
