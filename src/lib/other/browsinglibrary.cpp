@@ -57,7 +57,7 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     ui->tabs->setFocus();
 
     connect(ui->tabs, SIGNAL(CurrentChanged(int)), this, SLOT(currentIndexChanged(int)));
-    connect(ui->searchLine, SIGNAL(cursorPositionChanged(int,int)), this, SLOT(search()));
+    connect(ui->searchLine, SIGNAL(textChanged(QString)), this, SLOT(search()));
 }
 
 void BrowsingLibrary::currentIndexChanged(int index)
