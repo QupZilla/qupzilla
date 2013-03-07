@@ -8,11 +8,6 @@
     qproperty-multiIcon: url(images/navigation-forward.png);
 }
 
-#tabwidget-button-opentabs
-{
-    qproperty-multiIcon: url(images/tabs-list-button_rtl.png);
-}
-
 #tabwidget-button-addtab
 {
     qproperty-multiIcon: url(images/tabbar-addtab_rtl.png);

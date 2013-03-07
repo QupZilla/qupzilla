@@ -110,7 +110,13 @@
 
 #tabwidget-button-opentabs
 {
-    qproperty-multiIcon: url(images/tabs-list-button.png);
+    qproperty-icon: url(images/tabs-list-button.png);
+    qproperty-fixedsize: 18px 28px;
+}
+
+#tabwidget-button-opentabs::menu-indicator
+{
+    background: url(images/transp.png);
 }
 
 #tabwidget-button-addtab
