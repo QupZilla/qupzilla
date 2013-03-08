@@ -57,6 +57,7 @@
 #include "webinspectordockwidget.h"
 #include "bookmarksimportdialog.h"
 #include "qztools.h"
+#include "actioncopy.h"
 #include "reloadstopbutton.h"
 #include "enhancedmenu.h"
 #include "navigationcontainer.h"
@@ -341,7 +342,7 @@ void QupZilla::setupMenu()
 #endif
 
     // Standard actions - needed on Mac to be placed correctly in "application" menu
-    m_actionAbout = new QAction(QIcon(":/icons/qupzilla.png"), tr("&About QupZilla"), 0);
+    m_actionAbout = new QAction(QIcon::fromTheme("help-about"), tr("&About QupZilla"), 0);
     m_actionAbout->setMenuRole(QAction::AboutRole);
     connect(m_actionAbout, SIGNAL(triggered()), MENU_RECEIVER, SLOT(aboutQupZilla()));
 
@@ -366,8 +367,8 @@ void QupZilla::setupMenu()
      * File Menu *
      *************/
     m_menuFile = new QMenu(tr("&File"));
-    m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("&New Window"), MENU_RECEIVER, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
     m_menuFile->addAction(QIcon(":/icons/menu/new-tab.png"), tr("New Tab"), MENU_RECEIVER, SLOT(addTab()))->setShortcut(QKeySequence("Ctrl+T"));
+    m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("&New Window"), MENU_RECEIVER, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
     m_menuFile->addAction(QIcon::fromTheme("document-open-remote"), tr("Open Location"), MENU_RECEIVER, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
     m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File"), MENU_RECEIVER, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
     m_menuFile->addAction(tr("Close Tab"), MENU_RECEIVER, SLOT(closeTab()))->setShortcut(QKeySequence("Ctrl+W"));
@@ -564,7 +565,7 @@ void QupZilla::setupMenu()
     m_menuHelp->addAction(m_actionAbout);
     m_menuHelp->addSeparator();
 #endif
-    QAction* infoAction = new QAction(tr("Information about application"), m_menuHelp);
+    QAction* infoAction = new QAction(QIcon::fromTheme("help-contents"), tr("Information about application"), m_menuHelp);
     infoAction->setData(QUrl("qupzilla:about"));
     infoAction->setShortcut(QKeySequence(QKeySequence::HelpContents));
     connect(infoAction, SIGNAL(triggered()), MENU_RECEIVER, SLOT(loadActionUrlInNewTab()));
@@ -589,13 +590,35 @@ void QupZilla::setupMenu()
     setupOtherActions();
 
 #ifndef Q_OS_MAC
-    m_superMenu->addMenu(m_menuFile);
-    m_superMenu->addMenu(m_menuEdit);
+    m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(0), this));
+    m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(1), this));
+    m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(3), this));
+
+    m_superMenu->addSeparator();
+    m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(7), this));
+    m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(10), this));
+
+    m_superMenu->addSeparator();
+    m_superMenu->addAction(new ActionCopy(m_menuEdit->actions().at(7), this));
+    m_superMenu->addAction(new ActionCopy(m_menuEdit->actions().at(8), this));
+
+    m_superMenu->addSeparator();
+    m_superMenu->addAction(new ActionCopy(m_actionPreferences, this));
+
+    m_superMenu->addSeparator();
     m_superMenu->addMenu(m_menuView);
     m_superMenu->addMenu(m_menuHistory);
     m_superMenu->addMenu(m_menuBookmarks);
     m_superMenu->addMenu(m_menuTools);
-    m_superMenu->addMenu(m_menuHelp);
+
+    m_superMenu->addSeparator();
+    m_superMenu->addAction(new ActionCopy(m_actionAbout, this));
+    m_superMenu->addAction(new ActionCopy(m_menuHelp->actions().at(3), this));
+    m_superMenu->addAction(new ActionCopy(m_menuHelp->actions().at(4), this));
+    m_superMenu->addAction(new ActionCopy(m_menuHelp->actions().at(5), this));
+
+    m_superMenu->addSeparator();
+    m_superMenu->addAction(new ActionCopy(m_actionQuit, this));
 #endif
 }
 
@@ -726,7 +749,7 @@ void QupZilla::loadSettings()
     menuBar()->setVisible(showMenuBar);
 
 #ifndef Q_OS_MAC
-    m_navigationBar->buttonSuperMenu()->setVisible(!showMenuBar);
+    m_navigationBar->setSuperMenuVisible(!showMenuBar);
 #endif
     m_navigationBar->buttonReloadStop()->setVisible(showReloadButton);
     m_navigationBar->buttonHome()->setVisible(showHomeButton);
@@ -1535,7 +1558,7 @@ void QupZilla::showMenubar()
     }
 
     menuBar()->setVisible(!menuBar()->isVisible());
-    m_navigationBar->buttonSuperMenu()->setVisible(!menuBar()->isVisible());
+    m_navigationBar->setSuperMenuVisible(!menuBar()->isVisible());
 
     Settings settings;
     settings.setValue("Browser-View-Settings/showMenubar", menuBar()->isVisible());
@@ -1766,7 +1789,7 @@ bool QupZilla::event(QEvent* event)
             m_navigationContainer->hide();
             m_tabWidget->getTabBar()->hide();
 #ifndef Q_OS_MAC
-            m_navigationBar->buttonSuperMenu()->hide();
+            m_navigationBar->setSuperMenuVisible(false);
 #endif
             m_hideNavigationTimer->stop();
             m_actionShowFullScreen->setChecked(true);
@@ -1789,7 +1812,7 @@ bool QupZilla::event(QEvent* event)
             m_tabWidget->showTabBar();
             m_tabWidget->getTabBar()->updateVisibilityWithFullscreen(true);
 #ifndef Q_OS_MAC
-            m_navigationBar->buttonSuperMenu()->setVisible(!m_menuBarVisible);
+            m_navigationBar->setSuperMenuVisible(!m_menuBarVisible);
 #endif
             m_hideNavigationTimer->stop();
             m_actionShowFullScreen->setChecked(false);

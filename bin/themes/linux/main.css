@@ -27,7 +27,7 @@
 
 #navigation-button-back::menu-indicator
 {
-    background: url(images/transp.png);
+    image: none;
 }
 
 #navigation-button-next
@@ -39,7 +39,7 @@
 
 #navigation-button-next::menu-indicator
 {
-    background: url(images/transp.png);
+    image: none;
 }
 
 #navigation-button-stop
@@ -77,6 +77,11 @@
     qproperty-iconSize: 24px 24px;
 }
 
+#navigation-button-supermenu::menu-indicator 
+{
+    image: none;
+}
+
 /*TabWidget*/
 #tabbar::tab
 {
@@ -103,7 +108,7 @@
 
 #tabwidget-button-opentabs::menu-indicator
 {
-    background: url(images/transp.png);
+    image: none;
 }
 
 /*IconProvider*/
@@ -182,7 +187,7 @@ IconProvider
 
 #bookmarksbar QToolButton::menu-indicator
 {
-    background: url(images/transp.png);
+    image: none;
 }
 
 /*SideBar*/
@@ -219,7 +224,7 @@ IconProvider
 
 #websearchbar-searchprovider-comobobox::menu-indicator
 {
-    background: url(images/transp.png);
+    image: none;
 }
 
 /*SourceViewer*/

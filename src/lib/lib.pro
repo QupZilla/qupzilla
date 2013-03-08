@@ -212,6 +212,7 @@ SOURCES += \
     navigation/navigationcontainer.cpp \
     tools/horizontallistwidget.cpp \
     tools/mactoolbutton.cpp \
+    tools/actioncopy.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -382,7 +383,8 @@ HEADERS  += \
     navigation/navigationcontainer.h \
     tools/horizontallistwidget.h \
     tools/mactoolbutton.h \
-    tools/qzregexp.h
+    tools/qzregexp.h \
+    tools/actioncopy.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

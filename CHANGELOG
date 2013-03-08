@@ -7,6 +7,7 @@ Version 1.4.0
     * added support for saving passwords of multiple users per site
     * added support for showing tabs on top
     * added bash autocompletion file
+    * added more actions to super menu, also show menu inside window
     * possibility to select text on page with Shift+Arrow keys
     * asking user whether to allow site to use notifications/geolocation
     * option to set JavaScript privacy permissions

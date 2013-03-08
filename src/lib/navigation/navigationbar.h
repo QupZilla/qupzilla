@@ -47,11 +47,12 @@ public:
     ToolButton* buttonNext() { return m_buttonNext; }
     ToolButton* buttonHome() { return m_buttonHome; }
     ToolButton* buttonAddTab() { return m_buttonAddTab; }
-    ToolButton* buttonSuperMenu() { return m_supMenu; }
     ToolButton* buttonExitFullscreen() { return m_exitFullscreen; }
     ReloadStopButton* buttonReloadStop() { return m_reloadStop; }
     WebSearchBar* searchLine() { return m_searchLine; }
     QSplitter* splitter() { return m_navigationSplitter; }
+
+    void setSuperMenuVisible(bool visible);
 
 signals:
 

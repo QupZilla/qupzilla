@@ -120,6 +120,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     m_supMenu->setAutoRaise(true);
     m_supMenu->setFocusPolicy(Qt::NoFocus);
     m_supMenu->setMenu(p_QupZilla->superMenu());
+    m_supMenu->setShowMenuInside(true);
 #endif
 
     m_searchLine = new WebSearchBar(p_QupZilla);
@@ -191,6 +192,11 @@ void NavigationBar::showReloadButton()
 void NavigationBar::showStopButton()
 {
     m_reloadStop->showStopButton();
+}
+
+void NavigationBar::setSuperMenuVisible(bool visible)
+{
+    m_supMenu->setVisible(visible);
 }
 
 void NavigationBar::aboutToShowHistoryBackMenu()

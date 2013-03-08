@@ -331,7 +331,7 @@ void TreeWidget::filterString(const QString &string)
     QList<QTreeWidgetItem*> _allItems = allItems();
     QList<QTreeWidgetItem*> parents;
     bool stringIsEmpty = string.isEmpty();
-    foreach(QTreeWidgetItem * item, _allItems) {
+    foreach (QTreeWidgetItem* item, _allItems) {
         bool containsString = stringIsEmpty || item->text(0).contains(string, Qt::CaseInsensitive);
         if (containsString) {
             item->setHidden(false);
@@ -349,7 +349,7 @@ void TreeWidget::filterString(const QString &string)
         }
     }
 
-    for(int i = 0; i < parents.size(); ++i) {
+    for (int i = 0; i < parents.size(); ++i) {
         QTreeWidgetItem* parentItem = parents.at(i);
         parentItem->setHidden(false);
         if (stringIsEmpty) {

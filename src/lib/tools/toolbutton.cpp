@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,12 +18,14 @@
 #include "toolbutton.h"
 
 #include <QMouseEvent>
+#include <QMenu>
 #include <QPainter>
 #include <QStyleOptionToolButton>
 
 ToolButton::ToolButton(QWidget* parent)
     : QToolButton(parent)
     , m_usingMultiIcon(false)
+    , m_showMenuInside(false)
 {
     setMinimumWidth(16);
 }
@@ -53,6 +55,16 @@ void ToolButton::setIcon(const QIcon &image)
     QToolButton::setIcon(image);
 }
 
+void ToolButton::setShowMenuInside(bool inside)
+{
+    m_showMenuInside = inside;
+}
+
+bool ToolButton::showMenuInside() const
+{
+    return m_showMenuInside;
+}
+
 void ToolButton::setData(const QVariant &data)
 {
     m_data = data;
@@ -80,7 +92,7 @@ void ToolButton::setMultiIcon(const QPixmap &image)
 
 void ToolButton::mousePressEvent(QMouseEvent* e)
 {
-    if (e->button() == Qt::RightButton && menu()) {
+    if (e->button() != Qt::MiddleButton && menu()) {
         setDown(true);
         showMenu();
         return;
@@ -108,6 +120,27 @@ void ToolButton::mouseReleaseEvent(QMouseEvent* e)
     }
 
     QToolButton::mouseReleaseEvent(e);
+    setDown(false);
+}
+
+void ToolButton::showMenu()
+{
+    if (!m_showMenuInside) {
+        QToolButton::showMenu();
+        return;
+    }
+
+    QMenu* m = menu();
+
+    if (!m) {
+        return;
+    }
+
+    QPoint pos = mapToGlobal(rect().bottomRight());
+    pos.setX(pos.x() - m->sizeHint().width());
+
+    setDown(true);
+    m->exec(pos);
     setDown(false);
 }
 
