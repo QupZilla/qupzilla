@@ -39,8 +39,9 @@ AdBlockAddSubscriptionDialog::AdBlockAddSubscriptionDialog(QWidget* parent)
                          << Subscription("Schacks Adblock Plus liste (Danish)", "http://adblock.schack.dk/block.txt")
                          << Subscription("Xfiles (Italian)", "http://mozilla.gfsolone.com/filtri.txt")
                          << Subscription("EasyPrivacy (English)", "http://easylist-downloads.adblockplus.org/easyprivacy.txt")
+                         << Subscription("Antisocial (English)", "http://adversity.googlecode.com/hg/Antisocial.txt")
                          << Subscription("RU Adlist (Russian)", "https://ruadlist.googlecode.com/hg/advblock.txt")
-                         << Subscription("Antisocial (English)", "http://adversity.googlecode.com/hg/Antisocial.txt");
+                         << Subscription("ChinaList (Chinese)", "http://adblock-chinalist.googlecode.com/svn/trunk/adblock.txt");
 
     foreach (const Subscription &subscription, m_knownSubscriptions) {
         ui->comboBox->addItem(subscription.title);
