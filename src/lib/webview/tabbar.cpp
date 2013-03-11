@@ -596,7 +596,7 @@ bool TabBar::event(QEvent* event)
     case QEvent::ToolTip:
         if (m_showTabPreviews) {
             QHelpEvent* ev = static_cast<QHelpEvent*>(event);
-            if (tabAt(ev->pos()) != -1 && !m_tabPreview->isVisible()) {
+            if (tabAt(ev->pos()) != -1 && !m_tabPreview->isVisible() && m_dragStartPosition.isNull()) {
                 showTabPreview();
             }
             return true;
