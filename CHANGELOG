@@ -39,6 +39,7 @@ Version 1.4.0
     * fixed sorting files case insensitively in file scheme handler
     * fixed possible crash in saving page screen of a really long page
     * fixed showing window in fullscreen with XFCE
+    * fixed AdBlock blocking netscape plugin even without Click2Flash
     * X11: fixed Ctrl+Q shortcut for DEs other than KDE and Gnome
     * windows: fixed color of found text when searching on page
     * windows: fixed navigating to file links and x: labels in file: scheme handler
