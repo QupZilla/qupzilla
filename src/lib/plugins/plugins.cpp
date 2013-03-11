@@ -153,7 +153,6 @@ void Plugins::loadPlugins()
     std::cout << "QupZilla: " << m_loadedPlugins.count() << " extensions loaded"  << std::endl;
 }
 
-#include <QDebug>
 void Plugins::loadAvailablePlugins()
 {
     if (m_pluginsLoaded) {
@@ -183,10 +182,6 @@ void Plugins::loadAvailablePlugins()
 
             QPluginLoader* loader = new QPluginLoader(absolutePath);
             PluginInterface* iPlugin = qobject_cast<PluginInterface*>(loader->instance());
-
-            qDebug() << "Loading" << absolutePath;
-            qDebug() << "Error:" << (iPlugin == 0);
-            qDebug() << "ErrorString:" << loader->errorString();
 
             if (!iPlugin) {
                 continue;
