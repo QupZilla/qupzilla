@@ -1,6 +1,6 @@
 /* ============================================================
 * Access Keys Navigation plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -62,7 +62,7 @@ bool AKN_Plugin::testPlugin()
 {
     // Let's be sure, require latest version of QupZilla
 
-    return (QupZilla::VERSION == QLatin1String("1.3.5"));
+    return (QupZilla::VERSION == QLatin1String("1.4.0"));
 }
 
 QTranslator* AKN_Plugin::getTranslator(const QString &locale)

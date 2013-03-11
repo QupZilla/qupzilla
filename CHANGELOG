@@ -1,5 +1,5 @@
 Version 1.4.0
-    * not yet released
+    * released 11 March 2013
     * highlighting host in address in locationbar
     * can now be compiled using Qt 5
     * QtWebKit 2.3 new features - caret browsing, animated scrolling

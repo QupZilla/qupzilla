@@ -1,5 +1,6 @@
 ﻿; QupZilla Windows Installer NSIS Script
 ; Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+;               2012-2013  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 ;
 ; For compiling this script you need following plugins:
 ; FindProcDLL_plug-in, KillProcDLL_plug-in and 'AllAssociation.nsh' needs
@@ -23,7 +24,7 @@ RequestExecutionLevel admin
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.3.5"
+!define /date PRODUCT_VERSION "1.4.0"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -300,7 +301,7 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\fa_IR.qm"
   File "locale\qt_fa.qm"
   SectionEnd
-  
+
   Section "Catalan"
   SetOutPath "$INSTDIR\locale"
   File "locale\ca_ES.qm"
