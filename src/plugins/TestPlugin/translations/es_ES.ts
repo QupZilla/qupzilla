@@ -1,30 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="es_ES" sourcelanguage="en_US">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es_ES" version="2.0">
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="../testplugin.cpp" line="112"/>
+        <location filename="../testplugin.cpp" line="116"/>
         <source>Close</source>
         <translation>Cerrar</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="123"/>
+        <location filename="../testplugin.cpp" line="127"/>
         <source>Example Plugin Settings</source>
         <translation>Preferencias del plugin de ejemplo</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="149"/>
+        <location filename="../testplugin.cpp" line="155"/>
         <source>My first plugin action</source>
         <translation>Mi primera acción del plugin</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="164"/>
+        <location filename="../testplugin.cpp" line="170"/>
         <source>Hello</source>
         <translation>Hola</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="164"/>
+        <location filename="../testplugin.cpp" line="170"/>
         <source>First plugin action works :-)</source>
         <translation>La primera acción del plugin funciona :-)</translation>
     </message>

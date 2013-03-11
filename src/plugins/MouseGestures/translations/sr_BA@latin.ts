@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="sr_BA@latin">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@latin" version="2.0">
 <context>
     <name>MouseGesturesSettingsDialog</name>
     <message>
@@ -16,7 +14,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="64"/>
         <source>Press and hold the middle mouse button and move your mouse in the indicated directions.</source>
-        <translation>Pritisnite i držite srednji taster miša i pomjerajte miša u navedenim smjerovima.</translation>
+        <translation>Pritisnite i držite srednji taster miša i pomerajte miša u navedenim smerovima.</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="111"/>
@@ -34,21 +32,6 @@
         <translation>&lt;b&gt;Nazad&lt;/b&gt;&lt;br/&gt;Idi nazad u istorijatu</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
-        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
-        <translation>&lt;b&gt;Naprijed&lt;/b&gt;&lt;br/&gt;Idi naprijed u istorijatu</translation>
-    </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
-        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
-        <translation>&lt;b&gt;Prethodni jezičak&lt;/b&gt;&lt;br/&gt;Prebaci na prethodni jezičak</translation>
-    </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
-        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation>&lt;b&gt;Sljedeći jezičak&lt;/b&gt;&lt;br/&gt;Prebaci na sljedeći jezičak</translation>
-    </message>
-    <message>
         <location filename="../mousegesturessettingsdialog.ui" line="159"/>
         <source>&lt;b&gt;Reload&lt;/b&gt;&lt;br/&gt;Reload page</source>
         <translation>&lt;b&gt;Ponovo učitaj&lt;/b&gt;&lt;br/&gt;Ponovo učitaj stranicu</translation>
@@ -59,9 +42,24 @@
         <translation>&lt;b&gt;Zatvori jezičak&lt;/b&gt;&lt;br/&gt;Zatvori tekući jezičak</translation>
     </message>
     <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
+        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
+        <translation>&lt;b&gt;Napred&lt;/b&gt;&lt;br/&gt;Idi napred u istorijatu</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
+        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
+        <translation>&lt;b&gt;Prethodni jezičak&lt;/b&gt;&lt;br/&gt;Prebaci na prethodni jezičak</translation>
+    </message>
+    <message>
         <location filename="../mousegesturessettingsdialog.ui" line="208"/>
         <source>&lt;b&gt;Home&lt;/b&gt;&lt;br/&gt;Go to homepage</source>
         <translation>&lt;b&gt;Domaća&lt;/b&gt;&lt;br/&gt;Idi na domaću stranicu</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
+        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
+        <translation>&lt;b&gt;Sledeći jezičak&lt;/b&gt;&lt;br/&gt;Prebaci na sledeći jezičak</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="253"/>

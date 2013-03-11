@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="sr_BA@latin">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@latin" version="2.0">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -21,7 +19,7 @@
     <message>
         <location filename="../gm_addscriptdialog.ui" line="86"/>
         <source>&lt;b&gt;You should only install scripts from sources you trust!&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Instalirajte samo skripte od izvora kojima vjerujete!&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Instalirajte samo skripte od izvora kojima verujete!&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="96"/>
@@ -51,7 +49,7 @@
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="85"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation>„%1“ je uspješno instalirana</translation>
+        <translation>„%1“ je uspešno instalirana</translation>
     </message>
 </context>
 <context>
@@ -65,7 +63,7 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="172"/>
+        <location filename="../gm_manager.cpp" line="183"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
@@ -75,7 +73,7 @@
     <message>
         <location filename="../gm_notification.ui" line="45"/>
         <source>This script can be installed with the GreaseMonkey plugin.</source>
-        <translation>Ova skripta može biti instalirana pomoću GreaseMonkey proširenja.</translation>
+        <translation>Ova skripta može biti instalirana pomoću GreaseMonkey priključka.</translation>
     </message>
     <message>
         <location filename="../gm_notification.ui" line="65"/>
@@ -90,7 +88,7 @@
     <message>
         <location filename="../gm_notification.cpp" line="57"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation>„%1“ je uspješno instalirana</translation>
+        <translation>„%1“ je uspešno instalirana</translation>
     </message>
 </context>
 <context>
@@ -121,12 +119,12 @@
         <translation>Otvori fasciklu skripti</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="68"/>
+        <location filename="../settings/gm_settings.cpp" line="75"/>
         <source>Remove script</source>
         <translation>Ukloni skriptu</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="69"/>
+        <location filename="../settings/gm_settings.cpp" line="76"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>Želite li zaista da uklonite „%1“?</translation>
     </message>

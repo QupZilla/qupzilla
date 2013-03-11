@@ -1,30 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="it_IT" sourcelanguage="en_US">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="it_IT" version="2.0">
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="../testplugin.cpp" line="112"/>
+        <location filename="../testplugin.cpp" line="116"/>
         <source>Close</source>
         <translation>Chiudi</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="123"/>
+        <location filename="../testplugin.cpp" line="127"/>
         <source>Example Plugin Settings</source>
         <translation>Impostazioni del plugin di esempio</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="149"/>
+        <location filename="../testplugin.cpp" line="155"/>
         <source>My first plugin action</source>
         <translation>La mia prima azione </translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="164"/>
+        <location filename="../testplugin.cpp" line="170"/>
         <source>Hello</source>
         <translation>Ciao</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="164"/>
+        <location filename="../testplugin.cpp" line="170"/>
         <source>First plugin action works :-)</source>
         <translation>La mia prima azione funziona :-)</translation>
     </message>
@@ -35,7 +33,6 @@
         <location filename="../testplugin_sidebar.cpp" line="32"/>
         <location filename="../testplugin_sidebar.cpp" line="37"/>
         <source>Testing Sidebar</source>
-        <translatorcomment>Not sure about translation...to be reviewed</translatorcomment>
         <translation>Barra laterale di test</translation>
     </message>
 </context>
