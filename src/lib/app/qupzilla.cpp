@@ -603,6 +603,10 @@ void QupZilla::setupMenu()
     m_superMenu->addAction(new ActionCopy(m_menuEdit->actions().at(8), this));
 
     m_superMenu->addSeparator();
+    m_superMenu->addAction(new ActionCopy(m_menuHistory->actions().at(3), this));
+    m_superMenu->addAction(new ActionCopy(m_menuBookmarks->actions().at(2), this));
+
+    m_superMenu->addSeparator();
     m_superMenu->addAction(new ActionCopy(m_actionPreferences, this));
 
     m_superMenu->addSeparator();
