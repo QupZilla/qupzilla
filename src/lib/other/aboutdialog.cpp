@@ -120,7 +120,8 @@ void AboutDialog::showAuthors()
                                                "Stanislav Kuznietsov<br/>"
                                                "Seyyed Razi Alavizadeh<br/>"
                                                "Guillem Prats<br/>"
-                                               "Clara Villalba")
+                                               "Clara Villalba<br/>"
+                                               "Yu Hai")
                          );
         m_authorsHtml += "</div></center>";
     }
