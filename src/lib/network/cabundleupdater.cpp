@@ -37,7 +37,14 @@ CaBundleUpdater::CaBundleUpdater(NetworkManager* manager, QObject* parent)
     m_bundleFileName = mApp->PROFILEDIR + "certificates/ca-bundle.crt";
     m_lastUpdateFileName = mApp->PROFILEDIR + "certificates/last_update";
 
-    QTimer::singleShot(30 * 1000, this, SLOT(start()));
+    int updateTime = 30 * 1000;
+
+    // Check immediately on first run
+    if (!QFile(m_lastUpdateFileName).exists()) {
+        updateTime = 0;
+    }
+
+    QTimer::singleShot(updateTime, this, SLOT(start()));
 }
 
 void CaBundleUpdater::start()
