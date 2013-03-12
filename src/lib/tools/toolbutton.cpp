@@ -92,11 +92,18 @@ void ToolButton::setMultiIcon(const QPixmap &image)
 
 void ToolButton::mousePressEvent(QMouseEvent* e)
 {
-    if (e->button() != Qt::MiddleButton && menu()) {
+    if (e->button() == Qt::LeftButton && menu() && popupMode() == QToolButton::InstantPopup) {
         setDown(true);
         showMenu();
         return;
     }
+
+    if (e->button() == Qt::RightButton && menu()) {
+        setDown(true);
+        showMenu();
+        return;
+    }
+
 
     if (e->button() == Qt::MiddleButton) {
         setDown(true);
