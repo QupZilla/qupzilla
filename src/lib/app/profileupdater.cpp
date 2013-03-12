@@ -67,16 +67,6 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
 //    Updater::Version currentVersion = Updater::parseVersionFromString(current);
     Updater::Version profileVersion = Updater::parseVersionFromString(profile);
 
-    if (profileVersion == Updater::parseVersionFromString("1.0.0-b4")) {
-        update100b4();
-        return;
-    }
-
-    if (profileVersion == Updater::parseVersionFromString("1.0.0-rc1")) {
-        update100rc1();
-        return;
-    }
-
     if (profileVersion == Updater::parseVersionFromString("1.0.0")) {
         update100();
         return;
@@ -129,33 +119,6 @@ void ProfileUpdater::copyDataToProfile()
     browseData.remove();
     QFile(":data/browsedata.db").copy(m_profilePath + "browsedata.db");
     QFile(m_profilePath + "browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
-}
-
-void ProfileUpdater::update100b4()
-{
-    std::cout << "QupZilla: Upgrading profile version from 1.0.0-b4..." << std::endl;
-    mApp->connectDatabase();
-
-    QSqlQuery query;
-    query.exec("CREATE TABLE IF NOT EXISTS search_engines (id INTEGER PRIMARY KEY, name TEXT, icon TEXT,"
-               "url TEXT, shortcut TEXT, suggestionsUrl TEXT, suggestionsParameters TEXT);");
-
-    update100rc1();
-}
-
-void ProfileUpdater::update100rc1()
-{
-    std::cout << "QupZilla: Upgrading profile version from 1.0.0-rc1..." << std::endl;
-    mApp->connectDatabase();
-
-    QSqlQuery query;
-    query.exec("ALTER TABLE folders ADD COLUMN subfolder TEXT");
-    query.exec("UPDATE folders SET subfolder='no'");
-
-    query.exec("ALTER TABLE bookmarks ADD COLUMN toolbar_position NUMERIC");
-    query.exec("UPDATE bookmarks SET toolbar_position=0");
-
-    update100();
 }
 
 void ProfileUpdater::update100()

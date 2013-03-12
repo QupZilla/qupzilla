@@ -44,52 +44,25 @@ Updater::Version Updater::parseVersionFromString(const QString &string)
         return ver;
     }
 
-    QStringList r = v.at(2).split(QLatin1Char('.'));
+    bool ok;
 
-    ver.majorVersion = v.at(0).toInt();
-    ver.minorVersion = v.at(1).toInt();
-    ver.revisionNumber = r.at(0).toInt();
-    if (r.count() == 2) {
-        ver.specialSymbol = r.at(1);
+    ver.majorVersion = v.at(0).toInt(&ok);
+    if (!ok) {
+        return ver;
+    }
+
+    ver.minorVersion = v.at(1).toInt(&ok);
+    if (!ok) {
+        return ver;
+    }
+
+    ver.revisionNumber = v.at(2).toInt(&ok);
+    if (!ok) {
+        return ver;
     }
 
     ver.isValid = true;
     return ver;
-}
-
-bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
-{
-    if (one.contains(QLatin1String("rc")) && two.contains(QLatin1Char('b'))) {
-        return true;
-    }
-
-    if (one.contains(QLatin1Char('b')) && two.contains(QLatin1String("rc"))) {
-        return false;
-    }
-
-    if (one.isEmpty()) {
-        return true;
-    }
-
-    if (two.isEmpty()) {
-        return false;
-    }
-
-    if (one.contains(QLatin1Char('b'))) {
-        int o = one.remove(QLatin1Char('b')).toInt();
-        int t = two.remove(QLatin1Char('b')).toInt();
-
-        return o > t;
-    }
-
-    if (one.contains(QLatin1String("rc"))) {
-        int o = one.remove(QLatin1String("rc")).toInt();
-        int t = two.remove(QLatin1String("rc")).toInt();
-
-        return o > t;
-    }
-
-    return false;
 }
 
 void Updater::start()
@@ -118,7 +91,7 @@ void Updater::downCompleted(QNetworkReply* reply)
         Version current = parseVersionFromString(QupZilla::VERSION);
         Version updated = parseVersionFromString(html);
 
-        if (current < updated) {
+        if (current.isValid && updated.isValid && current < updated) {
             mApp->desktopNotifications()->showNotification(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
         }
     }
