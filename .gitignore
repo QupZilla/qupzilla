@@ -36,3 +36,4 @@ bin/autotests
 bin/qupzilla.app
 .DS_Store
 *.dylib
+hunspell

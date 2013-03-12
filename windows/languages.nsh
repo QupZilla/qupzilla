@@ -568,6 +568,7 @@ LangString MSG_RunningInstance ${LANG_INDONESIAN} "QupZilla is already running! 
 LangString MSG_RunningInstance ${LANG_GEORGIAN} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_JAPANESE} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_SWEDISH} "QupZilla is already running! Do you want the installer try to terminate it?"
+LangString MSG_RunningInstance ${LANG_UKRAINIAN} "QupZilla is already running! Do you want the installer try to terminate it?"
 
 LangString MSG_InstallationCanceled ${LANG_SLOVAK} "Process cancelled by user."
 LangString MSG_InstallationCanceled ${LANG_DUTCH} "Process cancelled by user."

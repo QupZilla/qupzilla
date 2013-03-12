@@ -69,6 +69,7 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Swedish"
 !insertmacro MUI_LANGUAGE "Polish"
 !insertmacro MUI_LANGUAGE "Ukrainian"
+!insertmacro MUI_LANGUAGE "Catalan"
 !insertmacro MUI_LANGUAGE "farsi"
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
@@ -100,17 +101,20 @@ notRunning:
   File "COPYRIGHT.txt"
   File "qupzilla.exe"
   File "qupzilla.dll"
+  File "libhunspell.dll"
+  File "libwebp.dll"
   File "libeay32.dll"
   File "ssleay32.dll"
-  File "msvcp90.dll"
-  File "msvcr90.dll"
-  File "phonon4.dll"
+  File "sqlite3.dll"
+  File "msvcp100.dll"
+  File "msvcr100.dll"
   File "QtCore4.dll"
   File "QtGui4.dll"
   File "QtNetwork4.dll"
   File "QtScript4.dll"
   File "QtSql4.dll"
   File "QtWebKit4.dll"
+  File "QtXmlPatterns4.dll"
 
   SetOutPath "$INSTDIR\imageformats"
   File "imageformats\qico4.dll"
@@ -130,8 +134,8 @@ notRunning:
   SetOutPath "$INSTDIR\iconengines"
   File "iconengines\qsvgicon4.dll"
 
-  SetOutPath "$INSTDIR\sqldrivers"
-  File "sqldrivers\qsqlite4.dll"
+  SetOutPath "$INSTDIR\hunspell\doc"
+  File "wininstall\hunspell\doc\*"
 
   call RegisterCapabilities
 SectionEnd
@@ -171,36 +175,54 @@ SectionGroupEnd
 SectionGroup $(TITLE_SecTranslations) SecTranslations
   Section "English"
   SectionIn RO
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\en_US.aff"
+  File "wininstall\hunspell\en_US.dic"
   SectionEnd
 
   Section "Czech"
   SetOutPath "$INSTDIR\locale"
   File "locale\cs_CZ.qm"
   File "locale\qt_cs.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\cs_CZ.aff"
+  File "wininstall\hunspell\cs_CZ.dic"
   SectionEnd
 
   Section "Slovak"
   SetOutPath "$INSTDIR\locale"
   File "locale\sk_SK.qm"
   File "locale\qt_sk.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\sk_SK.aff"
+  File "wininstall\hunspell\sk_SK.dic"
   SectionEnd
 
   Section "German"
   SetOutPath "$INSTDIR\locale"
   File "locale\de_DE.qm"
   File "locale\qt_de.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\de_DE.aff"
+  File "wininstall\hunspell\de_DE.dic"
   SectionEnd
 
   Section "Dutch"
   SetOutPath "$INSTDIR\locale"
   File "locale\nl_NL.qm"
   File "locale\qt_nl.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\nl_NL.aff"
+  File "wininstall\hunspell\nl_NL.dic"
   SectionEnd
 
   Section "Italian"
   SetOutPath "$INSTDIR\locale"
   File "locale\it_IT.qm"
   File "locale\qt_it.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\it_IT.aff"
+  File "wininstall\hunspell\it_IT.dic"
   SectionEnd
 
   Section "Chinese"
@@ -222,24 +244,38 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\es_ES.qm"
   File "locale\es_VE.qm"
   File "locale\qt_es.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\es_ES.aff"
+  File "wininstall\hunspell\es_ES.dic"
+  File "wininstall\hunspell\es_VE.aff"
+  File "wininstall\hunspell\es_VE.dic"
   SectionEnd
 
   Section "Greek"
   SetOutPath "$INSTDIR\locale"
   File "locale\el_GR.qm"
   File "locale\qt_el.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\el_GR.aff"
+  File "wininstall\hunspell\el_GR.dic"
   SectionEnd
 
   Section "French"
   SetOutPath "$INSTDIR\locale"
   File "locale\fr_FR.qm"
   File "locale\qt_fr.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\fr_FR.aff"
+  File "wininstall\hunspell\fr_FR.dic"
   SectionEnd
 
   Section "Russian"
   SetOutPath "$INSTDIR\locale"
   File "locale\ru_RU.qm"
   File "locale\qt_ru.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\ru_RU.aff"
+  File "wininstall\hunspell\ru_RU.dic"
   SectionEnd
 
   Section "Portuguese"
@@ -247,6 +283,11 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\pt_PT.qm"
   File "locale\pt_BR.qm"
   File "locale\qt_pt.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\pt_PT.aff"
+  File "wininstall\hunspell\pt_PT.dic"
+  File "wininstall\hunspell\pt_BR.aff"
+  File "wininstall\hunspell\pt_BR.dic"
   SectionEnd
 
   Section "Serbian"
@@ -255,6 +296,11 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\sr_RS.qm"
   File "locale\qt_sr_BA.qm"
   File "locale\qt_sr_RS.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\sr.aff"
+  File "wininstall\hunspell\sr.dic"
+  File "wininstall\hunspell\sh.aff"
+  File "wininstall\hunspell\sh.dic"
   SectionEnd
 
   Section "Japanese"
@@ -272,16 +318,25 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   SetOutPath "$INSTDIR\locale"
   File "locale\hu_HU.qm"
   File "locale\qt_hu.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\hu_HU.aff"
+  File "wininstall\hunspell\hu_HU.dic"
   SectionEnd
 
   Section "Indonesian"
   SetOutPath "$INSTDIR\locale"
   File "locale\id_ID.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\id_ID.aff"
+  File "wininstall\hunspell\id_ID.dic"
   SectionEnd
 
   Section "Romanian"
   SetOutPath "$INSTDIR\locale"
   File "locale\ro_RO.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\ro_RO.aff"
+  File "wininstall\hunspell\ro_RO.dic"
   SectionEnd
 
   Section "Swedish"
@@ -294,18 +349,27 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   SetOutPath "$INSTDIR\locale"
   File "locale\uk_UA.qm"
   File "locale\qt_uk.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\uk_UA.aff"
+  File "wininstall\hunspell\uk_UA.dic"
   SectionEnd
 
   Section "Persian"
   SetOutPath "$INSTDIR\locale"
   File "locale\fa_IR.qm"
   File "locale\qt_fa.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\fa_IR.aff"
+  File "wininstall\hunspell\fa_IR.dic"
   SectionEnd
 
   Section "Catalan"
   SetOutPath "$INSTDIR\locale"
   File "locale\ca_ES.qm"
   File "locale\qt_ca.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\ca_ES.aff"
+  File "wininstall\hunspell\ca_ES.dic"
   SectionEnd
 
 SectionGroupEnd
@@ -379,7 +443,7 @@ Section -MSVC
   SetOutPath $PLUGINSDIR
   File "wininstall\vcredist_x86.exe"
   DetailPrint "Installing Visual C++ 2008 Libraries"
-  ExecWait '"$PLUGINSDIR\vcredist_x86.exe" /q:a /c:"msiexec /i vcredist.msi /quiet"'
+  ExecWait '"$PLUGINSDIR\vcredist_x86.exe" /passive /Q:a /c:"msiexec /qb /i vcredist.msi"'
 SectionEnd
 
 Section Uninstall
@@ -464,6 +528,8 @@ Function .onInit
         Push Polish
         Push ${LANG_UKRAINIAN}
         Push Ukrainian
+        Push ${LANG_CATALAN}
+        Push Catalan
         Push ${LANG_Farsi}
         Push Persian
         Push A ; A means auto count languages
