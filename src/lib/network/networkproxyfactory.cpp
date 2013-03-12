@@ -51,8 +51,11 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
 {
     QNetworkProxy proxy;
 
-    if (m_proxyExceptions.contains(query.url().host(), Qt::CaseInsensitive)) {
-        return QList<QNetworkProxy>() << QNetworkProxy::NoProxy;
+    for(QStringList::Iterator it = m_proxyExceptions.begin(); it != m_proxyExceptions.end(); ++it ) {
+        QRegExp rx(*it, Qt::CaseInsensitive, QRegExp::Wildcard);
+        if (rx.exactMatch(query.url().host())) {
+            return QList<QNetworkProxy>() << QNetworkProxy::NoProxy;
+	}
     }
 
     switch (m_proxyPreference) {
