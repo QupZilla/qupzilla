@@ -209,11 +209,10 @@ void NavigationBar::aboutToShowHistoryBackMenu()
 
     int curindex = history->currentItemIndex();
     int count = 0;
-    QUrl lastUrl = history->currentItem().url();
 
     for (int i = curindex - 1; i >= 0; i--) {
         QWebHistoryItem item = history->itemAt(i);
-        if (item.isValid() && lastUrl != item.url()) {
+        if (item.isValid()) {
             QString title = titleForUrl(item.title(), item.url());
 
             const QIcon &icon = iconForPage(item.url(), qIconProvider->standardIcon(QStyle::SP_ArrowBack));
@@ -222,8 +221,6 @@ void NavigationBar::aboutToShowHistoryBackMenu()
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
             connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
             m_menuBack->addAction(act);
-
-            lastUrl = item.url();
         }
 
         count++;
@@ -246,11 +243,10 @@ void NavigationBar::aboutToShowHistoryNextMenu()
     QWebHistory* history = p_QupZilla->weView()->history();
     int curindex = history->currentItemIndex();
     int count = 0;
-    QUrl lastUrl = history->currentItem().url();
 
     for (int i = curindex + 1; i < history->count(); i++) {
         QWebHistoryItem item = history->itemAt(i);
-        if (item.isValid() && lastUrl != item.url()) {
+        if (item.isValid()) {
             QString title = titleForUrl(item.title(), item.url());
 
             const QIcon &icon = iconForPage(item.url(), qIconProvider->standardIcon(QStyle::SP_ArrowForward));
@@ -259,8 +255,6 @@ void NavigationBar::aboutToShowHistoryNextMenu()
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
             connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
             m_menuForward->addAction(act);
-
-            lastUrl = item.url();
         }
 
         count++;
