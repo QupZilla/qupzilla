@@ -1,5 +1,7 @@
 Version 1.4.1
     * not yet released
+    * fixed showing empty back/forward history menu upon restoring session
+    * fixed duplicating current url in history when restoring session
     * fixed instantly showing popup when clicking on back/forward button
 
 Version 1.4.0
