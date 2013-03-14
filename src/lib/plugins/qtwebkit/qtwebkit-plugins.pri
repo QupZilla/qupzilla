@@ -9,7 +9,7 @@ SOURCES += $$PWD/qtwebkitplugin.cpp \
 DEFINES *= QT_STATICPLUGIN
 
 
-unix:contains(DEFINES, USE_QTWEBKIT_2_3):system(pkg-config --exists hunspell) {
+!mac:unix:contains(DEFINES, USE_QTWEBKIT_2_3):system(pkg-config --exists hunspell) {
     buildSpellcheck = true
     LIBS += $$system(pkg-config --libs hunspell)
 }

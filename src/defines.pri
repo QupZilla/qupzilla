@@ -16,7 +16,7 @@ win32-msvc* {
 }
 
 # Check for pkg-config availability
-system(pkg-config --version > /dev/null) {
+!mac:unix:system(pkg-config --version > /dev/null) {
     isEqual(QT_MAJOR_VERSION, 5) {
         MODNAME = Qt5WebKitWidgets
     }
