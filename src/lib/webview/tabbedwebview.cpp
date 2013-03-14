@@ -51,7 +51,7 @@ TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
 
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
     connect(this, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
-    connect(this, SIGNAL(iconChanged()), this, SLOT(slotIconChanged()));
+    connect(this, SIGNAL(iconChanged()), this, SLOT(showIcon()));
 
     connect(this, SIGNAL(statusBarMessage(QString)), p_QupZilla->statusBar(), SLOT(showMessage(QString)));
 
@@ -68,18 +68,6 @@ void TabbedWebView::setWebPage(WebPage* page)
     setPage(page);
 
     connect(page, SIGNAL(linkHovered(QString,QString,QString)), this, SLOT(linkHovered(QString,QString,QString)));
-}
-
-void TabbedWebView::slotIconChanged()
-{
-    const QString &urlScheme = url().scheme();
-
-    if (urlScheme == QLatin1String("file") || urlScheme == QLatin1String("qupzilla")
-            || title().contains(tr("Failed loading page"))) {
-        return;
-    }
-
-    showIcon();
 }
 
 void TabbedWebView::inspectElement()

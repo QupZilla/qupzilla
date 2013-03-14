@@ -75,7 +75,6 @@ private slots:
     void urlChanged(const QUrl &url);
     void linkHovered(const QString &link, const QString &title, const QString &content);
     void setIp(const QHostInfo &info);
-    void slotIconChanged();
 
     void inspectElement();
 
