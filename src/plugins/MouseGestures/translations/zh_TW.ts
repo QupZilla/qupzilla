@@ -49,7 +49,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="194"/>
         <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;上一個分頁&lt;/b&gt;&lt;br/&gt;切換至上一個分頁</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="208"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="222"/>
         <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;下一個分頁&lt;/b&gt;&lt;br/&gt;切換至下一個分頁分頁</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="253"/>

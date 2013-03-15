@@ -19,7 +19,7 @@
     <message>
         <location filename="../gm_addscriptdialog.ui" line="86"/>
         <source>&lt;b&gt;You should only install scripts from sources you trust!&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Инсталирајте само скрипте од извора којима вјерујете!&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Инсталирајте само скрипте од извора којима верујете!&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="96"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="85"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation>„%1“ је успјешно инсталирана</translation>
+        <translation>„%1“ је успешно инсталирана</translation>
     </message>
 </context>
 <context>
@@ -88,7 +88,7 @@
     <message>
         <location filename="../gm_notification.cpp" line="57"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation>„%1“ је успјешно инсталирана</translation>
+        <translation>„%1“ је успешно инсталирана</translation>
     </message>
 </context>
 <context>

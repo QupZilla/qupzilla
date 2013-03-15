@@ -14,7 +14,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="64"/>
         <source>Press and hold the middle mouse button and move your mouse in the indicated directions.</source>
-        <translation>Притисните и држите средњи тастер миша и померајте миша у наведеним смеровима.</translation>
+        <translation>Притисните и држите средњи тастер миша и помјерајте миша у наведеним смјеровима.</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="111"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="187"/>
         <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
-        <translation>&lt;b&gt;Напред&lt;/b&gt;&lt;br/&gt;Иди напред у историјату</translation>
+        <translation>&lt;b&gt;Напријед&lt;/b&gt;&lt;br/&gt;Иди напријед у историјату</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="194"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="222"/>
         <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation>&lt;b&gt;Следећи језичак&lt;/b&gt;&lt;br/&gt;Пребаци на следећи језичак</translation>
+        <translation>&lt;b&gt;Сљедећи језичак&lt;/b&gt;&lt;br/&gt;Пребаци на сљедећи језичак</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="253"/>

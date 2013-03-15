@@ -137,7 +137,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="167"/>
         <source>ZIP Code:</source>
-        <translation>Пошт. број:</translation>
+        <translation>Поштански број:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="180"/>

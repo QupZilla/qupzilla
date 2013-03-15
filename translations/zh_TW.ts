@@ -374,7 +374,7 @@
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="51"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>搜尋</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="107"/>
@@ -443,22 +443,22 @@
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="69"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="85"/>
         <source>Remember</source>
-        <translation type="unfinished"/>
+        <translation>記住</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="101"/>
         <source>Never For This Site</source>
-        <translation type="unfinished"/>
+        <translation>永不記住</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="117"/>
         <source>Not Now</source>
-        <translation type="unfinished"/>
+        <translation>現在不要</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="41"/>
@@ -473,7 +473,7 @@
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="49"/>
         <source>Do you want QupZilla to update saved password %1?</source>
-        <translation type="unfinished"/>
+        <translation>您想要QupZIlla更新已儲存密碼 %1嗎?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="55"/>
@@ -487,17 +487,17 @@
         <location filename="../src/lib/autofill/autofillwidget.ui" line="56"/>
         <location filename="../src/lib/autofill/autofillicon.cpp" line="29"/>
         <source>Choose username to login</source>
-        <translation type="unfinished"/>
+        <translation>選擇登入的使用者名稱</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillwidget.cpp" line="47"/>
         <source>Login</source>
-        <translation type="unfinished"/>
+        <translation>登入</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillwidget.cpp" line="51"/>
         <source>Login as &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>以 &lt;b&gt;%1&lt;/b&gt; 登入</translation>
     </message>
 </context>
 <context>
@@ -1366,32 +1366,32 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="370"/>
         <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Cookie 設定&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="377"/>
         <source>Allow storing of cookies</source>
-        <translation type="unfinished"/>
+        <translation>允許Cookie存取</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="416"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished"/>
+        <translation>關閉時刪除Cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
         <source>Match domain exactly</source>
-        <translation type="unfinished"/>
+        <translation>正確的配對網域</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished"/>
+        <translation>Cookie追蹤過濾</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;警告:&lt;/b&gt;正確的配對網域及Cookie追蹤過濾選項可能導致有些來自網站的cookies被拒絕。如果您遇到了cookies相關的問題，請先取消這兩個選項!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="71"/>
@@ -1761,7 +1761,7 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="453"/>
         <source>Cancelled!</source>
-        <translation type="unfinished"/>
+        <translation>已取消!</translation>
     </message>
 </context>
 <context>
@@ -1769,43 +1769,43 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="256"/>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"/>
+        <translation>回到上層目錄</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="257"/>
         <source>Show hidden files</source>
-        <translation type="unfinished"/>
+        <translation>顯示隱藏檔案</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="258"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="259"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>大小</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="260"/>
         <source>Last modified</source>
-        <translation type="unfinished"/>
+        <translation>最新更改</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="274"/>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="275"/>
         <source>Index for %1</source>
-        <translation type="unfinished"/>
+        <translation>%1的引索</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="338"/>
         <source>Folder is empty.</source>
-        <translation type="unfinished"/>
+        <translation>此為空白資料夾。</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="410"/>
         <source>Unknown command</source>
-        <translation type="unfinished"/>
+        <translation>未知指令</translation>
     </message>
 </context>
 <context>
@@ -1813,47 +1813,47 @@
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="14"/>
         <source>HTML5 Permissions</source>
-        <translation type="unfinished"/>
+        <translation>HTML5權限</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="24"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>通知</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="40"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="94"/>
         <source>Site</source>
-        <translation type="unfinished"/>
+        <translation>網站</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="45"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="99"/>
         <source>Behaviour</source>
-        <translation type="unfinished"/>
+        <translation>行為</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="68"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="122"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="78"/>
         <source>Geolocation</source>
-        <translation type="unfinished"/>
+        <translation>地理定位</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="35"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="53"/>
         <source>Allow</source>
-        <translation type="unfinished"/>
+        <translation>允許</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="44"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="62"/>
         <source>Deny</source>
-        <translation type="unfinished"/>
+        <translation>拒絕</translation>
     </message>
 </context>
 <context>
@@ -1861,32 +1861,32 @@
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="62"/>
         <source>Remember</source>
-        <translation type="unfinished"/>
+        <translation>記得</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="69"/>
         <source>Allow</source>
-        <translation type="unfinished"/>
+        <translation>允許</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="76"/>
         <source>Deny</source>
-        <translation type="unfinished"/>
+        <translation>拒絕</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="40"/>
         <source>this site</source>
-        <translation type="unfinished"/>
+        <translation>這個網站</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="44"/>
         <source>Allow %1 to show desktop notifications?</source>
-        <translation type="unfinished"/>
+        <translation>允許 %1 顯示桌面通知?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="48"/>
         <source>Allow %1 to locate your position?</source>
-        <translation type="unfinished"/>
+        <translation>允許 %1 標記您的位置嗎?</translation>
     </message>
 </context>
 <context>
@@ -2109,47 +2109,47 @@
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="14"/>
         <source>JavaScript Options</source>
-        <translation type="unfinished"/>
+        <translation>JavaScript選項</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="20"/>
         <source>Allow JavaScript to:</source>
-        <translation type="unfinished"/>
+        <translation>允許JavaScript:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="42"/>
         <source>Close windows</source>
-        <translation type="unfinished"/>
+        <translation>關閉視窗</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="49"/>
         <source>Open popup windows</source>
-        <translation type="unfinished"/>
+        <translation>開啟彈出視窗</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="56"/>
         <source>Change window size</source>
-        <translation type="unfinished"/>
+        <translation>更變視窗大小</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="63"/>
         <source>Hide menu bar</source>
-        <translation type="unfinished"/>
+        <translation>隱藏選單列</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="70"/>
         <source>Hide status bar</source>
-        <translation type="unfinished"/>
+        <translation>隱藏狀態列</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="77"/>
         <source>Hide tool bar</source>
-        <translation type="unfinished"/>
+        <translation>隱藏工具列</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="84"/>
         <source>Access clipboard</source>
-        <translation type="unfinished"/>
+        <translation>存取剪貼簿</translation>
     </message>
 </context>
 <context>
@@ -2194,7 +2194,7 @@
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="126"/>
         <source>Switch to tab</source>
-        <translation type="unfinished"/>
+        <translation>切換至分頁</translation>
     </message>
 </context>
 <context>
@@ -2306,7 +2306,7 @@
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="256"/>
         <source>Authorisation required</source>
-        <translation type="unfinished"/>
+        <translation>需要授權</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="263"/>
@@ -2335,22 +2335,22 @@
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="363"/>
         <source>FTP authorisation required</source>
-        <translation type="unfinished"/>
+        <translation>需要FTP授權</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="376"/>
         <source>Login anonymously</source>
-        <translation type="unfinished"/>
+        <translation>使用匿名登入</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="393"/>
         <source>A username and password are being requested by %1:%2.</source>
-        <translation type="unfinished"/>
+        <translation>%1:%2 請求一組使用者名稱及密碼。</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="430"/>
         <source>Proxy authorisation required</source>
-        <translation type="unfinished"/>
+        <translation>需要代理授權</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="450"/>
@@ -2452,7 +2452,7 @@
     <message>
         <location filename="../src/lib/popupwindow/popupwebview.cpp" line="97"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"/>
+        <translation>審查元素</translation>
     </message>
 </context>
 <context>
@@ -2460,107 +2460,107 @@
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="61"/>
         <source>File</source>
-        <translation type="unfinished"/>
+        <translation>檔案</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="62"/>
         <source>&amp;Save Page As...</source>
-        <translation type="unfinished"/>
+        <translation>儲存頁面為...(&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="63"/>
         <source>Save Page Screen</source>
-        <translation type="unfinished"/>
+        <translation>儲存視窗頁面</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="64"/>
         <source>Send Link...</source>
-        <translation type="unfinished"/>
+        <translation>傳送連結...</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="65"/>
         <source>&amp;Print...</source>
-        <translation type="unfinished"/>
+        <translation>列印...(&amp;P)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="67"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>關閉</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="70"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>編輯</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="71"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"/>
+        <translation>取消(&amp;U)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="72"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"/>
+        <translation>重作(&amp;R)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="74"/>
         <source>&amp;Cut</source>
-        <translation type="unfinished"/>
+        <translation>剪下(&amp;C)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="75"/>
         <source>C&amp;opy</source>
-        <translation type="unfinished"/>
+        <translation>複製(&amp;o)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="76"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished"/>
+        <translation>貼上(&amp;P)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="78"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>全選</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="79"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>尋找</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="84"/>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>檢視</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="85"/>
         <source>&amp;Stop</source>
-        <translation type="unfinished"/>
+        <translation>停止(&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="87"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished"/>
+        <translation>重新整理(&amp;R)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="90"/>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"/>
+        <translation>拉近(&amp;I)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="91"/>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished"/>
+        <translation>拉遠(&amp;O)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="92"/>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>重置</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="94"/>
         <source>&amp;Page Source</source>
-        <translation type="unfinished"/>
+        <translation>頁面源碼(&amp;P)</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="292"/>
@@ -2837,7 +2837,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="650"/>
         <source>Tabs behaviour</source>
-        <translation type="unfinished"/>
+        <translation>分頁行為</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="658"/>
@@ -2867,7 +2867,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="724"/>
         <source>Open new empty tabs after active tab</source>
-        <translation type="unfinished"/>
+        <translation>在使用中分頁後方開啟新的空白分頁</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="731"/>
@@ -2892,7 +2892,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="773"/>
         <source>Address Bar behaviour</source>
-        <translation type="unfinished"/>
+        <translation>位址欄行為</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="781"/>
@@ -2972,7 +2972,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="941"/>
         <source>Custom color:</source>
-        <translation type="unfinished"/>
+        <translation>自訂顏色:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="957"/>
@@ -2991,7 +2991,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="967"/>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>重置</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1018"/>
@@ -3039,12 +3039,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1075"/>
         <source>Animated scrolling</source>
-        <translation type="unfinished"/>
+        <translation>平滑捲動</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1082"/>
         <source>Enable caret browsing</source>
-        <translation type="unfinished"/>
+        <translation>允許鍵盤瀏覽</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1089"/>
@@ -3099,7 +3099,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1297"/>
         <source>Store cache in:</source>
-        <translation type="unfinished"/>
+        <translation>儲存快取至:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1325"/>
@@ -3328,7 +3328,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2011"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;%d&lt;/b&gt;下載後將會被取代為URL</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2037"/>
@@ -3384,12 +3384,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2183"/>
         <source>Manage JavaScript privacy options</source>
-        <translation type="unfinished"/>
+        <translation>管理JavaScript隱私選項</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2196"/>
         <source>JavaScript options</source>
-        <translation type="unfinished"/>
+        <translation>JavaScript選項</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2209"/>
@@ -3399,22 +3399,22 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2232"/>
         <source>Manage Cookies</source>
-        <translation type="unfinished"/>
+        <translation>管理 Cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2252"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;HTML5 權限&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2259"/>
         <source>Manage HTML5 permissions</source>
-        <translation type="unfinished"/>
+        <translation>管理HTML5權限</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2272"/>
         <source>HTML5 Permissions</source>
-        <translation type="unfinished"/>
+        <translation>HTML5權限</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2283"/>
@@ -3520,7 +3520,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="697"/>
         <source>Choose cache path...</source>
-        <translation type="unfinished"/>
+        <translation>選擇快取路徑...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="733"/>
@@ -3594,22 +3594,22 @@
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="561"/>
         <source>Executable: </source>
-        <translation type="unfinished"/>
+        <translation>可執行:</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="562"/>
         <source>Arguments: </source>
-        <translation type="unfinished"/>
+        <translation>衝突: </translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="564"/>
         <source>Cannot start external program</source>
-        <translation type="unfinished"/>
+        <translation>無法啟動外部的程式</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="565"/>
         <source>Cannot start external program! %1</source>
-        <translation type="unfinished"/>
+        <translation>無法啟動外部的程式! %1</translation>
     </message>
 </context>
 <context>
@@ -3806,7 +3806,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="432"/>
         <source>&amp;Tabs on Top</source>
-        <translation type="unfinished"/>
+        <translation>將分頁置頂(&amp;T)</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="435"/>
@@ -4728,7 +4728,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/rss/rssicon.cpp" line="30"/>
         <source>Add RSS from this page...</source>
-        <translation type="unfinished"/>
+        <translation>從本網頁加入 RSS...</translation>
     </message>
 </context>
 <context>
@@ -5206,7 +5206,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="71"/>
         <source>Load in page</source>
-        <translation type="unfinished"/>
+        <translation>載入至頁面</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="72"/>
@@ -5287,12 +5287,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="138"/>
         <source>Source loaded in page</source>
-        <translation type="unfinished"/>
+        <translation>源碼已載入至頁面</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="141"/>
         <source>Cannot load in page. Page has been closed.</source>
-        <translation type="unfinished"/>
+        <translation>無法載入至頁面。頁面已關閉。</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="168"/>
@@ -5386,52 +5386,52 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="14"/>
         <source>SpellCheck</source>
-        <translation type="unfinished"/>
+        <translation>拼字檢查</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="20"/>
         <source>&lt;b&gt;Dictionary path&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;目錄路徑&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="36"/>
         <source>Change...</source>
-        <translation type="unfinished"/>
+        <translation>更換...</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="61"/>
         <source>&lt;b&gt;User dictionary&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;使用者目錄&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="88"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>新增</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="95"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="108"/>
         <source>Using Hunspell library</source>
-        <translation type="unfinished"/>
+        <translation>使用Humspell字庫</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="70"/>
         <source>Choose dictionary path...</source>
-        <translation type="unfinished"/>
+        <translation>選擇目錄路徑...</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="80"/>
         <source>Add new word...</source>
-        <translation type="unfinished"/>
+        <translation>新增單字...</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="80"/>
         <source>Add new word:</source>
-        <translation type="unfinished"/>
+        <translation>新增單字:</translation>
     </message>
 </context>
 <context>
@@ -5440,17 +5440,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="189"/>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="339"/>
         <source>No suggestions</source>
-        <translation type="unfinished"/>
+        <translation>沒有建議單字</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="192"/>
         <source>Add to dictionary</source>
-        <translation type="unfinished"/>
+        <translation>新增至目錄</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="344"/>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>設定</translation>
     </message>
 </context>
 <context>
@@ -6172,12 +6172,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1068"/>
         <source>Check &amp;Spelling</source>
-        <translation type="unfinished"/>
+        <translation>檢查拼音(&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1073"/>
         <source>Languages</source>
-        <translation type="unfinished"/>
+        <translation>語言</translation>
     </message>
 </context>
 <context>
