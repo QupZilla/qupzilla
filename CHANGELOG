@@ -1,5 +1,5 @@
 Version 1.4.1
-    * not yet released
+    * released 15 March 2013
     * fixed websearchbar not respecting select all on click settings
     * fixed certificates from custom path disappearing on saving preferences
     * fixed showing empty back/forward history menu upon restoring session
