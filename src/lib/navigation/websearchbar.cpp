@@ -66,11 +66,11 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass)
 
     m_boxSearchType = new ButtonWithMenu(this);
     m_boxSearchType->setObjectName("websearchbar-searchprovider-comobobox");
-    //RTL Support
-    ////if we don't add 'm_boxSearchType' by following code, then we should use suitable padding-left value
-    //// but then, when typing RTL text the layout dynamically changed and within RTL layout direction
-    //// padding-left is equivalent to padding-right and vice versa, and because style sheet is
-    //// not changed dynamically this create padding problems.
+    // RTL Support
+    // If we don't add 'm_boxSearchType' by following code, then we should use suitable padding-left value
+    // but then, when typing RTL text the layout dynamically changed and within RTL layout direction
+    // padding-left is equivalent to padding-right and vice versa, and because style sheet is
+    // not changed dynamically this create padding problems.
     addWidget(m_boxSearchType, LineEdit::LeftSide);
 
     addWidget(m_buttonSearch, LineEdit::RightSide);
@@ -195,7 +195,6 @@ void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item)
 
 void WebSearchBar::instantSearchChanged(bool enable)
 {
-
     Settings settings;
     settings.beginGroup("SearchEngines");
     settings.setValue("SearchOnEngineChange", enable);
@@ -332,18 +331,8 @@ void WebSearchBar::focusOutEvent(QFocusEvent* e)
         QString search = m_boxSearchType->currentItem().text;
         setPlaceholderText(search);
     }
-    QLineEdit::focusOutEvent(e);
-}
 
-void WebSearchBar::focusInEvent(QFocusEvent* e)
-{
-    QString search = m_boxSearchType->toolTip();
-
-    if (text() == search) {
-        clear();
-    }
-
-    QLineEdit::focusInEvent(e);
+    LineEdit::focusOutEvent(e);
 }
 
 void WebSearchBar::dropEvent(QDropEvent* event)
@@ -354,10 +343,11 @@ void WebSearchBar::dropEvent(QDropEvent* event)
         search();
 
         QFocusEvent event(QFocusEvent::FocusOut);
-        QLineEdit::focusOutEvent(&event);
+        LineEdit::focusOutEvent(&event);
         return;
     }
-    QLineEdit::dropEvent(event);
+
+    LineEdit::dropEvent(event);
 }
 
 void WebSearchBar::keyPressEvent(QKeyEvent* event)

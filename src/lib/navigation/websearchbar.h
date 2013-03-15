@@ -72,7 +72,6 @@ private slots:
     void instantSearchChanged(bool);
 
 private:
-    void focusInEvent(QFocusEvent* e);
     void focusOutEvent(QFocusEvent* e);
     void dropEvent(QDropEvent* event);
     void keyPressEvent(QKeyEvent* event);

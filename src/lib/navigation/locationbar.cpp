@@ -385,7 +385,7 @@ void LocationBar::dropEvent(QDropEvent* event)
             emit loadUrl(dropUrl);
 
             QFocusEvent event(QFocusEvent::FocusOut);
-            QLineEdit::focusOutEvent(&event);
+            LineEdit::focusOutEvent(&event);
             return;
         }
     }
@@ -398,17 +398,18 @@ void LocationBar::dropEvent(QDropEvent* event)
             emit loadUrl(dropUrl);
 
             QFocusEvent event(QFocusEvent::FocusOut);
-            QLineEdit::focusOutEvent(&event);
+            LineEdit::focusOutEvent(&event);
             return;
         }
 
     }
-    QLineEdit::dropEvent(event);
+
+    LineEdit::dropEvent(event);
 }
 
 void LocationBar::focusOutEvent(QFocusEvent* event)
 {
-    QLineEdit::focusOutEvent(event);
+    LineEdit::focusOutEvent(event);
 
     if (event->reason() == Qt::PopupFocusReason
             || (!selectedText().isEmpty() && event->reason() != Qt::TabFocusReason)) {

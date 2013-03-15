@@ -1,5 +1,6 @@
 Version 1.4.1
     * not yet released
+    * fixed websearchbar not respecting select all on click settings
     * fixed certificates from custom path disappearing on saving preferences
     * fixed showing empty back/forward history menu upon restoring session
     * fixed duplicating current url in history when restoring session

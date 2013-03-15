@@ -89,15 +89,14 @@ public slots:
     void updateTextMargins();
 
 protected:
+    void focusInEvent(QFocusEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
-//    void resizeEvent(QResizeEvent* event);
     bool event(QEvent* event);
 
 private:
     void init();
-//    void updateSideWidgetLocations();
 
     SideWidget* m_leftWidget;
     SideWidget* m_rightWidget;
@@ -106,6 +105,7 @@ private:
     QHBoxLayout* mainLayout;
 
     int m_leftMargin;
+    bool m_ignoreMousePress;
 };
 
 

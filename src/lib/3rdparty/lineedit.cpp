@@ -42,6 +42,7 @@ LineEdit::LineEdit(QWidget* parent)
     , m_leftLayout(0)
     , m_rightLayout(0)
     , m_leftMargin(-1)
+    , m_ignoreMousePress(false)
 {
     init();
 }
@@ -117,7 +118,7 @@ void LineEdit::init()
 bool LineEdit::event(QEvent* event)
 {
     if (event->type() == QEvent::LayoutDirectionChange) {
-        //by this we undo reversing of layout when direction is RTL.
+        // By this we undo reversing of layout when direction is RTL.
         if (isRightToLeft()) {
             mainLayout->setDirection(QBoxLayout::RightToLeft);
             m_leftLayout->setDirection(QBoxLayout::RightToLeft);
@@ -191,13 +192,22 @@ void LineEdit::updateTextMargins()
     int top = 0;
     int bottom = 0;
     setTextMargins(left, top, right, bottom);
-    //    updateSideWidgetLocations();
+}
+
+void LineEdit::focusInEvent(QFocusEvent* event)
+{
+    if (event->reason() == Qt::MouseFocusReason && qzSettings->selectAllOnClick) {
+        m_ignoreMousePress = true;
+        selectAll();
+    }
+
+    QLineEdit::focusInEvent(event);
 }
 
 void LineEdit::mousePressEvent(QMouseEvent* event)
 {
-    if (cursorPosition() == 0 && qzSettings->selectAllOnClick) {
-        selectAll();
+    if (m_ignoreMousePress) {
+        m_ignoreMousePress = false;
         return;
     }
 
