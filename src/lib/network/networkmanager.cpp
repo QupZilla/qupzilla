@@ -131,6 +131,8 @@ void NetworkManager::loadSettings()
     QSslSocket::setDefaultCaCertificates(QSslSocket::systemCaCertificates());
 #endif
 
+    loadCertificates();
+
     m_proxyFactory->loadSettings();
 }
 
@@ -623,8 +625,9 @@ void NetworkManager::loadCertificates()
     m_ignoreAllWarnings = settings.value("IgnoreAllSSLWarnings", false).toBool();
     settings.endGroup();
 
-    //CA Certificates
+    // CA Certificates
     m_caCerts = QSslSocket::defaultCaCertificates();
+
     foreach (const QString &path, m_certPaths) {
 #ifdef Q_OS_WIN
         // Used from Qt 4.7.4 qsslcertificate.cpp and modified because QSslCertificate::fromPath
@@ -645,7 +648,7 @@ void NetworkManager::loadCertificates()
         m_caCerts += QSslCertificate::fromPath(path + "/*.crt", QSsl::Pem, QRegExp::Wildcard);
 #endif
     }
-    //Local Certificates
+    // Local Certificates
 #ifdef Q_OS_WIN
     QDirIterator it_(mApp->currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it_.hasNext()) {
@@ -660,7 +663,7 @@ void NetworkManager::loadCertificates()
         }
     }
 #else
-    m_localCerts += QSslCertificate::fromPath(mApp->currentProfilePath() + "certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
+    m_localCerts = QSslCertificate::fromPath(mApp->currentProfilePath() + "certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
 #endif
 
     QSslSocket::setDefaultCaCertificates(m_caCerts + m_localCerts);

@@ -270,7 +270,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     connect(qupzilla, SIGNAL(startingCompleted()), this, SLOT(restoreCursor()));
 
     loadSettings();
-    networkManager()->loadCertificates();
 
     m_plugins = new PluginProxy;
 
