@@ -210,10 +210,6 @@ private slots:
     void clearClosedTabsList();
     void hideNavigationSlot();
 
-#ifdef Q_OS_WIN
-    void applyBlurToMainWindow(bool force = false);
-#endif
-
 private:
     bool event(QEvent* event);
     void resizeEvent(QResizeEvent* event);
@@ -238,6 +234,10 @@ private:
 #else
     bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
 #endif
+
+    void applyBlurToMainWindow(bool force = false);
+
+    void paintEvent(QPaintEvent* event);
     bool eventFilter(QObject* object, QEvent* event);
 #endif
 
