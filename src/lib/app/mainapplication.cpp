@@ -62,6 +62,7 @@
 #ifdef Q_OS_MAC
 #include "macmenureceiver.h"
 #include <QFileOpenEvent>
+#include <QMenu>
 #endif
 #include <QNetworkDiskCache>
 #include <QDesktopServices>
@@ -114,6 +115,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 #endif
 #ifdef Q_OS_MAC
     , m_macMenuReceiver(0)
+    , m_macDockMenu(0)
 #endif
 {
 #if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
@@ -639,6 +641,17 @@ QupZilla* MainApplication::makeNewWindow(Qz::BrowserWindow type, const QUrl &sta
 }
 
 #ifdef Q_OS_MAC
+extern void qt_mac_set_dock_menu(QMenu* menu);
+
+QMenu* MainApplication::macDockMenu()
+{
+    if (!m_macDockMenu) {
+        m_macDockMenu = new QMenu(0);
+        qt_mac_set_dock_menu(m_macDockMenu);
+    }
+    return m_macDockMenu;
+}
+
 MacMenuReceiver* MainApplication::macMenuReceiver()
 {
     if (!m_macMenuReceiver) {
@@ -1213,4 +1226,7 @@ QString MainApplication::tempPath() const
 MainApplication::~MainApplication()
 {
     delete m_uaManager;
+#ifdef Q_OS_MAC
+    delete m_macDockMenu;
+#endif
 }
