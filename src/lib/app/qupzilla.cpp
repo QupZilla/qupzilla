@@ -628,6 +628,12 @@ void QupZilla::setupMenu()
 
     m_superMenu->addSeparator();
     m_superMenu->addAction(new ActionCopy(m_actionQuit, this));
+#else
+    ActionCopy* copyActionPrivateBrowsing = new ActionCopy(m_actionPrivateBrowsing);
+    copyActionPrivateBrowsing->setText(copyActionPrivateBrowsing->text().remove(QLatin1Char('&')));
+    mApp->macDockMenu()->addAction(copyActionPrivateBrowsing);
+    mApp->macDockMenu()->addAction(m_menuFile->actions().at(1));
+    mApp->macDockMenu()->addAction(m_menuFile->actions().at(0));
 #endif
 }
 

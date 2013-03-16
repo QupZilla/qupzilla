@@ -54,6 +54,7 @@ class HTML5PermissionsManager;
 class Speller;
 #ifdef Q_OS_MAC
 class MacMenuReceiver;
+class QMenu;
 #endif
 
 class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
@@ -130,6 +131,7 @@ public:
 
 #ifdef Q_OS_MAC
     MacMenuReceiver* macMenuReceiver();
+    QMenu* macDockMenu();
     bool event(QEvent* e);
 #endif
 
@@ -205,6 +207,7 @@ private:
 #endif
 #ifdef Q_OS_MAC
     MacMenuReceiver* m_macMenuReceiver;
+    QMenu* m_macDockMenu;
 #endif
 };
 
