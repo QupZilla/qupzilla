@@ -192,7 +192,10 @@ void QupZilla::postLaunch()
         }
         break;
 
+#ifdef Q_OS_MAC
     case Qz::BW_MacFirstWindow:
+        QTimer::singleShot(0, this, SLOT(refreshStateOfAllActions()));
+#endif
     case Qz::BW_NewWindow:
         addTab = true;
         break;
@@ -247,6 +250,8 @@ void QupZilla::postLaunch()
     QMainWindow::setWindowTitle(m_lastWindowTitle);
 
     setUpdatesEnabled(true);
+    raise();
+    activateWindow();
 }
 
 void QupZilla::setupUi()
@@ -623,6 +628,12 @@ void QupZilla::setupMenu()
 
     m_superMenu->addSeparator();
     m_superMenu->addAction(new ActionCopy(m_actionQuit, this));
+#else
+    ActionCopy* copyActionPrivateBrowsing = new ActionCopy(m_actionPrivateBrowsing);
+    copyActionPrivateBrowsing->setText(copyActionPrivateBrowsing->text().remove(QLatin1Char('&')));
+    mApp->macDockMenu()->addAction(copyActionPrivateBrowsing);
+    mApp->macDockMenu()->addAction(m_menuFile->actions().at(1));
+    mApp->macDockMenu()->addAction(m_menuFile->actions().at(0));
 #endif
 }
 
@@ -700,6 +711,16 @@ void QupZilla::setupMacMenu()
 
     m_actionPageInfo = m_menuTools->actions().at(1);
     m_actionPrivateBrowsing = m_menuTools->actions().at(9);
+}
+
+void QupZilla::refreshStateOfAllActions()
+{
+    mApp->macMenuReceiver()->aboutToShowFileMenu(m_menuFile);
+    mApp->macMenuReceiver()->aboutToShowHistoryMenu(m_menuHistory);
+    mApp->macMenuReceiver()->aboutToShowBookmarksMenu(m_menuBookmarks);
+    mApp->macMenuReceiver()->aboutToShowViewMenu(m_menuView);
+    mApp->macMenuReceiver()->aboutToShowEditMenu(m_menuEdit);
+    mApp->macMenuReceiver()->aboutToShowToolsMenu(m_menuTools);
 }
 #endif
 
@@ -2122,6 +2143,8 @@ void QupZilla::closeEvent(QCloseEvent* event)
 
         return;
     }
+#else
+    QTimer::singleShot(0, this, SLOT(refreshStateOfAllActions()));
 #endif
 
     mApp->aboutToCloseWindow(this);
