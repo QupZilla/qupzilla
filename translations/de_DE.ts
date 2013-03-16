@@ -3924,12 +3924,12 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="525"/>
         <source>Organize &amp;Bookmarks</source>
-        <translation>Bookmarks &amp;bearbeiten</translation>
+        <translation>Lesezeichen &amp;bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="534"/>
         <source>&amp;Tools</source>
-        <translation>&amp;Werkzeuge</translation>
+        <translation>E&amp;xtras</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="535"/>

@@ -154,7 +154,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="46"/>
         <source>Remove Rule</source>
-        <translation>Правили удаления</translation>
+        <translation>Правила удаления</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="48"/>
@@ -374,7 +374,7 @@
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="51"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Поиск</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="107"/>
@@ -443,22 +443,22 @@
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="69"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Обновление</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="85"/>
         <source>Remember</source>
-        <translation type="unfinished"/>
+        <translation>Запомнить</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="101"/>
         <source>Never For This Site</source>
-        <translation type="unfinished"/>
+        <translation>Никогда для этого сайта</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="117"/>
         <source>Not Now</source>
-        <translation type="unfinished"/>
+        <translation>Не сейчас</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="41"/>
@@ -473,12 +473,12 @@
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="49"/>
         <source>Do you want QupZilla to update saved password %1?</source>
-        <translation type="unfinished"/>
+        <translation>Вы хотите чтобы QupZilla обновил сохранённый пароль %1?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="55"/>
         <source>Do you want QupZilla to remember the password %1 %2?</source>
-        <translation type="unfinished"/>
+        <translation>Вы хотите чтобы QupZilla запомнил пароль %1 %2?</translation>
     </message>
 </context>
 <context>
@@ -487,17 +487,17 @@
         <location filename="../src/lib/autofill/autofillwidget.ui" line="56"/>
         <location filename="../src/lib/autofill/autofillicon.cpp" line="29"/>
         <source>Choose username to login</source>
-        <translation type="unfinished"/>
+        <translation>Выберите имя пользователя для входа</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillwidget.cpp" line="47"/>
         <source>Login</source>
-        <translation type="unfinished"/>
+        <translation>Войти</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillwidget.cpp" line="51"/>
         <source>Login as &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Вошли как  &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
@@ -716,12 +716,12 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="95"/>
         <source>Expand All</source>
-        <translation type="unfinished"/>
+        <translation>Развернуть всё</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="102"/>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Свернуть всё</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="114"/>
@@ -731,7 +731,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="116"/>
         <source>Choose parent folder for new folder: </source>
-        <translation type="unfinished"/>
+        <translation>Выберите директорию для новой папки:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="121"/>
@@ -923,7 +923,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="115"/>
         <source>Move right</source>
-        <translation>Вперед</translation>
+        <translation>Вперёд</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="116"/>
@@ -1357,7 +1357,7 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="312"/>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation type="unfinished"/>
+        <translation>Cookies с этих серверов НИКОГДА не будут приниматься</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="364"/>
@@ -1372,27 +1372,27 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="377"/>
         <source>Allow storing of cookies</source>
-        <translation type="unfinished"/>
+        <translation>Сохранять cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="416"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished"/>
+        <translation>Удалить cookies после закрытия</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
         <source>Match domain exactly</source>
-        <translation type="unfinished"/>
+        <translation>Требовать точное соответствие домена</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished"/>
+        <translation>Фильтрация шпионских Cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Внимание:&lt;/b&gt; Опции &quot;Требовать точное соответствие домена&quot; и &quot;фильтрация шпионских cookies&quot; могут привести к запрещению некторых cookies. Если у вас проблемы с cookies, то попробуйте отключить эти опции!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="71"/>
@@ -1649,7 +1649,7 @@
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="70"/>
         <source>which is a:</source>
-        <translation type="unfinished"/>
+        <translation>которая является:</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="89"/>
@@ -1692,7 +1692,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="27"/>
         <source>Url:</source>
-        <translation>Url:</translation>
+        <translation>Адрес:</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="41"/>
@@ -1764,7 +1764,7 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="453"/>
         <source>Cancelled!</source>
-        <translation type="unfinished"/>
+        <translation>Отменено!</translation>
     </message>
 </context>
 <context>
@@ -1772,7 +1772,7 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="256"/>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"/>
+        <translation>На уровень вверх</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="257"/>
@@ -1798,7 +1798,7 @@
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="274"/>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="275"/>
         <source>Index for %1</source>
-        <translation type="unfinished"/>
+        <translation>Индекс для %1</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="338"/>
@@ -1816,47 +1816,47 @@
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="14"/>
         <source>HTML5 Permissions</source>
-        <translation type="unfinished"/>
+        <translation>Разрешить HTML5</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="24"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Уведомления</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="40"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="94"/>
         <source>Site</source>
-        <translation type="unfinished"/>
+        <translation>Сайт</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="45"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="99"/>
         <source>Behaviour</source>
-        <translation type="unfinished"/>
+        <translation>Поведение</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="68"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="122"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="78"/>
         <source>Geolocation</source>
-        <translation type="unfinished"/>
+        <translation>Местоположение</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="35"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="53"/>
         <source>Allow</source>
-        <translation type="unfinished"/>
+        <translation>Разрешить</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="44"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="62"/>
         <source>Deny</source>
-        <translation type="unfinished"/>
+        <translation>Запретить</translation>
     </message>
 </context>
 <context>
@@ -1864,32 +1864,32 @@
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="62"/>
         <source>Remember</source>
-        <translation type="unfinished"/>
+        <translation>Запомнить</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="69"/>
         <source>Allow</source>
-        <translation type="unfinished"/>
+        <translation>Разрешить</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="76"/>
         <source>Deny</source>
-        <translation type="unfinished"/>
+        <translation>Запретить</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="40"/>
         <source>this site</source>
-        <translation type="unfinished"/>
+        <translation>этот сайт</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="44"/>
         <source>Allow %1 to show desktop notifications?</source>
-        <translation type="unfinished"/>
+        <translation>Разрешить %1 показать уведомления рабочего стола?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="48"/>
         <source>Allow %1 to locate your position?</source>
-        <translation type="unfinished"/>
+        <translation>Разрешить %1 определять Ваше местоположение?</translation>
     </message>
 </context>
 <context>
@@ -2117,42 +2117,42 @@
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="20"/>
         <source>Allow JavaScript to:</source>
-        <translation type="unfinished"/>
+        <translation>Использовать JavaScript на:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="42"/>
         <source>Close windows</source>
-        <translation type="unfinished"/>
+        <translation>Закрыть окно</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="49"/>
         <source>Open popup windows</source>
-        <translation type="unfinished"/>
+        <translation>Открывать всплывающие окна</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="56"/>
         <source>Change window size</source>
-        <translation type="unfinished"/>
+        <translation>Изменять размер окна</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="63"/>
         <source>Hide menu bar</source>
-        <translation type="unfinished"/>
+        <translation>Скрывать панель меню</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="70"/>
         <source>Hide status bar</source>
-        <translation type="unfinished"/>
+        <translation>Скрывать панель статуса</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="77"/>
         <source>Hide tool bar</source>
-        <translation type="unfinished"/>
+        <translation>Скрыть панель инструментов</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="84"/>
         <source>Access clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Доступ к буферу обмена</translation>
     </message>
 </context>
 <context>
@@ -2197,7 +2197,7 @@
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="126"/>
         <source>Switch to tab</source>
-        <translation type="unfinished"/>
+        <translation>Переключить вкладку</translation>
     </message>
 </context>
 <context>
@@ -2205,22 +2205,22 @@
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="942"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla не является браузером по умолчанию. Хотели бы Вы сделать её браузером по умолчанию?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="943"/>
         <source>Always perform this check when starting QupZilla.</source>
-        <translation type="unfinished"/>
+        <translation>Всегда выполнять такую ​​проверку при запуске QupZilla.</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="944"/>
         <source>Default Browser</source>
-        <translation type="unfinished"/>
+        <translation>Браузер по умолчанию</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="964"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla — новый, быстрый и безопасный веб-браузер с открытым исходным кодом. QupZilla распространяется под лицензией GPL версии 3 или (по вашему выбору) любой более поздней версии. Он основан на ядре WebKit и Qt Framework.</translation>
     </message>
 </context>
 <context>
@@ -2238,7 +2238,7 @@
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="82"/>
         <source>Forward</source>
-        <translation>Вперед</translation>
+        <translation>Вперёд</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="98"/>
@@ -2309,7 +2309,7 @@
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="256"/>
         <source>Authorisation required</source>
-        <translation type="unfinished"/>
+        <translation>Необходима авторизация</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="263"/>
@@ -2338,22 +2338,22 @@
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="363"/>
         <source>FTP authorisation required</source>
-        <translation type="unfinished"/>
+        <translation>FTP необходима авторизация</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="376"/>
         <source>Login anonymously</source>
-        <translation type="unfinished"/>
+        <translation>Войти анонимно</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="393"/>
         <source>A username and password are being requested by %1:%2.</source>
-        <translation type="unfinished"/>
+        <translation>Имя пользователя и пароль запрашиваются %1:%2.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="430"/>
         <source>Proxy authorisation required</source>
-        <translation type="unfinished"/>
+        <translation>Прокси сервер требует авторизацию</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="450"/>
@@ -2447,7 +2447,7 @@
     <message>
         <location filename="../src/lib/preferences/pluginsmanager.cpp" line="259"/>
         <source>Cannot load extension!</source>
-        <translation>Не могу загрузить расширение!</translation>
+        <translation>Не удалось загрузить расширение!</translation>
     </message>
 </context>
 <context>
@@ -2455,7 +2455,7 @@
     <message>
         <location filename="../src/lib/popupwindow/popupwebview.cpp" line="97"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"/>
+        <translation>Исследовать элемент</translation>
     </message>
 </context>
 <context>
@@ -2463,107 +2463,107 @@
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="61"/>
         <source>File</source>
-        <translation type="unfinished"/>
+        <translation>Файл</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="62"/>
         <source>&amp;Save Page As...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Сохранить как...</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="63"/>
         <source>Save Page Screen</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить снимок страницы</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="64"/>
         <source>Send Link...</source>
-        <translation type="unfinished"/>
+        <translation>Отправить ссылку</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="65"/>
         <source>&amp;Print...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Печать...</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="67"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="70"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Изменить</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="71"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Отменить</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="72"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Повторить</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="74"/>
         <source>&amp;Cut</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Вырезать</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="75"/>
         <source>C&amp;opy</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Копировать</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="76"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished"/>
+        <translation>Вс&amp;тавить</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="78"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Выделить всё</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="79"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>Найти</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="84"/>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>Вид</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="85"/>
         <source>&amp;Stop</source>
-        <translation type="unfinished"/>
+        <translation>П&amp;рервать</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="87"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Обновить</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="90"/>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"/>
+        <translation>У&amp;величить</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="91"/>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished"/>
+        <translation>У&amp;меньшить</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="92"/>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Восстановить</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="94"/>
         <source>&amp;Page Source</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Исходый код страницы</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="292"/>
@@ -2611,7 +2611,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="116"/>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Сочетания клавиш</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="121"/>
@@ -2760,12 +2760,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="449"/>
         <source>Check to see if QupZilla is the default browser on startup</source>
-        <translation type="unfinished"/>
+        <translation>Проверять при запуске, является ли QupZilla браузером по умолчанию</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="459"/>
         <source>Check Now</source>
-        <translation type="unfinished"/>
+        <translation>Проверить сейчас</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="489"/>
@@ -2810,7 +2810,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="583"/>
         <source>Show Back / Forward buttons</source>
-        <translation>Показать кнопки Вперед/Назад</translation>
+        <translation>Показать кнопки Вперёд/Назад</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="590"/>
@@ -2835,12 +2835,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="631"/>
         <source>Show Reload / Stop buttons</source>
-        <translation type="unfinished"/>
+        <translation>Показывать кнопки Обновить/Стоп</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="650"/>
         <source>Tabs behaviour</source>
-        <translation type="unfinished"/>
+        <translation>Настройка вкладок</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="658"/>
@@ -2870,7 +2870,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="724"/>
         <source>Open new empty tabs after active tab</source>
-        <translation type="unfinished"/>
+        <translation>Открыть новую вкладку после текущей</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="731"/>
@@ -2895,7 +2895,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="773"/>
         <source>Address Bar behaviour</source>
-        <translation type="unfinished"/>
+        <translation>Настройка панели адреса </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="781"/>
@@ -2925,12 +2925,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="836"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</source>
-        <translation type="unfinished"/>
+        <translation>Нажмите кнопку &quot;Shift&quot;, чтобы открыть ссылку в текущей вкладке.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="839"/>
         <source>Propose to switch tab if completed url is already loaded.</source>
-        <translation type="unfinished"/>
+        <translation>Переходить на вкладку, если ссылка полностью загружена.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="846"/>
@@ -2950,7 +2950,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="867"/>
         <source>Search with Default Engine</source>
-        <translation type="unfinished"/>
+        <translation>Искать поисковым плагином по умолчанию</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="890"/>
@@ -2960,27 +2960,27 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="923"/>
         <source>Fill</source>
-        <translation type="unfinished"/>
+        <translation>Заполнять</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="928"/>
         <source>Bottom</source>
-        <translation type="unfinished"/>
+        <translation>Вниз</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="933"/>
         <source>Top</source>
-        <translation type="unfinished"/>
+        <translation>Вверх</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="941"/>
         <source>Custom color:</source>
-        <translation type="unfinished"/>
+        <translation>Пользовательские цвета:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="957"/>
         <source>Select color</source>
-        <translation type="unfinished"/>
+        <translation>Выберите цвет</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="960"/>
@@ -2994,7 +2994,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="967"/>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Восстановить</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1018"/>
@@ -3042,12 +3042,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1075"/>
         <source>Animated scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Плавная прокрутка</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1082"/>
         <source>Enable caret browsing</source>
-        <translation type="unfinished"/>
+        <translation>Включить режим курсора</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1089"/>
@@ -3082,7 +3082,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
         <source>50 MB</source>
-        <translation>50 MB</translation>
+        <translation>50 МБ</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1276"/>
@@ -3102,7 +3102,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1297"/>
         <source>Store cache in:</source>
-        <translation type="unfinished"/>
+        <translation>Хранить кэш в:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1325"/>
@@ -3215,12 +3215,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1671"/>
         <source>Serif</source>
-        <translation>Serif</translation>
+        <translation>С засечками</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1681"/>
         <source>Sans Serif</source>
-        <translation>Sans Serif</translation>
+        <translation>Без засечек</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1691"/>
@@ -3230,7 +3230,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1743"/>
         <source>Fantasy</source>
-        <translation>Fantasy</translation>
+        <translation>Моноширинный</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1750"/>
@@ -3260,12 +3260,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1833"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Ярлыки&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1853"/>
         <source>Switch to tabs with Alt + number of tab</source>
-        <translation type="unfinished"/>
+        <translation>Переключаться на вкладку с Alt + число вкладки</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1860"/>
@@ -3332,7 +3332,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2011"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;%d&lt;/b&gt; будет заменён URL для загрузки</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2037"/>
@@ -3352,7 +3352,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2106"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
-        <translation>&lt;B&gt;Cookies&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2113"/>
@@ -3383,17 +3383,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2173"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2183"/>
         <source>Manage JavaScript privacy options</source>
-        <translation type="unfinished"/>
+        <translation>Управление  JavaScript параметрами конфиденциальности</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2196"/>
         <source>JavaScript options</source>
-        <translation type="unfinished"/>
+        <translation>Параметры JavaScript</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2209"/>
@@ -3403,22 +3403,22 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2232"/>
         <source>Manage Cookies</source>
-        <translation type="unfinished"/>
+        <translation>Управление Cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2252"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Разрешить HTML5&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2259"/>
         <source>Manage HTML5 permissions</source>
-        <translation type="unfinished"/>
+        <translation>Управление HTML5 разрешениями</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2272"/>
         <source>HTML5 Permissions</source>
-        <translation type="unfinished"/>
+        <translation>HTML5 разрешения</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2283"/>
@@ -3484,12 +3484,12 @@
         <location filename="../src/lib/preferences/preferences.cpp" line="110"/>
         <location filename="../src/lib/preferences/preferences.cpp" line="522"/>
         <source>QupZilla is default</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla по умолчанию</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="114"/>
         <source>Make QupZilla default</source>
-        <translation type="unfinished"/>
+        <translation>Сделать QupZilla  по умолчанию</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="506"/>
@@ -3524,7 +3524,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="697"/>
         <source>Choose cache path...</source>
-        <translation type="unfinished"/>
+        <translation>Выберите папку кэша...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="733"/>
@@ -3565,7 +3565,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="1042"/>
         <source>Select Color</source>
-        <translation type="unfinished"/>
+        <translation>Выберите цвет</translation>
     </message>
 </context>
 <context>
@@ -3598,22 +3598,22 @@
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="561"/>
         <source>Executable: </source>
-        <translation type="unfinished"/>
+        <translation>Активные: </translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="562"/>
         <source>Arguments: </source>
-        <translation type="unfinished"/>
+        <translation>Аргументы: </translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="564"/>
         <source>Cannot start external program</source>
-        <translation type="unfinished"/>
+        <translation>Не удаётся запустить внешнюю программу</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="565"/>
         <source>Cannot start external program! %1</source>
-        <translation type="unfinished"/>
+        <translation>Не удаётся запустить внешнюю программу! %1</translation>
     </message>
 </context>
 <context>
@@ -3730,12 +3730,12 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="379"/>
         <source>Send Link...</source>
-        <translation>Послать адрес...</translation>
+        <translation>Отправить ссылку...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="380"/>
         <source>&amp;Print...</source>
-        <translation>&amp;Распечатать...</translation>
+        <translation>&amp;Печать...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="382"/>
@@ -3810,7 +3810,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="432"/>
         <source>&amp;Tabs on Top</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Вкладки сверху</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="435"/>
@@ -3830,12 +3830,12 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="449"/>
         <source>Character &amp;Encoding</source>
-        <translation>&amp;Кодировка символов</translation>
+        <translation>&amp;Кодировка</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="452"/>
         <source>Enable &amp;Caret Browsing</source>
-        <translation type="unfinished"/>
+        <translation>Включить режим курсора</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="462"/>
@@ -3880,7 +3880,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="499"/>
         <source>&amp;Forward</source>
-        <translation>&amp;Вперед</translation>
+        <translation>&amp;Вперёд</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="500"/>
@@ -4234,7 +4234,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
         <source>Load title from page</source>
-        <translation>Загрузить назвние из страницы</translation>
+        <translation>Загрузить название страницы</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
@@ -4717,13 +4717,13 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/other/registerqappassociation.cpp" line="108"/>
         <source>Warning!</source>
-        <translation type="unfinished"/>
+        <translation>Внимание!</translation>
     </message>
     <message>
         <location filename="../src/lib/other/registerqappassociation.cpp" line="109"/>
         <source>There are some problems. Please, reinstall QupZilla.
 Maybe relaunch with administrator right do a magic for you! ;)</source>
-        <translation type="unfinished"/>
+        <translation>Есть некотрые проблемы. Пожалуйста, переустановите QupZilla. ⏎ Может быть запуск с правами администратора приятно удивит Вас! ;)</translation>
     </message>
 </context>
 <context>
@@ -4731,7 +4731,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/rss/rssicon.cpp" line="30"/>
         <source>Add RSS from this page...</source>
-        <translation type="unfinished"/>
+        <translation>Добавить RSS с этой страницы...</translation>
     </message>
 </context>
 <context>
@@ -4851,7 +4851,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="56"/>
         <source>Set as default</source>
-        <translation type="unfinished"/>
+        <translation>Установить по умолчанию</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="63"/>
@@ -4887,12 +4887,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="84"/>
         <source>Remove Engine</source>
-        <translation type="unfinished"/>
+        <translation>Удалить поисковой плагин</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="85"/>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
-        <translation type="unfinished"/>
+        <translation>Вы не можете удалить поиск по умолчанию.&lt;br&gt;Установите другой поисковик перед удалением %1. </translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="102"/>
@@ -5210,7 +5210,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="71"/>
         <source>Load in page</source>
-        <translation type="unfinished"/>
+        <translation>Загрузить страницу</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="72"/>
@@ -5291,12 +5291,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="138"/>
         <source>Source loaded in page</source>
-        <translation type="unfinished"/>
+        <translation>Источник загружен со страницы</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="141"/>
         <source>Cannot load in page. Page has been closed.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось загрузить страницу. Страница была закрыта.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="168"/>
@@ -5331,7 +5331,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="207"/>
         <source>Cannot reload source. Page has been closed.</source>
-        <translation>Не удается загрузить код. Страница была закрыта.</translation>
+        <translation>Не удаётся загрузить код. Страница была закрыта.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="216"/>
@@ -5364,7 +5364,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="88"/>
         <source>Whole words</source>
-        <translation type="unfinished"/>
+        <translation>Всего слов</translation>
     </message>
 </context>
 <context>
@@ -5390,52 +5390,52 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="14"/>
         <source>SpellCheck</source>
-        <translation type="unfinished"/>
+        <translation>Проверять орфографию</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="20"/>
         <source>&lt;b&gt;Dictionary path&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Папка словаря&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="36"/>
         <source>Change...</source>
-        <translation type="unfinished"/>
+        <translation>Изменить...</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="61"/>
         <source>&lt;b&gt;User dictionary&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Пользовательский словарь&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="88"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Добавить</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="95"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="108"/>
         <source>Using Hunspell library</source>
-        <translation type="unfinished"/>
+        <translation>Используйте Hunspell библиотеку</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="70"/>
         <source>Choose dictionary path...</source>
-        <translation type="unfinished"/>
+        <translation>Выберите папку словаря ...</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="80"/>
         <source>Add new word...</source>
-        <translation type="unfinished"/>
+        <translation>Добавить слово...</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="80"/>
         <source>Add new word:</source>
-        <translation type="unfinished"/>
+        <translation>Добавить новое слово:</translation>
     </message>
 </context>
 <context>
@@ -5444,17 +5444,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="189"/>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="339"/>
         <source>No suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Нет предложений</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="192"/>
         <source>Add to dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Добавить словарь</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="344"/>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки</translation>
     </message>
 </context>
 <context>
@@ -5874,7 +5874,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="831"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
-        <translation>Если невозможно загрузить любую страницу, проверьте ваше соединение с Internet.</translation>
+        <translation>Если страницы не загружаются, проверьте своё интернет соединение.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="832"/>
@@ -5932,7 +5932,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="314"/>
         <source>Search when engine changed</source>
-        <translation type="unfinished"/>
+        <translation>Начать поиск когда поисковой плагин изменён</translation>
     </message>
 </context>
 <context>
@@ -5966,7 +5966,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="876"/>
         <source>&amp;Forward</source>
-        <translation>&amp;Вперед</translation>
+        <translation>&amp;Вперёд</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="886"/>
@@ -6026,7 +6026,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="909"/>
         <source>Send page link...</source>
-        <translation>Послать адрес страницы...</translation>
+        <translation>Отправить адрес страницы...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="910"/>
@@ -6076,7 +6076,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="941"/>
         <source>Send link...</source>
-        <translation>Послать адрес...</translation>
+        <translation>Отправить ссылку...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="942"/>
@@ -6106,12 +6106,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="963"/>
         <source>Send image...</source>
-        <translation>Послать изображение...</translation>
+        <translation>Отправить изображение...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="982"/>
         <source>Send text...</source>
-        <translation>Послать текст...</translation>
+        <translation>Отправить текст...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="987"/>
@@ -6166,7 +6166,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1058"/>
         <source>&amp;Send Media Address</source>
-        <translation>&amp;Послать сслыку медиаконтента</translation>
+        <translation>&amp;Отправить ссылку медиаконтента</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1059"/>
@@ -6176,12 +6176,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1068"/>
         <source>Check &amp;Spelling</source>
-        <translation type="unfinished"/>
+        <translation>Проверка &amp;орфографии</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1073"/>
         <source>Languages</source>
-        <translation type="unfinished"/>
+        <translation>Языки</translation>
     </message>
 </context>
 <context>
