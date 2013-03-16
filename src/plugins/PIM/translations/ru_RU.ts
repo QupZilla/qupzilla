@@ -4,82 +4,82 @@
     <message>
         <location filename="../PIM_handler.cpp" line="60"/>
         <source>Last Name</source>
-        <translation type="unfinished"/>
+        <translation>Фамилия</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="61"/>
         <source>First Name</source>
-        <translation type="unfinished"/>
+        <translation>Имя</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="62"/>
         <source>E-mail</source>
-        <translation type="unfinished"/>
+        <translation>E-mail</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="63"/>
         <source>Mobile</source>
-        <translation type="unfinished"/>
+        <translation>Мобильный</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="64"/>
         <source>Phone</source>
-        <translation type="unfinished"/>
+        <translation>Телефон</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="65"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Адрес</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="66"/>
         <source>City</source>
-        <translation type="unfinished"/>
+        <translation>Город</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="67"/>
         <source>ZIP Code</source>
-        <translation type="unfinished"/>
+        <translation>Индекс</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="68"/>
         <source>State/Region</source>
-        <translation type="unfinished"/>
+        <translation>Регион</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="69"/>
         <source>Country</source>
-        <translation type="unfinished"/>
+        <translation>Страна</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="70"/>
         <source>Home Page</source>
-        <translation type="unfinished"/>
+        <translation>Домашняя страница</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="71"/>
         <source>Custom 1</source>
-        <translation type="unfinished"/>
+        <translation>Пользователь 1</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="72"/>
         <source>Custom 2</source>
-        <translation type="unfinished"/>
+        <translation>Пользователь 2</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="73"/>
         <source>Custom 3</source>
-        <translation type="unfinished"/>
+        <translation>Пользователь 3</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="115"/>
         <source>Insert Personal Information</source>
-        <translation type="unfinished"/>
+        <translation>Вставить личную информацию</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="136"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Изменить</translation>
     </message>
 </context>
 <context>
@@ -87,7 +87,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="14"/>
         <source>PIM Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки PIM</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="42"/>
