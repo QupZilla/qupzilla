@@ -286,14 +286,6 @@ MainApplication::MainApplication(int &argc, char** argv)
         int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
         settings.setValue("SessionRestore/isRunning", true);
 
-#ifndef PORTABLE_BUILD
-        bool alwaysCheckDefaultBrowser = settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool();
-        if (alwaysCheckDefaultBrowser) {
-            alwaysCheckDefaultBrowser = checkDefaultWebBrowser();
-            settings.setValue("Web-Browser-Settings/CheckDefaultBrowser", alwaysCheckDefaultBrowser);
-        }
-#endif
-
         if (checkUpdates) {
             new Updater(qupzilla);
         }
@@ -329,6 +321,15 @@ void MainApplication::postLaunch()
 
     connect(this, SIGNAL(messageReceived(QString)), this, SLOT(receiveAppMessage(QString)));
     connect(this, SIGNAL(aboutToQuit()), this, SLOT(saveSettings()));
+
+#ifndef PORTABLE_BUILD
+    Settings settings;
+    bool alwaysCheckDefaultBrowser = settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool();
+    if (alwaysCheckDefaultBrowser) {
+        alwaysCheckDefaultBrowser = checkDefaultWebBrowser();
+        settings.setValue("Web-Browser-Settings/CheckDefaultBrowser", alwaysCheckDefaultBrowser);
+    }
+#endif
 }
 
 void MainApplication::loadSettings()
@@ -951,9 +952,10 @@ bool MainApplication::checkDefaultWebBrowser()
 #ifdef Q_OS_WIN
     bool showAgain = true;
     if (!associationManager()->isDefaultForAllCapabilities()) {
-        CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No);
+        CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, getWindow());
         dialog.setText(tr("QupZilla is not currently your default browser. Would you like to make it your default browser?"));
         dialog.setCheckBoxText(tr("Always perform this check when starting QupZilla."));
+        dialog.setDefaultCheckState(Qt::Checked);
         dialog.setWindowTitle(tr("Default Browser"));
         dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning));
 
