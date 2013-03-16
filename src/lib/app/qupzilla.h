@@ -209,6 +209,9 @@ private slots:
     void restoreAllClosedTabs();
     void clearClosedTabsList();
     void hideNavigationSlot();
+#ifdef Q_OS_MAC
+    void refreshStateOfAllActions();
+#endif
 
 private:
     bool event(QEvent* event);
