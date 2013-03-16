@@ -279,7 +279,7 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
 
     label->setText(tr("A username and password are being requested by %1. "
-                      "The site says: \"%2\"").arg(reply->url().toEncoded(), QzTools::escape(auth->realm())));
+                      "The site says: \"%2\"").arg(reply->url().host(), QzTools::escape(auth->realm())));
     formLa->addRow(label);
 
     formLa->addRow(userLab, user);

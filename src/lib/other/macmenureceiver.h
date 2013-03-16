@@ -44,6 +44,14 @@ public:
     inline QAction* menuBookmarksAction() { return m_menuBookmarksAction; }
     inline void setMenuBookmarksAction(QAction* action) { m_menuBookmarksAction = action; }
 
+public slots:
+    void aboutToShowFileMenu(QMenu* menu = 0);
+    void aboutToShowEditMenu(QMenu* menu = 0);
+    void aboutToShowViewMenu(QMenu* menu = 0);
+    void aboutToShowHistoryMenu(QMenu* menu = 0);
+    void aboutToShowBookmarksMenu(QMenu* menu = 0);
+    void aboutToShowToolsMenu(QMenu* menu = 0);
+
 private:
     void setEnabledSelectedMenuActions(QMenu* menu, const QList<int> indexList = QList<int>());
     void setDisabledSelectedMenuActions(QMenu* menu, const QList<int> indexList = QList<int>());
@@ -66,17 +74,11 @@ private slots:
     void addTab();
     void savePageScreen();
 
-    void aboutToShowFileMenu();
     void aboutToHideFileMenu();
-    void aboutToShowHistoryMenu();
     void aboutToHideHistoryMenu();
     void aboutToShowClosedTabsMenu();
-    void aboutToShowBookmarksMenu();
-    void aboutToShowViewMenu();
     void aboutToHideViewMenu();
-    void aboutToShowEditMenu();
     void aboutToHideEditMenu();
-    void aboutToShowToolsMenu();
     void aboutToHideToolsMenu();
     void aboutToShowEncodingMenu();
 

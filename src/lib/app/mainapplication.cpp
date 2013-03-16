@@ -62,6 +62,7 @@
 #ifdef Q_OS_MAC
 #include "macmenureceiver.h"
 #include <QFileOpenEvent>
+#include <QMenu>
 #endif
 #include <QNetworkDiskCache>
 #include <QDesktopServices>
@@ -114,6 +115,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 #endif
 #ifdef Q_OS_MAC
     , m_macMenuReceiver(0)
+    , m_macDockMenu(0)
 #endif
 {
 #if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
@@ -284,14 +286,6 @@ MainApplication::MainApplication(int &argc, char** argv)
         int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
         settings.setValue("SessionRestore/isRunning", true);
 
-#ifndef PORTABLE_BUILD
-        bool alwaysCheckDefaultBrowser = settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool();
-        if (alwaysCheckDefaultBrowser) {
-            alwaysCheckDefaultBrowser = checkDefaultWebBrowser();
-            settings.setValue("Web-Browser-Settings/CheckDefaultBrowser", alwaysCheckDefaultBrowser);
-        }
-#endif
-
         if (checkUpdates) {
             new Updater(qupzilla);
         }
@@ -327,6 +321,15 @@ void MainApplication::postLaunch()
 
     connect(this, SIGNAL(messageReceived(QString)), this, SLOT(receiveAppMessage(QString)));
     connect(this, SIGNAL(aboutToQuit()), this, SLOT(saveSettings()));
+
+#ifndef PORTABLE_BUILD
+    Settings settings;
+    bool alwaysCheckDefaultBrowser = settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool();
+    if (alwaysCheckDefaultBrowser) {
+        alwaysCheckDefaultBrowser = checkDefaultWebBrowser();
+        settings.setValue("Web-Browser-Settings/CheckDefaultBrowser", alwaysCheckDefaultBrowser);
+    }
+#endif
 }
 
 void MainApplication::loadSettings()
@@ -639,6 +642,17 @@ QupZilla* MainApplication::makeNewWindow(Qz::BrowserWindow type, const QUrl &sta
 }
 
 #ifdef Q_OS_MAC
+extern void qt_mac_set_dock_menu(QMenu* menu);
+
+QMenu* MainApplication::macDockMenu()
+{
+    if (!m_macDockMenu) {
+        m_macDockMenu = new QMenu(0);
+        qt_mac_set_dock_menu(m_macDockMenu);
+    }
+    return m_macDockMenu;
+}
+
 MacMenuReceiver* MainApplication::macMenuReceiver()
 {
     if (!m_macMenuReceiver) {
@@ -938,9 +952,10 @@ bool MainApplication::checkDefaultWebBrowser()
 #ifdef Q_OS_WIN
     bool showAgain = true;
     if (!associationManager()->isDefaultForAllCapabilities()) {
-        CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No);
+        CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, getWindow());
         dialog.setText(tr("QupZilla is not currently your default browser. Would you like to make it your default browser?"));
         dialog.setCheckBoxText(tr("Always perform this check when starting QupZilla."));
+        dialog.setDefaultCheckState(Qt::Checked);
         dialog.setWindowTitle(tr("Default Browser"));
         dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning));
 
@@ -1213,4 +1228,7 @@ QString MainApplication::tempPath() const
 MainApplication::~MainApplication()
 {
     delete m_uaManager;
+#ifdef Q_OS_MAC
+    delete m_macDockMenu;
+#endif
 }
