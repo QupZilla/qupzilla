@@ -2381,17 +2381,6 @@ void QupZilla::moveToVirtualDesktop(int desktopId)
 bool QupZilla::winEvent(MSG* message, long* result)
 {
 #else
-void QupZilla::paintEvent(QPaintEvent* event)
-{
-    if (m_usingTransparentBackground && !m_actionShowFullScreen->isChecked()) {
-        QPainter p(this);
-        p.setCompositionMode(QPainter::CompositionMode_Clear);
-        p.fillRect(event->rect(), QColor(0, 0, 0, 0));
-    }
-
-    QMainWindow::paintEvent(event);
-}
-
 bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* result)
 {
     Q_UNUSED(eventType)
@@ -2439,6 +2428,17 @@ bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* re
 #else
     return QMainWindow::nativeEvent(eventType, _message, result);
 #endif
+}
+
+void QupZilla::paintEvent(QPaintEvent* event)
+{
+    if (m_usingTransparentBackground && !m_actionShowFullScreen->isChecked()) {
+        QPainter p(this);
+        p.setCompositionMode(QPainter::CompositionMode_Clear);
+        p.fillRect(event->rect(), QColor(0, 0, 0, 0));
+    }
+
+    QMainWindow::paintEvent(event);
 }
 
 void QupZilla::applyBlurToMainWindow(bool force)

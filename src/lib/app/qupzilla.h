@@ -235,12 +235,11 @@ private:
 #if (QT_VERSION < 0x050000)
     bool winEvent(MSG* message, long* result);
 #else
-    void paintEvent(QPaintEvent* event);
     bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
 #endif
 
     void applyBlurToMainWindow(bool force = false);
-
+    void paintEvent(QPaintEvent* event);
     bool eventFilter(QObject* object, QEvent* event);
 #endif
 
