@@ -64,35 +64,34 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         return;
     }
 
-//    Updater::Version currentVersion = Updater::parseVersionFromString(current);
-    Updater::Version profileVersion = Updater::parseVersionFromString(profile);
+    Updater::Version prof(profile);
 
-    if (profileVersion == Updater::parseVersionFromString("1.0.0")) {
+    if (prof == Updater::Version("1.0.0")) {
         update100();
         return;
     }
 
-    if (profileVersion == Updater::parseVersionFromString("1.1.0")
-            || profileVersion == Updater::parseVersionFromString("1.1.5")
-            || profileVersion == Updater::parseVersionFromString("1.1.8")) {
+    if (prof == Updater::Version("1.1.0")
+            || prof == Updater::Version("1.1.5")
+            || prof == Updater::Version("1.1.8")) {
         update118();
         return;
     }
 
-    if (profileVersion == Updater::parseVersionFromString("1.2.0")) {
+    if (prof == Updater::Version("1.2.0")) {
         update120();
         return;
     }
 
-    if (profileVersion == Updater::parseVersionFromString("1.3.0")
-            || profileVersion == Updater::parseVersionFromString("1.3.1")) {
+    if (prof == Updater::Version("1.3.0")
+            || prof == Updater::Version("1.3.1")) {
         update130();
         return;
     }
 
     // 1.3.5, 1.4.0 - no changes
-    if (profileVersion == Updater::parseVersionFromString("1.3.5")
-            || profileVersion == Updater::parseVersionFromString("1.4.0")) {
+    if (prof == Updater::Version("1.3.5")
+            || prof == Updater::Version("1.4.0")) {
         return;
     }
 

@@ -27,42 +27,86 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 
+Updater::Version::Version(const QString &s)
+{
+    isValid = false;
+
+    QStringList v = s.split(QLatin1Char('.'));
+    if (v.count() != 3) {
+        return;
+    }
+
+    bool ok;
+
+    majorVersion = v.at(0).toInt(&ok);
+    if (!ok) {
+        return;
+    }
+
+    minorVersion = v.at(1).toInt(&ok);
+    if (!ok) {
+        return;
+    }
+
+    revisionNumber = v.at(2).toInt(&ok);
+    if (!ok) {
+        return;
+    }
+
+    isValid = majorVersion >= 0 && minorVersion >= 0 && revisionNumber >= 0;
+}
+
+bool Updater::Version::operator <(const Updater::Version &other) const
+{
+    if (this->majorVersion != other.majorVersion) {
+        return this->majorVersion < other.majorVersion;
+    }
+    if (this->minorVersion != other.minorVersion) {
+        return this->minorVersion < other.minorVersion;
+    }
+    if (this->revisionNumber != other.revisionNumber) {
+        return this->revisionNumber < other.revisionNumber;
+    }
+
+    return false;
+}
+
+bool Updater::Version::operator >(const Updater::Version &other) const
+{
+    if (*this == other) {
+        return false;
+    }
+    return !operator<(other);
+}
+
+bool Updater::Version::operator ==(const Updater::Version &other) const
+{
+    return (this->majorVersion == other.majorVersion &&
+            this->minorVersion == other.minorVersion &&
+            this->revisionNumber == other.revisionNumber);
+}
+
+bool Updater::Version::operator >=(const Updater::Version &other) const
+{
+    if (*this == other) {
+        return true;
+    }
+    return *this > other;
+}
+
+bool Updater::Version::operator <=(const Updater::Version &other) const
+{
+    if (*this == other) {
+        return true;
+    }
+    return *this < other;
+}
+
 Updater::Updater(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
     , p_QupZilla(mainClass)
 {
     QTimer::singleShot(60 * 1000, this, SLOT(start())); // Start checking after 1 minute
-}
-
-Updater::Version Updater::parseVersionFromString(const QString &string)
-{
-    Version ver;
-    ver.isValid = false;
-
-    QStringList v = string.split(QLatin1Char('.'));
-    if (v.count() != 3) {
-        return ver;
-    }
-
-    bool ok;
-
-    ver.majorVersion = v.at(0).toInt(&ok);
-    if (!ok) {
-        return ver;
-    }
-
-    ver.minorVersion = v.at(1).toInt(&ok);
-    if (!ok) {
-        return ver;
-    }
-
-    ver.revisionNumber = v.at(2).toInt(&ok);
-    if (!ok) {
-        return ver;
-    }
-
-    ver.isValid = true;
-    return ver;
 }
 
 void Updater::start()
@@ -88,8 +132,8 @@ void Updater::downCompleted(QNetworkReply* reply)
 
     if (html.startsWith(QLatin1String("Version:"))) {
         html.remove(QLatin1String("Version:"));
-        Version current = parseVersionFromString(QupZilla::VERSION);
-        Version updated = parseVersionFromString(html);
+        Version current(QupZilla::VERSION);
+        Version updated(html);
 
         if (current.isValid && updated.isValid && current < updated) {
             mApp->desktopNotifications()->showNotification(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));

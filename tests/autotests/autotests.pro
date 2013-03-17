@@ -50,7 +50,8 @@ HEADERS += \
     formcompletertest.h \
     cookiestest.h \
     downloadstest.h \
-    adblocktest.h
+    adblocktest.h \
+    updatertest.h
 
 SOURCES += \
     qztoolstest.cpp \
@@ -58,4 +59,5 @@ SOURCES += \
     formcompletertest.cpp \
     cookiestest.cpp \
     downloadstest.cpp \
-    adblocktest.cpp
+    adblocktest.cpp \
+    updatertest.cpp

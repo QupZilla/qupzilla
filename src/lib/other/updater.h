@@ -40,41 +40,15 @@ public:
         int minorVersion;
         int revisionNumber;
 
-        bool operator<(const Version &other) const {
-            if (this->majorVersion < other.majorVersion)
-                return true;
-            if (this->minorVersion < other.minorVersion)
-                return true;
-            if (this->revisionNumber < other.revisionNumber)
-                return true;
+        Version(const QString &s);
 
-            return false;
-        }
+        bool operator<(const Version &other) const;
+        bool operator>(const Version &other) const;
 
-        bool operator>(const Version &other) const {
-            return !operator<(other);
-        }
-
-        bool operator==(const Version &other) const {
-            return (this->majorVersion == other.majorVersion &&
-                    this->minorVersion == other.minorVersion &&
-                    this->revisionNumber == other.revisionNumber);
-        }
-
-        bool operator>=(const Version &other) const {
-            if (*this == other)
-                return true;
-            return *this > other;
-        }
-
-        bool operator<=(const Version &other) const {
-            if (*this == other)
-                return true;
-            return *this < other;
-        }
+        bool operator==(const Version &other) const;
+        bool operator>=(const Version &other) const;
+        bool operator<=(const Version &other) const;
     };
-
-    static Version parseVersionFromString(const QString &string);
 
 private slots:
     void downCompleted(QNetworkReply* reply);

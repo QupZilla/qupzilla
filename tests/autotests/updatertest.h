@@ -15,37 +15,22 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "qztoolstest.h"
-#include "formcompletertest.h"
-#include "cookiestest.h"
-#include "downloadstest.h"
-#include "adblocktest.h"
-#include "updatertest.h"
+#ifndef UPDATERTEST_H
+#define UPDATERTEST_H
 
-#include <QtTest/QtTest>
+#include <QObject>
 
-int main(int argc, char *argv[])
+class UpdaterTest : public QObject
 {
-    QApplication app(argc, argv);
-    QTEST_DISABLE_KEYPAD_NAVIGATION;
+    Q_OBJECT
 
-    QzToolsTest qzToolsTest;
-    QTest::qExec(&qzToolsTest, argc, argv);
+private slots:
+    void parseVersionsTest_data();
+    void parseVersionsTest();
 
-    FormCompleterTest formCompleterTest;
-    QTest::qExec(&formCompleterTest, argc, argv);
+    void compareVersionsTest_data();
+    void compareVersionsTest();
 
-    CookiesTest cookiesTest;
-    QTest::qExec(&cookiesTest, argc, argv);
+};
 
-    DownloadsTest downloadsTest;
-    QTest::qExec(&downloadsTest, argc, argv);
-
-    AdBlockTest adblockTest;
-    QTest::qExec(&adblockTest, argc, argv);
-
-    UpdaterTest updaterTest;
-    QTest::qExec(&updaterTest, argc, argv);
-
-    return 0;
-}
+#endif // UPDATERTEST_H
