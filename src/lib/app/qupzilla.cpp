@@ -192,8 +192,8 @@ void QupZilla::postLaunch()
         }
         break;
 
-#ifdef Q_OS_MAC
     case Qz::BW_MacFirstWindow:
+#ifdef Q_OS_MAC
         QTimer::singleShot(0, this, SLOT(refreshStateOfAllActions()));
 #endif
     case Qz::BW_NewWindow:
