@@ -101,7 +101,7 @@
 #define MENU_RECEIVER mApp->macMenuReceiver()
 #endif
 
-const QString QupZilla::VERSION = "1.4.0";
+const QString QupZilla::VERSION = "1.5.0";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
 const QString QupZilla::COPYRIGHT = "2010-2013";
@@ -192,8 +192,8 @@ void QupZilla::postLaunch()
         }
         break;
 
-#ifdef Q_OS_MAC
     case Qz::BW_MacFirstWindow:
+#ifdef Q_OS_MAC
         QTimer::singleShot(0, this, SLOT(refreshStateOfAllActions()));
 #endif
     case Qz::BW_NewWindow:
