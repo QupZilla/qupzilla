@@ -100,6 +100,12 @@ void NetworkManager::loadSettings()
     settings.endGroup();
     m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
 
+    // Falling back to Qt 4.7 default behavior, use SslV3 by default
+    // Fixes issue with some older servers closing the connection
+    QSslConfiguration config = QSslConfiguration::defaultConfiguration();
+    config.setProtocol(QSsl::SslV3);
+    QSslConfiguration::setDefaultConfiguration(config);
+
 #if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
     // From doc:
     // QSslSocket::VerifyNone ... The connection will still be encrypted, and your socket
