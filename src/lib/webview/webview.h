@@ -76,6 +76,7 @@ public slots:
     void back();
     void forward();
 
+    void editDelete();
     void selectAll();
     void printPage(QWebFrame* frame = 0);
     void sendPageByMail();

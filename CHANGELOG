@@ -1,3 +1,7 @@
+Version 1.5.0
+    * development version
+    * added delete action in edit context menu on page
+
 Version 1.4.1
     * released 15 March 2013
     * fixed websearchbar not respecting select all on click settings

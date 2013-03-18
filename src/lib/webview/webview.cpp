@@ -352,6 +352,12 @@ void WebView::forward()
     }
 }
 
+void WebView::editDelete()
+{
+    QKeyEvent ev(QEvent::KeyPress, Qt::Key_Delete, Qt::NoModifier);
+    QApplication::sendEvent(this, &ev);
+}
+
 void WebView::selectAll()
 {
     triggerPageAction(QWebPage::SelectAll);
@@ -768,9 +774,13 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         m_actionsInitialized = true;
 
         pageAction(QWebPage::Cut)->setIcon(QIcon::fromTheme("edit-cut"));
+        pageAction(QWebPage::Cut)->setText(tr("Cut"));
         pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
+        pageAction(QWebPage::Copy)->setText(tr("Copy"));
         pageAction(QWebPage::Paste)->setIcon(QIcon::fromTheme("edit-paste"));
+        pageAction(QWebPage::Paste)->setText(tr("Paste"));
         pageAction(QWebPage::SelectAll)->setIcon(QIcon::fromTheme("edit-select-all"));
+        pageAction(QWebPage::SelectAll)->setText(tr("Select All"));
 
         m_actionReload = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
         m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this);
@@ -825,6 +835,11 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
                     }
 
                     menu->addAction(act);
+
+                    if (act == pageAction(QWebPage::Paste)) {
+                        QAction* a = menu->addAction(QIcon::fromTheme("edit-delete"), tr("Delete"), this, SLOT(editDelete()));
+                        a->setEnabled(!selectedText().isEmpty());
+                    }
 
                     ++i;
                 }
