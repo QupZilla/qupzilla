@@ -877,6 +877,7 @@ void Preferences::saveSettings()
     //FONTS
     settings.beginGroup("Browser-Fonts");
     settings.setValue("StandardFont", ui->fontStandard->currentFont().family());
+    settings.setValue("CursiveFont", ui->fontCursive->currentFont().family());
     settings.setValue("FantasyFont", ui->fontFantasy->currentFont().family());
     settings.setValue("FixedFont", ui->fontFixed->currentFont().family());
     settings.setValue("SansSerifFont", ui->fontSansSerif->currentFont().family());
