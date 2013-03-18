@@ -1,5 +1,6 @@
 Version 1.4.2
     * not yet released
+    * fixed saving cursive font in fonts preferences
     * fixed translating edit actions in page context menu
     * fixed connecting to older secured servers by forcing older SSL protocol
     * fixed installing bash completions to correct folder
