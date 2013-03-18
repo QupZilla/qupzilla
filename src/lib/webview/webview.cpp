@@ -20,6 +20,7 @@
 #include "webpage.h"
 #include "mainapplication.h"
 #include "qztools.h"
+#include "qupzilla.h"
 #include "iconprovider.h"
 #include "history.h"
 #include "pluginproxy.h"
@@ -768,9 +769,13 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         m_actionsInitialized = true;
 
         pageAction(QWebPage::Cut)->setIcon(QIcon::fromTheme("edit-cut"));
+        pageAction(QWebPage::Cut)->setText(QupZilla::tr("&Cut"));
         pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
+        pageAction(QWebPage::Copy)->setText(QupZilla::tr("C&opy"));
         pageAction(QWebPage::Paste)->setIcon(QIcon::fromTheme("edit-paste"));
+        pageAction(QWebPage::Paste)->setText(QupZilla::tr("&Paste"));
         pageAction(QWebPage::SelectAll)->setIcon(QIcon::fromTheme("edit-select-all"));
+        pageAction(QWebPage::SelectAll)->setText(QupZilla::tr("Select &All"));
 
         m_actionReload = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
         m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this);
