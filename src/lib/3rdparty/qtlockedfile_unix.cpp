@@ -123,5 +123,7 @@ QtLockedFile::~QtLockedFile()
     if (isOpen()) {
         unlock();
     }
+
+    remove();
 }
 
