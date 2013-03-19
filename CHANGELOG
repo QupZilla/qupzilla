@@ -4,6 +4,7 @@ Version 1.4.2
     * fixed translating edit actions in page context menu
     * fixed connecting to older secured servers by forcing older SSL protocol
     * fixed installing bash completions to correct folder
+    * fixed deleting lockfile upon closing application
     * mac: correctly refreshing state of menus
     * mac: added dock menu with basic actions
 
