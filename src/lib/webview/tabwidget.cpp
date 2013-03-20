@@ -481,7 +481,6 @@ void TabWidget::startTabAnimation(int index)
     }
 
     QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), label);
-    movie->setSpeed(70);
     movie->start();
 
     label->setMovie(movie);
