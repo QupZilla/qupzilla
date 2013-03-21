@@ -1215,8 +1215,9 @@ QString MainApplication::tempPath() const
     if (!dir.exists()) {
 #ifdef QZ_WS_X11
         // Symlink it to standard temporary path /tmp
-        QDir().mkpath(QDir::tempPath() + "/qupzilla-tmp/");
-        QFile::link(QDir::tempPath() + "/qupzilla-tmp/", PROFILEDIR + "tmp");
+        QDir().mkpath(QDir::tempPath() + "/qupzilla/tmp");
+        QFile::remove(PROFILEDIR + "tmp");
+        QFile::link(QDir::tempPath() + "/qupzilla/tmp/", PROFILEDIR + "tmp");
 #else
         dir.mkdir(path);
 #endif
