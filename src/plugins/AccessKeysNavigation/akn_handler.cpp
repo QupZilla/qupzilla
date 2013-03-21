@@ -320,6 +320,13 @@ void AKN_Handler::showAccessKeys()
 void AKN_Handler::hideAccessKeys()
 {
     if (!m_accessKeyLabels.isEmpty() && m_view) {
+        // Fixes crash when hiding labels while closing view
+        if (!m_view->inherits("WebView")) {
+            m_accessKeyLabels.clear();
+            m_accessKeyNodes.clear();
+            return;
+        }
+
         for (int i = 0; i < m_accessKeyLabels.count(); ++i) {
             QLabel* label = m_accessKeyLabels[i];
             label->hide();
