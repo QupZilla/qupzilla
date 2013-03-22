@@ -212,6 +212,9 @@ private slots:
 #ifdef Q_OS_MAC
     void refreshStateOfAllActions();
 #endif
+#ifdef Q_OS_WIN
+    void applyBlurToMainWindow(bool force = false);
+#endif
 
 private:
     bool event(QEvent* event);
@@ -238,7 +241,6 @@ private:
     bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
 #endif
 
-    void applyBlurToMainWindow(bool force = false);
     void paintEvent(QPaintEvent* event);
     bool eventFilter(QObject* object, QEvent* event);
 #endif
@@ -253,6 +255,9 @@ private:
 
     QAction* menuBookmarksAction();
     void setMenuBookmarksAction(QAction* action);
+
+    QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallBack = QKeySequence(),
+                                QKeySequence shortcutRTL = QKeySequence(), QKeySequence fallbackRTL = QKeySequence());
 
     bool m_historyMenuChanged;
     bool m_bookmarksMenuChanged;

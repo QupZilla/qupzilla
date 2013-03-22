@@ -111,7 +111,7 @@ void NetworkManager::loadSettings()
     // QSslSocket::VerifyNone ... The connection will still be encrypted, and your socket
     // will still send its local certificate to the peer if it's requested.
 
-    QSslConfiguration config = QSslConfiguration::defaultConfiguration();
+    config = QSslConfiguration::defaultConfiguration();
     config.setPeerVerifyMode(QSslSocket::VerifyNone);
     QSslConfiguration::setDefaultConfiguration(config);
 
