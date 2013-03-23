@@ -82,9 +82,16 @@ equals(d_use_qtwebkit_2_2, "true") { DEFINES *= USE_QTWEBKIT_2_2 }
 equals(d_disable_dbus, "true") { DEFINES *= DISABLE_DBUS }
 
 !mac:unix {
+    x86libpath = /usr/lib/i386-linux-gnu
+    x64libpath = /usr/lib/x86_64-linux-gnu
+    system_lib_path = /usr/lib
+
+    contains(QMAKE_HOST.arch, x86):exists($$x86libpath) system_lib_path = $$x86libpath
+    contains(QMAKE_HOST.arch, x86_64):exists($$x64libpath) system_lib_path = $$x64libpath
+
     d_prefix = $$(QUPZILLA_PREFIX)
     binary_folder = /usr/bin
-    library_folder = /usr/lib
+    library_folder = $$system_lib_path
     data_folder = /usr/share/qupzilla
     launcher_folder = /usr/share/applications
     icon_folder = /usr/share/pixmaps
@@ -99,11 +106,9 @@ equals(d_disable_dbus, "true") { DEFINES *= DISABLE_DBUS }
         hicolor_folder = "$$d_prefix"share/icons/hicolor
     }
 
-    !equals(d_use_lib_path, "") {
-        library_folder = $$d_use_lib_path
-        DEFINES *= USE_LIBPATH=\\\"""$$d_use_lib_path/"\\\""
-    }
+    !equals(d_use_lib_path, ""):library_folder = $$d_use_lib_path
 
+    DEFINES *= USE_LIBPATH=\\\"""$$library_folder/"\\\""
     DEFINES *= USE_DATADIR=\\\"""$$data_folder/"\\\""
 
     # Git revision
