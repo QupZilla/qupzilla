@@ -84,6 +84,7 @@
 #include <QWebFrame>
 #include <QWebHistory>
 #include <QMessageBox>
+#include <QDesktopWidget>
 
 #if QT_VERSION < 0x050000
 #include "qwebkitversion.h"
@@ -266,17 +267,30 @@ void QupZilla::setupUi()
         setWindowState(Qt::WindowMaximized);
     }
     else {
-        if (!restoreGeometry(settings.value("WindowGeometry").toByteArray())) {
-            setGeometry(QRect(20, 20, 800, 550));
+        // Let the WM decides where to put new browser window
+        if (m_windowType == Qz::BW_NewWindow && mApp->getWindow()) {
+#ifdef Q_WS_WIN
+            // Windows WM places every new window in the middle of screen .. for some reason
+            QPoint p = mApp->getWindow()->geometry().topLeft();
+            p.setX(p.x() + 30);
+            p.setY(p.y() + 30);
+
+            if (!mApp->desktop()->availableGeometry(this).contains(p)) {
+                p.setX(mApp->desktop()->availableGeometry(this).x() + 30);
+                p.setY(mApp->desktop()->availableGeometry(this).y() + 30);
+            }
+            setGeometry(QRect(p, mApp->getWindow()->size()));
+#else
+            resize(mApp->getWindow()->size());
+#endif
         }
-
-        if (m_windowType == Qz::BW_NewWindow) {
-            // Moving window +40 x,y to be visible that this is new window
-            QPoint p = pos();
-            p.setX(p.x() + 40);
-            p.setY(p.y() + 40);
-
-            move(p);
+        else if (!restoreGeometry(settings.value("WindowGeometry").toByteArray())) {
+#ifdef Q_WS_WIN
+            setGeometry(QRect(mApp->desktop()->availableGeometry(this).x() + 30,
+                              mApp->desktop()->availableGeometry(this).y() + 30, 800, 550));
+#else
+            resize(800, 550);
+#endif
         }
     }
 
@@ -822,8 +836,7 @@ void QupZilla::loadSettings()
         m_usingTransparentBackground = true;
 
         QtWin::enableBlurBehindWindow(m_tabWidget->getTabBar(), true);
-        applyBlurToMainWindow();
-        update();
+        QtWin::extendFrameIntoClientArea(this);
 
         //install event filter
         menuBar()->installEventFilter(this);
@@ -893,6 +906,11 @@ void QupZilla::popupToolbarsMenu(const QPoint &pos)
     aboutToShowViewMenu();
     m_toolbarsMenu->exec(pos);
     aboutToHideViewMenu();
+}
+
+bool QupZilla::isTransparentBackgroundAllowed()
+{
+    return m_usingTransparentBackground && !isFullScreen();
 }
 
 void QupZilla::setWindowTitle(const QString &t)
@@ -1547,7 +1565,6 @@ SideBar* QupZilla::addSideBar()
 
 #ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
-        applyBlurToMainWindow();
         m_sideBar.data()->installEventFilter(this);
     }
 #endif
@@ -1643,6 +1660,13 @@ void QupZilla::triggerTabsOnTop(bool enable)
     Settings settings;
     settings.setValue("Browser-Tabs-Settings/TabsOnTop", enable);
     qzSettings->tabsOnTop = enable;
+
+#ifdef Q_OS_WIN
+    // workaround for changing TabsOnTop state when sidebar is visible
+    // TODO: we need a solution that changing TabsOnTop state
+    //       doesn't call applyBlurToMainWindow() from eventFilter()
+    QTimer::singleShot(0, this, SLOT(applyBlurToMainWindow()));
+#endif
 }
 
 void QupZilla::refreshHistory()
@@ -2445,11 +2469,11 @@ void QupZilla::paintEvent(QPaintEvent* event)
 
 void QupZilla::applyBlurToMainWindow(bool force)
 {
-    if (isClosing()) {
+    if (isClosing() || m_isStarting) {
         return;
     }
 
-    if (!force && (m_actionShowFullScreen->isChecked() || !m_usingTransparentBackground)) {
+    if (!force && !isTransparentBackgroundAllowed()) {
         return;
     }
     int topMargin = 0;

@@ -31,7 +31,9 @@
 #include "websearchbar.h"
 #include "settings.h"
 #include "qzsettings.h"
+#include "qtwin.h"
 
+#include <QTimer>
 #include <QMovie>
 #include <QMenu>
 #include <QMimeData>
@@ -282,6 +284,11 @@ int TabWidget::addView(const QUrl &url, const QString &title, const Qz::NewTabPo
 
 int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position)
 {
+#ifdef Q_OS_WIN
+    if (p_QupZilla->isTransparentBackgroundAllowed()) {
+        QtWin::extendFrameIntoClientArea(p_QupZilla);
+    }
+#endif
     QUrl url = req.url();
     m_lastTabIndex = currentIndex();
 
@@ -358,6 +365,9 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         }
     }
 
+#ifdef Q_OS_WIN
+    QTimer::singleShot(0, p_QupZilla, SLOT(applyBlurToMainWindow()));
+#endif
     return index;
 }
 
