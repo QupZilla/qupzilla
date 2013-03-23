@@ -111,6 +111,8 @@ public:
     bool isClosing() { return m_isClosing; }
     QUrl homepageUrl() { return m_homepage; }
 
+    bool isTransparentBackgroundAllowed();
+
 signals:
     void startingCompleted();
     void message(Qz::AppMessageType mes, bool state);

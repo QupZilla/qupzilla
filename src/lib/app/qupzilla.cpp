@@ -836,8 +836,7 @@ void QupZilla::loadSettings()
         m_usingTransparentBackground = true;
 
         QtWin::enableBlurBehindWindow(m_tabWidget->getTabBar(), true);
-        applyBlurToMainWindow();
-        update();
+        QtWin::extendFrameIntoClientArea(this);
 
         //install event filter
         menuBar()->installEventFilter(this);
@@ -907,6 +906,11 @@ void QupZilla::popupToolbarsMenu(const QPoint &pos)
     aboutToShowViewMenu();
     m_toolbarsMenu->exec(pos);
     aboutToHideViewMenu();
+}
+
+bool QupZilla::isTransparentBackgroundAllowed()
+{
+    return m_usingTransparentBackground && !isFullScreen();
 }
 
 void QupZilla::setWindowTitle(const QString &t)
@@ -1561,7 +1565,6 @@ SideBar* QupZilla::addSideBar()
 
 #ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
-        applyBlurToMainWindow();
         m_sideBar.data()->installEventFilter(this);
     }
 #endif
@@ -1657,6 +1660,13 @@ void QupZilla::triggerTabsOnTop(bool enable)
     Settings settings;
     settings.setValue("Browser-Tabs-Settings/TabsOnTop", enable);
     qzSettings->tabsOnTop = enable;
+
+#ifdef Q_OS_WIN
+    // workaround for changing TabsOnTop state when sidebar is visible
+    // TODO: we need a solution that changing TabsOnTop state
+    //       doesn't call applyBlurToMainWindow() from eventFilter()
+    QTimer::singleShot(0, this, SLOT(applyBlurToMainWindow()));
+#endif
 }
 
 void QupZilla::refreshHistory()
@@ -2459,11 +2469,11 @@ void QupZilla::paintEvent(QPaintEvent* event)
 
 void QupZilla::applyBlurToMainWindow(bool force)
 {
-    if (isClosing()) {
+    if (isClosing() || m_isStarting) {
         return;
     }
 
-    if (!force && (m_actionShowFullScreen->isChecked() || !m_usingTransparentBackground)) {
+    if (!force && !isTransparentBackgroundAllowed()) {
         return;
     }
     int topMargin = 0;
