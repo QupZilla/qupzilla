@@ -42,7 +42,7 @@
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
 #include <qpa/qplatformnativeinterface.h>
-#else
+#elif !defined(NO_X11)
 #include <QX11Info>
 #endif
 
@@ -616,7 +616,7 @@ QString QzTools::escape(const QString &string)
 #endif
 }
 
-#ifdef QZ_WS_X11
+#if defined(QZ_WS_X11) && !defined(NO_X11)
 void* QzTools::X11Display(const QWidget* widget)
 {
     Q_UNUSED(widget)
