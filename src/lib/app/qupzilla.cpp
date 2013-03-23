@@ -358,14 +358,9 @@ void QupZilla::setupMenu()
 
     m_actionQuit = new QAction(QIcon::fromTheme("application-exit"), tr("Quit"), 0);
     m_actionQuit->setMenuRole(QAction::QuitRole);
-    QKeySequence quitSequence = QKeySequence(QKeySequence::Quit);
-#ifdef QZ_WS_X11
-    // QKeySequence::Quit returns a non-empty sequence on X11 only when running Gnome or Kde
-    if (quitSequence.isEmpty()) {
-        quitSequence = QKeySequence(Qt::CTRL + Qt::Key_Q);
-    }
-#endif
-    m_actionQuit->setShortcut(quitSequence);
+
+    // QKeySequence::Quit returns an empty sequence on Windows and X11 when running desktop other than Gnome and Kde
+    m_actionQuit->setShortcut(actionShortcut(QKeySequence::Quit, Qt::CTRL + Qt::Key_Q));
     connect(m_actionQuit, SIGNAL(triggered()), MENU_RECEIVER, SLOT(quitApp()));
 
     /*************
@@ -501,8 +496,10 @@ void QupZilla::setupMenu()
      * History Menu *
      ****************/
     m_menuHistory = new Menu(tr("Hi&story"));
-    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowBack), tr("&Back"), MENU_RECEIVER, SLOT(goBack()))->setShortcut(QKeySequence("Ctrl+Left"));
-    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), MENU_RECEIVER, SLOT(goNext()))->setShortcut(QKeySequence("Ctrl+Right"));
+    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowBack), tr("&Back"),
+                             MENU_RECEIVER, SLOT(goBack()))->setShortcut(actionShortcut(QKeySequence::Back, Qt::ALT + Qt::Key_Left, QKeySequence::Forward, Qt::ALT + Qt::Key_Right));
+    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowForward), tr("&Forward"),
+                             MENU_RECEIVER, SLOT(goNext()))->setShortcut(actionShortcut(QKeySequence::Forward, Qt::ALT + Qt::Key_Right, QKeySequence::Back, Qt::ALT + Qt::Key_Left));
     m_menuHistory->addAction(qIconProvider->fromTheme("go-home"), tr("&Home"), MENU_RECEIVER, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
     m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), MENU_RECEIVER, SLOT(showHistoryManager()))->setShortcut(QKeySequence("Ctrl+Shift+H"));
     m_menuHistory->addSeparator();
@@ -651,12 +648,6 @@ void QupZilla::setupOtherActions()
     QShortcut* reloadAction = new QShortcut(QKeySequence("Ctrl+R"), this);
     connect(reloadAction, SIGNAL(activated()), MENU_RECEIVER, SLOT(reload()));
 
-    QShortcut* backAction = new QShortcut(QKeySequence("Alt+Left"), this);
-    connect(backAction, SIGNAL(activated()), MENU_RECEIVER, SLOT(goBack()));
-
-    QShortcut* forwardAction = new QShortcut(QKeySequence("Alt+Right"), this);
-    connect(forwardAction, SIGNAL(activated()), MENU_RECEIVER, SLOT(goNext()));
-
     QShortcut* openLocationAction = new QShortcut(QKeySequence("Alt+D"), this);
     connect(openLocationAction, SIGNAL(activated()), MENU_RECEIVER, SLOT(openLocation()));
 
@@ -665,11 +656,23 @@ void QupZilla::setupOtherActions()
 
     // Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
-    foreach (QAction* action, actions) {
+    for (int i = 0; i < actions.size(); ++i) {
+        QAction* action = actions.at(i);
         if (action->menu()) {
             actions += action->menu()->actions();
         }
         addAction(action);
+    }
+}
+
+QKeySequence QupZilla::actionShortcut(QKeySequence shortcut, QKeySequence fallBack,
+                                      QKeySequence shortcutRTL, QKeySequence fallbackRTL)
+{
+    if (isRightToLeft() && (!shortcutRTL.isEmpty() || !fallbackRTL.isEmpty())) {
+        return (shortcutRTL.isEmpty() ? fallbackRTL : shortcutRTL);
+    }
+    else {
+        return (shortcut.isEmpty() ? fallBack : shortcut);
     }
 }
 
