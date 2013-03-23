@@ -107,14 +107,6 @@ void NetworkManager::loadSettings()
     QSslConfiguration::setDefaultConfiguration(config);
 
 #if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
-    // From doc:
-    // QSslSocket::VerifyNone ... The connection will still be encrypted, and your socket
-    // will still send its local certificate to the peer if it's requested.
-
-    config = QSslConfiguration::defaultConfiguration();
-    config.setPeerVerifyMode(QSslSocket::VerifyNone);
-    QSslConfiguration::setDefaultConfiguration(config);
-
     QString certDir = mApp->PROFILEDIR + "certificates";
     QString bundlePath = certDir + "/ca-bundle.crt";
     QString bundleVersionPath = certDir + "/bundle_version";
