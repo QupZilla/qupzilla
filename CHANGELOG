@@ -1,5 +1,6 @@
 Version 1.5.0
     * development version
+    * added option to open another private window from private window
     * added delete action in edit context menu on page
 
 Version 1.4.1
