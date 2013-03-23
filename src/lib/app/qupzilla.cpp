@@ -89,7 +89,7 @@
 #include "qwebkitversion.h"
 #endif
 
-#ifdef QZ_WS_X11
+#if defined(QZ_WS_X11) && !defined(NO_X11)
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 #endif
@@ -2296,7 +2296,7 @@ void QupZilla::setMenuBookmarksAction(QAction* action)
 
 QByteArray QupZilla::saveState(int version) const
 {
-#ifdef QZ_WS_X11
+#if defined(QZ_WS_X11) && !defined(NO_X11)
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
@@ -2311,7 +2311,7 @@ QByteArray QupZilla::saveState(int version) const
 
 bool QupZilla::restoreState(const QByteArray &state, int version)
 {
-#ifdef QZ_WS_X11
+#if defined(QZ_WS_X11) && !defined(NO_X11)
     QByteArray windowState;
     int desktopId = -1;
 
@@ -2327,7 +2327,7 @@ bool QupZilla::restoreState(const QByteArray &state, int version)
 #endif
 }
 
-#ifdef QZ_WS_X11
+#if defined(QZ_WS_X11) && !defined(NO_X11)
 int QupZilla::getCurrentVirtualDesktop() const
 {
     Display* display = static_cast<Display*>(QzTools::X11Display(this));

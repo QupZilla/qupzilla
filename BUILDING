@@ -127,6 +127,12 @@ Available Defines
 
  Linux / Unix specific defines:
 
+     NO_X11               Disable all direct X11 calls.
+                          Enable when building for Wayland.
+
+                          example:
+                          $ export NO_X11="true"
+
      KDE                  For now, it just use better oxygen icons in Preferences.
                           Nepomuk integration is planned, and it will be enabled with
                           this define also.
