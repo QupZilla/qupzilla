@@ -89,9 +89,8 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         return;
     }
 
-    // 1.3.5, 1.4.0 - no changes
-    if (prof == Updater::Version("1.3.5")
-            || prof == Updater::Version("1.4.0")) {
+    // 1.3.5, 1.4.x = no changes
+    if (prof >= Updater::Version("1.3.5") && prof < Updater::Version("1.5.0")) {
         return;
     }
 
