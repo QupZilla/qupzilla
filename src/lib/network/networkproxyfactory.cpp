@@ -58,25 +58,28 @@ PacManager* NetworkProxyFactory::pacManager() const
 
 QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &query)
 {
-    QNetworkProxy proxy;
+    QList<QNetworkProxy> proxyList;
 
     if (m_proxyExceptions.contains(query.url().host(), Qt::CaseInsensitive)) {
-        return QList<QNetworkProxy>() << QNetworkProxy::NoProxy;
+        proxyList.append(QNetworkProxy::NoProxy);
+        return proxyList;
     }
 
     switch (m_proxyPreference) {
     case SystemProxy:
-        return systemProxyForQuery(query);
+        proxyList.append(systemProxyForQuery(query));
+        break;
 
     case NoProxy:
-        proxy = QNetworkProxy::NoProxy;
+        proxyList.append(QNetworkProxy::NoProxy);
         break;
 
     case ProxyAutoConfig:
-        return m_pacManager->queryProxy(query.url());
+        proxyList.append(m_pacManager->queryProxy(query.url()));
+        break;
 
-    case DefinedProxy:
-        proxy = m_proxyType;
+    case DefinedProxy: {
+        QNetworkProxy proxy(m_proxyType);
 
         if (m_useDifferentProxyForHttps && query.protocolTag() == QLatin1String("https")) {
             proxy.setHostName(m_httpsHostName);
@@ -95,12 +98,18 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
             proxy = QNetworkProxy::NoProxy;
         }
 
+        proxyList.append(proxy);
         break;
+    }
 
     default:
         qWarning("NetworkProxyFactory::queryProxy Unknown proxy type!");
         break;
     }
 
-    return QList<QNetworkProxy>() << proxy;
+    if (!proxyList.contains(QNetworkProxy::NoProxy)) {
+        proxyList.append(QNetworkProxy::NoProxy);
+    }
+
+    return proxyList;
 }
