@@ -212,7 +212,9 @@ SOURCES += \
     navigation/navigationcontainer.cpp \
     tools/horizontallistwidget.cpp \
     tools/mactoolbutton.cpp \
-    tools/actioncopy.cpp
+    tools/actioncopy.cpp \
+    network/pac/proxyautoconfig.cpp \
+    network/pac/pacmanager.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -384,7 +386,10 @@ HEADERS  += \
     tools/horizontallistwidget.h \
     tools/mactoolbutton.h \
     tools/qzregexp.h \
-    tools/actioncopy.h
+    tools/actioncopy.h \
+    network/pac/proxyautoconfig.h \
+    network/pac/pacmanager.h \
+    network/pac/pacdatetime.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

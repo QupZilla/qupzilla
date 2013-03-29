@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -23,17 +23,23 @@
 
 #include "qz_namespace.h"
 
+class PacManager;
+
 class QT_QUPZILLA_EXPORT NetworkProxyFactory : public QNetworkProxyFactory
 {
 public:
-    enum ProxyPreference { SystemProxy, NoProxy, DefinedProxy };
+    enum ProxyPreference { SystemProxy, NoProxy, ProxyAutoConfig, DefinedProxy };
 
     explicit NetworkProxyFactory();
+
     void loadSettings();
+    PacManager* pacManager() const;
 
     QList<QNetworkProxy> queryProxy(const QNetworkProxyQuery &query = QNetworkProxyQuery());
 
 private:
+    PacManager* m_pacManager;
+
     ProxyPreference m_proxyPreference;
     QNetworkProxy::ProxyType m_proxyType;
 

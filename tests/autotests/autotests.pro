@@ -51,7 +51,8 @@ HEADERS += \
     cookiestest.h \
     downloadstest.h \
     adblocktest.h \
-    updatertest.h
+    updatertest.h \
+    pactest.h
 
 SOURCES += \
     qztoolstest.cpp \
@@ -60,4 +61,5 @@ SOURCES += \
     cookiestest.cpp \
     downloadstest.cpp \
     adblocktest.cpp \
-    updatertest.cpp
+    updatertest.cpp \
+    pactest.cpp

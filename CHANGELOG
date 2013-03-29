@@ -1,5 +1,6 @@
 Version 1.5.0
     * development version
+    * added support for Proxy Auto-Config (PAC)
     * added option to open another private window from private window
     * added delete action in edit context menu on page
 

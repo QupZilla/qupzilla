@@ -52,6 +52,8 @@ public:
     void setIgnoreAllWarnings(bool state) { m_ignoreAllWarnings = state; }
     bool isIgnoringAllWarnings() { return m_ignoreAllWarnings; }
 
+    NetworkProxyFactory* proxyFactory() const;
+
     bool registerSchemeHandler(const QString &scheme, SchemeHandler* handler);
 
     void disconnectObjects();

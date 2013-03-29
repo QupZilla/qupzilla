@@ -15,36 +15,43 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "qztoolstest.h"
-#include "formcompletertest.h"
-#include "cookiestest.h"
-#include "downloadstest.h"
-#include "adblocktest.h"
-#include "updatertest.h"
-#include "pactest.h"
+#ifndef PACMANAGER_H
+#define PACMANAGER_H
 
-#include <QtTest/QtTest>
+#include <QObject>
+#include <QList>
+#include <QUrl>
 
-#define RUN_TEST(X) \
-    { \
-    qDebug() << ""; \
-    X t; \
-    int r = QTest::qExec(&t, argc, argv); \
-    if (r != 0) return 1; \
-    }
+#include "qz_namespace.h"
 
-int main(int argc, char *argv[])
+class QNetworkProxy;
+
+class FollowRedirectReply;
+class ProxyAutoConfig;
+
+class QT_QUPZILLA_EXPORT PacManager : public QObject
 {
-    QApplication app(argc, argv);
-    QTEST_DISABLE_KEYPAD_NAVIGATION;
+    Q_OBJECT
+public:
+    explicit PacManager(QObject* parent = 0);
 
-    RUN_TEST(QzToolsTest)
-    RUN_TEST(FormCompleterTest)
-    RUN_TEST(CookiesTest)
-    RUN_TEST(DownloadsTest)
-    RUN_TEST(AdBlockTest)
-    RUN_TEST(UpdaterTest)
-    RUN_TEST(PacTest)
+    void loadSettings();
+    void downloadPacFile();
 
-    return 0;
-}
+    QList<QNetworkProxy> queryProxy(const QUrl &url);
+
+private slots:
+    void replyFinished();
+
+private:
+    void reloadScript();
+    QList<QNetworkProxy> parseProxies(const QString &string);
+
+    ProxyAutoConfig* m_pacrunner;
+    FollowRedirectReply* m_reply;
+
+    bool m_loaded;
+    QUrl m_url;
+};
+
+#endif // PACMANAGER_H

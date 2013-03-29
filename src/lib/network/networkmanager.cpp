@@ -596,6 +596,11 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     }
 }
 
+NetworkProxyFactory* NetworkManager::proxyFactory() const
+{
+    return m_proxyFactory;
+}
+
 bool NetworkManager::registerSchemeHandler(const QString &scheme, SchemeHandler* handler)
 {
     if (m_schemeHandlers.contains(scheme)) {

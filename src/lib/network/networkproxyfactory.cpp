@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,9 +18,11 @@
 #include "networkproxyfactory.h"
 #include "mainapplication.h"
 #include "settings.h"
+#include "pac/pacmanager.h"
 
 NetworkProxyFactory::NetworkProxyFactory()
     : QNetworkProxyFactory()
+    , m_pacManager(new PacManager)
     , m_proxyPreference(SystemProxy)
 {
 }
@@ -45,6 +47,13 @@ void NetworkProxyFactory::loadSettings()
 
     m_proxyExceptions = settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList();
     settings.endGroup();
+
+    m_pacManager->loadSettings();
+}
+
+PacManager* NetworkProxyFactory::pacManager() const
+{
+    return m_pacManager;
 }
 
 QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &query)
@@ -62,6 +71,9 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
     case NoProxy:
         proxy = QNetworkProxy::NoProxy;
         break;
+
+    case ProxyAutoConfig:
+        return m_pacManager->queryProxy(query.url());
 
     case DefinedProxy:
         proxy = m_proxyType;
