@@ -514,10 +514,8 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
 
     req.setRawHeader("Accept-Language", m_acceptLanguage);
 
-    req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-//    if (req.attribute(QNetworkRequest::CacheLoadControlAttribute).toInt() == QNetworkRequest::PreferNetwork) {
-//        req.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
-//    }
+    // #830: Disabling HttpPipeling fixes issue with loading HTML5 videos on YouTube
+    //req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
 
     // Adblock
     if (op == QNetworkAccessManager::GetOperation) {
@@ -530,8 +528,7 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
         }
     }
 
-    reply = QNetworkAccessManager::createRequest(op, req, outgoingData);
-    return reply;
+    return QNetworkAccessManager::createRequest(op, req, outgoingData);
 }
 
 void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
