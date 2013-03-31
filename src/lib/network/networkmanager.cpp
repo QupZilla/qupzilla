@@ -464,7 +464,6 @@ void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthentica
 
 QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
 {
-
     if (op == PostOperation && outgoingData) {
         QByteArray outgoingDataByteArray = outgoingData->peek(1024 * 1024);
         mApp->autoFill()->post(request, outgoingDataByteArray);
