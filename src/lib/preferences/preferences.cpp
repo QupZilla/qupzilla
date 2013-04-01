@@ -54,6 +54,7 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QColorDialog>
+#include <QDesktopWidget>
 
 Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     : QDialog(parent)
@@ -460,6 +461,16 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->version->setText(" QupZilla v" + QupZilla::VERSION);
     ui->listWidget->setCurrentRow(currentSettingsPage);
 
+    QDesktopWidget* desktop = QApplication::desktop();
+    QSize s = size();
+    if (desktop->availableGeometry(this).size().width() < s.width()) {
+        s.setWidth(desktop->availableGeometry(this).size().width() - 50);
+    }
+    if (desktop->availableGeometry(this).size().height() < s.height()) {
+        s.setHeight(desktop->availableGeometry(this).size().height() - 50);
+    }
+    resize(s);
+
 #if QTWEBKIT_TO_2_3
     ui->caretBrowsing->setHidden(true);
     ui->animateScrolling->setHidden(true);
@@ -484,12 +495,6 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     setNotificationPreviewVisible(index == 9);
     if (index == 10) {
         m_pluginsList->load();
-    }
-
-    // Update size
-    QWidget* w = ui->stackedWidget->currentWidget();
-    if (w) {
-        w->setMinimumSize(w->sizeHint());
     }
 }
 
