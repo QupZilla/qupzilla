@@ -256,7 +256,7 @@ void GM_Script::parseScript()
     QString script = fileData.mid(index).trimmed();
 
     script.prepend(m_manager->requireScripts(requireList));
-    script = QString("(function(){%1})();").arg(script);
+    script = QString("(function(){\n%1\n})();").arg(script);
 
     m_script = script;
     m_valid = !script.isEmpty();
