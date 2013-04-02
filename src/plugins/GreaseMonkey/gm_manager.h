@@ -26,6 +26,7 @@ class QUrl;
 class QNetworkRequest;
 
 class GM_Script;
+class GM_JSObject;
 class GM_Settings;
 
 class GM_Manager : public QObject
@@ -71,6 +72,7 @@ private:
     QPointer<GM_Settings> m_settings;
 
     QStringList m_disabledScripts;
+    GM_JSObject* m_jsObject;
     QList<GM_Script*> m_endScripts;
     QList<GM_Script*> m_startScripts;
 };

@@ -14,7 +14,8 @@ SOURCES += gm_plugin.cpp \
     settings/gm_settings.cpp \
     settings/gm_settingslistdelegate.cpp \
     settings/gm_settingsscriptinfo.cpp \
-    settings/gm_settingslistwidget.cpp
+    settings/gm_settingslistwidget.cpp \
+    gm_jsobject.cpp
 
 HEADERS += gm_plugin.h \
     gm_manager.h \
@@ -26,7 +27,8 @@ HEADERS += gm_plugin.h \
     settings/gm_settings.h \
     settings/gm_settingslistdelegate.h \
     settings/gm_settingsscriptinfo.h \
-    settings/gm_settingslistwidget.h
+    settings/gm_settingslistwidget.h \
+    gm_jsobject.h
 
 FORMS += \
     gm_addscriptdialog.ui \

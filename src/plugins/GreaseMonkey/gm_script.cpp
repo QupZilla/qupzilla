@@ -17,13 +17,13 @@
 * ============================================================ */
 #include "gm_script.h"
 #include "gm_manager.h"
+#include "qzregexp.h"
 
 #include <QFile>
-#include "qzregexp.h"
 #include <QStringList>
 #include <QWebFrame>
 #include <QDebug>
-#include <QElapsedTimer>
+#include <QCryptographicHash>
 #include <QFileSystemWatcher>
 
 GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
@@ -255,8 +255,16 @@ void GM_Script::parseScript()
     int index = fileData.indexOf(QLatin1String("// ==/UserScript==")) + 18;
     QString script = fileData.mid(index).trimmed();
 
+    QString jscript("(function(){"
+                    "function GM_getValue(name,val){return GM_getValueImpl('%1',name,val);}"
+                    "function GM_setValue(name,val){return GM_setValueImpl('%1',name,val);}"
+                    "function GM_deleteValue(name){return GM_deleteValueImpl('%1',name);}"
+                    "function GM_listValues(){return GM_listValuesImpl('%1');}"
+                    "\n%2\n})();");
+    QString nspace = QCryptographicHash::hash(fullName().toUtf8(), QCryptographicHash::Md4).toHex();
+
     script.prepend(m_manager->requireScripts(requireList));
-    script = QString("(function(){%1})();").arg(script);
+    script = jscript.arg(nspace, script);
 
     m_script = script;
     m_valid = !script.isEmpty();

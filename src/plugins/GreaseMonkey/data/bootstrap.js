@@ -67,6 +67,31 @@ if(typeof GM_openInTab === "undefined") {
     }
 }
 
+// GM Settings Impl
+if(typeof GM_getValueImpl === "undefined") {
+    function GM_getValueImpl(namespace, name, value) {
+        return window._qz_greasemonkey.getValue(namespace, name, value);
+    }
+}
+
+if(typeof GM_setValueImpl === "undefined") {
+    function GM_setValueImpl(namespace, name, value) {
+        window._qz_greasemonkey.setValue(namespace, name, value);
+    }
+}
+
+if(typeof GM_deleteValueImpl === "undefined") {
+    function GM_deleteValueImpl(namespace, name) {
+        window._qz_greasemonkey.deleteValue(namespace, name);
+    }
+}
+
+if(typeof GM_listValuesImpl === "undefined") {
+    function GM_listValuesImpl(namespace) {
+        return window._qz_greasemonkey.listValues(namespace);
+    }
+}
+
 // Define unsafe window
 var unsafeWindow = window;
 window.wrappedJSObject = unsafeWindow;
@@ -86,26 +111,5 @@ if(typeof GM_getResourceText === "undefined") {
 if(typeof GM_getResourceURL === "undefined") {
     function GM_getResourceURL(resourceName) {
         throw ("QupZilla: GM Resource is not supported!");
-    }
-}
-
-// GM Settings not supported
-if(typeof GM_getValue === "undefined") {
-    function GM_getValue(name, defaultValue) {
-        return defaultValue;
-    }
-}
-
-if(typeof GM_setValue === "undefined") {
-    function GM_setValue(name, value) { }
-}
-
-if(typeof GM_deleteValue === "undefined") {
-    function GM_deleteValue(name) { }
-}
-
-if(typeof GM_listValues === "undefined") {
-    function GM_listValues() {
-        return new Array("");
     }
 }
