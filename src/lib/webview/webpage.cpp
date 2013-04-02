@@ -35,6 +35,7 @@
 #include "iconprovider.h"
 #include "qzsettings.h"
 #include "useragentmanager.h"
+#include "delayedfilewatcher.h"
 #include "recoverywidget.h"
 #include "html5permissions/html5permissionsmanager.h"
 #include "schemehandlers/fileschemehandler.h"
@@ -50,7 +51,6 @@
 #include <QDir>
 #include <QMouseEvent>
 #include <QWebHistory>
-#include <QFileSystemWatcher>
 #include <QTimer>
 #include <QNetworkReply>
 #include <QDebug>
@@ -233,8 +233,8 @@ void WebPage::finished()
         QFileInfo info(url().toLocalFile());
         if (info.isFile()) {
             if (!m_fileWatcher) {
-                m_fileWatcher = new QFileSystemWatcher(this);
-                connect(m_fileWatcher, SIGNAL(fileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
+                m_fileWatcher = new DelayedFileWatcher(this);
+                connect(m_fileWatcher, SIGNAL(delayedFileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
             }
 
             const QString &filePath = url().toLocalFile();

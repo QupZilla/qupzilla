@@ -25,10 +25,11 @@
 #include <QUrl>
 
 class QWebFrame;
-class QFileSystemWatcher;
 
 class GM_Manager;
 class GM_UrlMatcher;
+
+class DelayedFileWatcher;
 
 class GM_Script : public QObject
 {
@@ -67,7 +68,7 @@ private:
     void parseScript();
 
     GM_Manager* m_manager;
-    QFileSystemWatcher* m_fileWatcher;
+    DelayedFileWatcher* m_fileWatcher;
 
     QString m_name;
     QString m_namespace;

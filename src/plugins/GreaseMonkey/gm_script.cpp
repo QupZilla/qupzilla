@@ -17,25 +17,26 @@
 * ============================================================ */
 #include "gm_script.h"
 #include "gm_manager.h"
+#include "qzregexp.h"
+#include "delayedfilewatcher.h"
 
 #include <QFile>
-#include "qzregexp.h"
 #include <QStringList>
 #include <QWebFrame>
 #include <QDebug>
-#include <QElapsedTimer>
-#include <QFileSystemWatcher>
+#include <QCryptographicHash>
 
 GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
     : QObject(manager)
     , m_manager(manager)
-    , m_fileWatcher(new QFileSystemWatcher(this))
+    , m_fileWatcher(new DelayedFileWatcher(this))
+    , m_namespace("GreaseMonkeyNS")
+    , m_startAt(DocumentEnd)
     , m_fileName(filePath)
 {
     parseScript();
 
-    connect(m_fileWatcher, SIGNAL(fileChanged(QString)),
-            this, SLOT(watchedFileChanged(QString)));
+    connect(m_fileWatcher, SIGNAL(delayedFileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
 }
 
 bool GM_Script::isValid() const
@@ -153,6 +154,12 @@ void GM_Script::watchedFileChanged(const QString &file)
 
 void GM_Script::parseScript()
 {
+    QFile file(m_fileName);
+    if (!file.open(QFile::ReadOnly)) {
+        qWarning() << "GreaseMonkey: Cannot open file for reading" << m_fileName;
+        return;
+    }
+
     m_name.clear();
     m_namespace = "GreaseMonkeyNS";
     m_description.clear();
@@ -163,12 +170,6 @@ void GM_Script::parseScript()
     m_startAt = DocumentEnd;
     m_enabled = true;
     m_valid = false;
-
-    QFile file(m_fileName);
-    if (!file.open(QFile::ReadOnly)) {
-        qWarning() << "GreaseMonkey: Cannot open file for reading" << m_fileName;
-        return;
-    }
 
     if (!m_fileWatcher->files().contains(m_fileName)) {
         m_fileWatcher->addPath(m_fileName);

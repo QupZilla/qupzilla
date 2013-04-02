@@ -26,7 +26,6 @@
 #include "autofill.h"
 
 class QWebSecurityOrigin;
-class QFileSystemWatcher;
 class QEventLoop;
 
 class QupZilla;
@@ -34,6 +33,7 @@ class AdBlockRule;
 class TabbedWebView;
 class SpeedDial;
 class NetworkManagerProxy;
+class DelayedFileWatcher;
 
 class QT_QUPZILLA_EXPORT WebPage : public QWebPage
 {
@@ -132,7 +132,7 @@ private:
     NetworkManagerProxy* m_networkProxy;
     TabbedWebView* m_view;
     SpeedDial* m_speedDial;
-    QFileSystemWatcher* m_fileWatcher;
+    DelayedFileWatcher* m_fileWatcher;
     QEventLoop* m_runningLoop;
 
     QSslCertificate m_sslCert;
