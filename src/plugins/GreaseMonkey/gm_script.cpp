@@ -30,7 +30,11 @@ GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
     : QObject(manager)
     , m_manager(manager)
     , m_fileWatcher(new QFileSystemWatcher(this))
+    , m_namespace("GreaseMonkeyNS")
+    , m_startAt(DocumentEnd)
     , m_fileName(filePath)
+    , m_enabled(true)
+    , m_valid(false)
 {
     parseScript();
 
@@ -146,6 +150,10 @@ void GM_Script::watchedFileChanged(const QString &file)
     if (m_fileName == file) {
         parseScript();
 
+        if (!isValid()) {
+            return;
+        }
+
         m_manager->removeScript(this, false);
         m_manager->addScript(this);
     }
@@ -153,6 +161,12 @@ void GM_Script::watchedFileChanged(const QString &file)
 
 void GM_Script::parseScript()
 {
+    QFile file(m_fileName);
+    if (!file.open(QFile::ReadOnly)) {
+        qWarning() << "GreaseMonkey: Cannot open file for reading" << m_fileName;
+        return;
+    }
+
     m_name.clear();
     m_namespace = "GreaseMonkeyNS";
     m_description.clear();
@@ -163,12 +177,6 @@ void GM_Script::parseScript()
     m_startAt = DocumentEnd;
     m_enabled = true;
     m_valid = false;
-
-    QFile file(m_fileName);
-    if (!file.open(QFile::ReadOnly)) {
-        qWarning() << "GreaseMonkey: Cannot open file for reading" << m_fileName;
-        return;
-    }
 
     if (!m_fileWatcher->files().contains(m_fileName)) {
         m_fileWatcher->addPath(m_fileName);

@@ -139,7 +139,7 @@ void GM_Manager::disableScript(GM_Script* script)
 
 bool GM_Manager::addScript(GM_Script* script)
 {
-    if (!script) {
+    if (!script || !script->isValid()) {
         return false;
     }
 
