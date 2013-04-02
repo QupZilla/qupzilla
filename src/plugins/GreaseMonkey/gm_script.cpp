@@ -17,19 +17,20 @@
 * ============================================================ */
 #include "gm_script.h"
 #include "gm_manager.h"
+
 #include "qzregexp.h"
+#include "delayedfilewatcher.h"
 
 #include <QFile>
 #include <QStringList>
 #include <QWebFrame>
 #include <QDebug>
 #include <QCryptographicHash>
-#include <QFileSystemWatcher>
 
 GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
     : QObject(manager)
     , m_manager(manager)
-    , m_fileWatcher(new QFileSystemWatcher(this))
+    , m_fileWatcher(new DelayedFileWatcher(this))
     , m_namespace("GreaseMonkeyNS")
     , m_startAt(DocumentEnd)
     , m_fileName(filePath)
@@ -38,8 +39,7 @@ GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
 {
     parseScript();
 
-    connect(m_fileWatcher, SIGNAL(fileChanged(QString)),
-            this, SLOT(watchedFileChanged(QString)));
+    connect(m_fileWatcher, SIGNAL(delayedFileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
 }
 
 bool GM_Script::isValid() const
@@ -149,10 +149,6 @@ void GM_Script::watchedFileChanged(const QString &file)
 {
     if (m_fileName == file) {
         parseScript();
-
-        if (!isValid()) {
-            return;
-        }
 
         m_manager->removeScript(this, false);
         m_manager->addScript(this);

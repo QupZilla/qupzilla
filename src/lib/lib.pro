@@ -214,7 +214,8 @@ SOURCES += \
     tools/mactoolbutton.cpp \
     tools/actioncopy.cpp \
     network/pac/proxyautoconfig.cpp \
-    network/pac/pacmanager.cpp
+    network/pac/pacmanager.cpp \
+    tools/delayedfilewatcher.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -389,7 +390,8 @@ HEADERS  += \
     tools/actioncopy.h \
     network/pac/proxyautoconfig.h \
     network/pac/pacmanager.h \
-    network/pac/pacdatetime.h
+    network/pac/pacdatetime.h \
+    tools/delayedfilewatcher.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
