@@ -68,6 +68,7 @@ public:
     bool sendMessage(const QString &message, int timeout);
     QString applicationId() const
     { return id; }
+    void removeLockedFile();
 
 Q_SIGNALS:
     void messageReceived(const QString &message);

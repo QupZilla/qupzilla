@@ -178,6 +178,10 @@ bool QtLocalPeer::sendMessage(const QString &message, int timeout)
     return res;
 }
 
+void QtLocalPeer::removeLockedFile()
+{
+    lockFile.remove();
+}
 
 void QtLocalPeer::receiveConnection()
 {
