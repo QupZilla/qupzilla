@@ -990,6 +990,14 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
 
     if (!fileName.isEmpty()) {
         s_lastUploadLocation = fileName;
+
+        // Check if we can read from file
+        QFile file(fileName);
+        if (!file.open(QFile::ReadOnly)) {
+            const QString &msg = tr("Cannot read data from <b>%1</b>. Upload was cancelled!").arg(fileName);
+            QMessageBox::critical(view(), tr("Cannot read file!"), msg);
+            return QString();
+        }
     }
 
     return fileName;
