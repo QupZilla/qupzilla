@@ -277,6 +277,11 @@ QWidget* QtSingleApplication::activationWindow() const
     return actWin;
 }
 
+void QtSingleApplication::removeLockedFile()
+{
+    peer->removeLockedFile();
+}
+
 
 /*!
   De-minimizes, raises, and activates this application's activation window.
