@@ -109,11 +109,11 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 #ifdef Q_OS_WIN
     ui->checkDefaultBrowser->setChecked(settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool());
     if (mApp->associationManager()->isDefaultForAllCapabilities()) {
-        ui->checkNowDefaultBrowser->setText(tr("QupZilla is default"));
+        ui->checkNowDefaultBrowser->setText(tr("Default"));
         ui->checkNowDefaultBrowser->setEnabled(false);
     }
     else {
-        ui->checkNowDefaultBrowser->setText(tr("Make QupZilla default"));
+        ui->checkNowDefaultBrowser->setText(tr("Set as default"));
         ui->checkNowDefaultBrowser->setEnabled(true);
         connect(ui->checkNowDefaultBrowser, SIGNAL(clicked()), this, SLOT(makeQupZillaDefault()));
     }
@@ -530,7 +530,7 @@ void Preferences::makeQupZillaDefault()
 #ifdef Q_OS_WIN
     disconnect(ui->checkNowDefaultBrowser, SIGNAL(clicked()), this, SLOT(makeQupZillaDefault()));
     mApp->associationManager()->registerAllAssociation();
-    ui->checkNowDefaultBrowser->setText(tr("QupZilla is default"));
+    ui->checkNowDefaultBrowser->setText(tr("Default"));
     ui->checkNowDefaultBrowser->setEnabled(false);
 #endif
 }

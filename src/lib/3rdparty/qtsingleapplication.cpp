@@ -277,7 +277,7 @@ QWidget* QtSingleApplication::activationWindow() const
     return actWin;
 }
 
-void QtSingleApplication::removeLockedFile()
+void QtSingleApplication::removeLockFile()
 {
     peer->removeLockedFile();
 }

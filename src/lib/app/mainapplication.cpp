@@ -747,7 +747,7 @@ void MainApplication::quitApplication()
     //
     //  * this can occur on Mac OS (see #157)
 
-    removeLockedFile();
+    removeLockFile();
     quit();
 }
 
