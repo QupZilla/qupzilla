@@ -22,8 +22,25 @@
 #include <QStringList>
 
 #include "qz_namespace.h"
+#include "qzregexp.h"
 
 class PacManager;
+
+class WildcardMatcher
+{
+public:
+    explicit WildcardMatcher(const QString &pattern = QString());
+    ~WildcardMatcher();
+
+    void setPattern(const QString &pattern);
+    QString pattern() const;
+
+    bool match(const QString &str) const;
+
+private:
+    QString m_pattern;
+    QzRegExp* m_regExp;
+};
 
 class QT_QUPZILLA_EXPORT NetworkProxyFactory : public QNetworkProxyFactory
 {
@@ -31,6 +48,7 @@ public:
     enum ProxyPreference { SystemProxy, NoProxy, ProxyAutoConfig, DefinedProxy };
 
     explicit NetworkProxyFactory();
+    ~NetworkProxyFactory();
 
     void loadSettings();
     PacManager* pacManager() const;
@@ -53,7 +71,7 @@ private:
     QString m_httpsUsername;
     QString m_httpsPassword;
 
-    QStringList m_proxyExceptions;
+    QList<WildcardMatcher*> m_proxyExceptions;
     bool m_useDifferentProxyForHttps;
 };
 

@@ -20,6 +20,46 @@
 #include "settings.h"
 #include "pac/pacmanager.h"
 
+WildcardMatcher::WildcardMatcher(const QString &pattern)
+    : m_regExp(0)
+{
+    setPattern(pattern);
+}
+
+WildcardMatcher::~WildcardMatcher()
+{
+    delete m_regExp;
+}
+
+void WildcardMatcher::setPattern(const QString &pattern)
+{
+    m_pattern = pattern;
+
+    if (m_pattern.contains(QLatin1Char('?')) || m_pattern.contains(QLatin1Char('*'))) {
+        QString regexp = m_pattern;
+        regexp.replace(QLatin1Char('.'), QLatin1String("\\."))
+        .replace(QLatin1Char('*'), QLatin1String(".*"))
+        .replace(QLatin1Char('?'), QLatin1Char('.'));
+        regexp = QString("^.*%1.*$").arg(regexp);
+
+        m_regExp = new QzRegExp(regexp, Qt::CaseInsensitive);
+    }
+}
+
+QString WildcardMatcher::pattern() const
+{
+    return m_pattern;
+}
+
+bool WildcardMatcher::match(const QString &str) const
+{
+    if (!m_regExp) {
+        return str.contains(m_pattern, Qt::CaseInsensitive);
+    }
+
+    return m_regExp->indexIn(str) > -1;
+}
+
 NetworkProxyFactory::NetworkProxyFactory()
     : QNetworkProxyFactory()
     , m_pacManager(new PacManager)
@@ -45,8 +85,15 @@ void NetworkProxyFactory::loadSettings()
     m_httpsUsername = settings.value("HttpsUsername", QString()).toString();
     m_httpsPassword = settings.value("HttpsPassword", QString()).toString();
 
-    m_proxyExceptions = settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList();
+    QStringList exceptions = settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList();
     settings.endGroup();
+
+    qDeleteAll(m_proxyExceptions);
+    m_proxyExceptions.clear();
+
+    foreach (const QString &exception, exceptions) {
+        m_proxyExceptions.append(new WildcardMatcher(exception.trimmed()));
+    }
 
     m_pacManager->loadSettings();
 }
@@ -60,18 +107,22 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
 {
     QList<QNetworkProxy> proxyList;
 
-    if (m_proxyExceptions.contains(query.url().host(), Qt::CaseInsensitive)) {
+    if (m_proxyPreference == NoProxy) {
         proxyList.append(QNetworkProxy::NoProxy);
         return proxyList;
+    }
+
+    const QString &urlHost = query.url().host();
+    foreach (WildcardMatcher* m, m_proxyExceptions) {
+        if (m->match(urlHost)) {
+            proxyList.append(QNetworkProxy::NoProxy);
+            return proxyList;
+        }
     }
 
     switch (m_proxyPreference) {
     case SystemProxy:
         proxyList.append(systemProxyForQuery(query));
-        break;
-
-    case NoProxy:
-        proxyList.append(QNetworkProxy::NoProxy);
         break;
 
     case ProxyAutoConfig:
@@ -112,4 +163,9 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
     }
 
     return proxyList;
+}
+
+NetworkProxyFactory::~NetworkProxyFactory()
+{
+    qDeleteAll(m_proxyExceptions);
 }
