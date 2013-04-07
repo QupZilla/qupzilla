@@ -225,6 +225,12 @@ bool WebView::hasRss() const
     return m_hasRss;
 }
 
+QWebElement WebView::activeElement() const
+{
+    QRect activeRect = inputMethodQuery(Qt::ImMicroFocus).toRect();
+    return page()->mainFrame()->hitTestContent(activeRect.center()).element();
+}
+
 bool WebView::isUrlValid(const QUrl &url)
 {
     const QString &urlScheme = url.scheme();

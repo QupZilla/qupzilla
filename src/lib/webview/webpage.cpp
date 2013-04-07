@@ -186,6 +186,12 @@ bool WebPage::containsRejectedCerts(const QList<QSslCertificate> &certs)
     return matches == certs.count();
 }
 
+QWebElement WebPage::activeElement() const
+{
+    QRect activeRect = inputMethodQuery(Qt::ImMicroFocus).toRect();
+    return mainFrame()->hitTestContent(activeRect.center()).element();
+}
+
 bool WebPage::isRunningLoop()
 {
     return m_runningLoop;

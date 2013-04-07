@@ -78,6 +78,7 @@ public:
     void addRejectedCerts(const QList<QSslCertificate> &certs);
     bool containsRejectedCerts(const QList<QSslCertificate> &certs);
 
+    QWebElement activeElement() const;
     QString userAgentForUrl(const QUrl &url) const;
 
     static bool isPointerSafeToUse(WebPage* page);

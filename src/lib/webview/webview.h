@@ -49,6 +49,7 @@ public:
     void fakeLoadingProgress(int progress);
 
     bool hasRss() const;
+    QWebElement activeElement() const;
 
     void addNotification(QWidget* notif);
     bool eventFilter(QObject* obj, QEvent* event);
