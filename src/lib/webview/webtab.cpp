@@ -365,7 +365,7 @@ void WebTab::disconnectObjects()
 
 WebTab::~WebTab()
 {
-    if (m_navigationContainer && qzSettings->tabsOnTop) {
+    if (m_navigationContainer && qzSettings->tabsOnTop && !mApp->isClosing()) {
         m_layout->removeWidget(m_navigationContainer);
 
         // Needed to prevent flickering when closing tabs
