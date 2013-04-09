@@ -1229,7 +1229,20 @@ void WebView::keyPressEvent(QKeyEvent* event)
         return;
     }
 
-    switch (event->key()) {
+    int eventKey = event->key();
+
+    bool rightOrLeft = eventKey == Qt::Key_Left || eventKey == Qt::Key_Right;
+    if (rightOrLeft) {
+        const QWebElement &elementHasCursor = activeElement();
+        if (!elementHasCursor.isNull()) {
+            bool isRTL =  elementHasCursor.styleProperty("direction", QWebElement::ComputedStyle) == QLatin1String("rtl");
+            if (isRTL) {
+                eventKey = eventKey == Qt::Key_Left ? Qt::Key_Right : Qt::Key_Left;
+            }
+        }
+    }
+
+    switch (eventKey) {
     case Qt::Key_C:
         if (event->modifiers() == Qt::ControlModifier) {
             triggerPageAction(QWebPage::Copy);
@@ -1318,6 +1331,8 @@ void WebView::keyPressEvent(QKeyEvent* event)
         break;
     }
 
+    event = new QKeyEvent(event->type(), eventKey, event->modifiers(),
+                          event->text(), event->isAutoRepeat());
     QWebView::keyPressEvent(event);
 }
 
