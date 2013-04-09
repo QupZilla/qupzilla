@@ -626,6 +626,9 @@ void QupZilla::setupMenu()
     m_superMenu->addAction(new ActionCopy(m_actionPreferences, this));
 
     m_superMenu->addSeparator();
+    ActionCopy* copyActionPrivateBrowsing = new ActionCopy(m_menuTools->actions().at(9));
+    copyActionPrivateBrowsing->setVisible(mApp->isPrivateSession() ? false : true);
+    m_superMenu->addAction(copyActionPrivateBrowsing);
     m_superMenu->addMenu(m_menuView);
     m_superMenu->addMenu(m_menuHistory);
     m_superMenu->addMenu(m_menuBookmarks);
