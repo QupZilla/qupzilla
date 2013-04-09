@@ -382,7 +382,7 @@ void QupZilla::setupMenu()
      *************/
     m_menuFile = new QMenu(tr("&File"));
     m_menuFile->addAction(QIcon(":/icons/menu/new-tab.png"), tr("New Tab"), MENU_RECEIVER, SLOT(addTab()))->setShortcut(QKeySequence("Ctrl+T"));
-    m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("&New Window"), MENU_RECEIVER, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
+    m_menuFile->addAction((mApp->isPrivateSession() ? QIcon(":/icons/locationbar/privatebrowsing.png") : QIcon::fromTheme("window-new")), tr("&New Window"), MENU_RECEIVER, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
     m_menuFile->addAction(QIcon::fromTheme("document-open-remote"), tr("Open Location"), MENU_RECEIVER, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
     m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File..."), MENU_RECEIVER, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
     m_menuFile->addAction(tr("Close Tab"), MENU_RECEIVER, SLOT(closeTab()))->setShortcut(QKeySequence("Ctrl+W"));
@@ -560,8 +560,9 @@ void QupZilla::setupMenu()
     m_menuTools->addAction(QIcon(":/icons/menu/rss.png"), tr("RSS &Reader"), MENU_RECEIVER,  SLOT(showRSSManager()));
     m_menuTools->addAction(tr("Web In&spector"), MENU_RECEIVER, SLOT(showWebInspector()))->setShortcut(QKeySequence("Ctrl+Shift+I"));
     m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), MENU_RECEIVER, SLOT(showClearPrivateData()))->setShortcut(QKeySequence("Ctrl+Shift+Del"));
-    m_actionPrivateBrowsing = new QAction(mApp->isPrivateSession() ? tr("New &Private Browsing Window") : tr("&Private Browsing"), MENU_RECEIVER);
+    m_actionPrivateBrowsing = new QAction(QIcon(":/icons/locationbar/privatebrowsing.png"), tr("&Private Browsing"), MENU_RECEIVER);
     m_actionPrivateBrowsing->setShortcut(QKeySequence("Ctrl+Shift+P"));
+    m_actionPrivateBrowsing->setVisible(mApp->isPrivateSession() ? false : true);
     connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), mApp, SLOT(startPrivateBrowsing()));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
