@@ -1,30 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="cs_CZ" sourcelanguage="en_US">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs_CZ" version="2.0">
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="../testplugin.cpp" line="112"/>
+        <location filename="../testplugin.cpp" line="116"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="123"/>
+        <location filename="../testplugin.cpp" line="127"/>
         <source>Example Plugin Settings</source>
         <translation>Nastavení ukázkového doplňku</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="149"/>
+        <location filename="../testplugin.cpp" line="155"/>
         <source>My first plugin action</source>
         <translation>Moje první akce z doplňku</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="164"/>
+        <location filename="../testplugin.cpp" line="170"/>
         <source>Hello</source>
         <translation>Ahoj</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="164"/>
+        <location filename="../testplugin.cpp" line="170"/>
         <source>First plugin action works :-)</source>
         <translation>První akce funguje :-)</translation>
     </message>

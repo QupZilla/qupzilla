@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  Alexander Samilovskih <alexsamilovskih@gmail.com>
+* Copyright (C) 2010-2013  Alexander Samilovskih <alexsamilovskih@gmail.com>
 *                          David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -21,7 +21,10 @@
 
 #include <QFrame>
 #include <QTimeLine>
+
+#ifdef ENABLE_OPACITY_EFFECT
 #include <QGraphicsOpacityEffect>
+#endif
 
 class QupZilla;
 class WebTab;
@@ -48,8 +51,10 @@ public slots:
     void show();
 
 private slots:
-    void setOpacity(int opacity);
     void setAnimationFrame(int frame);
+#ifdef ENABLE_OPACITY_EFFECT
+    void setOpacity(int opacity);
+#endif
 
 protected:
     void paintEvent(QPaintEvent* pe);
@@ -66,8 +71,10 @@ private:
     int m_previewIndex;
     bool m_animationsEnabled;
 
+#ifdef ENABLE_OPACITY_EFFECT
     QTimeLine m_opacityTimeLine;
     QGraphicsOpacityEffect m_opacityEffect;
+#endif
 
     QTimeLine m_animation;
     QRect m_startGeometry;

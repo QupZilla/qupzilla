@@ -18,6 +18,7 @@
 #include "gm_manager.h"
 #include "gm_script.h"
 #include "gm_downloader.h"
+#include "gm_jsobject.h"
 #include "settings/gm_settings.h"
 
 #include "webpage.h"
@@ -34,6 +35,7 @@
 GM_Manager::GM_Manager(const QString &sPath, QObject* parent)
     : QObject(parent)
     , m_settingsPath(sPath)
+    , m_jsObject(new GM_JSObject(this))
 {
     QTimer::singleShot(0, this, SLOT(load()));
 }
@@ -75,7 +77,7 @@ QString GM_Manager::requireScripts(const QStringList &urlList) const
 
     QString script;
 
-    foreach(const QString & url, urlList) {
+    foreach (const QString &url, urlList) {
         if (settings.contains(url)) {
             const QString &fileName = settings.value(url).toString();
             script.append(QzTools::readAllFileContents(fileName).trimmed() + '\n');
@@ -107,13 +109,13 @@ QList<GM_Script*> GM_Manager::allScripts() const
 
 bool GM_Manager::containsScript(const QString &fullName) const
 {
-    foreach(GM_Script * script, m_startScripts) {
+    foreach (GM_Script* script, m_startScripts) {
         if (fullName == script->fullName()) {
             return true;
         }
     }
 
-    foreach(GM_Script * script, m_endScripts) {
+    foreach (GM_Script* script, m_endScripts) {
         if (fullName == script->fullName()) {
             return true;
         }
@@ -137,7 +139,7 @@ void GM_Manager::disableScript(GM_Script* script)
 
 bool GM_Manager::addScript(GM_Script* script)
 {
-    if (!script) {
+    if (!script || !script->isValid()) {
         return false;
     }
 
@@ -197,16 +199,18 @@ void GM_Manager::pageLoadStart()
         return;
     }
 
-    foreach(GM_Script * script, m_startScripts) {
+    frame->addToJavaScriptWindowObject("_qz_greasemonkey", m_jsObject);
+
+    foreach (GM_Script* script, m_startScripts) {
         if (script->match(urlString)) {
             frame->evaluateJavaScript(m_bootstrap + script->script());
         }
     }
 
-    foreach(GM_Script * script, m_endScripts) {
+    foreach (GM_Script* script, m_endScripts) {
         if (script->match(urlString)) {
             const QString &jscript = QString("window.addEventListener(\"DOMContentLoaded\","
-                                             "function(e) { %1 }, false);").arg(m_bootstrap + script->script());
+                                             "function(e) { \n%1\n }, false);").arg(m_bootstrap + script->script());
             frame->evaluateJavaScript(jscript);
         }
     }
@@ -227,9 +231,14 @@ void GM_Manager::load()
     settings.beginGroup("GreaseMonkey");
     m_disabledScripts = settings.value("disabledScripts", QStringList()).toStringList();
 
-    foreach(const QString & fileName, gmDir.entryList(QStringList("*.js"), QDir::Files)) {
+    foreach (const QString &fileName, gmDir.entryList(QStringList("*.js"), QDir::Files)) {
         const QString &absolutePath = gmDir.absoluteFilePath(fileName);
         GM_Script* script = new GM_Script(this, absolutePath);
+
+        if (!script->isValid()) {
+            delete script;
+            continue;
+        }
 
         if (m_disabledScripts.contains(script->fullName())) {
             script->setEnabled(false);
@@ -244,6 +253,7 @@ void GM_Manager::load()
     }
 
     m_bootstrap = QzTools::readAllFileContents(":gm/data/bootstrap.min.js");
+    m_jsObject->setSettingsFile(m_settingsPath + "extensions.ini");
 }
 
 bool GM_Manager::canRunOnScheme(const QString &scheme)

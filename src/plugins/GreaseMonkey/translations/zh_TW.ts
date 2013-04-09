@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="zh_TW">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_TW" version="2.0">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -65,7 +63,7 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="172"/>
+        <location filename="../gm_manager.cpp" line="183"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
@@ -121,12 +119,12 @@
         <translation>開啟腳本目錄</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="68"/>
+        <location filename="../settings/gm_settings.cpp" line="75"/>
         <source>Remove script</source>
         <translation>移除此腳本</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="69"/>
+        <location filename="../settings/gm_settings.cpp" line="76"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>您確定您想要移除&apos;%1&apos;?</translation>
     </message>

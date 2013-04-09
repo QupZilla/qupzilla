@@ -1,8 +1,7 @@
 /*************************************
- * Chrome Theme v0.4                 *
+ * Chrome Theme                      *
  * Author: nowrep                    *
  * Based on: Firefox Chromifox Theme *
- * Last updated: 04.11.2011          *
  *************************************/
 
 *[html-link-look="true"]
@@ -173,6 +172,12 @@ IconProvider
 {
     margin-bottom: 1px;
     qproperty-pixmap: url(images/navigation-dropdown.png);
+}
+
+#locationbar-autofillicon
+{
+    margin-bottom: 1px;
+    qproperty-pixmap: url(images/key.png);
 }
 
 /*BookmarksToolbar*/

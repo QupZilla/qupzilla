@@ -1,6 +1,6 @@
 /* ============================================================
 * Personal Information Manager plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 * Copyright (C) 2012  Mladen Pejaković <pejakm@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -155,7 +155,7 @@ bool PIM_Handler::keyPress(WebView* view, QKeyEvent* event)
     const QWebElement &document = view->page()->mainFrame()->documentElement();
     const QWebElementCollection elements = document.findAll("input[type=\"text\"]");
 
-    foreach(QWebElement element, elements) {
+    foreach (QWebElement element, elements) {
         const QString &name = element.attribute("name");
         if (name.isEmpty()) {
             continue;
@@ -206,7 +206,7 @@ void PIM_Handler::pageLoadFinished()
     const QWebElement &document = page->mainFrame()->documentElement();
     const QWebElementCollection elements = document.findAll("input[type=\"text\"]");
 
-    foreach(QWebElement element, elements) {
+    foreach (QWebElement element, elements) {
         const QString &name = element.attribute("name");
         if (name.isEmpty()) {
             continue;
@@ -224,7 +224,7 @@ PIM_Handler::PI_Type PIM_Handler::nameMatch(const QString &name)
 {
     for (int i = 0; i < PI_Max; ++i) {
         if (!m_allInfo[PI_Type(i)].isEmpty()) {
-            foreach(const QString & n, m_infoMatches[PI_Type(i)]) {
+            foreach (const QString &n, m_infoMatches[PI_Type(i)]) {
                 if (name == n) {
                     return PI_Type(i);
                 }

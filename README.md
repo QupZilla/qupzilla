@@ -37,7 +37,18 @@ Compiling
 ----------------------------------------------------------------------------------------
 
 Before you start compiling, make sure that you have installed the Qt (>=4.7) development libraries
-and you have read the BUILDING information.
+and you have read the BUILDING information.  
+
+**Linux**  
+
+ * pkg-config is optional (to correctly detect versions of QtWebKit)
+ * pkg-config is required for Hunspell spellcheck
+ * Hunspell development package for spellcheck
+ * QtWebKit 2.3 is needed to have support for spellcheck
+ 
+**Windows**  
+ * QtWebKit 2.3 is required
+ * Hunspell library is required for spellcheck
 
 Then you can start compiling by running this commands:
 
@@ -56,17 +67,10 @@ On Mac OS X: To deploy QupZilla in bundle, run this command:
 
 You need to specify path to `macdeployqt` only if it is not in PATH.
 
-If you see errors like
-```
-webview/webpage.cpp: error: no ‘void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin*, quint64)’ member function declared in class ‘WebPage’
-webview/webpage.cpp: error: no ‘void WebPage::featurePermissionRequested(QWebFrame*, const QWebPage::Feature&)’ member function declared in class ‘WebPage’
-```
-run `qmake -r DEFINES+=USE_QTWEBKIT_2_2 && make` to fix it.
-
 Current version
 ----------------------------------------------------------------------------------------
 
-The current released version of QupZilla is 1.3.5. You can download precompiled packages
+The current stable version of QupZilla is 1.4.1. You can download precompiled packages
 and the sources from the download section at [homepage](http://www.qupzilla.com/download).
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:

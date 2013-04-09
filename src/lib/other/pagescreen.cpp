@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -86,7 +86,7 @@ void PageScreen::saveScreen()
     }
     else {
         int part = 1;
-        foreach(const QImage & image, m_pageImages) {
+        foreach (const QImage &image, m_pageImages) {
             const QString &fileName = pathWithoutSuffix + ".part" + QString::number(part);
             image.save(fileName + ".png", "PNG");
             part++;
@@ -164,10 +164,10 @@ void PageScreen::createThumbnail()
 
 QImage PageScreen::scaleImage()
 {
-    QList<QImage> scaledImages;
+    QVector<QImage> scaledImages;
     int sumHeight = 0;
 
-    foreach(const QImage & image, m_pageImages) {
+    foreach (const QImage &image, m_pageImages) {
         QImage scaled = image.scaledToWidth(450, Qt::SmoothTransformation);
 
         scaledImages.append(scaled);
@@ -178,7 +178,7 @@ QImage PageScreen::scaleImage()
     QPainter painter(&finalImage);
 
     int offset = 0;
-    foreach(const QImage & image, scaledImages) {
+    foreach (const QImage &image, scaledImages) {
         painter.drawImage(0, offset, image);
         offset += image.height();
     }

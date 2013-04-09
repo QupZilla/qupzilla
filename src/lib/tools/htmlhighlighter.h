@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -62,6 +62,7 @@
 #include <QTextCharFormat>
 
 #include "qz_namespace.h"
+#include "qzregexp.h"
 
 class QTextDocument;
 
@@ -75,14 +76,14 @@ protected:
 
 private:
     struct HighlightingRule {
-        QRegExp pattern;
+        QzRegExp pattern;
         QTextCharFormat format;
     };
 
     QVector<HighlightingRule> highlightingRules;
 
-    QRegExp commentStartExpression;
-    QRegExp commentEndExpression;
+    QzRegExp commentStartExpression;
+    QzRegExp commentEndExpression;
 
     QTextCharFormat tagFormat;
     QTextCharFormat tagOptionsFormat;

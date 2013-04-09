@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -32,14 +32,13 @@ class BookmarksWidget;
 class WebView;
 class SpeedDial;
 class BookmarksModel;
-class QupZilla;
 class BookmarksTree;
 
 class QT_QUPZILLA_EXPORT BookmarksWidget : public LocationBarPopup
 {
     Q_OBJECT
 public:
-    explicit BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* parent = 0);
+    explicit BookmarksWidget(WebView* view, QWidget* parent = 0);
     ~BookmarksWidget();
 
 signals:
@@ -56,7 +55,6 @@ private:
     void loadBookmark();
 
     Ui::BookmarksWidget* ui;
-    QupZilla* p_QupZilla;
     QUrl m_url;
     int m_bookmarkId;
 

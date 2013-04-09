@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="ja_JP">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja_JP" version="2.0">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -11,27 +9,27 @@
     <message>
         <location filename="../gm_addscriptdialog.ui" line="51"/>
         <source>&lt;h3&gt;GreaseMonkey Installation&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;GreaseMonkeyのインストール&lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;GreaseMonkeyのインストール&lt;h3&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="73"/>
         <source>You are about to install this userscript into GreaseMonkey:</source>
-        <translation>GreaseMonkeyスクリプトをダウンロードしようとしています:</translation>
+        <translation>あなたはこのスクリプトをGreaseMonkeyにインストールしようとしています:</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="86"/>
         <source>&lt;b&gt;You should only install scripts from sources you trust!&lt;/b&gt;</source>
-        <translation>&lt;b&gt;信頼できるソースからのみスクリプトをインストールしてください!&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;信頼できるソースからのみインストールしてください！&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="96"/>
         <source>Are you sure you want to install it?</source>
-        <translation>本当にこのスクリプトをインストールしますか?</translation>
+        <translation>本当にインストールしますか？</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="114"/>
         <source>Show source code of script</source>
-        <translation>スクリプトのソースを表示する</translation>
+        <translation>スクリプトのソースコードを表示</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="48"/>
@@ -59,13 +57,13 @@
     <message>
         <location filename="../gm_downloader.cpp" line="144"/>
         <source>&apos;%1&apos; is already installed</source>
-        <translation>&apos;%1&apos;は既にインストールされています</translation>
+        <translation>&apos;%1&apos;は既にインストール済みです</translation>
     </message>
 </context>
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="172"/>
+        <location filename="../gm_manager.cpp" line="183"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
@@ -113,7 +111,7 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="153"/>
         <source>More scripts can be downloaded from</source>
-        <translation>より多くのスクリプトは以下からダウンロードできます</translation>
+        <translation>さらに多くのスクリプトが以下からインストールできます</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="196"/>
@@ -121,12 +119,12 @@
         <translation>スクリプトの保存されたフォルダを開く</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="68"/>
+        <location filename="../settings/gm_settings.cpp" line="75"/>
         <source>Remove script</source>
         <translation>スクリプトを削除する</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="69"/>
+        <location filename="../settings/gm_settings.cpp" line="76"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>本当&apos;%1&apos;を削除してよろしいですか?</translation>
     </message>
@@ -136,7 +134,7 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
         <source>Name:</source>
-        <translation>Name:</translation>
+        <translation>名前:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="29"/>
@@ -151,27 +149,27 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="49"/>
         <source>Start at:</source>
-        <translation>Beginnen bei:</translation>
+        <translation>Start at:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="59"/>
         <source>Description:</source>
-        <translation>説明:</translation>
+        <translation>説明</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="69"/>
         <source>Runs at:</source>
-        <translation>実行するページ:</translation>
+        <translation>実行するページ</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="79"/>
         <source>Does not run at:</source>
-        <translation>実行しないページ:</translation>
+        <translation>実行しないページ</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.cpp" line="27"/>
         <source>Script Details of %1</source>
-        <translation>%1の詳細を表示する</translation>
+        <translation>%1 の詳細</translation>
     </message>
 </context>
 </TS>

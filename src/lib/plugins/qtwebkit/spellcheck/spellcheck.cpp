@@ -20,22 +20,17 @@
 
 #include "spellcheck.h"
 #include "speller.h"
+#include "mainapplication.h"
 
 SpellCheck::SpellCheck()
     : QWebSpellChecker()
-    , m_speller(0)
+    , m_speller(mApp->speller())
 {
-    m_speller = new Speller();
-
-    if (!m_speller->initialize()) {
-        delete m_speller;
-        m_speller = 0;
-    }
 }
 
 bool SpellCheck::isContinousSpellCheckingEnabled() const
 {
-    return true;
+    return mApp->speller()->isEnabled();
 }
 
 void SpellCheck::toggleContinousSpellChecking()
@@ -55,7 +50,7 @@ void SpellCheck::ignoreWordInSpellDocument(const QString &word)
 void SpellCheck::checkSpellingOfString(const QString &word,
                                        int* misspellingLocation, int* misspellingLength)
 {
-    if (misspellingLocation == NULL || misspellingLength == NULL || !m_speller) {
+    if (misspellingLocation == NULL || misspellingLength == NULL) {
         return;
     }
 
@@ -74,7 +69,7 @@ void SpellCheck::checkSpellingOfString(const QString &word,
         if (endOfWord(boundary, finder.type()) && inWord) {
             end = finder.position();
             QString str = finder.string().mid(start, end - start);
-            if (isValidWord(str)) {
+            if (Speller::isValidWord(str)) {
                 if (m_speller->isMisspelled(str)) {
                     *misspellingLocation = start;
                     *misspellingLength = end - start;
@@ -138,21 +133,6 @@ void SpellCheck::checkGrammarOfString(const QString &, QList<GrammarDetail> &,
     Q_UNUSED(badGrammarLength);
 }
 
-bool SpellCheck::isValidWord(const QString &str)
-{
-    if (str.isEmpty() || (str.length() == 1 && !str[0].isLetter())) {
-        return false;
-    }
-    const int length = str.length();
-    for (int i = 0; i < length; ++i) {
-        if (!str[i].isNumber()) {
-            return true;
-        }
-    }
-    // 'str' only contains numbers
-    return false;
-}
-
 bool SpellCheck::endOfWord(const QTextBoundaryFinder::BoundaryReasons &reasons,
                            const QTextBoundaryFinder::BoundaryType &type)
 {
@@ -175,9 +155,4 @@ bool SpellCheck::startOfWord(const QTextBoundaryFinder::BoundaryReasons &reasons
     return (reasons & QTextBoundaryFinder::StartOfItem) &&
            (type & QTextBoundaryFinder::Word);
 #endif
-}
-
-SpellCheck::~SpellCheck()
-{
-    delete m_speller;
 }

@@ -21,15 +21,12 @@ General
 Microsoft Windows
 ----------------------------------------------------------------------------------
 
-  You need Microsoft Visual C++ Compiler 2008 or higher and Qt Libraries 4.7.0
-  or higher in order to build QupZilla.
-  Building with Microsoft Visual C++ Compiler 2010 is possible only with Qt 4.8.0
-  and higher. If you try to compile with Qt 4.7, you will get random crashes when
-  running QupZilla.
-  Building with MingW is perhaps possible too, but MingW QtWebKit crashes with
-  every Flash, so MingW is not officially supported.
-  If you don't meet this, please use precompiled version, which is also in smart
-  windows installer.
+  You need Microsoft Visual C++ Compiler 2010 or higher, Qt Libraries 4.8.0
+  or higher, QtWebKit 2.3 or higher and Hunspell library in order to build QupZilla.
+  It is possible, with small changes, to build also with older Microsoft compilers
+  or without Hunspell spellchecking.
+  However, it is not expected from Windows users to build their software, so only
+  one configuration is supported by default.
 
 Linux / Unix
 ----------------------------------------------------------------------------------
@@ -84,6 +81,7 @@ Available Defines
    USE_WEBGL              Enable WebGL. You need to build QupZilla with WebKit built
                           with WebGL support, otherwise you won't be able to compile
                           without errors.
+                          Only for QtWebKit lower than 2.3
                           (disabled by default)
 
                           example:
@@ -102,6 +100,16 @@ Available Defines
                           example:
                           $ export NONBLOCK_JS_DIALOGS="true"
 
+   ENABLE_OPACITY_EFFECT  Enable opacity effect on animated tab previews. Tab previews
+                          will then fade-in on show.
+                          However, this feature may result in wrong scrolling into
+                          anchor (#) links. Rendering of opacity effect may also be
+                          garbled due to Flash.
+                          (disabled by default)
+
+                          example:
+                          $ export ENABLE_OPACITY_EFFECT="true"
+
 
  Windows specific defines:
 
@@ -118,6 +126,12 @@ Available Defines
 
 
  Linux / Unix specific defines:
+
+     NO_X11               Disable all direct X11 calls.
+                          Enable when building for Wayland.
+
+                          example:
+                          $ export NO_X11="true"
 
      KDE                  For now, it just use better oxygen icons in Preferences.
                           Nepomuk integration is planned, and it will be enabled with

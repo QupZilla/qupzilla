@@ -46,6 +46,7 @@
 #include "useragentdialog.h"
 #include "registerqappassociation.h"
 #include "html5permissions/html5permissionsdialog.h"
+#include "pac/pacmanager.h"
 
 #include <QSettings>
 #include <QInputDialog>
@@ -53,6 +54,7 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QColorDialog>
+#include <QDesktopWidget>
 
 Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     : QDialog(parent)
@@ -107,11 +109,11 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 #ifdef Q_OS_WIN
     ui->checkDefaultBrowser->setChecked(settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool());
     if (mApp->associationManager()->isDefaultForAllCapabilities()) {
-        ui->checkNowDefaultBrowser->setText(tr("QupZilla is default"));
+        ui->checkNowDefaultBrowser->setText(tr("Default"));
         ui->checkNowDefaultBrowser->setEnabled(false);
     }
     else {
-        ui->checkNowDefaultBrowser->setText(tr("Make QupZilla default"));
+        ui->checkNowDefaultBrowser->setText(tr("Set as default"));
         ui->checkNowDefaultBrowser->setEnabled(true);
         connect(ui->checkNowDefaultBrowser, SIGNAL(clicked()), this, SLOT(makeQupZillaDefault()));
     }
@@ -162,7 +164,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->startProfile->addItem(actProfileName);
     QDir profilesDir(mApp->PROFILEDIR + "profiles/");
     QStringList list_ = profilesDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-    foreach(const QString & name, list_) {
+    foreach (const QString &name, list_) {
         if (actProfileName == name) {
             continue;
         }
@@ -262,8 +264,10 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->allowCache->setChecked(settings.value("AllowLocalCache", true).toBool());
     ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
     ui->MBlabel->setText(settings.value("LocalCacheSize", 50).toString() + " MB");
+    ui->cachePath->setText(settings.value("CachePath", QString("%1networkcache/").arg(mApp->currentProfilePath())).toString());
     connect(ui->allowCache, SIGNAL(clicked(bool)), this, SLOT(allowCacheChanged(bool)));
     connect(ui->cacheMB, SIGNAL(valueChanged(int)), this, SLOT(cacheValueChanged(int)));
+    connect(ui->changeCachePath, SIGNAL(clicked()), this, SLOT(changeCachePathClicked()));
     allowCacheChanged(ui->allowCache->isChecked());
 
     //PASSWORD MANAGER
@@ -371,19 +375,19 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //OTHER
     //Languages
-    QString activeLanguage;
-    if (!mApp->currentLanguage().isEmpty()) {
-        activeLanguage = mApp->currentLanguage();
+    QString activeLanguage = mApp->currentLanguage();
+    if (!activeLanguage.isEmpty() && activeLanguage != QLatin1String("en_US")) {
         QLocale locale(activeLanguage);
         QString country = QLocale::countryToString(locale.country());
         QString language = QLocale::languageToString(locale.language());
         ui->languages->addItem(language + ", " + country + " (" + activeLanguage + ")", activeLanguage);
     }
+
     ui->languages->addItem("English (en_US)");
 
     QDir lanDir(mApp->TRANSLATIONSDIR);
     QStringList list = lanDir.entryList(QStringList("*.qm"));
-    foreach(const QString & name, list) {
+    foreach (const QString &name, list) {
         if (name.startsWith(QLatin1String("qt_"))) {
             continue;
         }
@@ -409,6 +413,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->systemProxy->setChecked(proxyPreference == NetworkProxyFactory::SystemProxy);
     ui->noProxy->setChecked(proxyPreference == NetworkProxyFactory::NoProxy);
     ui->manualProxy->setChecked(proxyPreference == NetworkProxyFactory::DefinedProxy);
+    ui->pacProxy->setChecked(proxyPreference == NetworkProxyFactory::ProxyAutoConfig);
     if (proxyType == QNetworkProxy::HttpProxy) {
         ui->proxyType->setCurrentIndex(0);
     }
@@ -427,14 +432,18 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->httpsProxyUsername->setText(settings.value("HttpsUsername", "").toString());
     ui->httpsProxyPassword->setText(settings.value("HttpsPassword", "").toString());
 
+    ui->pacUrl->setText(settings.value("PacUrl", QUrl()).toUrl().toString());
     ui->proxyExceptions->setText(settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList().join(","));
     settings.endGroup();
 
     useDifferentProxyForHttpsChanged(ui->useHttpsProxy->isChecked());
     setManualProxyConfigurationEnabled(proxyPreference == NetworkProxyFactory::DefinedProxy);
+    setProxyAutoConfigEnabled(proxyPreference == NetworkProxyFactory::ProxyAutoConfig);
 
     connect(ui->manualProxy, SIGNAL(toggled(bool)), this, SLOT(setManualProxyConfigurationEnabled(bool)));
+    connect(ui->pacProxy, SIGNAL(toggled(bool)), this, SLOT(setProxyAutoConfigEnabled(bool)));
     connect(ui->useHttpsProxy, SIGNAL(toggled(bool)), this, SLOT(useDifferentProxyForHttpsChanged(bool)));
+    connect(ui->reloadPac, SIGNAL(clicked()), this, SLOT(reloadPacFileClicked()));
 
     //CONNECTS
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
@@ -446,11 +455,21 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->uaManager, SIGNAL(clicked()), this, SLOT(openUserAgentManager()));
     connect(ui->jsOptionsButton, SIGNAL(clicked()), this, SLOT(openJsOptions()));
 
-    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
+    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
 
     ui->version->setText(" QupZilla v" + QupZilla::VERSION);
     ui->listWidget->setCurrentRow(currentSettingsPage);
+
+    QDesktopWidget* desktop = QApplication::desktop();
+    QSize s = size();
+    if (desktop->availableGeometry(this).size().width() < s.width()) {
+        s.setWidth(desktop->availableGeometry(this).size().width() - 50);
+    }
+    if (desktop->availableGeometry(this).size().height() < s.height()) {
+        s.setHeight(desktop->availableGeometry(this).size().height() - 50);
+    }
+    resize(s);
 
 #if QTWEBKIT_TO_2_3
     ui->caretBrowsing->setHidden(true);
@@ -511,7 +530,7 @@ void Preferences::makeQupZillaDefault()
 #ifdef Q_OS_WIN
     disconnect(ui->checkNowDefaultBrowser, SIGNAL(clicked()), this, SLOT(makeQupZillaDefault()));
     mApp->associationManager()->registerAllAssociation();
-    ui->checkNowDefaultBrowser->setText(tr("QupZilla is default"));
+    ui->checkNowDefaultBrowser->setText(tr("Default"));
     ui->checkNowDefaultBrowser->setEnabled(false);
 #endif
 }
@@ -520,6 +539,9 @@ void Preferences::allowCacheChanged(bool state)
 {
     ui->cacheFrame->setEnabled(state);
     ui->cacheMB->setEnabled(state);
+    ui->storeCacheLabel->setEnabled(state);
+    ui->cachePath->setEnabled(state);
+    ui->changeCachePath->setEnabled(state);
 }
 
 void Preferences::useActualHomepage()
@@ -534,7 +556,7 @@ void Preferences::useActualNewTab()
 
 void Preferences::chooseDownPath()
 {
-    QString userFileName = QFileDialog::getExistingDirectory(p_QupZilla, tr("Choose download location..."), QDir::homePath());
+    QString userFileName = QFileDialog::getExistingDirectory(this, tr("Choose download location..."), QDir::homePath());
     if (userFileName.isEmpty()) {
         return;
     }
@@ -548,7 +570,7 @@ void Preferences::chooseDownPath()
 
 void Preferences::chooseUserStyleClicked()
 {
-    QString file = QFileDialog::getOpenFileName(p_QupZilla, tr("Choose stylesheet location..."), QDir::homePath(), "*.css");
+    QString file = QFileDialog::getOpenFileName(this, tr("Choose stylesheet location..."), QDir::homePath(), "*.css");
     if (file.isEmpty()) {
         return;
     }
@@ -565,7 +587,7 @@ void Preferences::deleteHtml5storage()
 
 void Preferences::chooseExternalDownloadManager()
 {
-    QString path = QFileDialog::getOpenFileName(p_QupZilla, tr("Choose executable location..."), QDir::homePath());
+    QString path = QFileDialog::getOpenFileName(this, tr("Choose executable location..."), QDir::homePath());
     if (path.isEmpty()) {
         return;
     }
@@ -596,6 +618,12 @@ void Preferences::setManualProxyConfigurationEnabled(bool state)
     useDifferentProxyForHttpsChanged(state ? ui->useHttpsProxy->isChecked() : false);
 
     ui->useHttpsProxy->setEnabled(state);
+}
+
+void Preferences::setProxyAutoConfigEnabled(bool state)
+{
+    ui->pacUrl->setEnabled(state);
+    ui->reloadPac->setEnabled(state);
 }
 
 void Preferences::saveHistoryChanged(bool stat)
@@ -654,14 +682,6 @@ void Preferences::afterLaunchChanged(int value)
 void Preferences::cacheValueChanged(int value)
 {
     ui->MBlabel->setText(QString::number(value) + " MB");
-    if (value == 0) {
-        ui->allowCache->setChecked(false);
-        allowCacheChanged(false);
-    }
-    else if (!ui->allowCache->isChecked()) {
-        ui->allowCache->setChecked(true);
-        allowCacheChanged(true);
-    }
 }
 
 void Preferences::pageCacheValueChanged(int value)
@@ -687,6 +707,21 @@ void Preferences::useDifferentProxyForHttpsChanged(bool state)
 void Preferences::showTabPreviewsChanged(bool state)
 {
     ui->animatedTabPreviews->setEnabled(state);
+}
+
+void Preferences::changeCachePathClicked()
+{
+    QString path = QFileDialog::getExistingDirectory(this, tr("Choose cache path..."), ui->cachePath->text());
+    if (path.isEmpty()) {
+        return;
+    }
+
+    ui->cachePath->setText(path);
+}
+
+void Preferences::reloadPacFileClicked()
+{
+    mApp->networkManager()->proxyFactory()->pacManager()->downloadPacFile();
 }
 
 void Preferences::showPassManager(bool state)
@@ -792,7 +827,7 @@ void Preferences::saveSettings()
 
     switch (ui->newTab->currentIndex()) {
     case 0:
-        settings.setValue("newTabUrl", "");
+        settings.setValue("newTabUrl", QString());
         break;
 
     case 1:
@@ -864,6 +899,7 @@ void Preferences::saveSettings()
     //FONTS
     settings.beginGroup("Browser-Fonts");
     settings.setValue("StandardFont", ui->fontStandard->currentFont().family());
+    settings.setValue("CursiveFont", ui->fontCursive->currentFont().family());
     settings.setValue("FantasyFont", ui->fontFantasy->currentFont().family());
     settings.setValue("FixedFont", ui->fontFixed->currentFont().family());
     settings.setValue("SansSerifFont", ui->fontSansSerif->currentFont().family());
@@ -905,6 +941,7 @@ void Preferences::saveSettings()
     settings.setValue("maximumCachedPages", ui->pagesInCache->value());
     settings.setValue("AllowLocalCache", ui->allowCache->isChecked());
     settings.setValue("LocalCacheSize", ui->cacheMB->value());
+    settings.setValue("CachePath", ui->cachePath->text());
     //CSS Style
     settings.setValue("userStyleSheet", ui->userStyleSheet->text());
 
@@ -959,6 +996,9 @@ void Preferences::saveSettings()
     else if (ui->noProxy->isChecked()) {
         proxyPreference = NetworkProxyFactory::NoProxy;
     }
+    else if (ui->pacProxy->isChecked()) {
+        proxyPreference = NetworkProxyFactory::ProxyAutoConfig;
+    }
     else {
         proxyPreference = NetworkProxyFactory::DefinedProxy;
     }
@@ -985,7 +1025,8 @@ void Preferences::saveSettings()
     settings.setValue("HttpsUsername", ui->httpsProxyUsername->text());
     settings.setValue("HttpsPassword", ui->httpsProxyPassword->text());
 
-    settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(QLatin1Char(',')));
+    settings.setValue("PacUrl", ui->pacUrl->text());
+    settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(QLatin1Char(','), QString::SkipEmptyParts));
     settings.endGroup();
 
     //Profiles

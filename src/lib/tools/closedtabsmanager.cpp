@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "closedtabsmanager.h"
 #include "webtab.h"
+#include "qztools.h"
 #include "mainapplication.h"
 
 #include <QWebHistory>
@@ -45,7 +46,8 @@ ClosedTabsManager::Tab ClosedTabsManager::getFirstClosedTab()
 {
     Tab tab;
     if (m_closedTabs.count() > 0) {
-        tab = m_closedTabs.takeFirst();
+        tab = m_closedTabs.first();
+        m_closedTabs.remove(0);
     }
 
     return tab;
@@ -54,8 +56,9 @@ ClosedTabsManager::Tab ClosedTabsManager::getFirstClosedTab()
 ClosedTabsManager::Tab ClosedTabsManager::getTabAt(int index)
 {
     Tab tab;
-    if (m_closedTabs.count() > 0 && m_closedTabs.count() > index) {
-        tab = m_closedTabs.takeAt(index);
+    if (QzTools::vectorContainsIndex(m_closedTabs, index)) {
+        tab = m_closedTabs.at(index);
+        m_closedTabs.remove(index);
     }
 
     return tab;
@@ -69,4 +72,9 @@ bool ClosedTabsManager::isClosedTabAvailable()
 void ClosedTabsManager::clearList()
 {
     m_closedTabs.clear();
+}
+
+QVector<ClosedTabsManager::Tab> ClosedTabsManager::allClosedTabs()
+{
+    return m_closedTabs;
 }

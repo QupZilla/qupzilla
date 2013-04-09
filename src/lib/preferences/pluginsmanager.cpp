@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ PluginsManager::PluginsManager(QWidget* parent)
     ui->list->setEnabled(appPluginsEnabled);
 
     connect(ui->butSettings, SIGNAL(clicked()), this, SLOT(settingsClicked()));
-    connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
+    connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
     connect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
     connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
 
@@ -62,7 +62,7 @@ PluginsManager::PluginsManager(QWidget* parent)
     QStringList whitelist = mApp->plugins()->c2f_getWhiteList();
     ui->allowClick2Flash->setChecked(settings.value("Enable", true).toBool());
     settings.endGroup();
-    foreach(const QString & site, whitelist) {
+    foreach (const QString &site, whitelist) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->whitelist);
         item->setText(0, site);
     }
@@ -111,7 +111,7 @@ void PluginsManager::save()
         QListWidgetItem* item = ui->list->item(i);
 
         if (item->checkState() == Qt::Checked) {
-            const Plugins::Plugin &plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
+            const Plugins::Plugin plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
 
             allowedPlugins.append(plugin.fullPath);
         }
@@ -167,7 +167,7 @@ void PluginsManager::refresh()
 
     const QList<Plugins::Plugin> &allPlugins = mApp->plugins()->getAvailablePlugins();
 
-    foreach(const Plugins::Plugin & plugin, allPlugins) {
+    foreach (const Plugins::Plugin &plugin, allPlugins) {
         PluginSpec spec = plugin.pluginSpec;
 
         QListWidgetItem* item = new QListWidgetItem(ui->list);
@@ -187,7 +187,7 @@ void PluginsManager::refresh()
 
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
         item->setCheckState(plugin.isLoaded() ? Qt::Checked : Qt::Unchecked);
-        item->setData(Qt::UserRole + 10, qVariantFromValue(plugin));
+        item->setData(Qt::UserRole + 10, QVariant::fromValue(plugin));
 
         ui->list->addItem(item);
     }
@@ -227,7 +227,7 @@ void PluginsManager::currentChanged(QListWidgetItem* item)
         return;
     }
 
-    const Plugins::Plugin &plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
+    const Plugins::Plugin plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
     bool showSettings = plugin.pluginSpec.hasSettings;
 
     if (!plugin.isLoaded()) {
@@ -259,7 +259,7 @@ void PluginsManager::itemChanged(QListWidgetItem* item)
         QMessageBox::critical(this, tr("Error!"), tr("Cannot load extension!"));
     }
 
-    item->setData(Qt::UserRole + 10, qVariantFromValue(plugin));
+    item->setData(Qt::UserRole + 10, QVariant::fromValue(plugin));
 
     connect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
 
@@ -279,7 +279,7 @@ void PluginsManager::settingsClicked()
     if (!plugin.isLoaded()) {
         mApp->plugins()->loadPlugin(&plugin);
 
-        item->setData(Qt::UserRole + 10, qVariantFromValue(plugin));
+        item->setData(Qt::UserRole + 10, QVariant::fromValue(plugin));
     }
 
     if (plugin.isLoaded() && plugin.pluginSpec.hasSettings) {

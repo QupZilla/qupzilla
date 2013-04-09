@@ -28,6 +28,7 @@ LocationCompleter::LocationCompleter(QObject* parent)
     : QObject(parent)
     , m_locationBar(0)
     , m_ignoreCurrentChangedSignal(false)
+    , m_showingMostVisited(false)
 {
     if (!s_view) {
         s_model = new LocationCompleterModel;
@@ -43,28 +44,33 @@ void LocationCompleter::setLocationBar(LocationBar* locationBar)
     m_locationBar = locationBar;
 }
 
-bool LocationCompleter::isPopupVisible()
+bool LocationCompleter::showingMostVisited() const
+{
+    return m_showingMostVisited;
+}
+
+bool LocationCompleter::isPopupVisible() const
 {
     return s_view->isVisible();
 }
 
 void LocationCompleter::closePopup()
 {
+    m_showingMostVisited = false;
     s_view->close();
 }
 
 void LocationCompleter::complete(const QString &string)
 {
-    s_model->refreshCompletions(string);
+    m_showingMostVisited = string.isEmpty();
 
+    s_model->refreshCompletions(string);
     showPopup();
 }
 
 void LocationCompleter::showMostVisited()
 {
-    s_model->refreshCompletions(QString());
-
-    showPopup();
+    complete(QString());
 }
 
 void LocationCompleter::currentChanged(const QModelIndex &index)
@@ -82,12 +88,14 @@ void LocationCompleter::currentChanged(const QModelIndex &index)
     emit showCompletion(completion);
 }
 
-void LocationCompleter::popupClosed()
+void LocationCompleter::slotPopupClosed()
 {
-    disconnect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex, QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
+    disconnect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
     disconnect(s_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(completionActivated()));
-    disconnect(s_view, SIGNAL(closed()), this, SLOT(popupClosed()));
+    disconnect(s_view, SIGNAL(closed()), this, SLOT(slotPopupClosed()));
     disconnect(s_view, SIGNAL(aboutToActivateTab(TabPosition)), m_locationBar, SLOT(clear()));
+
+    emit popupClosed();
 }
 
 void LocationCompleter::showPopup()
@@ -110,9 +118,9 @@ void LocationCompleter::showPopup()
     s_view->setFocusProxy(m_locationBar);
     s_view->setGeometry(popupRect);
 
-    connect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex, QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
+    connect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
     connect(s_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(completionActivated()));
-    connect(s_view, SIGNAL(closed()), this, SLOT(popupClosed()));
+    connect(s_view, SIGNAL(closed()), this, SLOT(slotPopupClosed()));
     connect(s_view, SIGNAL(aboutToActivateTab(TabPosition)), m_locationBar, SLOT(clear()));
 
     adjustPopupSize();

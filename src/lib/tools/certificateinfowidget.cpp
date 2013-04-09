@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -334,7 +334,7 @@ CertificateInfoWidget::CertificateInfoWidget(const QSslCertificate &cert, QWidge
     ui->issuedByO->setText(showCertInfo(cert.issuerInfo(QSslCertificate::Organization)));
     ui->issuedByOU->setText(showCertInfo(cert.issuerInfo(QSslCertificate::OrganizationalUnitName)));
     //Validity
-    QLocale locale = QLocale(mApp->currentLanguage());
+    QLocale locale = QLocale(mApp->currentLanguageFile());
     ui->validityIssuedOn->setText(locale.toString(cert.effectiveDate(), "dddd d. MMMM yyyy"));
     ui->validityExpiresOn->setText(locale.toString(cert.expiryDate(), "dddd d. MMMM yyyy"));
 }

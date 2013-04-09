@@ -8,8 +8,10 @@ fi
 sed -i 's/include(3rdparty/##temp/g' ../src/lib/lib.pro
 
 #lupdate $ARGUMENTS ../src/lib/lib.pro
-lupdate $ARGUMENTS ../src/lib/lib.pro -ts ../translations/empty.ts
+cd ../src/lib/
+lupdate $ARGUMENTS lib.pro -ts ../../translations/empty.ts
 
+cd -
 ## uncomment it now
 sed -i 's/##temp/include(3rdparty/g' ../src/lib/lib.pro
 

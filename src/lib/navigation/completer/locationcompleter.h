@@ -36,12 +36,14 @@ public:
 
     void setLocationBar(LocationBar* locationBar);
 
-    bool isPopupVisible();
+    bool showingMostVisited() const;
+    bool isPopupVisible() const;
     void closePopup();
 
 signals:
     void showCompletion(const QString &);
     void completionActivated();
+    void popupClosed();
 
 public slots:
     void complete(const QString &string);
@@ -49,7 +51,7 @@ public slots:
 
 private slots:
     void currentChanged(const QModelIndex &index);
-    void popupClosed();
+    void slotPopupClosed();
 
 private:
     void showPopup();
@@ -58,6 +60,7 @@ private:
     LocationBar* m_locationBar;
     QString m_originalText;
     bool m_ignoreCurrentChangedSignal;
+    bool m_showingMostVisited;
 
     static LocationCompleterView* s_view;
     static LocationCompleterModel* s_model;

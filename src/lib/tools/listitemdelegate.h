@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -27,6 +27,9 @@ class QT_QUPZILLA_EXPORT ListItemDelegate : public QStyledItemDelegate
 public:
     explicit ListItemDelegate(int iconSize, QWidget* parent);
 
+    void setUpdateParentHeight(bool update);
+    void setUniformItemSizes(bool uniform);
+
     int itemHeight() const;
 
     void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
@@ -34,7 +37,11 @@ public:
 
 private:
     int m_iconSize;
+    bool m_updateParentHeight;
+    bool m_uniformItemSizes;
+
     mutable int m_itemHeight;
+    mutable int m_itemWidth;
     mutable int m_padding;
 };
 

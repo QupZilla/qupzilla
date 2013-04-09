@@ -28,8 +28,7 @@ class SpellCheck : public QWebSpellChecker
     Q_OBJECT
 
 public:
-    SpellCheck();
-    ~SpellCheck();
+    explicit SpellCheck();
 
     bool isContinousSpellCheckingEnabled() const;
     void toggleContinousSpellChecking();
@@ -48,7 +47,6 @@ public:
                               int* badGrammarLocation, int* badGrammarLength);
 
 private:
-    bool isValidWord(const QString &str);
     bool endOfWord(const QTextBoundaryFinder::BoundaryReasons &reasons,
                    const QTextBoundaryFinder::BoundaryType &type);
     bool startOfWord(const QTextBoundaryFinder::BoundaryReasons &reasons,

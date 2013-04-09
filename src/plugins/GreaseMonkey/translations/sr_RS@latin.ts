@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="sr_RS@latin">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr_RS@latin" version="2.0">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -65,7 +63,7 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="172"/>
+        <location filename="../gm_manager.cpp" line="183"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
@@ -75,7 +73,7 @@
     <message>
         <location filename="../gm_notification.ui" line="45"/>
         <source>This script can be installed with the GreaseMonkey plugin.</source>
-        <translation>Ova skripta može biti instalirana pomoću GreaseMonkey proširenja.</translation>
+        <translation>Ova skripta može biti instalirana pomoću GreaseMonkey priključka.</translation>
     </message>
     <message>
         <location filename="../gm_notification.ui" line="65"/>
@@ -121,12 +119,12 @@
         <translation>Otvori fasciklu skripti</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="68"/>
+        <location filename="../settings/gm_settings.cpp" line="75"/>
         <source>Remove script</source>
         <translation>Ukloni skriptu</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="69"/>
+        <location filename="../settings/gm_settings.cpp" line="76"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>Želite li zaista da uklonite „%1“?</translation>
     </message>

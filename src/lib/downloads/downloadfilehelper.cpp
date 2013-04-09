@@ -25,6 +25,7 @@
 #include "downloadmanager.h"
 #include "qztools.h"
 #include "settings.h"
+#include "qzregexp.h"
 
 #include <QFileIconProvider>
 #include <QListWidgetItem>
@@ -109,6 +110,60 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, const Do
     else {
         optionsDialogAccepted(2);
     }
+}
+
+QString DownloadFileHelper::parseContentDisposition(const QByteArray &header)
+{
+    QString path;
+
+    if (header.isEmpty()) {
+        return path;
+    }
+
+    QString value;
+
+    if (QzTools::isUtf8(header.constData())) {
+        value = QString::fromUtf8(header);
+    }
+    else {
+        value = QString::fromLatin1(header);
+    }
+
+    // We try to use UTF-8 encoded filename first if present
+    if (value.contains(QzRegExp("[ ;]{1,}filename*\\*\\s*=\\s*UTF-8''", Qt::CaseInsensitive))) {
+        QzRegExp reg("filename\\s*\\*\\s*=\\s*UTF-8''([^;]*)", Qt::CaseInsensitive);
+        reg.indexIn(value);
+        path = QUrl::fromPercentEncoding(reg.cap(1).toUtf8()).trimmed();
+    }
+    else if (value.contains(QzRegExp("[ ;]{1,}filename\\s*=", Qt::CaseInsensitive))) {
+        QzRegExp reg("[ ;]{1,}filename\\s*=(.*)", Qt::CaseInsensitive);
+        reg.indexIn(value);
+        path = reg.cap(1).trimmed();
+
+        // Parse filename in quotes (to support semicolon inside filename)
+        if (path.startsWith(QLatin1Char('"')) && path.count(QLatin1Char('"')) > 1) {
+            int pos = path.indexOf(QLatin1Char('"'), 1);
+            while (pos != -1) {
+                if (path[pos - 1] != QLatin1Char('\\')) {
+                    // We also need to strip starting quote
+                    path = path.left(pos).mid(1);
+                    break;
+                }
+                pos = path.indexOf(QLatin1Char('"'), pos + 1);
+            }
+        }
+        else {
+            QzRegExp reg("([^;]*)", Qt::CaseInsensitive);
+            reg.indexIn(path);
+            path = reg.cap(1).trimmed();
+        }
+
+        if (path.startsWith(QLatin1Char('"')) && path.endsWith(QLatin1Char('"'))) {
+            path = path.mid(1, path.length() - 2);
+        }
+    }
+
+    return path;
 }
 
 void DownloadFileHelper::optionsDialogAccepted(int finish)
@@ -248,26 +303,7 @@ void DownloadFileHelper::fileNameChoosed(const QString &name, bool fileNameAutoG
 
 QString DownloadFileHelper::getFileName(QNetworkReply* reply)
 {
-    QString path;
-    if (reply->hasRawHeader("Content-Disposition")) {
-        QString value = QString::fromLatin1(reply->rawHeader("Content-Disposition"));
-
-        // We try to use UTF-8 encoded filename first if present
-        if (value.contains(QRegExp("filename\\s*\\*\\s*=\\s*UTF-8", Qt::CaseInsensitive))) {
-            QRegExp reg("filename\\s*\\*\\s*=\\s*UTF-8''([^;]*)", Qt::CaseInsensitive);
-            reg.indexIn(value);
-            path = QUrl::fromPercentEncoding(reg.cap(1).toUtf8()).trimmed();
-        }
-        else if (value.contains(QRegExp("filename\\s*=", Qt::CaseInsensitive))) {
-            QRegExp reg("filename\\s*=([^;]*)", Qt::CaseInsensitive);
-            reg.indexIn(value);
-            path = reg.cap(1).trimmed();
-
-            if (path.startsWith(QLatin1Char('"')) && path.endsWith(QLatin1Char('"'))) {
-                path = path.mid(1, path.length() - 2);
-            }
-        }
-    }
+    QString path = parseContentDisposition(reply->rawHeader("Content-Disposition"));
 
     if (path.isEmpty()) {
         path = reply->url().path();

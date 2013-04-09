@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -37,7 +37,14 @@ CaBundleUpdater::CaBundleUpdater(NetworkManager* manager, QObject* parent)
     m_bundleFileName = mApp->PROFILEDIR + "certificates/ca-bundle.crt";
     m_lastUpdateFileName = mApp->PROFILEDIR + "certificates/last_update";
 
-    QTimer::singleShot(30 * 1000, this, SLOT(start()));
+    int updateTime = 30 * 1000;
+
+    // Check immediately on first run
+    if (!QFile(m_lastUpdateFileName).exists()) {
+        updateTime = 0;
+    }
+
+    QTimer::singleShot(updateTime, this, SLOT(start()));
 }
 
 void CaBundleUpdater::start()
@@ -123,5 +130,8 @@ void CaBundleUpdater::replyFinished()
         }
 
         file.write(response);
+
+        // Reload newly downloaded certificates
+        mApp->networkManager()->loadSettings();
     }
 }

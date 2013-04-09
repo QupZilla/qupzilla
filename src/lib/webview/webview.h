@@ -38,13 +38,18 @@ public:
     WebPage* page() const;
     void setPage(QWebPage* page);
 
-    void load(const QNetworkRequest &request, QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation, const QByteArray &body = QByteArray());
+    void load(const QNetworkRequest &request,
+              QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation,
+              const QByteArray &body = QByteArray());
 
     bool loadingError() const;
     bool isLoading() const;
 
     int loadingProgress() const;
     void fakeLoadingProgress(int progress);
+
+    bool hasRss() const;
+    QWebElement activeElement() const;
 
     void addNotification(QWidget* notif);
     bool eventFilter(QObject* obj, QEvent* event);
@@ -59,6 +64,7 @@ signals:
     void viewportResized(QSize);
     void showNotification(QWidget*);
     void privacyChanged(bool);
+    void rssChanged(bool);
 
 public slots:
     void zoomIn();
@@ -71,6 +77,7 @@ public slots:
     void back();
     void forward();
 
+    void editDelete();
     void selectAll();
     void printPage(QWebFrame* frame = 0);
     void sendPageByMail();
@@ -142,12 +149,14 @@ protected:
     void createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
     void createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
     void createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
+    void createSpellCheckContextMenu(QMenu* menu);
 
 private slots:
     void pauseMedia();
     void muteMedia();
     void frameStateChanged();
     void emitChangedUrl();
+    void checkRss();
 
 private:
     QList<int> m_zoomLevels;
@@ -172,6 +181,9 @@ private:
 
     bool m_disableTouchMocking;
     bool m_isReloading;
+
+    bool m_hasRss;
+    bool m_rssChecked;
 };
 
 #endif // WEBVIEW_H

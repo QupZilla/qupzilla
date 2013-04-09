@@ -31,6 +31,7 @@ HTML5PermissionsNotification::HTML5PermissionsNotification(const QString &host, 
     , m_frame(frame)
     , m_feature(feature)
 {
+    setAutoFillBackground(true);
     ui->setupUi(widget());
 
     ui->close->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));

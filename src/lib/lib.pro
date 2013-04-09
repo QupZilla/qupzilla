@@ -14,10 +14,6 @@ include(../defines.pri)
 include(../../translations/translations.pri)
 #include(../../tests/modeltest/modeltest.pri)
 
-isEqual(QT_MAJOR_VERSION, 5) {
-    include(3rdparty/qftp.pri)
-}
-
 contains(DEFINES, USE_QTWEBKIT_2_2) {
     include(plugins/qtwebkit/qtwebkit-plugins.pri)
 }
@@ -210,6 +206,16 @@ SOURCES += \
     autofill/pageformcompleter.cpp \
     autofill/autofill.cpp \
     network/schemehandlers/ftpschemehandler.cpp \
+    autofill/autofillicon.cpp \
+    autofill/autofillwidget.cpp \
+    tools/menubar.cpp \
+    navigation/navigationcontainer.cpp \
+    tools/horizontallistwidget.cpp \
+    tools/mactoolbutton.cpp \
+    tools/actioncopy.cpp \
+    network/pac/proxyautoconfig.cpp \
+    network/pac/pacmanager.cpp \
+    tools/delayedfilewatcher.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -374,6 +380,18 @@ HEADERS  += \
     autofill/pageformcompleter.h \
     autofill/autofill.h \
     network/schemehandlers/ftpschemehandler.h \
+    autofill/autofillicon.h \
+    autofill/autofillwidget.h \
+    tools/menubar.h \
+    navigation/navigationcontainer.h \
+    tools/horizontallistwidget.h \
+    tools/mactoolbutton.h \
+    tools/qzregexp.h \
+    tools/actioncopy.h \
+    network/pac/proxyautoconfig.h \
+    network/pac/pacmanager.h \
+    network/pac/pacdatetime.h \
+    tools/delayedfilewatcher.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -422,23 +440,42 @@ FORMS    += \
     session/recoverywidget.ui \
     tools/html5permissions/html5permissionsnotification.ui \
     tools/html5permissions/html5permissionsdialog.ui \
+    autofill/autofillwidget.ui
 
 RESOURCES += \
     data/icons.qrc \
     data/html.qrc \
-    data/data.qrc
+    data/data.qrc \
+    data/certs.qrc \
+
+isEqual(QT_MAJOR_VERSION, 5) {
+    include(3rdparty/qftp.pri)
+
+    SOURCES += tools/qzregexp.cpp
+}
 
 !mac:unix {
     target.path = $$library_folder
 
     INSTALLS += target
 
-    LIBS += -lX11
+    !contains(DEFINES, NO_X11):LIBS += -lX11
+
+    RESOURCES -= data/certs.qrc
 }
 
-win {
+win32 {
     HEADERS += other/registerqappassociation.h
     SOURCES += other/registerqappassociation.cpp
+    RESOURCES += data/certs.qrc
+}
+
+mac {
+    HEADERS += other/macmenureceiver.h
+    SOURCES += other/macmenureceiver.cpp
+    RESOURCES -= data/certs.qrc
+
+    LIBS += -framework CoreServices
 }
 
 message(===========================================)

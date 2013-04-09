@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -113,9 +113,61 @@ void qupzilla_signal_handler(int s)
 }
 #endif
 
+#if (QT_VERSION < 0x050000)
+void msgHandler(QtMsgType type, const char* msg)
+{
+    // Skip this debug message as it may occur in a large amount over time
+    if (strcmp("QFont::setPixelSize: Pixel size <= 0 (0)", msg) == 0) {
+        return;
+    }
+
+    switch (type) {
+    case QtDebugMsg:
+    case QtWarningMsg:
+    case QtCriticalMsg:
+        fprintf(stderr, "%s\n", msg);
+        break;
+
+    case QtFatalMsg:
+        fprintf(stderr, "Fatal: %s\n", msg);
+        abort();
+
+    default:
+        break;
+    }
+}
+#else
+void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+    QByteArray localMsg = msg.toLocal8Bit();
+    switch (type) {
+    case QtDebugMsg:
+    case QtWarningMsg:
+    case QtCriticalMsg:
+        fprintf(stderr, "%s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+        break;
+
+    case QtFatalMsg:
+        fprintf(stderr, "Fatal: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+        abort();
+
+    default:
+        break;
+    }
+}
+#endif
+
 int main(int argc, char* argv[])
 {
     QT_REQUIRE_VERSION(argc, argv, "4.7.0");
+
+#ifndef Q_OS_WIN
+#if (QT_VERSION < 0x050000)
+    qInstallMsgHandler(&msgHandler);
+#else
+    qInstallMessageHandler(&msgHandler);
+#endif
+#endif
 
 #if defined(QZ_WS_X11) && QT_VERSION < 0x050000
     QApplication::setGraphicsSystem("raster"); // Better overall performance on X11

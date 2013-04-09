@@ -31,6 +31,9 @@ private slots:
     void getFileNameFromUrl_data();
     void getFileNameFromUrl();
 
+    void splitCommandArguments_data();
+    void splitCommandArguments();
+
 };
 
 #endif // QZTOOLSTEST_H

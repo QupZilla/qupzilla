@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "pageformcompleter.h"
+#include "qzregexp.h"
 
 #include <QWebPage>
 #include <QWebFrame>
@@ -32,83 +33,54 @@ PageFormCompleter::PageFormCompleter(QWebPage* page)
 
 PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) const
 {
-    QString usernameName;
     QString usernameValue;
-    QString passwordName;
     QString passwordValue;
-
-    QWebElementCollection allForms;
-    QWebElement foundForm;
 
     QByteArray data = convertWebKitFormBoundaryIfNecessary(postData);
     PageFormData formData = {false, QString(), QString(), data};
 
-    if (data.isEmpty()) {
+    if (data.isEmpty() || !data.contains('=')) {
         return formData;
-    }
-
-    if (!data.contains('=')) {
-        qDebug() << "PageFormCompleter: Invalid form data" << data;
-        return formData;
-    }
-
-    /* Find all form elements in page (in all frames) */
-    QList<QWebFrame*> frames;
-    frames.append(m_page->mainFrame());
-    while (!frames.isEmpty()) {
-        QWebFrame* frame = frames.takeFirst();
-        allForms.append(frame->findAllElements("form"));
-        frames += frame->childFrames();
     }
 
     const QueryItems &queryItems = createQueryItems(data);
 
-    /* Find form that contains password value sent in data */
-    foreach(const QWebElement & formElement, allForms) {
-        const QWebElementCollection &inputs = formElement.findAll("input[type=\"password\"]");
-        foreach(QWebElement inputElement, inputs) {
-            passwordName = inputElement.attribute("name");
-            passwordValue = inputElement.evaluateJavaScript("this.value").toString();
-
-            if (queryItemsContains(queryItems, passwordName, passwordValue)) {
-                foundForm = formElement;
-                break;
-            }
-        }
-
-        if (!foundForm.isNull()) {
-            break;
-        }
-    }
-
-    if (foundForm.isNull()) {
+    if (queryItems.isEmpty()) {
         return formData;
     }
 
-    /* Try to find username (or email) field in the form. */
-    bool found = false;
-    QStringList selectors;
-    selectors << "input[type=\"text\"][name*=\"user\"]"
-              << "input[type=\"text\"][name*=\"name\"]"
-              << "input[type=\"text\"]"
-              << "input[type=\"email\"]"
-              << "input:not([type=\"hidden\"][type=\"password\"])";
+    const QWebElementCollection &allForms = getAllElementsFromPage(m_page, "form");
 
-    foreach(const QString & selector, selectors) {
-        const QWebElementCollection &inputs = foundForm.findAll(selector);
-        foreach(QWebElement element, inputs) {
-            usernameName = element.attribute("name");
-            usernameValue = element.evaluateJavaScript("this.value").toString();
+    // Find form that contains password value sent in data
+    foreach (const QWebElement &formElement, allForms) {
+        bool found = false;
+        const QWebElementCollection &inputs = formElement.findAll("input[type=\"password\"]");
 
-            if (!usernameName.isEmpty() && !usernameValue.isEmpty()) {
-                found = true;
-                break;
+        foreach (QWebElement inputElement, inputs) {
+            const QString &passName = inputElement.attribute("name");
+            const QString &passValue = inputElement.evaluateJavaScript("this.value").toString();
+
+            if (queryItemsContains(queryItems, passName, passValue)) {
+                // Set passwordValue if not empty (to make it possible extract forms without username field)
+                passwordValue = passValue;
+
+                const QueryItem &item = findUsername(formElement);
+                if (queryItemsContains(queryItems, item.first, item.second)) {
+                    usernameValue = item.second;
+                    found = true;
+                    break;
+                }
             }
         }
 
         if (found) {
             break;
         }
+    }
+
+    // It is necessary only to find password, as there may be form without username field
+    if (passwordValue.isEmpty()) {
+        return formData;
     }
 
     formData.found = true;
@@ -118,32 +90,22 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
     return formData;
 }
 
-void PageFormCompleter::completePage(const QByteArray &data) const
+// Returns if any data was actually filled in page
+bool PageFormCompleter::completePage(const QByteArray &data) const
 {
+    bool completed = false;
     const QueryItems &queryItems = createQueryItems(data);
 
-    /* Input types that are being completed */
+    // Input types that are being completed
     QStringList inputTypes;
     inputTypes << "text" << "password" << "email";
 
-    /* Find all input elements in the page */
-    QWebElementCollection inputs;
-    QList<QWebFrame*> frames;
-    frames.append(m_page->mainFrame());
-    while (!frames.isEmpty()) {
-        QWebFrame* frame = frames.takeFirst();
-        inputs.append(frame->findAllElements("input"));
-        frames += frame->childFrames();
-    }
+    // Find all input elements in the page
+    const QWebElementCollection &inputs = getAllElementsFromPage(m_page, "input");
 
     for (int i = 0; i < queryItems.count(); i++) {
         const QString &key = queryItems.at(i).first;
         const QString &value = queryItems.at(i).second;
-
-        /* Is it really necessary?
-        key = QUrl::fromEncoded(key.toUtf8()).toString();
-        value = QUrl::fromEncoded(value.toUtf8()).toString();
-        */
 
         for (int i = 0; i < inputs.count(); i++) {
             QWebElement element = inputs.at(i);
@@ -154,10 +116,13 @@ void PageFormCompleter::completePage(const QByteArray &data) const
             }
 
             if (key == element.attribute("name")) {
+                completed = true;
                 element.setAttribute("value", value);
             }
         }
     }
+
+    return completed;
 }
 
 bool PageFormCompleter::queryItemsContains(const QueryItems &queryItems, const QString &attributeName,
@@ -196,7 +161,7 @@ QByteArray PageFormCompleter::convertWebKitFormBoundaryIfNecessary(const QByteAr
     }
 
     QByteArray formatedData;
-    QRegExp rx("name=\"(.*)------WebKitFormBoundary");
+    QzRegExp rx("name=\"(.*)------WebKitFormBoundary");
     rx.setMinimal(true);
 
     int pos = 0;
@@ -222,28 +187,61 @@ QByteArray PageFormCompleter::convertWebKitFormBoundaryIfNecessary(const QByteAr
     return formatedData;
 }
 
-PageFormCompleter::QueryItems PageFormCompleter::createQueryItems(const QByteArray &data) const
+PageFormCompleter::QueryItem PageFormCompleter::findUsername(const QWebElement &form) const
 {
-    /* Why not to use encodedQueryItems = QByteArrays ?
-     * Because we need to filter "+" characters that must be spaces
-     * (not real "+" characters "%2B")
-     *
-     * DO NOT TOUCH! It works now with both Qt 4 & Qt 5 ...
-     */
-#if QT_VERSION >= 0x050000
-    QueryItems arguments = QUrlQuery(QUrl::fromEncoded("http://foo.com/?" + data)).queryItems();
-#else
-    QByteArray dataCopy = data;
-    dataCopy.replace('+', ' ');
-    QueryItems arguments = QUrl::fromEncoded("http://foo.com/?" + dataCopy).queryItems();
-#endif
+    // Try to find username (or email) field in the form.
+    QStringList selectors;
+    selectors << "input[type=\"text\"][name*=\"user\"]"
+              << "input[type=\"text\"][name*=\"name\"]"
+              << "input[type=\"text\"]"
+              << "input[type=\"email\"]"
+              << "input:not([type=\"hidden\"][type=\"password\"])";
+
+    foreach (const QString &selector, selectors) {
+        const QWebElementCollection &inputs = form.findAll(selector);
+        foreach (QWebElement element, inputs) {
+            const QString &name = element.attribute("name");
+            const QString &value = element.evaluateJavaScript("this.value").toString();
+
+            if (!name.isEmpty() && !value.isEmpty()) {
+                QueryItem item;
+                item.first = name;
+                item.second = value;
+                return item;
+            }
+        }
+    }
+
+    return QueryItem();
+}
+
+PageFormCompleter::QueryItems PageFormCompleter::createQueryItems(QByteArray data) const
+{
+    // QUrlQuery/QUrl never encodes/decodes + and spaces
+    data.replace('+', ' ');
 
 #if QT_VERSION >= 0x050000
-    for (int i = 0; i < arguments.count(); i++) {
-        arguments[i].first.replace(QLatin1Char('+'), QLatin1Char(' '));
-        arguments[i].second.replace(QLatin1Char('+'), QLatin1Char(' '));
-    }
+    QUrlQuery query;
+    query.setQuery(data);
+    QueryItems arguments = query.queryItems(QUrl::FullyDecoded);
+#else
+    QueryItems arguments = QUrl::fromEncoded("http://foo.com/?" + data).queryItems();
 #endif
 
     return arguments;
+}
+
+QWebElementCollection PageFormCompleter::getAllElementsFromPage(QWebPage* page, const QString &selector) const
+{
+    QWebElementCollection list;
+
+    QList<QWebFrame*> frames;
+    frames.append(page->mainFrame());
+    while (!frames.isEmpty()) {
+        QWebFrame* frame = frames.takeFirst();
+        list.append(frame->findAllElements(selector));
+        frames += frame->childFrames();
+    }
+
+    return list;
 }

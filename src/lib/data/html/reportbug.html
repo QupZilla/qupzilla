@@ -20,7 +20,7 @@ function checkFields()
 {
   var type = document.getElementById("type").value;
   var description = document.getElementById("text").value;
-  
+
   if (type == null || type == "" ||  description == null || description == "") {
     alert("%FIELDS-ARE-REQUIRED%");
     return false;
@@ -42,6 +42,10 @@ function checkFields()
 <tr><td>%TYPE%:</td><td><input type="text" id="type" name="type" required> </tr>
 <tr><td>%DESCRIPTION%:</td><td><textarea id="text" name="text" required></textarea> </tr>
 <tr><td colspan=2 align=%RIGHT_STR%><input class="submit" type="submit" name="ok" value="%SEND%"> </tr>
+<input type="hidden" name="os" value="%INFO_OS%">
+<input type="hidden" name="version" value="%INFO_APP%">
+<input type="hidden" name="qtversion" value="%INFO_QT%">
+<input type="hidden" name="webkitversion" value="%INFO_WEBKIT%">
 </form>
 </table>
 </p>

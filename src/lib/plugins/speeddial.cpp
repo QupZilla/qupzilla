@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -95,7 +95,7 @@ SpeedDial::Page SpeedDial::pageForUrl(const QUrl &url)
 
     const QString &urlString = url.toString();
 
-    foreach(const Page & page, m_webPages) {
+    foreach (const Page &page, m_webPages) {
         if (page.url == urlString) {
             return page;
         }
@@ -137,7 +137,7 @@ void SpeedDial::addPage(const QUrl &url, const QString &title)
     m_webPages.append(page);
     m_regenerateScript = true;
 
-    foreach(QWebFrame * frame, cleanFrames()) {
+    foreach (QWebFrame* frame, cleanFrames()) {
         frame->page()->triggerAction(QWebPage::Reload);
     }
 
@@ -156,7 +156,7 @@ void SpeedDial::removePage(const Page &page)
     m_webPages.removeAll(page);
     m_regenerateScript = true;
 
-    foreach(QWebFrame * frame, cleanFrames()) {
+    foreach (QWebFrame* frame, cleanFrames()) {
         frame->page()->triggerAction(QWebPage::Reload);
     }
 
@@ -209,7 +209,7 @@ QString SpeedDial::initialScript()
     m_regenerateScript = false;
     m_initialScript.clear();
 
-    foreach(const Page & page, m_webPages) {
+    foreach (const Page &page, m_webPages) {
         QString imgSource = m_thumbnailsDir + QCryptographicHash::hash(page.url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
         if (!QFile(imgSource).exists()) {
@@ -236,15 +236,15 @@ void SpeedDial::changed(const QString &allPages)
         return;
     }
 
-    const QStringList &entries = allPages.split(QLatin1String("\";"));
+    const QStringList &entries = allPages.split(QLatin1String("\";"), QString::SkipEmptyParts);
     m_webPages.clear();
 
-    foreach(const QString & entry, entries) {
+    foreach (const QString &entry, entries) {
         if (entry.isEmpty()) {
             continue;
         }
 
-        const QStringList &tmp = entry.split(QLatin1String("\"|"));
+        const QStringList &tmp = entry.split(QLatin1String("\"|"), QString::SkipEmptyParts);
         if (tmp.count() != 2) {
             continue;
         }
@@ -269,7 +269,7 @@ void SpeedDial::loadThumbnail(const QString &url, bool loadTitle)
     PageThumbnailer* thumbnailer = new PageThumbnailer(this);
     thumbnailer->setUrl(QUrl::fromEncoded(url.toUtf8()));
     thumbnailer->setLoadTitle(loadTitle);
-    connect(thumbnailer, SIGNAL(thumbnailCreated(const QPixmap &)), this, SLOT(thumbnailCreated(const QPixmap &)));
+    connect(thumbnailer, SIGNAL(thumbnailCreated(QPixmap)), this, SLOT(thumbnailCreated(QPixmap)));
 
     thumbnailer->start();
 }
@@ -353,7 +353,7 @@ void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
     m_regenerateScript = true;
 
     cleanFrames();
-    foreach(QWebFrame * frame, cleanFrames()) {
+    foreach (QWebFrame* frame, cleanFrames()) {
         frame->evaluateJavaScript(QString("setImageToUrl('%1', '%2');").arg(escapeUrl(url), escapeTitle(fileName)));
         if (loadTitle) {
             frame->evaluateJavaScript(QString("setTitleToUrl('%1', '%2');").arg(escapeUrl(url), escapeTitle(title)));
@@ -398,7 +398,7 @@ QString SpeedDial::generateAllPages()
 {
     QString allPages;
 
-    foreach(const Page & page, m_webPages) {
+    foreach (const Page &page, m_webPages) {
         const QString &string = QString("url:\"%1\"|title:\"%2\";").arg(page.url, page.title);
         allPages.append(string);
     }

@@ -66,15 +66,17 @@ QAuthenticator* FtpSchemeHandler::ftpAuthenticator(const QUrl &url)
 FtpSchemeReply::FtpSchemeReply(const QNetworkRequest &request, QObject* parent)
     : QNetworkReply(parent)
     , m_ftpLoginId(-1)
+    , m_ftpCdId(-1)
     , m_port(21)
     , m_anonymousLoginChecked(false)
     , m_request(request)
+    , m_isGoingToDownload(false)
 {
     m_ftp = new QFtp(this);
     connect(m_ftp, SIGNAL(listInfo(QUrlInfo)), this, SLOT(processListInfo(QUrlInfo)));
     connect(m_ftp, SIGNAL(readyRead()), this, SLOT(processData()));
-    connect(m_ftp, SIGNAL(commandFinished(int, bool)), this, SLOT(processCommand(int, bool)));
-    connect(m_ftp, SIGNAL(dataTransferProgress(qint64, qint64)), this, SIGNAL(downloadProgress(qint64, qint64)));
+    connect(m_ftp, SIGNAL(commandFinished(int,bool)), this, SLOT(processCommand(int,bool)));
+    connect(m_ftp, SIGNAL(dataTransferProgress(qint64,qint64)), this, SIGNAL(downloadProgress(qint64,qint64)));
 
     m_buffer.open(QIODevice::ReadWrite);
 
@@ -89,22 +91,7 @@ FtpSchemeReply::FtpSchemeReply(const QNetworkRequest &request, QObject* parent)
 void FtpSchemeReply::processCommand(int id, bool err)
 {
     if (err) {
-        if (m_ftpLoginId == id) {
-            if (!m_anonymousLoginChecked) {
-                m_anonymousLoginChecked = true;
-                FTP_AUTHENTICATOR(url())->setUser(QString());
-                FTP_AUTHENTICATOR(url())->setPassword(QString());
-                m_ftpLoginId = m_ftp->login();
-                return;
-            }
-
-            emit ftpAuthenticationRequierd(url(), FTP_AUTHENTICATOR(url()));
-            m_ftpLoginId = m_ftp->login(FTP_AUTHENTICATOR(url())->user(), FTP_AUTHENTICATOR(url())->password());
-            return;
-        }
-        setError(ContentNotFoundError, tr("Unknown command"));
-        emit error(ContentNotFoundError);
-        emit finished();
+        ftpReplyErrorHandler(id);
         return;
     }
 
@@ -119,11 +106,43 @@ void FtpSchemeReply::processCommand(int id, bool err)
         break;
 
     case QFtp::Login:
-        m_ftp->list(url().path());
+        if (url().path().isEmpty() || url().path() == QLatin1String("/")) {
+            m_ftp->list();
+        }
+        else {
+            m_ftpCdId = m_ftp->cd(QString::fromLatin1(QByteArray::fromPercentEncoding(url().path().toUtf8())));
+        }
+        break;
+
+    case QFtp::Cd:
+        m_ftp->list();
         break;
 
     case QFtp::List:
-        loadPage();
+        if (m_isGoingToDownload) {
+            foreach (const QUrlInfo &item, m_items) {
+                // don't check if it's a file or not,
+                // seems it's a QFtp's bug: for link to a file isDir() returns true
+                if (item.name() == m_probablyFileForDownload) {
+                    QByteArray decodedUrl = QByteArray::fromPercentEncoding(url().toString().toUtf8());
+                    if (QzTools::isUtf8(decodedUrl.constData())) {
+                        m_request.setUrl(QUrl(QString::fromUtf8(decodedUrl)));
+                    }
+                    else {
+                        m_request.setUrl(QUrl(QString::fromLatin1(decodedUrl)));
+                    }
+                    emit downloadRequest(m_request);
+                    abort();
+                    break;
+                }
+            }
+            m_probablyFileForDownload.clear();
+            m_isGoingToDownload = false;
+            abort();
+        }
+        else {
+            loadPage();
+        }
         break;
 
     case QFtp::Get:
@@ -135,8 +154,13 @@ void FtpSchemeReply::processCommand(int id, bool err)
     }
 }
 
-void FtpSchemeReply::processListInfo(const QUrlInfo &urlInfo)
+void FtpSchemeReply::processListInfo(QUrlInfo urlInfo)
 {
+    QByteArray nameLatin1 = urlInfo.name().toLatin1();
+    if (QzTools::isUtf8(nameLatin1.constData())) {
+        urlInfo.setName(QString::fromUtf8(nameLatin1));
+    }
+
     m_items.append(urlInfo);
 }
 
@@ -144,6 +168,7 @@ void FtpSchemeReply::processData()
 {
     open(ReadOnly | Unbuffered);
     QTextStream stream(&m_buffer);
+    stream.setCodec("UTF-8");
 
     stream << m_ftp->readAll();
 
@@ -188,21 +213,6 @@ qint64 FtpSchemeReply::readData(char* data, qint64 maxSize)
 
 void FtpSchemeReply::loadPage()
 {
-    if (m_items.size() == 1 && m_items.at(0).isFile()) {
-        QUrlInfo item = m_items.at(0);
-        if (url().path() == url().resolved(QUrl(item.name())).path()) {
-            setHeader(QNetworkRequest::ContentLengthHeader, m_buffer.bytesAvailable());
-            // the following code can be used to open known contents
-            // and download unsupported contents, but there is some problem
-            // for example: it loads PDFs as text file!
-            // m_ftp->get(url().path());
-
-            emit downloadRequest(m_request);
-            abort();
-            return;
-        }
-    }
-
     QWebSecurityOrigin::addLocalScheme("ftp");
     open(ReadOnly | Unbuffered);
     QTextStream stream(&m_buffer);
@@ -228,8 +238,8 @@ void FtpSchemeReply::loadPage()
 QString FtpSchemeReply::loadDirectory()
 {
     QUrl u = url();
-    if (!u.path().endsWith("/")) {
-        u.setPath(u.path() + "/");
+    if (!u.path().endsWith(QLatin1Char('/'))) {
+        u.setPath(u.path() + QLatin1String("/"));
     }
 
     QString base_path = u.path();
@@ -252,7 +262,17 @@ QString FtpSchemeReply::loadDirectory()
     }
 
     QString page = sPage;
-    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(url().toString()));
+
+    QByteArray titleByteArray = QByteArray::fromPercentEncoding(url().toString().toUtf8());
+    QString title;
+    if (QzTools::isUtf8(titleByteArray.constData())) {
+        title = QString::fromUtf8(titleByteArray);
+    }
+    else {
+        title = QString::fromLatin1(titleByteArray);
+    }
+    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(title));
+    page.replace(QLatin1String("%CLICKABLE-TITLE%"), tr("Index for %1").arg(clickableSections(title)));
 
     QString upDirDisplay = QLatin1String("none");
     QString tBody;
@@ -271,23 +291,33 @@ QString FtpSchemeReply::loadDirectory()
         }
     }
 
-    foreach(const QUrlInfo & item, m_items) {
+    foreach (const QUrlInfo &item, m_items) {
 
         if (item.name() == QLatin1String(".") || item.name() == QLatin1String("..")) {
             continue;
         }
 
         QString line = QLatin1String("<tr");
-        QUrl itemUrl = u.resolved(QUrl(item.name()));
+        QUrl itemUrl = u.resolved(QUrl(QUrl::toPercentEncoding(item.name())));
         QString itemPath = itemUrl.path();
-        if (itemPath.endsWith("/")) {
+
+        if (itemPath.endsWith(QLatin1Char('/'))) {
             itemPath.remove(itemPath.size() - 1, 1);
         }
 
+        QIcon itemIcon;
+        if (item.isSymLink()) {
+            itemIcon = qIconProvider->standardIcon(QStyle::SP_DirLinkIcon);
+        }
+        else if (item.isFile()) {
+            itemIcon = QzTools::iconFromFileName(itemPath);
+        }
+        else {
+            itemIcon = qIconProvider->standardIcon(QStyle::SP_DirIcon);
+        }
+
         line += QLatin1String("><td class=\"td-name\" style=\"background-image:url(data:image/png;base64,");
-        line += QzTools::pixmapToByteArray(item.isFile()
-                                           ? QzTools::iconFromFileName(itemPath).pixmap(16)
-                                           : QFileIconProvider().icon(QFileIconProvider::Folder).pixmap(16));
+        line += QzTools::pixmapToByteArray(itemIcon.pixmap(16));
         line += QLatin1String(");\">");
         line += QLatin1String("<a href=\"");
         line += itemUrl.toEncoded();
@@ -315,6 +345,73 @@ QString FtpSchemeReply::loadDirectory()
     return page;
 }
 
+QString FtpSchemeReply::clickableSections(const QString &path)
+{
+    QString title = path;
+    title.remove(QLatin1String("ftp://"));
+    QStringList sections = title.split(QLatin1Char('/'), QString::SkipEmptyParts);
+    if (sections.isEmpty()) {
+        return QString("<a href=\"%1\">%1</a>").arg(path);
+    }
+    sections[0].prepend(QLatin1String("ftp://"));
+
+    title.clear();
+    for (int i = 0; i < sections.size(); ++i) {
+        QStringList currentParentSections = sections.mid(0, i + 1);
+        QUrl currentParentUrl = QUrl(currentParentSections.join(QLatin1String("/")));
+        title += QString("<a href=\"%1\">%2</a>/").arg(currentParentUrl.toEncoded(), sections.at(i));
+    }
+
+    return title;
+}
+
+void FtpSchemeReply::ftpReplyErrorHandler(int id)
+{
+    if (m_ftpLoginId == id) {
+        if (!m_anonymousLoginChecked) {
+            m_anonymousLoginChecked = true;
+            FTP_AUTHENTICATOR(url())->setUser(QString());
+            FTP_AUTHENTICATOR(url())->setPassword(QString());
+            m_ftpLoginId = m_ftp->login();
+            return;
+        }
+
+        emit ftpAuthenticationRequierd(url(), FTP_AUTHENTICATOR(url()));
+        m_ftpLoginId = m_ftp->login(FTP_AUTHENTICATOR(url())->user(), FTP_AUTHENTICATOR(url())->password());
+        return;
+    }
+    else if (m_ftpCdId == id) {
+        if (m_isGoingToDownload) {
+            m_isGoingToDownload = false;
+            abort();
+            return;
+        }
+        QStringList sections = url().path().split(QLatin1Char('/'), QString::SkipEmptyParts);
+        if (!sections.isEmpty()) {
+            QByteArray lastSection = QByteArray::fromPercentEncoding(sections.takeLast().toUtf8());
+            if (QzTools::isUtf8(lastSection.constData())) {
+                m_probablyFileForDownload = QString::fromUtf8(lastSection);
+            }
+            else {
+                m_probablyFileForDownload = QString::fromLatin1(lastSection);
+            }
+        }
+        if (!m_probablyFileForDownload.isEmpty()) {
+            m_isGoingToDownload = true;
+            QString parentOfPath = QString("/%1/").arg(sections.join(QLatin1String("/")));
+            m_ftpCdId = m_ftp->cd(QString::fromLatin1(QByteArray::fromPercentEncoding(parentOfPath.toUtf8())));
+        }
+        else {
+            abort();
+        }
+        return;
+    }
+    else {
+        setError(ContentNotFoundError, tr("Unknown command"));
+        emit error(ContentNotFoundError);
+        emit finished();
+    }
+}
 
 FtpDownloader::FtpDownloader(QObject* parent)
     : QFtp(parent)
@@ -325,13 +422,13 @@ FtpDownloader::FtpDownloader(QObject* parent)
     , m_dev(0)
     , m_lastError(QFtp::NoError)
 {
-    connect(this, SIGNAL(commandFinished(int, bool)), this, SLOT(processCommand(int, bool)));
+    connect(this, SIGNAL(commandFinished(int,bool)), this, SLOT(processCommand(int,bool)));
     connect(this, SIGNAL(done(bool)), this, SLOT(onDone(bool)));
 }
 
 void FtpDownloader::download(const QUrl &url, QIODevice* dev)
 {
-    m_url = url;
+    m_url = QUrl(QString::fromLatin1(QByteArray::fromPercentEncoding(url.toString().toUtf8())));
     m_dev = dev;
     QString server = m_url.host();
     if (server.isEmpty()) {

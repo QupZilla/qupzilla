@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -92,7 +92,7 @@ bool TestPlugin::testPlugin()
     //There should be some testing if plugin is loaded correctly
     //If this function returns false, plugin is automatically unloaded
 
-    return (QupZilla::VERSION == QLatin1String("1.3.5"));
+    return (QupZilla::VERSION == QLatin1String("1.5.0"));
 }
 
 QTranslator* TestPlugin::getTranslator(const QString &locale)

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -140,23 +140,24 @@ void AdBlockIcon::createMenu(QMenu* menu)
             QString actionText = tr("%1 with (%2)").arg(address, pair.first.filter()).replace(QLatin1Char('&'), QLatin1String("&&"));
 
             QAction* action = menu->addAction(actionText, manager, SLOT(showRule()));
-            action->setData(qVariantFromValue((void*)&pair.first));
+            action->setData(QVariant::fromValue((void*)&pair.first));
         }
     }
 
     menu->addSeparator();
-    QList<WebPage::AdBlockedEntry> entries = page->adBlockedEntries();
+
+    QVector<WebPage::AdBlockedEntry> entries = page->adBlockedEntries();
     if (entries.isEmpty()) {
         menu->addAction(tr("No content blocked"))->setEnabled(false);
     }
     else {
         menu->addAction(tr("Blocked URL (AdBlock Rule) - click to edit rule"))->setEnabled(false);
-        foreach(const WebPage::AdBlockedEntry & entry, entries) {
+        foreach (const WebPage::AdBlockedEntry &entry, entries) {
             QString address = entry.url.toString().right(55);
             QString actionText = tr("%1 with (%2)").arg(address, entry.rule->filter()).replace(QLatin1Char('&'), QLatin1String("&&"));
 
             QAction* action = menu->addAction(actionText, manager, SLOT(showRule()));
-            action->setData(qVariantFromValue((void*)entry.rule));
+            action->setData(QVariant::fromValue((void*)entry.rule));
         }
     }
 }
@@ -184,7 +185,7 @@ void AdBlockIcon::toggleCustomFilter()
         customList->removeFilter(filter);
     }
     else {
-        AdBlockRule rule(filter, customList);
+        AdBlockRule* rule = new AdBlockRule(filter, customList);
         customList->addRule(rule);
     }
 }

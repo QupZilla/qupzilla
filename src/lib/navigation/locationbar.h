@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,11 +28,12 @@ class QupZilla;
 class LineEdit;
 class LocationCompleter;
 class ClickableLabel;
-class BookmarkIcon;
 class TabbedWebView;
+class BookmarkIcon;
 class SiteIcon;
 class GoIcon;
 class RssIcon;
+class AutoFillIcon;
 
 class QT_QUPZILLA_EXPORT LocationBar : public LineEdit
 {
@@ -56,23 +57,21 @@ public slots:
     void setText(const QString &text);
 
 protected:
-    virtual void paintEvent(QPaintEvent* event);
+    void paintEvent(QPaintEvent* event);
 
 private slots:
+    void textEdit();
+    void urlEnter();
+    void pasteAndGo();
+
+    void clearIcon();
     void siteIconChanged();
     void setPrivacy(bool state);
-    void textEdit();
-    void showMostVisited();
-    void showSiteInfo();
-    void rssIconClicked();
-    void bookmarkIconClicked();
-    void urlEnter();
-    void clearIcon();
     void showRSSIcon(bool state);
-    void pasteAndGo();
 
     void updatePlaceHolderText();
     void showCompletion(const QString &newText);
+    void completionPopupClosed();
 
     void onLoadStarted();
     void onLoadProgress(int progress);
@@ -91,8 +90,6 @@ private:
     void contextMenuEvent(QContextMenuEvent* event);
     void focusInEvent(QFocusEvent* event);
     void focusOutEvent(QFocusEvent* event);
-    void mouseDoubleClickEvent(QMouseEvent* event);
-    void mousePressEvent(QMouseEvent* event);
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
     void dropEvent(QDropEvent* event);
@@ -111,6 +108,7 @@ private:
     GoIcon* m_goIcon;
     RssIcon* m_rssIcon;
     SiteIcon* m_siteIcon;
+    AutoFillIcon* m_autofillIcon;
 
     QupZilla* p_QupZilla;
     TabbedWebView* m_webView;
@@ -126,7 +124,9 @@ private:
     ProgressStyle m_progressStyle;
     QColor m_progressColor;
 
-    bool m_forceLineEditPaintEvent;
+    bool m_forcePaintEvent;
+    bool m_drawCursor;
+    bool m_popupClosed;
 };
 
 #endif // LOCATIONBAR_H

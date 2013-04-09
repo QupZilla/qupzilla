@@ -94,7 +94,7 @@ void Plugins::shutdown()
     c2f_saveSettings();
     m_speedDial->saveSettings();
 
-    foreach(PluginInterface * iPlugin, m_loadedPlugins) {
+    foreach (PluginInterface* iPlugin, m_loadedPlugins) {
         iPlugin->unload();
     }
 }
@@ -128,7 +128,7 @@ void Plugins::loadPlugins()
         settingsDir.mkdir(settingsDir.absolutePath());
     }
 
-    foreach(const QString & fullPath, m_allowedPlugins) {
+    foreach (const QString &fullPath, m_allowedPlugins) {
         QPluginLoader* loader = new QPluginLoader(fullPath);
         PluginInterface* iPlugin = qobject_cast<PluginInterface*>(loader->instance());
         if (!iPlugin) {
@@ -172,9 +172,9 @@ void Plugins::loadAvailablePlugins()
 #endif
          << mApp->PROFILEDIR + "plugins/";
 
-    foreach(const QString & dir, dirs) {
+    foreach (const QString &dir, dirs) {
         QDir pluginsDir = QDir(dir);
-        foreach(const QString & fileName, pluginsDir.entryList(QDir::Files)) {
+        foreach (const QString &fileName, pluginsDir.entryList(QDir::Files)) {
             const QString absolutePath = pluginsDir.absoluteFilePath(fileName);
             if (m_allowedPlugins.contains(absolutePath)) {
                 continue;
@@ -182,6 +182,7 @@ void Plugins::loadAvailablePlugins()
 
             QPluginLoader* loader = new QPluginLoader(absolutePath);
             PluginInterface* iPlugin = qobject_cast<PluginInterface*>(loader->instance());
+
             if (!iPlugin) {
                 continue;
             }
@@ -218,7 +219,7 @@ PluginInterface* Plugins::initPlugin(PluginInterface* interface, QPluginLoader* 
         return 0;
     }
 
-    qApp->installTranslator(interface->getTranslator(mApp->currentLanguage()));
+    qApp->installTranslator(interface->getTranslator(mApp->currentLanguageFile()));
 
     return interface;
 }
@@ -227,7 +228,7 @@ void Plugins::refreshLoadedPlugins()
 {
     m_loadedPlugins.clear();
 
-    foreach(const Plugin & plugin, m_availablePlugins) {
+    foreach (const Plugin &plugin, m_availablePlugins) {
         if (plugin.isLoaded()) {
             m_loadedPlugins.append(plugin.instance);
         }
@@ -236,7 +237,7 @@ void Plugins::refreshLoadedPlugins()
 
 bool Plugins::alreadySpecInAvailable(const PluginSpec &spec)
 {
-    foreach(const Plugin & plugin, m_availablePlugins) {
+    foreach (const Plugin &plugin, m_availablePlugins) {
         if (plugin.pluginSpec == spec) {
             return true;
         }

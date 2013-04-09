@@ -35,6 +35,7 @@
 #include "iconprovider.h"
 #include "qzsettings.h"
 #include "useragentmanager.h"
+#include "delayedfilewatcher.h"
 #include "recoverywidget.h"
 #include "html5permissions/html5permissionsmanager.h"
 #include "schemehandlers/fileschemehandler.h"
@@ -50,7 +51,6 @@
 #include <QDir>
 #include <QMouseEvent>
 #include <QWebHistory>
-#include <QFileSystemWatcher>
 #include <QTimer>
 #include <QNetworkReply>
 #include <QDebug>
@@ -93,24 +93,23 @@ WebPage::WebPage(QupZilla* mainClass)
     connect(this, SIGNAL(downloadRequested(QNetworkRequest)), this, SLOT(downloadRequested(QNetworkRequest)));
     connect(this, SIGNAL(windowCloseRequested()), this, SLOT(windowCloseRequested()));
 
-    connect(this, SIGNAL(databaseQuotaExceeded(QWebFrame*, QString)),
+    connect(this, SIGNAL(databaseQuotaExceeded(QWebFrame*,QString)),
             this, SLOT(dbQuotaExceeded(QWebFrame*)));
 
     connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
 
 #if QTWEBKIT_FROM_2_2
-    connect(this, SIGNAL(featurePermissionRequested(QWebFrame*, QWebPage::Feature)),
-            this, SLOT(featurePermissionRequested(QWebFrame*, QWebPage::Feature)));
+    connect(this, SIGNAL(featurePermissionRequested(QWebFrame*,QWebPage::Feature)),
+            this, SLOT(featurePermissionRequested(QWebFrame*,QWebPage::Feature)));
 #endif
 
 #if QTWEBKIT_FROM_2_3
-    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*, quint64, quint64)),
-            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*, quint64)));
+    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*,quint64,quint64)),
+            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*,quint64)));
 #elif QTWEBKIT_FROM_2_2
-    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*, quint64)),
-            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*, quint64)));
+    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*,quint64)),
+            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*,quint64)));
 #endif
-
 
     s_livingPages.append(this);
 }
@@ -163,7 +162,7 @@ bool WebPage::loadingError() const
 
 void WebPage::addRejectedCerts(const QList<QSslCertificate> &certs)
 {
-    foreach(const QSslCertificate & cert, certs) {
+    foreach (const QSslCertificate &cert, certs) {
         if (!m_rejectedSslCerts.contains(cert)) {
             m_rejectedSslCerts.append(cert);
         }
@@ -174,7 +173,7 @@ bool WebPage::containsRejectedCerts(const QList<QSslCertificate> &certs)
 {
     int matches = 0;
 
-    foreach(const QSslCertificate & cert, certs) {
+    foreach (const QSslCertificate &cert, certs) {
         if (m_rejectedSslCerts.contains(cert)) {
             ++matches;
         }
@@ -185,6 +184,12 @@ bool WebPage::containsRejectedCerts(const QList<QSslCertificate> &certs)
     }
 
     return matches == certs.count();
+}
+
+QWebElement WebPage::activeElement() const
+{
+    QRect activeRect = inputMethodQuery(Qt::ImMicroFocus).toRect();
+    return mainFrame()->hitTestContent(activeRect.center()).element();
 }
 
 bool WebPage::isRunningLoop()
@@ -229,12 +234,13 @@ void WebPage::finished()
         mainFrame()->setZoomFactor(mainFrame()->zoomFactor() - 1);
     }
 
+    // File scheme watcher
     if (url().scheme() == QLatin1String("file")) {
         QFileInfo info(url().toLocalFile());
         if (info.isFile()) {
             if (!m_fileWatcher) {
-                m_fileWatcher = new QFileSystemWatcher(this);
-                connect(m_fileWatcher, SIGNAL(fileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
+                m_fileWatcher = new DelayedFileWatcher(this);
+                connect(m_fileWatcher, SIGNAL(delayedFileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
             }
 
             const QString &filePath = url().toLocalFile();
@@ -248,6 +254,10 @@ void WebPage::finished()
         m_fileWatcher->removePaths(m_fileWatcher->files());
     }
 
+    // Autofill
+    m_autoFillData = mApp->autoFill()->completePage(this);
+
+    // AdBlock
     cleanBlockedObjects();
 }
 
@@ -507,7 +517,7 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
 
     if (type == QWebPage::NavigationTypeFormResubmitted) {
         // Don't show this dialog if app is still starting
-        if (!view()->isVisible()) {
+        if (!view() || !view()->isVisible()) {
             return false;
         }
         QString message = tr("To show this page, QupZilla must resend request which do it again \n"
@@ -527,7 +537,7 @@ void WebPage::populateNetworkRequest(QNetworkRequest &request)
 {
     WebPage* pagePointer = this;
 
-    QVariant variant = qVariantFromValue((void*) pagePointer);
+    QVariant variant = QVariant::fromValue((void*) pagePointer);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);
 
     if (m_lastRequestUrl == request.url()) {
@@ -571,6 +581,21 @@ void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)
     }
 }
 
+QVector<WebPage::AdBlockedEntry> WebPage::adBlockedEntries() const
+{
+    return m_adBlockedEntries;
+}
+
+bool WebPage::hasMultipleUsernames() const
+{
+    return m_autoFillData.count() > 1;
+}
+
+QVector<AutoFillData> WebPage::autoFillData() const
+{
+    return m_autoFillData;
+}
+
 void WebPage::cleanBlockedObjects()
 {
     AdBlockManager* manager = AdBlockManager::instance();
@@ -580,7 +605,7 @@ void WebPage::cleanBlockedObjects()
 
     const QWebElement &docElement = mainFrame()->documentElement();
 
-    foreach(const AdBlockedEntry & entry, m_adBlockedEntries) {
+    foreach (const AdBlockedEntry &entry, m_adBlockedEntries) {
         const QString &urlString = entry.url.toString();
         if (urlString.endsWith(QLatin1String(".js")) || urlString.endsWith(QLatin1String(".css"))) {
             continue;
@@ -600,7 +625,7 @@ void WebPage::cleanBlockedObjects()
         QString selector("img[src$=\"%1\"], iframe[src$=\"%1\"],embed[src$=\"%1\"]");
         QWebElementCollection elements = docElement.findAll(selector.arg(urlEnd));
 
-        foreach(QWebElement element, elements) {
+        foreach (QWebElement element, elements) {
             QString src = element.attribute("src");
             src.remove(QLatin1String("../"));
 
@@ -611,7 +636,7 @@ void WebPage::cleanBlockedObjects()
     }
 
     // Apply domain-specific element hiding rules
-    QString elementHiding = AdBlockManager::instance()->elementHidingRulesForDomain(url());
+    QString elementHiding = manager->elementHidingRulesForDomain(url());
     if (elementHiding.isEmpty()) {
         return;
     }
@@ -620,6 +645,12 @@ void WebPage::cleanBlockedObjects()
 
     QWebElement bodyElement = docElement.findFirst("body");
     bodyElement.appendInside("<style type=\"text/css\">\n/* AdBlock for QupZilla */\n" + elementHiding);
+
+    // When hiding some elements, scroll position of page will change
+    // If user loaded anchor link in background tab (and didn't show it yet), fix the scroll position
+    if (view() && !view()->isVisible() && !url().fragment().isEmpty()) {
+        mainFrame()->scrollToAnchor(url().fragment());
+    }
 }
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
@@ -730,7 +761,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     QWebElementCollection elements;
                     elements.append(docElement.findAll("iframe"));
 
-                    foreach(QWebElement element, elements) {
+                    foreach (QWebElement element, elements) {
                         QString src = element.attribute("src");
                         if (exOption->url.toString().contains(src)) {
                             element.setStyleProperty("visibility", "hidden");
@@ -965,6 +996,14 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
 
     if (!fileName.isEmpty()) {
         s_lastUploadLocation = fileName;
+
+        // Check if we can read from file
+        QFile file(fileName);
+        if (!file.open(QFile::ReadOnly)) {
+            const QString &msg = tr("Cannot read data from <b>%1</b>. Upload was cancelled!").arg(fileName);
+            QMessageBox::critical(view(), tr("Cannot read file!"), msg);
+            return QString();
+        }
     }
 
     return fileName;

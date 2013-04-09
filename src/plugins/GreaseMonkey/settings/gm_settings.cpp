@@ -76,8 +76,8 @@ void GM_Settings::removeItem(QListWidgetItem* item)
                                          tr("Are you sure you want to remove '%1'?").arg(script->name()),
                                          QMessageBox::Yes | QMessageBox::No);
 
-    if (button == QMessageBox::Yes && m_manager->removeScript(script)) {
-        delete item;
+    if (button == QMessageBox::Yes) {
+        m_manager->removeScript(script);
     }
 }
 
@@ -108,7 +108,7 @@ void GM_Settings::loadScripts()
 
     ui->listWidget->clear();
 
-    foreach(GM_Script * script, m_manager->allScripts()) {
+    foreach (GM_Script* script, m_manager->allScripts()) {
         QListWidgetItem* item = new QListWidgetItem(ui->listWidget);
         QIcon icon = QIcon(":/gm/data/script.png");
         item->setIcon(icon);
@@ -119,7 +119,7 @@ void GM_Settings::loadScripts()
 
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
         item->setCheckState(script->isEnabled() ? Qt::Checked : Qt::Unchecked);
-        item->setData(Qt::UserRole + 10, qVariantFromValue((void*)script));
+        item->setData(Qt::UserRole + 10, QVariant::fromValue((void*)script));
 
         ui->listWidget->addItem(item);
     }

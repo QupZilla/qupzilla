@@ -18,40 +18,90 @@
 #ifndef SPELLER_H
 #define SPELLER_H
 
+#include <QWebElement>
 #include <QStringList>
+#include <QVector>
+#include <QFile>
+
+#include "qz_namespace.h"
 
 class QTextCodec;
 class Hunspell;
 
-class Speller
+class QMenu;
+class QWebHitTestResult;
+
+class QT_QUPZILLA_EXPORT Speller : public QObject
 {
+    Q_OBJECT
+
 public:
-    explicit Speller();
+    struct Language {
+        QString code;
+        QString name;
+
+        bool operator==(const Language &other) {
+            return this->name == other.name &&
+                   this->name.left(2) == other.name.left(2);
+            // Compare only first two chars of name.
+            // So "cs_CZ - CzechRepublic" == "cs - CzechRepublic"
+        }
+    };
+
+    explicit Speller(QObject* parent);
     ~Speller();
 
-    bool initialize();
+    bool isEnabled() const;
+    void loadSettings();
 
-    QString backend() const;
-    QString language() const;
+    Language language() const;
+    QVector<Language> availableLanguages();
 
-    void learnWord(const QString &word);
-    void ignoreWordInSpellDocument(const QString &word);
+    QString dictionaryPath() const;
+    void populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
 
     bool isMisspelled(const QString &string);
     QStringList suggest(const QString &word);
 
+    static bool isValidWord(const QString &str);
+
+public slots:
+    void populateLanguagesMenu();
+    void toggleEnableSpellChecking();
+
+private slots:
+    void addToDictionary();
+    void replaceWord();
+
+    void showSettings();
+    void changeLanguage();
+
 private:
-    bool dictionaryExists(const QString &path);
-    QString parseLanguage(const QString &path);
-    QString getDictionaryPath();
+    void initialize();
+    void putWord(const QString &word);
 
-    static Hunspell* s_hunspell;
-    static QTextCodec* s_codec;
-    static QString s_dictionaryPath;
-    static QString s_langugage;
-    static bool s_initialized;
+    bool dictionaryExists(const QString &path) const;
+    QString getDictionaryPath() const;
+    QString nameForLanguage(const QString &code) const;
 
-    QStringList m_ignoredWords;
+    QString m_dictionaryPath;
+    QTextCodec* m_textCodec;
+    Hunspell* m_hunspell;
+
+    QFile m_userDictionary;
+    Language m_language;
+    QVector<Language> m_availableLanguages;
+    bool m_enabled;
+
+    // Replacing word
+    QWebElement m_element;
+    int m_startPos;
+    int m_endPos;
 };
+
+// Hint to QVector to use std::realloc on item moving
+Q_DECLARE_TYPEINFO(Speller::Language, Q_MOVABLE_TYPE);
+
+Q_DECLARE_METATYPE(Speller::Language)
 
 #endif // SPELLER_H

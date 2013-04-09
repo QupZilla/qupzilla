@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -52,9 +52,9 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     ui->bookmarksTree->setDragDropReceiver(true, m_bookmarksModel);
     ui->bookmarksTree->setMimeType(QLatin1String("application/qupzilla.treewidgetitem.bookmarks"));
 
-    connect(ui->bookmarksTree, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
+    connect(ui->bookmarksTree, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
     connect(ui->addFolder, SIGNAL(clicked()), this, SLOT(addFolder()));
-    connect(ui->bookmarksTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
+    connect(ui->bookmarksTree, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
     connect(ui->bookmarksTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
     connect(ui->bookmarksTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
     connect(ui->collapseAll, SIGNAL(clicked()), ui->bookmarksTree, SLOT(collapseAll()));
@@ -62,13 +62,13 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
 
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark, BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark, BookmarksModel::Bookmark)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(subfolderAdded(QString)), this, SLOT(addSubfolder(QString)));
     connect(m_bookmarksModel, SIGNAL(folderAdded(QString)), this, SLOT(addFolder(QString)));
     connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(removeFolder(QString)));
-    connect(m_bookmarksModel, SIGNAL(folderRenamed(QString, QString)), this, SLOT(renameFolder(QString, QString)));
-    connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString, bool)), this, SLOT(changeFolderParent(QString, bool)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString, QByteArray, int, QUrl, QString, QString)), this, SLOT(changeBookmarkParent(QString, QByteArray, int, QUrl, QString, QString)));
+    connect(m_bookmarksModel, SIGNAL(folderRenamed(QString,QString)), this, SLOT(renameFolder(QString,QString)));
+    connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString,bool)), this, SLOT(changeFolderParent(QString,bool)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString,QByteArray,int,QUrl,QString,QString)), this, SLOT(changeBookmarkParent(QString,QByteArray,int,QUrl,QString,QString)));
 
     connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
     connect(ui->importBookmarks, SIGNAL(clicked(QPoint)), this, SLOT(importBookmarks()));
@@ -382,7 +382,7 @@ void BookmarksManager::addBookmark(const BookmarksModel::Bookmark &bookmark)
     if (bookmark.inSubfolder) {
         QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(bookmark.folder, Qt::MatchExactly | Qt::MatchRecursive);
         if (list.count() != 0) {
-            foreach(QTreeWidgetItem * it, list) {
+            foreach (QTreeWidgetItem* it, list) {
                 if (it->text(1).isEmpty()) {
                     it->addChild(item);
                     break;
@@ -407,7 +407,7 @@ void BookmarksManager::removeBookmark(const BookmarksModel::Bookmark &bookmark)
         QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(bookmark.folder, Qt::MatchExactly | Qt::MatchRecursive);
         QTreeWidgetItem* subfolderItem = 0;
         if (list.count() != 0) {
-            foreach(QTreeWidgetItem * it, list) {
+            foreach (QTreeWidgetItem* it, list) {
                 if (it->text(1).isEmpty()) {
                     subfolderItem = it;
                     break;
@@ -482,7 +482,7 @@ void BookmarksManager::changeBookmarkParent(const QString &name, const QByteArra
     QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(name, Qt::MatchExactly | Qt::MatchRecursive);
 
     QTreeWidgetItem* item = 0;
-    foreach(item, list) {
+    foreach (item, list) {
         if (id == item->data(0, Qt::UserRole + 10).toInt()) {
             break;
         }
@@ -584,7 +584,7 @@ void BookmarksManager::removeFolder(const QString &name)
 
     QTreeWidgetItem* folderItem = 0;
     if (list.count() != 0) {
-        foreach(QTreeWidgetItem * it, list) {
+        foreach (QTreeWidgetItem* it, list) {
             if (it->text(1).isEmpty()) {
                 folderItem = it;
                 break;
@@ -607,7 +607,7 @@ void BookmarksManager::renameFolder(const QString &before, const QString &after)
 
     QTreeWidgetItem* folderItem = 0;
     if (list.count() != 0) {
-        foreach(QTreeWidgetItem * it, list) {
+        foreach (QTreeWidgetItem* it, list) {
             if (it->text(0) == before && it->text(1).isEmpty()) {
                 folderItem = it;
                 break;
@@ -632,8 +632,8 @@ void BookmarksManager::insertBookmark(const QUrl &url, const QString &title, con
     QLineEdit* edit = new QLineEdit(dialog);
     QComboBox* combo = new QComboBox(dialog);
     BookmarksTree* bookmarksTree = new BookmarksTree(dialog);
-    connect(bookmarksTree, SIGNAL(requestNewFolder(QWidget*, QString*, bool, QString, WebView*)),
-            this, SLOT(addFolder(QWidget*, QString*, bool, QString, WebView*)));
+    connect(bookmarksTree, SIGNAL(requestNewFolder(QWidget*,QString*,bool,QString,WebView*)),
+            this, SLOT(addFolder(QWidget*,QString*,bool,QString,WebView*)));
     bookmarksTree->setViewType(BookmarksTree::ComboFolderView);
     bookmarksTree->header()->hide();
     bookmarksTree->setColumnCount(1);
@@ -698,8 +698,8 @@ void BookmarksManager::insertAllTabs()
     QLabel* label = new QLabel(dialog);
     QComboBox* combo = new QComboBox(dialog);
     BookmarksTree* bookmarksTree = new BookmarksTree(dialog);
-    connect(bookmarksTree, SIGNAL(requestNewFolder(QWidget*, QString*, bool, QString, WebView*)),
-            this, SLOT(addFolder(QWidget*, QString*, bool, QString, WebView*)));
+    connect(bookmarksTree, SIGNAL(requestNewFolder(QWidget*,QString*,bool,QString,WebView*)),
+            this, SLOT(addFolder(QWidget*,QString*,bool,QString,WebView*)));
     bookmarksTree->setViewType(BookmarksTree::ComboFolderView);
     bookmarksTree->header()->hide();
     bookmarksTree->setColumnCount(1);
@@ -742,7 +742,7 @@ void BookmarksManager::insertAllTabs()
         return;
     }
 
-    foreach(WebTab * tab, getQupZilla()->tabWidget()->allTabs(false)) {
+    foreach (WebTab* tab, getQupZilla()->tabWidget()->allTabs(false)) {
         if (tab->url().isEmpty()) {
             continue;
         }

@@ -78,6 +78,7 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select All"), m_view, SLOT(selectAll()))->setShortcut(QKeySequence("Ctrl+A"));
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
     connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEditMenu()));
+    connect(m_menuEdit, SIGNAL(aboutToHide()), this, SLOT(aboutToHideEditMenu()));
     m_menuBar->addMenu(m_menuEdit);
 
     m_menuView = new QMenu(tr("View"));
@@ -95,7 +96,7 @@ PopupWindow::PopupWindow(PopupWebView* view)
 
     // Make shortcuts available even with hidden menubar
     QList<QAction*> actions = m_menuBar->actions();
-    foreach(QAction * action, actions) {
+    foreach (QAction* action, actions) {
         if (action->menu()) {
             actions += action->menu()->actions();
         }
@@ -108,16 +109,18 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_layout->addWidget(m_statusBar);
     setLayout(m_layout);
 
+    aboutToHideEditMenu();
+
     connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
     connect(m_view, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
     connect(m_view, SIGNAL(urlChanged(QUrl)), m_locationBar, SLOT(showUrl(QUrl)));
-    connect(m_view, SIGNAL(iconChanged()), m_locationBar, SLOT(showIcon()));
+    connect(m_view, SIGNAL(iconChanged()), m_locationBar, SLOT(showSiteIcon()));
     connect(m_view, SIGNAL(statusBarMessage(QString)), this, SLOT(showStatusBarMessage(QString)));
     connect(m_view, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
     connect(m_view, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
     connect(m_view, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
 
-    connect(m_page, SIGNAL(linkHovered(QString, QString, QString)), this, SLOT(showStatusBarMessage(QString)));
+    connect(m_page, SIGNAL(linkHovered(QString,QString,QString)), this, SLOT(showStatusBarMessage(QString)));
     connect(m_page, SIGNAL(geometryChangeRequested(QRect)), this, SLOT(setWindowGeometry(QRect)));
     connect(m_page, SIGNAL(statusBarVisibilityChangeRequested(bool)), this, SLOT(setStatusBarVisibility(bool)));
     connect(m_page, SIGNAL(menuBarVisibilityChangeRequested(bool)), this, SLOT(setMenuBarVisibility(bool)));
@@ -151,11 +154,11 @@ PopupWebView* PopupWindow::webView()
 
 void PopupWindow::showNotification(QWidget* notif)
 {
-    if (m_layout->count() > 3) {
-        delete m_layout->itemAt(1)->widget();
+    if (m_layout->count() > 4) {
+        delete m_layout->itemAt(2)->widget();
     }
 
-    m_layout->insertWidget(1, notif);
+    m_layout->insertWidget(2, notif);
     notif->show();
 }
 
@@ -230,6 +233,18 @@ void PopupWindow::aboutToShowEditMenu()
     m_menuEdit->actions().at(7)->setEnabled(m_view->pageAction(QWebPage::SelectAll)->isEnabled());
 }
 
+void PopupWindow::aboutToHideEditMenu()
+{
+    m_menuEdit->actions().at(0)->setEnabled(false);
+    m_menuEdit->actions().at(1)->setEnabled(false);
+    // Separator
+    m_menuEdit->actions().at(3)->setEnabled(false);
+    m_menuEdit->actions().at(4)->setEnabled(false);
+    m_menuEdit->actions().at(5)->setEnabled(false);
+    // Separator
+    m_menuEdit->actions().at(7)->setEnabled(false);
+}
+
 void PopupWindow::savePageScreen()
 {
     PageScreen* pageScreen = new PageScreen(m_view, this);
@@ -240,6 +255,7 @@ void PopupWindow::searchOnPage()
 {
     if (!m_search) {
         m_search = new SearchToolBar(m_view, this);
+        m_search.data()->showMinimalInPopupWindow();
         m_layout->insertWidget(m_layout->count() - 1, m_search);
     }
 

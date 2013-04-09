@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,10 +30,9 @@
 #include "downloadfilehelper.h"
 #include "settings.h"
 
+#include <QMessageBox>
 #include <QCloseEvent>
 #include <QDir>
-#include <QProcess>
-#include <QMessageBox>
 
 DownloadManager::DownloadManager(QWidget* parent)
     : QWidget(parent)
@@ -76,6 +75,10 @@ void DownloadManager::loadSettings()
     m_externalExecutable = settings.value("ExternalManagerExecutable", QString()).toString();
     m_externalArguments = settings.value("ExternalManagerArguments", QString()).toString();
     settings.endGroup();
+
+    if (!m_externalArguments.contains(QLatin1String("%d"))) {
+        m_externalArguments.append(QLatin1String(" %d"));
+    }
 }
 
 void DownloadManager::show()
@@ -102,16 +105,10 @@ void DownloadManager::keyPressEvent(QKeyEvent* e)
 
 void DownloadManager::startExternalManager(const QUrl &url)
 {
-    QStringList arguments = m_externalArguments.split(QLatin1Char(' '), QString::SkipEmptyParts);
-    arguments << url.toString();
+    QString arguments = m_externalArguments;
+    arguments.replace(QLatin1String("%d"), url.toEncoded());
 
-    bool success = QProcess::startDetached(m_externalExecutable, arguments);
-
-    if (!success) {
-        QString info = "<ul><li><b>" + tr("Executable: ") + "</b>" + m_externalExecutable + "</li><li><b>" + tr("Arguments: ") + "</b>" + arguments.join(" ") + "</li></ul>";
-        QMessageBox::critical(this, tr("Cannot start external download manager"), tr("Cannot start external download manager! %1").arg(info));
-    }
-
+    QzTools::startExternalProcess(m_externalExecutable, arguments);
     m_lastDownloadOption = ExternalManager;
 }
 
@@ -131,9 +128,9 @@ bool DownloadManager::nativeEvent(const QByteArray &eventType, void* _message, l
 
 void DownloadManager::timerEvent(QTimerEvent* e)
 {
-    QList<QTime> remTimes;
-    QList<int> progresses;
-    QList<double> speeds;
+    QVector<QTime> remTimes;
+    QVector<int> progresses;
+    QVector<double> speeds;
 
     if (e->timerId() == m_timer.timerId()) {
         if (!ui->list->count()) {
@@ -155,20 +152,22 @@ void DownloadManager::timerEvent(QTimerEvent* e)
         }
 
         QTime remaining;
-        foreach(const QTime & time, remTimes) {
+        foreach (const QTime &time, remTimes) {
             if (time > remaining) {
                 remaining = time;
             }
         }
 
         int progress = 0;
-        foreach(int prog, progresses)
-        progress += prog;
+        foreach (int prog, progresses) {
+            progress += prog;
+        }
         progress = progress / progresses.count();
 
         double speed = 0.00;
-        foreach(double spee, speeds)
-        speed += spee;
+        foreach (double spee, speeds) {
+            speed += spee;
+        }
 
         ui->speedLabel->setText(tr("%1% of %2 files (%3) %4 remaining").arg(QString::number(progress), QString::number(progresses.count()),
                                 DownloadItem::currentSpeedToString(speed),
@@ -231,7 +230,7 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, const Downl
     reply->setProperty("downReply", QVariant(true));
 
     DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog);
-    connect(h, SIGNAL(itemCreated(QListWidgetItem*, DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*, DownloadItem*)));
+    connect(h, SIGNAL(itemCreated(QListWidgetItem*,DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*,DownloadItem*)));
 
     h->setLastDownloadOption(m_lastDownloadOption);
     h->setDownloadManager(this);

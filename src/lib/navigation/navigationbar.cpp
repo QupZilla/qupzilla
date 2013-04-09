@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -33,6 +33,7 @@
 #include <QHBoxLayout>
 #include <QStackedWidget>
 #include <QWebHistory>
+#include <QMouseEvent>
 
 QString NavigationBar::titleForUrl(QString title, const QUrl &url)
 {
@@ -119,6 +120,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     m_supMenu->setAutoRaise(true);
     m_supMenu->setFocusPolicy(Qt::NoFocus);
     m_supMenu->setMenu(p_QupZilla->superMenu());
+    m_supMenu->setShowMenuInside(true);
 #endif
 
     m_searchLine = new WebSearchBar(p_QupZilla);
@@ -146,6 +148,9 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
 #endif
     m_layout->addWidget(m_exitFullscreen);
 
+    setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
+
     connect(m_menuBack, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryBackMenu()));
     connect(m_menuForward, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryNextMenu()));
     connect(m_buttonBack, SIGNAL(clicked()), this, SLOT(goBack()));
@@ -161,7 +166,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     connect(m_buttonHome, SIGNAL(middleMouseClicked()), p_QupZilla, SLOT(goHomeInNewTab()));
     connect(m_buttonHome, SIGNAL(controlClicked()), p_QupZilla, SLOT(goHomeInNewTab()));
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
-    connect(m_exitFullscreen, SIGNAL(clicked(bool)), p_QupZilla, SLOT(fullScreen(bool)));
+    connect(m_exitFullscreen, SIGNAL(clicked(bool)), p_QupZilla, SLOT(toggleFullScreen(bool)));
 }
 
 void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
@@ -189,6 +194,11 @@ void NavigationBar::showStopButton()
     m_reloadStop->showStopButton();
 }
 
+void NavigationBar::setSuperMenuVisible(bool visible)
+{
+    m_supMenu->setVisible(visible);
+}
+
 void NavigationBar::aboutToShowHistoryBackMenu()
 {
     if (!m_menuBack || !p_QupZilla->weView()) {
@@ -199,11 +209,10 @@ void NavigationBar::aboutToShowHistoryBackMenu()
 
     int curindex = history->currentItemIndex();
     int count = 0;
-    QUrl lastUrl = history->currentItem().url();
 
     for (int i = curindex - 1; i >= 0; i--) {
         QWebHistoryItem item = history->itemAt(i);
-        if (item.isValid() && lastUrl != item.url()) {
+        if (item.isValid()) {
             QString title = titleForUrl(item.title(), item.url());
 
             const QIcon &icon = iconForPage(item.url(), qIconProvider->standardIcon(QStyle::SP_ArrowBack));
@@ -212,8 +221,6 @@ void NavigationBar::aboutToShowHistoryBackMenu()
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
             connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
             m_menuBack->addAction(act);
-
-            lastUrl = item.url();
         }
 
         count++;
@@ -236,11 +243,10 @@ void NavigationBar::aboutToShowHistoryNextMenu()
     QWebHistory* history = p_QupZilla->weView()->history();
     int curindex = history->currentItemIndex();
     int count = 0;
-    QUrl lastUrl = history->currentItem().url();
 
     for (int i = curindex + 1; i < history->count(); i++) {
         QWebHistoryItem item = history->itemAt(i);
-        if (item.isValid() && lastUrl != item.url()) {
+        if (item.isValid()) {
             QString title = titleForUrl(item.title(), item.url());
 
             const QIcon &icon = iconForPage(item.url(), qIconProvider->standardIcon(QStyle::SP_ArrowForward));
@@ -249,8 +255,6 @@ void NavigationBar::aboutToShowHistoryNextMenu()
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
             connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
             m_menuForward->addAction(act);
-
-            lastUrl = item.url();
         }
 
         count++;
@@ -268,6 +272,11 @@ void NavigationBar::clearHistory()
     QWebHistory* history = p_QupZilla->weView()->page()->history();
     history->clear();
     refreshHistory();
+}
+
+void NavigationBar::contextMenuRequested(const QPoint &pos)
+{
+    p_QupZilla->popupToolbarsMenu(mapToGlobal(pos));
 }
 
 void NavigationBar::goAtHistoryIndex()

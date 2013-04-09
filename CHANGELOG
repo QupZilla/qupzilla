@@ -1,9 +1,32 @@
+Version 1.5.0
+    * development version
+    * added support for Proxy Auto-Config (PAC)
+    * added option to open another private window from private window
+    * added delete action in edit context menu on page
+    * proxy exceptions now supports wildcards (*, ?)
+    * cancel upload when trying to upload non-readable files
+    * GreaseMonkey: added support for GM_Settings
+    * fixed: size of preferences dialog on low-res screens
+
+Version 1.4.1
+    * released 15 March 2013
+    * fixed websearchbar not respecting select all on click settings
+    * fixed certificates from custom path disappearing on saving preferences
+    * fixed showing empty back/forward history menu upon restoring session
+    * fixed duplicating current url in history when restoring session
+    * fixed instantly showing popup when clicking on back/forward button
+
 Version 1.4.0
-    * not yet released
+    * released 11 March 2013
     * highlighting host in address in locationbar
     * can now be compiled using Qt 5
     * QtWebKit 2.3 new features - caret browsing, animated scrolling
     * added support for FTP listing files and downloading
+    * added support for saving passwords of multiple users per site
+    * added support for showing tabs on top
+    * added bash autocompletion file
+    * added more actions to super menu, also show menu inside window
+    * possibility to select text on page with Shift+Arrow keys
     * asking user whether to allow site to use notifications/geolocation
     * option to set JavaScript privacy permissions
     * option to specify default search engine used in locationbar
@@ -12,18 +35,36 @@ Version 1.4.0
     * option to hide reload/stop buttons in navigationbar
     * option to disable alt/ctrl + numbers shortcuts
     * option to switch to tab from locationbar popup completer
+    * option to set where to store network cache
     * use .qupzilla/tmp instead of /tmp for temporary data
     * saving passwords should now work for much more sites
     * don't steal Ctrl+B/U/I shortcuts from page
+    * disabled by default opacity effect on tab previews - see BUILDING
+    * improved showing navigation toolbar in fullscreen
+    * moved config directory into ~/.config/qupzilla
+    * certificates bundle is now only used on windows
+    * reduced memory usage of AdBlock (saves up to 30MB with just EasyList)
+    * greatly improved performance when matching regexp rules in AdBlock
+    * GreaseMonkey: reload script if source file changed on disk
+    * GreaseMonkey: fixed don't loading invalid scripts
+    * fixed opening browser with url with ampersand (%26) as command line argument
+    * fixed scrolling to anchor in background tabs
+    * fixed parsing UTF-8 filenames in Content-Disposition header
     * fixed crash with context menu in websearchbar and locationbar
     * fixed loading NYTimes skimmer page
     * fixed cookie domain handling according to RFC 6265
     * fixed qvalue format in Accept-Language HTTP header
     * fixed sorting files case insensitively in file scheme handler
     * fixed possible crash in saving page screen of a really long page
+    * fixed showing window in fullscreen with XFCE
+    * fixed AdBlock blocking netscape plugin even without Click2Flash
     * X11: fixed Ctrl+Q shortcut for DEs other than KDE and Gnome
+    * windows: fixed color of found text when searching on page
+    * windows: fixed navigating to file links and x: labels in file: scheme handler
+    * windows: fixed downloading utf-8 encoded adblock subscriptions
     * windows: improved installer allows registering as default web browser
     * windows: check and set as default browser from preferences
+    * mac: fixed not working global menu after closing browser window
 
 Version 1.3.5
     * released 16 September 2012

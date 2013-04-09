@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="id_ID">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="id_ID" version="2.0">
 <context>
     <name>MouseGesturesSettingsDialog</name>
     <message>
@@ -34,21 +32,6 @@
         <translation>&lt;b&gt;Mundur&lt;/b&gt;&lt;br/&gt;Mundur ke sejarah sebelumnya</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
-        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
-        <translation>&lt;b&gt;Maju&lt;/b&gt;&lt;br/&gt;Maju ke sejarah selanjutnya</translation>
-    </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
-        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
-        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mousegesturessettingsdialog.ui" line="159"/>
         <source>&lt;b&gt;Reload&lt;/b&gt;&lt;br/&gt;Reload page</source>
         <translation>&lt;b&gt;Muat Ulang&lt;/b&gt;&lt;br/&gt;Muat ulang halaman</translation>
@@ -59,9 +42,24 @@
         <translation>&lt;b&gt;Tutup tab&lt;/b&gt;&lt;br/&gt;Tutup tab saat ini</translation>
     </message>
     <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
+        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
+        <translation>&lt;b&gt;Maju&lt;/b&gt;&lt;br/&gt;Maju ke sejarah selanjutnya</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
+        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
+        <translation>&lt;b&gt;Tab lama&lt;/b&gt;&lt;br/&gt;Kembali ke tab lama</translation>
+    </message>
+    <message>
         <location filename="../mousegesturessettingsdialog.ui" line="208"/>
         <source>&lt;b&gt;Home&lt;/b&gt;&lt;br/&gt;Go to homepage</source>
         <translation>&lt;b&gt;Rumah&lt;/b&gt;&lt;br/&gt;Pergi ke halaman rumah</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
+        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
+        <translation>&lt;b&gt;Tab baru&lt;/b&gt;&lt;br/&gt;Pindah ke tab baru</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="253"/>

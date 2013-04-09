@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="ru_RU">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru_RU" version="2.0">
 <context>
     <name>MouseGesturesSettingsDialog</name>
     <message>
@@ -34,21 +32,6 @@
         <translation>&lt;b&gt;Назад&lt;/b&gt;&lt;br/&gt;Вернуться назад </translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
-        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
-        <translation>&lt;b&gt;Вперед&lt;/b&gt;&lt;br/&gt;Вернуться вперед</translation>
-    </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
-        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
-        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mousegesturessettingsdialog.ui" line="159"/>
         <source>&lt;b&gt;Reload&lt;/b&gt;&lt;br/&gt;Reload page</source>
         <translation>&lt;b&gt;Обновить&lt;/b&gt;&lt;br/&gt;Обновить страницу</translation>
@@ -59,9 +42,24 @@
         <translation>&lt;b&gt;Закрыть вкладку&lt;/b&gt;&lt;br/&gt;Закрыть текущую вкладку</translation>
     </message>
     <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
+        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
+        <translation>&lt;b&gt;Вперед&lt;/b&gt;&lt;br/&gt;Вернуться вперед</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
+        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
+        <translation>&lt;b&gt;Предыдущая вкладка&lt;/b&gt;&lt;br/&gt;Переключиться на предыдущую вкладку</translation>
+    </message>
+    <message>
         <location filename="../mousegesturessettingsdialog.ui" line="208"/>
         <source>&lt;b&gt;Home&lt;/b&gt;&lt;br/&gt;Go to homepage</source>
         <translation>&lt;b&gt;Домой&lt;/b&gt;&lt;br/&gt;Открыть домашнюю страницу</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
+        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
+        <translation>&lt;b&gt;Следующия вкладка&lt;/b&gt;&lt;br/&gt;Переключиться на следующию вкладку</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="253"/>

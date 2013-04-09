@@ -213,7 +213,7 @@ bool QtLockedFile::unlock()
         rmutex = 0;
     }
     else {
-        foreach(Qt::HANDLE mutex, rmutexes) {
+        foreach (Qt::HANDLE mutex, rmutexes) {
             ReleaseMutex(mutex);
             CloseHandle(mutex);
         }

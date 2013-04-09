@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "updater.h"
 #include "qupzilla.h"
+#include "qztools.h"
 #include "mainapplication.h"
 #include "tabwidget.h"
 #include "desktopnotificationsfactory.h"
@@ -26,6 +27,81 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 
+Updater::Version::Version(const QString &s)
+{
+    isValid = false;
+
+    QStringList v = s.split(QLatin1Char('.'));
+    if (v.count() != 3) {
+        return;
+    }
+
+    bool ok;
+
+    majorVersion = v.at(0).toInt(&ok);
+    if (!ok) {
+        return;
+    }
+
+    minorVersion = v.at(1).toInt(&ok);
+    if (!ok) {
+        return;
+    }
+
+    revisionNumber = v.at(2).toInt(&ok);
+    if (!ok) {
+        return;
+    }
+
+    isValid = majorVersion >= 0 && minorVersion >= 0 && revisionNumber >= 0;
+}
+
+bool Updater::Version::operator <(const Updater::Version &other) const
+{
+    if (this->majorVersion != other.majorVersion) {
+        return this->majorVersion < other.majorVersion;
+    }
+    if (this->minorVersion != other.minorVersion) {
+        return this->minorVersion < other.minorVersion;
+    }
+    if (this->revisionNumber != other.revisionNumber) {
+        return this->revisionNumber < other.revisionNumber;
+    }
+
+    return false;
+}
+
+bool Updater::Version::operator >(const Updater::Version &other) const
+{
+    if (*this == other) {
+        return false;
+    }
+    return !operator<(other);
+}
+
+bool Updater::Version::operator ==(const Updater::Version &other) const
+{
+    return (this->majorVersion == other.majorVersion &&
+            this->minorVersion == other.minorVersion &&
+            this->revisionNumber == other.revisionNumber);
+}
+
+bool Updater::Version::operator >=(const Updater::Version &other) const
+{
+    if (*this == other) {
+        return true;
+    }
+    return *this > other;
+}
+
+bool Updater::Version::operator <=(const Updater::Version &other) const
+{
+    if (*this == other) {
+        return true;
+    }
+    return *this < other;
+}
+
 Updater::Updater(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
     , p_QupZilla(mainClass)
@@ -33,67 +109,13 @@ Updater::Updater(QupZilla* mainClass, QObject* parent)
     QTimer::singleShot(60 * 1000, this, SLOT(start())); // Start checking after 1 minute
 }
 
-Updater::Version Updater::parseVersionFromString(const QString &string)
-{
-    Version ver;
-    ver.isValid = false;
-
-    QStringList v = string.split(QLatin1Char('.'));
-    if (v.count() != 3) {
-        return ver;
-    }
-
-    QStringList r = v.at(2).split(QLatin1Char('.'));
-
-    ver.majorVersion = v.at(0).toInt();
-    ver.minorVersion = v.at(1).toInt();
-    ver.revisionNumber = r.at(0).toInt();
-    if (r.count() == 2) {
-        ver.specialSymbol = r.at(1);
-    }
-
-    ver.isValid = true;
-    return ver;
-}
-
-bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
-{
-    if (one.contains(QLatin1String("rc")) && two.contains(QLatin1Char('b'))) {
-        return true;
-    }
-
-    if (one.contains(QLatin1Char('b')) && two.contains(QLatin1String("rc"))) {
-        return false;
-    }
-
-    if (one.isEmpty()) {
-        return true;
-    }
-
-    if (two.isEmpty()) {
-        return false;
-    }
-
-    if (one.contains(QLatin1Char('b'))) {
-        int o = one.remove(QLatin1Char('b')).toInt();
-        int t = two.remove(QLatin1Char('b')).toInt();
-
-        return o > t;
-    }
-
-    if (one.contains(QLatin1String("rc"))) {
-        int o = one.remove(QLatin1String("rc")).toInt();
-        int t = two.remove(QLatin1String("rc")).toInt();
-
-        return o > t;
-    }
-
-    return false;
-}
-
 void Updater::start()
 {
-    startDownloadingUpdateInfo(QUrl(QupZilla::WWWADDRESS + "/update.php?v=" + QupZilla::VERSION));
+    QUrl url = QUrl(QString("%1/update.php?v=%2&os=%3").arg(QupZilla::WWWADDRESS,
+                    QupZilla::VERSION,
+                    QzTools::operatingSystem()));
+
+    startDownloadingUpdateInfo(url);
 }
 
 void Updater::startDownloadingUpdateInfo(const QUrl &url)
@@ -110,10 +132,10 @@ void Updater::downCompleted(QNetworkReply* reply)
 
     if (html.startsWith(QLatin1String("Version:"))) {
         html.remove(QLatin1String("Version:"));
-        Version current = parseVersionFromString(QupZilla::VERSION);
-        Version updated = parseVersionFromString(html);
+        Version current(QupZilla::VERSION);
+        Version updated(html);
 
-        if (current < updated) {
+        if (current.isValid && updated.isValid && current < updated) {
             mApp->desktopNotifications()->showNotification(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
         }
     }

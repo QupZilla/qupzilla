@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -76,6 +76,7 @@ public:
     void setPinned(bool state);
 
     int tabIndex() const;
+    void showNavigationBar(QWidget* bar);
 
     void setLocationBar(LocationBar* bar);
     LocationBar* locationBar() const;
@@ -97,11 +98,13 @@ public:
 
 private slots:
     void showNotification(QWidget* notif);
+    void slotRestore();
 
 private:
     QupZilla* p_QupZilla;
     TabbedWebView* m_view;
     QVBoxLayout* m_layout;
+    QWidget* m_navigationContainer;
     QPointer<LocationBar> m_locationBar;
 
     SavedTab m_savedTab;

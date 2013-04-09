@@ -21,12 +21,9 @@
 #include "rssmanager.h"
 #include "mainapplication.h"
 #include "clickablelabel.h"
-#include "siteinfowidget.h"
-#include "rsswidget.h"
 #include "webpage.h"
 #include "tabwidget.h"
 #include "bookmarkicon.h"
-#include "bookmarkswidget.h"
 #include "progressbar.h"
 #include "statusbarmessage.h"
 #include "toolbutton.h"
@@ -39,12 +36,14 @@
 #include "iconprovider.h"
 #include "qzsettings.h"
 #include "colors.h"
+#include "autofillicon.h"
 
 #include <QMimeData>
 #include <QClipboard>
 #include <QTimer>
 #include <QContextMenuEvent>
-#include <QDebug>
+#include <QAction>
+#include <QMenu>
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit(mainClass)
@@ -55,25 +54,28 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_holdingAlt(false)
     , m_loadProgress(0)
     , m_progressVisible(false)
-    , m_forceLineEditPaintEvent(false)
+    , m_forcePaintEvent(false)
+    , m_drawCursor(true)
+    , m_popupClosed(false)
 {
     setObjectName("locationbar");
     setDragEnabled(true);
 
-    m_bookmarkIcon = new BookmarkIcon(p_QupZilla);
+    m_bookmarkIcon = new BookmarkIcon(this);
     m_goIcon = new GoIcon(this);
     m_rssIcon = new RssIcon(this);
-    m_rssIcon->setToolTip(tr("Add RSS from this page..."));
-    m_siteIcon = new SiteIcon(this);
+    m_siteIcon = new SiteIcon(p_QupZilla, this);
+    m_autofillIcon = new AutoFillIcon(this);
     DownIcon* down = new DownIcon(this);
 
-    ////RTL Support
-    ////if we don't add 'm_siteIcon' by following code, then we should use suitable padding-left value
-    //// but then, when typing RTL text the layout dynamically changed and within RTL layout direction
-    //// padding-left is equivalent to padding-right and vice versa, and because style sheet is
-    //// not changed dynamically this create padding problems.
+    // RTL Support
+    // if we don't add 'm_siteIcon' by following code, then we should use suitable padding-left value
+    // but then, when typing RTL text the layout dynamically changed and within RTL layout direction
+    // padding-left is equivalent to padding-right and vice versa, and because style sheet is
+    // not changed dynamically this create padding problems.
     addWidget(m_siteIcon, LineEdit::LeftSide);
 
+    addWidget(m_autofillIcon, LineEdit::RightSide);
     addWidget(m_goIcon, LineEdit::RightSide);
     addWidget(m_bookmarkIcon, LineEdit::RightSide);
     addWidget(m_rssIcon, LineEdit::RightSide);
@@ -82,26 +84,34 @@ LocationBar::LocationBar(QupZilla* mainClass)
     m_completer.setLocationBar(this);
     connect(&m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));
     connect(&m_completer, SIGNAL(completionActivated()), this, SLOT(urlEnter()));
+    connect(&m_completer, SIGNAL(popupClosed()), this, SLOT(completionPopupClosed()));
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
-    connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
-    connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
-    connect(m_bookmarkIcon, SIGNAL(clicked(QPoint)), this, SLOT(bookmarkIconClicked()));
-    connect(down, SIGNAL(clicked(QPoint)), this, SLOT(showMostVisited()));
+    connect(down, SIGNAL(clicked(QPoint)), &m_completer, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp->searchEnginesManager(), SIGNAL(defaultEngineChanged()), this, SLOT(updatePlaceHolderText()));
-    connect(mApp, SIGNAL(message(Qz::AppMessageType, bool)), SLOT(onMessage(Qz::AppMessageType, bool)));
+    connect(mApp, SIGNAL(message(Qz::AppMessageType,bool)), SLOT(onMessage(Qz::AppMessageType,bool)));
 
     loadSettings();
 
     clearIcon();
     updatePlaceHolderText();
+
+    // Hide icons by default
+    m_goIcon->hide();
+    m_rssIcon->hide();
+    m_autofillIcon->hide();
 }
 
 void LocationBar::setWebView(TabbedWebView* view)
 {
     m_webView = view;
+
+    m_bookmarkIcon->setWebView(m_webView);
+    m_rssIcon->setWebView(m_webView);
+    m_siteIcon->setWebView(m_webView);
+    m_autofillIcon->setWebView(m_webView);
 
     connect(m_webView, SIGNAL(loadStarted()), SLOT(onLoadStarted()));
     connect(m_webView, SIGNAL(loadProgress(int)), SLOT(onLoadProgress(int)));
@@ -111,7 +121,7 @@ void LocationBar::setWebView(TabbedWebView* view)
 void LocationBar::setText(const QString &text)
 {
     LineEdit::setText(text);
-    m_forceLineEditPaintEvent = true;
+    m_forcePaintEvent = true;
     setCursorPosition(0);
 }
 
@@ -129,6 +139,12 @@ void LocationBar::showCompletion(const QString &newText)
 
     // Move cursor to the end
     end(false);
+}
+
+void LocationBar::completionPopupClosed()
+{
+    m_popupClosed = true;
+    m_drawCursor = true;
 }
 
 QUrl LocationBar::createUrl()
@@ -165,7 +181,7 @@ QString LocationBar::convertUrlToText(const QUrl &url) const
     QString stringUrl = QzTools::urlEncodeQueryString(url);
 
     if (stringUrl == QLatin1String("qupzilla:speeddial") || stringUrl == QLatin1String("about:blank")) {
-        stringUrl = "";
+        stringUrl.clear();
     }
 
     return stringUrl;
@@ -186,6 +202,11 @@ void LocationBar::textEdit()
     }
     else {
         m_completer.closePopup();
+    }
+
+    // Decide whether to draw cursor
+    if (text().length() <= 1 && m_drawCursor && !m_popupClosed) {
+        m_drawCursor = false;
     }
 
     showGoButton();
@@ -217,35 +238,6 @@ void LocationBar::hideGoButton()
     m_goIcon->hide();
 
     updateTextMargins();
-}
-
-void LocationBar::showMostVisited()
-{
-    m_completer.complete(QString());
-}
-
-void LocationBar::showSiteInfo()
-{
-    QUrl url = p_QupZilla->weView()->url();
-
-    if (url.isEmpty() || url.scheme() == QLatin1String("qupzilla")) {
-        return;
-    }
-
-    SiteInfoWidget* info = new SiteInfoWidget(p_QupZilla);
-    info->showAt(this);
-}
-
-void LocationBar::rssIconClicked()
-{
-    RSSWidget* rss = new RSSWidget(m_webView, this);
-    rss->showAt(this);
-}
-
-void LocationBar::bookmarkIconClicked()
-{
-    BookmarksWidget* bWidget = new BookmarksWidget(p_QupZilla, m_webView, this);
-    bWidget->showAt(this);
 }
 
 void LocationBar::showRSSIcon(bool state)
@@ -327,7 +319,7 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
     QMenu menu(this);
 
     int i = 0;
-    foreach(QAction * act, tempMenu->actions()) {
+    foreach (QAction* act, tempMenu->actions()) {
         menu.addAction(act);
 
         switch (i) {
@@ -393,7 +385,7 @@ void LocationBar::dropEvent(QDropEvent* event)
             emit loadUrl(dropUrl);
 
             QFocusEvent event(QFocusEvent::FocusOut);
-            QLineEdit::focusOutEvent(&event);
+            LineEdit::focusOutEvent(&event);
             return;
         }
     }
@@ -406,50 +398,32 @@ void LocationBar::dropEvent(QDropEvent* event)
             emit loadUrl(dropUrl);
 
             QFocusEvent event(QFocusEvent::FocusOut);
-            QLineEdit::focusOutEvent(&event);
+            LineEdit::focusOutEvent(&event);
             return;
         }
 
     }
-    QLineEdit::dropEvent(event);
+
+    LineEdit::dropEvent(event);
 }
 
 void LocationBar::focusOutEvent(QFocusEvent* event)
 {
-    QLineEdit::focusOutEvent(event);
+    LineEdit::focusOutEvent(event);
 
     if (event->reason() == Qt::PopupFocusReason
             || (!selectedText().isEmpty() && event->reason() != Qt::TabFocusReason)) {
         return;
     }
 
-    m_forceLineEditPaintEvent = true;
+    m_popupClosed = false;
+    m_forcePaintEvent = true;
     setCursorPosition(0);
     hideGoButton();
 
     if (text().trimmed().isEmpty()) {
         clear();
     }
-}
-
-void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
-{
-    if (event->button() == Qt::LeftButton && qzSettings->selectAllOnDoubleClick) {
-        selectAll();
-    }
-    else {
-        QLineEdit::mouseDoubleClickEvent(event);
-    }
-}
-
-void LocationBar::mousePressEvent(QMouseEvent* event)
-{
-    if (cursorPosition() == 0 && qzSettings->selectAllOnClick) {
-        selectAll();
-        return;
-    }
-
-    LineEdit::mousePressEvent(event);
 }
 
 void LocationBar::keyPressEvent(QKeyEvent* event)
@@ -534,14 +508,10 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
     LineEdit::keyReleaseEvent(event);
 }
 
-LocationBar::~LocationBar()
-{
-    delete m_bookmarkIcon;
-}
-
 void LocationBar::onLoadStarted()
 {
     m_progressVisible = true;
+    m_autofillIcon->hide();
 }
 
 void LocationBar::onLoadProgress(int progress)
@@ -556,6 +526,13 @@ void LocationBar::onLoadFinished()
 {
     if (qzSettings->showLoadingProgress) {
         QTimer::singleShot(700, this, SLOT(hideProgress()));
+    }
+
+    WebPage* page = qobject_cast<WebPage*>(m_webView->page());
+
+    if (page && page->hasMultipleUsernames()) {
+        m_autofillIcon->setFormData(page->autoFillData());
+        m_autofillIcon->show();
     }
 }
 
@@ -591,10 +568,11 @@ void LocationBar::hideProgress()
 
 void LocationBar::paintEvent(QPaintEvent* event)
 {
-    if (m_completer.isPopupVisible()) {
-        // We need to draw cursor
+#ifndef Q_OS_MAC
+    if (m_drawCursor && m_completer.isPopupVisible() && !m_completer.showingMostVisited()) {
+        // We need to draw cursor when popup is visible
+        // But don't paint it if we are just showing most visited sites
         LineEdit::paintEvent(event);
-
         QStyleOptionFrameV3 option;
         initStyleOption(&option);
 
@@ -606,22 +584,26 @@ void LocationBar::paintEvent(QPaintEvent* event)
 
         const QFontMetrics &fm = fontMetrics();
 
-        QString textPart = text().left(cursorPosition()) + " ";
-        int cursorXpos = lm + fontMetrics().width(textPart);
+        QString textPart = text().left(cursorPosition());
+        int cursorXpos = contentsRect.x() + 3 + fontMetrics().width(textPart);
         int cursorYpos = contentsRect.y() + (contentsRect.height() - fm.height() + 1) / 2;
         int cursorWidth = style()->pixelMetric(QStyle::PM_TextCursorWidth, &option, this);
         int cursorHeight = fontMetrics().height();
 
         QPainter p(this);
         QRect cursorRect(cursorXpos, cursorYpos, cursorWidth, cursorHeight);
+        if (isRightToLeft()) {
+            cursorRect = style()->visualRect(Qt::RightToLeft, contentsRect, cursorRect);
+        }
         p.fillRect(cursorRect, option.palette.text().color());
         return;
     }
+#endif
 
-    if (hasFocus() || text().isEmpty() || m_forceLineEditPaintEvent) {
+    if (hasFocus() || text().isEmpty() || m_forcePaintEvent) {
         LineEdit::paintEvent(event);
-        if (m_forceLineEditPaintEvent) {
-            m_forceLineEditPaintEvent = false;
+        if (m_forcePaintEvent) {
+            m_forcePaintEvent = false;
             update();
         }
         return;
@@ -728,4 +710,8 @@ void LocationBar::paintEvent(QPaintEvent* event)
     }
 
     p.drawText(currentRect, currentText, opt);
+}
+
+LocationBar::~LocationBar()
+{
 }

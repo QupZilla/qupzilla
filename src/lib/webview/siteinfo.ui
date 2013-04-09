@@ -15,27 +15,9 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QListWidget" name="listWidget">
+    <widget class="HorizontalListWidget" name="listWidget">
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="movement">
-      <enum>QListView::Static</enum>
-     </property>
-     <property name="resizeMode">
-      <enum>QListView::Adjust</enum>
-     </property>
-     <property name="viewMode">
-      <enum>QListView::IconMode</enum>
-     </property>
-     <property name="selectionRectVisible">
-      <bool>false</bool>
      </property>
      <item>
       <property name="text">
@@ -488,6 +470,11 @@
    <class>SqueezeLabelV2</class>
    <extends>QLabel</extends>
    <header>squeezelabelv2.h</header>
+  </customwidget>
+  <customwidget>
+   <class>HorizontalListWidget</class>
+   <extends>QListWidget</extends>
+   <header>horizontallistwidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

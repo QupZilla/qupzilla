@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,22 +16,22 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "bookmarkicon.h"
+#include "bookmarksmodel.h"
+#include "bookmarkswidget.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
 #include "tabbedwebview.h"
 #include "locationbar.h"
-#include "bookmarksmodel.h"
 #include "pluginproxy.h"
 #include "speeddial.h"
 
 #include <QStyle>
 #include <QContextMenuEvent>
 
-BookmarkIcon::BookmarkIcon(QupZilla* mainClass, QWidget* parent)
+BookmarkIcon::BookmarkIcon(QWidget* parent)
     : ClickableLabel(parent)
-    , p_QupZilla(mainClass)
     , m_bookmarksModel(0)
     , m_speedDial(mApp->plugins()->speedDial())
+    , m_view(0)
 {
     setObjectName("locationbar-bookmarkicon");
     setCursor(Qt::PointingHandCursor);
@@ -42,6 +42,12 @@ BookmarkIcon::BookmarkIcon(QupZilla* mainClass, QWidget* parent)
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(bookmarkAdded(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(bookmarkDeleted(BookmarksModel::Bookmark)));
     connect(m_speedDial, SIGNAL(pagesChanged()), this, SLOT(speedDialChanged()));
+    connect(this, SIGNAL(clicked(QPoint)), this, SLOT(iconClicked()));
+}
+
+void BookmarkIcon::setWebView(WebView* view)
+{
+    m_view = view;
 }
 
 void BookmarkIcon::checkBookmark(const QUrl &url, bool forceCheck)
@@ -77,6 +83,16 @@ void BookmarkIcon::bookmarkAdded(const BookmarksModel::Bookmark &bookmark)
 void BookmarkIcon::speedDialChanged()
 {
     checkBookmark(m_lastUrl, true);
+}
+
+void BookmarkIcon::iconClicked()
+{
+    if (!m_view) {
+        return;
+    }
+
+    BookmarksWidget* widget = new BookmarksWidget(m_view, parentWidget());
+    widget->showAt(parentWidget());
 }
 
 void BookmarkIcon::setBookmarkSaved()

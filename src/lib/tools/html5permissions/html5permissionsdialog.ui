@@ -42,7 +42,7 @@
          </column>
          <column>
           <property name="text">
-           <string>Behavior</string>
+           <string>Behaviour</string>
           </property>
          </column>
         </widget>
@@ -96,7 +96,7 @@
          </column>
          <column>
           <property name="text">
-           <string>Behavior</string>
+           <string>Behaviour</string>
           </property>
          </column>
         </widget>

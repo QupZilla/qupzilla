@@ -35,12 +35,23 @@
 #include <QFileIconProvider>
 #include <QTemporaryFile>
 #include <QHash>
+#include <QSysInfo>
+#include <QProcess>
+#include <QMessageBox>
 
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
 #include <qpa/qplatformnativeinterface.h>
-#else
+#elif !defined(NO_X11)
 #include <QX11Info>
+#endif
+
+#ifdef Q_OS_WIN
+#include <windows.h>
+#endif
+
+#ifdef Q_OS_MAC
+#include <CoreServices/CoreServices.h>
 #endif
 
 QByteArray QzTools::pixmapToByteArray(const QPixmap &pix)
@@ -361,6 +372,228 @@ QIcon QzTools::iconFromFileName(const QString &fileName)
     return icon;
 }
 
+QString QzTools::resolveFromPath(const QString &name)
+{
+    const QString &path = qgetenv("PATH").trimmed();
+
+    if (path.isEmpty()) {
+        return QString();
+    }
+
+    QStringList dirs = path.split(QLatin1Char(':'), QString::SkipEmptyParts);
+
+    foreach (const QString &dir, dirs) {
+        QDir d(dir);
+        if (d.exists(name)) {
+            return d.absoluteFilePath(name);
+        }
+    }
+
+    return QString();
+}
+
+// http://stackoverflow.com/questions/1031645/how-to-detect-utf-8-in-plain-c
+bool QzTools::isUtf8(const char* string)
+{
+    if (!string) {
+        return 0;
+    }
+
+    const unsigned char* bytes = (const unsigned char*)string;
+    while (*bytes) {
+        if ((// ASCII
+                    bytes[0] == 0x09 ||
+                    bytes[0] == 0x0A ||
+                    bytes[0] == 0x0D ||
+                    (0x20 <= bytes[0] && bytes[0] <= 0x7F)
+                )
+           ) {
+            bytes += 1;
+            continue;
+        }
+
+        if ((// non-overlong 2-byte
+                    (0xC2 <= bytes[0] && bytes[0] <= 0xDF) &&
+                    (0x80 <= bytes[1] && bytes[1] <= 0xBF)
+                )
+           ) {
+            bytes += 2;
+            continue;
+        }
+
+        if ((// excluding overlongs
+                    bytes[0] == 0xE0 &&
+                    (0xA0 <= bytes[1] && bytes[1] <= 0xBF) &&
+                    (0x80 <= bytes[2] && bytes[2] <= 0xBF)
+                ) ||
+                (// straight 3-byte
+                    ((0xE1 <= bytes[0] && bytes[0] <= 0xEC) ||
+                     bytes[0] == 0xEE ||
+                     bytes[0] == 0xEF) &&
+                    (0x80 <= bytes[1] && bytes[1] <= 0xBF) &&
+                    (0x80 <= bytes[2] && bytes[2] <= 0xBF)
+                ) ||
+                (// excluding surrogates
+                    bytes[0] == 0xED &&
+                    (0x80 <= bytes[1] && bytes[1] <= 0x9F) &&
+                    (0x80 <= bytes[2] && bytes[2] <= 0xBF)
+                )
+           ) {
+            bytes += 3;
+            continue;
+        }
+
+        if ((// planes 1-3
+                    bytes[0] == 0xF0 &&
+                    (0x90 <= bytes[1] && bytes[1] <= 0xBF) &&
+                    (0x80 <= bytes[2] && bytes[2] <= 0xBF) &&
+                    (0x80 <= bytes[3] && bytes[3] <= 0xBF)
+                ) ||
+                (// planes 4-15
+                    (0xF1 <= bytes[0] && bytes[0] <= 0xF3) &&
+                    (0x80 <= bytes[1] && bytes[1] <= 0xBF) &&
+                    (0x80 <= bytes[2] && bytes[2] <= 0xBF) &&
+                    (0x80 <= bytes[3] && bytes[3] <= 0xBF)
+                ) ||
+                (// plane 16
+                    bytes[0] == 0xF4 &&
+                    (0x80 <= bytes[1] && bytes[1] <= 0x8F) &&
+                    (0x80 <= bytes[2] && bytes[2] <= 0xBF) &&
+                    (0x80 <= bytes[3] && bytes[3] <= 0xBF)
+                )
+           ) {
+            bytes += 4;
+            continue;
+        }
+
+        return false;
+    }
+
+    return true;
+}
+
+// Matches domain (assumes both pattern and domain not starting with dot)
+//  pattern = domain to be matched
+//  domain = site domain
+bool QzTools::matchDomain(const QString &pattern, const QString &domain)
+{
+    if (pattern == domain) {
+        return true;
+    }
+
+    if (!domain.endsWith(pattern)) {
+        return false;
+    }
+
+    int index = domain.indexOf(pattern);
+
+    return index > 0 && domain[index - 1] == QLatin1Char('.');
+}
+
+static inline bool isQuote(const QChar &c)
+{
+    return (c == QLatin1Char('"') || c == QLatin1Char('\''));
+}
+
+// Function  splits command line into arguments
+// eg. /usr/bin/foo -o test -b "bar bar" -s="sed sed"
+//  => '/usr/bin/foo' '-o' 'test' '-b' 'bar bar' '-s=sed sed'
+QStringList QzTools::splitCommandArguments(const QString &command)
+{
+    QString line = command.trimmed();
+
+    if (line.isEmpty()) {
+        return QStringList();
+    }
+
+    QChar SPACE(' ');
+    QChar EQUAL('=');
+    QChar BSLASH('\\');
+    QChar QUOTE('"');
+    QStringList r;
+
+    int equalPos = -1; // Position of = in opt="value"
+    int startPos = isQuote(line.at(0)) ? 1 : 0;
+    bool inWord = !isQuote(line.at(0));
+    bool inQuote = !inWord;
+
+    if (inQuote) {
+        QUOTE = line.at(0);
+    }
+
+    const int strlen = line.length();
+    for (int i = 0; i < strlen; ++i) {
+        const QChar &c = line.at(i);
+
+        if (inQuote && c == QUOTE && i > 0 && line.at(i - 1) != BSLASH) {
+            QString str = line.mid(startPos, i - startPos);
+            if (equalPos > -1) {
+                str.remove(equalPos - startPos + 1, 1);
+            }
+
+            inQuote = false;
+            if (!str.isEmpty()) {
+                r.append(str);
+            }
+            continue;
+        }
+        else if (!inQuote && isQuote(c)) {
+            inQuote = true;
+            QUOTE = c;
+
+            if (!inWord) {
+                startPos = i + 1;
+            }
+            else if (i > 0 && line.at(i - 1) == EQUAL) {
+                equalPos = i - 1;
+            }
+        }
+
+        if (inQuote) {
+            continue;
+        }
+
+        if (inWord && (c == SPACE || i == strlen - 1)) {
+            int len = (i == strlen - 1) ? -1 : i - startPos;
+            const QString &str = line.mid(startPos, len);
+
+            inWord = false;
+            if (!str.isEmpty()) {
+                r.append(str);
+            }
+        }
+        else if (!inWord && c != SPACE) {
+            inWord = true;
+            startPos = i;
+        }
+    }
+
+    // Unmatched quote
+    if (inQuote) {
+        return QStringList();
+    }
+
+    return r;
+}
+
+bool QzTools::startExternalProcess(const QString &executable, const QString &args)
+{
+    const QStringList &arguments = splitCommandArguments(args);
+
+    bool success = QProcess::startDetached(executable, arguments);
+
+    if (!success) {
+        QString info = "<ul><li><b>%1</b>%2</li><li><b>%3</b>%4</li></ul>";
+        info = info.arg(QObject::tr("Executable: "), executable,
+                        QObject::tr("Arguments: "), arguments.join(QLatin1String(" ")));
+
+        QMessageBox::critical(0, QObject::tr("Cannot start external program"),
+                              QObject::tr("Cannot start external program! %1").arg(info));
+    }
+
+    return success;
+}
+
 // Qt5 migration help functions
 bool QzTools::isCertificateValid(const QSslCertificate &cert)
 {
@@ -383,7 +616,7 @@ QString QzTools::escape(const QString &string)
 #endif
 }
 
-#ifdef QZ_WS_X11
+#if defined(QZ_WS_X11) && !defined(NO_X11)
 void* QzTools::X11Display(const QWidget* widget)
 {
     Q_UNUSED(widget)
@@ -396,8 +629,20 @@ void* QzTools::X11Display(const QWidget* widget)
 }
 #endif
 
-QString QzTools::buildSystem()
+QString QzTools::operatingSystem()
 {
+#ifdef Q_OS_MAC
+    QString str = "Mac OS X";
+
+    SInt32 majorVersion;
+    SInt32 minorVersion;
+
+    if (Gestalt(gestaltSystemVersionMajor, &majorVersion) == noErr && Gestalt(gestaltSystemVersionMinor, &minorVersion) == noErr) {
+        str.append(QString(" %1.%2").arg(majorVersion).arg(minorVersion));
+    }
+
+    return str;
+#endif
 #ifdef Q_OS_LINUX
     return "Linux";
 #endif
@@ -419,9 +664,6 @@ QString QzTools::buildSystem()
 #ifdef Q_OS_LYNX
     return "LynxOS";
 #endif
-#ifdef Q_OS_MAC
-    return "MAC OS";
-#endif
 #ifdef Q_OS_NETBSD
     return "NetBSD";
 #endif
@@ -440,13 +682,51 @@ QString QzTools::buildSystem()
 #ifdef Q_OS_UNIXWARE
     return "UnixWare 7 / Open UNIX 8";
 #endif
-#ifdef Q_OS_WIN32
-    return "Windows";
-#endif
 #ifdef Q_OS_UNIX
     return "Unix";
 #endif
 #ifdef Q_OS_HAIKU
     return "Haiku";
+#endif
+#ifdef Q_OS_WIN32
+    QString str = "Windows";
+
+    switch (QSysInfo::windowsVersion()) {
+    case QSysInfo::WV_NT:
+        str.append(" NT");
+        break;
+
+    case QSysInfo::WV_2000:
+        str.append(" 2000");
+        break;
+
+    case QSysInfo::WV_XP:
+        str.append(" XP");
+        break;
+    case QSysInfo::WV_2003:
+        str.append(" XP Pro x64");
+        break;
+
+    case QSysInfo::WV_VISTA:
+        str.append(" Vista");
+        break;
+
+    case QSysInfo::WV_WINDOWS7:
+        str.append(" 7");
+        break;
+
+    default:
+        OSVERSIONINFO osvi;
+        ZeroMemory(&osvi, sizeof(OSVERSIONINFO));
+        osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+        GetVersionEx(&osvi);
+
+        if (osvi.dwMajorVersion == 6 &&  osvi.dwMinorVersion == 2) {
+            str.append(" 8");
+        }
+        break;
+    }
+
+    return str;
 #endif
 }

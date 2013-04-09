@@ -1,8 +1,7 @@
 /*************************************
- * Mac Theme v0.4                    *
+ * Mac Theme                         *
  * Author: nowrep                    *
  * Based on: Firefox Mac OS X Theme  *
- * Last updated: 04.11.2011          *
  *************************************/
 
 *[html-link-look="true"]
@@ -14,7 +13,7 @@
 /*MainWindow*/
 #mainwindow
 {
-    background-color: #b2b2b2;
+    background-color: #a7a7a7;
 }
 
 #mainwindow-menubar
@@ -42,7 +41,7 @@
 
 #mainwindow-statusbar
 {
-    background-color: #b5b5b5;
+    background-color: #a7a7a7;
 }
 
 #statusbar-ip-label
@@ -168,6 +167,12 @@ IconProvider
     margin-left: 3px;
     margin-right: 2px;
     qproperty-pixmap: url(images/navigation-dropdown.png);
+}
+
+#locationbar-autofillicon
+{
+    margin-bottom: 1px;
+    qproperty-pixmap: url(images/key.png);
 }
 
 /*BookmarksToolbar*/

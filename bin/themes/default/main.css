@@ -1,7 +1,6 @@
 /****************************
- * Default Theme v0.4       *
+ * Default Theme            *
  * Author: nowrep           *
- * Last updated: 04.11.2011 *
  ****************************/
 
 *[html-link-look="true"]
@@ -182,6 +181,11 @@ IconProvider
 #locationbar-down-icon
 {
     qproperty-pixmap: url(images/arrow-down.gif);
+}
+
+#locationbar-autofillicon
+{
+    qproperty-pixmap: url(images/key.png);
 }
 
 /*WebSearchBar*/

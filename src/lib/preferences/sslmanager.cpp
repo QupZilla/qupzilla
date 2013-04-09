@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -74,7 +74,7 @@ void SSLManager::refreshCAList()
     ui->caList->clear();
     m_caCerts = QSslSocket::defaultCaCertificates();
 
-    foreach(const QSslCertificate & cert, m_caCerts) {
+    foreach (const QSslCertificate &cert, m_caCerts) {
         if (m_localCerts.contains(cert)) {
             continue;
         }
@@ -95,7 +95,7 @@ void SSLManager::refreshLocalList()
     ui->localList->clear();
     m_localCerts = mApp->networkManager()->getLocalCertificates();
 
-    foreach(const QSslCertificate & cert, m_localCerts) {
+    foreach (const QSslCertificate &cert, m_localCerts) {
         QListWidgetItem* item = new QListWidgetItem(ui->localList);
         item->setText(CertificateInfoWidget::certificateItemText(cert));
         item->setData(Qt::UserRole + 10, m_localCerts.indexOf(cert));
@@ -108,7 +108,7 @@ void SSLManager::refreshLocalList()
 
 void SSLManager::refreshPaths()
 {
-    foreach(const QString & path, mApp->networkManager()->certificatePaths()) {
+    foreach (const QString &path, mApp->networkManager()->certificatePaths()) {
         ui->pathList->addItem(path);
     }
 }

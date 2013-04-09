@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -32,8 +32,6 @@ private:
     void updateProfile(const QString &current, const QString &profile);
     void copyDataToProfile();
 
-    void update100b4();
-    void update100rc1();
     void update100();
     void update118();
     void update120();

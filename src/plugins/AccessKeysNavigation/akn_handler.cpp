@@ -1,6 +1,6 @@
 /* ============================================================
 * Access Keys Navigation plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -247,9 +247,9 @@ void AKN_Handler::showAccessKeys()
     QRect viewport = QRect(page->currentFrame()->scrollPosition(), page->viewportSize());
     // Priority first goes to elements with accesskey attributes
     QList<QWebElement> alreadyLabeled;
-    foreach(const QString & elementType, supportedElement) {
+    foreach (const QString &elementType, supportedElement) {
         QList<QWebElement> result = page->currentFrame()->findAllElements(elementType).toList();
-        foreach(const QWebElement & element, result) {
+        foreach (const QWebElement &element, result) {
             const QRect geometry = element.geometry();
             if (geometry.size().isEmpty()
                     || !viewport.contains(geometry.topLeft())) {
@@ -278,9 +278,9 @@ void AKN_Handler::showAccessKeys()
 
     // Pick an access key first from the letters in the text and then from the
     // list of unused access keys
-    foreach(const QString & elementType, supportedElement) {
+    foreach (const QString &elementType, supportedElement) {
         QWebElementCollection result = page->currentFrame()->findAllElements(elementType);
-        foreach(const QWebElement & element, result) {
+        foreach (const QWebElement &element, result) {
             const QRect geometry = element.geometry();
             if (unusedKeys.isEmpty()
                     || alreadyLabeled.contains(element)
@@ -310,7 +310,7 @@ void AKN_Handler::showAccessKeys()
     if (m_accessKeysVisible) {
         m_view.data()->installEventFilter(this);
         connect(m_view.data(), SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
-        connect(m_view.data()->page(), SIGNAL(scrollRequested(int, int, QRect)), this, SLOT(hideAccessKeys()));
+        connect(m_view.data()->page(), SIGNAL(scrollRequested(int,int,QRect)), this, SLOT(hideAccessKeys()));
 #if QT_VERSION >= 0x040800
         connect(m_view.data()->page(), SIGNAL(viewportChangeRequested()), this, SLOT(hideAccessKeys()));
 #endif
@@ -320,6 +320,13 @@ void AKN_Handler::showAccessKeys()
 void AKN_Handler::hideAccessKeys()
 {
     if (!m_accessKeyLabels.isEmpty() && m_view) {
+        // Fixes crash when hiding labels while closing view
+        if (!m_view->inherits("WebView")) {
+            m_accessKeyLabels.clear();
+            m_accessKeyNodes.clear();
+            return;
+        }
+
         for (int i = 0; i < m_accessKeyLabels.count(); ++i) {
             QLabel* label = m_accessKeyLabels[i];
             label->hide();
@@ -332,7 +339,7 @@ void AKN_Handler::hideAccessKeys()
         // Uninstall event filter and disconnect loadStarted
         m_view.data()->removeEventFilter(this);
         disconnect(m_view.data(), SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
-        disconnect(m_view.data()->page(), SIGNAL(scrollRequested(int, int, QRect)), this, SLOT(hideAccessKeys()));
+        disconnect(m_view.data()->page(), SIGNAL(scrollRequested(int,int,QRect)), this, SLOT(hideAccessKeys()));
 #if QT_VERSION >= 0x040800
         disconnect(m_view.data()->page(), SIGNAL(viewportChangeRequested()), this, SLOT(hideAccessKeys()));
 #endif

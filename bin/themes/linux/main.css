@@ -1,8 +1,7 @@
 /*************************************
- * Default Theme v0.4                *
+ * Linux Theme                       *
  * Author: nowrep                    *
- * Based on: Firefox Chromifox Theme *
- * Last updated: 04.11.2011          *
+ * Using native widgets and icons    *
  *************************************/
 
 *[html-link-look="true"]
@@ -27,7 +26,7 @@
 
 #navigation-button-back::menu-indicator
 {
-    background: url(images/transp.png);
+    image: none;
 }
 
 #navigation-button-next
@@ -39,7 +38,7 @@
 
 #navigation-button-next::menu-indicator
 {
-    background: url(images/transp.png);
+    image: none;
 }
 
 #navigation-button-stop
@@ -77,6 +76,11 @@
     qproperty-iconSize: 24px 24px;
 }
 
+#navigation-button-supermenu::menu-indicator 
+{
+    image: none;
+}
+
 /*TabWidget*/
 #tabbar::tab
 {
@@ -103,7 +107,7 @@
 
 #tabwidget-button-opentabs::menu-indicator
 {
-    background: url(images/transp.png);
+    image: none;
 }
 
 /*IconProvider*/
@@ -166,6 +170,12 @@ IconProvider
     qproperty-pixmap: url(images/navigation-dropdown.png);
 }
 
+#locationbar-autofillicon
+{
+    margin-bottom: 1px;
+    qproperty-pixmap: url(images/key.png);
+}
+
 /*BookmarksToolbar*/
 #bookmarksbar QToolButton
 {
@@ -176,7 +186,7 @@ IconProvider
 
 #bookmarksbar QToolButton::menu-indicator
 {
-    background: url(images/transp.png);
+    image: none;
 }
 
 /*SideBar*/
@@ -213,7 +223,7 @@ IconProvider
 
 #websearchbar-searchprovider-comobobox::menu-indicator
 {
-    background: url(images/transp.png);
+    image: none;
 }
 
 /*SourceViewer*/

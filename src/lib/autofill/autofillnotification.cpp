@@ -22,13 +22,14 @@
 #include "animatedwidget.h"
 #include "iconprovider.h"
 
-AutoFillNotification::AutoFillNotification(const QUrl &url, const PageFormData &formData, bool updateData)
+AutoFillNotification::AutoFillNotification(const QUrl &url, const PageFormData &formData, const AutoFillData &updateData)
     : AnimatedWidget(AnimatedWidget::Down, 300, 0)
-    , ui(new Ui::AutoFillWidget)
-    , m_updateData(updateData)
+    , ui(new Ui::AutoFillNotification)
     , m_url(url)
     , m_formData(formData)
+    , m_updateData(updateData)
 {
+    setAutoFillBackground(true);
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
     ui->closeButton->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));
@@ -44,8 +45,8 @@ AutoFillNotification::AutoFillNotification(const QUrl &url, const PageFormData &
         userPart = tr("for <b>%1</b>").arg(m_formData.username);
     }
 
-    if (updateData) {
-        ui->label->setText(tr("Do you want QupZilla to update saved password %1?").arg(hostPart));
+    if (m_updateData.isValid()) {
+        ui->label->setText(tr("Do you want QupZilla to update saved password %1?").arg(userPart));
 
         ui->remember->setVisible(false);
         ui->never->setVisible(false);
@@ -67,13 +68,13 @@ AutoFillNotification::AutoFillNotification(const QUrl &url, const PageFormData &
 
 void AutoFillNotification::update()
 {
-    mApp->autoFill()->updateEntry(m_url, m_formData);
+    mApp->autoFill()->updateEntry(m_formData, m_updateData);
     hide();
 }
 
 void AutoFillNotification::never()
 {
-    mApp->autoFill()->blockStoringfor(m_url);
+    mApp->autoFill()->blockStoringforUrl(m_url);
     hide();
 }
 

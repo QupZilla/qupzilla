@@ -67,3 +67,53 @@ void QzToolsTest::getFileNameFromUrl()
 
     QCOMPARE(QzTools::getFileNameFromUrl(url), result);
 }
+
+void QzToolsTest::splitCommandArguments_data()
+{
+    QTest::addColumn<QString>("command");
+    QTest::addColumn<QStringList>("result");
+
+    QTest::newRow("Basic") << "/usr/bin/foo -o foo.out"
+                           << (QStringList() << "/usr/bin/foo" << "-o" << "foo.out");
+    QTest::newRow("Empty") << QString()
+                           << QStringList();
+    QTest::newRow("OnlySpaces") << QString("                   ")
+                           << QStringList();
+    QTest::newRow("OnlyQuotes") << QString("\"\" \"\"")
+                           << QStringList();
+    QTest::newRow("EmptyQuotesAndSpace") << QString("\"\" \"\" \" \"")
+                           << QStringList(" ");
+    QTest::newRow("MultipleSpaces") << "    /usr/foo   -o    foo.out    "
+                           << (QStringList() << "/usr/foo" << "-o" << "foo.out");
+    QTest::newRow("Quotes") << "\"/usr/foo\" \"-o\" \"foo.out\""
+                           << (QStringList() << "/usr/foo" << "-o" << "foo.out");
+    QTest::newRow("SingleQuotes") << "'/usr/foo' '-o' 'foo.out'"
+                           << (QStringList() << "/usr/foo" << "-o" << "foo.out");
+    QTest::newRow("SingleAndDoubleQuotes") << " '/usr/foo' \"-o\" 'foo.out' "
+                           << (QStringList() << "/usr/foo" << "-o" << "foo.out");
+    QTest::newRow("SingleInDoubleQuotes") << "/usr/foo \"-o 'ds' \" 'foo.out' "
+                           << (QStringList() << "/usr/foo" << "-o 'ds' " << "foo.out");
+    QTest::newRow("DoubleInSingleQuotes") << "/usr/foo -o 'foo\" d \".out' "
+                           << (QStringList() << "/usr/foo" << "-o" << "foo\" d \".out");
+    QTest::newRow("SpacesWithQuotes") << QString("  \"   \"     \"   \"     ")
+                           << (QStringList() << "   " << "   ");
+    QTest::newRow("QuotesAndSpaces") << "/usr/foo -o \"foo - out\""
+                           << (QStringList() << "/usr/foo" << "-o" << "foo - out");
+    QTest::newRow("EqualAndQuotes") << "/usr/foo -o=\"foo - out\""
+                           << (QStringList() << "/usr/foo" << "-o=foo - out");
+    QTest::newRow("EqualWithSpaces") << "/usr/foo -o = \"foo - out\""
+                           << (QStringList() << "/usr/foo" << "-o" << "=" << "foo - out");
+    QTest::newRow("MultipleSpacesAndQuotes") << "    /usr/foo   -o=\"    foo.out   \" "
+                           << (QStringList() << "/usr/foo" << "-o=    foo.out   ");
+    // Unmatched quotes should be treated as an error
+    QTest::newRow("UnmatchedQuote") << "/usr/bin/foo -o \"bar"
+                           << QStringList();
+}
+
+void QzToolsTest::splitCommandArguments()
+{
+    QFETCH(QString, command);
+    QFETCH(QStringList, result);
+
+    QCOMPARE(QzTools::splitCommandArguments(command), result);
+}

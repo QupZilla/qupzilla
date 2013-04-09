@@ -24,7 +24,6 @@
 #include "qz_namespace.h"
 #include "networkmanagerproxy.h"
 
-class QupZilla;
 class AdBlockManager;
 class NetworkProxyFactory;
 class QupZillaSchemeHandler;
@@ -34,7 +33,7 @@ class QT_QUPZILLA_EXPORT NetworkManager : public NetworkManagerProxy
 {
     Q_OBJECT
 public:
-    explicit NetworkManager(QupZilla* mainClass, QObject* parent = 0);
+    explicit NetworkManager(QObject* parent = 0);
     QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 
     void loadSettings();
@@ -53,12 +52,13 @@ public:
     void setIgnoreAllWarnings(bool state) { m_ignoreAllWarnings = state; }
     bool isIgnoringAllWarnings() { return m_ignoreAllWarnings; }
 
+    NetworkProxyFactory* proxyFactory() const;
+
     bool registerSchemeHandler(const QString &scheme, SchemeHandler* handler);
 
     void disconnectObjects();
 
 signals:
-    void wantsFocus(const QUrl &url);
     void sslDialogClosed();
 
 private slots:
@@ -70,7 +70,6 @@ private slots:
 
 private:
     AdBlockManager* m_adblockManager;
-    QupZilla* p_QupZilla;
     NetworkProxyFactory* m_proxyFactory;
 
     QStringList m_certPaths;

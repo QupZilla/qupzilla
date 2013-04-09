@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  Franz Fellner <alpine.art.de@googlemail.com>
+* Copyright (C) 2010-2013  Franz Fellner <alpine.art.de@googlemail.com>
 *                          David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -21,18 +21,17 @@
 
 #include <QFrame>
 
-class LocationBarPopup : public QFrame
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT LocationBarPopup : public QFrame
 {
 public:
-    LocationBarPopup(QWidget* parent);
-    void showAt(QWidget* parent);
-    void setPopupAlignment(Qt::Alignment alignment) {
-        m_alignment = alignment;
-    }
+    explicit LocationBarPopup(QWidget* parent);
 
-    Qt::Alignment popupAlignment() const {
-        return m_alignment;
-    }
+    void showAt(QWidget* parent);
+
+    void setPopupAlignment(Qt::Alignment alignment);
+    Qt::Alignment popupAlignment() const;
 
 private:
     Qt::Alignment m_alignment;

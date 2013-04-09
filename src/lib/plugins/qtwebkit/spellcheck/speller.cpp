@@ -16,165 +16,381 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "speller.h"
+#include "spellcheckdialog.h"
+#include "settings.h"
+#include "mainapplication.h"
+#include "qztools.h"
 
 #include <QStringList>
 #include <QTextCodec>
 #include <QTextStream>
 #include <QFile>
-#include <QRegExp>
+#include <QLocale>
 #include <QDebug>
+#include <QDirIterator>
+#include <QWebHitTestResult>
+#include <QTextBoundaryFinder>
+#include <QTextStream>
+#include <QMenu>
 
 #include <hunspell/hunspell.hxx>
 
-Hunspell* Speller::s_hunspell = 0;
-QTextCodec* Speller::s_codec = 0;
-QString Speller::s_dictionaryPath;
-QString Speller::s_langugage;
-bool Speller::s_initialized = false;
-
-Speller::Speller()
+Speller::Speller(QObject* parent)
+    : QObject(parent)
+    , m_textCodec(0)
+    , m_hunspell(0)
+    , m_enabled(false)
 {
+    loadSettings();
 }
 
-bool Speller::initialize()
+bool Speller::isEnabled() const
 {
-    if (s_initialized) {
-        return s_hunspell != 0;
+    return m_enabled;
+}
+
+void Speller::loadSettings()
+{
+
+    Settings settings;
+    settings.beginGroup("SpellCheck");
+    m_enabled = settings.value("enabled", true).toBool();
+    m_dictionaryPath = settings.value("dictionaryPath", getDictionaryPath()).toString();
+    m_language.code = settings.value("language", mApp->currentLanguage()).toString();
+    m_language.name = nameForLanguage(m_language.code);
+    settings.endGroup();
+
+    m_userDictionary.setFileName(mApp->currentProfilePath() + "userdictionary.txt");
+
+    if (m_enabled) {
+        initialize();
+    }
+}
+
+void Speller::initialize()
+{
+    delete m_hunspell;
+    m_hunspell = 0;
+
+    if (m_dictionaryPath.isEmpty()) {
+        qWarning() << "SpellCheck: Cannot locate dictionary path!";
+        return;
     }
 
-    s_dictionaryPath = getDictionaryPath();
-    s_langugage = parseLanguage(s_dictionaryPath);
+    QString dictionary = m_dictionaryPath + m_language.code;
 
-    if (s_dictionaryPath.isEmpty() || s_langugage.isEmpty()) {
-        qWarning() << "SpellCheck: Initialization failed!";
-        return false;
+    if (!dictionaryExists(dictionary)) {
+        qWarning() << "SpellCheck: Dictionaries for" << dictionary << "doesn't exists!";
+        return;
     }
 
-    QString dicPath = s_dictionaryPath +  ".dic";
-    QString affPath = s_dictionaryPath + ".aff";
+    const QString dicPath = dictionary + ".dic";
+    const QString affPath = dictionary + ".aff";
 
-    s_hunspell = new Hunspell(affPath.toLocal8Bit().constData(),
+    m_hunspell = new Hunspell(affPath.toLocal8Bit().constData(),
                               dicPath .toLocal8Bit().constData());
 
-    s_codec = QTextCodec::codecForName(s_hunspell->get_dic_encoding());
+    m_textCodec = QTextCodec::codecForName(m_hunspell->get_dic_encoding());
 
-    qDebug() << "SpellCheck: Language =" << language();
-    s_initialized = true;
-    return true;
+    if (m_userDictionary.exists()) {
+        if (!m_userDictionary.open(QFile::ReadOnly)) {
+            qWarning() << "SpellCheck: Cannot open" << m_userDictionary.fileName() << "for reading!";
+        }
+        else {
+            QString word;
+            QTextStream stream(&m_userDictionary);
+            stream.setCodec("UTF-8");
+            while (!stream.atEnd()) {
+                stream >> word;
+                putWord(word);
+            }
+        }
+        m_userDictionary.close();
+    }
+
+    qDebug() << "SpellCheck: Language =" << language().code
+             << (m_textCodec ? m_textCodec->name() : "invalid text codec");
 }
 
-QString Speller::backend() const
+Speller::Language Speller::language() const
 {
-    return QString("Hunspell");
+    return m_language;
 }
 
-QString Speller::language() const
+QVector<Speller::Language> Speller::availableLanguages()
 {
-    return s_langugage;
+    if (!m_availableLanguages.isEmpty()) {
+        return m_availableLanguages;
+    }
+
+    QDirIterator it(m_dictionaryPath, QStringList("*.dic"), QDir::Files);
+
+    while (it.hasNext()) {
+        const QString affFilePath = it.next().replace(QLatin1String(".dic"), QLatin1String(".aff"));
+
+        if (!QFile(affFilePath).exists()) {
+            continue;
+        }
+
+        Language lang;
+        lang.code = it.fileInfo().baseName();
+        lang.name = nameForLanguage(lang.code);
+
+        if (!m_availableLanguages.contains(lang)) {
+            m_availableLanguages.append(lang);
+        }
+    }
+
+    return m_availableLanguages;
 }
 
-void Speller::learnWord(const QString &word)
+QString Speller::dictionaryPath() const
 {
-    const char* encodedWord = s_codec->fromUnicode(word).constData();
-    s_hunspell->add(encodedWord);
+    return m_dictionaryPath;
 }
 
-void Speller::ignoreWordInSpellDocument(const QString &word)
+void Speller::populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
 {
-    m_ignoredWords.append(word);
+    m_element = hitTest.element();
+
+    if (!m_enabled || m_element.isNull() ||
+            m_element.attribute(QLatin1String("type")) == QLatin1String("password")) {
+        return;
+    }
+
+    const QString text = m_element.evaluateJavaScript("this.value").toString();
+    const int pos = m_element.evaluateJavaScript("this.selectionStart").toInt() + 1;
+
+    QTextBoundaryFinder finder =  QTextBoundaryFinder(QTextBoundaryFinder::Word, text);
+    finder.setPosition(pos);
+    m_startPos = finder.toPreviousBoundary();
+    m_endPos = finder.toNextBoundary();
+
+    const QString &word = text.mid(m_startPos, m_endPos - m_startPos).trimmed();
+
+    if (!isValidWord(word) || !isMisspelled(word)) {
+        return;
+    }
+
+    const int limit = 6;
+    QStringList suggests = suggest(word);
+    int count = suggests.count() > limit ? limit : suggests.count();
+
+    QFont boldFont = menu->font();
+    boldFont.setBold(true);
+
+    for (int i = 0; i < count; ++i) {
+        QAction* act = menu->addAction(suggests.at(i), this, SLOT(replaceWord()));
+        act->setData(suggests.at(i));
+        act->setFont(boldFont);
+    }
+
+    if (count == 0) {
+        menu->addAction(tr("No suggestions"))->setEnabled(false);
+    }
+
+    menu->addAction(tr("Add to dictionary"), this, SLOT(addToDictionary()))->setData(word);
+    menu->addSeparator();
+}
+
+void Speller::addToDictionary()
+{
+    if (QAction* act = qobject_cast<QAction*>(sender())) {
+        const QString &word = act->data().toString();
+        putWord(word);
+
+        if (!m_userDictionary.open(QFile::WriteOnly | QFile::Append)) {
+            qWarning() << "SpellCheck: Cannot open file" << m_userDictionary.fileName() << "for writing!";
+            return;
+        }
+
+        QTextStream stream(&m_userDictionary);
+        stream.setCodec("UTF-8");
+        stream << word << endl;
+        m_userDictionary.close();
+    }
+}
+
+void Speller::replaceWord()
+{
+    if (m_element.isNull()) {
+        return;
+    }
+
+    if (QAction* act = qobject_cast<QAction*>(sender())) {
+        QString word = act->data().toString();
+        QString text = m_element.evaluateJavaScript("this.value").toString();
+        const int cursorPos = m_element.evaluateJavaScript("this.selectionStart").toInt();
+
+        text.replace(m_startPos, m_endPos - m_startPos, word);
+        text.replace(QLatin1Char('\\'), QLatin1String("\\\\"));
+        text.replace(QLatin1Char('\n'), QLatin1String("\\n"));
+        text.replace(QLatin1Char('\''), QLatin1String("\\'"));
+
+        m_element.evaluateJavaScript(QString("this.value='%1'").arg(text));
+        m_element.evaluateJavaScript(QString("this.selectionStart=this.selectionEnd=%1").arg(cursorPos));
+    }
+}
+
+void Speller::showSettings()
+{
+    SpellCheckDialog dialog;
+
+    if (dialog.exec() == QDialog::Accepted) {
+        loadSettings();
+    }
+}
+
+void Speller::changeLanguage()
+{
+    QAction* act = qobject_cast<QAction*>(sender());
+
+    if (!act) {
+        return;
+    }
+
+    Language lang = act->data().value<Language>();
+
+    Settings settings;
+    settings.beginGroup("SpellCheck");
+    settings.setValue("language", lang.code);
+    settings.endGroup();
+
+    loadSettings();
+}
+
+void Speller::putWord(const QString &word)
+{
+    if (!m_hunspell || !m_textCodec || word.isEmpty()) {
+        return;
+    }
+
+    const QByteArray &data = m_textCodec->fromUnicode(word);
+
+    if (m_hunspell->add(data.constData()) != 0) {
+        qWarning() << "SpellCheck: Error while adding" << word << "word!";
+    }
 }
 
 bool Speller::isMisspelled(const QString &string)
 {
-    if (m_ignoredWords.contains(string)) {
+    if (!m_hunspell || !m_textCodec) {
         return false;
     }
 
-    const char* encodedString = s_codec->fromUnicode(string).constData();
-    return s_hunspell->spell(encodedString) == 0;
+    const QByteArray &data = m_textCodec->fromUnicode(string);
+
+    return m_hunspell->spell(data.constData()) == 0;
 }
 
 QStringList Speller::suggest(const QString &word)
 {
+    if (!m_hunspell || !m_textCodec) {
+        return QStringList();
+    }
+
     char** suggestions;
-    const char* encodedWord = s_codec->fromUnicode(word).constData();
-    int count = s_hunspell->suggest(&suggestions, encodedWord);
+    const QByteArray &data = m_textCodec->fromUnicode(word);
+    int count = m_hunspell->suggest(&suggestions, data.constData());
 
     QStringList suggests;
     for (int i = 0; i < count; ++i) {
-        suggests.append(s_codec->toUnicode(suggestions[i]));
+        suggests.append(m_textCodec->toUnicode(suggestions[i]));
     }
-    s_hunspell->free_list(&suggestions, count);
+    m_hunspell->free_list(&suggestions, count);
 
     return suggests;
 }
 
-bool Speller::dictionaryExists(const QString &path)
+bool Speller::isValidWord(const QString &str)
+{
+    if (str.isEmpty() || (str.length() == 1 && !str[0].isLetter())) {
+        return false;
+    }
+
+    const int length = str.length();
+
+    for (int i = 0; i < length; ++i) {
+        if (!str[i].isNumber()) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+void Speller::populateLanguagesMenu()
+{
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+
+    if (!menu || !menu->isEmpty()) {
+        return;
+    }
+
+    const QVector<Language> langs = availableLanguages();
+    foreach (const Language &lang, langs) {
+        QAction* act = menu->addAction(lang.name, this, SLOT(changeLanguage()));
+        act->setCheckable(true);
+        act->setChecked(m_language == lang);
+        act->setData(QVariant::fromValue(lang));
+    }
+
+    if (menu->isEmpty()) {
+        QAction* act = menu->addAction(tr("No suggestions"));
+        act->setEnabled(false);
+    }
+
+    menu->addSeparator();
+    menu->addAction(tr("Settings"), this, SLOT(showSettings()));
+}
+
+void Speller::toggleEnableSpellChecking()
+{
+    m_enabled = !m_enabled;
+
+    Settings settings;
+    settings.beginGroup("SpellCheck");
+    settings.setValue("enabled", m_enabled);
+    settings.endGroup();
+
+    loadSettings();
+}
+
+bool Speller::dictionaryExists(const QString &path) const
 {
     return QFile(path + ".dic").exists() &&
            QFile(path + ".aff").exists();
 }
 
-QString Speller::parseLanguage(const QString &path)
+QString Speller::getDictionaryPath() const
 {
-    if (path.contains(QLatin1Char('/'))) {
-        int pos = path.lastIndexOf(QLatin1Char('/'));
-        return path.mid(pos + 1);
-    }
-    else {
-        return path;
-    }
-}
+#ifdef QZ_WS_X11
+    const QString defaultDicPath = "/usr/share/hunspell/";
+#else
+    const QString defaultDicPath = mApp->DATADIR + "hunspell/";
+#endif
 
-QString Speller::getDictionaryPath()
-{
-    QString dictName;
-    QString defaultDicPath = "/usr/share/hunspell/";
-
-    QString env = QString::fromLocal8Bit(qgetenv("DICTIONARY"));
-    if (!env.isEmpty()) {
-        if (env.contains(QLatin1Char(','))) {
-            dictName = env.split(QLatin1Char(',')).first().trimmed();
-        }
-        else {
-            dictName = env.trimmed();
-        }
-
-        if (dictName.contains(QLatin1Char('/')) && dictionaryExists(dictName)) {
-            return dictName;
-        }
-    }
-
-    QString dicPath = QString::fromLocal8Bit(qgetenv("DICPATH"));
+    QString dicPath = QString::fromLocal8Bit(qgetenv("DICPATH")).trimmed();
     if (!dicPath.isEmpty() && !dicPath.endsWith(QLatin1Char('/'))) {
         dicPath.append(QLatin1Char('/'));
     }
 
-    if (!dicPath.isEmpty() && dictionaryExists(dicPath + dictName)) {
-        return dicPath + dictName;
+    return dicPath.isEmpty() ? defaultDicPath : dicPath;
+}
+
+QString Speller::nameForLanguage(const QString &code) const
+{
+    QLocale loc = QLocale(code);
+    QString name = QLocale::languageToString(loc.language());
+
+    if (loc.country() != QLocale::AnyCountry) {
+        name.append(" / " + QLocale::countryToString(loc.country()));
     }
 
-    if (!dictName.isEmpty()) {
-        if (dictionaryExists(defaultDicPath + dictName)) {
-            return defaultDicPath + dictName;
-        }
-    }
-
-    QString locale = QLocale::system().name();
-
-    if (dictionaryExists(dicPath + locale)) {
-        return dicPath + locale;
-    }
-    else if (dictionaryExists(defaultDicPath + locale)) {
-        return defaultDicPath + locale;
-    }
-    else {
-        qWarning() << "SpellCheck: Cannot find dictionaries for" << defaultDicPath + locale;
-    }
-
-    return QString();
+    return name;
 }
 
 Speller::~Speller()
 {
+    delete m_hunspell;
 }

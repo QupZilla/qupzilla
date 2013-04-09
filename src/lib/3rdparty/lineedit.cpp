@@ -1,4 +1,22 @@
+/* ============================================================
+* QupZilla - WebKit based browser
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+* ============================================================ */
 #include "lineedit.h"
+#include "qzsettings.h"
 
 #include <QEvent>
 #include <QLayout>
@@ -6,7 +24,6 @@
 #include <QPainter>
 #include <QFocusEvent>
 
-#include <qdebug.h>
 SideWidget::SideWidget(QWidget* parent)
     : QWidget(parent)
 {
@@ -24,7 +41,8 @@ LineEdit::LineEdit(QWidget* parent)
     : QLineEdit(parent)
     , m_leftLayout(0)
     , m_rightLayout(0)
-    , m_leftMargin(0)
+    , m_leftMargin(-1)
+    , m_ignoreMousePress(false)
 {
     init();
 }
@@ -47,11 +65,11 @@ void LineEdit::setLeftMargin(int margin)
 
 void LineEdit::init()
 {
-    ////we use setTextMargins() instead of padding property, and we should
-    //// uncomment following line or just update padding property of LineEdit's
-    //// subclasses in all themes and use same value for padding-left and padding-right,
-    //// with this new implementation padding-left and padding-right show padding from
-    //// edges of m_leftWidget and m_rightWidget.
+    // We use setTextMargins() instead of padding property, and we should
+    // uncomment following line or just update padding property of LineEdit's
+    // subclasses in all themes and use same value for padding-left and padding-right,
+    // with this new implementation padding-left and padding-right show padding from
+    // edges of m_leftWidget and m_rightWidget.
 
     mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -100,7 +118,7 @@ void LineEdit::init()
 bool LineEdit::event(QEvent* event)
 {
     if (event->type() == QEvent::LayoutDirectionChange) {
-        //by this we undo reversing of layout when direction is RTL.
+        // By this we undo reversing of layout when direction is RTL.
         if (isRightToLeft()) {
             mainLayout->setDirection(QBoxLayout::RightToLeft);
             m_leftLayout->setDirection(QBoxLayout::RightToLeft);
@@ -169,48 +187,63 @@ int LineEdit::textMargin(WidgetPosition position) const
 
 void LineEdit::updateTextMargins()
 {
-    int left;
-    if (m_leftMargin == 0) {
-        left = m_leftWidget->sizeHint().width();
-    }
-    else {
-        left = m_leftMargin;
-    }
+    int left = m_leftMargin < 0 ? m_leftWidget->sizeHint().width() : m_leftMargin;
     int right = m_rightWidget->sizeHint().width();
     int top = 0;
     int bottom = 0;
     setTextMargins(left, top, right, bottom);
-//    updateSideWidgetLocations();
 }
 
-//void LineEdit::updateSideWidgetLocations()
-//{
-//    QStyleOptionFrameV2 opt;
-//    initStyleOption(&opt);
-//    QRect textRect = style()->subElementRect(QStyle::SE_LineEditContents, &opt, this);
-//    int spacing = m_rightLayout->spacing();
-//    textRect.adjust(spacing, 0, -spacing, 0);
+void LineEdit::focusInEvent(QFocusEvent* event)
+{
+    if (event->reason() == Qt::MouseFocusReason && qzSettings->selectAllOnClick) {
+        m_ignoreMousePress = true;
+        selectAll();
+    }
 
-//    int left = textMargin(LineEdit::LeftSide);
+    QLineEdit::focusInEvent(event);
+}
 
-//    int midHeight = textRect.center().y() + 1;
+void LineEdit::mousePressEvent(QMouseEvent* event)
+{
+    if (m_ignoreMousePress) {
+        m_ignoreMousePress = false;
+        return;
+    }
 
-//    if (m_leftLayout->count() > 0) {
-//        int leftHeight = midHeight - m_leftWidget->height() / 2;
-//        int leftWidth = m_leftWidget->width();
-//        if (leftWidth == 0) {
-//            leftHeight = midHeight - m_leftWidget->sizeHint().height() / 2;
-//        }
-//        m_leftWidget->move(textRect.x(), leftHeight);
-//    }
-//    textRect.setX(left);
-//    textRect.setY(midHeight - m_rightWidget->sizeHint().height() / 2);
-//    textRect.setHeight(m_rightWidget->sizeHint().height());
-//    m_rightWidget->setGeometry(textRect);
-//}
+    QLineEdit::mousePressEvent(event);
+}
 
-//void LineEdit::resizeEvent(QResizeEvent* event)
-//{
-//    updateSideWidgetLocations();
-//    QLineEdit::resizeEvent(event);
-//}
+void LineEdit::mouseReleaseEvent(QMouseEvent* event)
+{
+    // Workaround issue in QLineEdit::setDragEnabled(true)
+    // It will incorrectly set cursor position at the end
+    // of selection when clicking (and not dragging) into selected text
+
+    if (!dragEnabled()) {
+        QLineEdit::mouseReleaseEvent(event);
+        return;
+    }
+
+    bool wasSelectedText = !selectedText().isEmpty();
+
+    QLineEdit::mouseReleaseEvent(event);
+
+    bool isSelectedText = !selectedText().isEmpty();
+
+    if (wasSelectedText && !isSelectedText) {
+        QMouseEvent ev(QEvent::MouseButtonPress, event->pos(), event->button(),
+                       event->buttons(), event->modifiers());
+        mousePressEvent(&ev);
+    }
+}
+
+void LineEdit::mouseDoubleClickEvent(QMouseEvent* event)
+{
+    if (event->button() == Qt::LeftButton && qzSettings->selectAllOnDoubleClick) {
+        selectAll();
+        return;
+    }
+
+    QLineEdit::mouseDoubleClickEvent(event);
+}

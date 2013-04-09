@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -107,7 +107,7 @@ void BookmarksImportDialog::startFetchingIcons()
     QIcon folderIcon = style()->standardIcon(QStyle::SP_DirIcon);
     QHash<QString, QTreeWidgetItem*> hash;
 
-    foreach(const Bookmark & b, m_exportedBookmarks) {
+    foreach (const Bookmark &b, m_exportedBookmarks) {
         QTreeWidgetItem* item;
         QTreeWidgetItem* findParent = hash[b.folder];
         if (findParent) {
@@ -123,7 +123,7 @@ void BookmarksImportDialog::startFetchingIcons()
             item = new QTreeWidgetItem(newParent);
         }
 
-        QVariant bookmarkVariant = qVariantFromValue(b);
+        QVariant bookmarkVariant = QVariant::fromValue(b);
         item->setText(0, b.title);
         if (b.image.isNull()) {
             item->setIcon(0, defaultIcon);
@@ -141,7 +141,7 @@ void BookmarksImportDialog::startFetchingIcons()
 
     ui->treeWidget->expandAll();
 
-    connect(m_fetcher, SIGNAL(iconFetched(QImage, QTreeWidgetItem*)), this, SLOT(iconFetched(QImage, QTreeWidgetItem*)));
+    connect(m_fetcher, SIGNAL(iconFetched(QImage,QTreeWidgetItem*)), this, SLOT(iconFetched(QImage,QTreeWidgetItem*)));
     connect(m_fetcher, SIGNAL(oneFinished()), this, SLOT(loadFinished()));
 
     m_fetcherThread->start();
@@ -267,7 +267,7 @@ void BookmarksImportDialog::addExportedBookmarks()
     QSqlDatabase db = QSqlDatabase::database();
     db.transaction();
 
-    foreach(const Bookmark & b, m_exportedBookmarks) {
+    foreach (const Bookmark &b, m_exportedBookmarks) {
         model->saveBookmark(b.url, b.title, qIconProvider->iconFromImage(b.image), b.folder);
     }
 

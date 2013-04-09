@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -103,6 +103,7 @@ void AdBlockSubscription::loadSubscription(const QStringList &disabledRules)
     }
 
     QTextStream textStream(&file);
+    textStream.setCodec("UTF-8");
     // Header is on 3rd line
     textStream.readLine(1024);
     textStream.readLine(1024);
@@ -117,10 +118,10 @@ void AdBlockSubscription::loadSubscription(const QStringList &disabledRules)
     m_rules.clear();
 
     while (!textStream.atEnd()) {
-        AdBlockRule rule(textStream.readLine(), this);
+        AdBlockRule* rule = new AdBlockRule(textStream.readLine(), this);
 
-        if (disabledRules.contains(rule.filter())) {
-            rule.setEnabled(false);
+        if (disabledRules.contains(rule->filter())) {
+            rule->setEnabled(false);
         }
 
         m_rules.append(rule);
@@ -171,7 +172,7 @@ void AdBlockSubscription::subscriptionDownloaded()
     m_reply = 0;
 }
 
-void AdBlockSubscription::saveDownloadedData(QByteArray &data)
+void AdBlockSubscription::saveDownloadedData(const QByteArray &data)
 {
     QFile file(m_filePath);
 
@@ -257,25 +258,25 @@ QString AdBlockSubscription::elementHidingRulesForDomain(const QString &domain) 
 
 const AdBlockRule* AdBlockSubscription::rule(int offset) const
 {
-    if (!QzTools::listContainsIndex(m_rules, offset)) {
+    if (!QzTools::vectorContainsIndex(m_rules, offset)) {
         return 0;
     }
 
-    return &m_rules[offset];
+    return m_rules[offset];
 }
 
-QList<AdBlockRule> AdBlockSubscription::allRules() const
+QVector<AdBlockRule*> AdBlockSubscription::allRules() const
 {
     return m_rules;
 }
 
 const AdBlockRule* AdBlockSubscription::enableRule(int offset)
 {
-    if (!QzTools::listContainsIndex(m_rules, offset)) {
+    if (!QzTools::vectorContainsIndex(m_rules, offset)) {
         return 0;
     }
 
-    AdBlockRule* rule = &m_rules[offset];
+    AdBlockRule* rule = m_rules[offset];
     rule->setEnabled(true);
     AdBlockManager::instance()->removeDisabledRule(rule->filter());
 
@@ -289,11 +290,11 @@ const AdBlockRule* AdBlockSubscription::enableRule(int offset)
 
 const AdBlockRule* AdBlockSubscription::disableRule(int offset)
 {
-    if (!QzTools::listContainsIndex(m_rules, offset)) {
+    if (!QzTools::vectorContainsIndex(m_rules, offset)) {
         return 0;
     }
 
-    AdBlockRule* rule = &m_rules[offset];
+    AdBlockRule* rule = m_rules[offset];
     rule->setEnabled(false);
     AdBlockManager::instance()->addDisabledRule(rule->filter());
 
@@ -315,7 +316,7 @@ bool AdBlockSubscription::canBeRemoved() const
     return true;
 }
 
-int AdBlockSubscription::addRule(const AdBlockRule &rule)
+int AdBlockSubscription::addRule(AdBlockRule* rule)
 {
     Q_UNUSED(rule)
     return -1;
@@ -327,7 +328,7 @@ bool AdBlockSubscription::removeRule(int offset)
     return false;
 }
 
-const AdBlockRule* AdBlockSubscription::replaceRule(const AdBlockRule &rule, int offset)
+const AdBlockRule* AdBlockSubscription::replaceRule(AdBlockRule* rule, int offset)
 {
     Q_UNUSED(rule)
     Q_UNUSED(offset)
@@ -345,7 +346,7 @@ void AdBlockSubscription::populateCache()
 
     int count = m_rules.count();
     for (int i = 0; i < count; ++i) {
-        const AdBlockRule* rule = &m_rules.at(i);
+        const AdBlockRule* rule = m_rules.at(i);
         if (!rule->isEnabled()) {
             continue;
         }
@@ -373,6 +374,11 @@ void AdBlockSubscription::populateCache()
     }
 }
 
+AdBlockSubscription::~AdBlockSubscription()
+{
+    qDeleteAll(m_rules);
+}
+
 // AdBlockEasyList
 
 AdBlockEasyList::AdBlockEasyList(QObject* parent)
@@ -387,7 +393,7 @@ bool AdBlockEasyList::canBeRemoved() const
     return false;
 }
 
-void AdBlockEasyList::saveDownloadedData(QByteArray &data)
+void AdBlockEasyList::saveDownloadedData(const QByteArray &data)
 {
     QFile file(filePath());
 
@@ -398,9 +404,12 @@ void AdBlockEasyList::saveDownloadedData(QByteArray &data)
 
     // Third-party advertisers rules are with start domain (||) placeholder which needs regexps
     // So we are ignoring it for keeping good performance
-    data = data.left(data.indexOf(QLatin1String("!-----------------------------Third-party adverts-----------------------------!")));
+    // But we will use whitelist rules at the end of list
 
-    file.write(data);
+    QByteArray part1 = data.left(data.indexOf(QLatin1String("!-----------------------------Third-party adverts-----------------------------!")));
+    QByteArray part2 = data.mid(data.indexOf(QLatin1String("!---------------------------------Whitelists----------------------------------!")));
+
+    file.write(part1 + part2);
     file.close();
 }
 
@@ -422,12 +431,13 @@ void AdBlockCustomList::saveSubscription()
     }
 
     QTextStream textStream(&file);
+    textStream.setCodec("UTF-8");
     textStream << "Title: " << title() << endl;
     textStream << "Url: " << url().toString() << endl;
     textStream << "[Adblock Plus 1.1.1]" << endl;
 
-    foreach(const AdBlockRule & rule, m_rules) {
-        textStream << rule.filter() << endl;
+    foreach (const AdBlockRule* rule, m_rules) {
+        textStream << rule->filter() << endl;
     }
 
     file.close();
@@ -445,8 +455,8 @@ bool AdBlockCustomList::canBeRemoved() const
 
 bool AdBlockCustomList::containsFilter(const QString &filter) const
 {
-    foreach(const AdBlockRule & rule, m_rules) {
-        if (rule.filter() == filter) {
+    foreach (const AdBlockRule* rule, m_rules) {
+        if (rule->filter() == filter) {
             return true;
         }
     }
@@ -457,9 +467,9 @@ bool AdBlockCustomList::containsFilter(const QString &filter) const
 bool AdBlockCustomList::removeFilter(const QString &filter)
 {
     for (int i = 0; i < m_rules.count(); ++i) {
-        const AdBlockRule &rule = m_rules.at(i);
+        const AdBlockRule* rule = m_rules.at(i);
 
-        if (rule.filter() == filter) {
+        if (rule->filter() == filter) {
             return removeRule(i);
         }
     }
@@ -467,7 +477,7 @@ bool AdBlockCustomList::removeFilter(const QString &filter)
     return false;
 }
 
-int AdBlockCustomList::addRule(const AdBlockRule &rule)
+int AdBlockCustomList::addRule(AdBlockRule* rule)
 {
     m_rules.append(rule);
     populateCache();
@@ -479,32 +489,36 @@ int AdBlockCustomList::addRule(const AdBlockRule &rule)
 
 bool AdBlockCustomList::removeRule(int offset)
 {
-    if (!QzTools::listContainsIndex(m_rules, offset)) {
+    if (!QzTools::vectorContainsIndex(m_rules, offset)) {
         return false;
     }
 
-    const QString &filter = m_rules[offset].filter();
+    AdBlockRule* rule = m_rules.at(offset);
+    const QString &filter = rule->filter();
 
-    m_rules.removeAt(offset);
+    m_rules.remove(offset);
     populateCache();
 
     emit subscriptionEdited();
 
     AdBlockManager::instance()->removeDisabledRule(filter);
 
+    delete rule;
     return true;
 }
 
-const AdBlockRule* AdBlockCustomList::replaceRule(const AdBlockRule &rule, int offset)
+const AdBlockRule* AdBlockCustomList::replaceRule(AdBlockRule* rule, int offset)
 {
-    if (!QzTools::listContainsIndex(m_rules, offset)) {
+    if (!QzTools::vectorContainsIndex(m_rules, offset)) {
         return 0;
     }
+
+    delete m_rules.at(offset);
 
     m_rules[offset] = rule;
     populateCache();
 
     emit subscriptionEdited();
 
-    return &m_rules[offset];
+    return m_rules[offset];
 }

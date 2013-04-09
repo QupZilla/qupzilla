@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@
 #include "settings.h"
 #include "licenseviewer.h"
 #include "preferences.h"
+#include "qzregexp.h"
 
 #include <QTextBrowser>
 #include <QDir>
@@ -42,7 +43,7 @@ ThemeManager::ThemeManager(QWidget* parent, Preferences* preferences)
     QDir themeDir(mApp->THEMESDIR);
     QStringList list = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
 
-    foreach(const QString & name, list) {
+    foreach (const QString &name, list) {
         Theme themeInfo = parseTheme(name);
         if (!themeInfo.isValid) {
             continue;
@@ -60,7 +61,7 @@ ThemeManager::ThemeManager(QWidget* parent, Preferences* preferences)
         ui->listWidget->addItem(item);
     }
 
-    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(currentChanged()));
+    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentChanged()));
     connect(ui->license, SIGNAL(clicked(QPoint)), this, SLOT(showLicense()));
 
     currentChanged();
@@ -119,7 +120,7 @@ ThemeManager::Theme ThemeManager::parseTheme(const QString &name)
 
     QString theme_info = QzTools::readAllFileContents(path + "theme.info");
 
-    QRegExp rx("Name:(.*)\\n");
+    QzRegExp rx("Name:(.*)\\n");
     rx.setMinimal(true);
     rx.indexIn(theme_info);
     if (rx.captureCount() == 1) {

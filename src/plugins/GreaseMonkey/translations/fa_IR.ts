@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="fa">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fa_IR" version="2.0">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -65,7 +63,7 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="172"/>
+        <location filename="../gm_manager.cpp" line="183"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
@@ -121,12 +119,12 @@
         <translation>بازکردن پوشه اسکریپت‌ها</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="68"/>
+        <location filename="../settings/gm_settings.cpp" line="75"/>
         <source>Remove script</source>
         <translation>حذف اسکریپت</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="69"/>
+        <location filename="../settings/gm_settings.cpp" line="76"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>آیا از اینکه می‌خواهید «%1» را حذف کنید اطمینان دارید؟</translation>
     </message>

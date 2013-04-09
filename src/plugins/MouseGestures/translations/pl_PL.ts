@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="pl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl_PL" version="2.0">
 <context>
     <name>MouseGesturesSettingsDialog</name>
     <message>
@@ -34,27 +32,37 @@
         <translation>&lt;b&gt;Wstecz&lt;/b&gt;&lt;br/&gt;Przechodzi do poprzedniej strony w historii</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="153"/>
-        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
-        <translation>&lt;b&gt;Dalej&lt;/b&gt;&lt;br/&gt;Przechodzi do następnej strony w historii</translation>
-    </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="173"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="159"/>
         <source>&lt;b&gt;Reload&lt;/b&gt;&lt;br/&gt;Reload page</source>
         <translation>&lt;b&gt;Odśwież&lt;/b&gt;&lt;br/&gt;Odświeża stronę</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="173"/>
         <source>&lt;b&gt;Close tab&lt;/b&gt;&lt;br/&gt;Close current tab</source>
         <translation>&lt;b&gt;Zamknij kartę&lt;/b&gt;&lt;br/&gt;Zamyka aktywną kartę</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="201"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
+        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
+        <translation>&lt;b&gt;Dalej&lt;/b&gt;&lt;br/&gt;Przechodzi do następnej strony w historii</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
+        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
+        <translation>&lt;b&gt;Poprzednia karta&lt;/b&gt;&lt;br/&gt;Przełącza do poprzedniej karty</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="208"/>
         <source>&lt;b&gt;Home&lt;/b&gt;&lt;br/&gt;Go to homepage</source>
         <translation>&lt;b&gt;Strona domowa&lt;/b&gt;&lt;br/&gt;Przchodzi do strony domowej</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="225"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
+        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
+        <translation>&lt;b&gt;Następna karta&lt;/b&gt;&lt;br/&gt;Przełącza do następnej karty</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="253"/>
         <source>License</source>
         <translation>Licencja</translation>
     </message>

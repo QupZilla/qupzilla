@@ -1,11 +1,11 @@
 isEqual(QT_MAJOR_VERSION, 5) {
-    QT += webkitwidgets network widgets printsupport sql script gui-private
+    QT += webkitwidgets network widgets printsupport sql script gui-private testlib
 } else {
     QT += core gui webkit sql network script
+    CONFIG += qtestlib
 }
 
 TARGET = autotests
-CONFIG += qtestlib
 
 !unix|mac: LIBS += -L$$PWD/../../bin -lQupZilla
 !mac:unix: LIBS += $$PWD/../../bin/libQupZilla.so
@@ -48,10 +48,18 @@ INCLUDEPATH += $$PWD/../../src/lib/3rdparty\
 HEADERS += \
     qztoolstest.h \
     formcompletertest.h \
-    cookiestest.h
+    cookiestest.h \
+    downloadstest.h \
+    adblocktest.h \
+    updatertest.h \
+    pactest.h
 
 SOURCES += \
     qztoolstest.cpp \
     main.cpp \
     formcompletertest.cpp \
-    cookiestest.cpp
+    cookiestest.cpp \
+    downloadstest.cpp \
+    adblocktest.cpp \
+    updatertest.cpp \
+    pactest.cpp

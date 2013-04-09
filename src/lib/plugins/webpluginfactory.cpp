@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -37,7 +37,15 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
         return new QObject();
     }
 
-    QString mime = mimeType.trimmed(); //Fixing bad behaviour when mimeType contains spaces
+    // AdBlock
+    AdBlockManager* manager = AdBlockManager::instance();
+    QNetworkRequest request(url);
+    request.setAttribute(QNetworkRequest::Attribute(QNetworkRequest::User + 150), QString("object"));
+    if (manager->isEnabled() && manager->block(request)) {
+        return new QObject();
+    }
+
+    QString mime = mimeType.trimmed(); // Fixing bad behaviour when mimeType contains spaces
     if (mime.isEmpty()) {
         if (url.toString().endsWith(QLatin1String(".swf"))) {
             mime = "application/x-shockwave-flash";
@@ -56,14 +64,6 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
 
     if (!mApp->plugins()->c2f_isEnabled()) {
         return 0;
-    }
-
-    // AdBlock
-    AdBlockManager* manager = AdBlockManager::instance();
-    QNetworkRequest request(url);
-    request.setAttribute(QNetworkRequest::Attribute(QNetworkRequest::User + 150), QString("object"));
-    if (manager->isEnabled() && manager->block(request)) {
-        return new QObject();
     }
 
     // Click2Flash whitelist

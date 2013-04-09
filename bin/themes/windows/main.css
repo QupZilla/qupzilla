@@ -1,8 +1,7 @@
 /*************************************
- * Windows Theme v0.4                *
+ * Windows Theme                     *
  * Author: nowrep                    *
  * Based on: Firefox Strata Aero     *
- * Last updated: 04.11.2011          *
  *************************************/
 
 *[html-link-look="true"]
@@ -110,7 +109,13 @@
 
 #tabwidget-button-opentabs
 {
-    qproperty-multiIcon: url(images/tabs-list-button.png);
+    qproperty-icon: url(images/tabs-list-button.png);
+    qproperty-fixedsize: 18px 28px;
+}
+
+#tabwidget-button-opentabs::menu-indicator
+{
+    background: url(images/transp.png);
 }
 
 #tabwidget-button-addtab
@@ -179,6 +184,11 @@ IconProvider
     margin-right: -4px;
     margin-bottom: 1px;
     qproperty-pixmap: url(images/navigation-dropdown.png);
+}
+
+#locationbar-autofillicon
+{
+    qproperty-pixmap: url(images/key.png);
 }
 
 /*BookmarksToolbar*/

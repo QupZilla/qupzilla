@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,9 +18,51 @@
 #include "networkproxyfactory.h"
 #include "mainapplication.h"
 #include "settings.h"
+#include "pac/pacmanager.h"
+
+WildcardMatcher::WildcardMatcher(const QString &pattern)
+    : m_regExp(0)
+{
+    setPattern(pattern);
+}
+
+WildcardMatcher::~WildcardMatcher()
+{
+    delete m_regExp;
+}
+
+void WildcardMatcher::setPattern(const QString &pattern)
+{
+    m_pattern = pattern;
+
+    if (m_pattern.contains(QLatin1Char('?')) || m_pattern.contains(QLatin1Char('*'))) {
+        QString regexp = m_pattern;
+        regexp.replace(QLatin1Char('.'), QLatin1String("\\."))
+        .replace(QLatin1Char('*'), QLatin1String(".*"))
+        .replace(QLatin1Char('?'), QLatin1Char('.'));
+        regexp = QString("^.*%1.*$").arg(regexp);
+
+        m_regExp = new QzRegExp(regexp, Qt::CaseInsensitive);
+    }
+}
+
+QString WildcardMatcher::pattern() const
+{
+    return m_pattern;
+}
+
+bool WildcardMatcher::match(const QString &str) const
+{
+    if (!m_regExp) {
+        return str.contains(m_pattern, Qt::CaseInsensitive);
+    }
+
+    return m_regExp->indexIn(str) > -1;
+}
 
 NetworkProxyFactory::NetworkProxyFactory()
     : QNetworkProxyFactory()
+    , m_pacManager(new PacManager)
     , m_proxyPreference(SystemProxy)
 {
 }
@@ -43,28 +85,52 @@ void NetworkProxyFactory::loadSettings()
     m_httpsUsername = settings.value("HttpsUsername", QString()).toString();
     m_httpsPassword = settings.value("HttpsPassword", QString()).toString();
 
-    m_proxyExceptions = settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList();
+    QStringList exceptions = settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList();
     settings.endGroup();
+
+    qDeleteAll(m_proxyExceptions);
+    m_proxyExceptions.clear();
+
+    foreach (const QString &exception, exceptions) {
+        m_proxyExceptions.append(new WildcardMatcher(exception.trimmed()));
+    }
+
+    m_pacManager->loadSettings();
+}
+
+PacManager* NetworkProxyFactory::pacManager() const
+{
+    return m_pacManager;
 }
 
 QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &query)
 {
-    QNetworkProxy proxy;
+    QList<QNetworkProxy> proxyList;
 
-    if (m_proxyExceptions.contains(query.url().host(), Qt::CaseInsensitive)) {
-        return QList<QNetworkProxy>() << QNetworkProxy::NoProxy;
+    if (m_proxyPreference == NoProxy) {
+        proxyList.append(QNetworkProxy::NoProxy);
+        return proxyList;
+    }
+
+    const QString &urlHost = query.url().host();
+    foreach (WildcardMatcher* m, m_proxyExceptions) {
+        if (m->match(urlHost)) {
+            proxyList.append(QNetworkProxy::NoProxy);
+            return proxyList;
+        }
     }
 
     switch (m_proxyPreference) {
     case SystemProxy:
-        return systemProxyForQuery(query);
-
-    case NoProxy:
-        proxy = QNetworkProxy::NoProxy;
+        proxyList.append(systemProxyForQuery(query));
         break;
 
-    case DefinedProxy:
-        proxy = m_proxyType;
+    case ProxyAutoConfig:
+        proxyList.append(m_pacManager->queryProxy(query.url()));
+        break;
+
+    case DefinedProxy: {
+        QNetworkProxy proxy(m_proxyType);
 
         if (m_useDifferentProxyForHttps && query.protocolTag() == QLatin1String("https")) {
             proxy.setHostName(m_httpsHostName);
@@ -83,12 +149,23 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
             proxy = QNetworkProxy::NoProxy;
         }
 
+        proxyList.append(proxy);
         break;
+    }
 
     default:
         qWarning("NetworkProxyFactory::queryProxy Unknown proxy type!");
         break;
     }
 
-    return QList<QNetworkProxy>() << proxy;
+    if (!proxyList.contains(QNetworkProxy::NoProxy)) {
+        proxyList.append(QNetworkProxy::NoProxy);
+    }
+
+    return proxyList;
+}
+
+NetworkProxyFactory::~NetworkProxyFactory()
+{
+    qDeleteAll(m_proxyExceptions);
 }

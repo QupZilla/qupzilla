@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@
 #include "qupzilla.h"
 #include "bookmarkstree.h"
 #include "browsinglibrary.h"
+#include "bookmarksmanager.h"
 
 #include <QToolTip>
 #include <QSqlQuery>
@@ -32,10 +33,9 @@
 
 #define HIDE_DELAY 270
 
-BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* parent)
+BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
     : LocationBarPopup(parent)
     , ui(new Ui::BookmarksWidget)
-    , p_QupZilla(mainClass)
     , m_url(view->url())
     , m_view(view)
     , m_bookmarksModel(mApp->bookmarksModel())
@@ -56,7 +56,7 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
 
     connect(ui->speeddialButton, SIGNAL(clicked(QPoint)), this, SLOT(toggleSpeedDial()));
 
-    const SpeedDial::Page &page = m_speedDial->pageForUrl(m_url);
+    const SpeedDial::Page page = m_speedDial->pageForUrl(m_url);
     ui->speeddialButton->setText(page.url.isEmpty() ?
                                  tr("Add to Speed Dial") :
                                  tr("Remove from Speed Dial"));
@@ -64,8 +64,8 @@ BookmarksWidget::BookmarksWidget(QupZilla* mainClass, WebView* view, QWidget* pa
     loadBookmark();
 
     connect(ui->folder, SIGNAL(activated(int)), this, SLOT(comboItemActive(int)));
-    connect(m_bookmarksTree, SIGNAL(requestNewFolder(QWidget*, QString*, bool, QString, WebView*)),
-            reinterpret_cast<QObject*>(mApp->browsingLibrary()->bookmarksManager()), SLOT(addFolder(QWidget*, QString*, bool, QString, WebView*)));
+    connect(m_bookmarksTree, SIGNAL(requestNewFolder(QWidget*,QString*,bool,QString,WebView*)),
+            mApp->browsingLibrary()->bookmarksManager(), SLOT(addFolder(QWidget*,QString*,bool,QString,WebView*)));
 }
 
 void BookmarksWidget::loadBookmark()
@@ -107,9 +107,8 @@ void BookmarksWidget::loadBookmark()
 
 void BookmarksWidget::toggleSpeedDial()
 {
-    const SpeedDial::Page &page = m_speedDial->pageForUrl(m_url);
+    const SpeedDial::Page page = m_speedDial->pageForUrl(m_url);
 
-    QString const dialText("<a href='toggle_dial'>%1</a>");
     if (page.url.isEmpty()) {
         m_speedDial->addPage(m_url, m_view->title());
 

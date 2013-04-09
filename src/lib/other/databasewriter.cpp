@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -37,6 +37,8 @@ void DatabaseWriter::execute()
         return;
     }
 
-    QSqlQuery query = m_queries.takeLast();
+    QSqlQuery query = m_queries.last();
     query.exec();
+
+    m_queries.remove(m_queries.size() - 1);
 }

@@ -24,12 +24,14 @@
 #include "locationbar.h"
 #include "qztools.h"
 #include "qzsettings.h"
+#include "mainapplication.h"
 
 #include <QVBoxLayout>
 #include <QWebHistory>
 #include <QWebFrame>
 #include <QLabel>
 #include <QStyle>
+#include <QTimer>
 
 WebTab::SavedTab::SavedTab(WebTab* webTab)
 {
@@ -70,6 +72,7 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
 WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     : QWidget()
     , p_QupZilla(mainClass)
+    , m_navigationContainer(0)
     , m_locationBar(locationBar)
     , m_pinned(false)
     , m_inspectorVisible(false)
@@ -84,6 +87,7 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     m_layout->setSpacing(0);
 
     m_view = new TabbedWebView(p_QupZilla, this);
+    m_view->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     WebPage* page = new WebPage(p_QupZilla);
     m_view->setWebPage(page);
     m_layout->addWidget(m_view);
@@ -108,9 +112,13 @@ TabbedWebView* WebTab::view() const
 void WebTab::setCurrentTab()
 {
     if (!isRestored()) {
-        p_restoreTab(m_savedTab);
-
-        m_savedTab.clear();
+        // When session is being restored, restore the tab immediately
+        if (mApp->isRestoring()) {
+            slotRestore();
+        }
+        else {
+            QTimer::singleShot(0, this, SLOT(slotRestore()));
+        }
     }
 }
 
@@ -242,10 +250,10 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 
 void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history)
 {
+    m_view->load(url);
+
     QDataStream historyStream(history);
     historyStream >> *m_view->history();
-
-    m_view->load(url);
 }
 
 void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
@@ -255,8 +263,16 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 
 QPixmap WebTab::renderTabPreview()
 {
+    TabbedWebView* currentWebView = p_QupZilla->weView();
     WebPage* page = m_view->page();
-    QSize oldSize = page->viewportSize();
+    const QSize oldSize = page->viewportSize();
+    const QPoint originalScrollPosition = page->mainFrame()->scrollPosition();
+
+    // Hack to ensure rendering the same preview before and after the page was shown for the first time
+    // This can occur eg. with opening background tabs
+    if (currentWebView) {
+        page->setViewportSize(currentWebView->size());
+    }
 
     const int previewWidth = 230;
     const int previewHeight = 150;
@@ -276,23 +292,46 @@ QPixmap WebTab::renderTabPreview()
     p.end();
 
     page->setViewportSize(oldSize);
+    // Restore also scrollbar positions, to prevent messing scrolling to anchor links
+    page->mainFrame()->setScrollBarValue(Qt::Vertical, originalScrollPosition.y());
+    page->mainFrame()->setScrollBarValue(Qt::Horizontal, originalScrollPosition.x());
 
     return pageImage.scaled(previewWidth, previewHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 }
 
 void WebTab::showNotification(QWidget* notif)
 {
-    if (m_layout->count() > 1) {
-        delete m_layout->itemAt(0)->widget();
+    const int notifPos = qzSettings->tabsOnTop ? 1 : 0;
+
+    if (m_layout->count() > notifPos + 1) {
+        delete m_layout->itemAt(notifPos)->widget();
     }
 
-    m_layout->insertWidget(0, notif);
+    m_layout->insertWidget(notifPos, notif);
     notif->show();
+}
+
+void WebTab::slotRestore()
+{
+    p_restoreTab(m_savedTab);
+    m_savedTab.clear();
 }
 
 int WebTab::tabIndex() const
 {
     return m_view->tabIndex();
+}
+
+void WebTab::showNavigationBar(QWidget* bar)
+{
+    if (bar) {
+        m_navigationContainer = bar;
+        m_layout->insertWidget(0, m_navigationContainer);
+
+        // Needed to prevent flickering when closing tabs
+        m_navigationContainer->setUpdatesEnabled(true);
+        m_navigationContainer->show();
+    }
 }
 
 void WebTab::pinTab(int index)
@@ -309,10 +348,10 @@ void WebTab::pinTab(int index)
     }
     else {   // Pin tab
         m_pinned = true;
-        tabWidget->setCurrentIndex(0); //             <<-- those 2 lines fixes
-        tabWidget->getTabBar()->moveTab(index, 0);    // | weird behavior with bad
-        tabWidget->setTabText(0, QString());                 // | tabwidget update if we
-        tabWidget->setCurrentIndex(0); //             <<-- are moving current tab
+        tabWidget->setCurrentIndex(0);              // <<-- those 2 lines fixes
+        tabWidget->getTabBar()->moveTab(index, 0);  // | weird behavior with bad
+        tabWidget->setTabText(0, QString());        // | tabwidget update if we
+        tabWidget->setCurrentIndex(0);              // <<-- are moving current tab
         tabWidget->getTabBar()->updatePinnedTabCloseButton(0);
     }
 }
@@ -326,5 +365,16 @@ void WebTab::disconnectObjects()
 
 WebTab::~WebTab()
 {
+    if (m_navigationContainer && qzSettings->tabsOnTop && !mApp->isClosing()) {
+        m_layout->removeWidget(m_navigationContainer);
+
+        // Needed to prevent flickering when closing tabs
+        m_navigationContainer->setUpdatesEnabled(false);
+        m_navigationContainer->hide();
+
+        // Needed to prevent deleting m_navigationContainer in ~QWidget
+        m_navigationContainer->setParent(p_QupZilla);
+    }
+
     delete m_locationBar.data();
 }

@@ -1,32 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="ja_JP" sourcelanguage="en_US">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja_JP" version="2.0">
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="../testplugin.cpp" line="112"/>
+        <location filename="../testplugin.cpp" line="116"/>
         <source>Close</source>
         <translation>閉じる</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="123"/>
+        <location filename="../testplugin.cpp" line="127"/>
         <source>Example Plugin Settings</source>
-        <translation>Example Pluginの設定</translation>
+        <translation>拡張の設定例</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="149"/>
+        <location filename="../testplugin.cpp" line="155"/>
         <source>My first plugin action</source>
-        <translation>プラグインの動作確認</translation>
+        <translation>拡張の動作確認</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="164"/>
+        <location filename="../testplugin.cpp" line="170"/>
         <source>Hello</source>
-        <translation>こんにちは</translation>
+        <translation>Hello</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="164"/>
+        <location filename="../testplugin.cpp" line="170"/>
         <source>First plugin action works :-)</source>
-        <translation>プラグインは正常に動作しました(^_^)</translation>
+        <translation>拡張の動作は正常です :-)</translation>
     </message>
 </context>
 <context>
@@ -35,7 +33,7 @@
         <location filename="../testplugin_sidebar.cpp" line="32"/>
         <location filename="../testplugin_sidebar.cpp" line="37"/>
         <source>Testing Sidebar</source>
-        <translation>サイドバーのテスト</translation>
+        <translation>サイドバーを試す</translation>
     </message>
 </context>
 </TS>

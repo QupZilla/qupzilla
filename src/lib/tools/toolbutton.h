@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -50,11 +50,16 @@ public:
     void setFallbackIcon(const QIcon &image);
     void setIcon(const QIcon &image);
 
+    void setShowMenuInside(bool inside);
+    bool showMenuInside() const;
+
+
 signals:
     void middleMouseClicked();
     void controlClicked();
 
 public slots:
+    void showMenu();
 
 protected:
     void mousePressEvent(QMouseEvent* e);
@@ -64,6 +69,7 @@ private:
     void paintEvent(QPaintEvent* e);
 
     bool m_usingMultiIcon;
+    bool m_showMenuInside;
 
     QPixmap m_normalIcon;
     QPixmap m_hoverIcon;

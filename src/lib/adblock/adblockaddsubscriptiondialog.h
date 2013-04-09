@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 #define ADBLOCKADDSUBSCRIPTIONDIALOG_H
 
 #include <QDialog>
-#include <QList>
+#include <QVector>
 
 #include "qz_namespace.h"
 
@@ -49,13 +49,15 @@ private:
         QString title;
         QString url;
 
+        Subscription() {}
+
         Subscription(const QString &t, const QString &u) {
             title = t;
             url = u;
         }
     };
 
-    QList<Subscription> m_knownSubscriptions;
+    QVector<Subscription> m_knownSubscriptions;
 };
 
 #endif // ADBLOCKADDSUBSCRIPTIONDIALOG_H

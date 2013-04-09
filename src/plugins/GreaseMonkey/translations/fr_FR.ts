@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="fr_FR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr_FR" version="2.0">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -51,7 +49,7 @@
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="85"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation>&apos;%1&apos; Installation réussie</translation>
+        <translation>&apos;%1&apos; Installé avec succès</translation>
     </message>
 </context>
 <context>
@@ -65,7 +63,7 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="172"/>
+        <location filename="../gm_manager.cpp" line="183"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
@@ -90,7 +88,7 @@
     <message>
         <location filename="../gm_notification.cpp" line="57"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation>&apos;%1&apos; Installation réussie</translation>
+        <translation>&apos;%1&apos; Installé avec succès</translation>
     </message>
 </context>
 <context>
@@ -108,7 +106,7 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="73"/>
         <source>Double clicking script will show additional information</source>
-        <translation>Un double clique sur le script vous montrera des informations supplémentaires</translation>
+        <translation>Un double-clic sur le script vous montrera des informations supplémentaires</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="153"/>
@@ -121,12 +119,12 @@
         <translation>Parcourir un répertoire</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="68"/>
+        <location filename="../settings/gm_settings.cpp" line="75"/>
         <source>Remove script</source>
         <translation>Supprimer le script</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="69"/>
+        <location filename="../settings/gm_settings.cpp" line="76"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>Etes vous sûr de vouloir supprimer &apos;%1&apos; ?</translation>
     </message>

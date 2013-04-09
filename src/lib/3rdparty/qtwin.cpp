@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -284,7 +284,7 @@ bool WindowNotifier::nativeEvent(const QByteArray &eventType, void* _message, lo
 #endif
     if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
         bool compositionEnabled = QtWin::isCompositionEnabled();
-        foreach(QWidget * widget, widgets) {
+        foreach (QWidget* widget, widgets) {
             if (widget) {
                 widget->setAttribute(Qt::WA_NoSystemBackground, compositionEnabled);
                 bool isBlur = widgetsBlurState.value(widget, false);
@@ -362,9 +362,11 @@ IShellLink* QtWin::CreateShellLink(const QString &title, const QString &descript
 void QtWin::populateFrequentSites(IObjectCollection* collection, const QString &appPath)
 {
     History* history = mApp->history();
-    QList<HistoryEntry> mostList = history->mostVisited(6);
-    foreach(const HistoryEntry & entry, mostList)
-    collection->AddObject(CreateShellLink(entry.title, entry.url.toString(), appPath, QString(" " + entry.url.toEncoded()), appPath, 1));
+    QVector<HistoryEntry> mostList = history->mostVisited(6);
+
+    foreach (const HistoryEntry &entry, mostList) {
+        collection->AddObject(CreateShellLink(entry.title, entry.url.toString(), appPath, QString(" " + entry.url.toEncoded()), appPath, 1));
+    }
 
     collection->AddObject(CreateShellLink("", "", "", "", "", 0)); //Spacer
 }

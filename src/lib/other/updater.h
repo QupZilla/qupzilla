@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -39,54 +39,16 @@ public:
         int majorVersion;
         int minorVersion;
         int revisionNumber;
-        QString specialSymbol;
 
-        bool operator<(const Version &other) const {
-            if (!this->isValid || !other.isValid)
-                return false;
-            if (this->majorVersion < other.majorVersion)
-                return true;
-            if (this->minorVersion < other.minorVersion)
-                return true;
-            if (this->revisionNumber < other.revisionNumber)
-                return true;
-            if (this->revisionNumber == other.revisionNumber)
-                return !isBiggerThan_SpecialSymbol(this->specialSymbol, other.specialSymbol);
+        Version(const QString &s);
 
-            return false;
-        }
+        bool operator<(const Version &other) const;
+        bool operator>(const Version &other) const;
 
-        bool operator>(const Version &other) const {
-            return !operator<(other);
-        }
-
-        bool operator==(const Version &other) const {
-            if (!this->isValid || !other.isValid)
-                return false;
-
-            return (this->majorVersion == other.majorVersion &&
-                    this->minorVersion == other.minorVersion &&
-                    this->revisionNumber == other.revisionNumber &&
-                    this->specialSymbol == other.specialSymbol);
-        }
-
-        bool operator>=(const Version &other) const {
-            if (*this == other)
-                return true;
-            return *this > other;
-        }
-
-        bool operator<=(const Version &other) const {
-            if (*this == other)
-                return true;
-            return *this < other;
-        }
+        bool operator==(const Version &other) const;
+        bool operator>=(const Version &other) const;
+        bool operator<=(const Version &other) const;
     };
-
-    static Version parseVersionFromString(const QString &string);
-    static bool isBiggerThan_SpecialSymbol(QString one, QString two);
-
-signals:
 
 private slots:
     void downCompleted(QNetworkReply* reply);

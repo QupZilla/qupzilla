@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="ka_GE">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ka_GE" version="2.0">
 <context>
     <name>AKN_Settings</name>
     <message>
@@ -41,7 +39,7 @@
     <message>
         <location filename="../akn_settings.ui" line="103"/>
         <source>License</source>
-        <translation type="unfinished">ლიცენზია</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

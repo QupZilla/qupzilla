@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
 {
     ui->setupUi(this);
 
-    connect(ui->historyTree, SIGNAL(openLink(QUrl, HistoryView::OpenBehavior)), this, SLOT(openLink(QUrl, HistoryView::OpenBehavior)));
+    connect(ui->historyTree, SIGNAL(openLink(QUrl,HistoryView::OpenBehavior)), this, SLOT(openLink(QUrl,HistoryView::OpenBehavior)));
 
     connect(ui->deleteB, SIGNAL(clicked()), ui->historyTree, SLOT(removeItems()));
     connect(ui->clearAll, SIGNAL(clicked()), this, SLOT(clearHistory()));

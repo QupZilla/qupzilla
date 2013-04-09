@@ -103,7 +103,7 @@ void SideBarManager::addSidebar(const QString &id, SideBarInterface* interface)
 {
     s_sidebars[id] = interface;
 
-    foreach(QupZilla * window, mApp->mainWindows()) {
+    foreach (QupZilla* window, mApp->mainWindows()) {
         window->sideBarManager()->refreshMenu();
     }
 }
@@ -112,7 +112,7 @@ void SideBarManager::removeSidebar(const QString &id)
 {
     s_sidebars.remove(id);
 
-    foreach(QupZilla * window, mApp->mainWindows()) {
+    foreach (QupZilla* window, mApp->mainWindows()) {
         window->sideBarManager()->sideBarRemoved(id);
     }
 }
@@ -134,7 +134,7 @@ void SideBarManager::refreshMenu()
     act->setShortcut(QKeySequence("Ctrl+H"));
     act->setData("History");
 
-    foreach(const QPointer<SideBarInterface> &sidebar, s_sidebars) {
+    foreach (const QPointer<SideBarInterface> &sidebar, s_sidebars) {
         if (!sidebar) {
             continue;
         }
@@ -162,7 +162,7 @@ void SideBarManager::updateActions()
         return;
     }
 
-    foreach(QAction * act, m_menu->actions()) {
+    foreach (QAction* act, m_menu->actions()) {
         act->setChecked(act->data().toString() == m_activeBar);
     }
 }

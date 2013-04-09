@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -64,39 +64,33 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         return;
     }
 
-//    Updater::Version currentVersion = Updater::parseVersionFromString(current);
-    Updater::Version profileVersion = Updater::parseVersionFromString(profile);
+    Updater::Version prof(profile);
 
-    if (profileVersion == Updater::parseVersionFromString("1.0.0-b4")) {
-        update100b4();
-        return;
-    }
-
-    if (profileVersion == Updater::parseVersionFromString("1.0.0-rc1")) {
-        update100rc1();
-        return;
-    }
-
-    if (profileVersion == Updater::parseVersionFromString("1.0.0")) {
+    if (prof == Updater::Version("1.0.0")) {
         update100();
         return;
     }
 
-    if (profileVersion == Updater::parseVersionFromString("1.1.0")
-            || profileVersion == Updater::parseVersionFromString("1.1.5")
-            || profileVersion == Updater::parseVersionFromString("1.1.8")) {
+    if (prof == Updater::Version("1.1.0")
+            || prof == Updater::Version("1.1.5")
+            || prof == Updater::Version("1.1.8")) {
         update118();
         return;
     }
 
-    if (profileVersion == Updater::parseVersionFromString("1.2.0")) {
+    if (prof == Updater::Version("1.2.0")) {
         update120();
         return;
     }
 
-    if (profileVersion == Updater::parseVersionFromString("1.3.0")
-            || profileVersion == Updater::parseVersionFromString("1.3.1")) {
+    if (prof == Updater::Version("1.3.0")
+            || prof == Updater::Version("1.3.1")) {
         update130();
+        return;
+    }
+
+    // 1.3.5, 1.4.x = no changes
+    if (prof >= Updater::Version("1.3.5") && prof < Updater::Version("1.5.0")) {
         return;
     }
 
@@ -124,33 +118,6 @@ void ProfileUpdater::copyDataToProfile()
     browseData.remove();
     QFile(":data/browsedata.db").copy(m_profilePath + "browsedata.db");
     QFile(m_profilePath + "browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
-}
-
-void ProfileUpdater::update100b4()
-{
-    std::cout << "QupZilla: Upgrading profile version from 1.0.0-b4..." << std::endl;
-    mApp->connectDatabase();
-
-    QSqlQuery query;
-    query.exec("CREATE TABLE IF NOT EXISTS search_engines (id INTEGER PRIMARY KEY, name TEXT, icon TEXT,"
-               "url TEXT, shortcut TEXT, suggestionsUrl TEXT, suggestionsParameters TEXT);");
-
-    update100rc1();
-}
-
-void ProfileUpdater::update100rc1()
-{
-    std::cout << "QupZilla: Upgrading profile version from 1.0.0-rc1..." << std::endl;
-    mApp->connectDatabase();
-
-    QSqlQuery query;
-    query.exec("ALTER TABLE folders ADD COLUMN subfolder TEXT");
-    query.exec("UPDATE folders SET subfolder='no'");
-
-    query.exec("ALTER TABLE bookmarks ADD COLUMN toolbar_position NUMERIC");
-    query.exec("UPDATE bookmarks SET toolbar_position=0");
-
-    update100();
 }
 
 void ProfileUpdater::update100()

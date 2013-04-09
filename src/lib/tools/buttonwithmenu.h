@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -54,12 +54,12 @@ public:
     ~ButtonWithMenu();
 
     void addItem(const Item &item);
-    void addItems(const QList<Item> &items);
+    void addItems(const QVector<Item> &items);
     void removeItem(const Item &item);
     void setCurrentItem(const Item &item, bool emitSignal = true);
 
     Item currentItem();
-    QList<Item> allItems() { return m_items; }
+    QVector<Item> allItems() { return m_items; }
     QMenu* menu() const;
 
 signals:
@@ -78,9 +78,12 @@ private:
     void wheelEvent(QWheelEvent* event);
 
     QMenu* m_menu;
-    QList<Item> m_items;
+    QVector<Item> m_items;
     Item m_currentItem;
 };
+
+// Hint to QVector to use std::realloc on item moving
+Q_DECLARE_TYPEINFO(ButtonWithMenu::Item, Q_MOVABLE_TYPE);
 
 Q_DECLARE_METATYPE(ButtonWithMenu::Item)
 

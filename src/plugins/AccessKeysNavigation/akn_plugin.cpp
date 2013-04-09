@@ -1,6 +1,6 @@
 /* ============================================================
 * Access Keys Navigation plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@ PluginSpec AKN_Plugin::pluginSpec()
     spec.name = "Access Keys Navigation";
     spec.info = "Access keys navigation for QupZilla";
     spec.description = "Provides support for navigating in webpages by keyboard shortcuts";
-    spec.version = "0.4.2";
+    spec.version = "0.4.3";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":/accesskeysnavigation/data/icon.png");
     spec.hasSettings = true;
@@ -62,7 +62,7 @@ bool AKN_Plugin::testPlugin()
 {
     // Let's be sure, require latest version of QupZilla
 
-    return (QupZilla::VERSION == QLatin1String("1.3.5"));
+    return (QupZilla::VERSION == QLatin1String("1.5.0"));
 }
 
 QTranslator* AKN_Plugin::getTranslator(const QString &locale)

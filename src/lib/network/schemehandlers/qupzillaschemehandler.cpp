@@ -153,9 +153,19 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace(QLatin1String("%TYPE%"), tr("Issue type"));
     bPage.replace(QLatin1String("%DESCRIPTION%"), tr("Issue description"));
     bPage.replace(QLatin1String("%SEND%"), tr("Send"));
-    bPage.replace(QLatin1String("%E-MAIL-OPTIONAL%"), tr("E-mail is optional<br/><b>Note: </b>Please read how to make a bug report <a href=%1>here</a> first.").arg("https://github.com/QupZilla/qupzilla/wiki/Bug-Reports target=_blank"));
+    bPage.replace(QLatin1String("%E-MAIL-OPTIONAL%"), tr("E-mail is optional<br/><b>Note: </b>Please read how to make a "
+                  "bug report <a href=%1>here</a> first.").arg("https://github.com/QupZilla/qupzilla/wiki/Bug-Reports target=_blank"));
     bPage.replace(QLatin1String("%FIELDS-ARE-REQUIRED%"), tr("Please fill out all required fields!"));
-    bPage = QzTools::applyDirectionToPage(bPage);
+
+    bPage.replace(QLatin1String("%INFO_OS%"), QzTools::operatingSystem());
+    bPage.replace(QLatin1String("%INFO_APP%"), QupZilla::VERSION
+#ifdef GIT_REVISION
+                  + " (" + GIT_REVISION + ")"
+#endif
+                 );
+    bPage.replace(QLatin1String("%INFO_QT%"), QString("%1 (built with %2)").arg(qVersion(), QT_VERSION_STR));
+    bPage.replace(QLatin1String("%INFO_WEBKIT%"), QupZilla::WEBKITVERSION),
+                  bPage = QzTools::applyDirectionToPage(bPage);
 
     return bPage;
 }
@@ -241,6 +251,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Alexandre Carvalho", "alexandre05@live.com") + " (Brazilian Portuguese)<br/>" +
                       authorString("Mladen Pejaković", "pejakm@gmail.com") + " (Serbian)<br/>" +
                       authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
+                      authorString("Yu Hai", "yohanprc@eml.cc") + " (Chinese)<br/>" +
                       authorString("Wu Cheng-Hong", "stu2731652@gmail.com") + " (Traditional Chinese)<br/>" +
                       authorString("Widya Walesa", "walecha99@gmail.com") + " (Indonesian)<br/>" +
                       authorString("Beqa Arabuli", "arabulibeqa@gmail.com") + " (Georgian)<br/>" +
@@ -248,7 +259,9 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Gábor Oberle", "oberleg@myopera.com") + " (Hungarian)<br/>" +
                       authorString("Piccoro McKay Lenz", "mckaygerhard@gmail.com") + " (Venezulean Spanish)<br/>" +
                       authorString("Stanislav Kuznietsov", "stanislav_kuznetsov@ukr.net") + " (Ukrainian)<br/>" +
-                      authorString("Seyyed Razi Alavizadeh", "s.r.alavizadeh@gmail.com") + " (Persian)"
+                      authorString("Seyyed Razi Alavizadeh", "s.r.alavizadeh@gmail.com") + " (Persian)<br/>" +
+                      authorString("Guillem Prats", "guprej@gmail.com") + " (Catalan)<br/>" +
+                      authorString("Clara Villalba", "cvilmon@gmail.com") + " (Catalan)"
                      );
         aPage = QzTools::applyDirectionToPage(aPage);
     }
@@ -370,7 +383,7 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), QzTools::buildSystem()));
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), QzTools::operatingSystem()));
 
         cPage.replace(QLatin1String("%PATHS-TEXT%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->currentProfilePath()) +
@@ -419,7 +432,7 @@ QString QupZillaSchemeReply::configPage()
     QString pluginsString;
     const QList<Plugins::Plugin> &availablePlugins = mApp->plugins()->getAvailablePlugins();
 
-    foreach(const Plugins::Plugin & plugin, availablePlugins) {
+    foreach (const Plugins::Plugin &plugin, availablePlugins) {
         PluginSpec spec = plugin.pluginSpec;
         pluginsString.append(QString("<tr><td>%1</td><td>%2</td><td>%3</td><td>%4</td></tr>").arg(
                                  spec.name, spec.version, QzTools::escape(spec.author), spec.description));
@@ -433,11 +446,11 @@ QString QupZillaSchemeReply::configPage()
 
     QString allGroupsString;
     QSettings* settings = Settings::globalSettings();
-    foreach(const QString & group, settings->childGroups()) {
+    foreach (const QString &group, settings->childGroups()) {
         QString groupString = QString("<tr><th colspan=\"2\">[%1]</th></tr>").arg(group);
         settings->beginGroup(group);
 
-        foreach(const QString & key, settings->childKeys()) {
+        foreach (const QString &key, settings->childKeys()) {
             const QVariant &keyValue = settings->value(key);
             QString keyString;
 

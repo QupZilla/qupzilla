@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -86,7 +86,7 @@ void CommandLineOptions::parseActions()
 
         if (arg == QLatin1String("-a") || arg == QLatin1String("--authors")) {
             cout << "QupZilla authors: " << endl;
-            cout << "  nowrep <nowrep@gmail.com>" << endl;
+            cout << "  David Rosca <nowrep@gmail.com>" << endl;
             ActionPair pair;
             pair.action = Qz::CL_ExitAction;
             m_actions.append(pair);

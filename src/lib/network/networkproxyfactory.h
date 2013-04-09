@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,18 +22,42 @@
 #include <QStringList>
 
 #include "qz_namespace.h"
+#include "qzregexp.h"
+
+class PacManager;
+
+class WildcardMatcher
+{
+public:
+    explicit WildcardMatcher(const QString &pattern = QString());
+    ~WildcardMatcher();
+
+    void setPattern(const QString &pattern);
+    QString pattern() const;
+
+    bool match(const QString &str) const;
+
+private:
+    QString m_pattern;
+    QzRegExp* m_regExp;
+};
 
 class QT_QUPZILLA_EXPORT NetworkProxyFactory : public QNetworkProxyFactory
 {
 public:
-    enum ProxyPreference { SystemProxy, NoProxy, DefinedProxy };
+    enum ProxyPreference { SystemProxy, NoProxy, ProxyAutoConfig, DefinedProxy };
 
     explicit NetworkProxyFactory();
+    ~NetworkProxyFactory();
+
     void loadSettings();
+    PacManager* pacManager() const;
 
     QList<QNetworkProxy> queryProxy(const QNetworkProxyQuery &query = QNetworkProxyQuery());
 
 private:
+    PacManager* m_pacManager;
+
     ProxyPreference m_proxyPreference;
     QNetworkProxy::ProxyType m_proxyType;
 
@@ -47,7 +71,7 @@ private:
     QString m_httpsUsername;
     QString m_httpsPassword;
 
-    QStringList m_proxyExceptions;
+    QList<WildcardMatcher*> m_proxyExceptions;
     bool m_useDifferentProxyForHttps;
 };
 

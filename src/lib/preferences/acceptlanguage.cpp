@@ -18,7 +18,7 @@
  */
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -79,7 +79,7 @@ AcceptLanguage::AcceptLanguage(QWidget* parent)
     QStringList langs = settings.value("acceptLanguage", defaultLanguage()).toStringList();
     settings.endGroup();
 
-    foreach(const QString & code, langs) {
+    foreach (const QString &code, langs) {
         QString code_ = code;
         QLocale loc = QLocale(code_.replace(QLatin1Char('-'), QLatin1Char('_')));
         QString label;

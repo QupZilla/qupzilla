@@ -46,7 +46,8 @@ enum AppMessageType {
 enum BrowserWindow {
     BW_FirstAppWindow,
     BW_OtherRestoredWindow,
-    BW_NewWindow
+    BW_NewWindow,
+    BW_MacFirstWindow
 };
 
 enum CommandLineAction {

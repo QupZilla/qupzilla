@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="cs_CZ">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk_SK" version="2.0">
 <context>
     <name>MouseGesturesSettingsDialog</name>
     <message>
@@ -34,21 +32,6 @@
         <translation>&lt;b&gt;Späť&lt;/b&gt;&lt;br/&gt;Prejsť späť v histórii</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
-        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
-        <translation>&lt;b&gt;Ďalej&lt;/b&gt;&lt;br/&gt;Prejsť ďalej v histórii</translation>
-    </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
-        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
-        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mousegesturessettingsdialog.ui" line="159"/>
         <source>&lt;b&gt;Reload&lt;/b&gt;&lt;br/&gt;Reload page</source>
         <translation>&lt;b&gt;Obnoviť&lt;/b&gt;&lt;br/&gt;Obnoviť stránku</translation>
@@ -59,9 +42,24 @@
         <translation>&lt;b&gt;Zavrieť panel&lt;/b&gt;&lt;br/&gt;Zavrieť aktuálny panel</translation>
     </message>
     <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
+        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
+        <translation>&lt;b&gt;Ďalej&lt;/b&gt;&lt;br/&gt;Prejsť ďalej v histórii</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
+        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
+        <translation>&lt;b&gt;Predchádzajúca karta&lt;/b&gt;&lt;br/&gt;Prepnúť na predchádzajúcu kartu</translation>
+    </message>
+    <message>
         <location filename="../mousegesturessettingsdialog.ui" line="208"/>
         <source>&lt;b&gt;Home&lt;/b&gt;&lt;br/&gt;Go to homepage</source>
         <translation>&lt;b&gt;Domov&lt;/b&gt;&lt;br/&gt;Prejsť na domovskú stránku</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
+        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
+        <translation>&lt;b&gt;Nasledujúca karta&lt;/b&gt;&lt;br/&gt;Prepnúť na nasledujúcu kartu</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="253"/>

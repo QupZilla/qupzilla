@@ -26,6 +26,7 @@
 
 class QWebPage;
 class QWebElement;
+class QWebElementCollection;
 
 struct PageFormData {
     bool found;
@@ -40,7 +41,7 @@ public:
     explicit PageFormCompleter(QWebPage* page);
 
     PageFormData extractFormData(const QByteArray &postData) const;
-    void completePage(const QByteArray &data) const;
+    bool completePage(const QByteArray &data) const;
 
 private:
     typedef QPair<QString, QString> QueryItem;
@@ -49,7 +50,9 @@ private:
     bool queryItemsContains(const QueryItems &queryItems, const QString &attributeName,
                             const QString &attributeValue) const;
     QByteArray convertWebKitFormBoundaryIfNecessary(const QByteArray &data) const;
-    QueryItems createQueryItems(const QByteArray &data) const;
+    QueryItem findUsername(const QWebElement &form) const;
+    QueryItems createQueryItems(QByteArray data) const;
+    QWebElementCollection getAllElementsFromPage(QWebPage* page, const QString &selector) const;
 
     QWebPage* m_page;
 };

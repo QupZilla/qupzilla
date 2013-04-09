@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -43,9 +43,7 @@ public:
     TabWidget* tabWidget() const;
 
     QString getIp() const;
-
     int tabIndex() const;
-    bool hasRss() { return m_hasRss; }
 
     QWidget* overlayForJsAlert();
     void disconnectObjects();
@@ -53,11 +51,11 @@ public:
 signals:
     void wantsCloseTab(int);
     void ipChanged(QString);
-    void rssChanged(bool);
     void changed();
 
 public slots:
     void titleChanged();
+    void setAsCurrentTab();
 
     void stop();
     void showIcon();
@@ -76,10 +74,7 @@ private slots:
     void slotLoadFinished();
     void urlChanged(const QUrl &url);
     void linkHovered(const QString &link, const QString &title, const QString &content);
-    void getFocus(const QUrl &urla);
     void setIp(const QHostInfo &info);
-    void checkRss();
-    void slotIconChanged();
 
     void inspectElement();
 
@@ -98,10 +93,6 @@ private:
     Menu* m_menu;
 
     bool m_mouseTrack;
-    static bool m_navigationVisible;
-
-    bool m_hasRss;
-    bool m_rssChecked;
 
 };
 

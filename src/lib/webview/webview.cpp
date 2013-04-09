@@ -22,7 +22,6 @@
 #include "qztools.h"
 #include "iconprovider.h"
 #include "history.h"
-#include "autofill.h"
 #include "pluginproxy.h"
 #include "downloadmanager.h"
 #include "sourceviewer.h"
@@ -33,6 +32,10 @@
 #include "settings.h"
 #include "qzsettings.h"
 #include "enhancedmenu.h"
+
+#ifdef USE_HUNSPELL
+#include "qtwebkit/spellcheck/speller.h"
+#endif
 
 #include <QDir>
 #include <QTimer>
@@ -56,6 +59,8 @@ WebView::WebView(QWidget* parent)
     , m_actionsInitialized(false)
     , m_disableTouchMocking(false)
     , m_isReloading(false)
+    , m_hasRss(false)
+    , m_rssChecked(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
@@ -141,7 +146,7 @@ void WebView::setPage(QWebPage* page)
     m_page = qobject_cast<WebPage*>(page);
 
     setZoom(qzSettings->defaultZoom);
-    connect(m_page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
+    connect(m_page, SIGNAL(saveFrameStateRequested(QWebFrame*,QWebHistoryItem*)), this, SLOT(frameStateChanged()));
     connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
 
     mApp->plugins()->emitWebPageCreated(m_page);
@@ -213,6 +218,17 @@ void WebView::fakeLoadingProgress(int progress)
 {
     emit loadStarted();
     emit loadProgress(progress);
+}
+
+bool WebView::hasRss() const
+{
+    return m_hasRss;
+}
+
+QWebElement WebView::activeElement() const
+{
+    QRect activeRect = inputMethodQuery(Qt::ImMicroFocus).toRect();
+    return page()->mainFrame()->hitTestContent(activeRect.center()).element();
 }
 
 bool WebView::isUrlValid(const QUrl &url)
@@ -342,6 +358,12 @@ void WebView::forward()
     }
 }
 
+void WebView::editDelete()
+{
+    QKeyEvent ev(QEvent::KeyPress, Qt::Key_Delete, Qt::NoModifier);
+    QApplication::sendEvent(this, &ev);
+}
+
 void WebView::selectAll()
 {
     triggerPageAction(QWebPage::SelectAll);
@@ -356,11 +378,18 @@ void WebView::slotLoadStarted()
         m_actionStop->setEnabled(true);
         m_actionReload->setEnabled(false);
     }
+
+    m_rssChecked = false;
+    emit rssChanged(false);
 }
 
 void WebView::slotLoadProgress(int progress)
 {
     m_progress = progress;
+
+    if (m_progress > 60) {
+        checkRss();
+    }
 }
 
 void WebView::slotLoadFinished()
@@ -377,8 +406,6 @@ void WebView::slotLoadFinished()
         mApp->history()->addHistoryEntry(this);
     }
 
-    mApp->autoFill()->completePage(page());
-
     m_isReloading = false;
     m_lastUrl = url();
 }
@@ -392,6 +419,20 @@ void WebView::frameStateChanged()
 void WebView::emitChangedUrl()
 {
     emit urlChanged(url());
+}
+
+void WebView::checkRss()
+{
+    if (m_rssChecked) {
+        return;
+    }
+
+    m_rssChecked = true;
+    QWebFrame* frame = page()->mainFrame();
+    const QWebElementCollection &links = frame->findAllElements("link[type=\"application/rss+xml\"]");
+
+    m_hasRss = links.count() != 0;
+    emit rssChanged(m_hasRss);
 }
 
 void WebView::slotIconChanged()
@@ -415,7 +456,7 @@ void WebView::slotUrlChanged(const QUrl &url)
     const QString &host = url.host();
     m_disableTouchMocking = false;
 
-    foreach(const QString & site, exceptions) {
+    foreach (const QString &site, exceptions) {
         if (host.contains(site)) {
             m_disableTouchMocking = true;
         }
@@ -446,7 +487,7 @@ void WebView::sendPageByMail()
 void WebView::copyLinkToClipboard()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        QApplication::clipboard()->setText(action->data().toString());
+        QApplication::clipboard()->setText(action->data().toUrl().toEncoded());
     }
 }
 
@@ -739,9 +780,13 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         m_actionsInitialized = true;
 
         pageAction(QWebPage::Cut)->setIcon(QIcon::fromTheme("edit-cut"));
+        pageAction(QWebPage::Cut)->setText(tr("Cut"));
         pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
+        pageAction(QWebPage::Copy)->setText(tr("Copy"));
         pageAction(QWebPage::Paste)->setIcon(QIcon::fromTheme("edit-paste"));
+        pageAction(QWebPage::Paste)->setText(tr("Paste"));
         pageAction(QWebPage::SelectAll)->setIcon(QIcon::fromTheme("edit-select-all"));
+        pageAction(QWebPage::SelectAll)->setText(tr("Select All"));
 
         m_actionReload = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
         m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this);
@@ -752,6 +797,16 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         m_actionReload->setEnabled(!isLoading());
         m_actionStop->setEnabled(isLoading());
     }
+
+    int spellCheckActionCount = 0;
+
+#ifdef USE_HUNSPELL
+    // Show spellcheck menu as the first
+    if (hitTest.isContentEditable() && !hitTest.isContentSelected()) {
+        mApp->speller()->populateContextMenu(menu, hitTest);
+        spellCheckActionCount = menu->actions().count();
+    }
+#endif
 
     if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != QLatin1String("javascript")) {
         createLinkContextMenu(menu, hitTest);
@@ -766,40 +821,49 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
     }
 
     if (hitTest.isContentEditable()) {
-        if (menu->isEmpty()) {
+        if (menu->actions().count() == spellCheckActionCount) {
             QMenu* pageMenu = page()->createStandardContextMenu();
-
-            int i = 0;
-            foreach(QAction * act, pageMenu->actions()) {
-                if (act->isSeparator()) {
-                    menu->addSeparator();
-                    continue;
-                }
-
-                // Hiding double Direction + Fonts menu (bug in QtWebKit 2.2)
-                if (i <= 1 && act->menu()) {
-                    if (act->menu()->actions().contains(pageAction(QWebPage::SetTextDirectionDefault)) ||
-                            act->menu()->actions().contains(pageAction(QWebPage::ToggleBold))) {
-                        act->setVisible(false);
+            // Apparently createStandardContextMenu() can return null pointer
+            if (pageMenu) {
+                int i = 0;
+                foreach (QAction* act, pageMenu->actions()) {
+                    if (act->isSeparator()) {
+                        menu->addSeparator();
+                        continue;
                     }
+
+                    // Hiding double Direction + Fonts menu (bug in QtWebKit 2.2)
+                    if (i <= 1 && act->menu()) {
+                        if (act->menu()->actions().contains(pageAction(QWebPage::SetTextDirectionDefault)) ||
+                                act->menu()->actions().contains(pageAction(QWebPage::ToggleBold))) {
+                            act->setVisible(false);
+                        }
+                    }
+
+                    menu->addAction(act);
+
+                    if (act == pageAction(QWebPage::Paste)) {
+                        QAction* a = menu->addAction(QIcon::fromTheme("edit-delete"), tr("Delete"), this, SLOT(editDelete()));
+                        a->setEnabled(!selectedText().isEmpty());
+                    }
+
+                    ++i;
                 }
 
-                menu->addAction(act);
+                if (menu->actions().last() == pageAction(QWebPage::InspectElement)) {
+                    // We have own Inspect Element action
+                    menu->actions().last()->setVisible(false);
+                }
 
-                ++i;
+                delete pageMenu;
             }
-
-            if (menu->actions().last() == pageAction(QWebPage::InspectElement)) {
-                // We have own Inspect Element action
-                menu->actions().last()->setVisible(false);
-            }
-
-            delete pageMenu;
         }
 
         if (hitTest.element().tagName().toLower() == QLatin1String("input")) {
             checkForForm(menu, hitTest.element());
         }
+
+        createSpellCheckContextMenu(menu);
     }
 
     if (!selectedText().isEmpty()) {
@@ -869,9 +933,8 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
     menu->addSeparator();
     if (url().scheme() == QLatin1String("http") || url().scheme() == QLatin1String("https")) {
-//        bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
-//        if (result)
-        menu->addAction(tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(QUrl("http://validator.w3.org/check?uri=" + url().toString()));
+        const QByteArray &w3url = "http://validator.w3.org/check?uri=" + QUrl::toPercentEncoding(url().toEncoded());
+        menu->addAction(tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(QUrl::fromEncoded(w3url));
     }
 
     menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
@@ -939,7 +1002,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText);
     menu->addSeparator();
 
-    QString langCode = mApp->currentLanguage().left(2);
+    QString langCode = mApp->currentLanguageFile().left(2);
     QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
     Action* gtwact = new Action(QIcon(":icons/sites/translate.png"), tr("Google Translate"));
     gtwact->setData(googleTranslateUrl);
@@ -983,9 +1046,9 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     // Search with ...
     Menu* swMenu = new Menu(tr("Search with..."), menu);
     SearchEnginesManager* searchManager = mApp->searchEnginesManager();
-    foreach(const SearchEngine & en, searchManager->allEngines()) {
+    foreach (const SearchEngine &en, searchManager->allEngines()) {
         Action* act = new Action(en.icon, en.name);
-        act->setData(qVariantFromValue(en));
+        act->setData(QVariant::fromValue(en));
 
         connect(act, SIGNAL(triggered()), this, SLOT(searchSelectedText()));
         connect(act, SIGNAL(middleClicked()), this, SLOT(searchSelectedTextInBackgroundTab()));
@@ -1014,6 +1077,25 @@ void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy Media Address"), this, SLOT(copyLinkToClipboard()))->setData(videoUrl);
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendLinkByMail()))->setData(videoUrl);
     menu->addAction(QIcon::fromTheme("document-save"), tr("Save Media To &Disk"), this, SLOT(downloadUrlToDisk()))->setData(videoUrl);
+}
+
+void WebView::createSpellCheckContextMenu(QMenu* menu)
+{
+    Q_UNUSED(menu)
+#ifdef USE_HUNSPELL
+    menu->addSeparator();
+
+    QAction* act = menu->addAction(tr("Check &Spelling"), mApp->speller(), SLOT(toggleEnableSpellChecking()));
+    act->setCheckable(true);
+    act->setChecked(mApp->speller()->isEnabled());
+
+    if (mApp->speller()->isEnabled()) {
+        QMenu* men = menu->addMenu(tr("Languages"));
+        connect(men, SIGNAL(aboutToShow()), mApp->speller(), SLOT(populateLanguagesMenu()));
+    }
+
+    menu->addSeparator();
+#endif
 }
 
 void WebView::pauseMedia()
@@ -1159,6 +1241,74 @@ void WebView::keyPressEvent(QKeyEvent* event)
     case Qt::Key_A:
         if (event->modifiers() == Qt::ControlModifier) {
             selectAll();
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_Up:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            triggerPageAction(QWebPage::SelectPreviousLine);
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_Down:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            triggerPageAction(QWebPage::SelectNextLine);
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_Left:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            if (event->modifiers() == Qt::ShiftModifier) {
+                triggerPageAction(QWebPage::SelectPreviousChar);
+            }
+            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
+                triggerPageAction(QWebPage::SelectPreviousWord);
+            }
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_Right:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            if (event->modifiers() == Qt::ShiftModifier) {
+                triggerPageAction(QWebPage::SelectNextChar);
+            }
+            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
+                triggerPageAction(QWebPage::SelectNextWord);
+            }
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_Home:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            if (event->modifiers() == Qt::ShiftModifier) {
+                triggerPageAction(QWebPage::SelectStartOfLine);
+            }
+            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
+                triggerPageAction(QWebPage::SelectStartOfDocument);
+            }
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_End:
+        if (event->modifiers() & Qt::ShiftModifier) {
+            if (event->modifiers() == Qt::ShiftModifier) {
+                triggerPageAction(QWebPage::SelectEndOfLine);
+            }
+            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
+                triggerPageAction(QWebPage::SelectEndOfDocument);
+            }
             event->accept();
             return;
         }

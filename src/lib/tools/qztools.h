@@ -56,20 +56,33 @@ QString QT_QUPZILLA_EXPORT fileSizeToString(qint64 size);
 QPixmap QT_QUPZILLA_EXPORT createPixmapForSite(const QIcon &icon, const QString &title, const QString &url);
 QString QT_QUPZILLA_EXPORT applyDirectionToPage(QString &pageContents);
 
-QIcon QT_QUPZILLA_EXPORT iconFromFileName(const QString &fileName);
+QString QT_QUPZILLA_EXPORT resolveFromPath(const QString &name);
+QStringList QT_QUPZILLA_EXPORT splitCommandArguments(const QString &command);
+bool QT_QUPZILLA_EXPORT startExternalProcess(const QString &executable, const QString &args);
 
-QString QT_QUPZILLA_EXPORT buildSystem();
+QIcon QT_QUPZILLA_EXPORT iconFromFileName(const QString &fileName);
+bool QT_QUPZILLA_EXPORT isUtf8(const char* string);
+
+bool QT_QUPZILLA_EXPORT matchDomain(const QString &pattern, const QString &domain);
+
+QString QT_QUPZILLA_EXPORT operatingSystem();
 
 // Qt5 migration help functions
 bool QT_QUPZILLA_EXPORT isCertificateValid(const QSslCertificate &cert);
 QString QT_QUPZILLA_EXPORT escape(const QString &string);
 
-#ifdef QZ_WS_X11
+#if defined(QZ_WS_X11) && !defined(NO_X11)
 void QT_QUPZILLA_EXPORT* X11Display(const QWidget* widget);
 #endif
 
 template <typename T>
 bool listContainsIndex(const QList<T> &list, int index)
+{
+    return (index >= 0 && list.count() > index);
+}
+
+template <typename T>
+bool vectorContainsIndex(const QVector<T> &list, int index)
 {
     return (index >= 0 && list.count() > index);
 }

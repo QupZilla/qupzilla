@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -36,7 +36,9 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setupUi(this);
-
+#ifdef Q_OS_MAC
+    tabWidget->setDocumentMode(false);
+#endif
     adblockCheckBox->setChecked(m_manager->isEnabled());
 
     QMenu* menu = new QMenu(buttonMenu);
@@ -167,7 +169,7 @@ void AdBlockDialog::load()
         return;
     }
 
-    foreach(AdBlockSubscription * subscription, m_manager->subscriptions()) {
+    foreach (AdBlockSubscription* subscription, m_manager->subscriptions()) {
         AdBlockTreeWidget* tree = new AdBlockTreeWidget(subscription, tabWidget);
         tabWidget->addTab(tree, subscription->title());
     }

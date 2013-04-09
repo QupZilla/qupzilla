@@ -21,6 +21,7 @@
 #include "networkmanagerproxy.h"
 #include "mainapplication.h"
 #include "webpage.h"
+#include "tabbedwebview.h"
 #include "pluginproxy.h"
 #include "adblockmanager.h"
 #include "networkproxyfactory.h"
@@ -63,15 +64,14 @@ static QString fileNameForCert(const QSslCertificate &cert)
     return certFileName;
 }
 
-NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
+NetworkManager::NetworkManager(QObject* parent)
     : NetworkManagerProxy(parent)
     , m_adblockManager(0)
-    , p_QupZilla(mainClass)
     , m_ignoreAllWarnings(false)
 {
-    connect(this, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)), this, SLOT(authentication(QNetworkReply*, QAuthenticator*)));
-    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator*)), this, SLOT(proxyAuthentication(QNetworkProxy, QAuthenticator*)));
-    connect(this, SIGNAL(sslErrors(QNetworkReply*, QList<QSslError>)), this, SLOT(sslError(QNetworkReply*, QList<QSslError>)));
+    connect(this, SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)), this, SLOT(authentication(QNetworkReply*,QAuthenticator*)));
+    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)), this, SLOT(proxyAuthentication(QNetworkProxy,QAuthenticator*)));
+    connect(this, SIGNAL(sslErrors(QNetworkReply*,QList<QSslError>)), this, SLOT(sslError(QNetworkReply*,QList<QSslError>)));
     connect(this, SIGNAL(finished(QNetworkReply*)), this, SLOT(setSSLConfiguration(QNetworkReply*)));
 
     m_schemeHandlers["qupzilla"] = new QupZillaSchemeHandler();
@@ -87,29 +87,26 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
 void NetworkManager::loadSettings()
 {
     Settings settings;
-    settings.beginGroup("Web-Browser-Settings");
 
-    if (settings.value("AllowLocalCache", true).toBool() && !mApp->isPrivateSession()) {
+    if (settings.value("Web-Browser-Settings/AllowLocalCache", true).toBool() && !mApp->isPrivateSession()) {
         QNetworkDiskCache* cache = mApp->networkCache();
         cache->setMaximumCacheSize(settings.value("MaximumCacheSize", 50).toInt() * 1024 * 1024); //MegaBytes
         setCache(cache);
     }
 
+    settings.beginGroup("Web-Browser-Settings");
     m_doNotTrack = settings.value("DoNotTrack", false).toBool();
     m_sendReferer = settings.value("SendReferer", true).toBool();
     settings.endGroup();
     m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
 
-#ifdef Q_OS_WIN
-    // From doc:
-    // QSslSocket::VerifyNone ... The connection will still be encrypted, and your socket
-    // will still send its local certificate to the peer if it's requested.
-
+    // Falling back to Qt 4.7 default behavior, use SslV3 by default
+    // Fixes issue with some older servers closing the connection
     QSslConfiguration config = QSslConfiguration::defaultConfiguration();
-    config.setPeerVerifyMode(QSslSocket::VerifyNone);
+    config.setProtocol(QSsl::SslV3);
     QSslConfiguration::setDefaultConfiguration(config);
-#endif
 
+#if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
     QString certDir = mApp->PROFILEDIR + "certificates";
     QString bundlePath = certDir + "/ca-bundle.crt";
     QString bundleVersionPath = certDir + "/bundle_version";
@@ -128,6 +125,11 @@ void NetworkManager::loadSettings()
     }
 
     QSslSocket::setDefaultCaCertificates(QSslCertificate::fromPath(bundlePath));
+#else
+    QSslSocket::setDefaultCaCertificates(QSslSocket::systemCaCertificates());
+#endif
+
+    loadCertificates();
 
     m_proxyFactory->loadSettings();
 }
@@ -173,7 +175,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     }
 
     QHash<QSslCertificate, QStringList> errorHash;
-    foreach(const QSslError & error, errors) {
+    foreach (const QSslError &error, errors) {
         // Weird behavior on Windows
         if (error.error() == QSslError::NoError) {
             continue;
@@ -218,7 +220,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
         certs += "</li></ul>";
 
         certs += "<ul>";
-        foreach(const QString & error, errors) {
+        foreach (const QString &error, errors) {
             certs += "<li>";
             certs += tr("<b>Error: </b>") + error;
             certs += "</li>";
@@ -239,7 +241,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
             return;
         }
 
-        foreach(const QSslCertificate & cert, errorHash.keys()) {
+        foreach (const QSslCertificate &cert, errorHash.keys()) {
             if (!m_localCerts.contains(cert)) {
                 addLocalCertificate(cert);
             }
@@ -251,8 +253,8 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
 
 void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
 {
-    QDialog* dialog = new QDialog(p_QupZilla);
-    dialog->setWindowTitle(tr("Authorization required"));
+    QDialog* dialog = new QDialog();
+    dialog->setWindowTitle(tr("Authorisation required"));
 
     QFormLayout* formLa = new QFormLayout(dialog);
 
@@ -275,7 +277,7 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
 
     label->setText(tr("A username and password are being requested by %1. "
-                      "The site says: \"%2\"").arg(reply->url().toEncoded(), QzTools::escape(auth->realm())));
+                      "The site says: \"%2\"").arg(reply->url().host(), QzTools::escape(auth->realm())));
     formLa->addRow(label);
 
     formLa->addRow(userLab, user);
@@ -283,15 +285,37 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     formLa->addRow(save);
 
     formLa->addWidget(box);
-    AutoFill* fill = mApp->autoFill();
-    if (fill->isStored(reply->url())) {
-        save->setChecked(true);
-        user->setText(fill->getUsername(reply->url()));
-        pass->setText(fill->getPassword(reply->url()));
-    }
-    emit wantsFocus(reply->url());
+    bool shouldUpdateEntry = false;
 
-    //Do not save when private browsing is enabled
+    AutoFill* fill = mApp->autoFill();
+    QString storedUser;
+    QString storedPassword;
+    if (fill->isStored(reply->url())) {
+        const AutoFillData &data = fill->getFirstFormData(reply->url());
+
+        if (data.isValid()) {
+            save->setChecked(true);
+            shouldUpdateEntry = true;
+            storedUser = data.username;
+            storedPassword = data.password;
+            user->setText(storedUser);
+            pass->setText(storedPassword);
+        }
+    }
+
+    // Try to set the originating WebTab as a current tab
+    QWebFrame* frame = qobject_cast<QWebFrame*>(reply->request().originatingObject());
+    if (frame) {
+        WebPage* page = qobject_cast<WebPage*>(frame->page());
+        if (page) {
+            TabbedWebView* view = qobject_cast<TabbedWebView*>(page->view());
+            if (view) {
+                view->setAsCurrentTab();
+            }
+        }
+    }
+
+    // Do not save when private browsing is enabled
     if (mApp->isPrivateSession()) {
         save->setVisible(false);
     }
@@ -304,7 +328,14 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     auth->setPassword(pass->text());
 
     if (save->isChecked()) {
-        fill->addEntry(reply->url(), user->text(), pass->text());
+        if (shouldUpdateEntry) {
+            if (storedUser != user->text() || storedPassword != pass->text()) {
+                fill->updateEntry(reply->url(), user->text(), pass->text());
+            }
+        }
+        else {
+            fill->addEntry(reply->url(), user->text(), pass->text());
+        }
     }
 }
 
@@ -330,7 +361,7 @@ void NetworkManager::ftpAuthentication(const QUrl &url, QAuthenticator* auth)
     }
 
     QDialog* dialog = new QDialog(mApp->getWindow());
-    dialog->setWindowTitle(tr("FTP authorization required"));
+    dialog->setWindowTitle(tr("FTP authorisation required"));
 
     QFormLayout* formLa = new QFormLayout(dialog);
 
@@ -396,8 +427,8 @@ void NetworkManager::ftpAuthentication(const QUrl &url, QAuthenticator* auth)
 
 void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator* auth)
 {
-    QDialog* dialog = new QDialog(p_QupZilla);
-    dialog->setWindowTitle(tr("Proxy authorization required"));
+    QDialog* dialog = new QDialog();
+    dialog->setWindowTitle(tr("Proxy authorisation required"));
 
     QFormLayout* formLa = new QFormLayout(dialog);
 
@@ -449,11 +480,11 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
                 QVariant v = req.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
                 WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
                 if (webPage) {
-                    connect(reply, SIGNAL(downloadRequest(const QNetworkRequest &)),
-                            webPage, SLOT(downloadRequested(const QNetworkRequest &)));
+                    connect(reply, SIGNAL(downloadRequest(QNetworkRequest)),
+                            webPage, SLOT(downloadRequested(QNetworkRequest)));
                 }
-                connect(reply, SIGNAL(ftpAuthenticationRequierd(const QUrl &, QAuthenticator*)),
-                        this, SLOT(ftpAuthentication(const QUrl &, QAuthenticator*)));
+                connect(reply, SIGNAL(ftpAuthenticationRequierd(QUrl,QAuthenticator*)),
+                        this, SLOT(ftpAuthentication(QUrl,QAuthenticator*)));
             }
             return reply;
         }
@@ -483,10 +514,8 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
 
     req.setRawHeader("Accept-Language", m_acceptLanguage);
 
-    req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-//    if (req.attribute(QNetworkRequest::CacheLoadControlAttribute).toInt() == QNetworkRequest::PreferNetwork) {
-//        req.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
-//    }
+    // #830: Disabling HttpPipeling fixes issue with loading HTML5 videos on YouTube
+    //req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
 
     // Adblock
     if (op == QNetworkAccessManager::GetOperation) {
@@ -499,8 +528,7 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
         }
     }
 
-    reply = QNetworkAccessManager::createRequest(op, req, outgoingData);
-    return reply;
+    return QNetworkAccessManager::createRequest(op, req, outgoingData);
 }
 
 void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
@@ -565,6 +593,11 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     }
 }
 
+NetworkProxyFactory* NetworkManager::proxyFactory() const
+{
+    return m_proxyFactory;
+}
+
 bool NetworkManager::registerSchemeHandler(const QString &scheme, SchemeHandler* handler)
 {
     if (m_schemeHandlers.contains(scheme)) {
@@ -592,9 +625,10 @@ void NetworkManager::loadCertificates()
     m_ignoreAllWarnings = settings.value("IgnoreAllSSLWarnings", false).toBool();
     settings.endGroup();
 
-    //CA Certificates
+    // CA Certificates
     m_caCerts = QSslSocket::defaultCaCertificates();
-    foreach(const QString & path, m_certPaths) {
+
+    foreach (const QString &path, m_certPaths) {
 #ifdef Q_OS_WIN
         // Used from Qt 4.7.4 qsslcertificate.cpp and modified because QSslCertificate::fromPath
         // is kind of a bugged on Windows, it does work only with full path to cert file
@@ -614,7 +648,7 @@ void NetworkManager::loadCertificates()
         m_caCerts += QSslCertificate::fromPath(path + "/*.crt", QSsl::Pem, QRegExp::Wildcard);
 #endif
     }
-    //Local Certificates
+    // Local Certificates
 #ifdef Q_OS_WIN
     QDirIterator it_(mApp->currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it_.hasNext()) {
@@ -629,12 +663,14 @@ void NetworkManager::loadCertificates()
         }
     }
 #else
-    m_localCerts += QSslCertificate::fromPath(mApp->currentProfilePath() + "certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
+    m_localCerts = QSslCertificate::fromPath(mApp->currentProfilePath() + "certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
 #endif
 
     QSslSocket::setDefaultCaCertificates(m_caCerts + m_localCerts);
 
+#if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
     new CaBundleUpdater(this, this);
+#endif
 }
 
 void NetworkManager::disconnectObjects()

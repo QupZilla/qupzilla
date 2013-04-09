@@ -60,7 +60,7 @@ public:
     void loadSettings();
 
     QByteArray saveState();
-    bool restoreState(const QList<WebTab::SavedTab> &tabs, int currentTab);
+    bool restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab);
     void closeRecoveryTab();
 
     void savePinnedTabs();
@@ -75,6 +75,7 @@ public:
 
     void nextTab();
     void previousTab();
+    void currentTabChanged(int index);
 
     int normalTabsCount() const;
     int pinnedTabsCount() const;
@@ -82,13 +83,16 @@ public:
     void showTabBar();
     int lastTabIndex() const;
 
-    TabBar* getTabBar() { return m_tabBar; }
-    ClosedTabsManager* closedTabsManager() { return m_closedTabsManager; }
-    bool canRestoreTab();
+    void showNavigationBar(QWidget* bar);
+
+    TabBar* getTabBar() const;
+    ClosedTabsManager* closedTabsManager() const;
     QList<WebTab*> allTabs(bool withPinned = true);
-    QStackedWidget* locationBars() { return m_locationBars; }
-    ToolButton* buttonListTabs() { return m_buttonListTabs; }
-    AddTabButton* buttonAddTab() { return m_buttonAddTab; }
+    bool canRestoreTab() const;
+
+    QStackedWidget* locationBars() const;
+    ToolButton* buttonListTabs() const;
+    AddTabButton* buttonAddTab() const;
 
     void disconnectObjects();
 
@@ -110,7 +114,7 @@ public slots:
     void reloadAllTabs();
     void stopTab(int index);
     void closeAllButCurrent(int index);
-    void restoreClosedTab();
+    void restoreClosedTab(QObject* obj = 0);
     void restoreAllClosedTabs();
     void clearClosedTabsList();
     void aboutToShowClosedTabsMenu();
@@ -122,7 +126,6 @@ public slots:
 private slots:
     void aboutToShowTabsMenu();
     void actionChangeIndex();
-    void currentTabChanged(int index);
     void tabMoved(int before, int after);
 
 private:
@@ -142,6 +145,7 @@ private:
     bool m_newTabAfterActive;
     bool m_newEmptyTabAfterActive;
     QUrl m_urlOnNewTab;
+
     QupZilla* p_QupZilla;
 
     int m_lastTabIndex;

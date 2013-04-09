@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -51,13 +51,14 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     , ui(new Ui::SiteInfo)
     , m_certWidget(0)
     , m_view(view)
-    , m_delegate(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    m_delegate = new ListItemDelegate(24, ui->listWidget);
-    ui->listWidget->setItemDelegate(m_delegate);
+    ListItemDelegate* delegate = new ListItemDelegate(24, ui->listWidget);
+    delegate->setUpdateParentHeight(true);
+    delegate->setUniformItemSizes(true);
+    ui->listWidget->setItemDelegate(delegate);
 
     ui->listWidget->item(0)->setIcon(QIcon::fromTheme("document-properties", QIcon(":/icons/preferences/document-properties.png")));
     ui->listWidget->item(1)->setIcon(QIcon::fromTheme("applications-graphics", QIcon(":/icons/preferences/applications-graphics.png")));
@@ -137,7 +138,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     const QList<QWebDatabase> &databases = frame->securityOrigin().databases();
 
     int counter = 0;
-    foreach(const QWebDatabase & b, databases) {
+    foreach (const QWebDatabase &b, databases) {
         QListWidgetItem* item = new QListWidgetItem(ui->databaseList);
         item->setText(b.displayName());
         item->setData(Qt::UserRole + 10, counter);
@@ -167,16 +168,14 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     connect(ui->secDetailsButton, SIGNAL(clicked()), this, SLOT(securityDetailsClicked()));
     connect(ui->saveButton, SIGNAL(clicked(QAbstractButton*)), this, SLOT(downloadImage()));
 
-    connect(ui->databaseList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(databaseItemChanged(QListWidgetItem*)));
-    connect(ui->treeImages, SIGNAL(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)), this, SLOT(showImagePreview(QTreeWidgetItem*)));
-    connect(ui->treeImages, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(imagesCustomContextMenuRequested(const QPoint &)));
+    connect(ui->databaseList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(databaseItemChanged(QListWidgetItem*)));
+    connect(ui->treeImages, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(showImagePreview(QTreeWidgetItem*)));
+    connect(ui->treeImages, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(imagesCustomContextMenuRequested(QPoint)));
 
     ui->treeImages->setContextMenuPolicy(Qt::CustomContextMenu);
     ui->treeImages->sortByColumn(-1);
 
     ui->treeTags->sortByColumn(-1);
-
-    QTimer::singleShot(0, this, SLOT(heightChange()));
 }
 
 void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)
@@ -244,13 +243,6 @@ void SiteInfo::downloadImage()
     if (!m_activePixmap.save(filePath)) {
         QMessageBox::critical(this, tr("Error!"), tr("Cannot write to file!"));
         return;
-    }
-}
-
-void SiteInfo::heightChange()
-{
-    if (m_delegate) {
-        ui->listWidget->setFixedHeight(m_delegate->itemHeight());
     }
 }
 

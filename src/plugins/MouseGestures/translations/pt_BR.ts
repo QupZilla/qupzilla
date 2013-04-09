@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="pt_PT">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.0">
 <context>
     <name>MouseGesturesSettingsDialog</name>
     <message>
@@ -34,21 +32,6 @@
         <translation>&lt;b&gt;Voltar&lt;/b&gt;&lt;br/&gt;Volta à página anterior</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
-        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
-        <translation>&lt;b&gt;Avançar&lt;/b&gt;&lt;br/&gt;Vai para a página seguinte</translation>
-    </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
-        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
-        <translation>&lt;b&gt;Guia Anterior&lt;/b&gt;&lt;br/&gt;Volta para a guia anterior</translation>
-    </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
-        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation>&lt;b&gt;Próxima Guia&lt;/b&gt;&lt;br/&gt;Avança para a próxima guia</translation>
-    </message>
-    <message>
         <location filename="../mousegesturessettingsdialog.ui" line="159"/>
         <source>&lt;b&gt;Reload&lt;/b&gt;&lt;br/&gt;Reload page</source>
         <translation>&lt;b&gt;Recarregar&lt;/b&gt;&lt;br/&gt;Recarrega a página</translation>
@@ -59,9 +42,24 @@
         <translation>&lt;b&gt;Fechar guia&lt;/b&gt;&lt;br/&gt;Fecha a guia atual</translation>
     </message>
     <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
+        <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
+        <translation>&lt;b&gt;Avançar&lt;/b&gt;&lt;br/&gt;Vai para a página seguinte</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="194"/>
+        <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
+        <translation>&lt;b&gt;Guia Anterior&lt;/b&gt;&lt;br/&gt;Volta para a guia anterior</translation>
+    </message>
+    <message>
         <location filename="../mousegesturessettingsdialog.ui" line="208"/>
         <source>&lt;b&gt;Home&lt;/b&gt;&lt;br/&gt;Go to homepage</source>
         <translation>&lt;b&gt;Página inicial&lt;/b&gt;&lt;br/&gt;Abre a página inicial</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="222"/>
+        <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
+        <translation>&lt;b&gt;Próxima Guia&lt;/b&gt;&lt;br/&gt;Avança para a próxima guia</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="253"/>

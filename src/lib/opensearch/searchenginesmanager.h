@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -75,8 +75,8 @@ public:
 
     Engine engineForShortcut(const QString &shortcut);
 
-    void setAllEngines(const QList<Engine> &engines);
-    QList<Engine> allEngines();
+    void setAllEngines(const QVector<Engine> &engines);
+    QVector<Engine> allEngines();
 
     static QIcon iconForSearchEngine(const QUrl &url);
 
@@ -108,7 +108,7 @@ private:
 
     QString m_startingEngineName;
     QString m_defaultEngineName;
-    QList<Engine> m_allEngines;
+    QVector<Engine> m_allEngines;
     Engine m_activeEngine;
     Engine m_defaultEngine;
 
@@ -116,6 +116,9 @@ private:
 
 typedef SearchEnginesManager::Engine SearchEngine;
 
-Q_DECLARE_METATYPE(SearchEnginesManager::Engine)
+// Hint to QVector to use std::realloc on item moving
+Q_DECLARE_TYPEINFO(SearchEngine, Q_MOVABLE_TYPE);
+
+Q_DECLARE_METATYPE(SearchEngine)
 
 #endif // SEARCHENGINESMANAGER_H

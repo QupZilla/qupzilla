@@ -18,22 +18,33 @@
 #include "qztoolstest.h"
 #include "formcompletertest.h"
 #include "cookiestest.h"
+#include "downloadstest.h"
+#include "adblocktest.h"
+#include "updatertest.h"
+#include "pactest.h"
 
 #include <QtTest/QtTest>
+
+#define RUN_TEST(X) \
+    { \
+    qDebug() << ""; \
+    X t; \
+    int r = QTest::qExec(&t, argc, argv); \
+    if (r != 0) return 1; \
+    }
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     QTEST_DISABLE_KEYPAD_NAVIGATION;
 
-    QzToolsTest qzToolsTest;
-    QTest::qExec(&qzToolsTest, argc, argv);
-
-    FormCompleterTest formCompleterTest;
-    QTest::qExec(&formCompleterTest, argc, argv);
-
-    CookiesTest cookiesTest;
-    QTest::qExec(&cookiesTest, argc, argv);
+    RUN_TEST(QzToolsTest)
+    RUN_TEST(FormCompleterTest)
+    RUN_TEST(CookiesTest)
+    RUN_TEST(DownloadsTest)
+    RUN_TEST(AdBlockTest)
+    RUN_TEST(UpdaterTest)
+    RUN_TEST(PacTest)
 
     return 0;
 }

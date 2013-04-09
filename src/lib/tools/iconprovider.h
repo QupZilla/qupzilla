@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -82,7 +82,7 @@ private:
     QImage m_emptyWebImage;
     QPixmap m_bookmarkIcon;
 
-    QList<Icon> m_iconBuffer;
+    QVector<Icon> m_iconBuffer;
 };
 
 #endif // ICONPROVIDER_H

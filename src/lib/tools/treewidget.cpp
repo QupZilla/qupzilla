@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ TreeWidget::TreeWidget(QWidget* parent)
 {
     setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
 
-    connect(this, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(sheduleRefresh()));
+    connect(this, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(sheduleRefresh()));
 }
 
 void TreeWidget::clear()
@@ -123,7 +123,7 @@ QMimeData* TreeWidget::mimeData(const QList<QTreeWidgetItem*> items) const
     QByteArray encodedData;
 
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
-    foreach(const QTreeWidgetItem * item, items) {
+    foreach (const QTreeWidgetItem* item, items) {
         if (item) {
             QTreeWidgetItem* clonedItem = item->clone();
             bool parentIsRoot = false;
@@ -170,7 +170,6 @@ bool TreeWidget::dropMimeData(QTreeWidgetItem* parent, int,
         return false;
     }
 
-    setUpdatesEnabled(false);
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
     QSqlDatabase db = QSqlDatabase::database();
     db.transaction();
@@ -181,8 +180,9 @@ bool TreeWidget::dropMimeData(QTreeWidgetItem* parent, int,
         return false;
     }
 
-    while (!stream.atEnd()) {
+    setUpdatesEnabled(false);
 
+    while (!stream.atEnd()) {
         QTreeWidgetItem* item = new QTreeWidgetItem;
         item->read(stream);
         bool parentIsRoot = item->data(0, ITEM_IS_TOPLEVEL).toBool();
@@ -326,51 +326,41 @@ QList<QTreeWidgetItem*> TreeWidget::allItems()
     return m_allTreeItems;
 }
 
-void TreeWidget::filterString(QString string)
+void TreeWidget::filterString(const QString &string)
 {
-    expandAll();
     QList<QTreeWidgetItem*> _allItems = allItems();
-
-    if (string.isEmpty()) {
-        foreach(QTreeWidgetItem * item, _allItems)
-        item->setHidden(false);
-        for (int i = 0; i < topLevelItemCount(); i++) {
-            topLevelItem(i)->setHidden(false);
+    QList<QTreeWidgetItem*> parents;
+    bool stringIsEmpty = string.isEmpty();
+    foreach (QTreeWidgetItem* item, _allItems) {
+        bool containsString = stringIsEmpty || item->text(0).contains(string, Qt::CaseInsensitive);
+        if (containsString) {
+            item->setHidden(false);
+            if (item->parent()) {
+                if (!parents.contains(item->parent())) {
+                    parents << item->parent();
+                }
+            }
         }
-        if (m_showMode == ItemsCollapsed) {
-            collapseAll();
+        else {
+            item->setHidden(true);
+            if (item->parent()) {
+                item->parent()->setHidden(true);
+            }
         }
     }
-    else {
-        foreach(QTreeWidgetItem * item, _allItems) {
-            item->setHidden(!item->text(0).contains(string, Qt::CaseInsensitive));
-            item->setExpanded(true);
+
+    for (int i = 0; i < parents.size(); ++i) {
+        QTreeWidgetItem* parentItem = parents.at(i);
+        parentItem->setHidden(false);
+        if (stringIsEmpty) {
+            parentItem->setExpanded(m_showMode == ItemsExpanded);
         }
-        for (int i = 0; i < topLevelItemCount(); i++) {
-            topLevelItem(i)->setHidden(false);
+        else {
+            parentItem->setExpanded(true);
         }
 
-        QTreeWidgetItem* firstItem = topLevelItem(0);
-        QTreeWidgetItem* belowItem = itemBelow(firstItem);
-
-        int topLvlIndex = 0;
-        while (firstItem) {
-            if (firstItem->text(0).contains(string, Qt::CaseInsensitive)) {
-                firstItem->setHidden(false);
-            }
-            else if (!firstItem->parent() && !belowItem) {
-                firstItem->setHidden(true);
-            }
-            else if (!belowItem) {
-                break;
-            }
-            else if (!firstItem->parent() && !belowItem->parent()) {
-                firstItem->setHidden(true);
-            }
-
-            topLvlIndex++;
-            firstItem = topLevelItem(topLvlIndex);
-            belowItem = itemBelow(firstItem);
+        if (parentItem->parent() && !parents.contains(parentItem->parent())) {
+            parents << parentItem->parent();
         }
     }
 }
@@ -460,13 +450,13 @@ void TreeWidget::setDragDropReceiver(bool enable, QObject* receiver)
 #if QT_VERSION < 0x050000
         model()->setSupportedDragActions(Qt::CopyAction);
 #endif
-        connect(this, SIGNAL(folderParentChanged(QString, bool, bool*)), receiver, SLOT(changeFolderParent(QString, bool, bool*)));
-        connect(this, SIGNAL(bookmarkParentChanged(int, QString, QString, bool*)), receiver, SLOT(changeBookmarkParent(int, QString, QString, bool*)));
-        connect(this, SIGNAL(linkWasDroped(QUrl, QString, QVariant, QString, bool*)), receiver, SLOT(bookmarkDropedLink(QUrl, QString, QVariant, QString, bool*)));
+        connect(this, SIGNAL(folderParentChanged(QString,bool,bool*)), receiver, SLOT(changeFolderParent(QString,bool,bool*)));
+        connect(this, SIGNAL(bookmarkParentChanged(int,QString,QString,bool*)), receiver, SLOT(changeBookmarkParent(int,QString,QString,bool*)));
+        connect(this, SIGNAL(linkWasDroped(QUrl,QString,QVariant,QString,bool*)), receiver, SLOT(bookmarkDropedLink(QUrl,QString,QVariant,QString,bool*)));
     }
     else {
-        disconnect(this, SIGNAL(folderParentChanged(QString, bool, bool*)), receiver, SLOT(changeFolderParent(QString, bool, bool*)));
-        disconnect(this, SIGNAL(bookmarkParentChanged(int, QString, QString, bool*)), receiver, SLOT(changeBookmarkParent(int, QString, QString, bool*)));
-        disconnect(this, SIGNAL(linkWasDroped(QUrl, QString, QVariant, QString, bool*)), receiver, SLOT(bookmarkDropedLink(QUrl, QString, QVariant, QString, bool*)));
+        disconnect(this, SIGNAL(folderParentChanged(QString,bool,bool*)), receiver, SLOT(changeFolderParent(QString,bool,bool*)));
+        disconnect(this, SIGNAL(bookmarkParentChanged(int,QString,QString,bool*)), receiver, SLOT(changeBookmarkParent(int,QString,QString,bool*)));
+        disconnect(this, SIGNAL(linkWasDroped(QUrl,QString,QVariant,QString,bool*)), receiver, SLOT(bookmarkDropedLink(QUrl,QString,QVariant,QString,bool*)));
     }
 }

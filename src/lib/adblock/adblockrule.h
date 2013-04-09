@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -47,10 +47,10 @@
 #define ADBLOCKRULE_H
 
 #include <QObject>
-#include <QRegExp>
 #include <QStringList>
 
 #include "qz_namespace.h"
+#include "qzregexp.h"
 
 class QNetworkRequest;
 class QUrl;
@@ -61,6 +61,7 @@ class AdBlockRule
 {
 public:
     AdBlockRule(const QString &filter = QString(), AdBlockSubscription* subscription = 0);
+    ~AdBlockRule();
 
     AdBlockSubscription* subscription() const;
     void setSubscription(AdBlockSubscription* subscription);
@@ -84,61 +85,74 @@ public:
     bool isSlow() const;
     bool isInternalDisabled() const;
 
-    bool networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const;
     bool urlMatch(const QUrl &url) const;
+    bool networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const;
 
     bool matchDomain(const QString &domain) const;
     bool matchThirdParty(const QNetworkRequest &request) const;
     bool matchObject(const QNetworkRequest &request) const;
     bool matchSubdocument(const QNetworkRequest &request) const;
     bool matchXmlHttpRequest(const QNetworkRequest &request) const;
+    bool matchImage(const QString &encodedUrl) const;
+
+protected:
+    bool isMatchingDomain(const QString &domain, const QString &filter) const;
+    bool isMatchingRegExpStrings(const QString &url) const;
+    QStringList parseRegExpFilter(const QString &parsedFilter) const;
 
 private:
+    enum RuleType {
+        CssRule = 0,
+        DomainMatchRule = 1,
+        RegExpMatchRule = 2,
+        StringEndsMatchRule = 3,
+        StringContainsMatchRule = 4
+    };
+
+    enum RuleOption {
+        DomainRestrictedOption = 1,
+        ThirdPartyOption = 2,
+        ObjectOption = 4,
+        SubdocumentOption = 8,
+        XMLHttpRequestOption = 16,
+        ImageOption = 32,
+
+        // Exception only options
+        DocumentOption = 64,
+        ElementHideOption = 128
+    };
+
+    Q_DECLARE_FLAGS(RuleOptions, RuleOption)
+
+    inline bool hasOption(const RuleOption &opt) const;
+    inline bool hasException(const RuleOption &opt) const;
+
+    inline void setOption(const RuleOption &opt);
+    inline void setException(const RuleOption &opt, bool on);
+
     void parseFilter();
     void parseDomains(const QString &domains, const QChar &separator);
 
-    bool _matchDomain(const QString &domain, const QString &filter) const;
-
     AdBlockSubscription* m_subscription;
+
+    RuleType m_type;
+    RuleOptions m_options;
+    RuleOptions m_exceptions;
+
     QString m_filter;
-
-    bool m_enabled;
-    bool m_cssRule;
-    bool m_exception;
-
-    bool m_internalDisabled;
-    bool m_domainRestricted;
-
-    bool m_useRegExp;
-    QRegExp m_regExp;
-
-    bool m_useDomainMatch;
-    bool m_useEndsMatch;
-
     QString m_cssSelector;
     QString m_matchString;
+    Qt::CaseSensitivity m_caseSensitivity;
 
-    // Rule $options
+    bool m_isEnabled;
+    bool m_isException;
+    bool m_isInternalDisabled;
+
+    QzRegExp* m_regExp;
+    QStringList m_regExpStrings;
+
     QStringList m_allowedDomains;
     QStringList m_blockedDomains;
-
-    bool m_thirdParty;
-    bool m_thirdPartyException;
-
-    bool m_object;
-    bool m_objectException;
-
-    bool m_subdocument;
-    bool m_subdocumentException;
-
-    bool m_xmlhttprequest;
-    bool m_xmlhttprequestException;
-
-    // Exception only options
-    bool m_document;
-    bool m_elemhide;
-
-    Qt::CaseSensitivity m_caseSensitivity;
 };
 
 #endif // ADBLOCKRULE_H

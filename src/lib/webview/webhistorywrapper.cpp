@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ QList<QWebHistoryItem> WebHistoryWrapper::forwardItems(int maxItems, QWebHistory
     QUrl lastUrl = history->currentItem().url();
 
     int count = 0;
-    foreach(const QWebHistoryItem & item, history->forwardItems(maxItems + 5)) {
+    foreach (const QWebHistoryItem &item, history->forwardItems(maxItems + 5)) {
         if (item.url() == lastUrl || count == maxItems) {
             continue;
         }

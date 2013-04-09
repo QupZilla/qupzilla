@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 #include <QDebug>
 #include <QStringList>
 
-bool wildcardMatch(const QString &string, const QString &pattern)
+static bool wildcardMatch(const QString &string, const QString &pattern)
 {
     int stringSize = string.size();
     int patternSize = pattern.size();
@@ -38,7 +38,7 @@ bool wildcardMatch(const QString &string, const QString &pattern)
         }
     }
 
-    foreach(const QString & part, parts) {
+    foreach (const QString &part, parts) {
         pos = string.indexOf(part, pos);
         if (pos == -1) {
             return false;
@@ -50,6 +50,11 @@ bool wildcardMatch(const QString &string, const QString &pattern)
     }
 
     return true;
+}
+
+GM_UrlMatcher::GM_UrlMatcher()
+    : m_useRegExp(false)
+{
 }
 
 GM_UrlMatcher::GM_UrlMatcher(const QString &pattern)
@@ -80,22 +85,22 @@ void GM_UrlMatcher::parsePattern(QString pattern)
         pattern = pattern.mid(1);
         pattern = pattern.left(pattern.size() - 1);
 
-        m_regExp = QRegExp(pattern, Qt::CaseInsensitive);
+        m_regExp = QzRegExp(pattern, Qt::CaseInsensitive);
         m_useRegExp = true;
         return;
     }
 
     if (pattern.contains(QLatin1String(".tld"))) {
 
-        pattern.replace(QRegExp("(\\W)"), QLatin1String("\\\\1"))
-        .replace(QRegExp("\\*+"), QLatin1String("*"))
-        .replace(QRegExp("^\\\\\\|"), QLatin1String("^"))
-        .replace(QRegExp("\\\\\\|$"), QLatin1String("$"))
-        .replace(QRegExp("\\\\\\*"), QLatin1String(".*"))
+        pattern.replace(QzRegExp("(\\W)"), QLatin1String("\\\\1"))
+        .replace(QzRegExp("\\*+"), QLatin1String("*"))
+        .replace(QzRegExp("^\\\\\\|"), QLatin1String("^"))
+        .replace(QzRegExp("\\\\\\|$"), QLatin1String("$"))
+        .replace(QzRegExp("\\\\\\*"), QLatin1String(".*"))
         .replace(QLatin1String("\\.tld"), QLatin1String("\\.[a-z.]{2,6}"));
 
         m_useRegExp = true;
-        m_regExp = QRegExp(pattern, Qt::CaseInsensitive);
+        m_regExp = QzRegExp(pattern, Qt::CaseInsensitive);
     }
     else {
         m_matchString = pattern;

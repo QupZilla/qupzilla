@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -44,12 +44,25 @@ QNetworkReply* FileSchemeHandler::createRequest(QNetworkAccessManager::Operation
     }
 
     // Only list directories
-    QFileInfo fileInfo(request.url().toLocalFile());
+    QString filePath = request.url().toLocalFile();
+    QFileInfo fileInfo(filePath);
     if (!fileInfo.isDir() || !fileInfo.isReadable() || !fileInfo.exists()) {
         return 0;
     }
+#ifdef Q_OS_WIN
+    QNetworkRequest req = request;
 
+    if (filePath.endsWith(QLatin1Char(':'))) {
+        filePath.append(QLatin1Char('/'));
+        req.setUrl(QUrl::fromLocalFile(filePath));
+    }
+    else if (filePath.endsWith(QLatin1String(".lnk"))) {
+        req.setUrl(QUrl::fromLocalFile(fileInfo.canonicalFilePath()));
+    }
+    FileSchemeReply* reply = new FileSchemeReply(req);
+#else
     FileSchemeReply* reply = new FileSchemeReply(request);
+#endif
     return reply;
 }
 
@@ -155,7 +168,10 @@ QString FileSchemeReply::loadDirectory()
     }
 
     QString page = sPage;
-    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(request().url().toLocalFile()));
+    QString title = request().url().toLocalFile();
+    title.replace(QLatin1Char('/'), QDir::separator());
+    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(title));
+    page.replace(QLatin1String("%CLICKABLE-TITLE%"), tr("Index for %1").arg(clickableSections(title)));
 
     QString upDirDisplay = QLatin1String("none");
     QString showHiddenDisplay = QLatin1String("none");
@@ -169,7 +185,7 @@ QString FileSchemeReply::loadDirectory()
         page.replace(QLatin1String("%UP-DIR-LINK%"), QUrl::fromLocalFile(upDir.absolutePath()).toEncoded());
     }
 
-    foreach(const QFileInfo & info, list) {
+    foreach (const QFileInfo &info, list) {
         if (info.fileName() == QLatin1String(".") || info.fileName() == QLatin1String("..")) {
             continue;
         }
@@ -208,4 +224,29 @@ QString FileSchemeReply::loadDirectory()
     page.replace(QLatin1String("%SHOW-HIDDEN-DISPLAY%"), showHiddenDisplay);
 
     return page;
+}
+
+QString FileSchemeReply::clickableSections(const QString &path)
+{
+    QString title = path;
+    const QString dirSeparator = QDir::separator();
+    QStringList sections = title.split(dirSeparator, QString::SkipEmptyParts);
+    if (sections.isEmpty()) {
+        return QString("<a href=\"%1\">%1</a>").arg(path);
+    }
+
+    title.clear();
+#ifndef Q_OS_WIN
+    title = QString("<a href=\"%1\">%1</a>").arg(dirSeparator);
+#endif
+    for (int i = 0; i < sections.size(); ++i) {
+        QStringList currentParentSections = sections.mid(0, i + 1);
+        QString localFile = currentParentSections.join(QLatin1String("/"));
+#ifndef Q_OS_WIN
+        localFile.prepend(dirSeparator);
+#endif
+        title += QString("<a href=\"%1\">%2</a>%3").arg(QUrl::fromLocalFile(localFile).toEncoded(), sections.at(i), dirSeparator);
+    }
+
+    return title;
 }

@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,11 +19,12 @@
 #define GM_URLMATCHER_H
 
 #include <QString>
-#include <QRegExp>
+#include "qzregexp.h"
 
 class GM_UrlMatcher
 {
 public:
+    explicit GM_UrlMatcher();
     GM_UrlMatcher(const QString &pattern);
 
     QString pattern() const;
@@ -36,9 +37,12 @@ private:
     QString m_pattern;
 
     QString m_matchString;
-    QRegExp m_regExp;
+    QzRegExp m_regExp;
 
     bool m_useRegExp;
 };
+
+// Hint to QVector to use std::realloc on item moving
+Q_DECLARE_TYPEINFO(GM_UrlMatcher, Q_MOVABLE_TYPE);
 
 #endif // GM_URLMATCHER_H

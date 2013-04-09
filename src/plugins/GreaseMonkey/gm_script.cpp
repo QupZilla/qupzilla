@@ -18,24 +18,28 @@
 #include "gm_script.h"
 #include "gm_manager.h"
 
+#include "qzregexp.h"
+#include "delayedfilewatcher.h"
+
 #include <QFile>
-#include <QRegExp>
 #include <QStringList>
 #include <QWebFrame>
 #include <QDebug>
-#include <QElapsedTimer>
-#include <QFileSystemWatcher>
+#include <QCryptographicHash>
 
 GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
     : QObject(manager)
     , m_manager(manager)
-    , m_fileWatcher(new QFileSystemWatcher(this))
+    , m_fileWatcher(new DelayedFileWatcher(this))
+    , m_namespace("GreaseMonkeyNS")
+    , m_startAt(DocumentEnd)
     , m_fileName(filePath)
+    , m_enabled(true)
+    , m_valid(false)
 {
     parseScript();
 
-    connect(m_fileWatcher, SIGNAL(fileChanged(QString)),
-            this, SLOT(watchedFileChanged(QString)));
+    connect(m_fileWatcher, SIGNAL(delayedFileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
 }
 
 bool GM_Script::isValid() const
@@ -92,7 +96,7 @@ QStringList GM_Script::include() const
 {
     QStringList list;
 
-    foreach(const GM_UrlMatcher & matcher, m_include) {
+    foreach (const GM_UrlMatcher &matcher, m_include) {
         list.append(matcher.pattern());
     }
 
@@ -103,7 +107,7 @@ QStringList GM_Script::exclude() const
 {
     QStringList list;
 
-    foreach(const GM_UrlMatcher & matcher, m_exclude) {
+    foreach (const GM_UrlMatcher &matcher, m_exclude) {
         list.append(matcher.pattern());
     }
 
@@ -126,13 +130,13 @@ bool GM_Script::match(const QString &urlString)
         return false;
     }
 
-    foreach(const GM_UrlMatcher & matcher, m_exclude) {
+    foreach (const GM_UrlMatcher &matcher, m_exclude) {
         if (matcher.match(urlString)) {
             return false;
         }
     }
 
-    foreach(const GM_UrlMatcher & matcher, m_include) {
+    foreach (const GM_UrlMatcher &matcher, m_include) {
         if (matcher.match(urlString)) {
             return true;
         }
@@ -153,6 +157,12 @@ void GM_Script::watchedFileChanged(const QString &file)
 
 void GM_Script::parseScript()
 {
+    QFile file(m_fileName);
+    if (!file.open(QFile::ReadOnly)) {
+        qWarning() << "GreaseMonkey: Cannot open file for reading" << m_fileName;
+        return;
+    }
+
     m_name.clear();
     m_namespace = "GreaseMonkeyNS";
     m_description.clear();
@@ -164,19 +174,13 @@ void GM_Script::parseScript()
     m_enabled = true;
     m_valid = false;
 
-    QFile file(m_fileName);
-    if (!file.open(QFile::ReadOnly)) {
-        qWarning() << "GreaseMonkey: Cannot open file for reading" << m_fileName;
-        return;
-    }
-
     if (!m_fileWatcher->files().contains(m_fileName)) {
         m_fileWatcher->addPath(m_fileName);
     }
 
     QString fileData = QString::fromUtf8(file.readAll());
 
-    QRegExp rx("// ==UserScript==(.*)// ==/UserScript==");
+    QzRegExp rx("// ==UserScript==(.*)// ==/UserScript==");
     rx.indexIn(fileData);
     QString metadataBlock = rx.cap(1).trimmed();
 
@@ -187,8 +191,8 @@ void GM_Script::parseScript()
 
     QStringList requireList;
 
-    const QStringList &lines = metadataBlock.split(QLatin1Char('\n'));
-    foreach(QString line, lines) {
+    const QStringList &lines = metadataBlock.split(QLatin1Char('\n'), QString::SkipEmptyParts);
+    foreach (QString line, lines) {
         if (!line.startsWith(QLatin1String("// @"))) {
             continue;
         }
@@ -255,8 +259,16 @@ void GM_Script::parseScript()
     int index = fileData.indexOf(QLatin1String("// ==/UserScript==")) + 18;
     QString script = fileData.mid(index).trimmed();
 
+    QString jscript("(function(){"
+                    "function GM_getValue(name,val){return GM_getValueImpl('%1',name,val);}"
+                    "function GM_setValue(name,val){return GM_setValueImpl('%1',name,val);}"
+                    "function GM_deleteValue(name){return GM_deleteValueImpl('%1',name);}"
+                    "function GM_listValues(){return GM_listValuesImpl('%1');}"
+                    "\n%2\n})();");
+    QString nspace = QCryptographicHash::hash(fullName().toUtf8(), QCryptographicHash::Md4).toHex();
+
     script.prepend(m_manager->requireScripts(requireList));
-    script = QString("(function(){%1})();").arg(script);
+    script = jscript.arg(nspace, script);
 
     m_script = script;
     m_valid = !script.isEmpty();

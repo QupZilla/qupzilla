@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 #include <QScriptEngine>
 #include <QScriptValue>
 #include <QScriptValueIterator>
-#include <QRegExp>
+#include "qzregexp.h"
 
 ChromeImporter::ChromeImporter(QObject* parent)
     : QObject(parent)
@@ -49,15 +49,15 @@ bool ChromeImporter::openFile()
     return true;
 }
 
-QList<BookmarksModel::Bookmark> ChromeImporter::exportBookmarks()
+QVector<Bookmark> ChromeImporter::exportBookmarks()
 {
-    QList<BookmarksModel::Bookmark> list;
+    QVector<Bookmark> list;
 
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
 
     QStringList parsedBookmarks;
-    QRegExp rx("\\{(\\s*)\"date_added(.*)\"(\\s*)\\}", Qt::CaseSensitive);
+    QzRegExp rx("\\{(\\s*)\"date_added(.*)\"(\\s*)\\}", Qt::CaseSensitive);
     rx.setMinimal(true);
 
     int pos = 0;
@@ -67,7 +67,7 @@ QList<BookmarksModel::Bookmark> ChromeImporter::exportBookmarks()
     }
 
     QScriptEngine* scriptEngine = new QScriptEngine();
-    foreach(QString parsedString, parsedBookmarks) {
+    foreach (QString parsedString, parsedBookmarks) {
         parsedString = "(" + parsedString + ")";
         if (scriptEngine->canEvaluate(parsedString)) {
             QScriptValue object = scriptEngine->evaluate(parsedString);

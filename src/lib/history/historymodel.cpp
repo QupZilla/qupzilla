@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -43,9 +43,9 @@ HistoryModel::HistoryModel(History* history)
     init();
 
     connect(m_history, SIGNAL(resetHistory()), this, SLOT(resetHistory()));
-    connect(m_history, SIGNAL(historyEntryAdded(const HistoryEntry &)), this, SLOT(historyEntryAdded(const HistoryEntry &)));
-    connect(m_history, SIGNAL(historyEntryDeleted(const HistoryEntry &)), this, SLOT(historyEntryDeleted(const HistoryEntry &)));
-    connect(m_history, SIGNAL(historyEntryEdited(const HistoryEntry &, const HistoryEntry &)), this, SLOT(historyEntryEdited(const HistoryEntry &, const HistoryEntry &)));
+    connect(m_history, SIGNAL(historyEntryAdded(HistoryEntry)), this, SLOT(historyEntryAdded(HistoryEntry)));
+    connect(m_history, SIGNAL(historyEntryDeleted(HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryEntry)));
+    connect(m_history, SIGNAL(historyEntryEdited(HistoryEntry,HistoryEntry)), this, SLOT(historyEntryEdited(HistoryEntry,HistoryEntry)));
 }
 
 QVariant HistoryModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -92,7 +92,7 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    const HistoryEntry &entry = item->historyEntry;
+    const HistoryEntry entry = item->historyEntry;
 
     switch (role) {
     case IdRole:
@@ -237,7 +237,7 @@ HistoryItem* HistoryModel::itemFromIndex(const QModelIndex &index) const
 
 void HistoryModel::removeTopLevelIndexes(const QList<QPersistentModelIndex> &indexes)
 {
-    foreach(const QPersistentModelIndex & index, indexes) {
+    foreach (const QPersistentModelIndex &index, indexes) {
         if (index.parent().isValid()) {
             continue;
         }
@@ -300,7 +300,7 @@ void HistoryModel::fetchMore(const QModelIndex &parent)
     query.addBindValue(parentItem->startTimestamp());
     query.exec();
 
-    QList<HistoryEntry> list;
+    QVector<HistoryEntry> list;
 
     while (query.next()) {
         HistoryEntry entry;
@@ -322,7 +322,7 @@ void HistoryModel::fetchMore(const QModelIndex &parent)
 
     beginInsertRows(parent, 0, list.size() - 1);
 
-    foreach(const HistoryEntry & entry, list) {
+    foreach (const HistoryEntry &entry, list) {
         HistoryItem* newItem = new HistoryItem(parentItem);
         newItem->historyEntry = entry;
     }
@@ -450,7 +450,7 @@ void HistoryModel::init()
         return;
     }
 
-    const qint64 &minTimestamp = query.value(0).toLongLong();
+    const qint64 minTimestamp = query.value(0).toLongLong();
     if (minTimestamp <= 0) {
         return;
     }
@@ -458,7 +458,7 @@ void HistoryModel::init()
     const QDate &today = QDate::currentDate();
     const QDate &week = today.addDays(1 - today.dayOfWeek());
     const QDate &month = QDate(today.year(), today.month(), 1);
-    const qint64 &currentTimestamp = QDateTime::currentMSecsSinceEpoch();
+    const qint64 currentTimestamp = QDateTime::currentMSecsSinceEpoch();
 
     qint64 timestamp = currentTimestamp;
     while (timestamp > minTimestamp) {

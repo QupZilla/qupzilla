@@ -108,7 +108,11 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw link
     const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading() + 2;
     QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
-    QString link(opt.fontMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, linkRect.width()));
+    // Let's assume that more than 500 characters won't fit in line on any display...
+    // Fixes performance when trying to get elidedText for a really long
+    // (length() > 1000000) urls - data: urls can get that long
+    const QString &linkUrl = index.data(Qt::DisplayRole).toString().left(500);
+    QString link(opt.fontMetrics.elidedText(linkUrl, Qt::ElideRight, linkRect.width()));
     painter->setFont(opt.font);
     TabPosition pos = index.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
     if (m_drawSwitchToTab && pos.windowIndex != -1) {
@@ -137,7 +141,7 @@ static bool sizeBiggerThan(const QString &s1, const QString &s2)
     return s1.size() > s2.size();
 }
 
-void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QString text, const QString &searchText,
+void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, const QString &text, const QString &searchText,
         QPainter* painter, const QStyle* style, const QStyleOptionViewItemV4 &option,
         const QPalette::ColorRole &role) const
 {
@@ -147,7 +151,7 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
     // Look for longer parts first
     qSort(searchStrings.begin(), searchStrings.end(), sizeBiggerThan);
 
-    foreach(const QString & string, searchStrings) {
+    foreach (const QString &string, searchStrings) {
         int delimiter = text.indexOf(string, 0, Qt::CaseInsensitive);
 
         while (delimiter != -1) {
@@ -204,9 +208,12 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
 
         if (!normalPart.isEmpty()) {
             int width = normalMetrics.width(normalPart);
-            const QRect &nRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
+            QRect nRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
 
             if (nRect.width() > 0) {
+                if (text.isRightToLeft()) {
+                    nRect = style->visualRect(Qt::RightToLeft, rect, nRect);
+                }
                 painter->setFont(normalFont);
                 drawTextLine(nRect, normalPart, painter, style, option, role);
 
@@ -216,15 +223,19 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
 
         if (!boldPart.isEmpty()) {
             int width = boldMetrics.width(boldPart);
-            const QRect &bRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
+            QRect bRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
 
             if (bRect.width() > 0) {
+                if (text.isRightToLeft()) {
+                    bRect = style->visualRect(Qt::RightToLeft, rect, bRect);
+                }
                 painter->setFont(boldFont);
                 drawTextLine(bRect, boldPart, painter, style, option, role);
 
                 // Paint manually line under text instead of using QFont::underline
                 QRect underlineRect(bRect.left(), bRect.top() + boldMetrics.ascent() + 1,
                                     bRect.width(), boldFont.pointSize() > 8 ? 2 : 1);
+
                 painter->fillRect(underlineRect, option.palette.color(role));
 
                 lastRectPos += bRect.width();
@@ -235,10 +246,12 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, QStri
             const QString &lastText = text.mid(lastEndPos);
 
             int width = normalMetrics.width(lastText);
-            QRect nRect(lastRectPos, rect.top(), width, rect.height());
-
+            QRect nRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
+            if (text.isRightToLeft()) {
+                nRect = style->visualRect(Qt::RightToLeft, rect, nRect);
+            }
             painter->setFont(normalFont);
-            drawTextLine(adjustRect(rect, nRect), lastText, painter, style, option, role);
+            drawTextLine(nRect, lastText, painter, style, option, role);
         }
     }
 }

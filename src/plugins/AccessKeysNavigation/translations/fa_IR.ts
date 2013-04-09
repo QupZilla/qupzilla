@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="fa">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fa_IR" version="2.0">
 <context>
     <name>AKN_Settings</name>
     <message>
@@ -16,17 +14,17 @@
     <message>
         <location filename="../akn_settings.ui" line="33"/>
         <source>Ctrl</source>
-        <translation></translation>
+        <translation>Ctrl</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="38"/>
         <source>Alt</source>
-        <translation></translation>
+        <translation>Alt</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="43"/>
         <source>Shift</source>
-        <translation></translation>
+        <translation>Shift</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="51"/>

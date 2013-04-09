@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -223,7 +223,7 @@ void BookmarksModel::removeBookmark(const QList<int> list)
     QSqlDatabase db = QSqlDatabase::database();
     db.transaction();
 
-    foreach(int id, list) {
+    foreach (int id, list) {
         QSqlQuery query;
         query.prepare("SELECT url, title, folder FROM bookmarks WHERE id = ?");
         query.bindValue(0, id);
@@ -448,9 +448,9 @@ bool BookmarksModel::renameFolder(const QString &before, const QString &after)
     return true;
 }
 
-QList<Bookmark> BookmarksModel::folderBookmarks(const QString &name)
+QVector<Bookmark> BookmarksModel::folderBookmarks(const QString &name)
 {
-    QList<Bookmark> list;
+    QVector<Bookmark> list;
 
     QSqlQuery query;
     query.prepare("SELECT id, url, title, folder, icon FROM bookmarks WHERE folder=?");
@@ -616,10 +616,8 @@ void BookmarksModel::changeFolderParent(const QString &name, bool isSubfolder, b
 
 void BookmarksModel::bookmarkDropedLink(const QUrl &url, const QString &title, const QVariant &imageVariant, const QString &folder, bool* ok)
 {
-    bool result = false;
-
     QIcon icon = qIconProvider->iconFromImage(qvariant_cast<QImage>(imageVariant));
-    result = saveBookmark(url, title, icon, BookmarksModel::fromTranslatedFolder(folder));
+    bool result = saveBookmark(url, title, icon, BookmarksModel::fromTranslatedFolder(folder));
 
     if (ok) {
         *ok = result;

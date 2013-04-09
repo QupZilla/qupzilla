@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  Alexander Samilovskih <alexsamilovskih@gmail.com>
+* Copyright (C) 2010-2013  Alexander Samilovskih <alexsamilovskih@gmail.com>
 *                          David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -59,9 +59,11 @@ TabPreview::TabPreview(QupZilla* mainClass, QWidget* parent)
     setMaximumWidth(250);
     setMaximumHeight(170);
 
+#ifdef ENABLE_OPACITY_EFFECT
     setGraphicsEffect(&m_opacityEffect);
     m_opacityEffect.setOpacity(0.0);
     connect(&m_opacityTimeLine, SIGNAL(frameChanged(int)), this, SLOT(setOpacity(int)));
+#endif
 
     m_animation.setDuration(400);
     m_animation.setFrameRange(0, 100);
@@ -99,6 +101,7 @@ void TabPreview::setAnimationsEnabled(bool enabled)
 
 void TabPreview::hideAnimated()
 {
+#ifdef ENABLE_OPACITY_EFFECT
     if (m_opacityTimeLine.state() == QTimeLine::Running) {
         m_opacityTimeLine.stop();
     }
@@ -111,7 +114,9 @@ void TabPreview::hideAnimated()
 
         connect(&m_opacityTimeLine, SIGNAL(finished()), this, SLOT(hide()));
     }
-    else {
+    else
+#endif
+    {
         QFrame::hide();
     }
 }
@@ -119,7 +124,9 @@ void TabPreview::hideAnimated()
 void TabPreview::hide()
 {
     m_previewIndex = -1;
+#ifdef ENABLE_OPACITY_EFFECT
     disconnect(&m_opacityTimeLine, SIGNAL(finished()), this, SLOT(hide()));
+#endif
 
     QFrame::hide();
 }
@@ -163,8 +170,12 @@ void TabPreview::showOnRect(const QRect &r)
         finishingGeometry = QRect(calculatePosition(r, previewSize), previewSize);
     }
 
+#ifdef ENABLE_OPACITY_EFFECT
     if (!m_animationsEnabled) {
         m_opacityEffect.setOpacity(1.0);
+#else
+    if (!m_animationsEnabled || !wasVisible) {
+#endif
         QFrame::setGeometry(finishingGeometry);
         return;
     }
@@ -176,14 +187,18 @@ void TabPreview::showOnRect(const QRect &r)
         m_startGeometry = finishingGeometry;
     }
 
+    QFrame::setGeometry(m_startGeometry);
+
     calculateSteps(m_startGeometry, finishingGeometry);
     m_animation.start();
 }
 
+#ifdef ENABLE_OPACITY_EFFECT
 void TabPreview::setOpacity(int opacity)
 {
     m_opacityEffect.setOpacity(opacity / 100.0);
 }
+#endif
 
 void TabPreview::setAnimationFrame(int frame)
 {
@@ -198,6 +213,7 @@ void TabPreview::setAnimationFrame(int frame)
 
 void TabPreview::showAnimated()
 {
+#ifdef ENABLE_OPACITY_EFFECT
     disconnect(&m_opacityTimeLine, SIGNAL(finished()), this, SLOT(hide()));
 
     if (m_opacityTimeLine.state() == QTimeLine::Running) {
@@ -208,6 +224,7 @@ void TabPreview::showAnimated()
     m_opacityTimeLine.setStartFrame(m_opacityEffect.opacity() * 100);
     m_opacityTimeLine.setEndFrame(100);
     m_opacityTimeLine.start();
+#endif
 }
 
 void TabPreview::paintEvent(QPaintEvent* pe)

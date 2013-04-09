@@ -20,11 +20,12 @@
 
 #include <QWebPage>
 #include <QSslCertificate>
+#include <QVector>
 
 #include "qz_namespace.h"
+#include "autofill.h"
 
 class QWebSecurityOrigin;
-class QFileSystemWatcher;
 class QEventLoop;
 
 class QupZilla;
@@ -32,6 +33,7 @@ class AdBlockRule;
 class TabbedWebView;
 class SpeedDial;
 class NetworkManagerProxy;
+class DelayedFileWatcher;
 
 class QT_QUPZILLA_EXPORT WebPage : public QWebPage
 {
@@ -62,7 +64,10 @@ public:
     void javaScriptAlert(QWebFrame* originatingFrame, const QString &msg);
 
     void addAdBlockRule(const AdBlockRule* rule, const QUrl &url);
-    QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
+    QVector<AdBlockedEntry> adBlockedEntries() const;
+
+    bool hasMultipleUsernames() const;
+    QVector<AutoFillData> autoFillData() const;
 
     void scheduleAdjustPage();
     bool isRunningLoop();
@@ -73,6 +78,7 @@ public:
     void addRejectedCerts(const QList<QSslCertificate> &certs);
     bool containsRejectedCerts(const QList<QSslCertificate> &certs);
 
+    QWebElement activeElement() const;
     QString userAgentForUrl(const QUrl &url) const;
 
     static bool isPointerSafeToUse(WebPage* page);
@@ -127,12 +133,13 @@ private:
     NetworkManagerProxy* m_networkProxy;
     TabbedWebView* m_view;
     SpeedDial* m_speedDial;
-    QFileSystemWatcher* m_fileWatcher;
+    DelayedFileWatcher* m_fileWatcher;
     QEventLoop* m_runningLoop;
 
     QSslCertificate m_sslCert;
-    QList<QSslCertificate> m_rejectedSslCerts;
-    QList<AdBlockedEntry> m_adBlockedEntries;
+    QVector<QSslCertificate> m_rejectedSslCerts;
+    QVector<AdBlockedEntry> m_adBlockedEntries;
+    QVector<AutoFillData> m_autoFillData;
 
     QWebPage::NavigationType m_lastRequestType;
     QUrl m_lastRequestUrl;
