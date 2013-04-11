@@ -163,6 +163,10 @@ void Plugins::loadAvailablePlugins()
 
     QStringList dirs;
     dirs << mApp->DATADIR + "plugins/"
+         // Portable build: Load only plugins from DATADIR/plugins/ directory.
+         // Loaded plugins are saved with relative path, instead of absolute for
+         // normal build.
+#ifndef PORTABLE_BUILD
 #if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
 #ifdef USE_LIBPATH
          << USE_LIBPATH "qupzilla/"
@@ -171,6 +175,7 @@ void Plugins::loadAvailablePlugins()
 #endif
 #endif
          << mApp->PROFILEDIR + "plugins/";
+#endif
 
     foreach (const QString &dir, dirs) {
         QDir pluginsDir = QDir(dir);
