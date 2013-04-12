@@ -340,6 +340,11 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
 {
     const QString &protocol = url.scheme();
 
+    if (protocol == QLatin1String("mailto")) {
+        desktopServicesOpen(url);
+        return;
+    }
+
     if (qzSettings->blockedProtocols.contains(protocol)) {
         qDebug() << "WebPage::handleUnknownProtocol Protocol" << protocol << "is blocked!";
         return;
@@ -507,13 +512,6 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
 {
     m_lastRequestType = type;
     m_lastRequestUrl = request.url();
-
-    const QString &scheme = request.url().scheme();
-
-    if (scheme == QLatin1String("mailto")) {
-        desktopServicesOpen(request.url());
-        return false;
-    }
 
     if (type == QWebPage::NavigationTypeFormResubmitted) {
         // Don't show this dialog if app is still starting
