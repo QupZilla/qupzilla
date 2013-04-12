@@ -55,6 +55,7 @@ public:
     NetworkProxyFactory* proxyFactory() const;
 
     bool registerSchemeHandler(const QString &scheme, SchemeHandler* handler);
+    bool unregisterSchemeHandler(const QString &scheme, SchemeHandler* handler);
 
     void disconnectObjects();
 
