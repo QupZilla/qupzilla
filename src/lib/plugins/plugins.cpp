@@ -24,6 +24,7 @@
 #include <iostream>
 #include <QPluginLoader>
 #include <QDir>
+#include <QDebug>
 
 Plugins::Plugins(QObject* parent)
     : QObject(parent)
@@ -132,6 +133,7 @@ void Plugins::loadPlugins()
         QPluginLoader* loader = new QPluginLoader(fullPath);
         PluginInterface* iPlugin = qobject_cast<PluginInterface*>(loader->instance());
         if (!iPlugin) {
+            qWarning() << "Plugins::loadPlugins" << loader->errorString();
             continue;
         }
 
@@ -184,6 +186,7 @@ void Plugins::loadAvailablePlugins()
             PluginInterface* iPlugin = qobject_cast<PluginInterface*>(loader->instance());
 
             if (!iPlugin) {
+                qWarning() << "Plugins::loadAvailablePlugins" << loader->errorString();
                 continue;
             }
 
