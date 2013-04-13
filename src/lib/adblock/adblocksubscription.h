@@ -131,18 +131,6 @@ private:
     bool m_updated;
 };
 
-class AdBlockEasyList : public AdBlockSubscription
-{
-    Q_OBJECT
-public:
-    explicit AdBlockEasyList(QObject* parent = 0);
-
-    bool canBeRemoved() const;
-
-protected:
-    void saveDownloadedData(const QByteArray &data);
-};
-
 class AdBlockCustomList : public AdBlockSubscription
 {
     Q_OBJECT
