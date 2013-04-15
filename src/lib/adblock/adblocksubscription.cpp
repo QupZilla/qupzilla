@@ -181,6 +181,19 @@ void AdBlockSubscription::saveDownloadedData(const QByteArray &data)
         return;
     }
 
+    if (m_url == QUrl("https://easylist-downloads.adblockplus.org/easylist.txt")) {
+        // Third-party advertisers rules are with start domain (||) placeholder which needs regexps
+        // So we are ignoring it for keeping good performance
+        // But we will use whitelist rules at the end of list
+
+        QByteArray part1 = data.left(data.indexOf(QLatin1String("!-----------------------------Third-party adverts-----------------------------!")));
+        QByteArray part2 = data.mid(data.indexOf(QLatin1String("!---------------------------------Whitelists----------------------------------!")));
+
+        file.write(part1 + part2);
+        file.close();
+        return;
+    }
+
     file.write(data);
     file.close();
 }
@@ -377,40 +390,6 @@ void AdBlockSubscription::populateCache()
 AdBlockSubscription::~AdBlockSubscription()
 {
     qDeleteAll(m_rules);
-}
-
-// AdBlockEasyList
-
-AdBlockEasyList::AdBlockEasyList(QObject* parent)
-    : AdBlockSubscription(tr("EasyList"), parent)
-{
-    setUrl(QUrl("https://easylist-downloads.adblockplus.org/easylist.txt"));
-    setFilePath(mApp->currentProfilePath() + "adblock/easylist.txt");
-}
-
-bool AdBlockEasyList::canBeRemoved() const
-{
-    return false;
-}
-
-void AdBlockEasyList::saveDownloadedData(const QByteArray &data)
-{
-    QFile file(filePath());
-
-    if (!file.open(QFile::ReadWrite | QFile::Truncate)) {
-        qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for writing:" << filePath();
-        return;
-    }
-
-    // Third-party advertisers rules are with start domain (||) placeholder which needs regexps
-    // So we are ignoring it for keeping good performance
-    // But we will use whitelist rules at the end of list
-
-    QByteArray part1 = data.left(data.indexOf(QLatin1String("!-----------------------------Third-party adverts-----------------------------!")));
-    QByteArray part2 = data.mid(data.indexOf(QLatin1String("!---------------------------------Whitelists----------------------------------!")));
-
-    file.write(part1 + part2);
-    file.close();
 }
 
 // AdBlockCustomList

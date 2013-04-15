@@ -24,7 +24,8 @@ AdBlockAddSubscriptionDialog::AdBlockAddSubscriptionDialog(QWidget* parent)
 {
     ui->setupUi(this);
 
-    m_knownSubscriptions << Subscription("Fanboy's List (English)", "http://www.fanboy.co.nz/adblock/fanboy-adblock.txt")
+    m_knownSubscriptions << Subscription("EasyList (English)", "https://easylist-downloads.adblockplus.org/easylist.txt")
+                         << Subscription("Fanboy's List (English)", "http://www.fanboy.co.nz/adblock/fanboy-adblock.txt")
                          << Subscription("Adversity (English)", "http://adversity.googlecode.com/hg/Adversity.txt")
                          << Subscription("BSI Lista Polska (Polish)", "http://www.bsi.info.pl/filtrABP.txt")
                          << Subscription("Czech List (Czech)", "http://adblock.dajbych.net/adblock.txt")

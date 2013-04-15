@@ -3,6 +3,7 @@ Version 1.5.0
     * added support for Proxy Auto-Config (PAC)
     * added option to open another private window from private window
     * added delete action in edit context menu on page
+    * added possibility to remove EasyList from AdBlock
     * proxy exceptions now supports wildcards (*, ?)
     * cancel upload when trying to upload non-readable files
     * GreaseMonkey: added support for GM_Settings

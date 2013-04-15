@@ -608,6 +608,15 @@ bool NetworkManager::registerSchemeHandler(const QString &scheme, SchemeHandler*
     return true;
 }
 
+bool NetworkManager::unregisterSchemeHandler(const QString &scheme, SchemeHandler* handler)
+{
+    if (!m_schemeHandlers.contains(scheme) || m_schemeHandlers[scheme] != handler) {
+        return false;
+    }
+
+    return m_schemeHandlers.remove(scheme) == 1;
+}
+
 void NetworkManager::saveCertificates()
 {
     Settings settings;

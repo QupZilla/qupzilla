@@ -225,7 +225,7 @@ void AdBlockManager::load()
     }
 
     foreach (const QString &fileName, adblockDir.entryList(QStringList("*.txt"), QDir::Files)) {
-        if (fileName == QLatin1String("easylist.txt") || fileName == QLatin1String("customlist.txt")) {
+        if (fileName == QLatin1String("customlist.txt")) {
             continue;
         }
 
@@ -253,10 +253,15 @@ void AdBlockManager::load()
         m_subscriptions.append(subscription);
     }
 
-    // Prepend EasyList
-    AdBlockSubscription* easyList = new AdBlockEasyList(this);
-    m_subscriptions.prepend(easyList);
-    connect(easyList, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
+    // Prepend EasyList if subscriptions are empty
+    if (m_subscriptions.isEmpty()) {
+        AdBlockSubscription* easyList = new AdBlockSubscription(tr("EasyList"), this);
+        easyList->setUrl(QUrl("https://easylist-downloads.adblockplus.org/easylist.txt"));
+        easyList->setFilePath(mApp->currentProfilePath() + "adblock/easylist.txt");
+        connect(easyList, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
+
+        m_subscriptions.prepend(easyList);
+    }
 
     // Append CustomList
     AdBlockCustomList* customList = new AdBlockCustomList(this);
