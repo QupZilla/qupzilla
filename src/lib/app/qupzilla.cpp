@@ -560,7 +560,7 @@ void QupZilla::setupMenu()
     m_menuTools->addAction(QIcon(":/icons/menu/rss.png"), tr("RSS &Reader"), MENU_RECEIVER,  SLOT(showRSSManager()));
     m_menuTools->addAction(tr("Web In&spector"), MENU_RECEIVER, SLOT(showWebInspector()))->setShortcut(QKeySequence("Ctrl+Shift+I"));
     m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), MENU_RECEIVER, SLOT(showClearPrivateData()))->setShortcut(QKeySequence("Ctrl+Shift+Del"));
-    m_actionPrivateBrowsing = new QAction(QIcon(":/icons/locationbar/privatebrowsing.png"), mApp->isPrivateSession() ? tr("New &Private Browsing Window") : tr("&Private Browsing"), MENU_RECEIVER);
+    m_actionPrivateBrowsing = new QAction(QIcon(":/icons/locationbar/privatebrowsing.png"), tr("New &Private Window"), MENU_RECEIVER);
     m_actionPrivateBrowsing->setShortcut(QKeySequence("Ctrl+Shift+P"));
     connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), mApp, SLOT(startPrivateBrowsing()));
     m_menuTools->addAction(m_actionPrivateBrowsing);
@@ -607,6 +607,7 @@ void QupZilla::setupMenu()
 #ifndef Q_OS_MAC
     m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(0), this));
     m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(1), this));
+    m_superMenu->addAction(new ActionCopy(m_actionPrivateBrowsing));
     m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(3), this));
 
     m_superMenu->addSeparator();
@@ -625,7 +626,6 @@ void QupZilla::setupMenu()
     m_superMenu->addAction(new ActionCopy(m_actionPreferences, this));
 
     m_superMenu->addSeparator();
-    m_superMenu->addAction(new ActionCopy(m_menuTools->actions().at(9), this));
     m_superMenu->addMenu(m_menuView);
     m_superMenu->addMenu(m_menuHistory);
     m_superMenu->addMenu(m_menuBookmarks);
