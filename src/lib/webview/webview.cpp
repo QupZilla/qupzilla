@@ -1231,13 +1231,19 @@ void WebView::keyPressEvent(QKeyEvent* event)
 
     int eventKey = event->key();
 
-    bool rightOrLeft = eventKey == Qt::Key_Left || eventKey == Qt::Key_Right;
-    if (rightOrLeft) {
+    // The right/left arrow keys within contents with right to left (RTL) layout have
+    // reversed behavior than left to right (LTR) layout.
+    // Example: Key_Right within LTR layout triggers QWebPage::MoveToNextChar but,
+    // Key_Right within RTL layout should trigger QWebPage::MoveToPreviousChar
+
+    if (eventKey == Qt::Key_Left || eventKey == Qt::Key_Right) {
         const QWebElement &elementHasCursor = activeElement();
         if (!elementHasCursor.isNull()) {
-            bool isRTL =  elementHasCursor.styleProperty("direction", QWebElement::ComputedStyle) == QLatin1String("rtl");
-            if (isRTL) {
+            const QString &direction = elementHasCursor.styleProperty("direction", QWebElement::ComputedStyle);
+            if (direction == QLatin1String("rtl")) {
                 eventKey = eventKey == Qt::Key_Left ? Qt::Key_Right : Qt::Key_Left;
+                QKeyEvent ev(event->type(), eventKey, event->modifiers(), event->text(), event->isAutoRepeat());
+                event = &ev;
             }
         }
     }
@@ -1331,8 +1337,6 @@ void WebView::keyPressEvent(QKeyEvent* event)
         break;
     }
 
-    event = new QKeyEvent(event->type(), eventKey, event->modifiers(),
-                          event->text(), event->isAutoRepeat());
     QWebView::keyPressEvent(event);
 }
 
