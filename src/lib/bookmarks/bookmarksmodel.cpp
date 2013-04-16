@@ -170,9 +170,8 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
         image = qIconProvider->emptyWebImage();
     }
 
-    if (!isFolder(folder)) {
-        createFolder(folder);
-    }
+    // createFolder() calls isFolder()
+    createFolder(folder);
 
     QSqlQuery query;
     query.prepare("INSERT INTO bookmarks (url, title, folder, icon) VALUES (?,?,?,?)");

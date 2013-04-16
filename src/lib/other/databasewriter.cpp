@@ -37,8 +37,8 @@ void DatabaseWriter::execute()
         return;
     }
 
-    QSqlQuery query = m_queries.last();
+    QSqlQuery query = m_queries.first();
     query.exec();
 
-    m_queries.remove(m_queries.size() - 1);
+    m_queries.remove(0);
 }
