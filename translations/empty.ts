@@ -2199,22 +2199,22 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="959"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="962"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="960"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="963"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="962"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="965"/>
         <source>Default Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="982"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="985"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3984,12 +3984,7 @@
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="563"/>
-        <source>&amp;Private Browsing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="563"/>
-        <source>New &amp;Private Browsing Window</source>
+        <source>New &amp;Private Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4018,82 +4013,82 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="652"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="653"/>
         <source>Restore &amp;Closed Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="921"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="922"/>
         <source> (Private Browsing)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1033"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1063"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1122"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1151"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1176"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1034"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1064"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1123"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1152"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1177"/>
         <source>Empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1125"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1126"/>
         <source>Restore All Closed Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1126"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1127"/>
         <source>Clear list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1252"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1253"/>
         <source>Other</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1684"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1685"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1778"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1779"/>
         <source>HTML files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1778"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1779"/>
         <source>Image files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1778"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1779"/>
         <source>Text files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1778"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1779"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1780"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1781"/>
         <source>Open file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2142"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="2143"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2143"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="2144"/>
         <source>Don&apos;t ask again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2144"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="2145"/>
         <source>There are still open tabs</source>
         <translation type="unfinished"></translation>
     </message>
