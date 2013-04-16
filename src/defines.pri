@@ -3,6 +3,10 @@ OBJECTS_DIR = $$PWD/../build
 MOC_DIR = $$PWD/../build
 RCC_DIR = $$PWD/../build
 UI_DIR = $$PWD/../build
+
+# workaround for #849: see https://bugreports.qt-project.org/browse/QTBUG-23196
+mocinclude.CONFIG *= fix_target
+
 unix: VERSION = 1.5.0
 
 # Please read BUILD information #
