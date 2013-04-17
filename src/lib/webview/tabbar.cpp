@@ -55,7 +55,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     setElideMode(Qt::ElideRight);
     setDocumentMode(true);
     setFocusPolicy(Qt::NoFocus);
-    setTabsClosable(true);
+    //setTabsClosable(true);
     setMouseTracking(true);
     setMovable(true);
 

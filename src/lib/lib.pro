@@ -462,7 +462,6 @@ isEqual(QT_MAJOR_VERSION, 5) {
 win32 {
     HEADERS += other/registerqappassociation.h
     SOURCES += other/registerqappassociation.cpp
-    RESOURCES += data/certs.qrc
 }
 
 mac {
