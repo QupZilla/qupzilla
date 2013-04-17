@@ -176,8 +176,9 @@ void Plugins::loadAvailablePlugins()
          << "/usr/lib/qupzilla/"
 #endif
 #endif
-         << mApp->PROFILEDIR + "plugins/";
+         << mApp->PROFILEDIR + "plugins/"
 #endif
+         ;
 
     foreach (const QString &dir, dirs) {
         QDir pluginsDir = QDir(dir);
