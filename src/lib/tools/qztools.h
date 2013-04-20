@@ -20,6 +20,7 @@
 
 #include <QList>
 #include <QString>
+#include <QRegion>
 
 #include "qz_namespace.h"
 
@@ -60,6 +61,7 @@ QString QT_QUPZILLA_EXPORT resolveFromPath(const QString &name);
 QStringList QT_QUPZILLA_EXPORT splitCommandArguments(const QString &command);
 bool QT_QUPZILLA_EXPORT startExternalProcess(const QString &executable, const QString &args);
 
+QRegion QT_QUPZILLA_EXPORT roundedRect(const QRect &rect, int radius);
 QIcon QT_QUPZILLA_EXPORT iconFromFileName(const QString &fileName);
 bool QT_QUPZILLA_EXPORT isUtf8(const char* string);
 

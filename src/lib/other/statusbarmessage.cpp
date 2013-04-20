@@ -19,9 +19,11 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
-#include "webpage.h"
 #include "squeezelabelv1.h"
 #include "mainapplication.h"
+#include "webpage.h"
+#include "proxystyle.h"
+#include "qztools.h"
 
 #include <QStyleOptionFrame>
 #include <QStatusBar>
@@ -58,6 +60,16 @@ void TipLabel::show(QWidget* widget)
 void TipLabel::hideDelayed()
 {
     m_timer->start();
+}
+
+void TipLabel::resizeEvent(QResizeEvent* ev)
+{
+    SqueezeLabelV1::resizeEvent(ev);
+
+    // Oxygen is setting rounded corners only for top-level tooltips
+    if (mApp->proxyStyle()->name() == QLatin1String("oxygen")) {
+        setMask(QzTools::roundedRect(rect(), 4));
+    }
 }
 
 void TipLabel::paintEvent(QPaintEvent* ev)

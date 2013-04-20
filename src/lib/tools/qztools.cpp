@@ -352,6 +352,34 @@ QString QzTools::applyDirectionToPage(QString &pageContents)
     return pageContents;
 }
 
+// Thanks to http://www.qtcentre.org/threads/3205-Toplevel-widget-with-rounded-corners?p=17492#post17492
+QRegion QzTools::roundedRect(const QRect &rect, int radius)
+{
+    QRegion region;
+
+    // middle and borders
+    region += rect.adjusted(radius, 0, -radius, 0);
+    region += rect.adjusted(0, radius, 0, -radius);
+
+    // top left
+    QRect corner(rect.topLeft(), QSize(radius * 2, radius * 2));
+    region += QRegion(corner, QRegion::Ellipse);
+
+    // top right
+    corner.moveTopRight(rect.topRight());
+    region += QRegion(corner, QRegion::Ellipse);
+
+    // bottom left
+    corner.moveBottomLeft(rect.bottomLeft());
+    region += QRegion(corner, QRegion::Ellipse);
+
+    // bottom right
+    corner.moveBottomRight(rect.bottomRight());
+    region += QRegion(corner, QRegion::Ellipse);
+
+    return region;
+}
+
 QIcon QzTools::iconFromFileName(const QString &fileName)
 {
     static QHash<QString, QIcon> iconCache;
@@ -730,3 +758,4 @@ QString QzTools::operatingSystem()
     return str;
 #endif
 }
+

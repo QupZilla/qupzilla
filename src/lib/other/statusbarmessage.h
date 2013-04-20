@@ -39,6 +39,7 @@ public:
     bool eventFilter(QObject* o, QEvent* e);
 
 private:
+    void resizeEvent(QResizeEvent* ev);
     void paintEvent(QPaintEvent* ev);
 
     QTimer* m_timer;

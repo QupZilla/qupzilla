@@ -18,7 +18,10 @@
 * ============================================================ */
 #include "qupzilla.h"
 #include "tabpreview.h"
+#include "qztools.h"
 #include "webtab.h"
+#include "mainapplication.h"
+#include "proxystyle.h"
 #include "tabbedwebview.h"
 
 #include <QLabel>
@@ -227,14 +230,27 @@ void TabPreview::showAnimated()
 #endif
 }
 
+void TabPreview::resizeEvent(QResizeEvent* ev)
+{
+    QFrame::resizeEvent(ev);
+
+    // Oxygen is setting rounded corners only for top-level tooltips
+    if (mApp->proxyStyle()->name() == QLatin1String("oxygen")) {
+        setMask(QzTools::roundedRect(rect(), 4));
+    }
+}
+
 void TabPreview::paintEvent(QPaintEvent* pe)
 {
+    QStylePainter painter(this);
     QStyleOptionFrame opt;
     opt.init(this);
 
-    QStylePainter painter(this);
     painter.setClipRegion(pe->region());
     painter.drawPrimitive(QStyle::PE_PanelTipLabel, opt);
+    painter.end();
+
+    QFrame::paintEvent(pe);
 }
 
 void TabPreview::calculateSteps(const QRect &oldGeometry, const QRect &newGeometry)

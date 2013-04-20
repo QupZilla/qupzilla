@@ -57,6 +57,7 @@ private slots:
 #endif
 
 protected:
+    void resizeEvent(QResizeEvent* ev);
     void paintEvent(QPaintEvent* pe);
 
 private:

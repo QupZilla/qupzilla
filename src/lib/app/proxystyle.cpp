@@ -44,7 +44,7 @@ int ProxyStyle::pixelMetric(PixelMetric metric, const QStyleOption* option, cons
         if (m_TabBarTabHSpace == -1) {
             m_TabBarTabHSpace = qMin(QProxyStyle::pixelMetric(PM_TabBarTabHSpace, option, widget), 14);
 
-            if (baseStyle()->objectName() == QLatin1String("oxygen")) {
+            if (name() == QLatin1String("oxygen")) {
                 m_TabBarTabHSpace = 14;
             }
         }
@@ -54,4 +54,9 @@ int ProxyStyle::pixelMetric(PixelMetric metric, const QStyleOption* option, cons
     default:
         return QProxyStyle::pixelMetric(metric, option, widget);
     }
+}
+
+QString ProxyStyle::name() const
+{
+    return baseStyle()->objectName();
 }

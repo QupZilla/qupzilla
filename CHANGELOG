@@ -7,6 +7,7 @@ Version 1.5.0
     * proxy exceptions now supports wildcards (*, ?)
     * cancel upload when trying to upload non-readable files
     * GreaseMonkey: added support for GM_Settings
+    * oxygen: set rounded corners for tooltips
     * fixed: size of preferences dialog on low-res screens
     * fixed: loading plugins with relative paths in portable build
 
