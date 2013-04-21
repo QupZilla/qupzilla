@@ -239,8 +239,10 @@ QWebElementCollection PageFormCompleter::getAllElementsFromPage(QWebPage* page, 
     frames.append(page->mainFrame());
     while (!frames.isEmpty()) {
         QWebFrame* frame = frames.takeFirst();
-        list.append(frame->findAllElements(selector));
-        frames += frame->childFrames();
+        if (frame) {
+            list.append(frame->findAllElements(selector));
+            frames += frame->childFrames();
+        }
     }
 
     return list;
