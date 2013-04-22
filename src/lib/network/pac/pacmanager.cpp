@@ -61,7 +61,7 @@ void PacManager::downloadPacFile()
         return;
     }
 
-    if (m_url.isLocalFile()) {
+    if (m_url.scheme() == QLatin1String("file")) {
         if (!QFile(m_url.path()).exists()) {
             qWarning() << "PacManager: PAC file " << m_url.path() << "doesn't exists!";
         }
@@ -117,7 +117,7 @@ void PacManager::reloadScript()
         m_pacrunner = new ProxyAutoConfig(this);
     }
 
-    QFile file(m_url.isLocalFile() ? m_url.path() : mApp->currentProfilePath() + "proxy.pac");
+    QFile file(m_url.scheme() == QLatin1String("file") ? m_url.path() : mApp->currentProfilePath() + "proxy.pac");
 
     if (!file.open(QFile::ReadOnly)) {
         qWarning() << "PacManager: Cannot open PAC file for reading" << file.fileName();
