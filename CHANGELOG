@@ -7,9 +7,10 @@ Version 1.4.2
     * fixed connecting to older secured servers by forcing older SSL protocol
     * fixed installing bash completions to correct folder
     * fixed deleting lockfile upon closing application
+    * fixed occasional crash when extracting form data from page
     * fixed crash in akn plugin while closing tab with labels shown
     * fixed crash on close when tabs on top is enabled with oxygen theme
-    * GreaaeMonkey: fixed laoding scripts with last line commented
+    * GreaseMonkey: fixed laoding scripts with last line commented
     * mac: correctly refreshing state of menus
     * mac: added dock menu with basic actions
 

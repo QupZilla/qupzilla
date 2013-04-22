@@ -1,9 +1,9 @@
 QupZilla Web Browser
 ----------------------------------------------------------------------------------------
 
-Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)
-Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)
-IRC: `#qupzilla` at `irc.freenode.net`
+Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)  
+Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)  
+IRC: `#qupzilla` at `irc.freenode.net`  
 Translations: [https://www.transifex.com](https://www.transifex.com/projects/p/qupzilla)
 
 About QupZilla
