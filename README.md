@@ -1,9 +1,9 @@
 QupZilla Web Browser
 ----------------------------------------------------------------------------------------
 
-Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)  
-Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)  
-IRC: `#qupzilla` at `irc.freenode.net`  
+Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)
+Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)
+IRC: `#qupzilla` at `irc.freenode.net`
 Translations: [https://www.transifex.com](https://www.transifex.com/projects/p/qupzilla)
 
 About QupZilla
@@ -37,16 +37,16 @@ Compiling
 ----------------------------------------------------------------------------------------
 
 Before you start compiling, make sure that you have installed the Qt (>=4.7) development libraries
-and you have read the BUILDING information.  
+and you have read the BUILDING information.
 
-**Linux**  
+**Linux**
 
  * pkg-config is optional (to correctly detect versions of QtWebKit)
  * pkg-config is required for Hunspell spellcheck
  * Hunspell development package for spellcheck
  * QtWebKit 2.3 is needed to have support for spellcheck
- 
-**Windows**  
+
+**Windows**
  * QtWebKit 2.3 is required
  * Hunspell library is required for spellcheck
 
@@ -70,7 +70,7 @@ You need to specify path to `macdeployqt` only if it is not in PATH.
 Current version
 ----------------------------------------------------------------------------------------
 
-The current stable version of QupZilla is 1.4.1. You can download precompiled packages
+The current stable version of QupZilla is 1.4.2. You can download precompiled packages
 and the sources from the download section at [homepage](http://www.qupzilla.com/download).
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:

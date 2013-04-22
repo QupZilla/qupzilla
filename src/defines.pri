@@ -3,7 +3,7 @@ OBJECTS_DIR = $$PWD/../build
 MOC_DIR = $$PWD/../build
 RCC_DIR = $$PWD/../build
 UI_DIR = $$PWD/../build
-unix: VERSION = 1.4.1
+unix: VERSION = 1.4.2
 
 # Please read BUILD information #
 #DEFINES *= NO_SYSTEM_DATAPATH

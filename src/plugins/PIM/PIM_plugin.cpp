@@ -65,7 +65,7 @@ bool PIM_Plugin::testPlugin()
 {
     // Let's be sure, require latest version of QupZilla
 
-    return (QupZilla::VERSION == QLatin1String("1.4.1"));
+    return (QupZilla::VERSION == QLatin1String("1.4.2"));
 }
 
 QTranslator* PIM_Plugin::getTranslator(const QString &locale)
