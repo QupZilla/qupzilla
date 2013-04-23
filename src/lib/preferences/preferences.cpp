@@ -249,6 +249,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->allowDNSPrefetch->setChecked(settings.value("DNS-Prefetch", false).toBool());
     ui->linksInFocusChain->setChecked(settings.value("IncludeLinkInFocusChain", false).toBool());
     ui->zoomTextOnly->setChecked(settings.value("zoomTextOnly", false).toBool());
+    ui->spatialNavigation->setChecked(settings.value("SpatialNavigation", false).toBool());
     ui->caretBrowsing->setChecked(settings.value("CaretBrowsing", false).toBool());
     ui->animateScrolling->setChecked(settings.value("AnimateScrolling", true).toBool());
     ui->printEBackground->setChecked(settings.value("PrintElementBackground", true).toBool());
@@ -925,6 +926,7 @@ void Preferences::saveSettings()
     settings.setValue("DNS-Prefetch", ui->allowDNSPrefetch->isChecked());
     settings.setValue("IncludeLinkInFocusChain", ui->linksInFocusChain->isChecked());
     settings.setValue("zoomTextOnly", ui->zoomTextOnly->isChecked());
+    settings.setValue("SpatialNavigation", ui->spatialNavigation->isChecked());
     settings.setValue("CaretBrowsing", ui->caretBrowsing->isChecked());
     settings.setValue("AnimateScrolling", ui->animateScrolling->isChecked());
     settings.setValue("PrintElementBackground", ui->printEBackground->isChecked());
