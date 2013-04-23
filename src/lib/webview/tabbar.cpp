@@ -55,7 +55,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     setElideMode(Qt::ElideRight);
     setDocumentMode(true);
     setFocusPolicy(Qt::NoFocus);
-    //setTabsClosable(true);
+    setTabsClosable(true);
     setMouseTracking(true);
     setMovable(true);
 
@@ -239,13 +239,12 @@ QSize TabBar::tabSizeHint(int index) const
                 }
                 else {
                     tryAdjusting = true;
+                }
 
-                    if (tabsClosable()) {
-                        // Hiding close buttons to save some space
-                        tabBar->setTabsClosable(false);
-
-                        tabBar->showCloseButton(currentIndex());
-                    }
+                if (tabsClosable()) {
+                    // Hiding close buttons to save some space
+                    tabBar->setTabsClosable(false);
+                    tabBar->showCloseButton(currentIndex());
                 }
             }
             else {
