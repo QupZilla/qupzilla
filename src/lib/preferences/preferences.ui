@@ -140,8 +140,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>596</width>
-        <height>456</height>
+        <width>602</width>
+        <height>469</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1083,6 +1083,13 @@
                   <widget class="QCheckBox" name="caretBrowsing">
                    <property name="text">
                     <string>Enable caret browsing</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="spatialNavigation">
+                   <property name="text">
+                    <string>Enable spatial navigation</string>
                    </property>
                   </widget>
                  </item>

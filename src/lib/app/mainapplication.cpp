@@ -405,6 +405,7 @@ void MainApplication::loadSettings()
     m_websettings->setAttribute(QWebSettings::XSSAuditingEnabled, settings.value("XSSAuditing", false).toBool());
     m_websettings->setMaximumPagesInCache(settings.value("maximumCachedPages", 3).toInt());
     m_websettings->setDefaultTextEncoding(settings.value("DefaultEncoding", m_websettings->defaultTextEncoding()).toString());
+    m_websettings->setAttribute(QWebSettings::SpatialNavigationEnabled, settings.value("SpatialNavigation", false).toBool());
 
 #if QTWEBKIT_FROM_2_3
     m_websettings->setAttribute(QWebSettings::CaretBrowsingEnabled, settings.value("CaretBrowsing", false).toBool());
