@@ -24,7 +24,7 @@ RequestExecutionLevel admin
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.4.0"
+!define /date PRODUCT_VERSION "1.4.2"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -102,12 +102,11 @@ notRunning:
   File "qupzilla.exe"
   File "qupzilla.dll"
   File "libhunspell.dll"
-  File "libwebp.dll"
   File "libeay32.dll"
   File "ssleay32.dll"
   File "sqlite3.dll"
-  File "msvcp100.dll"
-  File "msvcr100.dll"
+  File "msvcp90.dll"
+  File "msvcr90.dll"
   File "QtCore4.dll"
   File "QtGui4.dll"
   File "QtNetwork4.dll"
@@ -297,10 +296,10 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\qt_sr_BA.qm"
   File "locale\qt_sr_RS.qm"
   SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\sr.aff"
-  File "wininstall\hunspell\sr.dic"
-  File "wininstall\hunspell\sh.aff"
-  File "wininstall\hunspell\sh.dic"
+  ;File "wininstall\hunspell\sr.aff"
+  ;File "wininstall\hunspell\sr.dic"
+  ;File "wininstall\hunspell\sh.aff"
+  ;File "wininstall\hunspell\sh.dic"
   SectionEnd
 
   Section "Japanese"
