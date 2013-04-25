@@ -10,6 +10,22 @@ Version 1.5.0
     * oxygen: set rounded corners for tooltips
     * fixed: size of preferences dialog on low-res screens
     * fixed: loading plugins with relative paths in portable build
+    
+Version 1.4.2
+    * released 22 April 2013
+    * don't limit speed of loading animation in tabbar
+    * fixed loading HTML5 videos on YouTube
+    * fixed saving cursive font in fonts preferences
+    * fixed translating edit actions in page context menu
+    * fixed connecting to older secured servers by forcing older SSL protocol
+    * fixed installing bash completions to correct folder
+    * fixed deleting lockfile upon closing application
+    * fixed occasional crash when extracting form data from page
+    * fixed crash in akn plugin while closing tab with labels shown
+    * fixed crash on close when tabs on top is enabled with oxygen theme
+    * GreaseMonkey: fixed laoding scripts with last line commented
+    * mac: correctly refreshing state of menus
+    * mac: added dock menu with basic actions
 
 Version 1.4.1
     * released 15 March 2013
