@@ -76,7 +76,7 @@
     qproperty-iconSize: 24px 24px;
 }
 
-#navigation-button-supermenu::menu-indicator 
+#navigation-button-supermenu::menu-indicator
 {
     image: none;
 }
@@ -136,7 +136,6 @@ IconProvider
 
 #locationbar-bookmarkicon
 {
-    margin-bottom: 2px;
     qproperty-pixmap: url(images/star.png);
 }
 
@@ -154,25 +153,23 @@ IconProvider
 
 #locationbar-rss-icon
 {
-    margin-bottom:2px;
     qproperty-pixmap: url(images/rss.png);
 }
 
 #locationbar-goicon
 {
-    margin-bottom:2px;
-    qproperty-pixmap: url(images/gotoaddress.png);
+    qproperty-fixedsize: 16px 16px;
+    qproperty-themeIcon: "go-jump-locationbar";
+    qproperty-fallbackIcon: url(images/gotoaddress.png);
 }
 
 #locationbar-down-icon
 {
-    margin-bottom: 1px;
     qproperty-pixmap: url(images/navigation-dropdown.png);
 }
 
 #locationbar-autofillicon
 {
-    margin-bottom: 1px;
     qproperty-pixmap: url(images/key.png);
 }
 

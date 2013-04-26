@@ -31,12 +31,15 @@ class QT_QUPZILLA_EXPORT ClickableLabel : public QLabel
     Q_PROPERTY(int fixedwidth READ width WRITE setFixedWidth)
     Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)
     Q_PROPERTY(QString themeIcon READ themeIcon WRITE setThemeIcon)
+    Q_PROPERTY(QIcon fallbackIcon WRITE setFallbackIcon)
 
 public:
     explicit ClickableLabel(QWidget* parent = 0);
 
-    void setThemeIcon(const QString &name);
     QString themeIcon() const;
+    void setThemeIcon(const QString &name);
+
+    void setFallbackIcon(const QIcon &image);
 
 signals:
     void clicked(QPoint);
