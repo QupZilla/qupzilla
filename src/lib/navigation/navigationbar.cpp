@@ -67,6 +67,9 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     m_layout = new QHBoxLayout(this);
     m_layout->setMargin(3);
     m_layout->setSpacing(3);
+
+    m_layout->setMargin(style()->pixelMetric(QStyle::PM_ToolBarItemMargin, 0, this));
+    m_layout->setSpacing(style()->pixelMetric(QStyle::PM_ToolBarItemSpacing, 0, this));
     setLayout(m_layout);
 
     m_buttonBack = new ToolButton(this);
