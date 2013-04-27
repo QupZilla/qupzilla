@@ -34,6 +34,7 @@
 #include <QStackedWidget>
 #include <QWebHistory>
 #include <QMouseEvent>
+#include <QStyleOption>
 
 QString NavigationBar::titleForUrl(QString title, const QUrl &url)
 {
@@ -59,6 +60,14 @@ QIcon NavigationBar::iconForPage(const QUrl &url, const QIcon &sIcon)
     return icon;
 }
 
+static inline void setButtonIconSize(ToolButton* button)
+{
+    QStyleOption opt;
+    opt.initFrom(button);
+    int size = button->style()->pixelMetric(QStyle::PM_ToolBarIconSize, &opt, button);
+    button->setIconSize(QSize(size, size));
+}
+
 NavigationBar::NavigationBar(QupZilla* mainClass)
     : QWidget(mainClass)
     , p_QupZilla(mainClass)
@@ -79,6 +88,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     m_buttonBack->setAutoRaise(true);
     m_buttonBack->setEnabled(false);
     m_buttonBack->setFocusPolicy(Qt::NoFocus);
+    setButtonIconSize(m_buttonBack);
 
     m_buttonNext = new ToolButton(this);
     m_buttonNext->setObjectName("navigation-button-next");
@@ -87,6 +97,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     m_buttonNext->setAutoRaise(true);
     m_buttonNext->setEnabled(false);
     m_buttonNext->setFocusPolicy(Qt::NoFocus);
+    setButtonIconSize(m_buttonNext);
 
     QHBoxLayout* backNextLayout = new QHBoxLayout();
     backNextLayout->setContentsMargins(0, 0, 0, 0);
@@ -95,6 +106,8 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     backNextLayout->addWidget(m_buttonNext);
 
     m_reloadStop = new ReloadStopButton(this);
+    setButtonIconSize(m_reloadStop->buttonReload());
+    setButtonIconSize(m_reloadStop->buttonStop());
 
     m_buttonHome = new ToolButton(this);
     m_buttonHome->setObjectName("navigation-button-home");
@@ -102,6 +115,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     m_buttonHome->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonHome->setAutoRaise(true);
     m_buttonHome->setFocusPolicy(Qt::NoFocus);
+    setButtonIconSize(m_buttonHome);
 
     m_buttonAddTab = new ToolButton(this);
     m_buttonAddTab->setObjectName("navigation-button-addtab");
@@ -109,6 +123,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     m_buttonAddTab->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonAddTab->setAutoRaise(true);
     m_buttonAddTab->setFocusPolicy(Qt::NoFocus);
+    setButtonIconSize(m_buttonAddTab);
 
     m_menuBack = new Menu(this);
     m_buttonBack->setMenu(m_menuBack);
@@ -124,6 +139,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     m_supMenu->setFocusPolicy(Qt::NoFocus);
     m_supMenu->setMenu(p_QupZilla->superMenu());
     m_supMenu->setShowMenuInside(true);
+    setButtonIconSize(m_supMenu);
 #endif
 
     m_searchLine = new WebSearchBar(p_QupZilla);

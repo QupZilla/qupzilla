@@ -21,7 +21,6 @@
 {
     qproperty-themeIcon: "go-previous";
     qproperty-fallbackIcon: url(images/go-previous.png);
-    qproperty-iconSize: 24px 24px;
 }
 
 #navigation-button-back::menu-indicator
@@ -33,7 +32,6 @@
 {
     qproperty-themeIcon: "go-next";
     qproperty-fallbackIcon: url(images/go-next.png);
-    qproperty-iconSize: 24px 24px;
 }
 
 #navigation-button-next::menu-indicator
@@ -45,35 +43,30 @@
 {
     qproperty-themeIcon: "process-stop";
     qproperty-fallbackIcon: url(images/process-stop.png);
-    qproperty-iconSize: 24px 24px;
 }
 
 #navigation-button-reload
 {
     qproperty-themeIcon: "view-refresh";
     qproperty-fallbackIcon: url(images/view-refresh.png);
-    qproperty-iconSize: 24px 24px;
 }
 
 #navigation-button-home
 {
     qproperty-themeIcon: "go-home";
     qproperty-fallbackIcon: url(images/go-home.png);
-    qproperty-iconSize: 24px 24px;
 }
 
 #navigation-button-addtab
 {
     qproperty-themeIcon: "list-add";
     qproperty-fallbackIcon: url(images/list-add.png);
-    qproperty-iconSize: 24px 24px;
 }
 
 #navigation-button-supermenu
 {
     qproperty-themeIcon: "preferences-desktop";
     qproperty-fallbackIcon: url(images/preferences-desktop.png);
-    qproperty-iconSize: 24px 24px;
 }
 
 #navigation-button-supermenu::menu-indicator
