@@ -37,7 +37,7 @@ void ClickableLabel::setThemeIcon(const QString &name)
 
 void ClickableLabel::setFallbackIcon(const QIcon &image)
 {
-    if (pixmap()->isNull()) {
+    if (!pixmap() || pixmap()->isNull()) {
         adjustSize();
         setPixmap(image.pixmap(size()));
     }

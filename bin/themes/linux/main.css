@@ -198,10 +198,9 @@ IconProvider
 
 #websearchbar-searchbutton
 {
-    margin-bottom:2px;
-    margin-right: 2px;
-    qproperty-pixmap: url(images/search-icon.png);
+    qproperty-fixedsize: 20px 16px;
     qproperty-themeIcon: "edit-find";
+    qproperty-fallbackIcon: url(images/edit-find.png);
 }
 
 #websearchbar-searchprovider-comobobox
