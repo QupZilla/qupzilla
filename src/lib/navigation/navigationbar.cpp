@@ -74,9 +74,6 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
 {
     setObjectName("navigationbar");
     m_layout = new QHBoxLayout(this);
-    m_layout->setMargin(3);
-    m_layout->setSpacing(3);
-
     m_layout->setMargin(style()->pixelMetric(QStyle::PM_ToolBarItemMargin, 0, this));
     m_layout->setSpacing(style()->pixelMetric(QStyle::PM_ToolBarItemSpacing, 0, this));
     setLayout(m_layout);
@@ -216,6 +213,26 @@ void NavigationBar::showStopButton()
 void NavigationBar::setSuperMenuVisible(bool visible)
 {
     m_supMenu->setVisible(visible);
+}
+
+int NavigationBar::layoutMargin() const
+{
+    return m_layout->margin();
+}
+
+void NavigationBar::setLayoutMargin(int margin)
+{
+    m_layout->setMargin(margin);
+}
+
+int NavigationBar::layoutSpacing() const
+{
+    return m_layout->spacing();
+}
+
+void NavigationBar::setLayoutSpacing(int spacing)
+{
+    m_layout->setSpacing(spacing);
 }
 
 void NavigationBar::aboutToShowHistoryBackMenu()

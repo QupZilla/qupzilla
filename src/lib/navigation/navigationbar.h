@@ -38,6 +38,9 @@ class QT_QUPZILLA_EXPORT NavigationBar : public QWidget
 public:
     explicit NavigationBar(QupZilla* mainClass);
 
+    Q_PROPERTY(int layoutMargin READ layoutMargin WRITE setLayoutMargin)
+    Q_PROPERTY(int layoutSpacing READ layoutSpacing WRITE setLayoutSpacing)
+
     void setSplitterSizes(int locationBar, int websearchBar);
 
     void showReloadButton();
@@ -53,6 +56,12 @@ public:
     QSplitter* splitter() { return m_navigationSplitter; }
 
     void setSuperMenuVisible(bool visible);
+
+    int layoutMargin() const;
+    void setLayoutMargin(int margin);
+
+    int layoutSpacing() const;
+    void setLayoutSpacing(int spacing);
 
 signals:
 

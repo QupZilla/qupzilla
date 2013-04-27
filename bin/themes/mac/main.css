@@ -50,6 +50,12 @@
 }
 
 /*NavigationBar*/
+#navigationbar
+{
+    qproperty-layoutMargin: 4;
+    qproperty-layoutSpacing: 3;
+}
+
 #navigationbar QSplitter::handle
 {
     height: 8px;

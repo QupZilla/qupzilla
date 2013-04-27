@@ -56,6 +56,12 @@
 }
 
 /*NavigationBar*/
+#navigationbar
+{
+    qproperty-layoutMargin: 3;
+    qproperty-layoutSpacing: 3;
+}
+
 #navigationbar QSplitter::handle
 {
     background-color:transparent;

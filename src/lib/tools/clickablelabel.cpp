@@ -18,7 +18,6 @@
 #include "clickablelabel.h"
 
 #include <QMouseEvent>
-#include <QIcon>
 
 ClickableLabel::ClickableLabel(QWidget* parent)
     : QLabel(parent)
@@ -33,6 +32,11 @@ void ClickableLabel::setThemeIcon(const QString &name)
         adjustSize();
         setPixmap(icon.pixmap(size()));
     }
+}
+
+QIcon ClickableLabel::fallbackIcon() const
+{
+    return pixmap() ? QIcon(*pixmap()) : QIcon();
 }
 
 void ClickableLabel::setFallbackIcon(const QIcon &image)

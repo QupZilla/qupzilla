@@ -19,6 +19,7 @@
 #define CLICKABLELABEL_H
 
 #include <QLabel>
+#include <QIcon>
 
 #include "qz_namespace.h"
 
@@ -31,7 +32,7 @@ class QT_QUPZILLA_EXPORT ClickableLabel : public QLabel
     Q_PROPERTY(int fixedwidth READ width WRITE setFixedWidth)
     Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)
     Q_PROPERTY(QString themeIcon READ themeIcon WRITE setThemeIcon)
-    Q_PROPERTY(QIcon fallbackIcon WRITE setFallbackIcon)
+    Q_PROPERTY(QIcon fallbackIcon READ fallbackIcon WRITE setFallbackIcon)
 
 public:
     explicit ClickableLabel(QWidget* parent = 0);
@@ -39,6 +40,7 @@ public:
     QString themeIcon() const;
     void setThemeIcon(const QString &name);
 
+    QIcon fallbackIcon() const;
     void setFallbackIcon(const QIcon &image);
 
 signals:
