@@ -70,6 +70,7 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Polish"
 !insertmacro MUI_LANGUAGE "Ukrainian"
 !insertmacro MUI_LANGUAGE "Catalan"
+!insertmacro MUI_LANGUAGE "Serbian"
 !insertmacro MUI_LANGUAGE "farsi"
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
@@ -296,10 +297,10 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\qt_sr_BA.qm"
   File "locale\qt_sr_RS.qm"
   SetOutPath "$INSTDIR\hunspell"
-  ;File "wininstall\hunspell\sr.aff"
-  ;File "wininstall\hunspell\sr.dic"
-  ;File "wininstall\hunspell\sh.aff"
-  ;File "wininstall\hunspell\sh.dic"
+  File "wininstall\hunspell\sr.aff"
+  File "wininstall\hunspell\sr.dic"
+  File "wininstall\hunspell\sr-Latn.aff"
+  File "wininstall\hunspell\sr-Latn.dic"
   SectionEnd
 
   Section "Japanese"
@@ -529,6 +530,8 @@ Function .onInit
         Push Ukrainian
         Push ${LANG_CATALAN}
         Push Catalan
+        Push ${LANG_SERBIAN}
+        Push Serbian
         Push ${LANG_Farsi}
         Push Persian
         Push A ; A means auto count languages
