@@ -798,6 +798,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         m_actionStop->setEnabled(isLoading());
     }
 
+    // cppcheck-suppress variableScope
     int spellCheckActionCount = 0;
 
 #ifdef USE_HUNSPELL
@@ -821,6 +822,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
     }
 
     if (hitTest.isContentEditable()) {
+        // This only checks if the menu is empty (only spellchecker actions added)
         if (menu->actions().count() == spellCheckActionCount) {
             QMenu* pageMenu = page()->createStandardContextMenu();
             // Apparently createStandardContextMenu() can return null pointer

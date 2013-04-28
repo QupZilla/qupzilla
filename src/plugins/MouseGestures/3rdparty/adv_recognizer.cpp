@@ -138,9 +138,10 @@ void RealTimeMouseGestureRecognizer::recognizeGesture()
 
     for (GestureList::const_iterator gi = gestures.begin(); gi != gestures.end(); ++gi) {
         int readIndex = directions.getReadPointer();
-        bool match = true;
 
         try {
+            bool match = true;
+
             for (DirectionList::const_iterator di = gi->directions.begin(); di != gi->directions.end() && match; ++di) {
                 Direction d = directions.pop();
                 if (*di != d) {

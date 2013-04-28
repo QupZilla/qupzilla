@@ -5,7 +5,9 @@
 
 function check_code {
     cppcheck \
-    --enable=all \
+    -j 4 \
+    --enable=style,performance,portability,missingInclude \
+    --inline-suppr \
     --force \
     --verbose \
     . > /dev/null

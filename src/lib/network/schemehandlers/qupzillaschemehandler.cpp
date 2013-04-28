@@ -394,26 +394,34 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), mApp->THEMESDIR) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
 
-        QString debugBuild = tr("Disabled");
-        QString webGLEnabled = tr("Disabled");
-        QString w7APIEnabled = tr("Disabled");
-        QString KDEIntegration = tr("Disabled");
-        QString portableBuild = tr("Disabled");
-
 #ifdef QUPZILLA_DEBUG_BUILD
-        debugBuild = tr("<b>Enabled</b>");
+        QString debugBuild = tr("<b>Enabled</b>");
+#else
+        QString debugBuild = tr("Disabled");
 #endif
+
 #if defined (USE_WEBGL) || (QTWEBKIT_FROM_2_3 && defined(QZ_WS_X11))
-        webGLEnabled = tr("<b>Enabled</b>");
+        QString webGLEnabled = tr("<b>Enabled</b>");
+#else
+        QString webGLEnabled = tr("Disabled");
 #endif
+
 #if defined(Q_OS_WIN) && defined(W7API)
-        w7APIEnabled = tr("<b>Enabled</b>");
+        QString w7APIEnabled = tr("<b>Enabled</b>");
+#else
+        QString w7APIEnabled = tr("Disabled");
 #endif
+
 #if defined(QZ_WS_X11) && defined(KDE)
-        KDEIntegration = tr("<b>Enabled</b>");
+        QString KDEIntegration = tr("<b>Enabled</b>");
+#else
+        QString KDEIntegration = tr("Disabled");
 #endif
+
 #ifdef PORTABLE_BUILD
-        portableBuild = tr("<b>Enabled</b>");
+        QString portableBuild = tr("<b>Enabled</b>");
+#else
+        QString portableBuild = tr("Disabled");
 #endif
 
         cPage.replace(QLatin1String("%BUILD-CONFIG-TEXT%"),

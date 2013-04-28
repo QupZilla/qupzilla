@@ -139,7 +139,7 @@ bool QtWin::isCompositionEnabled()
 {
 #ifdef Q_OS_WIN
     if (resolveLibs()) {
-        HRESULT hr = S_OK;
+        HRESULT hr;
         BOOL isEnabled = false;
         hr = pDwmIsCompositionEnabled(&isEnabled);
         if (SUCCEEDED(hr)) {
@@ -164,7 +164,6 @@ bool QtWin::enableBlurBehindWindow(QWidget* widget, bool enable)
 #ifdef Q_OS_WIN
     if (resolveLibs()) {
         DWM_BLURBEHIND bb = {0};
-        HRESULT hr = S_OK;
         bb.fEnable = enable;
         bb.dwFlags = DWM_BB_ENABLE;
         bb.hRgnBlur = NULL;
@@ -174,7 +173,7 @@ bool QtWin::enableBlurBehindWindow(QWidget* widget, bool enable)
         // Qt5: setting WA_TranslucentBackground without the following line hides the widget!!
         widget->setWindowOpacity(1);
 
-        hr = pDwmEnableBlurBehindWindow(hwndOfWidget(widget) , &bb);
+        HRESULT hr = pDwmEnableBlurBehindWindow(hwndOfWidget(widget) , &bb);
         if (SUCCEEDED(hr)) {
             result = true;
             windowNotifier()->addWidget(widget);
@@ -211,7 +210,7 @@ bool QtWin::extendFrameIntoClientArea(QWidget* widget, int left, int top, int ri
 #ifdef Q_OS_WIN
     if (resolveLibs()) {
         QLibrary dwmLib(QString::fromLatin1("dwmapi"));
-        HRESULT hr = S_OK;
+        HRESULT hr;
         MARGINS m = {left, right, top, bottom};
         hr = pDwmExtendFrameIntoClientArea(hwndOfWidget(widget), &m);
         if (SUCCEEDED(hr)) {
@@ -241,7 +240,7 @@ QColor QtWin::colorizationColor()
         DWORD color = 0;
         BOOL opaque = FALSE;
         QLibrary dwmLib(QString::fromLatin1("dwmapi"));
-        HRESULT hr = S_OK;
+        HRESULT hr;
         hr = pDwmGetColorizationColor(&color, &opaque);
         if (SUCCEEDED(hr)) {
             resultColor = QColor(color);

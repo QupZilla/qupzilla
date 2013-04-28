@@ -451,6 +451,10 @@ QUrlInfo::~QUrlInfo()
 
 QUrlInfo &QUrlInfo::operator=(const QUrlInfo &ui)
 {
+    if (this == &ui) {
+        return *this;
+    }
+
     if (ui.d) {
         if (!d) {
             d = new QUrlInfoPrivate;

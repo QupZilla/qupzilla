@@ -196,7 +196,6 @@ QSize TabBar::tabSizeHint(int index) const
     QSize size = QTabBar::tabSizeHint(index);
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
     TabBar* tabBar = const_cast <TabBar*>(this);
-    bool adjustingActiveTab = false;
 
     if (webTab && webTab->isPinned()) {
         size.setWidth(PINNED_TAB_WIDTH);
@@ -215,6 +214,8 @@ QSize TabBar::tabSizeHint(int index) const
         else {
             int maxWidthForTab = availableWidth / normalTabsCount;
             int realTabWidth = maxWidthForTab;
+            bool adjustingActiveTab = false;
+
             if (realTabWidth < MINIMUM_ACTIVE_TAB_WIDTH) {
                 maxWidthForTab = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH) / (normalTabsCount - 1);
                 realTabWidth = MINIMUM_ACTIVE_TAB_WIDTH;
@@ -275,7 +276,6 @@ QSize TabBar::tabSizeHint(int index) const
                     else {
                         m_activeTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
                     }
-                    adjustingActiveTab = true;
                     size.setWidth(m_activeTabWidth);
                 }
                 else {
