@@ -747,7 +747,10 @@ void MainApplication::quitApplication()
     //
     //  * this can occur on Mac OS (see #157)
 
-    removeLockFile();
+    if (!m_isPrivateSession) {
+        removeLockFile();
+    }
+
     quit();
 }
 
