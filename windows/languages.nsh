@@ -487,6 +487,33 @@ LangString DESC_SecProtocols ${LANG_SERBIANLATIN} "Otvaraj http(s) i ftp protoko
 LangString MSG_RunningInstance ${LANG_SERBIANLATIN} "Kapzila je već pokrenuta! Želite li da instalater pokuša da je ugasi?"
 LangString MSG_InstallationCanceled ${LANG_SERBIANLATIN} "Korisnik je otkazao proces."
 
+;;;;Hebrew
+LangString PRODUCT_DESC ${LANG_HEBREW} "QupZilla הינו דפדפן WWW קוד פתוח חדש, מהיר ומאובטח. QupZilla רשוי תחת הרשיון GPL גרסא 3 או (כאופציה השמורה לך) כל גרסא מאוחרת יותר. זה מבוסס על ליבת WebKit ועל Qt Framework."
+;
+LangString TITLE_SecMain ${LANG_HEBREW} "רכיבים עיקריים"
+LangString TITLE_SecTranslations ${LANG_HEBREW} "תרגומים"
+LangString TITLE_SecPlugins ${LANG_HEBREW} "תוספות"
+LangString TITLE_SecDesktop ${LANG_HEBREW} "סמל שולחן עבודה"
+LangString TITLE_SecExtensions ${LANG_HEBREW} "שיוכי קובץ"
+LangString TITLE_SecThemes ${LANG_HEBREW} "Themes"
+LangString TITLE_SecSetASDefault ${LANG_HEBREW} "דפדפן ברירת מחדל"
+LangString TITLE_SecProtocols ${LANG_HEBREW} "שיוכי פרוטוקול"
+
+LangString FILE_Htm ${LANG_HEBREW} "קובץ HTM"
+LangString FILE_Html ${LANG_HEBREW} "קובץ HTML"
+;
+LangString DESC_SecMain ${LANG_HEBREW} "רכיבים עיקריים של יישום."
+LangString DESC_SecTranslations ${LANG_HEBREW} "תרגומים אחרים זמינים להתקנה. ברירת מחדל הינה English."
+LangString DESC_SecPlugins ${LANG_HEBREW} "תוספות אחרות זמינות להתקנה."
+LangString DESC_SecDesktop ${LANG_HEBREW} "הוסף משגר אל שולחן עבודה."
+LangString DESC_SecExtensions ${LANG_HEBREW} "Associate QupZilla with .htm(l) files"
+LangString DESC_SecThemes ${LANG_HEBREW} "Additional themes for QupZilla"
+LangString DESC_SecSetASDefault ${LANG_HEBREW} "Set Qupzilla as default internet browser"
+LangString DESC_SecProtocols ${LANG_HEBREW} "שייך את QupZilla עם פרוטוקול http(s) ופרוטוקול ftp"
+;
+LangString MSG_RunningInstance ${LANG_HEBREW} "QupZilla כבר מורץ כעת! האם ברצונך מהמתקין לנסות לסיימו?"
+LangString MSG_InstallationCanceled ${LANG_HEBREW} "תהליך בוטל על ידי משתמש."
+
 ;;;;;;;;;
 ;;;;;;;;;
 ; Unfinished translations
