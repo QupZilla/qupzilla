@@ -64,26 +64,24 @@ void RestoreManager::createFromFile(const QString &file)
         WindowData wd;
         wd.windowState = windowState;
 
-        {
-            QDataStream tabStream(tabState);
-            if (tabStream.atEnd()) {
-                continue;
-            }
-
-            QVector<WebTab::SavedTab> tabs;
-            int tabListCount = 0;
-            tabStream >> tabListCount;
-            for (int i = 0; i < tabListCount; ++i) {
-                WebTab::SavedTab tab;
-                tabStream >> tab;
-                tabs.append(tab);
-            }
-            wd.tabsState = tabs;
-
-            int currentTab;
-            tabStream >> currentTab;
-            wd.currentTab = currentTab;
+        QDataStream tabStream(tabState);
+        if (tabStream.atEnd()) {
+            continue;
         }
+
+        QVector<WebTab::SavedTab> tabs;
+        int tabListCount = 0;
+        tabStream >> tabListCount;
+        for (int i = 0; i < tabListCount; ++i) {
+            WebTab::SavedTab tab;
+            tabStream >> tab;
+            tabs.append(tab);
+        }
+        wd.tabsState = tabs;
+
+        int currentTab;
+        tabStream >> currentTab;
+        wd.currentTab = currentTab;
 
         m_data.append(wd);
     }
