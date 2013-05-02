@@ -788,6 +788,13 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         pageAction(QWebPage::SelectAll)->setIcon(QIcon::fromTheme("edit-select-all"));
         pageAction(QWebPage::SelectAll)->setText(tr("Select All"));
 
+        pageAction(QWebPage::SetTextDirectionDefault)->setText(tr("Default"));
+        pageAction(QWebPage::SetTextDirectionLeftToRight)->setText(tr("Left to Right"));
+        pageAction(QWebPage::SetTextDirectionRightToLeft)->setText(tr("Right to Left"));
+        pageAction(QWebPage::ToggleBold)->setText(tr("Bold"));
+        pageAction(QWebPage::ToggleItalic)->setText(tr("Italic"));
+        pageAction(QWebPage::ToggleUnderline)->setText(tr("Underline"));
+
         m_actionReload = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
         m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this);
 
