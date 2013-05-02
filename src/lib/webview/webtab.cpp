@@ -33,6 +33,8 @@
 #include <QStyle>
 #include <QTimer>
 
+static const int savedTabVersion = 1;
+
 WebTab::SavedTab::SavedTab(WebTab* webTab)
 {
     title = webTab->title();
@@ -51,9 +53,10 @@ void WebTab::SavedTab::clear()
 
 QDataStream &operator <<(QDataStream &stream, const WebTab::SavedTab &tab)
 {
+    stream << savedTabVersion;
     stream << tab.title;
     stream << tab.url;
-    stream << tab.icon;
+    stream << tab.icon.pixmap(16);
     stream << tab.history;
 
     return stream;
@@ -61,10 +64,26 @@ QDataStream &operator <<(QDataStream &stream, const WebTab::SavedTab &tab)
 
 QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
 {
+    int version;
+    stream >> version;
+
+    // FIXME: HACK to ensure backwards compatibility
+    if (version != savedTabVersion) {
+        stream.device()->seek(stream.device()->pos() - sizeof(int));
+        stream >> tab.title;
+        stream >> tab.url;
+        stream >> tab.icon;
+        stream >> tab.history;
+        return stream;
+    }
+
+    QPixmap pixmap;
     stream >> tab.title;
     stream >> tab.url;
-    stream >> tab.icon;
+    stream >> pixmap;
     stream >> tab.history;
+
+    tab.icon = QIcon(pixmap);
 
     return stream;
 }
