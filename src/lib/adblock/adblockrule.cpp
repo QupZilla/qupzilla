@@ -377,7 +377,6 @@ void AdBlockRule::parseFilter()
         }
 
         m_cssSelector = parsedLine.mid(pos + 2);
-        m_cssSelector.remove('\\');
 
         // CSS rule cannot have more options -> stop parsing
         return;

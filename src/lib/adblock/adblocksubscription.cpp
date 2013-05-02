@@ -258,12 +258,28 @@ QString AdBlockSubscription::elementHidingRulesForDomain(const QString &domain) 
 {
     QString rules;
 
+    int addedRulesCount = 0;
     int count = m_domainRestrictedCssRules.count();
     for (int i = 0; i < count; ++i) {
         const AdBlockRule* rule = m_domainRestrictedCssRules.at(i);
-        if (rule->matchDomain(domain)) {
-            rules.append(rule->cssSelector() + QLatin1Char(','));
+        if (!rule->matchDomain(domain)) {
+            continue;
         }
+
+        if (Q_UNLIKELY(addedRulesCount == 1000)) {
+            rules.append(rule->cssSelector());
+            rules.append("{display:none !important;}\n");
+            addedRulesCount = 0;
+        }
+        else {
+            rules.append(rule->cssSelector() + QLatin1Char(','));
+            addedRulesCount++;
+        }
+    }
+
+    if (addedRulesCount != 0) {
+        rules = rules.left(rules.size() - 1);
+        rules.append("{display:none !important;}\n");
     }
 
     return rules;
@@ -357,6 +373,11 @@ void AdBlockSubscription::populateCache()
     m_documentRules.clear();
     m_elemhideRules.clear();
 
+    // Apparently, excessive amount of selectors for one CSS rule is not what WebKit likes.
+    // (In my testings, 4931 is the number that makes it crash)
+    // So let's split it by 1000 selectors...
+    int hidingRulesCount = 0;
+
     int count = m_rules.count();
     for (int i = 0; i < count; ++i) {
         const AdBlockRule* rule = m_rules.at(i);
@@ -368,8 +389,14 @@ void AdBlockSubscription::populateCache()
             if (rule->isDomainRestricted()) {
                 m_domainRestrictedCssRules.append(rule);
             }
+            else if (Q_UNLIKELY(hidingRulesCount == 1000)) {
+                m_elementHidingRules.append(rule->cssSelector());
+                m_elementHidingRules.append("{display:none !important;} ");
+                hidingRulesCount = 0;
+            }
             else {
-                m_elementHidingRules.append(rule->cssSelector() + ",");
+                m_elementHidingRules.append(rule->cssSelector() + QLatin1Char(','));
+                hidingRulesCount++;
             }
         }
         else if (rule->isDocument()) {
@@ -384,6 +411,11 @@ void AdBlockSubscription::populateCache()
         else {
             m_networkBlockRules.append(rule);
         }
+    }
+
+    if (hidingRulesCount != 0) {
+        m_elementHidingRules = m_elementHidingRules.left(m_elementHidingRules.size() - 1);
+        m_elementHidingRules.append("{display:none !important;} ");
     }
 }
 

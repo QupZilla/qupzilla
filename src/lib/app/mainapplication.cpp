@@ -1016,7 +1016,7 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
     userStyle += QString("::selection {background: %1; color: %2;} ").arg(highlightColor, highlightedTextColor);
 #endif
 
-    userStyle += AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}";
+    userStyle += AdBlockManager::instance()->elementHidingRules();
 
     QFile file(filePath);
     if (!filePath.isEmpty() && file.open(QFile::ReadOnly)) {
