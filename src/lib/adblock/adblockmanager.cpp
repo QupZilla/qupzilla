@@ -343,11 +343,6 @@ QString AdBlockManager::elementHidingRules() const
         rules.append(subscription->elementHidingRules());
     }
 
-    // Remove last ","
-    if (!rules.isEmpty()) {
-        rules = rules.left(rules.size() - 1);
-    }
-
     return rules;
 }
 

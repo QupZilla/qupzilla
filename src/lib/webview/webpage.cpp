@@ -635,7 +635,7 @@ void WebPage::cleanBlockedObjects()
         return;
     }
 
-    elementHiding.append(QLatin1String("{display: none !important;}\n</style>"));
+    elementHiding.append(QLatin1String("\n</style>"));
 
     QWebElement bodyElement = docElement.findFirst("body");
     bodyElement.appendInside("<style type=\"text/css\">\n/* AdBlock for QupZilla */\n" + elementHiding);
