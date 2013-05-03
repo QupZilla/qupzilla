@@ -127,39 +127,35 @@ QStringList AcceptLanguage::expand(const QLocale::Language &language)
 
 void AcceptLanguage::addLanguage()
 {
-    Ui_AddAcceptLanguage _ui = Ui_AddAcceptLanguage();
-    QDialog* dialog = new QDialog(this);
-    _ui.setupUi(dialog);
+    Ui_AddAcceptLanguage acceptLangUi;
+    QDialog dialog(this);
+    acceptLangUi.setupUi(&dialog);
 
     QStringList allLanguages;
     for (int i = 1 + (int)QLocale::C; i <= (int)QLocale::LastLanguage; ++i) {
         allLanguages += expand(QLocale::Language(i));
     }
 
-    _ui.listWidget->addItems(allLanguages);
+    acceptLangUi.listWidget->addItems(allLanguages);
 
-    connect(_ui.listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), dialog, SLOT(accept()));
+    connect(acceptLangUi.listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), &dialog, SLOT(accept()));
 
-    if (dialog->exec() == QDialog::Rejected) {
-        delete dialog;
+    if (dialog.exec() == QDialog::Rejected) {
         return;
     }
 
-    if (!_ui.ownDefinition->text().isEmpty()) {
-        QString title = tr("Personal [%1]").arg(_ui.ownDefinition->text());
+    if (!acceptLangUi.ownDefinition->text().isEmpty()) {
+        QString title = tr("Personal [%1]").arg(acceptLangUi.ownDefinition->text());
         ui->listWidget->addItem(title);
     }
     else {
-        QListWidgetItem* c = _ui.listWidget->currentItem();
+        QListWidgetItem* c = acceptLangUi.listWidget->currentItem();
         if (!c) {
-            delete dialog;
             return;
         }
 
         ui->listWidget->addItem(c->text());
     }
-
-    delete dialog;
 }
 
 void AcceptLanguage::removeLanguage()
