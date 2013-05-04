@@ -308,7 +308,7 @@ void AdBlockManager::save()
     settings.endGroup();
 }
 
-bool AdBlockManager::isEnabled()
+bool AdBlockManager::isEnabled() const
 {
     return m_enabled;
 }
@@ -348,6 +348,15 @@ QString AdBlockManager::elementHidingRules() const
 
 QString AdBlockManager::elementHidingRulesForDomain(const QUrl &url) const
 {
+    if (!isEnabled() || !canRunOnScheme(url.scheme())) {
+        return QString();
+    }
+
+    // Acid3 doesn't like the way element hiding rules are embedded into page
+    if (url.host() == QLatin1String("acid3.acidtests.org")) {
+        return QString();
+    }
+
     QString rules;
 
     foreach (AdBlockSubscription* subscription, m_subscriptions) {

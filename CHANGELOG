@@ -3,6 +3,7 @@ Version 1.4.3
     * fixed: crash upon closing private browsing window
     * fixed: element hiding rules not working when more than 5000 in subscription
     * fixed: saving some tab icons in session file
+    * fixed: make Acid3 test pass even with AdBlock enabled
     * mac: attempt to fix slow scrolling on trackpad
 
 Version 1.4.2
