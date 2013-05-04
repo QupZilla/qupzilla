@@ -37,6 +37,10 @@
 #include "qtwebkit/spellcheck/speller.h"
 #endif
 
+#ifdef Q_OS_MAC
+#include "macwebviewscroller.h"
+#endif
+
 #include <QDir>
 #include <QTimer>
 #include <QDesktopServices>
@@ -73,6 +77,10 @@ WebView::WebView(QWidget* parent)
 
 #if QTWEBKIT_TO_2_3
     installEventFilter(this);
+#endif
+
+#ifdef Q_OS_MAC
+    new MacWebViewScroller(this);
 #endif
 }
 
