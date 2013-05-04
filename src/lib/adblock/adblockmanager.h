@@ -45,7 +45,7 @@ public:
     void load();
     void save();
 
-    bool isEnabled();
+    bool isEnabled() const;
     bool canRunOnScheme(const QString &scheme) const;
 
     QString elementHidingRules() const;
