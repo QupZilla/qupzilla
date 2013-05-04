@@ -465,8 +465,10 @@ win32 {
 }
 
 mac {
-    HEADERS += other/macmenureceiver.h
-    SOURCES += other/macmenureceiver.cpp
+    HEADERS += other/macmenureceiver.h \
+               webview/macwebviewscroller.h
+    SOURCES += other/macmenureceiver.cpp \
+               webview/macwebviewscroller.cpp
     RESOURCES -= data/certs.qrc
 
     LIBS += -framework CoreServices
