@@ -110,12 +110,13 @@ void BookmarksWidget::toggleSpeedDial()
     const SpeedDial::Page page = m_speedDial->pageForUrl(m_url);
 
     if (page.url.isEmpty()) {
-        m_speedDial->addPage(m_url, m_view->title());
-
+        QString title = ui->name->text().isEmpty() ? m_view->title() : ui->name->text();
+        m_speedDial->addPage(m_url, title);
     }
     else {
         m_speedDial->removePage(page);
     }
+
     QTimer::singleShot(HIDE_DELAY, this, SLOT(close()));
 }
 
@@ -148,6 +149,7 @@ void BookmarksWidget::on_saveRemove_clicked(bool)
     else {
         m_bookmarksModel->saveBookmark(m_url, ui->name->text(), m_view->icon(), BookmarksModel::fromTranslatedFolder(ui->folder->currentText()));
     }
+
     QTimer::singleShot(HIDE_DELAY, this, SLOT(close()));
 }
 

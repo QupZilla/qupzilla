@@ -78,7 +78,6 @@ void BookmarksTree::refreshTree()
         addTopLevelItem(newItem);
     }
 
-
     QTreeWidgetItem* newItem = new QTreeWidgetItem(rootItem);
     newItem->setText(0, _bookmarksMenu);
     newItem->setData(0, Qt::UserRole, "bookmarksMenu");
