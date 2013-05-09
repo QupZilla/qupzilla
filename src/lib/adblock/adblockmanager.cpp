@@ -367,11 +367,6 @@ QString AdBlockManager::elementHidingRulesForDomain(const QUrl &url) const
         rules.append(subscription->elementHidingRulesForDomain(url.host()));
     }
 
-    // Remove last ","
-    if (!rules.isEmpty()) {
-        rules = rules.left(rules.size() - 1);
-    }
-
     return rules;
 }
 
