@@ -1,5 +1,5 @@
 Version 1.4.3
-    * not released yet
+    * released 9 May 2013
     * fixed: crash upon closing private browsing window
     * fixed: element hiding rules not working when more than 5000 in subscription
     * fixed: saving some tab icons in session file
