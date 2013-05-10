@@ -55,6 +55,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_loadProgress(0)
     , m_progressVisible(false)
     , m_forcePaintEvent(false)
+    , m_inlineCompletionVisible(false)
     , m_drawCursor(true)
     , m_popupClosed(false)
 {
@@ -135,6 +136,8 @@ void LocationBar::updatePlaceHolderText()
 
 void LocationBar::showCompletion(const QString &newText)
 {
+    m_inlineCompletionVisible = false;
+
     LineEdit::setText(newText);
 
     // Move cursor to the end
@@ -143,6 +146,7 @@ void LocationBar::showCompletion(const QString &newText)
 
 void LocationBar::completionPopupClosed()
 {
+    m_inlineCompletionVisible = false;
     m_popupClosed = true;
     m_drawCursor = true;
 }
@@ -163,8 +167,7 @@ QUrl LocationBar::createUrl()
         }
     }
 
-    // Is inline domain completion active?
-    if (m_completer.isPopupVisible() && !m_completer.domainCompletion().isEmpty()) {
+    if (m_inlineCompletionVisible) {
         urlToLoad = WebView::guessUrlFromString(text() + m_completer.domainCompletion());
     }
 
@@ -211,6 +214,7 @@ void LocationBar::textEdit()
 {
     if (!text().isEmpty()) {
         m_completer.complete(text());
+        m_inlineCompletionVisible = true;
     }
     else {
         m_completer.closePopup();
@@ -453,6 +457,27 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         m_completer.complete(text());
         break;
 
+    case Qt::Key_End:
+    case Qt::Key_Right:
+        if (m_inlineCompletionVisible) {
+            m_inlineCompletionVisible = false;
+
+            setText(text() + m_completer.domainCompletion());
+            setCursorPosition(text().size());
+            m_completer.closePopup();
+        }
+
+        if (m_completer.isPopupVisible()) {
+            m_completer.closePopup();
+        }
+        break;
+
+    case Qt::Key_Left:
+        if (m_completer.isPopupVisible()) {
+            m_completer.closePopup();
+        }
+        break;
+
     case Qt::Key_Escape:
         m_webView->setFocus();
         showUrl(m_webView->url());
@@ -600,7 +625,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
     QTextOption opt;
     opt.setWrapMode(QTextOption::NoWrap);
 
-    if (hasFocus() && m_completer.isPopupVisible()) {
+    if (hasFocus() && m_inlineCompletionVisible) {
         // Draw inline domain completion if available
         const QString &completionText = m_completer.domainCompletion();
 

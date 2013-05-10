@@ -89,11 +89,6 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
             }
             break;
 
-        case Qt::Key_Left:
-        case Qt::Key_Right:
-            close();
-            break;
-
         case Qt::Key_Escape:
             close();
             return false;

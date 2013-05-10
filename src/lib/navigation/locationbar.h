@@ -125,6 +125,7 @@ private:
     QColor m_progressColor;
 
     bool m_forcePaintEvent;
+    bool m_inlineCompletionVisible;
     bool m_drawCursor;
     bool m_popupClosed;
 };

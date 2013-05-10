@@ -38,6 +38,7 @@ public:
 
     QString domainCompletion() const;
     bool showingMostVisited() const;
+    bool isPopupSelected() const;
     bool isPopupVisible() const;
     void closePopup();
 

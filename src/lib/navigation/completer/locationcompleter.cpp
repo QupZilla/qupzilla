@@ -54,6 +54,11 @@ bool LocationCompleter::showingMostVisited() const
     return m_showingMostVisited;
 }
 
+bool LocationCompleter::isPopupSelected() const
+{
+    return s_view->currentIndex().isValid();
+}
+
 bool LocationCompleter::isPopupVisible() const
 {
     return s_view->isVisible();
