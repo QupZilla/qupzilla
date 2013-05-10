@@ -44,6 +44,11 @@ void LocationCompleter::setLocationBar(LocationBar* locationBar)
     m_locationBar = locationBar;
 }
 
+QString LocationCompleter::domainCompletion() const
+{
+    return m_completedDomain;
+}
+
 bool LocationCompleter::showingMostVisited() const
 {
     return m_showingMostVisited;
@@ -56,12 +61,14 @@ bool LocationCompleter::isPopupVisible() const
 
 void LocationCompleter::closePopup()
 {
+    m_completedDomain.clear();
     m_showingMostVisited = false;
     s_view->close();
 }
 
 void LocationCompleter::complete(const QString &string)
 {
+    m_completedDomain = createDomainCompletionString(string);
     m_showingMostVisited = string.isEmpty();
 
     s_model->refreshCompletions(string);
@@ -96,6 +103,21 @@ void LocationCompleter::slotPopupClosed()
     disconnect(s_view, SIGNAL(aboutToActivateTab(TabPosition)), m_locationBar, SLOT(clear()));
 
     emit popupClosed();
+}
+
+QString LocationCompleter::createDomainCompletionString(const QString &text)
+{
+    QString completion = s_model->completeDomain(text);
+
+    if (text.startsWith(QLatin1String("www."))) {
+        return completion.mid(text.size());
+    }
+
+    if (completion.startsWith(QLatin1String("www."))) {
+        completion = completion.mid(4);
+    }
+
+    return completion.mid(text.size());
 }
 
 void LocationCompleter::showPopup()

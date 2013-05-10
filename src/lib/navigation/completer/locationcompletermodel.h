@@ -51,6 +51,8 @@ public:
     void refreshCompletions(const QString &string);
     void showMostVisited();
 
+    QString completeDomain(const QString &text);
+
 private:
     enum Type {
         HistoryAndBookmarks = 0,

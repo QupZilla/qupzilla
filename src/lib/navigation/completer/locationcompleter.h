@@ -36,6 +36,7 @@ public:
 
     void setLocationBar(LocationBar* locationBar);
 
+    QString domainCompletion() const;
     bool showingMostVisited() const;
     bool isPopupVisible() const;
     void closePopup();
@@ -54,11 +55,14 @@ private slots:
     void slotPopupClosed();
 
 private:
+    QString createDomainCompletionString(const QString &text);
+
     void showPopup();
     void adjustPopupSize();
 
     LocationBar* m_locationBar;
     QString m_originalText;
+    QString m_completedDomain;
     bool m_ignoreCurrentChangedSignal;
     bool m_showingMostVisited;
 

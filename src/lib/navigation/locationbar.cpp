@@ -151,7 +151,7 @@ QUrl LocationBar::createUrl()
 {
     QUrl urlToLoad;
 
-    //Check for Search Engine shortcut
+    // Check for Search Engine shortcut
     int firstSpacePos = text().indexOf(QLatin1Char(' '));
     if (firstSpacePos != -1) {
         QString shortcut = text().left(firstSpacePos);
@@ -161,6 +161,11 @@ QUrl LocationBar::createUrl()
         if (!en.name.isEmpty()) {
             urlToLoad = QUrl::fromEncoded(en.url.replace(QLatin1String("%s"), searchedString).toUtf8());
         }
+    }
+
+    // Is inline domain completion active?
+    if (m_completer.isPopupVisible() && !m_completer.domainCompletion().isEmpty()) {
+        urlToLoad = WebView::guessUrlFromString(text() + m_completer.domainCompletion());
     }
 
     if (urlToLoad.isEmpty()) {
@@ -189,10 +194,17 @@ QString LocationBar::convertUrlToText(const QUrl &url) const
 
 void LocationBar::urlEnter()
 {
+    const QUrl &url = createUrl();
+    const QString &urlString = convertUrlToText(url);
+
     m_completer.closePopup();
     m_webView->setFocus();
 
-    emit loadUrl(createUrl());
+    if (urlString != text()) {
+        setText(convertUrlToText(url));
+    }
+
+    emit loadUrl(url);
 }
 
 void LocationBar::textEdit()
@@ -568,33 +580,61 @@ void LocationBar::hideProgress()
 
 void LocationBar::paintEvent(QPaintEvent* event)
 {
+    QStyleOptionFrameV3 option;
+    initStyleOption(&option);
+
+    int lm, tm, rm, bm;
+    getTextMargins(&lm, &tm, &rm, &bm);
+
+    QRect contentsRect = style()->subElementRect(QStyle::SE_LineEditContents, &option, this);
+    contentsRect.adjust(lm, tm, -rm, -bm);
+
+    const QFontMetrics &fm = fontMetrics();
+    const int x = contentsRect.x() + 3;
+    const int y = contentsRect.y() + (contentsRect.height() - fm.height() + 1) / 2;
+    const int width = contentsRect.width() - 6;
+    const int height = fm.height();
+    const QRect textRect(x, y, width, height);
+
+    QTextOption opt;
+    opt.setWrapMode(QTextOption::NoWrap);
+
+    if (hasFocus() && m_completer.isPopupVisible()) {
+        // Draw inline domain completion if available
+        const QString &completionText = m_completer.domainCompletion();
+
+        if (!completionText.isEmpty()) {
+            LineEdit::paintEvent(event);
+
+            QRect completionRect = textRect;
+            completionRect.setX(completionRect.x() + fm.width(text()) + 1);
+            completionRect.setWidth(fm.width(completionText) + 1);
+
+            QPainter p(this);
+            p.fillRect(completionRect, palette().color(QPalette::Highlight));
+            p.setPen(palette().color(QPalette::HighlightedText));
+            p.drawText(completionRect, completionText, opt);
+            return;
+        }
+    }
+
 #ifndef Q_OS_MAC
     if (m_drawCursor && m_completer.isPopupVisible() && !m_completer.showingMostVisited()) {
         // We need to draw cursor when popup is visible
         // But don't paint it if we are just showing most visited sites
         LineEdit::paintEvent(event);
-        QStyleOptionFrameV3 option;
-        initStyleOption(&option);
-
-        int lm, tm, rm, bm;
-        getTextMargins(&lm, &tm, &rm, &bm);
-
-        QRect contentsRect = style()->subElementRect(QStyle::SE_LineEditContents, &option, this);
-        contentsRect.adjust(lm, tm, -rm, -bm);
-
-        const QFontMetrics &fm = fontMetrics();
 
         QString textPart = text().left(cursorPosition());
-        int cursorXpos = contentsRect.x() + 3 + fontMetrics().width(textPart);
-        int cursorYpos = contentsRect.y() + (contentsRect.height() - fm.height() + 1) / 2;
+        int cursorXpos = x + fontMetrics().width(textPart);
         int cursorWidth = style()->pixelMetric(QStyle::PM_TextCursorWidth, &option, this);
         int cursorHeight = fontMetrics().height();
 
-        QPainter p(this);
-        QRect cursorRect(cursorXpos, cursorYpos, cursorWidth, cursorHeight);
+        QRect cursorRect(cursorXpos, y, cursorWidth, cursorHeight);
         if (isRightToLeft()) {
             cursorRect = style()->visualRect(Qt::RightToLeft, contentsRect, cursorRect);
         }
+
+        QPainter p(this);
         p.fillRect(cursorRect, option.palette.text().color());
         return;
     }
@@ -609,25 +649,11 @@ void LocationBar::paintEvent(QPaintEvent* event)
         return;
     }
 
-    QStyleOptionFrameV3 option;
-    initStyleOption(&option);
-
     QPainter p(this);
     p.setRenderHint(QPainter::Antialiasing, true);
     p.setRenderHint(QPainter::TextAntialiasing, true);
 
     style()->drawPrimitive(QStyle::PE_PanelLineEdit, &option, &p, this);
-
-    QRect contentsRect = style()->subElementRect(QStyle::SE_LineEditContents, &option, this);
-    int lm, tm, rm, bm;
-    getTextMargins(&lm, &tm, &rm, &bm);
-    contentsRect.adjust(lm, tm, -rm, -bm);
-    QFontMetrics fm = fontMetrics();
-    const int x = contentsRect.x() + 3;
-    const int y = contentsRect.y() + (contentsRect.height() - fm.height() + 1) / 2;
-    const int width = contentsRect.width() - 6;
-    const int height = fm.height();
-    QRect textRect(x, y, width, height);
 
     QPen oldPen = p.pen();
 
@@ -675,8 +701,6 @@ void LocationBar::paintEvent(QPaintEvent* event)
     }
 
     p.setPen(oldPen);
-    QTextOption opt;
-    opt.setWrapMode(QTextOption::NoWrap);
 
     const QString hostName = m_webView->url().host();
     QString currentText = text();

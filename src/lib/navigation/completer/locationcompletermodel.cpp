@@ -137,6 +137,49 @@ void LocationCompleterModel::showMostVisited()
     }
 }
 
+QString LocationCompleterModel::completeDomain(const QString &text)
+{
+    if (text.isEmpty() || text == QLatin1String("www.")) {
+        return QString();
+    }
+
+    bool withoutWww = text.startsWith(QLatin1Char('w')) && !text.startsWith(QLatin1String("www."));
+    QString query = "SELECT url FROM history WHERE ";
+
+    if (withoutWww) {
+        query.append(QLatin1String("url NOT LIKE ? AND url NOT LIKE ? AND "));
+    }
+    else {
+        query.append(QLatin1String("url LIKE ? OR url LIKE ? OR "));
+    }
+
+    query.append(QLatin1String("(url LIKE ? OR url LIKE ?) ORDER BY count DESC LIMIT 1"));
+
+    QSqlQuery sqlQuery;
+    sqlQuery.prepare(query);
+
+    if (withoutWww) {
+        sqlQuery.addBindValue(QString("http://www.%"));
+        sqlQuery.addBindValue(QString("https://www.%"));
+        sqlQuery.addBindValue(QString("http://%1%").arg(text));
+        sqlQuery.addBindValue(QString("https://%1%").arg(text));
+    }
+    else {
+        sqlQuery.addBindValue(QString("http://%1%").arg(text));
+        sqlQuery.addBindValue(QString("https://%1%").arg(text));
+        sqlQuery.addBindValue(QString("http://www.%1%").arg(text));
+        sqlQuery.addBindValue(QString("https://www.%1%").arg(text));
+    }
+
+    sqlQuery.exec();
+
+    if (!sqlQuery.next()) {
+        return QString();
+    }
+
+    return sqlQuery.value(0).toUrl().host();
+}
+
 QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const QString &orderBy,
         const QList<QUrl> &alreadyFound, int limit, bool bookmarks, bool exactMatch)
 {
