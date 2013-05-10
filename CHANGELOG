@@ -10,7 +10,15 @@ Version 1.5.0
     * oxygen: set rounded corners for tooltips
     * fixed: size of preferences dialog on low-res screens
     * fixed: loading plugins with relative paths in portable build
-    
+
+Version 1.4.3
+    * released 9 May 2013
+    * fixed: crash upon closing private browsing window
+    * fixed: element hiding rules not working when more than 5000 in subscription
+    * fixed: saving some tab icons in session file
+    * fixed: make Acid3 test pass even with AdBlock enabled
+    * mac: attempt to fix slow scrolling on trackpad
+
 Version 1.4.2
     * released 22 April 2013
     * don't limit speed of loading animation in tabbar
