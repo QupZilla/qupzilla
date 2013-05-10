@@ -24,6 +24,14 @@
 #define QT_QUPZILLA_EXPORT Q_DECL_IMPORT
 #endif
 
+#ifndef Q_UNLIKELY
+#define Q_UNLIKELY(x) x
+#endif
+
+#ifndef Q_LIKELY
+#define Q_LIKELY(x) x
+#endif
+
 #include <QFlags>
 
 namespace Qz
