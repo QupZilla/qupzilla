@@ -473,6 +473,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
             break;
 
         case Qt::AltModifier:
+            m_completer.closePopup();
             p_QupZilla->tabWidget()->addView(createUrl());
             m_holdingAlt = false;
             break;
