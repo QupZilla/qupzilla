@@ -616,7 +616,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
     contentsRect.adjust(lm, tm, -rm, -bm);
 
     const QFontMetrics &fm = fontMetrics();
-    const int x = contentsRect.x() + 3;
+    const int x = contentsRect.x() + 4;
     const int y = contentsRect.y() + (contentsRect.height() - fm.height() + 1) / 2;
     const int width = contentsRect.width() - 6;
     const int height = fm.height();
@@ -625,18 +625,23 @@ void LocationBar::paintEvent(QPaintEvent* event)
     QTextOption opt;
     opt.setWrapMode(QTextOption::NoWrap);
 
+    QPainter p(this);
+    p.setRenderHint(QPainter::Antialiasing, true);
+    p.setRenderHint(QPainter::TextAntialiasing, true);
+
     if (hasFocus() && m_inlineCompletionVisible) {
         // Draw inline domain completion if available
         const QString &completionText = m_completer.domainCompletion();
 
         if (!completionText.isEmpty()) {
-            LineEdit::paintEvent(event);
-
             QRect completionRect = textRect;
             completionRect.setX(completionRect.x() + fm.width(text()) + 1);
             completionRect.setWidth(fm.width(completionText) + 1);
 
-            QPainter p(this);
+            style()->drawPrimitive(QStyle::PE_PanelLineEdit, &option, &p, this);
+            // Text part
+            p.drawText(textRect, text(), opt);
+            // Completion part
             p.fillRect(completionRect, palette().color(QPalette::Highlight));
             p.setPen(palette().color(QPalette::HighlightedText));
             p.drawText(completionRect, completionText, opt);
@@ -644,27 +649,28 @@ void LocationBar::paintEvent(QPaintEvent* event)
         }
     }
 
-#ifndef Q_OS_MAC
-    if (m_drawCursor && m_completer.isPopupVisible() && !m_completer.showingMostVisited()) {
+    if (m_completer.isPopupVisible() && !m_completer.showingMostVisited()) {
         // We need to draw cursor when popup is visible
         // But don't paint it if we are just showing most visited sites
-        LineEdit::paintEvent(event);
+        const int cursorWidth = style()->pixelMetric(QStyle::PM_TextCursorWidth, &option, this);
+        const int cursorHeight = fm.height();
 
         QString textPart = text().left(cursorPosition());
         int cursorXpos = x + fontMetrics().width(textPart);
-        int cursorWidth = style()->pixelMetric(QStyle::PM_TextCursorWidth, &option, this);
-        int cursorHeight = fontMetrics().height();
 
-        QRect cursorRect(cursorXpos, y, cursorWidth, cursorHeight);
-        if (isRightToLeft()) {
-            cursorRect = style()->visualRect(Qt::RightToLeft, contentsRect, cursorRect);
+        QRect cursor = cursorRect();
+        cursor.setX(cursorXpos + 1);
+        cursor.setWidth(cursorWidth);
+        cursor.setHeight(cursorHeight);
+
+        style()->drawPrimitive(QStyle::PE_PanelLineEdit, &option, &p, this);
+        p.drawText(textRect, text(), opt);
+
+        if (textRect.contains(cursor.center().x(), cursor.center().y())) {
+            p.fillRect(cursor, option.palette.text().color());
         }
-
-        QPainter p(this);
-        p.fillRect(cursorRect, option.palette.text().color());
         return;
     }
-#endif
 
     if (hasFocus() || text().isEmpty() || m_forcePaintEvent) {
         LineEdit::paintEvent(event);
@@ -674,10 +680,6 @@ void LocationBar::paintEvent(QPaintEvent* event)
         }
         return;
     }
-
-    QPainter p(this);
-    p.setRenderHint(QPainter::Antialiasing, true);
-    p.setRenderHint(QPainter::TextAntialiasing, true);
 
     style()->drawPrimitive(QStyle::PE_PanelLineEdit, &option, &p, this);
 
