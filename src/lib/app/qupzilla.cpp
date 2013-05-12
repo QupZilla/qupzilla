@@ -85,6 +85,7 @@
 #include <QWebHistory>
 #include <QMessageBox>
 #include <QDesktopWidget>
+#include <QToolTip>
 
 #if QT_VERSION < 0x050000
 #include "qwebkitversion.h"
@@ -343,6 +344,13 @@ void QupZilla::setupUi()
     statusBar()->insertPermanentWidget(1, m_ipLabel);
     statusBar()->insertPermanentWidget(2, m_privateBrowsing);
     statusBar()->insertPermanentWidget(3, m_adblockIcon);
+
+    // Workaround for Oxygen tooltips not having transparent background
+    QPalette pal = QToolTip::palette();
+    QColor col = pal.window().color();
+    col.setAlpha(0);
+    pal.setColor(QPalette::Window, col);
+    QToolTip::setPalette(pal);
 }
 
 void QupZilla::setupMenu()
@@ -802,7 +810,7 @@ void QupZilla::loadSettings()
 
     m_sideBarManager->showSideBar(activeSideBar, false);
 
-    //Private browsing
+    // Private browsing
     m_privateBrowsing->setVisible(mApp->isPrivateSession());
 
 #ifdef Q_OS_WIN
@@ -817,7 +825,8 @@ void QupZilla::loadSettings()
     if (!makeTransparent) {
         return;
     }
-    //Opacity
+
+    // Transparency on X11 (no blur like on Windows)
 #ifdef QZ_WS_X11
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_NoSystemBackground, false);
