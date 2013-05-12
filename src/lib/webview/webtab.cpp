@@ -393,7 +393,7 @@ void WebTab::disconnectObjects()
 WebTab::~WebTab()
 {
     // #838 !mApp->isClosing() fixes crash on app close with Oxygen theme
-    if (m_navigationContainer && qzSettings->tabsOnTop && !mApp->isClosing()) {
+    if (m_navigationContainer && qzSettings->tabsOnTop && !p_QupZilla->isClosing()) {
         m_layout->removeWidget(m_navigationContainer);
 
         // Needed to prevent flickering when closing tabs
