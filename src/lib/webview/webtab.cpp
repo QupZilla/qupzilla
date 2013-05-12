@@ -107,7 +107,7 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
 
     m_view = new TabbedWebView(p_QupZilla, this);
     m_view->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
-    WebPage* page = new WebPage(p_QupZilla);
+    WebPage* page = new WebPage;
     m_view->setWebPage(page);
     m_layout->addWidget(m_view);
 
@@ -174,6 +174,14 @@ QIcon WebTab::icon() const
 QWebHistory* WebTab::history() const
 {
     return m_view->history();
+}
+
+void WebTab::moveToWindow(QupZilla* window)
+{
+    p_QupZilla = window;
+
+    m_view->moveToWindow(p_QupZilla);
+    //m_view->page()->moveToWindow(p_QupZilla);
 }
 
 void WebTab::setHistoryData(const QByteArray &data)

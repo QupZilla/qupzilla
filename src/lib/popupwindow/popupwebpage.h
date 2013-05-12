@@ -29,9 +29,7 @@ class QT_QUPZILLA_EXPORT PopupWebPage : public WebPage
 public:
     explicit PopupWebPage(WebWindowType type, QupZilla* mainClass);
 
-signals:
-
-public slots:
+    QupZilla* mainWindow() const;
 
 private slots:
     void slotGeometryChangeRequested(const QRect &rect);

@@ -45,6 +45,9 @@ public:
     QString getIp() const;
     int tabIndex() const;
 
+    QupZilla* mainWindow() const;
+    void moveToWindow(QupZilla* window);
+
     QWidget* overlayForJsAlert();
     void disconnectObjects();
 
@@ -85,13 +88,10 @@ private:
     bool isCurrent();
 
     QupZilla* p_QupZilla;
-    TabWidget* m_tabWidget;
-
-    QString m_currentIp;
-
     WebTab* m_webTab;
     Menu* m_menu;
 
+    QString m_currentIp;
     bool m_mouseTrack;
 
 };

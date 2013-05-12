@@ -40,7 +40,6 @@
 TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     : WebView(webTab)
     , p_QupZilla(mainClass)
-    , m_tabWidget(p_QupZilla->tabWidget())
     , m_webTab(webTab)
     , m_menu(new Menu(this))
     , m_mouseTrack(false)
@@ -54,7 +53,6 @@ TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     connect(this, SIGNAL(iconChanged()), this, SLOT(showIcon()));
 
     connect(this, SIGNAL(statusBarMessage(QString)), p_QupZilla->statusBar(), SLOT(showMessage(QString)));
-
     connect(p_QupZilla, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
 
     // Tracking mouse also on tabs created in fullscreen
@@ -83,7 +81,7 @@ WebTab* TabbedWebView::webTab() const
 
 TabWidget* TabbedWebView::tabWidget() const
 {
-    return m_tabWidget;
+    return p_QupZilla->tabWidget();
 }
 
 QString TabbedWebView::getIp() const
@@ -93,7 +91,7 @@ QString TabbedWebView::getIp() const
 
 bool TabbedWebView::isCurrent()
 {
-    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabWidget->currentIndex()));
+    WebTab* webTab = qobject_cast<WebTab*>(tabWidget()->widget(tabWidget()->currentIndex()));
     if (!webTab) {
         return false;
     }
@@ -131,10 +129,10 @@ void TabbedWebView::userLoadAction(const QUrl &url)
 
 void TabbedWebView::slotLoadStarted()
 {
-    m_tabWidget->startTabAnimation(tabIndex());
+    tabWidget()->startTabAnimation(tabIndex());
 
     if (title().isNull()) {
-        m_tabWidget->setTabText(tabIndex(), tr("Loading..."));
+        tabWidget()->setTabText(tabIndex(), tr("Loading..."));
     }
 
     m_currentIp.clear();
@@ -142,7 +140,7 @@ void TabbedWebView::slotLoadStarted()
 
 void TabbedWebView::slotLoadFinished()
 {
-    m_tabWidget->stopTabAnimation(tabIndex());
+    tabWidget()->stopTabAnimation(tabIndex());
 
     showIcon();
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
@@ -173,7 +171,7 @@ void TabbedWebView::titleChanged()
         p_QupZilla->setWindowTitle(tr("%1 - QupZilla").arg(t));
     }
 
-    m_tabWidget->setTabText(tabIndex(), t);
+    tabWidget()->setTabText(tabIndex(), t);
 }
 
 void TabbedWebView::showIcon()
@@ -187,7 +185,7 @@ void TabbedWebView::showIcon()
         icon_ = qIconProvider->emptyWebIcon();
     }
 
-    m_tabWidget->setTabIcon(tabIndex(), icon_);
+    tabWidget()->setTabIcon(tabIndex(), icon_);
 }
 
 void TabbedWebView::linkHovered(const QString &link, const QString &title, const QString &content)
@@ -207,7 +205,26 @@ void TabbedWebView::linkHovered(const QString &link, const QString &title, const
 
 int TabbedWebView::tabIndex() const
 {
-    return m_tabWidget->indexOf(m_webTab);
+    return tabWidget()->indexOf(m_webTab);
+}
+
+QupZilla* TabbedWebView::mainWindow() const
+{
+    return p_QupZilla;
+}
+
+void TabbedWebView::moveToWindow(QupZilla* window)
+{
+    disconnect(this, SIGNAL(statusBarMessage(QString)), p_QupZilla->statusBar(), SLOT(showMessage(QString)));
+    disconnect(p_QupZilla, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
+
+    p_QupZilla = window;
+
+    connect(this, SIGNAL(statusBarMessage(QString)), p_QupZilla->statusBar(), SLOT(showMessage(QString)));
+    connect(p_QupZilla, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
+
+    // Tracking mouse also on tabs created in fullscreen
+    trackMouse(p_QupZilla->isFullScreen());
 }
 
 QWidget* TabbedWebView::overlayForJsAlert()
@@ -259,17 +276,17 @@ void TabbedWebView::openUrlInNewTab(const QUrl &urla, Qz::NewTabPositionFlag pos
     req.setRawHeader("Referer", url().toEncoded());
     req.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 
-    m_tabWidget->addView(req, position);
+    tabWidget()->addView(req, position);
 }
 
 void TabbedWebView::openNewTab()
 {
-    m_tabWidget->addView(QUrl());
+    tabWidget()->addView(QUrl());
 }
 
 void TabbedWebView::setAsCurrentTab()
 {
-    m_tabWidget->setCurrentWidget(m_webTab);
+    tabWidget()->setCurrentWidget(m_webTab);
 }
 
 void TabbedWebView::mouseMoveEvent(QMouseEvent* event)

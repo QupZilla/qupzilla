@@ -32,7 +32,7 @@
 // Got an idea how to determine it from kWebKitPart.
 
 PopupWebPage::PopupWebPage(QWebPage::WebWindowType type, QupZilla* mainClass)
-    : WebPage(mainClass)
+    : WebPage()
     , p_QupZilla(mainClass)
     , m_type(type)
     , m_createNewWindow(false)
@@ -52,6 +52,11 @@ PopupWebPage::PopupWebPage(QWebPage::WebWindowType type, QupZilla* mainClass)
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished(bool)));
 
     QTimer::singleShot(0, this, SLOT(checkBehaviour()));
+}
+
+QupZilla* PopupWebPage::mainWindow() const
+{
+    return p_QupZilla;
 }
 
 void PopupWebPage::slotGeometryChangeRequested(const QRect &rect)

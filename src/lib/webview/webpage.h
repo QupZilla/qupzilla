@@ -48,7 +48,7 @@ public:
         }
     };
 
-    WebPage(QupZilla* mainClass);
+    WebPage(QObject* parent = 0);
     ~WebPage();
 
     QUrl url() const;
@@ -129,7 +129,6 @@ private:
     static QTime s_lastUnsupportedUrlTime;
     static QList<WebPage*> s_livingPages;
 
-    QupZilla* p_QupZilla;
     NetworkManagerProxy* m_networkProxy;
     TabbedWebView* m_view;
     SpeedDial* m_speedDial;

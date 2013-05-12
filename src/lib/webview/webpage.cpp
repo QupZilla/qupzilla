@@ -65,9 +65,8 @@ QUrl WebPage::s_lastUnsupportedUrl;
 QTime WebPage::s_lastUnsupportedUrlTime;
 QList<WebPage*> WebPage::s_livingPages;
 
-WebPage::WebPage(QupZilla* mainClass)
-    : QWebPage()
-    , p_QupZilla(mainClass)
+WebPage::WebPage(QObject* parent)
+    : QWebPage(parent)
     , m_view(0)
     , m_speedDial(mApp->plugins()->speedDial())
     , m_fileWatcher(0)
@@ -548,7 +547,15 @@ void WebPage::populateNetworkRequest(QNetworkRequest &request)
 
 QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
 {
-    return new PopupWebPage(type, p_QupZilla);
+    if (m_view) {
+        return new PopupWebPage(type, m_view->mainWindow());
+    }
+
+    if (PopupWebPage* popupPage = qobject_cast<PopupWebPage*>(this)) {
+        return new PopupWebPage(type, popupPage->mainWindow());
+    }
+
+    return 0;
 }
 
 QObject* WebPage::createPlugin(const QString &classid, const QUrl &url,
@@ -558,8 +565,8 @@ QObject* WebPage::createPlugin(const QString &classid, const QUrl &url,
     Q_UNUSED(paramNames)
     Q_UNUSED(paramValues)
 
-    if (classid == QLatin1String("RecoveryWidget") && mApp->restoreManager()) {
-        return new RecoveryWidget(qobject_cast<WebView*>(view()), p_QupZilla);
+    if (classid == QLatin1String("RecoveryWidget") && mApp->restoreManager() && m_view) {
+        return new RecoveryWidget(m_view, m_view->mainWindow());
     }
     else {
         mainFrame()->load(QUrl("qupzilla:start"));
@@ -787,7 +794,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                         WebView* view = qobject_cast<WebView*>(popupPage->view());
                         if (view) {
                             // Closing blocked popup
-                            p_QupZilla->adBlockIcon()->popupBlocked(rule, exOption->url);
+                            popupPage->mainWindow()->adBlockIcon()->popupBlocked(rule, exOption->url);
                             view->closeView();
                         }
                     }

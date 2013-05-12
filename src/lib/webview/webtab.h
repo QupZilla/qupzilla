@@ -64,6 +64,8 @@ public:
     QIcon icon() const;
     QWebHistory* history() const;
 
+    void moveToWindow(QupZilla* window);
+
     void setHistoryData(const QByteArray &data);
     QByteArray historyData() const;
 
