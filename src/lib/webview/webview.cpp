@@ -923,7 +923,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
         m_clickedFrame = frameAtPos;
         Menu* frameMenu = new Menu(tr("This frame"));
         frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
-        Action* act = new Action(QIcon(":/icons/menu/new-tab.png"), tr("Show this frame in new &tab"));
+        Action* act = new Action(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/new-tab.png")), tr("Show this frame in new &tab"));
         connect(act, SIGNAL(triggered()), this, SLOT(loadClickedFrameInNewTab()));
         connect(act, SIGNAL(middleClicked()), this, SLOT(loadClickedFrameInBgTab()));
         frameMenu->addAction(act);
@@ -966,7 +966,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     }
 
     menu->addSeparator();
-    Action* act = new Action(QIcon(":/icons/menu/new-tab.png"), tr("Open link in new &tab"));
+    Action* act = new Action(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/new-tab.png")), tr("Open link in new &tab"));
     act->setData(hitTest.linkUrl());
     connect(act, SIGNAL(triggered()), this, SLOT(userDefinedOpenUrlInNewTab()));
     connect(act, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInBgTab()));

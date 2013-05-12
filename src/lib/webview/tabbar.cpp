@@ -127,7 +127,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
     m_clickedTab = index;
 
     QMenu menu;
-    menu.addAction(QIcon(":/icons/menu/new-tab.png"), tr("&New tab"), p_QupZilla, SLOT(addTab()));
+    menu.addAction(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/new-tab.png")), tr("&New tab"), p_QupZilla, SLOT(addTab()));
     menu.addSeparator();
     if (index != -1) {
         WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
@@ -141,7 +141,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
             menu.addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload Tab"), this, SLOT(reloadTab()));
         }
 
-        menu.addAction(tr("&Duplicate Tab"), this, SLOT(duplicateTab()));
+        menu.addAction(QIcon::fromTheme("tab-duplicate"), tr("&Duplicate Tab"), this, SLOT(duplicateTab()));
         menu.addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
         menu.addSeparator();
         menu.addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
