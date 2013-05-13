@@ -66,6 +66,8 @@ public:
     explicit QupZilla(Qz::BrowserWindow type, QUrl startUrl = QUrl());
     ~QupZilla();
 
+    void openWithTab(WebTab* tab);
+
     void loadSettings();
     void saveSideBarWidth();
 
@@ -268,6 +270,7 @@ private:
     QUrl m_startingUrl;
     QUrl m_homepage;
     Qz::BrowserWindow m_windowType;
+    WebTab* m_startTab;
 
     QVBoxLayout* m_mainLayout;
     QSplitter* m_mainSplitter;

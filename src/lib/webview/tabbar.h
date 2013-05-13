@@ -57,6 +57,7 @@ signals:
     void closeAllButCurrent(int index);
     void closeTab(int index);
     void duplicateTab(int index);
+    void detachTab(int index);
 
     void moveAddTabButton(int posX);
 
@@ -74,6 +75,7 @@ private slots:
     void closeAllButCurrent() { emit closeAllButCurrent(m_clickedTab); }
     void closeTab() { emit closeTab(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
+    void detachTab() { emit detachTab(m_clickedTab); }
     void bookmarkTab();
     void pinTab();
 

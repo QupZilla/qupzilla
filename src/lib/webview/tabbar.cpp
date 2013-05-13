@@ -134,6 +134,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
         if (!webTab) {
             return;
         }
+
         if (p_QupZilla->weView(m_clickedTab)->isLoading()) {
             menu.addAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop Tab"), this, SLOT(stopTab()));
         }
@@ -142,6 +143,11 @@ void TabBar::contextMenuRequested(const QPoint &position)
         }
 
         menu.addAction(QIcon::fromTheme("tab-duplicate"), tr("&Duplicate Tab"), this, SLOT(duplicateTab()));
+
+        if (count() > 1 && !webTab->isPinned()) {
+            menu.addAction(QIcon::fromTheme("tab-detach"), tr("D&etach Tab"), this, SLOT(detachTab()));
+        }
+
         menu.addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
         menu.addSeparator();
         menu.addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
@@ -158,7 +164,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
     }
     else {
         menu.addAction(tr("Reloa&d All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
-        menu.addAction(tr("Bookmark &All Ta&bs"), p_QupZilla, SLOT(bookmarkAllTabs()));
+        menu.addAction(tr("Bookmark &All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
         QAction* action = menu.addAction(QIcon::fromTheme("user-trash"), tr("Restore &Closed Tab"), m_tabWidget, SLOT(restoreClosedTab()));
         action->setEnabled(m_tabWidget->canRestoreTab());

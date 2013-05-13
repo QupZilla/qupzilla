@@ -106,6 +106,7 @@ public slots:
 
     int addView(const QUrl &url, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1);
     int addView(QNetworkRequest req, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1);
+    int addView(WebTab* tab);
 
     int duplicateTab(int index);
 
@@ -114,6 +115,7 @@ public slots:
     void reloadAllTabs();
     void stopTab(int index);
     void closeAllButCurrent(int index);
+    void detachTab(int index);
     void restoreClosedTab(QObject* obj = 0);
     void restoreAllClosedTabs();
     void clearClosedTabsList();

@@ -119,6 +119,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     , m_isStarting(false)
     , m_startingUrl(startUrl)
     , m_windowType(type)
+    , m_startTab(0)
     , m_menuBookmarksAction(0)
     , m_actionPrivateBrowsing(0)
     , m_sideBarManager(new SideBarManager(this))
@@ -150,6 +151,11 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     connect(mApp, SIGNAL(message(Qz::AppMessageType,bool)), this, SLOT(receiveMessage(Qz::AppMessageType,bool)));
 
     QTimer::singleShot(0, this, SLOT(postLaunch()));
+}
+
+void QupZilla::openWithTab(WebTab* tab)
+{
+    m_startTab = tab;
 }
 
 void QupZilla::postLaunch()
@@ -214,6 +220,11 @@ void QupZilla::postLaunch()
         addTab = true;
     }
 
+    if (m_startTab) {
+        addTab = false;
+        m_tabWidget->addView(m_startTab);
+    }
+
     if (addTab) {
         QNetworkRequest request(startUrl);
         request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
@@ -226,7 +237,7 @@ void QupZilla::postLaunch()
     }
 
     if (m_tabWidget->getTabBar()->normalTabsCount() <= 0 && m_windowType != Qz::BW_OtherRestoredWindow) {
-        //Something went really wrong .. add one tab
+        // Something went really wrong .. add one tab
         QNetworkRequest request(m_homepage);
         request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 
@@ -236,7 +247,7 @@ void QupZilla::postLaunch()
     aboutToHideEditMenu();
 
 #ifdef Q_OS_MAC
-    // fill menus even if user don't call them
+    // Fill menus even if user don't call them
     if (m_windowType == Qz::BW_FirstAppWindow) {
         aboutToShowBookmarksMenu();
         aboutToShowHistoryMostMenu();

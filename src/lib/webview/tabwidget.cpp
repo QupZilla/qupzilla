@@ -122,6 +122,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     connect(m_tabBar, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
     connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
+    connect(m_tabBar, SIGNAL(detachTab(int)), this, SLOT(detachTab(int)));
     connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
 
     connect(m_tabBar, SIGNAL(moveAddTabButton(int)), this, SLOT(moveAddTabButton(int)));
@@ -371,6 +372,22 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     return index;
 }
 
+int TabWidget::addView(WebTab* tab)
+{
+    m_locationBars->addWidget(tab->locationBar());
+    tab->locationBar()->setWebView(tab->view());
+
+    int index = addTab(tab, QString());
+    setTabText(index, tab->title());
+    setTabIcon(index, tab->icon());
+
+    connect(tab->view(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
+    connect(tab->view(), SIGNAL(changed()), mApp, SLOT(setStateChanged()));
+    connect(tab->view(), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
+
+    return index;
+}
+
 void TabWidget::closeTab(int index, bool force)
 {
     if (index == -1) {
@@ -410,7 +427,7 @@ void TabWidget::closeTab(int index, bool force)
     disconnect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     disconnect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
-    //Save last tab url and history
+    // Save last tab url and history
     m_closedTabsManager->saveView(webTab, index);
 
     if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
@@ -647,6 +664,28 @@ void TabWidget::closeAllButCurrent(int index)
             continue;
         }
         closeTab(tabIndex);
+    }
+}
+
+void TabWidget::detachTab(int index)
+{
+    WebTab* tab = weTab(index);
+
+    if (tab->isPinned() || count() == 1) {
+        return;
+    }
+
+    m_locationBars->removeWidget(tab->locationBar());
+    disconnect(tab->view(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
+    disconnect(tab->view(), SIGNAL(changed()), mApp, SLOT(setStateChanged()));
+    disconnect(tab->view(), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
+
+    QupZilla* window = mApp->makeNewWindow(Qz::BW_NewWindow);
+    tab->moveToWindow(window);
+    window->openWithTab(tab);
+
+    if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
+        setCurrentIndex(m_lastTabIndex);
     }
 }
 

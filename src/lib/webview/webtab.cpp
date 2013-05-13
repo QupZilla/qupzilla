@@ -180,8 +180,10 @@ void WebTab::moveToWindow(QupZilla* window)
 {
     p_QupZilla = window;
 
+    hideNavigationBar();
+    showNavigationBar(p_QupZilla->navigationContainer());
+
     m_view->moveToWindow(p_QupZilla);
-    //m_view->page()->moveToWindow(p_QupZilla);
 }
 
 void WebTab::setHistoryData(const QByteArray &data)
@@ -390,10 +392,10 @@ void WebTab::disconnectObjects()
     disconnect(m_view);
 }
 
-WebTab::~WebTab()
+
+void WebTab::hideNavigationBar()
 {
-    // #838 !mApp->isClosing() fixes crash on app close with Oxygen theme
-    if (m_navigationContainer && qzSettings->tabsOnTop && !p_QupZilla->isClosing()) {
+    if (m_navigationContainer && qzSettings->tabsOnTop) {
         m_layout->removeWidget(m_navigationContainer);
 
         // Needed to prevent flickering when closing tabs
@@ -402,6 +404,14 @@ WebTab::~WebTab()
 
         // Needed to prevent deleting m_navigationContainer in ~QWidget
         m_navigationContainer->setParent(p_QupZilla);
+    }
+}
+
+WebTab::~WebTab()
+{
+    // #838 !p_QupZilla->isClosing() fixes crash on app close with Oxygen theme
+    if (!p_QupZilla->isClosing()) {
+        hideNavigationBar();
     }
 
     delete m_locationBar.data();

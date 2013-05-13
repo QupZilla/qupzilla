@@ -103,6 +103,8 @@ private slots:
     void slotRestore();
 
 private:
+    void hideNavigationBar();
+
     QupZilla* p_QupZilla;
     TabbedWebView* m_view;
     QVBoxLayout* m_layout;
