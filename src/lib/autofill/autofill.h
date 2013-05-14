@@ -19,7 +19,6 @@
 #define AUTOFILLMODEL_H
 
 #include <QObject>
-#include <QList>
 
 #include "qz_namespace.h"
 
@@ -45,6 +44,7 @@ public:
     void blockStoringforUrl(const QUrl &url);
 
     QVector<PasswordEntry> getFormData(const QUrl &url);
+    QVector<PasswordEntry> getAllFormData();
 
     void updateLastUsed(const PasswordEntry &data);
 
@@ -53,6 +53,9 @@ public:
 
     void updateEntry(const QUrl &url, const QString &name, const QString &pass);
     void updateEntry(const PasswordEntry &entry);
+
+    void removeEntry(const PasswordEntry &entry);
+    void removeAllEntries();
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
     QVector<PasswordEntry> completePage(WebPage* page);

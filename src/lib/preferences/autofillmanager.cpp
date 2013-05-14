@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "autofillmanager.h"
 #include "autofill.h"
+#include "passwordmanager.h"
+#include "mainapplication.h"
 #include "ui_autofillmanager.h"
 
 #include <QMenu>
@@ -58,20 +60,22 @@ void AutoFillManager::loadPasswords()
     ui->showPasswords->setText(tr("Show Passwords"));
     m_passwordsShown = false;
 
-    QSqlQuery query;
-    query.exec("SELECT server, username, password, id FROM autofill");
-    ui->treePass->clear();
+    QVector<PasswordEntry> allEntries = mApp->autoFill()->getAllFormData();
 
-    while (query.next()) {
+    ui->treePass->clear();
+    foreach (const PasswordEntry &entry, allEntries) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->treePass);
-        item->setText(0, query.value(0).toString());
-        item->setText(1, query.value(1).toString());
+        item->setText(0, entry.host);
+        item->setText(1, entry.username);
         item->setText(2, "*****");
-        item->setData(0, Qt::UserRole + 10, query.value(3).toString());
-        item->setData(0, Qt::UserRole + 11, query.value(2).toString());
+
+        QVariant v;
+        v.setValue<PasswordEntry>(entry);
+        item->setData(0, Qt::UserRole + 10, v);
         ui->treePass->addTopLevelItem(item);
     }
 
+    QSqlQuery query;
     query.exec("SELECT server, id FROM autofill_exceptions");
     ui->treeExcept->clear();
     while (query.next()) {
@@ -116,7 +120,7 @@ void AutoFillManager::showPasswords()
             continue;
         }
 
-        item->setText(2, item->data(0, Qt::UserRole + 11).toString());
+        item->setText(2, item->data(0, Qt::UserRole + 10).value<PasswordEntry>().password);
     }
 
     ui->showPasswords->setText(tr("Hide Passwords"));
@@ -128,11 +132,9 @@ void AutoFillManager::removePass()
     if (!curItem) {
         return;
     }
-    QString id = curItem->data(0, Qt::UserRole + 10).toString();
-    QSqlQuery query;
-    query.prepare("DELETE FROM autofill WHERE id=?");
-    query.addBindValue(id);
-    query.exec();
+
+    PasswordEntry entry = curItem->data(0, Qt::UserRole + 10).value<PasswordEntry>();
+    mApp->autoFill()->removeEntry(entry);
 
     delete curItem;
 }
@@ -145,9 +147,7 @@ void AutoFillManager::removeAllPass()
         return;
     }
 
-    QSqlQuery query;
-    query.exec("DELETE FROM autofill");
-
+    mApp->autoFill()->removeAllEntries();
     ui->treePass->clear();
 }
 
@@ -157,31 +157,26 @@ void AutoFillManager::editPass()
     if (!curItem) {
         return;
     }
+
+    PasswordEntry entry = curItem->data(0, Qt::UserRole + 10).value<PasswordEntry>();
+
     bool ok;
-    QString text = QInputDialog::getText(this, tr("Edit password"), tr("Change password:"), QLineEdit::Normal, curItem->data(0, Qt::UserRole + 11).toString(), &ok);
+    QString text = QInputDialog::getText(this, tr("Edit password"), tr("Change password:"), QLineEdit::Normal, entry.password, &ok);
 
     if (ok && !text.isEmpty()) {
-        QSqlQuery query;
-        query.prepare("SELECT data, password FROM autofill WHERE id=?");
-        query.addBindValue(curItem->data(0, Qt::UserRole + 10).toString());
-        query.exec();
-        query.next();
+        QByteArray oldPass = "=" + QUrl::toPercentEncoding(entry.password);
+        entry.data.replace(oldPass, "=" + QUrl::toPercentEncoding(text.toUtf8()));
+        entry.password = text;
 
-        QByteArray data = query.value(0).toByteArray();
-        QByteArray oldPass = "=" + QUrl::toPercentEncoding(query.value(1).toByteArray());
-        data.replace(oldPass, "=" + QUrl::toPercentEncoding(text.toUtf8()));
+        QVariant v;
+        v.setValue<PasswordEntry>(entry);
+        curItem->setData(0, Qt::UserRole + 10, v);
 
-        query.prepare("UPDATE autofill SET data=?, password=? WHERE id=?");
-        query.bindValue(0, data);
-        query.bindValue(1, text);
-        query.bindValue(2, curItem->data(0, Qt::UserRole + 10).toString());
-        query.exec();
+        mApp->autoFill()->updateEntry(entry);
 
         if (m_passwordsShown) {
             curItem->setText(2, text);
         }
-
-        curItem->setData(0, Qt::UserRole + 11, text);
     }
 }
 

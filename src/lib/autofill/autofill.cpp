@@ -99,6 +99,11 @@ QVector<PasswordEntry> AutoFill::getFormData(const QUrl &url)
     return m_manager->getEntries(url);
 }
 
+QVector<PasswordEntry> AutoFill::getAllFormData()
+{
+    return m_manager->getAllEntries();
+}
+
 void AutoFill::updateLastUsed(const PasswordEntry &data)
 {
     m_manager->updateLastUsed(data);
@@ -108,7 +113,7 @@ void AutoFill::updateLastUsed(const PasswordEntry &data)
 void AutoFill::addEntry(const QUrl &url, const QString &name, const QString &pass)
 {
     PasswordEntry entry;
-    entry.url = url;
+    entry.host = PasswordManager::createHost(url);
     entry.username = name;
     entry.password = pass;
 
@@ -119,7 +124,7 @@ void AutoFill::addEntry(const QUrl &url, const QString &name, const QString &pas
 void AutoFill::addEntry(const QUrl &url, const PageFormData &formData)
 {
     PasswordEntry entry;
-    entry.url = url;
+    entry.host = PasswordManager::createHost(url);
     entry.username = formData.username;
     entry.password = formData.password;
 
@@ -130,7 +135,7 @@ void AutoFill::addEntry(const QUrl &url, const PageFormData &formData)
 void AutoFill::updateEntry(const QUrl &url, const QString &name, const QString &pass)
 {
     PasswordEntry entry;
-    entry.url = url;
+    entry.host = PasswordManager::createHost(url);
     entry.username = name;
     entry.password = pass;
 
@@ -141,6 +146,16 @@ void AutoFill::updateEntry(const QUrl &url, const QString &name, const QString &
 void AutoFill::updateEntry(const PasswordEntry &entry)
 {
     m_manager->updateEntry(entry);
+}
+
+void AutoFill::removeEntry(const PasswordEntry &entry)
+{
+    m_manager->removeEntry(entry);
+}
+
+void AutoFill::removeAllEntries()
+{
+    m_manager->removeAllEntries();
 }
 
 // If password was filled in the page, returns all saved passwords on this page
@@ -204,7 +219,7 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
         return;
     }
 
-    PasswordEntry updateData = { -1, QUrl(), QString(), QString(), QByteArray() };
+    PasswordEntry updateData = { -1, QString(), QString(), QString(), QByteArray() };
 
     if (isStored(siteUrl)) {
         const QVector<PasswordEntry> &list = getFormData(siteUrl);

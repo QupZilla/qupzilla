@@ -26,10 +26,14 @@ public:
     explicit DatabasePasswordBackend();
 
     QVector<PasswordEntry> getEntries(const QUrl &url);
+    QVector<PasswordEntry> getAllEntries();
 
     void addEntry(const PasswordEntry &entry);
     void updateEntry(const PasswordEntry &entry);
     void updateLastUsed(const PasswordEntry &entry);
+
+    void removeEntry(const PasswordEntry &entry);
+    void removeAll();
 };
 
 #endif // DATABASEPASSWORDBACKEND_H

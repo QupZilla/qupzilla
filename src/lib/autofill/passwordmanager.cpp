@@ -47,6 +47,12 @@ QVector<PasswordEntry> PasswordManager::getEntries(const QUrl &url)
     return m_backend->getEntries(url);
 }
 
+QVector<PasswordEntry> PasswordManager::getAllEntries()
+{
+    ensureLoaded();
+    return m_backend->getAllEntries();
+}
+
 void PasswordManager::addEntry(const PasswordEntry &entry)
 {
     ensureLoaded();
@@ -65,6 +71,18 @@ void PasswordManager::updateLastUsed(const PasswordEntry &entry)
     m_backend->updateLastUsed(entry);
 }
 
+void PasswordManager::removeEntry(const PasswordEntry &entry)
+{
+    ensureLoaded();
+    m_backend->removeEntry(entry);
+}
+
+void PasswordManager::removeAllEntries()
+{
+    ensureLoaded();
+    m_backend->removeAll();
+}
+
 bool PasswordManager::registerBackend(const QString &id, PasswordBackend* backend)
 {
     if (m_backends.contains(id)) {
@@ -79,6 +97,17 @@ void PasswordManager::unregisterBackend(PasswordBackend* backend)
 {
     const QString &key = m_backends.key(backend);
     m_backends.remove(key);
+}
+
+QString PasswordManager::createHost(const QUrl &url)
+{
+    QString host = url.host();
+
+    if (host.isEmpty()) {
+        host = url.toString();
+    }
+
+    return host;
 }
 
 void PasswordManager::ensureLoaded()

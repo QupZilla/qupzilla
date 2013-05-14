@@ -29,7 +29,7 @@ class DatabasePasswordBackend;
 
 struct PasswordEntry {
     QVariant id;
-    QUrl url;
+    QString host;
     QString username;
     QString password;
     QByteArray data;
@@ -49,14 +49,19 @@ public:
     void loadSettings();
 
     QVector<PasswordEntry> getEntries(const QUrl &url);
+    QVector<PasswordEntry> getAllEntries();
 
     void addEntry(const PasswordEntry &entry);
     void updateEntry(const PasswordEntry &entry);
     void updateLastUsed(const PasswordEntry &entry);
 
+    void removeEntry(const PasswordEntry &entry);
+    void removeAllEntries();
 
     bool registerBackend(const QString &id, PasswordBackend* backend);
     void unregisterBackend(PasswordBackend* backend);
+
+    static QString createHost(const QUrl &url);
 
 private:
     void ensureLoaded();
@@ -70,5 +75,7 @@ private:
 
 // Hint to QVector to use std::realloc on item moving
 Q_DECLARE_TYPEINFO(PasswordEntry, Q_MOVABLE_TYPE);
+
+Q_DECLARE_METATYPE(PasswordEntry)
 
 #endif // PASSWORDMANAGER_H
