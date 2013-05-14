@@ -33,12 +33,12 @@ AutoFillWidget::AutoFillWidget(WebView* view, QWidget* parent)
     ui->setupUi(this);
 }
 
-void AutoFillWidget::setFormData(const QVector<AutoFillData> &data)
+void AutoFillWidget::setFormData(const QVector<PasswordEntry> &data)
 {
     m_data = data;
 
     for (int i = 0; i < data.count(); ++i) {
-        const AutoFillData d = data.at(i);
+        const PasswordEntry d = data.at(i);
         if (d.username.isEmpty()) {
             continue;
         }
@@ -67,10 +67,10 @@ void AutoFillWidget::loginToPage()
     int index = button->property("data-index").toInt(&ok);
 
     if (ok && QzTools::vectorContainsIndex(m_data, index)) {
-        const AutoFillData data = m_data.at(index);
+        const PasswordEntry entry = m_data.at(index);
 
         PageFormCompleter completer(m_view->page());
-        completer.completePage(data.postData);
+        completer.completePage(entry.data);
     }
 
     close();

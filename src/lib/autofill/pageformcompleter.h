@@ -29,10 +29,13 @@ class QWebElement;
 class QWebElementCollection;
 
 struct PageFormData {
-    bool found;
     QString username;
     QString password;
     QByteArray postData;
+
+    bool isValid() const {
+        return !password.isEmpty();
+    }
 };
 
 class PageFormCompleter

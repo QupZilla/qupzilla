@@ -30,6 +30,7 @@
 #include "acceptlanguage.h"
 #include "cabundleupdater.h"
 #include "settings.h"
+#include "passwordmanager.h"
 #include "schemehandlers/adblockschemehandler.h"
 #include "schemehandlers/qupzillaschemehandler.h"
 #include "schemehandlers/fileschemehandler.h"
@@ -291,13 +292,13 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     QString storedUser;
     QString storedPassword;
     if (fill->isStored(reply->url())) {
-        const AutoFillData &data = fill->getFirstFormData(reply->url());
+        const QVector<PasswordEntry> &data = fill->getFormData(reply->url());
 
-        if (data.isValid()) {
+        if (!data.isEmpty()) {
             save->setChecked(true);
             shouldUpdateEntry = true;
-            storedUser = data.username;
-            storedPassword = data.password;
+            storedUser = data.first().username;
+            storedPassword = data.first().password;
             user->setText(storedUser);
             pass->setText(storedPassword);
         }

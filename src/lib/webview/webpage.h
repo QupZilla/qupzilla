@@ -23,7 +23,7 @@
 #include <QVector>
 
 #include "qz_namespace.h"
-#include "autofill.h"
+#include "passwordmanager.h"
 
 class QWebSecurityOrigin;
 class QEventLoop;
@@ -67,7 +67,7 @@ public:
     QVector<AdBlockedEntry> adBlockedEntries() const;
 
     bool hasMultipleUsernames() const;
-    QVector<AutoFillData> autoFillData() const;
+    QVector<PasswordEntry> autoFillData() const;
 
     void scheduleAdjustPage();
     bool isRunningLoop();
@@ -138,7 +138,7 @@ private:
     QSslCertificate m_sslCert;
     QVector<QSslCertificate> m_rejectedSslCerts;
     QVector<AdBlockedEntry> m_adBlockedEntries;
-    QVector<AutoFillData> m_autoFillData;
+    QVector<PasswordEntry> m_passwordEntries;
 
     QWebPage::NavigationType m_lastRequestType;
     QUrl m_lastRequestUrl;

@@ -874,7 +874,7 @@ DownloadManager* MainApplication::downManager()
 AutoFill* MainApplication::autoFill()
 {
     if (!m_autofill) {
-        m_autofill = new AutoFill(getWindow());
+        m_autofill = new AutoFill(this);
     }
     return m_autofill;
 }

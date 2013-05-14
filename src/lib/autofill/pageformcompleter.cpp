@@ -37,7 +37,7 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
     QString passwordValue;
 
     QByteArray data = convertWebKitFormBoundaryIfNecessary(postData);
-    PageFormData formData = {false, QString(), QString(), data};
+    PageFormData formData = {QString(), QString(), data};
 
     if (data.isEmpty() || !data.contains('=')) {
         return formData;
@@ -83,7 +83,6 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
         return formData;
     }
 
-    formData.found = true;
     formData.username = usernameValue;
     formData.password = passwordValue;
 

@@ -27,6 +27,7 @@
 #include "widget.h"
 #include "qztools.h"
 #include "speeddial.h"
+#include "autofill.h"
 #include "popupwebpage.h"
 #include "popupwebview.h"
 #include "networkmanagerproxy.h"
@@ -254,7 +255,7 @@ void WebPage::finished()
     }
 
     // Autofill
-    m_autoFillData = mApp->autoFill()->completePage(this);
+    m_passwordEntries = mApp->autoFill()->completePage(this);
 
     // AdBlock
     cleanBlockedObjects();
@@ -593,12 +594,12 @@ QVector<WebPage::AdBlockedEntry> WebPage::adBlockedEntries() const
 
 bool WebPage::hasMultipleUsernames() const
 {
-    return m_autoFillData.count() > 1;
+    return m_passwordEntries.count() > 1;
 }
 
-QVector<AutoFillData> WebPage::autoFillData() const
+QVector<PasswordEntry> WebPage::autoFillData() const
 {
-    return m_autoFillData;
+    return m_passwordEntries;
 }
 
 void WebPage::cleanBlockedObjects()

@@ -215,7 +215,9 @@ SOURCES += \
     tools/actioncopy.cpp \
     network/pac/proxyautoconfig.cpp \
     network/pac/pacmanager.cpp \
-    tools/delayedfilewatcher.cpp
+    tools/delayedfilewatcher.cpp \
+    autofill/passwordmanager.cpp \
+    autofill/backends/databasepasswordbackend.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -391,7 +393,10 @@ HEADERS  += \
     network/pac/proxyautoconfig.h \
     network/pac/pacmanager.h \
     network/pac/pacdatetime.h \
-    tools/delayedfilewatcher.h
+    tools/delayedfilewatcher.h \
+    autofill/passwordmanager.h \
+    autofill/backends/passwordbackend.h \
+    autofill/backends/databasepasswordbackend.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

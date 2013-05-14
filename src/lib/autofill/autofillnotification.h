@@ -23,6 +23,7 @@
 #include "qz_namespace.h"
 #include "animatedwidget.h"
 #include "pageformcompleter.h"
+#include "passwordmanager.h"
 #include "autofill.h"
 
 namespace Ui
@@ -39,7 +40,7 @@ class QT_QUPZILLA_EXPORT AutoFillNotification : public AnimatedWidget
 public:
     explicit AutoFillNotification(const QUrl &url,
                                   const PageFormData &formData,
-                                  const AutoFillData &updateData);
+                                  const PasswordEntry &updateData);
     ~AutoFillNotification();
 
 private slots:
@@ -52,7 +53,7 @@ private:
 
     QUrl m_url;
     PageFormData m_formData;
-    AutoFillData m_updateData;
+    PasswordEntry m_updateData;
 };
 
 #endif // AUTOFILLNOTIFICATION_H

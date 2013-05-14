@@ -25,6 +25,7 @@
 #include "pageformcompleter.h"
 #include "databasewriter.h"
 #include "settings.h"
+#include "passwordmanager.h"
 
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
@@ -35,9 +36,9 @@
 #include <QUrlQuery>
 #endif
 
-AutoFill::AutoFill(QupZilla* mainClass, QObject* parent)
+AutoFill::AutoFill(QObject* parent)
     : QObject(parent)
-    , p_QupZilla(mainClass)
+    , m_manager(new PasswordManager(this))
     , m_isStoring(false)
 {
     loadSettings();
@@ -57,21 +58,7 @@ bool AutoFill::isStored(const QUrl &url)
         return false;
     }
 
-    QString server = url.host();
-    if (server.isEmpty()) {
-        server = url.toString();
-    }
-
-    QSqlQuery query;
-    query.prepare("SELECT count(id) FROM autofill WHERE server=?");
-    query.addBindValue(server);
-    query.exec();
-
-    query.next();
-    if (query.value(0).toInt() > 0) {
-        return true;
-    }
-    return false;
+    return !m_manager->getEntries(url).isEmpty();
 }
 
 bool AutoFill::isStoringEnabled(const QUrl &url)
@@ -89,12 +76,9 @@ bool AutoFill::isStoringEnabled(const QUrl &url)
     query.prepare("SELECT count(id) FROM autofill_exceptions WHERE server=?");
     query.addBindValue(server);
     query.exec();
-
     query.next();
-    if (query.value(0).toInt() > 0) {
-        return false;
-    }
-    return true;
+
+    return query.value(0).toInt() <= 0;
 }
 
 void AutoFill::blockStoringforUrl(const QUrl &url)
@@ -110,155 +94,60 @@ void AutoFill::blockStoringforUrl(const QUrl &url)
     mApp->dbWriter()->executeQuery(query);
 }
 
-AutoFillData AutoFill::getFirstFormData(const QUrl &url)
+QVector<PasswordEntry> AutoFill::getFormData(const QUrl &url)
 {
-    const QVector<AutoFillData> &list = getFormData(url, 1);
-
-    if (list.isEmpty()) {
-        AutoFillData data;
-        data.id = -1;
-
-        return data;
-    }
-
-    return list.first();
+    return m_manager->getEntries(url);
 }
 
-QVector<AutoFillData> AutoFill::getFormData(const QUrl &url, int limit)
+void AutoFill::updateLastUsed(const PasswordEntry &data)
 {
-    QVector<AutoFillData> list;
-
-    QString server = url.host();
-    if (server.isEmpty()) {
-        server = url.toString();
-    }
-
-    QString queryString = "SELECT id, username, password, data FROM autofill "
-                          "WHERE server=? ORDER BY last_used DESC";
-    if (limit > 0) {
-        queryString.append(QLatin1String(" LIMIT ?"));
-    }
-
-    QSqlQuery query;
-    query.prepare(queryString);
-    query.addBindValue(server);
-
-    if (limit > 0) {
-        query.addBindValue(limit);
-    }
-
-    query.exec();
-
-    while (query.next()) {
-        AutoFillData data;
-        data.id = query.value(0).toInt();
-        data.username = query.value(1).toString();
-        data.password = query.value(2).toString();
-        data.postData = query.value(3).toByteArray();
-
-        list.append(data);
-    }
-
-    return list;
-
+    m_manager->updateLastUsed(data);
 }
 
-void AutoFill::updateLastUsed(int id)
-{
-    if (id < 0) {
-        return;
-    }
-
-    QSqlQuery query;
-    query.prepare("UPDATE autofill SET last_used=strftime('%s', 'now') WHERE id=?");
-    query.addBindValue(id);
-    query.exec();
-}
-
-///HTTP Authorization
+// HTTP Authorization
 void AutoFill::addEntry(const QUrl &url, const QString &name, const QString &pass)
 {
-    QSqlQuery query;
-    QString server = url.host();
-    if (server.isEmpty()) {
-        server = url.toString();
-    }
+    PasswordEntry entry;
+    entry.url = url;
+    entry.username = name;
+    entry.password = pass;
 
-    // Multiple-usernames for HTTP Authorization not supported
-    query.prepare("SELECT username FROM autofill WHERE server=?");
-    query.addBindValue(server);
-    query.exec();
-
-    if (query.next()) {
-        return;
-    }
-
-    query.prepare("INSERT INTO autofill (server, username, password, last_used) "
-                  "VALUES (?,?,?,strftime('%s', 'now'))");
-    query.bindValue(0, server);
-    query.bindValue(1, name);
-    query.bindValue(2, pass);
-    mApp->dbWriter()->executeQuery(query);
+    m_manager->addEntry(entry);
 }
 
-///WEB Form
+// WEB Form
 void AutoFill::addEntry(const QUrl &url, const PageFormData &formData)
 {
-    QString server = url.host();
-    if (server.isEmpty()) {
-        server = url.toString();
-    }
+    PasswordEntry entry;
+    entry.url = url;
+    entry.username = formData.username;
+    entry.password = formData.password;
 
-    QSqlQuery query;
-    query.prepare("INSERT INTO autofill (server, data, username, password, last_used) "
-                  "VALUES (?,?,?,?,strftime('%s', 'now'))");
-    query.bindValue(0, server);
-    query.bindValue(1, formData.postData);
-    query.bindValue(2, formData.username);
-    query.bindValue(3, formData.password);
-    mApp->dbWriter()->executeQuery(query);
+    m_manager->addEntry(entry);
 }
 
+// HTTP Authorization
 void AutoFill::updateEntry(const QUrl &url, const QString &name, const QString &pass)
 {
-    QSqlQuery query;
-    QString server = url.host();
-    if (server.isEmpty()) {
-        server = url.toString();
-    }
+    PasswordEntry entry;
+    entry.url = url;
+    entry.username = name;
+    entry.password = pass;
 
-    query.prepare("SELECT username FROM autofill WHERE server=?");
-    query.addBindValue(server);
-    query.exec();
-
-    if (!query.next()) {
-        return;
-    }
-
-    query.prepare("UPDATE autofill SET username=?, password=? WHERE server=?");
-    query.bindValue(0, name);
-    query.bindValue(1, pass);
-    query.bindValue(2, server);
-    mApp->dbWriter()->executeQuery(query);
+    m_manager->updateEntry(entry);
 }
 
-void AutoFill::updateEntry(const PageFormData &formData, const AutoFillData &updateData)
+// WEB Form
+void AutoFill::updateEntry(const PasswordEntry &entry)
 {
-    QSqlQuery query;
-    query.prepare("UPDATE autofill SET data=?, username=?, password=? WHERE id=?");
-    query.addBindValue(formData.postData);
-    query.addBindValue(formData.username);
-    query.addBindValue(formData.password);
-    query.addBindValue(updateData.id);
-
-    mApp->dbWriter()->executeQuery(query);
+    m_manager->updateEntry(entry);
 }
 
 // If password was filled in the page, returns all saved passwords on this page
-QVector<AutoFillData> AutoFill::completePage(WebPage* page)
+QVector<PasswordEntry> AutoFill::completePage(WebPage* page)
 {
     bool completed = false;
-    QVector<AutoFillData> list;
+    QVector<PasswordEntry> list;
 
     if (!page) {
         return list;
@@ -272,10 +161,10 @@ QVector<AutoFillData> AutoFill::completePage(WebPage* page)
     list = getFormData(pageUrl);
 
     if (!list.isEmpty()) {
-        const AutoFillData data = getFirstFormData(pageUrl);
+        const PasswordEntry entry = list.first();
 
         PageFormCompleter completer(page);
-        completed = completer.completePage(data.postData);
+        completed = completer.completePage(entry.data);
     }
 
     if (!completed) {
@@ -311,24 +200,27 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
     PageFormCompleter completer(webPage);
     const PageFormData formData = completer.extractFormData(outgoingData);
 
-    if (!formData.found) {
+    if (!formData.isValid()) {
         return;
     }
 
-    AutoFillData updateData = { -1, QString(), QString(), QByteArray() };
+    PasswordEntry updateData = { -1, QUrl(), QString(), QString(), QByteArray() };
 
     if (isStored(siteUrl)) {
-        const QVector<AutoFillData> &list = getFormData(siteUrl);
+        const QVector<PasswordEntry> &list = getFormData(siteUrl);
 
-        foreach (const AutoFillData &data, list) {
+        foreach (const PasswordEntry &data, list) {
             if (data.username == formData.username) {
-                updateLastUsed(data.id);
+                updateLastUsed(data);
 
                 if (data.password == formData.password) {
                     return;
                 }
 
                 updateData = data;
+                updateData.username = formData.username;
+                updateData.password = formData.password;
+                updateData.data = formData.postData;
                 break;
             }
         }

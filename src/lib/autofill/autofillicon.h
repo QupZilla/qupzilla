@@ -20,7 +20,7 @@
 
 #include "qz_namespace.h"
 #include "clickablelabel.h"
-#include "autofill.h"
+#include "passwordmanager.h"
 
 class WebView;
 
@@ -32,7 +32,7 @@ public:
     explicit AutoFillIcon(QWidget* parent = 0);
 
     void setWebView(WebView* view);
-    void setFormData(const QVector<AutoFillData> &data);
+    void setFormData(const QVector<PasswordEntry> &data);
 
 private slots:
     void iconClicked();
@@ -43,7 +43,7 @@ private:
 
     WebView* m_view;
 
-    QVector<AutoFillData> m_data;
+    QVector<PasswordEntry> m_data;
 
 };
 

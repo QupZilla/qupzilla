@@ -15,41 +15,21 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef AUTOFILLWIDGET_H
-#define AUTOFILLWIDGET_H
+#ifndef DATABASEPASSWORDBACKEND_H
+#define DATABASEPASSWORDBACKEND_H
 
-#include <QWidget>
-#include <QList>
+#include "passwordbackend.h"
 
-#include "qz_namespace.h"
-#include "locationbarpopup.h"
-
-namespace Ui
+class DatabasePasswordBackend : public PasswordBackend
 {
-class AutoFillWidget;
-}
-
-class WebView;
-struct PasswordEntry;
-
-class QT_QUPZILLA_EXPORT AutoFillWidget : public LocationBarPopup
-{
-    Q_OBJECT
-
 public:
-    explicit AutoFillWidget(WebView* view, QWidget* parent = 0);
-    ~AutoFillWidget();
+    explicit DatabasePasswordBackend();
 
-    void setFormData(const QVector<PasswordEntry> &data);
+    QVector<PasswordEntry> getEntries(const QUrl &url);
 
-private slots:
-    void loginToPage();
-
-private:
-    Ui::AutoFillWidget* ui;
-
-    WebView* m_view;
-    QVector<PasswordEntry> m_data;
+    void addEntry(const PasswordEntry &entry);
+    void updateEntry(const PasswordEntry &entry);
+    void updateLastUsed(const PasswordEntry &entry);
 };
 
-#endif // AUTOFILLWIDGET_H
+#endif // DATABASEPASSWORDBACKEND_H

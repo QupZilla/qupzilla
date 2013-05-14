@@ -29,23 +29,14 @@ class QNetworkRequest;
 
 class QupZilla;
 class WebPage;
+class PasswordManager;
 struct PageFormData;
-
-struct AutoFillData {
-    int id;
-    QString username;
-    QString password;
-    QByteArray postData;
-
-    bool isValid() const {
-        return id > -1;
-    }
-};
+struct PasswordEntry;
 
 class QT_QUPZILLA_EXPORT AutoFill : public QObject
 {
 public:
-    explicit AutoFill(QupZilla* mainClass, QObject* parent = 0);
+    explicit AutoFill(QObject* parent = 0);
 
     void loadSettings();
 
@@ -53,30 +44,26 @@ public:
     bool isStoringEnabled(const QUrl &url);
     void blockStoringforUrl(const QUrl &url);
 
-    AutoFillData getFirstFormData(const QUrl &url);
-    QVector<AutoFillData> getFormData(const QUrl &url, int limit = 0);
+    QVector<PasswordEntry> getFormData(const QUrl &url);
 
-    void updateLastUsed(int id);
+    void updateLastUsed(const PasswordEntry &data);
 
     void addEntry(const QUrl &url, const QString &name, const QString &pass);
     void addEntry(const QUrl &url, const PageFormData &formData);
 
     void updateEntry(const QUrl &url, const QString &name, const QString &pass);
-    void updateEntry(const PageFormData &formData, const AutoFillData &updateData);
+    void updateEntry(const PasswordEntry &entry);
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
-    QVector<AutoFillData> completePage(WebPage* page);
+    QVector<PasswordEntry> completePage(WebPage* page);
 
     static QByteArray exportPasswords();
     static bool importPasswords(const QByteArray &data);
 
 private:
-    QupZilla* p_QupZilla;
+    PasswordManager* m_manager;
     bool m_isStoring;
 
 };
-
-// Hint to QVector to use std::realloc on item moving
-Q_DECLARE_TYPEINFO(AutoFillData, Q_MOVABLE_TYPE);
 
 #endif // AUTOFILLMODEL_H

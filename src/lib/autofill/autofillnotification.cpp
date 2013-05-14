@@ -22,7 +22,7 @@
 #include "animatedwidget.h"
 #include "iconprovider.h"
 
-AutoFillNotification::AutoFillNotification(const QUrl &url, const PageFormData &formData, const AutoFillData &updateData)
+AutoFillNotification::AutoFillNotification(const QUrl &url, const PageFormData &formData, const PasswordEntry &updateData)
     : AnimatedWidget(AnimatedWidget::Down, 300, 0)
     , ui(new Ui::AutoFillNotification)
     , m_url(url)
@@ -68,7 +68,7 @@ AutoFillNotification::AutoFillNotification(const QUrl &url, const PageFormData &
 
 void AutoFillNotification::update()
 {
-    mApp->autoFill()->updateEntry(m_formData, m_updateData);
+    mApp->autoFill()->updateEntry(m_updateData);
     hide();
 }
 
