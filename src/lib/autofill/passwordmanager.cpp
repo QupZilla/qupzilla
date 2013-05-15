@@ -16,8 +16,8 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "passwordmanager.h"
-#include "backends/passwordbackend.h"
-#include "backends/databasepasswordbackend.h"
+#include "passwordbackends/passwordbackend.h"
+#include "passwordbackends/databasepasswordbackend.h"
 #include "settings.h"
 
 #include <QVector>

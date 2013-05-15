@@ -23,6 +23,7 @@
 #include <QSqlQuery>
 
 DatabasePasswordBackend::DatabasePasswordBackend()
+    : PasswordBackend()
 {
 }
 
