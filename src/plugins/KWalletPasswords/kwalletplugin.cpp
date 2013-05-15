@@ -1,0 +1,66 @@
+/* ============================================================
+* KWalletPasswords - KWallet support plugin for QupZilla
+* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+* ============================================================ */
+#include "kwalletplugin.h"
+#include "kwalletpasswordbackend.h"
+#include "pluginproxy.h"
+#include "qupzilla.h"
+
+#include <QTranslator>
+
+KWalletPlugin::KWalletPlugin()
+    : QObject()
+    , m_backend(0)
+{
+}
+
+PluginSpec KWalletPlugin::pluginSpec()
+{
+    PluginSpec spec;
+    spec.name = "KWallet Passwords";
+    spec.info = "KWallet password backend";
+    spec.description = "Provides support for storing passwords in KWallet";
+    spec.version = "0.1.0";
+    spec.author = "David Rosca <nowrep@gmail.com>";
+    spec.icon = QPixmap(":kwp/data/icon.png");
+    spec.hasSettings = false;
+
+    return spec;
+}
+
+void KWalletPlugin::init(const QString &sPath)
+{
+    Q_UNUSED(sPath);
+
+    m_backend = new KWalletPasswordBackend;
+    QZ_REGISTER_PASSWORD_BACKEND("KWallet", m_backend);
+}
+
+void KWalletPlugin::unload()
+{
+    QZ_UNREGISTER_PASSWORD_BACKEND(m_backend);
+    delete m_backend;
+}
+
+bool KWalletPlugin::testPlugin()
+{
+    return (QupZilla::VERSION == QLatin1String("1.5.0"));
+}
+
+#if QT_VERSION < 0x050000
+Q_EXPORT_PLUGIN2(KWalletPasswords, KWalletPlugin)
+#endif

@@ -133,9 +133,9 @@ Available Defines
                           example:
                           $ export NO_X11="true"
 
-     KDE                  For now, it just use better oxygen icons in Preferences.
-                          Nepomuk integration is planned, and it will be enabled with
-                          this define also.
+     KDE                  Enable KDE integration.
+                          Currently it enables building of KWallet Password plugin,
+                          which provides support for storing passwords in KWallet.
 
                           example:
                           $ export KDE="true"

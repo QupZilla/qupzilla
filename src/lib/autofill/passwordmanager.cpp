@@ -130,6 +130,10 @@ void PasswordManager::unregisterBackend(PasswordBackend* backend)
 {
     const QString &key = m_backends.key(backend);
     m_backends.remove(key);
+
+    if (m_backend == backend) {
+        m_backend = m_databaseBackend;
+    }
 }
 
 QString PasswordManager::createHost(const QUrl &url)
