@@ -15,32 +15,19 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef PASSWORDBACKEND_H
-#define PASSWORDBACKEND_H
+#include "passwordbackend.h"
 
-#include "passwordmanager.h"
-
-class PasswordBackend
+PasswordBackend::PasswordBackend()
+    : m_active(false)
 {
-public:
-    explicit PasswordBackend();
-    virtual ~PasswordBackend() { }
+}
 
-    virtual QVector<PasswordEntry> getEntries(const QUrl &url) = 0;
-    virtual QVector<PasswordEntry> getAllEntries() = 0;
+void PasswordBackend::setActive(bool active)
+{
+    m_active = active;
+}
 
-    virtual void addEntry(const PasswordEntry &entry) = 0;
-    virtual void updateEntry(const PasswordEntry &entry) = 0;
-    virtual void updateLastUsed(const PasswordEntry &entry) = 0;
-
-    virtual void removeEntry(const PasswordEntry &entry) = 0;
-    virtual void removeAll() = 0;
-
-    void setActive(bool active);
-    bool isActive() const;
-
-private:
-    bool m_active;
-};
-
-#endif // PASSWORDBACKEND_H
+bool PasswordBackend::isActive() const
+{
+    return m_active;
+}

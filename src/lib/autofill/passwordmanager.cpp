@@ -39,6 +39,7 @@ void PasswordManager::loadSettings()
     settings.endGroup();
 
     m_backend = m_backends[m_backends.contains(backendId) ? backendId : "database"];
+    m_backend->setActive(true);
 }
 
 QVector<PasswordEntry> PasswordManager::getEntries(const QUrl &url)

@@ -217,7 +217,8 @@ SOURCES += \
     network/pac/pacmanager.cpp \
     tools/delayedfilewatcher.cpp \
     autofill/passwordmanager.cpp \
-    autofill/passwordbackends/databasepasswordbackend.cpp
+    autofill/passwordbackends/databasepasswordbackend.cpp \
+    autofill/passwordbackends/passwordbackend.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
