@@ -79,8 +79,22 @@ private:
     QList<PluginInterface*> m_keyReleaseHandlers;
 };
 
-#define QZ_REGISTER_EVENT_HANDLER(Type) mApp->plugins()->registerAppEventHandler(Type, this);
-#define QZ_REGISTER_SCHEME_HANDLER(Scheme, Object) mApp->networkManager()->registerSchemeHandler(Scheme, Object);
-#define QZ_UNREGISTER_SCHEME_HANDLER(Scheme, Object) mApp->networkManager()->unregisterSchemeHandler(Scheme, Object);
+#include "mainapplication.h"
+#include "networkmanager.h"
+#include "autofill.h"
+#include "passwordmanager.h"
+
+#define QZ_REGISTER_EVENT_HANDLER(Type) \
+    mApp->plugins()->registerAppEventHandler(Type, this);
+
+#define QZ_REGISTER_SCHEME_HANDLER(Scheme, Object) \
+    mApp->networkManager()->registerSchemeHandler(Scheme, Object);
+#define QZ_UNREGISTER_SCHEME_HANDLER(Scheme, Object) \
+    mApp->networkManager()->unregisterSchemeHandler(Scheme, Object);
+
+#define QZ_REGISTER_PASSWORD_BACKEND(Name, Object) \
+    mApp->autoFill()->passwordManager()->registerBackend(Name, Object);
+#define QZ_UNREGISTER_PASSWORD_BACKEND(Object) \
+    mApp->autoFill()->passwordManager()->unregisterBackend(Object);
 
 #endif // PLUGINPROXY_H

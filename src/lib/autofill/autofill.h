@@ -37,6 +37,7 @@ class QT_QUPZILLA_EXPORT AutoFill : public QObject
 public:
     explicit AutoFill(QObject* parent = 0);
 
+    PasswordManager* passwordManager() const;
     void loadSettings();
 
     bool isStored(const QUrl &url);

@@ -22,10 +22,42 @@
 
 #include <QVector>
 
+static const int passwordEntryVersion = 1;
+
+QDataStream &operator <<(QDataStream &stream, const PasswordEntry &tab)
+{
+    stream << passwordEntryVersion;
+    stream << tab.host;
+    stream << tab.id;
+    stream << tab.username;
+    stream << tab.password;
+    stream << tab.data;
+
+    return stream;
+}
+
+QDataStream &operator >>(QDataStream &stream, PasswordEntry &tab)
+{
+    int version;
+    stream >> version;
+
+    if (version != passwordEntryVersion) {
+        return stream;
+    }
+
+    stream >> tab.host;
+    stream >> tab.id;
+    stream >> tab.username;
+    stream >> tab.password;
+    stream >> tab.data;
+
+    return stream;
+}
+
 PasswordManager::PasswordManager(QObject* parent)
     : QObject(parent)
-    , m_backend(0)
     , m_loaded(false)
+    , m_backend(0)
     , m_databaseBackend(new DatabasePasswordBackend)
 {
     m_backends["database"] = m_databaseBackend;
@@ -123,3 +155,4 @@ PasswordManager::~PasswordManager()
 {
     delete m_databaseBackend;
 }
+

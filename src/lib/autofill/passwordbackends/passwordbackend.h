@@ -36,7 +36,7 @@ public:
     virtual void removeEntry(const PasswordEntry &entry) = 0;
     virtual void removeAll() = 0;
 
-    void setActive(bool active);
+    virtual void setActive(bool active);
     bool isActive() const;
 
 private:

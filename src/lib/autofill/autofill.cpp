@@ -44,6 +44,11 @@ AutoFill::AutoFill(QObject* parent)
     loadSettings();
 }
 
+PasswordManager* AutoFill::passwordManager() const
+{
+    return m_manager;
+}
+
 void AutoFill::loadSettings()
 {
     Settings settings;
@@ -127,6 +132,7 @@ void AutoFill::addEntry(const QUrl &url, const PageFormData &formData)
     entry.host = PasswordManager::createHost(url);
     entry.username = formData.username;
     entry.password = formData.password;
+    entry.data = formData.postData;
 
     m_manager->addEntry(entry);
 }

@@ -27,7 +27,7 @@
 class PasswordBackend;
 class DatabasePasswordBackend;
 
-struct PasswordEntry {
+struct QT_QUPZILLA_EXPORT PasswordEntry {
     QVariant id;
     QString host;
     QString username;
@@ -37,6 +37,13 @@ struct PasswordEntry {
     bool isValid() const {
         return !password.isEmpty();
     }
+
+    bool operator==(const PasswordEntry &other) const {
+        return id == other.id;
+    }
+
+    friend QT_QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const PasswordEntry &tab);
+    friend QT_QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, PasswordEntry &tab);
 };
 
 class QT_QUPZILLA_EXPORT PasswordManager : public QObject
@@ -66,9 +73,9 @@ public:
 private:
     void ensureLoaded();
 
-    PasswordBackend* m_backend;
     bool m_loaded;
 
+    PasswordBackend* m_backend;
     DatabasePasswordBackend* m_databaseBackend;
     QHash<QString, PasswordBackend*> m_backends;
 };
