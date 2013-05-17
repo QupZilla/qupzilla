@@ -39,6 +39,7 @@ public:
 
 private slots:
     void loadPasswords();
+    void changePasswordBackend();
 
     void removePass();
     void removeAllPass();

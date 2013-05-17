@@ -26,6 +26,8 @@ public:
     explicit PasswordBackend();
     virtual ~PasswordBackend() { }
 
+    virtual QString name() const = 0;
+
     virtual QVector<PasswordEntry> getEntries(const QUrl &url) = 0;
     virtual QVector<PasswordEntry> getAllEntries() = 0;
 

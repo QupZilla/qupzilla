@@ -16,17 +16,19 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "autofillmanager.h"
+#include "ui_autofillmanager.h"
 #include "autofill.h"
 #include "passwordmanager.h"
+#include "passwordbackends/passwordbackend.h"
 #include "mainapplication.h"
-#include "ui_autofillmanager.h"
+#include "settings.h"
 
+#include <QUrl>
 #include <QMenu>
 #include <QTimer>
 #include <QSqlQuery>
 #include <QMessageBox>
 #include <QInputDialog>
-#include <QUrl>
 #include <QFileDialog>
 
 AutoFillManager::AutoFillManager(QWidget* parent)
@@ -41,6 +43,7 @@ AutoFillManager::AutoFillManager(QWidget* parent)
     connect(ui->editPass, SIGNAL(clicked()), this, SLOT(editPass()));
     connect(ui->showPasswords, SIGNAL(clicked()), this, SLOT(showPasswords()));
     connect(ui->search, SIGNAL(textChanged(QString)), ui->treePass, SLOT(filterString(QString)));
+    connect(ui->changeBackend, SIGNAL(clicked()), this, SLOT(changePasswordBackend()));
 
     connect(ui->removeExcept, SIGNAL(clicked()), this, SLOT(removeExcept()));
     connect(ui->removeAllExcept, SIGNAL(clicked()), this, SLOT(removeAllExcept()));
@@ -52,6 +55,10 @@ AutoFillManager::AutoFillManager(QWidget* parent)
     ui->importExport->setPopupMode(QToolButton::InstantPopup);
     ui->search->setPlaceholderText(tr("Search"));
 
+    // Password backends
+    ui->currentBackend->setText(QString("<b>%1</b>").arg(mApp->autoFill()->passwordManager()->activeBackend()->name()));
+
+    // Load passwords
     QTimer::singleShot(0, this, SLOT(loadPasswords()));
 }
 
@@ -87,6 +94,41 @@ void AutoFillManager::loadPasswords()
 
     ui->treePass->sortByColumn(-1);
     ui->treeExcept->sortByColumn(-1);
+}
+
+void AutoFillManager::changePasswordBackend()
+{
+    QHash<QString, PasswordBackend*> backends = mApp->autoFill()->passwordManager()->availableBackends();
+    QStringList items;
+
+    int current = 0;
+
+    foreach (const QString &key, backends.keys()) {
+        if (backends[key] == mApp->autoFill()->passwordManager()->activeBackend()) {
+            current = items.size();
+        }
+
+        items << backends[key]->name();
+    }
+
+    QString item = QInputDialog::getItem(this, tr("Change backend..."), tr("Change backend:"), items, current, false);
+
+    if (!item.isEmpty()) {
+        Settings settings;
+        settings.beginGroup("PasswordManager");
+
+        foreach (const QString &key, backends.keys()) {
+            if (backends[key]->name() == item) {
+                settings.setValue("Backend", key);
+                break;
+            }
+        }
+
+        settings.endGroup();
+    }
+
+    mApp->autoFill()->passwordManager()->loadSettings();
+    QTimer::singleShot(0, this, SLOT(loadPasswords()));
 }
 
 void AutoFillManager::showPasswords()

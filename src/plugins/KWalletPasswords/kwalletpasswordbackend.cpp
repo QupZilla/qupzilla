@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "kwalletpasswordbackend.h"
+#include "kwalletplugin.h"
 
 #include <QDateTime>
 #include <QDebug>
@@ -40,6 +41,11 @@ KWalletPasswordBackend::KWalletPasswordBackend()
     : PasswordBackend()
     , m_wallet(0)
 {
+}
+
+QString KWalletPasswordBackend::name() const
+{
+    return KWalletPlugin::tr("KWallet");
 }
 
 static bool compareEntries(const PasswordEntry &e1, const PasswordEntry &e2)

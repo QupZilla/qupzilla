@@ -30,6 +30,8 @@ public:
     explicit KWalletPasswordBackend();
     ~KWalletPasswordBackend();
 
+    QString name() const;
+
     QVector<PasswordEntry> getEntries(const QUrl &url);
     QVector<PasswordEntry> getAllEntries();
 

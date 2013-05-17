@@ -116,6 +116,16 @@ void PasswordManager::removeAllEntries()
     m_backend->removeAll();
 }
 
+QHash<QString, PasswordBackend*> PasswordManager::availableBackends() const
+{
+    return m_backends;
+}
+
+PasswordBackend* PasswordManager::activeBackend() const
+{
+    return m_backend;
+}
+
 bool PasswordManager::registerBackend(const QString &id, PasswordBackend* backend)
 {
     if (m_backends.contains(id)) {

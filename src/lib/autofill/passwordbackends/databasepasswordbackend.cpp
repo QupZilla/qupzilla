@@ -18,6 +18,7 @@
 #include "databasepasswordbackend.h"
 #include "mainapplication.h"
 #include "databasewriter.h"
+#include "autofill.h"
 
 #include <QVector>
 #include <QSqlQuery>
@@ -25,6 +26,11 @@
 DatabasePasswordBackend::DatabasePasswordBackend()
     : PasswordBackend()
 {
+}
+
+QString DatabasePasswordBackend::name() const
+{
+    return AutoFill::tr("Database (plaintext)");
 }
 
 QVector<PasswordEntry> DatabasePasswordBackend::getEntries(const QUrl &url)
