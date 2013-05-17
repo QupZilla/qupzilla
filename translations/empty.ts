@@ -303,136 +303,164 @@
     </message>
 </context>
 <context>
+    <name>AutoFill</name>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="33"/>
+        <source>Database (plaintext)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AutoFillManager</name>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="24"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="25"/>
+        <source>Passwords are stored in:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="35"/>
+        <source>Change backend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="64"/>
         <source>Passwords</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="40"/>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="154"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="80"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="194"/>
         <source>Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="45"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="85"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="50"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="90"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="66"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="106"/>
         <source>Import/Export</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="93"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="58"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="99"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="107"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="133"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="67"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="145"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="153"/>
         <source>Show Passwords</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="107"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="147"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="114"/>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="164"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="154"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="204"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="121"/>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="171"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="161"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="211"/>
         <source>Remove All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="144"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="184"/>
         <source>Exceptions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="47"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="52"/>
         <source>Import Passwords from File...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="48"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="53"/>
         <source>Export Passwords to File...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="51"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="56"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="107"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="114"/>
+        <source>Change backend...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="114"/>
+        <source>Change backend:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="153"/>
         <source>Are you sure that you want to show all passwords?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="122"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="168"/>
         <source>Hide Passwords</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="142"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="186"/>
         <source>Confirmation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="143"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="187"/>
         <source>Are you sure to delete all passwords on your computer?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="161"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="206"/>
         <source>Edit password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="161"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="206"/>
         <source>Change password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="218"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="238"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="255"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="275"/>
         <source>Choose file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="225"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="262"/>
         <source>Cannot read file!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="232"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="269"/>
         <source>Successfully imported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="232"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="269"/>
         <source>Error while importing!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="245"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="282"/>
         <source>Cannot write to file!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="252"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="289"/>
         <source>Successfully exported</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2267,92 +2295,92 @@
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="199"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="237"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="200"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
         <source>SSL Certificate Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="200"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="201"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="215"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="216"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="217"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="218"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="219"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="225"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="233"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="234"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="257"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="258"/>
         <source>Authorisation required</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="264"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="371"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="438"/>
-        <source>Username: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="265"/>
         <location filename="../src/lib/network/networkmanager.cpp" line="372"/>
         <location filename="../src/lib/network/networkmanager.cpp" line="439"/>
+        <source>Username: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/network/networkmanager.cpp" line="266"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="373"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="440"/>
         <source>Password: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="270"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="271"/>
         <source>Save username and password on this site</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="279"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="280"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="364"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="365"/>
         <source>FTP authorisation required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="377"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="378"/>
         <source>Login anonymously</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="394"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="395"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="431"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="432"/>
         <source>Proxy authorisation required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="451"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="452"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation type="unfinished"></translation>
     </message>
@@ -5749,173 +5777,173 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="360"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="361"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="365"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="366"/>
         <source>Remember my choice for this protocol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="366"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="367"/>
         <source>External Protocol Request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="520"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="521"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="522"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="523"/>
         <source>Confirm form resubmission</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="699"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="700"/>
         <source>Select files to upload...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="720"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="721"/>
         <source>Server refused the connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="723"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="724"/>
         <source>Server closed the connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="726"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="727"/>
         <source>Server not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="729"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="730"/>
         <source>Connection timed out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="732"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="733"/>
         <source>Untrusted connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="735"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="736"/>
         <source>Temporary network failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="738"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="739"/>
         <source>Proxy connection refused</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="741"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="742"/>
         <source>Proxy server not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="744"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="745"/>
         <source>Proxy connection timed out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="747"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="748"/>
         <source>Proxy authentication required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="750"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="751"/>
         <source>Content not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="753"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="754"/>
         <source>Unknown network error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="783"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="784"/>
         <source>AdBlocked Content</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="787"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="788"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="804"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="805"/>
         <source>Content Access Denied</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="819"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="820"/>
         <source>Error code %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="831"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="832"/>
         <source>Failed loading page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="837"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="838"/>
         <source>QupZilla can&apos;t load page.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="837"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="838"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="841"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="842"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="842"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="843"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="843"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="844"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="844"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="845"/>
         <source>Try Again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="944"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="945"/>
         <source>JavaScript alert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="952"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="953"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1000"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="1001"/>
         <source>Choose file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1008"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="1009"/>
         <source>Cannot read data from &lt;b&gt;%1&lt;/b&gt;. Upload was cancelled!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1009"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="1010"/>
         <source>Cannot read file!</source>
         <translation type="unfinished"></translation>
     </message>

@@ -11,6 +11,8 @@ contains(DEFINES, "KDE") {
 
     RESOURCES += kwalletpasswords.qrc
 
+    TRANSLATIONS = translations/cs_CZ.ts \
+
     LIBS += -lkdeui
 }
 

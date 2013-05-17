@@ -65,7 +65,7 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="183"/>
+        <location filename="../gm_manager.cpp" line="185"/>
         <source>GreaseMonkey</source>
         <translation type="unfinished"></translation>
     </message>
@@ -83,12 +83,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gm_notification.cpp" line="49"/>
+        <location filename="../gm_notification.cpp" line="50"/>
         <source>Cannot install script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gm_notification.cpp" line="57"/>
+        <location filename="../gm_notification.cpp" line="58"/>
         <source>&apos;%1&apos; installed successfully</source>
         <translation type="unfinished"></translation>
     </message>
