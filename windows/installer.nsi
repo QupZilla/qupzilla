@@ -24,7 +24,7 @@ RequestExecutionLevel admin
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.4.2"
+!define /date PRODUCT_VERSION "1.4.3"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -71,7 +71,9 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Ukrainian"
 !insertmacro MUI_LANGUAGE "Catalan"
 !insertmacro MUI_LANGUAGE "Serbian"
-!insertmacro MUI_LANGUAGE "farsi"
+!insertmacro MUI_LANGUAGE "SerbianLatin"
+!insertmacro MUI_LANGUAGE "Farsi"
+!insertmacro MUI_LANGUAGE "Hebrew"
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
@@ -299,8 +301,8 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   SetOutPath "$INSTDIR\hunspell"
   File "wininstall\hunspell\sr.aff"
   File "wininstall\hunspell\sr.dic"
-  File "wininstall\hunspell\sr-Latn.aff"
-  File "wininstall\hunspell\sr-Latn.dic"
+  File "wininstall\hunspell\sh.aff"
+  File "wininstall\hunspell\sh.dic"
   SectionEnd
 
   Section "Japanese"
@@ -532,8 +534,12 @@ Function .onInit
         Push Catalan
         Push ${LANG_SERBIAN}
         Push Serbian
-        Push ${LANG_Farsi}
+        Push ${LANG_SERBIANLATIN}
+        Push Serbian Latin
+        Push ${LANG_FARSI}
         Push Persian
+        Push ${LANG_HEBREW}
+        Push Hebrew
         Push A ; A means auto count languages
                ; for the auto count to work the first empty push (Push "") must remain
         LangDLL::LangDialog "Installer Language" "Please select the language of the installer"
