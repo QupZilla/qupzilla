@@ -420,6 +420,9 @@ LangString TITLE_SecExtensions ${LANG_FARSI} "تخصیص فایل"
 LangString TITLE_SecThemes ${LANG_FARSI} "فرهشت‌ها"
 LangString TITLE_SecSetASDefault ${LANG_FARSI} "مرورگر پیش‌فرض"
 LangString TITLE_SecProtocols ${LANG_FARSI} "تخصیص پروتکل"
+
+LangString FILE_Htm ${LANG_FARSI} "HTM File"
+LangString FILE_Html ${LANG_FARSI} "HTML File"
 ;
 LangString DESC_SecMain ${LANG_FARSI} "بخش اصلی نرم‌افزار."
 LangString DESC_SecTranslations ${LANG_FARSI} "دیگر برگردان‌های دردسترس. پیش فرض انگلیسی است."
@@ -528,7 +531,6 @@ LangString PRODUCT_DESC ${LANG_TRADCHINESE} "QupZilla is a new, fast and secure 
 LangString PRODUCT_DESC ${LANG_SIMPCHINESE} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_INDONESIAN} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_GEORGIAN} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
-LangString PRODUCT_DESC ${LANG_JAPANESE} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_SWEDISH} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_UKRAINIAN} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 
@@ -541,7 +543,6 @@ LangString TITLE_SecSetASDefault ${LANG_TRADCHINESE} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_SIMPCHINESE} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_INDONESIAN} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_GEORGIAN} "Default Browser"
-LangString TITLE_SecSetASDefault ${LANG_JAPANESE} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_SWEDISH} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_UKRAINIAN} "Default Browser"
 
@@ -554,7 +555,6 @@ LangString TITLE_SecProtocols ${LANG_TRADCHINESE} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_SIMPCHINESE} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_INDONESIAN} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_GEORGIAN} "Protocol Associations"
-LangString TITLE_SecProtocols ${LANG_JAPANESE} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_SWEDISH} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_UKRAINIAN} "Protocol Associations"
 
@@ -567,7 +567,6 @@ LangString DESC_SecSetASDefault ${LANG_TRADCHINESE} "Set Qupzilla as default int
 LangString DESC_SecSetASDefault ${LANG_SIMPCHINESE} "Set Qupzilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_INDONESIAN} "Set Qupzilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_GEORGIAN} "Set Qupzilla as default internet browser"
-LangString DESC_SecSetASDefault ${LANG_JAPANESE} "Set Qupzilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_SWEDISH} "Set Qupzilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_UKRAINIAN} "Set Qupzilla as default internet browser"
 
@@ -580,7 +579,6 @@ LangString DESC_SecProtocols ${LANG_TRADCHINESE} "Associate QupZilla with http(s
 LangString DESC_SecProtocols ${LANG_SIMPCHINESE} "Associate QupZilla with http(s) and ftp protocols"
 LangString DESC_SecProtocols ${LANG_INDONESIAN} "Associate QupZilla with http(s) and ftp protocols"
 LangString DESC_SecProtocols ${LANG_GEORGIAN} "Associate QupZilla with http(s) and ftp protocols"
-LangString DESC_SecProtocols ${LANG_JAPANESE} "Associate QupZilla with http(s) and ftp protocols"
 LangString DESC_SecProtocols ${LANG_SWEDISH} "Associate QupZilla with http(s) and ftp protocols"
 LangString DESC_SecProtocols ${LANG_UKRAINIAN} "Associate QupZilla with http(s) and ftp protocols"
 
@@ -593,7 +591,6 @@ LangString MSG_RunningInstance ${LANG_TRADCHINESE} "QupZilla is already running!
 LangString MSG_RunningInstance ${LANG_SIMPCHINESE} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_INDONESIAN} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_GEORGIAN} "QupZilla is already running! Do you want the installer try to terminate it?"
-LangString MSG_RunningInstance ${LANG_JAPANESE} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_SWEDISH} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_UKRAINIAN} "QupZilla is already running! Do you want the installer try to terminate it?"
 
@@ -606,6 +603,5 @@ LangString MSG_InstallationCanceled ${LANG_TRADCHINESE} "Process cancelled by us
 LangString MSG_InstallationCanceled ${LANG_SIMPCHINESE} "Process cancelled by user."
 LangString MSG_InstallationCanceled ${LANG_INDONESIAN} "Process cancelled by user."
 LangString MSG_InstallationCanceled ${LANG_GEORGIAN} "Process cancelled by user."
-LangString MSG_InstallationCanceled ${LANG_JAPANESE} "Process cancelled by user."
 LangString MSG_InstallationCanceled ${LANG_SWEDISH} "Process cancelled by user."
 LangString MSG_InstallationCanceled ${LANG_UKRAINIAN} "Process cancelled by user."
