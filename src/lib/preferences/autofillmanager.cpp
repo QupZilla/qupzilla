@@ -117,17 +117,20 @@ void AutoFillManager::changePasswordBackend()
         Settings settings;
         settings.beginGroup("PasswordManager");
 
+        PasswordBackend* backend = 0;
         foreach (const QString &key, backends.keys()) {
             if (backends[key]->name() == item) {
+                backend = backends[key];
                 settings.setValue("Backend", key);
                 break;
             }
         }
 
         settings.endGroup();
+
+        mApp->autoFill()->passwordManager()->switchBackend(backend);
     }
 
-    mApp->autoFill()->passwordManager()->loadSettings();
     QTimer::singleShot(0, this, SLOT(loadPasswords()));
 }
 

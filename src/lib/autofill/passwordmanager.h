@@ -67,6 +67,7 @@ public:
 
     QHash<QString, PasswordBackend*> availableBackends() const;
     PasswordBackend* activeBackend() const;
+    void switchBackend(PasswordBackend* backend);
 
     bool registerBackend(const QString &id, PasswordBackend* backend);
     void unregisterBackend(PasswordBackend* backend);

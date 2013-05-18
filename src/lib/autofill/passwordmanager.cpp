@@ -126,6 +126,17 @@ PasswordBackend* PasswordManager::activeBackend() const
     return m_backend;
 }
 
+void PasswordManager::switchBackend(PasswordBackend* backend)
+{
+    if (!backend) {
+        return;
+    }
+
+    m_backend->setActive(false);
+    m_backend = backend;
+    m_backend->setActive(true);
+}
+
 bool PasswordManager::registerBackend(const QString &id, PasswordBackend* backend)
 {
     if (m_backends.contains(id)) {
