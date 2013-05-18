@@ -34,6 +34,7 @@
 AutoFillManager::AutoFillManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::AutoFillManager)
+    , m_passwordManager(mApp->autoFill()->passwordManager())
     , m_passwordsShown(false)
 {
     ui->setupUi(this);
@@ -44,6 +45,7 @@ AutoFillManager::AutoFillManager(QWidget* parent)
     connect(ui->showPasswords, SIGNAL(clicked()), this, SLOT(showPasswords()));
     connect(ui->search, SIGNAL(textChanged(QString)), ui->treePass, SLOT(filterString(QString)));
     connect(ui->changeBackend, SIGNAL(clicked()), this, SLOT(changePasswordBackend()));
+    connect(ui->backendOptions, SIGNAL(clicked()), this, SLOT(showBackendOptions()));
 
     connect(ui->removeExcept, SIGNAL(clicked()), this, SLOT(removeExcept()));
     connect(ui->removeAllExcept, SIGNAL(clicked()), this, SLOT(removeAllExcept()));
@@ -56,7 +58,8 @@ AutoFillManager::AutoFillManager(QWidget* parent)
     ui->search->setPlaceholderText(tr("Search"));
 
     // Password backends
-    ui->currentBackend->setText(QString("<b>%1</b>").arg(mApp->autoFill()->passwordManager()->activeBackend()->name()));
+    ui->currentBackend->setText(QString("<b>%1</b>").arg(m_passwordManager->activeBackend()->name()));
+    ui->backendOptions->setVisible(m_passwordManager->activeBackend()->hasSettings());
 
     // Load passwords
     QTimer::singleShot(0, this, SLOT(loadPasswords()));
@@ -98,13 +101,13 @@ void AutoFillManager::loadPasswords()
 
 void AutoFillManager::changePasswordBackend()
 {
-    QHash<QString, PasswordBackend*> backends = mApp->autoFill()->passwordManager()->availableBackends();
+    QHash<QString, PasswordBackend*> backends = m_passwordManager->availableBackends();
     QStringList items;
 
     int current = 0;
 
     foreach (const QString &key, backends.keys()) {
-        if (backends[key] == mApp->autoFill()->passwordManager()->activeBackend()) {
+        if (backends[key] == m_passwordManager->activeBackend()) {
             current = items.size();
         }
 
@@ -128,10 +131,22 @@ void AutoFillManager::changePasswordBackend()
 
         settings.endGroup();
 
-        mApp->autoFill()->passwordManager()->switchBackend(backend);
+        if (backend) {
+            m_passwordManager->switchBackend(backend);
+            ui->backendOptions->setVisible(backend);
+        }
     }
 
     QTimer::singleShot(0, this, SLOT(loadPasswords()));
+}
+
+void AutoFillManager::showBackendOptions()
+{
+    PasswordBackend* backend = m_passwordManager->activeBackend();
+
+    if (backend->hasSettings()) {
+        backend->showSettings(this);
+    }
 }
 
 void AutoFillManager::showPasswords()

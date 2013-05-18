@@ -20,6 +20,8 @@
 
 #include "passwordmanager.h"
 
+class QWidget;
+
 class PasswordBackend
 {
 public:
@@ -40,6 +42,9 @@ public:
 
     virtual void setActive(bool active);
     bool isActive() const;
+
+    virtual bool hasSettings() const;
+    virtual void showSettings(QWidget* parent);
 
 private:
     bool m_active;

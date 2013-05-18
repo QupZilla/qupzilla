@@ -31,3 +31,13 @@ bool PasswordBackend::isActive() const
 {
     return m_active;
 }
+
+bool PasswordBackend::hasSettings() const
+{
+    return false;
+}
+
+void PasswordBackend::showSettings(QWidget* parent)
+{
+    Q_UNUSED(parent)
+}

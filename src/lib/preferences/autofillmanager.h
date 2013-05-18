@@ -22,6 +22,8 @@
 
 #include "qz_namespace.h"
 
+class PasswordManager;
+
 namespace Ui
 {
 class AutoFillManager;
@@ -40,6 +42,7 @@ public:
 private slots:
     void loadPasswords();
     void changePasswordBackend();
+    void showBackendOptions();
 
     void removePass();
     void removeAllPass();
@@ -55,6 +58,7 @@ private slots:
 private:
     Ui::AutoFillManager* ui;
 
+    PasswordManager* m_passwordManager;
     bool m_passwordsShown;
 };
 
