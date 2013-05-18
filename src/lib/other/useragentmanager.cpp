@@ -53,13 +53,6 @@ QString UserAgentManager::userAgentForUrl(const QUrl &url) const
 {
     const QString &host = url.host();
 
-#ifdef Q_OS_WIN
-    // Facebook chat is not working with default user-agent
-    if (host == QLatin1String("facebook.com")) {
-        return "Mozilla/5.0 (Windows XP) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7";
-    }
-#endif
-
     if (m_usePerDomainUserAgent) {
         QHashIterator<QString, QString> i(m_userAgentsList);
         while (i.hasNext()) {
@@ -75,6 +68,14 @@ QString UserAgentManager::userAgentForUrl(const QUrl &url) const
         return m_fakeUserAgent;
     }
 #endif
+
+#ifdef Q_OS_WIN
+    // Facebook chat is not working with default user-agent
+    if (host.endsWith(QLatin1String("facebook.com"))) {
+        return "Mozilla/5.0 (Windows XP) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7";
+    }
+#endif
+
 
     return m_globalUserAgent;
 }
