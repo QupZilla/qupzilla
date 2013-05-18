@@ -299,6 +299,10 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\sr_RS.qm"
   File "locale\qt_sr_BA.qm"
   File "locale\qt_sr_RS.qm"
+  File "locale\sr_BA@latin.qm"
+  File "locale\sr_RS@latin.qm"
+  File "locale\qt_sr_BA@latin.qm"
+  File "locale\qt_sr_RS@latin.qm"
   SetOutPath "$INSTDIR\hunspell"
   File "wininstall\hunspell\sr.aff"
   File "wininstall\hunspell\sr.dic"
@@ -536,7 +540,7 @@ Function .onInit
         Push ${LANG_SERBIAN}
         Push Serbian
         Push ${LANG_SERBIANLATIN}
-        Push Serbian Latin
+        Push SerbianLatin
         Push ${LANG_FARSI}
         Push Persian
         Push ${LANG_HEBREW}
