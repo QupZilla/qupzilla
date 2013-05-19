@@ -106,25 +106,30 @@ void AutoFillManager::changePasswordBackend()
 
     int current = 0;
 
-    foreach (const QString &key, backends.keys()) {
-        if (backends[key] == m_passwordManager->activeBackend()) {
+    QHashIterator<QString, PasswordBackend*> i(backends);
+    while (i.hasNext()) {
+        i.next();
+        if (i.value() == m_passwordManager->activeBackend()) {
             current = items.size();
         }
-
-        items << backends[key]->name();
+        items << i.value()->name();
     }
 
     QString item = QInputDialog::getItem(this, tr("Change backend..."), tr("Change backend:"), items, current, false);
 
+    // Switch backends
     if (!item.isEmpty()) {
         Settings settings;
         settings.beginGroup("PasswordManager");
 
         PasswordBackend* backend = 0;
-        foreach (const QString &key, backends.keys()) {
-            if (backends[key]->name() == item) {
-                backend = backends[key];
-                settings.setValue("Backend", key);
+
+        QHashIterator<QString, PasswordBackend*> i(backends);
+        while (i.hasNext()) {
+            i.next();
+            if (i.value()->name() == item) {
+                backend = i.value();
+                settings.setValue("Backend", i.key());
                 break;
             }
         }
@@ -133,7 +138,8 @@ void AutoFillManager::changePasswordBackend()
 
         if (backend) {
             m_passwordManager->switchBackend(backend);
-            ui->backendOptions->setVisible(backend);
+            ui->backendOptions->setVisible(backend->hasSettings());
+            ui->currentBackend->setText(QString("<b>%1</b>").arg(backend->name()));
         }
     }
 
