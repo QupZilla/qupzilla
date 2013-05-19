@@ -1306,6 +1306,19 @@ void WebView::keyPressEvent(QKeyEvent* event)
         }
         break;
 
+    case Qt::Key_Insert:
+        if (event->modifiers() == Qt::ControlModifier) {
+            triggerPageAction(QWebPage::Copy);
+            event->accept();
+            return;
+        }
+        if (event->modifiers() == Qt::ShiftModifier) {
+            triggerPageAction(QWebPage::Paste);
+            event->accept();
+            return;
+        }
+        break;
+
     default:
         break;
     }
