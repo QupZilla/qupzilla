@@ -412,7 +412,7 @@ QString QupZillaSchemeReply::configPage()
         QString w7APIEnabled = tr("Disabled");
 #endif
 
-#if defined(QZ_WS_X11) && defined(KDE)
+#if defined(QZ_WS_X11) && defined(KDE_INTEGRATION)
         QString KDEIntegration = tr("<b>Enabled</b>");
 #else
         QString KDEIntegration = tr("Disabled");

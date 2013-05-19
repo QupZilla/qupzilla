@@ -31,7 +31,16 @@ Microsoft Windows
 Linux / Unix
 ----------------------------------------------------------------------------------
 
-  There is no extra dependency, you only need Qt tools.
+  There is no required extra dependency, you only need Qt tools.
+
+  To build spellcheck plugin, you need:
+     - QtWebKit 2.3 or higher
+     - pkg-config installed
+     - libhunspell-dev installed
+
+  To build KWallet plugin, you need:
+     - kdelibs-dev installed
+     - set KDE_INTEGRATION build flag
 
 MAC OS X
 ----------------------------------------------------------------------------------
@@ -133,12 +142,12 @@ Available Defines
                           example:
                           $ export NO_X11="true"
 
-     KDE                  Enable KDE integration.
+     KDE_INTEGRATION      Enable KDE integration.
                           Currently it enables building of KWallet Password plugin,
                           which provides support for storing passwords in KWallet.
 
                           example:
-                          $ export KDE="true"
+                          $ export KDE_INTEGRATION="true"
 
      USE_LIBPATH          By default, /usr/lib/ is used for libQupZilla and /usr/lib/qupzilla
                           for plugins.
@@ -165,7 +174,8 @@ Available Defines
                           example:
                           $ export QUPZILLA_PREFIX="/usr/"
 
-     DISABLE_DBUS         Build without QtDBus module. Native desktop notifications will be disabled.
+     DISABLE_DBUS         Build without QtDBus module. Native desktop notifications
+                          will be disabled.
 
                           example:
                           $ export DISABLE_DBUS="true"

@@ -1,6 +1,6 @@
 include(../../defines.pri)
 
-contains(DEFINES, "KDE") {
+contains(DEFINES, "KDE_INTEGRATION") {
     TARGET = $$qtLibraryTarget(KWalletPasswords)
 
     SOURCES += kwalletplugin.cpp \

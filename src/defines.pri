@@ -65,7 +65,8 @@ CONFIG(debug, debug|release): DEFINES *= QUPZILLA_DEBUG_BUILD
 d_no_system_datapath = $$(NO_SYSTEM_DATAPATH)
 d_use_webgl = $$(USE_WEBGL)
 d_w7api = $$(W7API)
-d_kde = $$(KDE)
+d_kde = $$(KDE) # Backwards compatibility
+d_kde_integration = $$(KDE_INTEGRATION)
 d_nox11 = $$(NO_X11)
 d_portable = $$(PORTABLE_BUILD)
 d_nonblock_dialogs = $$(NONBLOCK_JS_DIALOGS)
@@ -79,6 +80,7 @@ win32-msvc* {
     equals(d_w7api, "true") { DEFINES *= W7API }
 }
 equals(d_kde, "true") { DEFINES *= KDE }
+equals(d_kde_integration, "true") { DEFINES *= KDE }
 equals(d_nox11, "true") { DEFINES *= NO_X11 }
 equals(d_portable, "true") { DEFINES *= PORTABLE_BUILD }
 equals(d_nonblock_dialogs, "true") { DEFINES *= NONBLOCK_JS_DIALOGS }
