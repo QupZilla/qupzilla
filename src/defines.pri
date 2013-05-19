@@ -79,8 +79,8 @@ equals(d_use_webgl, "true") { DEFINES *= USE_WEBGL }
 win32-msvc* {
     equals(d_w7api, "true") { DEFINES *= W7API }
 }
-equals(d_kde, "true") { DEFINES *= KDE }
-equals(d_kde_integration, "true") { DEFINES *= KDE }
+equals(d_kde, "true") { DEFINES *= KDE_INTEGRATION }
+equals(d_kde_integration, "true") { DEFINES *= KDE_INTEGRATION }
 equals(d_nox11, "true") { DEFINES *= NO_X11 }
 equals(d_portable, "true") { DEFINES *= PORTABLE_BUILD }
 equals(d_nonblock_dialogs, "true") { DEFINES *= NONBLOCK_JS_DIALOGS }
