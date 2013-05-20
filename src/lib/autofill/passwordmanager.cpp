@@ -170,6 +170,14 @@ QString PasswordManager::createHost(const QUrl &url)
     return host;
 }
 
+QByteArray PasswordManager::urlEncodePassword(const QString &password)
+{
+    // Exclude space to properly decode to +
+    QByteArray encodedPass = QUrl::toPercentEncoding(password, " ");
+    encodedPass.replace(' ', '+');
+    return encodedPass;
+}
+
 void PasswordManager::ensureLoaded()
 {
     if (!m_loaded) {

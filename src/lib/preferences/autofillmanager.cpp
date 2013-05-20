@@ -230,8 +230,8 @@ void AutoFillManager::editPass()
     QString text = QInputDialog::getText(this, tr("Edit password"), tr("Change password:"), QLineEdit::Normal, entry.password, &ok);
 
     if (ok && !text.isEmpty()) {
-        QByteArray oldPass = "=" + QUrl::toPercentEncoding(entry.password);
-        entry.data.replace(oldPass, "=" + QUrl::toPercentEncoding(text.toUtf8()));
+        QByteArray oldPass = "=" + PasswordManager::urlEncodePassword(entry.password);
+        entry.data.replace(oldPass, "=" + PasswordManager::urlEncodePassword(text));
         entry.password = text;
 
         QVariant v;

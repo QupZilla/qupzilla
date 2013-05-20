@@ -25,13 +25,6 @@ extern "C" {
 #include "gnome-keyring.h"
 }
 
-static QByteArray urlEncodePassword(const QString &password)
-{
-    QByteArray encodedPass = QUrl::toPercentEncoding(password);
-    encodedPass.replace(' ', '+');
-    return encodedPass;
-}
-
 static PasswordEntry createEntry(GnomeKeyringFound* item)
 {
     PasswordEntry entry;
@@ -55,7 +48,7 @@ static PasswordEntry createEntry(GnomeKeyringFound* item)
         }
     }
 
-    entry.data.replace(QByteArray("___PASSWORD-VALUE___"), urlEncodePassword(entry.password));
+    entry.data.replace(QByteArray("___PASSWORD-VALUE___"), PasswordManager::urlEncodePassword(entry.password));
 
     return entry;
 }
@@ -70,7 +63,7 @@ static GnomeKeyringAttributeList* createAttributes(const PasswordEntry &entry)
     gnome_keyring_attribute_list_append_string(attributes, "username", value.constData());
 
     value = entry.data;
-    value.replace(urlEncodePassword(entry.password), "___PASSWORD-VALUE___");
+    value.replace(PasswordManager::urlEncodePassword(entry.password), "___PASSWORD-VALUE___");
     gnome_keyring_attribute_list_append_string(attributes, "data", value.constData());
 
     value = entry.host.toUtf8();

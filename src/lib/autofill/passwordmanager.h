@@ -80,6 +80,7 @@ public:
     void unregisterBackend(PasswordBackend* backend);
 
     static QString createHost(const QUrl &url);
+    static QByteArray urlEncodePassword(const QString &password);
 
 private:
     void ensureLoaded();
