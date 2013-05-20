@@ -32,7 +32,7 @@ public:
 
     void addEntry(const PasswordEntry &entry);
     void updateEntry(const PasswordEntry &entry);
-    void updateLastUsed(const PasswordEntry &entry);
+    void updateLastUsed(PasswordEntry &entry);
 
     void removeEntry(const PasswordEntry &entry);
     void removeAll();

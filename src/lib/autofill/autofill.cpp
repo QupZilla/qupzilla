@@ -109,7 +109,7 @@ QVector<PasswordEntry> AutoFill::getAllFormData()
     return m_manager->getAllEntries();
 }
 
-void AutoFill::updateLastUsed(const PasswordEntry &data)
+void AutoFill::updateLastUsed(PasswordEntry &data)
 {
     m_manager->updateLastUsed(data);
 }
@@ -225,20 +225,21 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
         return;
     }
 
-    PasswordEntry updateData = { -1, QString(), QString(), QString(), QByteArray() };
+    PasswordEntry updateData;
 
     if (isStored(siteUrl)) {
         const QVector<PasswordEntry> &list = getFormData(siteUrl);
 
         foreach (const PasswordEntry &data, list) {
             if (data.username == formData.username) {
-                updateLastUsed(data);
+                updateData = data;
+                updateLastUsed(updateData);
 
                 if (data.password == formData.password) {
+                    updateData.password.clear();
                     return;
                 }
 
-                updateData = data;
                 updateData.username = formData.username;
                 updateData.password = formData.password;
                 updateData.data = formData.postData;

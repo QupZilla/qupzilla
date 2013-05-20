@@ -33,6 +33,9 @@ struct QT_QUPZILLA_EXPORT PasswordEntry {
     QString username;
     QString password;
     QByteArray data;
+    int updated;
+
+    PasswordEntry() : updated(-1) { }
 
     bool isValid() const {
         return !password.isEmpty();
@@ -42,8 +45,12 @@ struct QT_QUPZILLA_EXPORT PasswordEntry {
         return id == other.id;
     }
 
-    friend QT_QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const PasswordEntry &tab);
-    friend QT_QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, PasswordEntry &tab);
+    bool operator<(const PasswordEntry &other) const {
+        return updated > other.updated;
+    }
+
+    friend QT_QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const PasswordEntry &entry);
+    friend QT_QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, PasswordEntry &entry);
 };
 
 class QT_QUPZILLA_EXPORT PasswordManager : public QObject
@@ -60,7 +67,7 @@ public:
 
     void addEntry(const PasswordEntry &entry);
     void updateEntry(const PasswordEntry &entry);
-    void updateLastUsed(const PasswordEntry &entry);
+    void updateLastUsed(PasswordEntry &entry);
 
     void removeEntry(const PasswordEntry &entry);
     void removeAllEntries();

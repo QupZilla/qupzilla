@@ -47,7 +47,7 @@ public:
     QVector<PasswordEntry> getFormData(const QUrl &url);
     QVector<PasswordEntry> getAllFormData();
 
-    void updateLastUsed(const PasswordEntry &data);
+    void updateLastUsed(PasswordEntry &data);
 
     void addEntry(const QUrl &url, const QString &name, const QString &pass);
     void addEntry(const QUrl &url, const PageFormData &formData);

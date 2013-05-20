@@ -107,22 +107,22 @@ void KWalletPasswordBackend::updateEntry(const PasswordEntry &entry)
     }
 }
 
-void KWalletPasswordBackend::updateLastUsed(const PasswordEntry &entry)
+void KWalletPasswordBackend::updateLastUsed(PasswordEntry &entry)
 {
     initialize();
 
     QString id = QString("%1/%2").arg(entry.host, QString::number(QDateTime::currentDateTime().toTime_t()));
 
-    PasswordEntry stored = entry;
-    stored.id = id;
-
     m_wallet->removeEntry(entry.id.toString());
-    m_wallet->writeEntry(stored.id.toString(), encodeEntry(stored));
 
     int index = m_allEntries.indexOf(entry);
+    entry.id = id;
+
+    m_wallet->writeEntry(entry.id.toString(), encodeEntry(entry));
+
 
     if (index > -1) {
-        m_allEntries[index] = stored;
+        m_allEntries[index] = entry;
     }
 }
 

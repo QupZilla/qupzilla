@@ -22,21 +22,22 @@
 
 #include <QVector>
 
-static const int passwordEntryVersion = 1;
+static const int passwordEntryVersion = 2;
 
-QDataStream &operator <<(QDataStream &stream, const PasswordEntry &tab)
+QDataStream &operator <<(QDataStream &stream, const PasswordEntry &entry)
 {
     stream << passwordEntryVersion;
-    stream << tab.host;
-    stream << tab.id;
-    stream << tab.username;
-    stream << tab.password;
-    stream << tab.data;
+    stream << entry.host;
+    stream << entry.id;
+    stream << entry.username;
+    stream << entry.password;
+    stream << entry.data;
+    stream << entry.updated;
 
     return stream;
 }
 
-QDataStream &operator >>(QDataStream &stream, PasswordEntry &tab)
+QDataStream &operator >>(QDataStream &stream, PasswordEntry &entry)
 {
     int version;
     stream >> version;
@@ -45,11 +46,12 @@ QDataStream &operator >>(QDataStream &stream, PasswordEntry &tab)
         return stream;
     }
 
-    stream >> tab.host;
-    stream >> tab.id;
-    stream >> tab.username;
-    stream >> tab.password;
-    stream >> tab.data;
+    stream >> entry.host;
+    stream >> entry.id;
+    stream >> entry.username;
+    stream >> entry.password;
+    stream >> entry.data;
+    stream >> entry.updated;
 
     return stream;
 }
@@ -98,7 +100,7 @@ void PasswordManager::updateEntry(const PasswordEntry &entry)
     m_backend->updateEntry(entry);
 }
 
-void PasswordManager::updateLastUsed(const PasswordEntry &entry)
+void PasswordManager::updateLastUsed(PasswordEntry &entry)
 {
     ensureLoaded();
     m_backend->updateLastUsed(entry);

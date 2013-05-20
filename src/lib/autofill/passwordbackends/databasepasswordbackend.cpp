@@ -128,7 +128,7 @@ void DatabasePasswordBackend::updateEntry(const PasswordEntry &entry)
     mApp->dbWriter()->executeQuery(query);
 }
 
-void DatabasePasswordBackend::updateLastUsed(const PasswordEntry &entry)
+void DatabasePasswordBackend::updateLastUsed(PasswordEntry &entry)
 {
     QSqlQuery query;
     query.prepare("UPDATE autofill SET last_used=strftime('%s', 'now') WHERE id=?");
