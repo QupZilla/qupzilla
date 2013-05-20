@@ -178,7 +178,10 @@ void KWalletPasswordBackend::initialize()
 
     QMap<QString, QByteArray>::const_iterator i = entries.constBegin();
     while (i != entries.constEnd()) {
-        m_allEntries.append(decodeEntry(i.value()));
+        PasswordEntry entry = decodeEntry(i.value());
+        if (entry.isValid()) {
+            m_allEntries.append(entry);
+        }
         ++i;
     }
 }

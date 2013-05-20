@@ -34,7 +34,7 @@ PluginSpec KWalletPlugin::pluginSpec()
     spec.name = "KWallet Passwords";
     spec.info = "KWallet password backend";
     spec.description = "Provides support for storing passwords in KWallet";
-    spec.version = "0.1.0";
+    spec.version = "0.1.2";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":kwp/data/icon.png");
     spec.hasSettings = false;
