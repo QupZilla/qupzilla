@@ -1,19 +1,17 @@
 include(../../defines.pri)
 
-!mac:unix:contains(DEFINES, "KDE_INTEGRATION") {
-    TARGET = $$qtLibraryTarget(KWalletPasswords)
+TARGET = $$qtLibraryTarget(KWalletPasswords)
 
-    SOURCES += kwalletplugin.cpp \
-        kwalletpasswordbackend.cpp
+SOURCES += kwalletplugin.cpp \
+    kwalletpasswordbackend.cpp
 
-    HEADERS += kwalletplugin.h \
-        kwalletpasswordbackend.h
+HEADERS += kwalletplugin.h \
+    kwalletpasswordbackend.h
 
-    RESOURCES += kwalletpasswords.qrc
+RESOURCES += kwalletpasswords.qrc
 
-    TRANSLATIONS = translations/cs_CZ.ts \
+TRANSLATIONS = translations/cs_CZ.ts \
 
-    LIBS += -lkdeui
-}
+LIBS += -lkdeui
 
 include(../../plugins.pri)
