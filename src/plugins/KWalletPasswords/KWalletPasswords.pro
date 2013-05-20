@@ -11,6 +11,10 @@ HEADERS += kwalletplugin.h \
 RESOURCES += kwalletpasswords.qrc
 
 TRANSLATIONS = translations/cs_CZ.ts \
+               translations/sr_BA.ts \
+               translations/sr_BA@latin.ts \
+               translations/sr_RS.ts \
+               translations/sr_RS@latin.ts
 
 LIBS += -lkdeui
 
