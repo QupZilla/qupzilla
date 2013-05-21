@@ -138,7 +138,7 @@ void FormCompleterTest::extractFormTest1()
 
     PageFormData form = extractFormData(html, data);
 
-    QVERIFY(form.found == true);
+    QVERIFY(form.isValid() == true);
     QCOMPARE(form.username, QString("tst_username"));
     QCOMPARE(form.password, QString("tst_password"));
 }
@@ -158,7 +158,7 @@ void FormCompleterTest::extractFormTest2()
 
     PageFormData form = extractFormData(html, data);
 
-    QVERIFY(form.found == true);
+    QVERIFY(form.isValid() == true);
     QCOMPARE(form.username, QString::fromUtf8("+ě ++ éí§`]|~đ11 +!:"));
     QCOMPARE(form.password, QString::fromUtf8("+ěš asn~đ°#&# |€"));
 }
@@ -184,7 +184,7 @@ void FormCompleterTest::extractFormTest3()
 
     PageFormData form = extractFormData(html + html2, data);
 
-    QVERIFY(form.found == true);
+    QVERIFY(form.isValid() == true);
     QCOMPARE(form.username, QString("tst_username"));
     QCOMPARE(form.password, QString("tst_password"));
 }
@@ -204,7 +204,7 @@ void FormCompleterTest::extractFormTest4()
 
     PageFormData form = extractFormData(html, data);
 
-    QVERIFY(form.found == true);
+    QVERIFY(form.isValid() == true);
     QCOMPARE(form.username, QString());
     QCOMPARE(form.password, QString("tst_password"));
 }
@@ -258,9 +258,26 @@ void FormCompleterTest::extractFormTest5()
 
     PageFormData form = extractFormData(html, data);
 
-    QVERIFY(form.found == true);
+    QVERIFY(form.isValid() == true);
     QCOMPARE(form.username, QString("user1"));
     QCOMPARE(form.password, QString("pass"));
+}
+
+void FormCompleterTest::extractFormTest6()
+{
+    // Not found form test
+
+    QByteArray data = "username=tst_username&password=tst_password";
+
+    QString html = "<form name='form1' method='post' action='foo.php'>"
+                   "<input id='id1' type='text' name='username' value='tst_username'>"
+                   "<input id='id2' type='password' name='passwordinvalid' value='tst_password'>"
+                   "<input type='submit' value='submit' name='submit'>"
+                   "</form>";
+
+    PageFormData form = extractFormData(html, data);
+
+    QVERIFY(form.isValid() == false);
 }
 
 void FormCompleterTest::completeWithData(const QString &html, const QByteArray &data)
