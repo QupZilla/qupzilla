@@ -102,8 +102,7 @@ void DatabasePasswordBackend::addEntry(const PasswordEntry &entry)
     query.bindValue(1, entry.data);
     query.bindValue(2, entry.username);
     query.bindValue(3, entry.password);
-
-    mApp->dbWriter()->executeQuery(query);
+    query.exec();
 }
 
 void DatabasePasswordBackend::updateEntry(const PasswordEntry &entry)
@@ -125,7 +124,7 @@ void DatabasePasswordBackend::updateEntry(const PasswordEntry &entry)
         query.addBindValue(entry.id);
     }
 
-    mApp->dbWriter()->executeQuery(query);
+    query.exec();
 }
 
 void DatabasePasswordBackend::updateLastUsed(PasswordEntry &entry)
@@ -133,8 +132,7 @@ void DatabasePasswordBackend::updateLastUsed(PasswordEntry &entry)
     QSqlQuery query;
     query.prepare("UPDATE autofill SET last_used=strftime('%s', 'now') WHERE id=?");
     query.addBindValue(entry.id);
-
-    mApp->dbWriter()->executeQuery(query);
+    query.exec();
 }
 
 void DatabasePasswordBackend::removeEntry(const PasswordEntry &entry)
@@ -142,14 +140,12 @@ void DatabasePasswordBackend::removeEntry(const PasswordEntry &entry)
     QSqlQuery query;
     query.prepare("DELETE FROM autofill WHERE id=?");
     query.addBindValue(entry.id);
-
-    mApp->dbWriter()->executeQuery(query);
+    query.exec();
 }
 
 void DatabasePasswordBackend::removeAll()
 {
     QSqlQuery query;
     query.prepare("DELETE FROM autofill");
-
-    mApp->dbWriter()->executeQuery(query);
+    query.exec();
 }
