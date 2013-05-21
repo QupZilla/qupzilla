@@ -22,6 +22,7 @@
 #include "adblocktest.h"
 #include "updatertest.h"
 #include "pactest.h"
+#include "passwordbackendtest.h"
 
 #include <QtTest/QtTest>
 
@@ -45,6 +46,10 @@ int main(int argc, char *argv[])
     RUN_TEST(AdBlockTest)
     RUN_TEST(UpdaterTest)
     RUN_TEST(PacTest)
+
+    RUN_TEST(DatabasePasswordBackendTest)
+    RUN_TEST(KWalletPasswordBackendTest)
+    RUN_TEST(GnomeKeyringPasswordBackendTest)
 
     return 0;
 }

@@ -10,6 +10,12 @@ TARGET = autotests
 !unix|mac: LIBS += -L$$PWD/../../bin -lQupZilla
 !mac:unix: LIBS += $$PWD/../../bin/libQupZilla.so
 
+# Link plugins for PasswordBackends
+!unix|mac: LIBS += -L$$PWD/../../bin/plugins -lGnomeKeyringPasswords -lKWalletPasswords
+!mac:unix: LIBS += $$PWD/../../bin/plugins/libGnomeKeyringPasswords.so \
+                   $$PWD/../../bin/plugins/libKWalletPasswords.so
+
+
 unix:contains(DEFINES, "NO_SYSTEM_DATAPATH"): QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}\\$\$ORIGIN
 
 include($$PWD/../../src/defines.pri)
@@ -52,7 +58,8 @@ HEADERS += \
     downloadstest.h \
     adblocktest.h \
     updatertest.h \
-    pactest.h
+    pactest.h \
+    passwordbackendtest.h
 
 SOURCES += \
     qztoolstest.cpp \
@@ -62,4 +69,5 @@ SOURCES += \
     downloadstest.cpp \
     adblocktest.cpp \
     updatertest.cpp \
-    pactest.cpp
+    pactest.cpp \
+    passwordbackendtest.cpp
