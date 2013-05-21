@@ -48,11 +48,6 @@ QString KWalletPasswordBackend::name() const
     return KWalletPlugin::tr("KWallet");
 }
 
-static bool compareEntries(const PasswordEntry &e1, const PasswordEntry &e2)
-{
-    return e1.id.toString() > e2.id.toString();
-}
-
 QVector<PasswordEntry> KWalletPasswordBackend::getEntries(const QUrl &url)
 {
     initialize();
@@ -68,7 +63,7 @@ QVector<PasswordEntry> KWalletPasswordBackend::getEntries(const QUrl &url)
     }
 
     // Sort to prefer last updated entries
-    qSort(list.begin(), list.end(), compareEntries);
+    qSort(list.begin(), list.end());
 
     return list;
 }
@@ -84,10 +79,9 @@ void KWalletPasswordBackend::addEntry(const PasswordEntry &entry)
 {
     initialize();
 
-    QString id = QString("%1/%2").arg(entry.host, QString::number(QDateTime::currentDateTime().toTime_t()));
-
     PasswordEntry stored = entry;
-    stored.id = id;
+    stored.id = QString("%1/%2").arg(entry.host, entry.username);
+    stored.updated = QDateTime::currentDateTime().toTime_t();
 
     m_wallet->writeEntry(stored.id.toString(), encodeEntry(stored));
     m_allEntries.append(stored);
@@ -111,15 +105,13 @@ void KWalletPasswordBackend::updateLastUsed(PasswordEntry &entry)
 {
     initialize();
 
-    QString id = QString("%1/%2").arg(entry.host, QString::number(QDateTime::currentDateTime().toTime_t()));
-
     m_wallet->removeEntry(entry.id.toString());
 
-    int index = m_allEntries.indexOf(entry);
-    entry.id = id;
+    entry.updated = QDateTime::currentDateTime().toTime_t();
 
     m_wallet->writeEntry(entry.id.toString(), encodeEntry(entry));
 
+    int index = m_allEntries.indexOf(entry);
 
     if (index > -1) {
         m_allEntries[index] = entry;
@@ -142,6 +134,8 @@ void KWalletPasswordBackend::removeEntry(const PasswordEntry &entry)
 void KWalletPasswordBackend::removeAll()
 {
     initialize();
+
+    m_allEntries.clear();
 
     m_wallet->removeFolder("QupZilla");
     m_wallet->createFolder("QupZilla");

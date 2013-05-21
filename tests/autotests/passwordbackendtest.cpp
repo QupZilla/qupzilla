@@ -62,6 +62,7 @@ void PasswordBackendTest::initTestCase()
     // Backup entries
     reloadBackend();
     m_entries = m_backend->getAllEntries();
+    m_backend->removeAll();
 }
 
 void PasswordBackendTest::cleanupTestCase()
@@ -192,6 +193,13 @@ void PasswordBackendTest::updateLastUsedTest()
     QVERIFY(compareEntries(entry, m_backend->getEntries(QUrl("org.qupzilla.google.com")).first()));
     reloadBackend();
     QVERIFY(compareEntries(entry, m_backend->getEntries(QUrl("org.qupzilla.google.com")).first()));
+
+    m_backend->removeEntry(m_backend->getEntries(QUrl("org.qupzilla.google.com")).first());
+    m_backend->removeEntry(m_backend->getEntries(QUrl("org.qupzilla.google.com")).first());
+
+    QCOMPARE(m_backend->getAllEntries().count(), 0);
+    reloadBackend();
+    QCOMPARE(m_backend->getAllEntries().count(), 0);
 }
 
 
