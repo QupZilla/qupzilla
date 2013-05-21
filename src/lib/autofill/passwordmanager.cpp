@@ -174,7 +174,8 @@ QByteArray PasswordManager::urlEncodePassword(const QString &password)
 {
     // Exclude space to properly decode to +
     QByteArray encodedPass = QUrl::toPercentEncoding(password, " ");
-    encodedPass.replace(' ', '+');
+    encodedPass.replace(' ', '+'); // space has to be encoded to +
+    encodedPass.replace('~', "%7E"); // ~ is unreserved char, needs to be manually encoded
     return encodedPass;
 }
 

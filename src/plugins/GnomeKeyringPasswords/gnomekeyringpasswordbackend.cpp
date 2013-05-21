@@ -29,16 +29,16 @@ static PasswordEntry createEntry(GnomeKeyringFound* item)
 {
     PasswordEntry entry;
     entry.id = item->item_id;
-    entry.password = item->secret;
+    entry.password = QString::fromUtf8(item->secret);
 
     for (unsigned i = 0; i < item->attributes->len; ++i) {
         GnomeKeyringAttribute attr = g_array_index(item->attributes, GnomeKeyringAttribute, i);
 
         if (strcmp(attr.name, "host") == 0) {
-            entry.host = attr.value.string;
+            entry.host = QString::fromUtf8(attr.value.string);
         }
         else if (strcmp(attr.name, "username") == 0) {
-            entry.username = attr.value.string;
+            entry.username = QString::fromUtf8(attr.value.string);
         }
         else if (strcmp(attr.name, "data") == 0) {
             entry.data = attr.value.string;
