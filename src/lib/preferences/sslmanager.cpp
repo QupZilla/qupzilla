@@ -201,6 +201,7 @@ void SSLManager::closeEvent(QCloseEvent* e)
     }
 
     mApp->networkManager()->setCertificatePaths(paths);
+    mApp->networkManager()->saveCertificates();
 
     QWidget::closeEvent(e);
 }

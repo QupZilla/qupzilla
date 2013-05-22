@@ -594,6 +594,16 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     }
 }
 
+void NetworkManager::setIgnoreAllWarnings(bool state)
+{
+    m_ignoreAllWarnings = state;
+}
+
+bool NetworkManager::isIgnoringAllWarnings()
+{
+    return m_ignoreAllWarnings;
+}
+
 NetworkProxyFactory* NetworkManager::proxyFactory() const
 {
     return m_proxyFactory;
