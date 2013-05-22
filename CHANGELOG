@@ -2,6 +2,7 @@ Version 1.4.4
     * not released yet
     * added ctrl/shift + insert shortcuts to copy/paste in webview
     * fixed: crash with Oxygen theme when closing windows with tabs on top
+    * fixed: saving IgnoreAllSSLWarnings option from SSLManager
 
 Version 1.4.3
     * released 9 May 2013

@@ -593,6 +593,16 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     }
 }
 
+void NetworkManager::setIgnoreAllWarnings(bool state)
+{
+    m_ignoreAllWarnings = state;
+}
+
+bool NetworkManager::isIgnoringAllWarnings()
+{
+    return m_ignoreAllWarnings;
+}
+
 bool NetworkManager::registerSchemeHandler(const QString &scheme, SchemeHandler* handler)
 {
     if (m_schemeHandlers.contains(scheme)) {

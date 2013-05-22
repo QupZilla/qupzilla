@@ -49,8 +49,8 @@ public:
     void setCertificatePaths(const QStringList &paths) { m_certPaths = paths; }
     QStringList certificatePaths() { return m_certPaths; }
 
-    void setIgnoreAllWarnings(bool state) { m_ignoreAllWarnings = state; }
-    bool isIgnoringAllWarnings() { return m_ignoreAllWarnings; }
+    void setIgnoreAllWarnings(bool state);
+    bool isIgnoringAllWarnings();
 
     bool registerSchemeHandler(const QString &scheme, SchemeHandler* handler);
 
