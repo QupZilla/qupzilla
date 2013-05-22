@@ -38,7 +38,7 @@ struct QT_QUPZILLA_EXPORT PasswordEntry {
     PasswordEntry() : updated(-1) { }
 
     bool isValid() const {
-        return !password.isEmpty();
+        return !password.isEmpty() && !host.isEmpty();
     }
 
     bool operator==(const PasswordEntry &other) const {

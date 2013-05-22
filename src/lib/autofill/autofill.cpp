@@ -264,17 +264,18 @@ QByteArray AutoFill::exportPasswords()
     stream.writeStartElement("passwords");
     stream.writeAttribute("version", "1.0");
 
-    QSqlQuery query;
-    query.exec("SELECT server, username, password, data FROM autofill");
-    while (query.next()) {
+    QVector<PasswordEntry> entries = m_manager->getAllEntries();
+
+    foreach (const PasswordEntry &entry, entries) {
         stream.writeStartElement("entry");
-        stream.writeTextElement("server", query.value(0).toString());
-        stream.writeTextElement("username", query.value(1).toString());
-        stream.writeTextElement("password", query.value(2).toString());
-        stream.writeTextElement("data", query.value(3).toString());
+        stream.writeTextElement("server", entry.host);
+        stream.writeTextElement("username", entry.username);
+        stream.writeTextElement("password", entry.password);
+        stream.writeTextElement("data", entry.data);
         stream.writeEndElement();
     }
 
+    QSqlQuery query;
     query.exec("SELECT server FROM autofill_exceptions");
     while (query.next()) {
         stream.writeStartElement("exception");
@@ -300,23 +301,20 @@ bool AutoFill::importPasswords(const QByteArray &data)
 
         if (xml.isStartElement()) {
             if (xml.name() == QLatin1String("entry")) {
-                QString server;
-                QString username;
-                QString password;
-                QByteArray data;
+                PasswordEntry entry;
 
                 while (xml.readNext()) {
                     if (xml.name() == QLatin1String("server")) {
-                        server = xml.readElementText();
+                        entry.host = xml.readElementText();
                     }
                     else if (xml.name() == QLatin1String("username")) {
-                        username = xml.readElementText();
+                        entry.username = xml.readElementText();
                     }
                     else if (xml.name() == QLatin1String("password")) {
-                        password = xml.readElementText();
+                        entry.password = xml.readElementText();
                     }
                     else if (xml.name() == QLatin1String("data")) {
-                        data = xml.readElementText().toUtf8();
+                        entry.data = xml.readElementText().toUtf8();
                     }
 
                     if (xml.isEndElement() && xml.name() == QLatin1String("entry")) {
@@ -324,21 +322,18 @@ bool AutoFill::importPasswords(const QByteArray &data)
                     }
                 }
 
-                if (!server.isEmpty() && !password.isEmpty() && !data.isEmpty()) {
-                    QSqlQuery query;
-                    query.prepare("SELECT id FROM autofill WHERE server=? AND password=? AND data=?");
-                    query.addBindValue(server);
-                    query.addBindValue(password);
-                    query.addBindValue(data);
-                    query.exec();
+                if (entry.isValid()) {
+                    bool containsEntry = false;
 
-                    if (!query.next()) {
-                        query.prepare("INSERT INTO autofill (server, username, password, data) VALUES (?,?,?,?)");
-                        query.addBindValue(server);
-                        query.addBindValue(username);
-                        query.addBindValue(password);
-                        query.addBindValue(data);
-                        query.exec();
+                    foreach (const PasswordEntry &e, m_manager->getEntries(QUrl(entry.host))) {
+                        if (e.username == entry.username) {
+                            containsEntry = true;
+                            break;
+                        }
+                    }
+
+                    if (!containsEntry) {
+                        m_manager->addEntry(entry);
                     }
                 }
             }
@@ -370,6 +365,7 @@ bool AutoFill::importPasswords(const QByteArray &data)
             }
         }
     }
+
     db.commit();
 
     return !xml.hasError();

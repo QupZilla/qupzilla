@@ -287,11 +287,15 @@ void AutoFillManager::importPasswords()
         return;
     }
 
-    bool status = AutoFill::importPasswords(file.readAll());
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    bool status = mApp->autoFill()->importPasswords(file.readAll());
     file.close();
 
     ui->importExportLabel->setText(status ? tr("Successfully imported") : tr("Error while importing!"));
     loadPasswords();
+
+    QApplication::restoreOverrideCursor();
 }
 
 void AutoFillManager::exportPasswords()
@@ -307,10 +311,14 @@ void AutoFillManager::exportPasswords()
         return;
     }
 
-    file.write(AutoFill::exportPasswords());
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    file.write(mApp->autoFill()->exportPasswords());
     file.close();
 
     ui->importExportLabel->setText(tr("Successfully exported"));
+
+    QApplication::restoreOverrideCursor();
 }
 
 AutoFillManager::~AutoFillManager()

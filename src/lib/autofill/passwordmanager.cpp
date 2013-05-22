@@ -191,4 +191,3 @@ PasswordManager::~PasswordManager()
 {
     delete m_databaseBackend;
 }
-

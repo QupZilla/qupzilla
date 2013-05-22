@@ -61,8 +61,8 @@ public:
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
     QVector<PasswordEntry> completePage(WebPage* page);
 
-    static QByteArray exportPasswords();
-    static bool importPasswords(const QByteArray &data);
+    QByteArray exportPasswords();
+    bool importPasswords(const QByteArray &data);
 
 private:
     PasswordManager* m_manager;
