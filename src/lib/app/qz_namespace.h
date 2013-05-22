@@ -18,6 +18,8 @@
 #ifndef QZ_NAMESPACE_H
 #define QZ_NAMESPACE_H
 
+#include <QFlags>
+
 #ifdef QUPZILLA_SHAREDLIBRARY
 #define QT_QUPZILLA_EXPORT Q_DECL_EXPORT
 #else
@@ -31,8 +33,6 @@
 #ifndef Q_LIKELY
 #define Q_LIKELY(x) x
 #endif
-
-#include <QFlags>
 
 namespace Qz
 {
