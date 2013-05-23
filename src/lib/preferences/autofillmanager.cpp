@@ -276,12 +276,30 @@ void AutoFillManager::showExceptions()
 
 void AutoFillManager::importPasswords()
 {
-    const QString &fileName = QFileDialog::getOpenFileName(this, tr("Choose file..."), QDir::homePath() + "/passwords.xml", "*.xml");
-    if (fileName.isEmpty()) {
+    m_fileName = QFileDialog::getOpenFileName(this, tr("Choose file..."), QDir::homePath() + "/passwords.xml", "*.xml");
+
+    if (m_fileName.isEmpty()) {
         return;
     }
 
-    QFile file(fileName);
+    QTimer::singleShot(0, this, SLOT(slotImportPasswords()));
+}
+
+void AutoFillManager::exportPasswords()
+{
+    m_fileName = QFileDialog::getSaveFileName(this, tr("Choose file..."), QDir::homePath() + "/passwords.xml", "*.xml");
+
+    if (m_fileName.isEmpty()) {
+        return;
+    }
+
+    QTimer::singleShot(0, this, SLOT(slotExportPasswords()));
+}
+
+void AutoFillManager::slotImportPasswords()
+{
+    QFile file(m_fileName);
+
     if (!file.open(QFile::ReadOnly)) {
         ui->importExportLabel->setText(tr("Cannot read file!"));
         return;
@@ -298,14 +316,10 @@ void AutoFillManager::importPasswords()
     QApplication::restoreOverrideCursor();
 }
 
-void AutoFillManager::exportPasswords()
+void AutoFillManager::slotExportPasswords()
 {
-    const QString &fileName = QFileDialog::getSaveFileName(this, tr("Choose file..."), QDir::homePath() + "/passwords.xml", "*.xml");
-    if (fileName.isEmpty()) {
-        return;
-    }
+    QFile file(m_fileName);
 
-    QFile file(fileName);
     if (!file.open(QFile::WriteOnly)) {
         ui->importExportLabel->setText(tr("Cannot write to file!"));
         return;

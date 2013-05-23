@@ -55,10 +55,14 @@ private slots:
     void importPasswords();
     void exportPasswords();
 
+    void slotImportPasswords();
+    void slotExportPasswords();
+
 private:
     Ui::AutoFillManager* ui;
 
     PasswordManager* m_passwordManager;
+    QString m_fileName;
     bool m_passwordsShown;
 };
 
