@@ -44,8 +44,10 @@ PluginSpec AKN_Plugin::pluginSpec()
     return spec;
 }
 
-void AKN_Plugin::init(const QString &sPath)
+void AKN_Plugin::init(InitState state, const QString &sPath)
 {
+    Q_UNUSED(state)
+
     m_handler = new AKN_Handler(sPath, this);
 
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::KeyPressHandler);

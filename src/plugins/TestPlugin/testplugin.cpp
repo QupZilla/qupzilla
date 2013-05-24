@@ -51,7 +51,7 @@ PluginSpec TestPlugin::pluginSpec()
     return spec;
 }
 
-void TestPlugin::init(const QString &sPath)
+void TestPlugin::init(InitState state, const QString &settingsPath)
 {
     qDebug() << __FUNCTION__ << "called";
 
@@ -62,7 +62,12 @@ void TestPlugin::init(const QString &sPath)
     // Settings path is PROFILE/extensions/, in this directory
     // you can use global .ini file for QSettings named "extensions.ini"
     // or create new folder for your plugin and save in it anything you want
-    m_settingsPath = sPath;
+    m_settingsPath = settingsPath;
+
+    // State can be either StartupInitState or LateInitState, and it
+    // indicates when the plugin have been loaded.
+    // Currently, it can be from preferences, or automatically at startup.
+    Q_UNUSED(state)
 
     // Registering this plugin as a MousePressHandler.
     // Otherwise mousePress() function will never be called

@@ -54,7 +54,7 @@ bool Plugins::loadPlugin(Plugins::Plugin* plugin)
     }
 
     m_availablePlugins.removeOne(*plugin);
-    plugin->instance = initPlugin(iPlugin, plugin->pluginLoader);
+    plugin->instance = initPlugin(PluginInterface::LateInitState, iPlugin, plugin->pluginLoader);
     m_availablePlugins.prepend(*plugin);
 
     refreshLoadedPlugins();
@@ -140,7 +140,7 @@ void Plugins::loadPlugins()
         Plugin plugin;
         plugin.fullPath = fullPath;
         plugin.pluginLoader = loader;
-        plugin.instance = initPlugin(iPlugin, loader);
+        plugin.instance = initPlugin(PluginInterface::StartupInitState, iPlugin, loader);
 
         if (plugin.isLoaded()) {
             plugin.pluginSpec = iPlugin->pluginSpec();
@@ -211,13 +211,13 @@ void Plugins::loadAvailablePlugins()
     }
 }
 
-PluginInterface* Plugins::initPlugin(PluginInterface* interface, QPluginLoader* loader)
+PluginInterface* Plugins::initPlugin(PluginInterface::InitState state, PluginInterface* interface, QPluginLoader* loader)
 {
     if (!interface) {
         return 0;
     }
 
-    interface->init(mApp->currentProfilePath() + "extensions/");
+    interface->init(state, mApp->currentProfilePath() + "extensions/");
 
     if (!interface->testPlugin()) {
         interface->unload();

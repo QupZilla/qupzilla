@@ -46,9 +46,11 @@ PluginSpec PIM_Plugin::pluginSpec()
     return spec;
 }
 
-void PIM_Plugin::init(const QString &sPath)
+void PIM_Plugin::init(InitState state, const QString &settingsPath)
 {
-    m_handler = new PIM_Handler(sPath, this);
+    Q_UNUSED(state)
+
+    m_handler = new PIM_Handler(settingsPath, this);
 
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::KeyPressHandler);
 

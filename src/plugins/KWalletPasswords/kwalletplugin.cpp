@@ -42,9 +42,10 @@ PluginSpec KWalletPlugin::pluginSpec()
     return spec;
 }
 
-void KWalletPlugin::init(const QString &sPath)
+void KWalletPlugin::init(InitState state, const QString &settingsPath)
 {
-    Q_UNUSED(sPath);
+    Q_UNUSED(state);
+    Q_UNUSED(settingsPath);
 
     m_backend = new KWalletPasswordBackend;
     QZ_REGISTER_PASSWORD_BACKEND("KWallet", m_backend);

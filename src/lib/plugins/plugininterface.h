@@ -59,13 +59,12 @@ class WebView;
 class PluginInterface
 {
 public:
-    //Plugin Necessary Init Functions
-    virtual PluginSpec pluginSpec() = 0;
+    enum InitState { StartupInitState, LateInitState };
 
-    virtual void init(const QString &settingsPath) = 0;
+    virtual PluginSpec pluginSpec() = 0;
+    virtual void init(InitState state, const QString &settingsPath) = 0;
     virtual void unload() = 0;
     virtual bool testPlugin() = 0;
-    //End Plugin Necessary Init Functions
 
     virtual ~PluginInterface() { }
     virtual QTranslator* getTranslator(const QString &locale) { Q_UNUSED(locale) return 0; }

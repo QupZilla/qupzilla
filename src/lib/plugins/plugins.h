@@ -91,7 +91,7 @@ signals:
 
 private:
     bool alreadySpecInAvailable(const PluginSpec &spec);
-    PluginInterface* initPlugin(PluginInterface* interface, QPluginLoader* loader);
+    PluginInterface* initPlugin(PluginInterface::InitState state , PluginInterface* interface, QPluginLoader* loader);
 
     void refreshLoadedPlugins();
     void loadAvailablePlugins();

@@ -43,9 +43,10 @@ PluginSpec MouseGesturesPlugin::pluginSpec()
     return spec;
 }
 
-void MouseGesturesPlugin::init(const QString &sPath)
+void MouseGesturesPlugin::init(InitState state, const QString &settingsPath)
 {
-    Q_UNUSED(sPath)
+    Q_UNUSED(state)
+    Q_UNUSED(settingsPath)
 
     m_gestures = new MouseGestures(this);
 
