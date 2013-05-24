@@ -42,9 +42,10 @@ PluginSpec GnomeKeyringPlugin::pluginSpec()
     return spec;
 }
 
-void GnomeKeyringPlugin::init(const QString &sPath)
+void GnomeKeyringPlugin::init(InitState state, const QString &settingsPath)
 {
-    Q_UNUSED(sPath);
+    Q_UNUSED(state);
+    Q_UNUSED(settingsPath);
 
     m_backend = new GnomeKeyringPasswordBackend;
     QZ_REGISTER_PASSWORD_BACKEND("GnomeKeyring", m_backend);
