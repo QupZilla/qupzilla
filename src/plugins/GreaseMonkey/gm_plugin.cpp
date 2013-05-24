@@ -22,6 +22,9 @@
 #include "pluginproxy.h"
 #include "mainapplication.h"
 #include "emptynetworkreply.h"
+#include "tabwidget.h"
+#include "webtab.h"
+#include "tabbedwebview.h"
 
 #include <QTranslator>
 #include <QNetworkRequest>
@@ -38,7 +41,7 @@ PluginSpec GM_Plugin::pluginSpec()
     spec.name = "GreaseMonkey";
     spec.info = "Userscripts for QupZilla";
     spec.description = "Provides support for userscripts (www.userscripts.org)";
-    spec.version = "0.3.1";
+    spec.version = "0.3.2";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":gm/data/icon.png");
     spec.hasSettings = true;
@@ -48,12 +51,22 @@ PluginSpec GM_Plugin::pluginSpec()
 
 void GM_Plugin::init(InitState state, const QString &settingsPath)
 {
-    Q_UNUSED(state)
-
     m_manager = new GM_Manager(settingsPath, this);
     m_settingsPath = settingsPath;
 
     connect(mApp->plugins(), SIGNAL(webPageCreated(WebPage*)), this, SLOT(webPageCreated(WebPage*)));
+
+    // Make sure userscripts works also with already created WebPages
+    if (state == LateInitState) {
+        foreach (QupZilla* window, mApp->mainWindows()) {
+            for (int i = 0; i < window->tabWidget()->count(); ++i) {
+                WebTab* tab = qobject_cast<WebTab*>(window->tabWidget()->widget(i));
+                if (tab) {
+                    webPageCreated(tab->view()->page());
+                }
+            }
+        }
+    }
 }
 
 void GM_Plugin::unload()

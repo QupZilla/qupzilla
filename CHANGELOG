@@ -10,6 +10,7 @@ Version 1.5.0
     * proxy exceptions now supports wildcards (*, ?)
     * cancel upload when trying to upload non-readable files
     * GreaseMonkey: added support for GM_Settings
+    * GreaseMonkey: fixed userscripts when first loading plugin
     * oxygen: set rounded corners for tooltips
     * oxygen: workaround for transparent background of tooltips
     * fixed: size of preferences dialog on low-res screens
