@@ -25,6 +25,33 @@ LangString DESC_SecProtocols ${LANG_ENGLISH} "Associate QupZilla with http(s) an
 LangString MSG_RunningInstance ${LANG_ENGLISH} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_InstallationCanceled ${LANG_ENGLISH} "Process cancelled by user."
 
+;;;;Spanish
+LangString PRODUCT_DESC  ${LANG_SPANISH} "Qupzilla es un nuevo, rápido y seguro navegador web de código abierto. Qupzilla está bajo licencia GPL versión 3 o (o en su opción) en cualquier versión. Está basado en el motor WebKit y en Qt Framework."
+;
+LangString TITLE_SecMain ${LANG_SPANISH} "Componentes iniciales"
+LangString TITLE_SecTranslations ${LANG_SPANISH} "Traducciones"
+LangString TITLE_SecPlugins ${LANG_SPANISH} "Plugins"
+LangString TITLE_SecDesktop ${LANG_SPANISH} "Icono de escritorio"
+LangString TITLE_SecExtensions ${LANG_SPANISH} "Asociación de archivos"
+LangString TITLE_SecThemes ${LANG_SPANISH} "Temas"
+LangString TITLE_SecSetASDefault ${LANG_SPANISH} "Navegador por defecto"
+LangString TITLE_SecProtocols ${LANG_SPANISH} "Asociaciones de protocolo"
+
+LangString FILE_Htm ${LANG_SPANISH} "Archivo HTM"
+LangString FILE_Html ${LANG_ENGLISH} "Archivo HTML"
+;
+LangString DESC_SecMain ${LANG_SPANISH} "Componentes iniciales de aplicación"
+LangString DESC_SecTranslations ${LANG_SPANISH} "Otras traduciones disponibles al instalar. Por defecto en inglés."
+LangString DESC_SecPlugins ${LANG_SPANISH} "Otros plugins disponibles al instalar."
+LangString DESC_SecDesktop ${LANG_SPANISH} "Añade acceso directo al escritorio."
+LangString DESC_SecExtensions ${LANG_SPANISH} "Asociar Qupzilla con archivos .htm(l)"
+LangString DESC_SecThemes ${LANG_SPANISH} "Temas adicionales para Qupzilla"
+LangString DESC_SecSetASDefault ${LANG_SPANISH} "Hacer Qupzilla tu navegador web por defecto"
+LangString DESC_SecProtocols ${LANG_SPANISH} "Asociar Qupzilla con los protocolos http(s) y ftp"
+;
+LangString MSG_RunningInstance ${LANG_SPANISH} "Qupzilla se está ejecutando, Quieres que el instalador intente finalizarlo?"
+LangString MSG_InstallationCanceled ${LANG_SPANISH} "Proceso cancelado por usuario."
+
 ;;;;Czech
 LangString TITLE_SecMain ${LANG_CZECH} "Hlavní komponenty"
 LangString TITLE_SecTranslations ${LANG_CZECH} "Překlady"
