@@ -57,7 +57,6 @@ void SBI_ImagesIcon::showMenu(const QPoint &point)
     boldFont.setBold(true);
 
     QMenu menu;
-
     menu.addAction(m_icon, tr("Current page settings"))->setFont(boldFont);
 
     if (currentPageSettings()->testAttribute(QWebSettings::AutoLoadImages)) {
@@ -85,7 +84,7 @@ void SBI_ImagesIcon::toggleLoadingImages()
 
     // We should reload page on disabling images
     if (current) {
-        p_QupZilla->tabWidget()->weTab()->reload();
+        p_QupZilla->weView()->reload();
     }
 
     updateIcon();
@@ -105,13 +104,13 @@ void SBI_ImagesIcon::setGlobalLoadingImages(bool enable)
 
     // We should reload page on disabling images
     if (!enable) {
-        p_QupZilla->tabWidget()->weTab()->reload();
+        p_QupZilla->weView()->reload();
     }
 }
 
 QWebSettings* SBI_ImagesIcon::currentPageSettings()
 {
-    return p_QupZilla->tabWidget()->weTab()->view()->page()->settings();
+    return p_QupZilla->weView()->page()->settings();
 }
 
 void SBI_ImagesIcon::updateIcon()

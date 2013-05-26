@@ -85,9 +85,6 @@ public:
 
     void showNavigationBar(QWidget* bar);
 
-    WebTab* weTab();
-    WebTab* weTab(int index);
-
     TabBar* getTabBar() const;
     ClosedTabsManager* closedTabsManager() const;
     QList<WebTab*> allTabs(bool withPinned = true);
@@ -134,6 +131,9 @@ private slots:
     void tabMoved(int before, int after);
 
 private:
+    WebTab* weTab();
+    WebTab* weTab(int index);
+
     inline bool validIndex(int index) const { return index >= 0 && index < count(); }
 
     void tabInserted(int index);
