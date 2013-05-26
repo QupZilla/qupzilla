@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/sbi">
+        <file>data/icon.png</file>
+        <file>data/images.png</file>
+    </qresource>
+</RCC>

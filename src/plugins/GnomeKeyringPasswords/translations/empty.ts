@@ -4,7 +4,7 @@
 <context>
     <name>GnomeKeyringPlugin</name>
     <message>
-        <location filename="../gnomekeyringpasswordbackend.cpp" line="92"/>
+        <location filename="../gnomekeyringpasswordbackend.cpp" line="85"/>
         <source>Gnome Keyring</source>
         <translation type="unfinished"></translation>
     </message>

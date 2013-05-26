@@ -351,10 +351,10 @@ void QupZilla::setupUi()
     m_ipLabel->setObjectName("statusbar-ip-label");
     m_ipLabel->setToolTip(tr("IP Address of current page"));
 
-    statusBar()->insertPermanentWidget(0, m_progressBar);
-    statusBar()->insertPermanentWidget(1, m_ipLabel);
-    statusBar()->insertPermanentWidget(2, m_privateBrowsing);
-    statusBar()->insertPermanentWidget(3, m_adblockIcon);
+    statusBar()->addPermanentWidget(m_progressBar);
+    statusBar()->addPermanentWidget(m_ipLabel);
+    statusBar()->addPermanentWidget(m_privateBrowsing);
+    statusBar()->addPermanentWidget(m_adblockIcon);
 
     // Workaround for Oxygen tooltips not having transparent background
     QPalette pal = QToolTip::palette();

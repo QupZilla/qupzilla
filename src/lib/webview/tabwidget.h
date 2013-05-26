@@ -85,6 +85,9 @@ public:
 
     void showNavigationBar(QWidget* bar);
 
+    WebTab* weTab();
+    WebTab* weTab(int index);
+
     TabBar* getTabBar() const;
     ClosedTabsManager* closedTabsManager() const;
     QList<WebTab*> allTabs(bool withPinned = true);
@@ -137,9 +140,6 @@ private:
     void tabRemoved(int index);
 
     void resizeEvent(QResizeEvent* e);
-
-    WebTab* weTab();
-    WebTab* weTab(int index);
 
     bool m_hideTabBarWithOneTab;
     bool m_dontQuitWithOneTab;

@@ -7,6 +7,8 @@ Version 1.5.0
     * added possibility to remove EasyList from AdBlock
     * added inline domain completion to urlbar
     * added KWallet password backend plugin
+    * added Gnome-Keyring password backend plugin
+    * added StatusBar Icons plugin that adds extra icons to statusbar
     * proxy exceptions now supports wildcards (*, ?)
     * cancel upload when trying to upload non-readable files
     * GreaseMonkey: added support for GM_Settings
