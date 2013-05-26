@@ -37,7 +37,7 @@ Compiling
 ----------------------------------------------------------------------------------------
 
 Before you start compiling, make sure that you have installed the Qt (>=4.7) development libraries
-and you have read the BUILDING information.  
+and you have read the [BUILDING](https://github.com/QupZilla/qupzilla/blob/master/BUILDING) information.  
 
 **Linux**  
 
