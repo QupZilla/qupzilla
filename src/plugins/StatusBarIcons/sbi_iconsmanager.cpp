@@ -18,6 +18,7 @@
 #include "sbi_iconsmanager.h"
 #include "sbi_imagesicon.h"
 #include "sbi_javascripticon.h"
+#include "sbi_networkicon.h"
 #include "qupzilla.h"
 
 #include <QDebug>
@@ -67,8 +68,6 @@ void SBI_IconsManager::destroyIcons()
 
 void SBI_IconsManager::mainWindowCreated(QupZilla* window)
 {
-    typedef QWidget SBI_NetworkIcon;
-
     if (m_showImagesIcon) {
         SBI_ImagesIcon* w = new SBI_ImagesIcon(window, m_settingsPath);
         window->statusBar()->addPermanentWidget(w);
@@ -82,7 +81,7 @@ void SBI_IconsManager::mainWindowCreated(QupZilla* window)
     }
 
     if (m_showNetworkIcon) {
-        SBI_NetworkIcon* w = new SBI_NetworkIcon;
+        SBI_NetworkIcon* w = new SBI_NetworkIcon(window, m_settingsPath);
         window->statusBar()->addPermanentWidget(w);
         m_windows[window].append(w);
     }

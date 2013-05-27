@@ -67,4 +67,27 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
+<context>
+    <name>SBI_NetworkIcon</name>
+    <message>
+        <location filename="../sbi_networkicon.cpp" line="59"/>
+        <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sbi_networkicon.cpp" line="63"/>
+        <source>Connected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sbi_networkicon.cpp" line="67"/>
+        <source>Offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sbi_networkicon.cpp" line="71"/>
+        <source>Unknown</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

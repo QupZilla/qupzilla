@@ -3,5 +3,8 @@
         <file>data/icon.png</file>
         <file>data/images.png</file>
         <file>data/javascript.png</file>
+        <file>data/network-offline.png</file>
+        <file>data/network-online.png</file>
+        <file>data/network-unknown.png</file>
     </qresource>
 </RCC>

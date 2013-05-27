@@ -51,7 +51,9 @@ public:
     ~NetworkProxyFactory();
 
     void loadSettings();
+
     PacManager* pacManager() const;
+    ProxyPreference proxyPreference() const;
 
     QList<QNetworkProxy> queryProxy(const QNetworkProxyQuery &query = QNetworkProxyQuery());
 

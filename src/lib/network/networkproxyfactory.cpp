@@ -103,6 +103,11 @@ PacManager* NetworkProxyFactory::pacManager() const
     return m_pacManager;
 }
 
+NetworkProxyFactory::ProxyPreference NetworkProxyFactory::proxyPreference() const
+{
+    return m_proxyPreference;
+}
+
 QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &query)
 {
     QList<QNetworkProxy> proxyList;
