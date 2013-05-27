@@ -36,6 +36,7 @@
 #include "schemehandlers/fileschemehandler.h"
 #include "schemehandlers/ftpschemehandler.h"
 
+#include <QNetworkConfigurationManager>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -70,6 +71,10 @@ NetworkManager::NetworkManager(QObject* parent)
     , m_adblockManager(0)
     , m_ignoreAllWarnings(false)
 {
+    // Setting default configuration manager makes networkAccesibility working
+    QNetworkConfigurationManager manager;
+    setConfiguration(manager.defaultConfiguration());
+
     connect(this, SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)), this, SLOT(authentication(QNetworkReply*,QAuthenticator*)));
     connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)), this, SLOT(proxyAuthentication(QNetworkProxy,QAuthenticator*)));
     connect(this, SIGNAL(sslErrors(QNetworkReply*,QList<QSslError>)), this, SLOT(sslError(QNetworkReply*,QList<QSslError>)));
