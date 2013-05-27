@@ -98,11 +98,8 @@ QSize ListItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QMode
         // Update height of parent widget
         QWidget* p = qobject_cast<QWidget*>(parent());
         if (p && m_updateParentHeight) {
-            p->setFixedHeight(m_itemHeight
-#ifdef Q_OS_WIN
-                              + 4 // Vertical padding 2px on Windows
-#endif
-                             );
+            int frameWidth = p->style()->pixelMetric(QStyle::PM_DefaultFrameWidth, 0, p);
+            p->setFixedHeight(m_itemHeight + 2 * frameWidth);
         }
     }
 
