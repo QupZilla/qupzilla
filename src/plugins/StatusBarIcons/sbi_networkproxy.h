@@ -18,7 +18,9 @@
 #ifndef SBI_NETWORKPROXY_H
 #define SBI_NETWORKPROXY_H
 
-#include <QString>
+#include <QUrl>
+
+#include "networkproxyfactory.h"
 
 class QSettings;
 
@@ -26,6 +28,8 @@ class SBI_NetworkProxy
 {
 public:
     explicit SBI_NetworkProxy();
+
+    bool operator==(const SBI_NetworkProxy &other) const;
 
     quint16 port() const;
     void setPort(quint16 port);
@@ -39,8 +43,6 @@ public:
     QString password() const;
     void setPassword(const QString &password);
 
-    bool useDifferentProxyForHttps() const;
-
     quint16 httpsPort() const;
     void setHttpsPort(quint16 port);
 
@@ -53,8 +55,23 @@ public:
     QString httpsPassword() const;
     void setHttpsPassword(const QString &password);
 
-    void loadFromSettings(QSettings* settings);
-    void saveToSettings(QSettings* settings);
+    QUrl proxyAutoConfigUrl() const;
+    void setProxyAutoConfigUrl();
+
+    bool useDifferentProxyForHttps() const;
+    void setUseDifferentProxyForHttps(bool use);
+
+    NetworkProxyFactory::ProxyPreference preference() const;
+    void setPreference(NetworkProxyFactory::ProxyPreference preference);
+
+    QNetworkProxy::ProxyType type() const;
+    void setType(QNetworkProxy::ProxyType type);
+
+    QStringList exceptions() const;
+    void setExceptions(const QStringList &exceptions);
+
+    void loadFromSettings(const QSettings &settings);
+    void saveToSettings(QSettings &settings) const;
 
 private:
     quint16 m_port;
@@ -67,7 +84,12 @@ private:
     QString m_httpsUsername;
     QString m_httpsPassword;
 
+    QUrl m_pacUrl;
+
     bool m_useDifferentProxyForHttps;
+    NetworkProxyFactory::ProxyPreference m_preference;
+    QNetworkProxy::ProxyType m_type;
+    QStringList m_exceptions;
 };
 
 #endif // SBI_NETWORKPROXY_H

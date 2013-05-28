@@ -6,5 +6,6 @@
         <file>data/network-offline.png</file>
         <file>data/network-online.png</file>
         <file>data/network-unknown.png</file>
+        <file>data/preferences-network.png</file>
     </qresource>
 </RCC>

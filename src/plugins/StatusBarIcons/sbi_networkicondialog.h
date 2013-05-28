@@ -15,34 +15,37 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SBI_NETWORKICON_H
-#define SBI_NETWORKICON_H
+#ifndef SBI_NETWORKICONDIALOG_H
+#define SBI_NETWORKICONDIALOG_H
 
-#include <QNetworkAccessManager>
+#include <QDialog>
 
-#include "clickablelabel.h"
+namespace Ui
+{
+class SBI_NetworkIconDialog;
+}
 
-class QupZilla;
+class SBI_NetworkIcon;
 
-class SBI_NetworkIcon : public ClickableLabel
+class SBI_NetworkIconDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit SBI_NetworkIcon(QupZilla* window);
+    explicit SBI_NetworkIconDialog(QWidget* parent = 0);
+    ~SBI_NetworkIconDialog();
 
 private slots:
-    void networkAccessibleChanged(QNetworkAccessManager::NetworkAccessibility accessibility);
-    void showDialog();
+    void addProxy();
+    void removeProxy();
+    void saveProxy();
 
-    void showMenu(const QPoint &pos);
-    void useProxy();
+    void showProxy(const QString &name);
 
 private:
-    void updateToolTip();
-    void enterEvent(QEvent* event);
+    void updateWidgets();
 
-    QupZilla* p_QupZilla;
+    Ui::SBI_NetworkIconDialog* ui;
 };
 
-#endif // SBI_NETWORKICON_H
+#endif // SBI_NETWORKICONDIALOG_H

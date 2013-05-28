@@ -16,23 +16,27 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "sbi_networkicon.h"
+#include "sbi_networkicondialog.h"
+#include "sbi_networkproxy.h"
+#include "sbi_networkmanager.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "networkproxyfactory.h"
 #include "qupzilla.h"
 
 #include <QDebug>
+#include <QMenu>
 
-SBI_NetworkIcon::SBI_NetworkIcon(QupZilla* window, const QString &settingsPath)
+SBI_NetworkIcon::SBI_NetworkIcon(QupZilla* window)
     : ClickableLabel(window)
     , p_QupZilla(window)
-    , m_settingsFile(settingsPath + "networkicon.ini")
 {
     setCursor(Qt::PointingHandCursor);
 
-    connect(mApp->networkManager(), SIGNAL(networkAccessibleChanged(QNetworkAccessManager::NetworkAccessibility)), this, SLOT(networkAccessibleChanged(QNetworkAccessManager::NetworkAccessibility)));
-
     networkAccessibleChanged(mApp->networkManager()->networkAccessible());
+
+    connect(mApp->networkManager(), SIGNAL(networkAccessibleChanged(QNetworkAccessManager::NetworkAccessibility)), this, SLOT(networkAccessibleChanged(QNetworkAccessManager::NetworkAccessibility)));
+    connect(this, SIGNAL(clicked(QPoint)), this, SLOT(showMenu(QPoint)));
 }
 
 void SBI_NetworkIcon::networkAccessibleChanged(QNetworkAccessManager::NetworkAccessibility accessibility)
@@ -52,6 +56,49 @@ void SBI_NetworkIcon::networkAccessibleChanged(QNetworkAccessManager::NetworkAcc
     }
 
     updateToolTip();
+}
+
+void SBI_NetworkIcon::showDialog()
+{
+    SBI_NetworkIconDialog dialog(p_QupZilla);
+    dialog.exec();
+}
+
+void SBI_NetworkIcon::showMenu(const QPoint &pos)
+{
+    QFont boldFont = font();
+    boldFont.setBold(true);
+
+    QMenu menu;
+    menu.addAction(QIcon::fromTheme("preferences-system-network", QIcon(":sbi/data/preferences-network.png")), tr("Proxy configuration"))->setFont(boldFont);
+
+    QMenu* proxyMenu = menu.addMenu(tr("Select proxy"));
+
+    const QHash<QString, SBI_NetworkProxy*> &proxies = SBINetManager->proxies();
+
+    QHashIterator<QString, SBI_NetworkProxy*> it(proxies);
+    while (it.hasNext()) {
+        it.next();
+        QAction* act = proxyMenu->addAction(it.key(), this, SLOT(useProxy()));
+        act->setData(it.key());
+        act->setCheckable(true);
+        act->setChecked(it.value() == SBINetManager->currentProxy());
+    }
+
+    if (proxyMenu->actions().count() == 0) {
+        proxyMenu->addAction(tr("Empty"))->setEnabled(false);
+    }
+
+    menu.addSeparator();
+    menu.addAction(tr("Manage proxies"), this, SLOT(showDialog()));
+    menu.exec(pos);
+}
+
+void SBI_NetworkIcon::useProxy()
+{
+    if (QAction* act = qobject_cast<QAction*>(sender())) {
+        SBINetManager->setCurrentProxy(act->data().toString());
+    }
 }
 
 void SBI_NetworkIcon::updateToolTip()
@@ -92,6 +139,10 @@ void SBI_NetworkIcon::updateToolTip()
     default:
         qWarning() << "Unknown NetworkProxyFactory::ProxyPreference!";
         break;
+    }
+
+    if (SBINetManager->currentProxy()) {
+        tooltip.append(QString(" (%1)").arg(SBINetManager->currentProxyName()));
     }
 
     setToolTip(tooltip);

@@ -15,40 +15,45 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SBI_ICONSMANAGER_H
-#define SBI_ICONSMANAGER_H
+#ifndef SBI_NETWORKMANAGER_H
+#define SBI_NETWORKMANAGER_H
 
-#include <QWidget>
+#include <QObject>
 #include <QHash>
 
-class QupZilla;
-class SBI_NetworkManager;
+class SBI_NetworkProxy;
 
-class SBI_IconsManager : public QObject
+class SBI_NetworkManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit SBI_IconsManager(const QString &settingsPath, QObject* parent = 0);
+    explicit SBI_NetworkManager(const QString &settingsPath, QObject* parent = 0);
+    ~SBI_NetworkManager();
+
+    static SBI_NetworkManager* instance();
 
     void loadSettings();
 
-    void reloadIcons();
-    void destroyIcons();
+    QString currentProxyName() const;
+    SBI_NetworkProxy* currentProxy() const;
+    void setCurrentProxy(const QString &name);
 
-signals:
+    void saveProxy(const QString &name, SBI_NetworkProxy* proxy);
+    void removeProxy(const QString &name);
 
-public slots:
-    void mainWindowCreated(QupZilla* window);
-    void mainWindowDeleted(QupZilla* window);
+    QHash<QString, SBI_NetworkProxy*> proxies() const;
 
 private:
-    QString m_settingsPath;
-    bool m_showImagesIcon;
-    bool m_showJavaScriptIcon;
-    bool m_showNetworkIcon;
+    void applyCurrentProxy();
+    void deleteProxies();
 
-    QHash<QupZilla*, QWidgetList> m_windows;
-    SBI_NetworkManager* m_networkManager;
+    QString m_settingsFile;
+    QHash<QString, SBI_NetworkProxy*> m_proxies;
+    SBI_NetworkProxy* m_currentProxy;
+
+    static SBI_NetworkManager* s_instance;
 };
 
-#endif // SBI_ICONSMANAGER_H
+#define SBINetManager SBI_NetworkManager::instance()
+
+#endif // SBI_NETWORKMANAGER_H
