@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "statusbariconsplugin.h"
 #include "sbi_iconsmanager.h"
+#include "sbi_settingsdialog.h"
 #include "pluginproxy.h"
 #include "qupzilla.h"
 
@@ -37,7 +38,7 @@ PluginSpec StatusBarIconsPlugin::pluginSpec()
     spec.version = "0.1.5";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":sbi/data/icon.png");
-    spec.hasSettings = false;
+    spec.hasSettings = true;
 
     return spec;
 }
@@ -76,7 +77,8 @@ bool StatusBarIconsPlugin::testPlugin()
 
 void StatusBarIconsPlugin::showSettings(QWidget* parent)
 {
-    Q_UNUSED(parent)
+    SBI_SettingsDialog dialog(m_manager, parent);
+    dialog.exec();
 }
 
 #if QT_VERSION < 0x050000

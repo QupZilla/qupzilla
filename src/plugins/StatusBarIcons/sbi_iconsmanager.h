@@ -29,8 +29,18 @@ class SBI_IconsManager : public QObject
     Q_OBJECT
 public:
     explicit SBI_IconsManager(const QString &settingsPath, QObject* parent = 0);
+    ~SBI_IconsManager();
 
     void loadSettings();
+
+    bool showImagesIcon() const;
+    void setShowImagesIcon(bool show);
+
+    bool showJavaScriptIcon() const;
+    void setShowJavaScriptIcon(bool show);
+
+    bool showNetworkIcon() const;
+    void setShowNetworkIcon(bool show);
 
     void reloadIcons();
     void destroyIcons();

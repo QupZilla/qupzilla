@@ -47,6 +47,45 @@ void SBI_IconsManager::loadSettings()
     settings.endGroup();
 }
 
+bool SBI_IconsManager::showImagesIcon() const
+{
+    return m_showImagesIcon;
+}
+
+void SBI_IconsManager::setShowImagesIcon(bool show)
+{
+    QSettings settings(m_settingsPath + "extensions.ini", QSettings::IniFormat);
+    settings.setValue("StatusBarIcons/showImagesIcon", show);
+
+    m_showImagesIcon = show;
+}
+
+bool SBI_IconsManager::showJavaScriptIcon() const
+{
+    return m_showJavaScriptIcon;
+}
+
+void SBI_IconsManager::setShowJavaScriptIcon(bool show)
+{
+    QSettings settings(m_settingsPath + "extensions.ini", QSettings::IniFormat);
+    settings.setValue("StatusBarIcons/showJavaScriptIcon", show);
+
+    m_showJavaScriptIcon = show;
+}
+
+bool SBI_IconsManager::showNetworkIcon() const
+{
+    return m_showNetworkIcon;
+}
+
+void SBI_IconsManager::setShowNetworkIcon(bool show)
+{
+    QSettings settings(m_settingsPath + "extensions.ini", QSettings::IniFormat);
+    settings.setValue("StatusBarIcons/showNetworkIcon", show);
+
+    m_showNetworkIcon = show;
+}
+
 void SBI_IconsManager::reloadIcons()
 {
     QHashIterator<QupZilla*, QWidgetList> it(m_windows);
@@ -101,4 +140,9 @@ void SBI_IconsManager::mainWindowDeleted(QupZilla* window)
     }
 
     m_windows[window].clear();
+}
+
+SBI_IconsManager::~SBI_IconsManager()
+{
+    delete m_networkManager;
 }
