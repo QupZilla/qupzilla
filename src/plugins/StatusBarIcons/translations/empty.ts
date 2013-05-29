@@ -124,7 +124,7 @@
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="38"/>
-        <location filename="../sbi_networkicondialog.cpp" line="54"/>
+        <location filename="../sbi_networkicondialog.cpp" line="55"/>
         <source>Add proxy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -144,8 +144,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="54"/>
+        <location filename="../sbi_networkicondialog.cpp" line="55"/>
         <source>Name of proxy:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sbi_networkicondialog.cpp" line="68"/>
+        <source>Remove current proxy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sbi_networkicondialog.cpp" line="68"/>
+        <source>Are you sure to remove current proxy?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -227,6 +237,39 @@
     <message>
         <location filename="../sbi_proxywidget.ui" line="210"/>
         <source>Server:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SBI_SettingsDialog</name>
+    <message>
+        <location filename="../sbi_settingsdialog.ui" line="14"/>
+        <source>StatusBar Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sbi_settingsdialog.ui" line="48"/>
+        <source>&lt;h3&gt;StatusBar Icons&lt;/h3&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sbi_settingsdialog.ui" line="70"/>
+        <source>These icons will be displayed in statusbar:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sbi_settingsdialog.ui" line="97"/>
+        <source>Images Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sbi_settingsdialog.ui" line="104"/>
+        <source>JavaScript Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sbi_settingsdialog.ui" line="111"/>
+        <source>Network Icon</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
