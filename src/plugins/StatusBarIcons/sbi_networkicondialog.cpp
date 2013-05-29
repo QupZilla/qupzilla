@@ -21,6 +21,7 @@
 #include "ui_sbi_networkicondialog.h"
 
 #include <QInputDialog>
+#include <QMessageBox>
 
 SBI_NetworkIconDialog::SBI_NetworkIconDialog(QWidget* parent)
     : QDialog(parent)
@@ -64,6 +65,13 @@ void SBI_NetworkIconDialog::addProxy()
 
 void SBI_NetworkIconDialog::removeProxy()
 {
+    QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Remove current proxy"), tr("Are you sure to remove current proxy?"),
+                                                              QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+
+    if (button != QMessageBox::Yes) {
+        return;
+    }
+
     int index = ui->comboBox->currentIndex();
     if (index < 0) {
         return;
