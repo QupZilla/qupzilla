@@ -53,14 +53,14 @@ SBI_NetworkProxy* SBI_ProxyWidget::getProxy() const
     if (ui->noProxy->isChecked()) {
         proxy->setPreference(NetworkProxyFactory::NoProxy);
     }
-    else  if (ui->systemProxy->isChecked()) {
-        proxy->setPreference(NetworkProxyFactory::NoProxy);
+    else if (ui->systemProxy->isChecked()) {
+        proxy->setPreference(NetworkProxyFactory::SystemProxy);
     }
-    else  if (ui->manualProxy->isChecked()) {
-        proxy->setPreference(NetworkProxyFactory::NoProxy);
+    else if (ui->manualProxy->isChecked()) {
+        proxy->setPreference(NetworkProxyFactory::DefinedProxy);
     }
-    else  if (ui->pacProxy->isChecked()) {
-        proxy->setPreference(NetworkProxyFactory::NoProxy);
+    else if (ui->pacProxy->isChecked()) {
+        proxy->setPreference(NetworkProxyFactory::ProxyAutoConfig);
     }
 
     return proxy;
