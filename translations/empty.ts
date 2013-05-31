@@ -2398,28 +2398,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.ui" line="75"/>
+        <location filename="../src/lib/other/pagescreen.ui" line="62"/>
         <source>Format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.ui" line="85"/>
+        <location filename="../src/lib/other/pagescreen.ui" line="72"/>
         <source>Location:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.ui" line="104"/>
-        <source>...</source>
+        <location filename="../src/lib/other/pagescreen.ui" line="91"/>
+        <source>Browse...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="56"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="60"/>
         <source>Save as %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="94"/>
-        <source>Save Page Screen...</source>
+        <location filename="../src/lib/other/pagescreen.cpp" line="98"/>
+        <source>Choose location...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4136,6 +4136,7 @@
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1933"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="156"/>
         <source>QupZilla %1 (%2)</source>
         <translation type="unfinished"></translation>
     </message>

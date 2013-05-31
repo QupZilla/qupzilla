@@ -88,7 +88,7 @@
          <item>
           <widget class="QToolButton" name="changeLocation">
            <property name="text">
-            <string>...</string>
+            <string>Browse...</string>
            </property>
           </widget>
          </item>
