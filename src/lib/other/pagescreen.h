@@ -49,7 +49,9 @@ private slots:
     void dialogAccepted();
 
 private:
-    void saveScreen();
+    void saveAsImage(const QString &format);
+    void saveAsDocument(const QString &format);
+
     void createPixmap();
 
     Ui::PageScreen* ui;

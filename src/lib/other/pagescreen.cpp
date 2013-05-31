@@ -20,6 +20,7 @@
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "qztools.h"
+#include "qupzilla.h"
 
 #include <QFileDialog>
 #include <QWebFrame>
@@ -28,6 +29,7 @@
 #include <QMovie>
 #include <QPushButton>
 #include <QCloseEvent>
+#include <QPrinter>
 
 #if QT_VERSION >= 0x050000
 #include <QtConcurrent/QtConcurrentRun>
@@ -49,6 +51,8 @@ PageScreen::PageScreen(WebView* view, QWidget* parent)
     m_formats[2] = QLatin1String("JPG");
     m_formats[3] = QLatin1String("PPM");
     m_formats[4] = QLatin1String("TIFF");
+    m_formats[5] = QLatin1String("PDF");
+    m_formats[6] = QLatin1String("PS");
 
     QHashIterator<int, QString> i(m_formats);
     while (i.hasNext()) {
@@ -102,17 +106,24 @@ void PageScreen::dialogAccepted()
 {
     if (!ui->location->text().isEmpty()) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
-        saveScreen();
+
+        const QString &format = m_formats[ui->formats->currentIndex()];
+        if (format == QLatin1String("PDF") || format == QLatin1String("PS")) {
+            saveAsDocument(format);
+        }
+        else {
+            saveAsImage(format);
+        }
+
         QApplication::restoreOverrideCursor();
 
         close();
     }
 }
 
-void PageScreen::saveScreen()
+void PageScreen::saveAsImage(const QString &format)
 {
-    const QString &format = m_formats[ui->formats->currentIndex()];
-    const QString &suffix = QLatin1Char('.') + m_formats[ui->formats->currentIndex()].toLower();
+    const QString &suffix = QLatin1Char('.') + format.toLower();
 
     QString pathWithoutSuffix = ui->location->text();
     if (pathWithoutSuffix.endsWith(suffix, Qt::CaseInsensitive)) {
@@ -132,6 +143,38 @@ void PageScreen::saveScreen()
     }
 }
 
+void PageScreen::saveAsDocument(const QString &format)
+{
+    const QString &suffix = QLatin1Char('.') + format.toLower();
+
+    QString pathWithoutSuffix = ui->location->text();
+    if (pathWithoutSuffix.endsWith(suffix, Qt::CaseInsensitive)) {
+        pathWithoutSuffix = pathWithoutSuffix.mid(0, pathWithoutSuffix.length() - suffix.length());
+    }
+
+    QPrinter printer;
+    printer.setCreator(QupZilla::tr("QupZilla %1 (%2)").arg(QupZilla::VERSION, QupZilla::WWWADDRESS));
+    printer.setOutputFileName(pathWithoutSuffix + suffix);
+    printer.setOutputFormat(format == QLatin1String("PDF") ? QPrinter::PdfFormat : QPrinter::PostScriptFormat);
+    printer.setPaperSize(m_pageImages.first().size(), QPrinter::DevicePixel);
+    printer.setPageMargins(0, 0, 0, 0, QPrinter::DevicePixel);
+    printer.setFullPage(true);
+
+    QPainter painter;
+    painter.begin(&printer);
+
+    for (int i = 0; i < m_pageImages.size(); ++i) {
+        const QImage &image = m_pageImages.at(i);
+        painter.drawImage(0, 0, image);
+
+        if (i != m_pageImages.size() - 1) {
+            printer.newPage();
+        }
+    }
+
+    painter.end();
+}
+
 void PageScreen::createThumbnail()
 {
     QWebPage* page = m_view->page();
@@ -146,9 +189,9 @@ void PageScreen::createThumbnail()
     int yPosition = 0;
     bool canScroll = frameSize.height() > heightLimit;
 
-    /* We will split rendering page into smaller parts to avoid infinite loops
-     * or crashes.
-     */
+    // We will split rendering page into smaller parts to avoid infinite loops
+    // or crashes.
+
     do {
         int remainingHeight = frameSize.height() - yPosition;
         if (remainingHeight <= 0) {
