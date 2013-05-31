@@ -81,6 +81,7 @@
 #include <QNetworkRequest>
 #include <QDesktopServices>
 #include <QPrintPreviewDialog>
+#include <QPrinter>
 #include <QWebFrame>
 #include <QWebHistory>
 #include <QMessageBox>
@@ -1929,11 +1930,16 @@ void QupZilla::printPage(QWebFrame* frame)
 {
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
     dialog->resize(800, 750);
+    dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(VERSION, WWWADDRESS));
 
     if (!frame) {
+        dialog->printer()->setDocName(QzTools::getFileNameFromUrl(weView()->url()));
+
         connect(dialog, SIGNAL(paintRequested(QPrinter*)), weView(), SLOT(print(QPrinter*)));
     }
     else {
+        dialog->printer()->setDocName(QzTools::getFileNameFromUrl(frame->url()));
+
         connect(dialog, SIGNAL(paintRequested(QPrinter*)), frame, SLOT(print(QPrinter*)));
     }
 
