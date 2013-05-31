@@ -2398,7 +2398,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="65"/>
+        <location filename="../src/lib/other/pagescreen.ui" line="75"/>
+        <source>Format:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/pagescreen.ui" line="85"/>
+        <source>Location:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/pagescreen.ui" line="104"/>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/pagescreen.cpp" line="56"/>
+        <source>Save as %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/pagescreen.cpp" line="94"/>
         <source>Save Page Screen...</source>
         <translation type="unfinished"></translation>
     </message>

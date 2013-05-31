@@ -44,23 +44,21 @@ private slots:
     void createThumbnail();
     void showImage();
 
+    void formatChanged();
+    void changeLocation();
     void dialogAccepted();
-    void saveScreen();
-    void screenSaved();
 
 private:
-    void closeEvent(QCloseEvent* event);
+    void saveScreen();
     void createPixmap();
 
     Ui::PageScreen* ui;
     WebView* m_view;
     QString m_pageTitle;
-    bool m_blockClose;
 
-    QFutureWatcher<void>* m_fileSaving;
     QFutureWatcher<QImage>* m_imageScaling;
-    QString m_filePath;
     QVector<QImage> m_pageImages;
+    QHash<int, QString> m_formats;
 };
 
 #endif // PAGESCREEN_H

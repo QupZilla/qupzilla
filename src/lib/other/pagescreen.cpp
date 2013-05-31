@@ -39,76 +39,97 @@ PageScreen::PageScreen(WebView* view, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::PageScreen)
     , m_view(view)
-    , m_blockClose(false)
-    , m_fileSaving(0)
     , m_imageScaling(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
+    m_formats[0] = QLatin1String("PNG");
+    m_formats[1] = QLatin1String("BMP");
+    m_formats[2] = QLatin1String("JPG");
+    m_formats[3] = QLatin1String("PPM");
+    m_formats[4] = QLatin1String("TIFF");
+
+    QHashIterator<int, QString> i(m_formats);
+    while (i.hasNext()) {
+        i.next();
+        ui->formats->addItem(tr("Save as %1").arg(i.value()));
+    }
+
+    // Set png as a default format
+    m_pageTitle = m_view->title();
+    ui->location->setText(QString("%1/%2.png").arg(QDir::homePath(), QzTools::filterCharsFromFilename(m_pageTitle)));
+
     QMovie* mov = new QMovie(":html/loading.gif");
     ui->label->setMovie(mov);
     mov->start();
 
-    m_pageTitle = m_view->title();
-
+    connect(ui->changeLocation, SIGNAL(clicked()), this, SLOT(changeLocation()));
+    connect(ui->formats, SIGNAL(currentIndexChanged(int)), this, SLOT(formatChanged()));
     connect(ui->buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(dialogAccepted()));
     connect(ui->buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), this, SLOT(close()));
 
     QTimer::singleShot(200, this, SLOT(createThumbnail()));
 }
 
+void PageScreen::formatChanged()
+{
+    QString text = ui->location->text();
+    int pos = text.lastIndexOf(QLatin1Char('.'));
+
+    if (pos > -1) {
+        text = text.left(pos + 1) + m_formats[ui->formats->currentIndex()].toLower();
+    }
+    else {
+        text.append(QLatin1Char('.') + m_formats[ui->formats->currentIndex()].toLower());
+    }
+
+    ui->location->setText(text);
+}
+
+void PageScreen::changeLocation()
+{
+    const QString &suggestedPath = QString("%1/%2.%3").arg(QDir::homePath(), QzTools::filterCharsFromFilename(m_pageTitle),
+                                   m_formats[ui->formats->currentIndex()].toLower());
+    const QString &path = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."), suggestedPath);
+
+    if (!path.isEmpty()) {
+        ui->location->setText(path);
+    }
+}
+
 void PageScreen::dialogAccepted()
 {
-    const QString &suggestedPath = QString("%1/%2.png").arg(QDir::homePath(),
-                                   QzTools::filterCharsFromFilename(m_pageTitle));
-    m_filePath = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."), suggestedPath);
-
-    if (!m_filePath.isEmpty()) {
+    if (!ui->location->text().isEmpty()) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
-        m_blockClose = true;
+        saveScreen();
+        QApplication::restoreOverrideCursor();
 
-        m_fileSaving = new QFutureWatcher<void>(this);
-        m_fileSaving->setFuture(QtConcurrent::run(this, &PageScreen::saveScreen));
-        connect(m_fileSaving, SIGNAL(finished()), SLOT(screenSaved()));
+        close();
     }
 }
 
 void PageScreen::saveScreen()
 {
-    QString pathWithoutSuffix = m_filePath;
-    if (pathWithoutSuffix.endsWith(QLatin1String(".png"), Qt::CaseInsensitive)) {
-        pathWithoutSuffix = pathWithoutSuffix.mid(0, pathWithoutSuffix.length() - 4);
+    const QString &format = m_formats[ui->formats->currentIndex()];
+    const QString &suffix = QLatin1Char('.') + m_formats[ui->formats->currentIndex()].toLower();
+
+    QString pathWithoutSuffix = ui->location->text();
+    if (pathWithoutSuffix.endsWith(suffix, Qt::CaseInsensitive)) {
+        pathWithoutSuffix = pathWithoutSuffix.mid(0, pathWithoutSuffix.length() - suffix.length());
     }
 
     if (m_pageImages.count() == 1) {
-        m_pageImages.first().save(pathWithoutSuffix + ".png", "PNG");
+        m_pageImages.first().save(pathWithoutSuffix + suffix, format.toUtf8());
     }
     else {
         int part = 1;
         foreach (const QImage &image, m_pageImages) {
             const QString &fileName = pathWithoutSuffix + ".part" + QString::number(part);
-            image.save(fileName + ".png", "PNG");
+            image.save(fileName + suffix, format.toUtf8());
             part++;
         }
     }
-
-    m_blockClose = false;
-}
-
-void PageScreen::screenSaved()
-{
-    QApplication::restoreOverrideCursor();
-}
-
-void PageScreen::closeEvent(QCloseEvent* event)
-{
-    if (m_blockClose) {
-        event->ignore();
-        return;
-    }
-
-    QDialog::closeEvent(event);
 }
 
 void PageScreen::createThumbnail()
