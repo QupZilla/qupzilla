@@ -44,6 +44,10 @@ void SBI_NetworkManager::loadSettings()
     QSettings settings(m_settingsFile, QSettings::IniFormat);
 
     foreach (const QString &group, settings.childGroups()) {
+        if (group.isEmpty()) {
+            continue;
+        }
+
         SBI_NetworkProxy* proxy = new SBI_NetworkProxy;
 
         settings.beginGroup(group);
@@ -54,7 +58,7 @@ void SBI_NetworkManager::loadSettings()
     }
 
     const QString &currentName = settings.value("CurrentProxy", QString()).toString();
-    m_currentProxy = m_proxies.contains(currentName) ? m_proxies[currentName] : 0;
+    m_currentProxy = m_proxies.contains(currentName) ? m_proxies.value(currentName) : 0;
 
     applyCurrentProxy();
 }
@@ -74,12 +78,16 @@ void SBI_NetworkManager::setCurrentProxy(const QString &name)
     QSettings settings(m_settingsFile, QSettings::IniFormat);
     settings.setValue("CurrentProxy", name);
 
-    m_currentProxy = m_proxies.contains(name) ? m_proxies[name] : 0;
+    m_currentProxy = m_proxies.contains(name) ? m_proxies.value(name) : 0;
     applyCurrentProxy();
 }
 
 void SBI_NetworkManager::saveProxy(const QString &name, SBI_NetworkProxy* proxy)
 {
+    if (name.isEmpty()) {
+        return;
+    }
+
     QSettings settings(m_settingsFile, QSettings::IniFormat);
     settings.beginGroup(name);
     proxy->saveToSettings(settings);
@@ -90,6 +98,10 @@ void SBI_NetworkManager::saveProxy(const QString &name, SBI_NetworkProxy* proxy)
 
 void SBI_NetworkManager::removeProxy(const QString &name)
 {
+    if (name.isEmpty()) {
+        return;
+    }
+
     QSettings settings(m_settingsFile, QSettings::IniFormat);
     settings.beginGroup(name);
     settings.remove(QString()); // Removes all keys in current group
