@@ -21,6 +21,7 @@
 #include "settings.h"
 
 #include <QVector>
+#include <QDataStream>
 
 static const int passwordEntryVersion = 2;
 
