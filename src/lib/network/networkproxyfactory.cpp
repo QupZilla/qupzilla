@@ -64,6 +64,9 @@ NetworkProxyFactory::NetworkProxyFactory()
     : QNetworkProxyFactory()
     , m_pacManager(new PacManager)
     , m_proxyPreference(SystemProxy)
+    , m_proxyType(QNetworkProxy::HttpProxy)
+    , m_port(0)
+    , m_httpsPort(0)
 {
 }
 

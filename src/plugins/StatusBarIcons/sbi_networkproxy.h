@@ -56,7 +56,7 @@ public:
     void setHttpsPassword(const QString &password);
 
     QUrl proxyAutoConfigUrl() const;
-    void setProxyAutoConfigUrl();
+    void setProxyAutoConfigUrl(const QUrl &url);
 
     bool useDifferentProxyForHttps() const;
     void setUseDifferentProxyForHttps(bool use);

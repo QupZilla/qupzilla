@@ -118,6 +118,16 @@ void SBI_NetworkProxy::setHttpsPassword(const QString &password)
     m_httpsPassword = password;
 }
 
+QUrl SBI_NetworkProxy::proxyAutoConfigUrl() const
+{
+    return m_pacUrl;
+}
+
+void SBI_NetworkProxy::setProxyAutoConfigUrl(const QUrl &url)
+{
+    m_pacUrl = url;
+}
+
 bool SBI_NetworkProxy::useDifferentProxyForHttps() const
 {
     return m_useDifferentProxyForHttps;

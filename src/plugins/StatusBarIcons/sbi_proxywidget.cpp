@@ -25,10 +25,11 @@ void SBI_ProxyWidget::clear()
     ui->httpsProxyUsername->clear();
     ui->httpsProxyPassword->clear();
 
-    ui->useHttpsProxy->setChecked(false);
     ui->proxyExceptions->clear();
-    ui->proxyType->setCurrentIndex(0);
+    ui->pacUrl->clear();
 
+    ui->proxyType->setCurrentIndex(0);
+    ui->useHttpsProxy->setChecked(false);
     ui->noProxy->setChecked(true);
 }
 
@@ -46,8 +47,10 @@ SBI_NetworkProxy* SBI_ProxyWidget::getProxy() const
     proxy->setHttpsUserName(ui->httpsProxyUsername->text());
     proxy->setHttpsPassword(ui->httpsProxyPassword->text());
 
+    proxy->setExceptions(ui->proxyExceptions->text().split(QLatin1Char(','), QString::SkipEmptyParts));
+    proxy->setProxyAutoConfigUrl(QUrl(ui->pacUrl->text()));
+
     proxy->setUseDifferentProxyForHttps(ui->useHttpsProxy->isChecked());
-    proxy->setExceptions(ui->proxyExceptions->text().split(QLatin1Char(',')));
     proxy->setType(ui->proxyType->currentIndex() == 0 ? QNetworkProxy::HttpProxy : QNetworkProxy::Socks5Proxy);
 
     if (ui->noProxy->isChecked()) {

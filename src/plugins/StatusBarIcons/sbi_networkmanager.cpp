@@ -126,6 +126,7 @@ void SBI_NetworkManager::applyCurrentProxy()
     settings.beginGroup("Web-Proxy");
     m_currentProxy->saveToSettings(settings);
     settings.endGroup();
+    settings.sync();
 
     mApp->networkManager()->proxyFactory()->loadSettings();
 }
