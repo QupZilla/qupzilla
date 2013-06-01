@@ -52,7 +52,6 @@ PageScreen::PageScreen(WebView* view, QWidget* parent)
     m_formats[3] = QLatin1String("PPM");
     m_formats[4] = QLatin1String("TIFF");
     m_formats[5] = QLatin1String("PDF");
-    m_formats[6] = QLatin1String("PS");
 
     QHashIterator<int, QString> i(m_formats);
     while (i.hasNext()) {
@@ -108,7 +107,7 @@ void PageScreen::dialogAccepted()
         QApplication::setOverrideCursor(Qt::WaitCursor);
 
         const QString &format = m_formats[ui->formats->currentIndex()];
-        if (format == QLatin1String("PDF") || format == QLatin1String("PS")) {
+        if (format == QLatin1String("PDF")) {
             saveAsDocument(format);
         }
         else {
@@ -155,7 +154,7 @@ void PageScreen::saveAsDocument(const QString &format)
     QPrinter printer;
     printer.setCreator(QupZilla::tr("QupZilla %1 (%2)").arg(QupZilla::VERSION, QupZilla::WWWADDRESS));
     printer.setOutputFileName(pathWithoutSuffix + suffix);
-    printer.setOutputFormat(format == QLatin1String("PDF") ? QPrinter::PdfFormat : QPrinter::PostScriptFormat);
+    printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setPaperSize(m_pageImages.first().size(), QPrinter::DevicePixel);
     printer.setPageMargins(0, 0, 0, 0, QPrinter::DevicePixel);
     printer.setFullPage(true);
