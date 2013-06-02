@@ -19,8 +19,10 @@
 #include "gm_script.h"
 #include "gm_downloader.h"
 #include "gm_jsobject.h"
+#include "gm_icon.h"
 #include "settings/gm_settings.h"
 
+#include "qupzilla.h"
 #include "webpage.h"
 #include "qztools.h"
 #include "mainapplication.h"
@@ -30,7 +32,7 @@
 #include <QDir>
 #include <QWebFrame>
 #include <QSettings>
-#include <QDebug>
+#include <QStatusBar>
 
 GM_Manager::GM_Manager(const QString &sPath, QObject* parent)
     : QObject(parent)
@@ -260,4 +262,18 @@ bool GM_Manager::canRunOnScheme(const QString &scheme)
 {
     return (scheme == QLatin1String("http") || scheme == QLatin1String("https")
             || scheme == QLatin1String("data") || scheme == QLatin1String("ftp"));
+}
+
+
+void GM_Manager::mainWindowCreated(QupZilla* window)
+{
+    GM_Icon* icon = new GM_Icon(this, window);
+    window->statusBar()->addPermanentWidget(icon);
+    m_windows[window] = icon;
+}
+
+void GM_Manager::mainWindowDeleted(QupZilla* window)
+{
+    window->statusBar()->removeWidget(m_windows[window]);
+    delete m_windows[window];
 }

@@ -21,13 +21,16 @@
 #include <QObject>
 #include <QStringList>
 #include <QPointer>
+#include <QHash>
 
 class QUrl;
 class QNetworkRequest;
 
+class QupZilla;
 class GM_Script;
 class GM_JSObject;
 class GM_Settings;
+class GM_Icon;
 
 class GM_Manager : public QObject
 {
@@ -61,6 +64,9 @@ signals:
     void scriptsChanged();
 
 public slots:
+    void mainWindowCreated(QupZilla* window);
+    void mainWindowDeleted(QupZilla* window);
+
     void pageLoadStart();
 
 private slots:
@@ -75,6 +81,8 @@ private:
     GM_JSObject* m_jsObject;
     QList<GM_Script*> m_endScripts;
     QList<GM_Script*> m_startScripts;
+
+    QHash<QupZilla*, GM_Icon*> m_windows;
 };
 
 #endif // GM_MANAGER_H

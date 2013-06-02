@@ -18,5 +18,6 @@
         <file>locale/sr_RS@latin.qm</file>
         <file>locale/uk_UA.qm</file>
         <file>locale/fa_IR.qm</file>
+        <file>data/icon18.png</file>
     </qresource>
 </RCC>
