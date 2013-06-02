@@ -385,7 +385,7 @@ void QupZilla::setupMenu()
     m_actionAbout->setMenuRole(QAction::AboutRole);
     connect(m_actionAbout, SIGNAL(triggered()), MENU_RECEIVER, SLOT(aboutQupZilla()));
 
-    m_actionPreferences = new QAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), 0);
+    m_actionPreferences = new QAction(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/faenza/settings.png")), tr("Pr&eferences"), 0);
     m_actionPreferences->setMenuRole(QAction::PreferencesRole);
     m_actionPreferences->setShortcut(QKeySequence(QKeySequence::Preferences));
     connect(m_actionPreferences, SIGNAL(triggered()), MENU_RECEIVER, SLOT(showPreferences()));
