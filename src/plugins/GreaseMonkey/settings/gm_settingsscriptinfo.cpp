@@ -19,23 +19,47 @@
 #include "ui_gm_settingsscriptinfo.h"
 #include "../gm_script.h"
 
-GM_SettingsScriptInfo::GM_SettingsScriptInfo(GM_Script* script, QWidget* parent) :
-    QDialog(parent),
-    ui(new Ui::GM_SettingsScriptInfo)
+#include <QDesktopServices>
+
+GM_SettingsScriptInfo::GM_SettingsScriptInfo(GM_Script* script, QWidget* parent)
+    : QDialog(parent)
+    , ui(new Ui::GM_SettingsScriptInfo)
+    , m_script(script)
 {
     ui->setupUi(this);
-    setWindowTitle(tr("Script Details of %1").arg(script->name()));
+    loadScript();
 
-    ui->name->setText(script->fullName());
-    ui->version->setText(script->version());
-    ui->url->setText(script->downloadUrl().toString());
-    ui->startAt->setText(script->startAt() == GM_Script::DocumentStart ? "document-start" : "document-end");
-    ui->description->setText(script->description());
-    ui->include->setText(script->include().join("<br/>"));
-    ui->exclude->setText(script->exclude().join("<br/>"));
+    connect(m_script, SIGNAL(scriptChanged()), this, SLOT(loadScript()));
+    connect(ui->editInEditor, SIGNAL(clicked()), this, SLOT(editInTextEditor()));
+}
+
+void GM_SettingsScriptInfo::editInTextEditor()
+{
+    QDesktopServices::openUrl(QUrl::fromLocalFile(m_script->fileName()));
+}
+
+void GM_SettingsScriptInfo::loadScript()
+{
+    setWindowTitle(tr("Script Details of %1").arg(m_script->name()));
+
+    ui->name->setText(m_script->name());
+    ui->nspace->setText(m_script->nameSpace());
+    ui->version->setText(m_script->version());
+    ui->url->setText(m_script->downloadUrl().toString());
+    ui->startAt->setText(m_script->startAt() == GM_Script::DocumentStart ? "document-start" : "document-end");
+    ui->description->setText(m_script->description());
+    ui->include->setText(m_script->include().join("<br/>"));
+    ui->exclude->setText(m_script->exclude().join("<br/>"));
+
+    ui->version->setVisible(!m_script->version().isEmpty());
+    ui->labelVersion->setVisible(!m_script->version().isEmpty());
+
+    ui->url->setVisible(!m_script->downloadUrl().isEmpty());
+    ui->labelUrl->setVisible(!m_script->downloadUrl().isEmpty());
 }
 
 GM_SettingsScriptInfo::~GM_SettingsScriptInfo()
 {
     delete ui;
 }
+

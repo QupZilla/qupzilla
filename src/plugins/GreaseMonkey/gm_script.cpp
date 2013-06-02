@@ -152,6 +152,8 @@ void GM_Script::watchedFileChanged(const QString &file)
 
         m_manager->removeScript(this, false);
         m_manager->addScript(this);
+
+        emit scriptChanged();
     }
 }
 

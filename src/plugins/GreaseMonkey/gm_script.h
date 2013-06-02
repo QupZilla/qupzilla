@@ -61,6 +61,9 @@ public:
 
     bool match(const QString &urlString);
 
+signals:
+    void scriptChanged();
+
 private slots:
     void watchedFileChanged(const QString &file);
 

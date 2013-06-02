@@ -35,8 +35,14 @@ public:
     explicit GM_SettingsScriptInfo(GM_Script* script, QWidget* parent = 0);
     ~GM_SettingsScriptInfo();
 
+private slots:
+    void editInTextEditor();
+    void loadScript();
+
 private:
     Ui::GM_SettingsScriptInfo* ui;
+
+    GM_Script* m_script;
 };
 
 #endif // GM_SETTINGSSCRIPTINFO_H

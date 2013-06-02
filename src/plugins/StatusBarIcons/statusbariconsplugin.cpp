@@ -75,7 +75,7 @@ bool StatusBarIconsPlugin::testPlugin()
     return (QupZilla::VERSION == QLatin1String("1.5.0"));
 }
 
-QTranslator *StatusBarIconsPlugin::getTranslator(const QString &locale)
+QTranslator* StatusBarIconsPlugin::getTranslator(const QString &locale)
 {
     QTranslator* translator = new QTranslator(this);
     translator->load(locale, ":/sbi/locale/");
