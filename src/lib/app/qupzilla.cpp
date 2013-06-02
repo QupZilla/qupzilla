@@ -535,7 +535,7 @@ void QupZilla::setupMenu()
     m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowForward), tr("&Forward"),
                              MENU_RECEIVER, SLOT(goNext()))->setShortcut(actionShortcut(QKeySequence::Forward, Qt::ALT + Qt::Key_Right, QKeySequence::Back, Qt::ALT + Qt::Key_Left));
     m_menuHistory->addAction(qIconProvider->fromTheme("go-home"), tr("&Home"), MENU_RECEIVER, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
-    m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), MENU_RECEIVER, SLOT(showHistoryManager()))->setShortcut(QKeySequence("Ctrl+Shift+H"));
+    m_menuHistory->addAction(QIcon::fromTheme("view-history", QIcon(":/icons/menu/history.png")), tr("Show &All History"), MENU_RECEIVER, SLOT(showHistoryManager()))->setShortcut(QKeySequence("Ctrl+Shift+H"));
     m_menuHistory->addSeparator();
     connect(m_menuHistory, SIGNAL(aboutToShow()), MENU_RECEIVER, SLOT(aboutToShowHistoryMenu()));
     connect(m_menuHistory, SIGNAL(aboutToHide()), MENU_RECEIVER, SLOT(aboutToHideHistoryMenu()));
@@ -557,9 +557,9 @@ void QupZilla::setupMenu()
      * Bookmarks Menu *
      ******************/
     m_menuBookmarks = new Menu(tr("&Bookmarks"));
-    m_menuBookmarks->addAction(tr("Bookmark &This Page"), MENU_RECEIVER, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
-    m_menuBookmarks->addAction(tr("Bookmark &All Tabs"), MENU_RECEIVER, SLOT(bookmarkAllTabs()));
-    m_menuBookmarks->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("Organize &Bookmarks"), MENU_RECEIVER, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
+    m_menuBookmarks->addAction(QIcon::fromTheme("bookmark-new"), tr("Bookmark &This Page"), MENU_RECEIVER, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
+    m_menuBookmarks->addAction(QIcon::fromTheme("bookmark-new-list"), tr("Bookmark &All Tabs"), MENU_RECEIVER, SLOT(bookmarkAllTabs()));
+    m_menuBookmarks->addAction(qIconProvider->fromTheme("bookmarks-organize"), tr("Organize &Bookmarks"), MENU_RECEIVER, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
     m_menuBookmarks->addSeparator();
 
     connect(m_menuBookmarks, SIGNAL(aboutToShow()), MENU_RECEIVER, SLOT(aboutToShowBookmarksMenu()));

@@ -66,7 +66,7 @@ void BookmarksTree::refreshTree()
     if (m_viewType == ExportFolderView) {
         rootItem = new QTreeWidgetItem(this);
         rootItem->setText(0, tr("Bookmarks"));
-        rootItem->setIcon(0, qIconProvider->fromTheme("user-bookmarks"));
+        rootItem->setIcon(0, qIconProvider->fromTheme("bookmarks-organize"));
         addTopLevelItem(rootItem);
     }
 

@@ -76,7 +76,7 @@ void BookmarksToolbar::customContextMenuRequested(const QPoint &pos)
     QMenu menu;
     menu.addAction(tr("&Bookmark Current Page"), p_QupZilla, SLOT(bookmarkPage()));
     menu.addAction(tr("Bookmark &All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
-    menu.addAction(qIconProvider->fromTheme("user-bookmarks"), tr("&Organize Bookmarks"), p_QupZilla, SLOT(showBookmarksManager()));
+    menu.addAction(qIconProvider->fromTheme("bookmarks-organize"), tr("&Organize Bookmarks"), p_QupZilla, SLOT(showBookmarksManager()));
     menu.addSeparator();
     QAction act(tr("Show Most &Visited"), this);
     act.setCheckable(true);

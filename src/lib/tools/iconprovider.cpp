@@ -202,8 +202,11 @@ QIcon IconProvider::fromTheme(const QString &icon)
     else if (icon == QLatin1String("text-plain")) {
         return QIcon::fromTheme("text-plain", QIcon(":icons/locationbar/unknownpage.png"));
     }
-    else if (icon == QLatin1String("user-bookmarks")) {
-        return QIcon::fromTheme("user-bookmarks", QIcon(":icons/faenza/user-bookmarks.png"));
+    else if (icon == QLatin1String("bookmarks-organize")) {
+        return QIcon::fromTheme("bookmarks-organize", QIcon(":icons/faenza/user-bookmarks.png"));
+    }
+    else if (icon == QLatin1String("bookmark-new")) {
+        return QIcon::fromTheme("bookmark-new", QIcon(":icons/faenza/user-bookmarks.png"));
     }
     else if (icon == QLatin1String("list-remove")) {
         return QIcon::fromTheme("list-remove", QIcon(":icons/faenza/list-remove.png"));

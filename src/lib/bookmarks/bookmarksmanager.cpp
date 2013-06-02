@@ -115,7 +115,7 @@ void BookmarksManager::addFolder(QWidget* parent, QString* folder, bool showInse
     QBoxLayout* layout = new QBoxLayout(QBoxLayout::TopToBottom, &dialog);
     QLabel* labelParent = new QLabel(tr("Choose parent folder for new folder: "), &dialog);
     QComboBox* combo = new QComboBox(&dialog);
-    combo->addItem(qIconProvider->fromTheme("user-bookmarks"), tr("Bookmarks"), "NO_PARENT");
+    combo->addItem(qIconProvider->fromTheme("bookmarks-organize"), tr("Bookmarks"), "NO_PARENT");
     combo->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksToolbar, "bookmarksToolbar");
     combo->setCurrentIndex(0);
     QLabel* labelFolder = new QLabel(tr("Choose name for new bookmark folder: "), &dialog);
