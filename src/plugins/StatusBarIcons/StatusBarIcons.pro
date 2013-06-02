@@ -26,6 +26,12 @@ HEADERS += statusbariconsplugin.h \
 
 RESOURCES += statusbaricons.qrc
 
+TRANSLATIONS = \
+    translations/sr_BA.ts \
+    translations/sr_BA@latin.ts \
+    translations/sr_RS.ts \
+    translations/sr_RS@latin.ts
+
 include(../../plugins.pri)
 
 FORMS += \

@@ -9,5 +9,9 @@
         <file>data/preferences-network.png</file>
         <file>data/add.png</file>
         <file>data/remove.png</file>
+        <file>locale/sr_BA.qm</file>
+        <file>locale/sr_BA@latin.qm</file>
+        <file>locale/sr_RS.qm</file>
+        <file>locale/sr_RS@latin.qm</file>
     </qresource>
 </RCC>
