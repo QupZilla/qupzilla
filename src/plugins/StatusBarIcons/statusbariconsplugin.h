@@ -39,6 +39,7 @@ public:
     void unload();
     bool testPlugin();
 
+    QTranslator* getTranslator(const QString &locale);
     void showSettings(QWidget* parent = 0);
 
 private:

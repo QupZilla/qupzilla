@@ -75,6 +75,13 @@ bool StatusBarIconsPlugin::testPlugin()
     return (QupZilla::VERSION == QLatin1String("1.5.0"));
 }
 
+QTranslator *StatusBarIconsPlugin::getTranslator(const QString &locale)
+{
+    QTranslator* translator = new QTranslator(this);
+    translator->load(locale, ":/sbi/locale/");
+    return translator;
+}
+
 void StatusBarIconsPlugin::showSettings(QWidget* parent)
 {
     SBI_SettingsDialog dialog(m_manager, parent);
