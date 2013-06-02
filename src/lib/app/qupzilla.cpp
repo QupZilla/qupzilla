@@ -410,7 +410,7 @@ void QupZilla::setupMenu()
     m_actionCloseWindow->setShortcut(QKeySequence("Ctrl+Shift+W"));
     m_menuFile->addSeparator();
     m_menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), MENU_RECEIVER, SLOT(savePage()))->setShortcut(QKeySequence("Ctrl+S"));
-    m_menuFile->addAction(tr("Save Page Screen"), MENU_RECEIVER, SLOT(savePageScreen()));
+    m_menuFile->addAction(QIcon::fromTheme("image-loading"), tr("Save Page Screen"), MENU_RECEIVER, SLOT(savePageScreen()))->setShortcut(QKeySequence("Ctrl+Shift+S"));
     m_menuFile->addAction(QIcon::fromTheme("mail-message-new"), tr("Send Link..."), MENU_RECEIVER, SLOT(sendLink()));
     m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print..."), MENU_RECEIVER, SLOT(printPage()))->setShortcut(QKeySequence("Ctrl+P"));
     m_menuFile->addSeparator();
@@ -625,25 +625,26 @@ void QupZilla::setupMenu()
     setupOtherActions();
 
 #ifndef Q_OS_MAC
-    m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(0), this));
-    m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(1), this));
-    m_superMenu->addAction(new ActionCopy(m_actionPrivateBrowsing));
-    m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(3), this));
+    m_superMenu->addAction(m_menuFile->actions().at(0));
+    m_superMenu->addAction(m_menuFile->actions().at(1));
+    m_superMenu->addAction(m_actionPrivateBrowsing);
+    m_superMenu->addAction(m_menuFile->actions().at(3));
 
     m_superMenu->addSeparator();
-    m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(7), this));
-    m_superMenu->addAction(new ActionCopy(m_menuFile->actions().at(10), this));
+    m_superMenu->addAction(m_menuFile->actions().at(7));
+    m_superMenu->addAction(m_menuFile->actions().at(8));
+    m_superMenu->addAction(m_menuFile->actions().at(10));
 
     m_superMenu->addSeparator();
-    m_superMenu->addAction(new ActionCopy(m_menuEdit->actions().at(7), this));
-    m_superMenu->addAction(new ActionCopy(m_menuEdit->actions().at(8), this));
+    m_superMenu->addAction(m_menuEdit->actions().at(7));
+    m_superMenu->addAction(m_menuEdit->actions().at(8));
 
     m_superMenu->addSeparator();
-    m_superMenu->addAction(new ActionCopy(m_menuHistory->actions().at(3), this));
-    m_superMenu->addAction(new ActionCopy(m_menuBookmarks->actions().at(2), this));
+    m_superMenu->addAction(m_menuHistory->actions().at(3));
+    m_superMenu->addAction(m_menuBookmarks->actions().at(2));
 
     m_superMenu->addSeparator();
-    m_superMenu->addAction(new ActionCopy(m_actionPreferences, this));
+    m_superMenu->addAction(m_actionPreferences);
 
     m_superMenu->addSeparator();
     m_superMenu->addMenu(m_menuView);
@@ -652,13 +653,13 @@ void QupZilla::setupMenu()
     m_superMenu->addMenu(m_menuTools);
 
     m_superMenu->addSeparator();
-    m_superMenu->addAction(new ActionCopy(m_actionAbout, this));
-    m_superMenu->addAction(new ActionCopy(m_menuHelp->actions().at(3), this));
-    m_superMenu->addAction(new ActionCopy(m_menuHelp->actions().at(4), this));
-    m_superMenu->addAction(new ActionCopy(m_menuHelp->actions().at(5), this));
+    m_superMenu->addAction(m_actionAbout);
+    m_superMenu->addAction(m_menuHelp->actions().at(3));
+    m_superMenu->addAction(m_menuHelp->actions().at(4));
+    m_superMenu->addAction(m_menuHelp->actions().at(5));
 
     m_superMenu->addSeparator();
-    m_superMenu->addAction(new ActionCopy(m_actionQuit, this));
+    m_superMenu->addAction(m_actionQuit);
 #else
     ActionCopy* copyActionPrivateBrowsing = new ActionCopy(m_actionPrivateBrowsing);
     copyActionPrivateBrowsing->setText(copyActionPrivateBrowsing->text().remove(QLatin1Char('&')));
