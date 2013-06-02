@@ -35,7 +35,7 @@ SBI_ImagesIcon::SBI_ImagesIcon(QupZilla* window, const QString &settingsPath)
     setCursor(Qt::PointingHandCursor);
     setToolTip(tr("Modify images loading settings per-site and globally"));
 
-    m_icon = QIcon::fromTheme("image-x-genericsss", QIcon(":sbi/data/images.png"));
+    m_icon = QIcon::fromTheme("image-x-generics", QIcon(":sbi/data/images.png"));
     setPixmap(m_icon.pixmap(16));
 
     QSettings settings(m_settingsFile, QSettings::IniFormat);
@@ -99,7 +99,8 @@ void SBI_ImagesIcon::setGlobalLoadingImages(bool enable)
     settings.endGroup();
 
     // Switch it in websettings
-    mApp->webSettings()->setAttribute(QWebSettings::AutoLoadImages, enable);
+    m_loadingImages = enable;
+    mApp->webSettings()->setAttribute(QWebSettings::AutoLoadImages, m_loadingImages);
     updateIcon();
 
     // We should reload page on disabling images
