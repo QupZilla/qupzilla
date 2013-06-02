@@ -23,6 +23,7 @@
 #include "qupzilla.h"
 
 #include <QFileDialog>
+#include <QMessageBox>
 #include <QWebFrame>
 #include <QLabel>
 #include <QTimer>
@@ -104,6 +105,16 @@ void PageScreen::changeLocation()
 void PageScreen::dialogAccepted()
 {
     if (!ui->location->text().isEmpty()) {
+        if (QFile::exists(ui->location->text())) {
+            const QString &text = tr("File '%1' already exists. Do you want to overwrite it?").arg(ui->location->text());
+            QMessageBox::StandardButton button = QMessageBox::warning(this, tr("File already exists"), text,
+                                                 QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+
+            if (button != QMessageBox::Yes) {
+                return;
+            }
+        }
+
         QApplication::setOverrideCursor(Qt::WaitCursor);
 
         const QString &format = m_formats[ui->formats->currentIndex()];
