@@ -121,19 +121,19 @@ void SBI_NetworkIcon::updateToolTip()
 
     switch (mApp->networkManager()->proxyFactory()->proxyPreference()) {
     case NetworkProxyFactory::SystemProxy:
-        tooltip = tooltip.arg("System proxy");
+        tooltip = tooltip.arg(tr("System proxy"));
         break;
 
     case NetworkProxyFactory::NoProxy:
-        tooltip = tooltip.arg("No proxy");
+        tooltip = tooltip.arg(tr("No proxy"));
         break;
 
     case NetworkProxyFactory::ProxyAutoConfig:
-        tooltip = tooltip.arg("PAC (Proxy Auto-Config)");
+        tooltip = tooltip.arg(tr("PAC (Proxy Auto-Config)"));
         break;
 
     case NetworkProxyFactory::DefinedProxy:
-        tooltip = tooltip.arg("User defined");
+        tooltip = tooltip.arg(tr("User defined"));
         break;
 
     default:
