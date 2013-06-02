@@ -63,12 +63,7 @@ void AddTabButton::wheelEvent(QWheelEvent* event)
 void AddTabButton::mouseReleaseEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::MiddleButton && rect().contains(event->pos())) {
-        QString selectionClipboard = QApplication::clipboard()->text(QClipboard::Selection);
-        QUrl guessedUrl = WebView::guessUrlFromString(selectionClipboard);
-
-        if (!guessedUrl.isEmpty()) {
-            m_tabWidget->addView(guessedUrl, Qz::NT_SelectedNewEmptyTab);
-        }
+        m_tabWidget->addTabFromClipboard();
     }
 
     ToolButton::mouseReleaseEvent(event);
@@ -386,6 +381,16 @@ int TabWidget::addView(WebTab* tab)
     connect(tab->view(), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
     return index;
+}
+
+void TabWidget::addTabFromClipboard()
+{
+    QString selectionClipboard = QApplication::clipboard()->text(QClipboard::Selection);
+    QUrl guessedUrl = WebView::guessUrlFromString(selectionClipboard);
+
+    if (!guessedUrl.isEmpty()) {
+        addView(guessedUrl, Qz::NT_SelectedNewEmptyTab);
+    }
 }
 
 void TabWidget::closeTab(int index, bool force)

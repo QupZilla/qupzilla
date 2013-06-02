@@ -108,6 +108,7 @@ public slots:
     int addView(QNetworkRequest req, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1);
     int addView(WebTab* tab);
 
+    void addTabFromClipboard();
     int duplicateTab(int index);
 
     void closeTab(int index = -1, bool force = false);
