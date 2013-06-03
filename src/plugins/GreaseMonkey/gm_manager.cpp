@@ -98,6 +98,13 @@ void GM_Manager::unloadPlugin()
     settings.endGroup();
 
     delete m_settings.data();
+
+    // Remove icons from all windows
+    QHashIterator<QupZilla*, GM_Icon*> it(m_windows);
+    while (it.hasNext()) {
+        it.next();
+        mainWindowDeleted(it.key());
+    }
 }
 
 QList<GM_Script*> GM_Manager::allScripts() const
@@ -276,4 +283,5 @@ void GM_Manager::mainWindowDeleted(QupZilla* window)
 {
     window->statusBar()->removeWidget(m_windows[window]);
     delete m_windows[window];
+    m_windows.remove(window);
 }
