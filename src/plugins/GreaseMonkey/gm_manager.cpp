@@ -271,7 +271,6 @@ bool GM_Manager::canRunOnScheme(const QString &scheme)
             || scheme == QLatin1String("data") || scheme == QLatin1String("ftp"));
 }
 
-
 void GM_Manager::mainWindowCreated(QupZilla* window)
 {
     GM_Icon* icon = new GM_Icon(this, window);

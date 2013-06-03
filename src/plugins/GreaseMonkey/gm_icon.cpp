@@ -25,7 +25,7 @@ GM_Icon::GM_Icon(GM_Manager* manager, QupZilla* window)
     , m_window(window)
 {
     setCursor(Qt::PointingHandCursor);
-    setPixmap(QPixmap(":gm/data/icon18.png"));
+    setPixmap(QPixmap(":gm/data/icon16.png"));
     setToolTip(tr("Open GreaseMonkey settings"));
 
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(openSettings()));
