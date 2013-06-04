@@ -65,6 +65,12 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
+    m_themesManager = new ThemeManager(ui->themesWidget, this);
+    m_autoFillManager = new AutoFillManager(this);
+    ui->autoFillFrame->addWidget(m_autoFillManager);
+    m_pluginsList = new PluginsManager(this);
+    ui->pluginsFrame->addWidget(m_pluginsList);
+
     if (QIcon::themeName().toLower() == QLatin1String("oxygen")) {
         ui->listWidget->item(0)->setIcon(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/preferences/preferences-desktop.png")));
         ui->listWidget->item(1)->setIcon(QIcon::fromTheme("format-stroke-color", QIcon(":/icons/preferences/application-x-theme.png")));
@@ -177,7 +183,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     startProfileIndexChanged(ui->startProfile->currentText());
 
     //APPEREANCE
-    m_themesManager = new ThemeManager(ui->themesWidget, this);
     settings.beginGroup("Browser-View-Settings");
     ui->showStatusbar->setChecked(settings.value("showStatusBar", true).toBool());
     if (p_QupZilla) {
@@ -276,8 +281,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->allowPassManager->setChecked(settings.value("SavePasswordsOnSites", true).toBool());
     connect(ui->allowPassManager, SIGNAL(toggled(bool)), this, SLOT(showPassManager(bool)));
 
-    m_autoFillManager = new AutoFillManager(this);
-    ui->autoFillFrame->addWidget(m_autoFillManager);
     showPassManager(ui->allowPassManager->isChecked());
 
     //PRIVACY
@@ -345,10 +348,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->switchTabsAlt->setChecked(settings.value("useTabNumberShortcuts", true).toBool());
     ui->loadSpeedDialsCtrl->setChecked(settings.value("useSpeedDialNumberShortcuts", true).toBool());
     settings.endGroup();
-
-    //PLUGINS
-    m_pluginsList = new PluginsManager(this);
-    ui->pluginsFrame->addWidget(m_pluginsList);
 
     //NOTIFICATIONS
     ui->useNativeSystemNotifications->setEnabled(mApp->desktopNotifications()->supportsNativeNotifications());

@@ -72,8 +72,8 @@ public:
     void removeEntry(const PasswordEntry &entry);
     void removeAllEntries();
 
-    QHash<QString, PasswordBackend*> availableBackends() const;
-    PasswordBackend* activeBackend() const;
+    QHash<QString, PasswordBackend*> availableBackends();
+    PasswordBackend* activeBackend();
     void switchBackend(PasswordBackend* backend);
 
     bool registerBackend(const QString &id, PasswordBackend* backend);

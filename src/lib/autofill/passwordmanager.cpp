@@ -119,13 +119,15 @@ void PasswordManager::removeAllEntries()
     m_backend->removeAll();
 }
 
-QHash<QString, PasswordBackend*> PasswordManager::availableBackends() const
+QHash<QString, PasswordBackend*> PasswordManager::availableBackends()
 {
+    ensureLoaded();
     return m_backends;
 }
 
-PasswordBackend* PasswordManager::activeBackend() const
+PasswordBackend* PasswordManager::activeBackend()
 {
+    ensureLoaded();
     return m_backend;
 }
 
