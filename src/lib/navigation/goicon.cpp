@@ -24,7 +24,6 @@ GoIcon::GoIcon(QWidget* parent)
 {
     setObjectName("locationbar-goicon");
     setCursor(Qt::PointingHandCursor);
-    setHidden(true);
 }
 
 void GoIcon::contextMenuEvent(QContextMenuEvent* ev)

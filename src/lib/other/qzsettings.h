@@ -38,6 +38,7 @@ public:
     bool showLoadingProgress;
     int showLocationSuggestions;
     bool showSwitchTab;
+    bool alwaysShowGoIcon;
 
     // SearchEngines
     bool showSearchSuggestions;

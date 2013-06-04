@@ -140,8 +140,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>602</width>
-        <height>469</height>
+        <width>608</width>
+        <height>485</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -840,6 +840,13 @@
                  </property>
                  <property name="text">
                   <string>Propose to switch tab if completed url is already loaded.</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="alwaysShowGoIcon">
+                 <property name="text">
+                  <string>Always show go icon</string>
                  </property>
                 </widget>
                </item>

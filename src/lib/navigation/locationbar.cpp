@@ -56,7 +56,6 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_progressVisible(false)
     , m_forcePaintEvent(false)
     , m_inlineCompletionVisible(false)
-    , m_drawCursor(true)
     , m_popupClosed(false)
 {
     setObjectName("locationbar");
@@ -77,9 +76,9 @@ LocationBar::LocationBar(QupZilla* mainClass)
     addWidget(m_siteIcon, LineEdit::LeftSide);
 
     addWidget(m_autofillIcon, LineEdit::RightSide);
-    addWidget(m_goIcon, LineEdit::RightSide);
     addWidget(m_bookmarkIcon, LineEdit::RightSide);
     addWidget(m_rssIcon, LineEdit::RightSide);
+    addWidget(m_goIcon, LineEdit::RightSide);
     addWidget(down, LineEdit::RightSide);
 
     m_completer.setLocationBar(this);
@@ -100,7 +99,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     updatePlaceHolderText();
 
     // Hide icons by default
-    m_goIcon->hide();
+    hideGoButton();
     m_rssIcon->hide();
     m_autofillIcon->hide();
 }
@@ -148,7 +147,6 @@ void LocationBar::completionPopupClosed()
 {
     m_inlineCompletionVisible = false;
     m_popupClosed = true;
-    m_drawCursor = true;
 }
 
 QUrl LocationBar::createUrl()
@@ -220,20 +218,11 @@ void LocationBar::textEdit()
         m_completer.closePopup();
     }
 
-    // Decide whether to draw cursor
-    if (text().length() <= 1 && m_drawCursor && !m_popupClosed) {
-        m_drawCursor = false;
-    }
-
     showGoButton();
 }
 
 void LocationBar::showGoButton()
 {
-    if (m_goIcon->isVisible()) {
-        return;
-    }
-
     m_rssIconVisible = m_rssIcon->isVisible();
 
     m_bookmarkIcon->hide();
@@ -245,13 +234,12 @@ void LocationBar::showGoButton()
 
 void LocationBar::hideGoButton()
 {
-    if (!m_goIcon->isVisible()) {
-        return;
-    }
-
     m_rssIcon->setVisible(m_rssIconVisible);
     m_bookmarkIcon->show();
-    m_goIcon->hide();
+
+    if (!qzSettings->alwaysShowGoIcon) {
+        m_goIcon->hide();
+    }
 
     updateTextMargins();
 }
