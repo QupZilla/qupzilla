@@ -25,6 +25,31 @@ INCLUDEPATH += $$PWD/lib/3rdparty\
                $$PWD/lib/bookmarksimport\
                $$PWD/lib/popupwindow\
 
+DEPENDPATH += $$PWD/lib/3rdparty\
+              $$PWD/lib/app\
+              $$PWD/lib/autofill\
+              $$PWD/lib/bookmarks\
+              $$PWD/lib/cookies\
+              $$PWD/lib/session\
+              $$PWD/lib/downloads\
+              $$PWD/lib/history\
+              $$PWD/lib/navigation\
+              $$PWD/lib/network\
+              $$PWD/lib/other\
+              $$PWD/lib/preferences\
+              $$PWD/lib/rss\
+              $$PWD/lib/tools\
+              $$PWD/lib/utils\
+              $$PWD/lib/webview\
+              $$PWD/lib/plugins\
+              $$PWD/lib/sidebar\
+              $$PWD/lib/data\
+              $$PWD/lib/adblock\
+              $$PWD/lib/desktopnotifications\
+              $$PWD/lib/opensearch\
+              $$PWD/lib/bookmarksimport\
+              $$PWD/lib/popupwindow\
+
 TEMPLATE = lib
 CONFIG += plugin
 DESTDIR = $$PWD/../bin/plugins/

@@ -2,6 +2,7 @@ TARGET = $$qtLibraryTarget(GreaseMonkey)
 os2: TARGET = GreaseMo
 
 INCLUDEPATH += settings\
+DEPENDPATH += settings\
 
 SOURCES += gm_plugin.cpp \
     gm_manager.cpp \

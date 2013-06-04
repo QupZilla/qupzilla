@@ -22,6 +22,11 @@ INCLUDEPATH += ../lib/app\
                ../lib/session\
                ../lib/webview
 
+DEPENDPATH += ../lib/app\
+              ../lib/3rdparty\
+              ../lib/session\
+              ../lib/webview
+
 SOURCES =      main.cpp
 OTHER_FILES += appicon.rc \
                appicon_os2.rc \

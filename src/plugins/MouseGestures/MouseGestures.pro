@@ -2,6 +2,7 @@ TARGET = $$qtLibraryTarget(MouseGestures)
 os2: TARGET = MouseGes
 
 INCLUDEPATH = 3rdparty
+DEPENDPATH = 3rdparty
 
 SOURCES = \
     3rdparty/mousegesturerecognizer.cpp \

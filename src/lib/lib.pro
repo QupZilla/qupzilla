@@ -45,6 +45,31 @@ INCLUDEPATH += 3rdparty\
                bookmarksimport\
                popupwindow\
 
+DEPENDPATH += 3rdparty\
+              app\
+              autofill\
+              bookmarks\
+              cookies\
+              session\
+              downloads\
+              history\
+              navigation\
+              network\
+              other\
+              preferences\
+              rss\
+              tools\
+              utils\
+              webview\
+              plugins\
+              sidebar\
+              data\
+              adblock\
+              desktopnotifications\
+              opensearch\
+              bookmarksimport\
+              popupwindow\
+
 SOURCES += \
     webview/tabpreview.cpp \
     3rdparty/qtwin.cpp \
