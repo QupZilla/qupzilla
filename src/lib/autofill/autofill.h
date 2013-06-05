@@ -34,6 +34,8 @@ struct PasswordEntry;
 
 class QT_QUPZILLA_EXPORT AutoFill : public QObject
 {
+    Q_OBJECT
+
 public:
     explicit AutoFill(QObject* parent = 0);
 
