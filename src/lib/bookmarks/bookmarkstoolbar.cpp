@@ -112,8 +112,16 @@ void BookmarksToolbar::showBookmarkContextMenu(const QPoint &pos)
     menu.addAction(tr("Open bookmark"), this, SLOT(loadClickedBookmark()))->setData(buttonPointer);
     menu.addAction(tr("Open bookmark in new tab"), this, SLOT(loadClickedBookmarkInNewTab()))->setData(buttonPointer);
     menu.addSeparator();
-    menu.addAction(qIconProvider->fromTheme("go-next"), tr("Move right"), this, SLOT(moveRight()))->setData(buttonPointer);
-    menu.addAction(qIconProvider->fromTheme("go-previous"), tr("Move left"), this, SLOT(moveLeft()))->setData(buttonPointer);
+
+    // in RTL layouts we should reverse Move Right/Left
+    if (!isRightToLeft()) {
+        menu.addAction(qIconProvider->fromTheme("go-next"), tr("Move right"), this, SLOT(moveRight()))->setData(buttonPointer);
+        menu.addAction(qIconProvider->fromTheme("go-previous"), tr("Move left"), this, SLOT(moveLeft()))->setData(buttonPointer);
+    }
+    else {
+        menu.addAction(qIconProvider->fromTheme("go-next"), tr("Move right"), this, SLOT(moveLeft()))->setData(buttonPointer);
+        menu.addAction(qIconProvider->fromTheme("go-previous"), tr("Move left"), this, SLOT(moveRight()))->setData(buttonPointer);
+    }
     menu.addAction(tr("Edit bookmark"), this, SLOT(editBookmark()))->setData(buttonPointer);
     menu.addSeparator();
     menu.addAction(qIconProvider->fromTheme("list-remove"), tr("Remove bookmark"), this, SLOT(removeButton()))->setData(buttonPointer);
