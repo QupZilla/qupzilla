@@ -501,6 +501,10 @@ void WebView::copyLinkToClipboard()
 
 void WebView::savePageAs()
 {
+    if (url().isEmpty() || url().toString() == QLatin1String("about:blank")) {
+        return;
+    }
+
     QNetworkRequest request(url());
     QString suggestedFileName = QzTools::getFileNameFromUrl(url());
     if (!suggestedFileName.contains(QLatin1Char('.'))) {
