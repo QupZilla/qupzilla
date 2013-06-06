@@ -147,7 +147,6 @@ void TabWidget::loadSettings()
 {
     Settings settings;
     settings.beginGroup("Browser-Tabs-Settings");
-    m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
     m_dontQuitWithOneTab = settings.value("dontQuitWithOneTab", false).toBool();
     m_closedInsteadOpened = settings.value("closedInsteadOpenedTabs", false).toBool();
     m_newTabAfterActive = settings.value("newTabAfterActive", true).toBool();
@@ -448,20 +447,6 @@ void TabWidget::tabMoved(int before, int after)
     m_lastTabIndex = before;
 }
 
-void TabWidget::tabInserted(int index)
-{
-    Q_UNUSED(index)
-
-    tabBar()->setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
-}
-
-void TabWidget::tabRemoved(int index)
-{
-    Q_UNUSED(index)
-
-    tabBar()->setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
-}
-
 void TabWidget::startTabAnimation(int index)
 {
     if (!validIndex(index)) {
@@ -571,16 +556,6 @@ void TabWidget::reloadTab(int index)
     }
 
     weTab(index)->reload();
-}
-
-void TabWidget::showTabBar()
-{
-    if (count() == 1 && m_hideTabBarWithOneTab) {
-        tabBar()->hide();
-    }
-    else {
-        tabBar()->show();
-    }
 }
 
 int TabWidget::lastTabIndex() const
