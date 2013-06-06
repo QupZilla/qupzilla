@@ -359,7 +359,13 @@ void WebTab::showNavigationBar(QWidget* bar)
 
         // Needed to prevent flickering when closing tabs
         m_navigationContainer->setUpdatesEnabled(true);
-        m_navigationContainer->show();
+
+        if (p_QupZilla->isFullScreen()) {
+            m_navigationContainer->setVisible(p_QupZilla->tabWidget()->getTabBar()->isVisible());
+        }
+        else {
+            m_navigationContainer->show();
+        }
     }
 }
 

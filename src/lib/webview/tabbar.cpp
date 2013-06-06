@@ -76,20 +76,25 @@ void TabBar::loadSettings()
 {
     Settings settings;
     settings.beginGroup("Browser-Tabs-Settings");
-
+    m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
     m_tabPreview->setAnimationsEnabled(settings.value("tabPreviewAnimationsEnabled", true).toBool());
     m_showTabPreviews = settings.value("showTabPreviews", true).toBool();
     bool activateLastTab = settings.value("ActivateLastTabWhenClosingActual", false).toBool();
+    settings.endGroup();
 
     setSelectionBehaviorOnRemove(activateLastTab ? QTabBar::SelectPreviousTab : QTabBar::SelectRightTab);
-
-    settings.endGroup();
 }
 
 void TabBar::updateVisibilityWithFullscreen(bool visible)
 {
     // It is needed to save original geometry, otherwise
     // tabbar will get 3px height in fullscreen once it was hidden
+
+    // Make sure to honor user preference
+    if (visible) {
+        visible = !(count() == 1 && m_hideTabBarWithOneTab);
+    }
+
     QTabBar::setVisible(visible);
 
     if (visible) {
@@ -104,11 +109,16 @@ void TabBar::updateVisibilityWithFullscreen(bool visible)
 
 void TabBar::setVisible(bool visible)
 {
-    if (visible) {
-        if (p_QupZilla->isFullScreen()) {
-            return;
-        }
+    if (visible && p_QupZilla->isFullScreen()) {
+        return;
+    }
 
+    // Make sure to honor user preference
+    if (visible) {
+        visible = !(count() == 1 && m_hideTabBarWithOneTab);
+    }
+
+    if (visible) {
         emit showButtons();
     }
     else {
@@ -117,7 +127,6 @@ void TabBar::setVisible(bool visible)
     }
 
     hideTabPreview(false);
-
     QTabBar::setVisible(visible);
 }
 
@@ -493,12 +502,20 @@ void TabBar::hideTabPreview(bool delayed)
     }
 }
 
+void TabBar::tabInserted(int index)
+{
+    Q_UNUSED(index)
+
+    setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
+}
+
 void TabBar::tabRemoved(int index)
 {
     Q_UNUSED(index)
 
     m_tabWidget->showNavigationBar(p_QupZilla->navigationContainer());
     showCloseButton(currentIndex());
+    setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
 }
 
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)

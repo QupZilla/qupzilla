@@ -88,6 +88,7 @@ private slots:
 private:
     inline bool validIndex(int index) const { return index >= 0 && index < count(); }
 
+    void tabInserted(int index);
     void tabRemoved(int index);
 
     void hideCloseButton(int index);
@@ -110,6 +111,7 @@ private:
     QTimer* m_tabPreviewTimer;
 
     bool m_showTabPreviews;
+    bool m_hideTabBarWithOneTab;
 
     int m_clickedTab;
     int m_pinnedTabsCount;

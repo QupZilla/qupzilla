@@ -79,8 +79,6 @@ public:
 
     int normalTabsCount() const;
     int pinnedTabsCount() const;
-
-    void showTabBar();
     int lastTabIndex() const;
 
     void showNavigationBar(QWidget* bar);
@@ -137,12 +135,8 @@ private:
 
     inline bool validIndex(int index) const { return index >= 0 && index < count(); }
 
-    void tabInserted(int index);
-    void tabRemoved(int index);
-
     void resizeEvent(QResizeEvent* e);
 
-    bool m_hideTabBarWithOneTab;
     bool m_dontQuitWithOneTab;
     bool m_closedInsteadOpened;
     bool m_newTabAfterActive;
