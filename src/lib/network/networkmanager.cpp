@@ -102,9 +102,14 @@ void NetworkManager::loadSettings()
 
     // Falling back to Qt 4.7 default behavior, use SslV3 by default
     // Fixes issue with some older servers closing the connection
-    QSslConfiguration config = QSslConfiguration::defaultConfiguration();
-    config.setProtocol(QSsl::SslV3);
-    QSslConfiguration::setDefaultConfiguration(config);
+
+    // However, it also makes some servers requesting TLS ClientHello
+    // not working, or showing invalid certificates.
+    // See #921
+
+    // QSslConfiguration config = QSslConfiguration::defaultConfiguration();
+    // config.setProtocol(QSsl::SslV3);
+    // QSslConfiguration::setDefaultConfiguration(config);
 
 #if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
     QString certDir = mApp->PROFILEDIR + "certificates";
