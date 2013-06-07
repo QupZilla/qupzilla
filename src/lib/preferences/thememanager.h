@@ -57,7 +57,7 @@ private:
         QString license;
     };
 
-    Theme parseTheme(const QString &name);
+    Theme parseTheme(const QString &path, const QString &name);
 
     Ui::ThemeManager* ui;
     Preferences* m_preferences;

@@ -40,25 +40,31 @@ ThemeManager::ThemeManager(QWidget* parent, Preferences* preferences)
     m_activeTheme = settings.value("activeTheme", DEFAULT_THEME_NAME).toString();
     settings.endGroup();
 
-    QDir themeDir(mApp->THEMESDIR);
-    QStringList list = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
+    QStringList themePaths;
+    themePaths << mApp->currentProfilePath() + "themes/"
+               << mApp->PROFILEDIR + "themes/"
+               << mApp->THEMESDIR;
 
-    foreach (const QString &name, list) {
-        Theme themeInfo = parseTheme(name);
-        if (!themeInfo.isValid) {
-            continue;
+    foreach (const QString &path, themePaths) {
+        QDir dir(path);
+        QStringList list = dir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
+        foreach (const QString &name, list) {
+            Theme themeInfo = parseTheme(dir.absoluteFilePath(name) + "/", name);
+            if (!themeInfo.isValid) {
+                continue;
+            }
+
+            QListWidgetItem* item = new QListWidgetItem(ui->listWidget);
+            item->setText(themeInfo.name + "\n" + themeInfo.shortDescription);
+            item->setIcon(themeInfo.icon);
+            item->setData(Qt::UserRole, name);
+
+            if (m_activeTheme == name) {
+                ui->listWidget->setCurrentItem(item);
+            }
+
+            ui->listWidget->addItem(item);
         }
-
-        QListWidgetItem* item = new QListWidgetItem(ui->listWidget);
-        item->setText(themeInfo.name + "\n" + themeInfo.shortDescription);
-        item->setIcon(themeInfo.icon);
-        item->setData(Qt::UserRole, name);
-
-        if (m_activeTheme == name) {
-            ui->listWidget->setCurrentItem(item);
-        }
-
-        ui->listWidget->addItem(item);
     }
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentChanged()));
@@ -96,12 +102,10 @@ void ThemeManager::currentChanged()
     ui->license->setHidden(currentTheme.license.isEmpty());
 }
 
-ThemeManager::Theme ThemeManager::parseTheme(const QString &name)
+ThemeManager::Theme ThemeManager::parseTheme(const QString &path, const QString &name)
 {
     Theme info;
-    info.name = name;
 
-    QString path = mApp->THEMESDIR + name + "/";
     if (!QFile(path + "main.css").exists() || !QFile(path + "theme.info").exists()) {
         info.isValid = false;
         return info;
@@ -125,6 +129,10 @@ ThemeManager::Theme ThemeManager::parseTheme(const QString &name)
     rx.indexIn(theme_info);
     if (rx.captureCount() == 1) {
         info.name = rx.cap(1).trimmed();
+    }
+
+    if (info.name.isEmpty() || m_themeHash.contains(info.name)) {
+        return info;
     }
 
     rx.setPattern("Author:(.*)\\n");

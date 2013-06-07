@@ -160,6 +160,7 @@ private slots:
 private:
     enum PostLaunchAction { OpenDownloadManager, OpenNewTab };
 
+    void loadTheme(const QString &name);
     void translateApp();
     void restoreOtherWindows();
 

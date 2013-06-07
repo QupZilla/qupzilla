@@ -9,6 +9,7 @@ Version 1.5.0
     * added KWallet password backend plugin
     * added Gnome-Keyring password backend plugin
     * added StatusBar Icons plugin that adds extra icons to statusbar
+    * themes can now be loaded from profile directories
     * pagescreen can now save output into number of formats, including PDF
     * proxy exceptions now supports wildcards (*, ?)
     * cancel upload when trying to upload non-readable files

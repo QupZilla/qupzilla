@@ -338,53 +338,13 @@ void MainApplication::loadSettings()
     settings.beginGroup("Themes");
     QString activeTheme = settings.value("activeTheme", DEFAULT_THEME_NAME).toString();
     settings.endGroup();
-    m_activeThemePath = THEMESDIR + activeTheme + "/";
-    QFile cssFile(m_activeThemePath + "main.css");
-    cssFile.open(QFile::ReadOnly);
-    QString css = cssFile.readAll();
-    cssFile.close();
-#ifdef QZ_WS_X11
-    if (QFile(m_activeThemePath + "linux.css").exists()) {
-        cssFile.setFileName(m_activeThemePath + "linux.css");
-        cssFile.open(QFile::ReadOnly);
-        css.append(cssFile.readAll());
-        cssFile.close();
-    }
-#endif
-#ifdef Q_OS_MAC
-    if (QFile(m_activeThemePath + "mac.css").exists()) {
-        cssFile.setFileName(m_activeThemePath + "mac.css");
-        cssFile.open(QFile::ReadOnly);
-        css.append(cssFile.readAll());
-        cssFile.close();
-    }
-#endif
-#if defined(Q_OS_WIN) || defined(Q_OS_OS2)
-    if (QFile(m_activeThemePath + "windows.css").exists()) {
-        cssFile.setFileName(m_activeThemePath + "windows.css");
-        cssFile.open(QFile::ReadOnly);
-        css.append(cssFile.readAll());
-        cssFile.close();
-    }
-#endif
 
-    //RTL Support
-    //loading 'rtl.css' when layout is right to left!
-    if (isRightToLeft() && QFile(m_activeThemePath + "rtl.css").exists()) {
-        cssFile.setFileName(m_activeThemePath + "rtl.css");
-        cssFile.open(QFile::ReadOnly);
-        css.append(cssFile.readAll());
-        cssFile.close();
-    }
+    loadTheme(activeTheme);
 
-    QString relativePath = QDir::current().relativeFilePath(m_activeThemePath);
-    css.replace(QzRegExp("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)", Qt::CaseSensitive),
-                QString("url(%1\\1)").arg(relativePath + "/"));
-    setStyleSheet(css);
-
+    // Create global QWebSettings object
     webSettings();
 
-    //Web browsing settings
+    // Web browsing settings
     settings.beginGroup("Web-Browser-Settings");
 
     if (!m_isPrivateSession) {
@@ -705,6 +665,81 @@ void MainApplication::connectDatabase()
     }
 
     m_databaseConnected = true;
+}
+
+void MainApplication::loadTheme(const QString &name)
+{
+    // Themes are loaded from the following directories:
+    //  1. Directory "themes" in user profile
+    //  2. Directory "themes" in root profile directory
+    //  3. System data path
+    //       > /usr/share/qupzilla/themes on Linux
+    //       > $EXECUTABLE_DIR/themes on Windows
+
+    QStringList themePaths;
+    themePaths << m_activeProfil + "themes/"
+               << PROFILEDIR + "themes/"
+               << THEMESDIR;
+
+    foreach (const QString &path, themePaths) {
+        const QString &theme = path + name + "/";
+        if (QFile::exists(theme + "main.css")) {
+            m_activeThemePath = theme;
+            break;
+        }
+    }
+
+    if (m_activeThemePath.isEmpty()) {
+        qWarning("Cannot load theme '%s'!", qPrintable(name));
+        m_activeThemePath = THEMESDIR + DEFAULT_THEME_NAME + "/";
+    }
+
+    QFile cssFile(m_activeThemePath + "main.css");
+    cssFile.open(QFile::ReadOnly);
+    QString css = cssFile.readAll();
+    cssFile.close();
+
+#ifdef QZ_WS_X11
+    if (QFile(m_activeThemePath + "linux.css").exists()) {
+        cssFile.setFileName(m_activeThemePath + "linux.css");
+        cssFile.open(QFile::ReadOnly);
+        css.append(cssFile.readAll());
+        cssFile.close();
+    }
+#endif
+
+#ifdef Q_OS_MAC
+    if (QFile(m_activeThemePath + "mac.css").exists()) {
+        cssFile.setFileName(m_activeThemePath + "mac.css");
+        cssFile.open(QFile::ReadOnly);
+        css.append(cssFile.readAll());
+        cssFile.close();
+    }
+#endif
+
+#if defined(Q_OS_WIN) || defined(Q_OS_OS2)
+    if (QFile(m_activeThemePath + "windows.css").exists()) {
+        cssFile.setFileName(m_activeThemePath + "windows.css");
+        cssFile.open(QFile::ReadOnly);
+        css.append(cssFile.readAll());
+        cssFile.close();
+    }
+#endif
+
+    // RTL Support
+    // Loading 'rtl.css' when layout is right to left!
+    if (isRightToLeft() && QFile(m_activeThemePath + "rtl.css").exists()) {
+        cssFile.setFileName(m_activeThemePath + "rtl.css");
+        cssFile.open(QFile::ReadOnly);
+        css.append(cssFile.readAll());
+        cssFile.close();
+    }
+
+    QString relativePath = QDir::current().relativeFilePath(m_activeThemePath);
+    css.replace(QzRegExp("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)", Qt::CaseSensitive),
+                QString("url(%1\\1)").arg(relativePath + "/"));
+
+    setStyleSheet(css);
 }
 
 void MainApplication::translateApp()
