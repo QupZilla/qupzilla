@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "passwordbackendtest.h"
+#include "aesinterface.h"
 
 #include <QtTest/QtTest>
 #include <QSqlDatabase>
@@ -225,6 +226,38 @@ void DatabasePasswordBackendTest::cleanup()
     QSqlDatabase::removeDatabase(QSqlDatabase::database().databaseName());
 }
 
+// DatabaseEncryptedPasswordBackendTest
+void DatabaseEncryptedPasswordBackendTest::reloadBackend()
+{
+    delete m_backend;
+    DatabaseEncryptedPasswordBackend* backend = new DatabaseEncryptedPasswordBackend;
+
+    if (m_testMasterPassword.isEmpty()) {
+        m_testMasterPassword = AesInterface::passwordToHash(QString::fromUtf8(AesInterface::createRandomData(8)));
+        backend->updateSampleData(m_testMasterPassword);
+    }
+
+    // a trick for setting masterPassword without gui interactions
+    backend->isPasswordVerified(m_testMasterPassword);
+    backend->setAskMasterPasswordState(false);
+
+    m_backend = backend;
+}
+
+void DatabaseEncryptedPasswordBackendTest::init()
+{
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isValid()) {
+        db = QSqlDatabase::addDatabase("QSQLITE");
+        db.setDatabaseName(":memory:");
+    }
+    db.open();
+}
+
+void DatabaseEncryptedPasswordBackendTest::cleanup()
+{
+    QSqlDatabase::removeDatabase(QSqlDatabase::database().databaseName());
+}
 
 // KWalletPassswordBackendTest
 void KWalletPasswordBackendTest::reloadBackend()

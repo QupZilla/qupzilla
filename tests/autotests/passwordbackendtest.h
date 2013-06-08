@@ -60,6 +60,21 @@ protected:
     void cleanup();
 };
 
+#include "passwordbackends/databaseencryptedpasswordbackend.h"
+
+class DatabaseEncryptedPasswordBackendTest : public PasswordBackendTest
+{
+    Q_OBJECT
+
+private:
+    QByteArray m_testMasterPassword;
+
+protected:
+    void reloadBackend();
+    void init();
+    void cleanup();
+};
+
 #include "../../src/plugins/KWalletPasswords/kwalletpasswordbackend.h"
 
 class KWalletPasswordBackendTest : public PasswordBackendTest

@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
     RUN_TEST(PacTest)
 
     RUN_TEST(DatabasePasswordBackendTest)
+    RUN_TEST(DatabaseEncryptedPasswordBackendTest)
     RUN_TEST(KWalletPasswordBackendTest)
     RUN_TEST(GnomeKeyringPasswordBackendTest)
 
