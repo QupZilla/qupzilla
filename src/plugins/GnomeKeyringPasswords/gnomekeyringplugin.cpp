@@ -62,6 +62,13 @@ bool GnomeKeyringPlugin::testPlugin()
     return (QupZilla::VERSION == QLatin1String("1.5.0"));
 }
 
+QTranslator* GnomeKeyringPlugin::getTranslator(const QString &locale)
+{
+    QTranslator* translator = new QTranslator(this);
+    translator->load(locale, ":/gkp/locale/");
+    return translator;
+}
+
 #if QT_VERSION < 0x050000
 Q_EXPORT_PLUGIN2(GnomeKeyringPasswords, GnomeKeyringPlugin)
 #endif

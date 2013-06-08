@@ -39,6 +39,8 @@ public:
     void unload();
     bool testPlugin();
 
+    QTranslator* getTranslator(const QString &locale);
+
 private:
     KWalletPasswordBackend* m_backend;
 

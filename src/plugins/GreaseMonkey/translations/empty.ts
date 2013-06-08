@@ -63,9 +63,17 @@
     </message>
 </context>
 <context>
+    <name>GM_Icon</name>
+    <message>
+        <location filename="../gm_icon.cpp" line="29"/>
+        <source>Open GreaseMonkey settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="185"/>
+        <location filename="../gm_manager.cpp" line="194"/>
         <source>GreaseMonkey</source>
         <translation type="unfinished"></translation>
     </message>
@@ -134,42 +142,52 @@
 <context>
     <name>GM_SettingsScriptInfo</name>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="85"/>
         <source>Name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="29"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="55"/>
         <source>Version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="39"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="115"/>
         <source>URL:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="49"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="138"/>
+        <source>Namespace:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="155"/>
+        <source>Edit in text editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="65"/>
         <source>Start at:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="59"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="45"/>
         <source>Description:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="69"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
         <source>Runs at:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="79"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="128"/>
         <source>Does not run at:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.cpp" line="27"/>
+        <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
         <source>Script Details of %1</source>
         <translation type="unfinished"></translation>
     </message>
