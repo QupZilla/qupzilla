@@ -21,6 +21,8 @@
 #include <QObject>
 #include <QScriptValue>
 
+#include "qz_namespace.h"
+
 class QScriptContext;
 class QScriptEngine;
 
@@ -29,7 +31,7 @@ class QScriptEngine;
  *
  * Based on qt-examples: https://gitorious.org/qt-examples/qt-examples/blobs/master/pac-files
  */
-class ProxyAutoConfig : public QObject
+class QT_QUPZILLA_EXPORT ProxyAutoConfig : public QObject
 {
     Q_OBJECT
 

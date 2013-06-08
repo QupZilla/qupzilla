@@ -23,7 +23,11 @@
 #include <QSqlQuery>
 #include <QDebug>
 
+#ifdef Q_OS_WIN
+#include "qt_windows.h"
+#else
 #include "unistd.h"
+#endif
 
 static bool compareEntries(const PasswordEntry &value, const PasswordEntry &ref)
 {
@@ -186,7 +190,11 @@ void PasswordBackendTest::updateLastUsedTest()
     entry.data = "entry1-data=23&username=user1&password=pass1";
     m_backend->addEntry(entry);
 
+#ifdef Q_OS_WIN
+    Sleep(1000);
+#else
     sleep(1);
+#endif
 
     entry.username.append("s");
     m_backend->addEntry(entry);
@@ -259,6 +267,7 @@ void DatabaseEncryptedPasswordBackendTest::cleanup()
     QSqlDatabase::removeDatabase(QSqlDatabase::database().databaseName());
 }
 
+#ifndef Q_OS_WIN
 // KWalletPassswordBackendTest
 void KWalletPasswordBackendTest::reloadBackend()
 {
@@ -273,3 +282,4 @@ void GnomeKeyringPasswordBackendTest::reloadBackend()
     delete m_backend;
     m_backend = new GnomeKeyringPasswordBackend;
 }
+#endif

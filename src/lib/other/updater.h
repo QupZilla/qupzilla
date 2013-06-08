@@ -34,7 +34,7 @@ public:
     explicit Updater(QupZilla* mainClass, QObject* parent = 0);
     ~Updater();
 
-    struct Version {
+    struct QT_QUPZILLA_EXPORT Version {
         bool isValid;
         int majorVersion;
         int minorVersion;

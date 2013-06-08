@@ -19,10 +19,11 @@
 #define PASSWORDBACKEND_H
 
 #include "passwordmanager.h"
+#include "qz_namespace.h"
 
 class QWidget;
 
-class PasswordBackend
+class QT_QUPZILLA_EXPORT PasswordBackend
 {
 public:
     explicit PasswordBackend();

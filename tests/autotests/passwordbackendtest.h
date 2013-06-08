@@ -75,6 +75,7 @@ protected:
     void cleanup();
 };
 
+#ifndef Q_OS_WIN
 #include "../../src/plugins/KWalletPasswords/kwalletpasswordbackend.h"
 
 class KWalletPasswordBackendTest : public PasswordBackendTest
@@ -94,5 +95,6 @@ class GnomeKeyringPasswordBackendTest : public PasswordBackendTest
 protected:
     void reloadBackend();
 };
+#endif
 
 #endif // PASSWORDBACKENDTEST_H

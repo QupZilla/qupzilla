@@ -49,8 +49,10 @@ int main(int argc, char *argv[])
 
     RUN_TEST(DatabasePasswordBackendTest)
     RUN_TEST(DatabaseEncryptedPasswordBackendTest)
+#ifndef Q_OS_WIN
     RUN_TEST(KWalletPasswordBackendTest)
     RUN_TEST(GnomeKeyringPasswordBackendTest)
+#endif
 
     return 0;
 }

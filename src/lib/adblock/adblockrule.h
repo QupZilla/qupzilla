@@ -57,7 +57,7 @@ class QUrl;
 
 class AdBlockSubscription;
 
-class AdBlockRule
+class QT_QUPZILLA_EXPORT AdBlockRule
 {
 public:
     AdBlockRule(const QString &filter = QString(), AdBlockSubscription* subscription = 0);

@@ -11,10 +11,11 @@ TARGET = autotests
 !mac:unix: LIBS += $$PWD/../../bin/libQupZilla.so
 
 # Link plugins for PasswordBackends
+!win32 {
 !unix|mac: LIBS += -L$$PWD/../../bin/plugins -lGnomeKeyringPasswords -lKWalletPasswords
 !mac:unix: LIBS += $$PWD/../../bin/plugins/libGnomeKeyringPasswords.so \
                    $$PWD/../../bin/plugins/libKWalletPasswords.so
-
+}
 
 unix:contains(DEFINES, "NO_SYSTEM_DATAPATH"): QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}\\$\$ORIGIN
 
