@@ -243,7 +243,9 @@ SOURCES += \
     tools/delayedfilewatcher.cpp \
     autofill/passwordmanager.cpp \
     autofill/passwordbackends/databasepasswordbackend.cpp \
-    autofill/passwordbackends/passwordbackend.cpp
+    autofill/passwordbackends/passwordbackend.cpp \
+    tools/aesinterface.cpp
+
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -422,7 +424,8 @@ HEADERS  += \
     tools/delayedfilewatcher.h \
     autofill/passwordmanager.h \
     autofill/passwordbackends/passwordbackend.h \
-    autofill/passwordbackends/databasepasswordbackend.h
+    autofill/passwordbackends/databasepasswordbackend.h \
+    tools/aesinterface.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -509,6 +512,8 @@ mac {
 
     LIBS += -framework CoreServices
 }
+
+LIBS += -llibeay32
 
 message(===========================================)
 message( Using following defines:)
