@@ -220,19 +220,19 @@ void AutoFillManager::editPass()
     bool ok;
     QString text = QInputDialog::getText(this, tr("Edit password"), tr("Change password:"), QLineEdit::Normal, entry.password, &ok);
 
-    if (ok && !text.isEmpty()) {
+    if (ok && !text.isEmpty() && text != entry.password) {
         QByteArray oldPass = "=" + PasswordManager::urlEncodePassword(entry.password);
         entry.data.replace(oldPass, "=" + PasswordManager::urlEncodePassword(text));
         entry.password = text;
 
-        QVariant v;
-        v.setValue<PasswordEntry>(entry);
-        curItem->setData(0, Qt::UserRole + 10, v);
+        if (mApp->autoFill()->updateEntry(entry)) {
+            QVariant v;
+            v.setValue<PasswordEntry>(entry);
+            curItem->setData(0, Qt::UserRole + 10, v);
 
-        mApp->autoFill()->updateEntry(entry);
-
-        if (m_passwordsShown) {
-            curItem->setText(2, text);
+            if (m_passwordsShown) {
+                curItem->setText(2, text);
+            }
         }
     }
 }

@@ -244,7 +244,8 @@ SOURCES += \
     autofill/passwordmanager.cpp \
     autofill/passwordbackends/databasepasswordbackend.cpp \
     autofill/passwordbackends/passwordbackend.cpp \
-    tools/aesinterface.cpp
+    tools/aesinterface.cpp \
+    autofill/passwordbackends/databaseencryptedpasswordbackend.cpp
 
 
 HEADERS  += \
@@ -425,7 +426,8 @@ HEADERS  += \
     autofill/passwordmanager.h \
     autofill/passwordbackends/passwordbackend.h \
     autofill/passwordbackends/databasepasswordbackend.h \
-    tools/aesinterface.h
+    tools/aesinterface.h \
+    autofill/passwordbackends/databaseencryptedpasswordbackend.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -474,7 +476,8 @@ FORMS    += \
     session/recoverywidget.ui \
     tools/html5permissions/html5permissionsnotification.ui \
     tools/html5permissions/html5permissionsdialog.ui \
-    autofill/autofillwidget.ui
+    autofill/autofillwidget.ui \
+    autofill/passwordbackends/masterpassworddialog.ui
 
 RESOURCES += \
     data/icons.qrc \

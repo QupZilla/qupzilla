@@ -18,6 +18,7 @@
 #include "passwordmanager.h"
 #include "passwordbackends/passwordbackend.h"
 #include "passwordbackends/databasepasswordbackend.h"
+#include "passwordbackends/databaseencryptedpasswordbackend.h"
 #include "settings.h"
 
 #include <QVector>
@@ -62,8 +63,10 @@ PasswordManager::PasswordManager(QObject* parent)
     , m_loaded(false)
     , m_backend(0)
     , m_databaseBackend(new DatabasePasswordBackend)
+    , m_databaseEncryptedBackend(new DatabaseEncryptedPasswordBackend)
 {
     m_backends["database"] = m_databaseBackend;
+    m_backends["database-encrypted"] = m_databaseEncryptedBackend;
 }
 
 void PasswordManager::loadSettings()
@@ -202,4 +205,5 @@ void PasswordManager::ensureLoaded()
 PasswordManager::~PasswordManager()
 {
     delete m_databaseBackend;
+    delete m_databaseEncryptedBackend;
 }
