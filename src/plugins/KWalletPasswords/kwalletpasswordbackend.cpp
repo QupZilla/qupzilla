@@ -87,7 +87,7 @@ void KWalletPasswordBackend::addEntry(const PasswordEntry &entry)
     m_allEntries.append(stored);
 }
 
-void KWalletPasswordBackend::updateEntry(const PasswordEntry &entry)
+bool KWalletPasswordBackend::updateEntry(const PasswordEntry &entry)
 {
     initialize();
 
@@ -99,6 +99,8 @@ void KWalletPasswordBackend::updateEntry(const PasswordEntry &entry)
     if (index > -1) {
         m_allEntries[index] = entry;
     }
+
+    return true;
 }
 
 void KWalletPasswordBackend::updateLastUsed(PasswordEntry &entry)

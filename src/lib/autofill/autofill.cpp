@@ -149,9 +149,9 @@ void AutoFill::updateEntry(const QUrl &url, const QString &name, const QString &
 }
 
 // WEB Form
-void AutoFill::updateEntry(const PasswordEntry &entry)
+bool AutoFill::updateEntry(const PasswordEntry &entry)
 {
-    m_manager->updateEntry(entry);
+    return m_manager->updateEntry(entry);
 }
 
 void AutoFill::removeEntry(const PasswordEntry &entry)

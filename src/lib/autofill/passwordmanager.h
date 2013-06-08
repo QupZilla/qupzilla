@@ -66,7 +66,7 @@ public:
     QVector<PasswordEntry> getAllEntries();
 
     void addEntry(const PasswordEntry &entry);
-    void updateEntry(const PasswordEntry &entry);
+    bool updateEntry(const PasswordEntry &entry);
     void updateLastUsed(PasswordEntry &entry);
 
     void removeEntry(const PasswordEntry &entry);

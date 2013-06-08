@@ -105,7 +105,7 @@ void DatabasePasswordBackend::addEntry(const PasswordEntry &entry)
     query.exec();
 }
 
-void DatabasePasswordBackend::updateEntry(const PasswordEntry &entry)
+bool DatabasePasswordBackend::updateEntry(const PasswordEntry &entry)
 {
     QSqlQuery query;
 
@@ -124,7 +124,7 @@ void DatabasePasswordBackend::updateEntry(const PasswordEntry &entry)
         query.addBindValue(entry.id);
     }
 
-    query.exec();
+    return query.exec();
 }
 
 void DatabasePasswordBackend::updateLastUsed(PasswordEntry &entry)

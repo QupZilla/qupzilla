@@ -144,7 +144,7 @@ void GnomeKeyringPasswordBackend::addEntry(const PasswordEntry &entry)
     m_allEntries.append(stored);
 }
 
-void GnomeKeyringPasswordBackend::updateEntry(const PasswordEntry &entry)
+bool GnomeKeyringPasswordBackend::updateEntry(const PasswordEntry &entry)
 {
     initialize();
 
@@ -159,7 +159,7 @@ void GnomeKeyringPasswordBackend::updateEntry(const PasswordEntry &entry)
 
     if (result != GNOME_KEYRING_RESULT_OK) {
         qWarning() << "GnomeKeyringPasswordBackend::updateEntry Cannot updated entry attributes in keyring!";
-        return;
+        return false;
     }
 
     // Update secret
@@ -169,7 +169,7 @@ void GnomeKeyringPasswordBackend::updateEntry(const PasswordEntry &entry)
 
     if (result != GNOME_KEYRING_RESULT_OK) {
         qWarning() << "GnomeKeyringPasswordBackend::updateEntry Cannot get entry info from keyring!";
-        return;
+        return false;
     }
 
     QByteArray pass = entry.password.toUtf8();
@@ -181,7 +181,7 @@ void GnomeKeyringPasswordBackend::updateEntry(const PasswordEntry &entry)
 
     if (result != GNOME_KEYRING_RESULT_OK) {
         qWarning() << "GnomeKeyringPasswordBackend::updateEntry Cannot set entry info in keyring!";
-        return;
+        return false;
     }
 
     int index = m_allEntries.indexOf(entry);
@@ -189,6 +189,8 @@ void GnomeKeyringPasswordBackend::updateEntry(const PasswordEntry &entry)
     if (index > -1) {
         m_allEntries[index] = entry;
     }
+
+    return true;
 }
 
 void GnomeKeyringPasswordBackend::updateLastUsed(PasswordEntry &entry)

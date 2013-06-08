@@ -55,7 +55,7 @@ public:
     void addEntry(const QUrl &url, const PageFormData &formData);
 
     void updateEntry(const QUrl &url, const QString &name, const QString &pass);
-    void updateEntry(const PasswordEntry &entry);
+    bool updateEntry(const PasswordEntry &entry);
 
     void removeEntry(const PasswordEntry &entry);
     void removeAllEntries();

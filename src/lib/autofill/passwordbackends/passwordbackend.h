@@ -34,7 +34,7 @@ public:
     virtual QVector<PasswordEntry> getAllEntries() = 0;
 
     virtual void addEntry(const PasswordEntry &entry) = 0;
-    virtual void updateEntry(const PasswordEntry &entry) = 0;
+    virtual bool updateEntry(const PasswordEntry &entry) = 0;
     virtual void updateLastUsed(PasswordEntry &entry) = 0;
 
     virtual void removeEntry(const PasswordEntry &entry) = 0;

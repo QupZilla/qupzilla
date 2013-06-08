@@ -95,10 +95,10 @@ void PasswordManager::addEntry(const PasswordEntry &entry)
     m_backend->addEntry(entry);
 }
 
-void PasswordManager::updateEntry(const PasswordEntry &entry)
+bool PasswordManager::updateEntry(const PasswordEntry &entry)
 {
     ensureLoaded();
-    m_backend->updateEntry(entry);
+    return m_backend->updateEntry(entry);
 }
 
 void PasswordManager::updateLastUsed(PasswordEntry &entry)
