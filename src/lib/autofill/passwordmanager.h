@@ -74,7 +74,7 @@ public:
 
     QHash<QString, PasswordBackend*> availableBackends();
     PasswordBackend* activeBackend();
-    void switchBackend(PasswordBackend* backend);
+    void switchBackend(const QString &backendID);
 
     bool registerBackend(const QString &id, PasswordBackend* backend);
     void unregisterBackend(PasswordBackend* backend);
@@ -90,6 +90,9 @@ private:
     PasswordBackend* m_backend;
     DatabasePasswordBackend* m_databaseBackend;
     QHash<QString, PasswordBackend*> m_backends;
+
+signals:
+    void passwordBackendChanged();
 };
 
 // Hint to QVector to use std::realloc on item moving

@@ -131,8 +131,10 @@ PasswordBackend* PasswordManager::activeBackend()
     return m_backend;
 }
 
-void PasswordManager::switchBackend(PasswordBackend* backend)
+void PasswordManager::switchBackend(const QString &backendID)
 {
+    PasswordBackend* backend = m_backends.value(backendID);
+
     if (!backend) {
         return;
     }
@@ -140,6 +142,13 @@ void PasswordManager::switchBackend(PasswordBackend* backend)
     m_backend->setActive(false);
     m_backend = backend;
     m_backend->setActive(true);
+
+    Settings settings;
+    settings.beginGroup("PasswordManager");
+    settings.setValue("Backend", backendID);
+    settings.endGroup();
+
+    emit passwordBackendChanged();
 }
 
 bool PasswordManager::registerBackend(const QString &id, PasswordBackend* backend)

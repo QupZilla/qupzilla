@@ -46,6 +46,7 @@ AutoFillManager::AutoFillManager(QWidget* parent)
     connect(ui->search, SIGNAL(textChanged(QString)), ui->treePass, SLOT(filterString(QString)));
     connect(ui->changeBackend, SIGNAL(clicked()), this, SLOT(changePasswordBackend()));
     connect(ui->backendOptions, SIGNAL(clicked()), this, SLOT(showBackendOptions()));
+    connect(m_passwordManager, SIGNAL(passwordBackendChanged()), this, SLOT(currentPasswordBackendChanged()));
 
     connect(ui->removeExcept, SIGNAL(clicked()), this, SLOT(removeExcept()));
     connect(ui->removeAllExcept, SIGNAL(clicked()), this, SLOT(removeAllExcept()));
@@ -119,9 +120,6 @@ void AutoFillManager::changePasswordBackend()
 
     // Switch backends
     if (!item.isEmpty()) {
-        Settings settings;
-        settings.beginGroup("PasswordManager");
-
         PasswordBackend* backend = 0;
 
         QHashIterator<QString, PasswordBackend*> i(backends);
@@ -129,21 +127,14 @@ void AutoFillManager::changePasswordBackend()
             i.next();
             if (i.value()->name() == item) {
                 backend = i.value();
-                settings.setValue("Backend", i.key());
                 break;
             }
         }
 
-        settings.endGroup();
-
         if (backend) {
-            m_passwordManager->switchBackend(backend);
-            ui->backendOptions->setVisible(backend->hasSettings());
-            ui->currentBackend->setText(QString("<b>%1</b>").arg(backend->name()));
+            m_passwordManager->switchBackend(backends.key(backend));
         }
     }
-
-    QTimer::singleShot(0, this, SLOT(loadPasswords()));
 }
 
 void AutoFillManager::showBackendOptions()
@@ -333,6 +324,14 @@ void AutoFillManager::slotExportPasswords()
     ui->importExportLabel->setText(tr("Successfully exported"));
 
     QApplication::restoreOverrideCursor();
+}
+
+void AutoFillManager::currentPasswordBackendChanged()
+{
+    ui->currentBackend->setText(QString("<b>%1</b>").arg(m_passwordManager->activeBackend()->name()));
+    ui->backendOptions->setVisible(m_passwordManager->activeBackend()->hasSettings());
+
+    QTimer::singleShot(0, this, SLOT(loadPasswords()));
 }
 
 AutoFillManager::~AutoFillManager()

@@ -58,6 +58,8 @@ private slots:
     void slotImportPasswords();
     void slotExportPasswords();
 
+    void currentPasswordBackendChanged();
+
 private:
     Ui::AutoFillManager* ui;
 
