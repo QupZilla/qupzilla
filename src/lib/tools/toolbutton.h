@@ -53,7 +53,6 @@ public:
     void setShowMenuInside(bool inside);
     bool showMenuInside() const;
 
-
 signals:
     void middleMouseClicked();
     void controlClicked();

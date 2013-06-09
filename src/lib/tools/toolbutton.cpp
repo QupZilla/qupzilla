@@ -20,6 +20,7 @@
 #include <QMouseEvent>
 #include <QMenu>
 #include <QPainter>
+#include <QApplication>
 #include <QStyleOptionToolButton>
 
 ToolButton::ToolButton(QWidget* parent)
@@ -144,7 +145,12 @@ void ToolButton::showMenu()
     }
 
     QPoint pos = mapToGlobal(rect().bottomRight());
-    pos.setX(pos.x() - m->sizeHint().width());
+    if (QApplication::layoutDirection() == Qt::RightToLeft) {
+        pos.setX(pos.x() - rect().width());
+    }
+    else {
+        pos.setX(pos.x() - m->sizeHint().width());
+    }
 
     setDown(true);
     m->exec(pos);
