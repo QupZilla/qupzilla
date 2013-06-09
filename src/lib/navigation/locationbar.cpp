@@ -467,6 +467,15 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         }
         break;
 
+    case Qt::Key_Delete:
+        if (m_inlineCompletionVisible) {
+            m_inlineCompletionVisible = false;
+
+            update();
+            event->accept();
+        }
+        break;
+
     case Qt::Key_Escape:
         m_webView->setFocus();
         showUrl(m_webView->url());
