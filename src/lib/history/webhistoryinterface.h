@@ -19,7 +19,7 @@
 #define WEBHISTORYINTERFACE_H
 
 #include <QWebHistoryInterface>
-#include <QStringList>
+#include <set>
 
 #include "qz_namespace.h"
 
@@ -32,7 +32,7 @@ public:
     bool historyContains(const QString &url) const;
 
 private:
-    QStringList m_clickedLinks;
+    std::set<QString> m_clickedLinks;
 
 };
 

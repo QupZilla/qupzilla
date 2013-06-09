@@ -26,10 +26,10 @@ WebHistoryInterface::WebHistoryInterface(QObject* parent)
 
 void WebHistoryInterface::addHistoryEntry(const QString &url)
 {
-    m_clickedLinks.append(url);
+    m_clickedLinks.insert(url);
 }
 
 bool WebHistoryInterface::historyContains(const QString &url) const
 {
-    return m_clickedLinks.contains(url);
+    return m_clickedLinks.find(url) != m_clickedLinks.end();
 }
