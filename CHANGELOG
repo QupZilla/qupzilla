@@ -7,6 +7,7 @@ Version 1.4.4
     * fixed: hide tabbar with only one tab option now works in fullscreen
     * fixed: crash with Oxygen theme when closing windows with tabs on top
     * fixed: saving IgnoreAllSSLWarnings option from SSLManager
+    * GreaseMonkey: fixed buttons in script list with RTL layout
 
 Version 1.4.3
     * released 9 May 2013
