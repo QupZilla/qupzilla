@@ -62,5 +62,5 @@ bool GM_SettingsListWidget::containsRemoveIcon(const QPoint &pos) const
 
     QRect removeIconRect(removeIconPosition, removeIconYPos, 16, 16);
 
-    return removeIconRect.contains(pos);
+    return style()->visualRect(layoutDirection(), rect, removeIconRect).contains(pos);
 }
