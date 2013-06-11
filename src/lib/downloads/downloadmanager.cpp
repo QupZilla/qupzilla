@@ -86,6 +86,8 @@ void DownloadManager::show()
     m_timer.start(1000 * 2, this);
 
     QWidget::show();
+    raise();
+    activateWindow();
 }
 
 void DownloadManager::resizeEvent(QResizeEvent* e)
