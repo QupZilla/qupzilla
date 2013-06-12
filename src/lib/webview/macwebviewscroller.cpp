@@ -16,16 +16,16 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "macwebviewscroller.h"
-#include "webview.h"
 
 #include <QApplication>
 #include <QWheelEvent>
+#include <QWebView>
 #include <QTimer>
 
 // Workaround for QTBUG-22269 (Extremely slow scrolling on Apple trackpads)
 // https://bugreports.qt-project.org/browse/QTBUG-22269
 
-MacWebViewScroller::MacWebViewScroller(WebView* view)
+MacWebViewScroller::MacWebViewScroller(QWebView* view)
     : QObject(view)
     , m_view(view)
     , m_timerRunning(false)
