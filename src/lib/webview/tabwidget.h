@@ -21,6 +21,7 @@
 #include <QTabWidget>
 #include <QUrl>
 #include <QNetworkRequest>
+#include <QMenu>
 
 #include "toolbutton.h"
 #include "qz_namespace.h"
@@ -48,6 +49,19 @@ private:
 
     TabBar* m_tabBar;
     TabWidget* m_tabWidget;
+};
+
+class QT_QUPZILLA_EXPORT MenuTabs : public QMenu
+{
+    Q_OBJECT
+public:
+    explicit MenuTabs(QWidget *parent = 0) : QMenu(parent) {}
+
+signals:
+    void closeTab(int);
+
+private:
+    void mouseReleaseEvent(QMouseEvent* event);
 };
 
 class QT_QUPZILLA_EXPORT TabWidget : public QTabWidget
@@ -151,7 +165,7 @@ private:
     bool m_isRestoringState;
 
     TabBar* m_tabBar;
-    QMenu* m_menuTabs;
+    MenuTabs* m_menuTabs;
     ToolButton* m_buttonListTabs;
     AddTabButton* m_buttonAddTab;
     ClosedTabsManager* m_closedTabsManager;

@@ -35,7 +35,6 @@
 
 #include <QTimer>
 #include <QMovie>
-#include <QMenu>
 #include <QMimeData>
 #include <QStackedWidget>
 #include <QMouseEvent>
@@ -95,6 +94,19 @@ void AddTabButton::dropEvent(QDropEvent* event)
     }
 }
 
+void MenuTabs::mouseReleaseEvent(QMouseEvent* event)
+{
+    if (event->button() == Qt::MiddleButton) {
+        QAction* action = actionAt(event->pos());
+        if (action) {
+            emit closeTab(action->data().toInt());
+            action->setEnabled(false);
+            event->accept();
+        }
+    }
+    QMenu::mouseReleaseEvent(event);
+}
+
 TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     : QTabWidget(parent)
     , p_QupZilla(mainClass)
@@ -126,7 +138,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
 
     m_buttonListTabs = new ToolButton(this);
     m_buttonListTabs->setObjectName("tabwidget-button-opentabs");
-    m_menuTabs = new QMenu(this);
+    m_menuTabs = new MenuTabs(this);
     m_buttonListTabs->setMenu(m_menuTabs);
     m_buttonListTabs->setPopupMode(QToolButton::InstantPopup);
     m_buttonListTabs->setToolTip(tr("List of tabs"));
@@ -137,6 +149,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
 
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
+    connect(m_menuTabs, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
 
     loadSettings();
 }
