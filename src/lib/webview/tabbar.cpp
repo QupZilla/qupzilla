@@ -24,7 +24,6 @@
 #include "toolbutton.h"
 #include "settings.h"
 #include "tabbedwebview.h"
-#include "mainapplication.h"
 #include "pluginproxy.h"
 #include "proxystyle.h"
 
@@ -155,6 +154,17 @@ void TabBar::contextMenuRequested(const QPoint &position)
 
         if (count() > 1 && !webTab->isPinned()) {
             menu.addAction(QIcon::fromTheme("tab-detach"), tr("D&etach Tab"), this, SLOT(detachTab()));
+        }
+
+        QList<QupZilla*> mainWindows = mApp->mainWindows();
+        if (mainWindows.count() > 1) {
+            QMenu *windowsMenu = menu.addMenu("Move Tab");
+            for (int i = 0, n = mainWindows.count(); i <  n; ++i) {
+                if (mainWindows[i] != p_QupZilla) {
+                    QAction* action = windowsMenu->addAction(QIcon::fromTheme("tab-move"), mainWindows[i]->windowTitle(), this, SLOT(moveTab()));
+                    action->setData(i);
+                }
+            }
         }
 
         menu.addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));

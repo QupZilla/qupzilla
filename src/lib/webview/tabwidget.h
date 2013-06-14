@@ -115,6 +115,7 @@ public slots:
     void stopTab(int index);
     void closeAllButCurrent(int index);
     void detachTab(int index);
+    void moveTab(int index, QupZilla* window);
     void restoreClosedTab(QObject* obj = 0);
     void restoreAllClosedTabs();
     void clearClosedTabsList();
