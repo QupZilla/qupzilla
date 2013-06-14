@@ -674,8 +674,11 @@ void TabWidget::moveTab(int index, QupZilla* window)
 {
     WebTab* tab = weTab(index);
 
-    if (tab->isPinned() || count() == 1) {
+    if (tab->isPinned()) {
         return;
+    }
+    if (count() == 1)  {
+        p_QupZilla->close();
     }
 
     m_locationBars->removeWidget(tab->locationBar());
@@ -686,7 +689,7 @@ void TabWidget::moveTab(int index, QupZilla* window)
     tab->moveToWindow(window);
     window->tabWidget()->addView(tab);
 
-    if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
+    if (count() > 0 && m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
         setCurrentIndex(m_lastTabIndex);
     }
 }
