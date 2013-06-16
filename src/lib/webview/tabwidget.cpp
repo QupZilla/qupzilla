@@ -702,8 +702,12 @@ void TabWidget::moveTab(int index, QupZilla* window)
     tab->moveToWindow(window);
     window->tabWidget()->addView(tab);
 
-    if (count() > 0 && m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
-        setCurrentIndex(m_lastTabIndex);
+    if (count() > 0) {
+        if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
+            setCurrentIndex(m_lastTabIndex);
+        }
+    } else {
+        window->raise();
     }
 }
 
