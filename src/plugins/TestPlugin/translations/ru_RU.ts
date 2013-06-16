@@ -2,29 +2,29 @@
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="../testplugin.cpp" line="116"/>
+        <location filename="../testplugin.cpp" line="121"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="127"/>
+        <location filename="../testplugin.cpp" line="132"/>
         <source>Example Plugin Settings</source>
-        <translation type="unfinished"/>
+        <translation>Пример настроек расширения</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="155"/>
+        <location filename="../testplugin.cpp" line="160"/>
         <source>My first plugin action</source>
-        <translation type="unfinished"/>
+        <translation>Моё первое расширение</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="170"/>
+        <location filename="../testplugin.cpp" line="175"/>
         <source>Hello</source>
-        <translation type="unfinished"/>
+        <translation>Привет</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="170"/>
+        <location filename="../testplugin.cpp" line="175"/>
         <source>First plugin action works :-)</source>
-        <translation type="unfinished"/>
+        <translation>Первое расширение, которое работает:)</translation>
     </message>
 </context>
 <context>
@@ -33,7 +33,7 @@
         <location filename="../testplugin_sidebar.cpp" line="32"/>
         <location filename="../testplugin_sidebar.cpp" line="37"/>
         <source>Testing Sidebar</source>
-        <translation type="unfinished"/>
+        <translation>Тестирование боковой панели</translation>
     </message>
 </context>
 </TS>

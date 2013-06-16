@@ -29,7 +29,7 @@
     <message>
         <location filename="../akn_settings.ui" line="51"/>
         <source>Double press</source>
-        <translation>Tekan dobel</translation>
+        <translation>Pencet dobel</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="58"/>

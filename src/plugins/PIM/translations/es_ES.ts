@@ -4,12 +4,12 @@
     <message>
         <location filename="../PIM_handler.cpp" line="60"/>
         <source>Last Name</source>
-        <translation type="unfinished"/>
+        <translation>Apellido</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="61"/>
         <source>First Name</source>
-        <translation type="unfinished"/>
+        <translation>Nombre</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="62"/>
@@ -19,67 +19,67 @@
     <message>
         <location filename="../PIM_handler.cpp" line="63"/>
         <source>Mobile</source>
-        <translation type="unfinished"/>
+        <translation>Teléfono movil</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="64"/>
         <source>Phone</source>
-        <translation type="unfinished"/>
+        <translation>Teléfono</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="65"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Dirección</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="66"/>
         <source>City</source>
-        <translation type="unfinished"/>
+        <translation>Ciudad</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="67"/>
         <source>ZIP Code</source>
-        <translation type="unfinished"/>
+        <translation>Código postal</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="68"/>
         <source>State/Region</source>
-        <translation type="unfinished"/>
+        <translation>Estado/Región</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="69"/>
         <source>Country</source>
-        <translation type="unfinished"/>
+        <translation>País</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="70"/>
         <source>Home Page</source>
-        <translation type="unfinished"/>
+        <translation>Página de inicio</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="71"/>
         <source>Custom 1</source>
-        <translation type="unfinished"/>
+        <translation>Dato adicional 1</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="72"/>
         <source>Custom 2</source>
-        <translation type="unfinished"/>
+        <translation>Dato adicional 2</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="73"/>
         <source>Custom 3</source>
-        <translation type="unfinished"/>
+        <translation>Dato adicional 3</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="115"/>
         <source>Insert Personal Information</source>
-        <translation type="unfinished"/>
+        <translation>Ingresar información personal</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="136"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
 </context>
 <context>
@@ -87,27 +87,27 @@
     <message>
         <location filename="../PIM_settings.ui" line="14"/>
         <source>PIM Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de PIM</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="42"/>
         <source>&lt;h2&gt;Personal Information Manager&lt;/h2&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;h2&gt;Administrador de información personal&lt;/h2&gt;</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="64"/>
         <source>Your personal information that will be used on webpages.</source>
-        <translation type="unfinished"/>
+        <translation>Su información personal que se utilizara en páginas web.</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="76"/>
         <source>First Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nombre:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="89"/>
         <source>Last Name:</source>
-        <translation type="unfinished"/>
+        <translation>Apellido:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="102"/>
@@ -117,62 +117,62 @@
     <message>
         <location filename="../PIM_settings.ui" line="115"/>
         <source>Phone:</source>
-        <translation type="unfinished"/>
+        <translation>Teléfono:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="128"/>
         <source>Mobile Phone:</source>
-        <translation type="unfinished"/>
+        <translation>Teléfono movil:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="141"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Dirección:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="154"/>
         <source>City:</source>
-        <translation type="unfinished"/>
+        <translation>Ciudad:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="167"/>
         <source>ZIP Code:</source>
-        <translation type="unfinished"/>
+        <translation>Código postal:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="180"/>
         <source>State/Region:</source>
-        <translation type="unfinished"/>
+        <translation>Estado/Región:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="193"/>
         <source>Country:</source>
-        <translation type="unfinished"/>
+        <translation>País:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="206"/>
         <source>Home Page:</source>
-        <translation type="unfinished"/>
+        <translation>Página de inicio:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="219"/>
         <source>Custom 1:</source>
-        <translation type="unfinished"/>
+        <translation>Dato adicional 1:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="232"/>
         <source>Custom 2:</source>
-        <translation type="unfinished"/>
+        <translation>Dato adicional 2:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="245"/>
         <source>Custom 3:</source>
-        <translation type="unfinished"/>
+        <translation>Dato adicional 3:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="260"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Press Ctrl+ENTER to autofill form fields for which QupZilla finds personal entries.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Nota:&lt;/b&gt; Presione Ctrl+ENTER para rellenar automaticamente campos de formularios para los cuales QupZilla encuentre entradas personales.</translation>
     </message>
 </context>
 </TS>

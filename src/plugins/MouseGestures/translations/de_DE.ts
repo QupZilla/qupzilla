@@ -14,12 +14,12 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="64"/>
         <source>Press and hold the middle mouse button and move your mouse in the indicated directions.</source>
-        <translation>Halten Sie die mittlere Maustaste gedrückt und bewegen Sie die Maus in die gewünschte Richtung.</translation>
+        <translation>Halten Sie die mittlere Maustaste gedrückt und bewegen Sie die Maus in die angezeigte Richtung.</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="111"/>
         <source>&lt;b&gt;Stop&lt;/b&gt;&lt;br/&gt;Stop loading page</source>
-        <translation>&lt;b&gt;Stop&lt;/b&gt;&lt;br/&gt;Laden der Seite anhalten</translation>
+        <translation>&lt;b&gt;Stopp&lt;/b&gt;&lt;br/&gt;Laden der Seite anhalten</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="125"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="159"/>
         <source>&lt;b&gt;Reload&lt;/b&gt;&lt;br/&gt;Reload page</source>
-        <translation>&lt;b&gt;Aktualisieren&lt;/b&gt;&lt;br/&gt;Seite erneut laden</translation>
+        <translation>&lt;b&gt;Aktualisieren&lt;/b&gt;&lt;br/&gt;Seite neu laden</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="173"/>
