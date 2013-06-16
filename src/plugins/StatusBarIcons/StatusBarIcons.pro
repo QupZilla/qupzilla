@@ -27,10 +27,20 @@ HEADERS += statusbariconsplugin.h \
 RESOURCES += statusbaricons.qrc
 
 TRANSLATIONS = \
+    translations/de_DE.ts \
+    translations/el_GR.ts \
+    translations/he_IL.ts \
+    translations/ja_JP.ts \
+    translations/nl_NL.ts \
+    translations/pl_PL.ts \
+    translations/pt_PT.ts \
+    translations/ru_RU.ts \
     translations/sr_BA.ts \
     translations/sr_BA@latin.ts \
     translations/sr_RS.ts \
-    translations/sr_RS@latin.ts
+    translations/sr_RS@latin.ts \
+    translations/zh_CN.ts \
+    translations/zh_TW.ts
 
 include(../../plugins.pri)
 
