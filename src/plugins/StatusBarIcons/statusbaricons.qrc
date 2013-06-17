@@ -9,9 +9,19 @@
         <file>data/preferences-network.png</file>
         <file>data/add.png</file>
         <file>data/remove.png</file>
+        <file>locale/de_DE.qm</file>
+        <file>locale/el_GR.qm</file>
+        <file>locale/he_IL.qm</file>
+        <file>locale/ja_JP.qm</file>
+        <file>locale/nl_NL.qm</file>
+        <file>locale/pl_PL.qm</file>
+        <file>locale/pt_PT.qm</file>
+        <file>locale/ru_RU.qm</file>
         <file>locale/sr_BA.qm</file>
         <file>locale/sr_BA@latin.qm</file>
         <file>locale/sr_RS.qm</file>
         <file>locale/sr_RS@latin.qm</file>
+        <file>locale/zh_CN.qm</file>
+        <file>locale/zh_TW.qm</file>
     </qresource>
 </RCC>

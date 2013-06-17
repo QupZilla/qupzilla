@@ -2,27 +2,27 @@
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="../testplugin.cpp" line="116"/>
+        <location filename="../testplugin.cpp" line="121"/>
         <source>Close</source>
         <translation>關閉</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="127"/>
+        <location filename="../testplugin.cpp" line="132"/>
         <source>Example Plugin Settings</source>
         <translation>範例外掛設定</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="155"/>
+        <location filename="../testplugin.cpp" line="160"/>
         <source>My first plugin action</source>
         <translation>我的第一個動作外掛</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="170"/>
+        <location filename="../testplugin.cpp" line="175"/>
         <source>Hello</source>
         <translation>哈囉</translation>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="170"/>
+        <location filename="../testplugin.cpp" line="175"/>
         <source>First plugin action works :-)</source>
         <translation>我的第一個動作外掛運作了:-)</translation>
     </message>

@@ -44,7 +44,7 @@
     <message>
         <location filename="../PIM_handler.cpp" line="68"/>
         <source>State/Region</source>
-        <translation>Estado/Região</translation>
+        <translation>Distrito/Região</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="69"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="180"/>
         <source>State/Region:</source>
-        <translation>Estado/Região:</translation>
+        <translation>Distrito/Região:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="193"/>

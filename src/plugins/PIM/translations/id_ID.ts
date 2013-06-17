@@ -14,7 +14,7 @@
     <message>
         <location filename="../PIM_handler.cpp" line="62"/>
         <source>E-mail</source>
-        <translation>E-Mail</translation>
+        <translation>Surel</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="63"/>
@@ -112,7 +112,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="102"/>
         <source>E-mail:</source>
-        <translation>E-mail:</translation>
+        <translation>Surel:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="115"/>

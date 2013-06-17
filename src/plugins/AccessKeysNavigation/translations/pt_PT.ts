@@ -9,7 +9,7 @@
     <message>
         <location filename="../akn_settings.ui" line="20"/>
         <source>&lt;h1&gt;Access Keys Navigation&lt;/h1&gt;</source>
-        <translation>&lt;h1&gt;Navegação com as teclas de acesso&lt;/h1&gt;</translation>
+        <translation>&lt;h1&gt;Navegação com as teclas&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="33"/>

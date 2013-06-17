@@ -5,7 +5,9 @@ defineTest(addSubdir) {
         entries = $$files($$subdir/*)
         for(entry, entries) {
             fullPath = $$replace(entry, ;,"")
+            fullPath = $$replace(fullPath, \\\\, /)
             name = $$replace(fullPath, $$re_escape("$$subdir/"), "")
+            win32: fullPath = $$lower($$fullPath)
             exists($$fullPath/*.pro): SUBDIRS += $$fullPath
         }
     }
@@ -27,3 +29,8 @@ outOfDirPlugins = $$(QUPZILLA_PLUGINS_SRCDIR)
 # GnomeKeyringPasswords only with GNOME_INTEGRATION
 !contains(DEFINES, "GNOME_INTEGRATION"): SUBDIRS -= $$PWD/GnomeKeyringPasswords
 !system(pkg-config --exists gnome-keyring-1): SUBDIRS -= $$PWD/GnomeKeyringPasswords
+
+win32 {
+    SUBDIRS -= $$lower($$PWD/KWalletPasswords)
+    SUBDIRS -= $$lower($$PWD/GnomeKeyringPasswords)
+}

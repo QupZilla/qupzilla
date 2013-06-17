@@ -21,10 +21,13 @@ TRANSLATIONS = \
     translations/cs_CZ.ts \
     translations/de_DE.ts \
     translations/el_GR.ts \
+    translations/es_419.ts \
     translations/es_ES.ts \
     translations/es_VE.ts \
     translations/fa_IR.ts \
     translations/fr_FR.ts \
+    translations/gl_ES.ts \
+    translations/he_IL.ts \
     translations/hu_HU.ts \
     translations/id_ID.ts \
     translations/it_IT.ts \

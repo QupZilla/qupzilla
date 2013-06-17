@@ -92,87 +92,87 @@
     <message>
         <location filename="../PIM_settings.ui" line="42"/>
         <source>&lt;h2&gt;Personal Information Manager&lt;/h2&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;h2&gt;Менеджер личной информации&lt;/h2&gt;</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="64"/>
         <source>Your personal information that will be used on webpages.</source>
-        <translation type="unfinished"/>
+        <translation>Ваша личная информация, которая будет использоваться на веб-сайтах.</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="76"/>
         <source>First Name:</source>
-        <translation type="unfinished"/>
+        <translation>Имя:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="89"/>
         <source>Last Name:</source>
-        <translation type="unfinished"/>
+        <translation>Фамилия:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="102"/>
         <source>E-mail:</source>
-        <translation type="unfinished"/>
+        <translation>E-mail:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="115"/>
         <source>Phone:</source>
-        <translation type="unfinished"/>
+        <translation>Телефон:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="128"/>
         <source>Mobile Phone:</source>
-        <translation type="unfinished"/>
+        <translation>Мобильный телефон:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="141"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Адрес:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="154"/>
         <source>City:</source>
-        <translation type="unfinished"/>
+        <translation>Город:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="167"/>
         <source>ZIP Code:</source>
-        <translation type="unfinished"/>
+        <translation>Индекс:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="180"/>
         <source>State/Region:</source>
-        <translation type="unfinished"/>
+        <translation>Регион:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="193"/>
         <source>Country:</source>
-        <translation type="unfinished"/>
+        <translation>Страна:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="206"/>
         <source>Home Page:</source>
-        <translation type="unfinished"/>
+        <translation>Домашняя страница:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="219"/>
         <source>Custom 1:</source>
-        <translation type="unfinished"/>
+        <translation>Пользователь 1:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="232"/>
         <source>Custom 2:</source>
-        <translation type="unfinished"/>
+        <translation>Пользователь 2:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="245"/>
         <source>Custom 3:</source>
-        <translation type="unfinished"/>
+        <translation>Пользователь 3:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="260"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Press Ctrl+ENTER to autofill form fields for which QupZilla finds personal entries.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Примечание:&lt;/ b&gt; Нажмите Ctrl + Enter, чтобы автоматически заполнить поля которые QupZilla найдёт в личных записях.</translation>
     </message>
 </context>
 </TS>

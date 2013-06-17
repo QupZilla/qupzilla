@@ -61,9 +61,17 @@
     </message>
 </context>
 <context>
+    <name>GM_Icon</name>
+    <message>
+        <location filename="../gm_icon.cpp" line="29"/>
+        <source>Open GreaseMonkey settings</source>
+        <translation>Otevřít nastavení GreaseMonkey</translation>
+    </message>
+</context>
+<context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="183"/>
+        <location filename="../gm_manager.cpp" line="194"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
@@ -81,12 +89,12 @@
         <translation>Instalovat</translation>
     </message>
     <message>
-        <location filename="../gm_notification.cpp" line="49"/>
+        <location filename="../gm_notification.cpp" line="50"/>
         <source>Cannot install script</source>
         <translation>Nelze nainstalovat skript</translation>
     </message>
     <message>
-        <location filename="../gm_notification.cpp" line="57"/>
+        <location filename="../gm_notification.cpp" line="58"/>
         <source>&apos;%1&apos; installed successfully</source>
         <translation>&apos;%1&apos; úspěšně nainstalován</translation>
     </message>
@@ -132,42 +140,52 @@
 <context>
     <name>GM_SettingsScriptInfo</name>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="85"/>
         <source>Name:</source>
         <translation>Název:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="29"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="55"/>
         <source>Version:</source>
         <translation>Verze:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="39"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="115"/>
         <source>URL:</source>
         <translation>URL:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="49"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="138"/>
+        <source>Namespace:</source>
+        <translation>Jmenný prostor:</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="155"/>
+        <source>Edit in text editor</source>
+        <translation>Upravit v textovém editoru</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="65"/>
         <source>Start at:</source>
         <translation>Běží na:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="59"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="45"/>
         <source>Description:</source>
         <translation>Popis:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="69"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
         <source>Runs at:</source>
         <translation>Spouští se na:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="79"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="128"/>
         <source>Does not run at:</source>
         <translation>Nespouští se na:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.cpp" line="27"/>
+        <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
         <source>Script Details of %1</source>
         <translation>Detaily skriptu %1</translation>
     </message>

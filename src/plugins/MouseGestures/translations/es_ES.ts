@@ -49,7 +49,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="194"/>
         <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Pestaña anterior&lt;/b&gt;&lt;br/&gt;Cambiar a la pestaña anterior</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="208"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="222"/>
         <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Siguiente pestaña&lt;/b&gt;&lt;br/&gt;Cambiar a la pestaña siguiente</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="253"/>
