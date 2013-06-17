@@ -34,6 +34,7 @@
 #include <QApplication>
 #include <QTimer>
 #include <QRect>
+#include <QAction>
 
 #define MAXIMUM_TAB_WIDTH 250
 #define MINIMUM_TAB_WIDTH 125
@@ -158,9 +159,9 @@ void TabBar::contextMenuRequested(const QPoint &position)
 
         QList<QupZilla*> mainWindows = mApp->mainWindows();
         if (mainWindows.count() > 1) {
-            QMenu *windowsMenu = menu.addMenu("Move Tab");
+            QMenu *windowsMenu = menu.addMenu(tr("Move Tab To..."));
             for (int i = 0, n = mainWindows.count(); i <  n; ++i) {
-                if (mainWindows[i] != p_QupZilla) {
+                if (mainWindows.at(i) != p_QupZilla) {
                     QAction* action = windowsMenu->addAction(QIcon::fromTheme("tab-move"), mainWindows[i]->windowTitle(), this, SLOT(moveTab()));
                     action->setData(i);
                 }
@@ -423,6 +424,13 @@ void TabBar::currentTabChanged(int index)
     hideCloseButton(m_tabWidget->lastTabIndex());
 
     m_tabWidget->currentTabChanged(index);
+}
+
+void TabBar::moveTab()
+{
+    QAction* action = (QAction*) sender();
+    int index = action->data().toInt();
+    emit moveTab(m_clickedTab,  mApp->mainWindows()[index]);
 }
 
 void TabBar::bookmarkTab()

@@ -21,7 +21,6 @@
 #include <QTabBar>
 #include <QRect>
 #include <QAbstractButton>
-#include <QAction>
 #include "mainapplication.h"
 
 #include "qz_namespace.h"
@@ -79,12 +78,7 @@ private slots:
     void closeTab() { emit closeTab(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
     void detachTab() { emit detachTab(m_clickedTab); }
-    void moveTab() 
-    { 
-        QAction* action = (QAction*) sender();
-        int index = action->data().toInt();
-        emit moveTab(m_clickedTab,  mApp->mainWindows()[index]);
-    }
+    void moveTab(); 
     void bookmarkTab();
     void pinTab();
 
