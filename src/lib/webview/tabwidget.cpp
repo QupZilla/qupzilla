@@ -148,7 +148,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
     connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
     connect(m_tabBar, SIGNAL(detachTab(int)), this, SLOT(detachTab(int)));
-    connect(m_tabBar, SIGNAL(moveTab(int, QupZilla*)), this, SLOT(moveTab(int, QupZilla*)));
+    connect(m_tabBar, SIGNAL(moveTabToWindow(int, QupZilla*)), this, SLOT(moveTab(int, QupZilla*)));
     connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
 
     connect(m_tabBar, SIGNAL(moveAddTabButton(int)), this, SLOT(moveAddTabButton(int)));

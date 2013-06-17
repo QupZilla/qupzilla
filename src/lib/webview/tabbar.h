@@ -59,7 +59,7 @@ signals:
     void closeTab(int index);
     void duplicateTab(int index);
     void detachTab(int index);
-    void moveTab(int index, QupZilla* window);
+    void moveTabToWindow(int index, QupZilla* window);
 
     void moveAddTabButton(int posX);
 
@@ -78,7 +78,7 @@ private slots:
     void closeTab() { emit closeTab(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
     void detachTab() { emit detachTab(m_clickedTab); }
-    void moveTab(); 
+    void moveTabToWindow();
     void bookmarkTab();
     void pinTab();
 

@@ -162,7 +162,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
             QMenu *windowsMenu = menu.addMenu(tr("Move Tab To..."));
             for (int i = 0, n = mainWindows.count(); i <  n; ++i) {
                 if (mainWindows.at(i) != p_QupZilla) {
-                    QAction* action = windowsMenu->addAction(QIcon::fromTheme("tab-move"), mainWindows[i]->windowTitle(), this, SLOT(moveTab()));
+                    QAction* action = windowsMenu->addAction(QIcon::fromTheme("tab-move"), mainWindows.at(i)->windowTitle(), this, SLOT(moveTabToWindow()));
                     action->setData(i);
                 }
             }
@@ -426,11 +426,11 @@ void TabBar::currentTabChanged(int index)
     m_tabWidget->currentTabChanged(index);
 }
 
-void TabBar::moveTab()
+void TabBar::moveTabToWindow()
 {
     QAction* action = (QAction*) sender();
     int index = action->data().toInt();
-    emit moveTab(m_clickedTab,  mApp->mainWindows()[index]);
+    emit moveTabToWindow(m_clickedTab, mApp->mainWindows().at(index));
 }
 
 void TabBar::bookmarkTab()
