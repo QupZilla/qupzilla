@@ -98,9 +98,27 @@ void MenuTabs::mouseReleaseEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::MiddleButton) {
         QAction* action = actionAt(event->pos());
-        if (action) {
-            emit closeTab(action->data().toInt());
+        if (action && action->isEnabled()) {
+            int index = action->data().toInt();
+            emit closeTab(index);
             action->setEnabled(false);
+
+            // Fix the tab index number for menu items after this item
+            QList<QAction*> menuActions = actions();
+            int nTabs = 0;
+            for (int i = 0, n = menuActions.length(); i < n; ++i) {
+                QAction* menuItem = menuActions[i];
+                if (menuItem->isEnabled() && ! menuItem->isSeparator()) {
+                    if (menuItem->data().toInt() > index) {
+                        menuItem->setData(QVariant(menuItem->data().toInt() - 1));
+                    }
+                    ++nTabs;
+                }
+            }
+
+            // Fix the tab count
+            menuActions.last()->setText(tr("Currently you have %1 opened tabs").arg(nTabs));
+
             event->accept();
         }
     }
