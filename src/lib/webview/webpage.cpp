@@ -433,7 +433,7 @@ void WebPage::dbQuotaExceeded(QWebFrame* frame)
     frame->securityOrigin().setDatabaseQuota(oldQuota * 2);
 }
 
-#if USE_QTWEBKIT_2_2
+#ifdef USE_QTWEBKIT_2_2
 void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota)
 {
     if (!origin) {
@@ -447,7 +447,7 @@ void WebPage::featurePermissionRequested(QWebFrame* frame, const QWebPage::Featu
 {
     mApp->html5permissions()->requestPermissions(this, frame, feature);
 }
-#endif
+#endif // USE_QTWEBKIT_2_2
 
 bool WebPage::event(QEvent* event)
 {
