@@ -718,7 +718,7 @@ void TabWidget::moveTab(int index, QupZilla* window)
     disconnect(tab->view(), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
     tab->moveToWindow(window);
-    window->tabWidget()->addView(tab);
+    int newIndex = window->tabWidget()->addView(tab);
 
     if (count() > 0) {
         if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
@@ -726,6 +726,7 @@ void TabWidget::moveTab(int index, QupZilla* window)
         }
     } else {
         window->raise();
+        window->tabWidget()->setCurrentIndex(newIndex);
     }
 }
 
