@@ -261,7 +261,6 @@ bool WebTab::isRestored() const
     return m_savedTab.isEmpty();
 }
 
-#include <QDebug>
 void WebTab::restoreTab(const WebTab::SavedTab &tab)
 {
     if (qzSettings->loadTabsOnActivation) {
