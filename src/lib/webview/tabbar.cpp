@@ -480,6 +480,20 @@ QTabBar::ButtonPosition TabBar::closeButtonPosition()
     return (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, this);
 }
 
+void TabBar::overrideTabTextColor(int index, QColor color)
+{
+    if (!m_originalTabTextColor.isValid()) {
+        m_originalTabTextColor = tabTextColor(index);
+    }
+
+    setTabTextColor(index, color);
+}
+
+void TabBar::restoreTabTextColor(int index)
+{
+    setTabTextColor(index, m_originalTabTextColor);
+}
+
 void TabBar::showTabPreview()
 {
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabPreview->previewIndex()));

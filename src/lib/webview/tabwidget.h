@@ -55,7 +55,7 @@ class QT_QUPZILLA_EXPORT MenuTabs : public QMenu
 {
     Q_OBJECT
 public:
-    explicit MenuTabs(QWidget *parent = 0) : QMenu(parent) {}
+    explicit MenuTabs(QWidget* parent = 0) : QMenu(parent) {}
 
 signals:
     void closeTab(int);

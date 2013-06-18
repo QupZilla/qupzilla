@@ -45,6 +45,9 @@ public:
     QTabBar::ButtonPosition iconButtonPosition();
     QTabBar::ButtonPosition closeButtonPosition();
 
+    void overrideTabTextColor(int index, QColor color);
+    void restoreTabTextColor(int index);
+
     void updatePinnedTabCloseButton(int index);
 
     void disconnectObjects();
@@ -119,6 +122,7 @@ private:
     mutable int m_normalTabWidth;
     mutable int m_activeTabWidth;
 
+    QColor m_originalTabTextColor;
     QRect m_originalGeometry;
     QPoint m_dragStartPosition;
 };

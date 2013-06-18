@@ -261,6 +261,7 @@ bool WebTab::isRestored() const
     return m_savedTab.isEmpty();
 }
 
+#include <QDebug>
 void WebTab::restoreTab(const WebTab::SavedTab &tab)
 {
     if (qzSettings->loadTabsOnActivation) {
@@ -269,11 +270,13 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 
         m_view->tabWidget()->setTabIcon(index, tab.icon);
         m_view->tabWidget()->setTabText(index, tab.title);
-        if (! tab.url.isEmpty()) {
-            m_view->tabWidget()->tabBar()->setTabTextColor(index, QColor(100, 100, 100));
-        }
         m_view->tabWidget()->setTabToolTip(index, tab.title);
         m_locationBar.data()->showUrl(tab.url);
+
+        if (!tab.url.isEmpty()) {
+            QColor col = m_view->tabWidget()->getTabBar()->palette().text().color();
+            m_view->tabWidget()->getTabBar()->overrideTabTextColor(index, col.lighter(250));
+        }
     }
     else {
         p_restoreTab(tab);
@@ -346,8 +349,9 @@ void WebTab::showNotification(QWidget* notif)
 void WebTab::slotRestore()
 {
     p_restoreTab(m_savedTab);
-    m_view->tabWidget()->tabBar()->setTabTextColor(tabIndex(), QColor(0, 0, 0));
     m_savedTab.clear();
+
+    m_view->tabWidget()->getTabBar()->restoreTabTextColor(tabIndex());
 }
 
 int WebTab::tabIndex() const
