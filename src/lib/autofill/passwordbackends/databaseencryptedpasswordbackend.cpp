@@ -340,6 +340,7 @@ void DatabaseEncryptedPasswordBackend::showMasterPasswordDialog()
 {
     MasterPasswordDialog* masterPasswordDialog = new MasterPasswordDialog(this, mApp->getWindow());
     masterPasswordDialog->showSetMasterPasswordPage();
+    masterPasswordDialog->delayedExec();
 }
 
 void DatabaseEncryptedPasswordBackend::tryToChangeMasterPassword(const QByteArray &newPassword)
@@ -580,10 +581,7 @@ void MasterPasswordDialog::showSettingPage()
 
 void MasterPasswordDialog::showSetMasterPasswordPage()
 {
-    disconnect(ui->setMasterPassword, SIGNAL(clicked()), this, SLOT(showSetMasterPasswordPage()));
     ui->stackedWidget->setCurrentIndex(1);
-    delayedExec();
-    connect(ui->setMasterPassword, SIGNAL(clicked()), this, SLOT(showSetMasterPasswordPage()));
 }
 
 void MasterPasswordDialog::clearMasterPasswordAndConvert(bool forcedAskPass)
@@ -628,6 +626,7 @@ void MasterPasswordDialog::clearMasterPasswordAndConvert(bool forcedAskPass)
         }
         else {
             QMessageBox::information(this, tr("Warning!"), tr("There are some data that were not decrypted. The master password was not cleared!"));
+            mApp->autoFill()->passwordManager()->switchBackend("database");
         }
     }
     reject();
