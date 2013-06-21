@@ -497,6 +497,7 @@ isEqual(QT_MAJOR_VERSION, 5) {
     INSTALLS += target
 
     !contains(DEFINES, NO_X11):LIBS += -lX11
+    LIBS += -lcrypto
 
     RESOURCES -= data/certs.qrc
 }
@@ -515,10 +516,8 @@ mac {
                webview/macwebviewscroller.cpp
     RESOURCES -= data/certs.qrc
 
-    LIBS += -framework CoreServices
+    LIBS += -lcrypto -framework CoreServices
 }
-
-LIBS += -lcrypto
 
 message(===========================================)
 message( Using following defines:)
