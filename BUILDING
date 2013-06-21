@@ -31,7 +31,10 @@ Microsoft Windows
 Linux / Unix
 ----------------------------------------------------------------------------------
 
-  There is no required extra dependency, you only need Qt tools.
+  You need to have Qt 4 (>= 4.7) or Qt 5 development libraries, pkg-config is
+  highly recommended to correctly detect QtWebKit version.
+  Next compulsory requirement is OpenSSL (libcrypto). X11 libraries are also
+  required unless you specify NO_X11 build option.
 
   To build spellcheck plugin, you need:
      - QtWebKit 2.3 or higher

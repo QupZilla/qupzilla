@@ -41,12 +41,14 @@ and you have read the [BUILDING](https://github.com/QupZilla/qupzilla/blob/maste
 
 **Linux**  
 
- * pkg-config is optional (to correctly detect versions of QtWebKit)
+ * OpenSSL (libcrypto) is required
+ * pkg-config is recommended (to correctly detect versions of QtWebKit)
  * pkg-config is required for Hunspell spellcheck
  * Hunspell development package for spellcheck
  * QtWebKit 2.3 is needed to have support for spellcheck
  
 **Windows**  
+ * OpenSSL (libeay32) is required
  * QtWebKit 2.3 is required
  * Hunspell library is required for spellcheck
 

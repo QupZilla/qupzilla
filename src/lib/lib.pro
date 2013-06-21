@@ -504,6 +504,8 @@ isEqual(QT_MAJOR_VERSION, 5) {
 win32 {
     HEADERS += other/registerqappassociation.h
     SOURCES += other/registerqappassociation.cpp
+
+    LIBS += -llibeay32
 }
 
 mac {
@@ -516,7 +518,7 @@ mac {
     LIBS += -framework CoreServices
 }
 
-LIBS += -llibeay32
+LIBS += -lcrypto
 
 message(===========================================)
 message( Using following defines:)
