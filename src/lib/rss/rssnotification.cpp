@@ -50,12 +50,6 @@ RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView*
     bloglines.icon = QIcon(":/icons/sites/bloglines.png");
     bloglines.address = "http://www.bloglines.com/sub?url=";
 
-    RssApp greader;
-    greader.type = WebApplication;
-    greader.title = "Google Reader";
-    greader.icon = QIcon(":/icons/sites/google.png");
-    greader.address = "http://www.google.com/ig/add?feedurl=";
-
     RssApp myaol;
     myaol.type = WebApplication;
     myaol.title = "My AOL";
@@ -74,7 +68,7 @@ RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView*
     yahoo.icon = QIcon(":/icons/sites/yahoo.png");
     yahoo.address = "http://add.my.yahoo.com/rss?url=";
 
-    m_rssApps << bloglines << greader << myaol << netvibes << yahoo;
+    m_rssApps << bloglines << myaol << netvibes << yahoo;
 
 #ifdef QZ_WS_X11
     const QString &akregatorBin = QzTools::resolveFromPath("akregator");

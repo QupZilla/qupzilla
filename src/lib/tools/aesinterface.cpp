@@ -71,7 +71,7 @@ bool AesInterface::init(int evpMode, const QByteArray &password, const QByteArra
         return false;
     }
 
-    int result;
+    int result = 0;
     if (evpMode == EVP_PKEY_MO_ENCRYPT) {
         m_iVector = createRandomData(EVP_MAX_IV_LENGTH);
         result = EVP_EncryptInit_ex(&m_encodeCTX, EVP_aes_256_cbc(), NULL, key, (uchar*)m_iVector.constData());
