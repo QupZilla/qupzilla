@@ -34,6 +34,8 @@
 DatabaseEncryptedPasswordBackend::DatabaseEncryptedPasswordBackend()
     : PasswordBackend()
     , m_stateOfMasterPassword(UnKnownState)
+    , m_askPasswordDialogVisible(false)
+    , m_askMasterPassword(false)
 {
     QSqlDatabase db = QSqlDatabase::database();
     if (!db.tables().contains(QLatin1String("autofill_encrypted"))) {
@@ -263,24 +265,37 @@ bool DatabaseEncryptedPasswordBackend::hasPermission()
         return true;
     }
 
-    bool ok;
-    QString text = QInputDialog::getText(mApp->getWindow(), AutoFill::tr("Enter Master Password"),
-                                         AutoFill::tr("Permission is required, please enter Master Password:"),
-                                         QLineEdit::Password, QString(), &ok);
-    if (ok && !text.isEmpty()) {
-        QByteArray enteredPassword = AesInterface::passwordToHash(text);
+    if (m_askPasswordDialogVisible) {
+        return false;
+    }
+
+    m_askPasswordDialogVisible = true;
+
+    QInputDialog dialog;
+    dialog.setWindowModality(Qt::ApplicationModal);
+    dialog.setWindowTitle(AutoFill::tr("Enter Master Password"));
+    dialog.setLabelText(AutoFill::tr("Permission is required, please enter Master Password:"));
+    dialog.setTextEchoMode(QLineEdit::Password);
+
+    if (dialog.exec() == QDialog::Accepted && !dialog.textValue().isEmpty()) {
+        QByteArray enteredPassword = AesInterface::passwordToHash(dialog.textValue());
         if (!isPasswordVerified(enteredPassword)) {
             QMessageBox::information(mApp->getWindow(), AutoFill::tr("Warning!"), AutoFill::tr("Entered password is wrong!"));
             setAskMasterPasswordState(true);
+
+            m_askPasswordDialogVisible = false;
             return false;
         }
         else {
             setAskMasterPasswordState(false);
             //TODO: start timer for reset ask state to true
+
+            m_askPasswordDialogVisible = false;
             return true;
         }
     }
 
+    m_askPasswordDialogVisible = false;
     return false;
 }
 

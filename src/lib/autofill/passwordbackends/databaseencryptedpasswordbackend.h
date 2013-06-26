@@ -24,6 +24,8 @@
 
 #include <QDialog>
 
+class QInputDialog;
+
 class AesInterface;
 class MasterPasswordDialog;
 
@@ -85,6 +87,7 @@ private:
     MasterPasswordState m_stateOfMasterPassword;
     QByteArray m_someDataStoredOnDataBase;
 
+    bool m_askPasswordDialogVisible;
     bool m_askMasterPassword;
     QByteArray m_masterPassword;
 
