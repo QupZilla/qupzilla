@@ -69,7 +69,7 @@ QVector<PasswordEntry> DatabaseEncryptedPasswordBackend::getEntries(const QUrl &
         data.password = query.value(2).toString();
         data.data = query.value(3).toByteArray();
 
-        if (decryptPasswordEntry(&data, &aesDecryptor)) {
+        if (decryptPasswordEntry(data, &aesDecryptor)) {
             list.append(data);
         }
     }
@@ -97,7 +97,7 @@ QVector<PasswordEntry> DatabaseEncryptedPasswordBackend::getAllEntries()
         data.password = query.value(3).toString();
         data.data = query.value(4).toByteArray();
 
-        if (decryptPasswordEntry(&data, &aesDecryptor)) {
+        if (decryptPasswordEntry(data, &aesDecryptor)) {
             list.append(data);
         }
     }
@@ -147,7 +147,7 @@ void DatabaseEncryptedPasswordBackend::addEntry(const PasswordEntry &entry)
     PasswordEntry encryptedEntry = entry;
     AesInterface aesEncryptor;
 
-    if (encryptPasswordEntry(&encryptedEntry, &aesEncryptor)) {
+    if (encryptPasswordEntry(encryptedEntry, &aesEncryptor)) {
         QSqlQuery query;
         query.prepare("INSERT INTO autofill_encrypted (server, data_encrypted, username_encrypted, password_encrypted, last_used) "
                       "VALUES (?,?,?,?,strftime('%s', 'now'))");
@@ -165,7 +165,7 @@ bool DatabaseEncryptedPasswordBackend::updateEntry(const PasswordEntry &entry)
     AesInterface aesEncryptor;
     PasswordEntry encryptedEntry = entry;
 
-    if (encryptPasswordEntry(&encryptedEntry, &aesEncryptor)) {
+    if (encryptPasswordEntry(encryptedEntry, &aesEncryptor)) {
         QSqlQuery query;
 
         // Data is empty only for HTTP/FTP authorization
@@ -310,28 +310,28 @@ bool DatabaseEncryptedPasswordBackend::isPasswordVerified(const QByteArray &pass
     return false;
 }
 
-bool DatabaseEncryptedPasswordBackend::decryptPasswordEntry(PasswordEntry* entry, AesInterface* aesInterface)
+bool DatabaseEncryptedPasswordBackend::decryptPasswordEntry(PasswordEntry &entry, AesInterface* aesInterface)
 {
-    if (!hasPermission() || !entry) {
+    if (!hasPermission()) {
         return false;
     }
 
-    entry->username = QString::fromUtf8(aesInterface->decrypt(entry->username.toUtf8(), m_masterPassword));
-    entry->password = QString::fromUtf8(aesInterface->decrypt(entry->password.toUtf8(), m_masterPassword));
-    entry->data = aesInterface->decrypt(entry->data, m_masterPassword);
+    entry.username = QString::fromUtf8(aesInterface->decrypt(entry.username.toUtf8(), m_masterPassword));
+    entry.password = QString::fromUtf8(aesInterface->decrypt(entry.password.toUtf8(), m_masterPassword));
+    entry.data = aesInterface->decrypt(entry.data, m_masterPassword);
 
     return aesInterface->isOk();
 }
 
-bool DatabaseEncryptedPasswordBackend::encryptPasswordEntry(PasswordEntry* entry, AesInterface* aesInterface)
+bool DatabaseEncryptedPasswordBackend::encryptPasswordEntry(PasswordEntry &entry, AesInterface* aesInterface)
 {
-    if (!hasPermission() || !entry) {
+    if (!hasPermission()) {
         return false;
     }
 
-    entry->username = QString::fromUtf8(aesInterface->encrypt(entry->username.toUtf8(), m_masterPassword));
-    entry->password = QString::fromUtf8(aesInterface->encrypt(entry->password.toUtf8(), m_masterPassword));
-    entry->data = aesInterface->encrypt(entry->data, m_masterPassword);
+    entry.username = QString::fromUtf8(aesInterface->encrypt(entry.username.toUtf8(), m_masterPassword));
+    entry.password = QString::fromUtf8(aesInterface->encrypt(entry.password.toUtf8(), m_masterPassword));
+    entry.data = aesInterface->encrypt(entry.data, m_masterPassword);
 
     return aesInterface->isOk();
 }

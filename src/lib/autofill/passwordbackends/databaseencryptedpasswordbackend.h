@@ -64,8 +64,8 @@ public:
     bool hasPermission();
     bool isPasswordVerified(const QByteArray &password);
 
-    bool decryptPasswordEntry(PasswordEntry* entry, AesInterface* aesInterface);
-    bool encryptPasswordEntry(PasswordEntry* entry, AesInterface* aesInterface);
+    bool decryptPasswordEntry(PasswordEntry &entry, AesInterface* aesInterface);
+    bool encryptPasswordEntry(PasswordEntry &entry, AesInterface* aesInterface);
 
     void tryToChangeMasterPassword(const QByteArray &newPassword);
     void removeMasterPassword();
