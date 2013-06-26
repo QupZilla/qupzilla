@@ -24,8 +24,6 @@
 
 #include <QDialog>
 
-class QInputDialog;
-
 class AesInterface;
 class MasterPasswordDialog;
 
