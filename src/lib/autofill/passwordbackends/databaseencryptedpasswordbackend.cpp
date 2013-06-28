@@ -545,12 +545,12 @@ void MasterPasswordDialog::accept()
     QByteArray currentPassField = AesInterface::passwordToHash(ui->currentPassword->text());
 
     if (m_backend->isMasterPasswordSetted() && !m_backend->isPasswordVerified(currentPassField)) {
-        QMessageBox::information(this, tr("Warning!"), tr("You entred wrong password!"));
+        QMessageBox::information(this, tr("Warning!"), tr("You entered a wrong password!"));
         return;
     }
 
     if (ui->newPassword->text() != ui->confirmPassword->text()) {
-        QMessageBox::information(this, tr("Warning!"), tr("New/Confirm password fields don't match!"));
+        QMessageBox::information(this, tr("Warning!"), tr("New/Confirm password fields do not match!"));
         return;
     }
 
@@ -578,8 +578,8 @@ void MasterPasswordDialog::reject()
     if (m_backend->isActive() && !m_backend->isMasterPasswordSetted()) {
         // master password not setted
         QMessageBox::information(this, AutoFill::tr("Warning!"),
-                                 AutoFill::tr("This backend needs a master password setted! "
-                                              "QupZilla just switch to its default backend"));
+                                 AutoFill::tr("This backend needs a master password to be set! "
+                                              "QupZilla just switches to its default backend"));
         // active default backend
         mApp->autoFill()->passwordManager()->switchBackend("database");
         return;
@@ -642,7 +642,7 @@ void MasterPasswordDialog::clearMasterPasswordAndConvert(bool forcedAskPass)
             mApp->autoFill()->passwordManager()->switchBackend("database");
         }
         else {
-            QMessageBox::information(this, tr("Warning!"), tr("There are some data that were not decrypted. The master password was not cleared!"));
+            QMessageBox::information(this, tr("Warning!"), tr("Some data has not been decrypted. The master password was not cleared!"));
             mApp->autoFill()->passwordManager()->switchBackend("database");
         }
     }
