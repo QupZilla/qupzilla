@@ -324,34 +324,34 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="237"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="245"/>
         <source>Database (encrypted)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="267"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="282"/>
         <source>Enter Master Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="268"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="283"/>
         <source>Permission is required, please enter Master Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="273"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="567"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="289"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="580"/>
         <source>Warning!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="273"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="289"/>
         <source>Entered password is wrong!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="568"/>
-        <source>This backend needs a master password setted! QupZilla just switch to its default backend</source>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="581"/>
+        <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2312,23 +2312,23 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="30"/>
-        <source>This backend doesn&apos;t work without master password.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="37"/>
         <source>Clear Master Password...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="30"/>
+        <source>This backend does not work without a master password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="40"/>
-        <source>This option clears master password and moves all encrypted data to &quot;DataBase (Plain Text)&quot; backend, and switch to it.</source>
+        <source>This option clears the master password and moves all encrypted data to the &quot;DataBase (Plain Text)&quot; backend, and switches to it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="58"/>
-        <source>The Master Password is used to protect site passwords and form data. If you set Master Password you will be asked to enter it once per session.</source>
+        <source>The Master Password is used to protect site passwords and form data. If you set a Master Password you will be asked to enter it once per session.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2348,35 +2348,35 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="114"/>
-        <source>&lt;b&gt;Note:&lt;/b&gt; Master Password is not resetable. Don&apos;t forgot it, please.</source>
+        <source>&lt;b&gt;Note:&lt;/b&gt; The Master Password is not resettable. Do not forget it, please.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="535"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="540"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="589"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="628"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="548"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="553"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="602"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="645"/>
         <source>Warning!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="535"/>
-        <source>You entred wrong password!</source>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="548"/>
+        <source>You entered a wrong password!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="540"/>
-        <source>New/Confirm password fields don&apos;t match!</source>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="553"/>
+        <source>New/Confirm password fields do not match!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="589"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="645"/>
+        <source>Some data has not been decrypted. The master password was not cleared!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="602"/>
         <source>Are you sure to clear master password and decrypt data?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="628"/>
-        <source>There are some data that were not decrypted. The master password was not cleared!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
