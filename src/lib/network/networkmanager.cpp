@@ -166,7 +166,7 @@ void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
     }
 }
 
-inline uint qHash(const QSslCertificate &cert)
+static inline uint qHash(const QSslCertificate &cert)
 {
     return qHash(cert.toPem());
 }

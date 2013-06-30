@@ -245,6 +245,11 @@ QString DatabaseEncryptedPasswordBackend::name() const
     return AutoFill::tr("Database (encrypted)");
 }
 
+bool DatabaseEncryptedPasswordBackend::hasSettings() const
+{
+    return true;
+}
+
 void DatabaseEncryptedPasswordBackend::showSettings(QWidget* parent)
 {
     MasterPasswordDialog* masterPasswordDialog = new MasterPasswordDialog(this, parent);
@@ -381,6 +386,11 @@ void DatabaseEncryptedPasswordBackend::removeMasterPassword()
         m_masterPassword.clear();
         updateSampleData(QByteArray());
     }
+}
+
+void DatabaseEncryptedPasswordBackend::setAskMasterPasswordState(bool ask)
+{
+    m_askMasterPassword = ask;
 }
 
 void DatabaseEncryptedPasswordBackend::encryptDataBaseTableOnFly(const QByteArray &decryptorPassword, const QByteArray &encryptorPassword)

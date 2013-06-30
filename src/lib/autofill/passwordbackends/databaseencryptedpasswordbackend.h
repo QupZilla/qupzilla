@@ -54,7 +54,7 @@ public:
 
     QString name() const;
 
-    inline bool hasSettings() const { return true; }
+    bool hasSettings() const;
     void showSettings(QWidget* parent);
 
     bool isMasterPasswordSetted();
@@ -70,7 +70,7 @@ public:
     void tryToChangeMasterPassword(const QByteArray &newPassword);
     void removeMasterPassword();
 
-    inline void setAskMasterPasswordState(bool ask) { m_askMasterPassword = ask; }
+    void setAskMasterPasswordState(bool ask);
 
     void encryptDataBaseTableOnFly(const QByteArray &decryptorPassword,
                                    const QByteArray &encryptorPassword);

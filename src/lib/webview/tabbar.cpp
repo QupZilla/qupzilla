@@ -713,6 +713,11 @@ QSize CloseButton::sizeHint() const
     return QSize(width, height);
 }
 
+QSize CloseButton::minimumSizeHint() const
+{
+    return sizeHint();
+}
+
 void CloseButton::enterEvent(QEvent* event)
 {
     if (isEnabled()) {

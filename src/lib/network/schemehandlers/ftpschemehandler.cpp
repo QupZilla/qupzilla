@@ -442,6 +442,21 @@ void FtpDownloader::download(const QUrl &url, QIODevice* dev)
     connectToHost(server, port);
 }
 
+bool FtpDownloader::isFinished()
+{
+    return m_isFinished;
+}
+
+QUrl FtpDownloader::url() const
+{
+    return m_url;
+}
+
+QIODevice* FtpDownloader::device() const
+{
+    return m_dev;
+}
+
 void FtpDownloader::setError(QFtp::Error err, const QString &errStr)
 {
     m_lastError = err;

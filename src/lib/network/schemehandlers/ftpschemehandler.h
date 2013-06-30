@@ -99,9 +99,9 @@ public:
     FtpDownloader(QObject* parent = 0);
 
     void download(const QUrl &url, QIODevice* dev);
-    inline bool isFinished() {return m_isFinished;}
-    inline QUrl url() const {return m_url;}
-    inline QIODevice* device() const {return m_dev;}
+    bool isFinished();
+    QUrl url() const;
+    QIODevice* device() const;
     void setError(QFtp::Error err, const QString &errStr);
     void abort();
     QFtp::Error error();

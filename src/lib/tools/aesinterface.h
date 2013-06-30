@@ -38,7 +38,7 @@ public:
     explicit AesInterface(QObject* parent = 0);
     ~AesInterface();
 
-    inline bool isOk() { return m_ok; }
+    bool isOk();
 
     QByteArray encrypt(const QByteArray &plainData, const QByteArray &password);
     QByteArray decrypt(const QByteArray &cipherData, const QByteArray &password);

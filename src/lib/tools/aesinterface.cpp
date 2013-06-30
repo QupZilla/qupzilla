@@ -50,6 +50,11 @@ AesInterface::~AesInterface()
     EVP_CIPHER_CTX_cleanup(&m_decodeCTX);
 }
 
+bool AesInterface::isOk()
+{
+    return m_ok;
+}
+
 // Create an 256 bit 'key' using the supplied password, and creates a random 'iv'.
 // saltArray is an array of 8 bytes can be added for taste.
 // Fills in the encryption and decryption ctx objects and returns true on success

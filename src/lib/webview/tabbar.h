@@ -137,7 +137,7 @@ public:
     CloseButton(QWidget* parent = 0);
 
     QSize sizeHint() const;
-    inline QSize minimumSizeHint() const { return sizeHint(); }
+    QSize minimumSizeHint() const;
 
     void enterEvent(QEvent* event);
     void leaveEvent(QEvent* event);
