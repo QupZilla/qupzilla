@@ -22,6 +22,8 @@
 
 #include "clickablelabel.h"
 
+class QNetworkConfigurationManager;
+
 class QupZilla;
 
 class SBI_NetworkIcon : public ClickableLabel
@@ -32,7 +34,7 @@ public:
     explicit SBI_NetworkIcon(QupZilla* window);
 
 private slots:
-    void networkAccessibleChanged(QNetworkAccessManager::NetworkAccessibility accessibility);
+    void onlineStateChanged(bool online);
     void showDialog();
 
     void showMenu(const QPoint &pos);
@@ -43,6 +45,7 @@ private:
     void enterEvent(QEvent* event);
 
     QupZilla* p_QupZilla;
+    QNetworkConfigurationManager* m_networkConfiguration;
 };
 
 #endif // SBI_NETWORKICON_H

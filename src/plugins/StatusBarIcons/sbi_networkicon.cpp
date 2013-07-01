@@ -26,33 +26,28 @@
 
 #include <QDebug>
 #include <QMenu>
+#include <QNetworkConfigurationManager>
 
 SBI_NetworkIcon::SBI_NetworkIcon(QupZilla* window)
     : ClickableLabel(window)
     , p_QupZilla(window)
+    , m_networkConfiguration(new QNetworkConfigurationManager(this))
 {
     setCursor(Qt::PointingHandCursor);
 
-    networkAccessibleChanged(mApp->networkManager()->networkAccessible());
+    onlineStateChanged(m_networkConfiguration->isOnline());
 
-    connect(mApp->networkManager(), SIGNAL(networkAccessibleChanged(QNetworkAccessManager::NetworkAccessibility)), this, SLOT(networkAccessibleChanged(QNetworkAccessManager::NetworkAccessibility)));
+    connect(m_networkConfiguration, SIGNAL(onlineStateChanged(bool)), this, SLOT(onlineStateChanged(bool)));
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(showMenu(QPoint)));
 }
 
-void SBI_NetworkIcon::networkAccessibleChanged(QNetworkAccessManager::NetworkAccessibility accessibility)
+void SBI_NetworkIcon::onlineStateChanged(bool online)
 {
-    switch (accessibility) {
-    case QNetworkAccessManager::Accessible:
+    if (online) {
         setPixmap(QIcon(":sbi/data/network-online.png").pixmap(16));
-        break;
-
-    case QNetworkAccessManager::NotAccessible:
+    }
+    else {
         setPixmap(QIcon(":sbi/data/network-offline.png").pixmap(16));
-        break;
-
-    default:
-        setPixmap(QIcon(":sbi/data/network-unknown.png").pixmap(16));
-        break;
     }
 
     updateToolTip();
@@ -105,18 +100,11 @@ void SBI_NetworkIcon::updateToolTip()
 {
     QString tooltip = tr("Shows network status and manages proxy<br/><br/><b>Network:</b><br/>%1<br/><br/><b>Proxy:</b><br/>%2");
 
-    switch (mApp->networkManager()->networkAccessible()) {
-    case QNetworkAccessManager::Accessible:
+    if (m_networkConfiguration->isOnline()) {
         tooltip = tooltip.arg(tr("Connected"));
-        break;
-
-    case QNetworkAccessManager::NotAccessible:
+    }
+    else {
         tooltip = tooltip.arg(tr("Offline"));
-        break;
-
-    default:
-        tooltip = tooltip.arg(tr("Unknown"));
-        break;
     }
 
     switch (mApp->networkManager()->proxyFactory()->proxyPreference()) {
