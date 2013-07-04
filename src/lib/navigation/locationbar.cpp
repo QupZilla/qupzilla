@@ -756,6 +756,11 @@ void LocationBar::paintEvent(QPaintEvent* event)
             currentRect.setX(currentRect.x() + hostWidth);
             currentRect.setWidth(textRect.width() - currentRect.x() + textRect.x());
             p.setPen(lightPen);
+
+            if (currentText.isRightToLeft()) {
+                // Insert unicode control characters: prepend LRE then append LRM+PDF
+                currentText.prepend(QChar(0x202A)).append(QChar(0x200E)).append(QChar(0x202C));
+            }
         }
     }
 

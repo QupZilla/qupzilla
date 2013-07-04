@@ -24,14 +24,12 @@
 #include "qz_namespace.h"
 
 #include <openssl/evp.h>
-#include <QObject>
 
 #include <QHash>
 #include <QList>
+
 class QT_QUPZILLA_EXPORT AesInterface : public QObject
 {
-    Q_OBJECT
-
 public:
     static const int VERSION;
 
@@ -43,9 +41,7 @@ public:
     QByteArray encrypt(const QByteArray &plainData, const QByteArray &password);
     QByteArray decrypt(const QByteArray &cipherData, const QByteArray &password);
 
-    static void encryptSomeData(const QByteArray &pass = QByteArray());
     static QByteArray passwordToHash(const QString &masterPassword);
-
     static QByteArray createRandomData(int length);
 
 private:

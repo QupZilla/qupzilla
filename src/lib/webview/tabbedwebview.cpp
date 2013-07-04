@@ -198,7 +198,7 @@ void TabbedWebView::linkHovered(const QString &link, const QString &title, const
             p_QupZilla->statusBarMessage()->clearMessage();
         }
         else {
-            p_QupZilla->statusBarMessage()->showMessage(link);
+            p_QupZilla->statusBarMessage()->showMessage(QString::fromUtf8(QByteArray::fromPercentEncoding(link.toUtf8())));
         }
     }
 }

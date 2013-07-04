@@ -108,11 +108,19 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw link
     const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading() + 2;
     QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
+    const QByteArray &linkArray = index.data(Qt::DisplayRole).toByteArray();
     // Let's assume that more than 500 characters won't fit in line on any display...
     // Fixes performance when trying to get elidedText for a really long
     // (length() > 1000000) urls - data: urls can get that long
-    const QString &linkUrl = index.data(Qt::DisplayRole).toString().left(500);
-    QString link(opt.fontMetrics.elidedText(linkUrl, Qt::ElideRight, linkRect.width()));
+    QString link;
+    if (!linkArray.startsWith("data") && !linkArray.startsWith("javascript")) {
+        link = QString::fromUtf8(QByteArray::fromPercentEncoding(linkArray)).left(500);
+    }
+    else {
+        link = QString::fromLatin1(linkArray.left(500));
+    }
+
+    link = opt.fontMetrics.elidedText(link, Qt::ElideRight, linkRect.width());
     painter->setFont(opt.font);
     TabPosition pos = index.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
     if (m_drawSwitchToTab && pos.windowIndex != -1) {
@@ -256,11 +264,6 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, const
     }
 }
 
-// RTL Support
-#define LRE QChar(0x202A)
-#define RLE QChar(0x202B)
-#define PDF QChar(0x202C)
-
 void LocationCompleterDelegate::drawTextLine(const QRect &rect, QString text, QPainter* painter,
         const QStyle* style, const QStyleOptionViewItemV4 &option,
         const QPalette::ColorRole &role) const
@@ -270,8 +273,9 @@ void LocationCompleterDelegate::drawTextLine(const QRect &rect, QString text, QP
         Qt::LayoutDirection textDirection = text.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight;
         Qt::Alignment alignment = textDirection == direction ? Qt::AlignLeft : Qt::AlignRight;
 
-        text.isRightToLeft() ? text.prepend(RLE) : text.prepend(LRE);
-        text.append(PDF);
+        // Insert unicode control characters: prepend RLE or LRE and append (RLM or LRM)+PDF
+        text.isRightToLeft() ? text.prepend(QChar(0x202B)).append(0x200F) : text.prepend(QChar(0x202A)).append(0x200E);
+        text.append(QChar(0x202C));
 
         style->drawItemText(painter, rect, Qt::TextSingleLine | alignment, option.palette, true, text, role);
     }
