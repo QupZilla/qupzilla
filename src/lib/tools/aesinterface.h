@@ -30,6 +30,8 @@
 
 class QT_QUPZILLA_EXPORT AesInterface : public QObject
 {
+    Q_OBJECT
+
 public:
     static const int VERSION;
 
