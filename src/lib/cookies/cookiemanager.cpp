@@ -77,9 +77,7 @@ CookieManager::CookieManager(QWidget* parent)
     QShortcut* removeShortcut = new QShortcut(QKeySequence("Del"), this);
     connect(removeShortcut, SIGNAL(activated()), this, SLOT(deletePressed()));
 
-#if defined(QZ_WS_X11) && !defined(NO_X11)
     QzTools::setWmClass("Cookies", this);
-#endif
 }
 
 void CookieManager::removeAll()

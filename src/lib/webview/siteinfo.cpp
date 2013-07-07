@@ -177,9 +177,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
 
     ui->treeTags->sortByColumn(-1);
 
-#if defined(QZ_WS_X11) && !defined(NO_X11)
     QzTools::setWmClass("Site Info", this);
-#endif
 }
 
 void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)

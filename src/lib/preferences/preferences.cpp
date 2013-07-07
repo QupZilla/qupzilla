@@ -481,9 +481,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->html5permissions->setDisabled(true);
 #endif
 
-#if defined(QZ_WS_X11) && !defined(NO_X11)
     QzTools::setWmClass("Preferences", this);
-#endif
 }
 
 void Preferences::showStackedPage(QListWidgetItem* item)

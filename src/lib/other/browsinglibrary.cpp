@@ -59,10 +59,7 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     connect(ui->tabs, SIGNAL(CurrentChanged(int)), this, SLOT(currentIndexChanged(int)));
     connect(ui->searchLine, SIGNAL(textChanged(QString)), this, SLOT(search()));
 
-
-#if defined(QZ_WS_X11) && !defined(NO_X11)
     QzTools::setWmClass("Browsing Library", this);
-#endif
 }
 
 void BrowsingLibrary::currentIndexChanged(int index)
