@@ -660,11 +660,10 @@ Display* QzTools::X11Display(const QWidget* widget)
 
 void QzTools::setWmClass(const QString &name, const QWidget* widget)
 {
-    char* namestr = (char*) malloc(name.size() + 1);
-    strncpy(namestr, name.toUtf8().constData(), name.size() + 1);
+    QByteArray nameData = name.toUtf8();
 
     XClassHint classHint;
-    classHint.res_name = namestr;
+    classHint.res_name = const_cast<char*>(nameData.constData());
     classHint.res_class = const_cast<char*>("QupZilla");
     XSetClassHint(X11Display(widget), widget->winId(), &classHint);
 }
