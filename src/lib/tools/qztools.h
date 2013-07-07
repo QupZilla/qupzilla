@@ -73,8 +73,9 @@ QString QT_QUPZILLA_EXPORT escape(const QString &string);
 
 #if defined(QZ_WS_X11) && !defined(NO_X11)
 Display* X11Display(const QWidget* widget);
-void QT_QUPZILLA_EXPORT setWmClass(const QString &name, const QWidget* widget);
 #endif
+
+void QT_QUPZILLA_EXPORT setWmClass(const QString &name, const QWidget* widget);
 
 template <typename T>
 bool listContainsIndex(const QList<T> &list, int index)

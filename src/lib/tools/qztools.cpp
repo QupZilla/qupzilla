@@ -629,17 +629,22 @@ Display* QzTools::X11Display(const QWidget* widget)
     return QX11Info::display();
 #endif
 }
+#endif
 
 void QzTools::setWmClass(const QString &name, const QWidget* widget)
 {
+#if defined(QZ_WS_X11) && !defined(NO_X11)
     QByteArray nameData = name.toUtf8();
 
     XClassHint classHint;
     classHint.res_name = const_cast<char*>(nameData.constData());
     classHint.res_class = const_cast<char*>("QupZilla");
     XSetClassHint(X11Display(widget), widget->winId(), &classHint);
-}
+#else
+    Q_UNUSED(name)
+    Q_UNUSED(widget)
 #endif
+}
 
 QString QzTools::operatingSystem()
 {
