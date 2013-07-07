@@ -44,6 +44,8 @@
 #include <qpa/qplatformnativeinterface.h>
 #elif !defined(NO_X11)
 #include <QX11Info>
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
 #endif
 
 #ifdef Q_OS_WIN
@@ -617,7 +619,7 @@ QString QzTools::escape(const QString &string)
 }
 
 #if defined(QZ_WS_X11) && !defined(NO_X11)
-void* QzTools::X11Display(const QWidget* widget)
+Display* QzTools::X11Display(const QWidget* widget)
 {
     Q_UNUSED(widget)
 
@@ -626,6 +628,17 @@ void* QzTools::X11Display(const QWidget* widget)
 #else
     return QX11Info::display();
 #endif
+}
+
+void QzTools::setWmClass(const QString &name, const QWidget* widget)
+{
+    char* namestr = (char*) malloc(name.size() + 1);
+    strncpy(namestr, name.toUtf8().constData(), name.size() + 1);
+
+    XClassHint classHint;
+    classHint.res_name = namestr;
+    classHint.res_class = const_cast<char*>("QupZilla");
+    XSetClassHint(X11Display(widget), widget->winId(), &classHint);
 }
 #endif
 

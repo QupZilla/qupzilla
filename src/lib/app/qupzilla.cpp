@@ -148,6 +148,10 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     connect(mApp, SIGNAL(message(Qz::AppMessageType,bool)), this, SLOT(receiveMessage(Qz::AppMessageType,bool)));
 
     QTimer::singleShot(0, this, SLOT(postLaunch()));
+
+#if defined(QZ_WS_X11) && !defined(NO_X11)
+    QzTools::setWmClass("Browser", this);
+#endif
 }
 
 void QupZilla::postLaunch()
