@@ -25,6 +25,8 @@ GM_SettingsListWidget::GM_SettingsListWidget(QWidget* parent)
     : QListWidget(parent)
     , m_delegate(new GM_SettingsListDelegate(this))
 {
+    // forced to LTR, see issue#967
+    setLayoutDirection(Qt::LeftToRight);
     setItemDelegate(m_delegate);
 }
 
@@ -62,5 +64,5 @@ bool GM_SettingsListWidget::containsRemoveIcon(const QPoint &pos) const
 
     QRect removeIconRect(removeIconPosition, removeIconYPos, 16, 16);
 
-    return style()->visualRect(layoutDirection(), rect, removeIconRect).contains(pos);
+    return removeIconRect.contains(pos);
 }
