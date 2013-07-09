@@ -25,6 +25,7 @@
 
 #include <openssl/evp.h>
 
+#include <QObject>
 #include <QHash>
 #include <QList>
 
