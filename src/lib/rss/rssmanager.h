@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -42,6 +42,7 @@ class QT_QUPZILLA_EXPORT RSSManager : public QWidget
 {
     Q_OBJECT
 
+    friend class BrowsingLibrary;
 public:
     explicit RSSManager(QupZilla* mainClass, QWidget* parent = 0);
     ~RSSManager();
@@ -67,6 +68,8 @@ private slots:
 
 private:
     QupZilla* getQupZilla();
+    void deleteAllTabs();
+
     QList<QPair<FollowRedirectReply*, QUrl> > m_replies;
     NetworkManager* m_networkManager;
 

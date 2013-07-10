@@ -72,6 +72,15 @@ QupZilla* RSSManager::getQupZilla()
     return p_QupZilla.data();
 }
 
+void RSSManager::deleteAllTabs()
+{
+    while (ui->tabWidget->count() > 0) {
+        QWidget* w = ui->tabWidget->widget(0);
+        ui->tabWidget->removeTab(0);
+        delete w;
+    }
+}
+
 void RSSManager::setMainWindow(QupZilla* window)
 {
     if (window) {
@@ -82,7 +91,9 @@ void RSSManager::setMainWindow(QupZilla* window)
 void RSSManager::refreshTable()
 {
     QSqlQuery query;
-    ui->tabWidget->clear();
+    ui->tabWidget->setUpdatesEnabled(false);
+    deleteAllTabs();
+
     query.exec("SELECT address, title, icon FROM rss");
     int i = 0;
     while (query.next()) {
@@ -130,6 +141,7 @@ void RSSManager::refreshTable()
         verticalLayout->addWidget(label);
         ui->tabWidget->addTab(frame, tr("Empty"));
     }
+    ui->tabWidget->setUpdatesEnabled(true);
 }
 
 void RSSManager::reloadFeeds()
@@ -182,16 +194,16 @@ void RSSManager::editFeed()
         return;
     }
 
-    QDialog* dialog = new QDialog(this);
-    QFormLayout* layout = new QFormLayout(dialog);
-    QLabel* label = new QLabel(dialog);
-    QLineEdit* editUrl = new QLineEdit(dialog);
-    QLineEdit* editTitle = new QLineEdit(dialog);
-    QDialogButtonBox* box = new QDialogButtonBox(dialog);
+    QDialog dialog(this);
+    QFormLayout* layout = new QFormLayout(&dialog);
+    QLabel* label = new QLabel(&dialog);
+    QLineEdit* editUrl = new QLineEdit(&dialog);
+    QLineEdit* editTitle = new QLineEdit(&dialog);
+    QDialogButtonBox* box = new QDialogButtonBox(&dialog);
     box->addButton(QDialogButtonBox::Ok);
     box->addButton(QDialogButtonBox::Cancel);
-    connect(box, SIGNAL(rejected()), dialog, SLOT(reject()));
-    connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
+    connect(box, SIGNAL(rejected()), &dialog, SLOT(reject()));
+    connect(box, SIGNAL(accepted()), &dialog, SLOT(accept()));
 
     label->setText(tr("Fill title and URL of a feed: "));
     layout->addRow(label);
@@ -202,10 +214,10 @@ void RSSManager::editFeed()
     editUrl->setText(ui->tabWidget->tabToolTip(ui->tabWidget->currentIndex()));
     editTitle->setText(ui->tabWidget->tabText(ui->tabWidget->currentIndex()));
 
-    dialog->setWindowTitle(tr("Edit RSS Feed"));
-    dialog->setMinimumSize(400, 100);
-    dialog->exec();
-    if (dialog->result() == QDialog::Rejected) {
+    dialog.setWindowTitle(tr("Edit RSS Feed"));
+    dialog.setMinimumSize(400, 100);
+    dialog.exec();
+    if (dialog.result() == QDialog::Rejected) {
         return;
     }
 
@@ -224,7 +236,6 @@ void RSSManager::editFeed()
     query.exec();
 
     refreshTable();
-
 }
 
 void RSSManager::customContextMenuRequested(const QPoint &position)

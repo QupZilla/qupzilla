@@ -158,6 +158,9 @@ void BrowsingLibrary::closeEvent(QCloseEvent* e)
     settings.setValue("historyState", m_historyManager->saveState());
     settings.endGroup();
     e->accept();
+
+    // saves a few megabytes
+    m_rssManager->deleteAllTabs();
 }
 
 void BrowsingLibrary::keyPressEvent(QKeyEvent* e)
