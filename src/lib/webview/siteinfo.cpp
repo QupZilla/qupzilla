@@ -205,7 +205,6 @@ void SiteInfo::databaseItemChanged(QListWidgetItem* item)
     const QList<QWebDatabase> &list = m_view->page()->mainFrame()->securityOrigin().databases();
 
     if (id > list.count() - 1) {
-        qDebug("database is shit");
         return;
     }
 
