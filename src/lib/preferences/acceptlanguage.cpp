@@ -73,6 +73,7 @@ AcceptLanguage::AcceptLanguage(QWidget* parent)
     , ui(new Ui::AcceptLanguage)
 {
     ui->setupUi(this);
+    ui->listWidget->setLayoutDirection(Qt::LeftToRight);
 
     Settings settings;
     settings.beginGroup("Language");
@@ -130,6 +131,7 @@ void AcceptLanguage::addLanguage()
     Ui_AddAcceptLanguage acceptLangUi;
     QDialog dialog(this);
     acceptLangUi.setupUi(&dialog);
+    acceptLangUi.listWidget->setLayoutDirection(Qt::LeftToRight);
 
     QStringList allLanguages;
     for (int i = 1 + (int)QLocale::C; i <= (int)QLocale::LastLanguage; ++i) {

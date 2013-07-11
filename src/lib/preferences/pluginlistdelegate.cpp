@@ -35,9 +35,10 @@ void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
 
     const QWidget* w = opt.widget;
     const QStyle* style = w ? w->style() : QApplication::style();
-    const Qt::LayoutDirection direction = w ? w->layoutDirection() : QApplication::layoutDirection();
     const int height = opt.rect.height();
     const int center = height / 2 + opt.rect.top();
+
+    painter->setLayoutDirection(Qt::LeftToRight);
 
     // Prepare title font
     QFont titleFont = opt.font;
@@ -63,19 +64,16 @@ void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     QStyleOptionViewItemV4 opt2 = opt;
     opt2.checkState == Qt::Checked ? opt2.state |= QStyle::State_On : opt2.state |= QStyle::State_Off;
     QRect styleCheckBoxRect = style->subElementRect(QStyle::SE_ViewItemCheckIndicator, &opt2, w);
-    styleCheckBoxRect.setRect(leftPosition, checkboxYPos, styleCheckBoxRect.width(), styleCheckBoxRect.height());
-    QRect visualCheckBoxRect = style->visualRect(direction, opt.rect, styleCheckBoxRect);
-    opt2.rect = visualCheckBoxRect;
+    opt2.rect = QRect(leftPosition, checkboxYPos, styleCheckBoxRect.width(), styleCheckBoxRect.height());
     style->drawPrimitive(QStyle::PE_IndicatorViewItemCheck, &opt2, painter, w);
-    leftPosition = styleCheckBoxRect.right() + m_padding;
+    leftPosition = opt2.rect.right() + m_padding;
 
     // Draw icon
     const int iconSize = 32;
     const int iconYPos = center - (iconSize / 2);
     QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
-    QRect visualIconRect = style->visualRect(direction, opt.rect, iconRect);
     QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize);
-    painter->drawPixmap(visualIconRect, pixmap);
+    painter->drawPixmap(iconRect, pixmap);
     leftPosition = iconRect.right() + m_padding;
 
     // Draw plugin name
@@ -84,9 +82,8 @@ void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     const int rightTitleEdge = rightPosition - m_padding;
     const int leftPosForVersion = titleMetrics.width(name) + m_padding;
     QRect nameRect(leftTitleEdge, opt.rect.top() + m_padding, rightTitleEdge - leftTitleEdge, titleMetrics.height());
-    QRect visualNameRect = style->visualRect(direction, opt.rect, nameRect);
     painter->setFont(titleFont);
-    style->drawItemText(painter, visualNameRect, Qt::AlignLeft, opt.palette, true, name, colorRole);
+    style->drawItemText(painter, nameRect, Qt::AlignLeft, opt.palette, true, name, colorRole);
 
     // Draw version
     const QString &version = index.data(Qt::UserRole).toString();
@@ -98,7 +95,7 @@ void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
 
     // Draw info
     const int infoYPos = nameRect.bottom() + opt.fontMetrics.leading();
-    QRect infoRect(visualNameRect.x(), infoYPos, nameRect.width(), opt.fontMetrics.height());
+    QRect infoRect(nameRect.x(), infoYPos, nameRect.width(), opt.fontMetrics.height());
     const QString &info = opt.fontMetrics.elidedText(index.data(Qt::UserRole + 1).toString(), Qt::ElideRight, infoRect.width());
     painter->setFont(opt.font);
     style->drawItemText(painter, infoRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, info, colorRole);

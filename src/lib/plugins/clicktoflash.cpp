@@ -293,8 +293,15 @@ void ClickToFlash::showInfo()
     widg->setAttribute(Qt::WA_DeleteOnClose);
     widg->setWindowTitle(tr("Flash Object"));
     QFormLayout* lay = new QFormLayout(widg);
+    QLabel* attrib = new QLabel(tr("<b>Attribute Name</b>"));
+    QLabel* value = new QLabel(tr("<b>Value</b>"));
+    if (isRightToLeft()) {
+        widg->setLayoutDirection(Qt::LeftToRight);
+        attrib->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        value->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    }
 
-    lay->addRow(new QLabel(tr("<b>Attribute Name</b>")), new QLabel(tr("<b>Value</b>")));
+    lay->addRow(attrib, value);
 
     int i = 0;
     foreach (const QString &name, m_argumentNames) {

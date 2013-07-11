@@ -33,6 +33,7 @@ ThemeManager::ThemeManager(QWidget* parent, Preferences* preferences)
     , m_preferences(preferences)
 {
     ui->setupUi(parent);
+    ui->listWidget->setLayoutDirection(Qt::LeftToRight);
     ui->license->hide();
 
     Settings settings;

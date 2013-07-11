@@ -64,6 +64,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
+    ui->languages->setLayoutDirection(Qt::LeftToRight);
 
     m_themesManager = new ThemeManager(ui->themesWidget, this);
     m_autoFillManager = new AutoFillManager(this);

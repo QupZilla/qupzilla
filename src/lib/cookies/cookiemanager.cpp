@@ -39,6 +39,14 @@ CookieManager::CookieManager(QWidget* parent)
     ui->setupUi(this);
     QzTools::centerWidgetOnScreen(this);
 
+    if (isRightToLeft()) {
+        ui->cookieTree->headerItem()->setTextAlignment(0, Qt::AlignRight | Qt::AlignVCenter);
+        ui->cookieTree->headerItem()->setTextAlignment(1, Qt::AlignRight | Qt::AlignVCenter);
+        ui->cookieTree->setLayoutDirection(Qt::LeftToRight);
+        ui->whiteList->setLayoutDirection(Qt::LeftToRight);
+        ui->blackList->setLayoutDirection(Qt::LeftToRight);
+    }
+
     // Stored Cookies
     connect(ui->cookieTree, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)));
     connect(ui->removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));

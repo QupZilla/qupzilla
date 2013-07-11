@@ -34,6 +34,8 @@ PluginsManager::PluginsManager(QWidget* parent)
     , m_loaded(false)
 {
     ui->setupUi(this);
+    ui->list->setLayoutDirection(Qt::LeftToRight);
+    ui->whitelist->setLayoutDirection(Qt::LeftToRight);
 
     //Application Extensions
     Settings settings;

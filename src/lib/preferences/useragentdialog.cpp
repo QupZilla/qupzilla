@@ -32,6 +32,8 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
     , m_manager(mApp->uaManager())
 {
     ui->setupUi(this);
+    ui->globalComboBox->setLayoutDirection(Qt::LeftToRight);
+    ui->table->setLayoutDirection(Qt::LeftToRight);
 
     const QString &os = QzTools::operatingSystem();
     m_knownUserAgents << QString("Opera/9.80 (%1) Presto/2.10.229 Version/11.61").arg(os)
@@ -182,6 +184,7 @@ bool UserAgentDialog::showEditDialog(const QString &title, QString* rSite, QStri
     QFormLayout* layout = new QFormLayout(dialog);
     QLineEdit* editSite = new QLineEdit(dialog);
     QComboBox* editAgent = new QComboBox(dialog);
+    editAgent->setLayoutDirection(Qt::LeftToRight);
     editAgent->setEditable(true);
     editAgent->addItems(m_knownUserAgents);
 

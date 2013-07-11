@@ -38,6 +38,13 @@ AutoFillManager::AutoFillManager(QWidget* parent)
     , m_passwordsShown(false)
 {
     ui->setupUi(this);
+    if (isRightToLeft()) {
+        ui->treePass->headerItem()->setTextAlignment(0, Qt::AlignRight | Qt::AlignVCenter);
+        ui->treePass->headerItem()->setTextAlignment(1, Qt::AlignRight | Qt::AlignVCenter);
+        ui->treePass->headerItem()->setTextAlignment(2, Qt::AlignRight | Qt::AlignVCenter);
+        ui->treePass->setLayoutDirection(Qt::LeftToRight);
+        ui->treeExcept->setLayoutDirection(Qt::LeftToRight);
+    }
 
     connect(ui->removePass, SIGNAL(clicked()), this, SLOT(removePass()));
     connect(ui->removeAllPass, SIGNAL(clicked()), this, SLOT(removeAllPass()));
