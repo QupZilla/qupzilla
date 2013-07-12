@@ -55,6 +55,8 @@ DownloadManager::DownloadManager(QWidget* parent)
 
     loadSettings();
 
+    QzTools::setWmClass("Download Manager", this);
+
 #ifdef W7TASKBAR
     if (QtWin::isRunningWindows7()) {
         win7.init(QtWin::hwndOfWidget(this));
