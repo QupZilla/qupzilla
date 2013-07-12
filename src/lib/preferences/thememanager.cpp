@@ -161,9 +161,14 @@ ThemeManager::Theme ThemeManager::parseTheme(const QString &path, const QString 
 
 void ThemeManager::save()
 {
+    QListWidgetItem* currentItem = ui->listWidget->currentItem();
+    if (!currentItem) {
+        return;
+    }
+
     Settings settings;
     settings.beginGroup("Themes");
-    settings.setValue("activeTheme", ui->listWidget->currentItem()->data(Qt::UserRole));
+    settings.setValue("activeTheme", currentItem->data(Qt::UserRole));
     settings.endGroup();
 }
 
