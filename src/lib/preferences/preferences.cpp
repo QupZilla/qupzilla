@@ -60,15 +60,15 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::Preferences)
     , p_QupZilla(mainClass)
+    , m_autoFillManager(0)
     , m_pluginsList(0)
+    , m_autoFillEnabled(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
     ui->languages->setLayoutDirection(Qt::LeftToRight);
 
     m_themesManager = new ThemeManager(ui->themesWidget, this);
-    m_autoFillManager = new AutoFillManager(this);
-    ui->autoFillFrame->addWidget(m_autoFillManager);
     m_pluginsList = new PluginsManager(this);
     ui->pluginsFrame->addWidget(m_pluginsList);
 
@@ -497,8 +497,15 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     ui->stackedWidget->setCurrentIndex(index);
 
     setNotificationPreviewVisible(index == 9);
+
     if (index == 10) {
         m_pluginsList->load();
+    }
+
+    if (index == 7 && !m_autoFillManager) {
+        m_autoFillManager = new AutoFillManager(this);
+        ui->autoFillFrame->addWidget(m_autoFillManager);
+        m_autoFillManager->setVisible(m_autoFillEnabled);
     }
 }
 
@@ -730,7 +737,12 @@ void Preferences::reloadPacFileClicked()
 
 void Preferences::showPassManager(bool state)
 {
-    m_autoFillManager->setVisible(state);
+    if (m_autoFillManager) {
+        m_autoFillManager->setVisible(state);
+    }
+    else {
+        m_autoFillEnabled = state;
+    }
 }
 
 void Preferences::buttonClicked(QAbstractButton* button)

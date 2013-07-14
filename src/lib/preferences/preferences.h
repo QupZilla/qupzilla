@@ -109,6 +109,7 @@ private:
     int m_afterLaunch;
     int m_onNewTab;
     QPoint m_notifPosition;
+    bool m_autoFillEnabled;
 };
 
 #endif // PREFERENCES_H
