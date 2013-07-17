@@ -225,6 +225,9 @@ void SideBarManager::sideBarRemoved(const QString &id)
 
 void SideBarManager::closeSideBar()
 {
+    if (mApp->isClosing()) {
+        return;
+    }
     m_activeBar = "None";
 
     Settings settings;
