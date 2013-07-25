@@ -25,11 +25,15 @@
 #include <QPointer>
 
 class QPixmap;
+class QDBusMessage;
+class QDBusError;
 
 class DesktopNotification;
 
 class QT_QUPZILLA_EXPORT DesktopNotificationsFactory : public QObject
 {
+    Q_OBJECT
+
 public:
     enum Type { DesktopNative, PopupWidget };
 
@@ -41,6 +45,10 @@ public:
 
     void showNotification(const QPixmap &icon, const QString &heading, const QString &text);
     void nativeNotificationPreview();
+
+private slots:
+    void updateLastId(const QDBusMessage &msg);
+    void error(const QDBusError &error);
 
 private:
     bool m_enabled;

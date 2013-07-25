@@ -22,6 +22,7 @@
 
 #include <QFile>
 #include <QDir>
+#include <QDebug>
 
 #if defined(QZ_WS_X11) && !defined(DISABLE_DBUS)
 #include <QDBusInterface>
@@ -92,11 +93,7 @@ void DesktopNotificationsFactory::showNotification(const QPixmap &icon, const QS
         args.append(QStringList());
         args.append(QVariantMap());
         args.append(m_timeout);
-        QDBusMessage message = dbus.callWithArgumentList(QDBus::Block, "Notify", args);
-        QVariantList list = message.arguments();
-        if (list.count() > 0) {
-            m_uint = list.at(0).toInt();
-        }
+        dbus.callWithCallback("Notify", args, this, SLOT(updateLastId(QDBusMessage)), SLOT(error(QDBusError)));
 #endif
         break;
     }
@@ -119,10 +116,19 @@ void DesktopNotificationsFactory::nativeNotificationPreview()
     args.append(QStringList());
     args.append(QVariantMap());
     args.append(m_timeout);
-    QDBusMessage message = dbus.callWithArgumentList(QDBus::Block, "Notify", args);
-    QVariantList list = message.arguments();
+    dbus.callWithCallback("Notify", args, this, SLOT(updateLastId(QDBusMessage)), SLOT(error(QDBusError)));
+#endif
+}
+
+void DesktopNotificationsFactory::updateLastId(const QDBusMessage &msg)
+{
+    QVariantList list = msg.arguments();
     if (list.count() > 0) {
         m_uint = list.at(0).toInt();
     }
-#endif
+}
+
+void DesktopNotificationsFactory::error(const QDBusError &error)
+{
+    qWarning() << "QDBusError:" << error.message();
 }
