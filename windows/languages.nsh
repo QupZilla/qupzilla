@@ -544,6 +544,33 @@ LangString DESC_SecProtocols ${LANG_HEBREW} "שייך את QupZilla עם פרו�
 LangString MSG_RunningInstance ${LANG_HEBREW} "QupZilla כבר מורץ כעת! האם ברצונך מהמתקין לנסות לסיימו?"
 LangString MSG_InstallationCanceled ${LANG_HEBREW} "תהליך בוטל על ידי משתמש."
 
+;;;;Basque
+LangString PRODUCT_DESC  ${LANG_BASQUE} "QupZilla iturburu-irekiko WWW nabigatzaile berri, azkar eta seguru bat da. QupZilla GPL 3 bertsioa baimenpean dago edo (zure aukeran) edozein bertsio berriagoan. WebKit nukleoan eta Qt Framework-ean ohinarrituta dago."
+;
+LangString TITLE_SecMain ${LANG_BASQUE} "Osagai Nagusiak"
+LangString TITLE_SecTranslations ${LANG_BASQUE} "Itzulpenak"
+LangString TITLE_SecPlugins ${LANG_BASQUE} "Pluginak"
+LangString TITLE_SecDesktop ${LANG_BASQUE} "Mahaigain Ikurra"
+LangString TITLE_SecExtensions ${LANG_BASQUE} "Agiri Elkarketa"
+LangString TITLE_SecThemes ${LANG_BASQUE} "Azalgaiak"
+LangString TITLE_SecSetASDefault ${LANG_BASQUE} "Berezko Nabigatzailea"
+LangString TITLE_SecProtocols ${LANG_BASQUE} "Protokolo Elkarketak"
+
+LangString FILE_Htm ${LANG_BASQUE} "HTM Agiria"
+LangString FILE_Html ${LANG_BASQUE} "HTML Agiria"
+;
+LangString DESC_SecMain ${LANG_BASQUE} "Aplikazioaren osagai nagusiak."
+LangString DESC_SecTranslations ${LANG_BASQUE} "Ezartzeko eskuragarri dauden beste itzulpenak. Berezkoa Ingelera da."
+LangString DESC_SecPlugins ${LANG_BASQUE} "Ezartzeko eskuragarri dauden beste pluginak."
+LangString DESC_SecDesktop ${LANG_BASQUE} "Gehitu abiarazlea mahaigainean."
+LangString DESC_SecExtensions ${LANG_BASQUE} "Elkartu QupZilla .htm(l) agiriekin"
+LangString DESC_SecThemes ${LANG_BASQUE} "QupZilla-rentzako azalgai gehigarriak"
+LangString DESC_SecSetASDefault ${LANG_BASQUE} "Ezarri Qupzilla berezko internet nabigatzaile bezala"
+LangString DESC_SecProtocols ${LANG_BASQUE} "Elkartu QupZilla http(s) eta ftp protokoloekin"
+;
+LangString MSG_RunningInstance ${LANG_BASQUE} "QupZilla jadanik ekinean dago! Nahi duzu ezartzaileak hura amaitzen saiatzea?"
+LangString MSG_InstallationCanceled ${LANG_BASQUE} "Prozesua erabiltzaileak ezeztaturik."
+
 ;;;;;;;;;
 ;;;;;;;;;
 ; Unfinished translations
