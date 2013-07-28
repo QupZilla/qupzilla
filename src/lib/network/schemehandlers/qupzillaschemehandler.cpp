@@ -261,7 +261,8 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Stanislav Kuznietsov", "stanislav_kuznetsov@ukr.net") + " (Ukrainian)<br/>" +
                       authorString("Seyyed Razi Alavizadeh", "s.r.alavizadeh@gmail.com") + " (Persian)<br/>" +
                       authorString("Guillem Prats", "guprej@gmail.com") + " (Catalan)<br/>" +
-                      authorString("Clara Villalba", "cvilmon@gmail.com") + " (Catalan)"
+                      authorString("Clara Villalba", "cvilmon@gmail.com") + " (Catalan)<br/>" +
+                      authorString("Xabier Aramendi", "azpidatziak@gmail.com") + " (Basque)"
                      );
         aPage = QzTools::applyDirectionToPage(aPage);
     }

@@ -121,7 +121,8 @@ void AboutDialog::showAuthors()
                                                "Seyyed Razi Alavizadeh<br/>"
                                                "Guillem Prats<br/>"
                                                "Clara Villalba<br/>"
-                                               "Yu Hai")
+                                               "Yu Hai<br/>"
+                                               "Xabier Aramendi")
                          );
         m_authorsHtml += "</div></center>";
     }
