@@ -301,11 +301,57 @@
     </message>
 </context>
 <context>
+    <name>AesInterface</name>
+    <message>
+        <location filename="../src/lib/tools/aesinterface.cpp" line="139"/>
+        <source>Warning!</source>
+        <translation>Aviso!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tools/aesinterface.cpp" line="139"/>
+        <source>Data has been encrypted with a newer version of QupZilla.
+Please install latest version of QupZilla.</source>
+        <translation>Os dados foram cifrados com uma versão mais recente do QupZilla.
+Instale a versão mais recente da aplicação.</translation>
+    </message>
+</context>
+<context>
     <name>AutoFill</name>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="33"/>
         <source>Database (plaintext)</source>
         <translation>Base de dados (texto)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="245"/>
+        <source>Database (encrypted)</source>
+        <translation>Base de dados (cifrada)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="282"/>
+        <source>Enter Master Password</source>
+        <translation>Introduza a senha mestre</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="283"/>
+        <source>Permission is required, please enter Master Password:</source>
+        <translation>Requer permissões. Introduza a senha mestre:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="289"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="580"/>
+        <source>Warning!</source>
+        <translation>Aviso!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="289"/>
+        <source>Entered password is wrong!</source>
+        <translation>A senha introduzida não está correta!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="581"/>
+        <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
+        <translation>Esta infraestrutura requer uma senha mestre definida. O QupZilla ativou a infraestrutura pré-definida</translation>
     </message>
 </context>
 <context>
@@ -353,9 +399,9 @@
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="140"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="70"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="169"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="177"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="71"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="160"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="168"/>
         <source>Show Passwords</source>
         <translation>Mostrar senhas</translation>
     </message>
@@ -382,88 +428,88 @@
         <translation>Exceções</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="54"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="55"/>
         <source>Import Passwords from File...</source>
         <translation>Importar senhas do ficheiro...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="55"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="56"/>
         <source>Export Passwords to File...</source>
         <translation>Exportar senhas para o ficheiro...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="58"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="59"/>
         <source>Search</source>
         <translation>Procurar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="118"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="119"/>
         <source>Change backend...</source>
         <translation>Alterar infraestrutura...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="118"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="119"/>
         <source>Change backend:</source>
         <translation>Alterar infraestrutura:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="177"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="168"/>
         <source>Are you sure that you want to show all passwords?</source>
         <translation>Tem a certeza que pretende mostrar todas as senhas?</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="192"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="183"/>
         <source>Hide Passwords</source>
         <translation>Ocultar senhas</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="210"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="201"/>
         <source>Confirmation</source>
         <translation>Confirmação</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="211"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="202"/>
         <source>Are you sure to delete all passwords on your computer?</source>
         <translation>Tem a certeza que pretende eliminar todas as senhas?</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="230"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="221"/>
         <source>Edit password</source>
         <translation>Editar senha</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="230"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="221"/>
         <source>Change password:</source>
         <translation>Alterar senha:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="279"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="290"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="270"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="281"/>
         <source>Choose file...</source>
         <translation>Escolha o ficheiro...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="304"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="295"/>
         <source>Cannot read file!</source>
         <translation>Incapaz de ler o ficheiro!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="313"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="304"/>
         <source>Successfully imported</source>
         <translation>Importado com sucesso</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="313"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="304"/>
         <source>Error while importing!</source>
         <translation>Ocorreu um erro ao importar!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="324"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="315"/>
         <source>Cannot write to file!</source>
         <translation>Incapaz de escrever no ficheiro!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="333"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="324"/>
         <source>Successfully exported</source>
         <translation>Exportado com sucesso</translation>
     </message>
@@ -951,58 +997,60 @@
         <translation>Abrir marcador em novo separador</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="115"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="118"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="122"/>
         <source>Move right</source>
         <translation>Mover para a direita</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="116"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="119"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="123"/>
         <source>Move left</source>
         <translation>Mover para a esquerda</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="117"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="125"/>
         <source>Edit bookmark</source>
         <translation>Editar marcador</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="119"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="127"/>
         <source>Remove bookmark</source>
         <translation>Remover marcador</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="226"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="234"/>
         <source>Edit bookmark: </source>
         <translation>Editar marcador: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="228"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="236"/>
         <source>Title: </source>
         <translation>Título: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="229"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="237"/>
         <source>Url: </source>
         <translation>Url: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="237"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="245"/>
         <source>Edit Bookmark</source>
         <translation>Editar marcador</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="601"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="609"/>
         <source>Most visited</source>
         <translation>Mais visitados</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="602"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="610"/>
         <source>Sites you visited the most</source>
         <translation>As páginas mais visitadas</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="639"/>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="705"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="647"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="713"/>
         <source>Empty</source>
         <translation>Vazio</translation>
     </message>
@@ -1622,8 +1670,8 @@ não foi encontrado!</translation>
     <name>DownloadManager</name>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="138"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="275"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="140"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="277"/>
         <source>Download Manager</source>
         <translation>Gestor de transferências</translation>
     </message>
@@ -1633,32 +1681,32 @@ não foi encontrado!</translation>
         <translation>Limpar</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="172"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="174"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% de %2 ficheiro(s) - restam %4 (%3)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="175"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="177"/>
         <source>%1% - Download Manager</source>
         <translation>%1% - Gestor de transferências</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="268"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="270"/>
         <source>Download Finished</source>
         <translation>Transferência concluída</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="268"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="270"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Todos os ficheiros foram transferidos com sucesso.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="325"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="327"/>
         <source>Warning</source>
         <translation>Aviso</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="326"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="328"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Tem a certeza que pretende sair? As transferência não concluídas serão canceladas!</translation>
     </message>
@@ -2195,22 +2243,22 @@ não foi encontrado!</translation>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="133"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="134"/>
         <source>Enter URL address or search on %1</source>
         <translation>Introduza o URL ou procure em %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="312"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="313"/>
         <source>Paste And &amp;Go</source>
         <translation>Colar e &amp;ir</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="318"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="319"/>
         <source>Clear All</source>
         <translation>Limpar tudo</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="527"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="537"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.pt</translation>
@@ -2232,24 +2280,105 @@ não foi encontrado!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="963"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="998"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>O QupZilla não é o navegador padrão. Pretende definir o QupZilla como navegador padrão?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="964"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="999"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Executar sempre esta análise ao iniciar o QupZilla.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="966"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1001"/>
         <source>Default Browser</source>
         <translation>Navegador padrão</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="986"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1021"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>O QupZilla é um navegador web rápido, seguro e de código livre. O QupZilla está sujeito aos termos da GPL versão 3 ou (por opção) qualquer versão posterior. O Qupzilla é baseado nas tecnologias WebKit e Qt.</translation>
+    </message>
+</context>
+<context>
+    <name>MasterPasswordDialog</name>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="14"/>
+        <source>Encrypted DataBase Settings</source>
+        <translation>Definições das bases de dados cifradas</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="27"/>
+        <source>Set/Change Master Password...</source>
+        <translation>Definir/mudar senha mestre...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="37"/>
+        <source>Clear Master Password...</source>
+        <translation>Eliminar senha mestre...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="30"/>
+        <source>This backend does not work without a master password.</source>
+        <translation>Esta infraestrutura não funciona sem uma senha mestre.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="40"/>
+        <source>This option clears the master password and moves all encrypted data to the &quot;DataBase (Plain Text)&quot; backend, and switches to it.</source>
+        <translation>Esta opção elimina a senha mestre, move todos os dados cifrados para uma base de dados em texto simples e ativa a opção.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="58"/>
+        <source>The Master Password is used to protect site passwords and form data. If you set a Master Password you will be asked to enter it once per session.</source>
+        <translation>A senha mestre é utilizada para proteger as senhas de formulários e páginas web. Se definir uma senha mestre, esta será solicitada uma vez por sessão.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="70"/>
+        <source>Current Password:</source>
+        <translation>Senha atual:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="77"/>
+        <source>New Password:</source>
+        <translation>Nova senha:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="84"/>
+        <source>Confirm Password:</source>
+        <translation>Confirmação de senha:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="114"/>
+        <source>&lt;b&gt;Note:&lt;/b&gt; The Master Password is not resettable. Do not forget it, please.</source>
+        <translation>&lt;b&gt;Nota:&lt;/b&gt; não pode redefinir a senha mestre. Não se esqueça da senha.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="548"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="553"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="602"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="645"/>
+        <source>Warning!</source>
+        <translation>Aviso!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="548"/>
+        <source>You entered a wrong password!</source>
+        <translation>Introduziu um senha inválida!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="553"/>
+        <source>New/Confirm password fields do not match!</source>
+        <translation>A senha nova e a sua confirmação não são iguais!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="645"/>
+        <source>Some data has not been decrypted. The master password was not cleared!</source>
+        <translation>Existem alguns dados que não foram decifrados. A senha mestre não foi eliminada!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="602"/>
+        <source>Are you sure to clear master password and decrypt data?</source>
+        <translation>Tem a certeza que deseja eliminar a senha mestre e desproteger os dados?</translation>
     </message>
 </context>
 <context>
@@ -2300,92 +2429,92 @@ não foi encontrado!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="243"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="210"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="248"/>
         <source>SSL Certificate Error!</source>
         <translation>Erro de certificado SSL!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="206"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="211"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>A página que está a tentar aceder apresenta os seguintes erros no certificado SSL:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="221"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organização: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="223"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="228"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Domínio: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="225"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Termina em: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="231"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="236"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Erro: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="239"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Pretende criar uma exceção para este certificado?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="263"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="268"/>
         <source>Authorisation required</source>
         <translation>Requer autenticação</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="270"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="377"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="444"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="275"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="382"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="449"/>
         <source>Username: </source>
         <translation>Utilizador: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="271"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="378"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="445"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="276"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="383"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="450"/>
         <source>Password: </source>
         <translation>Senha: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="276"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="281"/>
         <source>Save username and password on this site</source>
         <translation>Gravar utilizador e senha desta página</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="290"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>%1 está a solicitar um utilizador e uma senha. A página reporta: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="370"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="375"/>
         <source>FTP authorisation required</source>
         <translation>Requer autenticação FTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="383"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="388"/>
         <source>Login anonymously</source>
         <translation>Iniciar sessão em modo anónimo</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="400"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="405"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>Estão a ser solicitados o nome de utilizador e a senha para %1:%2.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="442"/>
         <source>Proxy authorisation required</source>
         <translation>Requer autenticação de proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="462"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>O proxy %1 está a solicitar um utilizador e uma senha. </translation>
     </message>
@@ -3792,7 +3921,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="408"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="672"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="703"/>
         <source>Close Tab</source>
         <translation>Fechar separador</translation>
     </message>
@@ -4737,32 +4866,32 @@ Adicione as fontes com o ícone RSS existente na barra de navegação, nas pági
         <translation>Fonte RSS &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="110"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="104"/>
         <source>Internal Reader</source>
         <translation>Leitor interno</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="111"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="105"/>
         <source>Other...</source>
         <translation>Outro...</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="149"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="143"/>
         <source>Liferea not running</source>
         <translation>O Liferea não está em execução</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="149"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="143"/>
         <source>Liferea must be running in order to add new feed.</source>
         <translation>Para adicionar a nova fonte, o Liferea tem que estar em execução.</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="161"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="155"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
         <translation>Para adicionar esta fonte RSS noutra aplicação, utilze estas informações:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Título: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;. O URL desta fonte foi copiado para a área de transferência.</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="164"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="158"/>
         <source>Add feed into other application</source>
         <translation>Adicionar fonte noutra aplicação</translation>
     </message>
@@ -5560,73 +5689,73 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="130"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="139"/>
         <source>&amp;New tab</source>
         <translation>&amp;Novo separador</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="139"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
         <source>&amp;Stop Tab</source>
         <translation>Parar &amp;separador</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="142"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Recarregar separador</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="145"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="154"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Duplicar separador</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="157"/>
         <source>D&amp;etach Tab</source>
         <translation>S&amp;eparar separador</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="160"/>
         <source>Un&amp;pin Tab</source>
         <translation>Desa&amp;fixar  separador</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="160"/>
         <source>&amp;Pin Tab</source>
         <translation>Fi&amp;xar separador</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="153"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="162"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Re&amp;carregar todos os separadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="154"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="163"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>&amp;Marcar este separador</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="155"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="167"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="176"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>M&amp;arcar todos os separadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="170"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Fechar os o&amp;utros separadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="162"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="171"/>
         <source>Cl&amp;ose</source>
         <translation>F&amp;echar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="166"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="175"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Recarregar to&amp;dos os separadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="169"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="178"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Restaurar separador fe&amp;chado</translation>
     </message>
@@ -5634,49 +5763,49 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="55"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="54"/>
         <source>New Tab</source>
         <translation>Novo separador</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="132"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="144"/>
         <source>List of tabs</source>
         <translation>Lista de separadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="234"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="246"/>
         <source>Loading...</source>
         <translation>A carregar...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="238"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="250"/>
         <source>No Named Page</source>
         <translation>Página sem nome</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="256"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="268"/>
         <source>Currently you have %1 opened tabs</source>
         <translation>Atualmente, tem %1 separadores abertos</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="273"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="107"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="108"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="285"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="119"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="120"/>
         <source>New tab</source>
         <translation>Novo separador</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="804"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="792"/>
         <source>Empty</source>
         <translation>Vazio</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="807"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="795"/>
         <source>Restore All Closed Tabs</source>
         <translation>Restaurar todos os separadores fechados</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="808"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="796"/>
         <source>Clear list</source>
         <translation>Limpar lista</translation>
     </message>
@@ -5745,7 +5874,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/other/updater.cpp" line="139"/>
         <source>New version of QupZilla is ready to download.</source>
-        <translation>Existe uma nova versão disponível.</translation>
+        <translation>Está disponível uma nova versão do QupZilla.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/updater.cpp" line="148"/>
@@ -5835,7 +5964,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="366"/>
         <source>Remember my choice for this protocol</source>
-        <translation>Lembrar a minha escolha para este protocolo</translation>
+        <translation>Memorizar escolha para este protocolo</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="367"/>

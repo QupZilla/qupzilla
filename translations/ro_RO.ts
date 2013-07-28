@@ -301,10 +301,55 @@
     </message>
 </context>
 <context>
+    <name>AesInterface</name>
+    <message>
+        <location filename="../src/lib/tools/aesinterface.cpp" line="139"/>
+        <source>Warning!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/tools/aesinterface.cpp" line="139"/>
+        <source>Data has been encrypted with a newer version of QupZilla.
+Please install latest version of QupZilla.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AutoFill</name>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="33"/>
         <source>Database (plaintext)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="245"/>
+        <source>Database (encrypted)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="282"/>
+        <source>Enter Master Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="283"/>
+        <source>Permission is required, please enter Master Password:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="289"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="580"/>
+        <source>Warning!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="289"/>
+        <source>Entered password is wrong!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="581"/>
+        <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -353,9 +398,9 @@
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="140"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="70"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="169"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="177"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="71"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="160"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="168"/>
         <source>Show Passwords</source>
         <translation>Afișează parole</translation>
     </message>
@@ -382,88 +427,88 @@
         <translation>Excepții</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="54"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="55"/>
         <source>Import Passwords from File...</source>
         <translation>Importă parole din fișier...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="55"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="56"/>
         <source>Export Passwords to File...</source>
         <translation>Exportă parole în fișier...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="58"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="59"/>
         <source>Search</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="118"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="119"/>
         <source>Change backend...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="118"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="119"/>
         <source>Change backend:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="177"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="168"/>
         <source>Are you sure that you want to show all passwords?</source>
         <translation>Sunteți sigur că doriți să afișați toate parolele?</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="192"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="183"/>
         <source>Hide Passwords</source>
         <translation>Ascunde parole</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="210"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="201"/>
         <source>Confirmation</source>
         <translation>Confirmare</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="211"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="202"/>
         <source>Are you sure to delete all passwords on your computer?</source>
         <translation>Sunteți sigur că doriți să ștergeți toate parolele de pe computer?</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="230"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="221"/>
         <source>Edit password</source>
         <translation>Editează parolă</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="230"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="221"/>
         <source>Change password:</source>
         <translation>Schimbă parolă:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="279"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="290"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="270"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="281"/>
         <source>Choose file...</source>
         <translation>Alege fișier...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="304"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="295"/>
         <source>Cannot read file!</source>
         <translation>Fișierul nu poate fi citit!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="313"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="304"/>
         <source>Successfully imported</source>
         <translation>Importat cu succes</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="313"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="304"/>
         <source>Error while importing!</source>
         <translation>Eroare la import!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="324"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="315"/>
         <source>Cannot write to file!</source>
         <translation>Fișierul nu poate fi scris!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="333"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="324"/>
         <source>Successfully exported</source>
         <translation>Exportat cu succes</translation>
     </message>
@@ -951,58 +996,60 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="115"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="118"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="122"/>
         <source>Move right</source>
         <translation>Mută la dreapta</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="116"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="119"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="123"/>
         <source>Move left</source>
         <translation>Mută la stânga</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="117"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="125"/>
         <source>Edit bookmark</source>
         <translation>Editează semn de carte</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="119"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="127"/>
         <source>Remove bookmark</source>
         <translation>Șterge semn de carte</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="226"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="234"/>
         <source>Edit bookmark: </source>
         <translation>Editează semn de carte:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="228"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="236"/>
         <source>Title: </source>
         <translation>Titlu:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="229"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="237"/>
         <source>Url: </source>
         <translation>Adresă:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="237"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="245"/>
         <source>Edit Bookmark</source>
         <translation>Editează semn de carte</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="601"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="609"/>
         <source>Most visited</source>
         <translation>Cele mei vizitate</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="602"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="610"/>
         <source>Sites you visited the most</source>
         <translation>Site-uri pe care le-ați vizitat cel mai frecvent</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="639"/>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="705"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="647"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="713"/>
         <source>Empty</source>
         <translation>Gol</translation>
     </message>
@@ -1622,8 +1669,8 @@ nu a putut fi găsit!</translation>
     <name>DownloadManager</name>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="138"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="275"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="140"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="277"/>
         <source>Download Manager</source>
         <translation>Manager de descărcări</translation>
     </message>
@@ -1633,32 +1680,32 @@ nu a putut fi găsit!</translation>
         <translation>Șterge</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="172"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="174"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% din %2 fișiere (%3) %4 rămase</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="175"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="177"/>
         <source>%1% - Download Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="268"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="270"/>
         <source>Download Finished</source>
         <translation>Descărcare incheiată</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="268"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="270"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Toate fișierele au fost descărcate cu succes.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="325"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="327"/>
         <source>Warning</source>
         <translation>Avertisment</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="326"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="328"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Sunteți sigur că doriți să iesiți? Toate descărcările incomplete vor fi oprite!</translation>
     </message>
@@ -2195,22 +2242,22 @@ nu a putut fi găsit!</translation>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="133"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="134"/>
         <source>Enter URL address or search on %1</source>
         <translation>Introdu adresă sau caută pe %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="312"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="313"/>
         <source>Paste And &amp;Go</source>
         <translation>Lipește si &amp;du-te</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="318"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="319"/>
         <source>Clear All</source>
         <translation>Ștege tot</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="527"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="537"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.ro</translation>
@@ -2232,23 +2279,104 @@ nu a putut fi găsit!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="963"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="998"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="964"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="999"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="966"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1001"/>
         <source>Default Browser</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="986"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1021"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MasterPasswordDialog</name>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="14"/>
+        <source>Encrypted DataBase Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="27"/>
+        <source>Set/Change Master Password...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="37"/>
+        <source>Clear Master Password...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="30"/>
+        <source>This backend does not work without a master password.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="40"/>
+        <source>This option clears the master password and moves all encrypted data to the &quot;DataBase (Plain Text)&quot; backend, and switches to it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="58"/>
+        <source>The Master Password is used to protect site passwords and form data. If you set a Master Password you will be asked to enter it once per session.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="70"/>
+        <source>Current Password:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="77"/>
+        <source>New Password:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="84"/>
+        <source>Confirm Password:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="114"/>
+        <source>&lt;b&gt;Note:&lt;/b&gt; The Master Password is not resettable. Do not forget it, please.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="548"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="553"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="602"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="645"/>
+        <source>Warning!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="548"/>
+        <source>You entered a wrong password!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="553"/>
+        <source>New/Confirm password fields do not match!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="645"/>
+        <source>Some data has not been decrypted. The master password was not cleared!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="602"/>
+        <source>Are you sure to clear master password and decrypt data?</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2300,92 +2428,92 @@ nu a putut fi găsit!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="243"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="210"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="248"/>
         <source>SSL Certificate Error!</source>
         <translation>Eroare certificat SSL!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="206"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="211"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>Pagina pe care doriți să o accesați are următoarele erori in certificiatul SSL:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="221"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizație: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="223"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="228"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Nume domeniu: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="225"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Data expirării: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="231"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="236"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Eroare: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="239"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Doriți să faceți o excepție pentru acest certificat?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="263"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="268"/>
         <source>Authorisation required</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="270"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="377"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="444"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="275"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="382"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="449"/>
         <source>Username: </source>
         <translation>Nume utilizator: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="271"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="378"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="445"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="276"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="383"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="450"/>
         <source>Password: </source>
         <translation>Parola: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="276"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="281"/>
         <source>Save username and password on this site</source>
         <translation>Salvează nume utilizator si parola pe acest site</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="290"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Un nume de utilizator și o parolă sunt cerute de %1. Site-ul spune: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="370"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="375"/>
         <source>FTP authorisation required</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="383"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="388"/>
         <source>Login anonymously</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="400"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="405"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="442"/>
         <source>Proxy authorisation required</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="462"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Un nume de utilizator și o parolă sunt cerute de proxy %1. </translation>
     </message>
@@ -3792,7 +3920,7 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="408"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="672"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="703"/>
         <source>Close Tab</source>
         <translation>Închide tab</translation>
     </message>
@@ -4736,32 +4864,32 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="110"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="104"/>
         <source>Internal Reader</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="111"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="105"/>
         <source>Other...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="149"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="143"/>
         <source>Liferea not running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="149"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="143"/>
         <source>Liferea must be running in order to add new feed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="161"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="155"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="164"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="158"/>
         <source>Add feed into other application</source>
         <translation type="unfinished"/>
     </message>
@@ -5558,73 +5686,73 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="130"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="139"/>
         <source>&amp;New tab</source>
         <translation>&amp;Tab nou</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="139"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Opreste tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="142"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Reîncarcă tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="145"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="154"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Duplica tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="157"/>
         <source>D&amp;etach Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="160"/>
         <source>Un&amp;pin Tab</source>
         <translation>De&amp;zlipește tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="160"/>
         <source>&amp;Pin Tab</source>
         <translation>&amp;Lipește tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="153"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="162"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Re&amp;încarcă toate taburile</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="154"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="163"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>Adaugă semn de &amp;carte pentru acest tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="155"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="167"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="176"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Adaugă &amp;semn de carte pentru toate tab-urile</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="170"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Închide &amp;alte taburi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="162"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="171"/>
         <source>Cl&amp;ose</source>
         <translation>In&amp;chide</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="166"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="175"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Reînc&amp;arcă toate taburile</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="169"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="178"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Restaureaza &amp;taburi inchise</translation>
     </message>
@@ -5632,49 +5760,49 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="55"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="54"/>
         <source>New Tab</source>
         <translation>Tab nou</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="132"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="144"/>
         <source>List of tabs</source>
         <translation>Listă de tab-uri</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="234"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="246"/>
         <source>Loading...</source>
         <translation>Se incarca...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="238"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="250"/>
         <source>No Named Page</source>
         <translation>Pagina fara nume</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="256"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="268"/>
         <source>Currently you have %1 opened tabs</source>
         <translation>Aveti %1 taburi deschise</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="273"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="107"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="108"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="285"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="119"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="120"/>
         <source>New tab</source>
         <translation>Tab nou</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="804"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="792"/>
         <source>Empty</source>
         <translation>Gol</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="807"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="795"/>
         <source>Restore All Closed Tabs</source>
         <translation>Restaureaza toate taburile inchise</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="808"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="796"/>
         <source>Clear list</source>
         <translation>Golește lista</translation>
     </message>

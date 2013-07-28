@@ -192,7 +192,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="64"/>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation>AdBlock חסם חלון קופץ לא רצוי.</translation>
+        <translation>‏AdBlock חסם חלון קופץ לא רצוי.</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="83"/>
@@ -207,7 +207,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="118"/>
         <source>Disable on %1</source>
-        <translation>נטרל אצל %1</translation>
+        <translation>נטרל במתחם %1</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="124"/>
@@ -301,11 +301,57 @@
     </message>
 </context>
 <context>
+    <name>AesInterface</name>
+    <message>
+        <location filename="../src/lib/tools/aesinterface.cpp" line="139"/>
+        <source>Warning!</source>
+        <translation>אזהרה!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tools/aesinterface.cpp" line="139"/>
+        <source>Data has been encrypted with a newer version of QupZilla.
+Please install latest version of QupZilla.</source>
+        <translation>נתונים הוצפנו בעזרת גרסא חדשה יותר של QupZilla.
+אנא התקן גרסא אחרונה של QupZilla.</translation>
+    </message>
+</context>
+<context>
     <name>AutoFill</name>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="33"/>
         <source>Database (plaintext)</source>
         <translation>מסד נתונים (טקסט גלוי)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="245"/>
+        <source>Database (encrypted)</source>
+        <translation>מסד נתונים (מוצפן)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="282"/>
+        <source>Enter Master Password</source>
+        <translation>הזן סיסמה ראשית</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="283"/>
+        <source>Permission is required, please enter Master Password:</source>
+        <translation>נדרשת הרשאה, אנא הזן סיסמה ראשית:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="289"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="580"/>
+        <source>Warning!</source>
+        <translation>אזהרה!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="289"/>
+        <source>Entered password is wrong!</source>
+        <translation>סיסמה מוזנת הינה שגויה!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="581"/>
+        <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
+        <translation>מגשר עורפי זה מצריך קביעה של סיסמה ראשית! זה עתה QupZilla החליף אל המגשר העורפי המשתמט שלו</translation>
     </message>
 </context>
 <context>
@@ -353,9 +399,9 @@
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="140"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="70"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="169"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="177"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="71"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="160"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="168"/>
         <source>Show Passwords</source>
         <translation>הצג סיסמאות</translation>
     </message>
@@ -382,88 +428,88 @@
         <translation>חריגים</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="54"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="55"/>
         <source>Import Passwords from File...</source>
         <translation>ייבוא סיסמאות מן קובץ...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="55"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="56"/>
         <source>Export Passwords to File...</source>
         <translation>ייצוא סיסמאות אל קובץ...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="58"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="59"/>
         <source>Search</source>
         <translation>חפש</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="118"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="119"/>
         <source>Change backend...</source>
         <translation>שינוי מגשר עורפי...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="118"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="119"/>
         <source>Change backend:</source>
         <translation>שנה מגשר עורפי:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="177"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="168"/>
         <source>Are you sure that you want to show all passwords?</source>
-        <translation>האם אתה בטוח שברצונך להציג את כל הסיסמאות?</translation>
+        <translation>האם אתה בטוח כי ברצונך להציג את כל הסיסמאות?</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="192"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="183"/>
         <source>Hide Passwords</source>
         <translation>הסתר סיסמאות</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="210"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="201"/>
         <source>Confirmation</source>
         <translation>אימות</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="211"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="202"/>
         <source>Are you sure to delete all passwords on your computer?</source>
-        <translation>האם אתה בטוח שברצונך למחוק את כל הסיסמאות במחשבך?</translation>
+        <translation>האם אתה בטוח כי ברצונך למחוק את כל הסיסמאות במחשבך?</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="230"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="221"/>
         <source>Edit password</source>
         <translation>ערוך סיסמה</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="230"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="221"/>
         <source>Change password:</source>
         <translation>שנה סיסמה:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="279"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="290"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="270"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="281"/>
         <source>Choose file...</source>
         <translation>בחירת קובץ...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="304"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="295"/>
         <source>Cannot read file!</source>
         <translation>אין אפשרות לקרוא קובץ!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="313"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="304"/>
         <source>Successfully imported</source>
         <translation>יובא בהצלחה</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="313"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="304"/>
         <source>Error while importing!</source>
         <translation>שגיאה במהלך ייבוא!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="324"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="315"/>
         <source>Cannot write to file!</source>
         <translation>אין אפשרות לכתוב אל קובץ!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="333"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="324"/>
         <source>Successfully exported</source>
         <translation>יוצא בהצלחה</translation>
     </message>
@@ -508,7 +554,7 @@
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="55"/>
         <source>Do you want QupZilla to remember the password %1 %2?</source>
-        <translation>האם ברצונך מן QupZilla לזכור את הסיסמה %1 %2?</translation>
+        <translation>האם ברצונך כי QupZilla יזכור את הסיסמה %1 %2?</translation>
     </message>
 </context>
 <context>
@@ -604,7 +650,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="63"/>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
-        <translation>&lt;b&gt;מייבא מן %1&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;מייבא מתוך %1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="97"/>
@@ -644,7 +690,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="286"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation>‏Mozilla Firefox מאחסן את סימניותיו בתוך &lt;b&gt;places.sqlite&lt;/b&gt; מסד נתונים SQLite. קובץ זה ממוקם לרוב בתוך </translation>
+        <translation>‏Mozilla Firefox מאחסן את סימניותיו בתוך &lt;b&gt;places.sqlite&lt;/b&gt; מסד נתונים מטיפוס SQLite. קובץ זה ממוקם לרוב בתוך </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="288"/>
@@ -667,7 +713,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="332"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation>באפשרותך לייבא סימניות מכל דפדפן שתומך בייצוא HTML. לקובץ זה יש לרוב את סיומות אלה</translation>
+        <translation>באפשרותך לייבא סימניות מכל דפדפן אשר תומך בייצוא HTML. לקובץ זה יש לרוב את סיומות אלה</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="341"/>
@@ -951,58 +997,60 @@
         <translation>פתח סימנייה בכרטיסייה חדשה</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="115"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="118"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="122"/>
         <source>Move right</source>
         <translation>הזז ימינה</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="116"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="119"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="123"/>
         <source>Move left</source>
         <translation>הזז שמאלה</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="117"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="125"/>
         <source>Edit bookmark</source>
         <translation>ערוך סימנייה</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="119"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="127"/>
         <source>Remove bookmark</source>
         <translation>הסר סימנייה</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="226"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="234"/>
         <source>Edit bookmark: </source>
         <translation>ערוך סימנייה: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="228"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="236"/>
         <source>Title: </source>
         <translation>כותרת:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="229"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="237"/>
         <source>Url: </source>
         <translation>‏Url: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="237"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="245"/>
         <source>Edit Bookmark</source>
         <translation>עריכת סימנייה</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="601"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="609"/>
         <source>Most visited</source>
         <translation>הנצפים ביותר</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="602"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="610"/>
         <source>Sites you visited the most</source>
         <translation>אתרים אותם ביקרת הכי הרבה</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="639"/>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="705"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="647"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="713"/>
         <source>Empty</source>
         <translation>ריק</translation>
     </message>
@@ -1047,7 +1095,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="62"/>
         <source>Remove from Speed Dial</source>
-        <translation>הסר מן חיוג מהיר</translation>
+        <translation>הסר מתוך חיוג מהיר</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="96"/>
@@ -1174,7 +1222,7 @@
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="57"/>
         <source>Clear cookies from Adobe Flash Player</source>
-        <translation>טהר עוגיות מן Adobe Flash Player</translation>
+        <translation>טהר עוגיות מתוך Adobe Flash Player</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="77"/>
@@ -1364,7 +1412,7 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="261"/>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation>עוגיות מן שרתים אלה &lt;b&gt;תמיד&lt;/b&gt; יתקבלו (אפילו אם נטרלת שמירה של עוגיות)</translation>
+        <translation>עוגיות מתוך שרתים אלה &lt;b&gt;תמיד&lt;/b&gt; יתקבלו (אפילו אם נטרלת שמירה של עוגיות)</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="286"/>
@@ -1386,7 +1434,7 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="312"/>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation>עוגיות מן שרתים אלה &lt;b&gt;לעולם לא&lt;/b&gt; יתקבלו</translation>
+        <translation>עוגיות מתוך שרתים אלה &lt;b&gt;לעולם לא&lt;/b&gt; יתקבלו</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="364"/>
@@ -1421,7 +1469,7 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;אזהרה:&lt;/b&gt; אפשרויות של התאמת מתחם במדויק וסינון עוגיות מעקב יכולות להוביל לאיסור עוגיות מסוימות מן אתרים. במידה יש לך בעיות עם עוגיות, נסה לנטרל את אפשרות זו תחילה!</translation>
+        <translation>&lt;b&gt;אזהרה:&lt;/b&gt; אפשרויות של התאמת מתחם במדויק וסינון עוגיות מעקב יכולות להוביל לאיסור עוגיות מסוימות מתוך אתרים. במידה ויש לך בעיות עם עוגיות, נסה לנטרל את אפשרות זו תחילה!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="71"/>
@@ -1436,7 +1484,7 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="84"/>
         <source>Are you sure to delete all cookies on your computer?</source>
-        <translation>האם אתה בטוח שברצונך למחוק את כל העוגיות במחשבך?</translation>
+        <translation>האם אתה בטוח כי ברצונך למחוק את כל העוגיות במחשבך?</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
@@ -1545,7 +1593,7 @@
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="313"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
-        <translation>נותרו %1 - %2 of %3 (%4)</translation>
+        <translation>נותרו %1‏ -‏ ‏%2 מתוך %3 ‏(%4)‏</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="344"/>
@@ -1555,7 +1603,7 @@
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="358"/>
         <source>Delete file</source>
-        <translation>מחק קובץ</translation>
+        <translation>מחיקת קובץ</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="358"/>
@@ -1575,7 +1623,7 @@
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="378"/>
         <source>Go to Download Page</source>
-        <translation>לך אל עמוד הורדה</translation>
+        <translation>עבור אל עמוד הורדה</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="379"/>
@@ -1622,8 +1670,8 @@
     <name>DownloadManager</name>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="138"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="275"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="140"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="277"/>
         <source>Download Manager</source>
         <translation>מנהל הורדות</translation>
     </message>
@@ -1633,34 +1681,34 @@
         <translation>טהר</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="172"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="174"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
-        <translation>%1% מן %2 קבצים (%3) %4 נותרו</translation>
+        <translation>%1% מתוך %2 קבצים (%3) %4 נותרו</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="175"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="177"/>
         <source>%1% - Download Manager</source>
         <translation>%1% - מנהל הורדות</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="268"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="270"/>
         <source>Download Finished</source>
         <translation>הורדה הסתיימה</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="268"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="270"/>
         <source>All files have been successfully downloaded.</source>
         <translation>כל הקבצים הורדו בהצלחה.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="325"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="327"/>
         <source>Warning</source>
         <translation>אזהרה</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="326"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="328"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
-        <translation>האם אתה בטוח לצאת? כל ההורדות הלא מושלמות יבוטלו!</translation>
+        <translation>האם אתה בטוח כי ברצונך לצאת? כל ההורדות הלא מושלמות יבוטלו!</translation>
     </message>
 </context>
 <context>
@@ -2019,7 +2067,7 @@
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="76"/>
         <source>Are you sure to delete all history?</source>
-        <translation>האם אתה בטוח למחוק היסטוריה?</translation>
+        <translation>האם אתה בטוח כי ברצונך למחוק היסטוריה?</translation>
     </message>
 </context>
 <context>
@@ -2108,7 +2156,7 @@
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="20"/>
         <source>From file</source>
-        <translation>מן קובץ</translation>
+        <translation>מתוך קובץ</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="29"/>
@@ -2123,7 +2171,7 @@
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="52"/>
         <source>From database</source>
-        <translation>מן מסד נתונים</translation>
+        <translation>מתוך מסד נתונים</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="61"/>
@@ -2195,22 +2243,22 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="133"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="134"/>
         <source>Enter URL address or search on %1</source>
         <translation> הזן כתובת URL או חפש עם %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="312"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="313"/>
         <source>Paste And &amp;Go</source>
-        <translation>הדבק &amp;ועבור</translation>
+        <translation>הדבק &amp;והמשך</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="318"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="319"/>
         <source>Clear All</source>
         <translation>טהר הכל</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="527"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="537"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.co.il</translation>
@@ -2232,24 +2280,105 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="963"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="998"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>נכון לעכשיו, QupZilla אינו דפדפן ברירת המחדל שלך. האם ברצונך להופכו אל דפדפן ברירת מחדל?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="964"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="999"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>ערוך תמיד את בדיקה זו כאשר QupZilla מתחיל.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="966"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1001"/>
         <source>Default Browser</source>
         <translation>דפדפן ברירת מחדל</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="986"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1021"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla הינו  דפדפן WWW קוד פתוח חדש, מהיר ומאובטח. QupZilla רשוי תחת הרשיון GPL גרסא 3 או (כאופציה השמורה לך) כל גרסא מאוחרת יותר. זה מבוסס על ליבת WebKit וגם על Qt Framework.</translation>
+    </message>
+</context>
+<context>
+    <name>MasterPasswordDialog</name>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="14"/>
+        <source>Encrypted DataBase Settings</source>
+        <translation>הגדרות מסד נתונים מוצפן</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="27"/>
+        <source>Set/Change Master Password...</source>
+        <translation>קבע/שנה סיסמה ראשית...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="37"/>
+        <source>Clear Master Password...</source>
+        <translation>טיהור סיסמה ראשית...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="30"/>
+        <source>This backend does not work without a master password.</source>
+        <translation>מגשר עורפי זה לא עובד ללא סיסמה ראשית.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="40"/>
+        <source>This option clears the master password and moves all encrypted data to the &quot;DataBase (Plain Text)&quot; backend, and switches to it.</source>
+        <translation>אפשרות זו מטהרת סיסמה ראשית וגם מעבירה את כל הנתונים המוצפנים אל &quot;מסד נתונים (טקסט גלוי)&quot; של מגשר עורפי, ומחליפה אליו.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="58"/>
+        <source>The Master Password is used to protect site passwords and form data. If you set a Master Password you will be asked to enter it once per session.</source>
+        <translation>הסיסמה הראשית משמשת להגנה על סיסמאות אתר וכן נתוני טופס. אם תקבע סיסמה ראשית אתה תתבקש להזין אותה אחת לכל הפעלה/סשן.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="70"/>
+        <source>Current Password:</source>
+        <translation>סיסמה נוכחית:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="77"/>
+        <source>New Password:</source>
+        <translation>סיסמה חדשה:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="84"/>
+        <source>Confirm Password:</source>
+        <translation>אימות סיסמה:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="114"/>
+        <source>&lt;b&gt;Note:&lt;/b&gt; The Master Password is not resettable. Do not forget it, please.</source>
+        <translation>&lt;b&gt;הערה:&lt;/b&gt; סיסמה ראשית אינה ניתנת לאיפוס. אל נא לשכוח זאת, בבקשה.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="548"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="553"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="602"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="645"/>
+        <source>Warning!</source>
+        <translation>אזהרה!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="548"/>
+        <source>You entered a wrong password!</source>
+        <translation>הזנת סיסמה שגויה!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="553"/>
+        <source>New/Confirm password fields do not match!</source>
+        <translation>שדות סיסמה חדשה/אימות לא תואמות!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="645"/>
+        <source>Some data has not been decrypted. The master password was not cleared!</source>
+        <translation>קיימים נתונים שלא הוצפנו. הסיסמה הראשית לא טוהרה!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="602"/>
+        <source>Are you sure to clear master password and decrypt data?</source>
+        <translation>האם אתה בטוח כי ברצונך לטהר סיסמה ראשית ומידע מוצפן?</translation>
     </message>
 </context>
 <context>
@@ -2300,92 +2429,92 @@
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="243"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="210"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="248"/>
         <source>SSL Certificate Error!</source>
         <translation>שגיאת תעודת SSL!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="206"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="211"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>לעמוד אליו הינך מנסה לגשת יש את השגיאות הבאות בתעודת SSL:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="221"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;ארגון: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="223"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="228"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;שם מתחם: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="225"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;תאריך תפוגה: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="231"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="236"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;שגיאה: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="239"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>האם ברצונך לקבוע חריג עבור תעודה זו?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="263"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="268"/>
         <source>Authorisation required</source>
         <translation>נדרשת הרשאה</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="270"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="377"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="444"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="275"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="382"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="449"/>
         <source>Username: </source>
         <translation>שם משתמש:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="271"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="378"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="445"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="276"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="383"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="450"/>
         <source>Password: </source>
         <translation>סיסמה:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="276"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="281"/>
         <source>Save username and password on this site</source>
         <translation>שמור שם משתמש וסיסמה באתר זה</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="290"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>שם משתמש וסיסמה מתבקשים על ידי %1. האתר אומר: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="370"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="375"/>
         <source>FTP authorisation required</source>
         <translation>נדרשת הרשאת FTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="383"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="388"/>
         <source>Login anonymously</source>
         <translation>כנס באופן אנונימי</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="400"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="405"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>שם משתמש וסיסמה מתבקשים על ידי %1:%2.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="442"/>
         <source>Proxy authorisation required</source>
         <translation>נדרשת הרשאת פרוקסי</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="462"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>שם משתמש וסיסמה מתבקשים על ידי פרוקסי %1. </translation>
     </message>
@@ -2415,7 +2544,7 @@
     <message>
         <location filename="../src/lib/other/pagescreen.cpp" line="60"/>
         <source>Save as %1</source>
-        <translation>שמור בתוך %1</translation>
+        <translation>שמור בתור %1</translation>
     </message>
     <message>
         <location filename="../src/lib/other/pagescreen.cpp" line="98"/>
@@ -2645,7 +2774,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="60"/>
         <source>General</source>
-        <translation>כללי</translation>
+        <translation>כלליות</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="65"/>
@@ -2700,7 +2829,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="115"/>
         <source>Other</source>
-        <translation>אחר</translation>
+        <translation>אחרות</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="173"/>
@@ -3426,7 +3555,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2123"/>
         <source>Allow saving passwords from sites</source>
-        <translation>התר שמירת סיסמאות מן אתרים</translation>
+        <translation>התר שמירת סיסמאות מתוך אתרים</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2178"/>
@@ -3447,7 +3576,7 @@
         <location filename="../src/lib/preferences/preferences.ui" line="2199"/>
         <location filename="../src/lib/preferences/preferences.ui" line="2508"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
-        <translation>&lt;b&gt;אחר&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;אחרות&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2206"/>
@@ -3644,7 +3773,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="788"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation>האם אתה בטוח למחוק את דיוקן &quot;%1&quot;? פעולה זו לא ניתנת לביטול!</translation>
+        <translation>האם אתה בטוח כי ברצונך למחוק את דיוקן &quot;%1&quot;? פעולה זו לא ניתנת לביטול!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="1072"/>
@@ -3792,7 +3921,7 @@
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="408"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="672"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="703"/>
         <source>Close Tab</source>
         <translation>סגור כרטיסייה</translation>
     </message>
@@ -3954,7 +4083,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="532"/>
         <source>Hi&amp;story</source>
-        <translation>&amp;הסטוריה</translation>
+        <translation>&amp;היסטוריה</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="533"/>
@@ -4161,7 +4290,7 @@
         <source>There are still %1 open tabs and your session won't be stored. 
 Are you sure to quit QupZilla?</source>
         <translation>עדיין קיימות %1 כרטיסיות פתוחות והסשן שלך לא יאוחסן. 
-האם אתה בטוח לצאת מן QupZilla?</translation>
+האם אתה בטוח כי ברצונך לצאת מן QupZilla?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="2171"/>
@@ -4205,12 +4334,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="153"/>
         <source>Issue type</source>
-        <translation>מהות בעיה</translation>
+        <translation>מהות הבעיה</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="154"/>
         <source>Issue description</source>
-        <translation>תיאור בעיה</translation>
+        <translation>תיאור הבעיה</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="155"/>
@@ -4220,7 +4349,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="156"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation>דוא״ל אינו מחייב&lt;br/&gt;&lt;b&gt;הערה: &lt;/b&gt;בבקשה לקרוא תחילה כיצד להכין דיווח באג &lt;a href=%1&gt;כאן&lt;/a&gt;.</translation>
+        <translation>דוא״ל אינו מחייב&lt;br/&gt;&lt;b&gt;הערה: &lt;/b&gt;אנא לקרוא תחילה כיצד להכין דיווח באג &lt;a href=%1&gt;כאן&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="158"/>
@@ -4320,12 +4449,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
         <source>Are you sure to remove this speed dial?</source>
-        <translation>האם אתה בטוח שברצונך להסיר את חיוג מהיר זה?</translation>
+        <translation>האם אתה בטוח כי ברצונך להסיר את חיוג מהיר זה?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
         <source>Load title from page</source>
-        <translation>הטען כותרת מן עמוד</translation>
+        <translation>הטען כותרת מתוך עמוד</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
@@ -4737,35 +4866,35 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation>ערוץ RSS ‏&lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="110"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="104"/>
         <source>Internal Reader</source>
         <translation>קורא פנימי</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="111"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="105"/>
         <source>Other...</source>
         <translation>אחר...</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="149"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="143"/>
         <source>Liferea not running</source>
         <translation>יישום Liferea אינו מורץ</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="149"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="143"/>
         <source>Liferea must be running in order to add new feed.</source>
         <translation>על Liferea להיות מופעל על מנת להוסיף ערוץ חדש.</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="161"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="155"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
         <translation>כדי להוסיף את ערוץ RSS זה אל תוך יישום אחר, אנא תשתמש במידע זה:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;
 כותרת: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url‏: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;כתובת Url של ערוץ זה הועתקה אל לוח גזירה.</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="164"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="158"/>
         <source>Add feed into other application</source>
-        <translation>הוספת ערוץ אל יישום אחר</translation>
+        <translation>הוספת ערוץ לתוך יישום אחר</translation>
     </message>
 </context>
 <context>
@@ -4773,7 +4902,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rsswidget.ui" line="56"/>
         <source>Add RSS Feeds from this site</source>
-        <translation>הוסף ערוצי RSS מן אתר זה</translation>
+        <translation>הוסף ערוצי RSS מתוך אתר זה</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="49"/>
@@ -4824,7 +4953,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/rss/rssicon.cpp" line="30"/>
         <source>Add RSS from this page...</source>
-        <translation>הוסף RSS מן עמוד זה...</translation>
+        <translation>הוסף RSS מתוך עמוד זה...</translation>
     </message>
 </context>
 <context>
@@ -4884,7 +5013,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="166"/>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
-        <translation>במידה ותעודות רשויות CA לא היו נטענות אוטומטית מן המערכת, באפשרותך לציין נתיבים ידנית היכן שהתעודות הינן מאוחסנות.</translation>
+        <translation>במידה ותעודות רשויות CA לא היו נטענות אוטומטית מתוך המערכת, באפשרותך לציין נתיבים ידנית היכן שהתעודות הינן מאוחסנות.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="178"/>
@@ -5077,12 +5206,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="24"/>
         <source>General</source>
-        <translation>כללי</translation>
+        <translation>מידע כללי</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="29"/>
         <source>Media</source>
-        <translation>מדיה</translation>
+        <translation>תכני מדיה</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="34"/>
@@ -5561,73 +5690,73 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="130"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="139"/>
         <source>&amp;New tab</source>
         <translation>כרטיסייה &amp;חדשה</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="139"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;עצור כרטיסייה</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="142"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;טען מחדש כרטיסייה</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="145"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="154"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;שכפל כרטיסייה</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="157"/>
         <source>D&amp;etach Tab</source>
         <translation>ה&amp;פרד כרטיסייה</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="160"/>
         <source>Un&amp;pin Tab</source>
         <translation>&amp;בטל הצמד כרטיסייה</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="160"/>
         <source>&amp;Pin Tab</source>
         <translation>ה&amp;צמד כרטיסייה</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="153"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="162"/>
         <source>Re&amp;load All Tabs</source>
         <translation>&amp;טען מחדש את כל הכרטיסיות</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="154"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="163"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>ס&amp;מן כרטיסייה זו</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="155"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="167"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="176"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>סמן את &amp;כל הכרטיסיות</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="170"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>סגור כרטיסיות &amp;אחרות</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="162"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="171"/>
         <source>Cl&amp;ose</source>
         <translation>&amp;סגור</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="166"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="175"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>&amp;טען מחדש את כל הכרטיסיות</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="169"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="178"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>&amp;שחזר כרטיסייה סגורה</translation>
     </message>
@@ -5635,49 +5764,49 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="55"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="54"/>
         <source>New Tab</source>
         <translation>כרטיסייה חדשה</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="132"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="144"/>
         <source>List of tabs</source>
         <translation>רשימה של כרטיסיות</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="234"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="246"/>
         <source>Loading...</source>
         <translation>טוען כעת...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="238"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="250"/>
         <source>No Named Page</source>
         <translation>עמוד ללא שם</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="256"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="268"/>
         <source>Currently you have %1 opened tabs</source>
         <translation>יש לך %1 כרטיסיות פתוחות כעת</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="273"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="107"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="108"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="285"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="119"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="120"/>
         <source>New tab</source>
         <translation>כרטיסייה חדשה</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="804"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="792"/>
         <source>Empty</source>
         <translation>ריק</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="807"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="795"/>
         <source>Restore All Closed Tabs</source>
         <translation>שחזר את כל הכרטיסיות הסגורות</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="808"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="796"/>
         <source>Clear list</source>
         <translation>טהר הכל</translation>
     </message>
@@ -5953,22 +6082,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="838"/>
         <source>QupZilla can&apos;t load page from %1.</source>
-        <translation>QupZilla לא מסוגל לטעון עמוד מן %1.</translation>
+        <translation>QupZilla לא מסוגל לטעון עמוד מתוך %1.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="842"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
-        <translation>בדוק את הכתובת לשגיאות הקלקה כגון &lt;b&gt;ww.&lt;/b&gt;example.com במקום &lt;b&gt;www.&lt;/b&gt;example.com</translation>
+        <translation>בדוק את הכתובת לשגיאות הקלדה כגון &lt;b&gt;ww.&lt;/b&gt;example.com במקום &lt;b&gt;www.&lt;/b&gt;example.com</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="843"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
-        <translation>במידה ואינך מסוגל לטעון כל עמוד שהוא, בדוק את חיבור רשת העבודה של מחשבך.</translation>
+        <translation>במידה ואינך מסוגל לטעון כל עמוד שהוא, בדוק את חיבור רשת התקשורת של מחשבך.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="844"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
-        <translation>במידה ומחשבך או רשת העבודה שלך מוגנים על ידי חומת אש או פרוקסי, וודא שקיימת הרשאה לזכות QupZilla לגשת אל הרשת.</translation>
+        <translation>במידה ומחשבך או רשת התקשורת שלך מוגנים על ידי חומת אש או פרוקסי, וודא שקיימת הרשאה לזכותו של QupZilla לגשת אל הרשת.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="845"/>
@@ -5993,7 +6122,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="1009"/>
         <source>Cannot read data from &lt;b&gt;%1&lt;/b&gt;. Upload was cancelled!</source>
-        <translation>אין אפשרות לקרוא נתונים מן &lt;b&gt;%1&lt;/b&gt;. העלאה בוטלה!</translation>
+        <translation>אין אפשרות לקרוא נתונים מתוך &lt;b&gt;%1&lt;/b&gt;. העלאה בוטלה!</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="1010"/>
@@ -6280,7 +6409,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1044"/>
         <source>Go to &amp;web address</source>
-        <translation>לך אל כתובת &amp;רשת</translation>
+        <translation>ועבור אל כתובת &amp;רשת</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1058"/>
