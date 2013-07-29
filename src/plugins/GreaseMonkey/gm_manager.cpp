@@ -185,29 +185,40 @@ void GM_Manager::showNotification(const QString &message, const QString &title)
 
 void GM_Manager::pageLoadStart()
 {
-    QWebFrame* frame = qobject_cast<QWebFrame*>(sender());
-    if (!frame) {
+    QWebFrame* mainFrame = qobject_cast<QWebFrame*>(sender());
+    if (!mainFrame) {
         return;
     }
 
-    const QString &urlScheme = frame->url().scheme();
-    const QString &urlString = frame->url().toEncoded();
+    const QString &urlScheme = mainFrame->url().scheme();
+    const QString &urlString = mainFrame->url().toEncoded();
 
     if (!canRunOnScheme(urlScheme)) {
         return;
     }
 
-    foreach (GM_Script* script, m_startScripts) {
-        if (script->match(urlString)) {
-            frame->evaluateJavaScript(m_bootstrap + script->script());
-        }
-    }
+    // Run it in every frame
+    QList<QWebFrame*> frames;
+    frames.append(mainFrame);
+    while (!frames.isEmpty()) {
+        QWebFrame* frame = frames.takeFirst();
+        if (frame) {
+            mainFrame->addToJavaScriptWindowObject("_qz_greasemonkey", m_jsObject);
 
-    foreach (GM_Script* script, m_endScripts) {
-        if (script->match(urlString)) {
-            const QString &jscript = QString("window.addEventListener(\"DOMContentLoaded\","
-                                             "function(e) { %1 }, false);").arg(m_bootstrap + script->script());
-            frame->evaluateJavaScript(jscript);
+            foreach (GM_Script* script, m_startScripts) {
+                if (script->match(urlString)) {
+                    mainFrame->evaluateJavaScript(m_bootstrap + script->script());
+                }
+            }
+
+            foreach (GM_Script* script, m_endScripts) {
+                if (script->match(urlString)) {
+                    const QString &jscript = QString("window.addEventListener(\"DOMContentLoaded\","
+                                                     "function(e) { \n%1\n }, false);").arg(m_bootstrap + script->script());
+                    mainFrame->evaluateJavaScript(jscript);
+                }
+            }
+            frames += frame->childFrames();
         }
     }
 }

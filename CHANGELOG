@@ -8,6 +8,7 @@ Version 1.4.4
     * fixed: crash with Oxygen theme when closing windows with tabs on top
     * fixed: saving IgnoreAllSSLWarnings option from SSLManager
     * GreaseMonkey: fixed buttons in script list with RTL layout
+    * GreaseMonkey: run userscripts in all frames on page
 
 Version 1.4.3
     * released 9 May 2013

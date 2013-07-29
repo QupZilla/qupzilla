@@ -621,7 +621,7 @@ QString QzTools::escape(const QString &string)
 }
 
 #if defined(QZ_WS_X11) && !defined(NO_X11)
-void *QzTools::X11Display(const QWidget* widget)
+void* QzTools::X11Display(const QWidget* widget)
 {
     Q_UNUSED(widget)
 
