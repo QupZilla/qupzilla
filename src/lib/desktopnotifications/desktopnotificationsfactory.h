@@ -47,8 +47,10 @@ public:
     void nativeNotificationPreview();
 
 private slots:
+#if defined(QZ_WS_X11) && !defined(DISABLE_DBUS)
     void updateLastId(const QDBusMessage &msg);
     void error(const QDBusError &error);
+#endif
 
 private:
     bool m_enabled;

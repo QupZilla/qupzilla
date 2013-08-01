@@ -120,6 +120,7 @@ void DesktopNotificationsFactory::nativeNotificationPreview()
 #endif
 }
 
+#if defined(QZ_WS_X11) && !defined(DISABLE_DBUS)
 void DesktopNotificationsFactory::updateLastId(const QDBusMessage &msg)
 {
     QVariantList list = msg.arguments();
@@ -132,3 +133,4 @@ void DesktopNotificationsFactory::error(const QDBusError &error)
 {
     qWarning() << "QDBusError:" << error.message();
 }
+#endif

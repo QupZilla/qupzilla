@@ -123,7 +123,11 @@ void SideBarManager::refreshMenu()
         return;
     }
 
+    foreach (QAction* action, m_menu->actions()) {
+        p_QupZilla->removeAction(action);
+    }
     m_menu->clear();
+
     QAction* act = m_menu->addAction(SideBar::tr("Bookmarks"), this, SLOT(slotShowSideBar()));
     act->setCheckable(true);
     act->setShortcut(QKeySequence("Ctrl+Shift+B"));
@@ -145,6 +149,8 @@ void SideBarManager::refreshMenu()
 
         m_menu->addAction(act);
     }
+
+    p_QupZilla->addActions(m_menu->actions());
 
     updateActions();
 }
