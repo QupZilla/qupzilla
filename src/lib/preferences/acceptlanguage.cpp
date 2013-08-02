@@ -41,7 +41,15 @@
 
 QStringList AcceptLanguage::defaultLanguage()
 {
-    return QStringList(QLocale::system().name().replace(QLatin1Char('_'), QLatin1Char('-')));
+    QString longCode = QLocale::system().name().replace(QLatin1Char('_'), QLatin1Char('-'));
+
+    if (longCode.size() == 5) {
+        QStringList ret;
+        ret << longCode << longCode.left(2);
+        return ret;
+    }
+
+    return QStringList(longCode);
 }
 
 QByteArray AcceptLanguage::generateHeader(const QStringList &langs)
@@ -55,7 +63,7 @@ QByteArray AcceptLanguage::generateHeader(const QStringList &langs)
 
     int counter = 8;
     for (int i = 1; i < langs.count(); i++) {
-        QString s = ", " + langs.at(i) + ";q=0.";
+        QString s = "," + langs.at(i) + ";q=0.";
         s.append(QString::number(counter));
         if (counter != 2) {
             counter -= 2;
@@ -63,7 +71,6 @@ QByteArray AcceptLanguage::generateHeader(const QStringList &langs)
 
         header.append(s);
     }
-    header.append(QLatin1String(", *"));
 
     return header;
 }
