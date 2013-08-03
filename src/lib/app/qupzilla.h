@@ -114,6 +114,7 @@ public:
     QUrl homepageUrl() { return m_homepage; }
 
     bool isTransparentBackgroundAllowed();
+    bool tabsOnTop() const;
 
 signals:
     void startingCompleted();
@@ -345,6 +346,7 @@ private:
     QTimer* m_hideNavigationTimer;
 
     QList<QPointer<QWidget> > m_deleteOnCloseWidgets;
+    mutable int m_tabsOnTopState;
 };
 
 #endif // QUPZILLA_H

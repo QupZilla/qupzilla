@@ -126,6 +126,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     , m_sideBarManager(new SideBarManager(this))
     , m_statusBarMessage(new StatusBarMessage(this))
     , m_usingTransparentBackground(false)
+    , m_tabsOnTopState(-1)
 {
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
@@ -919,7 +920,7 @@ Qz::BrowserWindow QupZilla::windowType() const
 
 QWidget* QupZilla::navigationContainer() const
 {
-    if (!qzSettings->tabsOnTop) {
+    if (!tabsOnTop()) {
         return 0;
     }
 
@@ -936,6 +937,15 @@ void QupZilla::popupToolbarsMenu(const QPoint &pos)
 bool QupZilla::isTransparentBackgroundAllowed()
 {
     return m_usingTransparentBackground && !isFullScreen();
+}
+
+bool QupZilla::tabsOnTop() const
+{
+    if (m_tabsOnTopState == -1) {
+        m_tabsOnTopState = qzSettings->tabsOnTop ? 1 : 0;
+    }
+
+    return m_tabsOnTopState == 1;
 }
 
 void QupZilla::setWindowTitle(const QString &t)
@@ -1213,7 +1223,7 @@ void QupZilla::aboutToShowViewMenu()
 
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
-    m_actionTabsOnTop->setChecked(qzSettings->tabsOnTop);
+    m_actionTabsOnTop->setChecked(tabsOnTop());
 
     m_actionPageSource->setEnabled(true);
 
@@ -1682,9 +1692,12 @@ void QupZilla::triggerTabsOnTop(bool enable)
         m_mainLayout->insertWidget(0, m_navigationContainer);
     }
 
-    Settings settings;
-    settings.setValue("Browser-Tabs-Settings/TabsOnTop", enable);
-    qzSettings->tabsOnTop = enable;
+    m_tabsOnTopState = enable ? 1 : 0;
+    if (enable != qzSettings->tabsOnTop) {
+        Settings settings;
+        settings.setValue("Browser-Tabs-Settings/TabsOnTop", enable);
+        qzSettings->tabsOnTop = enable;
+    }
 
 #ifdef Q_OS_WIN
     // workaround for changing TabsOnTop state when sidebar is visible
@@ -1778,7 +1791,7 @@ void QupZilla::webSearch()
 void QupZilla::searchOnPage()
 {
     SearchToolBar* toolBar = searchToolBar();
-    const int searchPos = qzSettings->tabsOnTop ? 1 : 2;
+    const int searchPos = tabsOnTop() ? 1 : 2;
 
     if (!toolBar) {
         toolBar = new SearchToolBar(weView(), this);
@@ -2212,7 +2225,7 @@ void QupZilla::closeEvent(QCloseEvent* event)
 SearchToolBar* QupZilla::searchToolBar()
 {
     SearchToolBar* toolBar = 0;
-    const int searchPos = qzSettings->tabsOnTop ? 1 : 2;
+    const int searchPos = tabsOnTop() ? 1 : 2;
 
     if (m_mainLayout->count() == searchPos + 1) {
         toolBar = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(searchPos)->widget());

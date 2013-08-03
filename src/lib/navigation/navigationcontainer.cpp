@@ -31,7 +31,7 @@ void NavigationContainer::paintEvent(QPaintEvent* event)
 {
     QWidget::paintEvent(event);
 
-    if (qzSettings->tabsOnTop) {
+    if (p_QupZilla->tabsOnTop()) {
         // Draw line at the bottom of navigation bar if tabs are on top
         // To visually distinguish navigation bar from the page
         QPainter p(this);

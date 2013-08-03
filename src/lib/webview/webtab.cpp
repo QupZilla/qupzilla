@@ -335,7 +335,7 @@ QPixmap WebTab::renderTabPreview()
 
 void WebTab::showNotification(QWidget* notif)
 {
-    const int notifPos = qzSettings->tabsOnTop ? 1 : 0;
+    const int notifPos = p_QupZilla->tabsOnTop() ? 1 : 0;
 
     if (m_layout->count() > notifPos + 1) {
         delete m_layout->itemAt(notifPos)->widget();
@@ -408,7 +408,7 @@ void WebTab::disconnectObjects()
 
 void WebTab::hideNavigationBar()
 {
-    if (m_navigationContainer && qzSettings->tabsOnTop) {
+    if (m_navigationContainer && p_QupZilla->tabsOnTop()) {
         m_layout->removeWidget(m_navigationContainer);
 
         // Needed to prevent flickering when closing tabs
