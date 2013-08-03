@@ -284,16 +284,16 @@ void QupZilla::setupUi()
     }
     else {
         // Let the WM decides where to put new browser window
-        if (m_windowType == Qz::BW_NewWindow && mApp->getWindow()) {
+        if ((m_windowType != Qz::BW_FirstAppWindow && m_windowType != Qz::BW_MacFirstWindow) && mApp->getWindow()) {
 #ifdef Q_WS_WIN
             // Windows WM places every new window in the middle of screen .. for some reason
             QPoint p = mApp->getWindow()->geometry().topLeft();
             p.setX(p.x() + 30);
             p.setY(p.y() + 30);
 
-            if (!mApp->desktop()->availableGeometry(this).contains(p)) {
-                p.setX(mApp->desktop()->availableGeometry(this).x() + 30);
-                p.setY(mApp->desktop()->availableGeometry(this).y() + 30);
+            if (!mApp->desktop()->availableGeometry(mApp->getWindow()).contains(p)) {
+                p.setX(mApp->desktop()->availableGeometry(mApp->getWindow()).x() + 30);
+                p.setY(mApp->desktop()->availableGeometry(mApp->getWindow()).y() + 30);
             }
             setGeometry(QRect(p, mApp->getWindow()->size()));
 #else
@@ -302,8 +302,8 @@ void QupZilla::setupUi()
         }
         else if (!restoreGeometry(settings.value("WindowGeometry").toByteArray())) {
 #ifdef Q_WS_WIN
-            setGeometry(QRect(mApp->desktop()->availableGeometry(this).x() + 30,
-                              mApp->desktop()->availableGeometry(this).y() + 30, 800, 550));
+            setGeometry(QRect(mApp->desktop()->availableGeometry(mApp->getWindow()).x() + 30,
+                              mApp->desktop()->availableGeometry(mApp->getWindow()).y() + 30, 800, 550));
 #else
             resize(800, 550);
 #endif

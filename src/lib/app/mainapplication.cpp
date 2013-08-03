@@ -1160,6 +1160,8 @@ bool MainApplication::restoreStateSlot(QupZilla* window, RestoreData recoveryDat
     foreach (const RestoreManager::WindowData &data, recoveryData) {
         QupZilla* window = makeNewWindow(Qz::BW_OtherRestoredWindow);
         window->restoreWindowState(data);
+        // for correct geometry calculation in QupZilla::setupUi()
+        mApp->processEvents();
     }
 
     destroyRestoreManager();
