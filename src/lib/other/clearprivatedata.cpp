@@ -43,7 +43,6 @@ ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent)
 {
     ui->setupUi(this);
     ui->buttonBox->setFocus();
-    connect(ui->clearAdobeCookies, SIGNAL(clicked(QPoint)), this, SLOT(clearFlash()));
     connect(ui->history, SIGNAL(clicked(bool)), this, SLOT(historyClicked(bool)));
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(dialogAccepted()));
 
@@ -88,11 +87,6 @@ void ClearPrivateData::clearIcons()
 {
     mApp->webSettings()->clearIconDatabase();
     qIconProvider->clearIconDatabase();
-}
-
-void ClearPrivateData::clearFlash()
-{
-    p_QupZilla->tabWidget()->addView(QUrl("http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html"));
 }
 
 void ClearPrivateData::closeEvent(QCloseEvent* e)

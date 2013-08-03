@@ -42,7 +42,6 @@ public:
 private slots:
     void historyClicked(bool state);
     void dialogAccepted();
-    void clearFlash();
 
 private:
     void closeEvent(QCloseEvent* e);
