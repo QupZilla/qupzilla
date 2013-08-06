@@ -447,11 +447,12 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         break;
 
     case Qt::Key_End:
-    case Qt::Key_Right:
-        if (m_inlineCompletionVisible) {
+    case Qt::Key_Right: {
+        const QString &completionText = m_completer.domainCompletion();
+        if (m_inlineCompletionVisible && !completionText.isEmpty()) {
             m_inlineCompletionVisible = false;
 
-            setText(text() + m_completer.domainCompletion());
+            setText(text() + completionText);
             setCursorPosition(text().size());
             m_completer.closePopup();
         }
@@ -460,6 +461,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
             m_completer.closePopup();
         }
         break;
+    }
 
     case Qt::Key_Left:
         if (m_completer.isPopupVisible()) {
