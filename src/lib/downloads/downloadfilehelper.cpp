@@ -107,6 +107,9 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, const Do
     else if (info.forceChoosingPath) {
         optionsDialogAccepted(4);
     }
+    else if (m_manager->useExternalManager()) {
+        optionsDialogAccepted(3);
+    }
     else {
         optionsDialogAccepted(2);
     }
