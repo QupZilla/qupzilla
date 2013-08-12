@@ -126,6 +126,12 @@ QUrl SearchEnginesManager::searchUrl(const QString &string)
 
 void SearchEnginesManager::restoreDefaults()
 {
+    Engine duck;
+    duck.name = "DuckDuckGo";
+    duck.icon = QIcon(":/icons/sites/duck.png");
+    duck.url = "https://duckduckgo.com/?q=%s&t=qupzilla";
+    duck.shortcut = "d";
+
     Engine google;
     google.name = "Google";
     google.icon = QIcon(":icons/sites/google.png");
@@ -147,18 +153,12 @@ void SearchEnginesManager::restoreDefaults()
     yt.shortcut = "yt";
     yt.suggestionsUrl = "http://suggestqueries.google.com/complete/search?ds=yt&output=firefox&q=%s";
 
-    Engine duck;
-    duck.name = "DuckDuckGo";
-    duck.icon = QIcon(":/icons/sites/duck.png");
-    duck.url = "https://duckduckgo.com/?q=%s&t=qupzilla";
-    duck.shortcut = "d";
-
+    addEngine(duck);
     addEngine(google);
     addEngine(wiki);
     addEngine(yt);
-    addEngine(duck);
 
-    m_defaultEngine = google;
+    m_defaultEngine = duck;
 
     emit enginesChanged();
 }
