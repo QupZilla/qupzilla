@@ -98,10 +98,13 @@ void MenuTabs::mouseReleaseEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::MiddleButton) {
         QAction* action = actionAt(event->pos());
-        if (action) {
-            emit closeTab(action->data().toInt());
-            action->setEnabled(false);
-            event->accept();
+        if (action && action->isEnabled()) {
+            WebTab* tab = qobject_cast<WebTab*>(qvariant_cast<QWidget*>(action->data()));
+            if (tab) {
+                emit closeTab(tab->tabIndex());
+                action->setEnabled(false);
+                event->accept();
+            }
         }
     }
     QMenu::mouseReleaseEvent(event);
@@ -149,7 +152,6 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
 
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
-    connect(m_menuTabs, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
 
     loadSettings();
 }
@@ -169,6 +171,13 @@ void TabWidget::loadSettings()
     settings.endGroup();
 
     m_tabBar->loadSettings();
+
+    if (m_closedInsteadOpened) {
+        disconnect(m_menuTabs, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
+    }
+    else {
+        connect(m_menuTabs, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
+    }
 }
 
 void TabWidget::resizeEvent(QResizeEvent* e)
@@ -259,7 +268,7 @@ void TabWidget::aboutToShowTabsMenu()
             }
             action->setText(title);
         }
-        action->setData(i);
+        action->setData(QVariant::fromValue(qobject_cast<QWidget*>(tab)));
         connect(action, SIGNAL(triggered()), this, SLOT(actionChangeIndex()));
 
         m_menuTabs->addAction(action);
@@ -271,7 +280,10 @@ void TabWidget::aboutToShowTabsMenu()
 void TabWidget::actionChangeIndex()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        setCurrentIndex(action->data().toInt());
+        WebTab* tab = qobject_cast<WebTab*>(qvariant_cast<QWidget*>(action->data()));
+        if (tab) {
+            setCurrentIndex(tab->tabIndex());
+        }
     }
 }
 
@@ -458,6 +470,11 @@ void TabWidget::closeTab(int index, bool force)
     webTab->disconnectObjects();
 
     webTab->deleteLater();
+
+    if (!m_closedInsteadOpened && m_menuTabs->isVisible()) {
+        QAction* labelAction = m_menuTabs->actions().last();
+        labelAction->setText(tr("Currently you have %1 opened tabs").arg(count() - 1));
+    }
 }
 
 void TabWidget::currentTabChanged(int index)
