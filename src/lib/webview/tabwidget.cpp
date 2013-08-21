@@ -98,9 +98,27 @@ void MenuTabs::mouseReleaseEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::MiddleButton) {
         QAction* action = actionAt(event->pos());
-        if (action) {
-            emit closeTab(action->data().toInt());
+        if (action && action->isEnabled()) {
+            int index = action->data().toInt();
+            emit closeTab(index);
             action->setEnabled(false);
+
+            // Fix the tab index number for menu items after this item
+            QList<QAction*> menuActions = actions();
+            int nTabs = 0;
+            for (int i = 0, n = menuActions.length(); i < n; ++i) {
+                QAction* menuItem = menuActions[i];
+                if (menuItem->isEnabled() && ! menuItem->isSeparator()) {
+                    if (menuItem->data().toInt() > index) {
+                        menuItem->setData(QVariant(menuItem->data().toInt() - 1));
+                    }
+                    ++nTabs;
+                }
+            }
+
+            // Fix the tab count
+            menuActions.last()->setText(tr("Currently you have %1 opened tabs").arg(nTabs));
+
             event->accept();
         }
     }
@@ -130,6 +148,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
     connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
     connect(m_tabBar, SIGNAL(detachTab(int)), this, SLOT(detachTab(int)));
+    connect(m_tabBar, SIGNAL(moveTabToWindow(int, QupZilla*)), this, SLOT(moveTab(int, QupZilla*)));
     connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
 
     connect(m_tabBar, SIGNAL(moveAddTabButton(int)), this, SLOT(moveAddTabButton(int)));
@@ -679,6 +698,35 @@ void TabWidget::detachTab(int index)
 
     if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
         setCurrentIndex(m_lastTabIndex);
+    }
+}
+
+void TabWidget::moveTab(int index, QupZilla* window)
+{
+    WebTab* tab = weTab(index);
+
+    if (tab->isPinned()) {
+        return;
+    }
+    if (count() == 1)  {
+        p_QupZilla->close();
+    }
+
+    m_locationBars->removeWidget(tab->locationBar());
+    disconnect(tab->view(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
+    disconnect(tab->view(), SIGNAL(changed()), mApp, SLOT(setStateChanged()));
+    disconnect(tab->view(), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
+
+    tab->moveToWindow(window);
+    int newIndex = window->tabWidget()->addView(tab);
+
+    if (count() > 0) {
+        if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
+            setCurrentIndex(m_lastTabIndex);
+        }
+    } else {
+        window->raise();
+        window->tabWidget()->setCurrentIndex(newIndex);
     }
 }
 

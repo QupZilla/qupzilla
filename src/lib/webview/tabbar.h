@@ -21,6 +21,7 @@
 #include <QTabBar>
 #include <QRect>
 #include <QAbstractButton>
+#include "mainapplication.h"
 
 #include "qz_namespace.h"
 
@@ -61,6 +62,7 @@ signals:
     void closeTab(int index);
     void duplicateTab(int index);
     void detachTab(int index);
+    void moveTabToWindow(int index, QupZilla* window);
 
     void moveAddTabButton(int posX);
 
@@ -79,6 +81,7 @@ private slots:
     void closeTab() { emit closeTab(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
     void detachTab() { emit detachTab(m_clickedTab); }
+    void moveTabToWindow();
     void bookmarkTab();
     void pinTab();
 

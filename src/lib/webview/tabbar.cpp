@@ -24,7 +24,6 @@
 #include "toolbutton.h"
 #include "settings.h"
 #include "tabbedwebview.h"
-#include "mainapplication.h"
 #include "pluginproxy.h"
 #include "proxystyle.h"
 
@@ -35,6 +34,7 @@
 #include <QApplication>
 #include <QTimer>
 #include <QRect>
+#include <QAction>
 
 #define MAXIMUM_TAB_WIDTH 250
 #define MINIMUM_TAB_WIDTH 125
@@ -155,6 +155,17 @@ void TabBar::contextMenuRequested(const QPoint &position)
 
         if (count() > 1 && !webTab->isPinned()) {
             menu.addAction(QIcon::fromTheme("tab-detach"), tr("D&etach Tab"), this, SLOT(detachTab()));
+        }
+
+        QList<QupZilla*> mainWindows = mApp->mainWindows();
+        if (mainWindows.count() > 1) {
+            QMenu *windowsMenu = menu.addMenu(tr("Move Tab To..."));
+            for (int i = 0, n = mainWindows.count(); i <  n; ++i) {
+                if (mainWindows.at(i) != p_QupZilla) {
+                    QAction* action = windowsMenu->addAction(QIcon::fromTheme("tab-move"), mainWindows.at(i)->windowTitle(), this, SLOT(moveTabToWindow()));
+                    action->setData(i);
+                }
+            }
         }
 
         menu.addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
@@ -413,6 +424,13 @@ void TabBar::currentTabChanged(int index)
     hideCloseButton(m_tabWidget->lastTabIndex());
 
     m_tabWidget->currentTabChanged(index);
+}
+
+void TabBar::moveTabToWindow()
+{
+    QAction* action = (QAction*) sender();
+    int index = action->data().toInt();
+    emit moveTabToWindow(m_clickedTab, mApp->mainWindows().at(index));
 }
 
 void TabBar::bookmarkTab()
