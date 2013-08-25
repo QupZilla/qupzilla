@@ -18,18 +18,44 @@
 #include "licenseviewer.h"
 #include "qztools.h"
 
+#include <QFont>
+#include <QTextBrowser>
+#include <QVBoxLayout>
+#include <QDialogButtonBox>
+
 LicenseViewer::LicenseViewer(QWidget* parent)
-    : QTextBrowser()
+    : QWidget()
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("License Viewer"));
 
-    resize(450, 500);
+    m_textBrowser = new QTextBrowser(this);
+
+    QFont serifFont = m_textBrowser->font();
+    serifFont.setFamily("Courier");
+    m_textBrowser->setFont(serifFont);
+
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(this);
+    buttonBox->setStandardButtons(QDialogButtonBox::Close);
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(close()));
+
+    QVBoxLayout* l = new QVBoxLayout(this);
+    l->addWidget(m_textBrowser);
+    l->addWidget(buttonBox);
+
+    setLayout(l);
+
+    resize(600, 500);
 
     QzTools::centerWidgetToParent(this, parent);
 }
 
 void LicenseViewer::setLicenseFile(const QString &fileName)
 {
-    setText(QzTools::readAllFileContents(fileName));
+    m_textBrowser->setText(QzTools::readAllFileContents(fileName));
+}
+
+void LicenseViewer::setText(const QString &text)
+{
+    m_textBrowser->setText(text);
 }
