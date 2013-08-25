@@ -18,11 +18,13 @@
 #ifndef LICENSEVIEWER_H
 #define LICENSEVIEWER_H
 
-#include <QTextBrowser>
+#include <QWidget>
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT LicenseViewer : public QTextBrowser
+class QTextBrowser;
+
+class QT_QUPZILLA_EXPORT LicenseViewer : public QWidget
 {
     Q_OBJECT
 
@@ -30,6 +32,10 @@ public:
     explicit LicenseViewer(QWidget* parent = 0);
 
     void setLicenseFile(const QString &fileName);
+    void setText(const QString &text);
+
+private:
+    QTextBrowser* m_textBrowser;
 };
 
 #endif // LICENSEVIEWER_H
