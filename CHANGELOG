@@ -1,5 +1,5 @@
 Version 1.4.4
-    * not released yet
+    * released 1 September 2013
     * added ctrl/shift + insert shortcuts to copy/paste in webview
     * don't try to download empty page
     * reverted forcing SSLv3 protocol for secured connections
