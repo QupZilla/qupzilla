@@ -23,6 +23,23 @@ Version 1.5.0
     * fixed: size of preferences dialog on low-res screens
     * fixed: loading plugins with relative paths in portable build
 
+Version 1.4.4
+    * released 1 September 2013
+    * added ctrl/shift + insert shortcuts to copy/paste in webview
+    * don't try to download empty page
+    * reverted forcing SSLv3 protocol for secured connections
+    * duckduckgo.com is now default search engine
+    * fixed: correct height of icons widget in SiteInfo
+    * fixed: hide tabbar with only one tab option now works in fullscreen
+    * fixed: crash with Oxygen theme when closing windows with tabs on top
+    * fixed: saving IgnoreAllSSLWarnings option from SSLManager
+    * fixed: crash on saving settings with unavailable theme
+    * fixed: Accept-Language header now works with all sites
+    * fixed: using external download manager with use defined location setting
+    * GreaseMonkey: fixed buttons in script list with RTL layout
+    * GreaseMonkey: run userscripts in all frames on page
+    * X11: Set correct WM_CLASS property to windows
+
 Version 1.4.3
     * released 9 May 2013
     * fixed: crash upon closing private browsing window
