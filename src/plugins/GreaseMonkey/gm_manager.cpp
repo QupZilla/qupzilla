@@ -203,8 +203,6 @@ void GM_Manager::pageLoadStart()
     while (!frames.isEmpty()) {
         QWebFrame* frame = frames.takeFirst();
         if (frame) {
-            mainFrame->addToJavaScriptWindowObject("_qz_greasemonkey", m_jsObject);
-
             foreach (GM_Script* script, m_startScripts) {
                 if (script->match(urlString)) {
                     mainFrame->evaluateJavaScript(m_bootstrap + script->script());
