@@ -24,7 +24,7 @@ RequestExecutionLevel admin
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.4.3"
+!define /date PRODUCT_VERSION "1.4.4"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -109,6 +109,8 @@ notRunning:
   File "libeay32.dll"
   File "ssleay32.dll"
   File "sqlite3.dll"
+  File "Microsoft.VC90.CRT.manifest"
+  File "msvcm90.dll"
   File "msvcp90.dll"
   File "msvcr90.dll"
   File "QtCore4.dll"
