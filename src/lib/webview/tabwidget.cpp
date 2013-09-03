@@ -398,7 +398,13 @@ int TabWidget::addView(WebTab* tab)
 
     int index = addTab(tab, QString());
     setTabText(index, tab->title());
-    setTabIcon(index, tab->icon());
+
+    if (!tab->isLoading()) {
+        setTabIcon(index, tab->icon());
+    }
+    else {
+        startTabAnimation(index);
+    }
 
     connect(tab->view(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(tab->view(), SIGNAL(changed()), mApp, SLOT(setStateChanged()));
