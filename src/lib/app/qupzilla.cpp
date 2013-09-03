@@ -1600,6 +1600,7 @@ SideBar* QupZilla::addSideBar()
 
 #ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
+        applyBlurToMainWindow();
         m_sideBar.data()->installEventFilter(this);
     }
 #endif
@@ -2491,6 +2492,9 @@ bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* re
             }
             setUpdatesEnabled(true);
         }
+        else {
+            m_usingTransparentBackground = false;
+        }
     }
 #if (QT_VERSION < 0x050000)
     return QMainWindow::winEvent(message, result);
@@ -2501,7 +2505,7 @@ bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* re
 
 void QupZilla::paintEvent(QPaintEvent* event)
 {
-    if (m_usingTransparentBackground && !m_actionShowFullScreen->isChecked()) {
+    if (isTransparentBackgroundAllowed()) {
         QPainter p(this);
         p.setCompositionMode(QPainter::CompositionMode_Clear);
         p.fillRect(event->rect(), QColor(0, 0, 0, 0));
