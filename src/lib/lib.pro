@@ -171,6 +171,7 @@ SOURCES += \
     bookmarksimport/firefoximporter.cpp \
     bookmarksimport/chromeimporter.cpp \
     bookmarksimport/operaimporter.cpp \
+    bookmarksimport/ieimporter.cpp \
     bookmarksimport/bookmarksimportdialog.cpp \
     tools/iconfetcher.cpp \
     tools/followredirectreply.cpp \
@@ -349,6 +350,7 @@ HEADERS  += \
     bookmarksimport/firefoximporter.h \
     bookmarksimport/chromeimporter.h \
     bookmarksimport/operaimporter.h \
+    bookmarksimport/ieimporter.h \
     bookmarksimport/bookmarksimportdialog.h \
     tools/iconfetcher.h \
     tools/followredirectreply.h \
