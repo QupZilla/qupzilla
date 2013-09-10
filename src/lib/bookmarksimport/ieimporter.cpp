@@ -39,7 +39,7 @@ bool IeImporter::openFile()
     QDir dir(m_path);
     if (!dir.exists()) {
         m_error = true;
-        m_errorString = BookmarksImportDialog::tr("Directory does not exists.");
+        m_errorString = BookmarksImportDialog::tr("Directory does not exist.");
         return false;
     }
 
