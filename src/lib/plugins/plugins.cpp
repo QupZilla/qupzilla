@@ -197,6 +197,7 @@ void Plugins::loadAvailablePlugins()
             }
 
             Plugin plugin;
+            plugin.fileName = fileName;
             plugin.fullPath = absolutePath;
             plugin.pluginSpec = iPlugin->pluginSpec();
             plugin.pluginLoader = loader;
