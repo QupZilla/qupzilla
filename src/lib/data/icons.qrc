@@ -73,5 +73,6 @@
         <file>icons/menu/tab.png</file>
         <file>icons/other/geolocation.png</file>
         <file>icons/other/notification.png</file>
+        <file>icons/browsers/internet-explorer.png</file>
     </qresource>
 </RCC>
