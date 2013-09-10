@@ -58,6 +58,7 @@ Then you can start compiling by running this commands:
     $ make
 
 After a successful compilation the executable binary can be found in the bin/ directory.
+On Fedora and possibly other Linux distributions you need to replace `qmake` with `qmake-qt4` or `qmake-qt5` since `qmake` is for Qt3.
 
 On Linux/Unix: To install QupZilla, run this command: (it may be necessary to run it as root)
 
