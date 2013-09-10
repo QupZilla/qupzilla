@@ -21,6 +21,7 @@
 #include "chromeimporter.h"
 #include "operaimporter.h"
 #include "htmlimporter.h"
+#include "ieimporter.h"
 #include "mainapplication.h"
 #include "bookmarksimporticonfetcher.h"
 #include "iconprovider.h"
@@ -227,9 +228,22 @@ bool BookmarksImportDialog::exportedOK()
         if (html.error()) {
             QMessageBox::critical(this, tr("Error!"), html.errorString());
             return false;
+        }        
+    }
+#ifdef Q_OS_WIN
+    else if (m_browser == IE) {
+        IeImporter ie(this);
+        ie.setFile(ui->fileLine->text());
+
+        if(ie.openFile()) {
+            m_exportedBookmarks = ie.exportBookmarks();
+        }
+
+        if(ie.error()) {
+            QMessageBox::critical(this, tr("Error!"), ie.errorString());
         }
     }
-
+#endif
     if (m_exportedBookmarks.isEmpty()) {
         QMessageBox::critical(this, tr("Error!"), tr("The file doesn't contain any bookmark."));
         return false;
@@ -336,7 +350,7 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
         break;
 
     case IE:
-        m_browserPixmap = QPixmap(":icons/browsers/ie.png");
+        m_browserPixmap = QPixmap(":icons/browsers/internet-explorer.png");
         m_browserName = "Internet Explorer";
         m_browserFileText = tr("Internet Explorer stores its bookmarks in <b>Favorites</b> folder. "
                                "This folder is usually located in ");
