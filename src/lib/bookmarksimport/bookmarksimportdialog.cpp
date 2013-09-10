@@ -79,6 +79,13 @@ void BookmarksImportDialog::nextPage()
         if (exportedOK()) {
             m_currentPage++;
             ui->stackedWidget->setCurrentIndex(m_currentPage);
+
+            if (!ui->fetchIcons->isChecked()) {
+                addExportedBookmarks();
+                close();
+                return;
+            }
+
             startFetchingIcons();
         }
         break;
