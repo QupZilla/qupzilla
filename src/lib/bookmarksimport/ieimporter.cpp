@@ -1,3 +1,20 @@
+/* ============================================================
+* QupZilla - WebKit based browser
+* Copyright (C) 2013  Mattias Cibien <mattias@mattiascibien.net>
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+* ============================================================ */
 #include "ieimporter.h"
 
 #include "bookmarksimportdialog.h"
@@ -5,13 +22,12 @@
 #include <QDir>
 #include <QSettings>
 
-IeImporter::IeImporter(QObject *parent) :
-    QObject(parent)
-  , m_error(false)
-  , m_errorString(BookmarksImportDialog::tr("No Error"))
+IeImporter::IeImporter(QObject* parent)
+    : QObject(parent)
+    , m_error(false)
+    , m_errorString(BookmarksImportDialog::tr("No Error"))
 {
 }
-
 
 void IeImporter::setFile(const QString &path)
 {
@@ -21,19 +37,18 @@ void IeImporter::setFile(const QString &path)
 bool IeImporter::openFile()
 {
     QDir dir(m_path);
-    if(!dir.exists()) {
+    if (!dir.exists()) {
         m_error = true;
         m_errorString = BookmarksImportDialog::tr("Directory does not exists.");
         return false;
     }
-
 
     QStringList filters;
     filters << "*.url";
 
     urls = dir.entryInfoList(filters);
 
-    if(urls.isEmpty()) {
+    if (urls.isEmpty()) {
         m_error = true;
         m_errorString = BookmarksImportDialog::tr("The directory does not contain any bookmarks.");
         return false;
@@ -41,7 +56,6 @@ bool IeImporter::openFile()
 
     return true;
 }
-
 
 QVector<BookmarksModel::Bookmark> IeImporter::exportBookmarks()
 {

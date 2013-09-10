@@ -433,12 +433,11 @@ void NetworkManager::ftpAuthentication(const QUrl &url, QAuthenticator* auth)
 
 void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator* auth)
 {
-    QString userName = "";
-    QString password = "";
-    QVector<PasswordEntry> psws = MainApplication::getInstance()->autoFill()->getFormData(QUrl(proxy.hostName()));
+    QString userName;
+    QString password;
+    QVector<PasswordEntry> psws = mApp->autoFill()->getFormData(QUrl(proxy.hostName()));
 
-    if(psws.isEmpty())
-    {
+    if (psws.isEmpty()) {
         QDialog* dialog = new QDialog();
         dialog->setWindowTitle(tr("Proxy authorisation required"));
 
@@ -460,7 +459,7 @@ void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthentica
         connect(box, SIGNAL(rejected()), dialog, SLOT(reject()));
         connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
 
-        QCheckBox *rememberCheck = new QCheckBox("Remember username and password for this proxy.", dialog);
+        QCheckBox* rememberCheck = new QCheckBox("Remember username and password for this proxy.", dialog);
 
         label->setText(tr("A username and password are being requested by proxy %1. ").arg(proxy.hostName()));
         formLa->addRow(label);
@@ -473,15 +472,14 @@ void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthentica
             return;
         }
 
-        if(rememberCheck->isChecked()) {
-            MainApplication::getInstance()->autoFill()->addEntry(QUrl(proxy.hostName()), user->text(), pass->text());
+        if (rememberCheck->isChecked()) {
+            mApp->autoFill()->addEntry(QUrl(proxy.hostName()), user->text(), pass->text());
         }
 
         userName = user->text();
         password = pass->text();
     }
-    else
-    {
+    else {
         userName = psws.at(0).username;
         password = psws.at(0).password;
     }

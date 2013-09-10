@@ -228,18 +228,18 @@ bool BookmarksImportDialog::exportedOK()
         if (html.error()) {
             QMessageBox::critical(this, tr("Error!"), html.errorString());
             return false;
-        }        
+        }
     }
 #ifdef Q_OS_WIN
     else if (m_browser == IE) {
         IeImporter ie(this);
         ie.setFile(ui->fileLine->text());
 
-        if(ie.openFile()) {
+        if (ie.openFile()) {
             m_exportedBookmarks = ie.exportBookmarks();
         }
 
-        if(ie.error()) {
+        if (ie.error()) {
             QMessageBox::critical(this, tr("Error!"), ie.errorString());
         }
     }
