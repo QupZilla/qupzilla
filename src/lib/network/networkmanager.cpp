@@ -433,39 +433,61 @@ void NetworkManager::ftpAuthentication(const QUrl &url, QAuthenticator* auth)
 
 void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator* auth)
 {
-    QDialog* dialog = new QDialog();
-    dialog->setWindowTitle(tr("Proxy authorisation required"));
+    QString userName = "";
+    QString password = "";
+    QVector<PasswordEntry> psws = MainApplication::getInstance()->autoFill()->getFormData(QUrl(proxy.hostName()));
 
-    QFormLayout* formLa = new QFormLayout(dialog);
+    if(psws.isEmpty())
+    {
+        QDialog* dialog = new QDialog();
+        dialog->setWindowTitle(tr("Proxy authorisation required"));
 
-    QLabel* label = new QLabel(dialog);
-    QLabel* userLab = new QLabel(dialog);
-    QLabel* passLab = new QLabel(dialog);
-    userLab->setText(tr("Username: "));
-    passLab->setText(tr("Password: "));
+        QFormLayout* formLa = new QFormLayout(dialog);
 
-    QLineEdit* user = new QLineEdit(dialog);
-    QLineEdit* pass = new QLineEdit(dialog);
-    pass->setEchoMode(QLineEdit::Password);
+        QLabel* label = new QLabel(dialog);
+        QLabel* userLab = new QLabel(dialog);
+        QLabel* passLab = new QLabel(dialog);
+        userLab->setText(tr("Username: "));
+        passLab->setText(tr("Password: "));
 
-    QDialogButtonBox* box = new QDialogButtonBox(dialog);
-    box->addButton(QDialogButtonBox::Ok);
-    box->addButton(QDialogButtonBox::Cancel);
-    connect(box, SIGNAL(rejected()), dialog, SLOT(reject()));
-    connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
+        QLineEdit* user = new QLineEdit(dialog);
+        QLineEdit* pass = new QLineEdit(dialog);
+        pass->setEchoMode(QLineEdit::Password);
 
-    label->setText(tr("A username and password are being requested by proxy %1. ").arg(proxy.hostName()));
-    formLa->addRow(label);
-    formLa->addRow(userLab, user);
-    formLa->addRow(passLab, pass);
-    formLa->addWidget(box);
+        QDialogButtonBox* box = new QDialogButtonBox(dialog);
+        box->addButton(QDialogButtonBox::Ok);
+        box->addButton(QDialogButtonBox::Cancel);
+        connect(box, SIGNAL(rejected()), dialog, SLOT(reject()));
+        connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
 
-    if (dialog->exec() != QDialog::Accepted) {
-        return;
+        QCheckBox *rememberCheck = new QCheckBox("Remember username and password for this proxy.", dialog);
+
+        label->setText(tr("A username and password are being requested by proxy %1. ").arg(proxy.hostName()));
+        formLa->addRow(label);
+        formLa->addRow(userLab, user);
+        formLa->addRow(passLab, pass);
+        formLa->addRow(rememberCheck);
+        formLa->addWidget(box);
+
+        if (dialog->exec() != QDialog::Accepted) {
+            return;
+        }
+
+        if(rememberCheck->isChecked()) {
+            MainApplication::getInstance()->autoFill()->addEntry(QUrl(proxy.hostName()), user->text(), pass->text());
+        }
+
+        userName = user->text();
+        password = pass->text();
+    }
+    else
+    {
+        userName = psws.at(0).username;
+        password = psws.at(0).password;
     }
 
-    auth->setUser(user->text());
-    auth->setPassword(pass->text());
+    auth->setUser(userName);
+    auth->setPassword(password);
 }
 
 QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
