@@ -206,7 +206,7 @@
        <item row="9" column="0" colspan="2">
         <widget class="QCheckBox" name="fetchIcons">
          <property name="text">
-          <string>Try to fetch icons for all bookmakrs (may take a while)</string>
+          <string>Try to fetch icons for all bookmarks (may take a while)</string>
          </property>
          <property name="checked">
           <bool>true</bool>
