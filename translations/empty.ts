@@ -630,7 +630,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="209"/>
-        <source>Try to fetch icons for all bookmakrs (may take a while)</source>
+        <source>Try to fetch icons for all bookmarks (may take a while)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -770,7 +770,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/ieimporter.cpp" line="42"/>
-        <source>Directory does not exists.</source>
+        <source>Directory does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
