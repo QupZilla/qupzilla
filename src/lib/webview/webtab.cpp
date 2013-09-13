@@ -274,7 +274,13 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 
         if (!tab.url.isEmpty()) {
             QColor col = m_view->tabWidget()->getTabBar()->palette().text().color();
-            m_view->tabWidget()->getTabBar()->overrideTabTextColor(index, col.lighter(250));
+            QColor lighter = col.lighter(250);
+            // Make sure it works for white color
+            if (col == lighter) {
+                lighter = col.darker(250);
+            }
+
+            m_view->tabWidget()->getTabBar()->overrideTabTextColor(index, lighter);
         }
     }
     else {
