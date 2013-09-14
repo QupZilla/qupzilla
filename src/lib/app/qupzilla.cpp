@@ -154,7 +154,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
 
     QTimer::singleShot(0, this, SLOT(postLaunch()));
 
-    QzTools::setWmClass("Browser", this);
+    QzTools::setWmClass("QupZilla Browser", this);
 }
 
 void QupZilla::openWithTab(WebTab* tab)
