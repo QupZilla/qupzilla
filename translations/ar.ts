@@ -831,12 +831,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="116"/>
         <source>Choose parent folder for new folder: </source>
-        <translation>اختر مجلداً يُنشَأ ضمنه المجلد الجديد:</translation>
+        <translation>اختر مجلداً يُنشَأ ضمنه المجلد الجديد: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="121"/>
         <source>Choose name for new bookmark folder: </source>
-        <translation>اختر اسماً للمجلد الجديد:</translation>
+        <translation>اختر اسماً للمجلد الجديد: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="164"/>
@@ -846,7 +846,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="164"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation>اختر اسماً للمجلد الفرعي الجديد ضمن شريط العلامات:</translation>
+        <translation>اختر اسماً للمجلد الفرعي الجديد ضمن شريط العلامات: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="189"/>
@@ -856,7 +856,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="189"/>
         <source>Choose name for folder: </source>
-        <translation>اختر اسماً للمجلد:</translation>
+        <translation>اختر اسماً للمجلد: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="313"/>
@@ -1045,17 +1045,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="234"/>
         <source>Edit bookmark: </source>
-        <translation>عدل العلامة:</translation>
+        <translation>عدل العلامة: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="236"/>
         <source>Title: </source>
-        <translation>العنوان:</translation>
+        <translation>العنوان: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="237"/>
         <source>Url: </source>
-        <translation>الرابط:</translation>
+        <translation>الرابط: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="245"/>
@@ -1162,7 +1162,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/browsinglibrary.cpp" line="150"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation>تم تحسين قاعدة البيانات.&lt;br&gt;&lt;br&gt;&lt;b&gt;حجمها قبل التحسين: &lt;/b&gt;%1&lt;br&gt;&lt;b&gt;حجمها قبل التحسين: &lt;/b&gt;%2</translation>
+        <translation>تم تحسين قاعدة البيانات.&lt;br&gt;&lt;br&gt;&lt;b&gt;حجمها قبل التحسين: &lt;/b&gt;%1&lt;br&gt;&lt;b&gt;حجمها بعد التحسين: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -1342,7 +1342,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="33"/>
         <source>Find: </source>
-        <translation>ابحث:</translation>
+        <translation>ابحث: </translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="43"/>
@@ -1680,7 +1680,7 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="461"/>
         <source>Error: </source>
-        <translation>الخطأ:</translation>
+        <translation>الخطأ: </translation>
     </message>
 </context>
 <context>
@@ -2491,14 +2491,14 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/network/networkmanager.cpp" line="377"/>
         <location filename="../src/lib/network/networkmanager.cpp" line="449"/>
         <source>Username: </source>
-        <translation>اسم المستخدم:</translation>
+        <translation>اسم المستخدم: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="271"/>
         <location filename="../src/lib/network/networkmanager.cpp" line="378"/>
         <location filename="../src/lib/network/networkmanager.cpp" line="450"/>
         <source>Password: </source>
-        <translation>كلمة المرور:</translation>
+        <translation>كلمة المرور: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="276"/>
@@ -2878,7 +2878,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="272"/>
         <source>After launch: </source>
-        <translation>بعد البدء:</translation>
+        <translation>بعد البدء: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="280"/>
@@ -2905,12 +2905,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="303"/>
         <source>Homepage: </source>
-        <translation>الصفحة الأولى:</translation>
+        <translation>الصفحة الأولى: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="324"/>
         <source>On new tab: </source>
-        <translation>عند فتح لسانٍ جديد:</translation>
+        <translation>عند فتح لسانٍ جديد: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="332"/>
@@ -2955,7 +2955,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="418"/>
         <source>Available translations: </source>
-        <translation>الترجمات المتوفرة:</translation>
+        <translation>الترجمات المتوفرة: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="430"/>
@@ -3130,7 +3130,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="839"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</source>
-        <translation>عند ضغط زر &quot;Shift&quot;، لا تنتقل إلى لسان جديد وإنما حمل الرابط ضمن اللسان الحالي.  </translation>
+        <translation>عند ضغط زر الإزاحة (Shift)، لا تنتقل إلى لسان جديد وإنما حمل الرابط ضمن اللسان الحالي.  </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="842"/>
@@ -3155,7 +3155,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="870"/>
         <source>Add .co.uk domain by pressing ALT key</source>
-        <translation>أضف .sa إلى النطاق عند ضغط مفتاح ALT</translation>
+        <translation>أضف .sa إلى النطاق عند ضغط مفتاح التناوب (Alt)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="877"/>
@@ -3282,7 +3282,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1154"/>
         <source>Default zoom on pages: </source>
-        <translation>التقريب المبدئي في الصفحات:</translation>
+        <translation>التقريب المبدئي في الصفحات: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1206"/>
@@ -3307,7 +3307,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1300"/>
         <source>Maximum pages in cache: </source>
-        <translation>أقصى عدد للصفحات في الخبيئة:</translation>
+        <translation>أقصى عدد للصفحات في الخبيئة: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1307"/>
@@ -3500,7 +3500,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1939"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
-        <translation>افتح مُدخلات الوصول السريع باستخدام مفتاح Ctrl + مفتاح الرقم الموافق لرقم المُدخلة</translation>
+        <translation>افتح مُدخلات الوصول السريع باستخدام مفتاح التحكم (Ctrl) + مفتاح الرقم الموافق لرقم المُدخلة</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1950"/>
@@ -3515,7 +3515,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1964"/>
         <source>Use defined location: </source>
-        <translation>استخدم الموقع المحدد:</translation>
+        <translation>استخدم الموقع المحدد:  </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2014"/>
@@ -3688,7 +3688,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2515"/>
         <source>StyleSheet automatically loaded with all websites: </source>
-        <translation>ورقة أنماط تُحمل تلقائيّا لكل المواقع:</translation>
+        <translation>ورقة أنماط تُحمل تلقائيّا لكل المواقع: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2534"/>
@@ -3828,12 +3828,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="619"/>
         <source>Executable: </source>
-        <translation>البرنامج:</translation>
+        <translation>البرنامج: </translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="620"/>
         <source>Arguments: </source>
-        <translation>المُبادلات:</translation>
+        <translation>المُبادلات: </translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="622"/>
@@ -4341,7 +4341,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="150"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>إن واجهتك مشكلات في كَبزيلا، جرب أولاً أن تعطل كل المُلحقات.&lt;br/&gt;إن لم تُحل المشكلة بهذا، فاملأ هذا النموذج:</translation>
+        <translation>إن واجهتك مشكلات في كَبزيلا، جرب أولاً أن تعطل كل المُلحقات.&lt;br/&gt;إن لم تُحل المشكلة بهذا، فاملأ هذا النموذج: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="152"/>
@@ -4366,7 +4366,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="156"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation>بإمكانك ألّا تكتب البريد الإلكتروني.&lt;br/&gt;&lt;b&gt;ملاحظة: &lt;/b&gt;رجاء اقرأ &lt;a href=%1&gt;كيف تُنشئ تقريراً للإبلاغ عن علة&lt;/a&gt; أولاً.</translation>
+        <translation>بإمكانك ألا تكتب البريد الإلكتروني.&lt;br/&gt;&lt;b&gt;ملاحظة: &lt;/b&gt;رجاء اقرأ &lt;a href=%1&gt;كيف تُنشئ تقريراً للإبلاغ عن علة&lt;/a&gt; أولاً.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="158"/>
@@ -4506,7 +4506,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
         <source>Placement: </source>
-        <translation>الموضع:</translation>
+        <translation>الموضع: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
@@ -4822,17 +4822,17 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="208"/>
         <source>Fill title and URL of a feed: </source>
-        <translation>املأ عنوان الخلاصة ورابطها:</translation>
+        <translation>املأ عنوان الخلاصة ورابطها: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="210"/>
         <source>Feed title: </source>
-        <translation>عنوان الخلاصة:</translation>
+        <translation>عنوان الخلاصة: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="211"/>
         <source>Feed URL: </source>
-        <translation>رابط الخلاصة:</translation>
+        <translation>رابط الخلاصة: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="217"/>
@@ -5179,7 +5179,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="36"/>
         <source>Search: </source>
-        <translation>ابحث:</translation>
+        <translation>ابحث: </translation>
     </message>
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="55"/>
@@ -5335,7 +5335,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="158"/>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;تؤمن هذه الشهادة اتصالك بهذه الصفحة:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;تؤمن هذه الشهادة اتصالك بهذه الصفحة: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="163"/>
@@ -5592,7 +5592,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="42"/>
         <source>Search: </source>
-        <translation>ابحث:</translation>
+        <translation>ابحث: </translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="49"/>
@@ -5955,12 +5955,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="198"/>
         <source>Site domain: </source>
-        <translation>نطاق الموقع:</translation>
+        <translation>نطاق الموقع: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="199"/>
         <source>User Agent: </source>
-        <translation>وكيل المستخدم:</translation>
+        <translation>وكيل المستخدم: </translation>
     </message>
 </context>
 <context>
