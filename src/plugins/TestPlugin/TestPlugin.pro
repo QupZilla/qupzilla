@@ -14,6 +14,7 @@ HEADERS += testplugin.h \
 RESOURCES += testplugin.qrc
 
 TRANSLATIONS = \
+    translations/ar.ts \
     translations/ca_ES.ts \
     translations/cs_CZ.ts \
     translations/de_DE.ts \
