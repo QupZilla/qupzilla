@@ -76,7 +76,7 @@ private:
     QStringList m_certPaths;
     QList<QSslCertificate> m_caCerts;
     QList<QSslCertificate> m_localCerts;
-    QList<QSslCertificate> m_ignoredCerts;
+    QList<QSslCertificate> m_tempAllowedCerts;
 
     QHash<QString, SchemeHandler*> m_schemeHandlers;
     QByteArray m_acceptLanguage;

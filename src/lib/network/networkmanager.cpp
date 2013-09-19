@@ -31,6 +31,7 @@
 #include "cabundleupdater.h"
 #include "settings.h"
 #include "passwordmanager.h"
+#include "sslerrordialog.h"
 #include "schemehandlers/adblockschemehandler.h"
 #include "schemehandlers/qupzillaschemehandler.h"
 #include "schemehandlers/fileschemehandler.h"
@@ -212,7 +213,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
         const QSslCertificate &cert = i.key();
         const QStringList &errors = i.value();
 
-        if (m_localCerts.contains(cert) || errors.isEmpty()) {
+        if (m_localCerts.contains(cert) || m_tempAllowedCerts.contains(cert) || errors.isEmpty()) {
             ++i;
             continue;
         }
@@ -240,17 +241,33 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     QString message = QString("<b>%1</b><p>%2</p>%3<p>%4</p>").arg(title, text1, certs, text2);
 
     if (!certs.isEmpty())  {
-        QMessageBox::StandardButton button = QMessageBox::critical(webPage->view(), tr("SSL Certificate Error!"), message, QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
-        if (button == QMessageBox::No) {
+        SslErrorDialog dialog(webPage->view());
+        dialog.setText(message);
+        dialog.exec();
+
+        switch (dialog.result()) {
+        case SslErrorDialog::Yes:
+            foreach (const QSslCertificate &cert, errorHash.keys()) {
+                if (!m_localCerts.contains(cert)) {
+                    addLocalCertificate(cert);
+                }
+            }
+
+            break;
+
+        case SslErrorDialog::OnlyForThisSession:
+            foreach (const QSslCertificate &cert, errorHash.keys()) {
+                if (!m_tempAllowedCerts.contains(cert)) {
+                    m_tempAllowedCerts.append(cert);
+                }
+            }
+
+            break;
+
+        default:
             // To prevent asking user more than once for the same certificate
             webPage->addRejectedCerts(errorHash.keys());
             return;
-        }
-
-        foreach (const QSslCertificate &cert, errorHash.keys()) {
-            if (!m_localCerts.contains(cert)) {
-                addLocalCertificate(cert);
-            }
         }
     }
 

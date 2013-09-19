@@ -246,7 +246,8 @@ SOURCES += \
     autofill/passwordbackends/databasepasswordbackend.cpp \
     autofill/passwordbackends/passwordbackend.cpp \
     tools/aesinterface.cpp \
-    autofill/passwordbackends/databaseencryptedpasswordbackend.cpp
+    autofill/passwordbackends/databaseencryptedpasswordbackend.cpp \
+    network/sslerrordialog.cpp
 
 
 HEADERS  += \
@@ -429,7 +430,8 @@ HEADERS  += \
     autofill/passwordbackends/passwordbackend.h \
     autofill/passwordbackends/databasepasswordbackend.h \
     tools/aesinterface.h \
-    autofill/passwordbackends/databaseencryptedpasswordbackend.h
+    autofill/passwordbackends/databaseencryptedpasswordbackend.h \
+    network/sslerrordialog.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -479,7 +481,8 @@ FORMS    += \
     tools/html5permissions/html5permissionsnotification.ui \
     tools/html5permissions/html5permissionsdialog.ui \
     autofill/autofillwidget.ui \
-    autofill/passwordbackends/masterpassworddialog.ui
+    autofill/passwordbackends/masterpassworddialog.ui \
+    network/sslerrordialog.ui
 
 RESOURCES += \
     data/icons.qrc \
