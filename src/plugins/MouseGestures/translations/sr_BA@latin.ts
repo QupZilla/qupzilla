@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@latin" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr_BA@latin" version="2.0">
 <context>
     <name>MouseGesturesSettingsDialog</name>
     <message>

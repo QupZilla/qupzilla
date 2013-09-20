@@ -61,9 +61,17 @@
     </message>
 </context>
 <context>
+    <name>GM_Icon</name>
+    <message>
+        <location filename="../gm_icon.cpp" line="29"/>
+        <source>Open GreaseMonkey settings</source>
+        <translation>GreaseMonkey поставке</translation>
+    </message>
+</context>
+<context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="183"/>
+        <location filename="../gm_manager.cpp" line="194"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
@@ -81,12 +89,12 @@
         <translation>Инсталирај</translation>
     </message>
     <message>
-        <location filename="../gm_notification.cpp" line="49"/>
+        <location filename="../gm_notification.cpp" line="50"/>
         <source>Cannot install script</source>
         <translation>Не могу да инсталирам скрипту</translation>
     </message>
     <message>
-        <location filename="../gm_notification.cpp" line="57"/>
+        <location filename="../gm_notification.cpp" line="58"/>
         <source>&apos;%1&apos; installed successfully</source>
         <translation>„%1“ је успјешно инсталирана</translation>
     </message>
@@ -132,42 +140,52 @@
 <context>
     <name>GM_SettingsScriptInfo</name>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="85"/>
         <source>Name:</source>
         <translation>Име:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="29"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="55"/>
         <source>Version:</source>
         <translation>Издање:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="39"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="115"/>
         <source>URL:</source>
         <translation>УРЛ:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="49"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="138"/>
+        <source>Namespace:</source>
+        <translation>Именски простор:</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="155"/>
+        <source>Edit in text editor</source>
+        <translation>Уреди скрипту</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="65"/>
         <source>Start at:</source>
         <translation>Покреће се при:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="59"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="45"/>
         <source>Description:</source>
         <translation>Опис:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="69"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
         <source>Runs at:</source>
         <translation>Покреће се на:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="79"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="128"/>
         <source>Does not run at:</source>
         <translation>Не покреће се на:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.cpp" line="27"/>
+        <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
         <source>Script Details of %1</source>
         <translation>Детаљи скрипте %1</translation>
     </message>
