@@ -831,12 +831,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="116"/>
         <source>Choose parent folder for new folder: </source>
-        <translation>اختر مجلداً يُنشَأ ضمنه المجلد الجديد:</translation>
+        <translation>اختر مجلداً يُنشَأ ضمنه المجلد الجديد: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="121"/>
         <source>Choose name for new bookmark folder: </source>
-        <translation>اختر اسماً للمجلد الجديد:</translation>
+        <translation>اختر اسماً للمجلد الجديد: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="164"/>
@@ -846,7 +846,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="164"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation>اختر اسماً للمجلد الفرعي الجديد ضمن شريط العلامات:</translation>
+        <translation>اختر اسماً للمجلد الفرعي الجديد ضمن شريط العلامات: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="189"/>
@@ -856,7 +856,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="189"/>
         <source>Choose name for folder: </source>
-        <translation>اختر اسماً للمجلد:</translation>
+        <translation>اختر اسماً للمجلد: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="313"/>
@@ -1045,17 +1045,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="234"/>
         <source>Edit bookmark: </source>
-        <translation>عدل العلامة:</translation>
+        <translation>عدل العلامة: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="236"/>
         <source>Title: </source>
-        <translation>العنوان:</translation>
+        <translation>العنوان: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="237"/>
         <source>Url: </source>
-        <translation>الرابط:</translation>
+        <translation>الرابط: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="245"/>
@@ -1162,7 +1162,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/browsinglibrary.cpp" line="150"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation>تم تحسين قاعدة البيانات.&lt;br&gt;&lt;br&gt;&lt;b&gt;حجمها قبل التحسين: &lt;/b&gt;%1&lt;br&gt;&lt;b&gt;حجمها قبل التحسين: &lt;/b&gt;%2</translation>
+        <translation>تم تحسين قاعدة البيانات.&lt;br&gt;&lt;br&gt;&lt;b&gt;حجمها قبل التحسين: &lt;/b&gt;%1&lt;br&gt;&lt;b&gt;حجمها بعد التحسين: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -1342,7 +1342,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="33"/>
         <source>Find: </source>
-        <translation>ابحث:</translation>
+        <translation>ابحث: </translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="43"/>
@@ -1680,7 +1680,7 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="461"/>
         <source>Error: </source>
-        <translation>الخطأ:</translation>
+        <translation>الخطأ: </translation>
     </message>
 </context>
 <context>
@@ -1700,7 +1700,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="176"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
-        <translation>%1 من %2 (%3) - تبقى %4</translation>
+        <translation>%1% من %2 (%3) - تبقى %4</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="179"/>
@@ -2446,92 +2446,91 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="243"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="206"/>
         <source>SSL Certificate Error!</source>
         <translation>خطأ في شهادة SSL!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="206"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="207"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>في الصفحة التي تحاول الوصول إليها الأخطاء التالية في شهادة SSL:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="221"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;المؤسسة: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="223"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;اسم النطاق: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="225"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;تاريخ الانتهاء: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="231"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="232"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;الخطأ: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="239"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="240"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>أتريد أن تستثني هذه الشهادة متجاوزاً تلك الأخطاء؟</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="263"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="280"/>
         <source>Authorisation required</source>
         <translation>يُشترط التفويض </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="270"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="377"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="449"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="287"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="394"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="466"/>
         <source>Username: </source>
-        <translation>اسم المستخدم:</translation>
+        <translation>اسم المستخدم: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="271"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="378"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="450"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="288"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="395"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="467"/>
         <source>Password: </source>
-        <translation>كلمة المرور:</translation>
+        <translation>كلمة المرور: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="276"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="293"/>
         <source>Save username and password on this site</source>
         <translation>احفظ اسم المستخدم وكلمة المرور لهذا الموقع</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="302"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>يطلب %1 اسم مستخدم وكلمة مرور. يقول الموقع: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="370"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="387"/>
         <source>FTP authorisation required</source>
         <translation>يُشترط استيثاق FTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="383"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="400"/>
         <source>Login anonymously</source>
         <translation>سجل الدخول كمجهول</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="400"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="417"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>يطلب اسم مستخدم وكلمة مرور. %1:%2.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="442"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="459"/>
         <source>Proxy authorisation required</source>
         <translation>يشترط استثياق الخادوم الوكيل</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="481"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>يطلب الخادوم الوكيل %1 اسم مستخدم وكلمة مرور.</translation>
     </message>
@@ -2878,7 +2877,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="272"/>
         <source>After launch: </source>
-        <translation>بعد البدء:</translation>
+        <translation>بعد البدء: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="280"/>
@@ -2905,12 +2904,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="303"/>
         <source>Homepage: </source>
-        <translation>الصفحة الأولى:</translation>
+        <translation>الصفحة الأولى: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="324"/>
         <source>On new tab: </source>
-        <translation>عند فتح لسانٍ جديد:</translation>
+        <translation>عند فتح لسانٍ جديد: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="332"/>
@@ -2955,7 +2954,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="418"/>
         <source>Available translations: </source>
-        <translation>الترجمات المتوفرة:</translation>
+        <translation>الترجمات المتوفرة: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="430"/>
@@ -3130,7 +3129,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="839"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</source>
-        <translation>عند ضغط زر &quot;Shift&quot;، لا تنتقل إلى لسان جديد وإنما حمل الرابط ضمن اللسان الحالي.  </translation>
+        <translation>عند ضغط زر الإزاحة (Shift)، لا تنتقل إلى لسان جديد وإنما حمل الرابط ضمن اللسان الحالي.  </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="842"/>
@@ -3155,7 +3154,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="870"/>
         <source>Add .co.uk domain by pressing ALT key</source>
-        <translation>أضف .sa إلى النطاق عند ضغط مفتاح ALT</translation>
+        <translation>أضف .sa إلى النطاق عند ضغط مفتاح التناوب (Alt)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="877"/>
@@ -3282,7 +3281,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1154"/>
         <source>Default zoom on pages: </source>
-        <translation>التقريب المبدئي في الصفحات:</translation>
+        <translation>التقريب المبدئي في الصفحات: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1206"/>
@@ -3307,7 +3306,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1300"/>
         <source>Maximum pages in cache: </source>
-        <translation>أقصى عدد للصفحات في الخبيئة:</translation>
+        <translation>أقصى عدد للصفحات في الخبيئة: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1307"/>
@@ -3500,7 +3499,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1939"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
-        <translation>افتح مُدخلات الوصول السريع باستخدام مفتاح Ctrl + مفتاح الرقم الموافق لرقم المُدخلة</translation>
+        <translation>افتح مُدخلات الوصول السريع باستخدام مفتاح التحكم (Ctrl) + مفتاح الرقم الموافق لرقم المُدخلة</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1950"/>
@@ -3515,7 +3514,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1964"/>
         <source>Use defined location: </source>
-        <translation>استخدم الموقع المحدد:</translation>
+        <translation>استخدم الموقع المحدد:  </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2014"/>
@@ -3688,7 +3687,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2515"/>
         <source>StyleSheet automatically loaded with all websites: </source>
-        <translation>ورقة أنماط تُحمل تلقائيّا لكل المواقع:</translation>
+        <translation>ورقة أنماط تُحمل تلقائيّا لكل المواقع: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2534"/>
@@ -3828,12 +3827,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="619"/>
         <source>Executable: </source>
-        <translation>البرنامج:</translation>
+        <translation>البرنامج: </translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="620"/>
         <source>Arguments: </source>
-        <translation>المُبادلات:</translation>
+        <translation>المُبادلات: </translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="622"/>
@@ -4341,7 +4340,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="150"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>إن واجهتك مشكلات في كَبزيلا، جرب أولاً أن تعطل كل المُلحقات.&lt;br/&gt;إن لم تُحل المشكلة بهذا، فاملأ هذا النموذج:</translation>
+        <translation>إن واجهتك مشكلات في كَبزيلا، جرب أولاً أن تعطل كل المُلحقات.&lt;br/&gt;إن لم تُحل المشكلة بهذا، فاملأ هذا النموذج: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="152"/>
@@ -4366,7 +4365,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="156"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation>بإمكانك ألّا تكتب البريد الإلكتروني.&lt;br/&gt;&lt;b&gt;ملاحظة: &lt;/b&gt;رجاء اقرأ &lt;a href=%1&gt;كيف تُنشئ تقريراً للإبلاغ عن علة&lt;/a&gt; أولاً.</translation>
+        <translation>بإمكانك ألا تكتب البريد الإلكتروني.&lt;br/&gt;&lt;b&gt;ملاحظة: &lt;/b&gt;رجاء اقرأ &lt;a href=%1&gt;كيف تُنشئ تقريراً للإبلاغ عن علة&lt;/a&gt; أولاً.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="158"/>
@@ -4506,7 +4505,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
         <source>Placement: </source>
-        <translation>الموضع:</translation>
+        <translation>الموضع: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
@@ -4822,17 +4821,17 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="208"/>
         <source>Fill title and URL of a feed: </source>
-        <translation>املأ عنوان الخلاصة ورابطها:</translation>
+        <translation>املأ عنوان الخلاصة ورابطها: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="210"/>
         <source>Feed title: </source>
-        <translation>عنوان الخلاصة:</translation>
+        <translation>عنوان الخلاصة: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="211"/>
         <source>Feed URL: </source>
-        <translation>رابط الخلاصة:</translation>
+        <translation>رابط الخلاصة: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="217"/>
@@ -5179,7 +5178,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="36"/>
         <source>Search: </source>
-        <translation>ابحث:</translation>
+        <translation>ابحث: </translation>
     </message>
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="55"/>
@@ -5335,7 +5334,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="158"/>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;تؤمن هذه الشهادة اتصالك بهذه الصفحة:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;تؤمن هذه الشهادة اتصالك بهذه الصفحة: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="163"/>
@@ -5592,7 +5591,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="42"/>
         <source>Search: </source>
-        <translation>ابحث:</translation>
+        <translation>ابحث: </translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="49"/>
@@ -5701,6 +5700,19 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/3rdparty/squeezelabelv2.cpp" line="64"/>
         <source>Copy</source>
         <translation>انسخ</translation>
+    </message>
+</context>
+<context>
+    <name>SslErrorDialog</name>
+    <message>
+        <location filename="../src/lib/network/sslerrordialog.ui" line="14"/>
+        <source>SSL Certificate Error!</source>
+        <translation>خطأ في شهادة SSL!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/network/sslerrordialog.cpp" line="31"/>
+        <source>Only for this session</source>
+        <translation>في هذه الجلسة فقط</translation>
     </message>
 </context>
 <context>
@@ -5955,12 +5967,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="198"/>
         <source>Site domain: </source>
-        <translation>نطاق الموقع:</translation>
+        <translation>نطاق الموقع: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="199"/>
         <source>User Agent: </source>
-        <translation>وكيل المستخدم:</translation>
+        <translation>وكيل المستخدم: </translation>
     </message>
 </context>
 <context>
@@ -6446,7 +6458,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1091"/>
         <source>&amp;Pause</source>
-        <translation>أو&amp;قف</translation>
+        <translation>أ&amp;لبث</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1092"/>
