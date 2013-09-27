@@ -1700,7 +1700,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="176"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
-        <translation type="unfinished">%1% من %2 (%3) - تبقى %4</translation>
+        <translation>%1% من %2 (%3) - تبقى %4</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="179"/>
