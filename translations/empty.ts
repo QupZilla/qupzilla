@@ -1578,24 +1578,45 @@ Please install latest version of QupZilla.</source>
         <source>few seconds</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="258"/>
         <source>seconds</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="261"/>
         <source>minutes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="264"/>
         <source>hours</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="271"/>
         <source>Unknown speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="276"/>
+        <source>kB/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="281"/>
+        <source>MB/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="285"/>
+        <source>GB/s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
