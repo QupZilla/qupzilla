@@ -25,6 +25,33 @@ LangString DESC_SecProtocols ${LANG_ENGLISH} "Associate QupZilla with http(s) an
 LangString MSG_RunningInstance ${LANG_ENGLISH} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_InstallationCanceled ${LANG_ENGLISH} "Process cancelled by user."
 
+;;;;Arabic
+LangString PRODUCT_DESC  ${LANG_ARABIC} "كَبزيلّا متصفّح للوب جديد سريع وآمن ومفتوح المصدر. يُرخَّص استخدامه وفق الإصدار الثالث من رخصة جنو العمومية (GPL) أو أي إصدار أحدث من ذلك (اختر كما تشاء). يُبنى كَبزيلّا على محرّك العرض WebKitوإطار العمل Qt."
+;
+LangString TITLE_SecMain ${LANG_ARABIC} "المكونات الأساسية"
+LangString TITLE_SecTranslations ${LANG_ARABIC} "الترجمات"
+LangString TITLE_SecPlugins ${LANG_ARABIC} "الإضافات"
+LangString TITLE_SecDesktop ${LANG_ARABIC} "رمز على سطح المكتب"
+LangString TITLE_SecExtensions ${LANG_ARABIC} "ارتباطات الملفات"
+LangString TITLE_SecThemes ${LANG_ARABIC} "السمات"
+LangString TITLE_SecSetASDefault ${LANG_ARABIC} "المتصفح المبدئي"
+LangString TITLE_SecProtocols ${LANG_ARABIC} "ارتباطات البروتوكولات"
+
+LangString FILE_Htm ${LANG_ARABIC} "ملف HTM"
+LangString FILE_Html ${LANG_ARABIC} "ملف HTML"
+;
+LangString DESC_SecMain ${LANG_ARABIC} "المكونات الرئيسية للبرنامج."
+LangString DESC_SecTranslations ${LANG_ARABIC} "ترجمات أخرى متوفرة للتثبيت. اللغة المبدئية هي الإنكليزية."
+LangString DESC_SecPlugins ${LANG_ARABIC} "إضافات أخرى متوفّرة للتنزيل."
+LangString DESC_SecDesktop ${LANG_ARABIC} "أضف اختصارًا لتشغيل كَبزيلا من سطح المكتب."
+LangString DESC_SecExtensions ${LANG_ARABIC} "اربط كَبزيلّا بملفات HTML ذات اللواحق .htm أو .html."
+LangString DESC_SecThemes ${LANG_ARABIC} "سمات أخرى لكَبزيلّا"
+LangString DESC_SecSetASDefault ${LANG_ARABIC} "اجعل كَبزيلا المتصفح المبدئيّ"
+LangString DESC_SecProtocols ${LANG_ARABIC} "اربط كَبزيلّا ببروتوكولات HTTP وHTTPS وFTP."
+;
+LangString MSG_RunningInstance ${LANG_ARABIC} "كَبزيلّا مفتوح الآن! أتريد من المُثبِّت إنهاءه الآن؟"
+LangString MSG_InstallationCanceled ${LANG_ARABIC} "ألغى المستخدم العملية."
+
 ;;;;Spanish
 LangString PRODUCT_DESC  ${LANG_SPANISH} "Qupzilla es un nuevo, rápido y seguro navegador web de código abierto. Qupzilla está bajo licencia GPL versión 3 o (o en su opción) en cualquier versión. Está basado en el motor WebKit y en Qt Framework."
 ;

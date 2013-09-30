@@ -10,7 +10,8 @@ HEADERS += kwalletplugin.h \
 
 RESOURCES += kwalletpasswords.qrc
 
-TRANSLATIONS = translations/cs_CZ.ts \
+TRANSLATIONS = translations/ar.ts \
+               translations/cs_CZ.ts \
                translations/de_DE.ts \
                translations/el_GR.ts \
                translations/fr_FR.ts \

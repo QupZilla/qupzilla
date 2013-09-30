@@ -1,7 +1,6 @@
 /* ============================================================
-* Personal Information Manager plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
-* Copyright (C) 2012  Mladen Pejaković <pejakm@autistici.org>
+* QupZilla - WebKit based browser
+* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,33 +15,40 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef PIM_SETTINGS_H
-#define PIM_SETTINGS_H
+#ifndef SSLERRORDIALOG_H
+#define SSLERRORDIALOG_H
 
 #include <QDialog>
 
 namespace Ui
 {
-class PIM_Settings;
+class SslErrorDialog;
 }
 
-class PIM_Handler;
+class QAbstractButton;
 
-class PIM_Settings : public QDialog
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT SslErrorDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit PIM_Settings(const QString &settingsFile, QWidget* parent = 0);
-    ~PIM_Settings();
+    enum Result { Yes, No, OnlyForThisSession };
+
+    explicit SslErrorDialog(QWidget* parent = 0);
+    ~SslErrorDialog();
+
+    void setText(const QString &text);
+    Result result();
 
 private slots:
-    void dialogAccepted();
+    void buttonClicked(QAbstractButton* button);
 
 private:
-    Ui::PIM_Settings* ui;
+    Ui::SslErrorDialog* ui;
 
-    QString m_settingsFile;
+    Result m_result;
 };
 
-#endif // PIM_SETTINGS_H
+#endif // SSLERRORDIALOG_H

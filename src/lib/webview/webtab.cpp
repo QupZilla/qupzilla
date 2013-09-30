@@ -274,13 +274,15 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 
         if (!tab.url.isEmpty()) {
             QColor col = m_view->tabWidget()->getTabBar()->palette().text().color();
-            QColor lighter = col.lighter(250);
-            // Make sure it works for white color
-            if (col == lighter) {
-                lighter = col.darker(250);
+            QColor newCol = col.lighter(250);
+
+            // It won't work for black color because (V) = 0
+            // It won't also work for white, as white won't get any lighter
+            if (col == Qt::black || col == Qt::white) {
+                newCol = Qt::gray;
             }
 
-            m_view->tabWidget()->getTabBar()->overrideTabTextColor(index, lighter);
+            m_view->tabWidget()->getTabBar()->overrideTabTextColor(index, newCol);
         }
     }
     else {

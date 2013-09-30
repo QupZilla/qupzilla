@@ -37,6 +37,11 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
     QWebFrame* frame = m_view->page()->mainFrame();
     QWebElementCollection links = frame->findAllElements("link[type=\"application/rss+xml\"]");
 
+    // Make sure RSS feeds fit into a window, in case there is a lot of feeds from one page
+    // See #906
+    int cols = links.count() / 10 == 0 ? 1 : links.count() / 10;
+    int row = 0;
+
     for (int i = 0; i < links.count(); i++) {
         QWebElement element = links.at(i);
         QString title = element.attribute("title");
@@ -51,14 +56,22 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
 
         QPushButton* button = new QPushButton(this);
         button->setText(tr("Add"));
-        button->setToolTip(title);
+        button->setToolTip(url.toString());
         button->setProperty("rss-url", url);
+        button->setProperty("rss-title", title);
         QLabel* label = new QLabel(this);
-        label->setText(title);
+        label->setText(fontMetrics().elidedText(title, Qt::ElideRight, 300));
+        label->setToolTip(title);
 
-        ui->gridLayout->addWidget(label, i, 0);
-        ui->gridLayout->addWidget(button, i, 1);
+        int pos = i % cols > 0 ? (i % cols) * 2 : 0;
+
+        ui->gridLayout->addWidget(label, row, pos);
+        ui->gridLayout->addWidget(button, row, pos + 1);
         connect(button, SIGNAL(clicked()), this, SLOT(addRss()));
+
+        if (i % cols == cols - 1) {
+            row++;
+        }
     }
 }
 
@@ -78,12 +91,9 @@ void RSSWidget::addRss()
             return;
         }
 
-        QString title;
-        if (button->toolTip().isEmpty()) {
+        QString title = button->property("rss-title").toString();
+        if (title.isEmpty()) {
             title = m_view->url().host();
-        }
-        else {
-            title = button->toolTip();
         }
 
         RSSNotification* notif = new RSSNotification(title, url, m_view);

@@ -221,7 +221,7 @@ QString QupZillaSchemeReply::aboutPage()
         aPage.replace(QLatin1String("%MAIN-DEVELOPER-TEXT%"), authorString(QupZilla::AUTHOR.toUtf8(), "nowrep@gmail.com"));
         aPage.replace(QLatin1String("%CONTRIBUTORS%"), tr("Contributors"));
         aPage.replace(QLatin1String("%CONTRIBUTORS-TEXT%"),
-                      authorString("Mladen Pejaković", "pejakm@gmail.com") + "<br/>" +
+                      authorString("Mladen Pejaković", "pejakm@autistici.org") + "<br/>" +
                       authorString("Alexander Samilov", "alexsamilovskih@gmail.com") + "<br/>" +
                       authorString("Seyyed Razi Alavizadeh", "s.r.alavizadeh@gmail.com") + "<br/>" +
                       authorString("Franz Fellner", "alpine.art.de@googlemail.com") + "<br/>" +
@@ -249,7 +249,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Oleg Brezhnev", "oleg-423@yandex.ru") + " (Russian)<br/>" +
                       authorString("Sérgio Marques", "smarquespt@gmail.com") + " (Portuguese)<br/>" +
                       authorString("Alexandre Carvalho", "alexandre05@live.com") + " (Brazilian Portuguese)<br/>" +
-                      authorString("Mladen Pejaković", "pejakm@gmail.com") + " (Serbian)<br/>" +
+                      authorString("Mladen Pejaković", "pejakm@autistici.org") + " (Serbian)<br/>" +
                       authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
                       authorString("Yu Hai", "yohanprc@eml.cc") + " (Chinese)<br/>" +
                       authorString("Wu Cheng-Hong", "stu2731652@gmail.com") + " (Traditional Chinese)<br/>" +

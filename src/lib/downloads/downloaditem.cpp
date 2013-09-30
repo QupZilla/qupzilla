@@ -255,13 +255,13 @@ QString DownloadItem::remaingTimeToString(QTime time)
         return tr("few seconds");
     }
     else if (time < QTime(0, 1)) {
-        return time.toString("s") + " " + tr("seconds", "", time.second());
+        return time.toString("s") + QLatin1String(" ") + tr("seconds", "", time.second());
     }
     else if (time < QTime(1, 0)) {
-        return time.toString("m") + " " + tr("minutes", "", time.minute());
+        return time.toString("m") + QLatin1String(" ") + tr("minutes", "", time.minute());
     }
     else {
-        return time.toString("h") + " " + tr("hours", "", time.hour());
+        return time.toString("h") + QLatin1String(" ") + tr("hours", "", time.hour());
     }
 }
 
@@ -273,16 +273,16 @@ QString DownloadItem::currentSpeedToString(double speed)
 
     speed /= 1024; // kB
     if (speed < 1000) {
-        return QString::number(speed, 'f', 0) + " " + tr("kB/s");
+        return QString::number(speed, 'f', 0) + QLatin1String(" ") + tr("kB/s");
     }
 
     speed /= 1024; //MB
     if (speed < 1000) {
-        return QString::number(speed, 'f', 2) + " " + tr("MB/s");
+        return QString::number(speed, 'f', 2) + QLatin1String(" ") + tr("MB/s");
     }
 
     speed /= 1024; //GB
-    return QString::number(speed, 'f', 2) + " " + tr("GB/s");
+    return QString::number(speed, 'f', 2) + QLatin1String(" ") + tr("GB/s");
 }
 
 void DownloadItem::updateDownloadInfo(double currSpeed, qint64 received, qint64 total)

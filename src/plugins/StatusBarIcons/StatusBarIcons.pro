@@ -27,6 +27,7 @@ HEADERS += statusbariconsplugin.h \
 RESOURCES += statusbaricons.qrc
 
 TRANSLATIONS = \
+    translations/ar.ts \
     translations/de_DE.ts \
     translations/el_GR.ts \
     translations/he_IL.ts \

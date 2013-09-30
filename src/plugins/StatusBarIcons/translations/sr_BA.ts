@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="sr_BA">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr_BA" version="2.0">
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
@@ -112,22 +110,22 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="124"/>
         <source>System proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Системски прокси</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="128"/>
         <source>No proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Без проксија</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="132"/>
         <source>PAC (Proxy Auto-Config)</source>
-        <translation type="unfinished"></translation>
+        <translation>Аутоматска поставка (ПАЦ)</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="136"/>
         <source>User defined</source>
-        <translation type="unfinished"></translation>
+        <translation>Кориснички дефинисан</translation>
     </message>
 </context>
 <context>
