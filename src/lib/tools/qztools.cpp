@@ -288,18 +288,17 @@ QString QzTools::fileSizeToString(qint64 size)
 
     double _size = size / 1024.0; // KB
     if (_size < 1000) {
-        return QString::number(_size > 1 ? _size : 1, 'f', 0) + " KB";
+        return QString::number(_size > 1 ? _size : 1, 'f', 0) + " " + QObject::tr("KB");
     }
 
     _size /= 1024; // MB
     if (_size < 1000) {
-        return QString::number(_size, 'f', 1) + " MB";
+        return QString::number(_size, 'f', 1) + " " + QObject::tr("MB");
     }
 
     _size /= 1024; // GB
-    return QString::number(_size, 'f', 2) + " GB";
+    return QString::number(_size, 'f', 2) + " " + QObject::tr("GB");
 }
-
 
 QPixmap QzTools::createPixmapForSite(const QIcon &icon, const QString &title, const QString &url)
 {

@@ -255,13 +255,13 @@ QString DownloadItem::remaingTimeToString(QTime time)
         return tr("few seconds");
     }
     else if (time < QTime(0, 1)) {
-        return time.toString("s") + QLatin1String(" ") + tr("seconds", "", time.second());
+        return tr("%n seconds", "", time.second());
     }
     else if (time < QTime(1, 0)) {
-        return time.toString("m") + QLatin1String(" ") + tr("minutes", "", time.minute());
+        return tr("%n minutes", "", time.minute());
     }
     else {
-        return time.toString("h") + QLatin1String(" ") + tr("hours", "", time.hour());
+        return tr("%n hours", "", time.hour());
     }
 }
 

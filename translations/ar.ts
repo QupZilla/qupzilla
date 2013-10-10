@@ -1579,25 +1579,61 @@ Please install latest version of QupZilla.</source>
         <source>few seconds</source>
         <translation>بضع ثوانٍ</translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="258"/>
-        <source>seconds</source>
-        <translation>ثا</translation>
+        <source>%n seconds</source>
+        <translation>
+            <numerusform>ثانية</numerusform>
+            <numerusform>ثانية واحدة</numerusform>
+            <numerusform>ثانيتان</numerusform>
+            <numerusform>%n ثوانٍ</numerusform>
+            <numerusform>%n ثانيةً</numerusform>
+            <numerusform>%n ثانيةٍ</numerusform>
+        </translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="261"/>
-        <source>minutes</source>
-        <translation>د</translation>
+        <source>%n minutes</source>
+        <translation>
+            <numerusform>دقيقة</numerusform>
+            <numerusform>دقيقة واحدة</numerusform>
+            <numerusform>دقيقتان</numerusform>
+            <numerusform>%n دقائق</numerusform>
+            <numerusform>%n دقيقةً</numerusform>
+            <numerusform>%n دقيقةٍ</numerusform>
+        </translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="264"/>
-        <source>hours</source>
-        <translation>سا</translation>
+        <source>%n hours</source>
+        <translation>
+            <numerusform>ساعة</numerusform>
+            <numerusform>ساعة واحدة</numerusform>
+            <numerusform>ساعتان</numerusform>
+            <numerusform>%n ساعات</numerusform>
+            <numerusform>%n ساعةً</numerusform>
+            <numerusform>%n ساعةٍ</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="271"/>
         <source>Unknown speed</source>
         <translation>لا تُعرف السرعة</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="276"/>
+        <source>kB/s</source>
+        <translation>ك.ب/ثا</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="281"/>
+        <source>MB/s</source>
+        <translation>م.ب/ثا</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="285"/>
+        <source>GB/s</source>
+        <translation>ج.ب/ثا</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="309"/>
@@ -1612,7 +1648,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="313"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
-        <translation>تبقى %1 - %2 من %3 (%4)</translation>
+        <translation>تبقت %1 - %2 من %3 (%4)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="344"/>
@@ -1700,7 +1736,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="176"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
-        <translation>%1% من %2 (%3) - تبقى %4</translation>
+        <translation>%1% من %2 (%3) - تبقت %4</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="179"/>
@@ -3823,6 +3859,21 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/tools/qztools.cpp" line="286"/>
         <source>Unknown size</source>
         <translation>لا يُعرف الحجم</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tools/qztools.cpp" line="291"/>
+        <source>KB</source>
+        <translation>كيلوبايت</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tools/qztools.cpp" line="296"/>
+        <source>MB</source>
+        <translation>ميغابايت</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tools/qztools.cpp" line="300"/>
+        <source>GB</source>
+        <translation>جيجابايت</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="619"/>
