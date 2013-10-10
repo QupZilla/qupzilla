@@ -1580,21 +1580,21 @@ Please install latest version of QupZilla.</source>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="258"/>
-        <source>seconds</source>
+        <source>%n seconds</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="261"/>
-        <source>minutes</source>
+        <source>%n minutes</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="264"/>
-        <source>hours</source>
+        <source>%n hours</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
@@ -3844,22 +3844,37 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="619"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="291"/>
+        <source>KB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tools/qztools.cpp" line="296"/>
+        <source>MB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tools/qztools.cpp" line="300"/>
+        <source>GB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tools/qztools.cpp" line="618"/>
         <source>Executable: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="620"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="619"/>
         <source>Arguments: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="622"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="621"/>
         <source>Cannot start external program</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="623"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="622"/>
         <source>Cannot start external program! %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4937,12 +4952,12 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rsswidget.cpp" line="49"/>
+        <location filename="../src/lib/rss/rsswidget.cpp" line="54"/>
         <source>Untitled feed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rsswidget.cpp" line="53"/>
+        <location filename="../src/lib/rss/rsswidget.cpp" line="58"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
