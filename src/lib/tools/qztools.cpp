@@ -300,7 +300,6 @@ QString QzTools::fileSizeToString(qint64 size)
     return QString::number(_size, 'f', 2) + " " + QObject::tr("GB");
 }
 
-
 QPixmap QzTools::createPixmapForSite(const QIcon &icon, const QString &title, const QString &url)
 {
     const QFontMetrics fontMetrics = QApplication::fontMetrics();

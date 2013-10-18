@@ -18,11 +18,12 @@
 #include "downloadoptionsdialog.h"
 #include "ui_downloadoptionsdialog.h"
 
-#include <QUrl>
+#include <QClipboard>
 
 DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QPixmap &fileIcon, const QString &mimeType, const QUrl &url, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::DownloadOptionsDialog)
+    , m_url(url)
     , m_signalEmited(false)
 {
     ui->setupUi(this);
@@ -37,6 +38,7 @@ DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QPix
 
     ui->buttonBox->setFocus();
 
+    connect(ui->copyDownloadLink, SIGNAL(clicked(QPoint)), this, SLOT(copyDownloadLink()));
     connect(this, SIGNAL(finished(int)), this, SLOT(emitDialogFinished(int)));
 }
 
@@ -89,6 +91,12 @@ int DownloadOptionsDialog::exec()
     }
 
     return status;
+}
+
+void DownloadOptionsDialog::copyDownloadLink()
+{
+    QApplication::clipboard()->setText(m_url.toString());
+    ui->copyDownloadLink->setText(tr("Download link copied."));
 }
 
 void DownloadOptionsDialog::emitDialogFinished(int status)

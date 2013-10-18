@@ -19,6 +19,7 @@
 #define DOWNLOADOPTIONSDIALOG_H
 
 #include <QDialog>
+#include <QUrl>
 
 #include "qz_namespace.h"
 #include "downloadmanager.h"
@@ -44,6 +45,7 @@ public:
     int exec();
 
 private slots:
+    void copyDownloadLink();
     void emitDialogFinished(int status);
 
 signals:
@@ -51,6 +53,8 @@ signals:
 
 private:
     Ui::DownloadOptionsDialog* ui;
+
+    QUrl m_url;
     bool m_signalEmited;
 };
 

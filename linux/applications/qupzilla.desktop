@@ -67,7 +67,7 @@ GenericName[ja]=Webブラウザ
 GenericName[fa]=مرورگر وب
 GenericName[ar]=متصفح وِب
 Exec=qupzilla %u
-MimeType=text/html;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
+MimeType=text/html;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;application/x-mimearchive;
 Terminal=false
 X-Ayatana-Desktop-Shortcuts=NewTab;NewWindow;PrivateBrowsing;
 
