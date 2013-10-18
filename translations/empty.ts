@@ -3869,7 +3869,11 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/lib/tools/qztools.cpp" line="619"/>
+=======
         <location filename="../src/lib/tools/qztools.cpp" line="618"/>
+>>>>>>> ea7720e64b14ed03697c680ac56b2e1c89a73027
         <source>Executable: </source>
         <translation type="unfinished"></translation>
     </message>
