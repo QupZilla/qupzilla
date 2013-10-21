@@ -154,7 +154,12 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
 
     QTimer::singleShot(0, this, SLOT(postLaunch()));
 
-    QzTools::setWmClass("QupZilla Browser", this);
+    if (mApp->isPrivateSession()) {
+        QzTools::setWmClass("QupZilla Browser (Private Window)", this);
+    }
+    else {
+        QzTools::setWmClass("QupZilla Browser", this);
+    }
 }
 
 void QupZilla::openWithTab(WebTab* tab)
