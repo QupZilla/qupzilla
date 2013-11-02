@@ -106,7 +106,8 @@ private:
         DomainMatchRule = 1,
         RegExpMatchRule = 2,
         StringEndsMatchRule = 3,
-        StringContainsMatchRule = 4
+        StringContainsMatchRule = 4,
+        Invalid = 5
     };
 
     enum RuleOption {
@@ -153,6 +154,8 @@ private:
 
     QStringList m_allowedDomains;
     QStringList m_blockedDomains;
+
+    friend class AdBlockSearchTree;
 };
 
 #endif // ADBLOCKRULE_H

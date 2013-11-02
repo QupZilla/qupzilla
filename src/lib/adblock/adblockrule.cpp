@@ -47,9 +47,9 @@
 #include "adblockrule.h"
 #include "adblocksubscription.h"
 #include "qztools.h"
+#include "qzregexp.h"
 
 #include <QDebug>
-#include "qzregexp.h"
 #include <QUrl>
 #include <QString>
 #include <QStringList>
@@ -362,6 +362,7 @@ void AdBlockRule::parseFilter()
     // Empty rule or just comment
     if (m_filter.trimmed().isEmpty() || m_filter.startsWith(QLatin1Char('!'))) {
         m_isEnabled = false;
+        m_type = Invalid;
         return;
     }
 
@@ -445,6 +446,7 @@ void AdBlockRule::parseFilter()
         // If we don't handle all options, it's safer to just disable this rule
         if (handledOptions != options.count()) {
             m_isInternalDisabled = true;
+            m_type = Invalid;
             return;
         }
 
