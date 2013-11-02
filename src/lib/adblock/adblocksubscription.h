@@ -56,6 +56,7 @@ class QNetworkRequest;
 class QNetworkReply;
 class QUrl;
 
+class AdBlockSearchTree;
 class FollowRedirectReply;
 
 class QT_QUPZILLA_EXPORT AdBlockSubscription : public QObject
@@ -122,6 +123,9 @@ protected:
 
     QVector<const AdBlockRule*> m_documentRules;
     QVector<const AdBlockRule*> m_elemhideRules;
+
+    AdBlockSearchTree* m_networkBlockTree;
+    AdBlockSearchTree* m_networkExceptionTree;
 
 private:
     QString m_title;

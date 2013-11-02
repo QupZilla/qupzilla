@@ -44,6 +44,7 @@
  */
 #include "adblocksubscription.h"
 #include "adblockmanager.h"
+#include "adblocksearchtree.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "qztools.h"
@@ -57,6 +58,8 @@
 AdBlockSubscription::AdBlockSubscription(const QString &title, QObject* parent)
     : QObject(parent)
     , m_reply(0)
+    , m_networkBlockTree(0)
+    , m_networkExceptionTree(0)
     , m_title(title)
     , m_updated(false)
 {
@@ -200,6 +203,14 @@ void AdBlockSubscription::saveDownloadedData(const QByteArray &data)
 
 const AdBlockRule* AdBlockSubscription::match(const QNetworkRequest &request, const QString &urlDomain, const QString &urlString) const
 {
+    if (m_networkExceptionTree->find(request, urlDomain, urlString)) {
+        return 0;
+    }
+
+    if (const AdBlockRule* rule = m_networkBlockTree->find(request, urlDomain, urlString)) {
+        return rule;
+    }
+
     int count = m_networkExceptionRules.count();
     for (int i = 0; i < count; ++i) {
         const AdBlockRule* rule = m_networkExceptionRules.at(i);
@@ -373,6 +384,12 @@ void AdBlockSubscription::populateCache()
     m_documentRules.clear();
     m_elemhideRules.clear();
 
+    delete m_networkBlockTree;
+    delete m_networkExceptionTree;
+
+    m_networkBlockTree = new AdBlockSearchTree;
+    m_networkExceptionTree = new AdBlockSearchTree;
+
     // Apparently, excessive amount of selectors for one CSS rule is not what WebKit likes.
     // (In my testings, 4931 is the number that makes it crash)
     // So let's split it by 1000 selectors...
@@ -406,10 +423,14 @@ void AdBlockSubscription::populateCache()
             m_elemhideRules.append(rule);
         }
         else if (rule->isException()) {
-            m_networkExceptionRules.append(rule);
+            if (!m_networkExceptionTree->add(rule)) {
+                m_networkExceptionRules.append(rule);
+            }
         }
         else {
-            m_networkBlockRules.append(rule);
+            if (!m_networkBlockTree->add(rule)) {
+                m_networkBlockRules.append(rule);
+            }
         }
     }
 
@@ -422,6 +443,8 @@ void AdBlockSubscription::populateCache()
 AdBlockSubscription::~AdBlockSubscription()
 {
     qDeleteAll(m_rules);
+    delete m_networkBlockTree;
+    delete m_networkExceptionTree;
 }
 
 // AdBlockCustomList

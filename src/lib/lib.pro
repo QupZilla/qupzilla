@@ -247,7 +247,8 @@ SOURCES += \
     autofill/passwordbackends/passwordbackend.cpp \
     tools/aesinterface.cpp \
     autofill/passwordbackends/databaseencryptedpasswordbackend.cpp \
-    network/sslerrordialog.cpp
+    network/sslerrordialog.cpp \
+    adblock/adblocksearchtree.cpp
 
 
 HEADERS  += \
@@ -431,7 +432,8 @@ HEADERS  += \
     autofill/passwordbackends/databasepasswordbackend.h \
     tools/aesinterface.h \
     autofill/passwordbackends/databaseencryptedpasswordbackend.h \
-    network/sslerrordialog.h
+    network/sslerrordialog.h \
+    adblock/adblocksearchtree.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
