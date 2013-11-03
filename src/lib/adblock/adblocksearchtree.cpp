@@ -69,16 +69,18 @@ bool AdBlockSearchTree::add(const AdBlockRule* rule)
     return true;
 }
 
-const AdBlockRule* AdBlockSearchTree::find(const QNetworkRequest &request, const QString &domain, const QString &string) const
+const AdBlockRule* AdBlockSearchTree::find(const QNetworkRequest &request, const QString &domain, const QString &urlString) const
 {
-    int len = string.size();
+    int len = urlString.size();
 
     if (len <= 0) {
         return 0;
     }
 
+    const QChar* string = urlString.constData();
+
     for (int i = 0; i < len; ++i) {
-        const AdBlockRule* rule = prefixSearch(request, domain, string, string.mid(i));
+        const AdBlockRule* rule = prefixSearch(request, domain, urlString, string++, len - i);
         if (rule) {
             return rule;
         }
@@ -87,15 +89,13 @@ const AdBlockRule* AdBlockSearchTree::find(const QNetworkRequest &request, const
     return 0;
 }
 
-const AdBlockRule* AdBlockSearchTree::prefixSearch(const QNetworkRequest &request, const QString &domain, const QString &urlString, const QString &string) const
+const AdBlockRule* AdBlockSearchTree::prefixSearch(const QNetworkRequest &request, const QString &domain, const QString &urlString, const QChar* string, int len) const
 {
-    int len = string.size();
-
     if (len <= 0) {
         return 0;
     }
 
-    QChar c = string.at(0);
+    QChar c = string[0];
 
     if (!m_root->children.contains(c)) {
         return 0;
@@ -104,7 +104,7 @@ const AdBlockRule* AdBlockSearchTree::prefixSearch(const QNetworkRequest &reques
     Node* node = m_root->children[c];
 
     for (int i = 1; i < len; ++i) {
-        const QChar &c = string.at(i);
+        const QChar &c = (++string)[0];
 
         if (node->rule && node->rule->networkMatch(request, domain, urlString)) {
             return node->rule;
