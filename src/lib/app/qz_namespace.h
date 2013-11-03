@@ -99,6 +99,8 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 
 }
 
+#define ADBLOCK_EASYLIST_URL "https://easylist-downloads.adblockplus.org/easylist.txt"
+
 #ifdef Q_OS_WIN
 #define DEFAULT_THEME_NAME "windows"
 #elif defined(QZ_WS_X11)

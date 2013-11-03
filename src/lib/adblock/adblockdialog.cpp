@@ -33,6 +33,7 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
     , m_currentTreeWidget(0)
     , m_currentSubscription(0)
     , m_loaded(false)
+    , m_useLimitedEasyList(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setupUi(this);
@@ -57,6 +58,7 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
     connect(adblockCheckBox, SIGNAL(toggled(bool)), this, SLOT(enableAdBlock(bool)));
     connect(search, SIGNAL(textChanged(QString)), this, SLOT(filterString(QString)));
     connect(tabWidget, SIGNAL(currentChanged(int)), this, SLOT(currentChanged(int)));
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(close()));
 
     load();
 
@@ -121,6 +123,9 @@ void AdBlockDialog::currentChanged(int index)
     if (index != -1) {
         m_currentTreeWidget = qobject_cast<AdBlockTreeWidget*>(tabWidget->widget(index));
         m_currentSubscription = m_currentTreeWidget->subscription();
+
+        bool isEasyList = m_currentSubscription->url() == QUrl(ADBLOCK_EASYLIST_URL);
+        useLimitedEasyList->setVisible(isEasyList);
     }
 }
 
@@ -174,7 +179,19 @@ void AdBlockDialog::load()
         tabWidget->addTab(tree, subscription->title());
     }
 
+    m_useLimitedEasyList = m_manager->useLimitedEasyList();
+    useLimitedEasyList->setChecked(m_useLimitedEasyList);
+
     m_loaded = true;
 
     QTimer::singleShot(50, this, SLOT(loadSubscriptions()));
+}
+
+void AdBlockDialog::closeEvent(QCloseEvent* ev)
+{
+    if (useLimitedEasyList->isChecked() != m_useLimitedEasyList) {
+        m_manager->setUseLimitedEasyList(useLimitedEasyList->isChecked());
+    }
+
+    QDialog::closeEvent(ev);
 }

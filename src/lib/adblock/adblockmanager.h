@@ -48,6 +48,9 @@ public:
     bool isEnabled() const;
     bool canRunOnScheme(const QString &scheme) const;
 
+    bool useLimitedEasyList() const;
+    void setUseLimitedEasyList(bool useLimited);
+
     QString elementHidingRules() const;
     QString elementHidingRulesForDomain(const QUrl &url) const;
 
@@ -79,6 +82,7 @@ private:
 
     bool m_loaded;
     bool m_enabled;
+    bool m_useLimitedEasyList;
 
     QList<AdBlockSubscription*> m_subscriptions;
     QStringList m_disabledRules;

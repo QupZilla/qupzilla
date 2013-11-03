@@ -55,6 +55,8 @@ private slots:
     void load();
 
 private:
+    void closeEvent(QCloseEvent* ev);
+
     AdBlockManager* m_manager;
     AdBlockTreeWidget* m_currentTreeWidget;
     AdBlockSubscription* m_currentSubscription;
@@ -65,6 +67,7 @@ private:
     QAction* m_actionRemoveSubscription;
 
     bool m_loaded;
+    bool m_useLimitedEasyList;
 };
 
 #endif // ADBLOCKDIALOG_H

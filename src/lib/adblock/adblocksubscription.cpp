@@ -182,7 +182,7 @@ void AdBlockSubscription::saveDownloadedData(const QByteArray &data)
         return;
     }
 
-    if (m_url == QUrl("https://easylist-downloads.adblockplus.org/easylist.txt")) {
+    if (AdBlockManager::instance()->useLimitedEasyList() && m_url == QUrl(ADBLOCK_EASYLIST_URL)) {
         // Third-party advertisers rules are with start domain (||) placeholder which needs regexps
         // So we are ignoring it for keeping good performance
         // But we will use whitelist rules at the end of list
