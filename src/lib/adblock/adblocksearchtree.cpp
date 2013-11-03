@@ -43,14 +43,14 @@ bool AdBlockSearchTree::add(const AdBlockRule* rule)
 
     for (int i = 0; i < len; ++i) {
         const QChar &c = filter.at(i);
-        if (!node->childs.contains(c)) {
+        if (!node->children.contains(c)) {
             Node* n = new Node;
             n->c = c;
 
-            node->childs[c] = n;
+            node->children[c] = n;
         }
 
-        node = node->childs[c];
+        node = node->children[c];
     }
 
     node->rule = rule;
@@ -86,11 +86,11 @@ const AdBlockRule* AdBlockSearchTree::prefixSearch(const QNetworkRequest &reques
 
     QChar c = string.at(0);
 
-    if (!m_root->childs.contains(c)) {
+    if (!m_root->children.contains(c)) {
         return 0;
     }
 
-    Node* node = m_root->childs[c];
+    Node* node = m_root->children[c];
 
     for (int i = 1; i < len; ++i) {
         const QChar &c = string.at(i);
@@ -99,11 +99,11 @@ const AdBlockRule* AdBlockSearchTree::prefixSearch(const QNetworkRequest &reques
             return node->rule;
         }
 
-        if (!node->childs.contains(c)) {
+        if (!node->children.contains(c)) {
             return 0;
         }
 
-        node = node->childs[c];
+        node = node->children[c];
     }
 
     if (node->rule && node->rule->networkMatch(request, domain, urlString)) {
@@ -119,7 +119,7 @@ void AdBlockSearchTree::deleteNode(AdBlockSearchTree::Node* node)
         return;
     }
 
-    QHashIterator<QChar, Node*> i(node->childs);
+    QHashIterator<QChar, Node*> i(node->children);
     while (i.hasNext()) {
         i.next();
         deleteNode(i.value());

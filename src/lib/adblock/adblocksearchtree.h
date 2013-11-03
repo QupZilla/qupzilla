@@ -40,7 +40,7 @@ private:
     struct Node {
         QChar c;
         const AdBlockRule* rule;
-        QHash<QChar, Node*> childs;
+        QHash<QChar, Node*> children;
 
         Node() : c(0) , rule(0) { }
     };
