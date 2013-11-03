@@ -33,8 +33,10 @@ public:
     explicit AdBlockSearchTree();
     ~AdBlockSearchTree();
 
+    void clear();
+
     bool add(const AdBlockRule* rule);
-    const AdBlockRule* find(const QNetworkRequest &request, const QString &domain, const QString &string);
+    const AdBlockRule* find(const QNetworkRequest &request, const QString &domain, const QString &string) const;
 
 private:
     struct Node {
@@ -46,7 +48,7 @@ private:
     };
 
     const AdBlockRule* prefixSearch(const QNetworkRequest &request, const QString &domain,
-                                    const QString &urlString, const QString &string);
+                                    const QString &urlString, const QString &string) const;
 
     void deleteNode(Node* node);
 

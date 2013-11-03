@@ -25,6 +25,17 @@ AdBlockSearchTree::AdBlockSearchTree()
 {
 }
 
+AdBlockSearchTree::~AdBlockSearchTree()
+{
+    deleteNode(m_root);
+}
+
+void AdBlockSearchTree::clear()
+{
+    deleteNode(m_root);
+    m_root = new Node;
+}
+
 bool AdBlockSearchTree::add(const AdBlockRule* rule)
 {
     if (rule->m_type != AdBlockRule::StringContainsMatchRule) {
@@ -58,7 +69,7 @@ bool AdBlockSearchTree::add(const AdBlockRule* rule)
     return true;
 }
 
-const AdBlockRule* AdBlockSearchTree::find(const QNetworkRequest &request, const QString &domain, const QString &string)
+const AdBlockRule* AdBlockSearchTree::find(const QNetworkRequest &request, const QString &domain, const QString &string) const
 {
     int len = string.size();
 
@@ -76,7 +87,7 @@ const AdBlockRule* AdBlockSearchTree::find(const QNetworkRequest &request, const
     return 0;
 }
 
-const AdBlockRule* AdBlockSearchTree::prefixSearch(const QNetworkRequest &request, const QString &domain, const QString &urlString, const QString &string)
+const AdBlockRule* AdBlockSearchTree::prefixSearch(const QNetworkRequest &request, const QString &domain, const QString &urlString, const QString &string) const
 {
     int len = string.size();
 
@@ -126,9 +137,4 @@ void AdBlockSearchTree::deleteNode(AdBlockSearchTree::Node* node)
     }
 
     delete node;
-}
-
-AdBlockSearchTree::~AdBlockSearchTree()
-{
-    deleteNode(m_root);
 }
