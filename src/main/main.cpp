@@ -20,7 +20,7 @@
 
 #include <QMessageBox> // For QT_REQUIRE_VERSION
 
-#ifdef Q_OS_LINUX
+#if defined(Q_OS_LINUX) || defined(__GLIBC__)
 #include <iostream>
 #include <signal.h>
 #include <execinfo.h>
@@ -111,7 +111,7 @@ void qupzilla_signal_handler(int s)
         break;
     }
 }
-#endif
+#endif // defined(Q_OS_LINUX) || defined(__GLIBC__)
 
 #if (QT_VERSION < 0x050000)
 void msgHandler(QtMsgType type, const char* msg)
@@ -125,11 +125,11 @@ void msgHandler(QtMsgType type, const char* msg)
     case QtDebugMsg:
     case QtWarningMsg:
     case QtCriticalMsg:
-        fprintf(stderr, "%s\n", msg);
+        std::cerr << msg << std::endl;
         break;
 
     case QtFatalMsg:
-        fprintf(stderr, "Fatal: %s\n", msg);
+        std::cerr << "Fatal: " << msg << std::endl;
         abort();
 
     default:
@@ -144,11 +144,11 @@ void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString
     case QtDebugMsg:
     case QtWarningMsg:
     case QtCriticalMsg:
-        fprintf(stderr, "%s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+        std::cerr << localMsg.constData() << " (" <<  context.file << ":" << context.line << ", " << context.function << ")" << std::endl;
         break;
 
     case QtFatalMsg:
-        fprintf(stderr, "Fatal: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+        std::cerr << "Fatal: " << localMsg.constData() << " (" << context.file << ":" << context.line << ", " << context.function << ")" << std::endl;
         abort();
 
     default:
@@ -173,7 +173,7 @@ int main(int argc, char* argv[])
     QApplication::setGraphicsSystem("raster"); // Better overall performance on X11
 #endif
 
-#ifdef Q_OS_LINUX
+#if defined(Q_OS_LINUX) || defined(__GLIBC__)
     signal(SIGSEGV, qupzilla_signal_handler);
     signal(SIGPIPE, qupzilla_signal_handler);
 #endif
