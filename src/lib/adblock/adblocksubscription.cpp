@@ -392,11 +392,19 @@ void AdBlockSubscription::populateCache()
     int count = m_rules.count();
     for (int i = 0; i < count; ++i) {
         const AdBlockRule* rule = m_rules.at(i);
-        if (!rule->isEnabled()) {
+
+        // Don't add internally disabled rules to cache
+        if (rule->isInternalDisabled()) {
             continue;
         }
 
         if (rule->isCssRule()) {
+            // We will add only enabled css rules to cache, because there is no enabled/disabled
+            // check on match. They are directly embedded to pages.
+            if (!rule->isEnabled()) {
+                continue;
+            }
+
             if (rule->isDomainRestricted()) {
                 m_domainRestrictedCssRules.append(rule);
             }

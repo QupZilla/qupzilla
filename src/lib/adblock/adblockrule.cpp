@@ -361,7 +361,10 @@ void AdBlockRule::parseFilter()
 
     // Empty rule or just comment
     if (m_filter.trimmed().isEmpty() || m_filter.startsWith(QLatin1Char('!'))) {
+        // We want to differentiate rule disabled by user and rule disabled in subscription file
+        // m_isInternalDisabled is also used when rule is disabled due to all options not being supported
         m_isEnabled = false;
+        m_isInternalDisabled = true;
         m_type = Invalid;
         return;
     }
