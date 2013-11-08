@@ -89,8 +89,8 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         return;
     }
 
-    // 1.3.5, 1.4.x = no changes
-    if (prof >= Updater::Version("1.3.5") && prof < Updater::Version("1.5.0")) {
+    if (prof >= Updater::Version("1.4.0") && prof <= Updater::Version("1.5.0")) {
+        update140();
         return;
     }
 
@@ -173,4 +173,16 @@ void ProfileUpdater::update130()
 
     QSqlQuery query;
     query.exec("ALTER TABLE bookmarks ADD COLUMN keyword TEXT");
+
+    update140();
+}
+
+void ProfileUpdater::update140()
+{
+    std::cout << "QupZilla: Upgrading profile version from 1.4.0..." << std::endl;
+    mApp->connectDatabase();
+
+    QSqlQuery query;
+    query.exec("ALTER TABLE search_engines ADD COLUMN method TEXT");
+    query.exec("UPDATE search_engines SET method='GET'");
 }

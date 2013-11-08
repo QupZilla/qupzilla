@@ -67,14 +67,15 @@ void SearchEnginesManager::loadSettings()
     m_settingsLoaded = true;
 
     QSqlQuery query;
-    query.exec("SELECT name, icon, url, shortcut, suggestionsUrl FROM search_engines");
+    query.exec("SELECT name, icon, url, shortcut, method, suggestionsUrl FROM search_engines");
     while (query.next()) {
         Engine en;
         en.name = query.value(0).toString();
         en.icon = qIconProvider->iconFromBase64(query.value(1).toByteArray());
         en.url = query.value(2).toString();
         en.shortcut = query.value(3).toString();
-        en.suggestionsUrl = query.value(4).toString();
+        en.method = query.value(4).toString();
+        en.suggestionsUrl = query.value(5).toString();
 
         m_allEngines.append(en);
 
@@ -446,13 +447,14 @@ void SearchEnginesManager::saveSettings()
     query.exec("DELETE FROM search_engines");
 
     foreach (const Engine &en, m_allEngines) {
-        query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, suggestionsUrl, suggestionsParameters) VALUES (?, ?, ?, ?, ?, ?)");
-        query.bindValue(0, en.name);
-        query.bindValue(1, qIconProvider->iconToBase64(en.icon));
-        query.bindValue(2, en.url);
-        query.bindValue(3, en.shortcut);
-        query.bindValue(4, en.suggestionsUrl);
-        query.bindValue(5, en.suggestionsParameters);
+        query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, method, suggestionsUrl, suggestionsParameters) VALUES (?, ?, ?, ?, ?, ?)");
+        query.addBindValue(en.name);
+        query.addBindValue(qIconProvider->iconToBase64(en.icon));
+        query.addBindValue(en.url);
+        query.addBindValue(en.shortcut);
+        query.addBindValue(en.method);
+        query.addBindValue(en.suggestionsUrl);
+        query.addBindValue(en.suggestionsParameters);
 
         query.exec();
     }

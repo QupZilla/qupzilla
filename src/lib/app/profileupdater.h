@@ -36,6 +36,7 @@ private:
     void update118();
     void update120();
     void update130();
+    void update140();
 
     QString m_profilePath;
 };

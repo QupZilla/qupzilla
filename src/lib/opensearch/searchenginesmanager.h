@@ -34,7 +34,6 @@ class QT_QUPZILLA_EXPORT SearchEnginesManager : public QObject
 {
     Q_OBJECT
 public:
-
     explicit SearchEnginesManager();
 
     struct Engine {
@@ -42,10 +41,10 @@ public:
         QIcon icon;
         QString url;
         QString shortcut;
+        QString method;
 
         QString suggestionsUrl;
         QByteArray suggestionsParameters;
-
 
         bool operator==(const Engine &other) const {
             return (this->name == other.name &&
