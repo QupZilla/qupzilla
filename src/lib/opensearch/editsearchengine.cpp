@@ -37,7 +37,7 @@ EditSearchEngine::EditSearchEngine(const QString &title, QWidget* parent)
 
 QString EditSearchEngine::name()
 {
-    return ui->name->text();
+    return ui->name->text().trimmed();
 }
 
 void EditSearchEngine::setName(const QString &name)
@@ -48,7 +48,12 @@ void EditSearchEngine::setName(const QString &name)
 
 QString EditSearchEngine::url()
 {
-    return ui->url->text();
+    return ui->url->text().trimmed();
+}
+
+QString EditSearchEngine::postData()
+{
+    return ui->postData->text().trimmed();
 }
 
 void EditSearchEngine::setUrl(const QString &url)
@@ -57,9 +62,15 @@ void EditSearchEngine::setUrl(const QString &url)
     ui->url->setCursorPosition(0);
 }
 
+void EditSearchEngine::setPostData(const QString &postData)
+{
+    ui->postData->setText(postData);
+    ui->postData->setCursorPosition(0);
+}
+
 QString EditSearchEngine::shortcut()
 {
-    return ui->shortcut->text();
+    return ui->shortcut->text().trimmed();
 }
 
 void EditSearchEngine::setShortcut(const QString &shortcut)

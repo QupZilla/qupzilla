@@ -35,11 +35,13 @@ public:
 
     void setName(const QString &name);
     void setUrl(const QString &url);
+    void setPostData(const QString &postData);
     void setShortcut(const QString &shortcut);
     void setIcon(const QIcon &icon);
 
     QString name();
     QString url();
+    QString postData();
     QString shortcut();
     QIcon icon();
 

@@ -777,7 +777,7 @@ void WebView::checkForForm(QMenu* menu, const QWebElement &element)
     const QString &url = parentElement.attribute("action");
     const QString &method = parentElement.hasAttribute("method") ? parentElement.attribute("method").toUpper() : "GET";
 
-    if (!url.isEmpty() && method == QLatin1String("GET")) {
+    if (!url.isEmpty() && (method == QLatin1String("GET") || method == QLatin1String("POST"))) {
         menu->addAction(QIcon(":icons/menu/search-icon.png"), tr("Create Search Engine"), this, SLOT(createSearchEngine()));
 
         m_clickedElement = element;

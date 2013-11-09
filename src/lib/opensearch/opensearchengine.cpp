@@ -252,6 +252,34 @@ QUrl OpenSearchEngine::searchUrl(const QString &searchTerm) const
     return retVal;
 }
 
+QByteArray OpenSearchEngine::getPostData(const QString &searchTerm) const
+{
+    if (m_searchMethod != QLatin1String("post")) {
+        return QByteArray();
+    }
+
+    QUrl retVal = QUrl("http://foo.bar");
+
+#if QT_VERSION >= 0x050000
+    QUrlQuery query(retVal);
+#endif
+    Parameters::const_iterator end = m_searchParameters.constEnd();
+    Parameters::const_iterator i = m_searchParameters.constBegin();
+    for (; i != end; ++i) {
+#if QT_VERSION >= 0x050000
+        query.addQueryItem(i->first, parseTemplate(searchTerm, i->second));
+#else
+        retVal.addQueryItem(i->first, parseTemplate(searchTerm, i->second));
+#endif
+    }
+#if QT_VERSION >= 0x050000
+    retVal.setQuery(query);
+#endif
+
+    QByteArray data = retVal.toEncoded(QUrl::RemoveScheme);
+    return data.contains('?') ? data.mid(data.lastIndexOf('?') + 1) : QByteArray();
+}
+
 /*!
     \property providesSuggestions
     \brief indicates whether the engine supports contextual suggestions

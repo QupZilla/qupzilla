@@ -88,6 +88,8 @@ public:
     void setSearchUrlTemplate(const QString &searchUrl);
     QUrl searchUrl(const QString &searchTerm) const;
 
+    QByteArray getPostData(const QString &searchTerm) const;
+
     bool providesSuggestions() const;
 
     QString suggestionsUrlTemplate() const;

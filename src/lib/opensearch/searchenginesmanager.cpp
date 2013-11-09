@@ -115,12 +115,24 @@ SearchEnginesManager::SearchResult SearchEnginesManager::searchResult(const Engi
 {
     ENSURE_LOADED;
 
-    QByteArray url = engine.url.toUtf8();
-    url.replace(QLatin1String("%s"), QUrl::toPercentEncoding(string));
-
     SearchResult result;
-    result.request = QNetworkRequest(QUrl::fromEncoded(url));
-    result.operation = QNetworkAccessManager::GetOperation;
+
+    if (engine.postData.isEmpty()) {
+        QByteArray url = engine.url.toUtf8();
+        url.replace(QLatin1String("%s"), QUrl::toPercentEncoding(string));
+
+        result.request = QNetworkRequest(QUrl::fromEncoded(url));
+        result.operation = QNetworkAccessManager::GetOperation;
+    }
+    else {
+        QByteArray data = engine.postData;
+        data.replace("%s", QUrl::toPercentEncoding(string));
+
+        result.request = QNetworkRequest(QUrl::fromEncoded(engine.url.toUtf8()));
+        result.request.setHeader(QNetworkRequest::ContentTypeHeader, QByteArray("application/x-www-form-urlencoded"));
+        result.operation = QNetworkAccessManager::PostOperation;
+        result.data = data;
+    }
 
     return result;
 }
@@ -232,13 +244,23 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
         return;
     }
 
+    const QString &method = formElement.hasAttribute("method") ? formElement.attribute("method").toUpper() : "GET";
+    bool isPost = method == QLatin1String("POST");
+
     QUrl actionUrl = QUrl::fromEncoded(formElement.attribute("action").toUtf8());
 
     if (actionUrl.isRelative()) {
         actionUrl = view->url().resolved(actionUrl);
     }
+
+    QUrl parameterUrl = actionUrl;
+
+    if (isPost) {
+        parameterUrl = QUrl("http://foo.bar");
+    }
+
 #if QT_VERSION >= 0x050000
-    QUrlQuery query(actionUrl);
+    QUrlQuery query(parameterUrl);
     query.addQueryItem(element.attribute("name"), "%s");
 
     QWebElementCollection allInputs = formElement.findAll("input");
@@ -250,11 +272,15 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
         query.addQueryItem(e.attribute("name"), e.evaluateJavaScript("this.value").toString());
     }
 
-    actionUrl.setQuery(query);
+    parameterUrl.setQuery(query);
 #else
-    actionUrl.addQueryItem(element.attribute("name"), "%s");
-
     QList<QPair<QByteArray, QByteArray> > queryItems;
+
+    QPair<QByteArray, QByteArray> item;
+    item.first = element.attribute("name").toUtf8();
+    item.second = "%s";
+    queryItems.append(item);
+
     QWebElementCollection allInputs = formElement.findAll("input");
     foreach (QWebElement e, allInputs) {
         if (element == e || !e.hasAttribute("name")) {
@@ -267,19 +293,28 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
 
         queryItems.append(item);
     }
-
-    actionUrl.setEncodedQueryItems(queryItems + actionUrl.encodedQueryItems());
+    parameterUrl.setEncodedQueryItems(queryItems + actionUrl.encodedQueryItems());
 #endif
+
+    if (!isPost) {
+        actionUrl = parameterUrl;
+    }
 
     SearchEngine engine;
     engine.name = view->title();
     engine.icon = view->icon();
     engine.url = actionUrl.toString();
 
+    if (isPost) {
+        QByteArray data = parameterUrl.toEncoded(QUrl::RemoveScheme);
+        engine.postData = data.contains('?') ? data.mid(data.lastIndexOf('?') + 1) : QByteArray();
+    }
+
     EditSearchEngine dialog(SearchEnginesDialog::tr("Add Search Engine"), view);
     dialog.setName(engine.name);
     dialog.setIcon(engine.icon);
     dialog.setUrl(engine.url);
+    dialog.setPostData(engine.postData);
 
     if (dialog.exec() != QDialog::Accepted) {
         return;
@@ -289,6 +324,7 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     engine.icon = dialog.icon();
     engine.url = dialog.url();
     engine.shortcut = dialog.shortcut();
+    engine.postData = dialog.postData().toUtf8();
 
     if (engine.name.isEmpty() || engine.url.isEmpty()) {
         return;
@@ -304,14 +340,17 @@ void SearchEnginesManager::addEngine(OpenSearchEngine* engine)
     Engine en;
     en.name = engine->name();
     en.url = engine->searchUrl("searchstring").toString().replace(QLatin1String("searchstring"), QLatin1String("%s"));
+
     if (engine->image().isNull()) {
         en.icon = iconForSearchEngine(engine->searchUrl(QString()));
     }
     else {
         en.icon = QIcon(QPixmap::fromImage(engine->image()));
     }
+
     en.suggestionsUrl = engine->getSuggestionsUrl();
     en.suggestionsParameters = engine->getSuggestionsParameters();
+    en.postData = engine->getPostData("searchstring").replace("searchstring", "%s");
 
     addEngine(en);
 
@@ -453,9 +492,10 @@ void SearchEnginesManager::saveSettings()
 
     QSqlQuery query;
     query.exec("DELETE FROM search_engines");
+    query.exec("ALTER TABLE search_engines ADD COLUMN postData TEXT"); // FIXME: Delete on release!
 
     foreach (const Engine &en, m_allEngines) {
-        query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, suggestionsUrl, suggestionsParameters, postData) VALUES (?, ?, ?, ?, ?, ?)");
+        query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, suggestionsUrl, suggestionsParameters, postData) VALUES (?, ?, ?, ?, ?, ?, ?)");
         query.addBindValue(en.name);
         query.addBindValue(qIconProvider->iconToBase64(en.icon));
         query.addBindValue(en.url);
