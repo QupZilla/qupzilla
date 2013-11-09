@@ -20,6 +20,7 @@
 #include "mainapplication.h"
 #include "qupzilla.h"
 #include "tabwidget.h"
+#include "tabbedwebview.h"
 #include "iconprovider.h"
 #include "enhancedmenu.h"
 
@@ -59,18 +60,19 @@ QWidget* PopupWebView::overlayForJsAlert()
     return this;
 }
 
-void PopupWebView::openUrlInNewTab(const QUrl &urla, Qz::NewTabPositionFlag position)
+void PopupWebView::loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op, const QByteArray &data, Qz::NewTabPositionFlag position)
 {
     Q_UNUSED(position)
 
     QupZilla* window = mApp->getWindow();
 
     if (window) {
-        QNetworkRequest req(urla);
-        req.setRawHeader("Referer", url().toEncoded());
-        req.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
+        QNetworkRequest r(req);
+        r.setRawHeader("Referer", url().toEncoded());
+        r.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 
-        window->tabWidget()->addView(req, Qz::NT_SelectedTab);
+        int index = window->tabWidget()->addView(QUrl(), Qz::NT_SelectedTab);
+        window->weView(index)->load(r, op, data);
         window->raise();
     }
 }

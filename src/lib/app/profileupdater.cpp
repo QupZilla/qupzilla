@@ -183,6 +183,5 @@ void ProfileUpdater::update140()
     mApp->connectDatabase();
 
     QSqlQuery query;
-    query.exec("ALTER TABLE search_engines ADD COLUMN method TEXT");
-    query.exec("UPDATE search_engines SET method='GET'");
+    query.exec("ALTER TABLE search_engines ADD COLUMN postData TEXT");
 }

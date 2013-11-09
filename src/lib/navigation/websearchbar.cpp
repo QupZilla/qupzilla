@@ -205,13 +205,19 @@ void WebSearchBar::instantSearchChanged(bool enable)
 void WebSearchBar::search()
 {
     p_QupZilla->weView()->setFocus();
-    p_QupZilla->weView()->load(m_searchManager->searchUrl(m_activeEngine, text()));
+
+    SearchEnginesManager::SearchResult res = m_searchManager->searchResult(m_activeEngine, text());
+    p_QupZilla->weView()->load(res.request, res.operation, res.data);
 }
 
 void WebSearchBar::searchInNewTab()
 {
     p_QupZilla->weView()->setFocus();
-    p_QupZilla->tabWidget()->addView(m_searchManager->searchUrl(m_activeEngine, text()));
+
+    int index = p_QupZilla->tabWidget()->addView(QUrl());
+
+    SearchEnginesManager::SearchResult res = m_searchManager->searchResult(m_activeEngine, text());
+    p_QupZilla->weView(index)->load(res.request, res.operation, res.data);
 }
 
 void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)

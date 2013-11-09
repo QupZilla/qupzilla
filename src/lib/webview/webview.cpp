@@ -196,8 +196,10 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
         return;
     }
 
-    const QUrl &searchUrl = mApp->searchEnginesManager()->searchUrl(reqUrl.toString());
-    QWebView::load(searchUrl);
+    SearchEnginesManager::SearchResult res = mApp->searchEnginesManager()->searchResult(reqUrl.toString());
+    const QUrl &searchUrl = res.request.url();
+
+    QWebView::load(res.request, res.operation, res.data);
 
     emit urlChanged(searchUrl);
     m_aboutToLoadUrl = searchUrl;
@@ -517,6 +519,11 @@ void WebView::savePageAs()
     dManager->download(request, info);
 }
 
+void WebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position)
+{
+    loadInNewTab(QNetworkRequest(url), QNetworkAccessManager::GetOperation, QByteArray(), position);
+}
+
 void WebView::downloadUrlToDisk()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
@@ -571,8 +578,8 @@ void WebView::searchSelectedText()
         }
     }
 
-    const QUrl &urlToLoad = mApp->searchEnginesManager()->searchUrl(engine, selectedText());
-    openUrlInNewTab(urlToLoad, Qz::NT_SelectedTab);
+    SearchEnginesManager::SearchResult res = mApp->searchEnginesManager()->searchResult(engine, selectedText());
+    loadInNewTab(res.request, res.operation, res.data, Qz::NT_SelectedTab);
 }
 
 void WebView::searchSelectedTextInBackgroundTab()
@@ -584,8 +591,8 @@ void WebView::searchSelectedTextInBackgroundTab()
         }
     }
 
-    const QUrl &urlToLoad = mApp->searchEnginesManager()->searchUrl(engine, selectedText());
-    openUrlInNewTab(urlToLoad, Qz::NT_NotSelectedTab);
+    SearchEnginesManager::SearchResult res = mApp->searchEnginesManager()->searchResult(engine, selectedText());
+    loadInNewTab(res.request, res.operation, res.data, Qz::NT_NotSelectedTab);
 }
 
 void WebView::bookmarkLink()

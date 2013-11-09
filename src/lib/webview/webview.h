@@ -83,9 +83,12 @@ public slots:
     void sendPageByMail();
     void savePageAs();
 
+    void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position);
+
     virtual void closeView() = 0;
-    virtual void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position) = 0;
     virtual void openNewTab() { }
+    virtual void loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op,
+                              const QByteArray &data, Qz::NewTabPositionFlag position) = 0;
 
 protected slots:
     void slotLoadStarted();

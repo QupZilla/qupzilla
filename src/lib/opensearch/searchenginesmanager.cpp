@@ -67,15 +67,16 @@ void SearchEnginesManager::loadSettings()
     m_settingsLoaded = true;
 
     QSqlQuery query;
-    query.exec("SELECT name, icon, url, shortcut, method, suggestionsUrl FROM search_engines");
+    query.exec("SELECT name, icon, url, shortcut, suggestionsUrl, suggestionsParameters, postData FROM search_engines");
     while (query.next()) {
         Engine en;
         en.name = query.value(0).toString();
         en.icon = qIconProvider->iconFromBase64(query.value(1).toByteArray());
         en.url = query.value(2).toString();
         en.shortcut = query.value(3).toString();
-        en.method = query.value(4).toString();
-        en.suggestionsUrl = query.value(5).toString();
+        en.suggestionsUrl = query.value(4).toString();
+        en.suggestionsParameters = query.value(5).toByteArray();
+        en.postData = query.value(6).toByteArray();
 
         m_allEngines.append(en);
 
@@ -110,19 +111,26 @@ SearchEngine SearchEnginesManager::engineForShortcut(const QString &shortcut)
     return returnEngine;
 }
 
-QUrl SearchEnginesManager::searchUrl(const Engine &engine, const QString &string)
+SearchEnginesManager::SearchResult SearchEnginesManager::searchResult(const Engine &engine, const QString &string)
 {
     ENSURE_LOADED;
 
     QByteArray url = engine.url.toUtf8();
     url.replace(QLatin1String("%s"), QUrl::toPercentEncoding(string));
-    return QUrl::fromEncoded(url);
+
+    SearchResult result;
+    result.request = QNetworkRequest(QUrl::fromEncoded(url));
+    result.operation = QNetworkAccessManager::GetOperation;
+
+    return result;
 }
 
-QUrl SearchEnginesManager::searchUrl(const QString &string)
+SearchEnginesManager::SearchResult SearchEnginesManager::searchResult(const QString &string)
 {
+    ENSURE_LOADED;
+
     const Engine en = qzSettings->searchWithDefaultEngine ? m_defaultEngine : m_activeEngine;
-    return searchUrl(en, string);
+    return searchResult(en, string);
 }
 
 void SearchEnginesManager::restoreDefaults()
@@ -447,14 +455,14 @@ void SearchEnginesManager::saveSettings()
     query.exec("DELETE FROM search_engines");
 
     foreach (const Engine &en, m_allEngines) {
-        query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, method, suggestionsUrl, suggestionsParameters) VALUES (?, ?, ?, ?, ?, ?)");
+        query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, suggestionsUrl, suggestionsParameters, postData) VALUES (?, ?, ?, ?, ?, ?)");
         query.addBindValue(en.name);
         query.addBindValue(qIconProvider->iconToBase64(en.icon));
         query.addBindValue(en.url);
         query.addBindValue(en.shortcut);
-        query.addBindValue(en.method);
         query.addBindValue(en.suggestionsUrl);
         query.addBindValue(en.suggestionsParameters);
+        query.addBindValue(en.postData);
 
         query.exec();
     }

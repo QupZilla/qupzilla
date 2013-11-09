@@ -69,7 +69,8 @@ public slots:
     void userLoadAction(const QUrl &url);
 
     void closeView();
-    void openUrlInNewTab(const QUrl &urla, Qz::NewTabPositionFlag position);
+    void loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op,
+                      const QByteArray &data, Qz::NewTabPositionFlag position);
     void openNewTab();
 
 private slots:

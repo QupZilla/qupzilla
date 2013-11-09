@@ -22,6 +22,7 @@
 #include <QIcon>
 #include <QList>
 #include <QVariant>
+#include <QNetworkRequest>
 
 #include "qz_namespace.h"
 #include "opensearchengine.h"
@@ -41,10 +42,10 @@ public:
         QIcon icon;
         QString url;
         QString shortcut;
-        QString method;
 
         QString suggestionsUrl;
         QByteArray suggestionsParameters;
+        QByteArray postData;
 
         bool operator==(const Engine &other) const {
             return (this->name == other.name &&
@@ -53,8 +54,14 @@ public:
         }
     };
 
-    QUrl searchUrl(const Engine &engine, const QString &string);
-    QUrl searchUrl(const QString &string);
+    struct SearchResult {
+        QNetworkRequest request;
+        QNetworkAccessManager::Operation operation;
+        QByteArray data;
+    };
+
+    SearchResult searchResult(const Engine &engine, const QString &string);
+    SearchResult searchResult(const QString &string);
 
     void addEngine(const QUrl &url);
     void addEngine(OpenSearchEngine* engine);
