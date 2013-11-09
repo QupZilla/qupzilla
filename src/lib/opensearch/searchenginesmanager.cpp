@@ -153,12 +153,13 @@ void SearchEnginesManager::restoreDefaults()
     duck.url = "https://duckduckgo.com/?q=%s&t=qupzilla";
     duck.shortcut = "d";
 
-    Engine google;
-    google.name = "Google";
-    google.icon = QIcon(":icons/sites/google.png");
-    google.url = "http://www.google.com/search?client=qupzilla&q=%s";
-    google.shortcut = "g";
-    google.suggestionsUrl = "http://suggestqueries.google.com/complete/search?output=firefox&q=%s";
+    Engine sp;
+    sp.name = "StartPage";
+    sp.icon = QIcon(":/icons/sites/startpage.png");
+    sp.url = "https://startpage.com/do/search";
+    sp.postData = "query=%s&cat=web&language=english";
+    sp.shortcut = "sp";
+    sp.suggestionsUrl = "https://startpage.com/cgi-bin/csuggest?output=json&lang=english&query=%s";
 
     Engine wiki;
     wiki.name = "Wikipedia (en)";
@@ -167,17 +168,17 @@ void SearchEnginesManager::restoreDefaults()
     wiki.shortcut = "w";
     wiki.suggestionsUrl = "http://en.wikipedia.org/w/api.php?action=opensearch&search=%s&namespace=0";
 
-    Engine yt;
-    yt.name = "YouTube";
-    yt.icon = QIcon(":/icons/sites/youtube.png");
-    yt.url = "http://www.youtube.com/results?search_query=%s&search=Search";
-    yt.shortcut = "yt";
-    yt.suggestionsUrl = "http://suggestqueries.google.com/complete/search?ds=yt&output=firefox&q=%s";
+    Engine google;
+    google.name = "Google";
+    google.icon = QIcon(":icons/sites/google.png");
+    google.url = "http://www.google.com/search?client=qupzilla&q=%s";
+    google.shortcut = "g";
+    google.suggestionsUrl = "http://suggestqueries.google.com/complete/search?output=firefox&q=%s";
 
     addEngine(duck);
-    addEngine(google);
+    addEngine(sp);
     addEngine(wiki);
-    addEngine(yt);
+    addEngine(google);
 
     m_defaultEngine = duck;
 
