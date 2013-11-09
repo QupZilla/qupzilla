@@ -294,7 +294,7 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
 
         queryItems.append(item);
     }
-    parameterUrl.setEncodedQueryItems(queryItems + actionUrl.encodedQueryItems());
+    parameterUrl.setEncodedQueryItems(parameterUrl.encodedQueryItems() + queryItems);
 #endif
 
     if (!isPost) {
@@ -304,7 +304,7 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     SearchEngine engine;
     engine.name = view->title();
     engine.icon = view->icon();
-    engine.url = actionUrl.toString();
+    engine.url = actionUrl.toEncoded();
 
     if (isPost) {
         QByteArray data = parameterUrl.toEncoded(QUrl::RemoveScheme);
