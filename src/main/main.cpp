@@ -113,6 +113,7 @@ void qupzilla_signal_handler(int s)
 }
 #endif // defined(Q_OS_LINUX) || defined(__GLIBC__)
 
+#ifndef Q_OS_WIN
 #if (QT_VERSION < 0x050000)
 void msgHandler(QtMsgType type, const char* msg)
 {
@@ -155,6 +156,7 @@ void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString
         break;
     }
 }
+#endif
 #endif
 
 int main(int argc, char* argv[])

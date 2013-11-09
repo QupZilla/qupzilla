@@ -476,7 +476,7 @@ void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthentica
         connect(box, SIGNAL(rejected()), dialog, SLOT(reject()));
         connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
 
-        QCheckBox* rememberCheck = new QCheckBox("Remember username and password for this proxy.", dialog);
+        QCheckBox* rememberCheck = new QCheckBox(tr("Remember username and password for this proxy."), dialog);
 
         label->setText(tr("A username and password are being requested by proxy %1. ").arg(proxy.hostName()));
         formLa->addRow(label);
