@@ -26,6 +26,7 @@ Version 1.5.0
     * fixed: loading plugins with relative paths in portable build
     * fixed: displaying a lot of RSS feeds in RSS widget in locationbar
     * fixed: enabling disabled rules in AdBlock now works everytime
+    * fixed: parsing OpenSearch files with XML declaration
 
 Version 1.4.4
     * released 1 September 2013

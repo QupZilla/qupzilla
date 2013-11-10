@@ -99,15 +99,28 @@ OpenSearchEngine* OpenSearchReader::read()
     OpenSearchEngine* engine = new OpenSearchEngine();
     m_searchXml = device()->peek(1024 * 5);
 
-    while (!isStartElement() && !atEnd()) {
-        readNext();
-    }
-
     if (!m_searchXml.contains(QLatin1String("http://a9.com/-/spec/opensearch/1.1/")) &&
             !m_searchXml.contains(QLatin1String("http://www.mozilla.org/2006/browser/search/"))) {
         raiseError(QObject::tr("The file is not an OpenSearch 1.1 file."));
         return engine;
     }
+
+    // It just skips the XML declaration
+    // The parsing code bellow for some reason doesn't like it -,-
+
+    int index = m_searchXml.indexOf(QLatin1String("<?xml"));
+    if (index > 0) {
+        int end = m_searchXml.indexOf(QLatin1String("?>"), index);
+
+        if (end > 0) {
+            device()->read(end + 2);
+        }
+    }
+
+    while (!isStartElement() && !atEnd()) {
+        readNext();
+    }
+
 
     while (!atEnd()) {
         readNext();
