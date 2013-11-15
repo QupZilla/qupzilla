@@ -55,7 +55,7 @@ private:
     QByteArray convertWebKitFormBoundaryIfNecessary(const QByteArray &data) const;
     QueryItem findUsername(const QWebElement &form) const;
     QueryItems createQueryItems(QByteArray data) const;
-    QWebElementCollection getAllElementsFromPage(QWebPage* page, const QString &selector) const;
+    QWebElementCollection getAllElementsFromPage(const QString &selector) const;
 
     QWebPage* m_page;
 };

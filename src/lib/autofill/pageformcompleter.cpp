@@ -49,7 +49,7 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
         return formData;
     }
 
-    const QWebElementCollection &allForms = getAllElementsFromPage(m_page, "form");
+    const QWebElementCollection &allForms = getAllElementsFromPage("form");
 
     // Find form that contains password value sent in data
     foreach (const QWebElement &formElement, allForms) {
@@ -100,7 +100,7 @@ bool PageFormCompleter::completePage(const QByteArray &data) const
     inputTypes << "text" << "password" << "email";
 
     // Find all input elements in the page
-    const QWebElementCollection &inputs = getAllElementsFromPage(m_page, "input");
+    const QWebElementCollection &inputs = getAllElementsFromPage("input");
 
     for (int i = 0; i < queryItems.count(); i++) {
         const QString &key = queryItems.at(i).first;
@@ -230,12 +230,16 @@ PageFormCompleter::QueryItems PageFormCompleter::createQueryItems(QByteArray dat
     return arguments;
 }
 
-QWebElementCollection PageFormCompleter::getAllElementsFromPage(QWebPage* page, const QString &selector) const
+QWebElementCollection PageFormCompleter::getAllElementsFromPage(const QString &selector) const
 {
     QWebElementCollection list;
 
+    if (!m_page) {
+        return list;
+    }
+
     QList<QWebFrame*> frames;
-    frames.append(page->mainFrame());
+    frames.append(m_page->mainFrame());
     while (!frames.isEmpty()) {
         QWebFrame* frame = frames.takeFirst();
         if (frame) {
