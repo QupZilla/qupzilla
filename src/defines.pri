@@ -134,3 +134,7 @@ isEmpty(QMAKE_LRELEASE) {
         !exists($$QMAKE_LRELEASE) { QMAKE_LRELEASE = lrelease }
     }
 }
+
+isEmpty(QMAKE_LFLAGS_RPATH) {
+    QMAKE_LFLAGS_RPATH = -Wl,-rpath,
+}
