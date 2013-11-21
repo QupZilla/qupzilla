@@ -75,10 +75,10 @@ private slots:
     void contextMenuRequested(const QPoint &position);
     void reloadTab() { emit reloadTab(m_clickedTab); }
     void stopTab() { emit stopTab(m_clickedTab); }
-    void closeAllButCurrent() { emit closeAllButCurrent(m_clickedTab); }
     void closeTab() { emit closeTab(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
     void detachTab() { emit detachTab(m_clickedTab); }
+    void closeAllButCurrent();
     void bookmarkTab();
     void pinTab();
 

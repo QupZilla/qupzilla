@@ -16,6 +16,7 @@ Version 1.5.0
     * proxy exceptions now supports wildcards (*, ?)
     * cancel upload when trying to upload non-readable files
     * select previous / next engines with ctrl+up/down in websearchbar
+    * ask user first before closing all but the current tab from tabbar
     * GreaseMonkey: added icon in statusbar
     * GreaseMonkey: added support for GM_Settings
     * GreaseMonkey: fixed userscripts when first loading plugin

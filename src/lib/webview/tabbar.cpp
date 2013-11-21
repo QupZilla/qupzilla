@@ -31,6 +31,7 @@
 #include <QMenu>
 #include <QMimeData>
 #include <QMouseEvent>
+#include <QMessageBox>
 #include <QStyleOption>
 #include <QApplication>
 #include <QTimer>
@@ -185,6 +186,16 @@ void TabBar::contextMenuRequested(const QPoint &position)
     menu.exec(p);
 
     p_QupZilla->actionRestoreTab()->setEnabled(true);
+}
+
+void TabBar::closeAllButCurrent()
+{
+    QMessageBox::StandardButton button = QMessageBox::question(this, tr("Close Tabs"), tr("Do you really want to close other tabs?"),
+                                         QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+
+    if (button == QMessageBox::Yes) {
+        emit closeAllButCurrent(m_clickedTab);
+    }
 }
 
 QSize TabBar::tabSizeHint(int index) const
