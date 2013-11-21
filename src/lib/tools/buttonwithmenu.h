@@ -57,6 +57,7 @@ public:
     void addItems(const QVector<Item> &items);
     void removeItem(const Item &item);
     void setCurrentItem(const Item &item, bool emitSignal = true);
+    void setCurrentIndex(int index, bool emitSignal = true);
 
     Item currentItem();
     QVector<Item> allItems() { return m_items; }
@@ -69,6 +70,9 @@ signals:
 
 public slots:
     void clearItems();
+
+    void selectNextItem();
+    void selectPreviousItem();
 
 private slots:
     void setCurrentItem();

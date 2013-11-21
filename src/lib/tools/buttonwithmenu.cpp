@@ -45,6 +45,24 @@ void ButtonWithMenu::clearItems()
     m_items.clear();
 }
 
+void ButtonWithMenu::selectNextItem()
+{
+    int index = m_items.indexOf(m_currentItem) + 1;
+
+    if (index < m_items.size()) {
+        setCurrentIndex(index);
+    }
+}
+
+void ButtonWithMenu::selectPreviousItem()
+{
+    int index = m_items.indexOf(m_currentItem) - 1;
+
+    if (index > 0) {
+        setCurrentIndex(index);
+    }
+}
+
 void ButtonWithMenu::addItem(const Item &item)
 {
     m_items.append(item);
@@ -97,6 +115,11 @@ void ButtonWithMenu::setCurrentItem(const Item &item, bool emitSignal)
     if (emitSignal) {
         emit activeItemChanged(m_currentItem);
     }
+}
+
+void ButtonWithMenu::setCurrentIndex(int index, bool emitSignal)
+{
+    setCurrentItem(m_items.at(index), emitSignal);
 }
 
 void ButtonWithMenu::wheelEvent(QWheelEvent* event)

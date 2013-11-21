@@ -377,6 +377,18 @@ void WebSearchBar::keyPressEvent(QKeyEvent* event)
         }
         break;
 
+    case Qt::Key_Up:
+        if (event->modifiers() == Qt::ControlModifier) {
+            m_boxSearchType->selectPreviousItem();
+        }
+        break;
+
+    case Qt::Key_Down:
+        if (event->modifiers() == Qt::ControlModifier) {
+            m_boxSearchType->selectNextItem();
+        }
+        break;
+
     default:
         break;
     }

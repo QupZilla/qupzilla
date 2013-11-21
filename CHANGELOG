@@ -15,6 +15,7 @@ Version 1.5.0
     * pagescreen can now save output into number of formats, including PDF
     * proxy exceptions now supports wildcards (*, ?)
     * cancel upload when trying to upload non-readable files
+    * select previous / next engines with ctrl+up/down in websearchbar
     * GreaseMonkey: added icon in statusbar
     * GreaseMonkey: added support for GM_Settings
     * GreaseMonkey: fixed userscripts when first loading plugin
