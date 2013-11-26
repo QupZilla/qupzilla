@@ -180,9 +180,6 @@ void WebTab::moveToWindow(QupZilla* window)
 {
     p_QupZilla = window;
 
-    hideNavigationBar();
-    showNavigationBar(p_QupZilla->navigationContainer());
-
     m_view->moveToWindow(p_QupZilla);
 }
 
@@ -343,7 +340,7 @@ QPixmap WebTab::renderTabPreview()
 
 void WebTab::showNotification(QWidget* notif)
 {
-    const int notifPos = p_QupZilla->tabsOnTop() ? 1 : 0;
+    const int notifPos = 0;
 
     if (m_layout->count() > notifPos + 1) {
         delete m_layout->itemAt(notifPos)->widget();
@@ -366,24 +363,6 @@ int WebTab::tabIndex() const
     return m_view->tabIndex();
 }
 
-void WebTab::showNavigationBar(QWidget* bar)
-{
-    if (bar) {
-        m_navigationContainer = bar;
-        m_layout->insertWidget(0, m_navigationContainer);
-
-        // Needed to prevent flickering when closing tabs
-        m_navigationContainer->setUpdatesEnabled(true);
-
-        if (p_QupZilla->isFullScreen()) {
-            m_navigationContainer->setVisible(p_QupZilla->tabWidget()->getTabBar()->isVisible());
-        }
-        else {
-            m_navigationContainer->show();
-        }
-    }
-}
-
 void WebTab::pinTab(int index)
 {
     TabWidget* tabWidget = p_QupZilla->tabWidget();
@@ -391,19 +370,9 @@ void WebTab::pinTab(int index)
         return;
     }
 
-    if (m_pinned) { //Unpin tab
-        m_pinned = false;
-        tabWidget->setTabText(index, m_view->title());
-        tabWidget->getTabBar()->updatePinnedTabCloseButton(index);
-    }
-    else {   // Pin tab
-        m_pinned = true;
-        tabWidget->setCurrentIndex(0);              // <<-- those 2 lines fixes
-        tabWidget->getTabBar()->moveTab(index, 0);  // | weird behavior with bad
-        tabWidget->setTabText(0, QString());        // | tabwidget update if we
-        tabWidget->setCurrentIndex(0);              // <<-- are moving current tab
-        tabWidget->getTabBar()->updatePinnedTabCloseButton(0);
-    }
+    m_pinned = !m_pinned;
+    index = tabWidget->pinUnPinTab(index, m_view->title());
+    tabWidget->setCurrentIndex(index);
 }
 
 void WebTab::disconnectObjects()
@@ -413,27 +382,7 @@ void WebTab::disconnectObjects()
     disconnect(m_view);
 }
 
-
-void WebTab::hideNavigationBar()
-{
-    if (m_navigationContainer && p_QupZilla->tabsOnTop()) {
-        m_layout->removeWidget(m_navigationContainer);
-
-        // Needed to prevent flickering when closing tabs
-        m_navigationContainer->setUpdatesEnabled(false);
-        m_navigationContainer->hide();
-
-        // Needed to prevent deleting m_navigationContainer in ~QWidget
-        m_navigationContainer->setParent(p_QupZilla);
-    }
-}
-
 WebTab::~WebTab()
 {
-    // #838 !p_QupZilla->isClosing() fixes crash on app close with Oxygen theme
-    if (!p_QupZilla->isClosing()) {
-        hideNavigationBar();
-    }
-
     delete m_locationBar.data();
 }

@@ -18,9 +18,9 @@
 #ifndef TABBAR_H
 #define TABBAR_H
 
-#include <QTabBar>
+#include "combotabbar.h"
+
 #include <QRect>
-#include <QAbstractButton>
 
 #include "qz_namespace.h"
 
@@ -28,7 +28,7 @@ class QupZilla;
 class TabWidget;
 class TabPreview;
 
-class QT_QUPZILLA_EXPORT TabBar : public QTabBar
+class QT_QUPZILLA_EXPORT TabBar : public ComboTabBar
 {
     Q_OBJECT
 public:
@@ -38,12 +38,6 @@ public:
 
     void setVisible(bool visible);
     void updateVisibilityWithFullscreen(bool visible);
-
-    int pinnedTabsCount();
-    int normalTabsCount();
-
-    QTabBar::ButtonPosition iconButtonPosition();
-    QTabBar::ButtonPosition closeButtonPosition();
 
     void overrideTabTextColor(int index, QColor color);
     void restoreTabTextColor(int index);
@@ -69,8 +63,6 @@ signals:
 
 private slots:
     void currentTabChanged(int index);
-    void pinnedTabAdded();
-    void pinnedTabClosed();
 
     void contextMenuRequested(const QPoint &position);
     void reloadTab() { emit reloadTab(m_clickedTab); }
@@ -88,6 +80,8 @@ private slots:
     void showTabPreview();
     void hideTabPreview(bool delayed = true);
 
+    void overFlowChange(bool overFlowed);
+
 private:
     inline bool validIndex(int index) const { return index >= 0 && index < count(); }
 
@@ -102,11 +96,13 @@ private:
     void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
     bool event(QEvent* event);
+    void resizeEvent(QResizeEvent* e);
 
     void dragEnterEvent(QDragEnterEvent* event);
     void dropEvent(QDropEvent* event);
 
-    QSize tabSizeHint(int index) const;
+    QSize tabSizeHint(int index, bool fast) const;
+    int comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const;
 
     QupZilla* p_QupZilla;
     TabWidget* m_tabWidget;
@@ -117,7 +113,6 @@ private:
     bool m_hideTabBarWithOneTab;
 
     int m_clickedTab;
-    int m_pinnedTabsCount;
 
     mutable int m_normalTabWidth;
     mutable int m_activeTabWidth;
@@ -125,23 +120,6 @@ private:
     QColor m_originalTabTextColor;
     QRect m_originalGeometry;
     QPoint m_dragStartPosition;
-};
-
-// Class for close button on tabs
-// * taken from qtabbar.cpp
-class CloseButton : public QAbstractButton
-{
-    Q_OBJECT
-
-public:
-    CloseButton(QWidget* parent = 0);
-
-    QSize sizeHint() const;
-    QSize minimumSizeHint() const;
-
-    void enterEvent(QEvent* event);
-    void leaveEvent(QEvent* event);
-    void paintEvent(QPaintEvent* event);
 };
 
 #endif // TABBAR_H

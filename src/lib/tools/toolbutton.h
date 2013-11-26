@@ -53,6 +53,10 @@ public:
     void setShowMenuInside(bool inside);
     bool showMenuInside() const;
 
+    virtual void setVisible(bool visible);
+    bool isForceHidden();
+    void setForceHidden(bool enable);
+
 signals:
     void middleMouseClicked();
     void controlClicked();
@@ -77,6 +81,7 @@ private:
 
     QString m_themeIcon;
     QVariant m_data;
+    bool m_forceHidden;
 };
 
 #endif // TOOLBUTTON_H

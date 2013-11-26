@@ -23,6 +23,7 @@
 #include <QNetworkRequest>
 #include <QMenu>
 
+#include "tabstackedwidget.h"
 #include "toolbutton.h"
 #include "qz_namespace.h"
 #include "webtab.h"
@@ -64,7 +65,7 @@ private:
     void mouseReleaseEvent(QMouseEvent* event);
 };
 
-class QT_QUPZILLA_EXPORT TabWidget : public QTabWidget
+class QT_QUPZILLA_EXPORT TabWidget : public TabStackedWidget
 {
     Q_OBJECT
 public:
@@ -95,8 +96,6 @@ public:
     int pinnedTabsCount() const;
     int lastTabIndex() const;
 
-    void showNavigationBar(QWidget* bar);
-
     TabBar* getTabBar() const;
     ClosedTabsManager* closedTabsManager() const;
     QList<WebTab*> allTabs(bool withPinned = true);
@@ -108,16 +107,12 @@ public:
 
     void disconnectObjects();
 
-signals:
-    void pinnedTabClosed();
-    void pinnedTabAdded();
-
 public slots:
-    int addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false);
-    int addView(const QNetworkRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false);
+    int addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false, bool pinned = false);
+    int addView(const QNetworkRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false, bool pinned = false);
 
-    int addView(const QUrl &url, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1);
-    int addView(QNetworkRequest req, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1);
+    int addView(const QUrl &url, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1, bool pinned = false);
+    int addView(QNetworkRequest req, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1, bool pinned = false);
     int addView(WebTab* tab);
 
     void addTabFromClipboard();
@@ -138,6 +133,8 @@ public slots:
     void showButtons();
     void hideButtons();
 
+    void tabBarOverFlowChanged(bool overFlowed);
+
 private slots:
     void aboutToShowTabsMenu();
     void actionChangeIndex();
@@ -148,8 +145,6 @@ private:
     WebTab* weTab(int index);
 
     inline bool validIndex(int index) const { return index >= 0 && index < count(); }
-
-    void resizeEvent(QResizeEvent* e);
 
     bool m_dontQuitWithOneTab;
     bool m_closedInsteadOpened;
@@ -168,6 +163,8 @@ private:
     MenuTabs* m_menuTabs;
     ToolButton* m_buttonListTabs;
     AddTabButton* m_buttonAddTab;
+    ToolButton* m_buttonListTabs2;
+    AddTabButton* m_buttonAddTab2;
     ClosedTabsManager* m_closedTabsManager;
 
     QStackedWidget* m_locationBars;

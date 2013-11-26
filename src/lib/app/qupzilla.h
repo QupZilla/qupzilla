@@ -107,7 +107,6 @@ public:
     QMenu* menuHelp() { return m_menuHelp; }
     QMenu* superMenu() { return m_superMenu; }
 
-    QWidget* navigationContainer() const;
     void popupToolbarsMenu(const QPoint &pos);
 
     bool isClosing() { return m_isClosing; }

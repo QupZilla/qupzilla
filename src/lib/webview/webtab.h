@@ -78,7 +78,6 @@ public:
     void setPinned(bool state);
 
     int tabIndex() const;
-    void showNavigationBar(QWidget* bar);
 
     void setLocationBar(LocationBar* bar);
     LocationBar* locationBar() const;
@@ -103,8 +102,6 @@ private slots:
     void slotRestore();
 
 private:
-    void hideNavigationBar();
-
     QupZilla* p_QupZilla;
     TabbedWebView* m_view;
     QVBoxLayout* m_layout;

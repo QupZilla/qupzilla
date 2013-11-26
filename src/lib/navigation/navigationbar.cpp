@@ -350,7 +350,7 @@ void NavigationBar::goAtHistoryIndexInNewTab(int index)
 
 void NavigationBar::refreshHistory()
 {
-    if (mApp->isClosing() || p_QupZilla->isClosing()) {
+    if (mApp->isClosing() || p_QupZilla->isClosing() || !p_QupZilla->weView()) {
         return;
     }
 

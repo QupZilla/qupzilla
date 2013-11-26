@@ -27,6 +27,7 @@ ToolButton::ToolButton(QWidget* parent)
     : QToolButton(parent)
     , m_usingMultiIcon(false)
     , m_showMenuInside(false)
+    , m_forceHidden(false)
 {
     setMinimumWidth(16);
 }
@@ -64,6 +65,24 @@ void ToolButton::setShowMenuInside(bool inside)
 bool ToolButton::showMenuInside() const
 {
     return m_showMenuInside;
+}
+
+void ToolButton::setVisible(bool visible)
+{
+    QToolButton::setVisible(!m_forceHidden && visible);
+}
+
+bool ToolButton::isForceHidden()
+{
+    return m_forceHidden;
+}
+
+void ToolButton::setForceHidden(bool enable)
+{
+    m_forceHidden = enable;
+    if (m_forceHidden) {
+        hide();
+    }
 }
 
 void ToolButton::setData(const QVariant &data)

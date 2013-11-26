@@ -87,6 +87,7 @@
 #include <QMessageBox>
 #include <QDesktopWidget>
 #include <QToolTip>
+#include <QScrollArea>
 
 #if QT_VERSION < 0x050000
 #include "qwebkitversion.h"
@@ -274,6 +275,8 @@ void QupZilla::postLaunch()
     setUpdatesEnabled(true);
     raise();
     activateWindow();
+
+    QTimer::singleShot(0, tabWidget()->getTabBar(), SLOT(ensureVisible()));
 }
 
 void QupZilla::setupUi()
@@ -344,7 +347,7 @@ void QupZilla::setupUi()
     m_navigationContainer->setLayout(l);
 
     m_mainSplitter->addWidget(m_tabWidget);
-    m_mainLayout->addWidget(m_navigationContainer);
+    triggerTabsOnTop(tabsOnTop());
     m_mainLayout->addWidget(m_mainSplitter);
     m_mainSplitter->setCollapsible(0, false);
 
@@ -838,7 +841,7 @@ void QupZilla::loadSettings()
     if (m_usingTransparentBackground && !makeTransparent) {
         QtWin::extendFrameIntoClientArea(this, 0, 0, 0, 0);
         QtWin::enableBlurBehindWindow(this, false);
-        QtWin::enableBlurBehindWindow(m_tabWidget->getTabBar(), false);
+        m_tabWidget->getTabBar()->enableBluredBackground(false);
         m_usingTransparentBackground = false;
     }
 #endif
@@ -866,11 +869,14 @@ void QupZilla::loadSettings()
 
         m_usingTransparentBackground = true;
 
-        QtWin::enableBlurBehindWindow(m_tabWidget->getTabBar(), true);
-        QtWin::extendFrameIntoClientArea(this);
+        if (!isFullScreen()) {
+            m_tabWidget->getTabBar()->enableBluredBackground(true);
+            QtWin::extendFrameIntoClientArea(this);
+        }
 
         //install event filter
         menuBar()->installEventFilter(this);
+        m_tabWidget->getTabBar()->installEventFilter(this);
         m_navigationBar->installEventFilter(this);
         m_bookmarksToolbar->installEventFilter(this);
         statusBar()->installEventFilter(this);
@@ -921,15 +927,6 @@ LocationBar* QupZilla::locationBar() const
 Qz::BrowserWindow QupZilla::windowType() const
 {
     return m_windowType;
-}
-
-QWidget* QupZilla::navigationContainer() const
-{
-    if (!tabsOnTop()) {
-        return 0;
-    }
-
-    return m_navigationContainer;
 }
 
 void QupZilla::popupToolbarsMenu(const QPoint &pos)
@@ -1692,10 +1689,12 @@ void QupZilla::showBookmarkImport()
 void QupZilla::triggerTabsOnTop(bool enable)
 {
     if (enable) {
-        m_tabWidget->showNavigationBar(m_navigationContainer);
+        m_mainLayout->insertWidget(0, m_tabWidget->getTabBar());
+        m_mainLayout->insertWidget(1, m_navigationContainer);
     }
     else {
         m_mainLayout->insertWidget(0, m_navigationContainer);
+        m_mainLayout->insertWidget(1, m_tabWidget->getTabBar());
     }
 
     m_tabsOnTopState = enable ? 1 : 0;
@@ -1797,9 +1796,10 @@ void QupZilla::webSearch()
 void QupZilla::searchOnPage()
 {
     SearchToolBar* toolBar = searchToolBar();
-    const int searchPos = tabsOnTop() ? 1 : 2;
 
     if (!toolBar) {
+        const int searchPos = 3;
+
         toolBar = new SearchToolBar(weView(), this);
         m_mainLayout->insertWidget(searchPos, toolBar);
     }
@@ -1892,6 +1892,7 @@ bool QupZilla::event(QEvent* event)
             emit setWebViewMouseTracking(true);
 #ifdef Q_OS_WIN
             if (m_usingTransparentBackground) {
+                m_tabWidget->getTabBar()->enableBluredBackground(false);
                 QtWin::extendFrameIntoClientArea(this, 0, 0, 0 , 0);
                 QtWin::enableBlurBehindWindow(this, false);
             }
@@ -1915,6 +1916,7 @@ bool QupZilla::event(QEvent* event)
             emit setWebViewMouseTracking(false);
 #ifdef Q_OS_WIN
             if (m_usingTransparentBackground) {
+                m_tabWidget->getTabBar()->enableBluredBackground(true);
                 applyBlurToMainWindow(true);
             }
 #endif
@@ -2231,7 +2233,7 @@ void QupZilla::closeEvent(QCloseEvent* event)
 SearchToolBar* QupZilla::searchToolBar()
 {
     SearchToolBar* toolBar = 0;
-    const int searchPos = tabsOnTop() ? 1 : 2;
+    const int searchPos = 3;
 
     if (m_mainLayout->count() == searchPos + 1) {
         toolBar = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(searchPos)->widget());

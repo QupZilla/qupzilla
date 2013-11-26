@@ -369,11 +369,13 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
 
 void LocationBar::focusInEvent(QFocusEvent* event)
 {
-    const QString &stringUrl = convertUrlToText(m_webView->url());
+    if (m_webView) {
+        const QString &stringUrl = convertUrlToText(m_webView->url());
 
-    // Text has been edited, let's show go button
-    if (stringUrl != text()) {
-        showGoButton();
+        // Text has been edited, let's show go button
+        if (stringUrl != text()) {
+            showGoButton();
+        }
     }
 
     LineEdit::focusInEvent(event);

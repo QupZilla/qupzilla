@@ -41,9 +41,10 @@
 #include <QWebHistory>
 #include <QClipboard>
 #include <QFile>
+#include <QScrollArea>
 
 AddTabButton::AddTabButton(TabWidget* tabWidget, TabBar* tabBar)
-    : ToolButton(tabWidget)
+    : ToolButton(tabBar)
     , m_tabBar(tabBar)
     , m_tabWidget(tabWidget)
 {
@@ -111,7 +112,7 @@ void MenuTabs::mouseReleaseEvent(QMouseEvent* event)
 }
 
 TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
-    : QTabWidget(parent)
+    : TabStackedWidget(parent)
     , p_QupZilla(mainClass)
     , m_lastTabIndex(-1)
     , m_lastBackgroundTabIndex(-1)
@@ -139,9 +140,9 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     connect(m_tabBar, SIGNAL(showButtons()), this, SLOT(showButtons()));
     connect(m_tabBar, SIGNAL(hideButtons()), this, SLOT(hideButtons()));
 
-    m_buttonListTabs = new ToolButton(this);
+    m_buttonListTabs = new ToolButton(m_tabBar);
     m_buttonListTabs->setObjectName("tabwidget-button-opentabs");
-    m_menuTabs = new MenuTabs(this);
+    m_menuTabs = new MenuTabs(m_tabBar);
     m_buttonListTabs->setMenu(m_menuTabs);
     m_buttonListTabs->setPopupMode(QToolButton::InstantPopup);
     m_buttonListTabs->setToolTip(tr("List of tabs"));
@@ -152,6 +153,22 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
 
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
+
+    // copy of buttons
+    m_buttonListTabs2 = new ToolButton(m_tabBar);
+    m_buttonListTabs2->setObjectName("tabwidget-button-opentabs");
+    m_buttonListTabs2->setMenu(m_menuTabs);
+    m_buttonListTabs2->setPopupMode(QToolButton::InstantPopup);
+    m_buttonListTabs2->setToolTip(tr("List of tabs"));
+    m_buttonListTabs2->setAutoRaise(true);
+    m_buttonListTabs2->setFocusPolicy(Qt::NoFocus);
+    m_buttonAddTab2 = new AddTabButton(this, m_tabBar);
+    connect(m_buttonAddTab2, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
+    m_tabBar->addMainBarWidget(m_buttonAddTab2, Qt::AlignRight);
+    m_tabBar->addMainBarWidget(m_buttonListTabs2, Qt::AlignRight);
+    m_buttonAddTab2->hide();
+    m_buttonListTabs2->hide();
+    connect(m_tabBar, SIGNAL(overFlowChanged(bool)), this, SLOT(tabBarOverFlowChanged(bool)));
 
     loadSettings();
 }
@@ -180,22 +197,6 @@ void TabWidget::loadSettings()
     }
 }
 
-void TabWidget::resizeEvent(QResizeEvent* e)
-{
-    QPoint posit;
-    posit.setY(0);
-    //RTL Support
-    if (QApplication::layoutDirection() == Qt::RightToLeft) {
-        posit.setX(0);
-    }
-    else {
-        posit.setX(width() - m_buttonListTabs->width());
-    }
-    m_buttonListTabs->move(posit);
-
-    QTabWidget::resizeEvent(e);
-}
-
 WebTab* TabWidget::weTab()
 {
     return weTab(currentIndex());
@@ -216,6 +217,12 @@ void TabWidget::hideButtons()
 {
     m_buttonListTabs->hide();
     m_buttonAddTab->hide();
+}
+
+void TabWidget::tabBarOverFlowChanged(bool overFlowed)
+{
+    m_buttonAddTab2->setVisible(overFlowed);
+    m_buttonListTabs2->setVisible(overFlowed);
 }
 
 void TabWidget::moveAddTabButton(int posX)
@@ -282,27 +289,30 @@ void TabWidget::actionChangeIndex()
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         WebTab* tab = qobject_cast<WebTab*>(qvariant_cast<QWidget*>(action->data()));
         if (tab) {
+            // needed when clicking on action of the current tab
+            m_tabBar->ensureVisible(tab->tabIndex());
+
             setCurrentIndex(tab->tabIndex());
         }
     }
 }
 
-int TabWidget::addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine)
+int TabWidget::addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine, bool pinned)
 {
-    return addView(QNetworkRequest(url), openFlags, selectLine);
+    return addView(QNetworkRequest(url), openFlags, selectLine, pinned);
 }
 
-int TabWidget::addView(const QNetworkRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine)
+int TabWidget::addView(const QNetworkRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine, bool pinned)
 {
-    return addView(req, tr("New tab"), openFlags, selectLine);
+    return addView(req, tr("New tab"), openFlags, selectLine, -1, pinned);
 }
 
-int TabWidget::addView(const QUrl &url, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position)
+int TabWidget::addView(const QUrl &url, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position, bool pinned)
 {
-    return addView(QNetworkRequest(url), title, openFlags, selectLine, position);
+    return addView(QNetworkRequest(url), title, openFlags, selectLine, position, pinned);
 }
 
-int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position)
+int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position, bool pinned)
 {
 #ifdef Q_OS_WIN
     if (p_QupZilla->isTransparentBackgroundAllowed()) {
@@ -338,10 +348,10 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     int index;
 
     if (position == -1) {
-        index = addTab(new WebTab(p_QupZilla, locBar), QString());
+        index = addTab(new WebTab(p_QupZilla, locBar), QString(), pinned);
     }
     else {
-        index = insertTab(position, new WebTab(p_QupZilla, locBar), QString());
+        index = insertTab(position, new WebTab(p_QupZilla, locBar), QString(), pinned);
     }
 
     TabbedWebView* webView = weTab(index)->view();
@@ -453,10 +463,6 @@ void TabWidget::closeTab(int index, bool force)
         }
     }
 
-    if (webTab->isPinned()) {
-        emit pinnedTabClosed();
-    }
-
     m_locationBars->removeWidget(webView->webTab()->locationBar());
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     disconnect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
@@ -502,7 +508,6 @@ void TabWidget::currentTabChanged(int index)
 
     webTab->setCurrentTab();
     p_QupZilla->currentTabChanged();
-    showNavigationBar(p_QupZilla->navigationContainer());
 }
 
 void TabWidget::tabMoved(int before, int after)
@@ -556,7 +561,7 @@ void TabWidget::setCurrentIndex(int index)
 {
     m_lastTabIndex = currentIndex();
 
-    QTabWidget::setCurrentIndex(index);
+    TabStackedWidget::setCurrentIndex(index);
 }
 
 void TabWidget::setTabIcon(int index, const QIcon &icon)
@@ -592,7 +597,7 @@ void TabWidget::setTabText(int index, const QString &text)
     }
 
     setTabToolTip(index, text);
-    QTabWidget::setTabText(index, newtext);
+    TabStackedWidget::setTabText(index, newtext);
 }
 
 void TabWidget::nextTab()
@@ -629,15 +634,6 @@ void TabWidget::reloadTab(int index)
 int TabWidget::lastTabIndex() const
 {
     return m_lastTabIndex;
-}
-
-void TabWidget::showNavigationBar(QWidget* bar)
-{
-    WebTab* tab = weTab();
-
-    if (tab) {
-        tab->showNavigationBar(bar);
-    }
 }
 
 TabBar* TabWidget::getTabBar() const
@@ -904,19 +900,18 @@ void TabWidget::restorePinnedTabs()
         int addedIndex;
 
         if (!historyState.isEmpty()) {
-            addedIndex = addView(QUrl(), Qz::NT_CleanSelectedTab);
+            addedIndex = addView(QUrl(), Qz::NT_CleanSelectedTab, false, true);
 
             weTab(addedIndex)->p_restoreTab(url, historyState);
         }
         else {
-            addedIndex = addView(url);
+            addedIndex = addView(url, tr("New tab"), Qz::NT_SelectedTab, false, -1, true);
         }
 
         WebTab* webTab = weTab(addedIndex);
 
         if (webTab) {
             webTab->setPinned(true);
-            emit pinnedTabAdded();
         }
 
         m_tabBar->updatePinnedTabCloseButton(addedIndex);
