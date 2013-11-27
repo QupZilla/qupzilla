@@ -223,8 +223,8 @@ private:
     QScrollArea* m_scrollArea;
 
     int m_pressedIndex;
-    bool m_dragInProgress;
     int m_pressedGlobalX;
+    bool m_dragInProgress;
     bool m_activeTabBar;
     bool m_useFastTabSizeHint;
     bool m_bluredBackground;

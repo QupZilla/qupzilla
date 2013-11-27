@@ -579,14 +579,18 @@ int ComboTabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
     switch (sizeType) {
     case ExtraReservedWidth:
         return 0;
+
     case NormalTabMaximumWidth:
         return 150;
-    case NormalTabMinimumWidth:
-    case PinnedTabWidth:
-        return 30;
+
     case ActiveTabMinimumWidth:
+    case NormalTabMinimumWidth:
     case OverflowedTabWidth:
         return 100;
+
+    case PinnedTabWidth:
+        return 30;
+
     default:
         break;
     }
@@ -723,14 +727,17 @@ void ComboTabBar::setMinimumWidthes()
 
     int pinnedTabBarWidth = pinnedTabsCount() * comboTabBarPixelMetric(PinnedTabWidth);
     m_pinnedTabBar->setMinimumWidth(pinnedTabBarWidth);
+
     if (m_maxVisiblePinnedTab > 0) {
         pinnedTabBarWidth = qMin(pinnedTabBarWidth, m_maxVisiblePinnedTab * comboTabBarPixelMetric(PinnedTabWidth));
     }
+
     m_pinnedTabBarWidget->setMaximumWidth(pinnedTabBarWidth);
 
-    int mainTabBarWidth = comboTabBarPixelMetric(PinnedTabWidth) * (m_mainTabBar->count() - 1) +
+    int mainTabBarWidth = comboTabBarPixelMetric(NormalTabMinimumWidth) * (m_mainTabBar->count() - 1) +
                           comboTabBarPixelMetric(ActiveTabMinimumWidth) +
                           comboTabBarPixelMetric(ExtraReservedWidth);
+
     if (mainTabBarWidth <= m_mainTabBarWidget->width()) {
         m_mainTabBar->useFastTabSizeHint(false);
         emit overFlowChanged(false);

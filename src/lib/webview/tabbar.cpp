@@ -40,10 +40,6 @@
 #include <QHBoxLayout>
 #include <QDebug>
 
-#define MAXIMUM_TAB_WIDTH 250
-#define MINIMUM_TAB_WIDTH 125
-#define OVERFLOWED_TAB_WIDTH 100
-
 TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     : ComboTabBar()
     , p_QupZilla(mainClass)
@@ -218,19 +214,16 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
         return QSize(-1, -1);
     }
 
-    static int PINNED_TAB_WIDTH = -1;
-    static int MINIMUM_ACTIVE_TAB_WIDTH = -1;
-
-    if (comboTabBarPixelMetric(ComboTabBar::PinnedTabWidth) > 0) {
-        PINNED_TAB_WIDTH = comboTabBarPixelMetric(ComboTabBar::PinnedTabWidth);
-        MINIMUM_ACTIVE_TAB_WIDTH = comboTabBarPixelMetric(ComboTabBar::ActiveTabMinimumWidth);
-    }
+    static int PINNED_TAB_WIDTH = comboTabBarPixelMetric(ComboTabBar::PinnedTabWidth);
+    static int MINIMUM_ACTIVE_TAB_WIDTH = comboTabBarPixelMetric(ComboTabBar::ActiveTabMinimumWidth);
+    static int MAXIMUM_TAB_WIDTH = comboTabBarPixelMetric(ComboTabBar::NormalTabMaximumWidth);
+    static int MINIMUM_TAB_WIDTH = comboTabBarPixelMetric(ComboTabBar::NormalTabMinimumWidth);
 
     QSize size = ComboTabBar::tabSizeHint(index);
 
     // The overflowed tabs have similar size and we can use this fast method
     if (fast) {
-        size.setWidth(index >= pinnedTabsCount() ? OVERFLOWED_TAB_WIDTH : PINNED_TAB_WIDTH);
+        size.setWidth(index >= pinnedTabsCount() ? MINIMUM_TAB_WIDTH : PINNED_TAB_WIDTH);
         return size;
     }
 
@@ -242,6 +235,7 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
     }
     else {
         int availableWidth = mainTabBarWidth();
+
         if (!m_tabWidget->buttonListTabs()->isForceHidden()) {
             availableWidth -= comboTabBarPixelMetric(ExtraReservedWidth);
         }
@@ -251,6 +245,7 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
         }
 
         const int normalTabsCount = ComboTabBar::normalTabsCount();
+
         if (availableWidth >= MAXIMUM_TAB_WIDTH * normalTabsCount) {
             m_normalTabWidth = MAXIMUM_TAB_WIDTH;
             size.setWidth(m_normalTabWidth);
@@ -266,46 +261,12 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
                 adjustingActiveTab = true;
             }
 
-            bool tryAdjusting = false;
+            bool tryAdjusting = availableWidth >= MINIMUM_TAB_WIDTH * normalTabsCount;
 
-            if (availableWidth < MINIMUM_TAB_WIDTH * normalTabsCount) {
-                // Tabs don't fit at all in tabbar even with MINIMUM_TAB_WIDTH
-                // We will try to use as low width of tabs as possible
-                // to try avoid overflowing tabs into tabbar buttons
-                if (maxWidthForTab < PINNED_TAB_WIDTH) {
-                    // FIXME: It overflows now
-                    m_normalTabWidth = PINNED_TAB_WIDTH;
-                    if (index == mainTabBarCurrentIndex()) {
-                        size.setWidth(realTabWidth);
-                    }
-                    else {
-                        size.setWidth(m_normalTabWidth);
-                    }
-                }
-                else {
-                    tryAdjusting = true;
-                }
-
-                if (tabsClosable()) {
-                    // Hiding close buttons to save some space
-                    tabBar->setTabsClosable(false);
-                    tabBar->showCloseButton(currentIndex());
-                }
-            }
-            else {
-                // Tabs fit into tabbar with size between MAXIMUM_TAB_WIDTH and MINIMUM_TAB_WIDTH
-                // There won't be any empty space in tabbar
-                tryAdjusting = true;
-
-                // Restore close buttons according to preferences
-                if (!tabsClosable()) {
-                    tabBar->setTabsClosable(true);
-
-                    // Hide close buttons on pinned tabs
-                    for (int i = 0; i < count(); ++i) {
-                        tabBar->updatePinnedTabCloseButton(i);
-                    }
-                }
+            if (tabsClosable() && availableWidth < (MINIMUM_TAB_WIDTH + 25) * normalTabsCount) {
+                // Hiding close buttons to save some space
+                tabBar->setTabsClosable(false);
+                tabBar->showCloseButton(currentIndex());
             }
 
             if (tryAdjusting) {
@@ -325,6 +286,16 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
                 else {
                     size.setWidth(m_normalTabWidth);
                 }
+            }
+        }
+
+        // Restore close buttons according to preferences
+        if (!tabsClosable() && availableWidth >= (MINIMUM_TAB_WIDTH + 25) * normalTabsCount) {
+            tabBar->setTabsClosable(true);
+
+            // Hide close buttons on pinned tabs
+            for (int i = 0; i < count(); ++i) {
+                tabBar->updatePinnedTabCloseButton(i);
             }
         }
     }
@@ -354,34 +325,21 @@ int TabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
         return -1;
     }
 
-    static int PINNED_TAB_WIDTH = -1;
-    static int MINIMUM_ACTIVE_TAB_WIDTH = -1;
-
-    if (PINNED_TAB_WIDTH == -1) {
-        PINNED_TAB_WIDTH = 16 + mApp->proxyStyle()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
-        MINIMUM_ACTIVE_TAB_WIDTH = PINNED_TAB_WIDTH + mApp->proxyStyle()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, 0, this);
-    }
-
     switch (sizeType) {
     case ComboTabBar::PinnedTabWidth:
-        return PINNED_TAB_WIDTH;
-        break;
+        return 16 + mApp->proxyStyle()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
+
     case ComboTabBar::ActiveTabMinimumWidth:
-        return MINIMUM_ACTIVE_TAB_WIDTH;
-        break;
     case ComboTabBar::NormalTabMinimumWidth:
-        return MINIMUM_TAB_WIDTH;
-        break;
-    case ComboTabBar::NormalTabMaximumWidth:
-        return MAXIMUM_TAB_WIDTH;
-        break;
     case ComboTabBar::OverflowedTabWidth:
-        return OVERFLOWED_TAB_WIDTH;
-        break;
+        return 100;
+
+    case ComboTabBar::NormalTabMaximumWidth:
+        return 250;
+
     case ComboTabBar::ExtraReservedWidth:
-        return m_tabWidget->buttonListTabs()->width() +
-               m_tabWidget->buttonAddTab()->width();
-        break;
+        return m_tabWidget->buttonListTabs()->width() + m_tabWidget->buttonAddTab()->width();
+
     default:
         break;
     }
@@ -558,12 +516,6 @@ void TabBar::overFlowChange(bool overFlowed)
     if (overFlowed) {
         m_tabWidget->buttonAddTab()->setForceHidden(true);
         m_tabWidget->buttonListTabs()->setForceHidden(true);
-
-        // Restore close buttons according to preferences
-        if (OVERFLOWED_TAB_WIDTH >= MINIMUM_TAB_WIDTH && !tabsClosable()) {
-            setTabsClosable(true);
-        }
-
         m_tabWidget->setUpLayout();
         ensureVisible(currentIndex());
     }
