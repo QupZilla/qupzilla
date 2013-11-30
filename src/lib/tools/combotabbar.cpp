@@ -1192,7 +1192,7 @@ void TabBarScrollWidget::ensureVisible(int index, int xmargin)
         return;
     }
 
-    xmargin = qMin(xmargin, width() / 2);
+    xmargin = qMin(xmargin, m_scrollArea->viewport()->width() / 2);
 
     // Qt Bug? the following lines were taken from QScrollArea::ensureVisible() and
     // then were fixed. The original version caculates wrong values in RTL layouts.
