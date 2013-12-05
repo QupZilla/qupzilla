@@ -239,7 +239,7 @@ QWebElement WebView::activeElement() const
 
 bool WebView::isUrlValid(const QUrl &url)
 {
-    // Valid url must have scheme and actually contains something (so scheme:// is invalid)
+    // Valid url must have scheme and actually contains something (therefore scheme:// is invalid)
     return url.isValid() && !url.scheme().isEmpty() && (!url.host().isEmpty() || !url.path().isEmpty());
 }
 
