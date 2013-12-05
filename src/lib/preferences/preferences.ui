@@ -865,13 +865,6 @@
                 </widget>
                </item>
                <item>
-                <widget class="QCheckBox" name="addCountryWithAlt">
-                 <property name="text">
-                  <string>Add .co.uk domain by pressing ALT key</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QCheckBox" name="searchWithDefaultEngine">
                  <property name="text">
                   <string>Search with Default Engine</string>
@@ -1913,7 +1906,28 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="0">
+           <item row="1" column="0" colspan="2">
+            <widget class="QCheckBox" name="switchTabsAlt">
+             <property name="text">
+              <string>Switch to tabs with Alt + number of tab</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="QCheckBox" name="loadSpeedDialsCtrl">
+             <property name="text">
+              <string>Load speed dials with Ctrl + number of speed dial</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="QCheckBox" name="addCountryWithAlt">
+             <property name="text">
+              <string>Add .co.uk domain by pressing ALT key in address bar</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
             <spacer name="verticalSpacer_13">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1925,20 +1939,6 @@
               </size>
              </property>
             </spacer>
-           </item>
-           <item row="1" column="0">
-            <widget class="QCheckBox" name="switchTabsAlt">
-             <property name="text">
-              <string>Switch to tabs with Alt + number of tab</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QCheckBox" name="loadSpeedDialsCtrl">
-             <property name="text">
-              <string>Load speed dials with Ctrl + number of speed dial</string>
-             </property>
-            </widget>
            </item>
           </layout>
          </widget>
@@ -2701,7 +2701,6 @@
   <tabstop>askWhenClosingMultipleTabs</tabstop>
   <tabstop>selectAllOnFocus</tabstop>
   <tabstop>selectAllOnClick</tabstop>
-  <tabstop>addCountryWithAlt</tabstop>
   <tabstop>tabWidget</tabstop>
   <tabstop>allowPlugins</tabstop>
   <tabstop>wheelScroll</tabstop>
