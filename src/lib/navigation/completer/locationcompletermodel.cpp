@@ -213,6 +213,8 @@ QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const
         query.append(QString("AND (NOT %1.url=?) ").arg(table));
     }
 
+    query.append(QString("GROUP BY %1.url ").arg(table));
+
     if (!orderBy.isEmpty()) {
         query.append("ORDER BY " + orderBy);
     }
