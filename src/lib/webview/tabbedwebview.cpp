@@ -198,7 +198,11 @@ void TabbedWebView::linkHovered(const QString &link, const QString &title, const
             p_QupZilla->statusBarMessage()->clearMessage();
         }
         else {
-            p_QupZilla->statusBarMessage()->showMessage(QString::fromUtf8(QByteArray::fromPercentEncoding(link.toUtf8())));
+            // QUrl::fromEncoded(link.toUtf8());
+            // Don't decode link from percent encoding (to show all utf8 chars), as it doesn't
+            // works correctly in all cases
+            // See #1095
+            p_QupZilla->statusBarMessage()->showMessage(link);
         }
     }
 }
