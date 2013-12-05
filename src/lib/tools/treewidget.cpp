@@ -123,18 +123,24 @@ QMimeData* TreeWidget::mimeData(const QList<QTreeWidgetItem*> items) const
     QByteArray encodedData;
 
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
+
     foreach (const QTreeWidgetItem* item, items) {
-        if (item) {
-            QTreeWidgetItem* clonedItem = item->clone();
-            bool parentIsRoot = false;
-            if (!item->parent() || item->parent() == invisibleRootItem()) {
-                parentIsRoot = true;
-            }
-            clonedItem->setData(0, ITEM_IS_TOPLEVEL, parentIsRoot);
-            clonedItem->setData(0, ITEM_PARENT_TITLE, (parentIsRoot ? QString() : item->parent()->text(0))) ;
-            clonedItem->write(stream);
-            delete clonedItem;
+        if (!item) {
+            continue;
         }
+
+        // Why not just pass pointers ??!!
+        QTreeWidgetItem* clonedItem = item->clone();
+
+        // #1097 Clearing icon will properly write this item into stream ...
+        clonedItem->setIcon(0, QIcon());
+
+        bool parentIsRoot = !item->parent() || item->parent() == invisibleRootItem();
+
+        clonedItem->setData(0, ITEM_IS_TOPLEVEL, parentIsRoot);
+        clonedItem->setData(0, ITEM_PARENT_TITLE, (parentIsRoot ? QString() : item->parent()->text(0))) ;
+        clonedItem->write(stream);
+        delete clonedItem;
     }
 
     data->setData(m_mimeType, encodedData);
@@ -171,14 +177,15 @@ bool TreeWidget::dropMimeData(QTreeWidgetItem* parent, int,
     }
 
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-    QSqlDatabase db = QSqlDatabase::database();
-    db.transaction();
 
     QByteArray ba = data->data(m_mimeType);
     QDataStream stream(&ba, QIODevice::ReadOnly);
     if (stream.atEnd()) {
         return false;
     }
+
+    QSqlDatabase db = QSqlDatabase::database();
+    db.transaction();
 
     setUpdatesEnabled(false);
 
@@ -202,12 +209,7 @@ bool TreeWidget::dropMimeData(QTreeWidgetItem* parent, int,
         }
 
         if (isFolder) {
-            if (parent->text(0) == _bookmarksToolbar) {
-                emit folderParentChanged(item->text(0), true, &ok);
-            }
-            else {
-                emit folderParentChanged(item->text(0), false, &ok);
-            }
+            emit folderParentChanged(item->text(0), parent->text(0) == _bookmarksToolbar, &ok);
         }
         else {
             emit bookmarkParentChanged(item->data(0, Qt::UserRole + 10).toInt(),

@@ -30,6 +30,7 @@ Version 1.5.0
     * fixed: enabling disabled rules in AdBlock now works everytime
     * fixed: parsing OpenSearch files with XML declaration
     * fixed: don't show urls multiple times in url completer
+    * fixed: drag & drop moving folders under bookmarks toolbar
 
 Version 1.4.4
     * released 1 September 2013

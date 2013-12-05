@@ -593,6 +593,10 @@ void BookmarksModel::changeBookmarkParent(int id, const QString &newParent, cons
 
 void BookmarksModel::changeFolderParent(const QString &name, bool isSubfolder, bool* ok)
 {
+    if (name.isEmpty()) {
+        return;
+    }
+
     QSqlQuery query;
     query.prepare("UPDATE folders SET subfolder=? WHERE name=?");
     query.bindValue(0, isSubfolder ? "yes" : "no");
@@ -611,7 +615,6 @@ void BookmarksModel::changeFolderParent(const QString &name, bool isSubfolder, b
         *ok = true;
     }
 }
-
 
 void BookmarksModel::bookmarkDropedLink(const QUrl &url, const QString &title, const QVariant &imageVariant, const QString &folder, bool* ok)
 {
