@@ -239,21 +239,8 @@ QWebElement WebView::activeElement() const
 
 bool WebView::isUrlValid(const QUrl &url)
 {
-    const QString &urlScheme = url.scheme();
-    if (urlScheme == QLatin1String("data") || urlScheme == QLatin1String("qrc") ||
-            urlScheme == QLatin1String("mailto")) {
-        return true;
-    }
-
-    if (urlScheme == QLatin1String("qupzilla") || urlScheme == QLatin1String("file")) {
-        return !url.path().isEmpty();
-    }
-
-    if (url.isValid() && !url.host().isEmpty() && !urlScheme.isEmpty()) {
-        return true;
-    }
-
-    return false;
+    // Valid url must have scheme and actually contains something (so scheme:// is invalid)
+    return url.isValid() && !url.scheme().isEmpty() && (!url.host().isEmpty() || !url.path().isEmpty());
 }
 
 QUrl WebView::guessUrlFromString(const QString &string)
