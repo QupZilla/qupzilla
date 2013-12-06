@@ -289,6 +289,9 @@ MainApplication::MainApplication(int &argc, char** argv)
         if (checkUpdates) {
             new Updater(qupzilla);
         }
+
+        backupSavedSessions();
+
         if (m_startingAfterCrash || afterLaunch == 3) {
             m_restoreManager = new RestoreManager(m_activeProfil + "session.dat");
             if (!m_restoreManager->isValid()) {
@@ -761,6 +764,27 @@ void MainApplication::translateApp()
 
     installTranslator(app);
     installTranslator(sys);
+}
+
+void MainApplication::backupSavedSessions()
+{
+    // session.dat      - current
+    // session.dat.old  - first backup
+    // session.dat.old1 - second backup
+
+    const QString sessionFile = m_activeProfil + "session.dat";
+
+    if (!QFile::exists(sessionFile)) {
+        return;
+    }
+
+    if (QFile::exists(sessionFile + ".old")) {
+        QFile::remove(sessionFile + ".old1");
+        QFile::copy(sessionFile + ".old", sessionFile + ".old1");
+    }
+
+    QFile::remove(sessionFile + ".old");
+    QFile::copy(sessionFile, sessionFile + ".old");
 }
 
 void MainApplication::quitApplication()

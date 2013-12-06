@@ -17,6 +17,7 @@ Version 1.5.0
     * cancel upload when trying to upload non-readable files
     * select previous / next engines with ctrl+up/down in websearchbar
     * ask user first before closing all but the current tab from tabbar
+    * last 2 sessions are now backuped in profile directory
     * GreaseMonkey: added icon in statusbar
     * GreaseMonkey: added support for GM_Settings
     * GreaseMonkey: fixed userscripts when first loading plugin

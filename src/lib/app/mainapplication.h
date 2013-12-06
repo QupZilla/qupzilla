@@ -163,6 +163,7 @@ private:
     void loadTheme(const QString &name);
     void translateApp();
     void restoreOtherWindows();
+    void backupSavedSessions();
 
     QUrl userStyleSheet(const QString &filePath) const;
 
