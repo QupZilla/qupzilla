@@ -1,32 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="ar">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="te" version="2.0">
 <context>
     <name>TestPlugin</name>
     <message>
         <location filename="../testplugin.cpp" line="121"/>
         <source>Close</source>
-        <translation>أغلق</translation>
+        <translation>మూసివేయి</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="132"/>
         <source>Example Plugin Settings</source>
-        <translation>إعدادات الإضافة العيّنة</translation>
+        <translation>ఉదాహరణ ప్లగిన్ సెటింగ్స్</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="160"/>
         <source>My first plugin action</source>
-        <translation>حدث إضافتي الأول</translation>
+        <translation>నా మొదటి ప్లగిన్ పని</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="175"/>
         <source>Hello</source>
-        <translation>مرحباً</translation>
+        <translation>నమస్తే</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="175"/>
         <source>First plugin action works :-)</source>
-        <translation>حدث الإضافة الأول يعمل</translation>
+        <translation>నా మొదటి ప్లగిన్ పని పనిచేస్తుంది :-)</translation>
     </message>
 </context>
 <context>
@@ -35,7 +33,7 @@
         <location filename="../testplugin_sidebar.cpp" line="32"/>
         <location filename="../testplugin_sidebar.cpp" line="37"/>
         <source>Testing Sidebar</source>
-        <translation>يجرّب الشريط الجانبي</translation>
+        <translation>సైడ్ బార్ను పరీక్షిస్తున్నా</translation>
     </message>
 </context>
 </TS>

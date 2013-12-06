@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv_SE" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es_AR" version="2.0">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>

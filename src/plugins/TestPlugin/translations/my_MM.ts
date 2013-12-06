@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_PT" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="my_MM" version="2.0">
 <context>
     <name>TestPlugin</name>
     <message>

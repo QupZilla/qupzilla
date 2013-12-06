@@ -61,17 +61,9 @@
     </message>
 </context>
 <context>
-    <name>GM_Icon</name>
-    <message>
-        <location filename="../gm_icon.cpp" line="29"/>
-        <source>Open GreaseMonkey settings</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="194"/>
+        <location filename="../gm_manager.cpp" line="183"/>
         <source>GreaseMonkey</source>
         <translation type="unfinished"/>
     </message>
@@ -89,12 +81,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../gm_notification.cpp" line="50"/>
+        <location filename="../gm_notification.cpp" line="49"/>
         <source>Cannot install script</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../gm_notification.cpp" line="58"/>
+        <location filename="../gm_notification.cpp" line="57"/>
         <source>&apos;%1&apos; installed successfully</source>
         <translation type="unfinished"/>
     </message>
@@ -140,52 +132,42 @@
 <context>
     <name>GM_SettingsScriptInfo</name>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="85"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
         <source>Name:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="55"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="29"/>
         <source>Version:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="115"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="39"/>
         <source>URL:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="138"/>
-        <source>Namespace:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="155"/>
-        <source>Edit in text editor</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="65"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="49"/>
         <source>Start at:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="45"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="59"/>
         <source>Description:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="69"/>
         <source>Runs at:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.ui" line="128"/>
+        <location filename="../settings/gm_settingsscriptinfo.ui" line="79"/>
         <source>Does not run at:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
+        <location filename="../settings/gm_settingsscriptinfo.cpp" line="27"/>
         <source>Script Details of %1</source>
         <translation type="unfinished"/>
     </message>

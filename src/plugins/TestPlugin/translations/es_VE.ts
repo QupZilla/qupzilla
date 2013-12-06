@@ -2,27 +2,27 @@
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="../testplugin.cpp" line="121"/>
+        <location filename="../testplugin.cpp" line="116"/>
         <source>Close</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="132"/>
+        <location filename="../testplugin.cpp" line="127"/>
         <source>Example Plugin Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="160"/>
+        <location filename="../testplugin.cpp" line="155"/>
         <source>My first plugin action</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="175"/>
+        <location filename="../testplugin.cpp" line="170"/>
         <source>Hello</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../testplugin.cpp" line="175"/>
+        <location filename="../testplugin.cpp" line="170"/>
         <source>First plugin action works :-)</source>
         <translation type="unfinished"/>
     </message>

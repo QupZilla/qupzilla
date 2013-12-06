@@ -65,7 +65,7 @@
     <message>
         <location filename="../gm_icon.cpp" line="29"/>
         <source>Open GreaseMonkey settings</source>
-        <translation type="unfinished"/>
+        <translation>Otvoriť nastavenia GreaseMonkey</translation>
     </message>
 </context>
 <context>
@@ -157,12 +157,12 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="138"/>
         <source>Namespace:</source>
-        <translation type="unfinished"/>
+        <translation>Menný priestor:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="155"/>
         <source>Edit in text editor</source>
-        <translation type="unfinished"/>
+        <translation>Upraviť v textovom editore</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="65"/>
