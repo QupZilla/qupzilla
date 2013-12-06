@@ -1,57 +1,57 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro_RO" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es_AR" version="2.0">
 <context>
     <name>AboutDialog</name>
     <message>
         <location filename="../src/lib/other/aboutdialog.ui" line="14"/>
         <source>About QupZilla</source>
-        <translation>Despre QupZilla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.ui" line="64"/>
         <source>Authors</source>
-        <translation>Autori</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="50"/>
         <location filename="../src/lib/other/aboutdialog.cpp" line="60"/>
         <source>Authors and Contributors</source>
-        <translation>Autori si Contribuitori</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="53"/>
         <location filename="../src/lib/other/aboutdialog.cpp" line="80"/>
         <source>&lt; About QupZilla</source>
-        <translation>&lt; Despre Qupzilla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="63"/>
         <source>&lt;p&gt;&lt;b&gt;Application version %1&lt;/b&gt;&lt;br/&gt;</source>
-        <translation>&lt;p&gt;&lt;b&gt;Versiune aplicație %1&lt;/b&gt;&lt;br/&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="68"/>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
-        <translation>&lt;b&gt;Versiune WebKit %1&lt;/b&gt;&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="70"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
-        <translation>&lt;small&gt;Versiune compilată: %1 &lt;/small&gt;&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="83"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;b&gt;Dezvoltatori principali:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="84"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;b&gt;Contribuitori:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="95"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;b&gt;Traducători:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -59,33 +59,33 @@
     <message>
         <location filename="../src/lib/preferences/acceptlanguage.ui" line="14"/>
         <source>Preferred Languages</source>
-        <translation>Limbi preferate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/acceptlanguage.ui" line="25"/>
         <source>Add...</source>
-        <translation>Adaugă...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/acceptlanguage.ui" line="32"/>
         <source>Remove</source>
-        <translation>Șterge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/acceptlanguage.ui" line="39"/>
         <source>Up</source>
-        <translation>Sus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/acceptlanguage.ui" line="46"/>
         <source>Down</source>
-        <translation>Jos</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/acceptlanguage.cpp" line="96"/>
-        <location filename="../src/lib/preferences/acceptlanguage.cpp" line="157"/>
+        <location filename="../src/lib/preferences/acceptlanguage.cpp" line="88"/>
+        <location filename="../src/lib/preferences/acceptlanguage.cpp" line="149"/>
         <source>Personal [%1]</source>
-        <translation>Personal [%1]</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -114,7 +114,7 @@
 <context>
     <name>AdBlockCustomList</name>
     <message>
-        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="453"/>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="419"/>
         <source>Custom Rules</source>
         <translation type="unfinished"/>
     </message>
@@ -124,17 +124,17 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="14"/>
         <source>AdBlock Configuration</source>
-        <translation>Configurare AdBlock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="20"/>
         <source>Enable AdBlock</source>
-        <translation>Activează AdBlock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="32"/>
         <source>Search...</source>
-        <translation>Caută...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="68"/>
@@ -144,101 +144,104 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="104"/>
         <source>AdBlock</source>
-        <translation>AdBlock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.ui" line="128"/>
-        <source>Use only essential part of EasyList (for performance reasons)</source>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="45"/>
+        <source>Add Rule</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="46"/>
-        <source>Add Rule</source>
-        <translation>Adaugă regulă</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="47"/>
         <source>Remove Rule</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="49"/>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="48"/>
         <source>Add Subscription</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="50"/>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="49"/>
         <source>Remove Subscription</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="51"/>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="50"/>
         <source>Update Subscriptions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="53"/>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="52"/>
         <source>Learn about writing rules...</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="385"/>
+        <source>EasyList</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="41"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="42"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation>AdBlock vă permite să blocați conținut nedorit de pe pagini web</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="64"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="65"/>
         <source>Blocked popup window</source>
-        <translation>Fereastră popup blocată</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="64"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="65"/>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation>AdBlock a blocat o fereastră popup nedorită.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="83"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="84"/>
         <source>AdBlock</source>
-        <translation>AdBock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="110"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="111"/>
         <source>Show AdBlock &amp;Settings</source>
-        <translation>Afișează &amp;setări AdBlock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="118"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="119"/>
         <source>Disable on %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="124"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="125"/>
         <source>Disable only on this page</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="134"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="135"/>
         <source>Blocked Popup Windows</source>
-        <translation>Ferestre popup blocate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="139"/>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="156"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="140"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="157"/>
         <source>%1 with (%2)</source>
-        <translation>%1 cu (%2)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="150"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="151"/>
         <source>No content blocked</source>
-        <translation>Nici un conținut nu a fost blocat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="153"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="154"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
-        <translation>Adresă blocată (regulă AdBlock) - click pentru a edita regula</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -251,11 +254,6 @@
     <message>
         <location filename="../src/lib/network/schemehandlers/adblockschemehandler.cpp" line="69"/>
         <source>AdBlock Subscription</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="260"/>
-        <source>EasyList</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -292,230 +290,152 @@
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="14"/>
         <source>Add Language</source>
-        <translation>Adaugă limbă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="20"/>
         <source>Choose preferred language for web sites</source>
-        <translation>Alege limba preferată pentru siteuri web</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="32"/>
         <source>Personal definition:</source>
-        <translation>Definiție personală:</translation>
-    </message>
-</context>
-<context>
-    <name>AesInterface</name>
-    <message>
-        <location filename="../src/lib/tools/aesinterface.cpp" line="144"/>
-        <source>Warning!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/tools/aesinterface.cpp" line="144"/>
-        <source>Data has been encrypted with a newer version of QupZilla.
-Please install latest version of QupZilla.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>AutoFill</name>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="33"/>
-        <source>Database (plaintext)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="245"/>
-        <source>Database (encrypted)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="287"/>
-        <source>Enter Master Password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="288"/>
-        <source>Permission is required, please enter Master Password:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="294"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
-        <source>Warning!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="294"/>
-        <source>Entered password is wrong!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="591"/>
-        <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AutoFillManager</name>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="25"/>
-        <source>Passwords are stored in:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="35"/>
-        <source>Change backend</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="42"/>
-        <source>Backend options</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="71"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="24"/>
         <source>Passwords</source>
-        <translation>Parole</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="87"/>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="201"/>
-        <source>Server</source>
-        <translation>Server</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="92"/>
-        <source>Username</source>
-        <translation>Nume utilizator</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="97"/>
-        <source>Password</source>
-        <translation>Parolă</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="113"/>
-        <source>Import/Export</source>
-        <translation>Importare/Exportare</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="140"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="78"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="167"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="175"/>
-        <source>Show Passwords</source>
-        <translation>Afișează parole</translation>
-    </message>
-    <message>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="40"/>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="154"/>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="45"/>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="50"/>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="66"/>
+        <source>Import/Export</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="93"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="58"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="99"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="107"/>
+        <source>Show Passwords</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="107"/>
         <source>Edit</source>
-        <translation>Editare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="161"/>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="211"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="114"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="164"/>
         <source>Remove</source>
-        <translation>Șterge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="168"/>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="218"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="121"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="171"/>
         <source>Remove All</source>
-        <translation>Șterge tot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.ui" line="191"/>
+        <location filename="../src/lib/preferences/autofillmanager.ui" line="144"/>
         <source>Exceptions</source>
-        <translation>Excepții</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="62"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="47"/>
         <source>Import Passwords from File...</source>
-        <translation>Importă parole din fișier...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="63"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="48"/>
         <source>Export Passwords to File...</source>
-        <translation>Exportă parole în fișier...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="66"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="51"/>
         <source>Search</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="126"/>
-        <source>Change backend...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="126"/>
-        <source>Change backend:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="175"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="107"/>
         <source>Are you sure that you want to show all passwords?</source>
-        <translation>Sunteți sigur că doriți să afișați toate parolele?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="190"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="122"/>
         <source>Hide Passwords</source>
-        <translation>Ascunde parole</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="208"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="142"/>
         <source>Confirmation</source>
-        <translation>Confirmare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="209"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="143"/>
         <source>Are you sure to delete all passwords on your computer?</source>
-        <translation>Sunteți sigur că doriți să ștergeți toate parolele de pe computer?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="228"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="161"/>
         <source>Edit password</source>
-        <translation>Editează parolă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="228"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="161"/>
         <source>Change password:</source>
-        <translation>Schimbă parolă:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="277"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="288"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="218"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="238"/>
         <source>Choose file...</source>
-        <translation>Alege fișier...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="302"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="225"/>
         <source>Cannot read file!</source>
-        <translation>Fișierul nu poate fi citit!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="311"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="232"/>
         <source>Successfully imported</source>
-        <translation>Importat cu succes</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="311"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="232"/>
         <source>Error while importing!</source>
-        <translation>Eroare la import!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="322"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="245"/>
         <source>Cannot write to file!</source>
-        <translation>Fișierul nu poate fi scris!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="331"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="252"/>
         <source>Successfully exported</source>
-        <translation>Exportat cu succes</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -586,12 +506,12 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/bookmarks/bookmarkicon.cpp" line="38"/>
         <location filename="../src/lib/bookmarks/bookmarkicon.cpp" line="111"/>
         <source>Bookmark this Page</source>
-        <translation>Adaugă semn de carte pentru această pagină</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkicon.cpp" line="103"/>
         <source>Edit this bookmark</source>
-        <translation>Editează acest semn de carte</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -599,186 +519,164 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="20"/>
         <source>Import Bookmarks</source>
-        <translation>Importă semne de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="26"/>
         <source>&lt;b&gt;Import Bookmarks&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Importă semne de carte&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="74"/>
         <source>From File</source>
-        <translation>Din fișier</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="83"/>
-        <source>Internet Explorer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="95"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="86"/>
         <source>Choose browser from which you want to import bookmarks:</source>
-        <translation>Alegeți browser-ul din care doriți să importați semnele de carte:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="102"/>
-        <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation>&lt;b&gt;Notă:&lt;/b&gt; Deocamdată, doar importarea din fișiere HTML poate importa deasemenea directoare de semne de carte.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="161"/>
-        <source>Choose...</source>
-        <translation>Alege...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="209"/>
-        <source>Try to fetch icons for all bookmarks (may take a while)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="243"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="93"/>
+        <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="135"/>
+        <source>Choose...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="224"/>
         <source>Fetching icons, please wait...</source>
-        <translation>Se descarcă iconițele, va rugăm așteptați...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="331"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="312"/>
         <source>Title</source>
-        <translation>Titlu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="336"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="317"/>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="363"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="344"/>
         <source>Next</source>
-        <translation>Următorul</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="370"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="351"/>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="64"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="63"/>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Importă din %1&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="105"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="97"/>
         <source>Finish</source>
-        <translation>Terminat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="164"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="174"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="156"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="166"/>
         <source>Please press Finish to complete importing process.</source>
-        <translation>Te rugăm apasă Finish pentru a încheia procesul de import.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="200"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="212"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="224"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="236"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="250"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="255"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="192"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="204"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="216"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="228"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="234"/>
         <source>Error!</source>
-        <translation>Eroare!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="255"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="234"/>
         <source>The file doesn&apos;t contain any bookmark.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="266"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="245"/>
         <source>Choose directory...</source>
-        <translation>Alege director...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="274"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="253"/>
         <source>Choose file...</source>
-        <translation>Alege fișier...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="307"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="286"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation>Mozilla Firefox stochează semnele de carte în baza de date SQLite&lt;b&gt;places.sqlite&lt;/b&gt;. Acest fișier este de obicei localzat în </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="309"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="324"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="340"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="355"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="288"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="303"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="319"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="334"/>
         <source>Please choose this file to begin importing bookmarks.</source>
-        <translation>Vă rugăm să alegeți acest fișier pentru a începe importul semnelor de carte.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="322"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="301"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Google Chrome stochează semnele de carte în fișierul text&lt;b&gt;Bookmarks&lt;/b&gt;. Acest fișier este de obicei localzat în </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="338"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="317"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Opera stochează semnele de carte în fișierul text&lt;b&gt;bookmarks.adr&lt;/b&gt;. Acest fișier este de obicei localzat în </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="353"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="332"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation>Puteți importa semne de carte din orice browser care suporta exportare HTML. Fișierul are de obicei următoarele sufixe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="362"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="341"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation>Internet Explorer stochează semnele de carte în directorul&lt;b&gt;Favorites&lt;/b&gt;. Acest folder este de obicei localzat în </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="364"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="343"/>
         <source>Please choose this folder to begin importing bookmarks.</source>
-        <translation>Vă rugăm alegeți acest folder pentru a începe importul semnelor de carte.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/chromeimporter.cpp" line="30"/>
         <location filename="../src/lib/bookmarksimport/firefoximporter.cpp" line="27"/>
         <location filename="../src/lib/bookmarksimport/htmlimporter.cpp" line="26"/>
-        <location filename="../src/lib/bookmarksimport/ieimporter.cpp" line="28"/>
         <location filename="../src/lib/bookmarksimport/operaimporter.cpp" line="25"/>
         <source>No Error</source>
-        <translation>Nici o eroare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/chromeimporter.cpp" line="45"/>
         <location filename="../src/lib/bookmarksimport/htmlimporter.cpp" line="41"/>
         <location filename="../src/lib/bookmarksimport/operaimporter.cpp" line="40"/>
         <source>Unable to open file.</source>
-        <translation>Fișierul nu poate fi deschis.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/chromeimporter.cpp" line="90"/>
         <source>Cannot evaluate JSON code.</source>
-        <translation>Codul JSON nu poate fi evaluat.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/firefoximporter.cpp" line="42"/>
         <source>File does not exist.</source>
-        <translation>Fișierul nu există.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/firefoximporter.cpp" line="50"/>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation>Baza de date nu poate fi deschisă. Firefox rulează?</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/ieimporter.cpp" line="42"/>
-        <source>Directory does not exist.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/ieimporter.cpp" line="53"/>
-        <source>The directory does not contain any bookmarks.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -788,32 +686,32 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="14"/>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="118"/>
         <source>Bookmarks</source>
-        <translation>Semne de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="23"/>
         <source>Optimize Database</source>
-        <translation>Optimizează baza de date</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="36"/>
         <source>Import Bookmarks</source>
-        <translation>Importă semne de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="59"/>
         <source>Add Folder</source>
-        <translation>Adaugă director</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="82"/>
         <source>Title</source>
-        <translation>Titlu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="87"/>
         <source>Url</source>
-        <translation>Adresă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="95"/>
@@ -828,7 +726,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="114"/>
         <source>Add new folder</source>
-        <translation>Adaugă director nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="116"/>
@@ -838,57 +736,57 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="121"/>
         <source>Choose name for new bookmark folder: </source>
-        <translation>Alege nume pentru director-ul nou de semne de cărți:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="164"/>
         <source>Add new subfolder</source>
-        <translation>Adaugă subdirector nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="164"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation>Alege nume pentru subdirector nou în bara pentru semne de carte:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="189"/>
         <source>Rename Folder</source>
-        <translation>Redenumește director</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="189"/>
         <source>Choose name for folder: </source>
-        <translation>Alegeți nume pentru director:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="313"/>
         <source>Add Subfolder</source>
-        <translation>Adaugă subdirector</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="318"/>
         <source>Rename folder</source>
-        <translation>Redenumește director</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="319"/>
         <source>Remove folder</source>
-        <translation>Șterge director</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="334"/>
         <source>Open link in current &amp;tab</source>
-        <translation>Deschide legătura în tab-ul &amp;curent </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="335"/>
         <source>Open link in &amp;new tab</source>
-        <translation>Deschide legătura în tab &amp;nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="339"/>
         <source>Move bookmark to &amp;folder</source>
-        <translation>Mută semnul de carte in &amp;director</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="351"/>
@@ -898,58 +796,58 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="352"/>
         <source>Rename bookmark</source>
-        <translation>Redenumește semnul de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="353"/>
         <source>Remove bookmark</source>
-        <translation>Șterge semnul de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="653"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
-        <translation>&lt;b&gt;Avertisment: &lt;/b&gt;Ați adăugat deja un semn de carte pentru această pagină!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="671"/>
         <source>Choose name and location of this bookmark.</source>
-        <translation>Alege numele și locația acestui semn de carte.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="675"/>
         <source>Add New Bookmark</source>
-        <translation>Adaugă semn de carte nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="734"/>
         <source>Choose folder for bookmarks:</source>
-        <translation>Alege director pentru semne de cărți:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="735"/>
         <source>Bookmark All Tabs</source>
-        <translation>Adaugă semn de carte pentru toate tab-urile</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="525"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="542"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="526"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="543"/>
         <source>Bookmarks In Menu</source>
-        <translation>Semne de carte în meniu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="528"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="545"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="529"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="546"/>
         <source>Bookmarks In ToolBar</source>
-        <translation>Semne de carte în bara de unelte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="531"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="548"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="532"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="549"/>
         <source>Unsorted Bookmarks</source>
-        <translation>Semne de carte nesortate</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -957,27 +855,27 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="32"/>
         <source>Search...</source>
-        <translation>Caută...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="131"/>
         <source>Open link in current &amp;tab</source>
-        <translation>Deschide legătura in &amp;tab-ul curent</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="132"/>
         <source>Open link in &amp;new tab</source>
-        <translation>Deschide legătura in tab &amp;nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="133"/>
         <source>Copy address</source>
-        <translation>Copiază adresa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="135"/>
         <source>&amp;Delete</source>
-        <translation>&amp;Șterge</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -985,32 +883,32 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
         <source>&amp;Bookmark Current Page</source>
-        <translation>Adaugă &amp;semn de carte pentru pagina curentă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="78"/>
         <source>Bookmark &amp;All Tabs</source>
-        <translation>Adaugă &amp;semn de carte pentru toate tab-urile</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="79"/>
         <source>&amp;Organize Bookmarks</source>
-        <translation>&amp;Organizează semne de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="81"/>
         <source>Show Most &amp;Visited</source>
-        <translation>Afișează cele mai &amp;vizitate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="86"/>
         <source>Show Only Icons</source>
-        <translation>Afișează doar iconițe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="92"/>
         <source>&amp;Hide Toolbar</source>
-        <translation>&amp;Ascunde bara de unelte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="112"/>
@@ -1023,62 +921,60 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="118"/>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="122"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="115"/>
         <source>Move right</source>
-        <translation>Mută la dreapta</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="116"/>
+        <source>Move left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="117"/>
+        <source>Edit bookmark</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="119"/>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="123"/>
-        <source>Move left</source>
-        <translation>Mută la stânga</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="125"/>
-        <source>Edit bookmark</source>
-        <translation>Editează semn de carte</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="127"/>
         <source>Remove bookmark</source>
-        <translation>Șterge semn de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="234"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="226"/>
         <source>Edit bookmark: </source>
-        <translation>Editează semn de carte:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="236"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="228"/>
         <source>Title: </source>
-        <translation>Titlu:</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="229"/>
+        <source>Url: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="237"/>
-        <source>Url: </source>
-        <translation>Adresă:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="245"/>
         <source>Edit Bookmark</source>
-        <translation>Editează semn de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="609"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="601"/>
         <source>Most visited</source>
-        <translation>Cele mei vizitate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="610"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="602"/>
         <source>Sites you visited the most</source>
-        <translation>Site-uri pe care le-ați vizitat cel mai frecvent</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="647"/>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="713"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="639"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="705"/>
         <source>Empty</source>
-        <translation>Gol</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1089,7 +985,7 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstree.cpp" line="114"/>
+        <location filename="../src/lib/bookmarks/bookmarkstree.cpp" line="115"/>
         <source>New Folder...</source>
         <translation type="unfinished"/>
     </message>
@@ -1100,33 +996,33 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="38"/>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="61"/>
         <source>Add to Speed Dial</source>
-        <translation>Adaugă la Speed Dial</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="84"/>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="130"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="129"/>
         <source>Save</source>
-        <translation>Salvează</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="93"/>
         <source>Name:</source>
-        <translation>Nume:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="100"/>
         <source>Folder:</source>
-        <translation>Director:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="62"/>
         <source>Remove from Speed Dial</source>
-        <translation>Șterge din Speed Dial</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="96"/>
         <source>Remove</source>
-        <translation>Șterge</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1134,37 +1030,37 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/browsinglibrary.ui" line="14"/>
         <source>Library</source>
-        <translation>Librărie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/browsinglibrary.ui" line="79"/>
         <source>Search...</source>
-        <translation>Caută...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
         <source>History</source>
-        <translation>Istoric</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/browsinglibrary.cpp" line="53"/>
         <source>Bookmarks</source>
-        <translation>Semne de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/browsinglibrary.cpp" line="54"/>
         <source>RSS</source>
-        <translation>RSS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="150"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="148"/>
         <source>Database Optimized</source>
-        <translation>Baza de date a fost optimizată</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="150"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="148"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation>Baza de date a fost optimizată su succes.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Dimensiunea bazei de date înainte: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Dimensiunea bazei de date după: &lt;/b&gt;%2</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1172,50 +1068,50 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="17"/>
         <source>&lt;b&gt;Issued To&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Atribuit lui&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="24"/>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="99"/>
         <source>Common Name (CN):</source>
-        <translation>Nume comun (NC):</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="41"/>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="116"/>
         <source>Organization (O):</source>
-        <translation>Organizație (O):</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="58"/>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="133"/>
         <source>Organizational Unit (OU):</source>
-        <translation>Unitate organizațională (UO):</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="75"/>
         <source>Serial Number:</source>
-        <translation>Cod serial:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="92"/>
         <source>&lt;b&gt;Issued By&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Emis de către&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="150"/>
         <source>&lt;b&gt;Validity&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Validitate&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="157"/>
         <source>Issued On:</source>
-        <translation>Emis la:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="174"/>
         <source>Expires On:</source>
-        <translation>Expiră la:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1223,67 +1119,72 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="14"/>
         <source>Clear Recent History</source>
-        <translation>Șterge istoric recent</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="20"/>
         <source>Choose what you want to delete:</source>
-        <translation>Alegeți ce doriți să ștergeți:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="61"/>
-        <source>Clear history</source>
-        <translation>Șterge istoric</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="34"/>
-        <source>Clear cache</source>
-        <translation>Șterge cache</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="27"/>
+        <source>Clear history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="37"/>
+        <source>Clear cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="47"/>
         <source>Clear icons</source>
-        <translation>Șterge iconițe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="54"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="57"/>
+        <source>Clear cookies from Adobe Flash Player</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="77"/>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Șterge istoric recent&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="137"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="104"/>
         <source>Earlier Today</source>
-        <translation>Mai devreme astăzi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="142"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="109"/>
         <source>Week</source>
-        <translation>Săptămână</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="147"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="114"/>
         <source>Month</source>
-        <translation>Lună</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="152"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="119"/>
         <source>All</source>
-        <translation>Tot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="44"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="140"/>
         <source>Clear web databases</source>
-        <translation>Șterge bazele de date web</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="97"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="150"/>
         <source>Clear local storage</source>
-        <translation>Șterge stocarea locală</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="160"/>
         <source>Clear cookies</source>
-        <translation>Șterge cookie-uri</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1291,42 +1192,42 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="120"/>
         <source>Object blocked by ClickToFlash</source>
-        <translation>Obiect blocat de ClickToFlash</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="121"/>
         <source>Show more information about object</source>
-        <translation>Afișează mai multe informatii despre obiect</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="123"/>
         <source>Delete object</source>
-        <translation>Șterge obiect</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="124"/>
         <source>Add %1 to whitelist</source>
-        <translation>Adaugă %1 la whitelist</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="294"/>
         <source>Flash Object</source>
-        <translation>Obiect Flash</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="296"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="297"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Nume atribut&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="297"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Valoare&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="318"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="311"/>
         <source>No more information available.</source>
-        <translation>Nu sunt disponibile alte informații.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1334,64 +1235,64 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="14"/>
         <source>Cookies</source>
-        <translation>Cookie-uri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="27"/>
         <source>Stored Cookies</source>
-        <translation>Cookie-uri stocate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="33"/>
         <source>Find: </source>
-        <translation>Caută:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="43"/>
         <source>These cookies are stored on your computer:</source>
-        <translation>Aceste cookie-uri sunt stocate pe calculatorul dvs.:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="54"/>
         <source>Server</source>
-        <translation>Server</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="59"/>
         <source>Cookie name</source>
-        <translation>Nume cookie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="97"/>
         <source>Name:</source>
-        <translation>Nume:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="107"/>
         <source>Value:</source>
-        <translation>Valuare:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="114"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="249"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="264"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="239"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="254"/>
         <source>Server:</source>
-        <translation>Server:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="121"/>
         <source>Path:</source>
-        <translation>Cale:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="128"/>
         <source>Secure:</source>
-        <translation>Securizat:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="135"/>
         <source>Expiration:</source>
-        <translation>Expirare:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="142"/>
@@ -1400,62 +1301,62 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="172"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="182"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="192"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="146"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="147"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="148"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="149"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="150"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="151"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="136"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="137"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="138"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="139"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="140"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="141"/>
         <source>&lt;cookie not selected&gt;</source>
-        <translation>&lt;cookie neselectat&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="217"/>
         <source>Remove all cookies</source>
-        <translation>Șterge toate cookie-urile</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="224"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="143"/>
         <source>Remove cookies</source>
-        <translation>Șterge cookie-uri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="248"/>
         <source>Cookie Filtering</source>
-        <translation>Filtru cookie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="254"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Whitelist pentru cookie-uri&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="261"/>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation>Cookie-urile din acest server vor fi ÎNTOTDEAUNA acceptate (chiar daca ați dezactivat salvarea cookie-urilor)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="286"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="340"/>
         <source>Add</source>
-        <translation>Adaugă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="293"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="347"/>
         <source>Remove</source>
-        <translation>Șterge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="305"/>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Blacklist pentru cookie-uri&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="312"/>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation>Cookie-urile de la aceste servere nu vor fi NICIODATĂ acceptate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="364"/>
@@ -1489,67 +1390,67 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
-        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
+        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="79"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="71"/>
         <source>Search</source>
-        <translation>Caută</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="93"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="83"/>
         <source>Confirmation</source>
-        <translation>Confirmare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="94"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="84"/>
         <source>Are you sure to delete all cookies on your computer?</source>
-        <translation>Sunteți sigur că doriți să ștergeți toate cookie-urile de pe acest computer?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="163"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
         <source>Secure only</source>
-        <translation>Doar securizat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="163"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
         <source>All connections</source>
-        <translation>Toate conexiunile</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="164"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="154"/>
         <source>Session cookie</source>
-        <translation>Cookie de sesiune</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="156"/>
         <source>Remove cookie</source>
-        <translation>Șterge cookie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="249"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="239"/>
         <source>Add to whitelist</source>
-        <translation>Adaugă la whitelist</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="264"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="254"/>
         <source>Add to blacklist</source>
-        <translation>Adaugă la blacklist</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DownloadFileHelper</name>
     <message>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="220"/>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="225"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="217"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="222"/>
         <source>Save file as...</source>
-        <translation>Salvează fișier ca...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="320"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="317"/>
         <source>NoNameDownload</source>
-        <translation>Download fără nume</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1557,119 +1458,104 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="77"/>
         <source>Remaining time unavailable</source>
-        <translation>Timpul rămas este indisponibil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="138"/>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="445"/>
         <source>Error: Cannot write to file!</source>
-        <translation>Eroare: Nu se poate face scrierea in fișier!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="187"/>
         <source>Done - %1</source>
-        <translation>Complet - %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="249"/>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="384"/>
         <source>Cancelled</source>
-        <translation>Oprit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="255"/>
         <source>few seconds</source>
-        <translation>câteva secunde</translation>
+        <translation type="unfinished"/>
     </message>
-    <message numerus="yes">
+    <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="258"/>
-        <source>%n seconds</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <source>seconds</source>
+        <translation type="unfinished"/>
     </message>
-    <message numerus="yes">
+    <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="261"/>
-        <source>%n minutes</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <source>minutes</source>
+        <translation type="unfinished"/>
     </message>
-    <message numerus="yes">
+    <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="264"/>
-        <source>%n hours</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <source>hours</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="271"/>
         <source>Unknown speed</source>
-        <translation>Viteză necunoscută</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="276"/>
-        <source>kB/s</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="281"/>
-        <source>MB/s</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="285"/>
-        <source>GB/s</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="309"/>
         <source>Unknown size</source>
-        <translation>Dimensiune necunoscută</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="310"/>
         <source>%2 - unknown size (%3)</source>
-        <translation>%2 - dimensiune necunoscută (%3)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="313"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
-        <translation>Rămas %1 - %2 of %3 (%4)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="344"/>
         <source>Cancelled - %1</source>
-        <translation>Oprite - %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="358"/>
         <source>Delete file</source>
-        <translation>Șterge fișier</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="358"/>
         <source>Do you want to also delete dowloaded file?</source>
-        <translation>Doriți să ștergeți fișierele descărcate deasemenea?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="374"/>
         <source>Open File</source>
-        <translation>Deschide fișier</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="376"/>
         <source>Open Folder</source>
-        <translation>Deschide folder</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="378"/>
         <source>Go to Download Page</source>
-        <translation>Du-te la pagina de descărcare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="379"/>
         <source>Copy Download Link</source>
-        <translation>Copiază legătură de descărcare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="381"/>
         <source>Cancel downloading</source>
-        <translation>Oprește descărcarea</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="382"/>
@@ -1679,72 +1565,70 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="384"/>
         <source>Error</source>
-        <translation>Eroare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="422"/>
         <source>Not found</source>
-        <translation>Nu a fost găsit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="422"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation>Scuze, fișierul 
- %1 
-nu a putut fi găsit!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="461"/>
         <source>Error: </source>
-        <translation>Eroare:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DownloadManager</name>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="142"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="279"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="138"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="275"/>
         <source>Download Manager</source>
-        <translation>Manager de descărcări</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="76"/>
         <source>Clear</source>
-        <translation>Șterge</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="176"/>
-        <source>%1% of %2 files (%3) %4 remaining</source>
-        <translation>%1% din %2 fișiere (%3) %4 rămase</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="179"/>
-        <source>%1% - Download Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="272"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="172"/>
+        <source>%1% of %2 files (%3) %4 remaining</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="175"/>
+        <source>% - Download Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="268"/>
         <source>Download Finished</source>
-        <translation>Descărcare incheiată</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="272"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="268"/>
         <source>All files have been successfully downloaded.</source>
-        <translation>Toate fișierele au fost descărcate cu succes.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="329"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="325"/>
         <source>Warning</source>
-        <translation>Avertisment</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="330"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="326"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
-        <translation>Sunteți sigur că doriți să iesiți? Toate descărcările incomplete vor fi oprite!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1752,93 +1636,78 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="26"/>
         <source>Opening</source>
-        <translation>Se deschide</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="146"/>
-        <source>Copy download link</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="169"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="32"/>
         <source>You have chosen to open</source>
-        <translation>Ați ales să deschideți</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="40"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="70"/>
         <source>which is a:</source>
-        <translation>care este un:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="59"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="89"/>
         <source>What should QupZilla do with this file?</source>
-        <translation>Ce ar trebui sa facă QupZilla cu acest fișier?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="81"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="111"/>
         <source>Open...</source>
-        <translation>Deschide...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="88"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="118"/>
         <source>Save File</source>
-        <translation>Salvează fișier</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="98"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="128"/>
         <source>Download with External Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="120"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="160"/>
         <source>from:</source>
-        <translation>de la:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="35"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="34"/>
         <source>Opening %1</source>
-        <translation>Se deschide %1</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="99"/>
-        <source>Download link copied.</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>EditSearchEngine</name>
     <message>
-        <location filename="../src/lib/opensearch/editsearchengine.ui" line="20"/>
+        <location filename="../src/lib/opensearch/editsearchengine.ui" line="17"/>
         <source>Name:</source>
-        <translation>Nume:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/editsearchengine.ui" line="30"/>
+        <location filename="../src/lib/opensearch/editsearchengine.ui" line="27"/>
         <source>Url:</source>
-        <translation>Url:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/editsearchengine.ui" line="44"/>
+        <location filename="../src/lib/opensearch/editsearchengine.ui" line="41"/>
         <source>Shortcut:</source>
-        <translation>Scurtătură:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/editsearchengine.ui" line="54"/>
+        <location filename="../src/lib/opensearch/editsearchengine.ui" line="51"/>
         <source>Icon:</source>
-        <translation>Iconiță:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/opensearch/editsearchengine.ui" line="106"/>
-        <source>&lt;b&gt;Note: &lt;/b&gt;%s in url or post data represent searched string</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/editsearchengine.ui" line="123"/>
-        <source>Post Data:</source>
+        <location filename="../src/lib/opensearch/editsearchengine.ui" line="58"/>
+        <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/editsearchengine.ui" line="83"/>
+        <location filename="../src/lib/opensearch/editsearchengine.ui" line="97"/>
         <source>Change...</source>
         <translation type="unfinished"/>
     </message>
@@ -1890,7 +1759,7 @@ nu a putut fi găsit!</translation>
 <context>
     <name>FtpDownloader</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="468"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="453"/>
         <source>Cancelled!</source>
         <translation type="unfinished"/>
     </message>
@@ -2093,32 +1962,32 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/history/historymanager.ui" line="14"/>
         <source>History</source>
-        <translation>Istoric</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.ui" line="20"/>
         <source>Delete</source>
-        <translation>Șterge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.ui" line="27"/>
         <source>Clear All History</source>
-        <translation>Șterge toată istoria</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.ui" line="50"/>
         <source>Optimize Database</source>
-        <translation>Optimizează baza de date</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="75"/>
         <source>Confirmation</source>
-        <translation>Confirmare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="76"/>
         <source>Are you sure to delete all history?</source>
-        <translation>Sunteți sigur că doriți să ștergeți întregul istoric?</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2165,7 +2034,7 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.ui" line="32"/>
         <source>Search...</source>
-        <translation>Caută...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2286,44 +2155,44 @@ nu a putut fi găsit!</translation>
 <context>
     <name>LicenseViewer</name>
     <message>
-        <location filename="../src/lib/other/licenseviewer.cpp" line="30"/>
+        <location filename="../src/lib/other/licenseviewer.cpp" line="25"/>
         <source>License Viewer</source>
-        <translation>Vizualizator de licențe</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="134"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="133"/>
         <source>Enter URL address or search on %1</source>
-        <translation>Introdu adresă sau caută pe %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="313"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="308"/>
         <source>Paste And &amp;Go</source>
-        <translation>Lipește si &amp;du-te</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="319"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="314"/>
         <source>Clear All</source>
-        <translation>Ștege tot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="539"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="501"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
-        <translation>.ro</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/navigation/siteicon.cpp" line="38"/>
         <source>Show information about this page</source>
-        <translation>Afișează informații desprea această pagină</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LocationCompleterView</name>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="134"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="126"/>
         <source>Switch to tab</source>
         <translation type="unfinished"/>
     </message>
@@ -2331,247 +2200,162 @@ nu a putut fi găsit!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="998"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="958"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="999"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="959"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1001"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="961"/>
         <source>Default Browser</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1021"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="981"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>MasterPasswordDialog</name>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="20"/>
-        <source>Encrypted DataBase Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="33"/>
-        <source>Set/Change Master Password...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="43"/>
-        <source>Clear Master Password...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="36"/>
-        <source>This backend does not work without a master password.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="46"/>
-        <source>This option clears the master password and moves all encrypted data to the &quot;DataBase (Plain Text)&quot; backend, and switches to it.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="64"/>
-        <source>The Master Password is used to protect site passwords and form data. If you set a Master Password you will be asked to enter it once per session.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="76"/>
-        <source>Current Password:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="83"/>
-        <source>New Password:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="90"/>
-        <source>Confirm Password:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="120"/>
-        <source>&lt;b&gt;Note:&lt;/b&gt; The Master Password is not resettable. Do not forget it, please.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="558"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="563"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="612"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="655"/>
-        <source>Warning!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="558"/>
-        <source>You entered a wrong password!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="563"/>
-        <source>New/Confirm password fields do not match!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="655"/>
-        <source>Some data has not been decrypted. The master password was not cleared!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="612"/>
-        <source>Are you sure to clear master password and decrypt data?</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="45"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="44"/>
         <source>No Named Page</source>
-        <translation>Pagină fără nume</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="83"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="74"/>
         <source>Back</source>
-        <translation>Înapoi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="92"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="82"/>
         <source>Forward</source>
-        <translation>Înainte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="111"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="98"/>
         <source>Home</source>
-        <translation>Acasă</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="105"/>
+        <source>New Tab</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="119"/>
-        <source>New Tab</source>
-        <translation>Tab nou</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="134"/>
         <source>Main Menu</source>
-        <translation>Meniu principal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="152"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="153"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="136"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="137"/>
         <source>Exit Fullscreen</source>
-        <translation>Ieși din ecran complet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="270"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="304"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="233"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="267"/>
         <source>Clear history</source>
-        <translation>Șterge istoric</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="206"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="199"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="237"/>
         <source>SSL Certificate Error!</source>
-        <translation>Eroare certificat SSL!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="207"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="200"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation>Pagina pe care doriți să o accesați are următoarele erori in certificiatul SSL:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="215"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Organizație: &lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="217"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Nume domeniu: &lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="219"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Data expirării: &lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="232"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="225"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Eroare: &lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="240"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="233"/>
         <source>Would you like to make an exception for this certificate?</source>
-        <translation>Doriți să faceți o excepție pentru acest certificat?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="280"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="257"/>
         <source>Authorisation required</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="287"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="394"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="466"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="264"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="371"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="438"/>
         <source>Username: </source>
-        <translation>Nume utilizator: </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="288"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="395"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="467"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="265"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="372"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="439"/>
         <source>Password: </source>
-        <translation>Parola: </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="293"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="270"/>
         <source>Save username and password on this site</source>
-        <translation>Salvează nume utilizator si parola pe acest site</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="302"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="279"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
-        <translation>Un nume de utilizator și o parolă sunt cerute de %1. Site-ul spune: &quot;%2&quot;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="387"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="364"/>
         <source>FTP authorisation required</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="400"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="377"/>
         <source>Login anonymously</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="417"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="394"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="459"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="431"/>
         <source>Proxy authorisation required</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
-        <source>Remember username and password for this proxy.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="481"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="451"/>
         <source>A username and password are being requested by proxy %1. </source>
-        <translation>Un nume de utilizator și o parolă sunt cerute de proxy %1. </translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2579,41 +2363,11 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/other/pagescreen.ui" line="14"/>
         <source>Page Screen</source>
-        <translation>Ecranul paginii</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/pagescreen.ui" line="62"/>
-        <source>Format:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.ui" line="72"/>
-        <source>Location:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/other/pagescreen.ui" line="91"/>
-        <source>Browse...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="60"/>
-        <source>Save as %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="98"/>
-        <source>Choose location...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="109"/>
-        <source>File &apos;%1&apos; already exists. Do you want to overwrite it?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="110"/>
-        <source>File already exists</source>
+        <location filename="../src/lib/other/pagescreen.cpp" line="65"/>
+        <source>Save Page Screen...</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2622,73 +2376,73 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="24"/>
         <source>Application Extensions</source>
-        <translation>Extensiile alicației</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="30"/>
         <source>Allow Application Extensions to be loaded</source>
-        <translation>Permite incărcarea de extensii pentru aplicație</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="70"/>
         <source>Settings</source>
-        <translation>Setări</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="100"/>
         <source>WebKit Plugins</source>
-        <translation>Plugin-uri WebKit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="106"/>
         <source>&lt;b&gt;Click To Flash Plugin&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Click pentru plugin Flash&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="113"/>
         <source>Click To Flash is a plugin which blocks auto loading of Flash content at page. You can always load it manually by clicking on the Flash play icon.</source>
-        <translation>Click To Flash este un plugin care blochează auto-încărcarea de conținut Flash pe pagină. Puteți încărca conținutul manual dând click pe iconița de play.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="129"/>
         <source>Whitelist</source>
-        <translation>Whitelist</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="137"/>
         <source>Add</source>
-        <translation>Adaugă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="144"/>
         <source>Remove</source>
-        <translation>Șterge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="166"/>
         <source>Allow Click To Flash</source>
-        <translation>Permite Click To Flash</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PluginsManager</name>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="85"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="83"/>
         <source>Add site to whitelist</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="85"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="83"/>
         <source>Server without http:// (ex. youtube.com)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="265"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="259"/>
         <source>Error!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="265"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="259"/>
         <source>Cannot load extension!</source>
         <translation type="unfinished"/>
     </message>
@@ -2696,7 +2450,7 @@ nu a putut fi găsit!</translation>
 <context>
     <name>PopupWebView</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="99"/>
+        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="97"/>
         <source>Inspect Element</source>
         <translation type="unfinished"/>
     </message>
@@ -2811,7 +2565,7 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="292"/>
         <source>%1 - QupZilla</source>
-        <translation>%1 - QupZilla</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2819,186 +2573,186 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Preferințe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2667"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="37"/>
         <source>QupZilla</source>
-        <translation>QupZilla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="60"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="91"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="65"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="96"/>
         <source>Appearance</source>
-        <translation>Aspect</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="70"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="101"/>
         <source>Tabs</source>
-        <translation>Tab-uri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="75"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="106"/>
         <source>Browsing</source>
-        <translation>Navigare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="80"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="111"/>
         <source>Fonts</source>
-        <translation>Font-uri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="85"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="116"/>
         <source>Keyboard Shortcuts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="90"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="121"/>
         <source>Downloads</source>
-        <translation>Descărcări</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="95"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="126"/>
         <source>Password Manager</source>
-        <translation>Manager de parole</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="100"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="131"/>
         <source>Privacy</source>
-        <translation>Intimitate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="105"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="136"/>
         <source>Notifications</source>
-        <translation>Notificări</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="110"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="141"/>
         <source>Extensions</source>
-        <translation>Extensii</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="115"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="146"/>
         <source>Other</source>
-        <translation>Altele</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="173"/>
         <location filename="../src/lib/preferences/preferences.ui" line="315"/>
         <source>Use current</source>
-        <translation>Folosește curentul</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="204"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="817"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="796"/>
         <source>Note: You cannot delete active profile.</source>
-        <translation>Notă: Nu puteți șterge profilul activ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="220"/>
         <source>Create New</source>
-        <translation>Creează nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="236"/>
         <source>Delete</source>
-        <translation>Șterge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="262"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Se lansează&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="272"/>
         <source>After launch: </source>
-        <translation>După lansare: </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="280"/>
         <source>Open blank page</source>
-        <translation>Deschide pagină goală</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="285"/>
         <location filename="../src/lib/preferences/preferences.ui" line="337"/>
         <source>Open homepage</source>
-        <translation>Deschide pagină acasă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="290"/>
         <location filename="../src/lib/preferences/preferences.ui" line="342"/>
         <source>Open speed dial</source>
-        <translation>Deschide Speed Dial</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="295"/>
         <source>Restore session</source>
-        <translation>Restaurează sesiune</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="303"/>
         <source>Homepage: </source>
-        <translation>Pagină acasă:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="324"/>
         <source>On new tab: </source>
-        <translation>Pe tab nou:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="332"/>
         <source>Open blank tab</source>
-        <translation>Deschide tab gol</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="347"/>
         <source>Open other page...</source>
-        <translation>Deschide altă pagină...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="355"/>
         <source>&lt;b&gt;Profiles&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Profiluri&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="362"/>
         <source>Startup profile:</source>
-        <translation>Profil de pornire:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="369"/>
         <source>Check for updates on start</source>
-        <translation>Verifică actualizări la pornire</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="376"/>
         <source>Active profile:</source>
-        <translation>Profil activ:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="390"/>
         <source>In order to change language, you must restart browser.</source>
-        <translation>Pentru a schimba limba trebuie să restartați browser-ul.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="397"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Limbă&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="418"/>
         <source>Available translations: </source>
-        <translation>Traduceri disponibile:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="430"/>
         <source>Don&apos;t load tabs until selected</source>
-        <translation>Nu incărca tab-uri până când nu sunt selectate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="452"/>
@@ -3013,57 +2767,57 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="492"/>
         <source>Themes</source>
-        <translation>Teme</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="505"/>
         <source>Advanced options</source>
-        <translation>Opțiuni avansate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="511"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Fereastra browser-ului&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="549"/>
         <source>Show StatusBar on start</source>
-        <translation>Afișează bara de status la pornire</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="556"/>
         <source>Show Bookmarks ToolBar on start</source>
-        <translation>Afișează bara de semne de carte la pornire</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="563"/>
         <source>Show Navigation ToolBar on start</source>
-        <translation>Afișează bara de navigare la pornire</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="572"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Bară de navigare&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="579"/>
         <source>Show Home button</source>
-        <translation>Afișeaza buton acasă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="586"/>
         <source>Show Back / Forward buttons</source>
-        <translation>Afișează butoane Înainte/Înapoi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="593"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
-        <translation>&lt;b&gt;Fundal&lt;b/&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="613"/>
         <source>Use transparent background</source>
-        <translation>Folosește fundal transparent</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="620"/>
@@ -3073,7 +2827,7 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="627"/>
         <source>Show Add Tab button</source>
-        <translation>Afișează buton de adăugare tab nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="634"/>
@@ -3098,17 +2852,17 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="706"/>
         <source>Hide tabs when there is only one tab</source>
-        <translation>Ascunde tab-urile când există un singur tab</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="713"/>
         <source>Activate last tab when closing active tab</source>
-        <translation>Activează ultimul tab la închiderea tab-ului activ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="720"/>
         <source>Open new tabs after active tab</source>
-        <translation>Deschide tab-uri noi după tabul activ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="727"/>
@@ -3123,17 +2877,17 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="741"/>
         <source>Don&apos;t quit upon closing last tab</source>
-        <translation>Nu ieși la închiderea ultimului tab</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="748"/>
         <source>Ask when closing multiple tabs</source>
-        <translation>Întreabă la închiderea mai multor tab-uri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="755"/>
         <source>Closed tabs list instead of opened in tab bar</source>
-        <translation>Listă de tab-uri închise in loc de cele deschise in bara de tab-uri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="776"/>
@@ -3177,18 +2931,18 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="849"/>
-        <source>Always show go icon</source>
+        <source>Select all text by double clicking in address bar</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="856"/>
-        <source>Select all text by double clicking in address bar</source>
-        <translation>Selectează tot textul prin dublu-click pe bara de adrese</translation>
+        <source>Select all text by clicking in address bar</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="863"/>
-        <source>Select all text by clicking in address bar</source>
-        <translation>Selectează tot textul dând click pe bara de adrese</translation>
+        <source>Add .co.uk domain by pressing ALT key</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="870"/>
@@ -3227,12 +2981,12 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="963"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1322"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1976"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2081"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2525"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1315"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1962"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2067"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2511"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="970"/>
@@ -3242,45 +2996,45 @@ nu a putut fi găsit!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1021"/>
         <source>Web Configuration</source>
-        <translation>Configurare web</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1029"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation>Permite plugin-uri Netscape (plugin Flash)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1036"/>
         <source>Allow JavaScript</source>
-        <translation>Permite JavaScript</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1043"/>
         <source>Allow JAVA</source>
-        <translation>Permite JAVA</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1050"/>
         <source>Allow DNS Prefetch</source>
-        <translation>Permite DNS Prefetch</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1057"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
-        <translation>Activează audit XSS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1064"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
-        <translation>Tipărește fundalul elementului</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1071"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
-        <translation>Adaugă legături la lanțul de focalizare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1078"/>
@@ -3294,544 +3048,533 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1092"/>
-        <source>Enable spatial navigation</source>
+        <source>Zoom text only</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1099"/>
-        <source>Zoom text only</source>
-        <translation>Apropie doar textul</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1116"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1109"/>
         <source>Mouse wheel scrolls</source>
-        <translation>Scrool cu rotița mose-ului</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1136"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1129"/>
         <source>lines on page</source>
-        <translation>linii pe pagină</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1147"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
         <source>Default zoom on pages: </source>
-        <translation>Apropierea predefinită pe pagini:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1199"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1192"/>
         <source>Local Storage</source>
-        <translation>Stocare locală</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1237"/>
+        <source>Maximum </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1244"/>
-        <source>Maximum </source>
-        <translation>Maxim</translation>
+        <source>50 MB</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1251"/>
-        <source>50 MB</source>
-        <translation>50 MB</translation>
+        <location filename="../src/lib/preferences/preferences.ui" line="1279"/>
+        <source>1</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1286"/>
-        <source>1</source>
-        <translation>1</translation>
+        <source>Maximum pages in cache: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1293"/>
-        <source>Maximum pages in cache: </source>
-        <translation>Număr maxim de pagini în cache:</translation>
+        <source>Allow storing network cache on disk</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1300"/>
-        <source>Allow storing network cache on disk</source>
-        <translation>Permite stocarea de date temporare de pe rețea pe disk</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1307"/>
         <source>Store cache in:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1335"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1328"/>
         <source>Allow saving history</source>
-        <translation>Permite stocarea istoricului</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1342"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1335"/>
         <source>Delete history on close</source>
-        <translation>Șterge istoria la ieșire</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1358"/>
+        <source>Allow local storage of HTML5 web content</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1365"/>
-        <source>Allow local storage of HTML5 web content</source>
-        <translation>Permite stocare locală de conținut web HTML5</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1372"/>
         <source>Delete locally stored HTML5 web content on close</source>
-        <translation>Șterge conținut web HTML5 stocat local la închidere</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1398"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1391"/>
         <source>Delete now</source>
-        <translation>Șterge acum</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1437"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1430"/>
         <source>Proxy Configuration</source>
-        <translation>Configurare proxy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1445"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1438"/>
         <source>Proxy Auto-Config (.pac) file</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1452"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1445"/>
         <source>Reload</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1544"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1537"/>
         <source>HTTP</source>
-        <translation>HTTP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1549"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1542"/>
         <source>SOCKS5</source>
-        <translation>SOCKS5</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1560"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1635"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1553"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1628"/>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1581"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1656"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1574"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1649"/>
         <source>Username:</source>
-        <translation>Nume utilizator:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1591"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1666"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1584"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1659"/>
         <source>Password:</source>
-        <translation>Parola:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1486"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1479"/>
         <source>Don&apos;t use on:</source>
-        <translation>Nu folosi pe:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1534"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1527"/>
         <source>Manual configuration</source>
-        <translation>Configurare manuală</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1511"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1504"/>
         <source>System proxy configuration</source>
-        <translation>Configurare proxy sistem</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1698"/>
-        <source>Do not use proxy</source>
-        <translation>Nu folosi proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1477"/>
-        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Excepții&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1625"/>
-        <source>Server:</source>
-        <translation>Server:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1616"/>
-        <source>Use different proxy for https connection</source>
-        <translation>Folosește proxy diferit pentru conexiuni http</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1691"/>
+        <source>Do not use proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1470"/>
+        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1618"/>
+        <source>Server:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1609"/>
+        <source>Use different proxy for https connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1684"/>
         <source>Use script for automatic configuration:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1713"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1706"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Familii de fonturi&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1719"/>
+        <source>Standard</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1726"/>
-        <source>Standard</source>
-        <translation>Standard</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1733"/>
         <source>Fixed</source>
-        <translation>Fixat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1743"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1736"/>
         <source>Serif</source>
-        <translation>Serif</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1753"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1746"/>
         <source>Sans Serif</source>
-        <translation>Sans Serif</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1763"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1756"/>
         <source>Cursive</source>
-        <translation>Cursiv</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1808"/>
+        <source>Fantasy</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1815"/>
-        <source>Fantasy</source>
-        <translation>Fantasy</translation>
+        <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1822"/>
-        <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Dimensiuni font&lt;/b&gt;</translation>
+        <location filename="../src/lib/preferences/preferences.ui" line="1824"/>
+        <source>Fixed Font Size</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1831"/>
-        <source>Fixed Font Size</source>
-        <translation>Dimensiune font fixă</translation>
+        <source>Default Font Size</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1838"/>
-        <source>Default Font Size</source>
-        <translation>Dimensiune font implicită</translation>
+        <location filename="../src/lib/preferences/preferences.ui" line="1858"/>
+        <source>Minimum Font Size</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1865"/>
-        <source>Minimum Font Size</source>
-        <translation>Dimensiune font minimă</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1872"/>
         <source>Minimum Logical Font Size</source>
-        <translation>Dimensiunea logică minimă a font-ului</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1905"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1898"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1912"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1918"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1919"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1925"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1926"/>
-        <source>Add .co.uk domain by pressing ALT key in address bar</source>
+        <location filename="../src/lib/preferences/preferences.ui" line="1936"/>
+        <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1943"/>
+        <source>Ask everytime for download location</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1950"/>
-        <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Locație de descărcare&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1957"/>
-        <source>Ask everytime for download location</source>
-        <translation>Întreabă de fiecare dată locația de descărcare</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1964"/>
         <source>Use defined location: </source>
-        <translation>Folosește locația definită:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2014"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2000"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Opțiuni de descărcare&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2021"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2007"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
-        <translation>Folosește dialog-uri native sistemului
-(ar putea sau nu să cauzeze probleme cu descărcarea conținutului securizat SSL)</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2015"/>
+        <source>Close download manager when downloading finishes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2022"/>
+        <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2029"/>
-        <source>Close download manager when downloading finishes</source>
-        <translation>Închide managerul de descărcări când descărcările iau sfârșit</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2036"/>
-        <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Manager de descărcări extern&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2043"/>
         <source>Use external download manager</source>
-        <translation>Folosește manager de descărcări extern</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2041"/>
+        <source>Executable:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2048"/>
+        <source>Arguments:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2055"/>
-        <source>Executable:</source>
-        <translation>Executabil:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2062"/>
-        <source>Arguments:</source>
-        <translation>Argumente:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2069"/>
         <source>Leave blank if unsure</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2090"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2076"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2116"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2102"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Optiuni de auto-umplere&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2123"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2109"/>
         <source>Allow saving passwords from sites</source>
-        <translation>Permite salvarea parolelor de pe site-uri</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2164"/>
+        <source>Send Referer header to servers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2171"/>
+        <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2178"/>
-        <source>Send Referer header to servers</source>
-        <translation>Trimite antetul referer-ului server-ului</translation>
+        <source>Send Do Not Track header to servers</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2185"/>
-        <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Cookie-uri&lt;/b&gt;</translation>
+        <location filename="../src/lib/preferences/preferences.ui" line="2494"/>
+        <source>&lt;b&gt;Other&lt;/b&gt;</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2192"/>
-        <source>Send Do Not Track header to servers</source>
-        <translation>Trimite anteturi Do Not Track la servere</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2199"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2508"/>
-        <source>&lt;b&gt;Other&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Altele&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2206"/>
         <source>Manage CA certificates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2235"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2221"/>
         <source>Certificate Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2242"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2228"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Certificate SSL&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2252"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2238"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2262"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2248"/>
         <source>Manage JavaScript privacy options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2275"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2261"/>
         <source>JavaScript options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2288"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2274"/>
         <source>Cookies Manager</source>
-        <translation>Manager de cookie-uri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2311"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2297"/>
         <source>Manage Cookies</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2331"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2317"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2338"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2324"/>
         <source>Manage HTML5 permissions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2351"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2337"/>
         <source>HTML5 Permissions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2362"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2348"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Notificari&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2369"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2355"/>
         <source>Use OSD Notifications</source>
-        <translation>Folosește notificări OSD</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2379"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2365"/>
         <source>Use Native System Notifications (Linux only)</source>
-        <translation>Folosește notificări native de sistem (doar pentru Linux)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2386"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2372"/>
         <source>Do not use Notifications</source>
-        <translation>Nu folosi notificări</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2437"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2423"/>
         <source>Expiration timeout:</source>
-        <translation>Timp limită de expirare:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2450"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2436"/>
         <source> seconds</source>
-        <translation>secunde</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2459"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2445"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
-        <translation>&lt;b&gt;Notă: &lt;/b&gt;Puteți schimba locația notificărilor OSD mutându-le pe ecran.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2515"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2501"/>
         <source>StyleSheet automatically loaded with all websites: </source>
-        <translation>Foi de stil încărcate automat pe toate site-urile:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2534"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2520"/>
         <source>Languages</source>
-        <translation>Limbi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2556"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2542"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Limbi preferate pentru site-uri&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2605"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2591"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2630"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2616"/>
         <source>User Agent Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="119"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="544"/>
-        <source>Default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="123"/>
-        <source>Set as default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
+        <location filename="../src/lib/preferences/preferences.cpp" line="111"/>
         <location filename="../src/lib/preferences/preferences.cpp" line="528"/>
+        <source>QupZilla is default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.cpp" line="115"/>
+        <source>Make QupZilla default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.cpp" line="512"/>
         <source>OSD Notification</source>
-        <translation>Notificări OSD</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="529"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="513"/>
         <source>Drag it on the screen to place it where you want.</source>
-        <translation>Trageți-o pe ecran pentru a o plasa unde doriți.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="570"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="554"/>
         <source>Choose download location...</source>
-        <translation>Alegeți locația de descărcare...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="584"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="568"/>
         <source>Choose stylesheet location...</source>
-        <translation>Alegeți locația foilor de stil...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="595"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="579"/>
         <source>Deleted</source>
-        <translation>Șterse</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="601"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="585"/>
         <source>Choose executable location...</source>
-        <translation>Alegeți locația executabilului...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="725"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="709"/>
         <source>Choose cache path...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="771"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="750"/>
         <source>New Profile</source>
-        <translation>Profil nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="771"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="750"/>
         <source>Enter the new profile&apos;s name:</source>
-        <translation>Introduceti numele noului profil:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="778"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="782"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="757"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="761"/>
         <source>Error!</source>
-        <translation>Eroare!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="778"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="757"/>
         <source>This profile already exists!</source>
-        <translation>Acest profil deja există!</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.cpp" line="761"/>
+        <source>Cannot create profile directory!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.cpp" line="781"/>
+        <source>Confirmation</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="782"/>
-        <source>Cannot create profile directory!</source>
-        <translation>Nu se poate creea directorul profilului!</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="802"/>
-        <source>Confirmation</source>
-        <translation>Confirmare</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation>Sunteți sigur că doriți să ștergeți profilul  &quot;%1&quot;? Aceacstă acțiune nu poate fi anulată!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1087"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1064"/>
         <source>Select Color</source>
         <translation type="unfinished"/>
     </message>
@@ -3839,9 +3582,9 @@ nu a putut fi găsit!</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/lib/desktopnotifications/desktopnotificationsfactory.cpp" line="114"/>
+        <location filename="../src/lib/desktopnotifications/desktopnotificationsfactory.cpp" line="117"/>
         <source>Native System Notification</source>
-        <translation>Notificări native de sistem</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="96"/>
@@ -3849,52 +3592,37 @@ nu a putut fi găsit!</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/opensearchreader.cpp" line="104"/>
+        <location filename="../src/lib/opensearch/opensearchreader.cpp" line="108"/>
         <source>The file is not an OpenSearch 1.1 file.</source>
-        <translation>Acest fișier nu este un fișier OpenSearch 1.1.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.cpp" line="305"/>
         <source>&lt;not set in certificate&gt;</source>
-        <translation>&lt;nu a fost setat în certificat&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="286"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="282"/>
         <source>Unknown size</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="291"/>
-        <source>KB</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="296"/>
-        <source>MB</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="300"/>
-        <source>GB</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="618"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="587"/>
         <source>Executable: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="619"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="588"/>
         <source>Arguments: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="621"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="590"/>
         <source>Cannot start external program</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="622"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="591"/>
         <source>Cannot start external program! %1</source>
         <translation type="unfinished"/>
     </message>
@@ -3902,475 +3630,473 @@ nu a putut fi găsit!</translation>
 <context>
     <name>QtWin</name>
     <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="388"/>
+        <location filename="../src/lib/3rdparty/qtwin.cpp" line="389"/>
         <source>Open new tab</source>
-        <translation>Deschide tab nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="388"/>
+        <location filename="../src/lib/3rdparty/qtwin.cpp" line="389"/>
         <source>Opens a new tab if browser is running</source>
-        <translation>Deschide tab nou daca browserul ruleaza</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="392"/>
+        <location filename="../src/lib/3rdparty/qtwin.cpp" line="393"/>
         <source>Open new window</source>
-        <translation>Deschide fereastră noua</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="392"/>
+        <location filename="../src/lib/3rdparty/qtwin.cpp" line="393"/>
         <source>Opens a new window if browser is running</source>
-        <translation>Deschide fereastră nouă daca browserul rulează</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
+        <location filename="../src/lib/3rdparty/qtwin.cpp" line="397"/>
         <source>Open download manager</source>
-        <translation>Deschide manager de download-uri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
+        <location filename="../src/lib/3rdparty/qtwin.cpp" line="397"/>
         <source>Opens a download manager if browser is running</source>
-        <translation>Deschide manager de download-uri daca browserul ruleaza</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="133"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="129"/>
         <source>QupZilla</source>
-        <translation>QupZilla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="357"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="336"/>
         <source>Private Browsing Enabled</source>
-        <translation>Navigare privată activată</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="361"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="340"/>
         <source>IP Address of current page</source>
-        <translation>Adresa IP a paginii curente</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="392"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="364"/>
         <source>&amp;About QupZilla</source>
-        <translation>&amp;Despre QupZilla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="396"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="368"/>
         <source>Pr&amp;eferences</source>
-        <translation>Pr&amp;eferințe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="401"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="373"/>
         <source>Quit</source>
-        <translation>Ieșire</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="411"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="383"/>
         <source>&amp;File</source>
-        <translation>&amp;Fișier</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="413"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="385"/>
         <source>&amp;New Window</source>
-        <translation>&amp;Fereastră nouă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="412"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="384"/>
         <source>New Tab</source>
-        <translation>Tab nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="414"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="386"/>
         <source>Open Location</source>
-        <translation>Deschide locație</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="415"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="387"/>
         <source>Open &amp;File...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="416"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="714"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="388"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="667"/>
         <source>Close Tab</source>
-        <translation>Închide tab</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="389"/>
+        <source>Close Window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="392"/>
+        <source>&amp;Save Page As...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="393"/>
+        <source>Save Page Screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="394"/>
+        <source>Send Link...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="395"/>
+        <source>&amp;Print...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="397"/>
+        <source>Import bookmarks...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="409"/>
+        <source>&amp;Edit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="410"/>
+        <source>&amp;Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="411"/>
+        <source>&amp;Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="413"/>
+        <source>&amp;Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="414"/>
+        <source>C&amp;opy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="415"/>
+        <source>&amp;Paste</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="417"/>
-        <source>Close Window</source>
-        <translation>Închide fereastră</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="420"/>
-        <source>&amp;Save Page As...</source>
-        <translation>&amp;Salvează pagina ca...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="421"/>
-        <source>Save Page Screen</source>
-        <translation>Salvează ecranul paginii</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="422"/>
-        <source>Send Link...</source>
-        <translation>Trimite legătura...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="423"/>
-        <source>&amp;Print...</source>
-        <translation>&amp;Tipărește...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="425"/>
-        <source>Import bookmarks...</source>
-        <translation>Importă bookmark-uri...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="437"/>
-        <source>&amp;Edit</source>
-        <translation>&amp;Editare</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="438"/>
-        <source>&amp;Undo</source>
-        <translation>&amp;Anulează</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="439"/>
-        <source>&amp;Redo</source>
-        <translation>&amp;Refă</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="441"/>
-        <source>&amp;Cut</source>
-        <translation>&amp;Taie</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="442"/>
-        <source>C&amp;opy</source>
-        <translation>C&amp;opiază</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="443"/>
-        <source>&amp;Paste</source>
-        <translation>&amp;Lipește</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="445"/>
         <source>Select &amp;All</source>
-        <translation>Selectează &amp;tot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="446"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="418"/>
         <source>&amp;Find</source>
-        <translation>&amp;Caută</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="457"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="429"/>
         <source>&amp;View</source>
-        <translation>&amp;Vizualizare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="458"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="430"/>
         <source>&amp;Navigation Toolbar</source>
-        <translation>Bară de &amp;navigare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="461"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="433"/>
         <source>&amp;Bookmarks Toolbar</source>
-        <translation>&amp;Bară de semne de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="464"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="436"/>
         <source>Sta&amp;tus Bar</source>
-        <translation>Bară de &amp;status</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="468"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="440"/>
         <source>&amp;Menu Bar</source>
-        <translation>Bară de &amp;meniu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="475"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="447"/>
         <source>&amp;Tabs on Top</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="478"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="450"/>
         <source>&amp;Fullscreen</source>
-        <translation>Ecran &amp;complet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="486"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="458"/>
         <source>&amp;Stop</source>
-        <translation>&amp;Stop</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="489"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="461"/>
         <source>&amp;Reload</source>
-        <translation>&amp;Reîncarcă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="492"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="464"/>
         <source>Character &amp;Encoding</source>
-        <translation>&amp;Encodarea caracterelor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="495"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="467"/>
         <source>Enable &amp;Caret Browsing</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="505"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="477"/>
         <source>Toolbars</source>
-        <translation>Bare de unelte</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="485"/>
+        <source>Sidebars</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="495"/>
+        <source>Zoom &amp;In</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="496"/>
+        <source>Zoom &amp;Out</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="497"/>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="502"/>
+        <source>&amp;Page Source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="512"/>
+        <source>Hi&amp;story</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="513"/>
-        <source>Sidebars</source>
-        <translation>Bare laterale</translation>
+        <source>&amp;Back</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="515"/>
+        <source>&amp;Forward</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="517"/>
+        <source>&amp;Home</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="518"/>
+        <source>Show &amp;All History</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="523"/>
-        <source>Zoom &amp;In</source>
-        <translation>&amp;Apropie</translation>
+        <source>Closed Tabs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="524"/>
-        <source>Zoom &amp;Out</source>
-        <translation>&amp;Depărtează</translation>
+        <location filename="../src/lib/app/qupzilla.cpp" line="526"/>
+        <source>Recently Visited</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="525"/>
-        <source>Reset</source>
-        <translation>Resetează</translation>
+        <location filename="../src/lib/app/qupzilla.cpp" line="529"/>
+        <source>Most Visited</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="530"/>
-        <source>&amp;Page Source</source>
-        <translation>&amp;Sursa paginii</translation>
+        <location filename="../src/lib/app/qupzilla.cpp" line="539"/>
+        <source>&amp;Bookmarks</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="540"/>
-        <source>Hi&amp;story</source>
-        <translation>&amp;Istoric</translation>
+        <source>Bookmark &amp;This Page</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="541"/>
-        <source>&amp;Back</source>
-        <translation>&amp;Înapoi</translation>
+        <source>Bookmark &amp;All Tabs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="543"/>
-        <source>&amp;Forward</source>
-        <translation>&amp;Inainte</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="545"/>
-        <source>&amp;Home</source>
-        <translation>&amp;Acasă</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="546"/>
-        <source>Show &amp;All History</source>
-        <translation>&amp;Arată tot istoricul</translation>
+        <location filename="../src/lib/app/qupzilla.cpp" line="542"/>
+        <source>Organize &amp;Bookmarks</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="551"/>
-        <source>Closed Tabs</source>
-        <translation>Tab-uri închise</translation>
+        <source>&amp;Tools</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="554"/>
-        <source>Recently Visited</source>
-        <translation>Recent vizitate</translation>
+        <location filename="../src/lib/app/qupzilla.cpp" line="552"/>
+        <source>&amp;Web Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="553"/>
+        <source>Page &amp;Info</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="557"/>
-        <source>Most Visited</source>
-        <translation>Cele mai vizitate</translation>
+        <source>&amp;Download Manager</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="567"/>
-        <source>&amp;Bookmarks</source>
-        <translation>&amp;Semne de carte</translation>
+        <location filename="../src/lib/app/qupzilla.cpp" line="558"/>
+        <source>&amp;Cookies Manager</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="568"/>
-        <source>Bookmark &amp;This Page</source>
-        <translation>Pune un semn la aceas&amp;tă pagină</translation>
+        <location filename="../src/lib/app/qupzilla.cpp" line="559"/>
+        <source>&amp;AdBlock</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="569"/>
-        <source>Bookmark &amp;All Tabs</source>
-        <translation>Pune un &amp;semn la toate tab-urile</translation>
+        <location filename="../src/lib/app/qupzilla.cpp" line="560"/>
+        <source>RSS &amp;Reader</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="570"/>
-        <source>Organize &amp;Bookmarks</source>
-        <translation>&amp;Organizează semne de carte</translation>
+        <location filename="../src/lib/app/qupzilla.cpp" line="561"/>
+        <source>Web In&amp;spector</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="562"/>
+        <source>Clear Recent &amp;History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="563"/>
+        <source>&amp;Private Browsing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="563"/>
+        <source>New &amp;Private Browsing Window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="577"/>
+        <source>&amp;Help</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="579"/>
-        <source>&amp;Tools</source>
-        <translation>&amp;Unelte</translation>
+        <source>About &amp;Qt</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="580"/>
-        <source>&amp;Web Search</source>
-        <translation>Căutare &amp;web</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="581"/>
-        <source>Page &amp;Info</source>
-        <translation>&amp;Informații despre pagină</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="585"/>
-        <source>&amp;Download Manager</source>
-        <translation>Manager de &amp;descărcări</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="586"/>
-        <source>&amp;Cookies Manager</source>
-        <translation>Manager de &amp;cookie-uri</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="587"/>
-        <source>&amp;AdBlock</source>
-        <translation>&amp;AdBlock</translation>
+        <location filename="../src/lib/app/qupzilla.cpp" line="583"/>
+        <source>Information about application</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="588"/>
-        <source>RSS &amp;Reader</source>
-        <translation>Cititor &amp;RSS</translation>
+        <source>Configuration Information</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="589"/>
-        <source>Web In&amp;spector</source>
-        <translation>In&amp;spector Web</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="590"/>
-        <source>Clear Recent &amp;History</source>
-        <translation>Șterge &amp;istoricul &amp;recent</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="591"/>
-        <source>New &amp;Private Window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="605"/>
-        <source>&amp;Help</source>
-        <translation>&amp;Ajutor</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="607"/>
-        <source>About &amp;Qt</source>
-        <translation>Despre &amp;Qt</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="611"/>
-        <source>Information about application</source>
-        <translation>Informații despre aplicație</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="616"/>
-        <source>Configuration Information</source>
-        <translation>Informații despre configurare</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="617"/>
         <source>Report &amp;Issue</source>
-        <translation>Raportează &amp;probleme</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="682"/>
-        <source>Restore &amp;Closed Tab</source>
-        <translation>Restaurează tab-uri &amp;închise</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="961"/>
-        <source> (Private Browsing)</source>
-        <translation> (Navigare privată)</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1073"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1103"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1162"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1191"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1216"/>
-        <source>Empty</source>
-        <translation>Gol</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1165"/>
-        <source>Restore All Closed Tabs</source>
-        <translation>Restaurează toate tab-urile închise</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1166"/>
-        <source>Clear list</source>
-        <translation>Golește lista</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1292"/>
-        <source>Other</source>
-        <translation>Altele</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1728"/>
-        <source>%1 - QupZilla</source>
-        <translation>%1 - QupZilla</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1822"/>
-        <source>HTML files</source>
-        <translation>Fișiere HTML</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1822"/>
-        <source>Image files</source>
-        <translation>Fișiere imagine</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1822"/>
-        <source>Text files</source>
-        <translation>Fișiere text</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1822"/>
-        <source>All files</source>
-        <translation>Toate fișierele</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1824"/>
-        <source>Open file...</source>
-        <translation>Deschide fișier...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1955"/>
-        <location filename="../src/lib/other/pagescreen.cpp" line="166"/>
-        <source>QupZilla %1 (%2)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2191"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="652"/>
+        <source>Restore &amp;Closed Tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="921"/>
+        <source> (Private Browsing)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1033"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1063"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1122"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1151"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1176"/>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1125"/>
+        <source>Restore All Closed Tabs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1126"/>
+        <source>Clear list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1252"/>
+        <source>Other</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1684"/>
+        <source>%1 - QupZilla</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1778"/>
+        <source>HTML files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1778"/>
+        <source>Image files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1778"/>
+        <source>Text files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1778"/>
+        <source>All files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1780"/>
+        <source>Open file...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="2142"/>
         <source>There are still %1 open tabs and your session won't be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation>Mai sunt %1 tab-uri deschise și sesiunea dvs. nu va fi stocată. 
-Sunteți sigur că doriți să închideți QupZilla?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2192"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="2143"/>
         <source>Don&apos;t ask again</source>
-        <translation>Nu întreba din nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2193"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="2144"/>
         <source>There are still open tabs</source>
-        <translation>Încă sunt taburi deschise</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4378,58 +4104,58 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="69"/>
         <source>No Error</source>
-        <translation>Nici o eroare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="75"/>
         <source>Not Found</source>
-        <translation>Nu a fost gasit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="148"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="149"/>
         <source>Report Issue</source>
-        <translation>Raportează problemă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="150"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>Dacă întâmpinați probleme cu QupZilla, vă rugăm încercați să dezactivați toate extensiile întâi. &lt;br/&gt;Dacă asta nu remediază problema, vă rugăm cumpletați următorul formular:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="152"/>
         <source>Your E-mail</source>
-        <translation>E-mail personal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="153"/>
         <source>Issue type</source>
-        <translation>Tipul problemei</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="154"/>
         <source>Issue description</source>
-        <translation>Descrierea problemei</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="155"/>
         <source>Send</source>
-        <translation>Trimite</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="156"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation>E-mailul este opțional&lt;br/&gt;&lt;b&gt;Notă:&lt;/b&gt;Vă rog citiți întâi cum trebuie să faceți un raport de bug-uri &lt;a href=%1&gt;aici&lt;/a&gt;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="158"/>
         <source>Please fill out all required fields!</source>
-        <translation>Te rog completeaza toate campurile!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="186"/>
         <source>Start Page</source>
-        <translation>Pagina de start</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="187"/>
@@ -4446,7 +4172,7 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="208"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="209"/>
         <source>About QupZilla</source>
-        <translation>Despre QupZilla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="191"/>
@@ -4455,350 +4181,350 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="210"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="364"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="363"/>
         <source>Information about version</source>
-        <translation>Informații despre versiune</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="211"/>
         <source>Copyright</source>
-        <translation>Drepturi de autor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="214"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
         <source>Version</source>
-        <translation>Versiune</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="219"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
         <source>WebKit version</source>
-        <translation>Versiune WebKit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="220"/>
         <source>Main developer</source>
-        <translation>Dezvoltator principal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="222"/>
         <source>Contributors</source>
-        <translation>Contribuitori</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="233"/>
         <source>Translators</source>
-        <translation>Traducători</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="289"/>
+        <source>Speed Dial</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
-        <source>Speed Dial</source>
-        <translation>Speed Dial</translation>
+        <source>Add New Page</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
-        <source>Add New Page</source>
-        <translation>Adauga pagina noua</translation>
+        <source>Edit</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
-        <source>Edit</source>
-        <translation>Editeaza</translation>
+        <source>Remove</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
-        <source>Remove</source>
-        <translation>Sterge</translation>
+        <source>Reload</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
-        <source>Reload</source>
-        <translation>Reîncarcă</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
         <source>Are you sure to remove this speed dial?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
         <source>Load title from page</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
+        <source>Title</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
-        <source>Title</source>
-        <translation>Titlu</translation>
+        <source>Apply</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
-        <source>Apply</source>
-        <translation>Aplica</translation>
+        <source>Close</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
-        <source>Close</source>
-        <translation>Închide</translation>
+        <source>New Page</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
-        <source>New Page</source>
-        <translation>Pagina noua</translation>
+        <source>Speed Dial settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
-        <source>Speed Dial settings</source>
-        <translation>Setari Speed Dial</translation>
+        <source>Placement: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
-        <source>Placement: </source>
-        <translation>Amplasament:</translation>
+        <source>Auto</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
-        <source>Auto</source>
-        <translation>Auto</translation>
+        <source>Cover</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
-        <source>Cover</source>
-        <translation>Copertă</translation>
+        <source>Fit</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
-        <source>Fit</source>
-        <translation>Potrivește</translation>
+        <source>Fit Width</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
-        <source>Fit Width</source>
-        <translation>Potrivește pe lățime</translation>
+        <source>Fit Height</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
-        <source>Fit Height</source>
-        <translation>Potrivește pe înălțime</translation>
+        <source>Use background image</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
-        <source>Use background image</source>
-        <translation>Folosește imagine de fundal</translation>
+        <source>Select image</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
-        <source>Select image</source>
-        <translation>Selectează imagine</translation>
+        <source>Maximum pages in a row:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
-        <source>Maximum pages in a row:</source>
-        <translation>Număr maxim de pagini pe un rând:</translation>
+        <source>Change size of pages:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
-        <source>Change size of pages:</source>
-        <translation>Modifică dimensiunea paginilor:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
         <source>Center speed dials</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="341"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="340"/>
         <source>Restore Session</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="342"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="341"/>
         <source>Oops, QupZilla crashed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="343"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="342"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="344"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="343"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="345"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="344"/>
         <source>Or you can start completely new session</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="361"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="362"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="363"/>
         <source>Configuration Information</source>
-        <translation>Informații despre configurare</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="364"/>
+        <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="365"/>
-        <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation>Această pagină conține informații despre configurarea curentă a QupZilla -  relevante pentru remedierea problemelor. Vă rugăm să includeți aceste informații la trimiterea raport-urilor despre bug-uri.</translation>
+        <source>Browser Identification</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="366"/>
-        <source>Browser Identification</source>
-        <translation>Identificarea browser-ului</translation>
+        <source>Paths</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="367"/>
-        <source>Paths</source>
-        <translation>Căi</translation>
+        <source>Build Configuration</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
-        <source>Build Configuration</source>
-        <translation>Configurarea compilării</translation>
+        <source>Preferences</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
-        <source>Preferences</source>
-        <translation>Preferințe</translation>
+        <source>Option</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="370"/>
-        <source>Option</source>
-        <translation>Opțiune</translation>
+        <source>Value</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
-        <source>Value</source>
-        <translation>Valoare</translation>
+        <source>Extensions</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
-        <source>Extensions</source>
-        <translation>Extensii</translation>
+        <source>Name</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
-        <source>Name</source>
-        <translation>Nume</translation>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
+        <source>Author</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
-        <source>Author</source>
-        <translation>Autor</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
         <source>Description</source>
-        <translation>Descriere</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
         <source>Application version</source>
-        <translation>Versiune aplicatie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="383"/>
         <source>Qt version</source>
-        <translation>Versiune Qt</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
+        <source>Build time</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
-        <source>Build time</source>
-        <translation>Data compilării</translation>
+        <source>Platform</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
-        <source>Platform</source>
-        <translation>Platforma</translation>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
+        <source>Profile</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="390"/>
-        <source>Profile</source>
-        <translation>Profil</translation>
+        <source>Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="391"/>
-        <source>Settings</source>
-        <translation>Setări</translation>
+        <source>Saved session</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
-        <source>Saved session</source>
-        <translation>Sesiuni salvate</translation>
+        <source>Pinned tabs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="393"/>
-        <source>Pinned tabs</source>
-        <translation>Tab-uri lipite</translation>
+        <source>Data</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
-        <source>Data</source>
-        <translation>Data</translation>
+        <source>Themes</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
-        <source>Themes</source>
-        <translation>Teme</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
         <source>Translations</source>
-        <translation>Traduceri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="413"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="419"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="425"/>
-        <source>Disabled</source>
-        <translation>Dezactivat</translation>
-    </message>
-    <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="397"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="398"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="411"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="417"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="423"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
+        <source>Disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="410"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="413"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="416"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Activat&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="429"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="420"/>
         <source>Debug build</source>
-        <translation>Compilare de debug</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="430"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="421"/>
         <source>WebGL support</source>
-        <translation>Suport WebGL</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="422"/>
         <source>Windows 7 API</source>
-        <translation>API Windows 7</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="432"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="423"/>
         <source>KDE integration</source>
-        <translation>Integrare KDE</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="433"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="424"/>
         <source>Portable build</source>
-        <translation>Configurare portabilă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="451"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="442"/>
         <source>No available extensions.</source>
-        <translation>Nu sunt extensii disponibile.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4806,115 +4532,115 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="14"/>
         <source>RSS Reader</source>
-        <translation>Cititor RSS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="33"/>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="142"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="131"/>
         <source>Empty</source>
-        <translation>Gol</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="54"/>
         <source>Add feed</source>
-        <translation>Adaugă feed</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="64"/>
         <source>Edit feed</source>
-        <translation>Editează feed</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="74"/>
         <source>Delete feed</source>
-        <translation>Șterge feed</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="97"/>
         <source>Optimize Database</source>
-        <translation>Optimizează baza de date</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="54"/>
         <source>Reload</source>
-        <translation>Reîncarcă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="104"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="93"/>
         <source>News</source>
-        <translation>Știri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="114"/>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="155"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="103"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="143"/>
         <source>Loading...</source>
-        <translation>Se încarcă...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="140"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="129"/>
         <source>You don't have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
-        <translation>Nu aveți feed-uri RSS.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="163"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="151"/>
         <source>Add new feed</source>
-        <translation>Adaugă feed nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="163"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="151"/>
         <source>Please enter URL of new feed:</source>
-        <translation>Va rugăm introduceți adresa noului feed:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="169"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="157"/>
         <source>New feed</source>
-        <translation>Feed nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="208"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="196"/>
         <source>Fill title and URL of a feed: </source>
-        <translation>Introduceți titlul și adresa noului feed:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="210"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="198"/>
         <source>Feed title: </source>
-        <translation>Titlul feed-ului:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="211"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="199"/>
         <source>Feed URL: </source>
-        <translation>Adresa feed-ului:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="217"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="205"/>
         <source>Edit RSS Feed</source>
-        <translation>Editează feed RSS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="258"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="247"/>
         <source>Open link in current tab</source>
-        <translation>Deschide legătura in tab-ul curent</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="259"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="248"/>
         <source>Open link in new tab</source>
-        <translation>Deschide legătura in tab nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="384"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="373"/>
         <source>Error in fetching feed</source>
-        <translation>Eroare la descărcarea feed-ului</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="418"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="407"/>
         <source>RSS feed duplicated</source>
-        <translation>Feed RSS duplicat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="418"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="407"/>
         <source>You already have this feed.</source>
-        <translation>Aveți deja acest feed.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4935,32 +4661,32 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="104"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="110"/>
         <source>Internal Reader</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="105"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="111"/>
         <source>Other...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="143"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="149"/>
         <source>Liferea not running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="143"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="149"/>
         <source>Liferea must be running in order to add new feed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="155"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="161"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssnotification.cpp" line="158"/>
+        <location filename="../src/lib/rss/rssnotification.cpp" line="164"/>
         <source>Add feed into other application</source>
         <translation type="unfinished"/>
     </message>
@@ -4970,17 +4696,17 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rsswidget.ui" line="56"/>
         <source>Add RSS Feeds from this site</source>
-        <translation>Adaugă feed RSS de pe acest site</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rsswidget.cpp" line="54"/>
+        <location filename="../src/lib/rss/rsswidget.cpp" line="49"/>
         <source>Untitled feed</source>
-        <translation>Feed fără nume</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/rss/rsswidget.cpp" line="58"/>
+        <location filename="../src/lib/rss/rsswidget.cpp" line="53"/>
         <source>Add</source>
-        <translation>Adaugă</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5033,23 +4759,23 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="24"/>
         <source>CA Authorities Certificates</source>
-        <translation>Certificate de autorități CA</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="48"/>
         <location filename="../src/lib/preferences/sslmanager.ui" line="99"/>
         <source>Show info</source>
-        <translation>Afișează informații</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="57"/>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
-        <translation>Aceasta este o listă de certificate de autorități CA stocată în calea de sistem standard și în căile specificate de autor.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="68"/>
         <source>Local Certificates</source>
-        <translation>Certificate locale</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="79"/>
@@ -5060,59 +4786,58 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <location filename="../src/lib/preferences/sslmanager.ui" line="106"/>
         <location filename="../src/lib/preferences/sslmanager.ui" line="157"/>
         <source>Remove</source>
-        <translation>Șterge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="115"/>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
-        <translation>Aceasta este o listă de certificate locale stocată în profilul user-ului dvs. Conține deasemenea toate certificatele care au primit o excepție.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="126"/>
         <source>Settings</source>
-        <translation>Setări</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="150"/>
         <source>Add</source>
-        <translation>Adaugă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="166"/>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
-        <translation>Dacă certificatele de autorități CA nu au fost încărcate automat din sistem, puteți specifica căile în care sunt stocate certificatele manual.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="178"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
-        <translation>&lt;b&gt;NOTĂ:&lt;/b&gt; Setarea acestei opțiuni reprezintă un risc mare de securitate!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="217"/>
         <source>Ignore all SSL Warnings</source>
-        <translation>Ignoră toate avertismentele SSL</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="239"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
-        <translation>Toate certificatele trebuie să aibă un sufix .crt.
-După adăugarea sau ștergerea de căi pentru certificate, este necesar să restartați QupZilla pentru ca modificările să aibă efect.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="61"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="58"/>
         <source>Choose path...</source>
-        <translation>Alege cale...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="132"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="129"/>
         <source>Import certificate...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="163"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="160"/>
         <source>Certificate Informations</source>
-        <translation>Informatii despre certificat</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5120,22 +4845,22 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="14"/>
         <source>Manage Search Engines</source>
-        <translation>Configurează motoare de căutare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="22"/>
         <source>Add...</source>
-        <translation>Adauga...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="29"/>
         <source>Remove</source>
-        <translation>Sterge</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="36"/>
         <source>Edit</source>
-        <translation>Editeaza</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="56"/>
@@ -5145,76 +4870,76 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="63"/>
         <source>Up</source>
-        <translation>Sus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="70"/>
         <source>Down</source>
-        <translation>Jos</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="86"/>
         <source>Search Engine</source>
-        <translation>Motor de cautare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="91"/>
         <source>Shortcut</source>
-        <translation>Scurtaturi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="101"/>
         <source>Defaults</source>
-        <translation>Predefinite</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="48"/>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="314"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="270"/>
         <source>Add Search Engine</source>
-        <translation>Adauga motor de cautare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="85"/>
+        <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="84"/>
         <source>Remove Engine</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="86"/>
+        <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="85"/>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="103"/>
+        <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="102"/>
         <source>Edit Search Engine</source>
-        <translation>Editeaza motor de cautare</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="400"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="351"/>
         <source>Search Engine Added</source>
-        <translation>Motor de cautare adaugat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="400"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="351"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
-        <translation>Motorul de cautare &quot;%1&quot; a fost adaugat cu succes.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="407"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="358"/>
         <source>Search Engine is not valid!</source>
-        <translation>Motorul de cautare nu este valid!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="408"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="359"/>
         <source>Error</source>
-        <translation>Eroare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="408"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="359"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation>Eroare in timpul adaugarii motorului de cautare &lt;br&gt;&lt;b&gt;Cod eroare: &lt;/b&gt; %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5222,7 +4947,7 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/webview/searchtoolbar.cpp" line="151"/>
         <source>No results found.</source>
-        <translation>Nu exista rezultate.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5230,12 +4955,12 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="36"/>
         <source>Search: </source>
-        <translation>Cauta:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="55"/>
         <source>Search...</source>
-        <translation>Cauta...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="88"/>
@@ -5245,22 +4970,22 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="98"/>
         <source>Case sensitive</source>
-        <translation>Case sensitive</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SideBar</name>
     <message>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="64"/>
-        <location filename="../src/lib/sidebar/sidebar.cpp" line="131"/>
+        <location filename="../src/lib/sidebar/sidebar.cpp" line="127"/>
         <source>Bookmarks</source>
-        <translation>Semne de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="71"/>
-        <location filename="../src/lib/sidebar/sidebar.cpp" line="136"/>
+        <location filename="../src/lib/sidebar/sidebar.cpp" line="132"/>
         <source>History</source>
-        <translation>Istoric</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5268,176 +4993,176 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="14"/>
         <source>Site Info</source>
-        <translation>Informații site</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="24"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="29"/>
         <source>Media</source>
-        <translation>Media</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="34"/>
         <source>Databases</source>
-        <translation>Baze de date</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="39"/>
         <source>Security</source>
-        <translation>Securitate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="101"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="359"/>
         <source>Size:</source>
-        <translation>Dimensiune:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="146"/>
         <source>Site address:</source>
-        <translation>Adresa site-ului:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="153"/>
         <source>Encoding:</source>
-        <translation>Encodare:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="162"/>
         <source>Meta tags of site:</source>
-        <translation>Tag-uri meta ale site-ului:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="176"/>
         <source>Tag</source>
-        <translation>Tag</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="181"/>
         <source>Value</source>
-        <translation>Valoare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="195"/>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Informații de securitate&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="215"/>
         <source>Details</source>
-        <translation>Detalii</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="278"/>
         <source>Image</source>
-        <translation>Imagine</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="283"/>
         <source>Image address</source>
-        <translation>Adresa imaginii</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="308"/>
         <source>&lt;b&gt;Preview&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Previzualizare&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="336"/>
         <source>&lt;b&gt;Database details&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Detalii bază de date&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="345"/>
         <source>Name:</source>
-        <translation>Nume:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="352"/>
         <source>Path:</source>
-        <translation>Cale:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="372"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="388"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="404"/>
         <source>&lt;database not selected&gt;</source>
-        <translation>&lt;baza de date nu este selectată&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="42"/>
         <source>&lt;not set in certificate&gt;</source>
-        <translation>&lt;nu a fost setat in certificat&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="151"/>
         <source>No databases are used by this page.</source>
-        <translation>Nu există baze de date folosite de către această pagină.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="157"/>
         <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Conexiunea este encriptată.&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="158"/>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Conexiunea dvs. la această pagină este securizată cu următorul certificat: &lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="163"/>
         <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Conexiunea nu este encriptată.&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="164"/>
         <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Conexiunea dvs. la această pagină nu este securizată!&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="191"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="189"/>
         <source>Copy Image Location</source>
-        <translation>Copiază locația imaginii</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="190"/>
+        <source>Copy Image Name</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="192"/>
-        <source>Copy Image Name</source>
-        <translation>Copiază numele imaginii</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="194"/>
         <source>Save Image to Disk</source>
-        <translation>Salvează imaginea pe disc</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="233"/>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="245"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="232"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="244"/>
         <source>Error!</source>
-        <translation>Eroare!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="233"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="232"/>
         <source>This preview is not available!</source>
-        <translation>Această previzualizare este indisponibilă!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="239"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="238"/>
         <source>Save image...</source>
-        <translation>Salvează imaginea...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="245"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="244"/>
         <source>Cannot write to file!</source>
-        <translation>Fișierul nu poate fi scris!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="283"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="282"/>
         <source>Preview not available</source>
-        <translation>Previzualizare indisponibilă</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5445,43 +5170,43 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/webview/siteinfowidget.ui" line="90"/>
         <source>More...</source>
-        <translation>Mai mult...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="44"/>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
-        <translation>Conexiunea la acest site este &lt;b&gt;securizata&lt;/b&gt;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="48"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
-        <translation>Conexiunea la acest site este &lt;b&gt;nesecurizata&lt;/b&gt;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="63"/>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="82"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation>Este a &lt;b&gt;%1-a&lt;/b&gt; vizitat a acestul site.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="67"/>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
-        <translation>Nu ati mai vizitat niciodata acest site.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="74"/>
         <source>first</source>
-        <translation>primul</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="77"/>
         <source>second</source>
-        <translation>al doilea</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="80"/>
         <source>third</source>
-        <translation>al treilea</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5489,12 +5214,12 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="42"/>
         <source>Source of </source>
-        <translation>Sursa </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="70"/>
         <source>File</source>
-        <translation>Fișier</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="71"/>
@@ -5504,78 +5229,78 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="72"/>
         <source>Save as...</source>
-        <translation>Salvează ca...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="74"/>
         <source>Close</source>
-        <translation>Închide</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="77"/>
         <source>Edit</source>
-        <translation>Editare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="78"/>
         <source>Undo</source>
-        <translation>Des-face</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="79"/>
         <source>Redo</source>
-        <translation>Re-face</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="81"/>
         <source>Cut</source>
-        <translation>Taie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="82"/>
         <source>Copy</source>
-        <translation>Copiază</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="83"/>
         <source>Paste</source>
-        <translation>Lipește</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="85"/>
         <source>Select All</source>
-        <translation>Selectează tot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="86"/>
         <source>Find</source>
-        <translation>Caută</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="88"/>
         <location filename="../src/lib/other/sourceviewer.cpp" line="228"/>
         <source>Go to Line...</source>
-        <translation>Du-te la lina...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="97"/>
         <source>View</source>
-        <translation>Vizualizare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="98"/>
         <source>Reload</source>
-        <translation>Reîncarcă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="100"/>
         <source>Editable</source>
-        <translation>Editabil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="101"/>
         <source>Word Wrap</source>
-        <translation>Limitarea cuvintelor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="138"/>
@@ -5590,52 +5315,52 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="168"/>
         <source>Save file...</source>
-        <translation>Salvează fișier...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="175"/>
         <source>Error!</source>
-        <translation>Eroare!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="175"/>
         <source>Cannot write to file!</source>
-        <translation>Fișierul nu poate fi scris!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="176"/>
         <source>Error writing to file</source>
-        <translation>Eroare la scrierea in fișier</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="182"/>
         <source>Source successfully saved</source>
-        <translation>Sursa a fost salvată cu succes</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="204"/>
         <source>Source reloaded</source>
-        <translation>Sursa a fost reîncărcată</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="207"/>
         <source>Cannot reload source. Page has been closed.</source>
-        <translation>Sursa nu poate fi reîncărcată. Pagina a fost închisă.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="216"/>
         <source>Editable changed</source>
-        <translation>Editabil schimbat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="223"/>
         <source>Word Wrap changed</source>
-        <translation>Limitarea cuvintelor schimbată</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="228"/>
         <source>Enter line number</source>
-        <translation>Introdu numărul liniei</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5643,12 +5368,12 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="42"/>
         <source>Search: </source>
-        <translation>Caută:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="49"/>
         <source>Search...</source>
-        <translation>Caută...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="88"/>
@@ -5659,19 +5384,19 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="287"/>
-        <source>Image files</source>
-        <translation>Fișiere imagine</translation>
-    </message>
-    <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="288"/>
-        <source>Select image...</source>
-        <translation>Selectează imagine...</translation>
+        <source>Image files</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="341"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="289"/>
+        <source>Select image...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="342"/>
         <source>Unable to load</source>
-        <translation>Nu se poate incărca</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5751,173 +5476,148 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/3rdparty/squeezelabelv2.cpp" line="64"/>
         <source>Copy</source>
-        <translation>Copiază</translation>
-    </message>
-</context>
-<context>
-    <name>SslErrorDialog</name>
-    <message>
-        <location filename="../src/lib/network/sslerrordialog.ui" line="14"/>
-        <source>SSL Certificate Error!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/network/sslerrordialog.cpp" line="31"/>
-        <source>Only for this session</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="140"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="130"/>
         <source>&amp;New tab</source>
-        <translation>&amp;Tab nou</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/tabbar.cpp" line="138"/>
+        <source>&amp;Stop Tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/tabbar.cpp" line="141"/>
+        <source>&amp;Reload Tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/tabbar.cpp" line="144"/>
+        <source>&amp;Duplicate Tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/tabbar.cpp" line="145"/>
+        <source>Un&amp;pin Tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/tabbar.cpp" line="145"/>
+        <source>&amp;Pin Tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/tabbar.cpp" line="147"/>
+        <source>Re&amp;load All Tabs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
+        <source>&amp;Bookmark This Tab</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="149"/>
-        <source>&amp;Stop Tab</source>
-        <translation>&amp;Opreste tab</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="152"/>
-        <source>&amp;Reload Tab</source>
-        <translation>&amp;Reîncarcă tab</translation>
+        <source>Bookmark &amp;All Tabs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="155"/>
-        <source>&amp;Duplicate Tab</source>
-        <translation>&amp;Duplica tab</translation>
+        <source>Close Ot&amp;her Tabs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="158"/>
-        <source>D&amp;etach Tab</source>
+        <location filename="../src/lib/webview/tabbar.cpp" line="156"/>
+        <source>Cl&amp;ose</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/tabbar.cpp" line="160"/>
+        <source>Reloa&amp;d All Tabs</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
-        <source>Un&amp;pin Tab</source>
-        <translation>De&amp;zlipește tab</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
-        <source>&amp;Pin Tab</source>
-        <translation>&amp;Lipește tab</translation>
+        <source>Bookmark &amp;All Ta&amp;bs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="163"/>
-        <source>Re&amp;load All Tabs</source>
-        <translation>Re&amp;încarcă toate taburile</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
-        <source>&amp;Bookmark This Tab</source>
-        <translation>Adaugă semn de &amp;carte pentru acest tab</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="165"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="177"/>
-        <source>Bookmark &amp;All Tabs</source>
-        <translation>Adaugă &amp;semn de carte pentru toate tab-urile</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="171"/>
-        <source>Close Ot&amp;her Tabs</source>
-        <translation>Închide &amp;alte taburi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="172"/>
-        <source>Cl&amp;ose</source>
-        <translation>In&amp;chide</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="176"/>
-        <source>Reloa&amp;d All Tabs</source>
-        <translation>Reînc&amp;arcă toate taburile</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="179"/>
         <source>Restore &amp;Closed Tab</source>
-        <translation>Restaureaza &amp;taburi inchise</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="193"/>
-        <source>Close Tabs</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="193"/>
-        <source>Do you really want to close other tabs?</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="54"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="55"/>
         <source>New Tab</source>
-        <translation>Tab nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="147"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="136"/>
         <source>List of tabs</source>
-        <translation>Listă de tab-uri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="255"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="238"/>
         <source>Loading...</source>
-        <translation>Se incarca...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="259"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="242"/>
         <source>No Named Page</source>
-        <translation>Pagina fara nume</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="260"/>
+        <source>Currently you have %1 opened tabs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="277"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="482"/>
-        <source>Currently you have %1 opened tabs</source>
-        <translation>Aveti %1 taburi deschise</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="297"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="119"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="120"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="107"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="108"/>
         <source>New tab</source>
-        <translation>Tab nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="815"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="760"/>
         <source>Empty</source>
-        <translation>Gol</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="818"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="763"/>
         <source>Restore All Closed Tabs</source>
-        <translation>Restaureaza toate taburile inchise</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="819"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="764"/>
         <source>Clear list</source>
-        <translation>Golește lista</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TabbedWebView</name>
     <message>
-        <location filename="../src/lib/webview/tabbedwebview.cpp" line="135"/>
+        <location filename="../src/lib/webview/tabbedwebview.cpp" line="137"/>
         <source>Loading...</source>
-        <translation>Se încarcă...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbedwebview.cpp" line="171"/>
+        <location filename="../src/lib/webview/tabbedwebview.cpp" line="173"/>
         <source>%1 - QupZilla</source>
-        <translation>%1 - QupZilla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbedwebview.cpp" line="267"/>
+        <location filename="../src/lib/webview/tabbedwebview.cpp" line="236"/>
         <source>Inspect Element</source>
-        <translation>Inspectează element</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5925,22 +5625,22 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/preferences/thememanager.ui" line="35"/>
         <source>&lt;b&gt;Name:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Nume:&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/thememanager.ui" line="45"/>
         <source>&lt;b&gt;Author:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Autor:&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/thememanager.ui" line="68"/>
         <source>&lt;b&gt;Description:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Descriere:&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/thememanager.ui" line="112"/>
         <source>License</source>
-        <translation>Licienta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5948,12 +5648,12 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="30"/>
         <source>Stop</source>
-        <translation>Stop</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="38"/>
         <source>Reload</source>
-        <translation>Reîncarcă</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5961,17 +5661,17 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/other/updater.cpp" line="139"/>
         <source>Update available</source>
-        <translation>Actualizări disponibile</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/updater.cpp" line="139"/>
         <source>New version of QupZilla is ready to download.</source>
-        <translation>Noua versiune de QupZilla este gata de download.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/other/updater.cpp" line="148"/>
         <source>Update</source>
-        <translation>Actualizeaza</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6017,22 +5717,22 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="86"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="84"/>
         <source>Add new site</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="124"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="122"/>
         <source>Edit site</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="198"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="195"/>
         <source>Site domain: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="199"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="196"/>
         <source>User Agent: </source>
         <translation type="unfinished"/>
     </message>
@@ -6043,180 +5743,170 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
         <location filename="../src/lib/webview/webinspectordockwidget.cpp" line="29"/>
         <location filename="../src/lib/webview/webinspectordockwidget.cpp" line="32"/>
         <source>Web Inspector</source>
-        <translation>Inspector Web</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="361"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="350"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="366"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="355"/>
         <source>Remember my choice for this protocol</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="367"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="356"/>
         <source>External Protocol Request</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="521"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="517"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="523"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="519"/>
         <source>Confirm form resubmission</source>
-        <translation>Confirmă retrimiterea formularului</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="700"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="688"/>
         <source>Select files to upload...</source>
-        <translation>Selectează fișierele pentru upload...</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="709"/>
+        <source>Server refused the connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="712"/>
+        <source>Server closed the connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="715"/>
+        <source>Server not found</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="718"/>
+        <source>Connection timed out</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="721"/>
-        <source>Server refused the connection</source>
-        <translation>Server-ul a refuzat conexiunea</translation>
+        <source>Untrusted connection</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="724"/>
-        <source>Server closed the connection</source>
-        <translation>Server-ul a închis conexiunea</translation>
+        <source>Temporary network failure</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="727"/>
-        <source>Server not found</source>
-        <translation>Server-ul nu a fost găsit</translation>
+        <source>Proxy connection refused</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="730"/>
-        <source>Connection timed out</source>
-        <translation>Conexiunea a depășit termenul limită</translation>
+        <source>Proxy server not found</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="733"/>
-        <source>Untrusted connection</source>
-        <translation>Conexiunea nu este de încredere</translation>
+        <source>Proxy connection timed out</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="736"/>
-        <source>Temporary network failure</source>
-        <translation>Eșuare temporară de rețea</translation>
+        <source>Proxy authentication required</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="739"/>
-        <source>Proxy connection refused</source>
-        <translation>Conexiunea proxy a fost refuzată</translation>
+        <source>Content not found</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="742"/>
-        <source>Proxy server not found</source>
-        <translation>Server-ul proxy nu a fost găsit</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="745"/>
-        <source>Proxy connection timed out</source>
-        <translation>Conexiunea proxy a depășit termenul limită</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="748"/>
-        <source>Proxy authentication required</source>
-        <translation>Autentificare proxy necesară</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="751"/>
-        <source>Content not found</source>
-        <translation>Conținutul nu a fost găsit</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="754"/>
         <source>Unknown network error</source>
-        <translation>Eroare de rețea necunoscută</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="784"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="772"/>
         <source>AdBlocked Content</source>
-        <translation>Conținut blocat de AdBlock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="788"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="776"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="805"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="793"/>
         <source>Content Access Denied</source>
-        <translation>Acces interzis la conținut</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="808"/>
+        <source>Error code %1</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="820"/>
-        <source>Error code %1</source>
-        <translation>Cod eroare %1</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="832"/>
         <source>Failed loading page</source>
-        <translation>Încărcarea paginii a eșuat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="838"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="826"/>
         <source>QupZilla can&apos;t load page.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="838"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="826"/>
         <source>QupZilla can&apos;t load page from %1.</source>
-        <translation>QupZilla nu poate încărca pagina de la %1.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="842"/>
-        <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
-        <translation>Verificați adresa pentru erori de scriere, cum ar fi &lt;b&gt;ww.&lt;/b&gt;example.com în loc de &lt;b&gt;www.&lt;/b&gt;example.com</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="843"/>
-        <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
-        <translation>Dacă nu puteți încărca nici o pagină, verificați conexiunea la internet.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="844"/>
-        <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
-        <translation>Dacă computerul sau rețeaua dvs. este protejată de un firewall sau proxy, asigurați-vă că QupZilla are permisiunea de a accesa Web-ul.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="845"/>
-        <source>Try Again</source>
-        <translation>Încearcă din nou</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="945"/>
-        <source>JavaScript alert</source>
-        <translation>Alertă Javascript</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="953"/>
-        <source>Prevent this page from creating additional dialogs</source>
-        <translation>Interzice acestei pagini să deschidă dialoguri noi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1001"/>
-        <source>Choose file...</source>
-        <translation>Alege fișier...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1009"/>
-        <source>Cannot read data from &lt;b&gt;%1&lt;/b&gt;. Upload was cancelled!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1010"/>
-        <source>Cannot read file!</source>
+        <location filename="../src/lib/webview/webpage.cpp" line="830"/>
+        <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="831"/>
+        <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="832"/>
+        <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="833"/>
+        <source>Try Again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="933"/>
+        <source>JavaScript alert</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="941"/>
+        <source>Prevent this page from creating additional dialogs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="989"/>
+        <source>Choose file...</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6225,30 +5915,30 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="109"/>
         <source>Manage Search Engines</source>
-        <translation>Gestionarea motoarelor de căutare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="243"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="237"/>
         <source>Add %1 ...</source>
-        <translation>Adaugă %1 ...</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="260"/>
+        <source>Paste And &amp;Search</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="266"/>
-        <source>Paste And &amp;Search</source>
-        <translation>Lipește și &amp;caută</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="272"/>
         <source>Clear All</source>
-        <translation>Golește tot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="314"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="308"/>
         <source>Show suggestions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="319"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="313"/>
         <source>Search when engine changed</source>
         <translation type="unfinished"/>
     </message>
@@ -6256,303 +5946,273 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="121"/>
+        <location filename="../src/lib/webview/webview.cpp" line="113"/>
         <source>No Named Page</source>
-        <translation>Pagină fără nume</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="768"/>
+        <location filename="../src/lib/webview/webview.cpp" line="760"/>
         <source>Create Search Engine</source>
-        <translation>Creează motor de căutare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="785"/>
+        <location filename="../src/lib/webview/webview.cpp" line="777"/>
         <source>Cut</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="787"/>
+        <location filename="../src/lib/webview/webview.cpp" line="779"/>
         <source>Copy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="789"/>
+        <location filename="../src/lib/webview/webview.cpp" line="781"/>
         <source>Paste</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="791"/>
+        <location filename="../src/lib/webview/webview.cpp" line="783"/>
         <source>Select All</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="793"/>
-        <source>Default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="794"/>
-        <source>Left to Right</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="795"/>
-        <source>Right to Left</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="796"/>
-        <source>Bold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="797"/>
-        <source>Italic</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="798"/>
-        <source>Underline</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="800"/>
-        <location filename="../src/lib/webview/webview.cpp" line="925"/>
+        <location filename="../src/lib/webview/webview.cpp" line="785"/>
+        <location filename="../src/lib/webview/webview.cpp" line="908"/>
         <source>&amp;Reload</source>
-        <translation>&amp;Reîncarcă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="801"/>
+        <location filename="../src/lib/webview/webview.cpp" line="786"/>
         <source>S&amp;top</source>
-        <translation>S&amp;top</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="857"/>
+        <location filename="../src/lib/webview/webview.cpp" line="840"/>
         <source>Delete</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="904"/>
+        <location filename="../src/lib/webview/webview.cpp" line="887"/>
         <source>&amp;Back</source>
-        <translation>&amp;Înapoi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="908"/>
+        <location filename="../src/lib/webview/webview.cpp" line="891"/>
         <source>&amp;Forward</source>
-        <translation>Î&amp;nainte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="918"/>
+        <location filename="../src/lib/webview/webview.cpp" line="901"/>
         <source>This frame</source>
-        <translation>Cadrul acesta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="919"/>
+        <location filename="../src/lib/webview/webview.cpp" line="902"/>
         <source>Show &amp;only this frame</source>
-        <translation>Afișează &amp;doar acest cadru</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="920"/>
+        <location filename="../src/lib/webview/webview.cpp" line="903"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation>Afișează acest cadru în &amp;tab nou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="926"/>
+        <location filename="../src/lib/webview/webview.cpp" line="909"/>
         <source>Print frame</source>
-        <translation>Tipărește cadru</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="928"/>
+        <location filename="../src/lib/webview/webview.cpp" line="911"/>
         <source>Zoom &amp;in</source>
-        <translation>&amp;Apropie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="929"/>
+        <location filename="../src/lib/webview/webview.cpp" line="912"/>
         <source>&amp;Zoom out</source>
-        <translation>&amp;Depărtează</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="930"/>
+        <location filename="../src/lib/webview/webview.cpp" line="913"/>
         <source>Reset</source>
-        <translation>Resetează</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="932"/>
+        <location filename="../src/lib/webview/webview.cpp" line="915"/>
         <source>Show so&amp;urce of frame</source>
-        <translation>Afișează &amp;sursa cadrului</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="938"/>
+        <location filename="../src/lib/webview/webview.cpp" line="921"/>
         <source>Book&amp;mark page</source>
-        <translation>Adaugă se&amp;mn de carte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="939"/>
+        <location filename="../src/lib/webview/webview.cpp" line="922"/>
         <source>&amp;Save page as...</source>
-        <translation>&amp;Salvează pagina ca...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="940"/>
+        <location filename="../src/lib/webview/webview.cpp" line="923"/>
         <source>&amp;Copy page link</source>
-        <translation>&amp;Copiază legătura paginii</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="941"/>
+        <location filename="../src/lib/webview/webview.cpp" line="924"/>
         <source>Send page link...</source>
-        <translation>Trimite legătura paginii...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="942"/>
+        <location filename="../src/lib/webview/webview.cpp" line="925"/>
         <source>&amp;Print page</source>
-        <translation>&amp;Tipărește pagina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="944"/>
+        <location filename="../src/lib/webview/webview.cpp" line="927"/>
         <source>Select &amp;all</source>
-        <translation>Selectează &amp;tot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="948"/>
+        <location filename="../src/lib/webview/webview.cpp" line="931"/>
         <source>Validate page</source>
-        <translation>Validează pagina</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="934"/>
+        <source>Show so&amp;urce code</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="935"/>
+        <source>Show info ab&amp;out site</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="946"/>
+        <source>Open link in new &amp;tab</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="951"/>
-        <source>Show so&amp;urce code</source>
-        <translation>Afișează cod su&amp;rsă</translation>
+        <source>Open link in new &amp;window</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="952"/>
-        <source>Show info ab&amp;out site</source>
-        <translation>Afișează informații &amp;despre pagină</translation>
+        <location filename="../src/lib/webview/webview.cpp" line="953"/>
+        <source>B&amp;ookmark link</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="963"/>
-        <source>Open link in new &amp;tab</source>
-        <translation>Deschide legătura in &amp;tab nou</translation>
+        <location filename="../src/lib/webview/webview.cpp" line="954"/>
+        <source>&amp;Save link as...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="955"/>
+        <source>Send link...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="956"/>
+        <source>&amp;Copy link address</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="968"/>
-        <source>Open link in new &amp;window</source>
-        <translation>Deschide legătura in &amp;fereastră nouă</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="970"/>
-        <source>B&amp;ookmark link</source>
-        <translation>&amp;Adaugă legătura la semne de carte</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="971"/>
-        <source>&amp;Save link as...</source>
-        <translation>&amp;Salvează legătura ca...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="972"/>
-        <source>Send link...</source>
-        <translation>Trimite legătura...</translation>
+        <source>Show i&amp;mage</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="973"/>
-        <source>&amp;Copy link address</source>
-        <translation>&amp;Copiază adresa legăturii</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="985"/>
-        <source>Show i&amp;mage</source>
-        <translation>Afișează i&amp;magine</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="990"/>
         <source>Copy im&amp;age</source>
-        <translation>Copiază im&amp;agine</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="991"/>
+        <location filename="../src/lib/webview/webview.cpp" line="974"/>
         <source>Copy image ad&amp;dress</source>
-        <translation>Copiază adresa im&amp;aginii</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="993"/>
+        <location filename="../src/lib/webview/webview.cpp" line="976"/>
         <source>&amp;Save image as...</source>
-        <translation>&amp;Salvează imaginea ca...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="994"/>
+        <location filename="../src/lib/webview/webview.cpp" line="977"/>
         <source>Send image...</source>
-        <translation>Trimite imagine...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1013"/>
+        <location filename="../src/lib/webview/webview.cpp" line="996"/>
         <source>Send text...</source>
-        <translation>Trimite text...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1018"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1001"/>
         <source>Google Translate</source>
-        <translation>Traducere Google</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1023"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1006"/>
         <source>Dictionary</source>
-        <translation>Dicționar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1038"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1021"/>
         <source>Go to &amp;web address</source>
-        <translation>Du-te la &amp;adresa web</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1052"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1035"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation>Caută &quot;%1 ..&quot; cu %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1058"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1041"/>
         <source>Search with...</source>
-        <translation>Caută cu...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1085"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1068"/>
         <source>&amp;Play</source>
-        <translation>&amp;Pornește</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1085"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1068"/>
         <source>&amp;Pause</source>
-        <translation>&amp;Oprește</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1086"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1069"/>
         <source>Un&amp;mute</source>
-        <translation>Un&amp;mute</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1086"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1069"/>
         <source>&amp;Mute</source>
-        <translation>&amp;Mute</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1088"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1071"/>
         <source>&amp;Copy Media Address</source>
-        <translation>&amp;Copiază adresă media</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1089"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1072"/>
         <source>&amp;Send Media Address</source>
-        <translation>&amp;Trimite adresă media</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1090"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1073"/>
         <source>Save Media To &amp;Disk</source>
-        <translation>Salvează media pe &amp;disc</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1099"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1082"/>
         <source>Check &amp;Spelling</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1104"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1087"/>
         <source>Languages</source>
         <translation type="unfinished"/>
     </message>
@@ -6562,7 +6222,7 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <location filename="../src/lib/webview/jsalert.ui" line="125"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation>Interzice acestei pagini să deschidă dialoguri noi</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

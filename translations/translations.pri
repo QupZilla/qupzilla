@@ -1,18 +1,28 @@
-TRANSLATIONS += $$PWD/ar.ts \
+TRANSLATIONS += $$PWD/ar_SA.ts \
+                $$PWD/bg_BG.ts \
+                $$PWD/bo_CN.ts \
                 $$PWD/ca_ES.ts \
                 $$PWD/cs_CZ.ts \
+                $$PWD/da_DK.ts \
                 $$PWD/de_DE.ts \
                 $$PWD/el_GR.ts \
+                $$PWD/es_AR.ts \
                 $$PWD/es_ES.ts \
                 $$PWD/es_VE.ts \
+                $$PWD/es_419.ts \
                 $$PWD/fa_IR.ts \
                 $$PWD/fr_FR.ts \
+                $$PWD/gl_ES.ts \
                 $$PWD/he_IL.ts \
                 $$PWD/hu_HU.ts \
                 $$PWD/id_ID.ts \
                 $$PWD/it_IT.ts \
                 $$PWD/ja_JP.ts \
                 $$PWD/ka_GE.ts \
+                $$PWD/lg.ts \
+                $$PWD/my_MM.ts \
+                $$PWD/nb_NO.ts \
+                $$PWD/nqo.ts \
                 $$PWD/nl_NL.ts \
                 $$PWD/pl_PL.ts \
                 $$PWD/pt_BR.ts \
