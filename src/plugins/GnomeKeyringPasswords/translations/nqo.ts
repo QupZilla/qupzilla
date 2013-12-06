@@ -1,10 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr_FR" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nqo" version="2.0">
 <context>
     <name>GnomeKeyringPlugin</name>
     <message>
         <location filename="../gnomekeyringpasswordbackend.cpp" line="85"/>
         <source>Gnome Keyring</source>
-        <translation>Gnome Keyring : Trousseau de clés de GNOME</translation>
+        <translation>ߢߏߡߌ߲߬ ߞߏߢߌ߲߫ ߕߌ߲ߛߐ߲</translation>
     </message>
 </context>
 </TS>

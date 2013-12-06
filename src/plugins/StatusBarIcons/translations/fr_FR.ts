@@ -47,7 +47,7 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="52"/>
         <source>Disable JavaScript (temporarily)</source>
-        <translation>Désactivement JavaScript (temporairement) </translation>
+        <translation>Désactiver JavaScript (temporairement) </translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="55"/>
@@ -90,7 +90,7 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="106"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
-        <translation>Montrer l&apos;état du réseau et gérer le proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Réseau :&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy :&lt;/b&gt;&lt;br/&gt;%2</translation>
+        <translation>Montrer l&apos;état du réseau et gérer le proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Réseau : &lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy :&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="110"/>
@@ -110,7 +110,7 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="124"/>
         <source>System proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy système</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="128"/>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="136"/>
         <source>User defined</source>
-        <translation type="unfinished"/>
+        <translation>Défini par l&apos;utilisateur </translation>
     </message>
 </context>
 <context>

@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="ar">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="uz" version="2.0">
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="36"/>
         <source>Modify images loading settings per-site and globally</source>
-        <translation>بدّل إعدادات تحميل الصور لكل موقع على حدة أو لكل المواقع معاً</translation>
+        <translation>Tasvirlar yuklanish sozlamalarini har qaysi sayt uchun va global o&apos;zgartirish</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="60"/>
         <source>Current page settings</source>
-        <translation>إعدادات الصفحة الحالية</translation>
+        <translation>Joriy sahifa sozlamalari</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="63"/>
         <source>Disable loading images (temporarily)</source>
-        <translation>امنع تحميل الصور (مؤقتاً)</translation>
+        <translation>Tasvirlar yuklanishini o&apos;chirish (vaqtincha)</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
         <source>Enable loading images (temporarily)</source>
-        <translation>اسمح بتحميل الصور (مؤقتاً)</translation>
+        <translation>Tasvirlar yuklanishini yoqish (vaqtincha)</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="70"/>
         <source>Global settings</source>
-        <translation>الإعدادات العامّة</translation>
+        <translation>Global sozlamalar</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="72"/>
         <source>Automatically load images</source>
-        <translation>اسمح بتحميل الصور</translation>
+        <translation>Tasvirlarni avtomatik ravishda yuklash</translation>
     </message>
 </context>
 <context>
@@ -39,32 +37,32 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="34"/>
         <source>Modify JavaScript settings per-site and globally</source>
-        <translation>بدّل إعدادات جافاسكربت لكل موقع على حدة أو لكل المواقع معاً</translation>
+        <translation>JavaScript sozlamalarini har qaysi sayt uchun va global o&apos;zgartirish</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="49"/>
         <source>Current page settings</source>
-        <translation>إعدادات الصفحة الحالية</translation>
+        <translation>Joriy sahifa sozlamalari</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="52"/>
         <source>Disable JavaScript (temporarily)</source>
-        <translation>امنع جافاسكربت (مؤقتاً)</translation>
+        <translation>JavaScript o&apos;chirish (vaqtincha)</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="55"/>
         <source>Enable JavaScript (temporarily)</source>
-        <translation>اسمح بجافاسكربت (مؤقتاً)</translation>
+        <translation>JavaScript yoqish (vaqtincha)</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="59"/>
         <source>Global settings</source>
-        <translation>الإعدادات العامّة</translation>
+        <translation>Global sozlamalar</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="60"/>
         <source>Manage JavaScript settings</source>
-        <translation>أدِر إعدادات جافاسكربت</translation>
+        <translation>JavaScript sozlamalarini boshqarish</translation>
     </message>
 </context>
 <context>
@@ -72,62 +70,62 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="73"/>
         <source>Proxy configuration</source>
-        <translation>إعدادات الخادوم الوكيل</translation>
+        <translation>Proksi sozlash</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="75"/>
         <source>Select proxy</source>
-        <translation>اختر خادوماً وكيلاً</translation>
+        <translation>Proksi tanlash</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="89"/>
         <source>Empty</source>
-        <translation>فارغ</translation>
+        <translation>Bo&apos;sh</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="93"/>
         <source>Manage proxies</source>
-        <translation>أدر الخواديم الوكيلة</translation>
+        <translation>Proksi boshqarish</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="106"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
-        <translation>يُظهر حالة الشبكة ويدير الخادوم الوكيل&lt;br/&gt;&lt;br/&gt;&lt;b&gt;الشبكة:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;الخادم الوكيل:&lt;/b&gt;&lt;br/&gt;%2 </translation>
+        <translation>Tarmoq holatini ko&apos;rsatadi va proksi boshqaradi&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Tarmoq:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proksi:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="110"/>
         <source>Connected</source>
-        <translation>متّصل</translation>
+        <translation>Ulangan</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="114"/>
         <source>Offline</source>
-        <translation>غير متّصل</translation>
+        <translation>Oflayn</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="118"/>
         <source>Unknown</source>
-        <translation>لا يُعرف</translation>
+        <translation>Noma&apos;lum</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="124"/>
         <source>System proxy</source>
-        <translation>الخادوم الوكيل الذي يستخدمه نظام التشغيل</translation>
+        <translation>Tizim proksi</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="128"/>
         <source>No proxy</source>
-        <translation>بلا خادوم وكيل</translation>
+        <translation>Proksi yo&apos;q</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="132"/>
         <source>PAC (Proxy Auto-Config)</source>
-        <translation>يُضبط تلقائياً</translation>
+        <translation>PAC (Proksi avto-sozlash)</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="136"/>
         <source>User defined</source>
-        <translation>حَدّده المستخدم</translation>
+        <translation>Foydalanuvchi tomonidan aniqlangan</translation>
     </message>
 </context>
 <context>
@@ -135,48 +133,48 @@
     <message>
         <location filename="../sbi_networkicondialog.ui" line="14"/>
         <source>Proxy Manager</source>
-        <translation>إدارة الخواديم الوكيلة</translation>
+        <translation>Proksi boshqaruvchisi</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="28"/>
         <source>Select proxy: </source>
-        <translation>اختر خادوماً وكيلاً:</translation>
+        <translation>Proksi tanlash: </translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="38"/>
         <location filename="../sbi_networkicondialog.cpp" line="55"/>
         <source>Add proxy</source>
-        <translation>أضف خادوماً وكيلاً</translation>
+        <translation>Proksi qo&apos;shish</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="45"/>
         <source>Remove proxy</source>
-        <translation>احذف الخادوم الوكيل</translation>
+        <translation>Proksi olib tashlash</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="69"/>
         <source>No proxies. You can add proxy by clicking on &lt;b&gt;Add&lt;/b&gt; button.</source>
-        <translation>لا خواديم وكيلة. يمكنك إضافة واحد بالنقر على زر .&lt;b&gt;أضف&lt;/b&gt;.</translation>
+        <translation>Proksi yo&apos;q. Siz &lt;b&gt;Qo&apos;shish&lt;/b&gt; tugmasini bosib proksi qo&apos;shishingiz mumkin.</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="104"/>
         <source>All changes must be saved with &lt;b&gt;Save&lt;/b&gt; button.</source>
-        <translation>عليك أن تحفظ كل التغييرات بالنقر على زر &lt;b&gt;احفظ&lt;/b&gt;.</translation>
+        <translation>Hamma o&apos;zgartirishlardan keyin &lt;b&gt;Saqlash&lt;/b&gt; tugmasini bosish shart.</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="55"/>
         <source>Name of proxy:</source>
-        <translation>اسم الخادوم الوكيل:</translation>
+        <translation>Proksi nomi:</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="68"/>
         <source>Remove current proxy</source>
-        <translation>احذف الخادوم الوكيل الحاليّ</translation>
+        <translation>Joriy proksi olib tashlash</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="68"/>
         <source>Are you sure to remove current proxy?</source>
-        <translation>أتريد حقاً أن تحذف الخادوم الوكيل الحاليّ؟</translation>
+        <translation>Siz joriy proksi olib tashlashga ishonchingiz komilmi?</translation>
     </message>
 </context>
 <context>
@@ -184,27 +182,27 @@
     <message>
         <location filename="../sbi_proxywidget.ui" line="14"/>
         <source>Form</source>
-        <translation>النموذج</translation>
+        <translation>Shakl</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="20"/>
         <source>Do not use proxy</source>
-        <translation>لا تستخدم خادوماً وكيلاً</translation>
+        <translation>Proksi qo&apos;llanilmasin</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="27"/>
         <source>Use different proxy for https connection</source>
-        <translation>استخدم خادوماً وكيلاً مختلفاً في اتصال HTTPS</translation>
+        <translation>HTTPS ulanishi uchun boshqa proksi&apos;dan foydalanilsin</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="34"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;الاستثناءات&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Istisnolar&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="43"/>
         <source>Don&apos;t use on:</source>
-        <translation>لا تستخدمه في:</translation>
+        <translation>Foydalanilmasin:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="58"/>
@@ -220,44 +218,44 @@
         <location filename="../sbi_proxywidget.ui" line="74"/>
         <location filename="../sbi_proxywidget.ui" line="220"/>
         <source>Port:</source>
-        <translation>المنفذ:</translation>
+        <translation>Port:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="111"/>
         <location filename="../sbi_proxywidget.ui" line="243"/>
         <source>Username:</source>
-        <translation>اسم المستخدم:</translation>
+        <translation>Foydalanuvchi nomi:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="121"/>
         <location filename="../sbi_proxywidget.ui" line="253"/>
         <source>Password:</source>
-        <translation>كلمة المرور:</translation>
+        <translation>Parol:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="146"/>
         <source>Use script for automatic configuration:</source>
-        <translation>استخدم نصاً برمجياً من أجل الضبط التلقائي:</translation>
+        <translation>Avtomatik sozlash uchun skriptdan foydalanish:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="153"/>
         <source>System proxy configuration</source>
-        <translation>ضبط الخادوم الوكيل الذي يستخدمه النظام</translation>
+        <translation>Tizim proksi sozlash</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="162"/>
         <source>Proxy Auto-Config (.pac) file</source>
-        <translation>ضبط الخادم الوكيل التلقائيّ (ملف .pac)</translation>
+        <translation>Proksi avto-sozlash (.pac) fayli</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="187"/>
         <source>Manual configuration</source>
-        <translation>ضبط يدوي</translation>
+        <translation>Qo&apos;l bilan sozlash</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="210"/>
         <source>Server:</source>
-        <translation>الخادوم:</translation>
+        <translation>Server:</translation>
     </message>
 </context>
 <context>
@@ -265,32 +263,32 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="14"/>
         <source>StatusBar Icons</source>
-        <translation>رموز شريط الحالة</translation>
+        <translation>Holat satri nishonchalari</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="48"/>
         <source>&lt;h3&gt;StatusBar Icons&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;رموز شريط الحالة&lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;Holat satri nishonchalari&lt;/h3&gt;</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="70"/>
         <source>These icons will be displayed in statusbar:</source>
-        <translation>ستُعرض هذه الرموز في شريط الحالة:</translation>
+        <translation>Ushbu nishonchalar holat satrida ko&apos;rsatiladi:</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="97"/>
         <source>Images Icon</source>
-        <translation>رمز الصور</translation>
+        <translation>Tasvirlar nishonchasi</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="104"/>
         <source>JavaScript Icon</source>
-        <translation>رمز جافاسكربت</translation>
+        <translation>JavaScript nishonchasi</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="111"/>
         <source>Network Icon</source>
-        <translation>رمز الشبكة</translation>
+        <translation>Tarmoq nishonchasi</translation>
     </message>
 </context>
 </TS>

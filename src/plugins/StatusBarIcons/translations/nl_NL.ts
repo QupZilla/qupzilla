@@ -110,22 +110,22 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="124"/>
         <source>System proxy</source>
-        <translation type="unfinished"/>
+        <translation>Systeemproxy</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="128"/>
         <source>No proxy</source>
-        <translation type="unfinished"/>
+        <translation>Geen proxy</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="132"/>
         <source>PAC (Proxy Auto-Config)</source>
-        <translation type="unfinished"/>
+        <translation>PAC (Proxy Auto-Config)</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="136"/>
         <source>User defined</source>
-        <translation type="unfinished"/>
+        <translation>Gebruiker-gespecificeerd</translation>
     </message>
 </context>
 <context>

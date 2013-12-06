@@ -110,22 +110,22 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="124"/>
         <source>System proxy</source>
-        <translation type="unfinished"/>
+        <translation>系統代理伺服器</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="128"/>
         <source>No proxy</source>
-        <translation type="unfinished"/>
+        <translation>無代理伺服器</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="132"/>
         <source>PAC (Proxy Auto-Config)</source>
-        <translation type="unfinished"/>
+        <translation>PAC (自動設定代理伺服器)</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="136"/>
         <source>User defined</source>
-        <translation type="unfinished"/>
+        <translation>使用者自訂</translation>
     </message>
 </context>
 <context>

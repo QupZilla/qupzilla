@@ -4,7 +4,7 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="36"/>
         <source>Modify images loading settings per-site and globally</source>
-        <translation>התאם הגדרות טעינת תמונות לכל אתר וגלובלית</translation>
+        <translation>התאמת הגדרות טעינת תמונות לכל אתר וגלובלית</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="60"/>
@@ -37,7 +37,7 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="34"/>
         <source>Modify JavaScript settings per-site and globally</source>
-        <translation>התאם הגדרות  לכל אתר וגלובלית</translation>
+        <translation>התאמת הגדרות לכל אתר וגלובלית</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="49"/>
@@ -90,7 +90,7 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="106"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
-        <translation>מציגה מצב רשת תקשורת ומנהלת ציר&lt;br/&gt;&lt;br/&gt;&lt;b&gt;רשת:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;ציר:&lt;/b&gt;&lt;br/&gt;%2</translation>
+        <translation>הצגת מצב רשת תקשורת וניהול ציר&lt;br/&gt;&lt;br/&gt;&lt;b&gt;רשת:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;ציר:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="110"/>

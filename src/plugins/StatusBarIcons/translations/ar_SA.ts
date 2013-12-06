@@ -1,35 +1,35 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl_PL" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ar_SA" version="2.0">
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="36"/>
         <source>Modify images loading settings per-site and globally</source>
-        <translation type="unfinished"/>
+        <translation>بدّل إعدادات تحميل الصور لكل موقع على حدة أو لكل المواقع معاً</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="60"/>
         <source>Current page settings</source>
-        <translation type="unfinished"/>
+        <translation>إعدادات الصفحة الحالية</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="63"/>
         <source>Disable loading images (temporarily)</source>
-        <translation>Wyłącz ładowanie obrazów (tymczasowo)</translation>
+        <translation>امنع تحميل الصور (مؤقتاً)</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
         <source>Enable loading images (temporarily)</source>
-        <translation>Włącz ładowanie obrazów (tymczasowo)</translation>
+        <translation>اسمح بتحميل الصور (مؤقتاً)</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="70"/>
         <source>Global settings</source>
-        <translation>Ustawiani Ogólne</translation>
+        <translation>الإعدادات العامّة</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="72"/>
         <source>Automatically load images</source>
-        <translation>Automatycznie ładuj obrazki</translation>
+        <translation>اسمح بتحميل الصور</translation>
     </message>
 </context>
 <context>
@@ -37,32 +37,32 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="34"/>
         <source>Modify JavaScript settings per-site and globally</source>
-        <translation type="unfinished"/>
+        <translation>بدّل إعدادات جافاسكربت لكل موقع على حدة أو لكل المواقع معاً</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="49"/>
         <source>Current page settings</source>
-        <translation type="unfinished"/>
+        <translation>إعدادات الصفحة الحالية</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="52"/>
         <source>Disable JavaScript (temporarily)</source>
-        <translation>Wyłącz JavaScript (tymczasowo)</translation>
+        <translation>امنع جافاسكربت (مؤقتاً)</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="55"/>
         <source>Enable JavaScript (temporarily)</source>
-        <translation>Włącz JavaScript (tymczasowo)</translation>
+        <translation>اسمح بجافاسكربت (مؤقتاً)</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="59"/>
         <source>Global settings</source>
-        <translation>Ustawiania Ogólne</translation>
+        <translation>الإعدادات العامّة</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="60"/>
         <source>Manage JavaScript settings</source>
-        <translation>Zarządzaj ustawieniami JavaScript</translation>
+        <translation>أدِر إعدادات جافاسكربت</translation>
     </message>
 </context>
 <context>
@@ -70,62 +70,62 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="73"/>
         <source>Proxy configuration</source>
-        <translation>Ustawienia proxy</translation>
+        <translation>إعدادات الخادوم الوكيل</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="75"/>
         <source>Select proxy</source>
-        <translation>Wybierz proxy</translation>
+        <translation>اختر خادوماً وكيلاً</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="89"/>
         <source>Empty</source>
-        <translation>Pusto</translation>
+        <translation>فارغ</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="93"/>
         <source>Manage proxies</source>
-        <translation>Zarządzaj proxy</translation>
+        <translation>أدر الخواديم الوكيلة</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="106"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
-        <translation type="unfinished"/>
+        <translation>يُظهر حالة الشبكة ويدير الخادوم الوكيل&lt;br/&gt;&lt;br/&gt;&lt;b&gt;الشبكة:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;الخادم الوكيل:&lt;/b&gt;&lt;br/&gt;%2 </translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="110"/>
         <source>Connected</source>
-        <translation>Podłączony</translation>
+        <translation>متّصل</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="114"/>
         <source>Offline</source>
-        <translation>Odłączony</translation>
+        <translation>غير متّصل</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="118"/>
         <source>Unknown</source>
-        <translation>Nieznany</translation>
+        <translation>لا يُعرف</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="124"/>
         <source>System proxy</source>
-        <translation type="unfinished"/>
+        <translation>الخادوم الوكيل الذي يستخدمه نظام التشغيل</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="128"/>
         <source>No proxy</source>
-        <translation>Brak proxy</translation>
+        <translation>بلا خادوم وكيل</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="132"/>
         <source>PAC (Proxy Auto-Config)</source>
-        <translation>PAC (Proxy Auto-Config)</translation>
+        <translation>يُضبط تلقائياً</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="136"/>
         <source>User defined</source>
-        <translation type="unfinished"/>
+        <translation>حَدّده المستخدم</translation>
     </message>
 </context>
 <context>
@@ -133,48 +133,48 @@
     <message>
         <location filename="../sbi_networkicondialog.ui" line="14"/>
         <source>Proxy Manager</source>
-        <translation>Menadżer Proxy</translation>
+        <translation>إدارة الخواديم الوكيلة</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="28"/>
         <source>Select proxy: </source>
-        <translation>Wybierz proxy:</translation>
+        <translation>اختر خادوماً وكيلاً:</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="38"/>
         <location filename="../sbi_networkicondialog.cpp" line="55"/>
         <source>Add proxy</source>
-        <translation>Dodaj proxy</translation>
+        <translation>أضف خادوماً وكيلاً</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="45"/>
         <source>Remove proxy</source>
-        <translation>Usuń proxy</translation>
+        <translation>احذف الخادوم الوكيل</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="69"/>
         <source>No proxies. You can add proxy by clicking on &lt;b&gt;Add&lt;/b&gt; button.</source>
-        <translation>Brak proxy. Możesz dodać proxy klikając przycisk &lt;b&gt;Dodaj&lt;/b&gt;.</translation>
+        <translation>لا خواديم وكيلة. يمكنك إضافة واحد بالنقر على زر .&lt;b&gt;أضف&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="104"/>
         <source>All changes must be saved with &lt;b&gt;Save&lt;/b&gt; button.</source>
-        <translation>Wszystkie zmiany muszą być potwierdzone przyciskiem &lt;b&gt;Zapisz&lt;/b&gt;.</translation>
+        <translation>عليك أن تحفظ كل التغييرات بالنقر على زر &lt;b&gt;احفظ&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="55"/>
         <source>Name of proxy:</source>
-        <translation>Nazwa proxy:</translation>
+        <translation>اسم الخادوم الوكيل:</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="68"/>
         <source>Remove current proxy</source>
-        <translation>Usuń aktualne proxy</translation>
+        <translation>احذف الخادوم الوكيل الحاليّ</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="68"/>
         <source>Are you sure to remove current proxy?</source>
-        <translation>Czy na pewno usunąć aktualne proxy?</translation>
+        <translation>أتريد حقاً أن تحذف الخادوم الوكيل الحاليّ؟</translation>
     </message>
 </context>
 <context>
@@ -182,27 +182,27 @@
     <message>
         <location filename="../sbi_proxywidget.ui" line="14"/>
         <source>Form</source>
-        <translation>Z</translation>
+        <translation>النموذج</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="20"/>
         <source>Do not use proxy</source>
-        <translation>Nie używaj proxy</translation>
+        <translation>لا تستخدم خادوماً وكيلاً</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="27"/>
         <source>Use different proxy for https connection</source>
-        <translation>Użyj innego proxy dla połączeń https</translation>
+        <translation>استخدم خادوماً وكيلاً مختلفاً في اتصال HTTPS</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="34"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Rozszerzenia&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;الاستثناءات&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="43"/>
         <source>Don&apos;t use on:</source>
-        <translation>Nie używaj na:</translation>
+        <translation>لا تستخدمه في:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="58"/>
@@ -218,44 +218,44 @@
         <location filename="../sbi_proxywidget.ui" line="74"/>
         <location filename="../sbi_proxywidget.ui" line="220"/>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation>المنفذ:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="111"/>
         <location filename="../sbi_proxywidget.ui" line="243"/>
         <source>Username:</source>
-        <translation>Nazwa użytkownika:</translation>
+        <translation>اسم المستخدم:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="121"/>
         <location filename="../sbi_proxywidget.ui" line="253"/>
         <source>Password:</source>
-        <translation>Hasło:</translation>
+        <translation>كلمة المرور:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="146"/>
         <source>Use script for automatic configuration:</source>
-        <translation type="unfinished"/>
+        <translation>استخدم نصاً برمجياً من أجل الضبط التلقائي:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="153"/>
         <source>System proxy configuration</source>
-        <translation>Systemowe ustawienia proxy</translation>
+        <translation>ضبط الخادوم الوكيل الذي يستخدمه النظام</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="162"/>
         <source>Proxy Auto-Config (.pac) file</source>
-        <translation>Proxy Auto-Config plik (.pac)</translation>
+        <translation>ضبط الخادم الوكيل التلقائيّ (ملف .pac)</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="187"/>
         <source>Manual configuration</source>
-        <translation>Konfiguracja ręczna</translation>
+        <translation>ضبط يدوي</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="210"/>
         <source>Server:</source>
-        <translation>Serwer:</translation>
+        <translation>الخادوم:</translation>
     </message>
 </context>
 <context>
@@ -263,32 +263,32 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="14"/>
         <source>StatusBar Icons</source>
-        <translation>Ikona Statusu</translation>
+        <translation>رموز شريط الحالة</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="48"/>
         <source>&lt;h3&gt;StatusBar Icons&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;Ikona paska statusu&lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;رموز شريط الحالة&lt;/h3&gt;</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="70"/>
         <source>These icons will be displayed in statusbar:</source>
-        <translation>Te ikony będą widoczne na pasku statusu.</translation>
+        <translation>ستُعرض هذه الرموز في شريط الحالة:</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="97"/>
         <source>Images Icon</source>
-        <translation type="unfinished"/>
+        <translation>رمز الصور</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="104"/>
         <source>JavaScript Icon</source>
-        <translation type="unfinished"/>
+        <translation>رمز جافاسكربت</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="111"/>
         <source>Network Icon</source>
-        <translation type="unfinished"/>
+        <translation>رمز الشبكة</translation>
     </message>
 </context>
 </TS>
