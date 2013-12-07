@@ -22,18 +22,18 @@ TRANSLATIONS += $$PWD/ar_SA.ts \
                 $$PWD/lg.ts \
                 $$PWD/my_MM.ts \
                 $$PWD/nb_NO.ts \
-                $$PWD/nqo.ts \
                 $$PWD/nl_NL.ts \
+                $$PWD/nqo.ts \
                 $$PWD/pl_PL.ts \
                 $$PWD/pt_BR.ts \
                 $$PWD/pt_PT.ts \
                 $$PWD/ro_RO.ts \
                 $$PWD/ru_RU.ts \
                 $$PWD/sk_SK.ts \
-                $$PWD/sr_BA.ts \
                 $$PWD/sr_BA@latin.ts \
-                $$PWD/sr_RS.ts \
+                $$PWD/sr_BA.ts \
                 $$PWD/sr_RS@latin.ts \
+                $$PWD/sr_RS.ts \
                 $$PWD/sv_SE.ts \
                 $$PWD/uk_UA.ts \
                 $$PWD/zh_CN.ts \
