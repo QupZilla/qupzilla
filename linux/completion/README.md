@@ -1,5 +1,10 @@
+**Shell completion files**
+
+* *qupzilla* - bash completion file
+* *_qupzilla* - zsh completion file
+
 Bash completion file will be automatically installed with make install
-into `/etc/bash_completion.d/`
+into `/usr/share/bash-completion/completions`
 
 To install zsh completion file, either manually copy it to proper directory
 (one directory from $fpath), or run this command:
