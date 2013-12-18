@@ -1,5 +1,7 @@
 #compdef qupzilla
-
+#
+# Zsh completion for QupZilla
+#
 opts=(
     '(-)'{-h,--help}'[print usage help]'
     '(-)'{-a,--authors}'[print QupZilla authors]'
@@ -15,6 +17,7 @@ opts=(
     '(-)'{-nr,--no-remote}'[open new instance]'
     '(-)'{-ct=,--current-tab=}'[open URL in current tab]'
     '(-)'{-ow=,--open-window=}'[open URL in new window]'
+    '*:files:_files'
     )
 
 _x_arguments -C $opts
