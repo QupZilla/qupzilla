@@ -19,6 +19,7 @@
 #include "qupzilla.h"
 
 #include <QCoreApplication>
+#include <QFileInfo>
 
 CommandLineOptions::CommandLineOptions(int &argc)
     : m_argc(argc)
@@ -176,7 +177,12 @@ void CommandLineOptions::parseActions()
         }
     }
 
-    const QString &url = arguments.last();
+    QString url = arguments.last();
+    QFileInfo fileInfo(url);
+
+    if (fileInfo.exists()) {
+        url = fileInfo.absoluteFilePath();
+    }
 
     if (m_argc > 1 && !url.isEmpty() && !url.startsWith(QLatin1Char('-')) &&
             (url.contains(QLatin1Char('.')) || url.contains(QLatin1Char('/'))

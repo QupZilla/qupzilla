@@ -32,6 +32,7 @@ Version 1.5.0
     * fixed: parsing OpenSearch files with XML declaration
     * fixed: don't show urls multiple times in url completer
     * fixed: drag & drop moving folders under bookmarks toolbar
+    * fixed: files with relative paths can now be opened from command line
 
 Version 1.4.4
     * released 1 September 2013
