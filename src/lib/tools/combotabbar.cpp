@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "combotabbar.h"
 #include "toolbutton.h"
+#include "mainapplication.h"
+#include "proxystyle.h"
 
 #include <QIcon>
 #include <QHBoxLayout>
@@ -482,7 +484,17 @@ void ComboTabBar::setMouseTracking(bool enable)
 
 void ComboTabBar::setUpLayout()
 {
-    const int height = m_mainTabBar->height();
+    int height = m_mainTabBar->height();
+
+    // Workaround for Oxygen theme. For some reason, m_mainTabBar->height() returns bigger
+    // height than it actually is.
+    if (mApp->proxyStyle() && mApp->proxyStyle()->name() == QLatin1String("oxygen")) {
+        height -= 4;
+    }
+
+    if (height <= 0) {
+        return;
+    }
 
     setFixedHeight(height);
     m_pinnedTabBar->setFixedHeight(height);
