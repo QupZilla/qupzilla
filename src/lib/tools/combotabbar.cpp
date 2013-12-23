@@ -197,17 +197,18 @@ QRect ComboTabBar::tabRect(int index) const
 
 int ComboTabBar::tabAt(const QPoint &pos) const
 {
-    QWidget* that = const_cast<ComboTabBar*>(this);
-
     int index = -1;
-    if (m_mainTabBarWidget->rect().contains(m_mainTabBarWidget->mapFromGlobal(QCursor::pos()))) {
-        index = m_mainTabBar->tabAt(m_mainTabBar->mapFrom(that, pos));
+
+    const QPoint globalPos = mapToGlobal(pos);
+
+    if (m_mainTabBarWidget->hasTabBarAt(m_mainTabBarWidget->mapFromGlobal(globalPos))) {
+        index = m_mainTabBar->tabAt(m_mainTabBar->mapFromGlobal(globalPos));
         if (index != -1) {
             index += pinnedTabsCount();
         }
     }
-    else if (m_pinnedTabBarWidget->rect().contains(m_pinnedTabBarWidget->mapFromGlobal(QCursor::pos()))) {
-        index = m_pinnedTabBar->tabAt(m_pinnedTabBar->mapFrom(that, pos));
+    else if (m_pinnedTabBarWidget->hasTabBarAt(m_pinnedTabBarWidget->mapFromGlobal(globalPos))) {
+        index = m_pinnedTabBar->tabAt(m_pinnedTabBar->mapFromGlobal(globalPos));
     }
 
     return index;
@@ -1363,6 +1364,15 @@ void TabBarScrollWidget::setUsesScrollButtons(bool useButtons)
         scrollBarValueChange();
         m_tabBar->setElideMode(m_tabBar->elideMode());
     }
+}
+
+bool TabBarScrollWidget::hasTabBarAt(const QPoint &pos) const
+{
+    if (m_leftScrollButton->rect().contains(pos) || m_rightScrollButton->rect().contains(pos)) {
+        return false;
+    }
+
+    return m_scrollArea->rect().contains(pos);
 }
 
 void TabBarScrollWidget::setContainersName(const QString &name)
