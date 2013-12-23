@@ -173,7 +173,6 @@ private:
 
     int m_maxVisiblePinnedTab;
     QString m_closeButtonsToolTip;
-    bool m_heightIsDirty;
     bool m_mainBarOverFlowed;
     int m_dragOffset;
     bool m_usesScrollButtons;

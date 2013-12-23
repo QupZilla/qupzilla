@@ -41,7 +41,6 @@ ComboTabBar::ComboTabBar(QWidget* parent)
     , m_mainTabBar(0)
     , m_pinnedTabBar(0)
     , m_maxVisiblePinnedTab(0)
-    , m_heightIsDirty(true)
     , m_mainBarOverFlowed(false)
     , m_dragOffset(0)
     , m_usesScrollButtons(false)
@@ -127,14 +126,6 @@ int ComboTabBar::insertTab(int index, const QIcon &icon, const QString &text, bo
     updatePinnedTabBarVisibility();
     tabInserted(index);
     setMinimumWidthes();
-
-    if (m_heightIsDirty) {
-        setUpLayout();
-
-        if (m_mainTabBarWidget->height() > 0) {
-            m_heightIsDirty = false;
-        }
-    }
 
     return index;
 }
