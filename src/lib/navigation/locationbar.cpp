@@ -442,6 +442,14 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         }
         break;
 
+    case Qt::Key_A:
+        if (event->modifiers() == Qt::ControlModifier) {
+            if (m_inlineCompletionVisible) {
+                m_inlineCompletionVisible = false;
+            }
+        }
+        break;
+
     case Qt::Key_Down:
         m_completer.complete(text());
         break;
@@ -664,7 +672,17 @@ void LocationBar::paintEvent(QPaintEvent* event)
         cursor.setHeight(cursorHeight);
 
         style()->drawPrimitive(QStyle::PE_PanelLineEdit, &option, &p, this);
-        p.drawText(textRect, text(), opt);
+
+        QRect actualTextRect = textRect;
+        actualTextRect.setWidth(fontMetrics().width(text()) + 1);
+
+        // When popup is visible, Ctrl + A (Select All) is the only way to select text
+        if (selectedText() == text()) {
+            p.fillRect(actualTextRect, palette().color(QPalette::Highlight));
+            p.setPen(palette().color(QPalette::HighlightedText));
+        }
+
+        p.drawText(actualTextRect, text(), opt);
 
         if (textRect.contains(cursor.center().x(), cursor.center().y())) {
             p.fillRect(cursor, option.palette.text().color());
