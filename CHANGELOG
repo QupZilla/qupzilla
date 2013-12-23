@@ -33,6 +33,7 @@ Version 1.5.0
     * fixed: don't show urls multiple times in url completer
     * fixed: drag & drop moving folders under bookmarks toolbar
     * fixed: files with relative paths can now be opened from command line
+    * fixed: issues with overflowing tabs, it is now possible scroll through all tabs
 
 Version 1.4.4
     * released 1 September 2013
