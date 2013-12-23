@@ -494,6 +494,7 @@ void TabBar::showTabPreview()
 
     m_tabPreviewTimer->stop();
     m_tabPreview->setWebTab(webTab, m_tabPreview->previewIndex() == currentIndex());
+
     QRect r(tabRect(m_tabPreview->previewIndex()));
     r.setTopLeft(mapTo(p_QupZilla, r.topLeft()));
     r.setBottomRight(mapTo(p_QupZilla, r.bottomRight()));
@@ -589,14 +590,11 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
     }
 
     // Tab Preview
-
     const int tab = tabAt(event->pos());
 
     if (tab != -1 && tab != m_tabPreview->previewIndex() && event->buttons() == Qt::NoButton && m_dragStartPosition.isNull()) {
         m_tabPreview->setPreviewIndex(tab);
-        if (m_tabPreview->isVisible()) {
-            showTabPreview();
-        }
+        showTabPreview();
     }
 
     ComboTabBar::mouseMoveEvent(event);
@@ -642,7 +640,10 @@ bool TabBar::event(QEvent* event)
     case QEvent::ToolTip:
         if (m_showTabPreviews) {
             QHelpEvent* ev = static_cast<QHelpEvent*>(event);
-            if (tabAt(ev->pos()) != -1 && !m_tabPreview->isVisible() && m_dragStartPosition.isNull()) {
+            int index = tabAt(ev->pos());
+
+            if (index != -1 && !m_tabPreview->isVisible() && m_dragStartPosition.isNull()) {
+                m_tabPreview->setPreviewIndex(index);
                 showTabPreview();
             }
             return true;
