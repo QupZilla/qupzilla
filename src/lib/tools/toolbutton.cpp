@@ -150,6 +150,13 @@ void ToolButton::mouseReleaseEvent(QMouseEvent* e)
     setDown(false);
 }
 
+void ToolButton::mouseDoubleClickEvent(QMouseEvent* e)
+{
+    QToolButton::mouseDoubleClickEvent(e);
+
+    emit doubleClicked();
+}
+
 void ToolButton::showMenu()
 {
     if (!m_showMenuInside) {

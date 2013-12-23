@@ -60,6 +60,7 @@ public:
 signals:
     void middleMouseClicked();
     void controlClicked();
+    void doubleClicked();
 
 public slots:
     void showMenu();
@@ -67,6 +68,7 @@ public slots:
 protected:
     void mousePressEvent(QMouseEvent* e);
     void mouseReleaseEvent(QMouseEvent* e);
+    void mouseDoubleClickEvent(QMouseEvent* e);
 
 private:
     void paintEvent(QPaintEvent* e);

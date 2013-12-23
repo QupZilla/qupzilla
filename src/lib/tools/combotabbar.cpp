@@ -1119,12 +1119,14 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
     m_leftScrollButton->setObjectName("tabbar-button-left");
     connect(m_leftScrollButton, SIGNAL(pressed()), this, SLOT(scrollStart()));
     connect(m_leftScrollButton, SIGNAL(released()), this, SLOT(scrollStop()));
+    connect(m_leftScrollButton, SIGNAL(doubleClicked()), this, SLOT(scrollToLeftEdge()));
 
     m_rightScrollButton = new ToolButton(this);
     m_rightScrollButton->setAutoRaise(true);
     m_rightScrollButton->setObjectName("tabbar-button-right");
     connect(m_rightScrollButton, SIGNAL(pressed()), this, SLOT(scrollStart()));
     connect(m_rightScrollButton, SIGNAL(released()), this, SLOT(scrollStop()));
+    connect(m_rightScrollButton, SIGNAL(doubleClicked()), this, SLOT(scrollToRightEdge()));
 
     m_leftLayout = new QHBoxLayout;
     m_leftLayout->setSpacing(0);
