@@ -445,10 +445,8 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         break;
 
     case Qt::Key_A:
-        if (event->modifiers() == Qt::ControlModifier) {
-            if (m_inlineCompletionVisible) {
-                m_inlineCompletionVisible = false;
-            }
+        if (event->modifiers() == Qt::ControlModifier && m_inlineCompletionVisible) {
+            m_inlineCompletionVisible = false;
         }
         break;
 
