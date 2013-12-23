@@ -265,7 +265,7 @@ public:
     bool usesScrollButtons() const;
     void setUsesScrollButtons(bool useButtons);
 
-    bool hasTabBarAt(const QPoint &pos) const;
+    int tabAt(const QPoint &pos) const;
 
     void setContainersName(const QString &name);
     void enableBluredBackground(bool enable);
