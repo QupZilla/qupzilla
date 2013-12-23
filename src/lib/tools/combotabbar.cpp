@@ -974,6 +974,7 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
         QTabBar::paintEvent(event);
     }
 
+#if 0
     if (m_scrollArea) {
         const int tearWidth = 15;
         const int maxAlpha = 200;
@@ -1002,6 +1003,7 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
             p.fillRect(QRect(globalTopRight, QSize(tearWidth, height())), fade);
         }
     }
+#endif
 }
 
 void TabBarHelper::mousePressEvent(QMouseEvent* event)
@@ -1111,11 +1113,13 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
     m_scrollArea->setWidget(m_tabBar);
 
     m_leftScrollButton = new ToolButton(this);
+    m_leftScrollButton->setAutoRaise(true);
     m_leftScrollButton->setObjectName("tabbar-button-left");
     connect(m_leftScrollButton, SIGNAL(pressed()), this, SLOT(scrollStart()));
     connect(m_leftScrollButton, SIGNAL(released()), this, SLOT(scrollStop()));
 
     m_rightScrollButton = new ToolButton(this);
+    m_rightScrollButton->setAutoRaise(true);
     m_rightScrollButton->setObjectName("tabbar-button-right");
     connect(m_rightScrollButton, SIGNAL(pressed()), this, SLOT(scrollStart()));
     connect(m_rightScrollButton, SIGNAL(released()), this, SLOT(scrollStop()));

@@ -123,6 +123,18 @@
     width: 0px;
 }
 
+#tabbar-button-right
+{
+    qproperty-icon: url(images/tab-right-arrow.png);
+    qproperty-fixedsize: 15px 25px;
+}
+
+#tabbar-button-left
+{
+    qproperty-icon: url(images/tab-left-arrow.png);
+    qproperty-fixedsize: 15px 25px;
+}
+
 #tabwidget-button-opentabs::menu-indicator
 {
     background: url(images/transp.png);
