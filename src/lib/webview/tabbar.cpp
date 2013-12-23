@@ -637,6 +637,10 @@ bool TabBar::event(QEvent* event)
         hideTabPreview();
         break;
 
+    case QEvent::Wheel:
+        hideTabPreview(false);
+        break;
+
     case QEvent::ToolTip:
         if (m_showTabPreviews) {
             QHelpEvent* ev = static_cast<QHelpEvent*>(event);
