@@ -77,7 +77,7 @@ private slots:
     void closeCurrentTab();
     void closeTabFromButton();
 
-    void showTabPreview();
+    void showTabPreview(bool delayed = true);
     void hideTabPreview(bool delayed = true);
 
     void overFlowChange(bool overFlowed);
@@ -107,7 +107,8 @@ private:
     QupZilla* p_QupZilla;
     TabWidget* m_tabWidget;
     TabPreview* m_tabPreview;
-    QTimer* m_tabPreviewTimer;
+    QTimer* m_tabPreviewShowTimer;
+    QTimer* m_tabPreviewHideTimer;
 
     bool m_showTabPreviews;
     bool m_hideTabBarWithOneTab;

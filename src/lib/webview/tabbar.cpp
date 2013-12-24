@@ -64,10 +64,15 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
 
-    m_tabPreviewTimer = new QTimer(this);
-    m_tabPreviewTimer->setInterval(200);
-    m_tabPreviewTimer->setSingleShot(true);
-    connect(m_tabPreviewTimer, SIGNAL(timeout()), m_tabPreview, SLOT(hideAnimated()));
+    m_tabPreviewShowTimer = new QTimer(this);
+    m_tabPreviewShowTimer->setInterval(300);
+    m_tabPreviewShowTimer->setSingleShot(true);
+    connect(m_tabPreviewShowTimer, SIGNAL(timeout()), this, SLOT(showTabPreview()));
+
+    m_tabPreviewHideTimer = new QTimer(this);
+    m_tabPreviewHideTimer->setInterval(300);
+    m_tabPreviewHideTimer->setSingleShot(true);
+    connect(m_tabPreviewHideTimer, SIGNAL(timeout()), m_tabPreview, SLOT(hideAnimated()));
 
     // ComboTabBar features
     setUsesScrollButtons(true);
@@ -485,14 +490,24 @@ void TabBar::restoreTabTextColor(int index)
     setTabTextColor(index, m_originalTabTextColor);
 }
 
-void TabBar::showTabPreview()
+void TabBar::showTabPreview(bool delayed)
 {
+    if (delayed) {
+        int index = tabAt(mapFromGlobal(QCursor::pos()));
+        if (index == -1) {
+            return;
+        }
+
+        m_tabPreview->setPreviewIndex(index);
+        m_tabPreviewShowTimer->stop();
+    }
+
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabPreview->previewIndex()));
     if (!webTab) {
         return;
     }
 
-    m_tabPreviewTimer->stop();
+    m_tabPreviewHideTimer->stop();
     m_tabPreview->setWebTab(webTab, m_tabPreview->previewIndex() == currentIndex());
 
     QRect r(tabRect(m_tabPreview->previewIndex()));
@@ -505,7 +520,7 @@ void TabBar::showTabPreview()
 void TabBar::hideTabPreview(bool delayed)
 {
     if (delayed) {
-        m_tabPreviewTimer->start();
+        m_tabPreviewHideTimer->start();
     }
     else {
         m_tabPreview->hideAnimated();
@@ -592,9 +607,13 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
     // Tab Preview
     const int tab = tabAt(event->pos());
 
-    if (tab != -1 && tab != m_tabPreview->previewIndex() && event->buttons() == Qt::NoButton && m_dragStartPosition.isNull()) {
+    if (m_tabPreview->isVisible() && tab != -1 && tab != m_tabPreview->previewIndex() && event->buttons() == Qt::NoButton && m_dragStartPosition.isNull()) {
         m_tabPreview->setPreviewIndex(tab);
-        showTabPreview();
+        showTabPreview(false);
+    }
+
+    if (!m_tabPreview->isVisible()) {
+        m_tabPreviewShowTimer->start();
     }
 
     ComboTabBar::mouseMoveEvent(event);
@@ -639,19 +658,6 @@ bool TabBar::event(QEvent* event)
 
     case QEvent::Wheel:
         hideTabPreview(false);
-        break;
-
-    case QEvent::ToolTip:
-        if (m_showTabPreviews) {
-            QHelpEvent* ev = static_cast<QHelpEvent*>(event);
-            int index = tabAt(ev->pos());
-
-            if (index != -1 && !m_tabPreview->isVisible() && m_dragStartPosition.isNull()) {
-                m_tabPreview->setPreviewIndex(index);
-                showTabPreview();
-            }
-            return true;
-        }
         break;
 
     default:
