@@ -136,7 +136,7 @@ public slots:
     void setCurrentIndex(int index);
 
 private slots:
-    void setMinimumWidthes();
+    void setMinimumWidths();
     void slotCurrentChanged(int index);
     void slotTabCloseRequested(int index);
     void slotTabMoved(int from, int to);

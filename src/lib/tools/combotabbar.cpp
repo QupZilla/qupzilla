@@ -53,9 +53,9 @@ ComboTabBar::ComboTabBar(QWidget* parent)
     m_mainTabBar->setScrollArea(m_mainTabBarWidget->scrollArea());
     m_pinnedTabBar->setScrollArea(m_pinnedTabBarWidget->scrollArea());
 
-    connect(m_mainTabBarWidget->scrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(setMinimumWidthes()));
+    connect(m_mainTabBarWidget->scrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(setMinimumWidths()));
     connect(m_mainTabBarWidget->scrollBar(), SIGNAL(valueChanged(int)), this, SIGNAL(scrollBarValueChanged(int)));
-    connect(m_pinnedTabBarWidget->scrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(setMinimumWidthes()));
+    connect(m_pinnedTabBarWidget->scrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(setMinimumWidths()));
     connect(m_pinnedTabBarWidget->scrollBar(), SIGNAL(valueChanged(int)), this, SIGNAL(scrollBarValueChanged(int)));
     connect(this, SIGNAL(overFlowChanged(bool)), m_mainTabBarWidget, SLOT(overFlowChanged(bool)));
 
@@ -125,7 +125,7 @@ int ComboTabBar::insertTab(int index, const QIcon &icon, const QString &text, bo
 
     updatePinnedTabBarVisibility();
     tabInserted(index);
-    setMinimumWidthes();
+    setMinimumWidths();
 
     return index;
 }
@@ -137,7 +137,7 @@ void ComboTabBar::removeTab(int index)
         updatePinnedTabBarVisibility();
 
         tabRemoved(index);
-        setMinimumWidthes();
+        setMinimumWidths();
     }
 }
 
@@ -450,7 +450,7 @@ bool ComboTabBar::isPinned(int index) const
 void ComboTabBar::setMaxVisiblePinnedTab(int max)
 {
     m_maxVisiblePinnedTab = max;
-    setMinimumWidthes();
+    setMinimumWidths();
 }
 
 void ComboTabBar::setObjectName(const QString &name)
@@ -485,16 +485,16 @@ void ComboTabBar::setUpLayout()
         height -= 4;
     }
 
-    if (height <= 0) {
-        return;
-    }
+    // We need to setup heights even before m_mainTabBar->height() has correct value
+    // So lets just set minimum 5px height
+    height = qMax(5, height);
 
     setFixedHeight(height);
     m_pinnedTabBar->setFixedHeight(height);
     m_mainTabBarWidget->setUpLayout();
     m_pinnedTabBarWidget->setUpLayout();
 
-    setMinimumWidthes();
+    setMinimumWidths();
 }
 
 void ComboTabBar::insertCloseButton(int index)
@@ -563,7 +563,7 @@ void ComboTabBar::resizeEvent(QResizeEvent* event)
     QWidget::resizeEvent(event);
 
     if (m_mainBarOverFlowed != m_mainTabBarWidget->scrollBar()->isOverFlowed()) {
-        setMinimumWidthes();
+        setMinimumWidths();
     }
 }
 
@@ -724,7 +724,7 @@ void ComboTabBar::updatePinnedTabBarVisibility()
     }
 }
 
-void ComboTabBar::setMinimumWidthes()
+void ComboTabBar::setMinimumWidths()
 {
     if (!isVisible() || comboTabBarPixelMetric(PinnedTabWidth) < 0) {
         return;
