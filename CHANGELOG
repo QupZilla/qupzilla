@@ -10,6 +10,7 @@ Version 1.5.0
     * added Gnome-Keyring password backend plugin
     * added StatusBar Icons plugin that adds extra icons to statusbar
     * added support for POST method in search engines manager
+    * added context menu for translating webpage
     * great performance improvement for matching basic rules in AdBlock
     * themes can now be loaded from profile directories
     * pagescreen can now save output into number of formats, including PDF
