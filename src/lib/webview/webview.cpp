@@ -943,11 +943,17 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
     menu->addSeparator();
+
     if (url().scheme() == QLatin1String("http") || url().scheme() == QLatin1String("https")) {
-        const QByteArray &w3url = "http://validator.w3.org/check?uri=" + QUrl::toPercentEncoding(url().toEncoded());
-        menu->addAction(tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(QUrl::fromEncoded(w3url));
+        const QUrl &w3url = QUrl::fromEncoded("http://validator.w3.org/check?uri=" + QUrl::toPercentEncoding(url().toEncoded()));
+        menu->addAction(QIcon(":icons/sites/w3.png"), tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(w3url);
+
+        QByteArray langCode = mApp->currentLanguageFile().left(2).toUtf8();
+        const QUrl &gturl = QUrl::fromEncoded("http://translate.google.com/translate?sl=auto&tl=" + langCode + "&u=" + QUrl::toPercentEncoding(url().toEncoded()));
+        menu->addAction(QIcon(":icons/sites/translate.png"), tr("Translate page"), this, SLOT(openUrlInSelectedTab()))->setData(gturl);
     }
 
+    menu->addSeparator();
     menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
     menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()));
 }

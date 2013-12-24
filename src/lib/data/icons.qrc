@@ -74,5 +74,6 @@
         <file>icons/other/notification.png</file>
         <file>icons/browsers/internet-explorer.png</file>
         <file>icons/sites/startpage.png</file>
+        <file>icons/sites/w3.png</file>
     </qresource>
 </RCC>
