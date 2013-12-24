@@ -182,13 +182,13 @@ QRect ComboTabBar::tabRect(int index) const
             rect.moveLeft(rect.x() + mapFromGlobal(m_mainTabBar->mapToGlobal(QPoint(0, 0))).x());
             QRect widgetRect = m_mainTabBarWidget->scrollArea()->viewport()->rect();
             widgetRect.moveLeft(widgetRect.x() + mapFromGlobal(m_mainTabBarWidget->scrollArea()->viewport()->mapToGlobal(QPoint(0, 0))).x());
-            rect = rect.intersect(widgetRect);
+            rect = rect.intersected(widgetRect);
         }
         else {
             rect.moveLeft(rect.x() + mapFromGlobal(m_pinnedTabBar->mapToGlobal(QPoint(0, 0))).x());
             QRect widgetRect = m_pinnedTabBarWidget->scrollArea()->viewport()->rect();
             widgetRect.moveLeft(widgetRect.x() + mapFromGlobal(m_pinnedTabBarWidget->scrollArea()->viewport()->mapToGlobal(QPoint(0, 0))).x());
-            rect = rect.intersect(widgetRect);
+            rect = rect.intersected(widgetRect);
         }
     }
 

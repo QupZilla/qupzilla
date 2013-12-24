@@ -24,10 +24,10 @@
 #include <QScrollBar>
 #include <QAbstractButton>
 #include <QEasingCurve>
+#include <QStyleOption>
 
 class QScrollArea;
 class QPropertyAnimation;
-class QStyleOptionTabBarBaseV2;
 class QHBoxLayout;
 
 class TabBarScrollWidget;
