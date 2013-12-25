@@ -21,6 +21,7 @@
 #include <QList>
 #include <QString>
 #include <QRegion>
+#include <QFileDialog>
 
 #include "qz_namespace.h"
 
@@ -51,6 +52,9 @@ QString QT_QUPZILLA_EXPORT ensureUniqueFilename(const QString &name, const QStri
 QString QT_QUPZILLA_EXPORT getFileNameFromUrl(const QUrl &url);
 QString QT_QUPZILLA_EXPORT filterCharsFromFilename(const QString &name);
 
+QString QT_QUPZILLA_EXPORT lastPathForFileDialog(const QString &dialogName, const QString &fallbackPath);
+void QT_QUPZILLA_EXPORT saveLastPathForFileDialog(const QString &dialogName, const QString &path);
+
 QString QT_QUPZILLA_EXPORT alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width);
 QString QT_QUPZILLA_EXPORT fileSizeToString(qint64 size);
 
@@ -64,6 +68,12 @@ bool QT_QUPZILLA_EXPORT startExternalProcess(const QString &executable, const QS
 QRegion QT_QUPZILLA_EXPORT roundedRect(const QRect &rect, int radius);
 QIcon QT_QUPZILLA_EXPORT iconFromFileName(const QString &fileName);
 bool QT_QUPZILLA_EXPORT isUtf8(const char* string);
+
+// QFileDialog static functions that remembers last used directory
+QString QT_QUPZILLA_EXPORT getExistingDirectory(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), QFileDialog::Options options = QFileDialog::ShowDirsOnly);
+QString QT_QUPZILLA_EXPORT getOpenFileName(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), const QString &filter = QString(), QString* selectedFilter = 0, QFileDialog::Options options = 0);
+QStringList QT_QUPZILLA_EXPORT getOpenFileNames(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), const QString &filter = QString(), QString* selectedFilter = 0, QFileDialog::Options options = 0);
+QString QT_QUPZILLA_EXPORT getSaveFileName(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), const QString &filter = QString(), QString* selectedFilter = 0, QFileDialog::Options options = 0);
 
 bool QT_QUPZILLA_EXPORT matchDomain(const QString &pattern, const QString &domain);
 

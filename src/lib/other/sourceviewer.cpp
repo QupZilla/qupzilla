@@ -165,7 +165,7 @@ void SourceViewer::loadSource()
 
 void SourceViewer::save()
 {
-    QString filePath = QFileDialog::getSaveFileName(this, tr("Save file..."), QDir::homePath() + "/source_code.html");
+    QString filePath = QzTools::getSaveFileName("SourceViewer-Save", this, tr("Save file..."), QDir::homePath() + "/source_code.html");
     if (filePath.isEmpty()) {
         return;
     }

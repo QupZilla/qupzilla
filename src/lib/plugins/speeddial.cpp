@@ -19,6 +19,7 @@
 #include "mainapplication.h"
 #include "pagethumbnailer.h"
 #include "settings.h"
+#include "qztools.h"
 
 #include <QDir>
 #include <QCryptographicHash>
@@ -285,7 +286,7 @@ void SpeedDial::removeImageForUrl(const QString &url)
 QString SpeedDial::getOpenFileName()
 {
     const QString &fileTypes = QString("%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff)").arg(tr("Image files"));
-    const QString &image = QFileDialog::getOpenFileName(0, tr("Select image..."), QDir::homePath(), fileTypes);
+    const QString &image = QzTools::getOpenFileName("SpeedDial-GetOpenFileName", 0, tr("Select image..."), QDir::homePath(), fileTypes);
 
     if (image.isEmpty()) {
         return image;

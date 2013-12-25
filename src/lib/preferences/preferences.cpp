@@ -567,7 +567,7 @@ void Preferences::useActualNewTab()
 
 void Preferences::chooseDownPath()
 {
-    QString userFileName = QFileDialog::getExistingDirectory(this, tr("Choose download location..."), QDir::homePath());
+    QString userFileName = QzTools::getExistingDirectory("Preferences-ChooseDownPath", this, tr("Choose download location..."), QDir::homePath());
     if (userFileName.isEmpty()) {
         return;
     }
@@ -598,7 +598,7 @@ void Preferences::deleteHtml5storage()
 
 void Preferences::chooseExternalDownloadManager()
 {
-    QString path = QFileDialog::getOpenFileName(this, tr("Choose executable location..."), QDir::homePath());
+    QString path = QzTools::getOpenFileName("Preferences-ExternalDownloadManager", this, tr("Choose executable location..."), QDir::homePath());
     if (path.isEmpty()) {
         return;
     }
@@ -722,7 +722,7 @@ void Preferences::showTabPreviewsChanged(bool state)
 
 void Preferences::changeCachePathClicked()
 {
-    QString path = QFileDialog::getExistingDirectory(this, tr("Choose cache path..."), ui->cachePath->text());
+    QString path = QzTools::getExistingDirectory("Preferences-CachePath", this, tr("Choose cache path..."), ui->cachePath->text());
     if (path.isEmpty()) {
         return;
     }

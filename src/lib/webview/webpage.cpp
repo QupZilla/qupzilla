@@ -697,7 +697,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             suggestedFileName = exOption->suggestedFileNames.at(0);
         }
 
-        exReturn->fileNames = QFileDialog::getOpenFileNames(0, tr("Select files to upload..."), suggestedFileName);
+        exReturn->fileNames = QzTools::getOpenFileNames("WebPage-UploadFiles", 0, tr("Select files to upload..."), suggestedFileName);
         return true;
     }
 
@@ -998,7 +998,7 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
         suggFileName = oldFile;
     }
 
-    const QString &fileName = QFileDialog::getOpenFileName(originatingFrame->page()->view(), tr("Choose file..."), suggFileName);
+    const QString &fileName = QzTools::getOpenFileName("WebPage-ChooseFile", originatingFrame->page()->view(), tr("Choose file..."), suggFileName);
 
     if (!fileName.isEmpty()) {
         s_lastUploadLocation = fileName;

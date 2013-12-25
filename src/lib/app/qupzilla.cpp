@@ -1821,7 +1821,7 @@ void QupZilla::openFile()
                                        "%3(*.txt);;"
                                        "%4(*.*)").arg(tr("HTML files"), tr("Image files"), tr("Text files"), tr("All files"));
 
-    const QString &filePath = QFileDialog::getOpenFileName(this, tr("Open file..."), QDir::homePath(), fileTypes);
+    const QString &filePath = QzTools::getOpenFileName("MainWindow-openFile", this, tr("Open file..."), QDir::homePath(), fileTypes);
 
     if (!filePath.isEmpty()) {
         loadAddress(QUrl::fromLocalFile(filePath));

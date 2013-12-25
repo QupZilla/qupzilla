@@ -19,6 +19,7 @@
 #include "ui_spellcheckdialog.h"
 #include "settings.h"
 #include "speller.h"
+#include "qztools.h"
 #include "mainapplication.h"
 
 #include <QFile>
@@ -67,8 +68,7 @@ SpellCheckDialog::SpellCheckDialog(QWidget* parent)
 
 void SpellCheckDialog::changeDictionaryPath()
 {
-    const QString &path = QFileDialog::getExistingDirectory(this, tr("Choose dictionary path..."),
-                          ui->dictPath->text());
+    const QString &path = QzTools::getExistingDirectory("SpellCheckDialog-Directory", this, tr("Choose dictionary path..."), ui->dictPath->text());
 
     if (!path.isEmpty()) {
         ui->dictPath->setText(path);

@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "iconchooser.h"
 #include "ui_iconchooser.h"
+#include "qztools.h"
 
 #include <QFileDialog>
 #include <QSqlQuery>
@@ -36,7 +37,7 @@ IconChooser::IconChooser(QWidget* parent)
 void IconChooser::chooseFile()
 {
     const QString &fileTypes = QString("%3(*.png *.jpg *.jpeg *.gif)").arg(tr("Image files"));
-    const QString &path = QFileDialog::getOpenFileName(this, tr("Choose icon..."), QDir::homePath(), fileTypes);
+    const QString &path = QzTools::getOpenFileName("IconChooser-ChangeIcon", this, tr("Choose icon..."), QDir::homePath(), fileTypes);
 
     if (path.isEmpty()) {
         return;

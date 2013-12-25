@@ -58,7 +58,7 @@ SSLManager::SSLManager(QWidget* parent)
 
 void SSLManager::addPath()
 {
-    QString path = QFileDialog::getExistingDirectory(this, tr("Choose path..."));
+    QString path = QzTools::getExistingDirectory("SSLManager-AddPath", this, tr("Choose path..."));
     if (path.isEmpty()) {
         return;
     }
@@ -129,7 +129,7 @@ void SSLManager::showCaCertInfo()
 
 void SSLManager::addLocalCertificate()
 {
-    const QString &path = QFileDialog::getOpenFileName(this, tr("Import certificate..."), QDir::homePath(), "*.crt");
+    const QString &path = QzTools::getOpenFileName("SSLManager-AddLocalCert", this, tr("Import certificate..."), QDir::homePath(), "*.crt");
 
     if (path.isEmpty()) {
         return;

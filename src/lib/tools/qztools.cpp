@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "qztools.h"
 #include "mainapplication.h"
+#include "settings.h"
 
 #include <QTextDocument>
 #include <QDateTime>
@@ -250,6 +251,28 @@ QString QzTools::filterCharsFromFilename(const QString &name)
     value.remove(QLatin1Char('|'));
 
     return value;
+}
+
+QString QzTools::lastPathForFileDialog(const QString &dialogName, const QString &fallbackPath)
+{
+    Settings settings;
+    settings.beginGroup("LastFileDialogsPaths");
+    QString path = settings.value("FileDialogs/" + dialogName).toString();
+    settings.endGroup();
+
+    return path.isEmpty() ? fallbackPath : path;
+}
+
+void QzTools::saveLastPathForFileDialog(const QString &dialogName, const QString &path)
+{
+    if (path.isEmpty()) {
+        return;
+    }
+
+    Settings settings;
+    settings.beginGroup("LastFileDialogsPaths");
+    settings.setValue(dialogName, path);
+    settings.endGroup();
 }
 
 QString QzTools::alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width)
@@ -501,6 +524,66 @@ bool QzTools::isUtf8(const char* string)
     }
 
     return true;
+}
+
+QString QzTools::getExistingDirectory(const QString &name, QWidget* parent, const QString &caption, const QString &dir, QFileDialog::Options options)
+{
+    Settings settings;
+    settings.beginGroup("FileDialogPaths");
+    QString lastDir = settings.value(name, dir).toString();
+
+    QString path = QFileDialog::getExistingDirectory(parent, caption, lastDir, options);
+
+    if (!path.isEmpty()) {
+        settings.setValue(name, QFileInfo(path).absolutePath());
+    }
+
+    return path;
+}
+
+QString QzTools::getOpenFileName(const QString &name, QWidget* parent, const QString &caption, const QString &dir, const QString &filter, QString* selectedFilter, QFileDialog::Options options)
+{
+    Settings settings;
+    settings.beginGroup("FileDialogPaths");
+    QString lastDir = settings.value(name, dir).toString();
+
+    QString path = QFileDialog::getOpenFileName(parent, caption, lastDir, filter, selectedFilter, options);
+
+    if (!path.isEmpty()) {
+        settings.setValue(name, QFileInfo(path).absolutePath());
+    }
+
+    return path;
+}
+
+QStringList QzTools::getOpenFileNames(const QString &name, QWidget* parent, const QString &caption, const QString &dir, const QString &filter, QString* selectedFilter, QFileDialog::Options options)
+{
+    Settings settings;
+    settings.beginGroup("FileDialogPaths");
+    QString lastDir = settings.value(name, dir).toString();
+
+    QStringList paths = QFileDialog::getOpenFileNames(parent, caption, lastDir, filter, selectedFilter, options);
+
+    if (!paths.isEmpty()) {
+        settings.setValue(name, QFileInfo(paths.first()).absolutePath());
+    }
+
+    return paths;
+}
+
+QString QzTools::getSaveFileName(const QString &name, QWidget* parent, const QString &caption, const QString &dir, const QString &filter, QString* selectedFilter, QFileDialog::Options options)
+{
+    Settings settings;
+    settings.beginGroup("FileDialogPaths");
+    QString lastDir = settings.value(name, dir).toString();
+
+    QString path = QFileDialog::getSaveFileName(parent, caption, lastDir, filter, selectedFilter, options);
+
+    if (!path.isEmpty()) {
+        settings.setValue(name, QFileInfo(path).absolutePath());
+    }
+
+    return path;
 }
 
 // Matches domain (assumes both pattern and domain not starting with dot)
@@ -776,4 +859,3 @@ QString QzTools::operatingSystem()
     return str;
 #endif
 }
-

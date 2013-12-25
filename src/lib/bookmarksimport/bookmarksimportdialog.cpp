@@ -26,6 +26,7 @@
 #include "bookmarksimporticonfetcher.h"
 #include "iconprovider.h"
 #include "networkmanager.h"
+#include "qztools.h"
 
 #include <QWebSettings>
 #include <QMessageBox>
@@ -263,7 +264,7 @@ void BookmarksImportDialog::setFile()
 {
 #ifdef Q_OS_WIN
     if (m_browser == IE) {
-        QString path = QFileDialog::getExistingDirectory(this, tr("Choose directory..."));
+        QString path = QzTools::getExistingDirectory("BookmarksImport-Directory", this, tr("Choose directory..."));
         if (!path.isEmpty()) {
             ui->fileLine->setText(path);
         }
@@ -271,7 +272,7 @@ void BookmarksImportDialog::setFile()
     else
 #endif
     {
-        QString path = QFileDialog::getOpenFileName(this, tr("Choose file..."), QDir::homePath(), m_browserBookmarkFile);
+        QString path = QzTools::getOpenFileName("BookmarksImport-File", this, tr("Choose file..."), QDir::homePath(), m_browserBookmarkFile);
         if (!path.isEmpty()) {
             ui->fileLine->setText(path);
         }
