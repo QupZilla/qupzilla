@@ -774,7 +774,7 @@ void Preferences::createProfile()
         return;
     }
     QDir dir(mApp->PROFILEDIR + "profiles/");
-    if (QDir(dir.absolutePath() + "/" + name).exists()) {
+    if (QDir(dir.absolutePath() + QDir::separator() + name).exists()) {
         QMessageBox::warning(this, tr("Error!"), tr("This profile already exists!"));
         return;
     }
