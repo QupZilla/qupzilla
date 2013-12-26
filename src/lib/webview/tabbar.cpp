@@ -255,13 +255,13 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
             m_normalTabWidth = MAXIMUM_TAB_WIDTH;
             size.setWidth(m_normalTabWidth);
         }
-        else {
+        else if (normalTabsCount > 0) {
             int maxWidthForTab = availableWidth / normalTabsCount;
             int realTabWidth = maxWidthForTab;
             bool adjustingActiveTab = false;
 
             if (realTabWidth < MINIMUM_ACTIVE_TAB_WIDTH) {
-                maxWidthForTab = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH) / (normalTabsCount - 1);
+                maxWidthForTab = normalTabsCount > 1 ? (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH) / (normalTabsCount - 1) : 0;
                 realTabWidth = MINIMUM_ACTIVE_TAB_WIDTH;
                 adjustingActiveTab = true;
             }

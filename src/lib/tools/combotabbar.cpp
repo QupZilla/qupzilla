@@ -479,8 +479,8 @@ void ComboTabBar::setUpLayout()
 {
     int height = qMax(m_mainTabBar->height(), m_pinnedTabBar->height());
 
-    // Workaround for Oxygen theme. For some reason, m_mainTabBar->height() returns bigger
-    // height than it actually is.
+    // Workaround for Oxygen theme. For some reason, QTabBar::height() returns bigger
+    // height than it actually should.
     if (mApp->proxyStyle() && mApp->proxyStyle()->name() == QLatin1String("oxygen")) {
         height -= 4;
     }
