@@ -95,7 +95,7 @@ void PageScreen::changeLocation()
 {
     const QString &suggestedPath = QString("%1/%2.%3").arg(QDir::homePath(), QzTools::filterCharsFromFilename(m_pageTitle),
                                    m_formats[ui->formats->currentIndex()].toLower());
-    const QString &path = QFileDialog::getOpenFileName(this, tr("Choose location..."), suggestedPath);
+    const QString &path = QzTools::getOpenFileName("PageScreen-ChangeLocation", this, tr("Choose location..."), suggestedPath);
 
     if (!path.isEmpty()) {
         ui->location->setText(path);

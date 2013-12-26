@@ -236,7 +236,7 @@ void SiteInfo::downloadImage()
 
     QString imageFileName = QzTools::getFileNameFromUrl(QUrl(item->text(1)));
 
-    QString filePath = QFileDialog::getSaveFileName(this, tr("Save image..."), QDir::homePath() + "/" + imageFileName);
+    QString filePath = QzTools::getSaveFileName("SiteInfo-DownloadImage", this, tr("Save image..."), QDir::homePath() + QDir::separator() + imageFileName);
     if (filePath.isEmpty()) {
         return;
     }

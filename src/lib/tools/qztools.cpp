@@ -530,6 +530,7 @@ QString QzTools::getExistingDirectory(const QString &name, QWidget* parent, cons
 {
     Settings settings;
     settings.beginGroup("FileDialogPaths");
+
     QString lastDir = settings.value(name, dir).toString();
 
     QString path = QFileDialog::getExistingDirectory(parent, caption, lastDir, options);
@@ -538,6 +539,7 @@ QString QzTools::getExistingDirectory(const QString &name, QWidget* parent, cons
         settings.setValue(name, QFileInfo(path).absolutePath());
     }
 
+    settings.endGroup();
     return path;
 }
 
@@ -545,7 +547,16 @@ QString QzTools::getOpenFileName(const QString &name, QWidget* parent, const QSt
 {
     Settings settings;
     settings.beginGroup("FileDialogPaths");
-    QString lastDir = settings.value(name, dir).toString();
+
+    QString lastDir = settings.value(name, QString()).toString();
+    QString fileName = QFileInfo(dir).isFile() ? QFileInfo(dir).fileName() : QString();
+
+    if (lastDir.isEmpty()) {
+        lastDir = dir;
+    }
+    else {
+        lastDir.append(QDir::separator() + fileName);
+    }
 
     QString path = QFileDialog::getOpenFileName(parent, caption, lastDir, filter, selectedFilter, options);
 
@@ -553,6 +564,7 @@ QString QzTools::getOpenFileName(const QString &name, QWidget* parent, const QSt
         settings.setValue(name, QFileInfo(path).absolutePath());
     }
 
+    settings.endGroup();
     return path;
 }
 
@@ -560,7 +572,16 @@ QStringList QzTools::getOpenFileNames(const QString &name, QWidget* parent, cons
 {
     Settings settings;
     settings.beginGroup("FileDialogPaths");
-    QString lastDir = settings.value(name, dir).toString();
+
+    QString lastDir = settings.value(name, QString()).toString();
+    QString fileName = QFileInfo(dir).isFile() ? QFileInfo(dir).fileName() : QString();
+
+    if (lastDir.isEmpty()) {
+        lastDir = dir;
+    }
+    else {
+        lastDir.append(QDir::separator() + fileName);
+    }
 
     QStringList paths = QFileDialog::getOpenFileNames(parent, caption, lastDir, filter, selectedFilter, options);
 
@@ -568,6 +589,7 @@ QStringList QzTools::getOpenFileNames(const QString &name, QWidget* parent, cons
         settings.setValue(name, QFileInfo(paths.first()).absolutePath());
     }
 
+    settings.endGroup();
     return paths;
 }
 
@@ -575,7 +597,16 @@ QString QzTools::getSaveFileName(const QString &name, QWidget* parent, const QSt
 {
     Settings settings;
     settings.beginGroup("FileDialogPaths");
-    QString lastDir = settings.value(name, dir).toString();
+
+    QString lastDir = settings.value(name, QString()).toString();
+    QString fileName = QFileInfo(dir).isFile() ? QFileInfo(dir).fileName() : QString();
+
+    if (lastDir.isEmpty()) {
+        lastDir = dir;
+    }
+    else {
+        lastDir.append(QDir::separator() + fileName);
+    }
 
     QString path = QFileDialog::getSaveFileName(parent, caption, lastDir, filter, selectedFilter, options);
 
@@ -583,6 +614,7 @@ QString QzTools::getSaveFileName(const QString &name, QWidget* parent, const QSt
         settings.setValue(name, QFileInfo(path).absolutePath());
     }
 
+    settings.endGroup();
     return path;
 }
 

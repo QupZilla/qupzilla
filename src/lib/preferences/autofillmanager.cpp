@@ -22,6 +22,7 @@
 #include "passwordbackends/passwordbackend.h"
 #include "mainapplication.h"
 #include "settings.h"
+#include "qztools.h"
 
 #include <QUrl>
 #include <QMenu>
@@ -274,7 +275,7 @@ void AutoFillManager::showExceptions()
 
 void AutoFillManager::importPasswords()
 {
-    m_fileName = QFileDialog::getOpenFileName(this, tr("Choose file..."), QDir::homePath() + "/passwords.xml", "*.xml");
+    m_fileName = QzTools::getOpenFileName("AutoFill-ImportPasswords", this, tr("Choose file..."), QDir::homePath() + "/passwords.xml", "*.xml");
 
     if (m_fileName.isEmpty()) {
         return;
@@ -285,7 +286,7 @@ void AutoFillManager::importPasswords()
 
 void AutoFillManager::exportPasswords()
 {
-    m_fileName = QFileDialog::getSaveFileName(this, tr("Choose file..."), QDir::homePath() + "/passwords.xml", "*.xml");
+    m_fileName = QzTools::getSaveFileName("AutoFill-ExportPasswords", this, tr("Choose file..."), QDir::homePath() + "/passwords.xml", "*.xml");
 
     if (m_fileName.isEmpty()) {
         return;

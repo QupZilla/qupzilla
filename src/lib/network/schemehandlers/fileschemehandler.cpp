@@ -92,9 +92,9 @@ void FileSchemeHandler::handleUrl(const QUrl &url)
     }
     else if (status == 2) {
         // Save
-        const QString &savePath = QFileDialog::getSaveFileName(mApp->getWindow(),
+        const QString &savePath = QzTools::getSaveFileName("FileSchemeHandler-Save", mApp->getWindow(),
                                   QObject::tr("Save file as..."),
-                                  QDir::homePath() + "/" + QzTools::getFileNameFromUrl(url));
+                                  QDir::homePath() + QDir::separator() + QzTools::getFileNameFromUrl(url));
 
         if (!savePath.isEmpty()) {
             file.copy(savePath);

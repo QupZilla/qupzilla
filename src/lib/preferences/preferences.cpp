@@ -581,7 +581,7 @@ void Preferences::chooseDownPath()
 
 void Preferences::chooseUserStyleClicked()
 {
-    QString file = QFileDialog::getOpenFileName(this, tr("Choose stylesheet location..."), QDir::homePath(), "*.css");
+    QString file = QzTools::getOpenFileName("Preferences-UserStyle", this, tr("Choose stylesheet location..."), QDir::homePath(), "*.css");
     if (file.isEmpty()) {
         return;
     }
