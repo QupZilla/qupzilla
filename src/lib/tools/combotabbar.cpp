@@ -477,7 +477,7 @@ void ComboTabBar::setMouseTracking(bool enable)
 
 void ComboTabBar::setUpLayout()
 {
-    int height = m_mainTabBar->height();
+    int height = qMax(m_mainTabBar->height(), m_pinnedTabBar->height());
 
     // Workaround for Oxygen theme. For some reason, m_mainTabBar->height() returns bigger
     // height than it actually is.
