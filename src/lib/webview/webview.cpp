@@ -948,7 +948,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
         const QUrl &w3url = QUrl::fromEncoded("http://validator.w3.org/check?uri=" + QUrl::toPercentEncoding(url().toEncoded()));
         menu->addAction(QIcon(":icons/sites/w3.png"), tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(w3url);
 
-        QByteArray langCode = mApp->currentLanguageFile().left(2).toUtf8();
+        QByteArray langCode = mApp->currentLanguage().left(2).toUtf8();
         const QUrl &gturl = QUrl::fromEncoded("http://translate.google.com/translate?sl=auto&tl=" + langCode + "&u=" + QUrl::toPercentEncoding(url().toEncoded()));
         menu->addAction(QIcon(":icons/sites/translate.png"), tr("Translate page"), this, SLOT(openUrlInSelectedTab()))->setData(gturl);
     }
@@ -1019,13 +1019,14 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText);
     menu->addSeparator();
 
-    QString langCode = mApp->currentLanguageFile().left(2);
-    QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
+    QString langCode = mApp->currentLanguage().left(2).toUtf8();
+    QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto/%1/%2").arg(langCode, selectedText));
     Action* gtwact = new Action(QIcon(":icons/sites/translate.png"), tr("Google Translate"));
     gtwact->setData(googleTranslateUrl);
     connect(gtwact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
     connect(gtwact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
     menu->addAction(gtwact);
+
     Action* dictact = new Action(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"));
     dictact->setData(QUrl("http://" + (!langCode.isEmpty() ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText));
     connect(dictact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
