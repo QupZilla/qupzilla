@@ -121,7 +121,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 #if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR;
 #else
-    DATADIR = qApp->applicationDirPath() + QDir::separator();
+    DATADIR = qApp->applicationDirPath() + "/";
 #endif
 
 #ifdef Q_OS_MAC
@@ -250,11 +250,11 @@ MainApplication::MainApplication(int &argc, char** argv)
             m_activeProfil = PROFILEDIR + "profiles/default/";
         }
         else {
-            m_activeProfil = PROFILEDIR + "profiles/" + settings.value("Profiles/startProfile", "default").toString() + QDir::separator();
+            m_activeProfil = PROFILEDIR + "profiles/" + settings.value("Profiles/startProfile", "default").toString() + "/";
         }
     }
     else {
-        m_activeProfil = PROFILEDIR + "profiles/" + startProfile + QDir::separator();
+        m_activeProfil = PROFILEDIR + "profiles/" + startProfile + "/";
     }
 
     ProfileUpdater u(m_activeProfil);
@@ -685,7 +685,7 @@ void MainApplication::loadTheme(const QString &name)
                << THEMESDIR;
 
     foreach (const QString &path, themePaths) {
-        const QString &theme = path + name + QDir::separator();
+        const QString &theme = path + name + "/";
         if (QFile::exists(theme + "main.css")) {
             m_activeThemePath = theme;
             break;
@@ -694,7 +694,7 @@ void MainApplication::loadTheme(const QString &name)
 
     if (m_activeThemePath.isEmpty()) {
         qWarning("Cannot load theme '%s'!", qPrintable(name));
-        m_activeThemePath = THEMESDIR + DEFAULT_THEME_NAME + QDir::separator();
+        m_activeThemePath = THEMESDIR + DEFAULT_THEME_NAME + "/";
     }
 
     QFile cssFile(m_activeThemePath + "main.css");
