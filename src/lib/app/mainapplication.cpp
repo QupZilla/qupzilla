@@ -702,6 +702,10 @@ void MainApplication::loadTheme(const QString &name)
     QString css = cssFile.readAll();
     cssFile.close();
 
+    /*
+     * #id[style=QtStyle] (QtStyle = QMacStyle, QWindowsVistaStyle, QGtkStyle, ...)
+     * should be enough instead of loading special stylesheets
+     */
 #ifdef QZ_WS_X11
     if (QFile(m_activeThemePath + "linux.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "linux.css");
