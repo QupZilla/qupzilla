@@ -494,7 +494,7 @@ void TabBar::showTabPreview(bool delayed)
 {
     if (delayed) {
         int index = tabAt(mapFromGlobal(QCursor::pos()));
-        if (index == -1) {
+        if (index == -1 || QApplication::mouseButtons()) {
             return;
         }
 
