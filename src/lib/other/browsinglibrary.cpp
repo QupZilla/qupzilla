@@ -132,8 +132,11 @@ void BrowsingLibrary::showRSS(QupZilla* mainClass)
     ui->tabs->SetCurrentIndex(2);
     show();
     m_rssManager->setMainWindow(mainClass);
-    m_rssManager->refreshTable();
-    m_rssLoaded = true;
+
+    if (!m_rssLoaded) {
+        m_rssManager->refreshTable();
+        m_rssLoaded = true;
+    }
 
     raise();
     activateWindow();
@@ -159,8 +162,9 @@ void BrowsingLibrary::closeEvent(QCloseEvent* e)
     settings.endGroup();
     e->accept();
 
-    // saves a few megabytes
+    // Saves a few megabytes
     m_rssManager->deleteAllTabs();
+    m_rssLoaded = false;
 }
 
 void BrowsingLibrary::keyPressEvent(QKeyEvent* e)
