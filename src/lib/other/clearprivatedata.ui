@@ -6,14 +6,87 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>272</width>
-    <height>264</height>
+    <width>246</width>
+    <height>289</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Clear Recent History</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="3" column="1" colspan="2">
+    <widget class="QComboBox" name="historyLength">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>Earlier Today</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Week</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Month</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>All</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="12" column="1" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" colspan="2">
+    <widget class="QCheckBox" name="localStorage">
+     <property name="text">
+      <string>Clear local storage</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0" colspan="2">
+    <widget class="QCheckBox" name="cookies">
+     <property name="text">
+      <string>Clear cookies</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>25</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
    <item row="1" column="0" colspan="3">
     <widget class="QLabel" name="label_2">
      <property name="text">
@@ -81,81 +154,38 @@
      </property>
     </widget>
    </item>
-   <item row="11" column="1" colspan="2">
-    <widget class="QDialogButtonBox" name="buttonBox">
+   <item row="10" column="0" colspan="3">
+    <widget class="Line" name="line">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
     </widget>
    </item>
-   <item row="6" column="0" colspan="2">
-    <widget class="QCheckBox" name="localStorage">
-     <property name="text">
-      <string>Clear local storage</string>
+   <item row="11" column="0" colspan="3">
+    <widget class="ClickableLabel" name="optimizeDb">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
-     <property name="checked">
+     <property name="text">
+      <string>Optimize database</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+     <property name="html-link-look" stdset="0">
       <bool>true</bool>
      </property>
     </widget>
    </item>
-   <item row="8" column="0" colspan="2">
-    <widget class="QCheckBox" name="cookies">
-     <property name="text">
-      <string>Clear cookies</string>
-     </property>
-     <property name="checked">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Fixed</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="3" column="1" colspan="2">
-    <widget class="QComboBox" name="historyLength">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <item>
-      <property name="text">
-       <string>Earlier Today</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Week</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Month</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>All</string>
-      </property>
-     </item>
-    </widget>
-   </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ClickableLabel</class>
+   <extends>QLabel</extends>
+   <header>clickablelabel.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../data/icons.qrc"/>
  </resources>

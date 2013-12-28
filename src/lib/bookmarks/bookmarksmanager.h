@@ -52,7 +52,6 @@ public slots:
     void insertAllTabs();
 
 private slots:
-    void optimizeDb();
     void deleteItem();
     void itemChanged(QTreeWidgetItem* item);
     void addSubfolder();

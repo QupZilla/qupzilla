@@ -51,7 +51,6 @@ public slots:
 
 private slots:
     void openLink(const QUrl &url, HistoryView::OpenBehavior openIn);
-    void optimizeDb();
     void clearHistory();
 
 private:

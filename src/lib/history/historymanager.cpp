@@ -40,7 +40,6 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
 
     connect(ui->deleteB, SIGNAL(clicked()), ui->historyTree, SLOT(removeItems()));
     connect(ui->clearAll, SIGNAL(clicked()), this, SLOT(clearHistory()));
-    connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
 
     ui->historyTree->setFocus();
 }
@@ -95,15 +94,6 @@ void HistoryManager::openLink(const QUrl &url, HistoryView::OpenBehavior openIn)
     else {
         getQupZilla()->weView()->load(url);
     }
-}
-
-void HistoryManager::optimizeDb()
-{
-    BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget()->parentWidget());
-    if (!b) {
-        return;
-    }
-    b->optimizeDatabase();
 }
 
 HistoryManager::~HistoryManager()

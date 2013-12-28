@@ -14,19 +14,6 @@
    <string>Bookmarks</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="8">
-    <widget class="ClickableLabel" name="optimizeDb">
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Optimize Database</string>
-     </property>
-     <property name="html-link-look" stdset="0">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="7">
     <widget class="ClickableLabel" name="importBookmarks">
      <property name="cursor">

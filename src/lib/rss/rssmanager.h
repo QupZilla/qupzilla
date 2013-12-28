@@ -54,7 +54,6 @@ public slots:
     void refreshTable();
 
 private slots:
-    void optimizeDb();
     void beginToLoadSlot(const QUrl &url);
     void finished();
     void loadFeed(QTreeWidgetItem* item);

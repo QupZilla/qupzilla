@@ -41,19 +41,6 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="3">
-    <widget class="ClickableLabel" name="optimizeDb">
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Optimize Database</string>
-     </property>
-     <property name="html-link-look" stdset="0">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="0" colspan="4">
     <widget class="HistoryView" name="historyTree">
      <property name="alternatingRowColors">
@@ -64,11 +51,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>ClickableLabel</class>
-   <extends>QLabel</extends>
-   <header>clickablelabel.h</header>
-  </customwidget>
   <customwidget>
    <class>HistoryView</class>
    <extends>QTreeView</extends>

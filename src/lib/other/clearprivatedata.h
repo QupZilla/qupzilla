@@ -42,6 +42,7 @@ public:
 private slots:
     void historyClicked(bool state);
     void dialogAccepted();
+    void optimizeDb();
 
 private:
     void closeEvent(QCloseEvent* e);

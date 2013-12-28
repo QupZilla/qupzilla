@@ -26,9 +26,7 @@
 #include "settings.h"
 #include "history.h"
 
-#include <QMessageBox>
 #include <QCloseEvent>
-#include <QFileInfo>
 
 BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -140,17 +138,6 @@ void BrowsingLibrary::showRSS(QupZilla* mainClass)
 
     raise();
     activateWindow();
-}
-
-void BrowsingLibrary::optimizeDatabase()
-{
-    mApp->setOverrideCursor(Qt::WaitCursor);
-    QString profilePath = mApp->currentProfilePath();
-    QString sizeBefore = QzTools::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
-    mApp->history()->optimizeHistory();
-    QString sizeAfter = QzTools::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
-    mApp->restoreOverrideCursor();
-    QMessageBox::information(this, tr("Database Optimized"), tr("Database successfully optimized.<br/><br/><b>Database Size Before: </b>%1<br/><b>Database Size After: </b>%2").arg(sizeBefore, sizeAfter));
 }
 
 void BrowsingLibrary::closeEvent(QCloseEvent* e)

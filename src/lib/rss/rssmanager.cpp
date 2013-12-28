@@ -29,6 +29,7 @@
 #include "qzsettings.h"
 
 #include <QMenu>
+#include <QLabel>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 #include <QWebSettings>
@@ -60,8 +61,6 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     connect(ui->add, SIGNAL(clicked()), this, SLOT(addFeed()));
     connect(ui->deletebutton, SIGNAL(clicked()), this, SLOT(deleteFeed()));
     connect(ui->edit, SIGNAL(clicked()), this, SLOT(editFeed()));
-
-    connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
 }
 
 QupZilla* RSSManager::getQupZilla()
@@ -417,15 +416,6 @@ bool RSSManager::addRssFeed(const QUrl &url, const QString &title, const QIcon &
 
     QMessageBox::warning(getQupZilla(), tr("RSS feed duplicated"), tr("You already have this feed."));
     return false;
-}
-
-void RSSManager::optimizeDb()
-{
-    BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget()->parentWidget());
-    if (!b) {
-        return;
-    }
-    b->optimizeDatabase();
 }
 
 RSSManager::~RSSManager()

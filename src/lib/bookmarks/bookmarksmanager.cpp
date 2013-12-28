@@ -70,7 +70,6 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString,bool)), this, SLOT(changeFolderParent(QString,bool)));
     connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString,QByteArray,int,QUrl,QString,QString)), this, SLOT(changeBookmarkParent(QString,QByteArray,int,QUrl,QString,QString)));
 
-    connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
     connect(ui->importBookmarks, SIGNAL(clicked(QPoint)), this, SLOT(importBookmarks()));
 
     QShortcut* deleteAction = new QShortcut(QKeySequence("Del"), ui->bookmarksTree);
@@ -752,16 +751,6 @@ void BookmarksManager::insertAllTabs()
 
     delete dialog;
 }
-
-void BookmarksManager::optimizeDb()
-{
-    BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget()->parentWidget());
-    if (!b) {
-        return;
-    }
-    b->optimizeDatabase();
-}
-
 
 BookmarksManager::~BookmarksManager()
 {

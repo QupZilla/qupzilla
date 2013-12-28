@@ -29,12 +29,14 @@
 #include "qztools.h"
 
 #include <QNetworkCookie>
+#include <QMessageBox>
 #include <QWebDatabase>
 #include <QWebSettings>
 #include <QNetworkDiskCache>
 #include <QDateTime>
 #include <QSqlQuery>
 #include <QCloseEvent>
+#include <QFileInfo>
 
 ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent)
     : QDialog(parent)
@@ -45,6 +47,7 @@ ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent)
     ui->buttonBox->setFocus();
     connect(ui->history, SIGNAL(clicked(bool)), this, SLOT(historyClicked(bool)));
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(dialogAccepted()));
+    connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
 
     //Resizing +2 of sizeHint to get visible underlined link
     resize(sizeHint().width(), sizeHint().height() + 2);
@@ -157,6 +160,22 @@ void ClearPrivateData::dialogAccepted()
     QApplication::restoreOverrideCursor();
 
     close();
+}
+
+void ClearPrivateData::optimizeDb()
+{
+    mApp->setOverrideCursor(Qt::WaitCursor);
+
+    QString profilePath = mApp->currentProfilePath();
+    QString sizeBefore = QzTools::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
+
+    mApp->history()->optimizeHistory();
+
+    QString sizeAfter = QzTools::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
+
+    mApp->restoreOverrideCursor();
+
+    QMessageBox::information(this, tr("Database Optimized"), tr("Database successfully optimized.<br/><br/><b>Database Size Before: </b>%1<br/><b>Database Size After: </b>%2").arg(sizeBefore, sizeAfter));
 }
 
 static const int stateDataVersion = 0x0001;
