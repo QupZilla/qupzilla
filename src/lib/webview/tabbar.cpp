@@ -494,7 +494,7 @@ void TabBar::showTabPreview(bool delayed)
 {
     if (delayed) {
         int index = tabAt(mapFromGlobal(QCursor::pos()));
-        if (index == -1 || QApplication::mouseButtons()) {
+        if (index == -1 || QApplication::mouseButtons() != Qt::NoButton) {
             return;
         }
 
@@ -653,7 +653,9 @@ bool TabBar::event(QEvent* event)
 {
     switch (event->type()) {
     case QEvent::Leave:
-        hideTabPreview();
+        if (!rect().contains(mapFromGlobal(QCursor::pos()))) {
+            hideTabPreview();
+        }
         break;
 
     case QEvent::Wheel:
