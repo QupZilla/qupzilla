@@ -519,6 +519,8 @@ void TabBar::showTabPreview(bool delayed)
 
 void TabBar::hideTabPreview(bool delayed)
 {
+    m_tabPreviewShowTimer->stop();
+
     if (delayed) {
         m_tabPreviewHideTimer->start();
     }
