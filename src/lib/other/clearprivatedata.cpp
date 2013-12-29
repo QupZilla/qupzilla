@@ -104,6 +104,14 @@ void ClearPrivateData::closeEvent(QCloseEvent* e)
 
 void ClearPrivateData::dialogAccepted()
 {
+    QMessageBox::StandardButton b = QMessageBox::question(this, tr("Clear Private Data"),
+                                    tr("Are you sure to clear selected private data?"),
+                                    QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+
+    if (b != QMessageBox::Yes) {
+        return;
+    }
+
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     if (ui->history->isChecked()) {
