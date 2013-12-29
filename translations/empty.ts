@@ -405,9 +405,9 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="140"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="78"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="167"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="175"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="79"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="168"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="176"/>
         <source>Show Passwords</source>
         <translation type="unfinished"></translation>
     </message>
@@ -434,88 +434,88 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="62"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="63"/>
         <source>Import Passwords from File...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="63"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="64"/>
         <source>Export Passwords to File...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="66"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="67"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="126"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="127"/>
         <source>Change backend...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="126"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="127"/>
         <source>Change backend:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="175"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="176"/>
         <source>Are you sure that you want to show all passwords?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="190"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="191"/>
         <source>Hide Passwords</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="208"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="209"/>
         <source>Confirmation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="209"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="210"/>
         <source>Are you sure to delete all passwords on your computer?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="228"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="229"/>
         <source>Edit password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="228"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="229"/>
         <source>Change password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="277"/>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="288"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="278"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="289"/>
         <source>Choose file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="302"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="303"/>
         <source>Cannot read file!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="311"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="312"/>
         <source>Successfully imported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="311"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="312"/>
         <source>Error while importing!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="322"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="323"/>
         <source>Cannot write to file!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="331"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="332"/>
         <source>Successfully exported</source>
         <translation type="unfinished"></translation>
     </message>
@@ -664,81 +664,81 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="64"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="65"/>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="105"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="106"/>
         <source>Finish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="164"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="174"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="165"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="175"/>
         <source>Please press Finish to complete importing process.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="200"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="212"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="224"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="236"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="250"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="255"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="201"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="213"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="225"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="237"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="251"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="256"/>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="255"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="256"/>
         <source>The file doesn&apos;t contain any bookmark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="266"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="267"/>
         <source>Choose directory...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="274"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="275"/>
         <source>Choose file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="307"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="308"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="309"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="324"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="340"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="355"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="310"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="325"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="341"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="356"/>
         <source>Please choose this file to begin importing bookmarks.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="322"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="323"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="338"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="339"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="353"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="354"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="362"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="363"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="364"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="365"/>
         <source>Please choose this folder to begin importing bookmarks.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -788,147 +788,157 @@ Please install latest version of QupZilla.</source>
     <name>BookmarksManager</name>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="14"/>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="118"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="131"/>
         <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="23"/>
-        <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="36"/>
-        <source>Import Bookmarks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="59"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="20"/>
         <source>Add Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="82"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="63"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="87"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="68"/>
         <source>Url</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="95"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="76"/>
         <source>Expand All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="102"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="83"/>
+        <source>Import and Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="27"/>
         <source>Collapse All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="114"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="75"/>
+        <source>Import Bookmarks...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="76"/>
+        <source>Export Bookmarks to HTML...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="95"/>
+        <source>Export to HTML...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="127"/>
         <source>Add new folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="116"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="129"/>
         <source>Choose parent folder for new folder: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="121"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="134"/>
         <source>Choose name for new bookmark folder: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="164"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="177"/>
         <source>Add new subfolder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="164"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="177"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="189"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="202"/>
         <source>Rename Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="189"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="202"/>
         <source>Choose name for folder: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="313"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="326"/>
         <source>Add Subfolder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="318"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="331"/>
         <source>Rename folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="319"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="332"/>
         <source>Remove folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="334"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="347"/>
         <source>Open link in current &amp;tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="335"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="348"/>
         <source>Open link in &amp;new tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="339"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="352"/>
         <source>Move bookmark to &amp;folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="351"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="364"/>
         <source>Change icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="352"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="365"/>
         <source>Rename bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="353"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="366"/>
         <source>Remove bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="653"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="666"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="671"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="684"/>
         <source>Choose name and location of this bookmark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="675"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="688"/>
         <source>Add New Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="734"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="747"/>
         <source>Choose folder for bookmarks:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="735"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="748"/>
         <source>Bookmark All Tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -936,20 +946,20 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="525"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="542"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="606"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="623"/>
         <source>Bookmarks In Menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="528"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="545"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="609"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="626"/>
         <source>Bookmarks In ToolBar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="531"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="548"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="612"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="629"/>
         <source>Unsorted Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1144,28 +1154,18 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="50"/>
         <source>History</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="53"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="51"/>
         <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="54"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
         <source>RSS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="150"/>
-        <source>Database Optimized</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="150"/>
-        <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1228,63 +1228,88 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="20"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="93"/>
         <source>Choose what you want to delete:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="61"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
         <source>Clear history</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="34"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
         <source>Clear cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="27"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="100"/>
         <source>Clear icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="54"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="137"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="24"/>
         <source>Earlier Today</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="142"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="29"/>
         <source>Week</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="147"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="34"/>
         <source>Month</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="152"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="39"/>
         <source>All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="44"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="117"/>
         <source>Clear web databases</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="97"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="170"/>
+        <source>Optimize database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="57"/>
         <source>Clear local storage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="67"/>
         <source>Clear cookies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="107"/>
+        <source>Clear Private Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="108"/>
+        <source>Are you sure to clear selected private data?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
+        <source>Database Optimized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
+        <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2112,17 +2137,12 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="50"/>
-        <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="75"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="74"/>
         <source>Confirmation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="76"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="75"/>
         <source>Are you sure to delete all history?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2206,7 +2226,7 @@ Please install latest version of QupZilla.</source>
     <name>IconChooser</name>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="14"/>
-        <location filename="../src/lib/other/iconchooser.cpp" line="39"/>
+        <location filename="../src/lib/other/iconchooser.cpp" line="40"/>
         <source>Choose icon...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2236,7 +2256,7 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/iconchooser.cpp" line="38"/>
+        <location filename="../src/lib/other/iconchooser.cpp" line="39"/>
         <source>Image files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2337,22 +2357,22 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1022"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1026"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1023"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1027"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1025"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1029"/>
         <source>Default Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1045"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1049"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3864,42 +3884,42 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="286"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="309"/>
         <source>Unknown size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="291"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="314"/>
         <source>KB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="296"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="319"/>
         <source>MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="300"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="323"/>
         <source>GB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="618"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="733"/>
         <source>Executable: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="619"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="734"/>
         <source>Arguments: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="621"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="736"/>
         <source>Cannot start external program</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="622"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="737"/>
         <source>Cannot start external program! %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4814,7 +4834,7 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="33"/>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="142"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="141"/>
         <source>Empty</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4834,89 +4854,84 @@ Are you sure to quit QupZilla?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.ui" line="97"/>
-        <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="54"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="55"/>
         <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="104"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="103"/>
         <source>News</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="114"/>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="155"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="113"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="154"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="140"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="139"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="163"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="162"/>
         <source>Add new feed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="163"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="162"/>
         <source>Please enter URL of new feed:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="169"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="168"/>
         <source>New feed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="208"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="207"/>
         <source>Fill title and URL of a feed: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="210"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="209"/>
         <source>Feed title: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="211"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="210"/>
         <source>Feed URL: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="217"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="216"/>
         <source>Edit RSS Feed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="258"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="257"/>
         <source>Open link in current tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="259"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="258"/>
         <source>Open link in new tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="384"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="383"/>
         <source>Error in fetching feed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="418"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="417"/>
         <source>RSS feed duplicated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="418"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="417"/>
         <source>You already have this feed.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5662,17 +5677,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="287"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="288"/>
         <source>Image files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="288"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="289"/>
         <source>Select image...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="341"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="342"/>
         <source>Unable to load</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5715,7 +5730,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="70"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="71"/>
         <source>Choose dictionary path...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6502,67 +6517,67 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1029"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1030"/>
         <source>Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1044"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1045"/>
         <source>Go to &amp;web address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1058"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1059"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1064"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1065"/>
         <source>Search with...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1091"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1092"/>
         <source>&amp;Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1091"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1092"/>
         <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1092"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1093"/>
         <source>Un&amp;mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1092"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1093"/>
         <source>&amp;Mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1094"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1095"/>
         <source>&amp;Copy Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1095"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1096"/>
         <source>&amp;Send Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1096"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1097"/>
         <source>Save Media To &amp;Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1105"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1106"/>
         <source>Check &amp;Spelling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1110"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1111"/>
         <source>Languages</source>
         <translation type="unfinished"></translation>
     </message>
