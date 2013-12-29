@@ -98,6 +98,8 @@ public:
 
     bool renameFolder(const QString &before, const QString &after);
 
+    void exportToHtml(const QString &fileName);
+
     static bool bookmarksEqual(const Bookmark &one, const Bookmark &two);
     static QString toTranslatedFolder(const QString &name);
     static QString fromTranslatedFolder(const QString &name);

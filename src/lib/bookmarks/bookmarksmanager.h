@@ -64,7 +64,9 @@ private slots:
     void moveBookmark();
     void renameBookmark();
     void changeIcon();
+
     void importBookmarks();
+    void exportBookmarks();
 
     void addFolder(const QString &name);
     void addSubfolder(const QString &name);

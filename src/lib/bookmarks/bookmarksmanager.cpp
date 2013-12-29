@@ -37,6 +37,7 @@
 #include <QShortcut>
 #include <QMenu>
 #include <QSqlQuery>
+#include <QLabel>
 
 BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -70,7 +71,11 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString,bool)), this, SLOT(changeFolderParent(QString,bool)));
     connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString,QByteArray,int,QUrl,QString,QString)), this, SLOT(changeBookmarkParent(QString,QByteArray,int,QUrl,QString,QString)));
 
-    connect(ui->importBookmarks, SIGNAL(clicked(QPoint)), this, SLOT(importBookmarks()));
+    QMenu* menu = new QMenu;
+    menu->addAction(tr("Import Bookmarks..."), this, SLOT(importBookmarks()));
+    menu->addAction(tr("Export Bookmarks to HTML..."), this, SLOT(exportBookmarks()));
+
+    ui->importExport->setMenu(menu);
 
     QShortcut* deleteAction = new QShortcut(QKeySequence("Del"), ui->bookmarksTree);
     connect(deleteAction, SIGNAL(activated()), this, SLOT(deleteItem()));
@@ -83,6 +88,15 @@ void BookmarksManager::importBookmarks()
 {
     BookmarksImportDialog* b = new BookmarksImportDialog(this);
     b->show();
+}
+
+void BookmarksManager::exportBookmarks()
+{
+    QString file = QzTools::getSaveFileName("BookmarksManager-Export", this, tr("Export to HTML..."), QDir::homePath() + "/bookmarks.html");
+
+    if (!file.isEmpty()) {
+        m_bookmarksModel->exportToHtml(file);
+    }
 }
 
 void BookmarksManager::search(const QString &string)

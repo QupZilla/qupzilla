@@ -22,7 +22,10 @@
 #include "mainapplication.h"
 #include "settings.h"
 
+#include <QTextStream>
 #include <QBuffer>
+#include <QDebug>
+#include <QFile>
 
 // SQLite DB -> table bookmarks + folders
 // Unique in bookmarks table is id
@@ -445,6 +448,84 @@ bool BookmarksModel::renameFolder(const QString &before, const QString &after)
 
     emit folderRenamed(before, after);
     return true;
+}
+
+void BookmarksModel::exportToHtml(const QString &fileName)
+{
+    QFile file(fileName);
+
+    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
+        qWarning() << "BookmarksModel::exportHtml Cannot open file for writing!" << file.errorString();
+    }
+
+    QTextStream out(&file);
+
+    out << "<!DOCTYPE NETSCAPE-Bookmark-file-1>" << endl;
+    out << "<!-- This is an automatically generated file." << endl;
+    out << "     It will be read and overwritten." << endl;
+    out << "     DO NOT EDIT! -->" << endl;
+    out << "<META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=UTF-8\">" << endl;
+    out << "<TITLE>Bookmarks</TITLE>" << endl;
+    out << "<H1>Bookmarks</H1>" << endl;
+
+    out << "<DL><p>" << endl;
+
+    QString indent = "    ";
+    QList<QPair<QString, bool> > allFolders;
+
+    QPair<QString, bool> menu;
+    menu.first = "bookmarksMenu";
+    menu.second = false;
+
+    QPair<QString, bool> toolbar;
+    toolbar.first = "bookmarksToolbar";
+    toolbar.second = false;
+
+    allFolders.append(menu);
+    allFolders.append(toolbar);
+
+    QSqlQuery query;
+    query.exec("SELECT name, subfolder FROM folders");
+
+    while (query.next()) {
+        QPair<QString, bool> pair;
+        pair.first = query.value(0).toString();
+        pair.second = query.value(1).toString() == QLatin1String("yes");
+
+        allFolders.append(pair);
+    }
+
+    for (int i = 0; i < allFolders.size(); ++i) {
+        QPair<QString, bool> pair = allFolders.at(i);
+
+        out << indent << "<DT><H3 TOOLBAR_SUBFOLDER=\"" << (pair.second ? "yes" : "no") << "\">" << pair.first << "</H3>" << endl;
+        out << indent << "<DL><p>" << endl;
+
+        QSqlQuery q;
+        q.prepare("SELECT title, url FROM bookmarks WHERE folder = ?");
+        q.addBindValue(pair.first);
+        q.exec();
+
+        while (q.next()) {
+            QString title = q.value(0).toString();
+            QString url = q.value(1).toString();
+
+            out << indent << indent << "<DT><A HREF=\"" << url << "\">" << title << "</A>" << endl;
+        }
+
+        out << indent << "</DL><p>" << endl;
+    }
+
+    query.exec("SELECT title, url FROM bookmarks WHERE folder='' OR folder='unsorted'");
+
+    while (query.next()) {
+        QString title = query.value(0).toString();
+        QString url = query.value(1).toString();
+
+        out << indent << "<DT><A HREF=\"" << url << "\">" << title << "</A>" << endl;
+    }
+
+    out << "</DL><p>" << endl;
 }
 
 QVector<Bookmark> BookmarksModel::folderBookmarks(const QString &name)

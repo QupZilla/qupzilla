@@ -14,16 +14,17 @@
    <string>Bookmarks</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="7">
-    <widget class="ClickableLabel" name="importBookmarks">
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
+   <item row="1" column="0" colspan="4">
+    <widget class="QPushButton" name="addFolder">
      <property name="text">
-      <string>Import Bookmarks</string>
+      <string>Add Folder</string>
      </property>
-     <property name="html-link-look" stdset="0">
-      <bool>true</bool>
+    </widget>
+   </item>
+   <item row="1" column="5">
+    <widget class="QPushButton" name="collapseAll">
+     <property name="text">
+      <string>Collapse All</string>
      </property>
     </widget>
    </item>
@@ -40,14 +41,7 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="0" colspan="4">
-    <widget class="QPushButton" name="addFolder">
-     <property name="text">
-      <string>Add Folder</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0" colspan="9">
+   <item row="0" column="0" colspan="8">
     <widget class="BookmarksTree" name="bookmarksTree">
      <property name="contextMenuPolicy">
       <enum>Qt::CustomContextMenu</enum>
@@ -83,21 +77,19 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="5">
-    <widget class="QPushButton" name="collapseAll">
+   <item row="1" column="7">
+    <widget class="QToolButton" name="importExport">
      <property name="text">
-      <string>Collapse All</string>
+      <string>Import and Export</string>
+     </property>
+     <property name="popupMode">
+      <enum>QToolButton::InstantPopup</enum>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>ClickableLabel</class>
-   <extends>QLabel</extends>
-   <header>clickablelabel.h</header>
-  </customwidget>
   <customwidget>
    <class>BookmarksTree</class>
    <extends>QTreeWidget</extends>
