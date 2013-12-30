@@ -21,6 +21,7 @@
 #include "webpage.h"
 #include "qztools.h"
 #include "qupzilla.h"
+#include "settings.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -62,7 +63,11 @@ PageScreen::PageScreen(WebView* view, QWidget* parent)
 
     // Set png as a default format
     m_pageTitle = m_view->title();
-    ui->location->setText(QString("%1/%2.png").arg(QDir::homePath(), QzTools::filterCharsFromFilename(m_pageTitle)));
+
+    Settings settings;
+    const QString name = QzTools::filterCharsFromFilename(m_pageTitle).replace(QLatin1Char(' '), QLatin1Char('_'));
+    const QString path = settings.value("FileDialogPaths/PageScreen-Location", QDir::homePath()).toString();
+    ui->location->setText(QString("%1/%2.png").arg(path, name));
 
     QMovie* mov = new QMovie(":html/loading.gif");
     ui->label->setMovie(mov);
@@ -93,9 +98,10 @@ void PageScreen::formatChanged()
 
 void PageScreen::changeLocation()
 {
-    const QString &suggestedPath = QString("%1/%2.%3").arg(QDir::homePath(), QzTools::filterCharsFromFilename(m_pageTitle),
-                                   m_formats[ui->formats->currentIndex()].toLower());
-    const QString &path = QzTools::getOpenFileName("PageScreen-ChangeLocation", this, tr("Choose location..."), suggestedPath);
+    const QString &name = QzTools::filterCharsFromFilename(m_pageTitle).replace(QLatin1Char(' '), QLatin1Char('_'));
+    const QString &suggestedPath = QString("%1/%2.%3").arg(QDir::homePath(), name, m_formats[ui->formats->currentIndex()].toLower());
+
+    const QString &path = QzTools::getOpenFileName("PageScreen-Location", this, tr("Choose location..."), suggestedPath);
 
     if (!path.isEmpty()) {
         ui->location->setText(path);
