@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="sr_RS">
+<TS version="2.0" language="sr_RS@latin">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -617,7 +617,7 @@ Instalirajte najnovije izdanje.</translation>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="83"/>
         <source>Internet Explorer</source>
-        <translation>Internet Explorer</translation>
+        <translation>Internet Eksplorer</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="95"/>
@@ -789,142 +789,157 @@ Instalirajte najnovije izdanje.</translation>
     <name>BookmarksManager</name>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="14"/>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="117"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="131"/>
         <source>Bookmarks</source>
         <translation>Obeleživači</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="23"/>
-        <source>Import Bookmarks</source>
-        <translation>Uvezi obeleživače</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="46"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="20"/>
         <source>Add Folder</source>
         <translation>Dodaj fasciklu</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="69"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="63"/>
         <source>Title</source>
         <translation>ime</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="74"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="68"/>
         <source>Url</source>
         <translation>url</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="82"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="76"/>
         <source>Expand All</source>
         <translation>Raširi sve</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="89"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="83"/>
+        <source>Import and Export</source>
+        <translation>Uvoz i izvoz</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="27"/>
         <source>Collapse All</source>
         <translation>Sažmi sve</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="113"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="75"/>
+        <source>Import Bookmarks...</source>
+        <translation>Uvezi obeleživače...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="76"/>
+        <source>Export Bookmarks to HTML...</source>
+        <translation>Izvezi obeleživače u HTML...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="95"/>
+        <source>Export to HTML...</source>
+        <translation>Izvoz u HTML...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="127"/>
         <source>Add new folder</source>
         <translation>Dodaj novu fasciklu</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="115"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="129"/>
         <source>Choose parent folder for new folder: </source>
         <translation>Roditeljska fascikla:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="120"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="134"/>
         <source>Choose name for new bookmark folder: </source>
         <translation>Ime nove fascikle obeleživača:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="163"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="177"/>
         <source>Add new subfolder</source>
         <translation>Dodajte novu podfasciklu</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="163"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="177"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
         <translation>Ime nove podfascikle u traci obeleživača: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="188"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="202"/>
         <source>Rename Folder</source>
         <translation>Preimenuj fasciklu</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="188"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="202"/>
         <source>Choose name for folder: </source>
         <translation>Ime za fasciklu: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="312"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="326"/>
         <source>Add Subfolder</source>
         <translation>Dodaj podfasciklu</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="317"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="331"/>
         <source>Rename folder</source>
         <translation>Preimenuj fasciklu</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="318"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="332"/>
         <source>Remove folder</source>
         <translation>Ukloni fasciklu</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="333"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="347"/>
         <source>Open link in current &amp;tab</source>
         <translation>Otvori vezu u &amp;tekućem jezičku</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="334"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="348"/>
         <source>Open link in &amp;new tab</source>
         <translation>Otvori vezu u &amp;novom jezičku</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="338"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="352"/>
         <source>Move bookmark to &amp;folder</source>
         <translation>Pomjeri obeleživač u &amp;fasciklu</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="350"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="364"/>
         <source>Change icon</source>
         <translation>Promeni ikonu</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="351"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="365"/>
         <source>Rename bookmark</source>
         <translation>Preimenuj obeleživač</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="352"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="366"/>
         <source>Remove bookmark</source>
         <translation>Ukloni obeleživač</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="652"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="666"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
         <translation>&lt;b&gt;Upozorenje: &lt;/b&gt;Već ste obeležili ovu stranicu!</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="670"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="684"/>
         <source>Choose name and location of this bookmark.</source>
         <translation>Odredite ime i lokaciju za ovaj obeleživač.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="674"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="688"/>
         <source>Add New Bookmark</source>
         <translation>Dodavanje obeleživača</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="733"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="747"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Izaberite fasciklu obeleživača:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="734"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="748"/>
         <source>Bookmark All Tabs</source>
         <translation>Obeleži sve jezičke</translation>
     </message>
@@ -932,20 +947,20 @@ Instalirajte najnovije izdanje.</translation>
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="525"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="542"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="606"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="623"/>
         <source>Bookmarks In Menu</source>
         <translation>Obeleživači u meniju</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="528"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="545"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="609"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="626"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Obeleživači u traci alatki</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="531"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="548"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="612"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="629"/>
         <source>Unsorted Bookmarks</source>
         <translation>Nerazvrstani obeleživači</translation>
     </message>
@@ -1035,7 +1050,7 @@ Instalirajte najnovije izdanje.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="125"/>
         <source>Edit bookmark</source>
-        <translation>Uredi obilježivač</translation>
+        <translation>Uredi obeleživač</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="127"/>
@@ -1045,7 +1060,7 @@ Instalirajte najnovije izdanje.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="234"/>
         <source>Edit bookmark: </source>
-        <translation>Uredi obilježivač: </translation>
+        <translation>Uredi obeleživač: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="236"/>
@@ -1211,12 +1226,12 @@ Instalirajte najnovije izdanje.</translation>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="14"/>
         <source>Clear Recent History</source>
-        <translation>Čišćenje privatnih podataka</translation>
+        <translation>Brisanje privatnih podataka</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="93"/>
         <source>Choose what you want to delete:</source>
-        <translation>Očisti sljedeće stavke:</translation>
+        <translation>Obriši sledeće stavke:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
@@ -1236,7 +1251,7 @@ Instalirajte najnovije izdanje.</translation>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Očisti nedavni istorijat&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Obriši nedavni istorijat&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="24"/>
@@ -1279,12 +1294,22 @@ Instalirajte najnovije izdanje.</translation>
         <translation>kolačiće</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="178"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="107"/>
+        <source>Clear Private Data</source>
+        <translation>Brisanje privatnih podataka</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="108"/>
+        <source>Are you sure to clear selected private data?</source>
+        <translation>Želite li zaista da obrišete izabrane privatne podatke?</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
         <source>Database Optimized</source>
         <translation>Baza podataka je optimizovana</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="178"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation>Baza podataka je uspešno optimizovana.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Veličina baze pre: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Veličina baze nakon: &lt;/b&gt;%2</translation>
     </message>
@@ -2118,7 +2143,7 @@ Instalirajte najnovije izdanje.</translation>
     <message>
         <location filename="../src/lib/history/historymanager.ui" line="27"/>
         <source>Clear All History</source>
-        <translation>Očisti istorijat</translation>
+        <translation>Obriši istorijat</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="74"/>
@@ -2484,7 +2509,7 @@ Instalirajte najnovije izdanje.</translation>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="270"/>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="304"/>
         <source>Clear history</source>
-        <translation>Očisti istorijat</translation>
+        <translation>Obriši istorijat</translation>
     </message>
 </context>
 <context>
@@ -3073,7 +3098,7 @@ Instalirajte najnovije izdanje.</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="613"/>
         <source>Use transparent background</source>
-        <translation>Koristi providnu pozadinu</translation>
+        <translation>Koristi prozirnu pozadinu</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="620"/>
@@ -4263,7 +4288,7 @@ Instalirajte najnovije izdanje.</translation>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="593"/>
         <source>Clear Recent &amp;History</source>
-        <translation>&amp;Očisti privatne podatke</translation>
+        <translation>&amp;Obriši privatne podatke</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="594"/>

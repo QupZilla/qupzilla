@@ -789,142 +789,157 @@ Please install latest version of QupZilla.</source>
     <name>BookmarksManager</name>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="14"/>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="117"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="131"/>
         <source>Bookmarks</source>
         <translation>Обележивачи</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="23"/>
-        <source>Import Bookmarks</source>
-        <translation>Увези обележиваче</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="46"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="20"/>
         <source>Add Folder</source>
         <translation>Додај фасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="69"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="63"/>
         <source>Title</source>
         <translation>име</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="74"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="68"/>
         <source>Url</source>
         <translation>урл</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="82"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="76"/>
         <source>Expand All</source>
         <translation>Рашири све</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="89"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="83"/>
+        <source>Import and Export</source>
+        <translation>Увоз и извоз</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="27"/>
         <source>Collapse All</source>
         <translation>Сажми све</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="113"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="75"/>
+        <source>Import Bookmarks...</source>
+        <translation>Увези обележиваче...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="76"/>
+        <source>Export Bookmarks to HTML...</source>
+        <translation>Извези обележиваче у ХТМЛ...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="95"/>
+        <source>Export to HTML...</source>
+        <translation>Извоз у ХТМЛ...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="127"/>
         <source>Add new folder</source>
         <translation>Додај нову фасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="115"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="129"/>
         <source>Choose parent folder for new folder: </source>
         <translation>Родитељска фасцикла:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="120"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="134"/>
         <source>Choose name for new bookmark folder: </source>
         <translation>Име нове фасцикле обележивача:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="163"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="177"/>
         <source>Add new subfolder</source>
         <translation>Додајте нову подфасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="163"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="177"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
         <translation>Име нове подфасцикле у траци обележивача: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="188"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="202"/>
         <source>Rename Folder</source>
         <translation>Преименуј фасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="188"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="202"/>
         <source>Choose name for folder: </source>
         <translation>Име за фасциклу: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="312"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="326"/>
         <source>Add Subfolder</source>
         <translation>Додај подфасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="317"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="331"/>
         <source>Rename folder</source>
         <translation>Преименуј фасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="318"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="332"/>
         <source>Remove folder</source>
         <translation>Уклони фасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="333"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="347"/>
         <source>Open link in current &amp;tab</source>
         <translation>Отвори везу у &amp;текућем језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="334"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="348"/>
         <source>Open link in &amp;new tab</source>
         <translation>Отвори везу у &amp;новом језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="338"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="352"/>
         <source>Move bookmark to &amp;folder</source>
         <translation>Помјери обележивач у &amp;фасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="350"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="364"/>
         <source>Change icon</source>
         <translation>Промени икону</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="351"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="365"/>
         <source>Rename bookmark</source>
         <translation>Преименуј обележивач</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="352"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="366"/>
         <source>Remove bookmark</source>
         <translation>Уклони обележивач</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="652"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="666"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
         <translation>&lt;b&gt;Упозорење: &lt;/b&gt;Већ сте обележили ову страницу!</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="670"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="684"/>
         <source>Choose name and location of this bookmark.</source>
         <translation>Одредите име и локацију за овај обележивач.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="674"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="688"/>
         <source>Add New Bookmark</source>
         <translation>Додавање обележивача</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="733"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="747"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Изаберите фасциклу обележивача:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="734"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="748"/>
         <source>Bookmark All Tabs</source>
         <translation>Обележи све језичке</translation>
     </message>
@@ -932,20 +947,20 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="525"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="542"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="606"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="623"/>
         <source>Bookmarks In Menu</source>
         <translation>Обележивачи у менију</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="528"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="545"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="609"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="626"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Обележивачи у траци алатки</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="531"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="548"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="612"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="629"/>
         <source>Unsorted Bookmarks</source>
         <translation>Неразврстани обележивачи</translation>
     </message>
@@ -1035,7 +1050,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="125"/>
         <source>Edit bookmark</source>
-        <translation>Уреди обиљеживач</translation>
+        <translation>Уреди обележивач</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="127"/>
@@ -1045,7 +1060,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="234"/>
         <source>Edit bookmark: </source>
-        <translation>Уреди обиљеживач: </translation>
+        <translation>Уреди обележивач: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="236"/>
@@ -1211,12 +1226,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="14"/>
         <source>Clear Recent History</source>
-        <translation>Чишћење приватних података</translation>
+        <translation>Брисање приватних података</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="93"/>
         <source>Choose what you want to delete:</source>
-        <translation>Очисти сљедеће ставке:</translation>
+        <translation>Обриши следеће ставке:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
@@ -1236,7 +1251,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Очисти недавни историјат&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Обриши недавни историјат&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="24"/>
@@ -1279,12 +1294,22 @@ Please install latest version of QupZilla.</source>
         <translation>колачиће</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="178"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="107"/>
+        <source>Clear Private Data</source>
+        <translation>Брисање приватних података</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="108"/>
+        <source>Are you sure to clear selected private data?</source>
+        <translation>Желите ли заиста да обришете изабране приватне податке?</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
         <source>Database Optimized</source>
         <translation>База података је оптимизована</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="178"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation>База података је успешно оптимизована.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Величина базе пре: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Величина базе након: &lt;/b&gt;%2</translation>
     </message>
@@ -2118,7 +2143,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/history/historymanager.ui" line="27"/>
         <source>Clear All History</source>
-        <translation>Очисти историјат</translation>
+        <translation>Обриши историјат</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="74"/>
@@ -2484,7 +2509,7 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="270"/>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="304"/>
         <source>Clear history</source>
-        <translation>Очисти историјат</translation>
+        <translation>Обриши историјат</translation>
     </message>
 </context>
 <context>
@@ -3073,7 +3098,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="613"/>
         <source>Use transparent background</source>
-        <translation>Користи провидну позадину</translation>
+        <translation>Користи прозирну позадину</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="620"/>
@@ -4263,7 +4288,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="593"/>
         <source>Clear Recent &amp;History</source>
-        <translation>&amp;Очисти приватне податке</translation>
+        <translation>&amp;Обриши приватне податке</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="594"/>
