@@ -35,7 +35,7 @@ QString DatabasePasswordBackend::name() const
 
 QVector<PasswordEntry> DatabasePasswordBackend::getEntries(const QUrl &url)
 {
-    const QString &host = PasswordManager::createHost(url);
+    const QString host = PasswordManager::createHost(url);
 
     QSqlQuery query;
     query.prepare("SELECT id, username, password, data FROM autofill "

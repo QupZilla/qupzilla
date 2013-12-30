@@ -136,7 +136,7 @@ void StatusBarMessage::showMessage(const QString &message)
         m_statusBarText->resize(m_statusBarText->sizeHint());
 
         QPoint position(0, view->height() - horizontalScrollSize - m_statusBarText->height());
-        const QRect &statusRect = QRect(view->mapToGlobal(QPoint(0, position.y())), m_statusBarText->size());
+        const QRect statusRect = QRect(view->mapToGlobal(QPoint(0, position.y())), m_statusBarText->size());
 
         if (statusRect.contains(QCursor::pos())) {
             position.setY(position.y() - m_statusBarText->height());

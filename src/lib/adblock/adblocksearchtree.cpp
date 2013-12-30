@@ -42,7 +42,7 @@ bool AdBlockSearchTree::add(const AdBlockRule* rule)
         return false;
     }
 
-    const QString &filter = rule->m_matchString;
+    const QString filter = rule->m_matchString;
     int len = filter.size();
 
     if (len <= 0) {
@@ -53,7 +53,7 @@ bool AdBlockSearchTree::add(const AdBlockRule* rule)
     Node* node = m_root;
 
     for (int i = 0; i < len; ++i) {
-        const QChar &c = filter.at(i);
+        const QChar c = filter.at(i);
         if (!node->children.contains(c)) {
             Node* n = new Node;
             n->c = c;
@@ -104,7 +104,7 @@ const AdBlockRule* AdBlockSearchTree::prefixSearch(const QNetworkRequest &reques
     Node* node = m_root->children[c];
 
     for (int i = 1; i < len; ++i) {
-        const QChar &c = (++string)[0];
+        const QChar c = (++string)[0];
 
         if (node->rule && node->rule->networkMatch(request, domain, urlString)) {
             return node->rule;

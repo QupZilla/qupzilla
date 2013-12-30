@@ -68,7 +68,7 @@ SpellCheckDialog::SpellCheckDialog(QWidget* parent)
 
 void SpellCheckDialog::changeDictionaryPath()
 {
-    const QString &path = QzTools::getExistingDirectory("SpellCheckDialog-Directory", this, tr("Choose dictionary path..."), ui->dictPath->text());
+    const QString path = QzTools::getExistingDirectory("SpellCheckDialog-Directory", this, tr("Choose dictionary path..."), ui->dictPath->text());
 
     if (!path.isEmpty()) {
         ui->dictPath->setText(path);
@@ -77,7 +77,7 @@ void SpellCheckDialog::changeDictionaryPath()
 
 void SpellCheckDialog::addUserWord()
 {
-    const QString &word = QInputDialog::getText(0, tr("Add new word..."), tr("Add new word:"));
+    const QString word = QInputDialog::getText(0, tr("Add new word..."), tr("Add new word:"));
 
     if (!word.isEmpty()) {
         ui->userDictList->addItem(word);
@@ -125,7 +125,7 @@ void SpellCheckDialog::saveSettings()
     int count = ui->userDictList->count();
 
     for (int i = 0; i < count; ++i) {
-        const QString &word = ui->userDictList->item(i)->text();
+        const QString word = ui->userDictList->item(i)->text();
         stream << word << endl;
     }
 

@@ -255,7 +255,7 @@ void BookmarksManager::itemControlClicked(QTreeWidgetItem* item)
         return;
     }
 
-    const QUrl &url = QUrl::fromEncoded(item->text(1).toUtf8());
+    const QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
     getQupZilla()->tabWidget()->addView(url, item->text(0));
 }
 

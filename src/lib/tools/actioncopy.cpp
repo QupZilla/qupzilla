@@ -30,8 +30,8 @@ ActionCopy::ActionCopy(QAction* original, QObject* parent)
 
 void ActionCopy::updateAction()
 {
-    const QString &shortcutString = m_action->shortcut().toString(QKeySequence::NativeText);
-    const QString &actionText = QString("%1\t%2").arg(m_action->text(), shortcutString);
+    const QString shortcutString = m_action->shortcut().toString(QKeySequence::NativeText);
+    const QString actionText = QString("%1\t%2").arg(m_action->text(), shortcutString);
 
     setText(actionText);
     setIcon(m_action->icon());

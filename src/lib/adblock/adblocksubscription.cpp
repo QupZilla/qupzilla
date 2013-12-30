@@ -528,7 +528,7 @@ bool AdBlockCustomList::removeRule(int offset)
     }
 
     AdBlockRule* rule = m_rules.at(offset);
-    const QString &filter = rule->filter();
+    const QString filter = rule->filter();
 
     m_rules.remove(offset);
     populateCache();

@@ -86,9 +86,9 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
     QElapsedTimer timer;
     timer.start();
 #endif
-    const QString &urlString = request.url().toEncoded().toLower();
-    const QString &urlDomain = request.url().host().toLower();
-    const QString &urlScheme = request.url().scheme().toLower();
+    const QString urlString = request.url().toEncoded().toLower();
+    const QString urlDomain = request.url().host().toLower();
+    const QString urlScheme = request.url().scheme().toLower();
 
     if (!isEnabled() || !canRunOnScheme(urlScheme)) {
         return 0;
@@ -231,7 +231,7 @@ void AdBlockManager::load()
             continue;
         }
 
-        const QString &absolutePath = adblockDir.absoluteFilePath(fileName);
+        const QString absolutePath = adblockDir.absoluteFilePath(fileName);
         QFile file(absolutePath);
         if (!file.open(QFile::ReadOnly)) {
             continue;

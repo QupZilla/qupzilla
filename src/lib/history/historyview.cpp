@@ -146,7 +146,7 @@ void HistoryView::copyAddress()
 
 void HistoryView::contextMenuEvent(QContextMenuEvent* event)
 {
-    const QModelIndex &index = indexAt(event->pos());
+    const QModelIndex index = indexAt(event->pos());
     if (!index.isValid() || index.data(HistoryModel::IsTopLevelRole).toBool()) {
         return;
     }

@@ -39,7 +39,7 @@ QNetworkReply* AdBlockSchemeHandler::createRequest(QNetworkAccessManager::Operat
         return 0;
     }
 
-    const QUrl &url = request.url();
+    const QUrl url = request.url();
     const QList<QPair<QString, QString> > queryItems =
 #if QT_VERSION >= 0x050000
         QUrlQuery(url).queryItems();
@@ -64,7 +64,7 @@ QNetworkReply* AdBlockSchemeHandler::createRequest(QNetworkAccessManager::Operat
         return 0;
     }
 
-    const QString &message = AdBlockManager::tr("Do you want to add <b>%1</b> subscription?").arg(subscriptionTitle);
+    const QString message = AdBlockManager::tr("Do you want to add <b>%1</b> subscription?").arg(subscriptionTitle);
 
     QMessageBox::StandardButton result = QMessageBox::question(0, AdBlockManager::tr("AdBlock Subscription"), message, QMessageBox::Yes | QMessageBox::No);
     if (result == QMessageBox::Yes) {

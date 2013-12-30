@@ -74,7 +74,7 @@ void ListItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opti
     topPosition += m_iconSize + m_padding;
 
     // Draw title
-    const QString &title = index.data(Qt::DisplayRole).toString();
+    const QString title = index.data(Qt::DisplayRole).toString();
     const int leftTitleEdge = opt.rect.left() + m_padding;
     QRect titleRect(leftTitleEdge, topPosition, opt.rect.width() - 2 * m_padding, opt.fontMetrics.height());
     QRect visualTitleRect = style->visualRect(direction, opt.rect, titleRect);

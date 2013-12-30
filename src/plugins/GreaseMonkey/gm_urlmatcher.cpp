@@ -28,7 +28,7 @@ static bool wildcardMatch(const QString &string, const QString &pattern)
     bool startsWithWildcard = pattern[0] == QLatin1Char('*');
     bool endsWithWildcard = pattern[patternSize - 1] == QLatin1Char('*');
 
-    const QStringList &parts = pattern.split(QLatin1Char('*'));
+    const QStringList parts = pattern.split(QLatin1Char('*'));
     int pos = 0;
 
     if (startsWithWildcard) {

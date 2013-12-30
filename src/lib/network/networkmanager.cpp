@@ -188,7 +188,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
             continue;
         }
 
-        const QSslCertificate &cert = error.certificate();
+        const QSslCertificate cert = error.certificate();
 
         if (errorHash.contains(cert)) {
             errorHash[cert].append(error.errorString());
@@ -210,8 +210,8 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
 
     QHash<QSslCertificate, QStringList>::const_iterator i = errorHash.constBegin();
     while (i != errorHash.constEnd()) {
-        const QSslCertificate &cert = i.key();
-        const QStringList &errors = i.value();
+        const QSslCertificate cert = i.key();
+        const QStringList errors = i.value();
 
         if (m_localCerts.contains(cert) || m_tempAllowedCerts.contains(cert) || errors.isEmpty()) {
             ++i;
@@ -586,13 +586,13 @@ void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
     bool deleted = false;
     QDirIterator it(mApp->currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it.hasNext()) {
-        const QString &filePath = it.next();
+        const QString filePath = it.next();
         const QList<QSslCertificate> &certs = QSslCertificate::fromPath(filePath);
         if (certs.isEmpty()) {
             continue;
         }
 
-        const QSslCertificate &cert_ = certs.at(0);
+        const QSslCertificate cert_ = certs.at(0);
         if (cert == cert_) {
             QFile file(filePath);
             if (!file.remove()) {

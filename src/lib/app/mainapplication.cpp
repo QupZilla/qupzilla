@@ -539,12 +539,12 @@ void MainApplication::receiveAppMessage(QString message)
     QUrl actUrl;
 
     if (message.startsWith(QLatin1String("URL:"))) {
-        const QUrl &url = QUrl::fromUserInput(message.mid(4));
+        const QUrl url = QUrl::fromUserInput(message.mid(4));
         addNewTab(url);
         actWin = getWindow();
     }
     else if (message.startsWith(QLatin1String("ACTION:"))) {
-        const QString &text = message.mid(7);
+        const QString text = message.mid(7);
         if (text == QLatin1String("NewTab")) {
             addNewTab();
         }
@@ -685,7 +685,7 @@ void MainApplication::loadTheme(const QString &name)
                << THEMESDIR;
 
     foreach (const QString &path, themePaths) {
-        const QString &theme = path + name + "/";
+        const QString theme = path + name + "/";
         if (QFile::exists(theme + "main.css")) {
             m_activeThemePath = theme;
             break;
@@ -954,10 +954,10 @@ QNetworkDiskCache* MainApplication::networkCache()
 {
     if (!m_networkCache) {
         Settings settings;
-        const QString &basePath = settings.value("Web-Browser-Settings/CachePath",
-                                  QString("%1networkcache/").arg(m_activeProfil)).toString();
+        const QString basePath = settings.value("Web-Browser-Settings/CachePath",
+                                                QString("%1networkcache/").arg(m_activeProfil)).toString();
 
-        const QString &cachePath = QString("%1/%2-Qt%3/").arg(basePath, qWebKitVersion(), qVersion());
+        const QString cachePath = QString("%1/%2-Qt%3/").arg(basePath, qWebKitVersion(), qVersion());
         m_networkCache = new QNetworkDiskCache(this);
         m_networkCache->setCacheDirectory(cachePath);
     }
@@ -1089,8 +1089,8 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
         file.close();
     }
 
-    const QString &encodedStyle = userStyle.toLatin1().toBase64();
-    const QString &dataString = QString("data:text/css;charset=utf-8;base64,%1").arg(encodedStyle);
+    const QString encodedStyle = userStyle.toLatin1().toBase64();
+    const QString dataString = QString("data:text/css;charset=utf-8;base64,%1").arg(encodedStyle);
 
     return QUrl(dataString);
 }

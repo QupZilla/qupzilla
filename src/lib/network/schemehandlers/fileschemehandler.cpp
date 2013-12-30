@@ -76,9 +76,9 @@ void FileSchemeHandler::handleUrl(const QUrl &url)
         return;
     }
 
-    const QString &fileName = info.fileName();
-    const QPixmap &pixmap = iconProvider.icon(info).pixmap(30);
-    const QString &type = iconProvider.type(info);
+    const QString fileName = info.fileName();
+    const QPixmap pixmap = iconProvider.icon(info).pixmap(30);
+    const QString type = iconProvider.type(info);
 
     DownloadOptionsDialog dialog(fileName, pixmap, type, url, mApp->getWindow());
     dialog.showExternalManagerOption(false);
@@ -92,9 +92,9 @@ void FileSchemeHandler::handleUrl(const QUrl &url)
     }
     else if (status == 2) {
         // Save
-        const QString &savePath = QzTools::getSaveFileName("FileSchemeHandler-Save", mApp->getWindow(),
-                                  QObject::tr("Save file as..."),
-                                  QDir::homePath() + QDir::separator() + QzTools::getFileNameFromUrl(url));
+        const QString savePath = QzTools::getSaveFileName("FileSchemeHandler-Save", mApp->getWindow(),
+                                 QObject::tr("Save file as..."),
+                                 QDir::homePath() + QDir::separator() + QzTools::getFileNameFromUrl(url));
 
         if (!savePath.isEmpty()) {
             file.copy(savePath);
@@ -149,9 +149,9 @@ void FileSchemeReply::loadPage()
 
 QString FileSchemeReply::loadDirectory()
 {
-    const QDir &dir = QDir(request().url().toLocalFile());
-    const QFileInfoList &list = dir.entryInfoList(QDir::AllEntries | QDir::Hidden,
-                                QDir::Name | QDir::DirsFirst | QDir::IgnoreCase);
+    const QDir dir = QDir(request().url().toLocalFile());
+    const QFileInfoList list = dir.entryInfoList(QDir::AllEntries | QDir::Hidden,
+                               QDir::Name | QDir::DirsFirst | QDir::IgnoreCase);
 
     static QString sPage;
 

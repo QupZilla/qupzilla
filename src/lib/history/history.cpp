@@ -57,8 +57,8 @@ void History::addHistoryEntry(WebView* view)
         return;
     }
 
-    const QUrl &url = view->url();
-    const QString &title = view->title();
+    const QUrl url = view->url();
+    const QString title = view->title();
 
     addHistoryEntry(url, title);
 }

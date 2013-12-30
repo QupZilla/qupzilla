@@ -36,8 +36,8 @@ IconChooser::IconChooser(QWidget* parent)
 
 void IconChooser::chooseFile()
 {
-    const QString &fileTypes = QString("%3(*.png *.jpg *.jpeg *.gif)").arg(tr("Image files"));
-    const QString &path = QzTools::getOpenFileName("IconChooser-ChangeIcon", this, tr("Choose icon..."), QDir::homePath(), fileTypes);
+    const QString fileTypes = QString("%3(*.png *.jpg *.jpeg *.gif)").arg(tr("Image files"));
+    const QString path = QzTools::getOpenFileName("IconChooser-ChangeIcon", this, tr("Choose icon..."), QDir::homePath(), fileTypes);
 
     if (path.isEmpty()) {
         return;

@@ -95,7 +95,7 @@ QString QzTools::readAllFileContents(const QString &filename)
 void QzTools::centerWidgetOnScreen(QWidget* w)
 {
     const QRect screen = QApplication::desktop()->screenGeometry();
-    const QRect &size = w->geometry();
+    const QRect size = w->geometry();
     w->move((screen.width() - size.width()) / 2, (screen.height() - size.height()) / 2);
 }
 
@@ -428,7 +428,7 @@ QIcon QzTools::iconFromFileName(const QString &fileName)
 
 QString QzTools::resolveFromPath(const QString &name)
 {
-    const QString &path = qgetenv("PATH").trimmed();
+    const QString path = qgetenv("PATH").trimmed();
 
     if (path.isEmpty()) {
         return QString();
@@ -688,7 +688,7 @@ QStringList QzTools::splitCommandArguments(const QString &command)
 
     const int strlen = line.length();
     for (int i = 0; i < strlen; ++i) {
-        const QChar &c = line.at(i);
+        const QChar c = line.at(i);
 
         if (inQuote && c == QUOTE && i > 0 && line.at(i - 1) != BSLASH) {
             QString str = line.mid(startPos, i - startPos);
@@ -720,7 +720,7 @@ QStringList QzTools::splitCommandArguments(const QString &command)
 
         if (inWord && (c == SPACE || i == strlen - 1)) {
             int len = (i == strlen - 1) ? -1 : i - startPos;
-            const QString &str = line.mid(startPos, len);
+            const QString str = line.mid(startPos, len);
 
             inWord = false;
             if (!str.isEmpty()) {
@@ -743,7 +743,7 @@ QStringList QzTools::splitCommandArguments(const QString &command)
 
 bool QzTools::startExternalProcess(const QString &executable, const QString &args)
 {
-    const QStringList &arguments = splitCommandArguments(args);
+    const QStringList arguments = splitCommandArguments(args);
 
     bool success = QProcess::startDetached(executable, arguments);
 

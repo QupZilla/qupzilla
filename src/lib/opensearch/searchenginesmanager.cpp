@@ -245,7 +245,7 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
         return;
     }
 
-    const QString &method = formElement.hasAttribute("method") ? formElement.attribute("method").toUpper() : "GET";
+    const QString method = formElement.hasAttribute("method") ? formElement.attribute("method").toUpper() : "GET";
     bool isPost = method == QLatin1String("POST");
 
     QUrl actionUrl = QUrl::fromEncoded(formElement.attribute("action").toUtf8());

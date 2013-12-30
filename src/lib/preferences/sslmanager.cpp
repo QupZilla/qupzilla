@@ -129,7 +129,7 @@ void SSLManager::showCaCertInfo()
 
 void SSLManager::addLocalCertificate()
 {
-    const QString &path = QzTools::getOpenFileName("SSLManager-AddLocalCert", this, tr("Import certificate..."), QDir::homePath(), "*.crt");
+    const QString path = QzTools::getOpenFileName("SSLManager-AddLocalCert", this, tr("Import certificate..."), QDir::homePath(), "*.crt");
 
     if (path.isEmpty()) {
         return;

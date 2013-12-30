@@ -1207,7 +1207,7 @@ void TabBarScrollWidget::ensureVisible(int index, int xmargin)
 
     // Qt Bug? the following lines were taken from QScrollArea::ensureVisible() and
     // then were fixed. The original version caculates wrong values in RTL layouts.
-    const QRect &logicalTabRect = QStyle::visualRect(m_tabBar->layoutDirection(), m_tabBar->rect(), m_tabBar->tabRect(index));
+    const QRect logicalTabRect = QStyle::visualRect(m_tabBar->layoutDirection(), m_tabBar->rect(), m_tabBar->tabRect(index));
     int logicalX = QStyle::visualPos(Qt::LeftToRight, m_scrollArea->viewport()->rect(), logicalTabRect.center()).x();
 
     if (logicalX - xmargin < m_scrollBar->value()) {

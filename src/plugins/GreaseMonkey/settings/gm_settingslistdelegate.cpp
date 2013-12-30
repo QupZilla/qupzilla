@@ -86,7 +86,7 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     leftPosition = iconRect.right() + m_padding;
 
     // Draw script name
-    const QString &name = index.data(Qt::DisplayRole).toString();
+    const QString name = index.data(Qt::DisplayRole).toString();
     const int leftTitleEdge = leftPosition + 2;
     const int rightTitleEdge = rightPosition - m_padding;
     const int leftPosForVersion = titleMetrics.width(name) + m_padding;
@@ -95,7 +95,7 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     style->drawItemText(painter, nameRect, Qt::AlignLeft, opt.palette, true, name, colorRole);
 
     // Draw version
-    const QString &version = index.data(Qt::UserRole).toString();
+    const QString version = index.data(Qt::UserRole).toString();
     QRect versionRect(nameRect.x() + leftPosForVersion, nameRect.y(), rightTitleEdge - leftPosForVersion, titleMetrics.height());
     QFont versionFont = titleFont;
     versionFont.setBold(false);
@@ -105,7 +105,7 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     // Draw description
     const int infoYPos = nameRect.bottom() + opt.fontMetrics.leading();
     QRect infoRect(nameRect.x(), infoYPos, nameRect.width(), opt.fontMetrics.height());
-    const QString &info = opt.fontMetrics.elidedText(index.data(Qt::UserRole + 1).toString(), Qt::ElideRight, infoRect.width());
+    const QString info = opt.fontMetrics.elidedText(index.data(Qt::UserRole + 1).toString(), Qt::ElideRight, infoRect.width());
     painter->setFont(opt.font);
     style->drawItemText(painter, infoRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, info, colorRole);
 

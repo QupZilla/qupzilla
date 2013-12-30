@@ -120,7 +120,7 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
         return proxyList;
     }
 
-    const QString &urlHost = query.url().host();
+    const QString urlHost = query.url().host();
     foreach (WildcardMatcher* m, m_proxyExceptions) {
         if (m->match(urlHost)) {
             proxyList.append(QNetworkProxy::NoProxy);

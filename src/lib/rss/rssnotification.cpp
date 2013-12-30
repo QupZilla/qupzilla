@@ -71,9 +71,9 @@ RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView*
     m_rssApps << bloglines << myaol << netvibes << yahoo;
 
 #ifdef QZ_WS_X11
-    const QString &akregatorBin = QzTools::resolveFromPath("akregator");
-    const QString &lifereaBin = QzTools::resolveFromPath("liferea");
-    const QString &lifereaAddFeedBin = QzTools::resolveFromPath("liferea-add-feed");
+    const QString akregatorBin = QzTools::resolveFromPath("akregator");
+    const QString lifereaBin = QzTools::resolveFromPath("liferea");
+    const QString lifereaAddFeedBin = QzTools::resolveFromPath("liferea-add-feed");
 
     if (!akregatorBin.isEmpty()) {
         RssApp akregator;
@@ -129,7 +129,7 @@ void RSSNotification::addRss()
     switch (ui->comboBox->itemData(index).toInt()) {
     case WebApplication: {
         const RssApp app = m_rssApps.at(index);
-        const QUrl &url = QUrl::fromEncoded(QString(app.address + QUrl::toPercentEncoding(m_url.toString())).toLatin1());
+        const QUrl url = QUrl::fromEncoded(QString(app.address + QUrl::toPercentEncoding(m_url.toString())).toLatin1());
 
         m_view->openUrlInNewTab(url, Qz::NT_SelectedTab);
         success = true;
@@ -145,16 +145,16 @@ void RSSNotification::addRss()
                 break;
             }
         }
-        const QString &arguments = QString("%1 %2").arg(app.arguments, QString::fromUtf8(m_url.toEncoded()));
+        const QString arguments = QString("%1 %2").arg(app.arguments, QString::fromUtf8(m_url.toEncoded()));
         success = QzTools::startExternalProcess(app.executable, arguments);
         break;
     }
 
     case Other: {
         QApplication::clipboard()->setText(m_url.toEncoded());
-        const QString &message = tr("To add this RSS feed into other application, please use this information:<br/><br/>"
-                                    "<b>Title: </b>%1<br/><b>Url: </b>%2<br/><br/>"
-                                    "Url address of this feed has been copied into your clipboard.").arg(m_title, m_url.toString());
+        const QString message = tr("To add this RSS feed into other application, please use this information:<br/><br/>"
+                                   "<b>Title: </b>%1<br/><b>Url: </b>%2<br/><br/>"
+                                   "Url address of this feed has been copied into your clipboard.").arg(m_title, m_url.toString());
         QMessageBox::information(0, tr("Add feed into other application"), message);
         success = true;
         break;

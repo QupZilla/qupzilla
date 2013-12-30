@@ -208,7 +208,7 @@ void SiteInfo::databaseItemChanged(QListWidgetItem* item)
         return;
     }
 
-    const QWebDatabase &db = list.at(id);
+    const QWebDatabase db = list.at(id);
 
     ui->databaseName->setText(QString("%1 (%2)").arg(db.displayName(), db.name()));
     ui->databasePath->setText(db.fileName());

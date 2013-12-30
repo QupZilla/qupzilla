@@ -799,7 +799,7 @@ void QupZilla::loadSettings()
     bool makeTransparent = settings.value("useTransparentBackground", false).toBool();
     m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
     m_webViewWidth = settings.value("WebViewWidth", 2000).toInt();
-    const QString &activeSideBar = settings.value("SideBar", "None").toString();
+    const QString activeSideBar = settings.value("SideBar", "None").toString();
 
     // Make sure both menubar and navigationbar are not hidden
     // Fixes #781
@@ -1033,8 +1033,8 @@ void QupZilla::aboutToShowBookmarksMenu()
     query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksMenu'");
     while (query.next()) {
         QString title = query.value(0).toString();
-        const QUrl &url = query.value(1).toUrl();
-        const QIcon &icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
+        const QUrl url = query.value(1).toUrl();
+        const QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
         if (title.length() > 40) {
             title.truncate(40);
             title += "..";
@@ -1053,8 +1053,8 @@ void QupZilla::aboutToShowBookmarksMenu()
     query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar'");
     while (query.next()) {
         QString title = query.value(0).toString();
-        const QUrl &url = query.value(1).toUrl();
-        const QIcon &icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
+        const QUrl url = query.value(1).toUrl();
+        const QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
         if (title.length() > 40) {
             title.truncate(40);
             title += "..";
@@ -1073,7 +1073,7 @@ void QupZilla::aboutToShowBookmarksMenu()
 
     query.exec("SELECT name FROM folders");
     while (query.next()) {
-        const QString &folderName = query.value(0).toString();
+        const QString folderName = query.value(0).toString();
         Menu* tempFolder = new Menu(folderName, m_menuBookmarks);
         tempFolder->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
 
@@ -1083,8 +1083,8 @@ void QupZilla::aboutToShowBookmarksMenu()
         query2.exec();
         while (query2.next()) {
             QString title = query2.value(0).toString();
-            const QUrl &url = query2.value(1).toUrl();
-            const QIcon &icon = qIconProvider->iconFromImage(QImage::fromData(query2.value(2).toByteArray()));
+            const QUrl url = query2.value(1).toUrl();
+            const QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query2.value(2).toByteArray()));
             if (title.length() > 40) {
                 title.truncate(40);
                 title += "..";
@@ -1107,8 +1107,8 @@ void QupZilla::aboutToShowBookmarksMenu()
     query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='unsorted'");
     while (query.next()) {
         QString title = query.value(0).toString();
-        const QUrl &url = query.value(1).toUrl();
-        const QIcon &icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
+        const QUrl url = query.value(1).toUrl();
+        const QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
         if (title.length() > 40) {
             title.truncate(40);
             title += "..";
@@ -1170,7 +1170,7 @@ void QupZilla::aboutToShowHistoryRecentMenu()
     QSqlQuery query;
     query.exec("SELECT title, url FROM history ORDER BY date DESC LIMIT 15");
     while (query.next()) {
-        const QUrl &url = query.value(1).toUrl();
+        const QUrl url = query.value(1).toUrl();
         QString title = query.value(0).toString();
         if (title.length() > 40) {
             title.truncate(40);
@@ -1290,7 +1290,7 @@ void QupZilla::aboutToShowEncodingMenu()
 
     QList<QByteArray> available = QTextCodec::availableCodecs();
     qSort(available);
-    const QString &activeCodec = mApp->webSettings()->defaultTextEncoding();
+    const QString activeCodec = mApp->webSettings()->defaultTextEncoding();
 
     foreach (const QByteArray &name, available) {
         QTextCodec* codec = QTextCodec::codecForName(name);
@@ -1353,7 +1353,7 @@ void QupZilla::changeEncoding(QObject* obj)
     }
 
     if (QAction* action = qobject_cast<QAction*>(obj)) {
-        const QString &encoding = action->data().toString();
+        const QString encoding = action->data().toString();
         mApp->webSettings()->setDefaultTextEncoding(encoding);
 
         Settings settings;
@@ -1502,7 +1502,7 @@ void QupZilla::loadActionUrlInNewNotSelectedTab(QObject* obj)
 
 void QupZilla::loadFolderBookmarks(Menu* menu)
 {
-    const QString &folder = BookmarksModel::fromTranslatedFolder(menu->title());
+    const QString folder = BookmarksModel::fromTranslatedFolder(menu->title());
     if (folder.isEmpty()) {
         return;
     }
@@ -1816,12 +1816,12 @@ void QupZilla::searchOnPage()
 
 void QupZilla::openFile()
 {
-    const QString &fileTypes = QString("%1(*.html *.htm *.shtml *.shtm *.xhtml);;"
-                                       "%2(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff);;"
-                                       "%3(*.txt);;"
-                                       "%4(*.*)").arg(tr("HTML files"), tr("Image files"), tr("Text files"), tr("All files"));
+    const QString fileTypes = QString("%1(*.html *.htm *.shtml *.shtm *.xhtml);;"
+                                      "%2(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff);;"
+                                      "%3(*.txt);;"
+                                      "%4(*.*)").arg(tr("HTML files"), tr("Image files"), tr("Text files"), tr("All files"));
 
-    const QString &filePath = QzTools::getOpenFileName("MainWindow-openFile", this, tr("Open file..."), QDir::homePath(), fileTypes);
+    const QString filePath = QzTools::getOpenFileName("MainWindow-openFile", this, tr("Open file..."), QDir::homePath(), fileTypes);
 
     if (!filePath.isEmpty()) {
         loadAddress(QUrl::fromLocalFile(filePath));
@@ -2154,7 +2154,7 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
             return;
         }
         if (event->modifiers() & Qt::ControlModifier && m_useSpeedDialNumberShortcuts) {
-            const QUrl &url = mApp->plugins()->speedDial()->urlForShortcut(number - 1);
+            const QUrl url = mApp->plugins()->speedDial()->urlForShortcut(number - 1);
             if (url.isValid()) {
                 loadAddress(url);
                 return;

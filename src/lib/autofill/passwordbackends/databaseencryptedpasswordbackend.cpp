@@ -55,7 +55,7 @@ QVector<PasswordEntry> DatabaseEncryptedPasswordBackend::getEntries(const QUrl &
 
     AesInterface aesDecryptor;
 
-    const QString &host = PasswordManager::createHost(url);
+    const QString host = PasswordManager::createHost(url);
 
     QSqlQuery query;
     query.prepare("SELECT id, username_encrypted, password_encrypted, data_encrypted FROM autofill_encrypted "

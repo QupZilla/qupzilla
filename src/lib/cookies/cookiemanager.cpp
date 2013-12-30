@@ -111,7 +111,7 @@ void CookieManager::removeCookie()
     QList<QNetworkCookie> allCookies = mApp->cookieJar()->getAllCookies();
 
     if (current->text(1).isEmpty()) {     //Remove whole cookie group
-        const QString &domain = current->data(0, Qt::UserRole + 10).toString();
+        const QString domain = current->data(0, Qt::UserRole + 10).toString();
         foreach (const QNetworkCookie &cookie, allCookies) {
             if (cookie.domain() == domain || cookie.domain() == domain.mid(1)) {
                 allCookies.removeOne(cookie);
@@ -121,7 +121,7 @@ void CookieManager::removeCookie()
         ui->cookieTree->deleteItem(current);
     }
     else {
-        const QNetworkCookie &cookie = qvariant_cast<QNetworkCookie>(current->data(0, Qt::UserRole + 10));
+        const QNetworkCookie cookie = qvariant_cast<QNetworkCookie>(current->data(0, Qt::UserRole + 10));
         allCookies.removeOne(cookie);
 
         QTreeWidgetItem* parentItem = current->parent();
@@ -154,7 +154,7 @@ void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem
         return;
     }
 
-    const QNetworkCookie &cookie = qvariant_cast<QNetworkCookie>(current->data(0, Qt::UserRole + 10));
+    const QNetworkCookie cookie = qvariant_cast<QNetworkCookie>(current->data(0, Qt::UserRole + 10));
 
     ui->name->setText(cookie.name());
     ui->value->setText(cookie.value());
@@ -187,7 +187,7 @@ void CookieManager::slotRefreshTable()
     QPointer<CookieManager> guard = this;
     QHash<QString, QTreeWidgetItem*> hash;
     for (int i = 0; i < allCookies.count(); ++i) {
-        const QNetworkCookie &cookie = allCookies.at(i);
+        const QNetworkCookie cookie = allCookies.at(i);
         QTreeWidgetItem* item;
 
         QString cookieDomain = cookie.domain();
@@ -246,7 +246,7 @@ void CookieManager::slotRefreshFilters()
 
 void CookieManager::addWhitelist()
 {
-    const QString &server = QInputDialog::getText(this, tr("Add to whitelist"), tr("Server:"));
+    const QString server = QInputDialog::getText(this, tr("Add to whitelist"), tr("Server:"));
     if (server.isEmpty()) {
         return;
     }
@@ -261,7 +261,7 @@ void CookieManager::removeWhitelist()
 
 void CookieManager::addBlacklist()
 {
-    const QString &server = QInputDialog::getText(this, tr("Add to blacklist"), tr("Server:"));
+    const QString server = QInputDialog::getText(this, tr("Add to blacklist"), tr("Server:"));
     if (server.isEmpty()) {
         return;
     }

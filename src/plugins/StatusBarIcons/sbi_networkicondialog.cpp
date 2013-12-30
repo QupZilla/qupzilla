@@ -52,7 +52,7 @@ SBI_NetworkIconDialog::SBI_NetworkIconDialog(QWidget* parent)
 
 void SBI_NetworkIconDialog::addProxy()
 {
-    const QString &name = QInputDialog::getText(this, tr("Add proxy"), tr("Name of proxy:"));
+    const QString name = QInputDialog::getText(this, tr("Add proxy"), tr("Name of proxy:"));
     if (name.isEmpty() || ui->comboBox->findText(name) > -1) {
         return;
     }

@@ -166,7 +166,7 @@ bool PasswordManager::registerBackend(const QString &id, PasswordBackend* backen
 
 void PasswordManager::unregisterBackend(PasswordBackend* backend)
 {
-    const QString &key = m_backends.key(backend);
+    const QString key = m_backends.key(backend);
     m_backends.remove(key);
 
     if (m_backend == backend) {

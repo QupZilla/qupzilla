@@ -173,7 +173,7 @@ void WebView::load(const QUrl &url)
 
 void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operation operation, const QByteArray &body)
 {
-    const QUrl &reqUrl = request.url();
+    const QUrl reqUrl = request.url();
 
     if (reqUrl.scheme() == QLatin1String("javascript")) {
         // Getting scriptSource from PercentEncoding to properly load bookmarklets
@@ -197,7 +197,7 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
     }
 
     SearchEnginesManager::SearchResult res = mApp->searchEnginesManager()->searchResult(reqUrl.toString());
-    const QUrl &searchUrl = res.request.url();
+    const QUrl searchUrl = res.request.url();
 
     QWebView::load(res.request, res.operation, res.data);
 
@@ -422,7 +422,7 @@ void WebView::checkRss()
 
     m_rssChecked = true;
     QWebFrame* frame = page()->mainFrame();
-    const QWebElementCollection &links = frame->findAllElements("link[type=\"application/rss+xml\"]");
+    const QWebElementCollection links = frame->findAllElements("link[type=\"application/rss+xml\"]");
 
     m_hasRss = links.count() != 0;
     emit rssChanged(m_hasRss);
@@ -446,7 +446,7 @@ void WebView::slotUrlChanged(const QUrl &url)
     }
 
     // Disable touch mocking on pages known not to work properly
-    const QString &host = url.host();
+    const QString host = url.host();
     m_disableTouchMocking = false;
 
     foreach (const QString &site, exceptions) {
@@ -466,14 +466,14 @@ void WebView::openUrlInNewWindow()
 void WebView::sendLinkByMail()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        const QUrl &mailUrl = QUrl::fromEncoded("mailto:%20?body=" + QUrl::toPercentEncoding(action->data().toUrl().toEncoded()));
+        const QUrl mailUrl = QUrl::fromEncoded("mailto:%20?body=" + QUrl::toPercentEncoding(action->data().toUrl().toEncoded()));
         QDesktopServices::openUrl(mailUrl);
     }
 }
 
 void WebView::sendPageByMail()
 {
-    const QUrl &mailUrl = QUrl::fromEncoded("mailto:%20?body=" + QUrl::toPercentEncoding(url().toEncoded()) + "&subject=" + QUrl::toPercentEncoding(title()));
+    const QUrl mailUrl = QUrl::fromEncoded("mailto:%20?body=" + QUrl::toPercentEncoding(url().toEncoded()) + "&subject=" + QUrl::toPercentEncoding(title()));
     QDesktopServices::openUrl(mailUrl);
 }
 
@@ -761,8 +761,8 @@ void WebView::checkForForm(QMenu* menu, const QWebElement &element)
         return;
     }
 
-    const QString &url = parentElement.attribute("action");
-    const QString &method = parentElement.hasAttribute("method") ? parentElement.attribute("method").toUpper() : "GET";
+    const QString url = parentElement.attribute("action");
+    const QString method = parentElement.hasAttribute("method") ? parentElement.attribute("method").toUpper() : "GET";
 
     if (!url.isEmpty() && (method == QLatin1String("GET") || method == QLatin1String("POST"))) {
         menu->addAction(QIcon(":icons/menu/search-icon.png"), tr("Create Search Engine"), this, SLOT(createSearchEngine()));
@@ -945,11 +945,11 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     menu->addSeparator();
 
     if (url().scheme() == QLatin1String("http") || url().scheme() == QLatin1String("https")) {
-        const QUrl &w3url = QUrl::fromEncoded("http://validator.w3.org/check?uri=" + QUrl::toPercentEncoding(url().toEncoded()));
+        const QUrl w3url = QUrl::fromEncoded("http://validator.w3.org/check?uri=" + QUrl::toPercentEncoding(url().toEncoded()));
         menu->addAction(QIcon(":icons/sites/w3.png"), tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(w3url);
 
         QByteArray langCode = mApp->currentLanguage().left(2).toUtf8();
-        const QUrl &gturl = QUrl::fromEncoded("http://translate.google.com/translate?sl=auto&tl=" + langCode + "&u=" + QUrl::toPercentEncoding(url().toEncoded()));
+        const QUrl gturl = QUrl::fromEncoded("http://translate.google.com/translate?sl=auto&tl=" + langCode + "&u=" + QUrl::toPercentEncoding(url().toEncoded()));
         menu->addAction(QIcon(":icons/sites/translate.png"), tr("Translate page"), this, SLOT(openUrlInSelectedTab()))->setData(gturl);
     }
 
@@ -1188,7 +1188,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
     case Qt::LeftButton: {
         QWebFrame* frame = page()->frameAt(event->pos());
         if (frame) {
-            const QUrl &link = frame->hitTestContent(event->pos()).linkUrl();
+            const QUrl link = frame->hitTestContent(event->pos()).linkUrl();
             if (event->modifiers() & Qt::ControlModifier && isUrlValid(link)) {
                 userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
                 event->accept();
@@ -1214,7 +1214,7 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
     case Qt::MiddleButton: {
         QWebFrame* frame = page()->frameAt(event->pos());
         if (frame) {
-            const QUrl &link = frame->hitTestContent(event->pos()).linkUrl();
+            const QUrl link = frame->hitTestContent(event->pos()).linkUrl();
             if (m_clickedUrl == link && isUrlValid(link)) {
                 userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
                 event->accept();
@@ -1255,9 +1255,9 @@ void WebView::keyPressEvent(QKeyEvent* event)
     // Key_Right within RTL layout should trigger QWebPage::MoveToPreviousChar
 
     if (eventKey == Qt::Key_Left || eventKey == Qt::Key_Right) {
-        const QWebElement &elementHasCursor = activeElement();
+        const QWebElement elementHasCursor = activeElement();
         if (!elementHasCursor.isNull()) {
-            const QString &direction = elementHasCursor.styleProperty("direction", QWebElement::ComputedStyle);
+            const QString direction = elementHasCursor.styleProperty("direction", QWebElement::ComputedStyle);
             if (direction == QLatin1String("rtl")) {
                 eventKey = eventKey == Qt::Key_Left ? Qt::Key_Right : Qt::Key_Left;
                 QKeyEvent ev(event->type(), eventKey, event->modifiers(), event->text(), event->isAutoRepeat());

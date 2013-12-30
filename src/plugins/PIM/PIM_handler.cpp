@@ -122,7 +122,7 @@ void PIM_Handler::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitT
     }
 
     for (int i = 0; i < PI_Max; ++i) {
-        const QString &info = m_allInfo[PI_Type(i)];
+        const QString info = m_allInfo[PI_Type(i)];
         if (info.isEmpty()) {
             continue;
         }
@@ -152,11 +152,11 @@ bool PIM_Handler::keyPress(WebView* view, QKeyEvent* event)
         return false;
     }
 
-    const QWebElement &document = view->page()->mainFrame()->documentElement();
+    const QWebElement document = view->page()->mainFrame()->documentElement();
     const QWebElementCollection elements = document.findAll("input[type=\"text\"]");
 
     foreach (QWebElement element, elements) {
-        const QString &name = element.attribute("name");
+        const QString name = element.attribute("name");
         if (name.isEmpty()) {
             continue;
         }
@@ -203,11 +203,11 @@ void PIM_Handler::pageLoadFinished()
         loadSettings();
     }
 
-    const QWebElement &document = page->mainFrame()->documentElement();
+    const QWebElement document = page->mainFrame()->documentElement();
     const QWebElementCollection elements = document.findAll("input[type=\"text\"]");
 
     foreach (QWebElement element, elements) {
-        const QString &name = element.attribute("name");
+        const QString name = element.attribute("name");
         if (name.isEmpty()) {
             continue;
         }

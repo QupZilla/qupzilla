@@ -73,7 +73,7 @@ void BookmarksSideBar::itemControlClicked(QTreeWidgetItem* item)
         return;
     }
 
-    const QUrl &url = QUrl::fromEncoded(item->text(1).toUtf8());
+    const QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
     p_QupZilla->tabWidget()->addView(url, item->text(0));
 }
 
@@ -83,7 +83,7 @@ void BookmarksSideBar::itemDoubleClicked(QTreeWidgetItem* item)
         return;
     }
 
-    const QUrl &url = QUrl::fromEncoded(item->text(1).toUtf8());
+    const QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
     p_QupZilla->loadAddress(url);
 }
 

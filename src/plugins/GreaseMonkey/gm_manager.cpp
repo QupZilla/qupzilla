@@ -81,7 +81,7 @@ QString GM_Manager::requireScripts(const QStringList &urlList) const
 
     foreach (const QString &url, urlList) {
         if (settings.contains(url)) {
-            const QString &fileName = settings.value(url).toString();
+            const QString fileName = settings.value(url).toString();
             script.append(QzTools::readAllFileContents(fileName).trimmed() + '\n');
         }
     }
@@ -201,8 +201,8 @@ void GM_Manager::pageLoadStart()
         return;
     }
 
-    const QString &urlScheme = mainFrame->url().scheme();
-    const QString &urlString = mainFrame->url().toEncoded();
+    const QString urlScheme = mainFrame->url().scheme();
+    const QString urlString = mainFrame->url().toEncoded();
 
     if (!canRunOnScheme(urlScheme)) {
         return;
@@ -224,8 +224,8 @@ void GM_Manager::pageLoadStart()
 
             foreach (GM_Script* script, m_endScripts) {
                 if (script->match(urlString)) {
-                    const QString &jscript = QString("window.addEventListener(\"DOMContentLoaded\","
-                                                     "function(e) { \n%1\n }, false);").arg(m_bootstrap + script->script());
+                    const QString jscript = QString("window.addEventListener(\"DOMContentLoaded\","
+                                                    "function(e) { \n%1\n }, false);").arg(m_bootstrap + script->script());
                     mainFrame->evaluateJavaScript(jscript);
                 }
             }
@@ -250,7 +250,7 @@ void GM_Manager::load()
     m_disabledScripts = settings.value("disabledScripts", QStringList()).toStringList();
 
     foreach (const QString &fileName, gmDir.entryList(QStringList("*.js"), QDir::Files)) {
-        const QString &absolutePath = gmDir.absoluteFilePath(fileName);
+        const QString absolutePath = gmDir.absoluteFilePath(fileName);
         GM_Script* script = new GM_Script(this, absolutePath);
 
         if (!script->isValid()) {

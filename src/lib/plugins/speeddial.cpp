@@ -93,7 +93,7 @@ SpeedDial::Page SpeedDial::pageForUrl(const QUrl &url)
 {
     ENSURE_LOADED;
 
-    const QString &urlString = url.toString();
+    const QString urlString = url.toString();
 
     foreach (const Page &page, m_webPages) {
         if (page.url == urlString) {
@@ -236,7 +236,7 @@ void SpeedDial::changed(const QString &allPages)
         return;
     }
 
-    const QStringList &entries = allPages.split(QLatin1String("\";"), QString::SkipEmptyParts);
+    const QStringList entries = allPages.split(QLatin1String("\";"), QString::SkipEmptyParts);
     m_webPages.clear();
 
     foreach (const QString &entry, entries) {
@@ -244,7 +244,7 @@ void SpeedDial::changed(const QString &allPages)
             continue;
         }
 
-        const QStringList &tmp = entry.split(QLatin1String("\"|"), QString::SkipEmptyParts);
+        const QStringList tmp = entry.split(QLatin1String("\"|"), QString::SkipEmptyParts);
         if (tmp.count() != 2) {
             continue;
         }
@@ -285,8 +285,8 @@ void SpeedDial::removeImageForUrl(const QString &url)
 
 QString SpeedDial::getOpenFileName()
 {
-    const QString &fileTypes = QString("%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff)").arg(tr("Image files"));
-    const QString &image = QzTools::getOpenFileName("SpeedDial-GetOpenFileName", 0, tr("Select image..."), QDir::homePath(), fileTypes);
+    const QString fileTypes = QString("%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff)").arg(tr("Image files"));
+    const QString image = QzTools::getOpenFileName("SpeedDial-GetOpenFileName", 0, tr("Select image..."), QDir::homePath(), fileTypes);
 
     if (image.isEmpty()) {
         return image;
@@ -399,7 +399,7 @@ QString SpeedDial::generateAllPages()
     QString allPages;
 
     foreach (const Page &page, m_webPages) {
-        const QString &string = QString("url:\"%1\"|title:\"%2\";").arg(page.url, page.title);
+        const QString string = QString("url:\"%1\"|title:\"%2\";").arg(page.url, page.title);
         allPages.append(string);
     }
 

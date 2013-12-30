@@ -55,7 +55,7 @@ void GM_Downloader::scriptDownloaded()
     QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
     if (m_reply->error() == QNetworkReply::NoError && response.contains("// ==UserScript==")) {
-        const QString &filePath = m_manager->scriptsDirectory() + QzTools::getFileNameFromUrl(m_reply->url());
+        const QString filePath = m_manager->scriptsDirectory() + QzTools::getFileNameFromUrl(m_reply->url());
         m_fileName = QzTools::ensureUniqueFilename(filePath);
 
         QFile file(m_fileName);
@@ -77,7 +77,7 @@ void GM_Downloader::scriptDownloaded()
         rx.indexIn(response);
 
         for (int i = 1; i <= rx.captureCount(); ++i) {
-            const QString &url = rx.cap(i).trimmed();
+            const QString url = rx.cap(i).trimmed();
             if (!url.isEmpty() && !settings.contains(url)) {
                 m_requireUrls.append(QUrl(url));
             }
@@ -100,8 +100,8 @@ void GM_Downloader::requireDownloaded()
     QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
     if (m_reply->error() == QNetworkReply::NoError && !response.isEmpty()) {
-        const QString &filePath = m_manager->settinsPath() + "/greasemonkey/requires/require.js";
-        const QString &fileName = QzTools::ensureUniqueFilename(filePath, "%1");
+        const QString filePath = m_manager->settinsPath() + "/greasemonkey/requires/require.js";
+        const QString fileName = QzTools::ensureUniqueFilename(filePath, "%1");
 
         QFile file(fileName);
 

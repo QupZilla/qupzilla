@@ -51,7 +51,7 @@ void UserAgentManager::loadSettings()
 
 QString UserAgentManager::userAgentForUrl(const QUrl &url) const
 {
-    const QString &host = url.host();
+    const QString host = url.host();
 
     if (m_usePerDomainUserAgent) {
         QHashIterator<QString, QString> i(m_userAgentsList);

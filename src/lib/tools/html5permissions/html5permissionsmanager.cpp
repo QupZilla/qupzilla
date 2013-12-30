@@ -36,7 +36,7 @@ void HTML5PermissionsManager::requestPermissions(WebPage* page, QWebFrame* frame
         return;
     }
 
-    const QString &host = page->url().host();
+    const QString host = page->url().host();
     WebView* view = qobject_cast<WebView*>(page->view());
 
     switch (feature) {

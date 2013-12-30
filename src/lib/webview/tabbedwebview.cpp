@@ -165,7 +165,7 @@ void TabbedWebView::setIp(const QHostInfo &info)
 
 void TabbedWebView::titleChanged()
 {
-    const QString &t = title();
+    const QString t = title();
 
     if (isCurrent()) {
         p_QupZilla->setWindowTitle(tr("%1 - QupZilla").arg(t));
@@ -255,7 +255,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
 {
     m_menu->clear();
 
-    const QWebHitTestResult &hitTest = page()->mainFrame()->hitTestContent(event->pos());
+    const QWebHitTestResult hitTest = page()->mainFrame()->hitTestContent(event->pos());
 
     createContextMenu(m_menu, hitTest, event->pos());
 
@@ -268,7 +268,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
 
     if (!m_menu->isEmpty()) {
         // Prevent choosing first option with double rightclick
-        const QPoint &pos = event->globalPos();
+        const QPoint pos = event->globalPos();
         QPoint p(pos.x(), pos.y() + 1);
 
         m_menu->popup(p);

@@ -212,7 +212,7 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
         return;
     }
 
-    const QUrl &siteUrl = webPage->url();
+    const QUrl siteUrl = webPage->url();
 
     if (!isStoringEnabled(siteUrl)) {
         return;

@@ -261,7 +261,7 @@ void AKN_Handler::showAccessKeys()
             }
             QChar accessKey;
             for (int i = 0; i < accessKeyAttribute.count(); i += 2) {
-                const QChar &possibleAccessKey = accessKeyAttribute[i];
+                const QChar possibleAccessKey = accessKeyAttribute[i];
                 if (unusedKeys.contains(possibleAccessKey)) {
                     accessKey = possibleAccessKey;
                     break;
@@ -291,7 +291,7 @@ void AKN_Handler::showAccessKeys()
             QChar accessKey;
             QString text = element.toPlainText().toLower();
             for (int i = 0; i < text.count(); ++i) {
-                const QChar &c = text.at(i);
+                const QChar c = text.at(i);
                 if (unusedKeys.contains(c)) {
                     accessKey = c;
                     break;

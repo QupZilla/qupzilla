@@ -196,8 +196,8 @@ QString LocationBar::convertUrlToText(const QUrl &url) const
 
 void LocationBar::urlEnter()
 {
-    const QUrl &url = createUrl();
-    const QString &urlString = convertUrlToText(url);
+    const QUrl url = createUrl();
+    const QString urlString = convertUrlToText(url);
 
     m_completer.closePopup();
     m_webView->setFocus();
@@ -258,7 +258,7 @@ void LocationBar::showUrl(const QUrl &url)
         return;
     }
 
-    const QString &stringUrl = convertUrlToText(url);
+    const QString stringUrl = convertUrlToText(url);
 
     if (stringUrl == text()) {
         return;
@@ -370,7 +370,7 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
 void LocationBar::focusInEvent(QFocusEvent* event)
 {
     if (m_webView) {
-        const QString &stringUrl = convertUrlToText(m_webView->url());
+        const QString stringUrl = convertUrlToText(m_webView->url());
 
         // Text has been edited, let's show go button
         if (stringUrl != text()) {
@@ -456,7 +456,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
 
     case Qt::Key_End:
     case Qt::Key_Right: {
-        const QString &completionText = m_completer.domainCompletion();
+        const QString completionText = m_completer.domainCompletion();
         if (m_inlineCompletionVisible && !completionText.isEmpty()) {
             m_inlineCompletionVisible = false;
 
@@ -623,7 +623,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
     QRect contentsRect = style()->subElementRect(QStyle::SE_LineEditContents, &option, this);
     contentsRect.adjust(lm, tm, -rm, -bm);
 
-    const QFontMetrics &fm = fontMetrics();
+    const QFontMetrics fm = fontMetrics();
     const int x = contentsRect.x() + 4;
     const int y = contentsRect.y() + (contentsRect.height() - fm.height() + 1) / 2;
     const int width = contentsRect.width() - 6;
@@ -639,7 +639,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
 
     if (hasFocus() && m_inlineCompletionVisible) {
         // Draw inline domain completion if available
-        const QString &completionText = m_completer.domainCompletion();
+        const QString completionText = m_completer.domainCompletion();
 
         if (!completionText.isEmpty()) {
             QRect completionRect = textRect;

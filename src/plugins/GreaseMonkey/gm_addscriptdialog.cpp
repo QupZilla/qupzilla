@@ -41,8 +41,8 @@ GM_AddScriptDialog::GM_AddScriptDialog(GM_Manager* manager, GM_Script* script, Q
     QString runsAt;
     QString dontRunsAt;
 
-    const QStringList &include = script->include();
-    const QStringList &exclude = script->exclude();
+    const QStringList include = script->include();
+    const QStringList exclude = script->exclude();
 
     if (!include.isEmpty()) {
         runsAt = tr("<p>runs at<br/><i>%1</i></p>").arg(include.join("<br/>"));
@@ -66,7 +66,7 @@ void GM_AddScriptDialog::showSource()
         return;
     }
 
-    const QString &tmpFileName = QzTools::ensureUniqueFilename(mApp->tempPath() + "/tmp-userscript.js");
+    const QString tmpFileName = QzTools::ensureUniqueFilename(mApp->tempPath() + "/tmp-userscript.js");
 
     if (QFile::copy(m_script->fileName(), tmpFileName)) {
         int index = qz->tabWidget()->addView(QUrl::fromLocalFile(tmpFileName), Qz::NT_SelectedTabAtTheEnd);

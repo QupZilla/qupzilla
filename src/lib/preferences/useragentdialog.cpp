@@ -35,7 +35,7 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
     ui->globalComboBox->setLayoutDirection(Qt::LeftToRight);
     ui->table->setLayoutDirection(Qt::LeftToRight);
 
-    const QString &os = QzTools::operatingSystem();
+    const QString os = QzTools::operatingSystem();
     m_knownUserAgents << QString("Opera/9.80 (%1) Presto/2.12.388 Version/12.14").arg(os)
                       << QString("Mozilla/5.0 (%1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36").arg(os)
                       << QString("Mozilla/5.0 (%1) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0.6 Safari/536.26").arg(os)
@@ -43,7 +43,7 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
 
     ui->globalComboBox->addItems(m_knownUserAgents);
 
-    const QString &globalUserAgent = m_manager->globalUserAgent();
+    const QString globalUserAgent = m_manager->globalUserAgent();
     ui->changeGlobal->setChecked(!globalUserAgent.isEmpty());
     ui->globalComboBox->lineEdit()->setText(globalUserAgent);
     ui->globalComboBox->lineEdit()->setCursorPosition(0);

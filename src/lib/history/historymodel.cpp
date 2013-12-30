@@ -26,7 +26,7 @@
 
 static QString dateTimeToString(const QDateTime &dateTime)
 {
-    const QDateTime &current = QDateTime::currentDateTime();
+    const QDateTime current = QDateTime::currentDateTime();
     if (current.date() == dateTime.date()) {
         return dateTime.time().toString("h:mm");
     }
@@ -379,8 +379,8 @@ void HistoryModel::historyEntryEdited(const HistoryEntry &before, const HistoryE
 
     if (item) {
         HistoryItem* parentItem = item->parent();
-        const QModelIndex &sourceParent = createIndex(parentItem->row(), 0, parentItem);
-        const QModelIndex &destinationParent = createIndex(m_todayItem->row(), 0, m_todayItem);
+        const QModelIndex sourceParent = createIndex(parentItem->row(), 0, parentItem);
+        const QModelIndex destinationParent = createIndex(m_todayItem->row(), 0, m_todayItem);
         int row = item->row();
 
         beginMoveRows(sourceParent, row, row, destinationParent, 0);
@@ -455,9 +455,9 @@ void HistoryModel::init()
         return;
     }
 
-    const QDate &today = QDate::currentDate();
-    const QDate &week = today.addDays(1 - today.dayOfWeek());
-    const QDate &month = QDate(today.year(), today.month(), 1);
+    const QDate today = QDate::currentDate();
+    const QDate week = today.addDays(1 - today.dayOfWeek());
+    const QDate month = QDate(today.year(), today.month(), 1);
     const qint64 currentTimestamp = QDateTime::currentMSecsSinceEpoch();
 
     qint64 timestamp = currentTimestamp;
@@ -553,7 +553,7 @@ void HistoryFilterModel::startFiltering()
 
 bool HistoryFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
-    const QModelIndex &index = sourceModel()->index(sourceRow, 0, sourceParent);
+    const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
 
     if (index.data(HistoryModel::IsTopLevelRole).toBool()) {
         return true;

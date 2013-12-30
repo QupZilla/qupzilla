@@ -57,7 +57,7 @@ bool GM_SettingsListWidget::containsRemoveIcon(const QPoint &pos) const
         return false;
     }
 
-    const QRect &rect = visualItemRect(item);
+    const QRect rect = visualItemRect(item);
     const int removeIconPosition = rect.right() - m_delegate->padding() - 16;
     const int center = rect.height() / 2 + rect.top();
     const int removeIconYPos = center - (16 / 2);

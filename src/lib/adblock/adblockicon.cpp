@@ -47,8 +47,8 @@ void AdBlockIcon::popupBlocked(const QString &ruleString, const QUrl &url)
 {
     int index = ruleString.lastIndexOf(QLatin1String(" ("));
 
-    const QString &subscriptionName = ruleString.left(index);
-    const QString &filter = ruleString.mid(index + 2, ruleString.size() - index - 3);
+    const QString subscriptionName = ruleString.left(index);
+    const QString filter = ruleString.mid(index + 2, ruleString.size() - index - 3);
     AdBlockSubscription* subscription = AdBlockManager::instance()->subscriptionByName(subscriptionName);
     if (filter.isEmpty() || !subscription) {
         return;
@@ -105,15 +105,15 @@ void AdBlockIcon::createMenu(QMenu* menu)
     AdBlockCustomList* customList = manager->customList();
 
     WebPage* page = p_QupZilla->weView()->page();
-    const QUrl &pageUrl = page->url();
+    const QUrl pageUrl = page->url();
 
     menu->addAction(tr("Show AdBlock &Settings"), manager, SLOT(showDialog()));
     menu->addSeparator();
 
     if (!pageUrl.host().isEmpty() && m_enabled && manager->canRunOnScheme(pageUrl.scheme())) {
-        const QString &host = page->url().host().contains(QLatin1String("www.")) ? pageUrl.host().mid(4) : pageUrl.host();
-        const QString &hostFilter = QString("@@||%1^$document").arg(host);
-        const QString &pageFilter = QString("@@|%1|$document").arg(pageUrl.toString());
+        const QString host = page->url().host().contains(QLatin1String("www.")) ? pageUrl.host().mid(4) : pageUrl.host();
+        const QString hostFilter = QString("@@||%1^$document").arg(host);
+        const QString pageFilter = QString("@@|%1|$document").arg(pageUrl.toString());
 
         QAction* act = menu->addAction(tr("Disable on %1").arg(host));
         act->setCheckable(true);
@@ -176,7 +176,7 @@ void AdBlockIcon::toggleCustomFilter()
         return;
     }
 
-    const QString &filter = action->data().toString();
+    const QString filter = action->data().toString();
     AdBlockManager* manager = AdBlockManager::instance();
     AdBlockCustomList* customList = manager->customList();
 

@@ -166,7 +166,7 @@ void Speller::populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
     m_startPos = finder.toPreviousBoundary();
     m_endPos = finder.toNextBoundary();
 
-    const QString &word = text.mid(m_startPos, m_endPos - m_startPos).trimmed();
+    const QString word = text.mid(m_startPos, m_endPos - m_startPos).trimmed();
 
     if (!isValidWord(word) || !isMisspelled(word)) {
         return;
@@ -196,7 +196,7 @@ void Speller::populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
 void Speller::addToDictionary()
 {
     if (QAction* act = qobject_cast<QAction*>(sender())) {
-        const QString &word = act->data().toString();
+        const QString word = act->data().toString();
         putWord(word);
 
         if (!m_userDictionary.open(QFile::WriteOnly | QFile::Append)) {
@@ -265,7 +265,7 @@ void Speller::putWord(const QString &word)
         return;
     }
 
-    const QByteArray &data = m_textCodec->fromUnicode(word);
+    const QByteArray data = m_textCodec->fromUnicode(word);
 
     if (m_hunspell->add(data.constData()) != 0) {
         qWarning() << "SpellCheck: Error while adding" << word << "word!";
@@ -278,7 +278,7 @@ bool Speller::isMisspelled(const QString &string)
         return false;
     }
 
-    const QByteArray &data = m_textCodec->fromUnicode(string);
+    const QByteArray data = m_textCodec->fromUnicode(string);
 
     return m_hunspell->spell(data.constData()) == 0;
 }
@@ -290,7 +290,7 @@ QStringList Speller::suggest(const QString &word)
     }
 
     char** suggestions;
-    const QByteArray &data = m_textCodec->fromUnicode(word);
+    const QByteArray data = m_textCodec->fromUnicode(word);
     int count = m_hunspell->suggest(&suggestions, data.constData());
 
     QStringList suggests;

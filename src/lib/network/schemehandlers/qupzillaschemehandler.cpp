@@ -460,7 +460,7 @@ QString QupZillaSchemeReply::configPage()
         settings->beginGroup(group);
 
         foreach (const QString &key, settings->childKeys()) {
-            const QVariant &keyValue = settings->value(key);
+            const QVariant keyValue = settings->value(key);
             QString keyString;
 
             switch (keyValue.type()) {

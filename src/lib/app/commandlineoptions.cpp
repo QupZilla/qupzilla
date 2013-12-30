@@ -68,7 +68,7 @@ void CommandLineOptions::parseActions()
 {
     using namespace std;
 
-    const QStringList &arguments = QCoreApplication::arguments();
+    const QStringList arguments = QCoreApplication::arguments();
     if (arguments.isEmpty()) {
         return;
     }

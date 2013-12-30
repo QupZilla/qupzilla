@@ -709,9 +709,9 @@ int TabWidget::duplicateTab(int index)
 
     WebTab* webTab = weTab(index);
 
-    const QUrl &url = webTab->url();
-    const QString &title = webTab->title();
-    const QByteArray &history = webTab->historyData();
+    const QUrl url = webTab->url();
+    const QString title = webTab->title();
+    const QByteArray history = webTab->historyData();
 
     QNetworkRequest req(url);
     req.setRawHeader("Referer", url.toEncoded());

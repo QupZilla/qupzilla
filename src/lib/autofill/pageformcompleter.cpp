@@ -43,28 +43,28 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
         return formData;
     }
 
-    const QueryItems &queryItems = createQueryItems(data);
+    const QueryItems queryItems = createQueryItems(data);
 
     if (queryItems.isEmpty()) {
         return formData;
     }
 
-    const QWebElementCollection &allForms = getAllElementsFromPage("form");
+    const QWebElementCollection allForms = getAllElementsFromPage("form");
 
     // Find form that contains password value sent in data
     foreach (const QWebElement &formElement, allForms) {
         bool found = false;
-        const QWebElementCollection &inputs = formElement.findAll("input[type=\"password\"]");
+        const QWebElementCollection inputs = formElement.findAll("input[type=\"password\"]");
 
         foreach (QWebElement inputElement, inputs) {
-            const QString &passName = inputElement.attribute("name");
-            const QString &passValue = inputElement.evaluateJavaScript("this.value").toString();
+            const QString passName = inputElement.attribute("name");
+            const QString passValue = inputElement.evaluateJavaScript("this.value").toString();
 
             if (queryItemsContains(queryItems, passName, passValue)) {
                 // Set passwordValue if not empty (to make it possible extract forms without username field)
                 passwordValue = passValue;
 
-                const QueryItem &item = findUsername(formElement);
+                const QueryItem item = findUsername(formElement);
                 if (queryItemsContains(queryItems, item.first, item.second)) {
                     usernameValue = item.second;
                     found = true;
@@ -93,22 +93,22 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
 bool PageFormCompleter::completePage(const QByteArray &data) const
 {
     bool completed = false;
-    const QueryItems &queryItems = createQueryItems(data);
+    const QueryItems queryItems = createQueryItems(data);
 
     // Input types that are being completed
     QStringList inputTypes;
     inputTypes << "text" << "password" << "email";
 
     // Find all input elements in the page
-    const QWebElementCollection &inputs = getAllElementsFromPage("input");
+    const QWebElementCollection inputs = getAllElementsFromPage("input");
 
     for (int i = 0; i < queryItems.count(); i++) {
-        const QString &key = queryItems.at(i).first;
-        const QString &value = queryItems.at(i).second;
+        const QString key = queryItems.at(i).first;
+        const QString value = queryItems.at(i).second;
 
         for (int i = 0; i < inputs.count(); i++) {
             QWebElement element = inputs.at(i);
-            const QString &typeAttr = element.attribute("type");
+            const QString typeAttr = element.attribute("type");
 
             if (!inputTypes.contains(typeAttr) && !typeAttr.isEmpty()) {
                 continue;
@@ -132,7 +132,7 @@ bool PageFormCompleter::queryItemsContains(const QueryItems &queryItems, const Q
     }
 
     for (int i = 0; i < queryItems.count(); i++) {
-        const QueryItem &item = queryItems.at(i);
+        const QueryItem item = queryItems.at(i);
 
         if (item.first == attributeName) {
             return item.second == attributeValue;
@@ -197,10 +197,10 @@ PageFormCompleter::QueryItem PageFormCompleter::findUsername(const QWebElement &
               << "input:not([type=\"hidden\"][type=\"password\"])";
 
     foreach (const QString &selector, selectors) {
-        const QWebElementCollection &inputs = form.findAll(selector);
+        const QWebElementCollection inputs = form.findAll(selector);
         foreach (QWebElement element, inputs) {
-            const QString &name = element.attribute("name");
-            const QString &value = element.evaluateJavaScript("this.value").toString();
+            const QString name = element.attribute("name");
+            const QString value = element.evaluateJavaScript("this.value").toString();
 
             if (!name.isEmpty() && !value.isEmpty()) {
                 QueryItem item;

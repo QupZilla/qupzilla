@@ -93,8 +93,8 @@ void SiteIcon::mouseMoveEvent(QMouseEvent* e)
         return;
     }
 
-    const QUrl &url = m_locationBar->webView()->url();
-    const QString &title = m_locationBar->webView()->title();
+    const QUrl url = m_locationBar->webView()->url();
+    const QString title = m_locationBar->webView()->title();
 
     if (url.isEmpty() || title.isEmpty()) {
         ToolButton::mouseMoveEvent(e);

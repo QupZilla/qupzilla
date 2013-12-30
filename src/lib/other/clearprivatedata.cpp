@@ -65,14 +65,14 @@ void ClearPrivateData::historyClicked(bool state)
 
 void ClearPrivateData::clearLocalStorage()
 {
-    const QString &profile = mApp->currentProfilePath();
+    const QString profile = mApp->currentProfilePath();
 
     QzTools::removeDir(profile + "LocalStorage");
 }
 
 void ClearPrivateData::clearWebDatabases()
 {
-    const QString &profile = mApp->currentProfilePath();
+    const QString profile = mApp->currentProfilePath();
 
     QWebDatabase::removeAllDatabases();
     QzTools::removeDir(profile + "Databases");
@@ -118,9 +118,9 @@ void ClearPrivateData::dialogAccepted()
         qint64 start = QDateTime::currentMSecsSinceEpoch();
         qint64 end = 0;
 
-        const QDate &today = QDate::currentDate();
-        const QDate &week = today.addDays(1 - today.dayOfWeek());
-        const QDate &month = QDate(today.year(), today.month(), 1);
+        const QDate today = QDate::currentDate();
+        const QDate week = today.addDays(1 - today.dayOfWeek());
+        const QDate month = QDate(today.year(), today.month(), 1);
 
         switch (ui->historyLength->currentIndex()) {
         case 0: //Later Today

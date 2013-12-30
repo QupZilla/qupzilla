@@ -147,7 +147,7 @@ void WebPage::scheduleAdjustPage()
         m_adjustingScheduled = true;
     }
     else {
-        const QSize &originalSize = webView->size();
+        const QSize originalSize = webView->size();
         QSize newSize(originalSize.width() - 1, originalSize.height() - 1);
 
         webView->resize(newSize);
@@ -243,7 +243,7 @@ void WebPage::finished()
                 connect(m_fileWatcher, SIGNAL(delayedFileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
             }
 
-            const QString &filePath = url().toLocalFile();
+            const QString filePath = url().toLocalFile();
 
             if (QFile::exists(filePath) && !m_fileWatcher->files().contains(filePath)) {
                 m_fileWatcher->addPath(filePath);
@@ -294,16 +294,16 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
         return;
     }
 
-    const QUrl &url = reply->url();
+    const QUrl url = reply->url();
 
     switch (reply->error()) {
     case QNetworkReply::NoError:
         if (reply->header(QNetworkRequest::ContentTypeHeader).isValid()) {
             QString requestUrl = reply->request().url().toString(QUrl::RemoveFragment | QUrl::RemoveQuery);
             if (requestUrl.endsWith(QLatin1String(".swf"))) {
-                const QWebElement &docElement = mainFrame()->documentElement();
-                const QWebElement &object = docElement.findFirst(QString("object[src=\"%1\"]").arg(requestUrl));
-                const QWebElement &embed = docElement.findFirst(QString("embed[src=\"%1\"]").arg(requestUrl));
+                const QWebElement docElement = mainFrame()->documentElement();
+                const QWebElement object = docElement.findFirst(QString("object[src=\"%1\"]").arg(requestUrl));
+                const QWebElement embed = docElement.findFirst(QString("embed[src=\"%1\"]").arg(requestUrl));
 
                 if (!object.isNull() || !embed.isNull()) {
                     qDebug() << "WebPage::UnsupportedContent" << url << "Attempt to download flash object on site!";
@@ -338,7 +338,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
 
 void WebPage::handleUnknownProtocol(const QUrl &url)
 {
-    const QString &protocol = url.scheme();
+    const QString protocol = url.scheme();
 
     if (protocol == QLatin1String("mailto")) {
         desktopServicesOpen(url);
@@ -357,10 +357,10 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
 
     CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, view());
 
-    const QString &wrappedUrl = QzTools::alignTextToWidth(url.toString(), "<br/>", dialog.fontMetrics(), 450);
-    const QString &text = tr("QupZilla cannot handle <b>%1:</b> links. The requested link "
-                             "is <ul><li>%2</li></ul>Do you want QupZilla to try "
-                             "open this link in system application?").arg(protocol, wrappedUrl);
+    const QString wrappedUrl = QzTools::alignTextToWidth(url.toString(), "<br/>", dialog.fontMetrics(), 450);
+    const QString text = tr("QupZilla cannot handle <b>%1:</b> links. The requested link "
+                            "is <ul><li>%2</li></ul>Do you want QupZilla to try "
+                            "open this link in system application?").arg(protocol, wrappedUrl);
 
     dialog.setText(text);
     dialog.setCheckBoxText(tr("Remember my choice for this protocol"));
@@ -427,7 +427,7 @@ void WebPage::dbQuotaExceeded(QWebFrame* frame)
         return;
     }
 
-    const QWebSecurityOrigin &origin = frame->securityOrigin();
+    const QWebSecurityOrigin origin = frame->securityOrigin();
     const qint64 oldQuota = origin.databaseQuota();
 
     frame->securityOrigin().setDatabaseQuota(oldQuota * 2);
@@ -609,10 +609,10 @@ void WebPage::cleanBlockedObjects()
         return;
     }
 
-    const QWebElement &docElement = mainFrame()->documentElement();
+    const QWebElement docElement = mainFrame()->documentElement();
 
     foreach (const AdBlockedEntry &entry, m_adBlockedEntries) {
-        const QString &urlString = entry.url.toString();
+        const QString urlString = entry.url.toString();
         if (urlString.endsWith(QLatin1String(".js")) || urlString.endsWith(QLatin1String(".css"))) {
             continue;
         }
@@ -823,7 +823,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         return false;    // Downloads
     }
 
-    const QUrl &loadedUrl = exOption->url;
+    const QUrl loadedUrl = exOption->url;
     exReturn->baseUrl = loadedUrl;
 
     QFile file(":/html/errorPage.html");
@@ -998,7 +998,7 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
         suggFileName = oldFile;
     }
 
-    const QString &fileName = QzTools::getOpenFileName("WebPage-ChooseFile", originatingFrame->page()->view(), tr("Choose file..."), suggFileName);
+    const QString fileName = QzTools::getOpenFileName("WebPage-ChooseFile", originatingFrame->page()->view(), tr("Choose file..."), suggFileName);
 
     if (!fileName.isEmpty()) {
         s_lastUploadLocation = fileName;
@@ -1006,7 +1006,7 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
         // Check if we can read from file
         QFile file(fileName);
         if (!file.open(QFile::ReadOnly)) {
-            const QString &msg = tr("Cannot read data from <b>%1</b>. Upload was cancelled!").arg(fileName);
+            const QString msg = tr("Cannot read data from <b>%1</b>. Upload was cancelled!").arg(fileName);
             QMessageBox::critical(view(), tr("Cannot read file!"), msg);
             return QString();
         }

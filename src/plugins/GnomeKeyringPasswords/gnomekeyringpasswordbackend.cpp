@@ -89,7 +89,7 @@ QVector<PasswordEntry> GnomeKeyringPasswordBackend::getEntries(const QUrl &url)
 {
     initialize();
 
-    const QString &host = PasswordManager::createHost(url);
+    const QString host = PasswordManager::createHost(url);
 
     QVector<PasswordEntry> list;
 

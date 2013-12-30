@@ -193,7 +193,7 @@ void GM_Script::parseScript()
 
     QStringList requireList;
 
-    const QStringList &lines = metadataBlock.split(QLatin1Char('\n'), QString::SkipEmptyParts);
+    const QStringList lines = metadataBlock.split(QLatin1Char('\n'), QString::SkipEmptyParts);
     foreach (QString line, lines) {
         if (!line.startsWith(QLatin1String("// @"))) {
             continue;
@@ -206,8 +206,8 @@ void GM_Script::parseScript()
             continue;
         }
 
-        const QString &key = line.left(index).trimmed();
-        const QString &value = line.mid(index + 1).trimmed();
+        const QString key = line.left(index).trimmed();
+        const QString value = line.mid(index + 1).trimmed();
 
         // Ignored values:
         //  @resource

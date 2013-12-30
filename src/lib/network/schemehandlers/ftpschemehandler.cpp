@@ -243,7 +243,7 @@ QString FtpSchemeReply::loadDirectory()
     }
 
     QString base_path = u.path();
-    const QDir &dir = QDir(base_path);
+    const QDir dir = QDir(base_path);
 
     QUrl parent = u.resolved(QUrl(".."));
 

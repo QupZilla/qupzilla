@@ -93,7 +93,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         painter->drawPixmap(starRect, starPixmap);
     }
 
-    const QString &searchText = index.data(LocationCompleterModel::SearchStringRole).toString();
+    const QString searchText = index.data(LocationCompleterModel::SearchStringRole).toString();
 
     // Draw title
     const int leftTitleEdge = leftPosition + 2;
@@ -108,7 +108,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw link
     const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading() + 2;
     QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
-    const QByteArray &linkArray = index.data(Qt::DisplayRole).toByteArray();
+    const QByteArray linkArray = index.data(Qt::DisplayRole).toByteArray();
     // Let's assume that more than 500 characters won't fit in line on any display...
     // Fixes performance when trying to get elidedText for a really long
     // (length() > 1000000) urls - data: urls can get that long
@@ -209,8 +209,8 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, const
         int start = delimiters.takeFirst();
         int end = delimiters.takeFirst();
 
-        const QString &normalPart = text.mid(lastEndPos, start - lastEndPos);
-        const QString &boldPart = text.mid(start, end - start);
+        const QString normalPart = text.mid(lastEndPos, start - lastEndPos);
+        const QString boldPart = text.mid(start, end - start);
 
         lastEndPos = end;
 
@@ -251,7 +251,7 @@ void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, const
         }
 
         if (delimiters.isEmpty() && lastEndPos != text.size()) {
-            const QString &lastText = text.mid(lastEndPos);
+            const QString lastText = text.mid(lastEndPos);
 
             int width = normalMetrics.width(lastText);
             QRect nRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));

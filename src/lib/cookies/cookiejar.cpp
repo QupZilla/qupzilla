@@ -65,7 +65,7 @@ bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie
 {
     Q_UNUSED(domain)
 
-    const QString &cookieDomain = cookie.domain();
+    const QString cookieDomain = cookie.domain();
 
     if (!m_allowCookies) {
         bool result = listMatchesDomain(m_whitelist, cookieDomain);
@@ -146,7 +146,7 @@ void CookieJar::saveCookies()
         int count = cookies.count();
 
         for (int i = 0; i < count; i++) {
-            const QNetworkCookie &cookie = cookies.at(i);
+            const QNetworkCookie cookie = cookies.at(i);
 
             if (listMatchesDomain(m_whitelist, cookie.domain())) {
                 allCookies.append(cookie);
@@ -161,7 +161,7 @@ void CookieJar::saveCookies()
 
     stream << count;
     for (int i = 0; i < count; i++) {
-        const QNetworkCookie &cookie = allCookies.at(i);
+        const QNetworkCookie cookie = allCookies.at(i);
 
         if (cookie.isSessionCookie()) {
             continue;
@@ -195,7 +195,7 @@ void CookieJar::restoreCookies()
             continue;
         }
 
-        const QNetworkCookie &cookie = cookieList.at(0);
+        const QNetworkCookie cookie = cookieList.at(0);
 
         if (cookie.expirationDate() < now) {
             continue;

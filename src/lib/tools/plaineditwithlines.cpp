@@ -153,7 +153,7 @@ void PlainEditWithLines::highlightCurrentLine()
         return;
     }
 
-    const QColor &lineColor = palette().color(QPalette::Highlight).lighter();
+    const QColor lineColor = palette().color(QPalette::Highlight).lighter();
     QList<QTextEdit::ExtraSelection> selectionsList;
     QTextEdit::ExtraSelection selection;
 
@@ -168,7 +168,7 @@ void PlainEditWithLines::highlightCurrentLine()
 
 void PlainEditWithLines::lineNumberAreaPaintEvent(QPaintEvent* event)
 {
-    const QRect &eventRect = event->rect();
+    const QRect eventRect = event->rect();
 
     QPainter painter(m_lineNumberArea);
     painter.fillRect(eventRect, QColor(235, 235, 235));

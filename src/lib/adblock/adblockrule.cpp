@@ -62,8 +62,8 @@
 static QString toSecondLevelDomain(const QUrl &url)
 {
 #if QT_VERSION >= 0x040800
-    const QString &topLevelDomain = url.topLevelDomain();
-    const QString &urlHost = url.host();
+    const QString topLevelDomain = url.topLevelDomain();
+    const QString urlHost = url.host();
 
     if (topLevelDomain.isEmpty() || urlHost.isEmpty()) {
         return QString();
@@ -189,8 +189,8 @@ bool AdBlockRule::urlMatch(const QUrl &url) const
         return false;
     }
 
-    const QString &encodedUrl = url.toEncoded();
-    const QString &domain = url.host();
+    const QString encodedUrl = url.toEncoded();
+    const QString domain = url.host();
 
     return networkMatch(QNetworkRequest(url), domain, encodedUrl);
 }
@@ -299,15 +299,15 @@ bool AdBlockRule::matchDomain(const QString &domain) const
 
 bool AdBlockRule::matchThirdParty(const QNetworkRequest &request) const
 {
-    const QString &referer = request.attribute(QNetworkRequest::Attribute(QNetworkRequest::User + 151), QString()).toString();
+    const QString referer = request.attribute(QNetworkRequest::Attribute(QNetworkRequest::User + 151), QString()).toString();
 
     if (referer.isEmpty()) {
         return false;
     }
 
     // Third-party matching should be performed on second-level domains
-    const QString &refererHost = toSecondLevelDomain(QUrl(referer));
-    const QString &host = toSecondLevelDomain(request.url());
+    const QString refererHost = toSecondLevelDomain(QUrl(referer));
+    const QString host = toSecondLevelDomain(request.url());
 
     bool match = refererHost != host;
 
@@ -573,7 +573,7 @@ QStringList AdBlockRule::parseRegExpFilter(const QString &parsedFilter) const
     list.removeDuplicates();
 
     for (int i = 0; i < list.length(); ++i) {
-        const QString &part = list.at(i);
+        const QString part = list.at(i);
 
         if (part.length() < 2) {
             list.removeAt(i);

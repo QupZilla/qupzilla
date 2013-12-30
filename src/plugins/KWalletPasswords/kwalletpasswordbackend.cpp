@@ -52,7 +52,7 @@ QVector<PasswordEntry> KWalletPasswordBackend::getEntries(const QUrl &url)
 {
     initialize();
 
-    const QString &host = PasswordManager::createHost(url);
+    const QString host = PasswordManager::createHost(url);
 
     QVector<PasswordEntry> list;
 

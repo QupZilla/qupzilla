@@ -66,7 +66,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
 
         while (query.next()) {
             QStandardItem* item = new QStandardItem();
-            const QUrl &url = query.value(1).toUrl();
+            const QUrl url = query.value(1).toUrl();
 
             item->setIcon(qIconProvider->iconFromImage(QImage::fromData(query.value(4).toByteArray())));
             item->setText(url.toEncoded());
@@ -92,7 +92,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
 
         while (query.next()) {
             QStandardItem* item = new QStandardItem();
-            const QUrl &url = query.value(1).toUrl();
+            const QUrl url = query.value(1).toUrl();
 
             item->setIcon(_iconForUrl(url));
             item->setText(url.toEncoded());
@@ -124,7 +124,7 @@ void LocationCompleterModel::showMostVisited()
 
     while (query.next()) {
         QStandardItem* item = new QStandardItem();
-        const QUrl &url = query.value(1).toUrl();
+        const QUrl url = query.value(1).toUrl();
 
         item->setIcon(_iconForUrl(url));
         item->setText(url.toEncoded());

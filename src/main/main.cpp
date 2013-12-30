@@ -82,7 +82,7 @@ void qupzilla_signal_handler(int s)
             dir.cd("crashlog");
         }
 
-        const QDateTime &currentDateTime = QDateTime::currentDateTime();
+        const QDateTime currentDateTime = QDateTime::currentDateTime();
 
         QFile file(dir.absoluteFilePath("Crash-" + currentDateTime.toString(Qt::ISODate) + ".txt"));
         if (!file.open(QFile::WriteOnly | QFile::Truncate)) {

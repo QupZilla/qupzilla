@@ -57,7 +57,7 @@ void SBI_NetworkManager::loadSettings()
         m_proxies[group] = proxy;
     }
 
-    const QString &currentName = settings.value("CurrentProxy", QString()).toString();
+    const QString currentName = settings.value("CurrentProxy", QString()).toString();
     m_currentProxy = m_proxies.contains(currentName) ? m_proxies.value(currentName) : 0;
 
     applyCurrentProxy();

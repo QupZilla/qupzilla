@@ -98,10 +98,10 @@ void PageScreen::formatChanged()
 
 void PageScreen::changeLocation()
 {
-    const QString &name = QzTools::filterCharsFromFilename(m_pageTitle).replace(QLatin1Char(' '), QLatin1Char('_'));
-    const QString &suggestedPath = QString("%1/%2.%3").arg(QDir::homePath(), name, m_formats[ui->formats->currentIndex()].toLower());
+    const QString name = QzTools::filterCharsFromFilename(m_pageTitle).replace(QLatin1Char(' '), QLatin1Char('_'));
+    const QString suggestedPath = QString("%1/%2.%3").arg(QDir::homePath(), name, m_formats[ui->formats->currentIndex()].toLower());
 
-    const QString &path = QzTools::getOpenFileName("PageScreen-Location", this, tr("Choose location..."), suggestedPath);
+    const QString path = QzTools::getOpenFileName("PageScreen-Location", this, tr("Choose location..."), suggestedPath);
 
     if (!path.isEmpty()) {
         ui->location->setText(path);
@@ -112,7 +112,7 @@ void PageScreen::dialogAccepted()
 {
     if (!ui->location->text().isEmpty()) {
         if (QFile::exists(ui->location->text())) {
-            const QString &text = tr("File '%1' already exists. Do you want to overwrite it?").arg(ui->location->text());
+            const QString text = tr("File '%1' already exists. Do you want to overwrite it?").arg(ui->location->text());
             QMessageBox::StandardButton button = QMessageBox::warning(this, tr("File already exists"), text,
                                                  QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
 
@@ -123,7 +123,7 @@ void PageScreen::dialogAccepted()
 
         QApplication::setOverrideCursor(Qt::WaitCursor);
 
-        const QString &format = m_formats[ui->formats->currentIndex()];
+        const QString format = m_formats[ui->formats->currentIndex()];
         if (format == QLatin1String("PDF")) {
             saveAsDocument(format);
         }
@@ -139,7 +139,7 @@ void PageScreen::dialogAccepted()
 
 void PageScreen::saveAsImage(const QString &format)
 {
-    const QString &suffix = QLatin1Char('.') + format.toLower();
+    const QString suffix = QLatin1Char('.') + format.toLower();
 
     QString pathWithoutSuffix = ui->location->text();
     if (pathWithoutSuffix.endsWith(suffix, Qt::CaseInsensitive)) {
@@ -152,7 +152,7 @@ void PageScreen::saveAsImage(const QString &format)
     else {
         int part = 1;
         foreach (const QImage &image, m_pageImages) {
-            const QString &fileName = pathWithoutSuffix + ".part" + QString::number(part);
+            const QString fileName = pathWithoutSuffix + ".part" + QString::number(part);
             image.save(fileName + suffix, format.toUtf8());
             part++;
         }
@@ -161,7 +161,7 @@ void PageScreen::saveAsImage(const QString &format)
 
 void PageScreen::saveAsDocument(const QString &format)
 {
-    const QString &suffix = QLatin1Char('.') + format.toLower();
+    const QString suffix = QLatin1Char('.') + format.toLower();
 
     QString pathWithoutSuffix = ui->location->text();
     if (pathWithoutSuffix.endsWith(suffix, Qt::CaseInsensitive)) {
@@ -180,7 +180,7 @@ void PageScreen::saveAsDocument(const QString &format)
     painter.begin(&printer);
 
     for (int i = 0; i < m_pageImages.size(); ++i) {
-        const QImage &image = m_pageImages.at(i);
+        const QImage image = m_pageImages.at(i);
         painter.drawImage(0, 0, image);
 
         if (i != m_pageImages.size() - 1) {
@@ -197,8 +197,8 @@ void PageScreen::createThumbnail()
 
     const int heightLimit = 20000;
     const QPoint originalScrollPosition = page->mainFrame()->scrollPosition();
-    const QSize &originalSize = page->viewportSize();
-    const QSize &frameSize = page->mainFrame()->contentsSize();
+    const QSize originalSize = page->viewportSize();
+    const QSize frameSize = page->mainFrame()->contentsSize();
     const int verticalScrollbarSize = page->mainFrame()->scrollBarGeometry(Qt::Vertical).width();
     const int horizontalScrollbarSize = page->mainFrame()->scrollBarGeometry(Qt::Horizontal).height();
 
