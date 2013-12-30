@@ -45,6 +45,10 @@ BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
 
     ui->browserList->setCurrentRow(0);
 
+#ifndef Q_OS_WIN
+    ui->browserList->setItemHidden(ui->browserList->item(IE), true);
+#endif
+
     connect(ui->nextButton, SIGNAL(clicked()), this, SLOT(nextPage()));
     connect(ui->chooseFile, SIGNAL(clicked()), this, SLOT(setFile()));
     connect(ui->cancelButton, SIGNAL(clicked()), this, SLOT(close()));

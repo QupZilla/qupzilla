@@ -71,20 +71,20 @@
          </item>
          <item>
           <property name="text">
-           <string>From File</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../data/icons.qrc">
-            <normaloff>:/icons/browsers/html.png</normaloff>:/icons/browsers/html.png</iconset>
-          </property>
-         </item>
-         <item>
-          <property name="text">
            <string>Internet Explorer</string>
           </property>
           <property name="icon">
            <iconset resource="../data/icons.qrc">
             <normaloff>:/icons/browsers/internet-explorer.png</normaloff>:/icons/browsers/internet-explorer.png</iconset>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>From File</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../data/icons.qrc">
+            <normaloff>:/icons/browsers/html.png</normaloff>:/icons/browsers/html.png</iconset>
           </property>
          </item>
         </widget>
