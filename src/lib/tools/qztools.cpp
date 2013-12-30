@@ -543,13 +543,32 @@ QString QzTools::getExistingDirectory(const QString &name, QWidget* parent, cons
     return path;
 }
 
+static QString getFilename(const QString &path)
+{
+    QFileInfo info(path);
+
+    if (info.isFile()) {
+        return info.fileName();
+    }
+
+    if (info.isDir()) {
+        return QString();
+    }
+
+    if (info.dir().exists()) {
+        return info.fileName();
+    }
+
+    return QString();
+}
+
 QString QzTools::getOpenFileName(const QString &name, QWidget* parent, const QString &caption, const QString &dir, const QString &filter, QString* selectedFilter, QFileDialog::Options options)
 {
     Settings settings;
     settings.beginGroup("FileDialogPaths");
 
     QString lastDir = settings.value(name, QString()).toString();
-    QString fileName = QFileInfo(dir).isFile() ? QFileInfo(dir).fileName() : QString();
+    QString fileName = getFilename(dir);
 
     if (lastDir.isEmpty()) {
         lastDir = dir;
@@ -574,7 +593,7 @@ QStringList QzTools::getOpenFileNames(const QString &name, QWidget* parent, cons
     settings.beginGroup("FileDialogPaths");
 
     QString lastDir = settings.value(name, QString()).toString();
-    QString fileName = QFileInfo(dir).isFile() ? QFileInfo(dir).fileName() : QString();
+    QString fileName = getFilename(dir);
 
     if (lastDir.isEmpty()) {
         lastDir = dir;
@@ -599,7 +618,7 @@ QString QzTools::getSaveFileName(const QString &name, QWidget* parent, const QSt
     settings.beginGroup("FileDialogPaths");
 
     QString lastDir = settings.value(name, QString()).toString();
-    QString fileName = QFileInfo(dir).isFile() ? QFileInfo(dir).fileName() : QString();
+    QString fileName = getFilename(dir);
 
     if (lastDir.isEmpty()) {
         lastDir = dir;
