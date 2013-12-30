@@ -176,8 +176,6 @@ void WebSearchBar::setupEngines()
 
 void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item)
 {
-    selectAll();
-    setFocus();
     setPlaceholderText(item.text);
     m_completerModel->setStringList(QStringList());
 
