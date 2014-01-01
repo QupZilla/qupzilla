@@ -493,7 +493,6 @@ void SearchEnginesManager::saveSettings()
 
     QSqlQuery query;
     query.exec("DELETE FROM search_engines");
-    query.exec("ALTER TABLE search_engines ADD COLUMN postData TEXT"); // FIXME: Delete on release!
 
     foreach (const Engine &en, m_allEngines) {
         query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, suggestionsUrl, suggestionsParameters, postData) VALUES (?, ?, ?, ?, ?, ?, ?)");

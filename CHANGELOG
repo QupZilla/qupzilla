@@ -1,5 +1,5 @@
-Version 1.5.0
-    * development version
+Version 1.6.0
+    * released 1 January 2014
     * added support for Proxy Auto-Config (PAC)
     * added option to open another private window from private window
     * added option to detach tabs from window

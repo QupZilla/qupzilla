@@ -81,7 +81,7 @@ void GM_Plugin::unload()
 
 bool GM_Plugin::testPlugin()
 {
-    return (QupZilla::VERSION == QLatin1String("1.5.0"));
+    return (QupZilla::VERSION == QLatin1String("1.6.0"));
 }
 
 QTranslator* GM_Plugin::getTranslator(const QString &locale)
