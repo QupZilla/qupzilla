@@ -75,5 +75,7 @@
         <file>icons/browsers/internet-explorer.png</file>
         <file>icons/sites/startpage.png</file>
         <file>icons/sites/w3.png</file>
+        <file>icons/faenza/expand.png</file>
+        <file>icons/faenza/collapse.png</file>
     </qresource>
 </RCC>

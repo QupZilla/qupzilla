@@ -46,12 +46,17 @@ BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent)
     ui->bookmarksTree->setDragDropReceiver(true, m_bookmarksModel);
     ui->bookmarksTree->setMimeType(QLatin1String("application/qupzilla.treewidgetitem.bookmarks"));
 
+    ui->expandAll->setIcon(QIcon::fromTheme("view-sort-ascending", QIcon(":/icons/faenza/expand.png")));
+    ui->collapseAll->setIcon(QIcon::fromTheme("view-sort-descending", QIcon(":/icons/faenza/collapse.png")));
+
     ui->bookmarksTree->setDefaultItemShowMode(TreeWidget::ItemsExpanded);
     connect(ui->bookmarksTree, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
     connect(ui->bookmarksTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
     connect(ui->bookmarksTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
     connect(ui->bookmarksTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
     connect(ui->search, SIGNAL(textChanged(QString)), ui->bookmarksTree, SLOT(filterString(QString)));
+    connect(ui->collapseAll, SIGNAL(clicked()), ui->bookmarksTree, SLOT(collapseAll()));
+    connect(ui->expandAll, SIGNAL(clicked()), ui->bookmarksTree, SLOT(expandAll()));
 
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
