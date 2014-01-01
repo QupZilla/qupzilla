@@ -764,7 +764,9 @@ void ComboTabBar::setMinimumWidths()
 
 void ComboTabBar::showEvent(QShowEvent* event)
 {
-    QTimer::singleShot(0, this, SLOT(setUpLayout()));
+    if (!event->spontaneous()) {
+        QTimer::singleShot(0, this, SLOT(setUpLayout()));
+    }
 
     QWidget::showEvent(event);
 }
