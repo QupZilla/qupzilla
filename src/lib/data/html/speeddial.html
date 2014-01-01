@@ -26,7 +26,7 @@ span.reload {width: 16px;height: 16px;position: absolute;%LEFT_STR%: 92%;top: 0p
 span.reload:hover {border-color: grey; border-radius: 4px;}
 
 #overlay-edit {width: 380px;max-height: 265px;border-width: 20px;margin-%LEFT_STR%:auto;margin-%RIGHT_STR%: auto;margin-top: 100px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;}
-#overlay-edit img {display: block;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;}
+#overlay-edit img {display: block;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;width:231px;}
 #overlay-edit .buttonbox input {margin-%RIGHT_STR%:0px;margin-%LEFT_STR%:3px;}
 
 .formTable {width: 350px;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;margin-top: 15px;}
@@ -436,7 +436,7 @@ $("#quickdial").sortable({
     </div>
     <div class="rowsel">
       <span id="sliderValueSd">%SD-SIZE%</span>
-      <input id="SdSize" type="range" min="145" max="450" value="%SD-SIZE%" step="1" onchange="$('#sliderValueSd').html(this.value);" />
+      <input id="SdSize" type="range" min="145" max="500" value="%SD-SIZE%" step="1" onchange="$('#sliderValueSd').html(this.value);" />
     </div>
     <div class="togop">
       <input type="checkbox" name="sdbackimg" id="BgImgToggle" onchange="bgImgToggle();bgImgUpdate()" />&nbsp;<label for="BgImgToggle">%TXT_NOTE%</label>

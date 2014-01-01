@@ -46,7 +46,7 @@ QObject* CleanPluginFactory::create(const QString &mimeType, const QUrl &url, co
 PageThumbnailer::PageThumbnailer(QObject* parent)
     : QObject(parent)
     , m_page(new QWebPage(this))
-    , m_size(QSize(231, 130))
+    , m_size(QSize(450, 253))
     , m_loadTitle(false)
 {
     NetworkManagerProxy* networkProxy = new NetworkManagerProxy(this);
