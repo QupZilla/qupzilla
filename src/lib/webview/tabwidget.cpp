@@ -154,16 +154,20 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
 
-    // copy of buttons
+    // Copy of buttons
     m_buttonListTabs2 = new ToolButton(m_tabBar);
     m_buttonListTabs2->setObjectName("tabwidget-button-opentabs");
+    m_buttonListTabs2->setProperty("outside-tabbar", true);
     m_buttonListTabs2->setMenu(m_menuTabs);
     m_buttonListTabs2->setPopupMode(QToolButton::InstantPopup);
     m_buttonListTabs2->setToolTip(tr("List of tabs"));
     m_buttonListTabs2->setAutoRaise(true);
     m_buttonListTabs2->setFocusPolicy(Qt::NoFocus);
+
     m_buttonAddTab2 = new AddTabButton(this, m_tabBar);
+    m_buttonAddTab2->setProperty("outside-tabbar", true);
     connect(m_buttonAddTab2, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
+
     m_tabBar->addMainBarWidget(m_buttonAddTab2, Qt::AlignRight);
     m_tabBar->addMainBarWidget(m_buttonListTabs2, Qt::AlignRight);
     m_buttonAddTab2->hide();

@@ -141,6 +141,11 @@
     qproperty-multiIcon: url(images/tabbar-addtab.png);
 }
 
+#tabwidget-button-addtab[outside-tabbar="true"]
+{
+    qproperty-icon: url(images/tabbar-addtab-outside.png);
+}
+
 /*IconProvider*/
 IconProvider
 {
