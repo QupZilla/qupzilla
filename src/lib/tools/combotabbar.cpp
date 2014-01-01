@@ -105,12 +105,11 @@ int ComboTabBar::insertTab(int index, const QIcon &icon, const QString &text, bo
         index = m_pinnedTabBar->insertTab(index, icon, text);
     }
     else {
-        index -= pinnedTabsCount();
-        index = m_mainTabBar->insertTab(index, icon, text);
+        index = m_mainTabBar->insertTab(index - pinnedTabsCount(), icon, text);
 
         if (tabsClosable()) {
             QWidget* closeButton = m_mainTabBar->tabButton(index, closeButtonPosition());
-            if ((closeButton && closeButton->objectName() != "combotabbar_tabs_close_button") ||
+            if ((closeButton && closeButton->objectName() != QLatin1String("combotabbar_tabs_close_button")) ||
                     !closeButton) {
                 // insert our close button
                 insertCloseButton(index + pinnedTabsCount());
@@ -364,7 +363,7 @@ void ComboTabBar::setTabsClosable(bool closable)
         for (int i = 0; i < m_mainTabBar->count(); ++i) {
             QWidget* closeButton = m_mainTabBar->tabButton(i, closeButtonPosition());
             if (closeButton) {
-                if (closeButton->objectName() == "combotabbar_tabs_close_button") {
+                if (closeButton->objectName() == QLatin1String("combotabbar_tabs_close_button")) {
                     continue;
                 }
             }
@@ -684,10 +683,6 @@ void ComboTabBar::tabInserted(int index)
 void ComboTabBar::tabRemoved(int index)
 {
     Q_UNUSED(index)
-}
-
-void ComboTabBar::tabLayoutChange()
-{
 }
 
 TabBarHelper* ComboTabBar::localTabBar(int index) const

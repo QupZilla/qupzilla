@@ -154,7 +154,6 @@ protected:
     virtual QSize tabSizeHint(int index, bool fast = false) const;
     virtual void tabInserted(int index);
     virtual void tabRemoved(int index);
-    virtual void tabLayoutChange();
 
 private:
     TabBarHelper* localTabBar(int index = -1) const;
