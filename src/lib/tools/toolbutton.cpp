@@ -154,7 +154,9 @@ void ToolButton::mouseDoubleClickEvent(QMouseEvent* e)
 {
     QToolButton::mouseDoubleClickEvent(e);
 
-    emit doubleClicked();
+    if (e->button() == Qt::LeftButton) {
+        emit doubleClicked();
+    }
 }
 
 void ToolButton::showMenu()
