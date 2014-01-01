@@ -152,6 +152,13 @@ Available Defines
                           example:
                           $ export KDE_INTEGRATION="true"
 
+     GNOME_INTEGRATION    Enable Gnome integration.
+                          Currently it enables building of Gnome-Keyring Password plugin,
+                          which provides support for storing passwords in Gnome-Keyring.
+
+                          example:
+                          $ export GNOME_INTEGRATION="true"
+
      USE_LIBPATH          By default, /usr/lib/ is used for libQupZilla and /usr/lib/qupzilla
                           for plugins.
                           You can change it by setting this define. Ending slash is needed!
