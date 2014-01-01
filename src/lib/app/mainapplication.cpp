@@ -110,7 +110,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_isRestoring(false)
     , m_startingAfterCrash(false)
     , m_databaseConnected(false)
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     , m_registerQAppAssociation(0)
 #endif
 #ifdef Q_OS_MAC
@@ -1019,7 +1019,7 @@ void MainApplication::reloadUserStyleSheet()
 
 bool MainApplication::checkDefaultWebBrowser()
 {
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     bool showAgain = true;
     if (!associationManager()->isDefaultForAllCapabilities()) {
         CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, getWindow());
@@ -1042,7 +1042,7 @@ bool MainApplication::checkDefaultWebBrowser()
 #endif
 }
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
 RegisterQAppAssociation* MainApplication::associationManager()
 {
     if (!m_registerQAppAssociation) {

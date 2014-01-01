@@ -538,7 +538,7 @@ void Preferences::setNotificationPreviewVisible(bool state)
 
 void Preferences::makeQupZillaDefault()
 {
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     disconnect(ui->checkNowDefaultBrowser, SIGNAL(clicked()), this, SLOT(makeQupZillaDefault()));
     mApp->associationManager()->registerAllAssociation();
     ui->checkNowDefaultBrowser->setText(tr("Default"));
