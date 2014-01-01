@@ -609,12 +609,12 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="74"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="83"/>
         <source>From File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="83"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="74"/>
         <source>Internet Explorer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -664,81 +664,81 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="65"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="69"/>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="106"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="110"/>
         <source>Finish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="165"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="175"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="169"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="179"/>
         <source>Please press Finish to complete importing process.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="201"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="213"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="225"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="237"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="251"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="256"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="205"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="217"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="229"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="241"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="255"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="260"/>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="256"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="260"/>
         <source>The file doesn&apos;t contain any bookmark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="267"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="271"/>
         <source>Choose directory...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="275"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="279"/>
         <source>Choose file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="308"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="312"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="310"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="325"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="341"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="356"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="314"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="329"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="345"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="360"/>
         <source>Please choose this file to begin importing bookmarks.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="323"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="327"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="339"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="343"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="354"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="358"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="363"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="367"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="365"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="369"/>
         <source>Please choose this folder to begin importing bookmarks.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -967,27 +967,37 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BookmarksSideBar</name>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="32"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="65"/>
         <source>Search...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="131"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="75"/>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="91"/>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="136"/>
         <source>Open link in current &amp;tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="132"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="137"/>
         <source>Open link in &amp;new tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="133"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="138"/>
         <source>Copy address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="135"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="140"/>
         <source>&amp;Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2623,22 +2633,22 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="60"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="61"/>
         <source>Save as %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="98"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="104"/>
         <source>Choose location...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="109"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="115"/>
         <source>File &apos;%1&apos; already exists. Do you want to overwrite it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="110"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="116"/>
         <source>File already exists</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3904,22 +3914,22 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="733"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="752"/>
         <source>Executable: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="734"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="753"/>
         <source>Arguments: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="736"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="755"/>
         <source>Cannot start external program</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="737"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="756"/>
         <source>Cannot start external program! %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4376,7 +4386,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1957"/>
-        <location filename="../src/lib/other/pagescreen.cpp" line="166"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="172"/>
         <source>QupZilla %1 (%2)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5878,46 +5888,46 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="148"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="162"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="163"/>
         <source>List of tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="262"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="266"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="266"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="270"/>
         <source>No Named Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="284"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="488"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="288"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="492"/>
         <source>Currently you have %1 opened tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="307"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="908"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="311"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="912"/>
         <location filename="../src/lib/webview/tabwidget.h" line="114"/>
         <location filename="../src/lib/webview/tabwidget.h" line="115"/>
         <source>New tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="811"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="815"/>
         <source>Empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="814"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="818"/>
         <source>Restore All Closed Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="815"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="819"/>
         <source>Clear list</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6248,27 +6258,27 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="243"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="241"/>
         <source>Add %1 ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="266"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="264"/>
         <source>Paste And &amp;Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="272"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="270"/>
         <source>Clear All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="314"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="312"/>
         <source>Show suggestions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="319"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="317"/>
         <source>Search when engine changed</source>
         <translation type="unfinished"></translation>
     </message>
