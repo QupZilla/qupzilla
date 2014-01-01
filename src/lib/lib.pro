@@ -520,6 +520,10 @@ win32 {
     LIBS += -llibeay32
 }
 
+os2 {
+    LIBS += -llibeay32
+}
+
 mac {
     HEADERS += other/macmenureceiver.h \
                webview/macwebviewscroller.h

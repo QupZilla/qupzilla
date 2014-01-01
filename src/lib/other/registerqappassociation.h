@@ -31,7 +31,7 @@ class QT_QUPZILLA_EXPORT RegisterQAppAssociation : public QObject
 public:
     explicit RegisterQAppAssociation(QObject* parent = 0);
     explicit RegisterQAppAssociation(const QString &appRegisteredName, const QString &appPath,
-                                     const QString &appIcon = "", const QString &appDesc = "", QObject* parent = 0);
+                                     const QString &appIcon = QString(), const QString &appDesc = QString(), QObject* parent = 0);
     ~RegisterQAppAssociation();
 
     enum AssociationType {
@@ -44,7 +44,7 @@ public:
     void removeCapability(const QString &assocName);
 
     void setAppInfo(const QString &appRegisteredName, const QString &appPath,
-                    const QString &appIcon = "", const QString &appDesc = "");
+                    const QString &appIcon = QString(), const QString &appDesc = QString());
 
     bool isPerMachineRegisteration();
     void setPerMachineRegisteration(bool enable);
