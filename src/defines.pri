@@ -67,6 +67,7 @@ d_use_webgl = $$(USE_WEBGL)
 d_w7api = $$(W7API)
 d_kde = $$(KDE) # Backwards compatibility
 d_kde_integration = $$(KDE_INTEGRATION)
+d_gnome_integration = $$(GNOME_INTEGRATION)
 d_nox11 = $$(NO_X11)
 d_portable = $$(PORTABLE_BUILD)
 d_nonblock_dialogs = $$(NONBLOCK_JS_DIALOGS)
@@ -81,6 +82,7 @@ win32-msvc* {
 }
 equals(d_kde, "true") { DEFINES *= KDE_INTEGRATION }
 equals(d_kde_integration, "true") { DEFINES *= KDE_INTEGRATION }
+equals(d_gnome_integration, "true") { DEFINES *= GNOME_INTEGRATION }
 equals(d_nox11, "true") { DEFINES *= NO_X11 }
 equals(d_portable, "true") { DEFINES *= PORTABLE_BUILD }
 equals(d_nonblock_dialogs, "true") { DEFINES *= NONBLOCK_JS_DIALOGS }
