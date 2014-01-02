@@ -32,7 +32,7 @@ outOfDirPlugins = $$(QUPZILLA_PLUGINS_SRCDIR)
 !contains(DEFINES, GNOME_INTEGRATION): SUBDIRS -= $$PWD/GnomeKeyringPasswords
 !system(pkg-config --exists gnome-keyring-1): SUBDIRS -= $$PWD/GnomeKeyringPasswords
 
-win32 {
+!unix|mac {
     SUBDIRS -= $$lower($$PWD/KWalletPasswords)
     SUBDIRS -= $$lower($$PWD/GnomeKeyringPasswords)
 }
