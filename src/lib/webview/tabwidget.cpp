@@ -467,6 +467,12 @@ void TabWidget::closeTab(int index, bool force)
         }
     }
 
+    // window.beforeunload handling
+    webView->load(QUrl());
+    if (webView->url() != QUrl()) {
+        return;
+    }
+
     m_locationBars->removeWidget(webView->webTab()->locationBar());
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     disconnect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
