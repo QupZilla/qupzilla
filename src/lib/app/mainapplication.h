@@ -28,6 +28,7 @@
 #include "qtsingleapplication.h"
 #include "qz_namespace.h"
 
+class QMenu;
 class QWebSettings;
 class QNetworkDiskCache;
 
@@ -52,9 +53,9 @@ class ProxyStyle;
 class RegisterQAppAssociation;
 class HTML5PermissionsManager;
 class Speller;
+
 #ifdef Q_OS_MAC
 class MacMenuReceiver;
-class QMenu;
 #endif
 
 class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
@@ -125,7 +126,7 @@ public:
     UserAgentManager* uaManager() { return m_uaManager; }
     RestoreManager* restoreManager() { return m_restoreManager; }
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     RegisterQAppAssociation* associationManager();
 #endif
 
@@ -204,9 +205,10 @@ private:
     bool m_databaseConnected;
     QList<PostLaunchAction> m_postLaunchActions;
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     RegisterQAppAssociation* m_registerQAppAssociation;
 #endif
+
 #ifdef Q_OS_MAC
     MacMenuReceiver* m_macMenuReceiver;
     QMenu* m_macDockMenu;

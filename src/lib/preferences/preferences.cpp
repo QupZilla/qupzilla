@@ -113,7 +113,8 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->afterLaunch->setCurrentIndex(afterLaunch);
     ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool());
     ui->dontLoadTabsUntilSelected->setChecked(settings.value("Web-Browser-Settings/LoadTabsOnActivation", false).toBool());
-#ifdef Q_OS_WIN
+
+#if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     ui->checkDefaultBrowser->setChecked(settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool());
     if (mApp->associationManager()->isDefaultForAllCapabilities()) {
         ui->checkNowDefaultBrowser->setText(tr("Default"));
@@ -124,13 +125,14 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         ui->checkNowDefaultBrowser->setEnabled(true);
         connect(ui->checkNowDefaultBrowser, SIGNAL(clicked()), this, SLOT(makeQupZillaDefault()));
     }
-#else // just Windows
+#else // No Default Browser settings on non-Windows platform
     ui->hSpacerDefaultBrowser->changeSize(0, 0, QSizePolicy::Fixed, QSizePolicy::Fixed);
     ui->hLayoutDefaultBrowser->invalidate();
     delete ui->hLayoutDefaultBrowser;
     delete ui->checkDefaultBrowser;
     delete ui->checkNowDefaultBrowser;
 #endif
+
     ui->newTabFrame->setVisible(false);
     if (m_newTabUrl.isEmpty()) {
         ui->newTab->setCurrentIndex(0);
