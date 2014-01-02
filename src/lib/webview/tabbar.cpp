@@ -93,6 +93,7 @@ void TabBar::loadSettings()
     settings.endGroup();
 
     setSelectionBehaviorOnRemove(activateLastTab ? QTabBar::SelectPreviousTab : QTabBar::SelectRightTab);
+    setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
 
     setUpLayout();
 }

@@ -817,10 +817,10 @@ void QupZilla::loadSettings()
 
     m_adblockIcon->setEnabled(settings.value("AdBlock/enabled", true).toBool());
 
-    statusBar()->setVisible(showStatusBar);
+    statusBar()->setVisible(!isFullScreen() && showStatusBar);
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
     m_navigationBar->setVisible(showNavigationToolbar);
-    menuBar()->setVisible(showMenuBar);
+    menuBar()->setVisible(!isFullScreen() && showMenuBar);
 
 #ifndef Q_OS_MAC
     m_navigationBar->setSuperMenuVisible(!showMenuBar);
