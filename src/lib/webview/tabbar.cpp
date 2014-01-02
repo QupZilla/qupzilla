@@ -492,6 +492,10 @@ void TabBar::restoreTabTextColor(int index)
 
 void TabBar::showTabPreview(bool delayed)
 {
+    if (!m_showTabPreviews) {
+        return;
+    }
+
     if (delayed) {
         int index = tabAt(mapFromGlobal(QCursor::pos()));
         if (index == -1 || QApplication::mouseButtons() != Qt::NoButton) {
