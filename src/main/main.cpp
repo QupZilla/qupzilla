@@ -19,9 +19,9 @@
 #include "proxystyle.h"
 
 #include <QMessageBox> // For QT_REQUIRE_VERSION
+#include <iostream>
 
 #if defined(Q_OS_LINUX) || defined(__GLIBC__)
-#include <iostream>
 #include <signal.h>
 #include <execinfo.h>
 
