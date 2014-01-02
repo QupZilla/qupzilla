@@ -203,7 +203,11 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     // Don't start single application in private browsing
     if (!m_isPrivateSession) {
+#ifndef PORTABLE_BUILD
         QString appId = "QupZillaWebBrowser";
+#else
+        QString appId = "QupZillaWebBrowserPortable";
+#endif
 
         if (newInstance) {
             if (startProfile.isEmpty() || startProfile == QLatin1String("default")) {
