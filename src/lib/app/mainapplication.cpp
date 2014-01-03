@@ -109,6 +109,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_isStateChanged(false)
     , m_isRestoring(false)
     , m_startingAfterCrash(false)
+    , m_formsundoredo(false)
     , m_databaseConnected(false)
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     , m_registerQAppAssociation(0)
@@ -391,6 +392,7 @@ void MainApplication::loadSettings()
 
     setWheelScrollLines(settings.value("wheelScrollLines", wheelScrollLines()).toInt());
     m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", QString()).toString()));
+    m_formsundoredo = settings.value("formsUndoRedo", false).toBool();
     settings.endGroup();
 
     settings.beginGroup("Browser-Fonts");
@@ -952,6 +954,11 @@ SearchEnginesManager* MainApplication::searchEnginesManager()
         m_searchEnginesManager = new SearchEnginesManager();
     }
     return m_searchEnginesManager;
+}
+
+bool MainApplication::formsUndoRedo() const
+{
+    return m_formsundoredo;
 }
 
 QNetworkDiskCache* MainApplication::networkCache()

@@ -1100,6 +1100,13 @@
                    </property>
                   </widget>
                  </item>
+                 <item>
+                  <widget class="QCheckBox" name="formsUndoRedo">
+                   <property name="text">
+                    <string>Enable Undo/Redo menu actions for editable forms</string>
+                   </property>
+                  </widget>
+                 </item>
                 </layout>
                </item>
                <item row="2" column="0">
