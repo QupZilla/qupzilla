@@ -65,7 +65,7 @@ LangString TITLE_SecSetASDefault ${LANG_SPANISH} "Navegador por defecto"
 LangString TITLE_SecProtocols ${LANG_SPANISH} "Asociaciones de protocolo"
 
 LangString FILE_Htm ${LANG_SPANISH} "Archivo HTM"
-LangString FILE_Html ${LANG_ENGLISH} "Archivo HTML"
+LangString FILE_Html ${LANG_SPANISH} "Archivo HTML"
 ;
 LangString DESC_SecMain ${LANG_SPANISH} "Componentes iniciales de aplicación"
 LangString DESC_SecTranslations ${LANG_SPANISH} "Otras traduciones disponibles al instalar. Por defecto en inglés."
