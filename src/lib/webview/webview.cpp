@@ -836,7 +836,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
             QMenu* pageMenu = page()->createStandardContextMenu();
             // Apparently createStandardContextMenu() can return null pointer
             if (pageMenu) {
-                if (mApp->formsUndoRedo()) {
+                if (qzSettings->enableFormsUndoRedo) {
                     pageAction(QWebPage::Undo)->setIcon(QIcon::fromTheme("edit-undo"));
                     pageAction(QWebPage::Undo)->setText(tr("Undo"));
                     menu->addAction(pageAction(QWebPage::Undo));

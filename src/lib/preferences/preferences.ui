@@ -1102,8 +1102,11 @@
                  </item>
                  <item>
                   <widget class="QCheckBox" name="formsUndoRedo">
+                   <property name="toolTip">
+                    <string>If you disable this, it will still be accesible via standard Qt shortcuts</string>
+                   </property>
                    <property name="text">
-                    <string>Enable Undo/Redo menu actions for editable forms</string>
+                    <string>Enable Undo/Redo for editable forms</string>
                    </property>
                   </widget>
                  </item>

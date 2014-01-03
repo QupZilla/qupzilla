@@ -78,7 +78,6 @@ public:
     QupZilla* makeNewWindow(Qz::BrowserWindow type, const QUrl &startUrl = QUrl());
     void aboutToCloseWindow(QupZilla* window);
     bool isStateChanged();
-    bool formsUndoRedo() const;
 
     QList<QupZilla*> mainWindows();
 
@@ -202,7 +201,6 @@ private:
     bool m_isStateChanged;
     bool m_isRestoring;
     bool m_startingAfterCrash;
-    bool m_formsundoredo;
 
     bool m_databaseConnected;
     QList<PostLaunchAction> m_postLaunchActions;
