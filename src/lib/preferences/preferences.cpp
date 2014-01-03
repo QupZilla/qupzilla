@@ -954,7 +954,7 @@ void Preferences::saveSettings()
     settings.setValue("LoadTabsOnActivation", ui->dontLoadTabsUntilSelected->isChecked());
     settings.setValue("DefaultZoom", ui->defaultZoom->value());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
-    settings.setValue("formsUndoRedo", ui->formsUndoRedo->isChecked());
+    settings.setValue("enableFormsUndoRedo", ui->formsUndoRedo->isChecked());
 #ifdef Q_OS_WIN
     settings.setValue("CheckDefaultBrowser", ui->checkDefaultBrowser->isChecked());
 #endif
