@@ -75,6 +75,8 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Farsi"
 !insertmacro MUI_LANGUAGE "Hebrew"
 !insertmacro MUI_LANGUAGE "Spanish"
+!insertmacro MUI_LANGUAGE "Arabic"
+!insertmacro MUI_LANGUAGE "Basque"
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
@@ -248,6 +250,7 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   SetOutPath "$INSTDIR\locale"
   File "locale\es_ES.qm"
   File "locale\es_VE.qm"
+  File "locale\es_419.qm"
   File "locale\qt_es.qm"
   SetOutPath "$INSTDIR\hunspell"
   File "wininstall\hunspell\es_ES.aff"
@@ -379,6 +382,50 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   SetOutPath "$INSTDIR\hunspell"
   File "wininstall\hunspell\ca_ES.aff"
   File "wininstall\hunspell\ca_ES.dic"
+  SectionEnd
+  
+  Section "Arabic"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ar_SA.qm"
+  File "locale\qt_ar.qm"
+  SectionEnd
+
+  Section "Bulgarian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\bg_BG.qm"
+  SectionEnd
+  
+  Section "Danish"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\da_DK.qm"
+  File "locale\qt_da.qm"
+  SectionEnd
+  
+  Section "Galician"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\gl_ES.qm"
+  File "locale\qt_gl.qm"
+  SectionEnd
+  
+  Section "Hebrew"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\he_IL.qm"
+  File "locale\qt_he.qm"
+  SectionEnd
+  
+  Section "Ganda"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\lg.qm"
+  SectionEnd
+  
+  Section "Norwegian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\nb_NO.qm"
+  SectionEnd
+  
+  Section "N'ko"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\nqo.qm"
   SectionEnd
 
 SectionGroupEnd
