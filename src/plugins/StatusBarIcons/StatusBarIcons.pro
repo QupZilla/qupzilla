@@ -1,5 +1,3 @@
-include(../../defines.pri)
-
 TARGET = $$qtLibraryTarget(StatusBarIcons)
 
 SOURCES += statusbariconsplugin.cpp \
@@ -52,9 +50,9 @@ TRANSLATIONS += \
     translations/zh_CN.ts \
     translations/zh_TW.ts \
 
-include(../../plugins.pri)
-
 FORMS += \
     sbi_proxywidget.ui \
     sbi_networkicondialog.ui \
     sbi_settingsdialog.ui
+
+include(../../plugins.pri)

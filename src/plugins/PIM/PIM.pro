@@ -60,10 +60,4 @@ TRANSLATIONS += \
     translations/zh_CN.ts \
     translations/zh_TW.ts \
 
-srcdir = $$(QUPZILLA_SRCDIR)
-equals(srcdir, "") {
-    include(../../plugins.pri)
-}
-else {
-    include($$srcdir/src/plugins.pri)
-}
+include(../../plugins.pri)
