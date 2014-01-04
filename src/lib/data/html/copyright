@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -246,7 +246,7 @@
  licensed under the GNU/LGPL license.
  More info at http://www.oxygen-icons.org/
 -----------------------------------------------------------------------------
- Speed Dial page some icons from Faenza icon set, which are licensed under
+ Speed Dial uses some icons from Faenza icon set, which are licensed under
  the GNU/GPL license.
  More info at http://tiheum.deviantart.com/art/Faenza-Icons-173323228
 -----------------------------------------------------------------------------
