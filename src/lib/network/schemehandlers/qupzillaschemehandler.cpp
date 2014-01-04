@@ -262,6 +262,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Seyyed Razi Alavizadeh", "s.r.alavizadeh@gmail.com") + " (Persian)<br/>" +
                       authorString("Guillem Prats", "guprej@gmail.com") + " (Catalan)<br/>" +
                       authorString("Clara Villalba", "cvilmon@gmail.com") + " (Catalan)<br/>" +
+                      authorString("Muhammad Fawwaz Orabi", "mfawwaz93@gmail.com") + " (Arabic)<br/>" +
                       authorString("Xabier Aramendi", "azpidatziak@gmail.com") + " (Basque)"
                      );
         aPage = QzTools::applyDirectionToPage(aPage);

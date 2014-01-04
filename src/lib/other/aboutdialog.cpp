@@ -122,6 +122,7 @@ void AboutDialog::showAuthors()
                                                "Guillem Prats<br/>"
                                                "Clara Villalba<br/>"
                                                "Yu Hai<br/>"
+                                               "Muhammad Fawwaz Orabi<br/>"
                                                "Xabier Aramendi")
                          );
         m_authorsHtml += "</div></center>";
