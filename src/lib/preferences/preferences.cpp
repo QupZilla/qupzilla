@@ -279,6 +279,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->wheelScroll->setValue(settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt());
     ui->defaultZoom->setValue(settings.value("DefaultZoom", 100).toInt());
     ui->xssAuditing->setChecked(settings.value("XSSAuditing", false).toBool());
+    ui->formsUndoRedo->setChecked(settings.value("enableFormsUndoRedo", false).toBool());
 
     //Cache
     ui->pagesInCache->setValue(settings.value("maximumCachedPages", 3).toInt());
@@ -962,6 +963,7 @@ void Preferences::saveSettings()
     settings.setValue("LoadTabsOnActivation", ui->dontLoadTabsUntilSelected->isChecked());
     settings.setValue("DefaultZoom", ui->defaultZoom->value());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
+    settings.setValue("enableFormsUndoRedo", ui->formsUndoRedo->isChecked());
 #ifdef Q_OS_WIN
     settings.setValue("CheckDefaultBrowser", ui->checkDefaultBrowser->isChecked());
 #endif
