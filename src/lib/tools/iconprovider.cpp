@@ -160,33 +160,33 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
 
 #ifndef QZ_WS_X11
     case QStyle::SP_DialogCloseButton:
-        return QIcon(":/icons/faenza/close.png");
+        return QIcon(":/icons/theme/close.png");
 
     case QStyle::SP_BrowserStop:
-        return QIcon(":/icons/faenza/stop.png");
+        return QIcon(":/icons/theme/stop.png");
 
     case QStyle::SP_BrowserReload:
-        return QIcon(":/icons/faenza/reload.png");
+        return QIcon(":/icons/theme/reload.png");
 
     case QStyle::SP_FileDialogToParent:
-        return QIcon(":/icons/faenza/go-up.png");
+        return QIcon(":/icons/theme/go-up.png");
 
     case QStyle::SP_ArrowForward:
         //RTL Support
         if (QApplication::layoutDirection() == Qt::RightToLeft) {
-            return QIcon(":/icons/faenza/back.png");
+            return QIcon(":/icons/theme/back.png");
         }
         else {
-            return QIcon(":/icons/faenza/forward.png");
+            return QIcon(":/icons/theme/forward.png");
         }
 
     case QStyle::SP_ArrowBack:
         //RTL Support
         if (QApplication::layoutDirection() == Qt::RightToLeft) {
-            return QIcon(":/icons/faenza/forward.png");
+            return QIcon(":/icons/theme/forward.png");
         }
         else {
-            return QIcon(":/icons/faenza/back.png");
+            return QIcon(":/icons/theme/back.png");
         }
 #endif
     default:
@@ -197,25 +197,25 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
 QIcon IconProvider::fromTheme(const QString &icon)
 {
     if (icon == QLatin1String("go-home")) {
-        return QIcon::fromTheme("go-home", QIcon(":/icons/faenza/home.png"));
+        return QIcon::fromTheme("go-home", QIcon(":/icons/theme/home.png"));
     }
     else if (icon == QLatin1String("text-plain")) {
         return QIcon::fromTheme("text-plain", QIcon(":icons/locationbar/unknownpage.png"));
     }
     else if (icon == QLatin1String("bookmarks-organize")) {
-        return QIcon::fromTheme("bookmarks-organize", QIcon(":icons/faenza/user-bookmarks.png"));
+        return QIcon::fromTheme("bookmarks-organize", QIcon(":icons/theme/user-bookmarks.png"));
     }
     else if (icon == QLatin1String("bookmark-new")) {
-        return QIcon::fromTheme("bookmark-new", QIcon(":icons/faenza/user-bookmarks.png"));
+        return QIcon::fromTheme("bookmark-new", QIcon(":icons/theme/user-bookmarks.png"));
     }
     else if (icon == QLatin1String("list-remove")) {
-        return QIcon::fromTheme("list-remove", QIcon(":icons/faenza/list-remove.png"));
+        return QIcon::fromTheme("list-remove", QIcon(":icons/theme/list-remove.png"));
     }
     else if (icon == QLatin1String("go-next")) {
-        return QIcon::fromTheme("go-next", QIcon(":icons/faenza/go-next.png"));
+        return QIcon::fromTheme("go-next", QIcon(":icons/theme/go-next.png"));
     }
     else if (icon == QLatin1String("go-previous")) {
-        return QIcon::fromTheme("go-previous", QIcon(":icons/faenza/go-previous.png"));
+        return QIcon::fromTheme("go-previous", QIcon(":icons/theme/go-previous.png"));
     }
     else {
         return QIcon::fromTheme(icon);

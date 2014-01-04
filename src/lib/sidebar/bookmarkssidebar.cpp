@@ -46,8 +46,8 @@ BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent)
     ui->bookmarksTree->setDragDropReceiver(true, m_bookmarksModel);
     ui->bookmarksTree->setMimeType(QLatin1String("application/qupzilla.treewidgetitem.bookmarks"));
 
-    ui->expandAll->setIcon(QIcon::fromTheme("view-sort-ascending", QIcon(":/icons/faenza/expand.png")));
-    ui->collapseAll->setIcon(QIcon::fromTheme("view-sort-descending", QIcon(":/icons/faenza/collapse.png")));
+    ui->expandAll->setIcon(QIcon::fromTheme("view-sort-ascending", QIcon(":/icons/theme/expand.png")));
+    ui->collapseAll->setIcon(QIcon::fromTheme("view-sort-descending", QIcon(":/icons/theme/collapse.png")));
 
     ui->bookmarksTree->setDefaultItemShowMode(TreeWidget::ItemsExpanded);
     connect(ui->bookmarksTree, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));

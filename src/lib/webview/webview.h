@@ -160,6 +160,8 @@ private slots:
     void frameStateChanged();
     void emitChangedUrl();
     void checkRss();
+    void addSpeedDial();
+    void configureSpeedDial();
 
 private:
     QList<int> m_zoomLevels;

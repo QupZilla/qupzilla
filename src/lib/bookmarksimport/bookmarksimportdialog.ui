@@ -291,7 +291,7 @@
              </property>
              <property name="icon">
               <iconset resource="../data/icons.qrc">
-               <normaloff>:/icons/faenza/stop.png</normaloff>:/icons/faenza/stop.png</iconset>
+               <normaloff>:/icons/theme/stop.png</normaloff>:/icons/theme/stop.png</iconset>
              </property>
              <property name="iconSize">
               <size>

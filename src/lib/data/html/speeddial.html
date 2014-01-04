@@ -6,7 +6,7 @@
 html {background: #eeeeee url("%IMG_BACKGROUND%") no-repeat center center;background-size: %B_SIZE%;}
 body {font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;color: #525c66;direction: %DIRECTION%;}
 body * {-webkit-user-select: none;font-size: 100%;line-height: 1.6;margin: 0px;}
-.add {position: absolute;%RIGHT_STR%:10px;top:10px;width: 24px;height: 24px;background: url(%IMG_PLUS%); cursor: pointer;}
+.add {position: absolute;%RIGHT_STR%:6px;top:10px;width: 32px;height: 32px;background: url(%IMG_PLUS%); cursor: pointer;}
 
 #quickdial {margin: auto;text-align: center;}
 #quickdial div.entry {position: relative; float: %LEFT_STR%; border-width: 10px;
@@ -32,7 +32,7 @@ span.reload:hover {border-color: grey; border-radius: 4px;}
 .formTable {width: 350px;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;margin-top: 15px;}
 .formTable input[type="text"] {width: 100%;-webkit-user-select: auto;}
 
-.sett {position: absolute;%RIGHT_STR%:36px;top:10px;width: 24px;height: 24px;background: url(%IMG_SETTINGS%); cursor: pointer;}
+.sett {position: absolute;%RIGHT_STR%:40px;top:10px;width: 32px;height: 32px;background: url(%IMG_SETTINGS%); cursor: pointer;}
 #settingsBox {margin-%LEFT_STR%:auto;margin-%RIGHT_STR%: auto;margin-top: 100px;width: 350px;height: auto;padding:0 8px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;border-width: 20px;}
 #settingsBox .content {margin-%LEFT_STR%:auto;margin-%RIGHT_STR%:auto;padding-bottom:2px;border-bottom: 1px solid #888;}
 #settingsBox .thumbhold {margin-%LEFT_STR%:auto;margin-%RIGHT_STR%:auto;margin-bottom: 5px;padding: 1px;border-radius: 10px;text-align:center;width:180px;height:100px;background: #AAA;}
@@ -65,6 +65,19 @@ var MAX_PAGES_ROW = %ROW-PAGES%;
 var DIAL_WIDTH = %SD-SIZE%;
 
 var editingId = -1;
+
+function addSpeedDial()
+{
+    onEditClick(addBox('', NEW_PAGE, ''));
+    alignPage();
+}
+
+function configureSpeedDial()
+{
+    $('#fadeOverlay2').css({'filter' : 'alpha(opacity=100)'}).fadeIn();
+    $('#fadeOverlay2').click(function() { $(this).fadeOut('slow'); });
+    $('#settingsBox').click(function(event) { event.stopPropagation(); });
+}
 
 function escapeTitle(title) {
     title = title.replace(/"/g, '&quot;');
@@ -400,8 +413,8 @@ $(document).ready(function () {
 
 <body>
 <div id="quickdial"></div>
-<a onClick="$('#fadeOverlay2').css({'filter' : 'alpha(opacity=100)'}).fadeIn();$('#fadeOverlay2').click(function() { $(this).fadeOut('slow'); });$('#settingsBox').click(function(event) { event.stopPropagation(); });" title="%SETTINGS-TITLE%" class="sett"></a>
-<a onClick="onEditClick(addBox('', NEW_PAGE, '')); alignPage();" title="%ADD-TITLE%" class="add"></a>
+<a onClick="configureSpeedDial()" title="%SETTINGS-TITLE%" class="sett"></a>
+<a onClick="addSpeedDial()" title="%ADD-TITLE%" class="add"></a>
 
 <script type="text/javascript">
 %INITIAL-SCRIPT%

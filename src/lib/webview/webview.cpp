@@ -909,53 +909,62 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     action->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowForward));
     action->setEnabled(history()->canGoForward());
 
-    menu->addAction(m_actionReload);
-    menu->addAction(m_actionStop);
-    menu->addSeparator();
+    if (url() != QUrl("qupzilla:speeddial")){
 
-    if (frameAtPos && page()->mainFrame() != frameAtPos) {
-        m_clickedFrame = frameAtPos;
-        Menu* frameMenu = new Menu(tr("This frame"));
-        frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
-        Action* act = new Action(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/new-tab.png")), tr("Show this frame in new &tab"));
-        connect(act, SIGNAL(triggered()), this, SLOT(loadClickedFrameInNewTab()));
-        connect(act, SIGNAL(middleClicked()), this, SLOT(loadClickedFrameInBgTab()));
-        frameMenu->addAction(act);
-        frameMenu->addSeparator();
-        frameMenu->addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
-        frameMenu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
-        frameMenu->addSeparator();
-        frameMenu->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &in"), this, SLOT(clickedFrameZoomIn()));
-        frameMenu->addAction(QIcon::fromTheme("zoom-out"), tr("&Zoom out"), this, SLOT(clickedFrameZoomOut()));
-        frameMenu->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(clickedFrameZoomReset()));
-        frameMenu->addSeparator();
-        frameMenu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce of frame"), this, SLOT(showClickedFrameSource()));
+        menu->addAction(m_actionReload);
+        menu->addAction(m_actionStop);
+        menu->addSeparator();
 
-        menu->addMenu(frameMenu);
+        if (frameAtPos && page()->mainFrame() != frameAtPos) {
+            m_clickedFrame = frameAtPos;
+            Menu* frameMenu = new Menu(tr("This frame"));
+            frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
+            Action* act = new Action(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("Show this frame in new &tab"));
+            connect(act, SIGNAL(triggered()), this, SLOT(loadClickedFrameInNewTab()));
+            connect(act, SIGNAL(middleClicked()), this, SLOT(loadClickedFrameInBgTab()));
+            frameMenu->addAction(act);
+            frameMenu->addSeparator();
+            frameMenu->addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
+            frameMenu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
+            frameMenu->addSeparator();
+            frameMenu->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &in"), this, SLOT(clickedFrameZoomIn()));
+            frameMenu->addAction(QIcon::fromTheme("zoom-out"), tr("&Zoom out"), this, SLOT(clickedFrameZoomOut()));
+            frameMenu->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(clickedFrameZoomReset()));
+            frameMenu->addSeparator();
+            frameMenu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce of frame"), this, SLOT(showClickedFrameSource()));
+
+            menu->addMenu(frameMenu);
+        }
+
+        menu->addSeparator();
+        menu->addAction(qIconProvider->fromTheme("bookmark-new"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
+        menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(savePageAs()));
+        menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
+        menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
+        menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printPage()));
+        menu->addSeparator();
+        menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
+        menu->addSeparator();
+
+        if (url().scheme() == QLatin1String("http") || url().scheme() == QLatin1String("https")) {
+            const QUrl w3url = QUrl::fromEncoded("http://validator.w3.org/check?uri=" + QUrl::toPercentEncoding(url().toEncoded()));
+            menu->addAction(QIcon(":icons/sites/w3.png"), tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(w3url);
+
+            QByteArray langCode = mApp->currentLanguage().left(2).toUtf8();
+            const QUrl gturl = QUrl::fromEncoded("http://translate.google.com/translate?sl=auto&tl=" + langCode + "&u=" + QUrl::toPercentEncoding(url().toEncoded()));
+            menu->addAction(QIcon(":icons/sites/translate.png"), tr("Translate page"), this, SLOT(openUrlInSelectedTab()))->setData(gturl);
+        }
+
+        menu->addSeparator();
+        menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
+        menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()));
     }
 
-    menu->addSeparator();
-    menu->addAction(qIconProvider->fromTheme("bookmark-new"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
-    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(savePageAs()));
-    menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
-    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
-    menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printPage()));
-    menu->addSeparator();
-    menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
-    menu->addSeparator();
-
-    if (url().scheme() == QLatin1String("http") || url().scheme() == QLatin1String("https")) {
-        const QUrl w3url = QUrl::fromEncoded("http://validator.w3.org/check?uri=" + QUrl::toPercentEncoding(url().toEncoded()));
-        menu->addAction(QIcon(":icons/sites/w3.png"), tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(w3url);
-
-        QByteArray langCode = mApp->currentLanguage().left(2).toUtf8();
-        const QUrl gturl = QUrl::fromEncoded("http://translate.google.com/translate?sl=auto&tl=" + langCode + "&u=" + QUrl::toPercentEncoding(url().toEncoded()));
-        menu->addAction(QIcon(":icons/sites/translate.png"), tr("Translate page"), this, SLOT(openUrlInSelectedTab()))->setData(gturl);
+    else {
+        menu->addSeparator();
+        menu->addAction(tr("&Add new page"), this, SLOT(addSpeedDial()));
+        menu->addAction(tr("&Configure Speed Dial"), this, SLOT(configureSpeedDial()));
     }
-
-    menu->addSeparator();
-    menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
-    menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()));
 }
 
 void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
@@ -966,7 +975,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     }
 
     menu->addSeparator();
-    Action* act = new Action(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/new-tab.png")), tr("Open link in new &tab"));
+    Action* act = new Action(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("Open link in new &tab"));
     act->setData(hitTest.linkUrl());
     connect(act, SIGNAL(triggered()), this, SLOT(userDefinedOpenUrlInNewTab()));
     connect(act, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInBgTab()));
@@ -1138,6 +1147,16 @@ void WebView::muteMedia()
     else {
         m_clickedElement.evaluateJavaScript("this.muted = true");
     }
+}
+
+void WebView::addSpeedDial()
+{
+    page()->mainFrame()->evaluateJavaScript("addSpeedDial()");
+}
+
+void WebView::configureSpeedDial()
+{
+    page()->mainFrame()->evaluateJavaScript("configureSpeedDial()");
 }
 
 void WebView::wheelEvent(QWheelEvent* event)

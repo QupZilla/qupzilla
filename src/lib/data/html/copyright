@@ -242,7 +242,11 @@
  QtWin class from
  http://labs.qt.nokia.com/2009/09/15/using-blur-behind-on-windows/
 -----------------------------------------------------------------------------
- In application are used also some icons from Faenza icon set, which are 
- licensed under the GNU/GPL license.
+ In application are used also some icons from Oxygen icon set, which are 
+ licensed under the GNU/LGPL license.
+ More info at http://www.oxygen-icons.org/
+-----------------------------------------------------------------------------
+ Speed Dial page some icons from Faenza icon set, which are licensed under
+ the GNU/GPL license.
  More info at http://tiheum.deviantart.com/art/Faenza-Icons-173323228
 -----------------------------------------------------------------------------
