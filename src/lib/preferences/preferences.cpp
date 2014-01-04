@@ -56,6 +56,20 @@
 #include <QColorDialog>
 #include <QDesktopWidget>
 
+static QString createLanguageItem(const QString &lang)
+{
+    QLocale locale(lang);
+
+    QString country = QLocale::countryToString(locale.country());
+    QString language = QLocale::languageToString(locale.language());
+
+    if (lang == QLatin1String("nqo")) {
+        return QString("N'ko (nqo)");
+    }
+
+    return QString("%1, %2 (%3)").arg(language, country, lang);
+}
+
 Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::Preferences)
@@ -380,11 +394,9 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //OTHER
     //Languages
     QString activeLanguage = mApp->currentLanguage();
+
     if (!activeLanguage.isEmpty() && activeLanguage != QLatin1String("en_US")) {
-        QLocale locale(activeLanguage);
-        QString country = QLocale::countryToString(locale.country());
-        QString language = QLocale::languageToString(locale.language());
-        ui->languages->addItem(language + ", " + country + " (" + activeLanguage + ")", activeLanguage);
+        ui->languages->addItem(createLanguageItem(activeLanguage), activeLanguage);
     }
 
     ui->languages->addItem("English (en_US)");
@@ -403,10 +415,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
             continue;
         }
 
-        QLocale locale(loc);
-        QString country = QLocale::countryToString(locale.country());
-        QString language = QLocale::languageToString(locale.language());
-        ui->languages->addItem(language + ", " + country + " (" + loc + ")", loc);
+        ui->languages->addItem(createLanguageItem(loc), loc);
     }
 
     // Proxy Configuration
