@@ -350,7 +350,7 @@ void BookmarksManager::contextMenuRequested(const QPoint &position)
 
     QMenu moveMenu;
     moveMenu.setTitle(tr("Move bookmark to &folder"));
-    moveMenu.addAction(QIcon(":icons/other/unsortedbookmarks.png"), _bookmarksUnsorted, this, SLOT(moveBookmark()))->setData("unsorted");
+    moveMenu.addAction(QIcon(":icons/theme/unsortedbookmarks.png"), _bookmarksUnsorted, this, SLOT(moveBookmark()))->setData("unsorted");
     moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksMenu, this, SLOT(moveBookmark()))->setData("bookmarksMenu");
     moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksToolbar, this, SLOT(moveBookmark()))->setData("bookmarksToolbar");
     QSqlQuery query;

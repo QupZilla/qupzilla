@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>html/errorPage.html</file>
-        <file>html/info.png</file>
         <file>html/adblock_big.png</file>
         <file>html/adblockPage.html</file>
         <file>html/about.html</file>
@@ -20,10 +19,9 @@
         <file>html/reload.png</file>
         <file>html/qupzilla.ico</file>
         <file>html/broken-page.png</file>
-        <file>html/setting.png</file>
+        <file>html/configure.png</file>
         <file>html/config.html</file>
         <file>html/restore.html</file>
         <file>html/dirlist.html</file>
-        <file>html/hdd-icon.png</file>
     </qresource>
 </RCC>

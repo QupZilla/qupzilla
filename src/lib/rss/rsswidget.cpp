@@ -55,18 +55,17 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
         }
 
         QPushButton* button = new QPushButton(this);
-        button->setText(tr("Add"));
+        button->setIcon(QIcon(":icons/other/feed.png"));
+        button->setStyleSheet("text-align:left");
+        button->setText(title);
         button->setToolTip(url.toString());
         button->setProperty("rss-url", url);
         button->setProperty("rss-title", title);
-        QLabel* label = new QLabel(this);
-        label->setText(fontMetrics().elidedText(title, Qt::ElideRight, 300));
-        label->setToolTip(title);
+        button->setFlat(true); // setFlat( rss.exists ? true : false );
 
         int pos = i % cols > 0 ? (i % cols) * 2 : 0;
 
-        ui->gridLayout->addWidget(label, row, pos);
-        ui->gridLayout->addWidget(button, row, pos + 1);
+        ui->gridLayout->addWidget(button, row, pos);
         connect(button, SIGNAL(clicked()), this, SLOT(addRss()));
 
         if (i % cols == cols - 1) {

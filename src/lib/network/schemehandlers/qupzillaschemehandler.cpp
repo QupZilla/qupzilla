@@ -288,7 +288,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%JQUERY%"), QLatin1String("qrc:html/jquery.js"));
         dPage.replace(QLatin1String("%JQUERY-UI%"), QLatin1String("qrc:html/jquery-ui.js"));
         dPage.replace(QLatin1String("%LOADING-IMG%"), QLatin1String("qrc:html/loading.gif"));
-        dPage.replace(QLatin1String("%IMG_SETTINGS%"), QLatin1String("qrc:html/setting.png"));
+        dPage.replace(QLatin1String("%IMG_SETTINGS%"), QLatin1String("qrc:html/configure.png"));
 
         dPage.replace(QLatin1String("%SITE-TITLE%"), tr("Speed Dial"));
         dPage.replace(QLatin1String("%ADD-TITLE%"), tr("Add New Page"));

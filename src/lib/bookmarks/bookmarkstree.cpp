@@ -74,7 +74,7 @@ void BookmarksTree::refreshTree()
         QTreeWidgetItem* newItem = new QTreeWidgetItem(rootItem);
         newItem->setText(0, _bookmarksUnsorted);
         newItem->setData(0, Qt::UserRole, "unsorted");
-        newItem->setIcon(0, QIcon(":/icons/other/unsortedbookmarks.png"));
+        newItem->setIcon(0, QIcon(":/icons/theme/unsortedbookmarks.png"));
         addTopLevelItem(newItem);
     }
 

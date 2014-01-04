@@ -54,9 +54,10 @@ BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
     // it dynamically changes and so, it's not good choice for this widget.
     setLayoutDirection(QApplication::layoutDirection());
 
-    connect(ui->speeddialButton, SIGNAL(clicked(QPoint)), this, SLOT(toggleSpeedDial()));
+    connect(ui->speeddialButton, SIGNAL(clicked()), this, SLOT(toggleSpeedDial()));
 
     const SpeedDial::Page page = m_speedDial->pageForUrl(m_url);
+    ui->speeddialButton->setFlat(page.url.isEmpty() ? true : false);
     ui->speeddialButton->setText(page.url.isEmpty() ?
                                  tr("Add to Speed Dial") :
                                  tr("Remove from Speed Dial"));
@@ -77,7 +78,6 @@ void BookmarksWidget::loadBookmark()
 
     if (m_bookmarkId > 0) {
         BookmarksModel::Bookmark bookmark = m_bookmarksModel->getBookmark(m_bookmarkId);
-        ui->name->setText(bookmark.title);
 
         int index = ui->folder->findData(bookmark.folder);
         // QComboBox::findData() returns index related to the item's parent
@@ -93,16 +93,13 @@ void BookmarksWidget::loadBookmark()
             ui->folder->setCurrentIndex(index);
         }
 
-        ui->saveRemove->setText(tr("Remove"));
-        connect(ui->name, SIGNAL(textEdited(QString)), SLOT(bookmarkEdited()));
+        ui->saveRemove->setText("Remove from Bookmarks");
+        ui->saveRemove->setFlat(false);
         connect(ui->folder, SIGNAL(currentIndexChanged(int)), SLOT(bookmarkEdited()));
     }
     else {
-        ui->name->setText(m_view->title());
         ui->folder->setCurrentIndex(0);
     }
-
-    ui->name->setCursorPosition(0);
 }
 
 void BookmarksWidget::toggleSpeedDial()
@@ -110,7 +107,7 @@ void BookmarksWidget::toggleSpeedDial()
     const SpeedDial::Page page = m_speedDial->pageForUrl(m_url);
 
     if (page.url.isEmpty()) {
-        QString title = ui->name->text().isEmpty() ? m_view->title() : ui->name->text();
+        QString title = m_view->title();
         m_speedDial->addPage(m_url, title);
     }
     else {
@@ -127,19 +124,19 @@ void BookmarksWidget::bookmarkEdited()
     }
 
     m_edited = true;
-    ui->saveRemove->setText(tr("Save"));
+    ui->saveRemove->setFlat(true);
 }
 
 void BookmarksWidget::comboItemActive(int index)
 {
-    m_bookmarksTree->activeItemChange(index, ui->folder, ui->name->text(), m_view);
+    m_bookmarksTree->activeItemChange(index, ui->folder, m_view->title(), m_view);
 }
 
 void BookmarksWidget::on_saveRemove_clicked(bool)
 {
     if (m_bookmarkId > 0) {
         if (m_edited) {
-            m_bookmarksModel->editBookmark(m_bookmarkId, ui->name->text(), QUrl(), BookmarksModel::fromTranslatedFolder(ui->folder->currentText()));
+            m_bookmarksModel->editBookmark(m_bookmarkId, m_view->title(), QUrl(), BookmarksModel::fromTranslatedFolder(ui->folder->currentText()));
         }
         else {
             m_bookmarksModel->removeBookmark(m_url);
@@ -147,7 +144,7 @@ void BookmarksWidget::on_saveRemove_clicked(bool)
         }
     }
     else {
-        m_bookmarksModel->saveBookmark(m_url, ui->name->text(), m_view->icon(), BookmarksModel::fromTranslatedFolder(ui->folder->currentText()));
+        m_bookmarksModel->saveBookmark(m_url, m_view->title(), m_view->icon(), BookmarksModel::fromTranslatedFolder(ui->folder->currentText()));
     }
 
     QTimer::singleShot(HIDE_DELAY, this, SLOT(close()));

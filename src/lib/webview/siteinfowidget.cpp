@@ -42,11 +42,11 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
 
     if (QzTools::isCertificateValid(webPage->sslCertificate())) {
         ui->secureLabel->setText(tr("Your connection to this site is <b>secured</b>."));
-        ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/accept.png"));
+        ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/safe.png"));
     }
     else {
         ui->secureLabel->setText(tr("Your connection to this site is <b>unsecured</b>."));
-        ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/warning.png"));
+        ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/unsafe.png"));
     }
 
     QString scheme = url.scheme();
@@ -61,14 +61,14 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
         int count = query.value(0).toInt();
         if (count > 3) {
             ui->historyLabel->setText(tr("This is your <b>%1</b> visit of this site.").arg(QString::number(count) + "."));
-            ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/accept.png"));
+            ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/visit3.png"));
         }
         else if (count == 0) {
             ui->historyLabel->setText(tr("You have <b>never</b> visited this site before."));
-            ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/warning.png"));
+            ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/visit1.png"));
         }
         else {
-            ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/warning.png"));
+            ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/visit2.png"));
             QString text;
             if (count == 1) {
                 text = tr("first");

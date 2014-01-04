@@ -396,7 +396,7 @@ void QupZilla::setupMenu()
     m_actionAbout->setMenuRole(QAction::AboutRole);
     connect(m_actionAbout, SIGNAL(triggered()), MENU_RECEIVER, SLOT(aboutQupZilla()));
 
-    m_actionPreferences = new QAction(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/faenza/settings.png")), tr("Pr&eferences"), 0);
+    m_actionPreferences = new QAction(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/theme/settings.png")), tr("Pr&eferences"), 0);
     m_actionPreferences->setMenuRole(QAction::PreferencesRole);
     m_actionPreferences->setShortcut(QKeySequence(QKeySequence::Preferences));
     connect(m_actionPreferences, SIGNAL(triggered()), MENU_RECEIVER, SLOT(showPreferences()));
@@ -412,7 +412,7 @@ void QupZilla::setupMenu()
      * File Menu *
      *************/
     m_menuFile = new QMenu(tr("&File"));
-    m_menuFile->addAction(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/new-tab.png")), tr("New Tab"), MENU_RECEIVER, SLOT(addTab()))->setShortcut(QKeySequence("Ctrl+T"));
+    m_menuFile->addAction(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("New Tab"), MENU_RECEIVER, SLOT(addTab()))->setShortcut(QKeySequence("Ctrl+T"));
     m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("&New Window"), MENU_RECEIVER, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
     m_menuFile->addAction(QIcon::fromTheme("document-open-remote"), tr("Open Location"), MENU_RECEIVER, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
     m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File..."), MENU_RECEIVER, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
