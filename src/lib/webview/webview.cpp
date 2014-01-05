@@ -962,8 +962,8 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
 
     else {
         menu->addSeparator();
-        menu->addAction(tr("&Add New Page"), this, SLOT(addSpeedDial()));
-        menu->addAction(tr("&Configure Speed Dial"), this, SLOT(configureSpeedDial()));
+        menu->addAction(QIcon::fromTheme("list-add"), tr("&Add New Page"), this, SLOT(addSpeedDial()));
+        menu->addAction(QIcon::fromTheme("configure"), tr("&Configure Speed Dial"), this, SLOT(configureSpeedDial()));
     }
 }
 
