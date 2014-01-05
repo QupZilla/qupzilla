@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -123,6 +123,7 @@ void AboutDialog::showAuthors()
                                                "Clara Villalba<br/>"
                                                "Yu Hai<br/>"
                                                "Muhammad Fawwaz Orabi<br/>"
+                                               "Lasso Kante<br/>"
                                                "Xabier Aramendi")
                          );
         m_authorsHtml += "</div></center>";

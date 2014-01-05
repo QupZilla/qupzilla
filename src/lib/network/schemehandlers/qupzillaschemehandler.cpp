@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -263,6 +263,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Guillem Prats", "guprej@gmail.com") + " (Catalan)<br/>" +
                       authorString("Clara Villalba", "cvilmon@gmail.com") + " (Catalan)<br/>" +
                       authorString("Muhammad Fawwaz Orabi", "mfawwaz93@gmail.com") + " (Arabic)<br/>" +
+                      authorString("Lasso Kante", "kantemou@gmail.com") + " (N'ko)<br/>" +
                       authorString("Xabier Aramendi", "azpidatziak@gmail.com") + " (Basque)"
                      );
         aPage = QzTools::applyDirectionToPage(aPage);
