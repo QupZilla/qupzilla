@@ -1119,35 +1119,19 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BookmarksWidget</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="38"/>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="61"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="15"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="62"/>
         <source>Add to Speed Dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="84"/>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="130"/>
-        <source>Save</source>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="29"/>
+        <source>Add to bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="93"/>
-        <source>Name:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="100"/>
-        <source>Folder:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="62"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="63"/>
         <source>Remove from Speed Dial</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="96"/>
-        <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2367,22 +2351,22 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1026"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1030"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1027"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1031"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1029"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1033"/>
         <source>Default Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1049"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1053"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2930,7 +2914,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="204"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="817"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="828"/>
         <source>Note: You cannot delete active profile.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3784,89 +3768,89 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="119"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="544"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="134"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="555"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="123"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="138"/>
         <source>Set as default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="528"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="539"/>
         <source>OSD Notification</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="529"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="540"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="570"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="581"/>
         <source>Choose download location...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="584"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="595"/>
         <source>Choose stylesheet location...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="595"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="606"/>
         <source>Deleted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="601"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="612"/>
         <source>Choose executable location...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="725"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="736"/>
         <source>Choose cache path...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="771"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="782"/>
         <source>New Profile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="771"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="782"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="778"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="782"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="789"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="793"/>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="778"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="789"/>
         <source>This profile already exists!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="782"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="793"/>
         <source>Cannot create profile directory!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="802"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
         <source>Confirmation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="814"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1087"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1098"/>
         <source>Select Color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4489,7 +4473,7 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="210"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="364"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="366"/>
         <source>Information about version</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4500,13 +4484,13 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="214"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="219"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
         <source>WebKit version</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4526,264 +4510,273 @@ Are you sure to quit QupZilla?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
         <source>Speed Dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
         <source>Add New Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
         <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
         <source>Are you sure to remove this speed dial?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
         <source>Load title from page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
         <source>Url</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
         <source>New Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
         <source>Speed Dial settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
         <source>Placement: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
         <source>Cover</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
         <source>Fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
         <source>Fit Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
         <source>Fit Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
         <source>Use background image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
         <source>Select image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
         <source>Maximum pages in a row:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
         <source>Change size of pages:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
         <source>Center speed dials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="341"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="343"/>
         <source>Restore Session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="342"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="344"/>
         <source>Oops, QupZilla crashed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="343"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="345"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="344"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="346"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="345"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="347"/>
         <source>Or you can start completely new session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="362"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="363"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="364"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="365"/>
         <source>Configuration Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="365"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="367"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="366"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
         <source>Browser Identification</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="367"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
         <source>Paths</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="370"/>
         <source>Build Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
         <source>Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="370"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
         <source>Option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
         <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
         <source>Author</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
         <source>Application version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
         <source>Qt version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
         <source>Build time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
         <source>Platform</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="390"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
         <source>Profile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="391"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="393"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
         <source>Saved session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="393"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
         <source>Pinned tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
         <source>Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="397"/>
         <source>Themes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="398"/>
         <source>Translations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="409"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="415"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="421"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="427"/>
+        <source>Disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4792,45 +4785,36 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="413"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="419"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="425"/>
-        <source>Disabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="411"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="417"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="423"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="429"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
         <source>Debug build</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="430"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="432"/>
         <source>WebGL support</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="433"/>
         <source>Windows 7 API</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="432"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="434"/>
         <source>KDE integration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="433"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="435"/>
         <source>Portable build</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="451"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="453"/>
         <source>No available extensions.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4997,18 +4981,13 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 <context>
     <name>RSSWidget</name>
     <message>
-        <location filename="../src/lib/rss/rsswidget.ui" line="56"/>
+        <location filename="../src/lib/rss/rsswidget.ui" line="40"/>
         <source>Add RSS Feeds from this site</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="54"/>
         <source>Untitled feed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/rss/rsswidget.cpp" line="58"/>
-        <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5798,83 +5777,83 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="152"/>
         <source>&amp;New tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="160"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
         <source>&amp;Stop Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="163"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
         <source>&amp;Reload Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="166"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="167"/>
         <source>&amp;Duplicate Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="169"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="170"/>
         <source>D&amp;etach Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="172"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="173"/>
         <source>Un&amp;pin Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="172"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="173"/>
         <source>&amp;Pin Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="174"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="175"/>
         <source>Re&amp;load All Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="175"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="176"/>
         <source>&amp;Bookmark This Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="176"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="188"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="177"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="189"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="182"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="183"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="183"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="184"/>
         <source>Cl&amp;ose</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="187"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="188"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="190"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="191"/>
         <source>Restore &amp;Closed Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="204"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="205"/>
         <source>Close Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="204"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="205"/>
         <source>Do you really want to close other tabs?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5904,30 +5883,30 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="288"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="492"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="498"/>
         <source>Currently you have %1 opened tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="311"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="912"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="918"/>
         <location filename="../src/lib/webview/tabwidget.h" line="114"/>
         <location filename="../src/lib/webview/tabwidget.h" line="115"/>
         <source>New tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="815"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="821"/>
         <source>Empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="818"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="824"/>
         <source>Restore All Closed Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="819"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="825"/>
         <source>Clear list</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6347,7 +6326,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="800"/>
-        <location filename="../src/lib/webview/webview.cpp" line="925"/>
+        <location filename="../src/lib/webview/webview.cpp" line="927"/>
         <source>&amp;Reload</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6372,222 +6351,232 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="918"/>
+        <location filename="../src/lib/webview/webview.cpp" line="920"/>
         <source>This frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="919"/>
+        <location filename="../src/lib/webview/webview.cpp" line="921"/>
         <source>Show &amp;only this frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="920"/>
+        <location filename="../src/lib/webview/webview.cpp" line="922"/>
         <source>Show this frame in new &amp;tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="926"/>
+        <location filename="../src/lib/webview/webview.cpp" line="928"/>
         <source>Print frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="928"/>
+        <location filename="../src/lib/webview/webview.cpp" line="930"/>
         <source>Zoom &amp;in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="929"/>
+        <location filename="../src/lib/webview/webview.cpp" line="931"/>
         <source>&amp;Zoom out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="930"/>
+        <location filename="../src/lib/webview/webview.cpp" line="932"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="932"/>
+        <location filename="../src/lib/webview/webview.cpp" line="934"/>
         <source>Show so&amp;urce of frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="938"/>
+        <location filename="../src/lib/webview/webview.cpp" line="940"/>
         <source>Book&amp;mark page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="939"/>
+        <location filename="../src/lib/webview/webview.cpp" line="941"/>
         <source>&amp;Save page as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="940"/>
+        <location filename="../src/lib/webview/webview.cpp" line="942"/>
         <source>&amp;Copy page link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="941"/>
+        <location filename="../src/lib/webview/webview.cpp" line="943"/>
         <source>Send page link...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="942"/>
+        <location filename="../src/lib/webview/webview.cpp" line="944"/>
         <source>&amp;Print page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="944"/>
+        <location filename="../src/lib/webview/webview.cpp" line="946"/>
         <source>Select &amp;all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="949"/>
+        <location filename="../src/lib/webview/webview.cpp" line="951"/>
         <source>Validate page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="953"/>
+        <location filename="../src/lib/webview/webview.cpp" line="955"/>
         <source>Translate page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="957"/>
+        <location filename="../src/lib/webview/webview.cpp" line="959"/>
         <source>Show so&amp;urce code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="958"/>
+        <location filename="../src/lib/webview/webview.cpp" line="960"/>
         <source>Show info ab&amp;out site</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="969"/>
-        <source>Open link in new &amp;tab</source>
+        <location filename="../src/lib/webview/webview.cpp" line="965"/>
+        <source>&amp;Add New Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="974"/>
-        <source>Open link in new &amp;window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="976"/>
-        <source>B&amp;ookmark link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="977"/>
-        <source>&amp;Save link as...</source>
+        <location filename="../src/lib/webview/webview.cpp" line="966"/>
+        <source>&amp;Configure Speed Dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="978"/>
+        <source>Open link in new &amp;tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="983"/>
+        <source>Open link in new &amp;window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="985"/>
+        <source>B&amp;ookmark link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="986"/>
+        <source>&amp;Save link as...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="987"/>
         <source>Send link...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="979"/>
+        <location filename="../src/lib/webview/webview.cpp" line="988"/>
         <source>&amp;Copy link address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="991"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1000"/>
         <source>Show i&amp;mage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="996"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1005"/>
         <source>Copy im&amp;age</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="997"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1006"/>
         <source>Copy image ad&amp;dress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="999"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1008"/>
         <source>&amp;Save image as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1000"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1009"/>
         <source>Send image...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1019"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1028"/>
         <source>Send text...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1024"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1033"/>
         <source>Google Translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1030"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1039"/>
         <source>Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1045"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1054"/>
         <source>Go to &amp;web address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1059"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1068"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1065"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1074"/>
         <source>Search with...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1092"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1101"/>
         <source>&amp;Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1092"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1101"/>
         <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1093"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1102"/>
         <source>Un&amp;mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1093"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1102"/>
         <source>&amp;Mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1095"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1104"/>
         <source>&amp;Copy Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1096"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1105"/>
         <source>&amp;Send Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1097"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1106"/>
         <source>Save Media To &amp;Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1106"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1115"/>
         <source>Check &amp;Spelling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1111"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1120"/>
         <source>Languages</source>
         <translation type="unfinished"></translation>
     </message>
