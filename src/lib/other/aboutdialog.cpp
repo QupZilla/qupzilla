@@ -124,6 +124,7 @@ void AboutDialog::showAuthors()
                                                "Yu Hai<br/>"
                                                "Muhammad Fawwaz Orabi<br/>"
                                                "Lasso Kante<br/>"
+                                               "Kizito Birabwa<br/>"
                                                "Xabier Aramendi")
                          );
         m_authorsHtml += "</div></center>";
