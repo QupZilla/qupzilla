@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -242,6 +242,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //AddressBar
     settings.beginGroup("AddressBar");
     ui->addressbarCompletion->setCurrentIndex(settings.value("showSuggestions", 0).toInt());
+    ui->useInlineCompletion->setChecked(settings.value("useInlineCompletion", true).toBool());
     ui->completionShowSwitchTab->setChecked(settings.value("showSwitchTab", true).toBool());
     ui->alwaysShowGoIcon->setChecked(settings.value("alwaysShowGoIcon", false).toBool());
     ui->selectAllOnFocus->setChecked(settings.value("SelectAllTextOnDoubleClick", true).toBool());
@@ -997,6 +998,7 @@ void Preferences::saveSettings()
     //AddressBar
     settings.beginGroup("AddressBar");
     settings.setValue("showSuggestions", ui->addressbarCompletion->currentIndex());
+    settings.setValue("useInlineCompletion", ui->useInlineCompletion->isChecked());
     settings.setValue("alwaysShowGoIcon", ui->alwaysShowGoIcon->isChecked());
     settings.setValue("showSwitchTab", ui->completionShowSwitchTab->isChecked());
     settings.setValue("SelectAllTextOnDoubleClick", ui->selectAllOnFocus->isChecked());

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -34,6 +34,7 @@ void QzSettings::loadSettings()
     showLocationSuggestions = settings.value("showSuggestions", 0).toInt();
     showSwitchTab = settings.value("showSwitchTab", true).toBool();
     alwaysShowGoIcon = settings.value("alwaysShowGoIcon", false).toBool();
+    useInlineCompletion = settings.value("useInlineCompletion", true).toBool();
     settings.endGroup();
 
     settings.beginGroup("SearchEngines");

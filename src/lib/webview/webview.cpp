@@ -909,7 +909,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     action->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowForward));
     action->setEnabled(history()->canGoForward());
 
-    if (url() != QUrl("qupzilla:speeddial")){
+    if (url() != QUrl("qupzilla:speeddial")) {
 
         menu->addAction(m_actionReload);
         menu->addAction(m_actionStop);
