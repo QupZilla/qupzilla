@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 #include "locationcompleterview.h"
 #include "locationcompleterdelegate.h"
 #include "locationbar.h"
+#include "qzsettings.h"
 
 LocationCompleterView* LocationCompleter::s_view = 0;
 LocationCompleterModel* LocationCompleter::s_model = 0;
@@ -46,7 +47,7 @@ void LocationCompleter::setLocationBar(LocationBar* locationBar)
 
 QString LocationCompleter::domainCompletion() const
 {
-    return m_completedDomain;
+    return qzSettings->useInlineCompletion ? m_completedDomain : QString();
 }
 
 bool LocationCompleter::showingMostVisited() const
@@ -73,8 +74,11 @@ void LocationCompleter::closePopup()
 
 void LocationCompleter::complete(const QString &string)
 {
-    m_completedDomain = createDomainCompletionString(string);
     m_showingMostVisited = string.isEmpty();
+
+    if (qzSettings->useInlineCompletion) {
+        m_completedDomain = createDomainCompletionString(string);
+    }
 
     s_model->refreshCompletions(string);
     showPopup();

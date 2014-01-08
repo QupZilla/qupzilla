@@ -834,6 +834,13 @@
                 </layout>
                </item>
                <item>
+                <widget class="QCheckBox" name="useInlineCompletion">
+                 <property name="text">
+                  <string>Enable inline suggestions</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <widget class="QCheckBox" name="completionShowSwitchTab">
                  <property name="toolTip">
                   <string>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</string>
