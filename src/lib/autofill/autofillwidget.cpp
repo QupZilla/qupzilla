@@ -44,14 +44,13 @@ void AutoFillWidget::setFormData(const QVector<PasswordEntry> &data)
         }
 
         QPushButton* button = new QPushButton(this);
-        button->setText(tr("Login"));
-        button->setToolTip(d.username);
+        button->setIcon(QIcon(":icons/other/login.png"));
+        button->setStyleSheet("text-align:left;font-weight:bold;");
+        button->setText(d.username);
         button->setProperty("data-index", i);
-        QLabel* label = new QLabel(this);
-        label->setText(tr("Login as <b>%1</b>").arg(d.username));
+        button->setFlat(true);
 
-        ui->gridLayout->addWidget(label, i, 0);
-        ui->gridLayout->addWidget(button, i, 1);
+        ui->gridLayout->addWidget(button, i, 0);
         connect(button, SIGNAL(clicked()), this, SLOT(loginToPage()));
     }
 }
