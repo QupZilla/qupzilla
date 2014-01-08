@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -166,7 +166,7 @@ QUrl LocationBar::createUrl()
         }
     }
 
-    if (m_inlineCompletionVisible) {
+    if (isInlineCompletionVisible()) {
         urlToLoad = WebView::guessUrlFromString(text() + m_completer.domainCompletion());
     }
 
@@ -192,6 +192,11 @@ QString LocationBar::convertUrlToText(const QUrl &url) const
     }
 
     return stringUrl;
+}
+
+bool LocationBar::isInlineCompletionVisible() const
+{
+    return m_inlineCompletionVisible && !m_completer.domainCompletion().isEmpty();
 }
 
 void LocationBar::urlEnter()
