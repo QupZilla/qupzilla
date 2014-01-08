@@ -981,6 +981,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     connect(act, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInBgTab()));
     menu->addAction(act);
     menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon(":icons/locationbar/privatebrowsing.png"), tr("Open link in &private window"), mApp, SLOT(startPrivateBrowsing()))->setData(hitTest.linkUrl());
     menu->addSeparator();
     menu->addAction(qIconProvider->fromTheme("bookmark-new"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadUrlToDisk()))->setData(hitTest.linkUrl());

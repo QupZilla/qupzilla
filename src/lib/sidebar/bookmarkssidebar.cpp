@@ -135,6 +135,7 @@ void BookmarksSideBar::contextMenuRequested(const QPoint &position)
     QMenu menu;
     menu.addAction(tr("Open link in current &tab"), p_QupZilla, SLOT(loadActionUrl()))->setData(link);
     menu.addAction(tr("Open link in &new tab"), this, SLOT(loadInNewTab()))->setData(link);
+    menu.addAction(tr("Open link in &private window"), mApp, SLOT(startPrivateBrowsing()))->setData(link);
     menu.addAction(tr("Copy address"), this, SLOT(copyAddress()))->setData(link);
     menu.addSeparator();
     menu.addAction(tr("&Delete"), this, SLOT(deleteItem()));
