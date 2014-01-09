@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@
 #include <QRect>
 #include <QScrollArea>
 #include <QHBoxLayout>
-#include <QDebug>
+#include <QToolTip>
 
 TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     : ComboTabBar()
@@ -659,6 +659,17 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
 bool TabBar::event(QEvent* event)
 {
     switch (event->type()) {
+    case QEvent::ToolTip:
+        if (!m_showTabPreviews) {
+            QHelpEvent *ev = static_cast<QHelpEvent*>(event);
+            int index = tabAt(ev->pos());
+
+            if (index >= 0) {
+                QToolTip::showText(mapToGlobal(ev->pos()), tabToolTip(index));
+            }
+        }
+        break;
+
     case QEvent::Leave:
         if (!rect().contains(mapFromGlobal(QCursor::pos()))) {
             hideTabPreview();
