@@ -285,7 +285,7 @@ void TabWidget::aboutToShowTabsMenu()
         m_menuTabs->addAction(action);
     }
     m_menuTabs->addSeparator();
-    m_menuTabs->addAction(tr("Currently you have %1 opened tabs").arg(count()))->setEnabled(false);
+    m_menuTabs->addAction(tr("Currently you have %n opened tab(s)","",count()))->setEnabled(false);
 }
 
 void TabWidget::actionChangeIndex()
@@ -495,7 +495,7 @@ void TabWidget::closeTab(int index, bool force)
 
     if (!m_closedInsteadOpened && m_menuTabs->isVisible()) {
         QAction* labelAction = m_menuTabs->actions().last();
-        labelAction->setText(tr("Currently you have %1 opened tabs").arg(count() - 1));
+        labelAction->setText(tr("Currently you have %n opened tab(s)","",count() - 1));
     }
 }
 

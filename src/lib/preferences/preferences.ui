@@ -843,10 +843,10 @@
                <item>
                 <widget class="QCheckBox" name="completionShowSwitchTab">
                  <property name="toolTip">
-                  <string>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</string>
+                  <string>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</string>
                  </property>
                  <property name="text">
-                  <string>Propose to switch tab if completed url is already loaded.</string>
+                  <string>Propose to switch tab if completed url is already loaded</string>
                  </property>
                 </widget>
                </item>

@@ -3192,12 +3192,12 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="846"/>
-        <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</source>
+        <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="849"/>
-        <source>Propose to switch tab if completed url is already loaded.</source>
+        <source>Propose to switch tab if completed url is already loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5886,10 +5886,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>No Named Page</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../src/lib/webview/tabwidget.cpp" line="288"/>
         <location filename="../src/lib/webview/tabwidget.cpp" line="498"/>
-        <source>Currently you have %1 opened tabs</source>
+        <source>Currently you have %n opened tab(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
