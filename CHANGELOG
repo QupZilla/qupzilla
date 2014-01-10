@@ -1,3 +1,7 @@
+Version 1.7.0
+    * development version
+    * added support for window.onload event
+
 Version 1.6.0
     * released 1 January 2014
     * added support for Proxy Auto-Config (PAC)
