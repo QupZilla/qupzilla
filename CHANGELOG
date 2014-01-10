@@ -1,3 +1,13 @@
+Version 1.6.1
+    * not yet released
+    * added option to disable inline completion in locationbar
+    * fixed showing tooltips on tabs when tab previews are disabled
+    * fixed search shortcuts longer than one character in locationbar
+    * fixed building issues on OS X and OS/2
+    * fixed disabling tab previews from preferences
+    * fixed building new Gnome/KDE keyring passwords
+    * fixed building StatusBarIcons plugin on Windows
+
 Version 1.6.0
     * released 1 January 2014
     * added support for Proxy Auto-Config (PAC)
