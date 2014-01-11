@@ -1,8 +1,3 @@
-#ifndef SQUEEZELABELV1_H
-#define SQUEEZELABELV1_H
-
-#include "qz_namespace.h"
-
 /**
 * Copyright (c) 2009, Benjamin C. Meyer <ben@meyerhome.net>
 *
@@ -30,6 +25,11 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 */
+
+#ifndef SQUEEZELABELV1_H
+#define SQUEEZELABELV1_H
+
+#include "qz_namespace.h"
 
 #include <QLabel>
 
