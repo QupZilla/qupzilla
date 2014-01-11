@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  Alexander Samilovskih <alexsamilovskih@gmail.com>
+* Copyright (C) 2010-2014  Alexander Samilovskih <alexsamilovskih@gmail.com>
 *                          David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify

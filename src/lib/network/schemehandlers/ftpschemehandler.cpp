@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
-* Copyright (C) 2013  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 * Some codes and ideas are from webftpclient example by Qt Lab
 *
 * This program is free software: you can redistribute it and/or modify

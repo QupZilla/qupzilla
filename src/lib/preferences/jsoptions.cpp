@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
-                2013  Mladen Pejaković <pejakm@autistici.org>
+* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+                2013-2014  Mladen Pejaković <pejakm@autistici.org>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013  Mattias Cibien <mattias@mattiascibien.net>
+* Copyright (C) 2013-2014  Mattias Cibien <mattias@mattiascibien.net>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by

@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
 *
 * This is based on a work by Saju Pillai <saju.pillai@gmail.com>
 *
