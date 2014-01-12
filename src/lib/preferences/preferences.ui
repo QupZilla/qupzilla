@@ -729,6 +729,13 @@
                 </widget>
                </item>
                <item>
+                <widget class="QCheckBox" name="alwaysSwitchTabsWithWheel">
+                 <property name="text">
+                  <string>Always switch between tabs with mouse wheel</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <widget class="QCheckBox" name="switchToNewTabs">
                  <property name="text">
                   <string>Automatically switch to newly opened tab</string>
