@@ -26,6 +26,7 @@
 #include <QToolTip>
 #include <QPushButton>
 #include <QWebFrame>
+#include <QSqlQuery>
 
 RSSWidget::RSSWidget(WebView* view, QWidget* parent)
     : LocationBarPopup(parent)
@@ -58,10 +59,18 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
         button->setIcon(QIcon(":icons/other/feed.png"));
         button->setStyleSheet("text-align:left");
         button->setText(title);
-        button->setToolTip(url.toString());
         button->setProperty("rss-url", url);
         button->setProperty("rss-title", title);
-        button->setFlat(true); // setFlat( rss.exists ? true : false );
+
+        if (!isRssFeedAlreadyStored(url)) {
+            button->setFlat(true);
+            button->setToolTip(url.toString());
+        }
+        else {
+            button->setFlat(false);
+            button->setEnabled(false);
+            button->setToolTip(tr("You already have this feed."));
+        }
 
         int pos = i % cols > 0 ? (i % cols) * 2 : 0;
 
@@ -99,6 +108,25 @@ void RSSWidget::addRss()
         m_view->addNotification(notif);
         close();
     }
+}
+
+bool RSSWidget::isRssFeedAlreadyStored(const QUrl &url)
+{
+    QUrl rurl = url;
+
+    if (url.isRelative()) {
+        rurl = m_view->page()->mainFrame()->baseUrl().resolved(url);
+    }
+
+    if (rurl.isEmpty()) {
+        return false;
+    }
+    QSqlQuery query;
+    query.prepare("SELECT id FROM rss WHERE address=?");
+    query.addBindValue(rurl);
+    query.exec();
+
+    return query.next();
 }
 
 RSSWidget::~RSSWidget()

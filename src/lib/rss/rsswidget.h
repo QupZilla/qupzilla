@@ -42,6 +42,7 @@ private slots:
     void addRss();
 
 private:
+    bool isRssFeedAlreadyStored(const QUrl &url);
     Ui::RSSWidget* ui;
     WebView* m_view;
 };
