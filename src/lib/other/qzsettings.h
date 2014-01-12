@@ -60,6 +60,7 @@ public:
     // Browser-Tabs-Settings
     Qz::NewTabPositionFlag newTabPosition;
     bool tabsOnTop;
+    bool alwaysSwitchTabsWithWheel;
 };
 
 #define qzSettings Settings::staticSettings()

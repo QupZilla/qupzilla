@@ -19,6 +19,7 @@
 #include "toolbutton.h"
 #include "mainapplication.h"
 #include "proxystyle.h"
+#include "qzsettings.h"
 
 #include <QIcon>
 #include <QHBoxLayout>
@@ -535,6 +536,12 @@ int ComboTabBar::pinTabBarWidth() const
 void ComboTabBar::wheelEvent(QWheelEvent* event)
 {
     event->accept();
+
+    if (qzSettings->alwaysSwitchTabsWithWheel) {
+        setCurrentNextEnabledIndex(event->delta() > 0 ? -1 : 1);
+        return;
+    }
+
     if (m_mainTabBarWidget->underMouse()) {
         if (m_mainTabBarWidget->scrollBar()->isOverFlowed()) {
             m_mainTabBarWidget->scrollByWheel(event);
