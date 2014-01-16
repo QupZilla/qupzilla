@@ -93,7 +93,7 @@ void BookmarksWidget::loadBookmark()
             ui->folder->setCurrentIndex(index);
         }
 
-        ui->saveRemove->setText("Remove from Bookmarks");
+        ui->saveRemove->setText(tr("Remove from Bookmarks"));
         ui->saveRemove->setFlat(false);
         connect(ui->folder, SIGNAL(currentIndexChanged(int)), SLOT(bookmarkEdited()));
     }
