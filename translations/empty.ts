@@ -1134,6 +1134,11 @@ Please install latest version of QupZilla.</source>
         <source>Remove from Speed Dial</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="96"/>
+        <source>Remove from Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BrowsingLibrary</name>
