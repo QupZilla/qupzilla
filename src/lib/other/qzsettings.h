@@ -53,6 +53,7 @@ public:
     bool allowJsHideMenuBar;
     bool allowJsHideStatusBar;
     bool allowJsHideToolBar;
+    bool enableFormsUndoRedo;
 
     QStringList autoOpenProtocols;
     QStringList blockedProtocols;
