@@ -758,6 +758,19 @@ void MainApplication::translateApp()
         file.append(".qm");
     }
 
+    // If "xx_yy" translation doesn't exists, try to use "xx*" translation
+    // It can only happen when Language is chosen from system locale
+
+    if (!file.isEmpty() && !QFile(TRANSLATIONSDIR + QLatin1String("/") + file).exists()) {
+        QDir translationsDir(TRANSLATIONSDIR);
+        QString lang = file.left(2) + QLatin1String("*.qm");
+
+        const QStringList translations = translationsDir.entryList(QStringList(lang));
+
+        // If no translation can be found, default English will be used
+        file = translations.isEmpty() ? QString() : translations.first();
+    }
+
     QTranslator* app = new QTranslator(this);
     app->load(file, TRANSLATIONSDIR);
 
