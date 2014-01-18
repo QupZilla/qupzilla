@@ -72,7 +72,6 @@ public:
     ~MainApplication();
 
     void connectDatabase();
-    void loadSettings();
     void reloadSettings();
     bool restoreStateSlot(QupZilla* window, RestoreData recoveryData);
     QupZilla* makeNewWindow(Qz::BrowserWindow type, const QUrl &startUrl = QUrl());
@@ -152,6 +151,7 @@ signals:
     void message(Qz::AppMessageType mes, bool state);
 
 private slots:
+    void loadSettings();
     void postLaunch();
     void setupJumpList();
     void restoreCursor();
