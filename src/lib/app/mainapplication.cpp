@@ -420,7 +420,8 @@ void MainApplication::loadSettings()
 
 void MainApplication::reloadSettings()
 {
-    loadSettings();
+    QTimer::singleShot(0, this, SLOT(loadSettings()));
+
     emit message(Qz::AM_ReloadSettings, true);
 }
 
