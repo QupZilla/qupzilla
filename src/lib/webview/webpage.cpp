@@ -204,7 +204,10 @@ bool WebPage::isLoading() const
 
 void WebPage::urlChanged(const QUrl &url)
 {
-    Q_UNUSED(url)
+    // Make sure JavaScript is enabled for qupzilla pages regardless of user settings
+    if (url.scheme() == QLatin1String("qupzilla")) {
+        settings()->setAttribute(QWebSettings::JavascriptEnabled, true);
+    }
 
     if (isLoading()) {
         m_adBlockedEntries.clear();
@@ -280,6 +283,12 @@ void WebPage::printFrame(QWebFrame* frame)
 
 void WebPage::addJavaScriptObject()
 {
+    // Make sure all other sites have JavaScript set by user preferences
+    // (JavaScript is enabled in WebPage::urlChanged)
+    if (url().scheme() != QLatin1String("qupzilla")) {
+        settings()->setAttribute(QWebSettings::JavascriptEnabled, mApp->webSettings()->testAttribute(QWebSettings::JavascriptEnabled));
+    }
+
     if (url().toString() != QLatin1String("qupzilla:speeddial")) {
         return;
     }
