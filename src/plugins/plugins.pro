@@ -27,6 +27,7 @@ outOfDirPlugins = $$(QUPZILLA_PLUGINS_SRCDIR)
 
 # KWalletPasswords only with KDE_INTEGRATION
 !contains(DEFINES, KDE_INTEGRATION): SUBDIRS -= $$PWD/KWalletPasswords
+!lessThan(QT_VERSION, 5.0): SUBDIRS -= $$PWD/KWalletPasswords
 
 # GnomeKeyringPasswords only with GNOME_INTEGRATION
 !contains(DEFINES, GNOME_INTEGRATION): SUBDIRS -= $$PWD/GnomeKeyringPasswords
