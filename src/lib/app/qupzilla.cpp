@@ -2190,7 +2190,7 @@ void QupZilla::closeEvent(QCloseEvent* event)
 
     if (askOnClose && m_tabWidget->normalTabsCount() > 1) {
         CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, this);
-        dialog.setText(tr("There are still %1 open tabs and your session won't be stored. \nAre you sure to quit QupZilla?").arg(m_tabWidget->count()));
+        dialog.setText(tr("There are still %1 open tabs and your session won't be stored. \nAre you sure to close this window?").arg(m_tabWidget->count()));
         dialog.setCheckBoxText(tr("Don't ask again"));
         dialog.setWindowTitle(tr("There are still open tabs"));
         dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning));
