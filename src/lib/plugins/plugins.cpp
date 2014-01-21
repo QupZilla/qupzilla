@@ -132,8 +132,9 @@ void Plugins::loadPlugins()
     foreach (const QString &fullPath, m_allowedPlugins) {
         QPluginLoader* loader = new QPluginLoader(fullPath);
         PluginInterface* iPlugin = qobject_cast<PluginInterface*>(loader->instance());
+
         if (!iPlugin) {
-            qWarning() << "Plugins::loadPlugins" << loader->errorString();
+            qWarning() << "Plugins::loadPlugins Loading" << fullPath << "failed:" << loader->errorString();
             continue;
         }
 
