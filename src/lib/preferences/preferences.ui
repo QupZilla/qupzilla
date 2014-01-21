@@ -1282,7 +1282,10 @@
                  <item row="2" column="3">
                   <widget class="QSlider" name="cacheMB">
                    <property name="minimum">
-                    <number>10</number>
+                    <number>20</number>
+                   </property>
+                   <property name="maximum">
+                    <number>200</number>
                    </property>
                    <property name="sliderPosition">
                     <number>50</number>
