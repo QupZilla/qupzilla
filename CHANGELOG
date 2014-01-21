@@ -2,6 +2,8 @@ Version 1.6.1
     * not yet released
     * added option to disable inline completion in locationbar
     * added option to always switch tabs with mouse wheel
+    * added undo/redo context menu actions in editable web elements
+    * fixed speed dial with disabled javascript
     * fixed showing tooltips on tabs when tab previews are disabled
     * fixed search shortcuts longer than one character in locationbar
     * fixed building issues on OS X and OS/2
