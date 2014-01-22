@@ -122,6 +122,7 @@ signals:
 
 public slots:
     void setWindowTitle(const QString &t);
+    void toggleFullScreen();
 
     void showWebInspector(bool toggle = true);
     void showBookmarksToolbar();
@@ -200,7 +201,6 @@ private slots:
     void zoomIn();
     void zoomOut();
     void zoomReset();
-    void toggleFullScreen(bool make);
     void changeEncoding(QObject* obj = 0);
 
     void triggerCaretBrowsing();

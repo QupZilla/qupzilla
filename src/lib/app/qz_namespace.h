@@ -68,6 +68,7 @@ enum CommandLineAction {
     CL_NewTab,
     CL_NewWindow,
     CL_ShowDownloadManager,
+    CL_ToggleFullScreen,
     CL_StartPrivateBrowsing,
     CL_StartNewInstance,
     CL_ExitAction

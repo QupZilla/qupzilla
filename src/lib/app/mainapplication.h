@@ -159,7 +159,7 @@ private slots:
     void saveSettings();
 
 private:
-    enum PostLaunchAction { OpenDownloadManager, OpenNewTab };
+    enum PostLaunchAction { OpenDownloadManager, OpenNewTab, ToggleFullScreen };
 
     void loadTheme(const QString &name);
     void translateApp();

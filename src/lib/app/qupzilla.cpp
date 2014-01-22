@@ -485,7 +485,7 @@ void QupZilla::setupMenu()
 #else
     m_actionShowFullScreen->setShortcut(QKeySequence("Ctrl+F11"));
 #endif
-    connect(m_actionShowFullScreen, SIGNAL(triggered(bool)), MENU_RECEIVER, SLOT(toggleFullScreen(bool)));
+    connect(m_actionShowFullScreen, SIGNAL(triggered(bool)), MENU_RECEIVER, SLOT(toggleFullScreen()));
     m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), MENU_RECEIVER);
     connect(m_actionStop, SIGNAL(triggered()), MENU_RECEIVER, SLOT(stop()));
     m_actionStop->setShortcut(QKeySequence("Esc"));
@@ -1930,13 +1930,13 @@ bool QupZilla::event(QEvent* event)
     return QMainWindow::event(event);
 }
 
-void QupZilla::toggleFullScreen(bool make)
+void QupZilla::toggleFullScreen()
 {
-    if (make) {
-        showFullScreen();
+    if (isFullScreen()) {
+        showNormal();
     }
     else {
-        showNormal();
+        showFullScreen();
     }
 }
 
