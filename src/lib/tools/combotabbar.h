@@ -237,8 +237,6 @@ public:
     ~TabScrollBar();
 
     void animateToValue(int to, QEasingCurve::Type type = QEasingCurve::InOutExpo);
-
-    bool isOverFlowed();
     void wheelEvent(QWheelEvent* event);
 
 private:
@@ -264,6 +262,7 @@ public:
     bool usesScrollButtons() const;
     void setUsesScrollButtons(bool useButtons);
 
+    bool isOverflowed() const;
     int tabAt(const QPoint &pos) const;
 
     void setContainersName(const QString &name);
