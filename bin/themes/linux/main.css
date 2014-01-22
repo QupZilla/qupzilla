@@ -279,7 +279,7 @@ RSSManager QTabBar::tab
 /*AboutDialog*/
 AboutDialog #label
 {
-    background:white;
+    background: white;
 }
 
 AboutDialog #textBrowser
