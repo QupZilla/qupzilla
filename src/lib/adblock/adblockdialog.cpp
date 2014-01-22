@@ -42,7 +42,7 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
 #endif
     adblockCheckBox->setChecked(m_manager->isEnabled());
 
-    QMenu* menu = new QMenu(buttonMenu);
+    QMenu* menu = new QMenu(buttonOptions);
     m_actionAddRule = menu->addAction(tr("Add Rule"), this, SLOT(addRule()));
     m_actionRemoveRule = menu->addAction(tr("Remove Rule"), this, SLOT(removeRule()));
     menu->addSeparator();
@@ -52,7 +52,7 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
     menu->addSeparator();
     menu->addAction(tr("Learn about writing rules..."), this, SLOT(learnAboutRules()));
 
-    buttonMenu->setMenu(menu);
+    buttonOptions->setMenu(menu);
     connect(menu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowMenu()));
 
     connect(adblockCheckBox, SIGNAL(toggled(bool)), this, SLOT(enableAdBlock(bool)));

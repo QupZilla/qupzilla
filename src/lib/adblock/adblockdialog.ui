@@ -63,19 +63,13 @@
       <item row="4" column="0" colspan="2">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QToolButton" name="buttonMenu">
+         <widget class="QPushButton" name="buttonOptions">
           <property name="text">
            <string>Options</string>
           </property>
           <property name="icon">
            <iconset resource="../data/icons.qrc">
             <normaloff>:/icons/other/adblock.png</normaloff>:/icons/other/adblock.png</iconset>
-          </property>
-          <property name="popupMode">
-           <enum>QToolButton::InstantPopup</enum>
-          </property>
-          <property name="toolButtonStyle">
-           <enum>Qt::ToolButtonTextBesideIcon</enum>
           </property>
          </widget>
         </item>
