@@ -543,23 +543,23 @@ void ComboTabBar::wheelEvent(QWheelEvent* event)
     }
 
     if (m_mainTabBarWidget->underMouse()) {
-        if (m_mainTabBarWidget->scrollBar()->isOverFlowed()) {
+        if (m_mainTabBarWidget->isOverflowed()) {
             m_mainTabBarWidget->scrollByWheel(event);
         }
-        else if (m_pinnedTabBarWidget->scrollBar()->isOverFlowed()) {
+        else if (m_pinnedTabBarWidget->isOverflowed()) {
             m_pinnedTabBarWidget->scrollByWheel(event);
         }
     }
     else if (m_pinnedTabBarWidget->underMouse()) {
-        if (m_pinnedTabBarWidget->scrollBar()->isOverFlowed()) {
+        if (m_pinnedTabBarWidget->isOverflowed()) {
             m_pinnedTabBarWidget->scrollByWheel(event);
         }
-        else if (m_mainTabBarWidget->scrollBar()->isOverFlowed()) {
+        else if (m_mainTabBarWidget->isOverflowed()) {
             m_mainTabBarWidget->scrollByWheel(event);
         }
     }
 
-    if (!m_mainTabBarWidget->scrollBar()->isOverFlowed() && !m_pinnedTabBarWidget->scrollBar()->isOverFlowed()) {
+    if (!m_mainTabBarWidget->isOverflowed() && !m_pinnedTabBarWidget->isOverflowed()) {
         setCurrentNextEnabledIndex(event->delta() > 0 ? -1 : 1);
     }
 }
@@ -568,7 +568,7 @@ void ComboTabBar::resizeEvent(QResizeEvent* event)
 {
     QWidget::resizeEvent(event);
 
-    if (m_mainBarOverFlowed != m_mainTabBarWidget->scrollBar()->isOverFlowed()) {
+    if (m_mainBarOverFlowed != m_mainTabBarWidget->isOverflowed()) {
         setMinimumWidths();
     }
 }
@@ -1086,11 +1086,6 @@ void TabScrollBar::animateToValue(int to, QEasingCurve::Type type)
     m_animation->start();
 }
 
-bool TabScrollBar::isOverFlowed()
-{
-    return maximum() != minimum();
-}
-
 void TabScrollBar::wheelEvent(QWheelEvent* event)
 {
     int delta = isRightToLeft() ? -event->delta() : event->delta();
@@ -1373,6 +1368,11 @@ void TabBarScrollWidget::setUsesScrollButtons(bool useButtons)
         scrollBarValueChange();
         m_tabBar->setElideMode(m_tabBar->elideMode());
     }
+}
+
+bool TabBarScrollWidget::isOverflowed() const
+{
+    return m_tabBar->count() > 0 && m_scrollBar->minimum() != m_scrollBar->maximum();
 }
 
 int TabBarScrollWidget::tabAt(const QPoint &pos) const
