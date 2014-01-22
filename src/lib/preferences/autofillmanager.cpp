@@ -63,7 +63,6 @@ AutoFillManager::AutoFillManager(QWidget* parent)
     menu->addAction(tr("Import Passwords from File..."), this, SLOT(importPasswords()));
     menu->addAction(tr("Export Passwords to File..."), this, SLOT(exportPasswords()));
     ui->importExport->setMenu(menu);
-    ui->importExport->setPopupMode(QToolButton::InstantPopup);
     ui->search->setPlaceholderText(tr("Search"));
 
     // Password backends

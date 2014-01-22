@@ -102,7 +102,7 @@
        <item row="3" column="0" colspan="2">
         <layout class="QHBoxLayout" name="showPasswordsLayout">
          <item>
-          <widget class="QToolButton" name="importExport">
+          <widget class="QPushButton" name="importExport">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
