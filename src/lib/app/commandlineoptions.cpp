@@ -57,7 +57,7 @@ void CommandLineOptions::showHelp()
                        "\n"
                        " QupZilla is a new, fast and secure web browser\n"
                        " based on WebKit core (http://webkit.org) and\n"
-                       " written in Qt Framework (http://qt.nokia.com) \n\n"
+                       " written in Qt Framework (http://qt-project.org/) \n\n"
                        " For more information please visit wiki at \n"
                        " https://github.com/QupZilla/qupzilla/wiki \n";
 
