@@ -170,6 +170,10 @@ MainApplication::MainApplication(int &argc, char** argv)
             case Qz::CL_NewWindow:
                 messages.append(QLatin1String("ACTION:NewWindow"));
                 break;
+            case Qz::CL_ToggleFullScreen:
+                messages.append(QLatin1String("ACTION:ToggleFullScreen"));
+                m_postLaunchActions.append(ToggleFullScreen);
+                break;
             case Qz::CL_ShowDownloadManager:
                 messages.append(QLatin1String("ACTION:ShowDownloadManager"));
                 m_postLaunchActions.append(OpenDownloadManager);
@@ -318,6 +322,10 @@ void MainApplication::postLaunch()
 
     if (m_postLaunchActions.contains(OpenNewTab)) {
         getWindow()->tabWidget()->addView(QUrl(), Qz::NT_SelectedNewEmptyTab);
+    }
+
+    if (m_postLaunchActions.contains(ToggleFullScreen)) {
+        getWindow()->toggleFullScreen();
     }
 
     AutoSaver* saver = new AutoSaver();
@@ -560,6 +568,10 @@ void MainApplication::receiveAppMessage(QString message)
             downManager()->show();
             actWin = downManager();
         }
+        else if (text == QLatin1String("ToggleFullScreen") && actWin) {
+            QupZilla* qz = static_cast<QupZilla*>(actWin);
+            qz->toggleFullScreen();
+        }
         else if (text.startsWith(QLatin1String("OpenUrlInCurrentTab"))) {
             actUrl = QUrl::fromUserInput(text.mid(19));
         }
@@ -577,12 +589,12 @@ void MainApplication::receiveAppMessage(QString message)
         return;
     }
 
-    QupZilla* qz = qobject_cast<QupZilla*>(actWin);
-
     actWin->setWindowState(actWin->windowState() & ~Qt::WindowMinimized);
     actWin->raise();
     actWin->activateWindow();
     actWin->setFocus();
+
+    QupZilla* qz = qobject_cast<QupZilla*>(actWin);
 
     if (qz && !actUrl.isEmpty()) {
         qz->loadAddress(actUrl);

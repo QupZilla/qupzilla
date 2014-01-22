@@ -51,7 +51,8 @@ void CommandLineOptions::showHelp()
                        "    -nw or --new-window                 open new window\n"
                        "    -pb or --private-browsing           start private browsing\n"
                        "    -dm or --download-manager           show download manager\n"
-                       "    -nr or --no-remote                  open new instance\n"
+                       "    -fs or --fullscreen                 toggle fullscreen\n"
+                       "    -nr or --no-remote                  open new browser instance\n"
                        "    -ct=URL or --current-tab=URL        open URL in current tab\n"
                        "    -ow=URL or --open-window=URL        open URL in new window\n"
                        "\n"
@@ -153,6 +154,12 @@ void CommandLineOptions::parseActions()
         if (arg.startsWith(QLatin1String("-nr")) || arg.startsWith(QLatin1String("--no-remote"))) {
             ActionPair pair;
             pair.action = Qz::CL_StartNewInstance;
+            m_actions.append(pair);
+        }
+
+        if (arg.startsWith(QLatin1String("-fs")) || arg.startsWith(QLatin1String("--fullscreen"))) {
+            ActionPair pair;
+            pair.action = Qz::CL_ToggleFullScreen;
             m_actions.append(pair);
         }
 

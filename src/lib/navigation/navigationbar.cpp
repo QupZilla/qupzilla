@@ -183,7 +183,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     connect(m_buttonHome, SIGNAL(controlClicked()), p_QupZilla, SLOT(goHomeInNewTab()));
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     connect(m_buttonAddTab, SIGNAL(middleMouseClicked()), p_QupZilla->tabWidget(), SLOT(addTabFromClipboard()));
-    connect(m_exitFullscreen, SIGNAL(clicked(bool)), p_QupZilla, SLOT(toggleFullScreen(bool)));
+    connect(m_exitFullscreen, SIGNAL(clicked(bool)), p_QupZilla, SLOT(toggleFullScreen()));
 }
 
 void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
