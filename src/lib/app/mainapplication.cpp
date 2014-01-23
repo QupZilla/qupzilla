@@ -73,10 +73,6 @@
 #include <QTimer>
 #include <QDir>
 
-#if defined(PORTABLE_BUILD) && !defined(NO_SYSTEM_DATAPATH)
-#define NO_SYSTEM_DATAPATH
-#endif
-
 #if QT_VERSION < 0x050000
 #include "qwebkitversion.h"
 #endif
@@ -105,6 +101,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_dbWriter(new DatabaseWriter(this))
     , m_uaManager(new UserAgentManager)
     , m_isPrivateSession(false)
+    , m_isPortable(false)
     , m_isClosing(false)
     , m_isStateChanged(false)
     , m_isRestoring(false)
@@ -128,23 +125,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     DATADIR.append(QLatin1String("../Resources/"));
 #endif
 
-#ifdef PORTABLE_BUILD
-    PROFILEDIR = DATADIR + "profiles/";
-#else
-    bool confPathExists = QDir(QDir::homePath() + "/.config/qupzilla").exists();
-    bool homePathExists = QDir(QDir::homePath() + "/.qupzilla").exists();
-
-    if (homePathExists && !confPathExists) {
-        PROFILEDIR = QDir::homePath() + "/.qupzilla/";
-    }
-    else {
-        PROFILEDIR = QDir::homePath() + "/.config/qupzilla/";
-    }
-#endif
-
-    TRANSLATIONSDIR = DATADIR + "locale/";
-    THEMESDIR = DATADIR + "themes/";
-
     setWindowIcon(QIcon(":icons/exeicons/qupzilla-window.png"));
     bool noAddons = false;
     bool newInstance = false;
@@ -162,6 +142,9 @@ MainApplication::MainApplication(int &argc, char** argv)
                 break;
             case Qz::CL_StartWithProfile:
                 startProfile = pair.text;
+                break;
+            case Qz::CL_StartPortable:
+                m_isPortable = true;
                 break;
             case Qz::CL_NewTab:
                 messages.append(QLatin1String("ACTION:NewTab"));
@@ -205,13 +188,28 @@ MainApplication::MainApplication(int &argc, char** argv)
         }
     }
 
+    if (isPortable()) {
+        std::cout << "QupZilla: Running in Portable Mode." << std::endl;
+        PROFILEDIR = DATADIR + "profiles/";
+    }
+    else {
+        bool confPathExists = QDir(QDir::homePath() + "/.config/qupzilla").exists();
+        bool homePathExists = QDir(QDir::homePath() + "/.qupzilla").exists();
+
+        if (homePathExists && !confPathExists) {
+            PROFILEDIR = QDir::homePath() + "/.qupzilla/";
+        }
+        else {
+            PROFILEDIR = QDir::homePath() + "/.config/qupzilla/";
+        }
+    }
+
+    TRANSLATIONSDIR = DATADIR + "locale/";
+    THEMESDIR = DATADIR + "themes/";
+
     // Don't start single application in private browsing
     if (!m_isPrivateSession) {
-#ifndef PORTABLE_BUILD
-        QString appId = "QupZillaWebBrowser";
-#else
-        QString appId = "QupZillaWebBrowserPortable";
-#endif
+        QString appId = isPortable() ? "QupZillaWebBrowserPortable" : "QupZillaWebBrowser";
 
         if (newInstance) {
             if (startProfile.isEmpty() || startProfile == QLatin1String("default")) {
@@ -337,14 +335,14 @@ void MainApplication::postLaunch()
     connect(this, SIGNAL(messageReceived(QString)), this, SLOT(receiveAppMessage(QString)));
     connect(this, SIGNAL(aboutToQuit()), this, SLOT(saveSettings()));
 
-#ifndef PORTABLE_BUILD
-    Settings settings;
-    bool alwaysCheckDefaultBrowser = settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool();
-    if (alwaysCheckDefaultBrowser) {
-        alwaysCheckDefaultBrowser = checkDefaultWebBrowser();
-        settings.setValue("Web-Browser-Settings/CheckDefaultBrowser", alwaysCheckDefaultBrowser);
+    if (!isPortable()) {
+        Settings settings;
+        bool alwaysCheckDefaultBrowser = settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool();
+        if (alwaysCheckDefaultBrowser) {
+            alwaysCheckDefaultBrowser = checkDefaultWebBrowser();
+            settings.setValue("Web-Browser-Settings/CheckDefaultBrowser", alwaysCheckDefaultBrowser);
+        }
     }
-#endif
 }
 
 void MainApplication::loadSettings()
@@ -508,6 +506,15 @@ bool MainApplication::isRestoring() const
 bool MainApplication::isPrivateSession() const
 {
     return m_isPrivateSession;
+}
+
+bool MainApplication::isPortable() const
+{
+#ifdef PORTABLE_BUILD
+    return true;
+#else
+    return m_isPortable;
+#endif
 }
 
 bool MainApplication::isStartingAfterCrash() const

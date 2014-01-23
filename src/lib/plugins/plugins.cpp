@@ -83,7 +83,7 @@ void Plugins::loadSettings()
 {
     Settings settings;
     settings.beginGroup("Plugin-Settings");
-    m_pluginsEnabled = settings.value("EnablePlugins", DEFAULT_ENABLE_PLUGINS).toBool();
+    m_pluginsEnabled = settings.value("EnablePlugins", !mApp->isPortable()).toBool();
     m_allowedPlugins = settings.value("AllowedPlugins", QStringList()).toStringList();
     settings.endGroup();
 
@@ -165,11 +165,14 @@ void Plugins::loadAvailablePlugins()
     m_pluginsLoaded = true;
 
     QStringList dirs;
-    dirs << mApp->DATADIR + "plugins/"
-         // Portable build: Load only plugins from DATADIR/plugins/ directory.
-         // Loaded plugins are saved with relative path, instead of absolute for
-         // normal build.
-#ifndef PORTABLE_BUILD
+    dirs << mApp->DATADIR + "plugins/";
+
+    // Portable build: Load only plugins from DATADIR/plugins/ directory.
+    // Loaded plugins are saved with relative path, instead of absolute for
+    // normal build.
+
+    if (!mApp->isPortable()) {
+        dirs
 #if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
 #ifdef USE_LIBPATH
          << USE_LIBPATH "qupzilla/"
@@ -177,9 +180,8 @@ void Plugins::loadAvailablePlugins()
          << "/usr/lib/qupzilla/"
 #endif
 #endif
-         << mApp->PROFILEDIR + "plugins/"
-#endif
-         ;
+         << mApp->PROFILEDIR + "plugins/";
+    }
 
     foreach (const QString &dir, dirs) {
         QDir pluginsDir = QDir(dir);

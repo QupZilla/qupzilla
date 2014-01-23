@@ -40,7 +40,7 @@ PluginsManager::PluginsManager(QWidget* parent)
     //Application Extensions
     Settings settings;
     settings.beginGroup("Plugin-Settings");
-    bool appPluginsEnabled = settings.value("EnablePlugins", DEFAULT_ENABLE_PLUGINS).toBool();
+    bool appPluginsEnabled = settings.value("EnablePlugins", !mApp->isPortable()).toBool();
     settings.endGroup();
 
     ui->allowAppPlugins->setChecked(appPluginsEnabled);
@@ -115,11 +115,12 @@ void PluginsManager::save()
         if (item->checkState() == Qt::Checked) {
             const Plugins::Plugin plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
 
-#ifndef PORTABLE_BUILD
-            allowedPlugins.append(plugin.fullPath);
-#else
-            allowedPlugins.append(mApp->DATADIR + "plugins/" + plugin.fileName);
-#endif
+            if (!mApp->isPortable()) {
+                allowedPlugins.append(plugin.fullPath);
+            }
+            else {
+                allowedPlugins.append(mApp->DATADIR + "plugins/" + plugin.fileName);
+            }
         }
     }
 

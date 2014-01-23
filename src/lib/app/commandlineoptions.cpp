@@ -45,6 +45,7 @@ void CommandLineOptions::showHelp()
                        "\n"
                        "    -p=PROFILE or --profile=PROFILE     start with specified profile \n"
                        "    -ne or --no-extensions              start without extensions\n"
+                       "    -po or --portable                   start in portable mode\n"
                        "\n"
                        " Options to control running QupZilla:\n"
                        "    -nt or --new-tab                    open new tab\n"
@@ -154,6 +155,12 @@ void CommandLineOptions::parseActions()
         if (arg.startsWith(QLatin1String("-nr")) || arg.startsWith(QLatin1String("--no-remote"))) {
             ActionPair pair;
             pair.action = Qz::CL_StartNewInstance;
+            m_actions.append(pair);
+        }
+
+        if (arg.startsWith(QLatin1String("-po")) || arg.startsWith(QLatin1String("--portable"))) {
+            ActionPair pair;
+            pair.action = Qz::CL_StartPortable;
             m_actions.append(pair);
         }
 

@@ -422,11 +422,7 @@ QString QupZillaSchemeReply::configPage()
         QString KDEIntegration = tr("Disabled");
 #endif
 
-#ifdef PORTABLE_BUILD
-        QString portableBuild = tr("<b>Enabled</b>");
-#else
-        QString portableBuild = tr("Disabled");
-#endif
+        QString portableBuild = mApp->isPortable() ? tr("<b>Enabled</b>") : tr("Disabled");
 
         cPage.replace(QLatin1String("%BUILD-CONFIG-TEXT%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Debug build"), debugBuild) +
