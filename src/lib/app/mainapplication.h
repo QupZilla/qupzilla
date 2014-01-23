@@ -85,6 +85,7 @@ public:
     bool isClosing() const;
     bool isRestoring() const;
     bool isPrivateSession() const;
+    bool isPortable() const;
     bool isStartingAfterCrash() const;
     int windowCount() const;
     QString currentLanguageFile() const;
@@ -197,6 +198,7 @@ private:
     QString m_activeThemePath;
 
     bool m_isPrivateSession;
+    bool m_isPortable;
     bool m_isClosing;
     bool m_isStateChanged;
     bool m_isRestoring;

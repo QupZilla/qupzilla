@@ -71,6 +71,7 @@ enum CommandLineAction {
     CL_ToggleFullScreen,
     CL_StartPrivateBrowsing,
     CL_StartNewInstance,
+    CL_StartPortable,
     CL_ExitAction
 };
 
@@ -126,12 +127,6 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 #define DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG false
 #else
 #define DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG true
-#endif
-
-#ifdef PORTABLE_BUILD
-#define DEFAULT_ENABLE_PLUGINS false
-#else
-#define DEFAULT_ENABLE_PLUGINS true
 #endif
 
 #define QTWEBKIT_FROM_2_2 \
