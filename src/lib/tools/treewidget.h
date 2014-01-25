@@ -31,6 +31,7 @@ public:
     ItemShowMode defaultItemShowMode() { return m_showMode; }
     void setDefaultItemShowMode(ItemShowMode mode) { m_showMode = mode; }
     QList<QTreeWidgetItem*> allItems();
+
     bool appendToParentItem(const QString &parentText, QTreeWidgetItem* item);
     bool appendToParentItem(QTreeWidgetItem* parent, QTreeWidgetItem* item);
     bool prependToParentItem(const QString &parentText, QTreeWidgetItem* item);

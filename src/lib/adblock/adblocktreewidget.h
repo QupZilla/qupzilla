@@ -18,8 +18,6 @@
 #ifndef ADBLOCKTREEWIDGET_H
 #define ADBLOCKTREEWIDGET_H
 
-#include <QTreeWidget>
-
 #include "qz_namespace.h"
 #include "treewidget.h"
 
