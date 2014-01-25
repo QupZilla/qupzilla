@@ -2,7 +2,9 @@ Version 1.6.1
     * not yet released
     * added option to disable inline completion in locationbar
     * added option to always switch tabs with mouse wheel
+    * added option to toggle fullscreen with commandline option
     * added undo/redo context menu actions in editable web elements
+    * speedup loading rules from subscriptions in AdBlock dialog
     * fixed speed dial with disabled javascript
     * fixed showing tooltips on tabs when tab previews are disabled
     * fixed search shortcuts longer than one character in locationbar
@@ -10,6 +12,7 @@ Version 1.6.1
     * fixed disabling tab previews from preferences
     * fixed building new Gnome/KDE keyring passwords
     * fixed building StatusBarIcons plugin on Windows
+    * win: add new jumplist option to open private window
 
 Version 1.6.0
     * released 1 January 2014
