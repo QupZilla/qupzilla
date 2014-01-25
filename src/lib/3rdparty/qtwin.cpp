@@ -393,6 +393,10 @@ void QtWin::AddTasksToList(ICustomDestinationList* destinationList)
                               app_path, "--new-window",
                               icons_source, 0));
 
+    obj_collection->AddObject(CreateShellLink(tr("Open new private window"), tr("Opens a new private window"),
+                              app_path, "--private-browsing",
+                              icons_source, 0));
+
     obj_collection->AddObject(CreateShellLink(tr("Open download manager"), tr("Opens a download manager if browser is running"),
                               app_path, "--download-manager",
                               icons_source, 0));
