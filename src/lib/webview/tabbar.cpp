@@ -661,7 +661,7 @@ bool TabBar::event(QEvent* event)
     switch (event->type()) {
     case QEvent::ToolTip:
         if (!m_showTabPreviews) {
-            QHelpEvent *ev = static_cast<QHelpEvent*>(event);
+            QHelpEvent* ev = static_cast<QHelpEvent*>(event);
             int index = tabAt(ev->pos());
 
             if (index >= 0) {
