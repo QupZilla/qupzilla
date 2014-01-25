@@ -18,7 +18,7 @@
 #ifndef ADBLOCKDIALOG_H
 #define ADBLOCKDIALOG_H
 
-#include <QDialog>
+#include <QWidget>
 
 #include "qz_namespace.h"
 #include "ui_adblockdialog.h"
@@ -28,7 +28,7 @@ class AdBlockTreeWidget;
 class AdBlockManager;
 class AdBlockRule;
 
-class QT_QUPZILLA_EXPORT AdBlockDialog : public QDialog, public Ui_AdBlockDialog
+class QT_QUPZILLA_EXPORT AdBlockDialog : public QWidget, public Ui_AdBlockDialog
 {
     Q_OBJECT
 

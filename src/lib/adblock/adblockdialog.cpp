@@ -21,6 +21,7 @@
 #include "adblocktreewidget.h"
 #include "adblockaddsubscriptiondialog.h"
 #include "mainapplication.h"
+#include "qztools.h"
 
 #include <QMenu>
 #include <QTimer>
@@ -28,7 +29,7 @@
 #include <QInputDialog>
 
 AdBlockDialog::AdBlockDialog(QWidget* parent)
-    : QDialog(parent)
+    : QWidget(parent)
     , m_manager(AdBlockManager::instance())
     , m_currentTreeWidget(0)
     , m_currentSubscription(0)
@@ -37,6 +38,9 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setupUi(this);
+
+    QzTools::centerWidgetOnScreen(this);
+
 #ifdef Q_OS_MAC
     tabWidget->setDocumentMode(false);
 #endif
@@ -193,5 +197,5 @@ void AdBlockDialog::closeEvent(QCloseEvent* ev)
         m_manager->setUseLimitedEasyList(useLimitedEasyList->isChecked());
     }
 
-    QDialog::closeEvent(ev);
+    QWidget::closeEvent(ev);
 }
