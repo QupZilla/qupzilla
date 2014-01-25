@@ -413,10 +413,13 @@ AdBlockSubscription* AdBlockManager::subscriptionByName(const QString &name) con
 AdBlockDialog* AdBlockManager::showDialog()
 {
     if (!m_adBlockDialog) {
-        m_adBlockDialog = new AdBlockDialog(mApp->getWindow());
+        m_adBlockDialog = new AdBlockDialog;
     }
 
     m_adBlockDialog.data()->show();
+    m_adBlockDialog.data()->raise();
+    m_adBlockDialog.data()->activateWindow();
+
     return m_adBlockDialog.data();
 }
 
