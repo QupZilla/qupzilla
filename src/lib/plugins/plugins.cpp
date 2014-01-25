@@ -175,12 +175,12 @@ void Plugins::loadAvailablePlugins()
         dirs
 #if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
 #ifdef USE_LIBPATH
-         << USE_LIBPATH "qupzilla/"
+                << USE_LIBPATH "qupzilla/"
 #else
-         << "/usr/lib/qupzilla/"
+                << "/usr/lib/qupzilla/"
 #endif
 #endif
-         << mApp->PROFILEDIR + "plugins/";
+                << mApp->PROFILEDIR + "plugins/";
     }
 
     foreach (const QString &dir, dirs) {
