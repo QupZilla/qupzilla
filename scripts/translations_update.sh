@@ -9,6 +9,7 @@ fi
 sed -i 's/include(3rdparty/##temp/g' ../src/lib/lib.pro
 
 cd ../src/lib/
+rm ../../translations/empty.ts
 lupdate $ARGUMENTS lib.pro -ts ../../translations/empty.ts
 cd -
 
