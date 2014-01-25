@@ -77,6 +77,8 @@ WebPage::WebPage(QObject* parent)
     , m_secureStatus(false)
     , m_adjustingScheduled(false)
 {
+    m_javaScriptEnabled = mApp->webSettings()->testAttribute(QWebSettings::JavascriptEnabled);
+
     m_networkProxy = new NetworkManagerProxy(this);
     m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
     m_networkProxy->setPage(this);
@@ -286,7 +288,7 @@ void WebPage::addJavaScriptObject()
     // Make sure all other sites have JavaScript set by user preferences
     // (JavaScript is enabled in WebPage::urlChanged)
     if (url().scheme() != QLatin1String("qupzilla")) {
-        settings()->setAttribute(QWebSettings::JavascriptEnabled, mApp->webSettings()->testAttribute(QWebSettings::JavascriptEnabled));
+        settings()->setAttribute(QWebSettings::JavascriptEnabled, m_javaScriptEnabled);
     }
 
     if (url().toString() != QLatin1String("qupzilla:speeddial")) {
@@ -994,6 +996,12 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
 
     webView->setFocus();
 #endif
+}
+
+void WebPage::setJavaScriptEnabled(bool enabled)
+{
+    settings()->setAttribute(QWebSettings::JavascriptEnabled, enabled);
+    m_javaScriptEnabled = enabled;
 }
 
 QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
