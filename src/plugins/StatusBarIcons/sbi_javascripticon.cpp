@@ -55,6 +55,11 @@ void SBI_JavaScriptIcon::showMenu(const QPoint &point)
         menu.addAction(tr("Enable JavaScript (temporarily)"), this, SLOT(toggleJavaScript()));
     }
 
+    // JavaScript needs to be always enabled for qupzilla: sites
+    if (currentPage()->url().scheme() == QLatin1String("qupzilla")) {
+        menu.actions().at(1)->setEnabled(false);
+    }
+
     menu.addSeparator();
     menu.addAction(m_icon, tr("Global settings"))->setFont(boldFont);
     menu.addAction(tr("Manage JavaScript settings"), this, SLOT(openJavaScriptSettings()));
@@ -76,7 +81,7 @@ void SBI_JavaScriptIcon::updateIcon()
 void SBI_JavaScriptIcon::toggleJavaScript()
 {
     bool current = currentPageSettings()->testAttribute(QWebSettings::JavascriptEnabled);
-    currentPageSettings()->setAttribute(QWebSettings::JavascriptEnabled, !current);
+    currentPage()->setJavaScriptEnabled(!current);
 
     p_QupZilla->weView()->reload();
 
@@ -89,7 +94,12 @@ void SBI_JavaScriptIcon::openJavaScriptSettings()
     dialog.exec();
 }
 
+WebPage* SBI_JavaScriptIcon::currentPage()
+{
+    return p_QupZilla->weView()->page();
+}
+
 QWebSettings* SBI_JavaScriptIcon::currentPageSettings()
 {
-    return p_QupZilla->weView()->page()->settings();
+    return currentPage()->settings();
 }

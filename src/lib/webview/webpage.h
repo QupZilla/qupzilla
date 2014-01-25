@@ -63,6 +63,8 @@ public:
     bool javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg);
     void javaScriptAlert(QWebFrame* originatingFrame, const QString &msg);
 
+    void setJavaScriptEnabled(bool enabled);
+
     void addAdBlockRule(const AdBlockRule* rule, const QUrl &url);
     QVector<AdBlockedEntry> adBlockedEntries() const;
 
@@ -146,6 +148,7 @@ private:
     int m_loadProgress;
     bool m_blockAlerts;
     bool m_secureStatus;
+    bool m_javaScriptEnabled;
     bool m_adjustingScheduled;
 };
 

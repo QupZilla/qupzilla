@@ -25,6 +25,7 @@
 class QWebSettings;
 
 class QupZilla;
+class WebPage;
 
 class SBI_JavaScriptIcon : public ClickableLabel
 {
@@ -41,6 +42,7 @@ private slots:
     void openJavaScriptSettings();
 
 private:
+    WebPage* currentPage();
     QWebSettings* currentPageSettings();
 
     QupZilla* p_QupZilla;
