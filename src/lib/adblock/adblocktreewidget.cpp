@@ -235,6 +235,7 @@ void AdBlockTreeWidget::refresh()
     m_topItem = new QTreeWidgetItem(this);
     m_topItem->setText(0, m_subscription->title());
     m_topItem->setFont(0, boldFont);
+    m_topItem->setExpanded(true);
     addTopLevelItem(m_topItem);
 
     const QVector<AdBlockRule*> &allRules = m_subscription->allRules();
@@ -253,7 +254,6 @@ void AdBlockTreeWidget::refresh()
         ++index;
     }
 
-    expandAll();
     showRule(0);
     m_itemChangingBlock = false;
 }
