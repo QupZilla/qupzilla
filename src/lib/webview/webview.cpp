@@ -589,7 +589,10 @@ void WebView::bookmarkLink()
             mApp->browsingLibrary()->bookmarksManager()->addBookmark(this);
         }
         else {
-            mApp->browsingLibrary()->bookmarksManager()->insertBookmark(action->data().toUrl(), title(), icon());
+            const QVariantList bData = action->data().value<QVariantList>();
+            const QString bookmarkTitle = bData.at(1).toString().isEmpty() ? title() : bData.at(1).toString();
+
+            mApp->browsingLibrary()->bookmarksManager()->insertBookmark(bData.at(0).toUrl(), bookmarkTitle, icon());
         }
     }
 }
@@ -991,7 +994,11 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     menu->addAction(act);
     menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(hitTest.linkUrl());
     menu->addSeparator();
-    menu->addAction(qIconProvider->fromTheme("bookmark-new"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());
+
+    QVariantList bData;
+    bData << hitTest.linkUrl() << hitTest.linkTitle();
+    menu->addAction(qIconProvider->fromTheme("bookmark-new"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(bData);
+
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadUrlToDisk()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.linkUrl());
