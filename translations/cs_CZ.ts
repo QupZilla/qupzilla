@@ -567,7 +567,7 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
     <message>
         <location filename="../src/lib/autofill/autofillwidget.ui" line="11"/>
         <source>Login as:</source>
-        <translation type="unfinished"/>
+        <translation>Přihlásit jako:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillicon.cpp" line="29"/>
@@ -813,7 +813,7 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="83"/>
         <source>Import and Export</source>
-        <translation type="unfinished"/>
+        <translation>Import a Export</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="75"/>
@@ -1130,7 +1130,7 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="96"/>
         <source>Remove from Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Odstranit ze záložek</translation>
     </message>
 </context>
 <context>
@@ -1292,7 +1292,7 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="108"/>
         <source>Are you sure to clear selected private data?</source>
-        <translation type="unfinished"/>
+        <translation>Jste si jistí, že chcete vymazat vybraná soukromá data?</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
@@ -1302,7 +1302,7 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation type="unfinished"/>
+        <translation>Databáze byla úspěšně optimalizována.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Velikost databáze před: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Velikost databáze po: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -1693,7 +1693,7 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="382"/>
         <source>Remove From List</source>
-        <translation type="unfinished"/>
+        <translation>Odebrat ze seznamu</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="384"/>
@@ -1710,7 +1710,9 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"/>
+        <translation>Soubor 
+ %1 
+nebyl nalezen!</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
@@ -3125,7 +3127,7 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="734"/>
         <source>Always switch between tabs with mouse wheel</source>
-        <translation type="unfinished"/>
+        <translation>Vždy přepínat mezi panely pomocí kolečka myši</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="741"/>
@@ -3180,17 +3182,17 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="846"/>
         <source>Enable inline suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Povolit našeptávání v adresním řádku</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="853"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
-        <translation type="unfinished"/>
+        <translation>Klávesou &quot;Shift&quot; nepřepínat na panel ale načíst adresu v aktuálním panelu.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="856"/>
         <source>Propose to switch tab if completed url is already loaded</source>
-        <translation type="unfinished"/>
+        <translation>Nabízet přepnutí na panel pokud je adresa již načtená.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="863"/>
@@ -3327,7 +3329,7 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
         <source>Enable Undo/Redo for editable forms</source>
-        <translation type="unfinished"/>
+        <translation>Povolit Zpět/Vpřed pro upravitelné formuláře</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
@@ -3956,12 +3958,12 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>Otevřít nové soukromé okno</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Opens a new private window</source>
-        <translation type="unfinished"/>
+        <translation>Otevře nové soukromé okno</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="400"/>
@@ -4401,7 +4403,8 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
         <location filename="../src/lib/app/qupzilla.cpp" line="2193"/>
         <source>There are still %1 open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
-        <translation type="unfinished"/>
+        <translation>Ještě je otevřeno %1 panelů a Vaše relace nebude uložena. 
+Opravdu chcete zavřít toto okno?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="2194"/>
@@ -5017,7 +5020,7 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="72"/>
         <source>You already have this feed.</source>
-        <translation type="unfinished"/>
+        <translation>Tento kanál již odebíráte.</translation>
     </message>
 </context>
 <context>
@@ -6107,7 +6110,8 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
         <location filename="../src/lib/webview/webpage.cpp" line="532"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"/>
+        <translation>Pro zobrazení této stránky musí QupZilla znovu odeslat požadavek na server 
+(jako např. hledaní při nakupování, které již bylo provedeno.)</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="534"/>
@@ -6369,12 +6373,12 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="841"/>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Zpět</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="844"/>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Vpřed</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="866"/>
@@ -6489,7 +6493,7 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="975"/>
         <source>&amp;Configure Speed Dial</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Nastavení rychlé volby</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="987"/>
