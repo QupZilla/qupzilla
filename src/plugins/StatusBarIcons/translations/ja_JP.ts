@@ -68,62 +68,57 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="73"/>
+        <location filename="../sbi_networkicon.cpp" line="68"/>
         <source>Proxy configuration</source>
         <translation>プロキシ設定</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="75"/>
+        <location filename="../sbi_networkicon.cpp" line="70"/>
         <source>Select proxy</source>
         <translation>プロキシの選択</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="89"/>
+        <location filename="../sbi_networkicon.cpp" line="84"/>
         <source>Empty</source>
         <translation>空</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="93"/>
+        <location filename="../sbi_networkicon.cpp" line="88"/>
         <source>Manage proxies</source>
         <translation>プロキシの管理</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="106"/>
+        <location filename="../sbi_networkicon.cpp" line="101"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>ネットワークステータスの表示とプロキシの管理&lt;br/&gt;&lt;br/&gt;&lt;b&gt;ネットワーク:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;プロキシ:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="110"/>
+        <location filename="../sbi_networkicon.cpp" line="104"/>
         <source>Connected</source>
         <translation>接続済</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="114"/>
+        <location filename="../sbi_networkicon.cpp" line="107"/>
         <source>Offline</source>
         <translation>オフライン</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="118"/>
-        <source>Unknown</source>
-        <translation>不明</translation>
-    </message>
-    <message>
-        <location filename="../sbi_networkicon.cpp" line="124"/>
+        <location filename="../sbi_networkicon.cpp" line="112"/>
         <source>System proxy</source>
         <translation>システムのプロキシ設定</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="128"/>
+        <location filename="../sbi_networkicon.cpp" line="116"/>
         <source>No proxy</source>
         <translation>プロキシを使用しない</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="132"/>
+        <location filename="../sbi_networkicon.cpp" line="120"/>
         <source>PAC (Proxy Auto-Config)</source>
         <translation>PAC (プロキシ自動設定)</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="136"/>
+        <location filename="../sbi_networkicon.cpp" line="124"/>
         <source>User defined</source>
         <translation>ユーザー指定</translation>
     </message>

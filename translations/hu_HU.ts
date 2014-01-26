@@ -98,17 +98,17 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="23"/>
         <source>Title:</source>
-        <translation type="unfinished"/>
+        <translation>Elnevezés:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="33"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Címe:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="53"/>
         <source>Add new subscription to AdBlock:</source>
-        <translation type="unfinished"/>
+        <translation>Új feliratkozás az AdBlockra:</translation>
     </message>
 </context>
 <context>
@@ -116,7 +116,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="453"/>
         <source>Custom Rules</source>
-        <translation type="unfinished"/>
+        <translation>Egyéni szabályok</translation>
     </message>
 </context>
 <context>
@@ -139,47 +139,47 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="68"/>
         <source>Options</source>
-        <translation type="unfinished"/>
+        <translation>Opciók</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.ui" line="104"/>
+        <location filename="../src/lib/adblock/adblockdialog.ui" line="98"/>
         <source>AdBlock</source>
         <translation>Hirdetésszűrő</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.ui" line="128"/>
+        <location filename="../src/lib/adblock/adblockdialog.ui" line="122"/>
         <source>Use only essential part of EasyList (for performance reasons)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="46"/>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="50"/>
         <source>Add Rule</source>
         <translation>Szabály hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="47"/>
-        <source>Remove Rule</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="49"/>
-        <source>Add Subscription</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/adblock/adblockdialog.cpp" line="50"/>
-        <source>Remove Subscription</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="51"/>
-        <source>Update Subscriptions</source>
-        <translation type="unfinished"/>
+        <source>Remove Rule</source>
+        <translation>Szabály eltávolítása</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="53"/>
+        <source>Add Subscription</source>
+        <translation>Feliratkozás hozzáadása</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="54"/>
+        <source>Remove Subscription</source>
+        <translation>Feliratkozás eltávolítása</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="55"/>
+        <source>Update Subscriptions</source>
+        <translation>Feliratkozások frissítése</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockdialog.cpp" line="57"/>
         <source>Learn about writing rules...</source>
-        <translation type="unfinished"/>
+        <translation>Hogyan írjunk szabályokat...</translation>
     </message>
 </context>
 <context>
@@ -212,12 +212,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="118"/>
         <source>Disable on %1</source>
-        <translation type="unfinished"/>
+        <translation>Kiiktatás itt: %1</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="124"/>
         <source>Disable only on this page</source>
-        <translation type="unfinished"/>
+        <translation>Csak iktassa ki ezen az oldalon</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="134"/>
@@ -244,19 +244,19 @@
 <context>
     <name>AdBlockManager</name>
     <message>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="260"/>
+        <source>EasyList</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/lib/network/schemehandlers/adblockschemehandler.cpp" line="67"/>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
-        <translation type="unfinished"/>
+        <translation>Hozzáadod a &lt;b&gt;%1&lt;/b&gt; feliratkozást?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/adblockschemehandler.cpp" line="69"/>
         <source>AdBlock Subscription</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="260"/>
-        <source>EasyList</source>
-        <translation type="unfinished"/>
+        <translation>AdBlock feliratkozás</translation>
     </message>
 </context>
 <context>
@@ -264,27 +264,27 @@
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="78"/>
         <source>Add Rule</source>
-        <translation type="unfinished"/>
+        <translation>Szabály hozzáadása</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="80"/>
         <source>Remove Rule</source>
-        <translation type="unfinished"/>
+        <translation>Szabály eltávolítása</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="139"/>
         <source>Add Custom Rule</source>
-        <translation type="unfinished"/>
+        <translation>Egyéni szabály hozzáadása</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="139"/>
         <source>Please write your rule here:</source>
-        <translation type="unfinished"/>
+        <translation>Kérem írja ide szabályát:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="177"/>
         <source>%1 (recently updated)</source>
-        <translation type="unfinished"/>
+        <translation>%1 (legutóbb frissítve)</translation>
     </message>
 </context>
 <context>
@@ -322,11 +322,6 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>AutoFill</name>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="33"/>
-        <source>Database (plaintext)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="245"/>
         <source>Database (encrypted)</source>
         <translation type="unfinished"/>
@@ -355,6 +350,11 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="591"/>
         <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="33"/>
+        <source>Database (plaintext)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -432,12 +432,12 @@ Please install latest version of QupZilla.</source>
         <translation>Kizárások</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="62"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="63"/>
         <source>Import Passwords from File...</source>
         <translation>Jelszavak betöltése fájlból...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/autofillmanager.cpp" line="63"/>
+        <location filename="../src/lib/preferences/autofillmanager.cpp" line="64"/>
         <source>Export Passwords to File...</source>
         <translation>Jelszavak mentése fájlba...</translation>
     </message>
@@ -543,12 +543,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="41"/>
         <source>on %1</source>
-        <translation type="unfinished"/>
+        <translation>itt: %1</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="45"/>
         <source>for &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>ehhez: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="49"/>
@@ -558,25 +558,19 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="55"/>
         <source>Do you want QupZilla to remember the password %1 %2?</source>
-        <translation type="unfinished"/>
+        <translation>Kívánja hogy a QupZilla emlékezzen a %1 %2 jelszavára?</translation>
     </message>
 </context>
 <context>
     <name>AutoFillWidget</name>
     <message>
-        <location filename="../src/lib/autofill/autofillwidget.ui" line="56"/>
+        <location filename="../src/lib/autofill/autofillwidget.ui" line="11"/>
+        <source>Login as:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/lib/autofill/autofillicon.cpp" line="29"/>
         <source>Choose username to login</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/autofillwidget.cpp" line="47"/>
-        <source>Login</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/autofillwidget.cpp" line="51"/>
-        <source>Login as &lt;b&gt;%1&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -608,13 +602,13 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="74"/>
-        <source>From File</source>
-        <translation>Fájlból</translation>
+        <source>Internet Explorer</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="83"/>
-        <source>Internet Explorer</source>
-        <translation type="unfinished"/>
+        <source>From File</source>
+        <translation>Fájlból</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="95"/>
@@ -662,81 +656,81 @@ Please install latest version of QupZilla.</source>
         <translation>Mégse</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="64"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="69"/>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
         <translation>&lt;b&gt;Betöltés innen: %1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="105"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="110"/>
         <source>Finish</source>
         <translation>Befejezés</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="164"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="174"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="169"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="179"/>
         <source>Please press Finish to complete importing process.</source>
         <translation>A könyvjelzők betöltése befejeződött. A folyamat lezárásához rá kell kattintani a Befejezés feliratra.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="200"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="212"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="224"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="236"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="250"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="205"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="217"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="229"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="241"/>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="255"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="260"/>
         <source>Error!</source>
         <translation>Hiba!</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="255"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="260"/>
         <source>The file doesn&apos;t contain any bookmark.</source>
-        <translation type="unfinished"/>
+        <translation>A fájl nem tartalmaz semmilyen könyvjelzőt.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="266"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="271"/>
         <source>Choose directory...</source>
         <translation>Mappa kiválasztása...</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="274"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="279"/>
         <source>Choose file...</source>
         <translation>Fájl megadása...</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="307"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="312"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
         <translation>A Mozilla Firefox böngésző &lt;b&gt;places.sqlite&lt;/b&gt; SQLite adatbázisban tárolja a könyvjelzőket. Ez a fájl általában itt található - </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="309"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="324"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="340"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="355"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="314"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="329"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="345"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="360"/>
         <source>Please choose this file to begin importing bookmarks.</source>
         <translation>A könyvjelzők betöltésének megkezdéséhez ennek a fájlnak a kijelölése szükséges.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="322"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="327"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
         <translation>A Google Chrome böngésző &lt;b&gt;Bookmarks&lt;/b&gt; elnevezésű szöveges fájlban tárolja a könyvjelzőket. Ez a fájl általában itt található - </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="338"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="343"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
         <translation>Az Opera böngésző &lt;b&gt;bookmarks.adr&lt;/b&gt; elnevezésű szöveges fájlban tárolja a könyvjelzőket. Ez a fájl általában itt található - </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="353"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="358"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
         <translation>Bármilyen böngészőből betölthetők a könyvjelzők, amely támogatja a könyvjelzők HTML fájlba mentését. Ez a fájl általában ezekkel az utótagokkal (kiterjesztésekkel) rendelkezik</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="362"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="367"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
         <translation>Az Internet Explorer böngésző &lt;b&gt;Kedvencek (angolul: Favorites)&lt;/b&gt; elnevezésű mappában tárolja a könyvjelzőket. Ez a mappa általában itt található - </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="364"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="369"/>
         <source>Please choose this folder to begin importing bookmarks.</source>
         <translation>A könyvjelzők betöltésének megkezdéséhez ennek a mappának a megadása szükséges.</translation>
     </message>
@@ -786,147 +780,157 @@ Please install latest version of QupZilla.</source>
     <name>BookmarksManager</name>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="14"/>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="118"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="131"/>
         <source>Bookmarks</source>
         <translation>Könyvjelzők</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="23"/>
-        <source>Optimize Database</source>
-        <translation>Adatbázis optimizálása</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="36"/>
-        <source>Import Bookmarks</source>
-        <translation>Könyvjelzők betöltése</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="59"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="20"/>
         <source>Add Folder</source>
         <translation>Mappa/Könyvtár hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="82"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="27"/>
+        <source>Collapse All</source>
+        <translation>Összes összezárása</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="63"/>
         <source>Title</source>
         <translation>Az oldal neve</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="87"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="68"/>
         <source>Url</source>
         <translation>Internetcím</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="95"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="76"/>
         <source>Expand All</source>
+        <translation>Összes kibontása</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="83"/>
+        <source>Import and Export</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="102"/>
-        <source>Collapse All</source>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="75"/>
+        <source>Import Bookmarks...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="114"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="76"/>
+        <source>Export Bookmarks to HTML...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="95"/>
+        <source>Export to HTML...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="127"/>
         <source>Add new folder</source>
         <translation>Új mappa hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="116"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="129"/>
         <source>Choose parent folder for new folder: </source>
-        <translation type="unfinished"/>
+        <translation>Válasszon szülő mappát az új mappához:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="121"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="134"/>
         <source>Choose name for new bookmark folder: </source>
         <translation>Az új könyvjelző mappa nevének megadása: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="164"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="177"/>
         <source>Add new subfolder</source>
         <translation>Új almappa hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="164"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="177"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
         <translation>Az új könyvjelző almappa nevének megadása: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="189"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="202"/>
         <source>Rename Folder</source>
         <translation>Mappa átnevezése</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="189"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="202"/>
         <source>Choose name for folder: </source>
         <translation>Mappa nevének megadása: </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="313"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="326"/>
         <source>Add Subfolder</source>
         <translation>Almappa hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="318"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="331"/>
         <source>Rename folder</source>
         <translation>Mappa átnevezése</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="319"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="332"/>
         <source>Remove folder</source>
         <translation>Mappa eltávolítása</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="334"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="347"/>
         <source>Open link in current &amp;tab</source>
         <translation>Hivatkozás megnyitása a jelenlegi &amp;fülön</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="335"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="348"/>
         <source>Open link in &amp;new tab</source>
         <translation>Hivatkozás megnyitása &amp;új fülön</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="339"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="352"/>
         <source>Move bookmark to &amp;folder</source>
         <translation>Helyezd a könyvjelzőt &amp;mappába</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="351"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="364"/>
         <source>Change icon</source>
-        <translation type="unfinished"/>
+        <translation>Ikonváltás</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="352"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="365"/>
         <source>Rename bookmark</source>
         <translation>Könyvjelző átnevezése</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="353"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="366"/>
         <source>Remove bookmark</source>
         <translation>Könyvjelző törlése</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="653"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="666"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
         <translation>&lt;b&gt;Figyelem: &lt;/b&gt;Ez az oldal már a könyvjelzők között van!</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="671"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="684"/>
         <source>Choose name and location of this bookmark.</source>
         <translation>Könyvjelző nevének és helyének megadása.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="675"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="688"/>
         <source>Add New Bookmark</source>
         <translation>Új könyvjelző hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="734"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="747"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Könyvjelzők mappájának megadása:</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="735"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="748"/>
         <source>Bookmark All Tabs</source>
         <translation>Összes jelenlegi fül mentése a könyvjelzőkhöz</translation>
     </message>
@@ -934,20 +938,20 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="525"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="542"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="606"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="623"/>
         <source>Bookmarks In Menu</source>
         <translation>Könyvjelzők a Menüben</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="528"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="545"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="609"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="626"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Könyvjelzők az Eszköztárban</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="531"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="548"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="612"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="629"/>
         <source>Unsorted Bookmarks</source>
         <translation>Nem rendezett könyvjelzők</translation>
     </message>
@@ -955,27 +959,37 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BookmarksSideBar</name>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="32"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="65"/>
         <source>Search...</source>
         <translation>Keresés...</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="131"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="75"/>
+        <source>Collapse All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="91"/>
+        <source>Expand All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="136"/>
         <source>Open link in current &amp;tab</source>
         <translation>Hivatkozás megnyitása a jelenlegi &amp;fülön</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="132"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="137"/>
         <source>Open link in &amp;new tab</source>
         <translation>Hivatkozás megnyitása &amp;új fülön</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="133"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="138"/>
         <source>Copy address</source>
         <translation>A cím másolása</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="135"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="140"/>
         <source>&amp;Delete</source>
         <translation>&amp;Törlés</translation>
     </message>
@@ -1015,12 +1029,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="112"/>
         <source>Open bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Könyvjelző megnyitása</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="113"/>
         <source>Open bookmark in new tab</source>
-        <translation type="unfinished"/>
+        <translation>Könyvjelző megnyitása új fülön</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="118"/>
@@ -1086,47 +1100,36 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstree.cpp" line="68"/>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Könyvjelzők</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstree.cpp" line="114"/>
         <source>New Folder...</source>
-        <translation type="unfinished"/>
+        <translation>Új mappa...</translation>
     </message>
 </context>
 <context>
     <name>BookmarksWidget</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="38"/>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="61"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="15"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="62"/>
         <source>Add to Speed Dial</source>
         <translation>Hozzáadás a Gyorsindítóhoz</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="84"/>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="130"/>
-        <source>Save</source>
-        <translation>Mentés</translation>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="29"/>
+        <source>Add to bookmarks</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="93"/>
-        <source>Name:</source>
-        <translation>Név:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="100"/>
-        <source>Folder:</source>
-        <translation>Könyvtár/Mappa:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="62"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="63"/>
         <source>Remove from Speed Dial</source>
         <translation>Eltávolítás a Gyorsindítóból</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="96"/>
-        <source>Remove</source>
-        <translation>Törlés</translation>
+        <source>Remove from Bookmarks</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1142,29 +1145,19 @@ Please install latest version of QupZilla.</source>
         <translation>Keresés...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="50"/>
         <source>History</source>
         <translation>Előzmények</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="53"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="51"/>
         <source>Bookmarks</source>
         <translation>Könyvjelzők</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="54"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
         <source>RSS</source>
         <translation>RSS</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="150"/>
-        <source>Database Optimized</source>
-        <translation>Adatbázis optimizálva</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="150"/>
-        <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation>Az adatbázis sikeresen optimizálva.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Az adatbázis mérete előtte: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Optimalizálás után: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -1226,64 +1219,89 @@ Please install latest version of QupZilla.</source>
         <translation>Mai előzmények törlése</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="20"/>
-        <source>Choose what you want to delete:</source>
-        <translation>Törölni kívánt elemek kiválasztása:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="61"/>
-        <source>Clear history</source>
-        <translation>Előzmények törlése</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="34"/>
-        <source>Clear cache</source>
-        <translation>Gyorsítótár törlése</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="27"/>
-        <source>Clear icons</source>
-        <translation>Mentett ikonok törlése</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="54"/>
-        <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Mai előzmények törlése&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="137"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="24"/>
         <source>Earlier Today</source>
         <translation>Ma, korábban</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="142"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="29"/>
         <source>Week</source>
         <translation>Heti</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="147"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="34"/>
         <source>Month</source>
         <translation>Havi</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="152"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="39"/>
         <source>All</source>
         <translation>Összes</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="44"/>
-        <source>Clear web databases</source>
-        <translation>Webes adatbázisok törlése</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="97"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="57"/>
         <source>Clear local storage</source>
         <translation>Helyi internetes adattár kiürítése</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="67"/>
         <source>Clear cookies</source>
         <translation>Sütik törlése</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="93"/>
+        <source>Choose what you want to delete:</source>
+        <translation>Törölni kívánt elemek kiválasztása:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="100"/>
+        <source>Clear icons</source>
+        <translation>Mentett ikonok törlése</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
+        <source>Clear cache</source>
+        <translation>Gyorsítótár törlése</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="117"/>
+        <source>Clear web databases</source>
+        <translation>Webes adatbázisok törlése</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
+        <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Mai előzmények törlése&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
+        <source>Clear history</source>
+        <translation>Előzmények törlése</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="170"/>
+        <source>Optimize database</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="107"/>
+        <source>Clear Private Data</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="108"/>
+        <source>Are you sure to clear selected private data?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
+        <source>Database Optimized</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
+        <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1460,32 +1478,32 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="364"/>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="370"/>
         <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Süti beállítások&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="377"/>
         <source>Allow storing of cookies</source>
-        <translation type="unfinished"/>
+        <translation>Süti tárolásának engedélyezése</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="416"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished"/>
+        <translation>Sütik törlése bezáráskor</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
         <source>Match domain exactly</source>
-        <translation type="unfinished"/>
+        <translation>Csak a megnyitott weboldaltól fogad sütiket, más címekről nem</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished"/>
+        <translation>Nyomkövető sütik szűrésének engedélyezése</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
@@ -1673,7 +1691,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="382"/>
-        <source>Remove</source>
+        <source>Remove From List</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1691,9 +1709,7 @@ Please install latest version of QupZilla.</source>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation>Sajnos, ez a fájl: 
- %1 
- nem található!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
@@ -1755,16 +1771,6 @@ Please install latest version of QupZilla.</source>
         <translation>Megnyitás</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="146"/>
-        <source>Copy download link</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="169"/>
-        <source>You have chosen to open</source>
-        <translation>Megnyitásra kijelölve</translation>
-    </message>
-    <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="40"/>
         <source>which is a:</source>
         <translation>amely:</translation>
@@ -1787,12 +1793,22 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="98"/>
         <source>Download with External Manager</source>
-        <translation type="unfinished"/>
+        <translation>Letöltés külső letöltéskezelővel</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="120"/>
         <source>from:</source>
         <translation>innen:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="146"/>
+        <source>Copy download link</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="169"/>
+        <source>You have chosen to open</source>
+        <translation>Megnyitásra kijelölve</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="35"/>
@@ -1828,6 +1844,11 @@ Please install latest version of QupZilla.</source>
         <translation>Ikon:</translation>
     </message>
     <message>
+        <location filename="../src/lib/opensearch/editsearchengine.ui" line="83"/>
+        <source>Change...</source>
+        <translation>Ikonváltás</translation>
+    </message>
+    <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="106"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url or post data represent searched string</source>
         <translation type="unfinished"/>
@@ -1837,54 +1858,49 @@ Please install latest version of QupZilla.</source>
         <source>Post Data:</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <location filename="../src/lib/opensearch/editsearchengine.ui" line="83"/>
-        <source>Change...</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>FileSchemeReply</name>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="113"/>
         <source>No Error</source>
-        <translation type="unfinished"/>
+        <translation>Nincs hiba</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="162"/>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"/>
+        <translation>Egy szinttel feljebb a mappából</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="163"/>
         <source>Show hidden files</source>
-        <translation type="unfinished"/>
+        <translation>Rejtett fájlok megjelenítése</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="164"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Név</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="165"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Méret</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="166"/>
         <source>Last modified</source>
-        <translation type="unfinished"/>
+        <translation>Utoljára módosítva</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="173"/>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="174"/>
         <source>Index for %1</source>
-        <translation type="unfinished"/>
+        <translation>Index ehhez: %1</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="219"/>
         <source>Folder is empty.</source>
-        <translation type="unfinished"/>
+        <translation>A mappa üres.</translation>
     </message>
 </context>
 <context>
@@ -1900,43 +1916,43 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="256"/>
         <source>Up to higher level directory</source>
-        <translation type="unfinished"/>
+        <translation>Egy szinttel feljebb a mappából</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="257"/>
         <source>Show hidden files</source>
-        <translation type="unfinished"/>
+        <translation>Rejtett fájlok megjelenítése</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="258"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Név</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="259"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Méret</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="260"/>
         <source>Last modified</source>
-        <translation type="unfinished"/>
+        <translation>Utoljára módosítva</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="274"/>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="275"/>
         <source>Index for %1</source>
-        <translation type="unfinished"/>
+        <translation>Index ehhez: %1</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="338"/>
         <source>Folder is empty.</source>
-        <translation type="unfinished"/>
+        <translation>A mappa üres.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="410"/>
         <source>Unknown command</source>
-        <translation type="unfinished"/>
+        <translation>Ismeretlen parancs</translation>
     </message>
 </context>
 <context>
@@ -1944,18 +1960,18 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="14"/>
         <source>HTML5 Permissions</source>
-        <translation type="unfinished"/>
+        <translation>HTML5 engedélyek</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="24"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Értesítések</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="40"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="94"/>
         <source>Site</source>
-        <translation type="unfinished"/>
+        <translation>Weboldal adatai</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="45"/>
@@ -1967,24 +1983,24 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="68"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="122"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Eltávolítás</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="78"/>
         <source>Geolocation</source>
-        <translation type="unfinished"/>
+        <translation>Geolokáció</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="35"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="53"/>
         <source>Allow</source>
-        <translation type="unfinished"/>
+        <translation>Engedélyez</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="44"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="62"/>
         <source>Deny</source>
-        <translation type="unfinished"/>
+        <translation>Tiltás</translation>
     </message>
 </context>
 <context>
@@ -1992,32 +2008,32 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="62"/>
         <source>Remember</source>
-        <translation type="unfinished"/>
+        <translation>Megjegyez</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="69"/>
         <source>Allow</source>
-        <translation type="unfinished"/>
+        <translation>Engedélyez</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="76"/>
         <source>Deny</source>
-        <translation type="unfinished"/>
+        <translation>Tilt</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="40"/>
         <source>this site</source>
-        <translation type="unfinished"/>
+        <translation>ezt az oldalt</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="44"/>
         <source>Allow %1 to show desktop notifications?</source>
-        <translation type="unfinished"/>
+        <translation>Engedélyezi %1 számára hogy értesítse az asztalon?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="48"/>
         <source>Allow %1 to locate your position?</source>
-        <translation type="unfinished"/>
+        <translation>Engedélyezi %1 számára hogy meghatározza a pozícióját?</translation>
     </message>
 </context>
 <context>
@@ -2025,67 +2041,67 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/history/history.cpp" line="78"/>
         <source>No Named Page</source>
-        <translation type="unfinished"/>
+        <translation>Névtelen lap</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="265"/>
         <source>January</source>
-        <translation type="unfinished"/>
+        <translation>Január</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="267"/>
         <source>February</source>
-        <translation type="unfinished"/>
+        <translation>Február</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="269"/>
         <source>March</source>
-        <translation type="unfinished"/>
+        <translation>Március</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="271"/>
         <source>April</source>
-        <translation type="unfinished"/>
+        <translation>Április</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="273"/>
         <source>May</source>
-        <translation type="unfinished"/>
+        <translation>Május</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="275"/>
         <source>June</source>
-        <translation type="unfinished"/>
+        <translation>Június</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="277"/>
         <source>July</source>
-        <translation type="unfinished"/>
+        <translation>Július</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="279"/>
         <source>August</source>
-        <translation type="unfinished"/>
+        <translation>Augusztus</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="281"/>
         <source>September</source>
-        <translation type="unfinished"/>
+        <translation>Szeptember</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="283"/>
         <source>October</source>
-        <translation type="unfinished"/>
+        <translation>Október</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="285"/>
         <source>November</source>
-        <translation type="unfinished"/>
+        <translation>November</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="287"/>
         <source>December</source>
-        <translation type="unfinished"/>
+        <translation>December</translation>
     </message>
 </context>
 <context>
@@ -2106,17 +2122,12 @@ Please install latest version of QupZilla.</source>
         <translation>Minden előzmény törlése</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="50"/>
-        <source>Optimize Database</source>
-        <translation>Adatbázis optimizálása</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="75"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="74"/>
         <source>Confirmation</source>
         <translation>Megerősítés</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="76"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="75"/>
         <source>Are you sure to delete all history?</source>
         <translation>Minden előzmény törölve legyen?</translation>
     </message>
@@ -2126,38 +2137,38 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="56"/>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>Az oldal neve</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="58"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Címe:</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="60"/>
         <source>Visit Date</source>
-        <translation type="unfinished"/>
+        <translation>Látogatás ideje</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="62"/>
         <source>Visit Count</source>
-        <translation type="unfinished"/>
+        <translation>Látogatás száma</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="341"/>
         <location filename="../src/lib/history/historymodel.cpp" line="472"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Ma</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="477"/>
         <source>This Week</source>
-        <translation type="unfinished"/>
+        <translation>Ezen a héten</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="482"/>
         <source>This Month</source>
-        <translation type="unfinished"/>
+        <translation>Ebben a hónapban</translation>
     </message>
 </context>
 <context>
@@ -2173,66 +2184,66 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="157"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"/>
+        <translation>Hivatkozás megnyitása a jelenlegi fülön</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="158"/>
         <source>Open link in new tab</source>
-        <translation type="unfinished"/>
+        <translation>Hivatkozás megnyitása új fülön</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="160"/>
         <source>Copy title</source>
-        <translation type="unfinished"/>
+        <translation>Cím másolása</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="161"/>
         <source>Copy address</source>
-        <translation type="unfinished"/>
+        <translation>A cím másolása</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="163"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Eltávolítás</translation>
     </message>
 </context>
 <context>
     <name>IconChooser</name>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="14"/>
-        <location filename="../src/lib/other/iconchooser.cpp" line="39"/>
+        <location filename="../src/lib/other/iconchooser.cpp" line="40"/>
         <source>Choose icon...</source>
-        <translation type="unfinished"/>
+        <translation>Ikon kiválasztása...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="20"/>
         <source>From file</source>
-        <translation type="unfinished"/>
+        <translation>Fájlból</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="29"/>
         <source>Image (.png, .jpg, .jpeg, .gif)</source>
-        <translation type="unfinished"/>
+        <translation>Képfájlok (.png, .jpg, .jpeg, .gif)</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="42"/>
         <source>Choose file...</source>
-        <translation type="unfinished"/>
+        <translation>Fájl megadása...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="52"/>
         <source>From database</source>
-        <translation type="unfinished"/>
+        <translation>Adatbázisból</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="61"/>
         <source>Site Url:</source>
-        <translation type="unfinished"/>
+        <translation>Oldal címe:</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/iconchooser.cpp" line="38"/>
+        <location filename="../src/lib/other/iconchooser.cpp" line="39"/>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>Képfájlok</translation>
     </message>
 </context>
 <context>
@@ -2240,37 +2251,37 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="14"/>
         <source>JavaScript Options</source>
-        <translation type="unfinished"/>
+        <translation>Javascript opciók</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="20"/>
         <source>Allow JavaScript to:</source>
-        <translation type="unfinished"/>
+        <translation>Javascript engedélyezése ehhez:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="42"/>
         <source>Close windows</source>
-        <translation type="unfinished"/>
+        <translation>Ablakok bezárása</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="49"/>
         <source>Open popup windows</source>
-        <translation type="unfinished"/>
+        <translation>Felugró ablakok megnyitása</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="56"/>
         <source>Change window size</source>
-        <translation type="unfinished"/>
+        <translation>Ablakméret váltása</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="63"/>
         <source>Hide menu bar</source>
-        <translation type="unfinished"/>
+        <translation>Eszköztár elrejtése</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="70"/>
         <source>Hide status bar</source>
-        <translation type="unfinished"/>
+        <translation>Állapotsor elrejtése</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="77"/>
@@ -2299,17 +2310,17 @@ Please install latest version of QupZilla.</source>
         <translation>Internetcím megadása vagy keresés itt: %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="313"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="318"/>
         <source>Paste And &amp;Go</source>
         <translation>Beillesztés és &amp;ugrás</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="319"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="324"/>
         <source>Clear All</source>
         <translation>Összes törlése</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="539"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="552"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.hu</translation>
@@ -2331,22 +2342,22 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="998"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1063"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="999"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1064"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1001"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1066"/>
         <source>Default Browser</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1021"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1086"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation type="unfinished"/>
     </message>
@@ -2364,13 +2375,13 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="43"/>
-        <source>Clear Master Password...</source>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="36"/>
+        <source>This backend does not work without a master password.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="36"/>
-        <source>This backend does not work without a master password.</source>
+        <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="43"/>
+        <source>Clear Master Password...</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2422,13 +2433,13 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="655"/>
-        <source>Some data has not been decrypted. The master password was not cleared!</source>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="612"/>
+        <source>Are you sure to clear master password and decrypt data?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="612"/>
-        <source>Are you sure to clear master password and decrypt data?</source>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="655"/>
+        <source>Some data has not been decrypted. The master password was not cleared!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2597,22 +2608,22 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="60"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="61"/>
         <source>Save as %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="98"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="104"/>
         <source>Choose location...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="109"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="115"/>
         <source>File &apos;%1&apos; already exists. Do you want to overwrite it?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="110"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="116"/>
         <source>File already exists</source>
         <translation type="unfinished"/>
     </message>
@@ -2683,12 +2694,12 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="265"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="266"/>
         <source>Error!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="265"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="266"/>
         <source>Cannot load extension!</source>
         <translation type="unfinished"/>
     </message>
@@ -2822,11 +2833,6 @@ Please install latest version of QupZilla.</source>
         <translation>Beállítások</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2667"/>
-        <source>QupZilla</source>
-        <translation>QupZilla</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="60"/>
         <source>General</source>
         <translation>Általános</translation>
@@ -2894,7 +2900,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="204"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="817"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="831"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Figyelmeztetés: Használatban lévő profil nem törölhető.</translation>
     </message>
@@ -3117,721 +3123,746 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="734"/>
-        <source>Automatically switch to newly opened tab</source>
+        <source>Always switch between tabs with mouse wheel</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="741"/>
+        <source>Automatically switch to newly opened tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="748"/>
         <source>Don&apos;t quit upon closing last tab</source>
         <translation>Nincs kilépés az utolsó fül bezárásakor</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="748"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="755"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Megerősítés kérése több fül bezárásakor</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="755"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="762"/>
         <source>Closed tabs list instead of opened in tab bar</source>
         <translation>A bezárt fülek listája a megnyitottak helyett a fülsorban</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="776"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="783"/>
         <source>Address Bar behaviour</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="784"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="791"/>
         <source>Suggest when typing into address bar:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="798"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="805"/>
         <source>History and Bookmarks</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="803"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="810"/>
         <source>History</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="808"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="815"/>
         <source>Bookmarks</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="813"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="820"/>
         <source>Nothing</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="839"/>
-        <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab.</source>
+        <location filename="../src/lib/preferences/preferences.ui" line="846"/>
+        <source>Enable inline suggestions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="842"/>
-        <source>Propose to switch tab if completed url is already loaded.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="849"/>
-        <source>Always show go icon</source>
+        <location filename="../src/lib/preferences/preferences.ui" line="853"/>
+        <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="856"/>
+        <source>Propose to switch tab if completed url is already loaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="863"/>
+        <source>Always show go icon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="870"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>A címsorban lévő szöveg kijelölése dupla kattintással</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="863"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="877"/>
         <source>Select all text by clicking in address bar</source>
         <translation>A címsorban lévő szöveg kijelölése a szövegre kattintva</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="870"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="884"/>
         <source>Search with Default Engine</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="893"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="907"/>
         <source>Show loading progress in address bar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="926"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="940"/>
         <source>Fill</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="931"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="945"/>
         <source>Bottom</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="936"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="950"/>
         <source>Top</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="944"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="958"/>
         <source>Custom color:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="960"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="974"/>
         <source>Select color</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="963"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1322"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1976"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2081"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2525"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="977"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1349"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2003"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2108"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2552"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="970"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="984"/>
         <source>Reset</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1021"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1035"/>
         <source>Web Configuration</source>
         <translation>Webes beállítások</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1029"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1043"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
         <translation>Netscape bővítmények engedélyezése (Flash plugin)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1036"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1050"/>
         <source>Allow JavaScript</source>
         <translation>Javascriptek engedélyezése</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1043"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1057"/>
         <source>Allow JAVA</source>
         <translation>Java engedélyezése</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1050"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1064"/>
         <source>Allow DNS Prefetch</source>
         <translation>DNS előtöltés engedélyezése</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1057"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1071"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>XSS ellenőrzés bekapcsolása</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1064"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1078"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>Háttérelemek nyomtatása</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1071"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1085"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translation>Linkek kiemelése az adott oldalon</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1078"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1092"/>
         <source>Animated scrolling</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1085"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1099"/>
         <source>Enable caret browsing</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1092"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1106"/>
         <source>Enable spatial navigation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1099"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1113"/>
         <source>Zoom text only</source>
         <translation>Csak a szövegméret változtatása</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1116"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1120"/>
+        <source>If you disable this, it will still be accesible via standard Qt shortcuts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
+        <source>Enable Undo/Redo for editable forms</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
         <source>Mouse wheel scrolls</source>
         <translation>Egérkerék görgetés</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1136"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1160"/>
         <source>lines on page</source>
         <translation>sor egy oldalon</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1147"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1171"/>
         <source>Default zoom on pages: </source>
         <translation>Alap nagyítási méret az oldalakon: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1199"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1223"/>
         <source>Local Storage</source>
         <translation>Helyi adattárhely</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1244"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1268"/>
         <source>Maximum </source>
         <translation>Maximum </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1251"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1275"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1286"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1313"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1293"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1320"/>
         <source>Maximum pages in cache: </source>
         <translation>Oldalak maximális száma a gyorsítótárban:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1300"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1327"/>
         <source>Allow storing network cache on disk</source>
         <translation>Engedélyezem a hálózati gyorsítótárazást a merevlemezen</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1307"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1334"/>
         <source>Store cache in:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1335"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1362"/>
         <source>Allow saving history</source>
         <translation>Előzmények tárolásának engedélyezése</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1342"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1369"/>
         <source>Delete history on close</source>
         <translation>Előzmények törlése a böngésző bezárásakor</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1365"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1392"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>HTML5 internetes tartalom tárolásának engedélyezése</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1372"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1399"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Eltárolt HTML5 internetes tartalom törlése a böngésző bezárásakor</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1398"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1425"/>
         <source>Delete now</source>
         <translation>Törlés most</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1437"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1464"/>
         <source>Proxy Configuration</source>
         <translation>Proxy beállítások</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1445"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1472"/>
         <source>Proxy Auto-Config (.pac) file</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1452"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1479"/>
         <source>Reload</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1544"/>
-        <source>HTTP</source>
-        <translation>HTTP</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1549"/>
-        <source>SOCKS5</source>
-        <translation>SOCKS5</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1560"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1635"/>
-        <source>Port:</source>
-        <translation>Port:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1581"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1656"/>
-        <source>Username:</source>
-        <translation>Felhasználónév:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1591"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1666"/>
-        <source>Password:</source>
-        <translation>Jelszó:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1486"/>
-        <source>Don&apos;t use on:</source>
-        <translation>Nincs használva itt:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1534"/>
-        <source>Manual configuration</source>
-        <translation>Egyéni beállítás</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1511"/>
-        <source>System proxy configuration</source>
-        <translation>A rendszer proxy beállításainak használata</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1698"/>
-        <source>Do not use proxy</source>
-        <translation>Ne legyen proxy használva</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1477"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1504"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Kivételek&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1625"/>
-        <source>Server:</source>
-        <translation>Szerver:</translation>
+        <location filename="../src/lib/preferences/preferences.ui" line="1513"/>
+        <source>Don&apos;t use on:</source>
+        <translation>Nincs használva itt:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1616"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1538"/>
+        <source>System proxy configuration</source>
+        <translation>A rendszer proxy beállításainak használata</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1561"/>
+        <source>Manual configuration</source>
+        <translation>Egyéni beállítás</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1571"/>
+        <source>HTTP</source>
+        <translation>HTTP</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1576"/>
+        <source>SOCKS5</source>
+        <translation>SOCKS5</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1587"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1662"/>
+        <source>Port:</source>
+        <translation>Port:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1608"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1683"/>
+        <source>Username:</source>
+        <translation>Felhasználónév:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1618"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1693"/>
+        <source>Password:</source>
+        <translation>Jelszó:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1643"/>
         <source>Use different proxy for https connection</source>
         <translation>Más proxy használata https kapcsolathoz</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1691"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1652"/>
+        <source>Server:</source>
+        <translation>Szerver:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1718"/>
         <source>Use script for automatic configuration:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1713"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1725"/>
+        <source>Do not use proxy</source>
+        <translation>Ne legyen proxy használva</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1740"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Betűtípusok&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1726"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1753"/>
         <source>Standard</source>
         <translation>Általános típusok</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1733"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1760"/>
         <source>Fixed</source>
         <translation>Rögzített méretű (szélességű) betűk</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1743"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1770"/>
         <source>Serif</source>
         <translation>Talpas betűk</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1753"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1780"/>
         <source>Sans Serif</source>
         <translation>Talp nélküli betűk</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1763"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1790"/>
         <source>Cursive</source>
         <translation>Folyóírásos betűk</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1815"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1842"/>
         <source>Fantasy</source>
         <translation>Fantáziabetűk</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1822"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1849"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Betűméret&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1831"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1858"/>
         <source>Fixed Font Size</source>
         <translation>Nem változó betűméret</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1838"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1865"/>
         <source>Default Font Size</source>
         <translation>Alapértelmezett betűméret</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1865"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1892"/>
         <source>Minimum Font Size</source>
         <translation>Minimális betűméret</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1872"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1899"/>
         <source>Minimum Logical Font Size</source>
         <translation>Minimális logikai betűméret</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1905"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1932"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1912"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1939"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1919"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1946"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1926"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1953"/>
         <source>Add .co.uk domain by pressing ALT key in address bar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1950"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1977"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Letöltések mentésének helye&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1957"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1984"/>
         <source>Ask everytime for download location</source>
         <translation>Minden letöltésnél kérdezzen rá a mentési helyre</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1964"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1991"/>
         <source>Use defined location: </source>
         <translation>Egyéni mentési hely megadása: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2014"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2041"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Letöltési beállítások&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2021"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2048"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Eredeti rendszer párbeszédablak használata
 (SSL típusú biztonsági kapcsolatnál problémákat okozhat)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2029"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2056"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Letöltéskezelő bezárása a letöltések befejeződése után</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2036"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2063"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Külső letöltéskezelő&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2043"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2070"/>
         <source>Use external download manager</source>
         <translation>Külső letöltéskezelő használata</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2055"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2082"/>
         <source>Executable:</source>
         <translation>Indítófájl:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2062"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2089"/>
         <source>Arguments:</source>
         <translation>Programutasításokat jelölő karakterek:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2069"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2096"/>
         <source>Leave blank if unsure</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2090"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2117"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2116"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2143"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Beállítások az önműködő szövegmező-kitöltéshez&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2123"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2150"/>
         <source>Allow saving passwords from sites</source>
         <translation>Bejelentkezési adatok (felhasználónév, jelszó) mentésének engedélyezése</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2178"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2205"/>
         <source>Send Referer header to servers</source>
         <translation>A hivatkozások kiindulási helyének közlése a szerverrel</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2185"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2212"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sütik&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2192"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2219"/>
         <source>Send Do Not Track header to servers</source>
         <translation>&quot;A felhasználó nyomon követésének letiltása&quot; parancs küldése a szerver felé</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2199"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2508"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2226"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2535"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Egyéb&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2206"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2233"/>
         <source>Manage CA certificates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2235"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2262"/>
         <source>Certificate Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2242"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2269"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL Tanúsítványok&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2252"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2279"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2262"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2289"/>
         <source>Manage JavaScript privacy options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2275"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2302"/>
         <source>JavaScript options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2288"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2315"/>
         <source>Cookies Manager</source>
         <translation>Sütikezelő</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2311"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2338"/>
         <source>Manage Cookies</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2331"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2358"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2338"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2365"/>
         <source>Manage HTML5 permissions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2351"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2378"/>
         <source>HTML5 Permissions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2362"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2389"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Értesítések&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2369"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2396"/>
         <source>Use OSD Notifications</source>
         <translation>A képernyőn megjelenő értesítések engedélyezése</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2379"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2406"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Eredeti rendszer értesítők használata (csak Linux-on)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2386"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2413"/>
         <source>Do not use Notifications</source>
         <translation>Ne látszódjanak az értesítések</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2437"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2464"/>
         <source>Expiration timeout:</source>
         <translation>Eddig legyen a képernyőn:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2450"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2477"/>
         <source> seconds</source>
         <translation> másodperc</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2459"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2486"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Megjegyzés: &lt;/b&gt;A képernyőn megjelenő értesítések ablakát húzással bárhova el lehet helyezni.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2515"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2542"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>Minden weboldal ebben a stílusban jelenjen meg: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2534"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2561"/>
         <source>Languages</source>
         <translation>Nyelvek</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2556"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2583"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;A weboldalak megjelenítéséhez előnybe részesített nyelv&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2605"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2632"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2630"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2657"/>
         <source>User Agent Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="119"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="544"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2694"/>
+        <source>QupZilla</source>
+        <translation>QupZilla</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.cpp" line="134"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="558"/>
         <source>Default</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="123"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="138"/>
         <source>Set as default</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="528"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="542"/>
         <source>OSD Notification</source>
         <translation>Képernyőn megjelenő értesítés</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="529"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="543"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Az értesítési ablakot húzással bárhova helyezheti.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="570"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="584"/>
         <source>Choose download location...</source>
         <translation>A letöltések mentési helyének megadása...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="584"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="598"/>
         <source>Choose stylesheet location...</source>
         <translation>Weboldal megjelenítési stílus helyének megadása...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="595"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="609"/>
         <source>Deleted</source>
         <translation>Törölve</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="601"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="615"/>
         <source>Choose executable location...</source>
         <translation>Indítófájl helyének megadása...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="725"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="739"/>
         <source>Choose cache path...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="771"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="785"/>
         <source>New Profile</source>
         <translation>Új profil</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="771"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="785"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Az új profil neve:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="778"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="782"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="792"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="796"/>
         <source>Error!</source>
         <translation>Hiba!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="778"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="792"/>
         <source>This profile already exists!</source>
         <translation>Ilyen profil már van!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="782"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="796"/>
         <source>Cannot create profile directory!</source>
         <translation>Nem lehet létrehozni a profilkönyvtárat!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="802"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="816"/>
         <source>Confirmation</source>
         <translation>Megerősítés</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="817"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Ez a profil: &quot;%1&quot; véglegesen törlésre kerül? Ezt a törlést nem lehet visszafordítani!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1087"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1104"/>
         <source>Select Color</source>
         <translation type="unfinished"/>
     </message>
@@ -3859,42 +3890,42 @@ Please install latest version of QupZilla.</source>
         <translation>&lt;nincs beállítva a tanúsítványban&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="286"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="309"/>
         <source>Unknown size</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="291"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="314"/>
         <source>KB</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="296"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="319"/>
         <source>MB</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="300"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="323"/>
         <source>GB</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="618"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="752"/>
         <source>Executable: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="619"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="753"/>
         <source>Arguments: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="621"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="755"/>
         <source>Cannot start external program</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="622"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="756"/>
         <source>Cannot start external program! %1</source>
         <translation type="unfinished"/>
     </message>
@@ -3923,11 +3954,21 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
+        <source>Open new private window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
+        <source>Opens a new private window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/3rdparty/qtwin.cpp" line="400"/>
         <source>Open download manager</source>
         <translation>Letöltéskezelő megnyitása</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
+        <location filename="../src/lib/3rdparty/qtwin.cpp" line="400"/>
         <source>Opens a download manager if browser is running</source>
         <translation>A letöltéskezelő megnyitása, ha a böngésző fut</translation>
     </message>
@@ -3935,392 +3976,392 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="133"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="134"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="357"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="360"/>
         <source>Private Browsing Enabled</source>
         <translation>Privát Böngészés bekapcsolva</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="361"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="364"/>
         <source>IP Address of current page</source>
         <translation>Jelenlegi lap IP címe</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="392"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="395"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp;A QupZilláról</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="396"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="399"/>
         <source>Pr&amp;eferences</source>
         <translation>Be&amp;állítások</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="401"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="404"/>
         <source>Quit</source>
         <translation>Kilépés</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="411"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="414"/>
         <source>&amp;File</source>
         <translation>&amp;Fájl</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="413"/>
-        <source>&amp;New Window</source>
-        <translation>&amp;Új ablak</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="412"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="415"/>
         <source>New Tab</source>
         <translation>Új fül</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="414"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="416"/>
+        <source>&amp;New Window</source>
+        <translation>&amp;Új ablak</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/app/qupzilla.cpp" line="417"/>
         <source>Open Location</source>
         <translation>Hely megnyitása</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="415"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="418"/>
         <source>Open &amp;File...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="416"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="714"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="419"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="79"/>
         <source>Close Tab</source>
         <translation>Fül bezárása</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="417"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="420"/>
         <source>Close Window</source>
         <translation>Ablak bezárása</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="420"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="423"/>
         <source>&amp;Save Page As...</source>
         <translation>&amp;Az oldal mentése mint...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="421"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="424"/>
         <source>Save Page Screen</source>
         <translation>Képernyőkép mentése</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="422"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="425"/>
         <source>Send Link...</source>
         <translation>Hivatkozás küldése...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="423"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="426"/>
         <source>&amp;Print...</source>
         <translation>&amp;Nyomtatás...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="425"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="428"/>
         <source>Import bookmarks...</source>
         <translation>Könyvjelzők betöltése...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="437"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="440"/>
         <source>&amp;Edit</source>
         <translation>&amp;Szerkesztés</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="438"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="441"/>
         <source>&amp;Undo</source>
         <translation>&amp;Visszavonás</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="439"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="442"/>
         <source>&amp;Redo</source>
         <translation>&amp;Mégis</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="441"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="444"/>
         <source>&amp;Cut</source>
         <translation>&amp;Kivágás</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="442"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="445"/>
         <source>C&amp;opy</source>
         <translation>M&amp;ásolás</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="443"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="446"/>
         <source>&amp;Paste</source>
         <translation>&amp;Beillesztés</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="445"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="448"/>
         <source>Select &amp;All</source>
         <translation>Az összes &amp;kijelölése</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="446"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="449"/>
         <source>&amp;Find</source>
         <translation>&amp;Keresés</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="457"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="460"/>
         <source>&amp;View</source>
         <translation>&amp;Megjelenési nézet</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="458"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="461"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>&amp;Vezérlőelemek</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="461"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="464"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>&amp;Könyvjelző eszköztár</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="464"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="467"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Áll&amp;apotsor</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="468"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="471"/>
         <source>&amp;Menu Bar</source>
         <translation>&amp;Menüsor</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="475"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="478"/>
         <source>&amp;Tabs on Top</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="478"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="481"/>
         <source>&amp;Fullscreen</source>
         <translation>&amp;Teljes képernyős mód</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="486"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="489"/>
         <source>&amp;Stop</source>
         <translation>&amp;Leállítás</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="489"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="492"/>
         <source>&amp;Reload</source>
         <translation>&amp;Betöltés megint</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="492"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="495"/>
         <source>Character &amp;Encoding</source>
         <translation>Karakter&amp;kódolás</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="495"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="498"/>
         <source>Enable &amp;Caret Browsing</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="505"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="508"/>
         <source>Toolbars</source>
         <translation>Eszköztárak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="513"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="516"/>
         <source>Sidebars</source>
         <translation>Oldalsávok</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="523"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="526"/>
         <source>Zoom &amp;In</source>
         <translation>Nagyít&amp;ás</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="524"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="527"/>
         <source>Zoom &amp;Out</source>
         <translation>Kicsinyí&amp;tés</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="525"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="528"/>
         <source>Reset</source>
         <translation>Alapértelmezett nagyítási arány visszaállítása</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="530"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="533"/>
         <source>&amp;Page Source</source>
         <translation>&amp;Az oldal forráskódjának megtekintése</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="540"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="543"/>
         <source>Hi&amp;story</source>
         <translation>El&amp;őzmények</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="541"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="544"/>
         <source>&amp;Back</source>
         <translation>&amp;Vissza</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="543"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="546"/>
         <source>&amp;Forward</source>
         <translation>&amp;Előre</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="545"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="548"/>
         <source>&amp;Home</source>
         <translation>&amp;Kezdőoldal</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="546"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="549"/>
         <source>Show &amp;All History</source>
         <translation>Minden &amp;előzmény megtekintése</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="551"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="554"/>
         <source>Closed Tabs</source>
         <translation>Nemrég bezárt fülek</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="554"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="557"/>
         <source>Recently Visited</source>
         <translation>Mostanában felkeresett oldalak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="557"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="560"/>
         <source>Most Visited</source>
         <translation>Legtöbbet látogatott oldalak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="567"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="570"/>
         <source>&amp;Bookmarks</source>
         <translation>&amp;Könyvjelzők</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="568"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="571"/>
         <source>Bookmark &amp;This Page</source>
         <translation>Oldal &amp;mentése a könyvjelzőkhöz</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="569"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="572"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Összes &amp;jelenlegi fül mentése a könyvjelzőkhöz</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="570"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="573"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>Könyvjelzők &amp;rendezése</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="579"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="582"/>
         <source>&amp;Tools</source>
         <translation>&amp;Eszközök</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="580"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="583"/>
         <source>&amp;Web Search</source>
         <translation>&amp;Internetes keresés</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="581"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="584"/>
         <source>Page &amp;Info</source>
         <translation>Az oldal &amp;adatai</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="585"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="588"/>
         <source>&amp;Download Manager</source>
         <translation>&amp;Letöltéskezelő</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="586"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="589"/>
         <source>&amp;Cookies Manager</source>
         <translation>&amp;Sütikezelő</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="587"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="590"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;Hirdetésszűrő</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="588"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="591"/>
         <source>RSS &amp;Reader</source>
         <translation>RSS &amp;olvasó</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="589"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="592"/>
         <source>Web In&amp;spector</source>
         <translation>Weboldal el&amp;emeinek vizsgálata</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="590"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="593"/>
         <source>Clear Recent &amp;History</source>
         <translation>Mai előzmények &amp;törlése</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="591"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="594"/>
         <source>New &amp;Private Window</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="605"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="608"/>
         <source>&amp;Help</source>
         <translation>&amp;Segítség</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="607"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="610"/>
         <source>About &amp;Qt</source>
         <translation>A Qt-r&amp;ól</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="611"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="614"/>
         <source>Information about application</source>
         <translation>Információk a böngészőről</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="616"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="619"/>
         <source>Configuration Information</source>
         <translation>Összetevők adatai</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="617"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="620"/>
         <source>Report &amp;Issue</source>
         <translation>Javaslat, &amp;probléma jelzése</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="682"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="685"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Nemrég &amp;bezárt fül visszaállítása</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="961"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="958"/>
         <source> (Private Browsing)</source>
         <translation> (Privát Böngészés)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1073"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1103"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1162"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1191"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1216"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1070"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1100"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1159"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1188"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1213"/>
         <source>Empty</source>
         <translation>Üres</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1165"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1162"/>
         <source>Restore All Closed Tabs</source>
         <translation>Az összes bezárt fül visszaállítása</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1166"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1163"/>
         <source>Clear list</source>
         <translation>Lista törlése</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1292"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1289"/>
         <source>Other</source>
         <translation>Egyéb</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1728"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1727"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -4350,25 +4391,24 @@ Please install latest version of QupZilla.</source>
         <translation>Fájl megnyitása...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1955"/>
-        <location filename="../src/lib/other/pagescreen.cpp" line="166"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1957"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="172"/>
         <source>QupZilla %1 (%2)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2191"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="2193"/>
         <source>There are still %1 open tabs and your session won't be stored. 
-Are you sure to quit QupZilla?</source>
-        <translation>Van még %1 nyitott fül és a munkamenet még nem lett elmentve. 
-Biztosan ki szeretne lépni a böngészőből?</translation>
+Are you sure to close this window?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2192"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="2194"/>
         <source>Don&apos;t ask again</source>
         <translation>Ne kérdezze ismét</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2193"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="2195"/>
         <source>There are still open tabs</source>
         <translation>Vannak még bezáratlan fülek</translation>
     </message>
@@ -4455,7 +4495,7 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="210"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="364"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="367"/>
         <source>Information about version</source>
         <translation>Verzióinformációk</translation>
     </message>
@@ -4466,13 +4506,13 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="214"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
         <source>Version</source>
         <translation>Változatszám</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="219"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
         <source>WebKit version</source>
         <translation>Webkit változatszám</translation>
     </message>
@@ -4492,311 +4532,311 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
         <translation>Nyelvi fordítók</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
         <source>Speed Dial</source>
         <translation>Gyorsindító</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
         <source>Add New Page</source>
         <translation>Új oldal hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
         <source>Edit</source>
         <translation>Szerkesztés</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
         <source>Remove</source>
         <translation>Törlés</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
         <source>Reload</source>
         <translation>Újratöltés</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
         <source>Are you sure to remove this speed dial?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
         <source>Load title from page</source>
         <translation>Oldal elnevezésének betöltése az oldalról</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
         <source>Url</source>
         <translation>Internetcím</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
         <source>Title</source>
         <translation>Az oldal neve</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
         <source>Apply</source>
         <translation>Alkalmaz</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
         <source>Close</source>
         <translation>Bezárás</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
         <source>New Page</source>
         <translation>Új oldal</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
         <source>Speed Dial settings</source>
         <translation>A gyorsindító beállításai</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
         <source>Placement: </source>
         <translation>Elhelyezés: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
         <source>Auto</source>
         <translation>Középre helyezés eredeti méretben</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
         <source>Cover</source>
         <translation>Háttér kitöltése</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
         <source>Fit</source>
         <translation>Háttér méretéhez igazítás</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
         <source>Fit Width</source>
         <translation>Szélességhez igazítás</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
         <source>Fit Height</source>
         <translation>Magassághoz igazítás</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
         <source>Use background image</source>
         <translation>Háttérkép használata</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
         <source>Select image</source>
         <translation>Képfájl kiválasztása</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
         <source>Maximum pages in a row:</source>
         <translation>Egy sorban lévő lapok maximális száma:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
         <source>Change size of pages:</source>
         <translation>Lapok méretének megváltoztatása:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="316"/>
         <source>Center speed dials</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="341"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="344"/>
         <source>Restore Session</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="342"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="345"/>
         <source>Oops, QupZilla crashed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="343"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="346"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="344"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="347"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="345"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
         <source>Or you can start completely new session</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="362"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="363"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="365"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="366"/>
         <source>Configuration Information</source>
         <translation>Összetevők adatai</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="365"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Ez az oldal információkat tartalmaz a böngésző jelenlegi beállításairól - amelyet a hibaelhárításhoz használhatunk. Kérjük, ezeket az információkat is helyezze bele a hibabejelentésébe.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="366"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
         <source>Browser Identification</source>
         <translation>Böngésző azonosítás</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="367"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="370"/>
         <source>Paths</source>
         <translation>Elérési utak</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
         <source>Build Configuration</source>
         <translation>Verzió összetevők</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
         <source>Preferences</source>
         <translation>Beállítások</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="370"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
         <source>Option</source>
         <translation>Beállítások</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
         <source>Value</source>
         <translation>Érték</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
         <source>Extensions</source>
         <translation>Bővítmények</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
         <source>Name</source>
         <translation>Név</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
         <source>Author</source>
         <translation>Szerző</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
         <source>Description</source>
         <translation>Leírás</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
         <source>Application version</source>
         <translation>Böngésző változatszám</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
         <source>Qt version</source>
         <translation>Qt változatszám</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
         <source>Build time</source>
         <translation>Elkészítés ideje</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="390"/>
         <source>Platform</source>
         <translation>Operációs rendszer</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="390"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="393"/>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="391"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
         <source>Settings</source>
         <translation>Beállítások</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
         <source>Saved session</source>
         <translation>Elmentett munkamenet</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="393"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
         <source>Pinned tabs</source>
         <translation>Megjelölt fülek</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="397"/>
         <source>Data</source>
         <translation>Adatok</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="398"/>
         <source>Themes</source>
         <translation>Témák</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
         <source>Translations</source>
         <translation>Nyelvi fordítások</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="413"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="419"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="402"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="414"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="420"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="425"/>
+        <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Engedélyezve&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="410"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="416"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="422"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="425"/>
         <source>Disabled</source>
         <translation>Kikapcsolva</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="411"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="417"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="423"/>
-        <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Engedélyezve&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="429"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="428"/>
         <source>Debug build</source>
         <translation>Fejlesztői változat</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="430"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="429"/>
         <source>WebGL support</source>
         <translation>WebGL támogatás</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="430"/>
         <source>Windows 7 API</source>
         <translation>Windows 7 API</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="432"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
         <source>KDE integration</source>
         <translation>KDE beillesztés</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="433"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="432"/>
         <source>Portable build</source>
         <translation>Hordozható változat</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="451"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="450"/>
         <source>No available extensions.</source>
         <translation>Nincs elérhető bővítmény.</translation>
     </message>
@@ -4810,7 +4850,7 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="33"/>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="142"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="141"/>
         <source>Empty</source>
         <translation>Üres</translation>
     </message>
@@ -4830,90 +4870,85 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
         <translation>Híroldal törlése</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.ui" line="97"/>
-        <source>Optimize Database</source>
-        <translation>Adatbázis optimizálása</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="54"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="55"/>
         <source>Reload</source>
         <translation>Újratöltés</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="104"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="103"/>
         <source>News</source>
         <translation>Hírek</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="114"/>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="155"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="113"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="154"/>
         <source>Loading...</source>
         <translation>Betöltés...</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="140"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="139"/>
         <source>You don't have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translation>Nincsenek még RSS híroldalak.&lt;/br&gt;
 RSS ikonnal jelölt oldalcímekről hozzá lehet adni híroldalakat.</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="163"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="162"/>
         <source>Add new feed</source>
         <translation>Híroldal hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="163"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="162"/>
         <source>Please enter URL of new feed:</source>
         <translation>Híroldal internetcíme:</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="169"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="168"/>
         <source>New feed</source>
         <translation>Új híroldal</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="208"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="207"/>
         <source>Fill title and URL of a feed: </source>
         <translation>Híroldal nevének és internetcímének kitöltése:</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="210"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="209"/>
         <source>Feed title: </source>
         <translation>Híroldal neve: </translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="211"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="210"/>
         <source>Feed URL: </source>
         <translation>Híroldal internetcíme: </translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="217"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="216"/>
         <source>Edit RSS Feed</source>
         <translation>Híroldal szerkesztése</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="258"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="257"/>
         <source>Open link in current tab</source>
         <translation>Hivatkozás megnyitása a jelenlegi fülön</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="259"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="258"/>
         <source>Open link in new tab</source>
         <translation>Hivatkozás megnyitása új fülön</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="384"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="383"/>
         <source>Error in fetching feed</source>
         <translation>Hiba a híroldal elérésében</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="418"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="417"/>
         <source>RSS feed duplicated</source>
         <translation>Híroldal duplázódott</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="418"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="417"/>
         <source>You already have this feed.</source>
         <translation>Ilyen híroldal már van.</translation>
     </message>
@@ -4969,19 +5004,19 @@ RSS ikonnal jelölt oldalcímekről hozzá lehet adni híroldalakat.</translatio
 <context>
     <name>RSSWidget</name>
     <message>
-        <location filename="../src/lib/rss/rsswidget.ui" line="56"/>
+        <location filename="../src/lib/rss/rsswidget.ui" line="14"/>
         <source>Add RSS Feeds from this site</source>
         <translation>RSS hozzáadása erről a lapról</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rsswidget.cpp" line="54"/>
+        <location filename="../src/lib/rss/rsswidget.cpp" line="55"/>
         <source>Untitled feed</source>
         <translation>Cím nélküli RSS feed</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rsswidget.cpp" line="58"/>
-        <source>Add</source>
-        <translation>Hozzáadás</translation>
+        <location filename="../src/lib/rss/rsswidget.cpp" line="72"/>
+        <source>You already have this feed.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5170,7 +5205,7 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="48"/>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="314"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="315"/>
         <source>Add Search Engine</source>
         <translation>Internetes kereső hozzáadása</translation>
     </message>
@@ -5193,27 +5228,27 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="400"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="401"/>
         <source>Search Engine Added</source>
         <translation>Internetes kereső hozzáadva</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="400"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="401"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>Ez a kereső: %1 sikeresen hozzáadva.</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="407"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="408"/>
         <source>Search Engine is not valid!</source>
         <translation>Ez a kereső érvénytelen!</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="408"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="409"/>
         <source>Error</source>
         <translation>HibaHiba</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="408"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="409"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Hiba keletkezett a kereső hozzáadásakor &lt;br&gt;&lt;b&gt;Hibaüzenet: &lt;/b&gt; %1</translation>
     </message>
@@ -5660,17 +5695,17 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="287"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="288"/>
         <source>Image files</source>
         <translation>Képfájlok</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="288"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="289"/>
         <source>Select image...</source>
         <translation>Kép kiválasztása...</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="341"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="342"/>
         <source>Unable to load</source>
         <translation>Nem lehet betölteni</translation>
     </message>
@@ -5713,7 +5748,7 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="70"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="71"/>
         <source>Choose dictionary path...</source>
         <translation type="unfinished"/>
     </message>
@@ -5771,83 +5806,83 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="140"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="152"/>
         <source>&amp;New tab</source>
         <translation>&amp;Új fül</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="149"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Fül leállítása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="152"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Fül újratöltése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="155"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="167"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Nyisd meg ugyanezt az oldalt egy új fülön</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="158"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="170"/>
         <source>D&amp;etach Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="173"/>
         <source>Un&amp;pin Tab</source>
         <translation>Fü&amp;l megjelölésének törlése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="173"/>
         <source>&amp;Pin Tab</source>
         <translation>&amp;Fül megjelölése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="163"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="175"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Ös&amp;szes fül újra betöltése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="176"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>&amp;Oldal mentése a könyvjelzőkhöz</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="165"/>
         <location filename="../src/lib/webview/tabbar.cpp" line="177"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="189"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Összes &amp;jelenlegi fül mentése a könyvjelzőkhöz</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="171"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="183"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>A többi f&amp;ül bezárása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="172"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="184"/>
         <source>Cl&amp;ose</source>
         <translation>Be&amp;zárás</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="176"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="188"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Össze&amp;s fül újra betöltése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="179"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="191"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Nemrég &amp;bezárt fül visszaállítása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="193"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="205"/>
         <source>Close Tabs</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="193"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="205"/>
         <source>Do you really want to close other tabs?</source>
         <translation type="unfinished"/>
     </message>
@@ -5855,50 +5890,52 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="54"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="55"/>
         <source>New Tab</source>
         <translation>Új fül</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="147"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="148"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="163"/>
         <source>List of tabs</source>
         <translation>Fülek listája</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="255"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="266"/>
         <source>Loading...</source>
         <translation>Betöltés...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="259"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="270"/>
         <source>No Named Page</source>
         <translation>Névtelen lap</translation>
     </message>
-    <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="277"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="482"/>
-        <source>Currently you have %1 opened tabs</source>
-        <translation>Jelenleg %1 fül van megnyitva</translation>
+    <message numerus="yes">
+        <location filename="../src/lib/webview/tabwidget.cpp" line="288"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="498"/>
+        <source>Currently you have %n opened tab(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="297"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="119"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="120"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="311"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="918"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="114"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="115"/>
         <source>New tab</source>
         <translation>Új fül</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="815"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="821"/>
         <source>Empty</source>
         <translation>Üres</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="818"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="824"/>
         <source>Restore All Closed Tabs</source>
         <translation>Az összes bezárt fül visszaállítása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="819"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="825"/>
         <source>Clear list</source>
         <translation>Lista törlése</translation>
     </message>
@@ -6050,173 +6087,173 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="361"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="372"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="366"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="377"/>
         <source>Remember my choice for this protocol</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="367"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="378"/>
         <source>External Protocol Request</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="521"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="532"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="523"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="534"/>
         <source>Confirm form resubmission</source>
         <translation>Űrlapadatok ismételt elküldésének megerősítése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="700"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="711"/>
         <source>Select files to upload...</source>
         <translation>Feltölteni kívánt fájlok kiválasztása...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="721"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="732"/>
         <source>Server refused the connection</source>
         <translation>A szerver visszautasította a kapcsolatot</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="724"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="735"/>
         <source>Server closed the connection</source>
         <translation>A szerver bezárta a kapcsolatot</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="727"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="738"/>
         <source>Server not found</source>
         <translation>A szerver nem található</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="730"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="741"/>
         <source>Connection timed out</source>
         <translation>Kapcsolódási idő túllépve</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="733"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="744"/>
         <source>Untrusted connection</source>
         <translation>Nem megbízható kapcsolat</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="736"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="747"/>
         <source>Temporary network failure</source>
         <translation>Ideiglenes hálózati hiba</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="739"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="750"/>
         <source>Proxy connection refused</source>
         <translation>Proxy kapcsolat elutasítva</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="742"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="753"/>
         <source>Proxy server not found</source>
         <translation>A proxy szerver nem található</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="745"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="756"/>
         <source>Proxy connection timed out</source>
         <translation>Proxy kapcsolódási idő túllépve</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="748"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="759"/>
         <source>Proxy authentication required</source>
         <translation>Proxy hitelesítés szükséges</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="751"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="762"/>
         <source>Content not found</source>
         <translation>Tartalom nem található</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="754"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="765"/>
         <source>Unknown network error</source>
         <translation>Nem beazonosítható hálózati hiba</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="784"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="795"/>
         <source>AdBlocked Content</source>
         <translation>A Hirdetésszűrő által blokkolt tartalom</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="788"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="799"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="805"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="816"/>
         <source>Content Access Denied</source>
         <translation>Tartalom elérése nem engedélyezett</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="820"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="831"/>
         <source>Error code %1</source>
         <translation>%1 hibakód</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="832"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="843"/>
         <source>Failed loading page</source>
         <translation>Nem sikerült betölteni az oldalt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="838"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="849"/>
         <source>QupZilla can&apos;t load page.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="838"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="849"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>A QupZilla nem tudja betölteni az oldalt innen: %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="842"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="853"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>A beírt internetcím ellenőrzése szükséges, lehet, hogy rosszul lett begépelve</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="843"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="854"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Ha semmilyen weboldalt nem lehet megnyitni, lehet, hogy megszakadt az internetkapcsolat.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="844"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="855"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Ha a számítógép vagy a hálózat proxyt vagy tűzfalat használ, engedélyezni kell az internetelérést a QupZilla számára.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="845"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="856"/>
         <source>Try Again</source>
         <translation>Ismételt próbálkozás</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="945"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="956"/>
         <source>JavaScript alert</source>
         <translation>Javascript figyelmeztetés</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="953"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="964"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Ne jelenjenek meg további párbeszédablakok ezen az oldalon</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1001"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="1018"/>
         <source>Choose file...</source>
         <translation>Fájl megadása...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1009"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="1026"/>
         <source>Cannot read data from &lt;b&gt;%1&lt;/b&gt;. Upload was cancelled!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1010"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="1027"/>
         <source>Cannot read file!</source>
         <translation type="unfinished"/>
     </message>
@@ -6229,27 +6266,27 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
         <translation>Internetes keresők kezelése</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="243"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="241"/>
         <source>Add %1 ...</source>
         <translation>%1 hozzáadása...</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="266"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="264"/>
         <source>Paste And &amp;Search</source>
         <translation>Beilleszt és &amp;keres</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="272"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="270"/>
         <source>Clear All</source>
         <translation>Összes törlése</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="314"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="312"/>
         <source>Show suggestions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="319"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="317"/>
         <source>Search when engine changed</source>
         <translation type="unfinished"/>
     </message>
@@ -6318,7 +6355,7 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="800"/>
-        <location filename="../src/lib/webview/webview.cpp" line="925"/>
+        <location filename="../src/lib/webview/webview.cpp" line="936"/>
         <source>&amp;Reload</source>
         <translation>&amp;Betöltés megint</translation>
     </message>
@@ -6328,232 +6365,257 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
         <translation>L&amp;eállítás</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="857"/>
+        <location filename="../src/lib/webview/webview.cpp" line="841"/>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="844"/>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="866"/>
         <source>Delete</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="904"/>
+        <location filename="../src/lib/webview/webview.cpp" line="913"/>
         <source>&amp;Back</source>
         <translation>&amp;Vissza</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="908"/>
+        <location filename="../src/lib/webview/webview.cpp" line="917"/>
         <source>&amp;Forward</source>
         <translation>&amp;Előre</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="918"/>
+        <location filename="../src/lib/webview/webview.cpp" line="929"/>
         <source>This frame</source>
         <translation>Ez a keret</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="919"/>
+        <location filename="../src/lib/webview/webview.cpp" line="930"/>
         <source>Show &amp;only this frame</source>
         <translation>Csak &amp;ez a keret legyen látható</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="920"/>
+        <location filename="../src/lib/webview/webview.cpp" line="931"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>Nyisd meg ezt a keretet új &amp;fülön</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="926"/>
+        <location filename="../src/lib/webview/webview.cpp" line="937"/>
         <source>Print frame</source>
         <translation>Keret kinyomtatása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="928"/>
+        <location filename="../src/lib/webview/webview.cpp" line="939"/>
         <source>Zoom &amp;in</source>
         <translation>Nagyít&amp;ás</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="929"/>
+        <location filename="../src/lib/webview/webview.cpp" line="940"/>
         <source>&amp;Zoom out</source>
         <translation>&amp;Kicsinyítés</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="930"/>
+        <location filename="../src/lib/webview/webview.cpp" line="941"/>
         <source>Reset</source>
         <translation>Alapértelmezett nagyítási arány visszaállítása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="932"/>
+        <location filename="../src/lib/webview/webview.cpp" line="943"/>
         <source>Show so&amp;urce of frame</source>
         <translation>A keret fo&amp;rráskódjának megtekintése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="938"/>
+        <location filename="../src/lib/webview/webview.cpp" line="949"/>
         <source>Book&amp;mark page</source>
         <translation>Olda&amp;l mentése a Könyvjelzőkhöz</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="939"/>
+        <location filename="../src/lib/webview/webview.cpp" line="950"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Az oldal mentése mint...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="940"/>
+        <location filename="../src/lib/webview/webview.cpp" line="951"/>
         <source>&amp;Copy page link</source>
         <translation>&amp;Az oldal internetcímének kimásolása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="941"/>
+        <location filename="../src/lib/webview/webview.cpp" line="952"/>
         <source>Send page link...</source>
         <translation>Az oldal internetcímének elküldése...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="942"/>
+        <location filename="../src/lib/webview/webview.cpp" line="953"/>
         <source>&amp;Print page</source>
         <translation>&amp;Az oldal kinyomtatása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="944"/>
+        <location filename="../src/lib/webview/webview.cpp" line="955"/>
         <source>Select &amp;all</source>
         <translation>Az összes &amp;kijelölése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="948"/>
+        <location filename="../src/lib/webview/webview.cpp" line="960"/>
         <source>Validate page</source>
         <translation>Oldal érvényesítése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="951"/>
+        <location filename="../src/lib/webview/webview.cpp" line="964"/>
+        <source>Translate page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="968"/>
         <source>Show so&amp;urce code</source>
         <translation>A keret fo&amp;rráskódjának megtekintése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="952"/>
+        <location filename="../src/lib/webview/webview.cpp" line="969"/>
         <source>Show info ab&amp;out site</source>
         <translation>Információk megjelenítése er&amp;ről az oldalról</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="963"/>
+        <location filename="../src/lib/webview/webview.cpp" line="974"/>
+        <source>&amp;Add New Page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="975"/>
+        <source>&amp;Configure Speed Dial</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="987"/>
         <source>Open link in new &amp;tab</source>
         <translation>Hivatkozás megnyitása új &amp;fülön</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="968"/>
+        <location filename="../src/lib/webview/webview.cpp" line="992"/>
         <source>Open link in new &amp;window</source>
         <translation>Hivatkozás megnyitása új &amp;ablakban</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="970"/>
+        <location filename="../src/lib/webview/webview.cpp" line="994"/>
         <source>B&amp;ookmark link</source>
         <translation>H&amp;ivatkozás felvétele a Könyvjelzőkhöz</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="971"/>
+        <location filename="../src/lib/webview/webview.cpp" line="995"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Hivatkozás mentése mint...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="972"/>
+        <location filename="../src/lib/webview/webview.cpp" line="996"/>
         <source>Send link...</source>
         <translation>Hivatkozás küldése...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="973"/>
+        <location filename="../src/lib/webview/webview.cpp" line="997"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;A hivatkozás címének másolása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="985"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1009"/>
         <source>Show i&amp;mage</source>
         <translation>Kép m&amp;utatása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="990"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1014"/>
         <source>Copy im&amp;age</source>
         <translation>Kép másol&amp;ása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="991"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1015"/>
         <source>Copy image ad&amp;dress</source>
         <translation>A kép címének ki&amp;másolása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="993"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1017"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;A kép mentése mint...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="994"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1018"/>
         <source>Send image...</source>
         <translation>Kép küldése...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1013"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1037"/>
         <source>Send text...</source>
         <translation>Szöveg küldése...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1018"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1042"/>
         <source>Google Translate</source>
         <translation>Google Fordító</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1023"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1048"/>
         <source>Dictionary</source>
         <translation>Szótár</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1038"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1063"/>
         <source>Go to &amp;web address</source>
         <translation>Ugrás az &amp;internetcímhez</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1052"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1077"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>&quot;%1 ..&quot; keresése ezzel: %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1058"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1083"/>
         <source>Search with...</source>
         <translation>Keresés ezzel...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1085"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1110"/>
         <source>&amp;Play</source>
         <translation>&amp;Lejátszás</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1085"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1110"/>
         <source>&amp;Pause</source>
         <translation>&amp;Szünet</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1086"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1111"/>
         <source>Un&amp;mute</source>
         <translation>Ha&amp;ng visszaállítása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1086"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1111"/>
         <source>&amp;Mute</source>
         <translation>&amp;Elnémítás</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1088"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1113"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Média internetcímének kimásolása</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1089"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1114"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Média internetcímének elküldése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1090"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1115"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Média &amp;mentése</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1099"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1124"/>
         <source>Check &amp;Spelling</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1104"/>
+        <location filename="../src/lib/webview/webview.cpp" line="1129"/>
         <source>Languages</source>
         <translation type="unfinished"/>
     </message>

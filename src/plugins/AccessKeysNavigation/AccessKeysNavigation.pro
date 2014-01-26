@@ -55,7 +55,6 @@ TRANSLATIONS += \
     translations/sr_RS.ts \
     translations/sv_SE.ts \
     translations/uk_UA.ts \
-    translations/uz.ts \
     translations/zh_CN.ts \
     translations/zh_TW.ts \
 

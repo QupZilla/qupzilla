@@ -4,7 +4,7 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="36"/>
         <source>Modify images loading settings per-site and globally</source>
-        <translation>Aldatu irudiak ezarpenak gertatuz gune-bakoitzeko eta orokorki</translation>
+        <translation>Aldatu irudiak ezarpenak gune-bakoitzeko eta orokorki gertatuz</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="60"/>
@@ -68,62 +68,57 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="73"/>
+        <location filename="../sbi_networkicon.cpp" line="68"/>
         <source>Proxy configuration</source>
         <translation>Proxy itxurapena</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="75"/>
+        <location filename="../sbi_networkicon.cpp" line="70"/>
         <source>Select proxy</source>
         <translation>Hautatu proxya</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="89"/>
+        <location filename="../sbi_networkicon.cpp" line="84"/>
         <source>Empty</source>
         <translation>Hutsik</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="93"/>
+        <location filename="../sbi_networkicon.cpp" line="88"/>
         <source>Manage proxies</source>
         <translation>Kudeatu proxyak</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="106"/>
+        <location filename="../sbi_networkicon.cpp" line="101"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>Sare egoera erakutsi eta proxya kudeatzen du&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Sarea:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxya:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="110"/>
+        <location filename="../sbi_networkicon.cpp" line="104"/>
         <source>Connected</source>
         <translation>Elkarketaturik</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="114"/>
+        <location filename="../sbi_networkicon.cpp" line="107"/>
         <source>Offline</source>
         <translation>Lineaz-kanpo</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="118"/>
-        <source>Unknown</source>
-        <translation>Ezezaguna</translation>
-    </message>
-    <message>
-        <location filename="../sbi_networkicon.cpp" line="124"/>
+        <location filename="../sbi_networkicon.cpp" line="112"/>
         <source>System proxy</source>
         <translation>Sistema proxya</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="128"/>
+        <location filename="../sbi_networkicon.cpp" line="116"/>
         <source>No proxy</source>
         <translation>Proxy gabe</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="132"/>
+        <location filename="../sbi_networkicon.cpp" line="120"/>
         <source>PAC (Proxy Auto-Config)</source>
         <translation>PBI (Proxy Berez-Itxurap)</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="136"/>
+        <location filename="../sbi_networkicon.cpp" line="124"/>
         <source>User defined</source>
         <translation>Erabiltzaileak zehaztuta</translation>
     </message>

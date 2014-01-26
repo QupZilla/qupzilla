@@ -68,62 +68,57 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="73"/>
+        <location filename="../sbi_networkicon.cpp" line="68"/>
         <source>Proxy configuration</source>
         <translation>Configuración de proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="75"/>
+        <location filename="../sbi_networkicon.cpp" line="70"/>
         <source>Select proxy</source>
         <translation>Seleccionar proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="89"/>
+        <location filename="../sbi_networkicon.cpp" line="84"/>
         <source>Empty</source>
         <translation>Vacío</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="93"/>
+        <location filename="../sbi_networkicon.cpp" line="88"/>
         <source>Manage proxies</source>
         <translation>Gestionar proxies</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="106"/>
+        <location filename="../sbi_networkicon.cpp" line="101"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>Muestra el estado de la red y gestiona el proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Red:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="110"/>
+        <location filename="../sbi_networkicon.cpp" line="104"/>
         <source>Connected</source>
         <translation>Conectado</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="114"/>
+        <location filename="../sbi_networkicon.cpp" line="107"/>
         <source>Offline</source>
         <translation>Desconectado</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="118"/>
-        <source>Unknown</source>
-        <translation>Desconocido</translation>
-    </message>
-    <message>
-        <location filename="../sbi_networkicon.cpp" line="124"/>
+        <location filename="../sbi_networkicon.cpp" line="112"/>
         <source>System proxy</source>
         <translation>Proxy del sistema</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="128"/>
+        <location filename="../sbi_networkicon.cpp" line="116"/>
         <source>No proxy</source>
         <translation>Sin proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="132"/>
+        <location filename="../sbi_networkicon.cpp" line="120"/>
         <source>PAC (Proxy Auto-Config)</source>
         <translation>PAC (Autoconfiguración de proxy)</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="136"/>
+        <location filename="../sbi_networkicon.cpp" line="124"/>
         <source>User defined</source>
         <translation>Definido por el usuario</translation>
     </message>
