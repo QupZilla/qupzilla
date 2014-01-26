@@ -7,7 +7,7 @@ UI_DIR = $$PWD/../build
 # workaround for #849: see https://bugreports.qt-project.org/browse/QTBUG-23196
 mocinclude.CONFIG *= fix_target
 
-unix: VERSION = 1.6.0
+unix: VERSION = 1.7.0
 
 # Please read BUILD information #
 #DEFINES *= NO_SYSTEM_DATAPATH

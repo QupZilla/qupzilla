@@ -94,6 +94,11 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         return;
     }
 
+    // 1.7.0 development version
+    if (prof >= Updater::Version("1.6.0") && prof < Updater::Version("1.8.0")) {
+        return;
+    }
+
     std::cout << "QupZilla: Incompatible profile version detected, overwriting profile data..." << std::endl;
 
     copyDataToProfile();
