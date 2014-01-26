@@ -43,16 +43,13 @@ RESOURCES += greasemonkey.qrc
 TRANSLATIONS += \
     translations/ar_SA.ts \
     translations/bg_BG.ts \
-    translations/bo_CN.ts \
     translations/ca_ES.ts \
     translations/cs_CZ.ts \
-    translations/da_DK.ts \
     translations/de_DE.ts \
     translations/el_GR.ts \
     translations/es_AR.ts \
     translations/es_ES.ts \
     translations/es_VE.ts \
-    translations/es_419.ts \
     translations/eu_ES.ts \
     translations/fa_IR.ts \
     translations/fr_FR.ts \
@@ -70,17 +67,19 @@ TRANSLATIONS += \
     translations/pl_PL.ts \
     translations/pt_BR.ts \
     translations/pt_PT.ts \
-    translations/ro_RO.ts \
     translations/ru_RU.ts \
     translations/sk_SK.ts \
     translations/sr_BA@latin.ts \
     translations/sr_BA.ts \
+    translations/sr@latin.ts \
     translations/sr_RS@latin.ts \
     translations/sr_RS.ts \
+    translations/sr.ts \
     translations/sv_SE.ts \
     translations/tr_TR.ts \
     translations/uk_UA.ts \
-    translations/uz.ts \
+    translations/uz@Cyrl.ts \
+    translations/uz@Latn.ts \
     translations/zh_CN.ts \
     translations/zh_TW.ts \
 

@@ -14,7 +14,7 @@
     <message>
         <location filename="../PIM_handler.cpp" line="62"/>
         <source>E-mail</source>
-        <translation>E-Mail</translation>
+        <translation>E-mail</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="63"/>

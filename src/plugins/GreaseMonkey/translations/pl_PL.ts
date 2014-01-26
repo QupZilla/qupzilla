@@ -39,7 +39,7 @@
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="52"/>
         <source>&lt;p&gt;does not run at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;nie działa na&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="82"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../gm_icon.cpp" line="29"/>
         <source>Open GreaseMonkey settings</source>
-        <translation type="unfinished"/>
+        <translation>Otwórz ustawienia GreaseMonkey</translation>
     </message>
 </context>
 <context>
@@ -152,17 +152,17 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="115"/>
         <source>URL:</source>
-        <translation type="unfinished"/>
+        <translation>URL:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="138"/>
         <source>Namespace:</source>
-        <translation type="unfinished"/>
+        <translation>Przestrzeń nazw:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="155"/>
         <source>Edit in text editor</source>
-        <translation type="unfinished"/>
+        <translation>Otwórz w edytorze tekstu</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="65"/>
@@ -177,17 +177,17 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
         <source>Runs at:</source>
-        <translation type="unfinished"/>
+        <translation>Działa jako:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="128"/>
         <source>Does not run at:</source>
-        <translation type="unfinished"/>
+        <translation>Nie działa jako:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
         <source>Script Details of %1</source>
-        <translation type="unfinished"/>
+        <translation>Szczegóły skryptu %1</translation>
     </message>
 </context>
 </TS>

@@ -4,12 +4,12 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="36"/>
         <source>Modify images loading settings per-site and globally</source>
-        <translation type="unfinished"/>
+        <translation>Zmień ustawienia ładowania obrazów dla strony i globalnie</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="60"/>
         <source>Current page settings</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia aktualnej strony</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="63"/>
@@ -24,12 +24,12 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="70"/>
         <source>Global settings</source>
-        <translation>Ustawiani Ogólne</translation>
+        <translation>Ustawienia globalne</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="72"/>
         <source>Automatically load images</source>
-        <translation>Automatycznie ładuj obrazki</translation>
+        <translation>Automatycznie ładuj obrazy</translation>
     </message>
 </context>
 <context>
@@ -37,12 +37,12 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="34"/>
         <source>Modify JavaScript settings per-site and globally</source>
-        <translation type="unfinished"/>
+        <translation>Zmień ustawienia JavaScript dla strony i globalnie</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="49"/>
         <source>Current page settings</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia aktualnej strony</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="52"/>
@@ -68,64 +68,59 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="73"/>
+        <location filename="../sbi_networkicon.cpp" line="68"/>
         <source>Proxy configuration</source>
         <translation>Ustawienia proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="75"/>
+        <location filename="../sbi_networkicon.cpp" line="70"/>
         <source>Select proxy</source>
         <translation>Wybierz proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="89"/>
+        <location filename="../sbi_networkicon.cpp" line="84"/>
         <source>Empty</source>
         <translation>Pusto</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="93"/>
+        <location filename="../sbi_networkicon.cpp" line="88"/>
         <source>Manage proxies</source>
         <translation>Zarządzaj proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="106"/>
+        <location filename="../sbi_networkicon.cpp" line="101"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
-        <translation type="unfinished"/>
+        <translation>Pokazuje status sieci i zarządza serwerami proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Sieć:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="110"/>
+        <location filename="../sbi_networkicon.cpp" line="104"/>
         <source>Connected</source>
         <translation>Podłączony</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="114"/>
+        <location filename="../sbi_networkicon.cpp" line="107"/>
         <source>Offline</source>
         <translation>Odłączony</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="118"/>
-        <source>Unknown</source>
-        <translation>Nieznany</translation>
-    </message>
-    <message>
-        <location filename="../sbi_networkicon.cpp" line="124"/>
+        <location filename="../sbi_networkicon.cpp" line="112"/>
         <source>System proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy systemowe</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="128"/>
+        <location filename="../sbi_networkicon.cpp" line="116"/>
         <source>No proxy</source>
         <translation>Brak proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="132"/>
+        <location filename="../sbi_networkicon.cpp" line="120"/>
         <source>PAC (Proxy Auto-Config)</source>
         <translation>PAC (Proxy Auto-Config)</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="136"/>
+        <location filename="../sbi_networkicon.cpp" line="124"/>
         <source>User defined</source>
-        <translation type="unfinished"/>
+        <translation>Zdefiniowane przez użytkownika</translation>
     </message>
 </context>
 <context>
@@ -235,7 +230,7 @@
     <message>
         <location filename="../sbi_proxywidget.ui" line="146"/>
         <source>Use script for automatic configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Użyj skryptu do automatycznej konfiguracji:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="153"/>
@@ -278,17 +273,17 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="97"/>
         <source>Images Icon</source>
-        <translation type="unfinished"/>
+        <translation>Ikona obrazów</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="104"/>
         <source>JavaScript Icon</source>
-        <translation type="unfinished"/>
+        <translation>Ikona JavaScript</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="111"/>
         <source>Network Icon</source>
-        <translation type="unfinished"/>
+        <translation>Ikona sieci</translation>
     </message>
 </context>
 </TS>

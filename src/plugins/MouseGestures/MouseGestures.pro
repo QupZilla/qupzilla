@@ -28,28 +28,21 @@ RESOURCES = mousegestures.qrc
 TRANSLATIONS += \
     translations/ar_SA.ts \
     translations/bg_BG.ts \
-    translations/bo_CN.ts \
     translations/ca_ES.ts \
     translations/cs_CZ.ts \
-    translations/da_DK.ts \
     translations/de_DE.ts \
     translations/el_GR.ts \
-    translations/es_AR.ts \
     translations/es_ES.ts \
     translations/es_VE.ts \
-    translations/es_419.ts \
     translations/eu_ES.ts \
     translations/fa_IR.ts \
     translations/fr_FR.ts \
     translations/gl_ES.ts \
     translations/he_IL.ts \
-    translations/hu_HU.ts \
     translations/id_ID.ts \
     translations/it_IT.ts \
     translations/ja_JP.ts \
     translations/ka_GE.ts \
-    translations/my_MM.ts \
-    translations/nb_NO.ts \
     translations/nl_NL.ts \
     translations/nqo.ts \
     translations/pl_PL.ts \
@@ -65,7 +58,8 @@ TRANSLATIONS += \
     translations/sv_SE.ts \
     translations/te.ts \
     translations/uk_UA.ts \
-    translations/uz.ts \
+    translations/uz@Cyrl.ts \
+    translations/uz@Latn.ts \
     translations/zh_CN.ts \
     translations/zh_TW.ts \
 
