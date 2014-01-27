@@ -521,7 +521,7 @@ win32 {
 }
 
 os2 {
-    LIBS += -llibeay32
+    LIBS += -lcrypto
 }
 
 mac {

@@ -45,6 +45,8 @@ Linux / Unix
      - kdelibs-dev installed
      - set KDE_INTEGRATION build flag
 
+  For debug build, gdb is required by qmake.
+
 MAC OS X
 ----------------------------------------------------------------------------------
 
