@@ -71,10 +71,8 @@ TRANSLATIONS += \
     translations/sk_SK.ts \
     translations/sr_BA@latin.ts \
     translations/sr_BA.ts \
-    translations/sr@latin.ts \
     translations/sr_RS@latin.ts \
     translations/sr_RS.ts \
-    translations/sr.ts \
     translations/sv_SE.ts \
     translations/tr_TR.ts \
     translations/uk_UA.ts \
