@@ -9,12 +9,14 @@ opts=(
 
     '(-)'{-p=,--profile=}'[start with specified profile]'
     '(-)'{-ne,--no-extensions}'[start without extensions]'
+    '(-)'{-po,--portable}'[start in portable mode]'
 
     '(-)'{-nt,--new-tab}'[open new tab]'
     '(-)'{-nw,--new-window}'[open new window]'
     '(-)'{-pb,--private-browsing}'[start private browsing]'
     '(-)'{-dm,--download-manager}'[show download manager]'
-    '(-)'{-nr,--no-remote}'[open new instance]'
+    '(-)'{-fs,--fullscreen}'[toggle fullscreen]'
+    '(-)'{-nr,--no-remote}'[open new browser instance]'
     '(-)'{-ct=,--current-tab=}'[open URL in current tab]'
     '(-)'{-ow=,--open-window=}'[open URL in new window]'
     '*:files:_files'

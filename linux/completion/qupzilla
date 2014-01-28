@@ -8,8 +8,9 @@ _qupzilla()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     opts="-h --help -a --authors -v --version -p= --profile=
-          -ne --no-extensions -nt --new-tab -pb --private-browsing
-          -dm --download-manager -nr --no-remote -ct= --current-tab=
+          -ne --no-extensions -po --portable -nt --new-tab
+          -nw --new-window -pb --private-browsing -dm --download-manager
+          -fs --fullscreen -nr --no-remote -ct= --current-tab=
           -ow= --open-window="
 
     if [[ ${cur} == -* ]] ; then
