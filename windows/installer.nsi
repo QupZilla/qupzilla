@@ -1,5 +1,5 @@
 ﻿; QupZilla Windows Installer NSIS Script
-; Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+; Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
 ;               2012-2013  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 ;
 ; For compiling this script you need following plugins:
@@ -24,7 +24,7 @@ RequestExecutionLevel admin
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.6.0"
+!define /date PRODUCT_VERSION "1.6.1"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -148,6 +148,7 @@ notRunning:
 SectionEnd
 
 SectionGroup $(TITLE_SecThemes) SecThemes
+
   Section Default SecDefault
   SectionIn RO
   SetOutPath "$INSTDIR\themes\windows"
@@ -180,11 +181,32 @@ SectionGroup $(TITLE_SecThemes) SecThemes
 SectionGroupEnd
 
 SectionGroup $(TITLE_SecTranslations) SecTranslations
+
   Section "English"
   SectionIn RO
   SetOutPath "$INSTDIR\hunspell"
   File "wininstall\hunspell\en_US.aff"
   File "wininstall\hunspell\en_US.dic"
+  SectionEnd
+
+  Section "Arabic"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ar_SA.qm"
+  File "locale\qt_ar.qm"
+  SectionEnd
+
+  Section "Bulgarian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\bg_BG.qm"
+  SectionEnd
+
+  Section "Catalan"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ca_ES.qm"
+  File "locale\qt_ca.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\ca_ES.aff"
+  File "wininstall\hunspell\ca_ES.dic"
   SectionEnd
 
   Section "Czech"
@@ -196,15 +218,6 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "wininstall\hunspell\cs_CZ.dic"
   SectionEnd
 
-  Section "Slovak"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\sk_SK.qm"
-  File "locale\qt_sk.qm"
-  SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\sk_SK.aff"
-  File "wininstall\hunspell\sk_SK.dic"
-  SectionEnd
-
   Section "German"
   SetOutPath "$INSTDIR\locale"
   File "locale\de_DE.qm"
@@ -212,51 +225,6 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   SetOutPath "$INSTDIR\hunspell"
   File "wininstall\hunspell\de_DE.aff"
   File "wininstall\hunspell\de_DE.dic"
-  SectionEnd
-
-  Section "Dutch"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\nl_NL.qm"
-  File "locale\qt_nl.qm"
-  SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\nl_NL.aff"
-  File "wininstall\hunspell\nl_NL.dic"
-  SectionEnd
-
-  Section "Italian"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\it_IT.qm"
-  File "locale\qt_it.qm"
-  SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\it_IT.aff"
-  File "wininstall\hunspell\it_IT.dic"
-  SectionEnd
-
-  Section "Chinese"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\zh_CN.qm"
-  File "locale\zh_TW.qm"
-  File "locale\qt_zh_CN.qm"
-  File "locale\qt_zh_TW.qm"
-  SectionEnd
-
-  Section "Polish"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\pl_PL.qm"
-  File "locale\qt_pl.qm"
-  SectionEnd
-
-  Section "Spanish"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\es_ES.qm"
-  File "locale\es_VE.qm"
-  File "locale\es_419.qm"
-  File "locale\qt_es.qm"
-  SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\es_ES.aff"
-  File "wininstall\hunspell\es_ES.dic"
-  File "wininstall\hunspell\es_VE.aff"
-  File "wininstall\hunspell\es_VE.dic"
   SectionEnd
 
   Section "Greek"
@@ -268,6 +236,33 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "wininstall\hunspell\el_GR.dic"
   SectionEnd
 
+  Section "Spanish"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\es_ES.qm"
+  File "locale\es_VE.qm"
+  File "locale\qt_es.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\es_ES.aff"
+  File "wininstall\hunspell\es_ES.dic"
+  File "wininstall\hunspell\es_VE.aff"
+  File "wininstall\hunspell\es_VE.dic"
+  SectionEnd
+
+  Section "Basque"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\eu_ES.qm"
+  File "locale\qt_eu.qm"
+  SectionEnd
+
+  Section "Persian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\fa_IR.qm"
+  File "locale\qt_fa.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\fa_IR.aff"
+  File "wininstall\hunspell\fa_IR.dic"
+  SectionEnd
+
   Section "French"
   SetOutPath "$INSTDIR\locale"
   File "locale\fr_FR.qm"
@@ -277,53 +272,16 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "wininstall\hunspell\fr_FR.dic"
   SectionEnd
 
-  Section "Russian"
+  Section "Galician"
   SetOutPath "$INSTDIR\locale"
-  File "locale\ru_RU.qm"
-  File "locale\qt_ru.qm"
-  SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\ru_RU.aff"
-  File "wininstall\hunspell\ru_RU.dic"
+  File "locale\gl_ES.qm"
+  File "locale\qt_gl.qm"
   SectionEnd
 
-  Section "Portuguese"
+  Section "Hebrew"
   SetOutPath "$INSTDIR\locale"
-  File "locale\pt_PT.qm"
-  File "locale\pt_BR.qm"
-  File "locale\qt_pt.qm"
-  SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\pt_PT.aff"
-  File "wininstall\hunspell\pt_PT.dic"
-  File "wininstall\hunspell\pt_BR.aff"
-  File "wininstall\hunspell\pt_BR.dic"
-  SectionEnd
-
-  Section "Serbian"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\sr_BA.qm"
-  File "locale\sr_RS.qm"
-  File "locale\qt_sr_BA.qm"
-  File "locale\qt_sr_RS.qm"
-  File "locale\sr_BA@latin.qm"
-  File "locale\sr_RS@latin.qm"
-  File "locale\qt_sr_BA@latin.qm"
-  File "locale\qt_sr_RS@latin.qm"
-  SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\sr.aff"
-  File "wininstall\hunspell\sr.dic"
-  File "wininstall\hunspell\sh.aff"
-  File "wininstall\hunspell\sh.dic"
-  SectionEnd
-
-  Section "Japanese"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\ja_JP.qm"
-  File "locale\qt_ja.qm"
-  SectionEnd
-
-  Section "Georgian"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\ka_GE.qm"
+  File "locale\he_IL.qm"
+  File "locale\qt_he.qm"
   SectionEnd
 
   Section "Hungarian"
@@ -343,12 +301,104 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "wininstall\hunspell\id_ID.dic"
   SectionEnd
 
+  Section "Italian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\it_IT.qm"
+  File "locale\qt_it.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\it_IT.aff"
+  File "wininstall\hunspell\it_IT.dic"
+  SectionEnd
+
+  Section "Japanese"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ja_JP.qm"
+  File "locale\qt_ja.qm"
+  SectionEnd
+
+  Section "Georgian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ka_GE.qm"
+  SectionEnd
+
+  Section "Ganda"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\lg.qm"
+  SectionEnd
+
+  Section "Dutch"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\nl_NL.qm"
+  File "locale\qt_nl.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\nl_NL.aff"
+  File "wininstall\hunspell\nl_NL.dic"
+  SectionEnd
+
+  Section "N'ko"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\nqo.qm"
+  SectionEnd
+
+  Section "Polish"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\pl_PL.qm"
+  File "locale\qt_pl.qm"
+  SectionEnd
+
+  Section "Portuguese"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\pt_PT.qm"
+  File "locale\pt_BR.qm"
+  File "locale\qt_pt.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\pt_PT.aff"
+  File "wininstall\hunspell\pt_PT.dic"
+  File "wininstall\hunspell\pt_BR.aff"
+  File "wininstall\hunspell\pt_BR.dic"
+  SectionEnd
+
   Section "Romanian"
   SetOutPath "$INSTDIR\locale"
   File "locale\ro_RO.qm"
   SetOutPath "$INSTDIR\hunspell"
   File "wininstall\hunspell\ro_RO.aff"
   File "wininstall\hunspell\ro_RO.dic"
+  SectionEnd
+
+  Section "Russian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ru_RU.qm"
+  File "locale\qt_ru.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\ru_RU.aff"
+  File "wininstall\hunspell\ru_RU.dic"
+  SectionEnd
+
+  Section "Slovak"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\sk_SK.qm"
+  File "locale\qt_sk.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\sk_SK.aff"
+  File "wininstall\hunspell\sk_SK.dic"
+  SectionEnd
+
+  Section "Serbian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\sr_BA.qm"
+  File "locale\sr_RS.qm"
+  File "locale\qt_sr_BA.qm"
+  File "locale\qt_sr_RS.qm"
+  File "locale\sr_BA@latin.qm"
+  File "locale\sr_RS@latin.qm"
+  File "locale\qt_sr_BA@latin.qm"
+  File "locale\qt_sr_RS@latin.qm"
+  SetOutPath "$INSTDIR\hunspell"
+  File "wininstall\hunspell\sr.aff"
+  File "wininstall\hunspell\sr.dic"
+  File "wininstall\hunspell\sh.aff"
+  File "wininstall\hunspell\sh.dic"
   SectionEnd
 
   Section "Swedish"
@@ -366,66 +416,9 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "wininstall\hunspell\uk_UA.dic"
   SectionEnd
 
-  Section "Persian"
+  Section "Uzbek"
   SetOutPath "$INSTDIR\locale"
-  File "locale\fa_IR.qm"
-  File "locale\qt_fa.qm"
-  SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\fa_IR.aff"
-  File "wininstall\hunspell\fa_IR.dic"
-  SectionEnd
-
-  Section "Catalan"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\ca_ES.qm"
-  File "locale\qt_ca.qm"
-  SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\ca_ES.aff"
-  File "wininstall\hunspell\ca_ES.dic"
-  SectionEnd
-  
-  Section "Arabic"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\ar_SA.qm"
-  File "locale\qt_ar.qm"
-  SectionEnd
-
-  Section "Bulgarian"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\bg_BG.qm"
-  SectionEnd
-  
-  Section "Danish"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\da_DK.qm"
-  File "locale\qt_da.qm"
-  SectionEnd
-  
-  Section "Galician"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\gl_ES.qm"
-  File "locale\qt_gl.qm"
-  SectionEnd
-  
-  Section "Hebrew"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\he_IL.qm"
-  File "locale\qt_he.qm"
-  SectionEnd
-  
-  Section "Ganda"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\lg.qm"
-  SectionEnd
-  
-  Section "Norwegian"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\nb_NO.qm"
-  SectionEnd
-  
-  Section "N'ko"
-  SetOutPath "$INSTDIR\locale"
-  File "locale\nqo.qm"
+  File "locale\uz@Latn.qm"
   SectionEnd
 
 SectionGroupEnd
