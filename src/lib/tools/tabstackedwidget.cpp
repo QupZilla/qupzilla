@@ -80,11 +80,6 @@ void TabStackedWidget::setTabBar(ComboTabBar* tb)
     setUpLayout();
 }
 
-bool TabStackedWidget::isValid(int index)
-{
-    return (index < m_stack->count() && index >= 0);
-}
-
 void TabStackedWidget::tabWasRemoved(int index)
 {
     m_tabBar->removeTab(index);
@@ -168,7 +163,7 @@ void TabStackedWidget::keyPressEvent(QKeyEvent* event)
 
 void TabStackedWidget::showTab(int index)
 {
-    if (isValid(index)) {
+    if (validIndex(index)) {
         m_stack->setCurrentIndex(index);
     }
 
@@ -300,4 +295,9 @@ int TabStackedWidget::indexOf(QWidget* widget) const
 int TabStackedWidget::count() const
 {
     return m_tabBar->count();
+}
+
+bool TabStackedWidget::validIndex(int index) const
+{
+    return (index < m_stack->count() && index >= 0);
 }

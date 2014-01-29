@@ -38,8 +38,6 @@ public:
     ComboTabBar* tabBar();
     void setTabBar(ComboTabBar* tb);
 
-    bool isValid(int index);
-
     bool documentMode() const;
     void setDocumentMode(bool enabled);
 
@@ -64,15 +62,13 @@ public:
     int indexOf(QWidget* widget) const;
     int count() const;
 
+signals:
+    void currentChanged(int index);
+    void tabCloseRequested(int index);
+
 public slots:
     void setCurrentIndex(int index);
     void setCurrentWidget(QWidget* widget);
-
-private:
-    QStackedWidget* m_stack;
-    ComboTabBar* m_tabBar;
-    QVBoxLayout* m_mainLayout;
-    bool m_dirtyTabBar;
 
 private slots:
     void tabWasRemoved(int index);
@@ -83,9 +79,13 @@ protected:
     bool eventFilter(QObject* obj, QEvent* event);
     void keyPressEvent(QKeyEvent* event);
 
-signals:
-    void currentChanged(int index);
-    void tabCloseRequested(int index);
+private:
+    bool validIndex(int index) const;
+
+    QStackedWidget* m_stack;
+    ComboTabBar* m_tabBar;
+    QVBoxLayout* m_mainLayout;
+    bool m_dirtyTabBar;
 };
 
 #endif // TABSTACKEDWIDGET_H
