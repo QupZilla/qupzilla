@@ -159,7 +159,7 @@ void PacTest::dnsResolveTest_data()
     QTest::addColumn<QString>("host");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("localhost") << "localhost" << "127.0.0.1";
+    QTest::newRow("localhost") << "localhost" << "";
     QTest::newRow("qz") << "qupzilla.com" << "85.118.128.38"; // This may change...
 }
 
@@ -169,7 +169,16 @@ void PacTest::dnsResolveTest()
     QFETCH(QString, result);
 
     QString source = QString("dnsResolve('%1')").arg(host);
-    QCOMPARE(m_runner->evaluate(source).toString(), result);
+    QString res = m_runner->evaluate(source).toString();
+
+    if (host == "localhost") {
+        if (res != "127.0.0.1" && res != "::1") {
+            QFAIL("localhost incorrectly resolved!");
+        }
+        return;
+    }
+
+    QCOMPARE(res, result);
 }
 
 void PacTest::dnsDomainLevelsTest_data()
