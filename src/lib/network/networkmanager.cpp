@@ -86,8 +86,9 @@ NetworkManager::NetworkManager(QObject* parent)
     loadSettings();
 
     // Force SSLv3 for servers that doesn't understand TLSv1 handshake
-    m_sslv3Sites << QLatin1String("centrum.sk") << QLatin1String("oneaccount.com") << QLatin1String("hdi.de")
-                 << QLatin1String("live.com");
+    m_sslv3Sites << QLatin1String("centrum.sk") << QLatin1String("centrum.cz") << QLatin1String("oneaccount.com") << QLatin1String("hdi.de")
+                 << QLatin1String("live.com") << QLatin1String("i0.cz");
+
 }
 
 void NetworkManager::loadSettings()
