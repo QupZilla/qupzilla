@@ -267,15 +267,16 @@ void DatabaseEncryptedPasswordBackendTest::cleanup()
     QSqlDatabase::removeDatabase(QSqlDatabase::database().databaseName());
 }
 
-#ifndef Q_OS_WIN
+#ifdef HAVE_KDE_PASSWORDS_PLUGIN
 // KWalletPassswordBackendTest
 void KWalletPasswordBackendTest::reloadBackend()
 {
     delete m_backend;
     m_backend = new KWalletPasswordBackend;
 }
+#endif
 
-
+#ifdef HAVE_GNOME_PASSWORDS_PLUGIN
 // GnomeKeyringPassswordBackendTest
 void GnomeKeyringPasswordBackendTest::reloadBackend()
 {

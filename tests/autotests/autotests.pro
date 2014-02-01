@@ -10,16 +10,22 @@ TARGET = autotests
 !unix|mac: LIBS += -L$$PWD/../../bin -lQupZilla
 !mac:unix: LIBS += $$PWD/../../bin/libQupZilla.so
 
-# Link plugins for PasswordBackends
-!win32 {
-!unix|mac: LIBS += -L$$PWD/../../bin/plugins -lGnomeKeyringPasswords -lKWalletPasswords
-!mac:unix: LIBS += $$PWD/../../bin/plugins/libGnomeKeyringPasswords.so \
-                   $$PWD/../../bin/plugins/libKWalletPasswords.so
-}
-
 unix:contains(DEFINES, "NO_SYSTEM_DATAPATH"): QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}\\$\$ORIGIN
 
 include($$PWD/../../src/defines.pri)
+
+# KWallet plugin
+exists($$PWD/../../bin/plugins/libKWalletPasswords.so) {
+    LIBS += $$PWD/../../bin/plugins/libKWalletPasswords.so
+    DEFINES += HAVE_KDE_PASSWORDS_PLUGIN
+}
+
+# GnomeKeyring plugin
+exists($$PWD/../../bin/plugins/libGnomeKeyringPasswords.so) {
+    LIBS += $$PWD/../../bin/plugins/libGnomeKeyringPasswords.so
+    DEFINES += HAVE_GNOME_PASSWORDS_PLUGIN
+}
+
 
 DESTDIR = $$PWD/../../bin
 OBJECTS_DIR = build
