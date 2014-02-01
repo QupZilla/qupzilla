@@ -5,4 +5,4 @@ install:
 script:
   - qmake
   - make
-  - cd scripts && ./run_tests.py
+  - cd scripts && ./run_tests.sh
