@@ -85,7 +85,8 @@ NetworkManager::NetworkManager(QObject* parent)
     setProxyFactory(m_proxyFactory);
     loadSettings();
 
-    m_sslv3Sites << QLatin1String("centrum.sk") << QLatin1String("oneaccount.com") << QLatin1String("www.hdi.de")
+    // Force SSLv3 for servers that doesn't understand TLSv1 handshake
+    m_sslv3Sites << QLatin1String("centrum.sk") << QLatin1String("oneaccount.com") << QLatin1String("hdi.de")
                  << QLatin1String("live.com");
 }
 
@@ -104,17 +105,6 @@ void NetworkManager::loadSettings()
     m_sendReferer = settings.value("SendReferer", true).toBool();
     settings.endGroup();
     m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
-
-    // Falling back to Qt 4.7 default behavior, use SslV3 by default
-    // Fixes issue with some older servers closing the connection
-
-    // However, it also makes some servers requesting TLS ClientHello
-    // not working, or showing invalid certificates.
-    // See #921
-
-    // QSslConfiguration config = QSslConfiguration::defaultConfiguration();
-    // config.setProtocol(QSsl::SslV3);
-    // QSslConfiguration::setDefaultConfiguration(config);
 
 #if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
     QString certDir = mApp->PROFILEDIR + "certificates";
@@ -577,7 +567,7 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     // Force SSLv3 for servers that doesn't understand TLSv1 handshake
     if (req.url().scheme() == QLatin1String("https")) {
         foreach (const QString &host, m_sslv3Sites) {
-            if (req.url().host().endsWith(host)) {
+            if (QzTools::matchDomain(host, req.url().host())) {
                 QSslConfiguration conf = req.sslConfiguration();
                 conf.setProtocol(QSsl::SslV3);
                 req.setSslConfiguration(conf);
