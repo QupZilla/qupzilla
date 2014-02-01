@@ -42,7 +42,7 @@ class QT_QUPZILLA_EXPORT DownloadManager : public QWidget
 {
     Q_OBJECT
 public:
-    enum DownloadOption { OpenFile, SaveFile, ExternalManager };
+    enum DownloadOption { OpenFile, SaveFile, ExternalManager, NoOption };
 
     struct DownloadInfo {
         WebPage* page;

@@ -174,6 +174,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
                 return true;
             }
         }
+        break;
     }
 
 

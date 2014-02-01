@@ -38,6 +38,7 @@ DownloadManager::DownloadManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::DownloadManager)
     , m_isClosing(false)
+    , m_lastDownloadOption(NoOption)
 {
     setWindowFlags(windowFlags() ^ Qt::WindowMaximizeButtonHint);
     ui->setupUi(this);

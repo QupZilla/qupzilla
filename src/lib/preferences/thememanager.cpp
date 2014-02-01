@@ -106,6 +106,7 @@ void ThemeManager::currentChanged()
 ThemeManager::Theme ThemeManager::parseTheme(const QString &path, const QString &name)
 {
     Theme info;
+    info.isValid = false;
 
     if (!QFile(path + "main.css").exists() || !QFile(path + "theme.info").exists()) {
         info.isValid = false;

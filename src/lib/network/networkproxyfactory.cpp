@@ -67,6 +67,7 @@ NetworkProxyFactory::NetworkProxyFactory()
     , m_proxyType(QNetworkProxy::HttpProxy)
     , m_port(0)
     , m_httpsPort(0)
+    , m_useDifferentProxyForHttps(false)
 {
 }
 

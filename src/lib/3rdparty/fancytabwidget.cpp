@@ -248,6 +248,7 @@ void FancyTab::setFader(float value)
 
 FancyTabBar::FancyTabBar(QWidget* parent)
     : QWidget(parent)
+    , m_currentIndex(-1)
 {
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     //setStyle(new QWindowsStyle);

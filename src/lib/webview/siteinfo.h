@@ -33,7 +33,6 @@ class QTreeWidgetItem;
 
 class WebView;
 class CertificateInfoWidget;
-class ListItemDelegate;
 
 class QT_QUPZILLA_EXPORT SiteInfo : public QDialog
 {
@@ -58,7 +57,6 @@ private:
     Ui::SiteInfo* ui;
     CertificateInfoWidget* m_certWidget;
     WebView* m_view;
-    ListItemDelegate* m_delegate;
 
     QPixmap m_activePixmap;
     QUrl m_baseUrl;

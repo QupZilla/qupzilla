@@ -31,6 +31,7 @@ CaBundleUpdater::CaBundleUpdater(NetworkManager* manager, QObject* parent)
     : QObject(parent)
     , m_manager(manager)
     , m_progress(Start)
+    , m_reply(0)
     , m_latestBundleVersion(0)
 {
     m_bundleVersionFileName = mApp->PROFILEDIR + "certificates/bundle_version";

@@ -67,7 +67,7 @@ private:
     void mousePressEvent(QMouseEvent* event);
     void iterateAllItems(QTreeWidgetItem* parent);
 
-    Qt::DropActions supportedDropActions();
+    Qt::DropActions supportedDropActions() const;
     QStringList mimeTypes() const;
     QMimeData* mimeData(const QList<QTreeWidgetItem*> items) const;
     bool dropMimeData(QTreeWidgetItem* parent, int, const QMimeData* data, Qt::DropAction action);

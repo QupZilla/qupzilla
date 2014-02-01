@@ -34,12 +34,14 @@
 GM_Downloader::GM_Downloader(const QNetworkRequest &request, GM_Manager* manager)
     : QObject()
     , m_manager(manager)
+    , m_widget(0)
 {
     m_reply = new FollowRedirectReply(request.url(), mApp->networkManager());
     connect(m_reply, SIGNAL(finished()), this, SLOT(scriptDownloaded()));
 
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
     WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
+
     if (WebPage::isPointerSafeToUse(webPage)) {
         m_widget = webPage->view();
     }

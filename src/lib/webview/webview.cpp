@@ -1295,6 +1295,7 @@ void WebView::keyPressEvent(QKeyEvent* event)
             const QString direction = elementHasCursor.styleProperty("direction", QWebElement::ComputedStyle);
             if (direction == QLatin1String("rtl")) {
                 eventKey = eventKey == Qt::Key_Left ? Qt::Key_Right : Qt::Key_Left;
+                // FIXME: !!!!!!!!!!!!
                 QKeyEvent ev(event->type(), eventKey, event->modifiers(), event->text(), event->isAutoRepeat());
                 event = &ev;
             }

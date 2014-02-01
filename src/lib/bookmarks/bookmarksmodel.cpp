@@ -96,8 +96,13 @@ bool BookmarksModel::isBookmarked(const QUrl &url)
     QSqlQuery query;
     query.prepare("SELECT count(id) FROM bookmarks WHERE url=?");
     query.bindValue(0, url.toString());
-    query.exec();
+
+    if (!query.exec()) {
+        return false;
+    }
+
     query.next();
+
     return query.value(0).toInt() > 0;
 }
 

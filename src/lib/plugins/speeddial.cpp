@@ -35,6 +35,7 @@ SpeedDial::SpeedDial(QObject* parent)
     : QObject(parent)
     , m_maxPagesInRow(4)
     , m_sizeOfSpeedDials(231)
+    , m_sdcentered(false)
     , m_loaded(false)
     , m_regenerateScript(true)
 {

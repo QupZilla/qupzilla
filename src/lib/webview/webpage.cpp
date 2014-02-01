@@ -326,6 +326,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
             dManager->handleUnsupportedContent(reply, this);
             return;
         }
+        // Falling unsupported content with invalid ContentTypeHeader to be handled as UnknownProtocol
 
     case QNetworkReply::ProtocolUnknownError: {
         if (url.scheme() == QLatin1String("file")) {

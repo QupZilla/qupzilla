@@ -88,8 +88,6 @@ private:
     bool m_askPasswordDialogVisible;
     bool m_askMasterPassword;
     QByteArray m_masterPassword;
-
-    MasterPasswordDialog* m_masterPasswordDialog;
 };
 
 namespace Ui

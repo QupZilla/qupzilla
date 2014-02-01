@@ -27,7 +27,6 @@
 
 class QIcon;
 
-class QupZilla;
 class WebView;
 class HistoryModel;
 
@@ -79,8 +78,6 @@ signals:
 
 private:
     bool m_isSaving;
-
-    QupZilla* p_QupZilla;
     HistoryModel* m_model;
 };
 
