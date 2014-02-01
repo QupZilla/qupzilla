@@ -73,6 +73,7 @@ private:
     AdBlockManager* m_adblockManager;
     NetworkProxyFactory* m_proxyFactory;
 
+    QStringList m_sslv3Sites;
     QStringList m_certPaths;
     QList<QSslCertificate> m_caCerts;
     QList<QSslCertificate> m_localCerts;

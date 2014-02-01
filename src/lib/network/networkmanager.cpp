@@ -84,6 +84,9 @@ NetworkManager::NetworkManager(QObject* parent)
     m_proxyFactory = new NetworkProxyFactory();
     setProxyFactory(m_proxyFactory);
     loadSettings();
+
+    m_sslv3Sites << QLatin1String("centrum.sk") << QLatin1String("oneaccount.com") << QLatin1String("www.hdi.de")
+                 << QLatin1String("live.com");
 }
 
 void NetworkManager::loadSettings()
@@ -568,6 +571,18 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
         reply = m_adblockManager->block(req);
         if (reply) {
             return reply;
+        }
+    }
+
+    // Force SSLv3 for servers that doesn't understand TLSv1 handshake
+    if (req.url().scheme() == QLatin1String("https")) {
+        foreach (const QString &host, m_sslv3Sites) {
+            if (req.url().host().endsWith(host)) {
+                QSslConfiguration conf = req.sslConfiguration();
+                conf.setProtocol(QSsl::SslV3);
+                req.setSslConfiguration(conf);
+                break;
+            }
         }
     }
 
