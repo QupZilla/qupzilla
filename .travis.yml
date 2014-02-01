@@ -1,0 +1,8 @@
+language: cpp
+install:
+  - sudo apt-get -qq update
+  - sudo apt-get -qq install libqt4-dev libqt4-webkit libqt4-sql-sqlite libssl-dev pkg-config libhunspell-dev
+script:
+  - qmake
+  - make
+  - cd scripts && ./run_tests.py
