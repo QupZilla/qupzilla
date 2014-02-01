@@ -66,7 +66,8 @@ HEADERS += \
     adblocktest.h \
     updatertest.h \
     pactest.h \
-    passwordbackendtest.h
+    passwordbackendtest.h \
+    networktest.h
 
 SOURCES += \
     qztoolstest.cpp \
@@ -77,4 +78,5 @@ SOURCES += \
     adblocktest.cpp \
     updatertest.cpp \
     pactest.cpp \
-    passwordbackendtest.cpp
+    passwordbackendtest.cpp \
+    networktest.cpp

@@ -23,6 +23,7 @@
 #include "updatertest.h"
 #include "pactest.h"
 #include "passwordbackendtest.h"
+#include "networktest.h"
 
 #include <QtTest/QtTest>
 
@@ -46,6 +47,7 @@ int main(int argc, char *argv[])
     RUN_TEST(AdBlockTest)
     RUN_TEST(UpdaterTest)
     RUN_TEST(PacTest)
+    RUN_TEST(NetworkTest)
 
     RUN_TEST(DatabasePasswordBackendTest)
     RUN_TEST(DatabaseEncryptedPasswordBackendTest)
