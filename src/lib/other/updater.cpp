@@ -28,6 +28,10 @@
 #include <QNetworkReply>
 
 Updater::Version::Version(const QString &s)
+    : isValid(false)
+    , majorVersion(-1)
+    , minorVersion(-1)
+    , revisionNumber(-1)
 {
     isValid = false;
 

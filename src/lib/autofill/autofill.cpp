@@ -81,7 +81,10 @@ bool AutoFill::isStoringEnabled(const QUrl &url)
     query.prepare("SELECT count(id) FROM autofill_exceptions WHERE server=?");
     query.addBindValue(server);
     query.exec();
-    query.next();
+
+    if (!query.next()) {
+        return false;
+    }
 
     return query.value(0).toInt() <= 0;
 }

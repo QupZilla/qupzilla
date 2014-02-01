@@ -40,6 +40,8 @@ Speller::Speller(QObject* parent)
     , m_textCodec(0)
     , m_hunspell(0)
     , m_enabled(false)
+    , m_startPos(0)
+    , m_endPos(0)
 {
     loadSettings();
 }

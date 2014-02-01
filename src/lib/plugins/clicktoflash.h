@@ -81,7 +81,6 @@ private:
     QStringList m_argumentNames;
     QStringList m_argumentValues;
     QWebElement m_element;
-    QWebFrame* m_mainFrame;
 
     QToolButton* m_toolButton;
     QHBoxLayout* m_layout1;

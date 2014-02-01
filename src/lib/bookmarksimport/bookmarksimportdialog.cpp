@@ -37,6 +37,7 @@ BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::BookmarksImportDialog)
     , m_currentPage(0)
+    , m_browser(Firefox)
     , m_fetcher(0)
     , m_fetcherThread(0)
 {

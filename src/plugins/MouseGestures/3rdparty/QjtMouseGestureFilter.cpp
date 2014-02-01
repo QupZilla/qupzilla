@@ -133,28 +133,28 @@ bool QjtMouseGestureFilter::eventFilter(QObject* obj, QEvent* event)
 {
     switch (event->type()) {
     case QEvent::MouseButtonPress:
-        if (mouseButtonPressEvent(dynamic_cast<QMouseEvent*>(event), obj)) {
+        if (mouseButtonPressEvent(static_cast<QMouseEvent*>(event), obj)) {
             return true;
         }
 
         break;
 
     case QEvent::MouseButtonRelease:
-        if (mouseButtonReleaseEvent(dynamic_cast<QMouseEvent*>(event), obj)) {
+        if (mouseButtonReleaseEvent(static_cast<QMouseEvent*>(event), obj)) {
             return true;
         }
 
         break;
 
     case QEvent::MouseMove:
-        if (mouseMoveEvent(dynamic_cast<QMouseEvent*>(event), obj)) {
+        if (mouseMoveEvent(static_cast<QMouseEvent*>(event), obj)) {
             return true;
         }
 
         break;
 
     case QEvent::Paint:
-        if (paintEvent(obj, dynamic_cast<QPaintEvent*>(event))) {
+        if (paintEvent(obj, static_cast<QPaintEvent*>(event))) {
             return true;
         }
 

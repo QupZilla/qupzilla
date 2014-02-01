@@ -180,6 +180,10 @@ void UserAgentDialog::enablePerSiteFrame(bool enable)
 
 bool UserAgentDialog::showEditDialog(const QString &title, QString* rSite, QString* rUserAgent)
 {
+    if (!rSite || !rUserAgent) {
+        return false;
+    }
+
     QDialog* dialog = new QDialog(this);
     QFormLayout* layout = new QFormLayout(dialog);
     QLineEdit* editSite = new QLineEdit(dialog);
@@ -199,13 +203,11 @@ bool UserAgentDialog::showEditDialog(const QString &title, QString* rSite, QStri
     layout->addRow(new QLabel(tr("User Agent: ")), editAgent);
     layout->addRow(box);
 
-    if (rSite && rUserAgent) {
-        editSite->setText(*rSite);
-        editAgent->lineEdit()->setText(*rUserAgent);
+    editSite->setText(*rSite);
+    editAgent->lineEdit()->setText(*rUserAgent);
 
-        editSite->setFocus();
-        editAgent->lineEdit()->setCursorPosition(0);
-    }
+    editSite->setFocus();
+    editAgent->lineEdit()->setCursorPosition(0);
 
     dialog->setWindowTitle(title);
     dialog->setMinimumSize(550, 100);

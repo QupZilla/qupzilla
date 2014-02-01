@@ -61,7 +61,7 @@ bool ProcessInfo::IsNumeric(const char* ccharptr_CharacterList) const
 
 pid_t ProcessInfo::GetPIDbyName(const char* cchrptr_ProcessName) const
 {
-    char chrarry_CommandLinePath[100]  ;
+    char chrarry_CommandLinePath[260]  ;
     char chrarry_NameOfProcess[300]  ;
     char* chrptr_StringToCompare = NULL ;
     pid_t pid_ProcessIdentifier = (pid_t) - 1 ;

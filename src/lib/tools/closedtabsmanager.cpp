@@ -45,6 +45,8 @@ void ClosedTabsManager::saveView(WebTab* tab, int position)
 ClosedTabsManager::Tab ClosedTabsManager::getFirstClosedTab()
 {
     Tab tab;
+    tab.position = -1;
+
     if (m_closedTabs.count() > 0) {
         tab = m_closedTabs.first();
         m_closedTabs.remove(0);
@@ -56,6 +58,8 @@ ClosedTabsManager::Tab ClosedTabsManager::getFirstClosedTab()
 ClosedTabsManager::Tab ClosedTabsManager::getTabAt(int index)
 {
     Tab tab;
+    tab.position = -1;
+
     if (QzTools::vectorContainsIndex(m_closedTabs, index)) {
         tab = m_closedTabs.at(index);
         m_closedTabs.remove(index);

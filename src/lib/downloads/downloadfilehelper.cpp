@@ -48,6 +48,7 @@ DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QS
     , m_useNativeDialog(useNativeDialog)
     , m_timer(0)
     , m_reply(0)
+    , m_fileSize(0)
     , m_openFileChoosed(false)
     , m_listWidget(0)
     , m_iconProvider(new QFileIconProvider)

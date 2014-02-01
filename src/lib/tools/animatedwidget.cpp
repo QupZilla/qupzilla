@@ -24,6 +24,7 @@ AnimatedWidget::AnimatedWidget(const Direction &direction, int duration, QWidget
     , m_direction(direction)
     , m_stepHeight(0)
     , m_stepY(0)
+    , m_startY(0)
     , m_widget(new QWidget(this))
 {
     m_timeLine.setDuration(duration);

@@ -185,8 +185,7 @@ void ClickToFlash::findElement()
 
     QList<QWebFrame*> frames;
     frames.append(objectFrame);
-    m_mainFrame = view->page()->mainFrame();
-    frames.append(m_mainFrame);
+    frames.append(view->page()->mainFrame());
 
     while (!frames.isEmpty()) {
         QWebFrame* frame = frames.takeFirst();

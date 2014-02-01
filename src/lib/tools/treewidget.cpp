@@ -103,7 +103,7 @@ void TreeWidget::setMimeType(const QString &mimeType)
     m_mimeType = mimeType;
 }
 
-Qt::DropActions TreeWidget::supportedDropActions()
+Qt::DropActions TreeWidget::supportedDropActions() const
 {
     return Qt::CopyAction;
 }
@@ -193,7 +193,7 @@ bool TreeWidget::dropMimeData(QTreeWidgetItem* parent, int,
         bool parentIsRoot = item->data(0, ITEM_IS_TOPLEVEL).toBool();
         QString oldParentTitle = item->data(0, ITEM_PARENT_TITLE).toString();
 
-        bool isFolder = (item && item->text(1).isEmpty());
+        bool isFolder = item->text(1).isEmpty();
         if (isFolder && (item->text(0) == _bookmarksMenu ||
                          item->text(0) == _bookmarksToolbar)) {
             continue;
