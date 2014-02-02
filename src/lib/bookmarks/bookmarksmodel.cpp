@@ -97,11 +97,9 @@ bool BookmarksModel::isBookmarked(const QUrl &url)
     query.prepare("SELECT count(id) FROM bookmarks WHERE url=?");
     query.bindValue(0, url.toString());
 
-    if (!query.exec()) {
+    if (!query.exec() || !query.next()) {
         return false;
     }
-
-    query.next();
 
     return query.value(0).toInt() > 0;
 }

@@ -1289,15 +1289,17 @@ void WebView::keyPressEvent(QKeyEvent* event)
     // Example: Key_Right within LTR layout triggers QWebPage::MoveToNextChar but,
     // Key_Right within RTL layout should trigger QWebPage::MoveToPreviousChar
 
-    if (eventKey == Qt::Key_Left || eventKey == Qt::Key_Right) {
+    // event->spontaneous() check guards recursive calling of keyPressEvent
+    // Events created from app have spontaneous() == false
+    if (event->spontaneous() && (eventKey == Qt::Key_Left || eventKey == Qt::Key_Right)) {
         const QWebElement elementHasCursor = activeElement();
         if (!elementHasCursor.isNull()) {
             const QString direction = elementHasCursor.styleProperty("direction", QWebElement::ComputedStyle);
             if (direction == QLatin1String("rtl")) {
                 eventKey = eventKey == Qt::Key_Left ? Qt::Key_Right : Qt::Key_Left;
-                // FIXME: !!!!!!!!!!!!
                 QKeyEvent ev(event->type(), eventKey, event->modifiers(), event->text(), event->isAutoRepeat());
-                event = &ev;
+                keyPressEvent(&ev);
+                return;
             }
         }
     }
