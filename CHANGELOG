@@ -1,3 +1,8 @@
+Version 1.6.2
+    * not yet released
+    * workaround for servers not understanding TLSv1 handshake
+    * fixed: issues detected by scan.coverity.com
+
 Version 1.6.1
     * released 26 January 2014
     * added option to disable inline completion in locationbar
