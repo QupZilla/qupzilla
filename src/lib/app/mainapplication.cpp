@@ -293,9 +293,11 @@ MainApplication::MainApplication(int &argc, char** argv)
         int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
         settings.setValue("SessionRestore/isRunning", true);
 
+#ifndef DISABLE_UPDATES_CHECK
         if (checkUpdates) {
             new Updater(qupzilla);
         }
+#endif
 
         backupSavedSessions();
 

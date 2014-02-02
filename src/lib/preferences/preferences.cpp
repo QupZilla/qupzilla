@@ -86,6 +86,10 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     m_pluginsList = new PluginsManager(this);
     ui->pluginsFrame->addWidget(m_pluginsList);
 
+#ifdef DISABLE_CHECK_UPDATES
+    ui->checkUpdates->setVisible(false);
+#endif
+
     if (QIcon::themeName().toLower() == QLatin1String("oxygen")) {
         ui->listWidget->item(0)->setIcon(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/preferences/preferences-desktop.png")));
         ui->listWidget->item(1)->setIcon(QIcon::fromTheme("format-stroke-color", QIcon(":/icons/preferences/application-x-theme.png")));

@@ -45,6 +45,10 @@ Linux / Unix
      - kdelibs-dev installed
      - set KDE_INTEGRATION build flag
 
+  To build Gnome-Keyring plugin, you need
+     - libgnome-keyring-dev installed
+     - set GNOME_INTEGRATION build flag
+
   For debug build, gdb is required by qmake.
 
 MAC OS X
@@ -123,6 +127,12 @@ Available Defines
 
                           example:
                           $ export ENABLE_OPACITY_EFFECT="true"
+
+   DISABLE_UPDATES_CHECK  Disables option to check for updates at startup.
+                          (disabled by default)
+
+                          example:
+                          $ export DISABLE_UPDATES_CHECK="true"
 
 
  Windows specific defines:
