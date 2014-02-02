@@ -1,6 +1,7 @@
 QupZilla Web Browser
 ----------------------------------------------------------------------------------------
 
+[![Build Status](https://travis-ci.org/QupZilla/qupzilla.png?branch=v1.6)](https://travis-ci.org/QupZilla/qupzilla)  
 Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)  
 Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)  
 IRC: `#qupzilla` at `irc.freenode.net`  

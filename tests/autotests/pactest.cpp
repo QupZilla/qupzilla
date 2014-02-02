@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -135,9 +135,9 @@ void PacTest::isInNetTest_data()
     QTest::newRow("doc2-3") << "128.94.249.79" << "198.95.0.0" << "255.255.0.0" << false;
     QTest::newRow("doc2-3") << "23.94.249.79" << "198.95.0.0" << "255.255.0.0" << false;
 
-    // is true if the IP address of host matches 88.208.118.* (qupzilla.com)
+    // is true if the IP address of host matches 85.118.128.* (qupzilla.com)
     // if host is passed as hostname, the function needs to resolve it
-    QTest::newRow("resolve1") << "qupzilla.com" << "88.208.118.158" << "255.255.255.0" << true;
+    QTest::newRow("resolve1") << "qupzilla.com" << "85.118.128.38" << "255.255.255.0" << true;
     QTest::newRow("resolve1-2") << "yahoo.com" << "173.194.70.0" << "255.255.255.0" << false;
     QTest::newRow("resolve1-3") << "netscape.com" << "173.194.70.0" << "255.255.255.0" << false;
     QTest::newRow("resolve1-4") << "mozilla.com" << "173.194.70.0" << "255.255.255.0" << false;
@@ -159,8 +159,8 @@ void PacTest::dnsResolveTest_data()
     QTest::addColumn<QString>("host");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("localhost") << "localhost" << "127.0.0.1";
-    QTest::newRow("qz") << "qupzilla.com" << "88.208.118.158"; // This may change...
+    QTest::newRow("localhost") << "localhost" << "";
+    QTest::newRow("qz") << "qupzilla.com" << "85.118.128.38"; // This may change...
 }
 
 void PacTest::dnsResolveTest()
@@ -169,7 +169,16 @@ void PacTest::dnsResolveTest()
     QFETCH(QString, result);
 
     QString source = QString("dnsResolve('%1')").arg(host);
-    QCOMPARE(m_runner->evaluate(source).toString(), result);
+    QString res = m_runner->evaluate(source).toString();
+
+    if (host == "localhost") {
+        if (res != "127.0.0.1" && res != "::1") {
+            QFAIL("localhost incorrectly resolved!");
+        }
+        return;
+    }
+
+    QCOMPARE(res, result);
 }
 
 void PacTest::dnsDomainLevelsTest_data()
