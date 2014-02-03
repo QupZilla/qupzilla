@@ -133,7 +133,6 @@ private:
 
     NetworkManagerProxy* m_networkProxy;
     TabbedWebView* m_view;
-    SpeedDial* m_speedDial;
     DelayedFileWatcher* m_fileWatcher;
     QEventLoop* m_runningLoop;
 

@@ -40,6 +40,7 @@
 #include "recoverywidget.h"
 #include "html5permissions/html5permissionsmanager.h"
 #include "schemehandlers/fileschemehandler.h"
+#include "javascript/externaljsobject.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -69,7 +70,6 @@ QList<WebPage*> WebPage::s_livingPages;
 WebPage::WebPage(QObject* parent)
     : QWebPage(parent)
     , m_view(0)
-    , m_speedDial(mApp->plugins()->speedDial())
     , m_fileWatcher(0)
     , m_runningLoop(0)
     , m_loadProgress(-1)
@@ -291,12 +291,13 @@ void WebPage::addJavaScriptObject()
         settings()->setAttribute(QWebSettings::JavascriptEnabled, m_javaScriptEnabled);
     }
 
-    if (url().toString() != QLatin1String("qupzilla:speeddial")) {
-        return;
-    }
+    ExternalJsObject* jsObject = new ExternalJsObject(this);
+    mainFrame()->addToJavaScriptWindowObject("external", jsObject);
 
-    mainFrame()->addToJavaScriptWindowObject("speeddial", m_speedDial);
-    m_speedDial->addWebFrame(mainFrame());
+    if (url().toString() == QLatin1String("qupzilla:speeddial")) {
+        jsObject->setOnSpeedDial(true);
+        mApp->plugins()->speedDial()->addWebFrame(mainFrame());
+    }
 }
 
 void WebPage::handleUnsupportedContent(QNetworkReply* reply)

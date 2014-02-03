@@ -250,7 +250,8 @@ SOURCES += \
     network/sslerrordialog.cpp \
     adblock/adblocksearchtree.cpp \
     tools/tabstackedwidget.cpp \
-    tools/combotabbar.cpp
+    tools/combotabbar.cpp \
+    webview/javascript/externaljsobject.cpp
 
 
 HEADERS  += \
@@ -437,7 +438,8 @@ HEADERS  += \
     network/sslerrordialog.h \
     adblock/adblocksearchtree.h \
     tools/tabstackedwidget.h \
-    tools/combotabbar.h
+    tools/combotabbar.h \
+    webview/javascript/externaljsobject.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
