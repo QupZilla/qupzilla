@@ -26,7 +26,8 @@ span.reload {width: 16px;height: 16px;position: absolute;%LEFT_STR%: 92%;top: 0p
 span.reload:hover {border-color: grey; border-radius: 4px;}
 
 #overlay-edit {width: 380px;max-height: 265px;border-width: 20px;margin-%LEFT_STR%:auto;margin-%RIGHT_STR%: auto;margin-top: 100px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;}
-#overlay-edit img {display: block;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;width:231px;}
+#overlay-edit img {display: block;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;max-width:231px;max-height:131px;}
+#overlay-edit img[src*=".gif"] {width:54px;height:55px;}
 #overlay-edit .buttonbox input {margin-%RIGHT_STR%:0px;margin-%LEFT_STR%:3px;}
 
 .formTable {width: 350px;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;margin-top: 15px;}
@@ -157,7 +158,7 @@ function onReloadClick(box) {
         return;
 
     $(img).attr('src', LOADING_IMAGE);
-    speeddial.loadThumbnail(url);
+    external.speedDial.loadThumbnail(url);
 }
 
 function boxEdited() {
@@ -167,7 +168,7 @@ function boxEdited() {
     var box = document.getElementById('quickdial').getElementsByTagName('div')[editingId];
     var a = box.getElementsByTagName('a')[0];
     var originalUrl = a.getAttribute('href');
-    setBoxUrl(editingId, speeddial.urlFromUserInput($('#formUrl').attr("value")));
+    setBoxUrl(editingId, external.speedDial.urlFromUserInput($('#formUrl').attr("value")));
     setBoxTitle(editingId, $('#formTitle').attr("value"));
     var changedUrl = a.getAttribute('href');
     var fetchTitleChecked = document.getElementById('fetchTitle').checked;
@@ -178,13 +179,13 @@ function boxEdited() {
 
         $('#fadeOverlay').fadeOut("slow", function() {
             $("#fadeOverlay").remove();
-            speeddial.loadThumbnail(a.getAttribute('href'), fetchTitleChecked);
-            speeddial.removeImageForUrl(a.getAttribute('href'));
+            external.speedDial.loadThumbnail(a.getAttribute('href'), fetchTitleChecked);
+            external.speedDial.removeImageForUrl(a.getAttribute('href'));
         });
     } else {
         hideEditBox();
     }
-    speeddial.changed(allPages());
+    external.speedDial.changed(allPages());
 }
 
 function allPages() {
@@ -235,6 +236,10 @@ function addBox(url, title, img_source) {
 
     document.getElementById("quickdial").appendChild(div);
 
+    if (img_source == LOADING_IMAGE) {
+        external.speedDial.loadThumbnail(url);
+    }
+
     return div;
 }
 
@@ -264,7 +269,7 @@ function setTitleToUrl(url, title) {
         span.innerText = title;
     }
 
-    speeddial.changed(allPages());
+    external.speedDial.changed(allPages());
 }
 
 function setImageToUrl(url, img_source) {
@@ -307,8 +312,8 @@ function removeBox(id) {
     document.getElementById("quickdial").removeChild(box);
     alignPage();
 
-    speeddial.removeImageForUrl(url);
-    speeddial.changed(allPages());
+    external.speedDial.removeImageForUrl(url);
+    external.speedDial.changed(allPages());
 }
 
 function alignPage() {
@@ -338,7 +343,7 @@ function alignPage() {
 }
 
 function bgImageSel() {
-    var img = speeddial.getOpenFileName();
+    var img = external.speedDial.getOpenFileName();
     if (img) {
       document.getElementById('BgImgHold').value = img;
     }
@@ -349,11 +354,11 @@ function saveSettings() {
     DIAL_WIDTH = parseInt($('#SdSize').val());
     SD_CNTR = ($('#SdCntrToggle').attr('checked') ? 1 : 0 );
 
-    speeddial.setBackgroundImage($('#BgImgHold').val());
-    speeddial.setBackgroundImageSize($('#BgImgSelSiz').val());
-    speeddial.setPagesInRow(MAX_PAGES_ROW);
-    speeddial.setSdSize(DIAL_WIDTH);
-    speeddial.setSdCentered(SD_CNTR);
+    external.speedDial.setBackgroundImage($('#BgImgHold').val());
+    external.speedDial.setBackgroundImageSize($('#BgImgSelSiz').val());
+    external.speedDial.setPagesInRow(MAX_PAGES_ROW);
+    external.speedDial.setSdSize(DIAL_WIDTH);
+    external.speedDial.setSdCentered(SD_CNTR);
 
     alignPage();
 }
@@ -430,7 +435,7 @@ $("#quickdial").sortable({
     opacity: 0.8,
     distance: 40,
     update: function(event, ui) {
-        speeddial.changed(allPages());
+        external.speedDial.changed(allPages());
     }
 });
 </script>
