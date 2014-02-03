@@ -2,6 +2,8 @@ Version 1.6.2
     * not yet released
     * workaround for servers not understanding TLSv1 handshake
     * fixed: issues detected by scan.coverity.com
+    * fixed: showing more default search engines with same name
+    * fixed: small fix in loading previews in speeddial
 
 Version 1.6.1
     * released 26 January 2014
