@@ -214,7 +214,6 @@ QString SpeedDial::initialScript()
         QString imgSource = m_thumbnailsDir + QCryptographicHash::hash(page.url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
         if (!QFile(imgSource).exists()) {
-            loadThumbnail(page.url);
             imgSource = "qrc:html/loading.gif";
 
             if (page.url.isEmpty()) {

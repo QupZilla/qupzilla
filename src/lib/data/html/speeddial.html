@@ -26,7 +26,8 @@ span.reload {width: 16px;height: 16px;position: absolute;%LEFT_STR%: 92%;top: 0p
 span.reload:hover {border-color: grey; border-radius: 4px;}
 
 #overlay-edit {width: 380px;max-height: 265px;border-width: 20px;margin-%LEFT_STR%:auto;margin-%RIGHT_STR%: auto;margin-top: 100px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;}
-#overlay-edit img {display: block;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;width:231px;}
+#overlay-edit img {display: block;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;max-width:231px;max-height:131px;}
+#overlay-edit img[src*=".gif"] {width:54px;height:55px;}
 #overlay-edit .buttonbox input {margin-%RIGHT_STR%:0px;margin-%LEFT_STR%:3px;}
 
 .formTable {width: 350px;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;margin-top: 15px;}
@@ -234,6 +235,10 @@ function addBox(url, title, img_source) {
     div.appendChild(span4);
 
     document.getElementById("quickdial").appendChild(div);
+
+    if (img_source == LOADING_IMAGE) {
+        speeddial.loadThumbnail(url);
+    }
 
     return div;
 }
