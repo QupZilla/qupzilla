@@ -19,6 +19,7 @@
 #include "mainapplication.h"
 #include "pluginproxy.h"
 #include "speeddial.h"
+#include "searchenginesmanager.h"
 
 #include <QDebug>
 
@@ -26,6 +27,17 @@ ExternalJsObject::ExternalJsObject(QObject* parent)
     : QObject(parent)
     , m_onSpeedDial(false)
 {
+}
+
+void ExternalJsObject::AddSearchProvider(const QString &engineUrl)
+{
+    mApp->searchEnginesManager()->addEngine(QUrl(engineUrl));
+}
+
+int ExternalJsObject::IsSearchProviderInstalled(const QString &engineURL)
+{
+    qDebug() << "NOT IMPLEMENTED: IsSearchProviderInstalled()" << engineURL;
+    return 0;
 }
 
 QObject* ExternalJsObject::speedDial()

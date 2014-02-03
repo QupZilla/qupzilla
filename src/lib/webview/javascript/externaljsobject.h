@@ -29,6 +29,9 @@ public:
     explicit ExternalJsObject(QObject* parent = 0);
 
 public slots:
+    void AddSearchProvider(const QString &engineUrl);
+    int IsSearchProviderInstalled(const QString &engineURL);
+
     QObject* speedDial();
 
 public:
