@@ -215,12 +215,12 @@ void SearchEnginesDialog::moveDown()
 void SearchEnginesDialog::reloadEngines()
 {
     ui->treeWidget->clear();
-    const QString defaultEngineName = mApp->searchEnginesManager()->defaultEngine().name;
+    const SearchEngine defaultEngine = mApp->searchEnginesManager()->defaultEngine();
 
     foreach (const SearchEngine &en, m_manager->allEngines()) {
         QTreeWidgetItem* item = new QTreeWidgetItem();
         setEngine(item, en);
-        changeItemToDefault(item, en.name == defaultEngineName);
+        changeItemToDefault(item, en == defaultEngine);
         item->setIcon(0, en.icon);
         item->setText(1, en.shortcut);
 

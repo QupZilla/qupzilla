@@ -1,6 +1,7 @@
 Version 1.7.0
     * development version
     * added support for window.onload event
+    * added support for external.AddSearchProvider js function
 
 Version 1.6.1
     * released 26 January 2014
