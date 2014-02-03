@@ -50,7 +50,8 @@ public:
         bool operator==(const Engine &other) const {
             return (this->name == other.name &&
                     this->url == other.url &&
-                    this->suggestionsUrl == other.suggestionsUrl);
+                    this->suggestionsUrl == other.suggestionsUrl &&
+                    this->shortcut == other.shortcut);
         }
     };
 
