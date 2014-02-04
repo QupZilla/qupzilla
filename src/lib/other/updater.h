@@ -48,6 +48,8 @@ public:
         bool operator==(const Version &other) const;
         bool operator>=(const Version &other) const;
         bool operator<=(const Version &other) const;
+
+        QString versionString() const;
     };
 
 private slots:

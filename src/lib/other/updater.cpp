@@ -106,6 +106,11 @@ bool Updater::Version::operator <=(const Updater::Version &other) const
     return *this < other;
 }
 
+QString Updater::Version::versionString() const
+{
+    return QString("%1.%2.%3").arg(majorVersion, minorVersion, revisionNumber);
+}
+
 Updater::Updater(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
     , p_QupZilla(mainClass)
