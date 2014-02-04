@@ -14,7 +14,7 @@ include(../defines.pri)
 include(../../translations/translations.pri)
 #include(../../tests/modeltest/modeltest.pri)
 
-contains(DEFINES, USE_QTWEBKIT_2_2) {
+!mac:contains(DEFINES, USE_QTWEBKIT_2_2) {
     include(plugins/qtwebkit/qtwebkit-plugins.pri)
 }
 
