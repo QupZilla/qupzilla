@@ -83,7 +83,9 @@ pid_t ProcessInfo::GetPIDbyName(const char* cchrptr_ProcessName) const
                 strcat(chrarry_CommandLinePath, "/cmdline") ;
                 FILE* fd_CmdLineFile = fopen(chrarry_CommandLinePath, "rt") ;   // open the file for reading text
                 if (fd_CmdLineFile) {
-                    fscanf(fd_CmdLineFile, "%20s", chrarry_NameOfProcess) ; // read from /proc/<NR>/cmdline
+                    int r = fscanf(fd_CmdLineFile, "%20s", chrarry_NameOfProcess) ; // read from /proc/<NR>/cmdline
+                    Q_UNUSED(r)
+
                     fclose(fd_CmdLineFile);  // close the file prior to exiting the routine
 
                     if (strrchr(chrarry_NameOfProcess, '/')) {
