@@ -11,11 +11,11 @@ before_install:
 install:
   - sudo apt-get -qq update
   - sudo apt-get -qq install libssl-dev pkg-config libhunspell-dev
-  - [[ "$QT" == "qt4" ]] && sudo apt-get -qq install libqt4-dev libqt4-webkit libqt4-sql-sqlite
-  - [[ "$QT" == "qt5" ]] && sudo apt-get -qq install libqt5-dev
+  - if [[ "$QT" == "qt4" ]]; then sudo apt-get -qq install libqt4-dev libqt4-webkit libqt4-sql-sqlite; fi
+  - if [[ "$QT" == "qt5" ]]; then sudo apt-get -qq install libqt5-dev; fi
 
 script:
-  - [[ "$QT" == "qt5" ]] && alias qmake=`qtchooser -qt=qt5 -run-tool=qmake --help | head -n1 | cut -d" " -f2`
+  - if [[ "$QT" == "qt5" ]]; then alias qmake=`qtchooser -qt=qt5 -run-tool=qmake --help | head -n1 | cut -d" " -f2`; fi
   - qmake
   - make
   - cd scripts && source run_tests.sh
