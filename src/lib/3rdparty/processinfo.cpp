@@ -84,7 +84,10 @@ pid_t ProcessInfo::GetPIDbyName(const char* cchrptr_ProcessName) const
                 FILE* fd_CmdLineFile = fopen(chrarry_CommandLinePath, "rt") ;   // open the file for reading text
                 if (fd_CmdLineFile) {
                     int r = fscanf(fd_CmdLineFile, "%20s", chrarry_NameOfProcess) ; // read from /proc/<NR>/cmdline
-                    Q_UNUSED(r)
+
+                    if (r < 1) {
+                        continue;
+                    }
 
                     fclose(fd_CmdLineFile);  // close the file prior to exiting the routine
 
