@@ -17,6 +17,9 @@ win32-msvc* {
     LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
 }
 
+# QtDBus not available on Mac
+mac: DEFINES *= DISABLE_DBUS
+
 # Check for pkg-config availability
 !mac:unix:system(pkg-config --version > /dev/null) {
     isEqual(QT_MAJOR_VERSION, 5) {
