@@ -1,4 +1,5 @@
 language: cpp
+cache: apt
 
 env:
   - QT=qt4
@@ -12,10 +13,11 @@ install:
   - sudo apt-get -qq update
   - sudo apt-get -qq install libssl-dev pkg-config libhunspell-dev
   - if [[ "$QT" == "qt4" ]]; then sudo apt-get -qq install libqt4-dev libqt4-webkit libqt4-sql-sqlite; fi
-  - if [[ "$QT" == "qt5" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt511; sudo apt-get update -qq; sudo apt-get install -qq qt51base qt51webkit qt51tools; fi
+  - if [[ "$QT" == "qt5" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt511; sudo apt-get update -qq; sudo apt-get install -qq qt51base qt51webkit qt51tools qt51script; fi
 
 script:
   - QMAKE="qmake"
   - if [[ "$QT" == "qt5" ]]; then QMAKE="/opt/qt51/bin/qmake"; fi
   - $QMAKE
+  - make
   - cd scripts && ./run_tests.sh $QMAKE
