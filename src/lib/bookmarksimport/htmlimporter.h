@@ -22,7 +22,7 @@
 #include <QFile>
 
 #include "qz_namespace.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 
 class QT_QUPZILLA_EXPORT HtmlImporter : public QObject
 {

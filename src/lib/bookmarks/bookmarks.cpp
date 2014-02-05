@@ -15,7 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 #include "tabbedwebview.h"
 #include "iconprovider.h"
 #include "databasewriter.h"
@@ -32,13 +32,13 @@
 // However from bookmark icon, it is not possible to add more than one bookmark
 // Only from Ctrl+D dialog it is possible
 
-BookmarksModel::BookmarksModel(QObject* parent)
+Bookmarks::Bookmarks(QObject* parent)
     : QObject(parent)
 {
     loadSettings();
 }
 
-void BookmarksModel::loadSettings()
+void Bookmarks::loadSettings()
 {
     Settings settings;
     settings.beginGroup("Bookmarks");
@@ -48,7 +48,7 @@ void BookmarksModel::loadSettings()
     settings.endGroup();
 }
 
-void BookmarksModel::setShowingMostVisited(bool state)
+void Bookmarks::setShowingMostVisited(bool state)
 {
     Settings settings;
     settings.beginGroup("Bookmarks");
@@ -57,7 +57,7 @@ void BookmarksModel::setShowingMostVisited(bool state)
     m_showMostVisited = state;
 }
 
-void BookmarksModel::setShowingOnlyIconsInToolbar(bool state)
+void Bookmarks::setShowingOnlyIconsInToolbar(bool state)
 {
     Settings settings;
     settings.beginGroup("Bookmarks");
@@ -66,7 +66,7 @@ void BookmarksModel::setShowingOnlyIconsInToolbar(bool state)
     m_showOnlyIconsInToolbar = state;
 }
 
-bool BookmarksModel::isFolder(const QString &name)
+bool Bookmarks::isFolder(const QString &name)
 {
     if (name == QLatin1String("bookmarksToolbar") || name == QLatin1String("bookmarksMenu")
             || name == QLatin1String("unsorted") || name == _bookmarksToolbar
@@ -82,7 +82,7 @@ bool BookmarksModel::isFolder(const QString &name)
     return query.next();
 }
 
-void BookmarksModel::setLastFolder(const QString &folder)
+void Bookmarks::setLastFolder(const QString &folder)
 {
     Settings settings;
     settings.beginGroup("Bookmarks");
@@ -91,7 +91,7 @@ void BookmarksModel::setLastFolder(const QString &folder)
     m_lastFolder = folder;
 }
 
-bool BookmarksModel::isBookmarked(const QUrl &url)
+bool Bookmarks::isBookmarked(const QUrl &url)
 {
     QSqlQuery query;
     query.prepare("SELECT count(id) FROM bookmarks WHERE url=?");
@@ -106,7 +106,7 @@ bool BookmarksModel::isBookmarked(const QUrl &url)
 
 // Bookmark search priority:
 // Bookmarks in menu > bookmarks in toolbar -> user folders and unsorted
-int BookmarksModel::bookmarkId(const QUrl &url)
+int Bookmarks::bookmarkId(const QUrl &url)
 {
     QSqlQuery query;
     query.prepare("SELECT id FROM bookmarks WHERE url=? AND folder='bookmarksMenu' ");
@@ -133,7 +133,7 @@ int BookmarksModel::bookmarkId(const QUrl &url)
     return -1;
 }
 
-int BookmarksModel::bookmarkId(const QUrl &url, const QString &title, const QString &folder)
+int Bookmarks::bookmarkId(const QUrl &url, const QString &title, const QString &folder)
 {
     QSqlQuery query;
     query.prepare("SELECT id FROM bookmarks WHERE url=? AND title=? AND folder=? ");
@@ -147,7 +147,7 @@ int BookmarksModel::bookmarkId(const QUrl &url, const QString &title, const QStr
     return -1;
 }
 
-BookmarksModel::Bookmark BookmarksModel::getBookmark(int id)
+Bookmarks::Bookmark Bookmarks::getBookmark(int id)
 {
     Bookmark bookmark;
     QSqlQuery query;
@@ -165,7 +165,7 @@ BookmarksModel::Bookmark BookmarksModel::getBookmark(int id)
     return bookmark;
 }
 
-bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder)
+bool Bookmarks::saveBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder)
 {
     if (url.isEmpty() || title.isEmpty() || folder.isEmpty()) {
         return false;
@@ -206,7 +206,7 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     return true;
 }
 
-bool BookmarksModel::saveBookmark(WebView* view, QString folder)
+bool Bookmarks::saveBookmark(WebView* view, QString folder)
 {
     if (folder.isEmpty()) {
         folder = m_lastFolder;
@@ -215,7 +215,7 @@ bool BookmarksModel::saveBookmark(WebView* view, QString folder)
     return saveBookmark(view->url(), view->title(), view->icon(), folder);
 }
 
-void BookmarksModel::removeBookmark(int id)
+void Bookmarks::removeBookmark(int id)
 {
     QList<int> list;
     list.append(id);
@@ -223,7 +223,7 @@ void BookmarksModel::removeBookmark(int id)
     return removeBookmark(list);
 }
 
-void BookmarksModel::removeBookmark(const QList<int> list)
+void Bookmarks::removeBookmark(const QList<int> list)
 {
     QSqlDatabase db = QSqlDatabase::database();
     db.transaction();
@@ -260,37 +260,17 @@ void BookmarksModel::removeBookmark(const QList<int> list)
     mApp->sendMessages(Qz::AM_BookmarksChanged, true);
 }
 
-void BookmarksModel::removeBookmark(const QUrl &url)
+void Bookmarks::removeBookmark(const QUrl &url)
 {
     removeBookmark(bookmarkId(url));
 }
 
-void BookmarksModel::removeBookmark(WebView* view)
+void Bookmarks::removeBookmark(WebView* view)
 {
     removeBookmark(bookmarkId(view->url()));
 }
 
-//bool BookmarksModel::editBookmark(int id, const QString &title, const QString &folder)
-//{
-//    QSqlQuery query;
-//    query.prepare("UPDATE bookmarks SET title=?, folder=? WHERE id=?");
-//    query.bindValue(0, title);
-//    query.bindValue(1, folder);
-//    query.bindValue(2, id);
-//    return query.exec();
-//}
-
-//bool BookmarksModel::editBookmark(int id, const QUrl &url, const QString &title)
-//{
-//    QSqlQuery query;
-//    query.prepare("UPDATE bookmarks SET title=?, url=? WHERE id=?");
-//    query.bindValue(0, title);
-//    query.bindValue(1, url.toString());
-//    query.bindValue(2, id);
-//    return query.exec();
-//}
-
-bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url, const QString &folder)
+bool Bookmarks::editBookmark(int id, const QString &title, const QUrl &url, const QString &folder)
 {
     if (title.isEmpty() && url.isEmpty() && folder.isEmpty()) {
         return false;
@@ -336,7 +316,7 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     return true;
 }
 
-bool BookmarksModel::changeIcon(int id, const QIcon &icon)
+bool Bookmarks::changeIcon(int id, const QIcon &icon)
 {
     QSqlQuery query;
     query.prepare("SELECT title, url, folder, icon FROM bookmarks WHERE id=?");
@@ -375,7 +355,7 @@ bool BookmarksModel::changeIcon(int id, const QIcon &icon)
     return true;
 }
 
-bool BookmarksModel::createFolder(const QString &name)
+bool Bookmarks::createFolder(const QString &name)
 {
     if (isFolder(name)) {
         return false;
@@ -393,7 +373,7 @@ bool BookmarksModel::createFolder(const QString &name)
     return true;
 }
 
-void BookmarksModel::removeFolder(const QString &name)
+void Bookmarks::removeFolder(const QString &name)
 {
     if (name == _bookmarksMenu || name == _bookmarksToolbar) {
         return;
@@ -425,7 +405,7 @@ void BookmarksModel::removeFolder(const QString &name)
     mApp->sendMessages(Qz::AM_BookmarksChanged, true);
 }
 
-bool BookmarksModel::renameFolder(const QString &before, const QString &after)
+bool Bookmarks::renameFolder(const QString &before, const QString &after)
 {
     QSqlQuery query;
     query.prepare("SELECT name FROM folders WHERE name = ?");
@@ -453,12 +433,12 @@ bool BookmarksModel::renameFolder(const QString &before, const QString &after)
     return true;
 }
 
-void BookmarksModel::exportToHtml(const QString &fileName)
+void Bookmarks::exportToHtml(const QString &fileName)
 {
     QFile file(fileName);
 
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
-        qWarning() << "BookmarksModel::exportHtml Cannot open file for writing!" << file.errorString();
+        qWarning() << "Bookmarks::exportHtml Cannot open file for writing!" << file.errorString();
     }
 
     QTextStream out(&file);
@@ -531,7 +511,7 @@ void BookmarksModel::exportToHtml(const QString &fileName)
     out << "</DL><p>" << endl;
 }
 
-QVector<Bookmark> BookmarksModel::folderBookmarks(const QString &name)
+QVector<Bookmark> Bookmarks::folderBookmarks(const QString &name)
 {
     QVector<Bookmark> list;
 
@@ -554,7 +534,7 @@ QVector<Bookmark> BookmarksModel::folderBookmarks(const QString &name)
     return list;
 }
 
-bool BookmarksModel::createSubfolder(const QString &name)
+bool Bookmarks::createSubfolder(const QString &name)
 {
     if (isFolder(name)) {
         return false;
@@ -572,7 +552,7 @@ bool BookmarksModel::createSubfolder(const QString &name)
     return true;
 }
 
-bool BookmarksModel::isSubfolder(const QString &name)
+bool Bookmarks::isSubfolder(const QString &name)
 {
     QSqlQuery query;
     query.prepare("SELECT subfolder FROM folders WHERE name = ?");
@@ -585,7 +565,7 @@ bool BookmarksModel::isSubfolder(const QString &name)
     return query.value(0).toString() == QLatin1String("yes");
 }
 
-bool BookmarksModel::bookmarksEqual(const Bookmark &one, const Bookmark &two)
+bool Bookmarks::bookmarksEqual(const Bookmark &one, const Bookmark &two)
 {
     if (one.id != two.id) {
         return false;
@@ -602,7 +582,7 @@ bool BookmarksModel::bookmarksEqual(const Bookmark &one, const Bookmark &two)
     return true;
 }
 
-QString BookmarksModel::toTranslatedFolder(const QString &name)
+QString Bookmarks::toTranslatedFolder(const QString &name)
 {
     QString trFolder;
     if (name == QLatin1String("bookmarksMenu")) {
@@ -620,7 +600,7 @@ QString BookmarksModel::toTranslatedFolder(const QString &name)
     return trFolder;
 }
 
-QString BookmarksModel::fromTranslatedFolder(const QString &name)
+QString Bookmarks::fromTranslatedFolder(const QString &name)
 {
     QString folder;
     if (name == tr("Bookmarks In Menu")) {
@@ -638,7 +618,7 @@ QString BookmarksModel::fromTranslatedFolder(const QString &name)
     return folder;
 }
 
-void BookmarksModel::changeBookmarkParent(int id, const QString &newParent, const QString &oldParent, bool* ok)
+void Bookmarks::changeBookmarkParent(int id, const QString &newParent, const QString &oldParent, bool* ok)
 {
     QSqlQuery query;
     query.prepare("SELECT title, url, icon FROM bookmarks WHERE id=?");
@@ -657,7 +637,7 @@ void BookmarksModel::changeBookmarkParent(int id, const QString &newParent, cons
     QByteArray imageData = query.value(2).toByteArray();
 
     query.prepare("UPDATE bookmarks SET folder = ? WHERE id = ?");
-    query.bindValue(0, BookmarksModel::fromTranslatedFolder(newParent));
+    query.bindValue(0, Bookmarks::fromTranslatedFolder(newParent));
     query.bindValue(1, id);
 
     if (!query.exec()) {
@@ -675,7 +655,7 @@ void BookmarksModel::changeBookmarkParent(int id, const QString &newParent, cons
     }
 }
 
-void BookmarksModel::changeFolderParent(const QString &name, bool isSubfolder, bool* ok)
+void Bookmarks::changeFolderParent(const QString &name, bool isSubfolder, bool* ok)
 {
     if (name.isEmpty()) {
         return;
@@ -684,7 +664,7 @@ void BookmarksModel::changeFolderParent(const QString &name, bool isSubfolder, b
     QSqlQuery query;
     query.prepare("UPDATE folders SET subfolder=? WHERE name=?");
     query.bindValue(0, isSubfolder ? "yes" : "no");
-    query.bindValue(1, BookmarksModel::fromTranslatedFolder(name));
+    query.bindValue(1, Bookmarks::fromTranslatedFolder(name));
     if (!query.exec()) {
         if (ok) {
             *ok = false;
@@ -700,10 +680,10 @@ void BookmarksModel::changeFolderParent(const QString &name, bool isSubfolder, b
     }
 }
 
-void BookmarksModel::bookmarkDropedLink(const QUrl &url, const QString &title, const QVariant &imageVariant, const QString &folder, bool* ok)
+void Bookmarks::bookmarkDropedLink(const QUrl &url, const QString &title, const QVariant &imageVariant, const QString &folder, bool* ok)
 {
     QIcon icon = qIconProvider->iconFromImage(qvariant_cast<QImage>(imageVariant));
-    bool result = saveBookmark(url, title, icon, BookmarksModel::fromTranslatedFolder(folder));
+    bool result = saveBookmark(url, title, icon, Bookmarks::fromTranslatedFolder(folder));
 
     if (ok) {
         *ok = result;

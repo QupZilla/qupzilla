@@ -78,7 +78,7 @@ QVector<Bookmark> FirefoxImporter::exportBookmarks()
             continue;
         }
 
-        BookmarksModel::Bookmark b;
+        Bookmarks::Bookmark b;
         b.folder = "Firefox Import";
         b.title = title;
         b.url = url;

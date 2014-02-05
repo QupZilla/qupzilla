@@ -41,7 +41,7 @@ class CookieJar;
 class RSSManager;
 class Updater;
 class PluginProxy;
-class BookmarksModel;
+class Bookmarks;
 class DownloadManager;
 class AutoFill;
 class DesktopNotificationsFactory;
@@ -111,7 +111,7 @@ public:
     CookieJar* cookieJar();
     RSSManager* rssManager();
     PluginProxy* plugins();
-    BookmarksModel* bookmarksModel();
+    Bookmarks* bookmarks();
     DownloadManager* downManager();
     AutoFill* autoFill();
     SearchEnginesManager* searchEnginesManager();
@@ -177,7 +177,7 @@ private:
     CookieJar* m_cookiejar;
     RSSManager* m_rssmanager;
     PluginProxy* m_plugins;
-    BookmarksModel* m_bookmarksModel;
+    Bookmarks* m_bookmarks;
     DownloadManager* m_downloadManager;
     AutoFill* m_autofill;
     QNetworkDiskCache* m_networkCache;

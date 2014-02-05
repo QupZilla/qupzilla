@@ -28,7 +28,7 @@
 #include "updater.h"
 #include "autosaver.h"
 #include "pluginproxy.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 #include "downloadmanager.h"
 #include "autofill.h"
 #include "adblockmanager.h"
@@ -87,7 +87,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_cookiejar(0)
     , m_rssmanager(0)
     , m_plugins(0)
-    , m_bookmarksModel(0)
+    , m_bookmarks(0)
     , m_downloadManager(0)
     , m_autofill(0)
     , m_networkCache(0)
@@ -958,12 +958,12 @@ PluginProxy* MainApplication::plugins()
     return m_plugins;
 }
 
-BookmarksModel* MainApplication::bookmarksModel()
+Bookmarks* MainApplication::bookmarks()
 {
-    if (!m_bookmarksModel) {
-        m_bookmarksModel = new BookmarksModel(this);
+    if (!m_bookmarks) {
+        m_bookmarks = new Bookmarks(this);
     }
-    return m_bookmarksModel;
+    return m_bookmarks;
 }
 
 DownloadManager* MainApplication::downManager()

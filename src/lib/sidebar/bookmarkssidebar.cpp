@@ -23,7 +23,7 @@
 #include "tabbedwebview.h"
 #include "bookmarkstoolbar.h"
 #include "tabwidget.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 #include "qzsettings.h"
 
 #include <QMenu>
@@ -37,13 +37,13 @@ BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent)
     , m_isRefreshing(false)
     , ui(new Ui::BookmarksSideBar)
     , p_QupZilla(mainClass)
-    , m_bookmarksModel(mApp->bookmarksModel())
+    , m_bookmarks(mApp->bookmarks())
 {
     ui->setupUi(this);
     ui->bookmarksTree->setViewType(BookmarksTree::SideBarView);
 
     ui->bookmarksTree->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->bookmarksTree->setDragDropReceiver(true, m_bookmarksModel);
+    ui->bookmarksTree->setDragDropReceiver(true, m_bookmarks);
     ui->bookmarksTree->setMimeType(QLatin1String("application/qupzilla.treewidgetitem.bookmarks"));
 
     ui->expandAll->setIcon(QIcon::fromTheme("view-sort-ascending", QIcon(":/icons/theme/expand.png")));
@@ -58,15 +58,15 @@ BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent)
     connect(ui->collapseAll, SIGNAL(clicked()), ui->bookmarksTree, SLOT(collapseAll()));
     connect(ui->expandAll, SIGNAL(clicked()), ui->bookmarksTree, SLOT(expandAll()));
 
-    connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)),
-            this, SLOT(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)));
-    connect(m_bookmarksModel, SIGNAL(folderAdded(QString)), this, SLOT(addFolder(QString)));
-    connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(removeFolder(QString)));
-    connect(m_bookmarksModel, SIGNAL(folderRenamed(QString,QString)), this, SLOT(renameFolder(QString,QString)));
-    connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString,bool)), this, SLOT(changeFolderParent(QString,bool)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString,QByteArray,int,QUrl,QString,QString)),
+    connect(m_bookmarks, SIGNAL(bookmarkAdded(Bookmarks::Bookmark)), this, SLOT(addBookmark(Bookmarks::Bookmark)));
+    connect(m_bookmarks, SIGNAL(bookmarkDeleted(Bookmarks::Bookmark)), this, SLOT(removeBookmark(Bookmarks::Bookmark)));
+    connect(m_bookmarks, SIGNAL(bookmarkEdited(Bookmarks::Bookmark,Bookmarks::Bookmark)),
+            this, SLOT(bookmarkEdited(Bookmarks::Bookmark,Bookmarks::Bookmark)));
+    connect(m_bookmarks, SIGNAL(folderAdded(QString)), this, SLOT(addFolder(QString)));
+    connect(m_bookmarks, SIGNAL(folderDeleted(QString)), this, SLOT(removeFolder(QString)));
+    connect(m_bookmarks, SIGNAL(folderRenamed(QString,QString)), this, SLOT(renameFolder(QString,QString)));
+    connect(m_bookmarks, SIGNAL(folderParentChanged(QString,bool)), this, SLOT(changeFolderParent(QString,bool)));
+    connect(m_bookmarks, SIGNAL(bookmarkParentChanged(QString,QByteArray,int,QUrl,QString,QString)),
             this, SLOT(changeBookmarkParent(QString,QByteArray,int,QUrl,QString,QString)));
 
     QTimer::singleShot(0, this, SLOT(refreshTable()));
@@ -119,7 +119,7 @@ void BookmarksSideBar::deleteItem()
     }
 
     int id = item->data(0, Qt::UserRole + 10).toInt();
-    m_bookmarksModel->removeBookmark(id);
+    m_bookmarks->removeBookmark(id);
 }
 
 void BookmarksSideBar::contextMenuRequested(const QPoint &position)
@@ -145,9 +145,9 @@ void BookmarksSideBar::contextMenuRequested(const QPoint &position)
     menu.exec(p);
 }
 
-void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
+void BookmarksSideBar::addBookmark(const Bookmarks::Bookmark &bookmark)
 {
-    QString translatedFolder = BookmarksModel::toTranslatedFolder(bookmark.folder);
+    QString translatedFolder = Bookmarks::toTranslatedFolder(bookmark.folder);
     QTreeWidgetItem* item = new QTreeWidgetItem();
     item->setText(0, bookmark.title);
     item->setText(1, bookmark.url.toEncoded());
@@ -167,7 +167,7 @@ void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setHidden(!bookmark.title.contains(ui->search->text(), Qt::CaseInsensitive));
 }
 
-void BookmarksSideBar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
+void BookmarksSideBar::removeBookmark(const Bookmarks::Bookmark &bookmark)
 {
     if (bookmark.folder == QLatin1String("unsorted")) {
         QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(bookmark.title, Qt::MatchExactly);
@@ -180,7 +180,7 @@ void BookmarksSideBar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
         }
     }
     else {
-        QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(BookmarksModel::toTranslatedFolder(bookmark.folder), Qt::MatchExactly);
+        QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(Bookmarks::toTranslatedFolder(bookmark.folder), Qt::MatchExactly);
         if (list.count() == 0) {
             return;
         }
@@ -201,7 +201,7 @@ void BookmarksSideBar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
     }
 }
 
-void BookmarksSideBar::bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after)
+void BookmarksSideBar::bookmarkEdited(const Bookmarks::Bookmark &before, const Bookmarks::Bookmark &after)
 {
     removeBookmark(before);
     addBookmark(after);
@@ -278,7 +278,7 @@ void BookmarksSideBar::changeBookmarkParent(const QString &name, const QByteArra
         bookmark.id =  id;
         bookmark.url = url;
         bookmark.title = name;
-        bookmark.folder = BookmarksModel::fromTranslatedFolder(newParent.isEmpty() ? QLatin1String("unsorted") : newParent);
+        bookmark.folder = Bookmarks::fromTranslatedFolder(newParent.isEmpty() ? QLatin1String("unsorted") : newParent);
         bookmark.image = QImage::fromData(imageData);
         bookmark.inSubfolder = false;
         addBookmark(bookmark);
@@ -313,7 +313,7 @@ void BookmarksSideBar::changeFolderParent(const QString &name, bool isSubfolder)
     }
     else {
         addFolder(name);
-        QVector<Bookmark> bookmarksList = m_bookmarksModel->folderBookmarks(name);
+        QVector<Bookmark> bookmarksList = m_bookmarks->folderBookmarks(name);
         foreach (const Bookmark &b, bookmarksList) {
             addBookmark(b);
         }

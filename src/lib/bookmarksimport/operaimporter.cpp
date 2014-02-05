@@ -72,7 +72,7 @@ QVector<Bookmark> OperaImporter::exportBookmarks()
             continue;
         }
 
-        BookmarksModel::Bookmark b;
+        Bookmarks::Bookmark b;
         b.folder = "Opera Import";
         b.title = name;
         b.url = url;

@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "bookmarkswidget.h"
 #include "ui_bookmarkswidget.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 #include "mainapplication.h"
 #include "pluginproxy.h"
 #include "speeddial.h"
@@ -38,7 +38,7 @@ BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
     , ui(new Ui::BookmarksWidget)
     , m_url(view->url())
     , m_view(view)
-    , m_bookmarksModel(mApp->bookmarksModel())
+    , m_bookmarks(mApp->bookmarks())
     , m_speedDial(mApp->plugins()->speedDial())
     , m_edited(false)
 {
@@ -74,10 +74,10 @@ void BookmarksWidget::loadBookmark()
     // Bookmark folders
     m_bookmarksTree->refreshTree();
 
-    m_bookmarkId = m_bookmarksModel->bookmarkId(m_url);
+    m_bookmarkId = m_bookmarks->bookmarkId(m_url);
 
     if (m_bookmarkId > 0) {
-        BookmarksModel::Bookmark bookmark = m_bookmarksModel->getBookmark(m_bookmarkId);
+        Bookmarks::Bookmark bookmark = m_bookmarks->getBookmark(m_bookmarkId);
 
         int index = ui->folder->findData(bookmark.folder);
         // QComboBox::findData() returns index related to the item's parent
@@ -136,15 +136,15 @@ void BookmarksWidget::on_saveRemove_clicked(bool)
 {
     if (m_bookmarkId > 0) {
         if (m_edited) {
-            m_bookmarksModel->editBookmark(m_bookmarkId, m_view->title(), QUrl(), BookmarksModel::fromTranslatedFolder(ui->folder->currentText()));
+            m_bookmarks->editBookmark(m_bookmarkId, m_view->title(), QUrl(), Bookmarks::fromTranslatedFolder(ui->folder->currentText()));
         }
         else {
-            m_bookmarksModel->removeBookmark(m_url);
+            m_bookmarks->removeBookmark(m_url);
             emit bookmarkDeleted();
         }
     }
     else {
-        m_bookmarksModel->saveBookmark(m_url, m_view->title(), m_view->icon(), BookmarksModel::fromTranslatedFolder(ui->folder->currentText()));
+        m_bookmarks->saveBookmark(m_url, m_view->title(), m_view->icon(), Bookmarks::fromTranslatedFolder(ui->folder->currentText()));
     }
 
     QTimer::singleShot(HIDE_DELAY, this, SLOT(close()));

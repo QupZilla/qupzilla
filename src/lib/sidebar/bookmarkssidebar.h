@@ -21,7 +21,7 @@
 #include <QWidget>
 
 #include "qz_namespace.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 
 namespace Ui
 {
@@ -31,7 +31,7 @@ class BookmarksSideBar;
 class QTreeWidgetItem;
 
 class QupZilla;
-class BookmarksModel;
+class Bookmarks;
 
 class QT_QUPZILLA_EXPORT BookmarksSideBar : public QWidget
 {
@@ -54,9 +54,9 @@ private slots:
 
     void copyAddress();
 
-    void addBookmark(const BookmarksModel::Bookmark &bookmark);
-    void removeBookmark(const BookmarksModel::Bookmark &bookmark);
-    void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
+    void addBookmark(const Bookmarks::Bookmark &bookmark);
+    void removeBookmark(const Bookmarks::Bookmark &bookmark);
+    void bookmarkEdited(const Bookmarks::Bookmark &before, const Bookmarks::Bookmark &after);
     void addFolder(const QString &name);
     void removeFolder(const QString &name);
     void renameFolder(const QString &before, const QString &after);
@@ -73,7 +73,7 @@ private:
     bool m_isRefreshing;
     Ui::BookmarksSideBar* ui;
     QupZilla* p_QupZilla;
-    BookmarksModel* m_bookmarksModel;
+    Bookmarks* m_bookmarks;
 };
 
 #endif // BOOKMARKSSIDEBAR_H

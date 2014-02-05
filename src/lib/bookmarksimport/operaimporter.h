@@ -22,7 +22,7 @@
 #include <QFile>
 
 #include "qz_namespace.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 
 class QT_QUPZILLA_EXPORT OperaImporter : public QObject
 {
@@ -32,7 +32,7 @@ public:
     void setFile(const QString &path);
     bool openFile();
 
-    QVector<BookmarksModel::Bookmark> exportBookmarks();
+    QVector<Bookmarks::Bookmark> exportBookmarks();
 
     bool error() { return m_error; }
     QString errorString() { return m_errorString; }

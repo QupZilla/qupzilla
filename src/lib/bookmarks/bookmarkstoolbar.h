@@ -21,12 +21,12 @@
 #include <QWidget>
 
 #include "qz_namespace.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 
 class QHBoxLayout;
 
 class QupZilla;
-class BookmarksModel;
+class Bookmarks;
 class History;
 class ToolButton;
 class Menu;
@@ -61,9 +61,9 @@ private slots:
     void hidePanel();
     void toggleShowOnlyIcons();
 
-    void addBookmark(const BookmarksModel::Bookmark &bookmark);
-    void removeBookmark(const BookmarksModel::Bookmark &bookmark);
-    void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
+    void addBookmark(const Bookmarks::Bookmark &bookmark);
+    void removeBookmark(const Bookmarks::Bookmark &bookmark);
+    void bookmarkEdited(const Bookmarks::Bookmark &before, const Bookmarks::Bookmark &after);
     void subfolderAdded(const QString &name);
     void folderDeleted(const QString &name);
     void folderRenamed(const QString &before, const QString &after);
@@ -80,7 +80,7 @@ private:
     int indexOfLastBookmark();
 
     QupZilla* p_QupZilla;
-    BookmarksModel* m_bookmarksModel;
+    Bookmarks* m_bookmarks;
     History* m_historyModel;
     Menu* m_menuMostVisited;
     ToolButton* m_mostVis;

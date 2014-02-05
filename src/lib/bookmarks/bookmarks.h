@@ -15,12 +15,12 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef BOOKMARKSMODEL_H
-#define BOOKMARKSMODEL_H
+#ifndef BOOKMARKS_H
+#define BOOKMARKS_H
 
-#define _bookmarksToolbar BookmarksModel::toTranslatedFolder("bookmarksToolbar")
-#define _bookmarksMenu BookmarksModel::toTranslatedFolder("bookmarksMenu")
-#define _bookmarksUnsorted BookmarksModel::toTranslatedFolder("unsorted")
+#define _bookmarksToolbar Bookmarks::toTranslatedFolder("bookmarksToolbar")
+#define _bookmarksMenu Bookmarks::toTranslatedFolder("bookmarksMenu")
+#define _bookmarksUnsorted Bookmarks::toTranslatedFolder("unsorted")
 
 #include <QObject>
 #include <QUrl>
@@ -33,11 +33,11 @@ class QIcon;
 
 class WebView;
 
-class QT_QUPZILLA_EXPORT BookmarksModel : public QObject
+class QT_QUPZILLA_EXPORT Bookmarks : public QObject
 {
     Q_OBJECT
 public:
-    explicit BookmarksModel(QObject* parent = 0);
+    explicit Bookmarks(QObject* parent = 0);
 
     struct Bookmark {
         int id;
@@ -105,9 +105,9 @@ public:
     static QString fromTranslatedFolder(const QString &name);
 
 signals:
-    void bookmarkAdded(const BookmarksModel::Bookmark &bookmark);
-    void bookmarkDeleted(const BookmarksModel::Bookmark &bookmark);
-    void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
+    void bookmarkAdded(const Bookmarks::Bookmark &bookmark);
+    void bookmarkDeleted(const Bookmarks::Bookmark &bookmark);
+    void bookmarkEdited(const Bookmarks::Bookmark &before, const Bookmarks::Bookmark &after);
 
     void bookmarkParentChanged(const QString &name, const QByteArray &imageData, int id,
                                const QUrl &url, const QString &oldParent, const QString &newParent);
@@ -132,11 +132,11 @@ private:
     QString m_lastFolder;
 };
 
-typedef BookmarksModel::Bookmark Bookmark;
+typedef Bookmarks::Bookmark Bookmark;
 
 // Hint to QVector to use std::realloc on item moving
 Q_DECLARE_TYPEINFO(Bookmark, Q_MOVABLE_TYPE);
 
 Q_DECLARE_METATYPE(Bookmark)
 
-#endif // BOOKMARKSMODEL_H
+#endif // BOOKMARKS_H

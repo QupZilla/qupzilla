@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "bookmarkicon.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 #include "bookmarkswidget.h"
 #include "mainapplication.h"
 #include "tabbedwebview.h"
@@ -29,7 +29,7 @@
 
 BookmarkIcon::BookmarkIcon(QWidget* parent)
     : ClickableLabel(parent)
-    , m_bookmarksModel(0)
+    , m_bookmarks(0)
     , m_speedDial(mApp->plugins()->speedDial())
     , m_view(0)
 {
@@ -38,9 +38,9 @@ BookmarkIcon::BookmarkIcon(QWidget* parent)
     setToolTip(tr("Bookmark this Page"));
     setFocusPolicy(Qt::ClickFocus);
 
-    m_bookmarksModel = mApp->bookmarksModel();
-    connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(bookmarkAdded(BookmarksModel::Bookmark)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(bookmarkDeleted(BookmarksModel::Bookmark)));
+    m_bookmarks = mApp->bookmarks();
+    connect(m_bookmarks, SIGNAL(bookmarkAdded(Bookmarks::Bookmark)), this, SLOT(bookmarkAdded(Bookmarks::Bookmark)));
+    connect(m_bookmarks, SIGNAL(bookmarkDeleted(Bookmarks::Bookmark)), this, SLOT(bookmarkDeleted(Bookmarks::Bookmark)));
     connect(m_speedDial, SIGNAL(pagesChanged()), this, SLOT(speedDialChanged()));
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(iconClicked()));
 }
@@ -56,7 +56,7 @@ void BookmarkIcon::checkBookmark(const QUrl &url, bool forceCheck)
         return;
     }
 
-    if (m_bookmarksModel->isBookmarked(url) || !m_speedDial->pageForUrl(url).url.isEmpty()) {
+    if (m_bookmarks->isBookmarked(url) || !m_speedDial->pageForUrl(url).url.isEmpty()) {
         setBookmarkSaved();
     }
     else {
@@ -66,14 +66,14 @@ void BookmarkIcon::checkBookmark(const QUrl &url, bool forceCheck)
     m_lastUrl = url;
 }
 
-void BookmarkIcon::bookmarkDeleted(const BookmarksModel::Bookmark &bookmark)
+void BookmarkIcon::bookmarkDeleted(const Bookmarks::Bookmark &bookmark)
 {
     if (bookmark.url == m_lastUrl) {
         checkBookmark(m_lastUrl, true);
     }
 }
 
-void BookmarkIcon::bookmarkAdded(const BookmarksModel::Bookmark &bookmark)
+void BookmarkIcon::bookmarkAdded(const Bookmarks::Bookmark &bookmark)
 {
     if (bookmark.url == m_lastUrl) {
         checkBookmark(m_lastUrl, true);

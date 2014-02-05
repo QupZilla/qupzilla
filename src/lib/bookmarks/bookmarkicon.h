@@ -21,7 +21,7 @@
 #include <QUrl>
 
 #include "clickablelabel.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 #include "qz_namespace.h"
 
 class SpeedDial;
@@ -37,8 +37,8 @@ public:
     void checkBookmark(const QUrl &url, bool forceCheck = false);
 
 private slots:
-    void bookmarkAdded(const BookmarksModel::Bookmark &bookmark);
-    void bookmarkDeleted(const BookmarksModel::Bookmark &bookmark);
+    void bookmarkAdded(const Bookmarks::Bookmark &bookmark);
+    void bookmarkDeleted(const Bookmarks::Bookmark &bookmark);
     void speedDialChanged();
 
     void iconClicked();
@@ -50,7 +50,7 @@ private:
     void setBookmarkSaved();
     void setBookmarkDisabled();
 
-    BookmarksModel* m_bookmarksModel;
+    Bookmarks* m_bookmarks;
     SpeedDial* m_speedDial;
     WebView* m_view;
 

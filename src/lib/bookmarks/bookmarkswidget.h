@@ -31,7 +31,7 @@ class BookmarksWidget;
 
 class WebView;
 class SpeedDial;
-class BookmarksModel;
+class Bookmarks;
 class BookmarksTree;
 
 class QT_QUPZILLA_EXPORT BookmarksWidget : public LocationBarPopup
@@ -59,7 +59,7 @@ private:
     int m_bookmarkId;
 
     WebView* m_view;
-    BookmarksModel* m_bookmarksModel;
+    Bookmarks* m_bookmarks;
     SpeedDial* m_speedDial;
     bool m_edited;
     BookmarksTree* m_bookmarksTree;

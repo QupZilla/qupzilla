@@ -22,7 +22,7 @@
 #include <QPair>
 
 #include "qz_namespace.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 
 namespace Ui
 {

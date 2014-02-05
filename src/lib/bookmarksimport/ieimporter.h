@@ -21,7 +21,7 @@
 #include <QObject>
 
 #include "qz_namespace.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 
 #include <QFileInfoList>
 
@@ -34,7 +34,7 @@ public:
     void setFile(const QString &path);
     bool openFile();
 
-    QVector<BookmarksModel::Bookmark> exportBookmarks();
+    QVector<Bookmarks::Bookmark> exportBookmarks();
 
     bool error() { return m_error; }
     QString errorString() { return m_errorString; }

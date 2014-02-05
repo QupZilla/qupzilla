@@ -78,7 +78,7 @@ QVector<Bookmark> ChromeImporter::exportBookmarks()
                 continue;
             }
 
-            BookmarksModel::Bookmark b;
+            Bookmarks::Bookmark b;
             b.folder = "Chrome Import";
             b.title = name;
             b.url = url;

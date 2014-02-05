@@ -18,7 +18,7 @@
 #include "bookmarkstoolbar.h"
 #include "qupzilla.h"
 #include "mainapplication.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 #include "iconprovider.h"
 #include "history.h"
 #include "toolbutton.h"
@@ -39,7 +39,7 @@
 BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , p_QupZilla(mainClass)
-    , m_bookmarksModel(mApp->bookmarksModel())
+    , m_bookmarks(mApp->bookmarks())
     , m_historyModel(mApp->history())
     , m_toolButtonStyle(Qt::ToolButtonTextBesideIcon)
 {
@@ -54,14 +54,14 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
 
-    connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)));
-    connect(m_bookmarksModel, SIGNAL(subfolderAdded(QString)), this, SLOT(subfolderAdded(QString)));
-    connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(folderDeleted(QString)));
-    connect(m_bookmarksModel, SIGNAL(folderRenamed(QString,QString)), this, SLOT(folderRenamed(QString,QString)));
-    connect(m_bookmarksModel, SIGNAL(folderParentChanged(QString,bool)), this, SLOT(changeFolderParent(QString,bool)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkParentChanged(QString,QByteArray,int,QUrl,QString,QString)), this, SLOT(changeBookmarkParent(QString,QByteArray,int,QUrl,QString,QString)));
+    connect(m_bookmarks, SIGNAL(bookmarkAdded(Bookmarks::Bookmark)), this, SLOT(addBookmark(Bookmarks::Bookmark)));
+    connect(m_bookmarks, SIGNAL(bookmarkDeleted(Bookmarks::Bookmark)), this, SLOT(removeBookmark(Bookmarks::Bookmark)));
+    connect(m_bookmarks, SIGNAL(bookmarkEdited(Bookmarks::Bookmark,Bookmarks::Bookmark)), this, SLOT(bookmarkEdited(Bookmarks::Bookmark,Bookmarks::Bookmark)));
+    connect(m_bookmarks, SIGNAL(subfolderAdded(QString)), this, SLOT(subfolderAdded(QString)));
+    connect(m_bookmarks, SIGNAL(folderDeleted(QString)), this, SLOT(folderDeleted(QString)));
+    connect(m_bookmarks, SIGNAL(folderRenamed(QString,QString)), this, SLOT(folderRenamed(QString,QString)));
+    connect(m_bookmarks, SIGNAL(folderParentChanged(QString,bool)), this, SLOT(changeFolderParent(QString,bool)));
+    connect(m_bookmarks, SIGNAL(bookmarkParentChanged(QString,QByteArray,int,QUrl,QString,QString)), this, SLOT(changeBookmarkParent(QString,QByteArray,int,QUrl,QString,QString)));
 
     setMaximumWidth(p_QupZilla->width());
 
@@ -80,12 +80,12 @@ void BookmarksToolbar::customContextMenuRequested(const QPoint &pos)
     menu.addSeparator();
     QAction act(tr("Show Most &Visited"), this);
     act.setCheckable(true);
-    act.setChecked(m_bookmarksModel->isShowingMostVisited());
+    act.setChecked(m_bookmarks->isShowingMostVisited());
     connect(&act, SIGNAL(triggered()), this, SLOT(showMostVisited()));
     menu.addAction(&act);
     QAction act2(tr("Show Only Icons"), this);
     act2.setCheckable(true);
-    act2.setChecked(m_bookmarksModel->isShowingOnlyIconsInToolbar());
+    act2.setChecked(m_bookmarks->isShowingOnlyIconsInToolbar());
     connect(&act2, SIGNAL(triggered()), this, SLOT(toggleShowOnlyIcons()));
     menu.addAction(&act2);
     menu.addSeparator();
@@ -256,7 +256,7 @@ void BookmarksToolbar::editBookmark()
         return;
     }
 
-    m_bookmarksModel->editBookmark(b.id, title, url, b.folder);
+    m_bookmarks->editBookmark(b.id, title, url, b.folder);
 }
 
 void BookmarksToolbar::removeButton()
@@ -272,7 +272,7 @@ void BookmarksToolbar::removeButton()
     }
 
     Bookmark bookmark = button->data().value<Bookmark>();
-    m_bookmarksModel->removeBookmark(bookmark.id);
+    m_bookmarks->removeBookmark(bookmark.id);
 }
 
 void BookmarksToolbar::hidePanel()
@@ -282,7 +282,7 @@ void BookmarksToolbar::hidePanel()
 
 void BookmarksToolbar::toggleShowOnlyIcons()
 {
-    m_bookmarksModel->setShowingOnlyIconsInToolbar(!m_bookmarksModel->isShowingOnlyIconsInToolbar());
+    m_bookmarks->setShowingOnlyIconsInToolbar(!m_bookmarks->isShowingOnlyIconsInToolbar());
     showOnlyIconsChanged();
 }
 
@@ -342,14 +342,14 @@ void BookmarksToolbar::loadFolderBookmarksInTabs()
         return;
     }
 
-    foreach (const Bookmark &b, m_bookmarksModel->folderBookmarks(folder)) {
+    foreach (const Bookmark &b, m_bookmarks->folderBookmarks(folder)) {
         p_QupZilla->tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
     }
 }
 
 void BookmarksToolbar::showMostVisited()
 {
-    m_bookmarksModel->setShowingMostVisited(!m_bookmarksModel->isShowingMostVisited());
+    m_bookmarks->setShowingMostVisited(!m_bookmarks->isShowingMostVisited());
     m_mostVis->setVisible(!m_mostVis->isVisible());
 }
 
@@ -455,7 +455,7 @@ void BookmarksToolbar::changeFolderParent(const QString &name, bool isSubfolder)
     }
 }
 
-void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
+void BookmarksToolbar::addBookmark(const Bookmarks::Bookmark &bookmark)
 {
     if (bookmark.folder != QLatin1String("bookmarksToolbar")) {
         return;
@@ -493,7 +493,7 @@ void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     mApp->dbWriter()->executeQuery(query);
 }
 
-void BookmarksToolbar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
+void BookmarksToolbar::removeBookmark(const Bookmarks::Bookmark &bookmark)
 {
     for (int i = 0; i < m_layout->count(); i++) {
         ToolButton* button = qobject_cast<ToolButton*>(m_layout->itemAt(i)->widget());
@@ -510,7 +510,7 @@ void BookmarksToolbar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
     }
 }
 
-void BookmarksToolbar::bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after)
+void BookmarksToolbar::bookmarkEdited(const Bookmarks::Bookmark &before, const Bookmarks::Bookmark &after)
 {
     if (before.folder == QLatin1String("bookmarksToolbar") && after.folder != QLatin1String("bookmarksToolbar")) {
         // Editing from toolbar folder to other folder -> Remove bookmark
@@ -616,7 +616,7 @@ void BookmarksToolbar::refreshBookmarks()
     m_layout->addWidget(m_mostVis);
     m_layout->addStretch();
 
-    m_mostVis->setVisible(m_bookmarksModel->isShowingMostVisited());
+    m_mostVis->setVisible(m_bookmarks->isShowingMostVisited());
 }
 
 void BookmarksToolbar::aboutToShowFolderMenu()
@@ -629,7 +629,7 @@ void BookmarksToolbar::aboutToShowFolderMenu()
     menu->clear();
     QString folder = menu->title();
 
-    foreach (const Bookmark &b, m_bookmarksModel->folderBookmarks(folder)) {
+    foreach (const Bookmark &b, m_bookmarks->folderBookmarks(folder)) {
         QString title = b.title;
         if (title.length() > 40) {
             title.truncate(40);
@@ -661,7 +661,7 @@ void BookmarksToolbar::dropEvent(QDropEvent* e)
     QUrl url = mime->urls().at(0);
     QIcon icon = qIconProvider->iconFromImage(qvariant_cast<QImage>(mime->imageData()));
 
-    m_bookmarksModel->saveBookmark(url, title, icon, "bookmarksToolbar");
+    m_bookmarks->saveBookmark(url, title, icon, "bookmarksToolbar");
 }
 
 void BookmarksToolbar::dragEnterEvent(QDragEnterEvent* e)
@@ -678,7 +678,7 @@ void BookmarksToolbar::dragEnterEvent(QDragEnterEvent* e)
 
 void BookmarksToolbar::showOnlyIconsChanged()
 {
-    m_toolButtonStyle = m_bookmarksModel->isShowingOnlyIconsInToolbar() ? Qt::ToolButtonIconOnly : Qt::ToolButtonTextBesideIcon;
+    m_toolButtonStyle = m_bookmarks->isShowingOnlyIconsInToolbar() ? Qt::ToolButtonIconOnly : Qt::ToolButtonTextBesideIcon;
 
     for (int i = 0; i < m_layout->count(); ++i) {
         ToolButton* button = qobject_cast<ToolButton*>(m_layout->itemAt(i)->widget());

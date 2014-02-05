@@ -108,7 +108,6 @@ SOURCES += \
     tools/treewidget.cpp \
     bookmarks/bookmarkswidget.cpp \
     tools/frame.cpp \
-    bookmarks/bookmarksmodel.cpp \
     sidebar/sidebar.cpp \
     webview/siteinfowidget.cpp \
     plugins/clicktoflash.cpp \
@@ -251,7 +250,8 @@ SOURCES += \
     adblock/adblocksearchtree.cpp \
     tools/tabstackedwidget.cpp \
     tools/combotabbar.cpp \
-    webview/javascript/externaljsobject.cpp
+    webview/javascript/externaljsobject.cpp \
+    bookmarks/bookmarks.cpp
 
 
 HEADERS  += \
@@ -292,7 +292,6 @@ HEADERS  += \
     tools/treewidget.h \
     bookmarks/bookmarkswidget.h \
     tools/frame.h \
-    bookmarks/bookmarksmodel.h \
     sidebar/sidebar.h \
     webview/siteinfowidget.h \
     plugins/clicktoflash.h \
@@ -439,7 +438,8 @@ HEADERS  += \
     adblock/adblocksearchtree.h \
     tools/tabstackedwidget.h \
     tools/combotabbar.h \
-    webview/javascript/externaljsobject.h
+    webview/javascript/externaljsobject.h \
+    bookmarks/bookmarks.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

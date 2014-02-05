@@ -1502,12 +1502,12 @@ void QupZilla::loadActionUrlInNewNotSelectedTab(QObject* obj)
 
 void QupZilla::loadFolderBookmarks(Menu* menu)
 {
-    const QString folder = BookmarksModel::fromTranslatedFolder(menu->title());
+    const QString folder = Bookmarks::fromTranslatedFolder(menu->title());
     if (folder.isEmpty()) {
         return;
     }
 
-    foreach (const Bookmark &b, mApp->bookmarksModel()->folderBookmarks(folder)) {
+    foreach (const Bookmark &b, mApp->bookmarks()->folderBookmarks(folder)) {
         tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
     }
 }

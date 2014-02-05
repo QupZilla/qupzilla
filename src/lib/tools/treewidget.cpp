@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "treewidget.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 
 #include <QMimeData>
 #include <QMouseEvent>

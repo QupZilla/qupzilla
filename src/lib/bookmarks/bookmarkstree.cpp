@@ -19,7 +19,7 @@
 
 #include "bookmarkstree.h"
 #include "iconprovider.h"
-#include "bookmarksmodel.h"
+#include "bookmarks.h"
 
 #include <QSqlQuery>
 #include <QComboBox>

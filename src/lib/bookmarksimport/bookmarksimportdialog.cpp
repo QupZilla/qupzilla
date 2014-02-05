@@ -289,7 +289,7 @@ void BookmarksImportDialog::setFile()
 void BookmarksImportDialog::addExportedBookmarks()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    BookmarksModel* model = mApp->bookmarksModel();
+    Bookmarks* model = mApp->bookmarks();
 
     QSqlDatabase db = QSqlDatabase::database();
     db.transaction();

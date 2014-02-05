@@ -57,16 +57,16 @@ bool IeImporter::openFile()
     return true;
 }
 
-QVector<BookmarksModel::Bookmark> IeImporter::exportBookmarks()
+QVector<Bookmarks::Bookmark> IeImporter::exportBookmarks()
 {
-    QVector<BookmarksModel::Bookmark> bookmarks;
+    QVector<Bookmarks::Bookmark> bookmarks;
 
     foreach (QFileInfo file, urls) {
         QSettings urlFile(file.absoluteFilePath(), QSettings::IniFormat, this);
 
         QUrl url = urlFile.value("InternetShortcut/URL").toUrl();
 
-        BookmarksModel::Bookmark bookmark;
+        Bookmarks::Bookmark bookmark;
         bookmark.folder = "Internet Explorer Import";
         bookmark.title = file.baseName();
         bookmark.url = url;
