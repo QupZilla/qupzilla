@@ -4,6 +4,7 @@ Version 1.6.2
     * fixed: issues detected by scan.coverity.com
     * fixed: showing more default search engines with same name
     * fixed: small fix in loading previews in speeddial
+    * fixed: incorrect exception rules handling in AdBlock
 
 Version 1.6.1
     * released 26 January 2014
