@@ -48,6 +48,11 @@ void Bookmarks::loadSettings()
     settings.endGroup();
 }
 
+bool Bookmarks::isShowingMostVisited() const
+{
+    return m_showMostVisited;
+}
+
 void Bookmarks::setShowingMostVisited(bool state)
 {
     Settings settings;
@@ -55,6 +60,11 @@ void Bookmarks::setShowingMostVisited(bool state)
     settings.setValue("showMostVisited", state);
     settings.endGroup();
     m_showMostVisited = state;
+}
+
+bool Bookmarks::isShowingOnlyIconsInToolbar() const
+{
+    return m_showOnlyIconsInToolbar;
 }
 
 void Bookmarks::setShowingOnlyIconsInToolbar(bool state)
@@ -82,6 +92,11 @@ bool Bookmarks::isFolder(const QString &name)
     return query.next();
 }
 
+QString Bookmarks::lastFolder() const
+{
+    return m_lastFolder;
+}
+
 void Bookmarks::setLastFolder(const QString &folder)
 {
     Settings settings;
@@ -106,45 +121,34 @@ bool Bookmarks::isBookmarked(const QUrl &url)
 
 // Bookmark search priority:
 // Bookmarks in menu > bookmarks in toolbar -> user folders and unsorted
-int Bookmarks::bookmarkId(const QUrl &url)
+Bookmarks::Bookmark Bookmarks::getBookmark(const QUrl &url)
 {
     QSqlQuery query;
     query.prepare("SELECT id FROM bookmarks WHERE url=? AND folder='bookmarksMenu' ");
     query.bindValue(0, url.toString());
     query.exec();
+
     if (query.next()) {
-        return query.value(0).toInt();
+        return getBookmark(query.value(0).toInt());
     }
 
     query.prepare("SELECT id FROM bookmarks WHERE url=? AND folder='bookmarksToolbar' ");
     query.bindValue(0, url.toString());
     query.exec();
+
     if (query.next()) {
-        return query.value(0).toInt();
+        return getBookmark(query.value(0).toInt());
     }
 
     query.prepare("SELECT id FROM bookmarks WHERE url=? ");
     query.bindValue(0, url.toString());
     query.exec();
+
     if (query.next()) {
-        return query.value(0).toInt();
+        return getBookmark(query.value(0).toInt());
     }
 
-    return -1;
-}
-
-int Bookmarks::bookmarkId(const QUrl &url, const QString &title, const QString &folder)
-{
-    QSqlQuery query;
-    query.prepare("SELECT id FROM bookmarks WHERE url=? AND title=? AND folder=? ");
-    query.bindValue(0, url.toString());
-    query.bindValue(1, title);
-    query.bindValue(2, folder);
-    query.exec();
-    if (query.next()) {
-        return query.value(0).toInt();
-    }
-    return -1;
+    return Bookmark();
 }
 
 Bookmarks::Bookmark Bookmarks::getBookmark(int id)
@@ -258,16 +262,6 @@ void Bookmarks::removeBookmark(const QList<int> list)
 
     db.commit();
     mApp->sendMessages(Qz::AM_BookmarksChanged, true);
-}
-
-void Bookmarks::removeBookmark(const QUrl &url)
-{
-    removeBookmark(bookmarkId(url));
-}
-
-void Bookmarks::removeBookmark(WebView* view)
-{
-    removeBookmark(bookmarkId(view->url()));
 }
 
 bool Bookmarks::editBookmark(int id, const QString &title, const QUrl &url, const QString &folder)
@@ -511,7 +505,7 @@ void Bookmarks::exportToHtml(const QString &fileName)
     out << "</DL><p>" << endl;
 }
 
-QVector<Bookmark> Bookmarks::folderBookmarks(const QString &name)
+QVector<Bookmark> Bookmarks::getFolderBookmarks(const QString &name)
 {
     QVector<Bookmark> list;
 
@@ -563,23 +557,6 @@ bool Bookmarks::isSubfolder(const QString &name)
     }
 
     return query.value(0).toString() == QLatin1String("yes");
-}
-
-bool Bookmarks::bookmarksEqual(const Bookmark &one, const Bookmark &two)
-{
-    if (one.id != two.id) {
-        return false;
-    }
-    if (one.title != two.title) {
-        return false;
-    }
-    if (one.folder != two.folder) {
-        return false;
-    }
-    if (one.url != two.url) {
-        return false;
-    }
-    return true;
 }
 
 QString Bookmarks::toTranslatedFolder(const QString &name)

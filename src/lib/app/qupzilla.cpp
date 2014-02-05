@@ -1507,7 +1507,7 @@ void QupZilla::loadFolderBookmarks(Menu* menu)
         return;
     }
 
-    foreach (const Bookmark &b, mApp->bookmarks()->folderBookmarks(folder)) {
+    foreach (const Bookmark &b, mApp->bookmarks()->getFolderBookmarks(folder)) {
         tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
     }
 }

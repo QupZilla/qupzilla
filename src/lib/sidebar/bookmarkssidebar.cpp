@@ -313,7 +313,7 @@ void BookmarksSideBar::changeFolderParent(const QString &name, bool isSubfolder)
     }
     else {
         addFolder(name);
-        QVector<Bookmark> bookmarksList = m_bookmarks->folderBookmarks(name);
+        QVector<Bookmark> bookmarksList = m_bookmarks->getFolderBookmarks(name);
         foreach (const Bookmark &b, bookmarksList) {
             addBookmark(b);
         }

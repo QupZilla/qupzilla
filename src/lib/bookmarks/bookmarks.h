@@ -47,10 +47,7 @@ public:
         QImage image;
         bool inSubfolder;
 
-        Bookmark() {
-            id = -1;
-            inSubfolder = false;
-        }
+        Bookmark() : id(-1) , inSubfolder(false) { }
 
         bool operator==(const Bookmark &other) const {
             return (this->title == other.title &&
@@ -62,26 +59,26 @@ public:
 
     void loadSettings();
 
-    bool isShowingMostVisited() { return m_showMostVisited; }
+    bool isShowingMostVisited() const;
     void setShowingMostVisited(bool state);
 
-    bool isShowingOnlyIconsInToolbar() { return m_showOnlyIconsInToolbar; }
+    bool isShowingOnlyIconsInToolbar() const;
     void setShowingOnlyIconsInToolbar(bool state);
 
     bool isFolder(const QString &name);
-    QString lastFolder() { return m_lastFolder; }
+
+    QString lastFolder() const;
     void setLastFolder(const QString &folder);
 
     bool isBookmarked(const QUrl &url);
-    int bookmarkId(const QUrl &url);
-    int bookmarkId(const QUrl &url, const QString &title, const QString &folder);
-    Bookmark getBookmark(int id);
 
-    bool saveBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder = "unsorted");
+    Bookmark getBookmark(int id);
+    Bookmark getBookmark(const QUrl &url);
+    QVector<Bookmark> getFolderBookmarks(const QString &name);
+
+    bool saveBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder = QLatin1String("unsorted"));
     bool saveBookmark(WebView* view, QString folder = QString());
 
-    void removeBookmark(const QUrl &url);
-    void removeBookmark(WebView* view);
     void removeBookmark(int id);
     void removeBookmark(const QList<int> list);
 
@@ -90,17 +87,13 @@ public:
 
     bool createFolder(const QString &name);
     void removeFolder(const QString &name);
-
-    QVector<Bookmark> folderBookmarks(const QString &name);
+    bool renameFolder(const QString &before, const QString &after);
 
     bool createSubfolder(const QString &name);
     bool isSubfolder(const QString &name);
 
-    bool renameFolder(const QString &before, const QString &after);
-
     void exportToHtml(const QString &fileName);
 
-    static bool bookmarksEqual(const Bookmark &one, const Bookmark &two);
     static QString toTranslatedFolder(const QString &name);
     static QString fromTranslatedFolder(const QString &name);
 

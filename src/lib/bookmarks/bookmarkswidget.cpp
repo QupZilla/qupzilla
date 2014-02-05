@@ -74,11 +74,10 @@ void BookmarksWidget::loadBookmark()
     // Bookmark folders
     m_bookmarksTree->refreshTree();
 
-    m_bookmarkId = m_bookmarks->bookmarkId(m_url);
+    Bookmarks::Bookmark bookmark = m_bookmarks->getBookmark(m_bookmarkId);
+    m_bookmarkId = bookmark.id;
 
     if (m_bookmarkId > 0) {
-        Bookmarks::Bookmark bookmark = m_bookmarks->getBookmark(m_bookmarkId);
-
         int index = ui->folder->findData(bookmark.folder);
         // QComboBox::findData() returns index related to the item's parent
         if (index == -1) { // subfolder
@@ -139,7 +138,7 @@ void BookmarksWidget::on_saveRemove_clicked(bool)
             m_bookmarks->editBookmark(m_bookmarkId, m_view->title(), QUrl(), Bookmarks::fromTranslatedFolder(ui->folder->currentText()));
         }
         else {
-            m_bookmarks->removeBookmark(m_url);
+            m_bookmarks->removeBookmark(m_bookmarkId);
             emit bookmarkDeleted();
         }
     }
