@@ -201,12 +201,9 @@ void AdBlockSubscription::saveDownloadedData(const QByteArray &data)
 
 const AdBlockRule* AdBlockSubscription::match(const QNetworkRequest &request, const QString &urlDomain, const QString &urlString) const
 {
+    // Exception rules
     if (m_networkExceptionTree.find(request, urlDomain, urlString)) {
         return 0;
-    }
-
-    if (const AdBlockRule* rule = m_networkBlockTree.find(request, urlDomain, urlString)) {
-        return rule;
     }
 
     int count = m_networkExceptionRules.count();
@@ -215,6 +212,11 @@ const AdBlockRule* AdBlockSubscription::match(const QNetworkRequest &request, co
         if (rule->networkMatch(request, urlDomain, urlString)) {
             return 0;
         }
+    }
+
+    // Block rules
+    if (const AdBlockRule* rule = m_networkBlockTree.find(request, urlDomain, urlString)) {
+        return rule;
     }
 
     count = m_networkBlockRules.count();
