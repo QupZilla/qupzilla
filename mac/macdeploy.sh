@@ -1,15 +1,15 @@
 #!/bin/bash
 #
 # Usage: ./macdeploy.sh [<full-path-to-macdeployqt>]
-# 
+#
 # macdeployqt is usually located in QTDIR/bin/macdeployqt
 # If path to macdeployqt is not specified, using it from PATH
 
-COMMAND="macdeployqt"
+MACDEPLOYQT="macdeployqt"
 LIBRARY_NAME="libQupZilla.1.dylib"
 
 if [ -n "$1" ]; then
- COMMAND=$1
+ MACDEPLOYQT=$1
 fi
 
 # cd to directory with bundle
@@ -33,4 +33,8 @@ do
 done
 
 # run macdeployqt
-$COMMAND QupZilla.app
+$MACDEPLOYQT QupZilla.app
+
+# create final dmg image
+./create_dmg.sh
+
