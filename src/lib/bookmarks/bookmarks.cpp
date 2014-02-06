@@ -16,12 +16,14 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "bookmarks.h"
+#include "bookmarkitem.h"
 #include "tabbedwebview.h"
 #include "iconprovider.h"
-#include "databasewriter.h"
 #include "mainapplication.h"
 #include "settings.h"
+#include "json.h"
 
+#include <QSqlQuery>
 #include <QTextStream>
 #include <QBuffer>
 #include <QDebug>
@@ -35,7 +37,155 @@
 Bookmarks::Bookmarks(QObject* parent)
     : QObject(parent)
 {
+    loadBookmarks();
     loadSettings();
+}
+
+void Bookmarks::loadBookmarks()
+{
+    m_root = new BookmarkItem(BookmarkItem::Root);
+
+    m_folderToolbar = new BookmarkItem(BookmarkItem::Folder, m_root);
+    m_folderToolbar->setTitle(tr("Bookmarks ToolBar"));
+    m_folderToolbar->setDescription(tr("Bookmarks located in Bookmarks Toolbar"));
+
+    m_folderMenu = new BookmarkItem(BookmarkItem::Folder, m_root);
+    m_folderMenu->setTitle(tr("Bookmarks In Menu"));
+    m_folderMenu->setDescription(tr("Bookmarks located in Bookmarks Menu"));
+
+    m_folderUnsorted = new BookmarkItem(BookmarkItem::Folder, m_root);
+    m_folderUnsorted->setTitle(tr("Unsorted Bookmarks"));
+    m_folderUnsorted->setDescription(tr("All other bookmarks"));
+
+    // TODO: Make sure bookmarks are loaded correctly even on error
+
+    QFile bFile(mApp->currentProfilePath() + QLatin1String("/bookmarks.json"));
+    bFile.open(QFile::ReadOnly);
+    QByteArray data = bFile.readAll();
+    bFile.close();
+
+    bool ok;
+    const QVariant res = Json::parse(data, &ok);
+
+    if (!ok || res.type() != QVariant::Map) {
+        qWarning() << "Bookmarks::loadBookmarks() Error parsing bookmarks!";
+        return;
+    }
+
+    const QVariantMap map = res.toMap();
+    const QVariantMap bookmarksMap = map.value("roots").toMap();
+
+    readBookmarks(bookmarksMap.value("bookmark_bar").toMap().value("children").toList(), m_folderToolbar);
+    readBookmarks(bookmarksMap.value("bookmark_menu").toMap().value("children").toList(), m_folderMenu);
+    readBookmarks(bookmarksMap.value("other").toMap().value("children").toList(), m_folderUnsorted);
+}
+
+void Bookmarks::saveBookmarks()
+{
+    QVariantMap toolbarMap;
+    toolbarMap.insert("children", writeBookmarks(m_folderToolbar));
+
+    QVariantMap menuMap;
+    menuMap.insert("children", writeBookmarks(m_folderMenu));
+
+    QVariantMap unsortedMap;
+    unsortedMap.insert("children", writeBookmarks(m_folderUnsorted));
+
+    QVariantMap bookmarksMap;
+    bookmarksMap.insert("bookmark_bar", toolbarMap);
+    bookmarksMap.insert("bookmark_menu", menuMap);
+    bookmarksMap.insert("other", unsortedMap);
+
+    QVariantMap map;
+    map.insert("version", Qz::bookmarksVersion);
+    map.insert("roots", bookmarksMap);
+
+    bool ok;
+    const QByteArray data = Json::serialize(map, &ok);
+
+    if (!ok || data.isEmpty()) {
+        qWarning() << "Bookmarks::saveBookmarks() Error serializing bookmarks!";
+        return;
+    }
+
+    QFile bFile(mApp->currentProfilePath() + QLatin1String("/bookmarks.json"));
+
+    if (!bFile.open(QFile::WriteOnly)) {
+        qWarning() << "Bookmarks::saveBookmarks() Error opening bookmarks file for writing!";
+    }
+
+    bFile.write(data);
+    bFile.close();
+}
+
+void Bookmarks::readBookmarks(const QVariantList &list, BookmarkItem *parent)
+{
+    if (!parent) {
+        return;
+    }
+
+    foreach (const QVariant &entry, list) {
+        const QVariantMap map = entry.toMap();
+        BookmarkItem::Type type = BookmarkItem::typeFromString(map.value("type").toString());
+
+        if (type == BookmarkItem::Invalid) {
+            continue;
+        }
+
+        BookmarkItem* item = new BookmarkItem(type, parent);
+        item->setUrl(map.value("url").toUrl());
+        item->setTitle(map.value("name").toString());
+        item->setDescription(map.value("description").toString());
+        item->setKeyword(map.value("keyword").toString());
+        item->setExpanded(map.value("expanded").toBool());
+
+        if (map.contains("children")) {
+            readBookmarks(map.value("children").toList(), item);
+        }
+    }
+}
+
+QVariantList Bookmarks::writeBookmarks(BookmarkItem *parent)
+{
+    QVariantList list;
+
+    if (!parent) {
+        return list;
+    }
+
+    foreach (BookmarkItem* child, parent->children()) {
+        QVariantMap map;
+        map.insert("type", BookmarkItem::typeToString(child->type()));
+        map.insert("url", child->url());
+        map.insert("name", child->title());
+        map.insert("description", child->description());
+        map.insert("keyword", child->keyword());
+        map.insert("expanded", child->isExpanded());
+
+        if (!child->children().isEmpty()) {
+            map.insert("children", writeBookmarks(child));
+        }
+
+        list.append(map);
+    }
+
+    return list;
+}
+
+void Bookmarks::writeChildren(BookmarkItem *parent)
+{
+    if (!parent) {
+        return;
+    }
+
+    foreach (BookmarkItem* child, parent->children()) {
+        if (child->type() == BookmarkItem::Url) {
+            qDebug() << child->title() << child->url();
+        }
+        else {
+            qDebug() << "folder" << child->title();
+        }
+    }
 }
 
 void Bookmarks::loadSettings()

@@ -251,7 +251,9 @@ SOURCES += \
     tools/tabstackedwidget.cpp \
     tools/combotabbar.cpp \
     webview/javascript/externaljsobject.cpp \
-    bookmarks/bookmarks.cpp
+    bookmarks/bookmarks.cpp \
+    bookmarks/bookmarkitem.cpp \
+    tools/json.cpp
 
 
 HEADERS  += \
@@ -439,7 +441,9 @@ HEADERS  += \
     tools/tabstackedwidget.h \
     tools/combotabbar.h \
     webview/javascript/externaljsobject.h \
-    bookmarks/bookmarks.h
+    bookmarks/bookmarks.h \
+    bookmarks/bookmarkitem.h \
+    tools/json.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -510,7 +514,7 @@ isEqual(QT_MAJOR_VERSION, 5) {
     INSTALLS += target
 
     !contains(DEFINES, NO_X11):LIBS += -lX11
-    LIBS += -lcrypto
+    LIBS += -lcrypto -lqjson
 
     RESOURCES -= data/certs.qrc
 }
@@ -519,11 +523,11 @@ win32 {
     HEADERS += other/registerqappassociation.h
     SOURCES += other/registerqappassociation.cpp
 
-    LIBS += -llibeay32
+    LIBS += -llibeay32 -lqjson
 }
 
 os2 {
-    LIBS += -lcrypto
+    LIBS += -lcrypto -lqjson
 }
 
 mac {
@@ -533,7 +537,7 @@ mac {
                webview/macwebviewscroller.cpp
     RESOURCES -= data/certs.qrc
 
-    LIBS += -lcrypto -framework CoreServices
+    LIBS += -lcrypto -lqjson -framework CoreServices
 }
 
 message(===========================================)

@@ -32,6 +32,7 @@
 class QIcon;
 
 class WebView;
+class BookmarkItem;
 
 class QT_QUPZILLA_EXPORT Bookmarks : public QObject
 {
@@ -120,9 +121,21 @@ public slots:
     void changeFolderParent(const QString &name, bool isSubfolder, bool* ok = 0);
 
 private:
+    void loadBookmarks();
+    void saveBookmarks();
+
+    void readBookmarks(const QVariantList &list, BookmarkItem* parent);
+    QVariantList writeBookmarks(BookmarkItem* parent);
+    void writeChildren(BookmarkItem* parent);
+
     bool m_showMostVisited;
     bool m_showOnlyIconsInToolbar;
     QString m_lastFolder;
+
+    BookmarkItem* m_root;
+    BookmarkItem* m_folderToolbar;
+    BookmarkItem* m_folderMenu;
+    BookmarkItem* m_folderUnsorted;
 };
 
 typedef Bookmarks::Bookmark Bookmark;
