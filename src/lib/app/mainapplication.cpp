@@ -1033,6 +1033,8 @@ Speller* MainApplication::speller()
 
 void MainApplication::startPrivateBrowsing()
 {
+    const QUrl url = qobject_cast<QAction*>(sender())->data().toUrl();
+
     QStringList args;
     foreach (const QString &arg, arguments()) {
         if (arg.startsWith(QLatin1Char('-')) &&
@@ -1043,6 +1045,10 @@ void MainApplication::startPrivateBrowsing()
     }
 
     args.append(QLatin1String("--private-browsing"));
+
+    if (!url.isEmpty()) {
+        args << url.toEncoded();
+    }
 
     if (!QProcess::startDetached(applicationFilePath(), args)) {
         qWarning() << "MainApplication: Cannot start new browser process for private browsing!" << applicationFilePath() << args;
