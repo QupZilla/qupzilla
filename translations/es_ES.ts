@@ -353,7 +353,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="591"/>
         <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
-        <translation type="unfinished">¡Este motor necesita que se ponga una contraseña maestra! QupZilla acaba de cambiar el motor al predefinido</translation>
+        <translation>¡Este motor necesita que se ponga una contraseña maestra! QupZilla acaba de cambiar el motor al predefinido</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="33"/>
@@ -569,7 +569,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/autofill/autofillwidget.ui" line="11"/>
         <source>Login as:</source>
-        <translation type="unfinished">Iniciar sesión como:</translation>
+        <translation>Iniciar sesión como:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillicon.cpp" line="29"/>
@@ -631,7 +631,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="209"/>
         <source>Try to fetch icons for all bookmarks (may take a while)</source>
-        <translation type="unfinished">Intentar conseguir los iconos de todos los marcadores (puede tardar un rato) </translation>
+        <translation>Intentar conseguir los iconos de todos los marcadores (puede tardar un rato)</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="243"/>
@@ -969,12 +969,12 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="75"/>
         <source>Collapse All</source>
-        <translation type="unfinished">Desplegar todo</translation>
+        <translation>Desplegar todo</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="91"/>
         <source>Expand All</source>
-        <translation type="unfinished">Expandir todos</translation>
+        <translation>Expandir todos</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="136"/>
@@ -1022,7 +1022,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="86"/>
         <source>Show Only Icons</source>
-        <translation type="unfinished">Sólo mostrar iconos</translation>
+        <translation>Sólo mostrar iconos</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="92"/>
@@ -1511,7 +1511,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;b&gt;Advertencia:&lt;/b&gt; La coincidencia exacta del dominio y filtro de seguimiento de cookies puede que haga que sitios Web rechacen algunas cookies. Si tiene problemas, antes de nada, ¡pruebe a deshabilitar estas opciones!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="79"/>
@@ -1612,15 +1612,17 @@ Por favor instala la última versión de QupZilla.</translation>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="261"/>
         <source>%n minutes</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n minuto</numerusform>
+            <numerusform>%n minutos</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="264"/>
         <source>%n hours</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n hora</numerusform>
+            <numerusform>%n horas</numerusform>
         </translation>
     </message>
     <message>
@@ -1631,17 +1633,17 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="276"/>
         <source>kB/s</source>
-        <translation type="unfinished"></translation>
+        <translation>kB/s</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="281"/>
         <source>MB/s</source>
-        <translation type="unfinished"></translation>
+        <translation>MB/s</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="285"/>
         <source>GB/s</source>
-        <translation type="unfinished"></translation>
+        <translation>GB/s</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="309"/>
@@ -1718,7 +1720,8 @@ Por favor instala la última versión de QupZilla.</translation>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lo siento, ¡no encuentro 
+el archivo %1!</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
@@ -1860,12 +1863,12 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="106"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url or post data represent searched string</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;b&gt;Nota: &lt;/b&gt;%s en una dirección o en datos del método post representan una cadena de búsqueda</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="123"/>
         <source>Post Data:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Datos del post:</translation>
     </message>
 </context>
 <context>
@@ -2449,7 +2452,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="655"/>
         <source>Some data has not been decrypted. The master password was not cleared!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Algunos datos no se han descifrado. ¡La contraseña maestra no se ha borrado!</translation>
     </message>
 </context>
 <context>
@@ -4168,7 +4171,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="498"/>
         <source>Enable &amp;Caret Browsing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Habilitar navegación usando el &amp;cursor de texto</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="508"/>
@@ -4409,7 +4412,8 @@ Por favor instala la última versión de QupZilla.</translation>
         <location filename="../src/lib/app/qupzilla.cpp" line="2193"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to close this window?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Todavía hay %1 pestañas abiertas y su sesión no se va a guardar.
+¿Está seguro que quiere cerrar esta ventana?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="2194"/>
@@ -5066,7 +5070,7 @@ Talvez ejecutarlo nuevamente con derechos de administrador haga magia para usted
     <message>
         <location filename="../src/lib/rss/rssicon.cpp" line="30"/>
         <source>Add RSS from this page...</source>
-        <translation>Agregar RSS desde esta página...</translation>
+        <translation>Añadir RSS de esta página...</translation>
     </message>
 </context>
 <context>
@@ -6118,7 +6122,8 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
         <location filename="../src/lib/webview/webpage.cpp" line="532"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Para mostrar esta página, QupZilla tiene que reenviar la petición, lo cual repetirá cualquier acción
+realizada con anterioridad (como una búsqueda o una compra)</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="534"/>
