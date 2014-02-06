@@ -508,13 +508,17 @@ isEqual(QT_MAJOR_VERSION, 5) {
     SOURCES += tools/qzregexp.cpp
 }
 
+!isEqual(QT_MAJOR_VERSION, 5) {
+    LIBS += -lqjson
+}
+
 !mac:unix {
     target.path = $$library_folder
 
     INSTALLS += target
 
     !contains(DEFINES, NO_X11):LIBS += -lX11
-    LIBS += -lcrypto -lqjson
+    LIBS += -lcrypto
 
     RESOURCES -= data/certs.qrc
 }
@@ -523,11 +527,11 @@ win32 {
     HEADERS += other/registerqappassociation.h
     SOURCES += other/registerqappassociation.cpp
 
-    LIBS += -llibeay32 -lqjson
+    LIBS += -llibeay32
 }
 
 os2 {
-    LIBS += -lcrypto -lqjson
+    LIBS += -lcrypto
 }
 
 mac {
@@ -537,7 +541,7 @@ mac {
                webview/macwebviewscroller.cpp
     RESOURCES -= data/certs.qrc
 
-    LIBS += -lcrypto -lqjson -framework CoreServices
+    LIBS += -lcrypto -framework CoreServices
 }
 
 message(===========================================)

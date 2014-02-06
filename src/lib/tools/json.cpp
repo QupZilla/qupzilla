@@ -16,18 +16,44 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "json.h"
+
+#if QT_VERSION < 0x050000
 #include <qjson/parser.h>
 #include <qjson/serializer.h>
+#else
+#include <QJsonDocument>
+#endif
 
 QVariant Json::parse(const QByteArray &data, bool *ok)
 {
+#if QT_VERSION < 0x050000
     QJson::Parser parser;
     return parser.parse(data, ok);
+#else
+    QJsonParseError error;
+    QJsonDocument doc = QJsonDocument::fromJson(data, &error);
+
+    if (ok) {
+        *ok = error.error == QJsonParseError::NoError;
+    }
+
+    return doc.toVariant();
+#endif
 }
 
 QByteArray Json::serialize(const QVariant &variant, bool *ok)
 {
+#if QT_VERSION < 0x050000
     QJson::Serializer serializer;
     serializer.setIndentMode(QJson::IndentFull);
     return serializer.serialize(variant, ok);
+#else
+    QJsonDocument doc = QJsonDocument::fromVariant(variant);
+
+    if (ok) {
+        *ok = !doc.isNull();
+    }
+
+    return doc.toJson(QJsonDocument::Indented);
+#endif
 }
