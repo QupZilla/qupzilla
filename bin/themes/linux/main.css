@@ -69,6 +69,11 @@
     qproperty-fallbackIcon: url(images/preferences-desktop.png);
 }
 
+#navigation-button-exitfullscreen
+{
+    qproperty-themeIcon: "view-restore";
+}
+
 #navigation-button-supermenu::menu-indicator
 {
     image: none;

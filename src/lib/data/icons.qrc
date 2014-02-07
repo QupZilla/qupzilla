@@ -80,5 +80,6 @@
         <file>icons/theme/expand.png</file>
         <file>icons/theme/collapse.png</file>
         <file>icons/theme/speeddial.png</file>
+        <file>icons/theme/view-restore.png</file>
     </qresource>
 </RCC>

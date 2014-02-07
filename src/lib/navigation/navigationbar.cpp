@@ -149,10 +149,13 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     m_navigationSplitter->setCollapsible(0, false);
 
     m_exitFullscreen = new ToolButton();
-    m_exitFullscreen->setText(tr("Exit Fullscreen"));
+    m_exitFullscreen->setObjectName("navigation-button-exitfullscreen");
     m_exitFullscreen->setToolTip(tr("Exit Fullscreen"));
+    m_exitFullscreen->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    m_exitFullscreen->setFocusPolicy(Qt::NoFocus);
     m_exitFullscreen->setAutoRaise(true);
     m_exitFullscreen->setVisible(false);
+    setButtonIconSize(m_exitFullscreen);
 
     m_layout->addLayout(backNextLayout);
     m_layout->addWidget(m_reloadStop);

@@ -196,6 +196,8 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
 
 QIcon IconProvider::fromTheme(const QString &icon)
 {
+    // TODO: This should actually look in :icons/theme for fallback icon, not hardcode every icon
+
     if (icon == QLatin1String("go-home")) {
         return QIcon::fromTheme("go-home", QIcon(":/icons/theme/home.png"));
     }
@@ -216,6 +218,9 @@ QIcon IconProvider::fromTheme(const QString &icon)
     }
     else if (icon == QLatin1String("go-previous")) {
         return QIcon::fromTheme("go-previous", QIcon(":icons/theme/go-previous.png"));
+    }
+    else if (icon == QLatin1String("view-restore")) {
+        return QIcon::fromTheme("view-restore", QIcon(":icons/theme/view-restore.png"));
     }
     else {
         return QIcon::fromTheme(icon);
