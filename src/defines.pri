@@ -58,8 +58,13 @@ else {
     }
 }
 
-# Ugly hack to check for Indent support in QJson
-system(grep "enum IndentMode" /usr/include/qjson/serializer.h &> /dev/null): DEFINES *= QJSON_HAVE_INDENT
+# QJson dependency
+!mac:unix:isEqual(QT_MAJOR_VERSION, 4) {
+    !system(test -d /usr/include/qjson): error(ERROR: QJson cannot be found!)
+
+    # Ugly hack to check for Indent support in QJson
+    system(grep setIndentMode /usr/include/qjson/serializer.h > /dev/null): DEFINES *= QJSON_HAVE_INDENT
+}
 
 DEFINES *= QT_NO_URL_CAST_FROM_STRING
 DEFINES *= QT_USE_QSTRINGBUILDER
