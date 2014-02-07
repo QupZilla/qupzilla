@@ -45,8 +45,16 @@ QByteArray Json::serialize(const QVariant &variant, bool* ok)
 {
 #if QT_VERSION < 0x050000
     QJson::Serializer serializer;
+#ifdef QJSON_HAVE_INDENT
     serializer.setIndentMode(QJson::IndentFull);
-    return serializer.serialize(variant, ok);
+#endif
+    const QByteArray data = serializer.serialize(variant);
+
+    if (ok) {
+        *ok = !data.isNull();
+    }
+
+    return data;
 #else
     QJsonDocument doc = QJsonDocument::fromVariant(variant);
 
