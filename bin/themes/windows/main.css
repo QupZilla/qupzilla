@@ -107,6 +107,11 @@
     qproperty-iconSize: 23px 22px;
 }
 
+#navigation-button-exitfullscreen
+{
+    qproperty-themeIcon: "view-restore";
+}
+
 /*TabWidget*/
 #tabbar::scroller
 {

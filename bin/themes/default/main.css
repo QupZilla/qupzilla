@@ -100,6 +100,11 @@
     qproperty-icon: url(images/navigation-supmenu.png);
 }
 
+#navigation-button-exitfullscreen
+{
+    qproperty-themeIcon: "view-restore";
+}
+
 /*TabWidget*/
 #tabbar::tab
 {
