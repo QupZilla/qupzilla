@@ -23,7 +23,6 @@ git_revision
 *.exp
 *.zip
 Thumbs.db
-tests/modeltest
 *.pdb
 *.ilk
 *.kdev4
