@@ -12,7 +12,8 @@ DEFINES *= QUPZILLA_SHAREDLIBRARY
 include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
 include(../../translations/translations.pri)
-#include(../../tests/modeltest/modeltest.pri)
+
+CONFIG(debug, debug|release): include(../../tests/modeltest/modeltest.pri)
 
 !mac:contains(DEFINES, USE_QTWEBKIT_2_2) {
     include(plugins/qtwebkit/qtwebkit-plugins.pri)
@@ -253,7 +254,8 @@ SOURCES += \
     webview/javascript/externaljsobject.cpp \
     bookmarks/bookmarks.cpp \
     bookmarks/bookmarkitem.cpp \
-    tools/json.cpp
+    tools/json.cpp \
+    bookmarks/bookmarksmodel.cpp
 
 
 HEADERS  += \
@@ -443,7 +445,8 @@ HEADERS  += \
     webview/javascript/externaljsobject.h \
     bookmarks/bookmarks.h \
     bookmarks/bookmarkitem.h \
-    tools/json.h
+    tools/json.h \
+    bookmarks/bookmarksmodel.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

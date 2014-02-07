@@ -41,7 +41,7 @@ public:
     Type type() const;
     void setType(Type type);
 
-    BookmarkItem *parent() const;
+    BookmarkItem* parent() const;
     QList<BookmarkItem*> children() const;
 
     QUrl url() const;
@@ -59,8 +59,8 @@ public:
     bool isExpanded() const;
     void setExpanded(bool expanded);
 
-    void addChild(BookmarkItem *child, int index = -1);
-    void removeChild(BookmarkItem *child);
+    void addChild(BookmarkItem* child, int index = -1);
+    void removeChild(BookmarkItem* child);
 
     static Type typeFromString(const QString &string);
     static QString typeToString(Type type);

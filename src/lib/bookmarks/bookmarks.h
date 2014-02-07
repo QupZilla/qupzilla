@@ -33,6 +33,7 @@ class QIcon;
 
 class WebView;
 class BookmarkItem;
+class BookmarksModel;
 
 class QT_QUPZILLA_EXPORT Bookmarks : public QObject
 {
@@ -98,6 +99,13 @@ public:
     static QString toTranslatedFolder(const QString &name);
     static QString fromTranslatedFolder(const QString &name);
 
+    BookmarkItem* rootItem() const;
+    bool canBeModified(BookmarkItem* item) const;
+
+    void addBookmark(BookmarkItem* parent, BookmarkItem* item);
+    void insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item);
+    bool removeBookmark(BookmarkItem* item);
+
 signals:
     void bookmarkAdded(const Bookmarks::Bookmark &bookmark);
     void bookmarkDeleted(const Bookmarks::Bookmark &bookmark);
@@ -113,6 +121,13 @@ signals:
     void folderRenamed(const QString &before, const QString &after);
 
     void folderParentChanged(const QString &name, bool isSubfolder);
+
+    // Item was added to bookmarks
+    void bookmarkAdded(BookmarkItem* item);
+    // Item was removed from bookmarks
+    void bookmarkRemoved(BookmarkItem* item);
+    // Item data has changed
+    void bookmarkChanged(BookmarkItem* item);
 
 public slots:
     void bookmarkDropedLink(const QUrl &url, const QString &title, const QVariant &imageVariant,
@@ -136,6 +151,8 @@ private:
     BookmarkItem* m_folderToolbar;
     BookmarkItem* m_folderMenu;
     BookmarkItem* m_folderUnsorted;
+
+    BookmarksModel* m_model;
 };
 
 typedef Bookmarks::Bookmark Bookmark;

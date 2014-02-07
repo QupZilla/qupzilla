@@ -24,7 +24,7 @@
 #include <QJsonDocument>
 #endif
 
-QVariant Json::parse(const QByteArray &data, bool *ok)
+QVariant Json::parse(const QByteArray &data, bool* ok)
 {
 #if QT_VERSION < 0x050000
     QJson::Parser parser;
@@ -41,7 +41,7 @@ QVariant Json::parse(const QByteArray &data, bool *ok)
 #endif
 }
 
-QByteArray Json::serialize(const QVariant &variant, bool *ok)
+QByteArray Json::serialize(const QVariant &variant, bool* ok)
 {
 #if QT_VERSION < 0x050000
     QJson::Serializer serializer;

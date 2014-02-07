@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "bookmarkitem.h"
 
-BookmarkItem::BookmarkItem(BookmarkItem::Type type, BookmarkItem *parent)
+BookmarkItem::BookmarkItem(BookmarkItem::Type type, BookmarkItem* parent)
     : m_type(type)
     , m_parent(parent)
     , m_expanded(false)
@@ -42,12 +42,12 @@ void BookmarkItem::setType(BookmarkItem::Type type)
     m_type = type;
 }
 
-BookmarkItem *BookmarkItem::parent() const
+BookmarkItem* BookmarkItem::parent() const
 {
     return  m_parent;
 }
 
-QList<BookmarkItem *> BookmarkItem::children() const
+QList<BookmarkItem*> BookmarkItem::children() const
 {
     return m_children;
 }
@@ -102,7 +102,7 @@ void BookmarkItem::setExpanded(bool expanded)
     m_expanded = expanded;
 }
 
-void BookmarkItem::addChild(BookmarkItem *child, int index)
+void BookmarkItem::addChild(BookmarkItem* child, int index)
 {
     if (child->m_parent) {
         child->m_parent->removeChild(child);
@@ -110,7 +110,7 @@ void BookmarkItem::addChild(BookmarkItem *child, int index)
 
     child->m_parent = this;
 
-    if (index == -1) {
+    if (index < 0) {
         m_children.append(child);
     }
     else {
@@ -118,7 +118,7 @@ void BookmarkItem::addChild(BookmarkItem *child, int index)
     }
 }
 
-void BookmarkItem::removeChild(BookmarkItem *child)
+void BookmarkItem::removeChild(BookmarkItem* child)
 {
     child->m_parent = 0;
     m_children.removeOne(child);

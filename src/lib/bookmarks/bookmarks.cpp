@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "bookmarks.h"
 #include "bookmarkitem.h"
+#include "bookmarksmodel.h"
 #include "tabbedwebview.h"
 #include "iconprovider.h"
 #include "mainapplication.h"
@@ -46,11 +47,11 @@ void Bookmarks::loadBookmarks()
     m_root = new BookmarkItem(BookmarkItem::Root);
 
     m_folderToolbar = new BookmarkItem(BookmarkItem::Folder, m_root);
-    m_folderToolbar->setTitle(tr("Bookmarks ToolBar"));
+    m_folderToolbar->setTitle(tr("Bookmarks Toolbar"));
     m_folderToolbar->setDescription(tr("Bookmarks located in Bookmarks Toolbar"));
 
     m_folderMenu = new BookmarkItem(BookmarkItem::Folder, m_root);
-    m_folderMenu->setTitle(tr("Bookmarks In Menu"));
+    m_folderMenu->setTitle(tr("Bookmarks Menu"));
     m_folderMenu->setDescription(tr("Bookmarks located in Bookmarks Menu"));
 
     m_folderUnsorted = new BookmarkItem(BookmarkItem::Folder, m_root);
@@ -78,6 +79,8 @@ void Bookmarks::loadBookmarks()
     readBookmarks(bookmarksMap.value("bookmark_bar").toMap().value("children").toList(), m_folderToolbar);
     readBookmarks(bookmarksMap.value("bookmark_menu").toMap().value("children").toList(), m_folderMenu);
     readBookmarks(bookmarksMap.value("other").toMap().value("children").toList(), m_folderUnsorted);
+
+    m_model = new BookmarksModel(this, this);
 }
 
 void Bookmarks::saveBookmarks()
@@ -118,7 +121,7 @@ void Bookmarks::saveBookmarks()
     bFile.close();
 }
 
-void Bookmarks::readBookmarks(const QVariantList &list, BookmarkItem *parent)
+void Bookmarks::readBookmarks(const QVariantList &list, BookmarkItem* parent)
 {
     if (!parent) {
         return;
@@ -145,7 +148,7 @@ void Bookmarks::readBookmarks(const QVariantList &list, BookmarkItem *parent)
     }
 }
 
-QVariantList Bookmarks::writeBookmarks(BookmarkItem *parent)
+QVariantList Bookmarks::writeBookmarks(BookmarkItem* parent)
 {
     QVariantList list;
 
@@ -172,7 +175,7 @@ QVariantList Bookmarks::writeBookmarks(BookmarkItem *parent)
     return list;
 }
 
-void Bookmarks::writeChildren(BookmarkItem *parent)
+void Bookmarks::writeChildren(BookmarkItem* parent)
 {
     if (!parent) {
         return;
@@ -743,6 +746,47 @@ QString Bookmarks::fromTranslatedFolder(const QString &name)
         folder = name;
     }
     return folder;
+}
+
+BookmarkItem* Bookmarks::rootItem() const
+{
+    return m_root;
+}
+
+bool Bookmarks::removeBookmark(BookmarkItem* item)
+{
+    if (!canBeModified(item)) {
+        return false;
+    }
+
+    m_model->removeBookmark(item);
+    emit bookmarkRemoved(item);
+
+    return true;
+}
+
+bool Bookmarks::canBeModified(BookmarkItem* item) const
+{
+    return item != m_root && item != m_folderToolbar && item != m_folderMenu && item != m_folderUnsorted;
+}
+
+void Bookmarks::addBookmark(BookmarkItem* parent, BookmarkItem* item)
+{
+    Q_ASSERT(parent);
+    Q_ASSERT(parent->type() == BookmarkItem::Folder);
+    Q_ASSERT(item);
+
+    insertBookmark(parent, 0, item);
+}
+
+void Bookmarks::insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item)
+{
+    Q_ASSERT(parent);
+    Q_ASSERT(parent->type() == BookmarkItem::Folder);
+    Q_ASSERT(item);
+
+    m_model->addBookmark(parent, row, item);
+    emit bookmarkAdded(item);
 }
 
 void Bookmarks::changeBookmarkParent(int id, const QString &newParent, const QString &oldParent, bool* ok)
