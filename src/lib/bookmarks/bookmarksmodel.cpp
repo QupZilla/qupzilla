@@ -75,7 +75,7 @@ Qt::ItemFlags BookmarksModel::flags(const QModelIndex &index) const
 
     Qt::ItemFlags flags =  Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 
-    if (itm->type() == BookmarkItem::Folder) {
+    if (itm->isFolder()) {
         flags |= Qt::ItemIsDropEnabled;
     }
 
@@ -243,7 +243,7 @@ bool BookmarksModel::dropMimeData(const QMimeData* data, Qt::DropAction action, 
     }
 
     BookmarkItem* parentItm = item(parent);
-    Q_ASSERT(parentItm->type() == BookmarkItem::Folder);
+    Q_ASSERT(parentItm->isFolder());
 
     QByteArray encodedData = data->data(MIMETYPE);
     QDataStream stream(&encodedData, QIODevice::ReadOnly);

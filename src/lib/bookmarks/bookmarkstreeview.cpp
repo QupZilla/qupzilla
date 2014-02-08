@@ -147,7 +147,7 @@ void BookmarksTreeView::keyPressEvent(QKeyEvent* event)
         switch (event->key()) {
         case Qt::Key_Return:
         case Qt::Key_Enter:
-            if (item->type() == BookmarkItem::Folder && event->modifiers() == Qt::NoModifier) {
+            if (item->isFolder() && event->modifiers() == Qt::NoModifier) {
                 setExpanded(index, !isExpanded(index));
             }
             else {

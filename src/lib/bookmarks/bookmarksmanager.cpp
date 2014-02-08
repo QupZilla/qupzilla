@@ -112,7 +112,7 @@ BookmarksManager::~BookmarksManager()
 void BookmarksManager::bookmarkActivated(BookmarkItem* item)
 {
     // TODO: Open all children in tabs for folder?
-    if (item->type() != BookmarkItem::Url) {
+    if (!item->isUrl()) {
         return;
     }
 
@@ -121,7 +121,7 @@ void BookmarksManager::bookmarkActivated(BookmarkItem* item)
 
 void BookmarksManager::bookmarkCtrlActivated(BookmarkItem* item)
 {
-    if (item->type() != BookmarkItem::Url) {
+    if (!item->isUrl()) {
         return;
     }
 
@@ -130,7 +130,7 @@ void BookmarksManager::bookmarkCtrlActivated(BookmarkItem* item)
 
 void BookmarksManager::bookmarkShiftActivated(BookmarkItem* item)
 {
-    if (item->type() != BookmarkItem::Url) {
+    if (!item->isUrl()) {
         return;
     }
 
@@ -189,8 +189,8 @@ void BookmarksManager::updateEditBox(BookmarkItem* item)
     setUpdatesEnabled(false);
     m_blockDescriptionChangedSignal = true;
 
-    bool editable = item && item->type() != BookmarkItem::Separator && m_bookmarks->canBeModified(item);
-    bool showAddressAndKeyword = item && item->type() == BookmarkItem::Url;
+    bool editable = item && !item->isSeparator() && m_bookmarks->canBeModified(item);
+    bool showAddressAndKeyword = item && item->isUrl();
     bool clearBox = !item;
 
     if (clearBox) {
@@ -257,28 +257,6 @@ void BookmarksManager::setMainWindow(QupZilla* window)
 }
 
 #if 0
-void BookmarksManager::itemControlClicked(QTreeWidgetItem* item)
-{
-    if (!item || item->text(1).isEmpty()) {
-        return;
-    }
-
-    const QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
-    getQupZilla()->tabWidget()->addView(url, item->text(0));
-}
-
-void BookmarksManager::loadInNewTab()
-{
-    QTreeWidgetItem* item = ui->bookmarksTree->currentItem();
-    QAction* action = qobject_cast<QAction*>(sender());
-
-    if (!item || !action) {
-        return;
-    }
-
-    getQupZilla()->tabWidget()->addView(action->data().toUrl(), item->text(0), qzSettings->newTabPosition);
-}
-
 void BookmarksManager::contextMenuRequested(const QPoint &position)
 {
     if (!ui->bookmarksTree->itemAt(position)) {

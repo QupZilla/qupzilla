@@ -41,6 +41,10 @@ public:
     Type type() const;
     void setType(Type type);
 
+    bool isFolder() const;
+    bool isUrl() const;
+    bool isSeparator();
+
     BookmarkItem* parent() const;
     QList<BookmarkItem*> children() const;
 

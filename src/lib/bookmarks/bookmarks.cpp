@@ -182,7 +182,7 @@ void Bookmarks::writeChildren(BookmarkItem* parent)
     }
 
     foreach (BookmarkItem* child, parent->children()) {
-        if (child->type() == BookmarkItem::Url) {
+        if (child->isUrl()) {
             qDebug() << child->title() << child->url();
         }
         else {
@@ -783,7 +783,7 @@ bool Bookmarks::canBeModified(BookmarkItem* item) const
 void Bookmarks::addBookmark(BookmarkItem* parent, BookmarkItem* item)
 {
     Q_ASSERT(parent);
-    Q_ASSERT(parent->type() == BookmarkItem::Folder);
+    Q_ASSERT(parent->isFolder());
     Q_ASSERT(item);
 
     insertBookmark(parent, 0, item);
@@ -792,7 +792,7 @@ void Bookmarks::addBookmark(BookmarkItem* parent, BookmarkItem* item)
 void Bookmarks::insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item)
 {
     Q_ASSERT(parent);
-    Q_ASSERT(parent->type() == BookmarkItem::Folder);
+    Q_ASSERT(parent->isFolder());
     Q_ASSERT(item);
 
     m_model->addBookmark(parent, row, item);

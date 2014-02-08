@@ -42,6 +42,21 @@ void BookmarkItem::setType(BookmarkItem::Type type)
     m_type = type;
 }
 
+bool BookmarkItem::isFolder() const
+{
+    return m_type == Folder;
+}
+
+bool BookmarkItem::isUrl() const
+{
+    return m_type == Url;
+}
+
+bool BookmarkItem::isSeparator()
+{
+    return m_type == Separator;
+}
+
 BookmarkItem* BookmarkItem::parent() const
 {
     return  m_parent;
