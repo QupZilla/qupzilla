@@ -24,10 +24,9 @@
 #include <QMimeData>
 #include <QStyle>
 
-//#define BOOKMARKSMODEL_DEBUG
+#define BOOKMARKSMODEL_DEBUG
 
 #ifdef BOOKMARKSMODEL_DEBUG
-#include <QTreeView>
 #include "modeltest.h"
 #endif
 
@@ -39,15 +38,6 @@ BookmarksModel::BookmarksModel(Bookmarks* bookmarks, QObject* parent)
 
 #ifdef BOOKMARKSMODEL_DEBUG
     new ModelTest(this, this);
-
-    QTreeView* view = new QTreeView;
-    view->setModel(this);
-    view->setSelectionMode(QAbstractItemView::ExtendedSelection);
-    view->setDragEnabled(true);
-    view->setAcceptDrops(true);
-    view->setDropIndicatorShown(true);
-    view->expandAll();
-    view->show();
 #endif
 }
 
@@ -123,7 +113,7 @@ QVariant BookmarksModel::data(const QModelIndex &index, int role) const
         case 0:
             return itm->title();
         case 1:
-            return itm->url();
+            return itm->url().toEncoded();
         default:
             return QVariant();
         }
@@ -324,14 +314,14 @@ QModelIndex BookmarksModel::index(BookmarkItem* item) const
     return createIndex(parent->children().indexOf(item), 0, item);
 }
 
-void BookmarksModel::bookmarkChanged(BookmarkItem* item)
-{
-    QModelIndex idx = index(item);
-    emit dataChanged(idx, idx);
-}
-
 BookmarkItem* BookmarksModel::item(const QModelIndex &index) const
 {
     BookmarkItem* itm = static_cast<BookmarkItem*>(index.internalPointer());
     return itm ? itm : m_bookmarks->rootItem();
+}
+
+void BookmarksModel::bookmarkChanged(BookmarkItem* item)
+{
+    QModelIndex idx = index(item);
+    emit dataChanged(idx, idx);
 }

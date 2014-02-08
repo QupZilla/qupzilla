@@ -61,6 +61,8 @@ public:
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
     QModelIndex index(BookmarkItem* item) const;
 
+    BookmarkItem* item(const QModelIndex &index) const;
+
 #if 0
     bool removeRows(int row, int count, const QModelIndex &parent);
 #endif
@@ -69,8 +71,6 @@ private slots:
     void bookmarkChanged(BookmarkItem* item);
 
 private:
-    BookmarkItem* item(const QModelIndex &index) const;
-
     Bookmarks* m_bookmarks;
 
 };

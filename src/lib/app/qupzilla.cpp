@@ -1514,6 +1514,7 @@ void QupZilla::loadFolderBookmarks(Menu* menu)
 
 void QupZilla::loadAddress(const QUrl &url)
 {
+    // TOOD: If current tab is pinned, it should open new tab instead
     weView()->setFocus();
     weView()->load(url);
 }

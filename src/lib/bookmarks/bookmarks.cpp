@@ -748,6 +748,11 @@ QString Bookmarks::fromTranslatedFolder(const QString &name)
     return folder;
 }
 
+BookmarksModel* Bookmarks::model() const
+{
+    return m_model;
+}
+
 BookmarkItem* Bookmarks::rootItem() const
 {
     return m_root;
@@ -763,6 +768,11 @@ bool Bookmarks::removeBookmark(BookmarkItem* item)
     emit bookmarkRemoved(item);
 
     return true;
+}
+
+void Bookmarks::notifyBookmarkChanged(BookmarkItem* item)
+{
+    emit bookmarkChanged(item);
 }
 
 bool Bookmarks::canBeModified(BookmarkItem* item) const

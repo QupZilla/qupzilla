@@ -99,12 +99,15 @@ public:
     static QString toTranslatedFolder(const QString &name);
     static QString fromTranslatedFolder(const QString &name);
 
+    BookmarksModel* model() const;
     BookmarkItem* rootItem() const;
     bool canBeModified(BookmarkItem* item) const;
 
     void addBookmark(BookmarkItem* parent, BookmarkItem* item);
     void insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item);
     bool removeBookmark(BookmarkItem* item);
+
+    void notifyBookmarkChanged(BookmarkItem* item);
 
 signals:
     void bookmarkAdded(const Bookmarks::Bookmark &bookmark);
