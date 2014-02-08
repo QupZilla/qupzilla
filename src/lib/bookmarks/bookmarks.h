@@ -60,6 +60,7 @@ public:
     };
 
     void loadSettings();
+    void saveBookmarks();
 
     bool isShowingMostVisited() const;
     void setShowingMostVisited(bool state);
@@ -143,7 +144,6 @@ public slots:
 
 private:
     void loadBookmarks();
-    void saveBookmarks();
 
     void readBookmarks(const QVariantList &list, BookmarkItem* parent);
     QVariantList writeBookmarks(BookmarkItem* parent);

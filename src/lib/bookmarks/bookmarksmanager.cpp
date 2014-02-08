@@ -178,7 +178,6 @@ void BookmarksManager::addBookmark()
     BookmarkItem* item = new BookmarkItem(BookmarkItem::Url);
     item->setTitle(tr("New Bookmark"));
     item->setUrl(QUrl("http://"));
-
     addBookmark(item);
 }
 
@@ -186,14 +185,12 @@ void BookmarksManager::addFolder()
 {
     BookmarkItem* item = new BookmarkItem(BookmarkItem::Folder);
     item->setTitle(tr("New Folder"));
-
     addBookmark(item);
 }
 
 void BookmarksManager::addSeparator()
 {
     BookmarkItem* item = new BookmarkItem(BookmarkItem::Separator);
-
     addBookmark(item);
 }
 

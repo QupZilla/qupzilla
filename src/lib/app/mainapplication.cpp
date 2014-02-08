@@ -1187,8 +1187,9 @@ bool MainApplication::saveStateSlot()
         qupzilla_->tabWidget()->savePinnedTabs();
     }
 
-    // Saving cookies
+    // Save cookies & bookmarks
     m_cookiejar->saveCookies();
+    m_bookmarks->saveBookmarks();
 
     return true;
 }

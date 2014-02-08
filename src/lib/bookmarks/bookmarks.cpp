@@ -73,31 +73,37 @@ void Bookmarks::loadBookmarks()
         return;
     }
 
-    const QVariantMap map = res.toMap();
-    const QVariantMap bookmarksMap = map.value("roots").toMap();
+    const QVariantMap bookmarksMap = res.toMap().value("roots").toMap();
 
-    readBookmarks(bookmarksMap.value("bookmark_bar").toMap().value("children").toList(), m_folderToolbar);
-    readBookmarks(bookmarksMap.value("bookmark_menu").toMap().value("children").toList(), m_folderMenu);
-    readBookmarks(bookmarksMap.value("other").toMap().value("children").toList(), m_folderUnsorted);
+#define READ_FOLDER(name, folder) \
+    readBookmarks(bookmarksMap.value(name).toMap().value("children").toList(), folder); \
+    folder->setExpanded(bookmarksMap.value(name).toMap().value("expanded").toBool());
+
+    READ_FOLDER("bookmark_bar", m_folderToolbar)
+    READ_FOLDER("bookmark_menu", m_folderMenu)
+    READ_FOLDER("other", m_folderUnsorted)
+#undef READ_FOLDER
 
     m_model = new BookmarksModel(this, this);
 }
 
 void Bookmarks::saveBookmarks()
 {
-    QVariantMap toolbarMap;
-    toolbarMap.insert("children", writeBookmarks(m_folderToolbar));
-
-    QVariantMap menuMap;
-    menuMap.insert("children", writeBookmarks(m_folderMenu));
-
-    QVariantMap unsortedMap;
-    unsortedMap.insert("children", writeBookmarks(m_folderUnsorted));
-
     QVariantMap bookmarksMap;
-    bookmarksMap.insert("bookmark_bar", toolbarMap);
-    bookmarksMap.insert("bookmark_menu", menuMap);
-    bookmarksMap.insert("other", unsortedMap);
+
+#define WRITE_FOLDER(name, mapName, folder) \
+    QVariantMap mapName; \
+    mapName.insert("children", writeBookmarks(folder)); \
+    mapName.insert("expanded", folder->isExpanded()); \
+    mapName.insert("name", folder->title()); \
+    mapName.insert("description", folder->description()); \
+    mapName.insert("type", "folder"); \
+    bookmarksMap.insert(name, mapName);
+
+    WRITE_FOLDER("bookmark_bar", toolbarMap, m_folderToolbar)
+    WRITE_FOLDER("bookmark_menu", menuMap, m_folderMenu)
+    WRITE_FOLDER("other", unsortedMap, m_folderUnsorted)
+#undef CREATE_VARIANTMAP
 
     QVariantMap map;
     map.insert("version", Qz::bookmarksVersion);
@@ -123,9 +129,7 @@ void Bookmarks::saveBookmarks()
 
 void Bookmarks::readBookmarks(const QVariantList &list, BookmarkItem* parent)
 {
-    if (!parent) {
-        return;
-    }
+    Q_ASSERT(parent);
 
     foreach (const QVariant &entry, list) {
         const QVariantMap map = entry.toMap();
@@ -136,11 +140,24 @@ void Bookmarks::readBookmarks(const QVariantList &list, BookmarkItem* parent)
         }
 
         BookmarkItem* item = new BookmarkItem(type, parent);
-        item->setUrl(map.value("url").toUrl());
-        item->setTitle(map.value("name").toString());
-        item->setDescription(map.value("description").toString());
-        item->setKeyword(map.value("keyword").toString());
-        item->setExpanded(map.value("expanded").toBool());
+
+        switch (type) {
+        case BookmarkItem::Url:
+            item->setUrl(map.value("url").toUrl());
+            item->setTitle(map.value("name").toString());
+            item->setDescription(map.value("description").toString());
+            item->setKeyword(map.value("keyword").toString());
+            break;
+
+        case BookmarkItem::Folder:
+            item->setTitle(map.value("name").toString());
+            item->setDescription(map.value("description").toString());
+            item->setExpanded(map.value("expanded").toBool());
+            break;
+
+        default:
+            break;
+        }
 
         if (map.contains("children")) {
             readBookmarks(map.value("children").toList(), item);
@@ -150,20 +167,31 @@ void Bookmarks::readBookmarks(const QVariantList &list, BookmarkItem* parent)
 
 QVariantList Bookmarks::writeBookmarks(BookmarkItem* parent)
 {
-    QVariantList list;
+    Q_ASSERT(parent);
 
-    if (!parent) {
-        return list;
-    }
+    QVariantList list;
 
     foreach (BookmarkItem* child, parent->children()) {
         QVariantMap map;
         map.insert("type", BookmarkItem::typeToString(child->type()));
-        map.insert("url", child->url());
-        map.insert("name", child->title());
-        map.insert("description", child->description());
-        map.insert("keyword", child->keyword());
-        map.insert("expanded", child->isExpanded());
+
+        switch (child->type()) {
+        case BookmarkItem::Url:
+            map.insert("url", child->url());
+            map.insert("name", child->title());
+            map.insert("description", child->description());
+            map.insert("keyword", child->keyword());
+            break;
+
+        case BookmarkItem::Folder:
+            map.insert("name", child->title());
+            map.insert("description", child->description());
+            map.insert("expanded", child->isExpanded());
+            break;
+
+        default:
+            break;
+        }
 
         if (!child->children().isEmpty()) {
             map.insert("children", writeBookmarks(child));
@@ -787,13 +815,16 @@ bool Bookmarks::removeBookmark(BookmarkItem* item)
 
 void Bookmarks::notifyBookmarkChanged(BookmarkItem* item)
 {
+    Q_ASSERT(item);
+
     emit bookmarkChanged(item);
 }
 
 bool Bookmarks::canBeModified(BookmarkItem* item) const
 {
-    return item &&
-           item != m_root &&
+    Q_ASSERT(item);
+
+    return item != m_root &&
            item != m_folderToolbar &&
            item != m_folderMenu &&
            item != m_folderUnsorted;
