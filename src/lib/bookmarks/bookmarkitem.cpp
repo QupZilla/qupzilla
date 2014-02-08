@@ -52,7 +52,7 @@ bool BookmarkItem::isUrl() const
     return m_type == Url;
 }
 
-bool BookmarkItem::isSeparator()
+bool BookmarkItem::isSeparator() const
 {
     return m_type == Separator;
 }

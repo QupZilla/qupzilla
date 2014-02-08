@@ -41,9 +41,9 @@ signals:
     void bookmarkCtrlActivated(BookmarkItem* item);
     // Open bookmark in new window
     void bookmarkShiftActivated(BookmarkItem* item);
-
-    // If item is null, context menu was requested on empty place
-    void contextMenuRequested(BookmarkItem* item);
+    // Context menu signal with point mapped to global
+    void contextMenuRequested(const QPoint &point);
+    // If all bookmarks have been deselected, items is empty
     void bookmarksSelected(QList<BookmarkItem*> items);
 
 private slots:

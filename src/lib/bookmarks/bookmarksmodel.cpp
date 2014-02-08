@@ -24,7 +24,7 @@
 #include <QMimeData>
 #include <QStyle>
 
-#define BOOKMARKSMODEL_DEBUG
+//#define BOOKMARKSMODEL_DEBUG
 
 #ifdef BOOKMARKSMODEL_DEBUG
 #include "modeltest.h"

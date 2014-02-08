@@ -48,7 +48,9 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     , ui(new Ui::BookmarksManager)
     , p_QupZilla(mainClass)
     , m_bookmarks(mApp->bookmarks())
+    , m_selectedBookmark(0)
     , m_blockDescriptionChangedSignal(false)
+    , m_adjustHeaderSizesOnShow(true)
 {
     ui->setupUi(this);
 
@@ -56,52 +58,14 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     connect(ui->tree, SIGNAL(bookmarkCtrlActivated(BookmarkItem*)), this, SLOT(bookmarkCtrlActivated(BookmarkItem*)));
     connect(ui->tree, SIGNAL(bookmarkShiftActivated(BookmarkItem*)), this, SLOT(bookmarkShiftActivated(BookmarkItem*)));
     connect(ui->tree, SIGNAL(bookmarksSelected(QList<BookmarkItem*>)), this, SLOT(bookmarksSelected(QList<BookmarkItem*>)));
+    connect(ui->tree, SIGNAL(contextMenuRequested(QPoint)), this, SLOT(createContextMenu(QPoint)));
 
-    // Disable edit box
+    // Box for editing bookmarks
     updateEditBox(0);
-
     connect(ui->title, SIGNAL(textEdited(QString)), this, SLOT(bookmarkEdited()));
     connect(ui->address, SIGNAL(textEdited(QString)), this, SLOT(bookmarkEdited()));
     connect(ui->keyword, SIGNAL(textEdited(QString)), this, SLOT(bookmarkEdited()));
     connect(ui->description, SIGNAL(textChanged()), this, SLOT(descriptionEdited()));
-
-#if 0
-    ui->bookmarksTree->setViewType(BookmarksTree::ManagerView);
-
-    ui->bookmarksTree->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->bookmarksTree->setDragDropReceiver(true, m_bookmarks);
-    ui->bookmarksTree->setMimeType(QLatin1String("application/qupzilla.treewidgetitem.bookmarks"));
-
-    connect(ui->bookmarksTree, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
-    connect(ui->addFolder, SIGNAL(clicked()), this, SLOT(addFolder()));
-    connect(ui->bookmarksTree, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
-    connect(ui->bookmarksTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
-    connect(ui->bookmarksTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
-    connect(ui->collapseAll, SIGNAL(clicked()), ui->bookmarksTree, SLOT(collapseAll()));
-    connect(ui->expandAll, SIGNAL(clicked()), ui->bookmarksTree, SLOT(expandAll()));
-
-    connect(m_bookmarks, SIGNAL(bookmarkAdded(Bookmarks::Bookmark)), this, SLOT(addBookmark(Bookmarks::Bookmark)));
-    connect(m_bookmarks, SIGNAL(bookmarkDeleted(Bookmarks::Bookmark)), this, SLOT(removeBookmark(Bookmarks::Bookmark)));
-    connect(m_bookmarks, SIGNAL(bookmarkEdited(Bookmarks::Bookmark,Bookmarks::Bookmark)), this, SLOT(bookmarkEdited(Bookmarks::Bookmark,Bookmarks::Bookmark)));
-    connect(m_bookmarks, SIGNAL(subfolderAdded(QString)), this, SLOT(addSubfolder(QString)));
-    connect(m_bookmarks, SIGNAL(folderAdded(QString)), this, SLOT(addFolder(QString)));
-    connect(m_bookmarks, SIGNAL(folderDeleted(QString)), this, SLOT(removeFolder(QString)));
-    connect(m_bookmarks, SIGNAL(folderRenamed(QString,QString)), this, SLOT(renameFolder(QString,QString)));
-    connect(m_bookmarks, SIGNAL(folderParentChanged(QString,bool)), this, SLOT(changeFolderParent(QString,bool)));
-    connect(m_bookmarks, SIGNAL(bookmarkParentChanged(QString,QByteArray,int,QUrl,QString,QString)), this, SLOT(changeBookmarkParent(QString,QByteArray,int,QUrl,QString,QString)));
-
-    QMenu* menu = new QMenu;
-    menu->addAction(tr("Import Bookmarks..."), this, SLOT(importBookmarks()));
-    menu->addAction(tr("Export Bookmarks to HTML..."), this, SLOT(exportBookmarks()));
-
-    ui->importExport->setMenu(menu);
-
-    QShortcut* deleteAction = new QShortcut(QKeySequence("Del"), ui->bookmarksTree);
-    connect(deleteAction, SIGNAL(activated()), this, SLOT(deleteItem()));
-
-    ui->bookmarksTree->setDefaultItemShowMode(TreeWidget::ItemsExpanded);
-    ui->bookmarksTree->sortByColumn(-1);
-#endif
 }
 
 BookmarksManager::~BookmarksManager()
@@ -111,39 +75,136 @@ BookmarksManager::~BookmarksManager()
 
 void BookmarksManager::bookmarkActivated(BookmarkItem* item)
 {
+    openBookmark(item);
+}
+
+void BookmarksManager::bookmarkCtrlActivated(BookmarkItem* item)
+{
+    openBookmarkInNewTab(item);
+}
+
+void BookmarksManager::bookmarkShiftActivated(BookmarkItem* item)
+{
+    openBookmarkInNewWindow(item);
+}
+
+void BookmarksManager::bookmarksSelected(const QList<BookmarkItem*> &items)
+{
+    if (items.size() != 1) {
+        m_selectedBookmark = 0;
+        updateEditBox(0);
+    }
+    else {
+        m_selectedBookmark = items.first();
+        updateEditBox(m_selectedBookmark);
+    }
+}
+
+void BookmarksManager::createContextMenu(const QPoint &pos)
+{
+    QMenu menu;
+    QAction* actNewTab = menu.addAction(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("Open in new tab"));
+    QAction* actNewWindow = menu.addAction(QIcon::fromTheme("window-new"), tr("Open in new window"));
+    menu.addSeparator();
+    menu.addAction(tr("New Bookmark"), this, SLOT(addBookmark()));
+    menu.addAction(tr("New Folder"), this, SLOT(addFolder()));
+    menu.addAction(tr("New Separator"), this, SLOT(addSeparator()));
+    menu.addSeparator();
+    QAction* actDelete = menu.addAction(QIcon::fromTheme("edit-delete"), tr("Delete"));
+
+    connect(actNewTab, SIGNAL(triggered()), this, SLOT(openBookmarkInNewTab()));
+    connect(actNewWindow, SIGNAL(triggered()), this, SLOT(openBookmarkInNewWindow()));
+    connect(actDelete, SIGNAL(triggered()), this, SLOT(deleteBookmarks()));
+
+    bool canBeDeleted = false;
+    QList<BookmarkItem*> items = ui->tree->selectedBookmarks();
+
+    foreach (BookmarkItem* item, items) {
+        if (m_bookmarks->canBeModified(item)) {
+            canBeDeleted = true;
+            break;
+        }
+    }
+
+    if (!canBeDeleted) {
+        actDelete->setDisabled(true);
+    }
+
+    if (!m_selectedBookmark || !m_selectedBookmark->isUrl()) {
+        actNewTab->setDisabled(true);
+        actNewWindow->setDisabled(true);
+    }
+
+    menu.exec(pos);
+}
+
+void BookmarksManager::openBookmark(BookmarkItem* item)
+{
+    item = item ? item : m_selectedBookmark;
+
     // TODO: Open all children in tabs for folder?
-    if (!item->isUrl()) {
+    if (!item || !item->isUrl()) {
         return;
     }
 
     getQupZilla()->loadAddress(item->url());
 }
 
-void BookmarksManager::bookmarkCtrlActivated(BookmarkItem* item)
+void BookmarksManager::openBookmarkInNewTab(BookmarkItem* item)
 {
-    if (!item->isUrl()) {
+    item = item ? item : m_selectedBookmark;
+
+    // TODO: Open all children in tabs for folder?
+    if (!item || !item->isUrl()) {
         return;
     }
 
     getQupZilla()->tabWidget()->addView(item->url(), item->title(), qzSettings->newTabPosition);
 }
 
-void BookmarksManager::bookmarkShiftActivated(BookmarkItem* item)
+void BookmarksManager::openBookmarkInNewWindow(BookmarkItem* item)
 {
-    if (!item->isUrl()) {
+    item = item ? item : m_selectedBookmark;
+
+    if (!item || !item->isUrl()) {
         return;
     }
 
     mApp->makeNewWindow(Qz::BW_NewWindow, item->url());
 }
 
-void BookmarksManager::bookmarksSelected(const QList<BookmarkItem*> &items)
+void BookmarksManager::addBookmark()
 {
-    if (items.size() != 1) {
-        updateEditBox(0);
-    }
-    else {
-        updateEditBox(items.first());
+    BookmarkItem* item = new BookmarkItem(BookmarkItem::Url);
+    item->setTitle(tr("New Bookmark"));
+    item->setUrl(QUrl("http://"));
+
+    addBookmark(item);
+}
+
+void BookmarksManager::addFolder()
+{
+    BookmarkItem* item = new BookmarkItem(BookmarkItem::Folder);
+    item->setTitle(tr("New Folder"));
+
+    addBookmark(item);
+}
+
+void BookmarksManager::addSeparator()
+{
+    BookmarkItem* item = new BookmarkItem(BookmarkItem::Separator);
+
+    addBookmark(item);
+}
+
+void BookmarksManager::deleteBookmarks()
+{
+    QList<BookmarkItem*> items = ui->tree->selectedBookmarks();
+
+    foreach (BookmarkItem* item, items) {
+        if (m_bookmarks->canBeModified(item)) {
+            m_bookmarks->removeBookmark(item);
+        }
     }
 }
 
@@ -189,7 +250,7 @@ void BookmarksManager::updateEditBox(BookmarkItem* item)
     setUpdatesEnabled(false);
     m_blockDescriptionChangedSignal = true;
 
-    bool editable = item && !item->isSeparator() && m_bookmarks->canBeModified(item);
+    bool editable = bookmarkEditable(item);
     bool showAddressAndKeyword = item && item->isUrl();
     bool clearBox = !item;
 
@@ -241,6 +302,44 @@ void BookmarksManager::updateEditBox(BookmarkItem* item)
     setUpdatesEnabled(true);
 }
 
+bool BookmarksManager::bookmarkEditable(BookmarkItem* item) const
+{
+    return item && (item->isFolder() || item->isUrl()) && m_bookmarks->canBeModified(item);
+}
+
+void BookmarksManager::addBookmark(BookmarkItem* item)
+{
+    BookmarkItem* parent = parentForNewBookmark();
+    Q_ASSERT(parent);
+
+    // TODO: Make sure parent is expanded
+    m_bookmarks->addBookmark(parent, item);
+}
+
+BookmarkItem* BookmarksManager::parentForNewBookmark() const
+{
+    if (m_selectedBookmark && m_selectedBookmark->isFolder()) {
+        return m_selectedBookmark;
+    }
+
+    if (!m_selectedBookmark || m_selectedBookmark->parent() == m_bookmarks->rootItem()) {
+        return m_bookmarks->unsortedFolder();
+    }
+
+    return m_selectedBookmark->parent();
+}
+
+void BookmarksManager::keyPressEvent(QKeyEvent* event)
+{
+    switch (event->key()) {
+    case Qt::Key_Delete:
+        deleteBookmarks();
+        break;
+    }
+
+    QWidget::keyPressEvent(event);
+}
+
 QupZilla* BookmarksManager::getQupZilla()
 {
     if (!p_QupZilla) {
@@ -249,73 +348,22 @@ QupZilla* BookmarksManager::getQupZilla()
     return p_QupZilla.data();
 }
 
+void BookmarksManager::showEvent(QShowEvent* event)
+{
+    QWidget::showEvent(event);
+
+    if (m_adjustHeaderSizesOnShow) {
+        ui->tree->header()->resizeSection(0, ui->tree->header()->width() / 1.9);
+        m_adjustHeaderSizesOnShow = false;
+    }
+}
+
 void BookmarksManager::setMainWindow(QupZilla* window)
 {
     if (window) {
         p_QupZilla = window;
     }
 }
-
-#if 0
-void BookmarksManager::contextMenuRequested(const QPoint &position)
-{
-    if (!ui->bookmarksTree->itemAt(position)) {
-        return;
-    }
-
-    QUrl link = ui->bookmarksTree->itemAt(position)->data(0, Qt::UserRole + 11).toUrl();
-    if (link.isEmpty()) {
-        QString folderName = ui->bookmarksTree->itemAt(position)->text(0);
-        QMenu menu;
-        if (folderName == _bookmarksToolbar) {
-            menu.addAction(tr("Add Subfolder"), this, SLOT(addSubfolder()));
-            menu.addSeparator();
-        }
-
-        if (folderName != _bookmarksToolbar && folderName != _bookmarksMenu) {
-            menu.addAction(tr("Rename folder"), this, SLOT(renameFolder()));
-            menu.addAction(tr("Remove folder"), this, SLOT(deleteItem()));
-        }
-
-        if (menu.actions().count() == 0) {
-            return;
-        }
-
-        //Prevent choosing first option with double rightclick
-        QPoint pos = ui->bookmarksTree->viewport()->mapToGlobal(position);
-        QPoint p(pos.x(), pos.y() + 1);
-        menu.exec(p);
-        return;
-    }
-
-    QMenu menu;
-    menu.addAction(tr("Open link in current &tab"), getQupZilla(), SLOT(loadActionUrl()))->setData(link);
-    menu.addAction(tr("Open link in &new tab"), this, SLOT(loadInNewTab()))->setData(link);
-    menu.addSeparator();
-
-    QMenu moveMenu;
-    moveMenu.setTitle(tr("Move bookmark to &folder"));
-    moveMenu.addAction(QIcon(":icons/theme/unsortedbookmarks.png"), _bookmarksUnsorted, this, SLOT(moveBookmark()))->setData("unsorted");
-    moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksMenu, this, SLOT(moveBookmark()))->setData("bookmarksMenu");
-    moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksToolbar, this, SLOT(moveBookmark()))->setData("bookmarksToolbar");
-    QSqlQuery query;
-    query.exec("SELECT name FROM folders");
-    while (query.next()) {
-        moveMenu.addAction(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString(), this, SLOT(moveBookmark()))->setData(query.value(0).toString());
-    }
-    menu.addMenu(&moveMenu);
-
-    menu.addSeparator();
-    menu.addAction(tr("Change icon"), this, SLOT(changeIcon()));
-    menu.addAction(tr("Rename bookmark"), this, SLOT(renameBookmark()));
-    menu.addAction(tr("Remove bookmark"), this, SLOT(deleteItem()));
-
-    //Prevent choosing first option with double rightclick
-    QPoint pos = ui->bookmarksTree->viewport()->mapToGlobal(position);
-    QPoint p(pos.x(), pos.y() + 1);
-    menu.exec(p);
-}
-#endif
 
 // OLD
 

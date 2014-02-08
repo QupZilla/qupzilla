@@ -43,7 +43,7 @@ public:
 
     bool isFolder() const;
     bool isUrl() const;
-    bool isSeparator();
+    bool isSeparator() const;
 
     BookmarkItem* parent() const;
     QList<BookmarkItem*> children() const;

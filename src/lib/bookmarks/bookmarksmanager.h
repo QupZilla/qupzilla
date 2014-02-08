@@ -50,6 +50,16 @@ private slots:
     void bookmarkCtrlActivated(BookmarkItem* item);
     void bookmarkShiftActivated(BookmarkItem* item);
     void bookmarksSelected(const QList<BookmarkItem*> &items);
+    void createContextMenu(const QPoint &pos);
+
+    void openBookmark(BookmarkItem* item = 0);
+    void openBookmarkInNewTab(BookmarkItem* item = 0);
+    void openBookmarkInNewWindow(BookmarkItem* item = 0);
+
+    void addBookmark();
+    void addFolder();
+    void addSeparator();
+    void deleteBookmarks();
 
     void bookmarkEdited();
     void descriptionEdited();
@@ -59,14 +69,21 @@ private slots:
 
 private:
     void updateEditBox(BookmarkItem* item);
-
+    bool bookmarkEditable(BookmarkItem* item) const;
+    void addBookmark(BookmarkItem* item);
+    BookmarkItem* parentForNewBookmark() const;
     QupZilla* getQupZilla();
+
+    void showEvent(QShowEvent* event);
+    void keyPressEvent(QKeyEvent* event);
 
     Ui::BookmarksManager* ui;
     QPointer<QupZilla> p_QupZilla;
 
     Bookmarks* m_bookmarks;
+    BookmarkItem* m_selectedBookmark;
     bool m_blockDescriptionChangedSignal;
+    bool m_adjustHeaderSizesOnShow;
 
 public:
     void addBookmark(WebView* view);

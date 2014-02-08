@@ -758,6 +758,21 @@ BookmarkItem* Bookmarks::rootItem() const
     return m_root;
 }
 
+BookmarkItem* Bookmarks::toolbarFolder() const
+{
+    return m_folderToolbar;
+}
+
+BookmarkItem* Bookmarks::menuFolder() const
+{
+    return m_folderMenu;
+}
+
+BookmarkItem* Bookmarks::unsortedFolder() const
+{
+    return m_folderUnsorted;
+}
+
 bool Bookmarks::removeBookmark(BookmarkItem* item)
 {
     if (!canBeModified(item)) {
@@ -777,7 +792,11 @@ void Bookmarks::notifyBookmarkChanged(BookmarkItem* item)
 
 bool Bookmarks::canBeModified(BookmarkItem* item) const
 {
-    return item != m_root && item != m_folderToolbar && item != m_folderMenu && item != m_folderUnsorted;
+    return item &&
+           item != m_root &&
+           item != m_folderToolbar &&
+           item != m_folderMenu &&
+           item != m_folderUnsorted;
 }
 
 void Bookmarks::addBookmark(BookmarkItem* parent, BookmarkItem* item)

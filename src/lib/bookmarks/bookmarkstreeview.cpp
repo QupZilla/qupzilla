@@ -77,9 +77,7 @@ void BookmarksTreeView::selectionChanged()
 
 void BookmarksTreeView::createContextMenu(const QPoint &point)
 {
-    QModelIndex index = indexAt(point);
-    BookmarkItem* item = index.isValid() ? m_model->item(index) : 0;
-    emit contextMenuRequested(item);
+    emit contextMenuRequested(viewport()->mapToGlobal(point));
 }
 
 void BookmarksTreeView::restoreExpandedState(const QModelIndex &parent)
@@ -100,46 +98,52 @@ void BookmarksTreeView::rowsInserted(const QModelIndex &parent, int start, int e
 
 void BookmarksTreeView::mousePressEvent(QMouseEvent* event)
 {
-    QModelIndex index = indexAt(event->pos());
+    QTreeView::mousePressEvent(event);
 
-    if (index.isValid()) {
-        BookmarkItem* item = m_model->item(index);
-        Qt::MouseButtons buttons = event->buttons();
-        Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
+    if (selectionModel()->selectedRows().count() == 1) {
+        QModelIndex index = indexAt(event->pos());
 
-        if (buttons == Qt::LeftButton && modifiers == Qt::ShiftModifier) {
-            emit bookmarkShiftActivated(item);
-        }
-        else if (buttons == Qt::MiddleButton || modifiers == Qt::ControlModifier) {
-            emit bookmarkCtrlActivated(item);
+        if (index.isValid()) {
+            BookmarkItem* item = m_model->item(index);
+            Qt::MouseButtons buttons = event->buttons();
+            Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
+
+            if (buttons == Qt::LeftButton && modifiers == Qt::ShiftModifier) {
+                emit bookmarkShiftActivated(item);
+            }
+            else if (buttons == Qt::MiddleButton || modifiers == Qt::ControlModifier) {
+                emit bookmarkCtrlActivated(item);
+            }
         }
     }
-
-    QTreeView::mousePressEvent(event);
 }
 
 void BookmarksTreeView::mouseDoubleClickEvent(QMouseEvent* event)
 {
-    QModelIndex index = indexAt(event->pos());
+    QTreeView::mouseDoubleClickEvent(event);
 
-    if (index.isValid()) {
-        BookmarkItem* item = m_model->item(index);
-        Qt::MouseButtons buttons = event->buttons();
-        Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
+    if (selectionModel()->selectedRows().count() == 1) {
+        QModelIndex index = indexAt(event->pos());
 
-        if (buttons == Qt::LeftButton && modifiers == Qt::NoModifier) {
-            emit bookmarkActivated(item);
-        }
-        else if (buttons == Qt::LeftButton && modifiers == Qt::ShiftModifier) {
-            emit bookmarkShiftActivated(item);
+        if (index.isValid()) {
+            BookmarkItem* item = m_model->item(index);
+            Qt::MouseButtons buttons = event->buttons();
+            Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
+
+            if (buttons == Qt::LeftButton && modifiers == Qt::NoModifier) {
+                emit bookmarkActivated(item);
+            }
+            else if (buttons == Qt::LeftButton && modifiers == Qt::ShiftModifier) {
+                emit bookmarkShiftActivated(item);
+            }
         }
     }
-
-    QTreeView::mouseDoubleClickEvent(event);
 }
 
 void BookmarksTreeView::keyPressEvent(QKeyEvent* event)
 {
+    QTreeView::keyPressEvent(event);
+
     if (selectionModel()->selectedRows().count() == 1) {
         QModelIndex index = selectionModel()->selectedRows().first();
         BookmarkItem* item = m_model->item(index);
@@ -166,6 +170,4 @@ void BookmarksTreeView::keyPressEvent(QKeyEvent* event)
             break;
         }
     }
-
-    QTreeView::keyPressEvent(event);
 }

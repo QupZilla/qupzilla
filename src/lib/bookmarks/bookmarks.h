@@ -101,6 +101,9 @@ public:
 
     BookmarksModel* model() const;
     BookmarkItem* rootItem() const;
+    BookmarkItem* toolbarFolder() const;
+    BookmarkItem* menuFolder() const;
+    BookmarkItem* unsortedFolder() const;
     bool canBeModified(BookmarkItem* item) const;
 
     void addBookmark(BookmarkItem* parent, BookmarkItem* item);
