@@ -30,7 +30,6 @@
 #include "downloadmanager.h"
 #include "cookiejar.h"
 #include "cookiemanager.h"
-#include "bookmarksmanager.h"
 #include "bookmarkstoolbar.h"
 #include "clearprivatedata.h"
 #include "sourceviewer.h"
@@ -67,6 +66,7 @@
 #include "speeddial.h"
 #include "menubar.h"
 #include "qtwin.h"
+#include "bookmarkstools.h"
 
 #include <QKeyEvent>
 #include <QSplitter>
@@ -1379,17 +1379,18 @@ void QupZilla::triggerCaretBrowsing()
 
 void QupZilla::bookmarkPage()
 {
-    mApp->browsingLibrary()->bookmarksManager()->addBookmark(weView());
+    TabbedWebView* view = weView();
+    BookmarksTools::addBookmarkDialog(this, view->url(), view->title());
 }
 
-void QupZilla::addBookmark(const QUrl &url, const QString &title, const QIcon &icon)
+void QupZilla::addBookmark(const QUrl &url, const QString &title)
 {
-    mApp->browsingLibrary()->bookmarksManager()->insertBookmark(url, title, icon);
+    BookmarksTools::addBookmarkDialog(this, url, title);
 }
 
 void QupZilla::bookmarkAllTabs()
 {
-    mApp->browsingLibrary()->bookmarksManager()->insertAllTabs();
+    BookmarksTools::bookmarkAllTabsDialog(this, m_tabWidget);
 }
 
 void QupZilla::newWindow()

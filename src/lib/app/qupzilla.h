@@ -78,7 +78,7 @@ public:
     void currentTabChanged();
     void updateLoadingActions();
 
-    void addBookmark(const QUrl &url, const QString &title, const QIcon &icon);
+    void addBookmark(const QUrl &url, const QString &title);
     void addDeleteOnCloseWidget(QWidget* widget);
 
     void restoreWindowState(const RestoreManager::WindowData &d);

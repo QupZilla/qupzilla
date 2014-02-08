@@ -32,10 +32,10 @@
 #include "qzsettings.h"
 #include "bookmarkstree.h"
 #include "bookmarkitem.h"
+#include "bookmarksmodel.h"
+#include "bookmarkstools.h"
 
 #include <QInputDialog>
-#include <QComboBox>
-#include <QDialogButtonBox>
 #include <QShortcut>
 #include <QMenu>
 #include <QSqlQuery>
@@ -71,6 +71,19 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
 BookmarksManager::~BookmarksManager()
 {
     delete ui;
+}
+
+void BookmarksManager::setMainWindow(QupZilla* window)
+{
+    if (window) {
+        p_QupZilla = window;
+    }
+}
+
+void BookmarksManager::search(const QString &string)
+{
+    // TODO: Enable searching
+    Q_UNUSED(string)
 }
 
 void BookmarksManager::bookmarkActivated(BookmarkItem* item)
@@ -354,156 +367,3 @@ void BookmarksManager::showEvent(QShowEvent* event)
         m_adjustHeaderSizesOnShow = false;
     }
 }
-
-void BookmarksManager::setMainWindow(QupZilla* window)
-{
-    if (window) {
-        p_QupZilla = window;
-    }
-}
-
-// OLD
-
-void BookmarksManager::addBookmark(WebView* view)
-{
-    insertBookmark(view->url(), view->title(), view->icon());
-}
-
-void BookmarksManager::insertBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder)
-{
-    if (url.isEmpty() || title.isEmpty()) {
-        return;
-    }
-    QDialog* dialog = new QDialog(getQupZilla());
-    QBoxLayout* layout = new QBoxLayout(QBoxLayout::TopToBottom, dialog);
-    QLabel* label = new QLabel(dialog);
-    QLineEdit* edit = new QLineEdit(dialog);
-    QComboBox* combo = new QComboBox(dialog);
-    BookmarksTree* bookmarksTree = new BookmarksTree(dialog);
-    connect(bookmarksTree, SIGNAL(requestNewFolder(QWidget*,QString*,bool,QString,WebView*)),
-            this, SLOT(addFolder(QWidget*,QString*,bool,QString,WebView*)));
-    bookmarksTree->setViewType(BookmarksTree::ComboFolderView);
-    bookmarksTree->header()->hide();
-    bookmarksTree->setColumnCount(1);
-    combo->setModel(bookmarksTree->model());
-    combo->setView(bookmarksTree);
-    bookmarksTree->refreshTree();
-
-    QDialogButtonBox* box = new QDialogButtonBox(dialog);
-    box->addButton(QDialogButtonBox::Ok);
-    box->addButton(QDialogButtonBox::Cancel);
-    connect(box, SIGNAL(rejected()), dialog, SLOT(reject()));
-    connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
-    layout->addWidget(label);
-    layout->addWidget(edit);
-    layout->addWidget(combo);
-    if (m_bookmarks->isBookmarked(url)) {
-        layout->addWidget(new QLabel(tr("<b>Warning: </b>You already have bookmarked this page!")));
-    }
-    layout->addWidget(box);
-
-    int index = combo->findText(Bookmarks::toTranslatedFolder(folder.isEmpty() ? m_bookmarks->lastFolder() : folder));
-    // QComboBox::find() returns index related to the item's parent
-    if (index == -1) { // subfolder
-        QModelIndex rootIndex = combo->rootModelIndex();
-        combo->setRootModelIndex(combo->model()->index(combo->findText(_bookmarksToolbar), 0));
-        index = combo->findText(Bookmarks::toTranslatedFolder(folder.isEmpty() ? m_bookmarks->lastFolder() : folder));
-        combo->setCurrentIndex(index);
-        combo->setRootModelIndex(rootIndex);
-    }
-    else {
-        combo->setCurrentIndex(index);
-    }
-    connect(combo, SIGNAL(currentIndexChanged(int)), bookmarksTree, SLOT(activeItemChange(int)));
-
-    label->setText(tr("Choose name and location of this bookmark."));
-    edit->setText(title);
-    edit->setCursorPosition(0);
-    dialog->setWindowIcon(_iconForUrl(url));
-    dialog->setWindowTitle(tr("Add New Bookmark"));
-
-    QSize size = dialog->size();
-    size.setWidth(350);
-    dialog->resize(size);
-    dialog->exec();
-    if (dialog->result() == QDialog::Rejected) {
-        delete dialog;
-        return;
-    }
-    if (edit->text().isEmpty()) {
-        delete dialog;
-        return;
-    }
-
-    m_bookmarks->saveBookmark(url, edit->text(), icon, Bookmarks::fromTranslatedFolder(combo->currentText()));
-    delete dialog;
-}
-
-void BookmarksManager::search(const QString &string)
-{
-    Q_UNUSED(string)
-    //ui->bookmarksTree->filterString(string);
-}
-
-void BookmarksManager::insertAllTabs()
-{
-    QDialog* dialog = new QDialog(getQupZilla());
-    QBoxLayout* layout = new QBoxLayout(QBoxLayout::TopToBottom, dialog);
-    QLabel* label = new QLabel(dialog);
-    QComboBox* combo = new QComboBox(dialog);
-    BookmarksTree* bookmarksTree = new BookmarksTree(dialog);
-    connect(bookmarksTree, SIGNAL(requestNewFolder(QWidget*,QString*,bool,QString,WebView*)),
-            this, SLOT(addFolder(QWidget*,QString*,bool,QString,WebView*)));
-    bookmarksTree->setViewType(BookmarksTree::ComboFolderView);
-    bookmarksTree->header()->hide();
-    bookmarksTree->setColumnCount(1);
-    combo->setModel(bookmarksTree->model());
-    combo->setView(bookmarksTree);
-    QDialogButtonBox* box = new QDialogButtonBox(dialog);
-    box->addButton(QDialogButtonBox::Ok);
-    box->addButton(QDialogButtonBox::Cancel);
-    connect(box, SIGNAL(rejected()), dialog, SLOT(reject()));
-    connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
-    layout->addWidget(label);
-    layout->addWidget(combo);
-    layout->addWidget(box);
-
-    bookmarksTree->refreshTree();
-
-
-    int index = combo->findText(Bookmarks::toTranslatedFolder(m_bookmarks->lastFolder()));
-    // QComboBox::find() returns index related to the item's parent
-    if (index == -1) { // subfolder
-        QModelIndex rootIndex = combo->rootModelIndex();
-        combo->setRootModelIndex(combo->model()->index(combo->findText(_bookmarksToolbar), 0));
-        index = combo->findText(Bookmarks::toTranslatedFolder(m_bookmarks->lastFolder()));
-        combo->setCurrentIndex(index);
-        combo->setRootModelIndex(rootIndex);
-    }
-    else {
-        combo->setCurrentIndex(index);
-    }
-    connect(combo, SIGNAL(currentIndexChanged(int)), bookmarksTree, SLOT(activeItemChange(int)));
-
-    label->setText(tr("Choose folder for bookmarks:"));
-    dialog->setWindowTitle(tr("Bookmark All Tabs"));
-
-    QSize size = dialog->size();
-    size.setWidth(350);
-    dialog->resize(size);
-    dialog->exec();
-    if (dialog->result() == QDialog::Rejected) {
-        return;
-    }
-
-    foreach (WebTab* tab, getQupZilla()->tabWidget()->allTabs(false)) {
-        if (tab->url().isEmpty()) {
-            continue;
-        }
-
-        m_bookmarks->saveBookmark(tab->url(), tab->title(), tab->icon(), Bookmarks::fromTranslatedFolder(combo->currentText()));
-    }
-
-    delete dialog;
-}
-

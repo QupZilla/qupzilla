@@ -103,7 +103,7 @@ void Bookmarks::saveBookmarks()
     WRITE_FOLDER("bookmark_bar", toolbarMap, m_folderToolbar)
     WRITE_FOLDER("bookmark_menu", menuMap, m_folderMenu)
     WRITE_FOLDER("other", unsortedMap, m_folderUnsorted)
-#undef CREATE_VARIANTMAP
+#undef WRITE_FOLDER
 
     QVariantMap map;
     map.insert("version", Qz::bookmarksVersion);
@@ -799,6 +799,12 @@ BookmarkItem* Bookmarks::menuFolder() const
 BookmarkItem* Bookmarks::unsortedFolder() const
 {
     return m_folderUnsorted;
+}
+
+BookmarkItem* Bookmarks::getLastFolder() const
+{
+    // TODO: Make it actually return last used folder
+    return unsortedFolder();
 }
 
 bool Bookmarks::removeBookmark(BookmarkItem* item)

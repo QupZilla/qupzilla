@@ -43,7 +43,8 @@ public:
     explicit BookmarksManager(QupZilla* mainClass, QWidget* parent = 0);
     ~BookmarksManager();
 
-public slots:
+    void setMainWindow(QupZilla* window);
+    void search(const QString &string);
 
 private slots:
     void bookmarkActivated(BookmarkItem* item);
@@ -85,12 +86,6 @@ private:
     bool m_blockDescriptionChangedSignal;
     bool m_adjustHeaderSizesOnShow;
 
-public:
-    void addBookmark(WebView* view);
-    void insertBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder = QString());
-    void setMainWindow(QupZilla* window);
-    void search(const QString &string);
-    void insertAllTabs();
-    void refreshTable() {}
 };
+
 #endif // BOOKMARKSMANAGER_H

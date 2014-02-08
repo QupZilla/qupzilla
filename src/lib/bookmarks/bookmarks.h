@@ -101,10 +101,13 @@ public:
     static QString fromTranslatedFolder(const QString &name);
 
     BookmarksModel* model() const;
+
     BookmarkItem* rootItem() const;
     BookmarkItem* toolbarFolder() const;
     BookmarkItem* menuFolder() const;
     BookmarkItem* unsortedFolder() const;
+    BookmarkItem* getLastFolder() const;
+
     bool canBeModified(BookmarkItem* item) const;
 
     void addBookmark(BookmarkItem* parent, BookmarkItem* item);

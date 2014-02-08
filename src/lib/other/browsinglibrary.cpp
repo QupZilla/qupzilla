@@ -34,7 +34,6 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     , m_historyManager(new HistoryManager(mainClass))
     , m_bookmarksManager(new BookmarksManager(mainClass))
     , m_rssManager(mApp->rssManager())
-    , m_bookmarksLoaded(false)
     , m_rssLoaded(false)
 {
     ui->setupUi(this);
@@ -69,10 +68,6 @@ void BrowsingLibrary::currentIndexChanged(int index)
         break;
 
     case 1:
-        if (!m_bookmarksLoaded) {
-            m_bookmarksManager->refreshTable();
-            m_bookmarksLoaded = true;
-        }
         ui->searchLine->show();
         search();
         break;
@@ -115,11 +110,6 @@ void BrowsingLibrary::showBookmarks(QupZilla* mainClass)
     ui->tabs->SetCurrentIndex(1);
     show();
     m_bookmarksManager->setMainWindow(mainClass);
-
-    if (!m_bookmarksLoaded) {
-        m_bookmarksManager->refreshTable();
-        m_bookmarksLoaded = true;
-    }
 
     raise();
     activateWindow();

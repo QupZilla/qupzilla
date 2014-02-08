@@ -28,7 +28,7 @@
 #include "siteinfo.h"
 #include "searchenginesmanager.h"
 #include "browsinglibrary.h"
-#include "bookmarksmanager.h"
+#include "bookmarkstools.h"
 #include "settings.h"
 #include "qzsettings.h"
 #include "enhancedmenu.h"
@@ -586,13 +586,13 @@ void WebView::bookmarkLink()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         if (action->data().isNull()) {
-            mApp->browsingLibrary()->bookmarksManager()->addBookmark(this);
+            BookmarksTools::addBookmarkDialog(this, url(), title());
         }
         else {
             const QVariantList bData = action->data().value<QVariantList>();
             const QString bookmarkTitle = bData.at(1).toString().isEmpty() ? title() : bData.at(1).toString();
 
-            mApp->browsingLibrary()->bookmarksManager()->insertBookmark(bData.at(0).toUrl(), bookmarkTitle, icon());
+            BookmarksTools::addBookmarkDialog(this, bData.at(0).toUrl(), bookmarkTitle);
         }
     }
 }

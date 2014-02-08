@@ -62,7 +62,6 @@ private:
     BookmarksManager* m_bookmarksManager;
     RSSManager* m_rssManager;
 
-    bool m_bookmarksLoaded;
     bool m_rssLoaded;
 };
 
