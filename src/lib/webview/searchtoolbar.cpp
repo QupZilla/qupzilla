@@ -34,8 +34,8 @@ SearchToolBar::SearchToolBar(WebView* view, QWidget* parent)
     ui->setupUi(widget());
 
     ui->closeButton->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));
-    ui->next->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowForward));
-    ui->previous->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowBack));
+    ui->next->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowDown));
+    ui->previous->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowUp));
 
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(findNext()));
