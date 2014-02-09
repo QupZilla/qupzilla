@@ -186,22 +186,17 @@ QString LocationCompleterModel::completeDomain(const QString &text)
 QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const QString &orderBy,
         const QList<QUrl> &alreadyFound, int limit, bool exactMatch)
 {
-    // TODO: As bookmarks are no longer in database, replace table with "history"
-    QString table = "history";
-    QString query = QString("SELECT %1.id, %1.url, %1.title, history.count").arg(table);
     QStringList searchList;
+    QString query = QLatin1String("SELECT id, url, title, count FROM history WHERE ");
 
-    query.append(QLatin1String(" FROM history "));
-
-    query.append(QLatin1String("WHERE "));
     if (exactMatch) {
-        query.append(QString("%1.title LIKE ? OR %1.url LIKE ? ").arg(table));
+        query.append(QLatin1String("title LIKE ? OR url LIKE ? "));
     }
     else {
         searchList = searchString.split(QLatin1Char(' '), QString::SkipEmptyParts);
         const int slSize = searchList.size();
         for (int i = 0; i < slSize; ++i) {
-            query.append(QString("(%1.title LIKE ? OR %1.url LIKE ?) ").arg(table));
+            query.append(QLatin1String("(title LIKE ? OR url LIKE ?) "));
             if (i < slSize - 1) {
                 query.append(QLatin1String("AND "));
             }
@@ -209,13 +204,13 @@ QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const
     }
 
     for (int i = 0; i < alreadyFound.count(); i++) {
-        query.append(QString("AND (NOT %1.url=?) ").arg(table));
+        query.append(QLatin1String("AND (NOT url=?) "));
     }
 
-    query.append(QString("GROUP BY %1.url ").arg(table));
+    query.append(QLatin1String("GROUP BY url "));
 
     if (!orderBy.isEmpty()) {
-        query.append("ORDER BY " + orderBy);
+        query.append(QLatin1String("ORDER BY ") + orderBy);
     }
 
     query.append(QLatin1String(" LIMIT ?"));
