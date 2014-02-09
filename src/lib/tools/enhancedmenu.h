@@ -39,6 +39,8 @@ public slots:
 
 private:
     void mouseReleaseEvent(QMouseEvent* e);
+    void keyPressEvent(QKeyEvent* e);
+
     void closeAllMenus();
 };
 
@@ -52,9 +54,11 @@ public:
 
 signals:
     void middleClicked();
+    void shiftClicked();
 
 public slots:
     void triggerMiddleClick();
+    void triggerShiftClick();
 
 };
 

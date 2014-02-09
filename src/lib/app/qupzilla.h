@@ -36,6 +36,7 @@ class TabWidget;
 class TabbedWebView;
 class LineEdit;
 class SearchToolBar;
+class BookmarksMenu;
 class BookmarksToolbar;
 class AutoFill;
 class MainApplication;
@@ -129,7 +130,6 @@ public slots:
     void loadActionUrl(QObject* obj = 0);
     void loadActionUrlInNewTab(QObject* obj = 0);
     void loadActionUrlInNewNotSelectedTab(QObject* obj = 0);
-    void loadFolderBookmarks(Menu* menu);
 
     void bookmarkPage();
     void loadAddress(const QUrl &url);
@@ -156,7 +156,6 @@ private slots:
     void aboutToShowHistoryMenu();
     void aboutToHideHistoryMenu();
     void aboutToShowClosedTabsMenu();
-    void aboutToShowBookmarksMenu();
     void aboutToShowViewMenu();
     void aboutToHideViewMenu();
     void aboutToShowEditMenu();
@@ -181,7 +180,6 @@ private slots:
     void showBookmarkImport();
 
     void refreshHistory();
-    void bookmarkAllTabs();
     void newWindow();
 
     void openLocation();
@@ -281,7 +279,7 @@ private:
     QMenu* m_menuHelp;
     QMenu* m_menuView;
     QMenu* m_toolbarsMenu;
-    Menu* m_menuBookmarks;
+    BookmarksMenu* m_menuBookmarks;
     Menu* m_menuHistory;
     QMenu* m_menuClosedTabs;
     Menu* m_menuHistoryRecent;

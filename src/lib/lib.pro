@@ -257,7 +257,8 @@ SOURCES += \
     tools/json.cpp \
     bookmarks/bookmarksmodel.cpp \
     bookmarks/bookmarkstreeview.cpp \
-    bookmarks/bookmarkstools.cpp
+    bookmarks/bookmarkstools.cpp \
+    bookmarks/bookmarksmenu.cpp
 
 
 HEADERS  += \
@@ -450,7 +451,8 @@ HEADERS  += \
     tools/json.h \
     bookmarks/bookmarksmodel.h \
     bookmarks/bookmarkstreeview.h \
-    bookmarks/bookmarkstools.h
+    bookmarks/bookmarkstools.h \
+    bookmarks/bookmarksmenu.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
