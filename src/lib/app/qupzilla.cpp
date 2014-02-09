@@ -1264,6 +1264,11 @@ void QupZilla::bookmarkPage()
     BookmarksTools::addBookmarkDialog(this, view->url(), view->title());
 }
 
+void QupZilla::bookmarkAllTabs()
+{
+    BookmarksTools::bookmarkAllTabsDialog(this, m_tabWidget);
+}
+
 void QupZilla::addBookmark(const QUrl &url, const QString &title)
 {
     BookmarksTools::addBookmarkDialog(this, url, title);

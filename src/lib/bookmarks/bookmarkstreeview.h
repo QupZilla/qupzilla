@@ -29,9 +29,21 @@ class BookmarksModel;
 class QT_QUPZILLA_EXPORT BookmarksTreeView : public QTreeView
 {
     Q_OBJECT
+
 public:
+    enum ViewType {
+        BookmarksManagerViewType,
+        BookmarksSidebarViewType
+    };
+
     explicit BookmarksTreeView(QWidget* parent = 0);
 
+    ViewType viewType() const;
+    void setViewType(ViewType type);
+
+    // Returns null if more than one (or zero) bookmarks are selected
+    BookmarkItem* selectedBookmark() const;
+    // Returns all selected bookmarks
     QList<BookmarkItem*> selectedBookmarks() const;
 
 signals:
@@ -63,6 +75,7 @@ private:
 
     Bookmarks* m_bookmarks;
     BookmarksModel* m_model;
+    ViewType m_type;
 
 };
 

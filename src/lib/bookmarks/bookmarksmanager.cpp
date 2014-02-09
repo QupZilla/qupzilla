@@ -15,33 +15,18 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "mainapplication.h"
 #include "bookmarksmanager.h"
 #include "ui_bookmarksmanager.h"
-#include "qupzilla.h"
-#include "tabbedwebview.h"
-#include "bookmarkstoolbar.h"
-#include "tabwidget.h"
 #include "bookmarks.h"
-#include "iconprovider.h"
-#include "browsinglibrary.h"
-#include "qztools.h"
-#include "bookmarksimportdialog.h"
-#include "iconchooser.h"
-#include "webtab.h"
-#include "qzsettings.h"
-#include "bookmarkstree.h"
 #include "bookmarkitem.h"
 #include "bookmarksmodel.h"
 #include "bookmarkstools.h"
+#include "bookmarksimportdialog.h"
+#include "mainapplication.h"
+#include "qupzilla.h"
+#include "qztools.h"
 
-#include <QInputDialog>
-#include <QShortcut>
 #include <QMenu>
-#include <QSqlQuery>
-#include <QLabel>
-
-#include <QDebug>
 
 BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -53,6 +38,7 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     , m_adjustHeaderSizesOnShow(true)
 {
     ui->setupUi(this);
+    ui->tree->setViewType(BookmarksTreeView::BookmarksManagerViewType);
 
     connect(ui->tree, SIGNAL(bookmarkActivated(BookmarkItem*)), this, SLOT(bookmarkActivated(BookmarkItem*)));
     connect(ui->tree, SIGNAL(bookmarkCtrlActivated(BookmarkItem*)), this, SLOT(bookmarkCtrlActivated(BookmarkItem*)));
@@ -154,36 +140,19 @@ void BookmarksManager::createContextMenu(const QPoint &pos)
 void BookmarksManager::openBookmark(BookmarkItem* item)
 {
     item = item ? item : m_selectedBookmark;
-
-    // TODO: Open all children in tabs for folder?
-    if (!item || !item->isUrl()) {
-        return;
-    }
-
-    getQupZilla()->loadAddress(item->url());
+    BookmarksTools::openBookmark(getQupZilla(), item);
 }
 
 void BookmarksManager::openBookmarkInNewTab(BookmarkItem* item)
 {
     item = item ? item : m_selectedBookmark;
-
-    // TODO: Open all children in tabs for folder?
-    if (!item || !item->isUrl()) {
-        return;
-    }
-
-    getQupZilla()->tabWidget()->addView(item->url(), item->title(), qzSettings->newTabPosition);
+    BookmarksTools::openBookmarkInNewTab(getQupZilla(), item);
 }
 
 void BookmarksManager::openBookmarkInNewWindow(BookmarkItem* item)
 {
     item = item ? item : m_selectedBookmark;
-
-    if (!item || !item->isUrl()) {
-        return;
-    }
-
-    mApp->makeNewWindow(Qz::BW_NewWindow, item->url());
+    BookmarksTools::openBookmarkInNewWindow(item);
 }
 
 void BookmarksManager::addBookmark()

@@ -132,6 +132,7 @@ public slots:
     void loadActionUrlInNewNotSelectedTab(QObject* obj = 0);
 
     void bookmarkPage();
+    void bookmarkAllTabs();
     void loadAddress(const QUrl &url);
     void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());
     void printPage(QWebFrame* frame = 0);

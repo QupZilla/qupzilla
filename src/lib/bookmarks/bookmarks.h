@@ -150,7 +150,6 @@ private:
 
     void readBookmarks(const QVariantList &list, BookmarkItem* parent);
     QVariantList writeBookmarks(BookmarkItem* parent);
-    void writeChildren(BookmarkItem* parent);
 
     bool m_showMostVisited;
     bool m_showOnlyIconsInToolbar;

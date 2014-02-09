@@ -60,8 +60,13 @@ public:
     QString keyword() const;
     void setKeyword(const QString &keyword);
 
+    // Expanded state in Manager
     bool isExpanded() const;
     void setExpanded(bool expanded);
+
+    // Expanded state in Sidebar
+    bool isSidebarExpanded() const;
+    void setSidebarExpanded(bool expanded);
 
     void addChild(BookmarkItem* child, int index = -1);
     void removeChild(BookmarkItem* child);
@@ -79,6 +84,7 @@ private:
     QString m_description;
     QString m_keyword;
     bool m_expanded;
+    bool m_sidebarExpanded;
 };
 
 #endif // BOOKMARKITEM_H

@@ -66,6 +66,7 @@ private:
     BookmarkItem* m_selectedFolder;
 };
 
+class QupZilla;
 class TabWidget;
 
 class QT_QUPZILLA_EXPORT BookmarksTools
@@ -74,6 +75,9 @@ public:
     static bool addBookmarkDialog(QWidget* parent, const QUrl &url, const QString &title, BookmarkItem* folder = 0);
     static bool bookmarkAllTabsDialog(QWidget* parent, TabWidget* tabWidget, BookmarkItem* folder = 0);
 
+    static void openBookmark(QupZilla* window, BookmarkItem* item);
+    static void openBookmarkInNewTab(QupZilla* window, BookmarkItem* item);
+    static void openBookmarkInNewWindow(BookmarkItem* item);
 };
 
 #endif // BOOKMARKSTOOLS_H

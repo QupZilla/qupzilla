@@ -130,7 +130,7 @@ void BookmarksMenu::openBookmark(BookmarkItem* item)
     Q_ASSERT(item->isUrl());
 
     if (m_window) {
-        m_window->loadAddress(item->url());
+        BookmarksTools::openBookmark(m_window, item);
     }
 }
 
@@ -139,7 +139,7 @@ void BookmarksMenu::openBookmarkInNewTab(BookmarkItem* item)
     Q_ASSERT(item->isUrl());
 
     if (m_window) {
-        m_window->tabWidget()->addView(item->url(), item->title(), qzSettings->newTabPosition);
+        BookmarksTools::openBookmarkInNewTab(m_window, item);
     }
 }
 
@@ -147,7 +147,7 @@ void BookmarksMenu::openBookmarkInNewWindow(BookmarkItem* item)
 {
     Q_ASSERT(item->isUrl());
 
-    mApp->makeNewWindow(Qz::BW_NewWindow, item->url());
+    BookmarksTools::openBookmarkInNewWindow(item);
 }
 
 void BookmarksMenu::init()

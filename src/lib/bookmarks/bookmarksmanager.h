@@ -30,7 +30,6 @@ class BookmarksManager;
 
 class QUrl;
 
-class WebView;
 class QupZilla;
 class Bookmarks;
 class BookmarkItem;
@@ -44,6 +43,8 @@ public:
     ~BookmarksManager();
 
     void setMainWindow(QupZilla* window);
+
+public slots:
     void search(const QString &string);
 
 private slots:

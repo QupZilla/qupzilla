@@ -107,11 +107,21 @@ QVariant BookmarksModel::data(const QModelIndex &index, int role) const
         return itm->keyword();
     case ExpandedRole:
         return itm->isExpanded();
-    case Qt::DisplayRole:
     case Qt::ToolTipRole:
+        if (index.column() == 0 && itm->isUrl()) {
+            return QString("%1\n%2").arg(itm->title(), QString::fromUtf8(itm->url().toEncoded()));
+        }
+    case Qt::DisplayRole:
         switch (index.column()) {
         case 0:
             return itm->title();
+        case 1:
+            return itm->url().toEncoded();
+        default:
+            return QVariant();
+        }
+        switch (index.column()) {
+        case 0:
         case 1:
             return itm->url().toEncoded();
         default:

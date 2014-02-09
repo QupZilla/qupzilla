@@ -21,6 +21,7 @@ BookmarkItem::BookmarkItem(BookmarkItem::Type type, BookmarkItem* parent)
     : m_type(type)
     , m_parent(parent)
     , m_expanded(false)
+    , m_sidebarExpanded(false)
 {
     if (m_parent) {
         parent->addChild(this);
@@ -115,6 +116,16 @@ bool BookmarkItem::isExpanded() const
 void BookmarkItem::setExpanded(bool expanded)
 {
     m_expanded = expanded;
+}
+
+bool BookmarkItem::isSidebarExpanded() const
+{
+    return m_type == Root ? true : m_sidebarExpanded;
+}
+
+void BookmarkItem::setSidebarExpanded(bool expanded)
+{
+    m_sidebarExpanded = expanded;
 }
 
 void BookmarkItem::addChild(BookmarkItem* child, int index)

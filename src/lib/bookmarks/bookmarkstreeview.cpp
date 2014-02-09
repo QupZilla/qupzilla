@@ -28,6 +28,7 @@ BookmarksTreeView::BookmarksTreeView(QWidget* parent)
     : QTreeView(parent)
     , m_bookmarks(mApp->bookmarks())
     , m_model(m_bookmarks->model())
+    , m_type(BookmarksManagerViewType)
 {
     setModel(m_model);
     setDragEnabled(true);
@@ -37,13 +38,42 @@ BookmarksTreeView::BookmarksTreeView(QWidget* parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
     header()->resizeSections(QHeaderView::ResizeToContents);
 
-    restoreExpandedState(QModelIndex());
-
     connect(this, SIGNAL(expanded(QModelIndex)), this, SLOT(indexExpanded(QModelIndex)));
     connect(this, SIGNAL(collapsed(QModelIndex)), this, SLOT(indexCollapsed(QModelIndex)));
     connect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SLOT(selectionChanged()));
 
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(createContextMenu(QPoint)));
+}
+
+BookmarksTreeView::ViewType BookmarksTreeView::viewType() const
+{
+    return m_type;
+}
+
+void BookmarksTreeView::setViewType(BookmarksTreeView::ViewType type)
+{
+    m_type = type;
+
+    switch (m_type) {
+    case BookmarksManagerViewType:
+        setColumnHidden(1, false);
+        setHeaderHidden(false);
+        break;
+    case BookmarksSidebarViewType:
+        setColumnHidden(1, true);
+        setHeaderHidden(true);
+        break;
+    default:
+        break;
+    }
+
+    restoreExpandedState(QModelIndex());
+}
+
+BookmarkItem* BookmarksTreeView::selectedBookmark() const
+{
+    QList<BookmarkItem*> items = selectedBookmarks();
+    return items.count() == 1 ? items.first() : 0;
 }
 
 QList<BookmarkItem*> BookmarksTreeView::selectedBookmarks() const
@@ -61,13 +91,33 @@ QList<BookmarkItem*> BookmarksTreeView::selectedBookmarks() const
 void BookmarksTreeView::indexExpanded(const QModelIndex &parent)
 {
     BookmarkItem* item = m_model->item(parent);
-    item->setExpanded(true);
+
+    switch (m_type) {
+    case BookmarksManagerViewType:
+        item->setExpanded(true);
+        break;
+    case BookmarksSidebarViewType:
+        item->setSidebarExpanded(true);
+        break;
+    default:
+        break;
+    }
 }
 
 void BookmarksTreeView::indexCollapsed(const QModelIndex &parent)
 {
     BookmarkItem* item = m_model->item(parent);
-    item->setExpanded(false);
+
+    switch (m_type) {
+    case BookmarksManagerViewType:
+        item->setExpanded(false);
+        break;
+    case BookmarksSidebarViewType:
+        item->setSidebarExpanded(false);
+        break;
+    default:
+        break;
+    }
 }
 
 void BookmarksTreeView::selectionChanged()
@@ -85,7 +135,7 @@ void BookmarksTreeView::restoreExpandedState(const QModelIndex &parent)
     for (int i = 0; i < m_model->rowCount(parent); ++i) {
         QModelIndex index = m_model->index(i, 0, parent);
         BookmarkItem* item = m_model->item(index);
-        setExpanded(index, item->isExpanded());
+        setExpanded(index, m_type == BookmarksManagerViewType ? item->isExpanded() : item->isSidebarExpanded());
         restoreExpandedState(index);
     }
 }

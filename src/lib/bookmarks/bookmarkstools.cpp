@@ -21,6 +21,8 @@
 #include "mainapplication.h"
 #include "iconprovider.h"
 #include "tabwidget.h"
+#include "qzsettings.h"
+#include "qupzilla.h"
 
 #include <QDialogButtonBox>
 #include <QBoxLayout>
@@ -207,4 +209,33 @@ bool BookmarksTools::bookmarkAllTabsDialog(QWidget* parent, TabWidget* tabWidget
 
     delete dialog;
     return true;
+}
+
+void BookmarksTools::openBookmark(QupZilla* window, BookmarkItem* item)
+{
+    Q_ASSERT(window);
+
+    // TODO: Open all children in tabs for folder?
+    if (!item || !item->isUrl()) {
+        return;
+    }
+
+    window->loadAddress(item->url());
+}
+
+void BookmarksTools::openBookmarkInNewTab(QupZilla* window, BookmarkItem* item)
+{
+    Q_ASSERT(window);
+
+    // TODO: Open all children in tabs for folder?
+    if (!item || !item->isUrl()) {
+        return;
+    }
+
+    window->tabWidget()->addView(item->url(), item->title(), qzSettings->newTabPosition);
+}
+
+void BookmarksTools::openBookmarkInNewWindow(BookmarkItem* item)
+{
+    mApp->makeNewWindow(Qz::BW_NewWindow, item->url());
 }
