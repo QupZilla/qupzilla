@@ -45,16 +45,9 @@ public:
     void deleteItem(QTreeWidgetItem* item);
     void deleteItems(const QList<QTreeWidgetItem*> &items);
 
-    void setDragDropReceiver(bool enable, QObject* receiver = 0);
-    void setMimeType(const QString &mimeType);
-
 signals:
     void itemControlClicked(QTreeWidgetItem* item);
     void itemMiddleButtonClicked(QTreeWidgetItem* item);
-
-    void linkWasDroped(const QUrl &url, const QString &title, const QVariant &imageVariant, const QString &folder, bool* ok);
-    void bookmarkParentChanged(int id, const QString &newParent, const QString &oldParent, bool* ok);
-    void folderParentChanged(const QString &name, bool isSubfolder, bool* ok);
 
 public slots:
     void filterString(const QString &string);
@@ -67,17 +60,9 @@ private:
     void mousePressEvent(QMouseEvent* event);
     void iterateAllItems(QTreeWidgetItem* parent);
 
-    Qt::DropActions supportedDropActions() const;
-    QStringList mimeTypes() const;
-    QMimeData* mimeData(const QList<QTreeWidgetItem*> items) const;
-    bool dropMimeData(QTreeWidgetItem* parent, int, const QMimeData* data, Qt::DropAction action);
-    void dragEnterEvent(QDragEnterEvent* event);
-    void dragMoveEvent(QDragMoveEvent* event);
-
     bool m_refreshAllItemsNeeded;
     QList<QTreeWidgetItem*> m_allTreeItems;
     ItemShowMode m_showMode;
-    QString m_mimeType;
 };
 
 #endif // BOOKMARKSTREEWIDGET_H

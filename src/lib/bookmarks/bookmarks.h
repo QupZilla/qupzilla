@@ -68,32 +68,10 @@ public:
     bool isShowingOnlyIconsInToolbar() const;
     void setShowingOnlyIconsInToolbar(bool state);
 
-    bool isFolder(const QString &name);
-
-    QString lastFolder() const;
     void setLastFolder(const QString &folder);
 
-    bool isBookmarked(const QUrl &url);
-
-    Bookmark getBookmark(int id);
-    Bookmark getBookmark(const QUrl &url);
     QVector<Bookmark> getFolderBookmarks(const QString &name);
-
     bool saveBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder = QLatin1String("unsorted"));
-    bool saveBookmark(WebView* view, QString folder = QString());
-
-    void removeBookmark(int id);
-    void removeBookmark(const QList<int> list);
-
-    bool editBookmark(int id, const QString &title = QString(), const QUrl &url = QUrl(), const QString &folder = QString());
-    bool changeIcon(int id, const QIcon &icon);
-
-    bool createFolder(const QString &name);
-    void removeFolder(const QString &name);
-    bool renameFolder(const QString &before, const QString &after);
-
-    bool createSubfolder(const QString &name);
-    bool isSubfolder(const QString &name);
 
     void exportToHtml(const QString &fileName);
 
@@ -106,8 +84,9 @@ public:
     BookmarkItem* toolbarFolder() const;
     BookmarkItem* menuFolder() const;
     BookmarkItem* unsortedFolder() const;
-    BookmarkItem* getLastFolder() const;
+    BookmarkItem* lastUsedFolder() const;
 
+    bool isBookmarked(const QUrl &url);
     QList<BookmarkItem*> searchBookmarks(const QUrl &url) const;
 
     bool canBeModified(BookmarkItem* item) const;
@@ -119,33 +98,12 @@ public:
     void notifyBookmarkChanged(BookmarkItem* item);
 
 signals:
-    void bookmarkAdded(const Bookmarks::Bookmark &bookmark);
-    void bookmarkDeleted(const Bookmarks::Bookmark &bookmark);
-    void bookmarkEdited(const Bookmarks::Bookmark &before, const Bookmarks::Bookmark &after);
-
-    void bookmarkParentChanged(const QString &name, const QByteArray &imageData, int id,
-                               const QUrl &url, const QString &oldParent, const QString &newParent);
-
-    void folderAdded(const QString &title);
-    void folderDeleted(const QString &title);
-
-    void subfolderAdded(const QString &title);
-    void folderRenamed(const QString &before, const QString &after);
-
-    void folderParentChanged(const QString &name, bool isSubfolder);
-
     // Item was added to bookmarks
     void bookmarkAdded(BookmarkItem* item);
     // Item was removed from bookmarks
     void bookmarkRemoved(BookmarkItem* item);
     // Item data has changed
     void bookmarkChanged(BookmarkItem* item);
-
-public slots:
-    void bookmarkDropedLink(const QUrl &url, const QString &title, const QVariant &imageVariant,
-                            const QString &folder = QLatin1String("unsorted"), bool* ok = 0);
-    void changeBookmarkParent(int id, const QString &newParent, const QString &oldParent, bool* ok = 0);
-    void changeFolderParent(const QString &name, bool isSubfolder, bool* ok = 0);
 
 private:
     void loadBookmarks();
@@ -157,7 +115,6 @@ private:
 
     bool m_showMostVisited;
     bool m_showOnlyIconsInToolbar;
-    QString m_lastFolder;
 
     BookmarkItem* m_root;
     BookmarkItem* m_folderToolbar;

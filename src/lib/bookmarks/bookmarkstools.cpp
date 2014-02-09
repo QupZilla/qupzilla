@@ -88,7 +88,7 @@ void BookmarksFoldersMenu::createMenu(QMenu* menu, BookmarkItem* parent)
 BookmarksFoldersButton::BookmarksFoldersButton(QWidget* parent, BookmarkItem* folder)
     : QPushButton(parent)
     , m_menu(new BookmarksFoldersMenu(this))
-    , m_selectedFolder(folder ? folder : mApp->bookmarks()->getLastFolder())
+    , m_selectedFolder(folder ? folder : mApp->bookmarks()->lastUsedFolder())
 {
     init();
 

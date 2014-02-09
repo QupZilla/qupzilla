@@ -256,7 +256,7 @@ void BookmarksToolbar::editBookmark()
         return;
     }
 
-    m_bookmarks->editBookmark(b.id, title, url, b.folder);
+    //m_bookmarks->editBookmark(b.id, title, url, b.folder);
 }
 
 void BookmarksToolbar::removeButton()
@@ -272,7 +272,7 @@ void BookmarksToolbar::removeButton()
     }
 
     Bookmark bookmark = button->data().value<Bookmark>();
-    m_bookmarks->removeBookmark(bookmark.id);
+    //m_bookmarks->removeBookmark(bookmark.id);
 }
 
 void BookmarksToolbar::hidePanel()
