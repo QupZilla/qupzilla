@@ -36,7 +36,9 @@ public:
         TitleRole = Qt::UserRole + 3,
         DescriptionRole = Qt::UserRole + 4,
         KeywordRole = Qt::UserRole + 5,
-        ExpandedRole = Qt::UserRole + 6,
+        VisitCountRole = Qt::UserRole + 6,
+        ExpandedRole = Qt::UserRole + 7,
+        SidebarExpandedRole = Qt::UserRole + 8,
         MaxRole = ExpandedRole
     };
 
@@ -62,10 +64,6 @@ public:
     QModelIndex index(BookmarkItem* item) const;
 
     BookmarkItem* item(const QModelIndex &index) const;
-
-#if 0
-    bool removeRows(int row, int count, const QModelIndex &parent);
-#endif
 
 private slots:
     void bookmarkChanged(BookmarkItem* item);

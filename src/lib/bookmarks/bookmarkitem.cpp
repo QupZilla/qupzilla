@@ -20,6 +20,7 @@
 BookmarkItem::BookmarkItem(BookmarkItem::Type type, BookmarkItem* parent)
     : m_type(type)
     , m_parent(parent)
+    , m_visitCount(0)
     , m_expanded(false)
     , m_sidebarExpanded(false)
 {
@@ -106,6 +107,16 @@ QString BookmarkItem::keyword() const
 void BookmarkItem::setKeyword(const QString &keyword)
 {
     m_keyword = keyword;
+}
+
+int BookmarkItem::visitCount() const
+{
+    return m_visitCount;
+}
+
+void BookmarkItem::setVisitCount(int count)
+{
+    m_visitCount = count;
 }
 
 bool BookmarkItem::isExpanded() const

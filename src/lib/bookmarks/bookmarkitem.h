@@ -60,6 +60,9 @@ public:
     QString keyword() const;
     void setKeyword(const QString &keyword);
 
+    int visitCount() const;
+    void setVisitCount(int count);
+
     // Expanded state in Manager
     bool isExpanded() const;
     void setExpanded(bool expanded);
@@ -83,6 +86,7 @@ private:
     QString m_title;
     QString m_description;
     QString m_keyword;
+    int m_visitCount;
     bool m_expanded;
     bool m_sidebarExpanded;
 };

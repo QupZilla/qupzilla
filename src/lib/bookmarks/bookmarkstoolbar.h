@@ -61,17 +61,6 @@ private slots:
     void hidePanel();
     void toggleShowOnlyIcons();
 
-    void addBookmark(const Bookmarks::Bookmark &bookmark);
-    void removeBookmark(const Bookmarks::Bookmark &bookmark);
-    void bookmarkEdited(const Bookmarks::Bookmark &before, const Bookmarks::Bookmark &after);
-    void subfolderAdded(const QString &name);
-    void folderDeleted(const QString &name);
-    void folderRenamed(const QString &before, const QString &after);
-
-    void changeBookmarkParent(const QString &name, const QByteArray &imageData, int id,
-                              const QUrl &url, const QString &oldParent, const QString &newParent);
-    void changeFolderParent(const QString &name, bool isSubfolder);
-
 private:
     void dropEvent(QDropEvent* e);
     void dragEnterEvent(QDragEnterEvent* e);

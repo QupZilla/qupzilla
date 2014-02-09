@@ -224,6 +224,7 @@ void BookmarksTools::openBookmark(QupZilla* window, BookmarkItem* item)
         return;
     }
 
+    item->setVisitCount(item->visitCount() + 1);
     window->loadAddress(item->url());
 }
 
@@ -236,10 +237,12 @@ void BookmarksTools::openBookmarkInNewTab(QupZilla* window, BookmarkItem* item)
         return;
     }
 
+    item->setVisitCount(item->visitCount() + 1);
     window->tabWidget()->addView(item->url(), item->title(), qzSettings->newTabPosition);
 }
 
 void BookmarksTools::openBookmarkInNewWindow(BookmarkItem* item)
 {
+    item->setVisitCount(item->visitCount() + 1);
     mApp->makeNewWindow(Qz::BW_NewWindow, item->url());
 }

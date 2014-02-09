@@ -16,9 +16,11 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "locationcompletermodel.h"
-#include "iconprovider.h"
-#include "qzsettings.h"
 #include "mainapplication.h"
+#include "iconprovider.h"
+#include "bookmarkitem.h"
+#include "bookmarks.h"
+#include "qzsettings.h"
 #include "qupzilla.h"
 #include "tabwidget.h"
 
@@ -58,32 +60,31 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
     QList<QUrl> urlList;
     QList<QStandardItem*> itemList;
 
-    // TODO: Those 2 SQL queries can be merged with UNION
-
     if (showType == HistoryAndBookmarks || showType == Bookmarks) {
-        QSqlQuery query = createQuery(string, "history.count DESC", urlList, limit, true);
-        query.exec();
+        QList<BookmarkItem*> bookmarks = mApp->bookmarks()->searchBookmarks(string);
 
-        while (query.next()) {
+        foreach (BookmarkItem* bookmark, bookmarks) {
+            Q_ASSERT(bookmark->isUrl());
+
             QStandardItem* item = new QStandardItem();
-            const QUrl url = query.value(1).toUrl();
 
-            item->setIcon(qIconProvider->iconFromImage(QImage::fromData(query.value(4).toByteArray())));
-            item->setText(url.toEncoded());
-            item->setData(query.value(0), IdRole);
-            item->setData(query.value(2), TitleRole);
-            item->setData(query.value(3), CountRole);
+            item->setIcon(_iconForUrl(bookmark->url()));
+            item->setText(bookmark->url().toEncoded());
+            item->setData(-1, IdRole);
+            item->setData(bookmark->title(), TitleRole);
+            item->setData(bookmark->visitCount(), CountRole);
             item->setData(QVariant(true), BookmarkRole);
             item->setData(string, SearchStringRole);
+
             if (qzSettings->showSwitchTab) {
-                item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(url)), TabPositionRole);
+                item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(bookmark->url())), TabPositionRole);
             }
 
-            urlList.append(url);
+            urlList.append(bookmark->url());
             itemList.append(item);
         }
 
-        limit -= query.size();
+        limit -= itemList.count();
     }
 
     if (showType == HistoryAndBookmarks || showType == History) {

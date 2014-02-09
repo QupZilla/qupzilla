@@ -105,8 +105,12 @@ QVariant BookmarksModel::data(const QModelIndex &index, int role) const
         return itm->description();
     case KeywordRole:
         return itm->keyword();
+    case VisitCountRole:
+        return -1;
     case ExpandedRole:
         return itm->isExpanded();
+    case SidebarExpandedRole:
+        return itm->isSidebarExpanded();
     case Qt::ToolTipRole:
         if (index.column() == 0 && itm->isUrl()) {
             return QString("%1\n%2").arg(itm->title(), QString::fromUtf8(itm->url().toEncoded()));
@@ -182,31 +186,6 @@ bool BookmarksModel::hasChildren(const QModelIndex &parent) const
     BookmarkItem* itm = item(parent);
     return !itm->children().isEmpty();
 }
-
-#if 0
-bool BookmarksModel::removeRows(int row, int count, const QModelIndex &parent)
-{
-    if (!hasIndex(row, 0, parent) || !hasIndex(row + count, 0, parent)) {
-        return false;
-    }
-
-    BookmarkItem* itm = item(parent);
-
-    int offset = 0;
-
-    for (int i = 0; i < count; ++i) {
-        int idx = i + row + offset;
-        BookmarkItem* child = itm->children().at(idx);
-
-        if (!m_bookmarks->removeBookmark(child)) {
-            offset++;
-            continue;
-        }
-    }
-
-    return true;
-}
-#endif
 
 Qt::DropActions BookmarksModel::supportedDropActions() const
 {

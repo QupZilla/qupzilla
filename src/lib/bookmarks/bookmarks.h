@@ -69,10 +69,6 @@ public:
     void setShowingOnlyIconsInToolbar(bool state);
 
     void setLastFolder(const QString &folder);
-
-    QVector<Bookmark> getFolderBookmarks(const QString &name);
-    bool saveBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder = QLatin1String("unsorted"));
-
     void exportToHtml(const QString &fileName);
 
     static QString toTranslatedFolder(const QString &name);
@@ -87,7 +83,11 @@ public:
     BookmarkItem* lastUsedFolder() const;
 
     bool isBookmarked(const QUrl &url);
+
+    // Search bookmarks (urls only) for exact url match
     QList<BookmarkItem*> searchBookmarks(const QUrl &url) const;
+    // Search bookmarks (urls only) for contains match through all properties
+    QList<BookmarkItem*> searchBookmarks(const QString &string, Qt::CaseSensitivity sensitive = Qt::CaseInsensitive) const;
 
     bool canBeModified(BookmarkItem* item) const;
 
@@ -112,6 +112,7 @@ private:
     QVariantList writeBookmarks(BookmarkItem* parent);
 
     void search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QUrl &url) const;
+    void search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QString &string, Qt::CaseSensitivity sensitive) const;
 
     bool m_showMostVisited;
     bool m_showOnlyIconsInToolbar;

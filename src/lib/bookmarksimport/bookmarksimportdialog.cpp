@@ -288,6 +288,7 @@ void BookmarksImportDialog::setFile()
 
 void BookmarksImportDialog::addExportedBookmarks()
 {
+#if 0
     QApplication::setOverrideCursor(Qt::WaitCursor);
     Bookmarks* model = mApp->bookmarks();
 
@@ -301,6 +302,7 @@ void BookmarksImportDialog::addExportedBookmarks()
     db.commit();
 
     QApplication::restoreOverrideCursor();
+#endif
 }
 
 void BookmarksImportDialog::setupBrowser(Browser browser)

@@ -142,6 +142,7 @@ void Bookmarks::readBookmarks(const QVariantList &list, BookmarkItem* parent)
             item->setTitle(map.value("name").toString());
             item->setDescription(map.value("description").toString());
             item->setKeyword(map.value("keyword").toString());
+            item->setVisitCount(map.value("visit_count").toInt());
             break;
 
         case BookmarkItem::Folder:
@@ -177,6 +178,7 @@ QVariantList Bookmarks::writeBookmarks(BookmarkItem* parent)
             map.insert("name", child->title());
             map.insert("description", child->description());
             map.insert("keyword", child->keyword());
+            map.insert("visit_count", child->visitCount());
             break;
 
         case BookmarkItem::Folder:
@@ -215,6 +217,33 @@ void Bookmarks::search(QList<BookmarkItem*>* items, BookmarkItem* parent, const 
 
     case BookmarkItem::Url:
         if (parent->url() == url) {
+            items->append(parent);
+        }
+        break;
+
+    default:
+        break;
+    }
+}
+
+void Bookmarks::search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QString &string, Qt::CaseSensitivity sensitive) const
+{
+    Q_ASSERT(items);
+    Q_ASSERT(parent);
+
+    switch (parent->type()) {
+    case BookmarkItem::Root:
+    case BookmarkItem::Folder:
+        foreach (BookmarkItem* child, parent->children()) {
+            search(items, child, string, sensitive);
+        }
+        break;
+
+    case BookmarkItem::Url:
+        if (parent->title().contains(string, sensitive) ||
+                parent->url().toString().contains(string, sensitive) ||
+                parent->description().contains(string, sensitive) ||
+                parent->keyword().compare(string, sensitive) == 0) {
             items->append(parent);
         }
         break;
@@ -348,29 +377,6 @@ void Bookmarks::exportToHtml(const QString &fileName)
     out << "</DL><p>" << endl;
 }
 
-QVector<Bookmark> Bookmarks::getFolderBookmarks(const QString &name)
-{
-    QVector<Bookmark> list;
-
-    QSqlQuery query;
-    query.prepare("SELECT id, url, title, folder, icon FROM bookmarks WHERE folder=?");
-    query.addBindValue(name);
-    query.exec();
-    while (query.next()) {
-        Bookmark bookmark;
-        bookmark.id = query.value(0).toInt();
-        bookmark.url = query.value(1).toUrl();
-        bookmark.title = query.value(2).toString();
-        bookmark.folder = query.value(3).toString();
-        bookmark.image = QImage::fromData(query.value(4).toByteArray());
-        bookmark.inSubfolder = true;
-
-        list.append(bookmark);
-    }
-
-    return list;
-}
-
 QString Bookmarks::toTranslatedFolder(const QString &name)
 {
     QString trFolder;
@@ -447,6 +453,13 @@ QList<BookmarkItem*> Bookmarks::searchBookmarks(const QUrl &url) const
 {
     QList<BookmarkItem*> items;
     search(&items, m_root, url);
+    return items;
+}
+
+QList<BookmarkItem*> Bookmarks::searchBookmarks(const QString &string, Qt::CaseSensitivity sensitive) const
+{
+    QList<BookmarkItem*> items;
+    search(&items, m_root, string, sensitive);
     return items;
 }
 
