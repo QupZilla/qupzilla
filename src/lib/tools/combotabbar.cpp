@@ -133,11 +133,16 @@ int ComboTabBar::insertTab(int index, const QIcon &icon, const QString &text, bo
 void ComboTabBar::removeTab(int index)
 {
     if (validIndex(index)) {
+        setUpdatesEnabled(false);
+
         localTabBar(index)->removeTab(toLocalIndex(index));
         updatePinnedTabBarVisibility();
 
         tabRemoved(index);
         setMinimumWidths();
+
+        // Enable updates with a small delay to prevent flickering
+        QTimer::singleShot(50, this, SLOT(enableUpdates()));
     }
 }
 
@@ -299,6 +304,11 @@ void ComboTabBar::closeTabFromButton()
     if (tabToClose != -1) {
         emit tabCloseRequested(tabToClose + pinnedTabsCount());
     }
+}
+
+void ComboTabBar::enableUpdates()
+{
+    setUpdatesEnabled(true);
 }
 
 int ComboTabBar::count() const
