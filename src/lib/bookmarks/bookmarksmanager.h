@@ -65,6 +65,7 @@ private slots:
 
     void bookmarkEdited();
     void descriptionEdited();
+    void enableUpdates();
 
     void importBookmarks();
     void exportBookmarks();

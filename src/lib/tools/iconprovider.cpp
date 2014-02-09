@@ -71,15 +71,16 @@ void IconProvider::saveIcon(WebView* view)
 QImage IconProvider::iconForUrl(const QUrl &url)
 {
     foreach (const Icon &ic, m_iconBuffer) {
-        if (ic.url == url) {
+        if (ic.url.toString().startsWith(url.toString())) {
             return ic.image;
         }
     }
 
     QSqlQuery query;
-    query.prepare("SELECT icon FROM icons WHERE url=?");
-    query.bindValue(0, url.toEncoded(QUrl::RemoveFragment));
+    query.prepare("SELECT icon FROM icons WHERE url LIKE ? LIMIT 1");
+    query.addBindValue(QString("%1%").arg(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment))));
     query.exec();
+
     if (query.next()) {
         return QImage::fromData(query.value(0).toByteArray());
     }

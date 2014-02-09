@@ -74,13 +74,13 @@ public:
     static QString toTranslatedFolder(const QString &name);
     static QString fromTranslatedFolder(const QString &name);
 
-    BookmarksModel* model() const;
-
     BookmarkItem* rootItem() const;
     BookmarkItem* toolbarFolder() const;
     BookmarkItem* menuFolder() const;
     BookmarkItem* unsortedFolder() const;
+
     BookmarkItem* lastUsedFolder() const;
+    BookmarksModel* model() const;
 
     bool isBookmarked(const QUrl &url);
 
@@ -106,7 +106,7 @@ signals:
     void bookmarkChanged(BookmarkItem* item);
 
 private:
-    void loadBookmarks();
+    void init();
 
     void readBookmarks(const QVariantList &list, BookmarkItem* parent);
     QVariantList writeBookmarks(BookmarkItem* parent);
@@ -114,15 +114,16 @@ private:
     void search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QUrl &url) const;
     void search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QString &string, Qt::CaseSensitivity sensitive) const;
 
-    bool m_showMostVisited;
-    bool m_showOnlyIconsInToolbar;
-
     BookmarkItem* m_root;
     BookmarkItem* m_folderToolbar;
     BookmarkItem* m_folderMenu;
     BookmarkItem* m_folderUnsorted;
 
+    BookmarkItem* m_lastFolder;
     BookmarksModel* m_model;
+
+    bool m_showMostVisited;
+    bool m_showOnlyIconsInToolbar;
 };
 
 typedef Bookmarks::Bookmark Bookmark;

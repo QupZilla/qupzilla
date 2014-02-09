@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "bookmarkstreeview.h"
+#include "bookmarksitemdelegate.h"
 #include "bookmarksmodel.h"
 #include "bookmarkitem.h"
 #include "bookmarks.h"
@@ -37,6 +38,7 @@ BookmarksTreeView::BookmarksTreeView(QWidget* parent)
     setDropIndicatorShown(true);
     setSelectionMode(QAbstractItemView::ExtendedSelection);
     setContextMenuPolicy(Qt::CustomContextMenu);
+    setItemDelegate(new BookmarksItemDelegate(this));
     header()->resizeSections(QHeaderView::ResizeToContents);
 
     connect(this, SIGNAL(expanded(QModelIndex)), this, SLOT(indexExpanded(QModelIndex)));

@@ -31,11 +31,11 @@
 Bookmarks::Bookmarks(QObject* parent)
     : QObject(parent)
 {
-    loadBookmarks();
+    init();
     loadSettings();
 }
 
-void Bookmarks::loadBookmarks()
+void Bookmarks::init()
 {
     m_root = new BookmarkItem(BookmarkItem::Root);
 
@@ -78,6 +78,7 @@ void Bookmarks::loadBookmarks()
     READ_FOLDER("other", m_folderUnsorted)
 #undef READ_FOLDER
 
+    m_lastFolder = m_folderUnsorted;
     m_model = new BookmarksModel(this, this);
 }
 
@@ -259,7 +260,6 @@ void Bookmarks::loadSettings()
     settings.beginGroup("Bookmarks");
     m_showMostVisited = settings.value("showMostVisited", true).toBool();
     m_showOnlyIconsInToolbar = settings.value("showOnlyIconsInToolbar", false).toBool();
-    //m_lastFolder = settings.value("LastFolder", "unsorted").toString();
     settings.endGroup();
 }
 
@@ -440,8 +440,7 @@ BookmarkItem* Bookmarks::unsortedFolder() const
 
 BookmarkItem* Bookmarks::lastUsedFolder() const
 {
-    // TODO: Make it actually return last used folder
-    return unsortedFolder();
+    return m_lastFolder;
 }
 
 bool Bookmarks::isBookmarked(const QUrl &url)
@@ -507,6 +506,7 @@ void Bookmarks::insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item
     Q_ASSERT(parent->isFolder());
     Q_ASSERT(item);
 
+    m_lastFolder = parent;
     m_model->addBookmark(parent, row, item);
     emit bookmarkAdded(item);
 }

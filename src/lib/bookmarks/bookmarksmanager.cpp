@@ -27,6 +27,7 @@
 #include "qztools.h"
 
 #include <QMenu>
+#include <QTimer>
 
 BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -208,6 +209,11 @@ void BookmarksManager::descriptionEdited()
     }
 }
 
+void BookmarksManager::enableUpdates()
+{
+    setUpdatesEnabled(true);
+}
+
 void BookmarksManager::importBookmarks()
 {
     BookmarksImportDialog* b = new BookmarksImportDialog(this);
@@ -277,7 +283,9 @@ void BookmarksManager::updateEditBox(BookmarkItem* item)
     }
 
     m_blockDescriptionChangedSignal = false;
-    setUpdatesEnabled(true);
+
+    // Prevent flickering
+    QTimer::singleShot(10, this, SLOT(enableUpdates()));
 }
 
 bool BookmarksManager::bookmarkEditable(BookmarkItem* item) const

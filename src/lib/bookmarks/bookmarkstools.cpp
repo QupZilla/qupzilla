@@ -251,6 +251,10 @@ void BookmarksTools::openBookmarkInNewTab(QupZilla* window, BookmarkItem* item)
 
 void BookmarksTools::openBookmarkInNewWindow(BookmarkItem* item)
 {
+    if (!item->isUrl()) {
+        return;
+    }
+
     item->setVisitCount(item->visitCount() + 1);
     mApp->makeNewWindow(Qz::BW_NewWindow, item->url());
 }
