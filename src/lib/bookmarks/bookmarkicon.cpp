@@ -16,10 +16,10 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "bookmarkicon.h"
-#include "bookmarks.h"
 #include "bookmarkswidget.h"
+#include "bookmarks.h"
 #include "mainapplication.h"
-#include "tabbedwebview.h"
+#include "webview.h"
 #include "locationbar.h"
 #include "pluginproxy.h"
 #include "speeddial.h"
@@ -29,19 +29,19 @@
 
 BookmarkIcon::BookmarkIcon(QWidget* parent)
     : ClickableLabel(parent)
-    , m_bookmarks(0)
-    , m_speedDial(mApp->plugins()->speedDial())
     , m_view(0)
+    , m_bookmark(0)
 {
     setObjectName("locationbar-bookmarkicon");
     setCursor(Qt::PointingHandCursor);
     setToolTip(tr("Bookmark this Page"));
     setFocusPolicy(Qt::ClickFocus);
 
-    m_bookmarks = mApp->bookmarks();
-    connect(m_bookmarks, SIGNAL(bookmarkAdded(Bookmarks::Bookmark)), this, SLOT(bookmarkAdded(Bookmarks::Bookmark)));
-    connect(m_bookmarks, SIGNAL(bookmarkDeleted(Bookmarks::Bookmark)), this, SLOT(bookmarkDeleted(Bookmarks::Bookmark)));
-    connect(m_speedDial, SIGNAL(pagesChanged()), this, SLOT(speedDialChanged()));
+    connect(mApp->bookmarks(), SIGNAL(bookmarkAdded(BookmarkItem*)), this, SLOT(bookmarksChanged()));
+    connect(mApp->bookmarks(), SIGNAL(bookmarkRemoved(BookmarkItem*)), this, SLOT(bookmarksChanged()));
+    connect(mApp->bookmarks(), SIGNAL(bookmarkChanged(BookmarkItem*)), this, SLOT(bookmarksChanged()));
+    connect(mApp->plugins()->speedDial(), SIGNAL(pagesChanged()), this, SLOT(speedDialChanged()));
+
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(iconClicked()));
 }
 
@@ -56,7 +56,10 @@ void BookmarkIcon::checkBookmark(const QUrl &url, bool forceCheck)
         return;
     }
 
-    if (m_bookmarks->isBookmarked(url) || !m_speedDial->pageForUrl(url).url.isEmpty()) {
+    QList<BookmarkItem*> items = mApp->bookmarks()->searchBookmarks(url);
+    m_bookmark = items.isEmpty() ? 0 : items.first();
+
+    if (m_bookmark || !mApp->plugins()->speedDial()->pageForUrl(url).url.isEmpty()) {
         setBookmarkSaved();
     }
     else {
@@ -66,18 +69,9 @@ void BookmarkIcon::checkBookmark(const QUrl &url, bool forceCheck)
     m_lastUrl = url;
 }
 
-void BookmarkIcon::bookmarkDeleted(const Bookmarks::Bookmark &bookmark)
+void BookmarkIcon::bookmarksChanged()
 {
-    if (bookmark.url == m_lastUrl) {
-        checkBookmark(m_lastUrl, true);
-    }
-}
-
-void BookmarkIcon::bookmarkAdded(const Bookmarks::Bookmark &bookmark)
-{
-    if (bookmark.url == m_lastUrl) {
-        checkBookmark(m_lastUrl, true);
-    }
+    checkBookmark(m_lastUrl, true);
 }
 
 void BookmarkIcon::speedDialChanged()
@@ -91,7 +85,7 @@ void BookmarkIcon::iconClicked()
         return;
     }
 
-    BookmarksWidget* widget = new BookmarksWidget(m_view, parentWidget());
+    BookmarksWidget* widget = new BookmarksWidget(m_view, m_bookmark, parentWidget());
     widget->showAt(parentWidget());
 }
 

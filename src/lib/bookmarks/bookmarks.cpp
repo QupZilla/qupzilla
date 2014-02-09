@@ -207,6 +207,30 @@ QVariantList Bookmarks::writeBookmarks(BookmarkItem* parent)
     return list;
 }
 
+void Bookmarks::search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QUrl &url) const
+{
+    Q_ASSERT(items);
+    Q_ASSERT(parent);
+
+    switch (parent->type()) {
+    case BookmarkItem::Root:
+    case BookmarkItem::Folder:
+        foreach (BookmarkItem* child, parent->children()) {
+            search(items, child, url);
+        }
+        break;
+
+    case BookmarkItem::Url:
+        if (parent->url() == url) {
+            items->append(parent);
+        }
+        break;
+
+    default:
+        break;
+    }
+}
+
 void Bookmarks::loadSettings()
 {
     Settings settings;
@@ -793,6 +817,13 @@ BookmarkItem* Bookmarks::getLastFolder() const
 {
     // TODO: Make it actually return last used folder
     return unsortedFolder();
+}
+
+QList<BookmarkItem*> Bookmarks::searchBookmarks(const QUrl &url) const
+{
+    QList<BookmarkItem*> items;
+    search(&items, m_root, url);
+    return items;
 }
 
 bool Bookmarks::removeBookmark(BookmarkItem* item)

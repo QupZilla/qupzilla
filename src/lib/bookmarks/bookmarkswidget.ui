@@ -2,10 +2,32 @@
 <ui version="4.0">
  <class>BookmarksWidget</class>
  <widget class="QWidget" name="BookmarksWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>167</width>
+    <height>89</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QPushButton" name="bookmarksButton">
+     <property name="text">
+      <string>Add to bookmarks</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../data/icons.qrc">
+       <normaloff>:/icons/other/bigstar.png</normaloff>:/icons/other/bigstar.png</iconset>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0">
     <widget class="QPushButton" name="speeddialButton">
      <property name="focusPolicy">
@@ -23,32 +45,18 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QPushButton" name="saveRemove">
-     <property name="text">
-      <string>Add to bookmarks</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../data/icons.qrc">
-       <normaloff>:/icons/other/bigstar.png</normaloff>:/icons/other/bigstar.png</iconset>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
    <item row="2" column="0">
-    <widget class="QComboBox" name="folder">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-    </widget>
+    <widget class="BookmarksFoldersButton" name="folderButton"/>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>BookmarksFoldersButton</class>
+   <extends>QPushButton</extends>
+   <header>bookmarkstools.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../data/icons.qrc"/>
  </resources>

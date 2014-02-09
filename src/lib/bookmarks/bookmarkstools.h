@@ -52,9 +52,12 @@ class QT_QUPZILLA_EXPORT BookmarksFoldersButton : public QPushButton
     Q_OBJECT
 
 public:
-    explicit BookmarksFoldersButton(QWidget* parent, BookmarkItem* folder);
+    explicit BookmarksFoldersButton(QWidget* parent, BookmarkItem* folder = 0);
 
     BookmarkItem* selectedFolder() const;
+
+signals:
+    void selectedFolderChanged(BookmarkItem* folder);
 
 public slots:
     void setSelectedFolder(BookmarkItem* folder);

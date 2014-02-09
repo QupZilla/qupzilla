@@ -107,6 +107,10 @@ void BookmarksFoldersButton::setSelectedFolder(BookmarkItem* folder)
 
     m_selectedFolder = folder;
     setText(folder->title());
+
+    if (sender()) {
+        emit selectedFolderChanged(folder);
+    }
 }
 
 void BookmarksFoldersButton::init()

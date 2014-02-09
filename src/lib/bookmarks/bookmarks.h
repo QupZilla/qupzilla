@@ -108,6 +108,8 @@ public:
     BookmarkItem* unsortedFolder() const;
     BookmarkItem* getLastFolder() const;
 
+    QList<BookmarkItem*> searchBookmarks(const QUrl &url) const;
+
     bool canBeModified(BookmarkItem* item) const;
 
     void addBookmark(BookmarkItem* parent, BookmarkItem* item);
@@ -150,6 +152,8 @@ private:
 
     void readBookmarks(const QVariantList &list, BookmarkItem* parent);
     QVariantList writeBookmarks(BookmarkItem* parent);
+
+    void search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QUrl &url) const;
 
     bool m_showMostVisited;
     bool m_showOnlyIconsInToolbar;
