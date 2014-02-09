@@ -108,6 +108,7 @@ signals:
 private:
     void init();
 
+    void loadBookmarksFromMap(const QVariantMap &map);
     void readBookmarks(const QVariantList &list, BookmarkItem* parent);
     QVariantList writeBookmarks(BookmarkItem* parent);
 

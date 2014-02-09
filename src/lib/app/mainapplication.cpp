@@ -1248,11 +1248,11 @@ bool MainApplication::checkSettingsDir()
         |
     .config/qupzilla/
         |
-    profiles/-----------
-        |              |
-    default/      profiles.ini
-        |
-    browsedata.db
+    profiles/---------------------
+        |                        |
+    default/-------------   profiles.ini
+        |               |
+    browsedata.db  bookmarks.json
     */
 
     if (QDir(PROFILEDIR).exists() && QFile(PROFILEDIR + "profiles/profiles.ini").exists()) {
@@ -1282,6 +1282,9 @@ bool MainApplication::checkSettingsDir()
     QFile(PROFILEDIR + "profiles/default/browsedata.db").remove();
     QFile(":data/browsedata.db").copy(PROFILEDIR + "profiles/default/browsedata.db");
     QFile(PROFILEDIR + "profiles/default/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
+    QFile(":data/bookmarks.json").copy(PROFILEDIR + "profiles/default/bookmarks.json");
+    QFile(PROFILEDIR + "profiles/default/bookmarks.json").setPermissions(QFile::ReadUser | QFile::WriteUser);
+
     QFile versionFile(PROFILEDIR + "profiles/default/version");
     versionFile.open(QFile::WriteOnly);
     versionFile.write(QupZilla::VERSION.toUtf8());

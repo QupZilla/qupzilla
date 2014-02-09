@@ -82,14 +82,20 @@ QPixmap QzTools::pixmapFromByteArray(const QByteArray &data)
 
 QString QzTools::readAllFileContents(const QString &filename)
 {
+    return QString::fromUtf8(readAllFileByteContents(filename));
+}
+
+QByteArray QzTools::readAllFileByteContents(const QString &filename)
+{
     QFile file(filename);
+
     if (file.open(QFile::ReadOnly)) {
-        QString a = QString::fromUtf8(file.readAll());
+        const QByteArray a = file.readAll();
         file.close();
         return a;
     }
 
-    return QString();
+    return QByteArray();
 }
 
 void QzTools::centerWidgetOnScreen(QWidget* w)
@@ -910,3 +916,4 @@ QString QzTools::operatingSystem()
     return str;
 #endif
 }
+

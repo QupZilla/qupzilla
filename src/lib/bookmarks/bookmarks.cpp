@@ -19,6 +19,7 @@
 #include "bookmarkitem.h"
 #include "bookmarksmodel.h"
 #include "mainapplication.h"
+#include "qztools.h"
 #include "webview.h"
 #include "settings.h"
 #include "json.h"
@@ -51,35 +52,52 @@ void Bookmarks::init()
     m_folderUnsorted->setTitle(tr("Unsorted Bookmarks"));
     m_folderUnsorted->setDescription(tr("All other bookmarks"));
 
-    // TODO: Make sure bookmarks are loaded correctly even on error
+    const QString bookmarksFile = mApp->currentProfilePath() + QLatin1String("/bookmarks.json");
+    const QString backupFile = bookmarksFile + QLatin1String(".old");
 
-    QFile bFile(mApp->currentProfilePath() + QLatin1String("/bookmarks.json"));
-    bFile.open(QFile::ReadOnly);
-    QByteArray data = bFile.readAll();
-    bFile.close();
+    QFile file(bookmarksFile);
+    file.open(QFile::ReadOnly);
+    QByteArray data = file.readAll();
+    file.close();
 
     bool ok;
     const QVariant res = Json::parse(data, &ok);
 
     if (!ok || res.type() != QVariant::Map) {
-        qWarning() << "Bookmarks::loadBookmarks() Error parsing bookmarks!";
-        return;
+        qWarning() << "Bookmarks::init() Error parsing bookmarks! Using default bookmarks!";
+        qWarning() << "Bookmarks::init() Your bookmarks have been backed up in" << backupFile;
+
+        // Backup the user bookmarks
+        QFile::remove(backupFile);
+        QFile::copy(bookmarksFile, backupFile);
+
+        // Load default bookmarks
+        const QVariant data = Json::parse(QzTools::readAllFileByteContents(":data/bookmarks.json"), &ok);
+
+        Q_ASSERT(ok);
+        Q_ASSERT(data.type() == QVariant::Map);
+
+        loadBookmarksFromMap(data.toMap().value("roots").toMap());
+    }
+    else {
+        loadBookmarksFromMap(res.toMap().value("roots").toMap());
     }
 
-    const QVariantMap bookmarksMap = res.toMap().value("roots").toMap();
+    m_lastFolder = m_folderUnsorted;
+    m_model = new BookmarksModel(this, this);
+}
 
+void Bookmarks::loadBookmarksFromMap(const QVariantMap &map)
+{
 #define READ_FOLDER(name, folder) \
-    readBookmarks(bookmarksMap.value(name).toMap().value("children").toList(), folder); \
-    folder->setExpanded(bookmarksMap.value(name).toMap().value("expanded").toBool()); \
-    folder->setSidebarExpanded(bookmarksMap.value(name).toMap().value("expanded_sidebar").toBool());
+    readBookmarks(map.value(name).toMap().value("children").toList(), folder); \
+    folder->setExpanded(map.value(name).toMap().value("expanded").toBool()); \
+    folder->setSidebarExpanded(map.value(name).toMap().value("expanded_sidebar").toBool());
 
     READ_FOLDER("bookmark_bar", m_folderToolbar)
     READ_FOLDER("bookmark_menu", m_folderMenu)
     READ_FOLDER("other", m_folderUnsorted)
 #undef READ_FOLDER
-
-    m_lastFolder = m_folderUnsorted;
-    m_model = new BookmarksModel(this, this);
 }
 
 void Bookmarks::saveBookmarks()
@@ -113,14 +131,14 @@ void Bookmarks::saveBookmarks()
         return;
     }
 
-    QFile bFile(mApp->currentProfilePath() + QLatin1String("/bookmarks.json"));
+    QFile file(mApp->currentProfilePath() + QLatin1String("/bookmarks.json"));
 
-    if (!bFile.open(QFile::WriteOnly)) {
+    if (!file.open(QFile::WriteOnly)) {
         qWarning() << "Bookmarks::saveBookmarks() Error opening bookmarks file for writing!";
     }
 
-    bFile.write(data);
-    bFile.close();
+    file.write(data);
+    file.close();
 }
 
 void Bookmarks::readBookmarks(const QVariantList &list, BookmarkItem* parent)
