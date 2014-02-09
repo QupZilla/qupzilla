@@ -19,8 +19,11 @@
 #define BOOKMARKSMODEL_H
 
 #include <QAbstractItemModel>
+#include <QSortFilterProxyModel>
 
 #include "qz_namespace.h"
+
+class QTimer;
 
 class Bookmarks;
 class BookmarkItem;
@@ -33,13 +36,14 @@ public:
     enum Roles {
         TypeRole = Qt::UserRole + 1,
         UrlRole = Qt::UserRole + 2,
-        TitleRole = Qt::UserRole + 3,
-        DescriptionRole = Qt::UserRole + 4,
-        KeywordRole = Qt::UserRole + 5,
-        VisitCountRole = Qt::UserRole + 6,
-        ExpandedRole = Qt::UserRole + 7,
-        SidebarExpandedRole = Qt::UserRole + 8,
-        MaxRole = ExpandedRole
+        UrlStringRole = Qt::UserRole + 3,
+        TitleRole = Qt::UserRole + 4,
+        DescriptionRole = Qt::UserRole + 5,
+        KeywordRole = Qt::UserRole + 6,
+        VisitCountRole = Qt::UserRole + 7,
+        ExpandedRole = Qt::UserRole + 8,
+        SidebarExpandedRole = Qt::UserRole + 9,
+        MaxRole = SidebarExpandedRole
     };
 
     explicit BookmarksModel(Bookmarks* bookmarks, QObject* parent = 0);
@@ -70,7 +74,27 @@ private slots:
 
 private:
     Bookmarks* m_bookmarks;
+};
 
+class QT_QUPZILLA_EXPORT BookmarksFilterModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+
+public:
+    explicit BookmarksFilterModel(QAbstractItemModel* parent);
+
+public slots:
+    void setFilterFixedString(const QString &pattern);
+
+protected:
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const;
+
+private slots:
+    void startFiltering();
+
+private:
+    QString m_pattern;
+    QTimer* m_filterTimer;
 };
 
 #endif // BOOKMARKSMODEL_H

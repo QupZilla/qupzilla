@@ -48,6 +48,7 @@ public:
     BookmarkItem* parent() const;
     QList<BookmarkItem*> children() const;
 
+    QString urlString() const;
     QUrl url() const;
     void setUrl(const QUrl &url);
 

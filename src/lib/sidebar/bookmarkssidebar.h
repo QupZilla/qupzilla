@@ -39,9 +39,6 @@ public:
     explicit BookmarksSidebar(QupZilla* mainClass, QWidget* parent = 0);
     ~BookmarksSidebar();
 
-public slots:
-    void search(const QString &string);
-
 private slots:
     void bookmarkActivated(BookmarkItem* item);
     void bookmarkCtrlActivated(BookmarkItem* item);

@@ -241,7 +241,7 @@ void Bookmarks::search(QList<BookmarkItem*>* items, BookmarkItem* parent, const 
 
     case BookmarkItem::Url:
         if (parent->title().contains(string, sensitive) ||
-                parent->url().toString().contains(string, sensitive) ||
+                parent->urlString().contains(string, sensitive) ||
                 parent->description().contains(string, sensitive) ||
                 parent->keyword().compare(string, sensitive) == 0) {
             items->append(parent);

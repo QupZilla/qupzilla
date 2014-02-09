@@ -22,6 +22,7 @@
 
 #include <QApplication>
 #include <QMimeData>
+#include <QTimer>
 #include <QStyle>
 
 //#define BOOKMARKSMODEL_DEBUG
@@ -99,6 +100,8 @@ QVariant BookmarksModel::data(const QModelIndex &index, int role) const
         return itm->type();
     case UrlRole:
         return itm->url();
+    case UrlStringRole:
+        return itm->urlString();
     case TitleRole:
         return itm->title();
     case DescriptionRole:
@@ -313,4 +316,46 @@ void BookmarksModel::bookmarkChanged(BookmarkItem* item)
 {
     QModelIndex idx = index(item);
     emit dataChanged(idx, idx);
+}
+
+
+// BookmarksFilterModel
+BookmarksFilterModel::BookmarksFilterModel(QAbstractItemModel* parent)
+    : QSortFilterProxyModel(parent)
+{
+    setSourceModel(parent);
+    setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    m_filterTimer = new QTimer(this);
+    m_filterTimer->setSingleShot(true);
+    m_filterTimer->setInterval(500);
+
+    connect(m_filterTimer, SIGNAL(timeout()), this, SLOT(startFiltering()));
+}
+
+void BookmarksFilterModel::setFilterFixedString(const QString &pattern)
+{
+    m_pattern = pattern;
+
+    m_filterTimer->stop();
+    m_filterTimer->start();
+}
+
+bool BookmarksFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
+{
+    const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
+
+    if (index.data(BookmarksModel::TypeRole).toInt() == BookmarkItem::Folder) {
+        return true;
+    }
+
+    return (index.data(BookmarksModel::TitleRole).toString().contains(m_pattern, filterCaseSensitivity()) ||
+            index.data(BookmarksModel::UrlStringRole).toString().contains(m_pattern, filterCaseSensitivity()) ||
+            index.data(BookmarksModel::DescriptionRole).toString().contains(m_pattern, filterCaseSensitivity()) ||
+            index.data(BookmarksModel::KeywordRole).toString().compare(m_pattern, filterCaseSensitivity()) == 0);
+}
+
+void BookmarksFilterModel::startFiltering()
+{
+    QSortFilterProxyModel::setFilterFixedString(m_pattern);
 }

@@ -69,6 +69,11 @@ QList<BookmarkItem*> BookmarkItem::children() const
     return m_children;
 }
 
+QString BookmarkItem::urlString() const
+{
+    return QString::fromUtf8(m_url.toEncoded());
+}
+
 QUrl BookmarkItem::url() const
 {
     return  m_url;

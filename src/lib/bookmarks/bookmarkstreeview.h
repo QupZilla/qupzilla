@@ -25,6 +25,7 @@
 class Bookmarks;
 class BookmarkItem;
 class BookmarksModel;
+class BookmarksFilterModel;
 
 class QT_QUPZILLA_EXPORT BookmarksTreeView : public QTreeView
 {
@@ -41,8 +42,6 @@ public:
     ViewType viewType() const;
     void setViewType(ViewType type);
 
-    BookmarksModel* model() const;
-
     // Returns null if more than one (or zero) bookmarks are selected
     BookmarkItem* selectedBookmark() const;
     // Returns all selected bookmarks
@@ -51,6 +50,9 @@ public:
     void selectBookmark(BookmarkItem* item);
     // Expand up to root item
     void ensureBookmarkVisible(BookmarkItem* item);
+
+public slots:
+    void search(const QString &string);
 
 signals:
     // Open bookmark in current tab
@@ -81,6 +83,7 @@ private:
 
     Bookmarks* m_bookmarks;
     BookmarksModel* m_model;
+    BookmarksFilterModel* m_filter;
     ViewType m_type;
 };
 

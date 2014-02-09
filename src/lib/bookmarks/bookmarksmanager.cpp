@@ -68,8 +68,7 @@ void BookmarksManager::setMainWindow(QupZilla* window)
 
 void BookmarksManager::search(const QString &string)
 {
-    // TODO: Enable searching
-    Q_UNUSED(string)
+    ui->tree->search(string);
 }
 
 void BookmarksManager::bookmarkActivated(BookmarkItem* item)

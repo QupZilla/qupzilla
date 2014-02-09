@@ -28,9 +28,10 @@ BookmarksTreeView::BookmarksTreeView(QWidget* parent)
     : QTreeView(parent)
     , m_bookmarks(mApp->bookmarks())
     , m_model(m_bookmarks->model())
+    , m_filter(new BookmarksFilterModel(m_model))
     , m_type(BookmarksManagerViewType)
 {
-    setModel(m_model);
+    setModel(m_filter);
     setDragEnabled(true);
     setAcceptDrops(true);
     setDropIndicatorShown(true);
@@ -70,11 +71,6 @@ void BookmarksTreeView::setViewType(BookmarksTreeView::ViewType type)
     restoreExpandedState(QModelIndex());
 }
 
-BookmarksModel* BookmarksTreeView::model() const
-{
-    return m_model;
-}
-
 BookmarkItem* BookmarksTreeView::selectedBookmark() const
 {
     QList<BookmarkItem*> items = selectedBookmarks();
@@ -86,7 +82,7 @@ QList<BookmarkItem*> BookmarksTreeView::selectedBookmarks() const
     QList<BookmarkItem*> items;
 
     foreach (const QModelIndex &index, selectionModel()->selectedRows()) {
-        BookmarkItem* item = m_model->item(index);
+        BookmarkItem* item = m_model->item(m_filter->mapToSource(index));
         items.append(item);
     }
 
@@ -95,8 +91,8 @@ QList<BookmarkItem*> BookmarksTreeView::selectedBookmarks() const
 
 void BookmarksTreeView::selectBookmark(BookmarkItem* item)
 {
-    QModelIndex col0 = m_model->index(item, 0);
-    QModelIndex col1 = m_model->index(item, 1);
+    QModelIndex col0 = m_filter->mapFromSource(m_model->index(item, 0));
+    QModelIndex col1 = m_filter->mapFromSource(m_model->index(item, 1));
 
     selectionModel()->clearSelection();
     selectionModel()->select(col0, QItemSelectionModel::Select);
@@ -105,18 +101,23 @@ void BookmarksTreeView::selectBookmark(BookmarkItem* item)
 
 void BookmarksTreeView::ensureBookmarkVisible(BookmarkItem* item)
 {
-    QModelIndex index = m_model->index(item);
-    QModelIndex parent = m_model->parent(index);
+    QModelIndex index = m_filter->mapFromSource(m_model->index(item));
+    QModelIndex parent = m_filter->parent(index);
 
     while (parent.isValid()) {
         setExpanded(parent, true);
-        parent = m_model->parent(parent);
+        parent = m_filter->parent(parent);
     }
+}
+
+void BookmarksTreeView::search(const QString &string)
+{
+    m_filter->setFilterFixedString(string);
 }
 
 void BookmarksTreeView::indexExpanded(const QModelIndex &parent)
 {
-    BookmarkItem* item = m_model->item(parent);
+    BookmarkItem* item = m_model->item(m_filter->mapToSource(parent));
 
     switch (m_type) {
     case BookmarksManagerViewType:
@@ -132,7 +133,7 @@ void BookmarksTreeView::indexExpanded(const QModelIndex &parent)
 
 void BookmarksTreeView::indexCollapsed(const QModelIndex &parent)
 {
-    BookmarkItem* item = m_model->item(parent);
+    BookmarkItem* item = m_model->item(m_filter->mapToSource(parent));
 
     switch (m_type) {
     case BookmarksManagerViewType:
@@ -158,9 +159,9 @@ void BookmarksTreeView::createContextMenu(const QPoint &point)
 
 void BookmarksTreeView::restoreExpandedState(const QModelIndex &parent)
 {
-    for (int i = 0; i < m_model->rowCount(parent); ++i) {
-        QModelIndex index = m_model->index(i, 0, parent);
-        BookmarkItem* item = m_model->item(index);
+    for (int i = 0; i < m_filter->rowCount(parent); ++i) {
+        QModelIndex index = m_filter->index(i, 0, parent);
+        BookmarkItem* item = m_model->item(m_filter->mapToSource(index));
         setExpanded(index, m_type == BookmarksManagerViewType ? item->isExpanded() : item->isSidebarExpanded());
         restoreExpandedState(index);
     }
@@ -180,7 +181,7 @@ void BookmarksTreeView::mousePressEvent(QMouseEvent* event)
         QModelIndex index = indexAt(event->pos());
 
         if (index.isValid()) {
-            BookmarkItem* item = m_model->item(index);
+            BookmarkItem* item = m_model->item(m_filter->mapToSource(index));
             Qt::MouseButtons buttons = event->buttons();
             Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
 
@@ -202,7 +203,7 @@ void BookmarksTreeView::mouseDoubleClickEvent(QMouseEvent* event)
         QModelIndex index = indexAt(event->pos());
 
         if (index.isValid()) {
-            BookmarkItem* item = m_model->item(index);
+            BookmarkItem* item = m_model->item(m_filter->mapToSource(index));
             Qt::MouseButtons buttons = event->buttons();
             Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
 
@@ -222,7 +223,7 @@ void BookmarksTreeView::keyPressEvent(QKeyEvent* event)
 
     if (selectionModel()->selectedRows().count() == 1) {
         QModelIndex index = selectionModel()->selectedRows().first();
-        BookmarkItem* item = m_model->item(index);
+        BookmarkItem* item = m_model->item(m_filter->mapToSource(index));
 
         switch (event->key()) {
         case Qt::Key_Return:

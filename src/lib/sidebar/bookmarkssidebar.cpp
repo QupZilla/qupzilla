@@ -38,18 +38,12 @@ BookmarksSidebar::BookmarksSidebar(QupZilla* mainClass, QWidget* parent)
     connect(ui->tree, SIGNAL(bookmarkShiftActivated(BookmarkItem*)), this, SLOT(bookmarkShiftActivated(BookmarkItem*)));
     connect(ui->tree, SIGNAL(contextMenuRequested(QPoint)), this, SLOT(createContextMenu(QPoint)));
 
-    connect(ui->search, SIGNAL(textChanged(QString)), this, SLOT(search(QString)));
+    connect(ui->search, SIGNAL(textChanged(QString)), ui->tree, SLOT(search(QString)));
 }
 
 BookmarksSidebar::~BookmarksSidebar()
 {
     delete ui;
-}
-
-void BookmarksSidebar::search(const QString &string)
-{
-    Q_UNUSED(string)
-    // TODO: Enable searching
 }
 
 void BookmarksSidebar::bookmarkActivated(BookmarkItem* item)
