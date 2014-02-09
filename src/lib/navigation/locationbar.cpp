@@ -23,7 +23,7 @@
 #include "clickablelabel.h"
 #include "webpage.h"
 #include "tabwidget.h"
-#include "bookmarkicon.h"
+#include "bookmarksicon.h"
 #include "progressbar.h"
 #include "statusbarmessage.h"
 #include "toolbutton.h"
@@ -62,7 +62,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     setObjectName("locationbar");
     setDragEnabled(true);
 
-    m_bookmarkIcon = new BookmarkIcon(this);
+    m_bookmarkIcon = new BookmarksIcon(this);
     m_goIcon = new GoIcon(this);
     m_rssIcon = new RssIcon(this);
     m_siteIcon = new SiteIcon(p_QupZilla, this);

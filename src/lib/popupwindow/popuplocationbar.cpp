@@ -20,7 +20,7 @@
 #include "toolbutton.h"
 #include "qztools.h"
 #include "iconprovider.h"
-#include "bookmarkicon.h"
+#include "bookmarksicon.h"
 #include "autofillicon.h"
 #include "rssicon.h"
 #include "webpage.h"
@@ -54,7 +54,7 @@ PopupLocationBar::PopupLocationBar(QWidget* parent)
     m_siteIcon->setIcon(qIconProvider->emptyWebIcon());
     m_siteIcon->setFixedSize(26, 26);
 
-    m_bookmarkIcon = new BookmarkIcon(this);
+    m_bookmarkIcon = new BookmarksIcon(this);
     m_rssIcon = new RssIcon(this);
     m_autofillIcon = new AutoFillIcon(this);
 

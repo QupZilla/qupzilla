@@ -15,8 +15,8 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef BOOKMARKICON_H
-#define BOOKMARKICON_H
+#ifndef BOOKMARKSICON_H
+#define BOOKMARKSICON_H
 
 #include <QUrl>
 
@@ -26,11 +26,11 @@
 class WebView;
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarkIcon : public ClickableLabel
+class QT_QUPZILLA_EXPORT BookmarksIcon : public ClickableLabel
 {
     Q_OBJECT
 public:
-    explicit BookmarkIcon(QWidget* parent = 0);
+    explicit BookmarksIcon(QWidget* parent = 0);
 
     void setWebView(WebView* view);
     void checkBookmark(const QUrl &url, bool forceCheck = false);
@@ -53,4 +53,4 @@ private:
     QUrl m_lastUrl;
 };
 
-#endif // BOOKMARKICON_H
+#endif // BOOKMARKSICON_H

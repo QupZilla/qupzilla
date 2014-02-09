@@ -27,7 +27,7 @@ class QLabel;
 class PopupSiteIcon;
 class PopupWebView;
 class AutoFillIcon;
-class BookmarkIcon;
+class BookmarksIcon;
 class RssIcon;
 
 class QT_QUPZILLA_EXPORT PopupLocationBar : public LineEdit
@@ -56,7 +56,7 @@ private:
 
     PopupSiteIcon* m_siteIcon;
     AutoFillIcon* m_autofillIcon;
-    BookmarkIcon* m_bookmarkIcon;
+    BookmarksIcon* m_bookmarkIcon;
     RssIcon* m_rssIcon;
 };
 

@@ -15,7 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "bookmarkicon.h"
+#include "bookmarksicon.h"
 #include "bookmarkswidget.h"
 #include "bookmarks.h"
 #include "mainapplication.h"
@@ -27,7 +27,7 @@
 #include <QStyle>
 #include <QContextMenuEvent>
 
-BookmarkIcon::BookmarkIcon(QWidget* parent)
+BookmarksIcon::BookmarksIcon(QWidget* parent)
     : ClickableLabel(parent)
     , m_view(0)
     , m_bookmark(0)
@@ -45,12 +45,12 @@ BookmarkIcon::BookmarkIcon(QWidget* parent)
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(iconClicked()));
 }
 
-void BookmarkIcon::setWebView(WebView* view)
+void BookmarksIcon::setWebView(WebView* view)
 {
     m_view = view;
 }
 
-void BookmarkIcon::checkBookmark(const QUrl &url, bool forceCheck)
+void BookmarksIcon::checkBookmark(const QUrl &url, bool forceCheck)
 {
     if (!forceCheck && m_lastUrl == url) {
         return;
@@ -69,17 +69,17 @@ void BookmarkIcon::checkBookmark(const QUrl &url, bool forceCheck)
     m_lastUrl = url;
 }
 
-void BookmarkIcon::bookmarksChanged()
+void BookmarksIcon::bookmarksChanged()
 {
     checkBookmark(m_lastUrl, true);
 }
 
-void BookmarkIcon::speedDialChanged()
+void BookmarksIcon::speedDialChanged()
 {
     checkBookmark(m_lastUrl, true);
 }
 
-void BookmarkIcon::iconClicked()
+void BookmarksIcon::iconClicked()
 {
     if (!m_view || m_view->url().scheme() == QLatin1String("qupzilla")) {
         return;
@@ -89,7 +89,7 @@ void BookmarkIcon::iconClicked()
     widget->showAt(parentWidget());
 }
 
-void BookmarkIcon::setBookmarkSaved()
+void BookmarksIcon::setBookmarkSaved()
 {
     setProperty("bookmarked", QVariant(true));
     style()->unpolish(this);
@@ -97,7 +97,7 @@ void BookmarkIcon::setBookmarkSaved()
     setToolTip(tr("Edit this bookmark"));
 }
 
-void BookmarkIcon::setBookmarkDisabled()
+void BookmarksIcon::setBookmarkDisabled()
 {
     setProperty("bookmarked", QVariant(false));
     style()->unpolish(this);
@@ -105,13 +105,13 @@ void BookmarkIcon::setBookmarkDisabled()
     setToolTip(tr("Bookmark this Page"));
 }
 
-void BookmarkIcon::contextMenuEvent(QContextMenuEvent* ev)
+void BookmarksIcon::contextMenuEvent(QContextMenuEvent* ev)
 {
     // Prevent propagating to LocationBar
     ev->accept();
 }
 
-void BookmarkIcon::mousePressEvent(QMouseEvent* ev)
+void BookmarksIcon::mousePressEvent(QMouseEvent* ev)
 {
     ClickableLabel::mousePressEvent(ev);
 

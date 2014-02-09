@@ -133,7 +133,6 @@ SOURCES += \
     adblock/adblockicon.cpp \
     tools/docktitlebarwidget.cpp \
     sidebar/bookmarkssidebar.cpp \
-    bookmarks/bookmarkicon.cpp \
     sidebar/historysidebar.cpp \
     desktopnotifications/desktopnotification.cpp \
     desktopnotifications/desktopnotificationsfactory.cpp \
@@ -225,7 +224,6 @@ SOURCES += \
     network/schemehandlers/adblockschemehandler.cpp \
     network/schemehandlers/fileschemehandler.cpp \
     tools/listitemdelegate.cpp \
-    bookmarks/bookmarkstree.cpp \
     tools/html5permissions/html5permissionsmanager.cpp \
     tools/html5permissions/html5permissionsnotification.cpp \
     tools/html5permissions/html5permissionsdialog.cpp \
@@ -258,7 +256,8 @@ SOURCES += \
     bookmarks/bookmarksmodel.cpp \
     bookmarks/bookmarkstreeview.cpp \
     bookmarks/bookmarkstools.cpp \
-    bookmarks/bookmarksmenu.cpp
+    bookmarks/bookmarksmenu.cpp \
+    bookmarks/bookmarksicon.cpp
 
 
 HEADERS  += \
@@ -322,7 +321,6 @@ HEADERS  += \
     adblock/adblockicon.h \
     tools/docktitlebarwidget.h \
     sidebar/bookmarkssidebar.h \
-    bookmarks/bookmarkicon.h \
     sidebar/historysidebar.h \
     desktopnotifications/desktopnotification.h \
     desktopnotifications/desktopnotificationsfactory.h \
@@ -417,7 +415,6 @@ HEADERS  += \
     network/schemehandlers/adblockschemehandler.h \
     network/schemehandlers/fileschemehandler.h \
     tools/listitemdelegate.h \
-    bookmarks/bookmarkstree.h \
     tools/html5permissions/html5permissionsmanager.h \
     tools/html5permissions/html5permissionsnotification.h \
     tools/html5permissions/html5permissionsdialog.h \
@@ -452,7 +449,8 @@ HEADERS  += \
     bookmarks/bookmarksmodel.h \
     bookmarks/bookmarkstreeview.h \
     bookmarks/bookmarkstools.h \
-    bookmarks/bookmarksmenu.h
+    bookmarks/bookmarksmenu.h \
+    bookmarks/bookmarksicon.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

@@ -29,7 +29,7 @@ class LineEdit;
 class LocationCompleter;
 class ClickableLabel;
 class TabbedWebView;
-class BookmarkIcon;
+class BookmarksIcon;
 class SiteIcon;
 class GoIcon;
 class RssIcon;
@@ -105,7 +105,7 @@ private:
 
     LocationCompleter m_completer;
 
-    BookmarkIcon* m_bookmarkIcon;
+    BookmarksIcon* m_bookmarkIcon;
     GoIcon* m_goIcon;
     RssIcon* m_rssIcon;
     SiteIcon* m_siteIcon;
