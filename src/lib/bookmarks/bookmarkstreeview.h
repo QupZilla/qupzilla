@@ -77,6 +77,7 @@ private:
     void restoreExpandedState(const QModelIndex &parent);
     void rowsInserted(const QModelIndex &parent, int start, int end);
 
+    void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
     void keyPressEvent(QKeyEvent* event);

@@ -61,10 +61,12 @@ void BookmarksTreeView::setViewType(BookmarksTreeView::ViewType type)
     case BookmarksManagerViewType:
         setColumnHidden(1, false);
         setHeaderHidden(false);
+        setMouseTracking(false);
         break;
     case BookmarksSidebarViewType:
         setColumnHidden(1, true);
         setHeaderHidden(true);
+        setMouseTracking(true);
         break;
     default:
         break;
@@ -175,6 +177,22 @@ void BookmarksTreeView::rowsInserted(const QModelIndex &parent, int start, int e
     QTreeView::rowsInserted(parent, start, end);
 }
 
+void BookmarksTreeView::mouseMoveEvent(QMouseEvent* event)
+{
+    if (m_type == BookmarksSidebarViewType) {
+        QCursor cursor = Qt::ArrowCursor;
+        if (event->buttons() == Qt::NoButton) {
+            QModelIndex index = indexAt(event->pos());
+            if (index.isValid() && index.data(BookmarksModel::TypeRole).toInt() == BookmarkItem::Url) {
+                cursor = Qt::PointingHandCursor;
+            }
+        }
+        setCursor(cursor);
+    }
+
+    QTreeView::mouseMoveEvent(event);
+}
+
 void BookmarksTreeView::mousePressEvent(QMouseEvent* event)
 {
     QTreeView::mousePressEvent(event);
@@ -192,6 +210,11 @@ void BookmarksTreeView::mousePressEvent(QMouseEvent* event)
             }
             else if (buttons == Qt::MiddleButton || modifiers == Qt::ControlModifier) {
                 emit bookmarkCtrlActivated(item);
+            }
+
+            // Activate bookmarks with single mouse click in Sidebar
+            if (m_type == BookmarksSidebarViewType && buttons == Qt::LeftButton && modifiers == Qt::NoModifier) {
+                emit bookmarkActivated(item);
             }
         }
     }
