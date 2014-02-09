@@ -70,6 +70,11 @@ void BookmarksTreeView::setViewType(BookmarksTreeView::ViewType type)
     restoreExpandedState(QModelIndex());
 }
 
+BookmarksModel* BookmarksTreeView::model() const
+{
+    return m_model;
+}
+
 BookmarkItem* BookmarksTreeView::selectedBookmark() const
 {
     QList<BookmarkItem*> items = selectedBookmarks();
@@ -86,6 +91,27 @@ QList<BookmarkItem*> BookmarksTreeView::selectedBookmarks() const
     }
 
     return items;
+}
+
+void BookmarksTreeView::selectBookmark(BookmarkItem* item)
+{
+    QModelIndex col0 = m_model->index(item, 0);
+    QModelIndex col1 = m_model->index(item, 1);
+
+    selectionModel()->clearSelection();
+    selectionModel()->select(col0, QItemSelectionModel::Select);
+    selectionModel()->select(col1, QItemSelectionModel::Select);
+}
+
+void BookmarksTreeView::ensureBookmarkVisible(BookmarkItem* item)
+{
+    QModelIndex index = m_model->index(item);
+    QModelIndex parent = m_model->parent(index);
+
+    while (parent.isValid()) {
+        setExpanded(parent, true);
+        parent = m_model->parent(parent);
+    }
 }
 
 void BookmarksTreeView::indexExpanded(const QModelIndex &parent)

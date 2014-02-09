@@ -115,13 +115,8 @@ void BookmarksMenu::openFolder(BookmarkItem* item)
 {
     Q_ASSERT(item->isFolder());
 
-    foreach (BookmarkItem* child, item->children()) {
-        if (child->isUrl()) {
-            openBookmarkInNewTab(child);
-        }
-        else if (child->isFolder()) {
-            openFolder(child);
-        }
+    if (m_window) {
+        BookmarksTools::openFolderInTabs(m_window, item);
     }
 }
 
@@ -218,6 +213,10 @@ void BookmarksMenu::addFolder(Menu* menu, BookmarkItem* folder)
 
     foreach (BookmarkItem* child, folder->children()) {
         addItem(m, child);
+    }
+
+    if (folder->children().isEmpty()) {
+        m->addAction(tr("Empty"))->setDisabled(true);
     }
 }
 

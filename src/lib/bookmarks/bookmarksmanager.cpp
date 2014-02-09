@@ -291,8 +291,10 @@ void BookmarksManager::addBookmark(BookmarkItem* item)
     BookmarkItem* parent = parentForNewBookmark();
     Q_ASSERT(parent);
 
-    // TODO: Make sure parent is expanded
     m_bookmarks->addBookmark(parent, item);
+
+    ui->tree->selectBookmark(item);
+    ui->tree->ensureBookmarkVisible(item);
 }
 
 BookmarkItem* BookmarksManager::parentForNewBookmark() const

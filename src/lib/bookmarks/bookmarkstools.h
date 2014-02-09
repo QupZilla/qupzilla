@@ -81,6 +81,7 @@ public:
     static void openBookmark(QupZilla* window, BookmarkItem* item);
     static void openBookmarkInNewTab(QupZilla* window, BookmarkItem* item);
     static void openBookmarkInNewWindow(BookmarkItem* item);
+    static void openFolderInTabs(QupZilla* window, BookmarkItem* folder);
 };
 
 #endif // BOOKMARKSTOOLS_H

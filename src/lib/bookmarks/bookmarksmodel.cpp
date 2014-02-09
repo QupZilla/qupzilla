@@ -292,7 +292,7 @@ QModelIndex BookmarksModel::index(int row, int column, const QModelIndex &parent
     return createIndex(row, column, parentItem->children().at(row));
 }
 
-QModelIndex BookmarksModel::index(BookmarkItem* item) const
+QModelIndex BookmarksModel::index(BookmarkItem* item, int column) const
 {
     BookmarkItem* parent = item->parent();
 
@@ -300,7 +300,7 @@ QModelIndex BookmarksModel::index(BookmarkItem* item) const
         return QModelIndex();
     }
 
-    return createIndex(parent->children().indexOf(item), 0, item);
+    return createIndex(parent->children().indexOf(item), column, item);
 }
 
 BookmarkItem* BookmarksModel::item(const QModelIndex &index) const

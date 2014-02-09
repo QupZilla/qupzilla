@@ -61,7 +61,7 @@ public:
 
     QModelIndex parent(const QModelIndex &child) const;
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
-    QModelIndex index(BookmarkItem* item) const;
+    QModelIndex index(BookmarkItem* item, int column = 0) const;
 
     BookmarkItem* item(const QModelIndex &index) const;
 

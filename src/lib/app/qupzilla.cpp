@@ -1384,9 +1384,14 @@ void QupZilla::loadActionUrlInNewNotSelectedTab(QObject* obj)
 
 void QupZilla::loadAddress(const QUrl &url)
 {
-    // TOOD: If current tab is pinned, it should open new tab instead
-    weView()->setFocus();
-    weView()->load(url);
+    if (weView()->webTab()->isPinned()) {
+        int index = m_tabWidget->addView(url, qzSettings->newTabPosition);
+        weView(index)->setFocus();
+    }
+    else {
+        weView()->setFocus();
+        weView()->load(url);
+    }
 }
 
 void QupZilla::showCookieManager()

@@ -219,30 +219,53 @@ void BookmarksTools::openBookmark(QupZilla* window, BookmarkItem* item)
 {
     Q_ASSERT(window);
 
-    // TODO: Open all children in tabs for folder?
     if (!item || !item->isUrl()) {
         return;
     }
 
-    item->setVisitCount(item->visitCount() + 1);
-    window->loadAddress(item->url());
+    if (item->isFolder()) {
+        openFolderInTabs(window, item);
+    }
+    else if (item->isUrl()) {
+        item->setVisitCount(item->visitCount() + 1);
+        window->loadAddress(item->url());
+    }
 }
 
 void BookmarksTools::openBookmarkInNewTab(QupZilla* window, BookmarkItem* item)
 {
     Q_ASSERT(window);
 
-    // TODO: Open all children in tabs for folder?
-    if (!item || !item->isUrl()) {
+    if (!item) {
         return;
     }
 
-    item->setVisitCount(item->visitCount() + 1);
-    window->tabWidget()->addView(item->url(), item->title(), qzSettings->newTabPosition);
+    if (item->isFolder()) {
+        openFolderInTabs(window, item);
+    }
+    else if (item->isUrl()) {
+        item->setVisitCount(item->visitCount() + 1);
+        window->tabWidget()->addView(item->url(), item->title(), qzSettings->newTabPosition);
+    }
 }
 
 void BookmarksTools::openBookmarkInNewWindow(BookmarkItem* item)
 {
     item->setVisitCount(item->visitCount() + 1);
     mApp->makeNewWindow(Qz::BW_NewWindow, item->url());
+}
+
+void BookmarksTools::openFolderInTabs(QupZilla* window, BookmarkItem* folder)
+{
+    Q_ASSERT(window);
+    Q_ASSERT(folder->isFolder());
+
+    foreach (BookmarkItem* child, folder->children()) {
+        if (child->isUrl()) {
+            openBookmarkInNewTab(window, child);
+        }
+        else if (child->isFolder()) {
+            openFolderInTabs(window, child);
+        }
+    }
 }

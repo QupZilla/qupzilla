@@ -41,10 +41,16 @@ public:
     ViewType viewType() const;
     void setViewType(ViewType type);
 
+    BookmarksModel* model() const;
+
     // Returns null if more than one (or zero) bookmarks are selected
     BookmarkItem* selectedBookmark() const;
     // Returns all selected bookmarks
     QList<BookmarkItem*> selectedBookmarks() const;
+
+    void selectBookmark(BookmarkItem* item);
+    // Expand up to root item
+    void ensureBookmarkVisible(BookmarkItem* item);
 
 signals:
     // Open bookmark in current tab
@@ -76,7 +82,6 @@ private:
     Bookmarks* m_bookmarks;
     BookmarksModel* m_model;
     ViewType m_type;
-
 };
 
 #endif // BOOKMARKSTREEVIEW_H

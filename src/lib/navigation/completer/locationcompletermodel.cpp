@@ -184,18 +184,14 @@ QString LocationCompleterModel::completeDomain(const QString &text)
 }
 
 QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const QString &orderBy,
-        const QList<QUrl> &alreadyFound, int limit, bool bookmarks, bool exactMatch)
+        const QList<QUrl> &alreadyFound, int limit, bool exactMatch)
 {
-    QString table = bookmarks ? "bookmarks" : "history";
+    // TODO: As bookmarks are no longer in database, replace table with "history"
+    QString table = "history";
     QString query = QString("SELECT %1.id, %1.url, %1.title, history.count").arg(table);
     QStringList searchList;
 
-    if (bookmarks) {
-        query.append(QLatin1String(", bookmarks.icon FROM bookmarks LEFT JOIN history ON bookmarks.url=history.url "));
-    }
-    else {
-        query.append(QLatin1String(" FROM history "));
-    }
+    query.append(QLatin1String(" FROM history "));
 
     query.append(QLatin1String("WHERE "));
     if (exactMatch) {
