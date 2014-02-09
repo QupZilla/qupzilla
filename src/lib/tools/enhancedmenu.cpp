@@ -60,12 +60,12 @@ void Menu::mouseReleaseEvent(QMouseEvent* e)
     }
     else if (e->button() == Qt::MiddleButton || (e->button() == Qt::LeftButton && e->modifiers() == Qt::ControlModifier)) {
         closeAllMenus();
-        act->triggerMiddleClick();
+        act->emitCtrlTriggered();
         e->accept();
     }
     else if (e->button() == Qt::LeftButton && e->modifiers() == Qt::ShiftModifier) {
         closeAllMenus();
-        act->triggerShiftClick();
+        act->emitShiftTriggered();
         e->accept();
     }
 }
@@ -92,12 +92,12 @@ void Menu::keyPressEvent(QKeyEvent* e)
     }
     else if (e->modifiers() == Qt::ControlModifier) {
         closeAllMenus();
-        act->triggerMiddleClick();
+        act->emitCtrlTriggered();
         e->accept();
     }
     else if (e->modifiers() == Qt::ShiftModifier) {
         closeAllMenus();
-        act->triggerShiftClick();
+        act->emitShiftTriggered();
         e->accept();
     }
 }
@@ -127,12 +127,12 @@ Action::Action(const QIcon &icon, const QString &text, QObject* parent)
 {
 }
 
-void Action::triggerMiddleClick()
+void Action::emitCtrlTriggered()
 {
-    emit middleClicked();
+    emit ctrlTriggered();
 }
 
-void Action::triggerShiftClick()
+void Action::emitShiftTriggered()
 {
-    emit shiftClicked();
+    emit shiftTriggered();
 }

@@ -1061,7 +1061,7 @@ void QupZilla::aboutToShowHistoryRecentMenu()
         Action* act = new Action(_iconForUrl(url), title);
         act->setData(url);
         connect(act, SIGNAL(triggered()), MENU_RECEIVER, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
+        connect(act, SIGNAL(ctrlTriggered()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
         m_menuHistoryRecent->addAction(act);
     }
 
@@ -1086,7 +1086,7 @@ void QupZilla::aboutToShowHistoryMostMenu()
         Action* act = new Action(_iconForUrl(entry.url), title);
         act->setData(entry.url);
         connect(act, SIGNAL(triggered()), MENU_RECEIVER, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
+        connect(act, SIGNAL(ctrlTriggered()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
         m_menuHistoryMost->addAction(act);
     }
 

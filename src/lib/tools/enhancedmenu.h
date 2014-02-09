@@ -53,12 +53,12 @@ public:
     explicit Action(const QIcon &icon, const QString &text, QObject* parent = 0);
 
 signals:
-    void middleClicked();
-    void shiftClicked();
+    void ctrlTriggered();
+    void shiftTriggered();
 
 public slots:
-    void triggerMiddleClick();
-    void triggerShiftClick();
+    void emitCtrlTriggered();
+    void emitShiftTriggered();
 
 };
 

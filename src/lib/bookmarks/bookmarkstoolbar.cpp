@@ -639,7 +639,7 @@ void BookmarksToolbar::aboutToShowFolderMenu()
         Action* act = new Action(qIconProvider->iconFromImage(b.image), title);
         act->setData(b.url);
         connect(act, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewNotSelectedTab()));
+        connect(act, SIGNAL(ctrlTriggered()), p_QupZilla, SLOT(loadActionUrlInNewNotSelectedTab()));
         menu->addAction(act);
     }
 
@@ -705,7 +705,7 @@ void BookmarksToolbar::refreshMostVisited()
         Action* act = new Action(_iconForUrl(entry.url), title);
         act->setData(entry.url);
         connect(act, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewNotSelectedTab()));
+        connect(act, SIGNAL(ctrlTriggered()), p_QupZilla, SLOT(loadActionUrlInNewNotSelectedTab()));
         m_menuMostVisited->addAction(act);
     }
 

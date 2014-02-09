@@ -227,8 +227,8 @@ void BookmarksMenu::addBookmark(Menu* menu, BookmarkItem* bookmark)
     act->setData(QVariant::fromValue<void*>(static_cast<void*>(bookmark)));
 
     connect(act, SIGNAL(triggered()), this, SLOT(bookmarkActivated()));
-    connect(act, SIGNAL(middleClicked()), this, SLOT(bookmarkCtrlActivated()));
-    connect(act, SIGNAL(shiftClicked()), this, SLOT(bookmarkShiftActivated()));
+    connect(act, SIGNAL(ctrlTriggered()), this, SLOT(bookmarkCtrlActivated()));
+    connect(act, SIGNAL(shiftTriggered()), this, SLOT(bookmarkShiftActivated()));
 
     menu->addAction(act);
 }
