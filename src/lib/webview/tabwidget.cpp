@@ -468,10 +468,15 @@ void TabWidget::closeTab(int index, bool force)
         }
     }
 
+    // Save last tab url and history
+    m_closedTabsManager->saveView(webTab, index);
+
     // window.onbeforeunload handling
     if (!webView->page()->mainFrame()->evaluateJavaScript("window.onbeforeunload===null").toBool()) {
         webView->load(QUrl());
         if (webView->url() != QUrl()) {
+            // We are not closing, let's remove the tab from history
+            m_closedTabsManager->takeLastClosedTab();
             return;
         }
     }
@@ -480,9 +485,6 @@ void TabWidget::closeTab(int index, bool force)
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     disconnect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     disconnect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
-
-    // Save last tab url and history
-    m_closedTabsManager->saveView(webTab, index);
 
     if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
         setCurrentIndex(m_lastTabIndex);
@@ -749,10 +751,10 @@ void TabWidget::restoreClosedTab(QObject* obj)
 
     QAction* action = qobject_cast<QAction*>(obj);
     if (action && action->data().toInt() != 0) {
-        tab = m_closedTabsManager->getTabAt(action->data().toInt());
+        tab = m_closedTabsManager->takeTabAt(action->data().toInt());
     }
     else {
-        tab = m_closedTabsManager->getFirstClosedTab();
+        tab = m_closedTabsManager->takeLastClosedTab();
     }
 
     if (tab.position < 0) {
@@ -770,7 +772,7 @@ void TabWidget::restoreAllClosedTabs()
         return;
     }
 
-    const QVector<ClosedTabsManager::Tab> &closedTabs = m_closedTabsManager->allClosedTabs();
+    const QLinkedList<ClosedTabsManager::Tab> &closedTabs = m_closedTabsManager->allClosedTabs();
 
     foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
         int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab);
