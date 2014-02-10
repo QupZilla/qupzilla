@@ -43,7 +43,6 @@ public:
     QSize minimumSizeHint() const;
 
 private slots:
-    void bookmarkRemoved(BookmarkItem* bookmark);
     void createMenu();
 
     void menuMiddleClicked(Menu* menu);

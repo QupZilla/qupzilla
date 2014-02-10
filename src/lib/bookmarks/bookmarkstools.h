@@ -23,6 +23,7 @@
 
 #include "qz_namespace.h"
 
+class Bookmarks;
 class BookmarkItem;
 
 class QT_QUPZILLA_EXPORT BookmarksFoldersMenu : public QMenu
@@ -92,6 +93,9 @@ public:
     static void addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem* folder);
     static void addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* bookmark);
     static void addSeparatorToMenu(Menu* menu, BookmarkItem* separator);
+
+    // Migration from Sql Bookmarks (returns true if bookmarks migrated)
+    static bool migrateBookmarksIfNecessary(Bookmarks* bookmarks);
 };
 
 #endif // BOOKMARKSTOOLS_H

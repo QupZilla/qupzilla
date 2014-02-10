@@ -78,6 +78,7 @@ signals:
 
 private:
     void init();
+    void loadBookmarks();
     void saveBookmarks();
 
     void loadBookmarksFromMap(const QVariantMap &map);

@@ -18,6 +18,7 @@
 #include "bookmarks.h"
 #include "bookmarkitem.h"
 #include "bookmarksmodel.h"
+#include "bookmarkstools.h"
 #include "mainapplication.h"
 #include "qztools.h"
 #include "webview.h"
@@ -263,6 +264,16 @@ void Bookmarks::init()
     m_folderUnsorted->setTitle(tr("Unsorted Bookmarks"));
     m_folderUnsorted->setDescription(tr("All other bookmarks"));
 
+    if (!BookmarksTools::migrateBookmarksIfNecessary(this)) {
+        loadBookmarks();
+    }
+
+    m_lastFolder = m_folderUnsorted;
+    m_model = new BookmarksModel(this, this);
+}
+
+void Bookmarks::loadBookmarks()
+{
     const QString bookmarksFile = mApp->currentProfilePath() + QLatin1String("/bookmarks.json");
     const QString backupFile = bookmarksFile + QLatin1String(".old");
 
@@ -293,9 +304,6 @@ void Bookmarks::init()
     else {
         loadBookmarksFromMap(res.toMap().value("roots").toMap());
     }
-
-    m_lastFolder = m_folderUnsorted;
-    m_model = new BookmarksModel(this, this);
 }
 
 void Bookmarks::saveBookmarks()

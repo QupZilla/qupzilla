@@ -70,7 +70,7 @@ void IconProvider::saveIcon(WebView* view)
 
 QImage IconProvider::iconForUrl(const QUrl &url)
 {
-    if (url.isEmpty()) {
+    if (url.path().isEmpty()) {
         return IconProvider::emptyWebImage();
     }
 

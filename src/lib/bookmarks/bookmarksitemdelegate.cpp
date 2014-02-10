@@ -39,7 +39,7 @@ void BookmarksItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem 
         opt.frameShape = QFrame::HLine;
         opt.rect = option.rect;
 
-        // We need to fake continous line over 2 columns
+        // We need to fake continuous line over 2 columns
         if (m_tree->viewType() == BookmarksTreeView::BookmarksManagerViewType) {
             if (index.column() == 1) {
                 opt.rect = m_lastRect;

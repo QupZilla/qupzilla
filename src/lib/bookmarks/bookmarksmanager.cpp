@@ -300,8 +300,15 @@ void BookmarksManager::addBookmark(BookmarkItem* item)
 
     m_bookmarks->addBookmark(parent, item);
 
+    // Select newly added bookmark
     ui->tree->selectBookmark(item);
     ui->tree->ensureBookmarkVisible(item);
+
+    // Start editing title
+    if (!item->isSeparator()) {
+        ui->title->setFocus();
+        ui->title->selectAll();
+    }
 }
 
 BookmarkItem* BookmarksManager::parentForNewBookmark() const

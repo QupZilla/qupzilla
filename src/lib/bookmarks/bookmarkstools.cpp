@@ -25,6 +25,8 @@
 #include "qzsettings.h"
 #include "qupzilla.h"
 
+#include <iostream>
+#include <QSqlQuery>
 #include <QDialogButtonBox>
 #include <QBoxLayout>
 #include <QLabel>
@@ -338,4 +340,55 @@ void BookmarksTools::addSeparatorToMenu(Menu* menu, BookmarkItem* separator)
     Q_ASSERT(separator->isSeparator());
 
     menu->addSeparator();
+}
+
+bool BookmarksTools::migrateBookmarksIfNecessary(Bookmarks* bookmarks)
+{
+    QSqlQuery query;
+    query.exec("SELECT name FROM sqlite_master WHERE type='table' AND name='folders'");
+
+    if (!query.next()) {
+        return false;
+    }
+
+    std::cout << "Bookmarks: Migrating your bookmarks from SQLite to JSON..." << std::endl;
+
+    QHash<QString, BookmarkItem*> folders;
+    folders.insert("bookmarksToolbar", bookmarks->toolbarFolder());
+    folders.insert("bookmarksMenu", bookmarks->menuFolder());
+    folders.insert("unsorted", bookmarks->unsortedFolder());
+
+    query.exec("SELECT name, subfolder FROM folders");
+    while (query.next()) {
+        const QString title = query.value(0).toString();
+        bool subfolder = query.value(1).toString() == QLatin1String("yes");
+
+        BookmarkItem* folder = new BookmarkItem(BookmarkItem::Folder, subfolder ? bookmarks->toolbarFolder() : 0);
+        folder->setTitle(title);
+        folders.insert(folder->title(), folder);
+    }
+
+    query.exec("SELECT title, folder, url FROM bookmarks ORDER BY position ASC");
+    while (query.next()) {
+        const QString title = query.value(0).toString();
+        const QString folder = query.value(1).toString();
+        const QUrl url = query.value(2).toUrl();
+
+        BookmarkItem* parent = folders.value(folder);
+        if (folder.isEmpty()) {
+            parent = bookmarks->unsortedFolder();
+        }
+        Q_ASSERT(parent);
+
+        BookmarkItem* bookmark = new BookmarkItem(BookmarkItem::Url, parent);
+        bookmark->setTitle(title);
+        bookmark->setUrl(url);
+    }
+
+    query.exec("DROP TABLE folders");
+    query.exec("DROP TABLE bookmarks");
+    query.exec("VACUUM");
+
+    std::cout << "Bookmarks: Bookmarks successfully migrated!" << std::endl;
+    return true;
 }
