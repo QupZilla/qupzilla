@@ -79,6 +79,7 @@ private:
 
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
     void keyPressEvent(QKeyEvent* event);
 
@@ -86,6 +87,9 @@ private:
     BookmarksModel* m_model;
     BookmarksFilterModel* m_filter;
     ViewType m_type;
+
+    Qt::MouseButtons m_buttons;
+    Qt::KeyboardModifiers m_modifiers;
 };
 
 #endif // BOOKMARKSTREEVIEW_H

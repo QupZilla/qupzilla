@@ -108,7 +108,6 @@ void BrowsingLibrary::importBookmarks()
 
 void BrowsingLibrary::exportBookmarks()
 {
-
 }
 
 void BrowsingLibrary::showHistory(QupZilla* mainClass)

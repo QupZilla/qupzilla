@@ -31,6 +31,8 @@ BookmarksTreeView::BookmarksTreeView(QWidget* parent)
     , m_model(m_bookmarks->model())
     , m_filter(new BookmarksFilterModel(m_model))
     , m_type(BookmarksManagerViewType)
+    , m_buttons(Qt::NoButton)
+    , m_modifiers(Qt::NoModifier)
 {
     setModel(m_filter);
     setDragEnabled(true);
@@ -179,6 +181,8 @@ void BookmarksTreeView::rowsInserted(const QModelIndex &parent, int start, int e
 
 void BookmarksTreeView::mouseMoveEvent(QMouseEvent* event)
 {
+    QTreeView::mouseMoveEvent(event);
+
     if (m_type == BookmarksSidebarViewType) {
         QCursor cursor = Qt::ArrowCursor;
         if (event->buttons() == Qt::NoButton) {
@@ -190,11 +194,13 @@ void BookmarksTreeView::mouseMoveEvent(QMouseEvent* event)
         setCursor(cursor);
     }
 
-    QTreeView::mouseMoveEvent(event);
 }
 
 void BookmarksTreeView::mousePressEvent(QMouseEvent* event)
 {
+    m_buttons = event->buttons();
+    m_modifiers = event->modifiers();
+
     QTreeView::mousePressEvent(event);
 
     if (selectionModel()->selectedRows().count() == 1) {
@@ -211,13 +217,29 @@ void BookmarksTreeView::mousePressEvent(QMouseEvent* event)
             else if (buttons == Qt::MiddleButton || modifiers == Qt::ControlModifier) {
                 emit bookmarkCtrlActivated(item);
             }
+        }
+    }
+}
+
+void BookmarksTreeView::mouseReleaseEvent(QMouseEvent* event)
+{
+    QTreeView::mouseReleaseEvent(event);
+
+    if (selectionModel()->selectedRows().count() == 1) {
+        QModelIndex index = indexAt(event->pos());
+
+        if (index.isValid()) {
+            BookmarkItem* item = m_model->item(m_filter->mapToSource(index));
 
             // Activate bookmarks with single mouse click in Sidebar
-            if (m_type == BookmarksSidebarViewType && buttons == Qt::LeftButton && modifiers == Qt::NoModifier) {
+            if (m_type == BookmarksSidebarViewType && m_buttons == Qt::LeftButton && m_modifiers == Qt::NoModifier) {
                 emit bookmarkActivated(item);
             }
         }
     }
+
+    m_buttons = Qt::NoButton;
+    m_modifiers = Qt::NoModifier;
 }
 
 void BookmarksTreeView::mouseDoubleClickEvent(QMouseEvent* event)
