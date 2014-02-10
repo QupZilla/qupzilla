@@ -12,12 +12,9 @@ DEFINES *= QUPZILLA_SHAREDLIBRARY
 include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
 include(../../translations/translations.pri)
+include(plugins/qtwebkit/qtwebkit-plugins.pri)
 
 CONFIG(debug, debug|release): include(../../tests/modeltest/modeltest.pri)
-
-!mac:contains(DEFINES, USE_QTWEBKIT_2_2) {
-    include(plugins/qtwebkit/qtwebkit-plugins.pri)
-}
 
 unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
 

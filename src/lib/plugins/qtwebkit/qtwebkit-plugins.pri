@@ -1,23 +1,47 @@
-HEADERS += $$PWD/qtwebkitplugin.h \
-           $$PWD/notifications/notificationpresenter.h \
-           $$[QT_INSTALL_HEADERS]/QtWebKit/qwebkitplatformplugin.h \
+# Unix
+!mac:unix {
+    buildNotifications = true
 
-
-SOURCES += $$PWD/qtwebkitplugin.cpp \
-           $$PWD/notifications/notificationpresenter.cpp \
-
-DEFINES *= QT_STATICPLUGIN
-
-
-!mac:unix:contains(DEFINES, USE_QTWEBKIT_2_3):system(pkg-config --exists hunspell) {
-    buildSpellcheck = true
-    LIBS += $$system(pkg-config --libs hunspell)
+    contains(DEFINES, USE_QTWEBKIT_2_3):system(pkg-config --exists hunspell) {
+        buildSpellcheck = true
+        LIBS += $$system(pkg-config --libs hunspell)
+    }
 }
 
+# Mac OS X
+mac {
+    buildPlugin = false
+}
+
+# Windows
 win32 {
-    # QtWebKit 2.3 and Hunspell is now needed to build on Windows
-    buildSpellcheck = true
-    LIBS += -llibhunspell
+    win32-msvc* {
+        # QtWebKit 2.3 and Hunspell is now needed to build on Windows
+        buildNotifications = true
+        buildSpellcheck = true
+        LIBS += -llibhunspell
+    }
+    else { # mingw
+        buildPlugin = false
+    }
+}
+
+!equals(buildPlugin, false) {
+    HEADERS += $$PWD/qtwebkitplugin.h \
+               $$[QT_INSTALL_HEADERS]/QtWebKit/qwebkitplatformplugin.h
+
+    SOURCES += $$PWD/qtwebkitplugin.cpp
+
+    DEFINES *= QT_STATICPLUGIN
+}
+else {
+    buildNotifications = false
+    buildSpellcheck = false
+}
+
+equals(buildNotifications, true) {
+    HEADERS += $$PWD/notifications/notificationpresenter.h
+    SOURCES += $$PWD/notifications/notificationpresenter.cpp
 }
 
 equals(buildSpellcheck, true) {

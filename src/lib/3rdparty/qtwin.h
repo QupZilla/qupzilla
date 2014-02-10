@@ -39,7 +39,9 @@
   */
 #ifdef Q_OS_WIN
 // Qt5 compile issue: http://comments.gmane.org/gmane.comp.lib.qt.user/4711
+#ifndef __MINGW32__
 #define NOMINMAX
+#endif
 #ifdef W7API
 #include <ShlObj.h>
 #include <shlwapi.h>

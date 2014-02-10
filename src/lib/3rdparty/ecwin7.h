@@ -27,7 +27,9 @@
 
 // Windows only data definitions
 #ifdef W7TASKBAR
+#ifndef __MINGW32__
 #define NOMINMAX
+#endif
 #include <windows.h>
 #include <initguid.h>
 #define CMIC_MASK_ASYNCOK SEE_MASK_ASYNCOK
