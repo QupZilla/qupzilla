@@ -59,8 +59,7 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
 
 void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
 {
-    QPoint globalPos = mapToGlobal(pos);
-    BookmarksToolbarButton* button = qobject_cast<BookmarksToolbarButton*>(QApplication::widgetAt(globalPos));
+    BookmarksToolbarButton* button = buttonAt(pos);
     m_clickedBookmark = button ? button->bookmark() : 0;
 
     QMenu menu;
@@ -82,48 +81,9 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
     actNewTab->setEnabled(m_clickedBookmark && m_clickedBookmark->isUrl());
     actNewWindow->setEnabled(m_clickedBookmark && m_clickedBookmark->isUrl());
 
-    menu.exec(globalPos);
+    menu.exec(mapToGlobal(pos));
 
     m_clickedBookmark = 0;
-}
-
-void BookmarksToolbar::addItem(BookmarkItem* item)
-{
-    Q_ASSERT(item);
-
-    switch (item->type()) {
-    case BookmarkItem::Folder:
-    case BookmarkItem::Url: {
-        BookmarksToolbarButton* button = new BookmarksToolbarButton(item, this);
-        button->setMainWindow(m_window);
-        button->setShowOnlyIcon(m_bookmarks->showOnlyIconsInToolbar());
-        m_layout->addWidget(button);
-        break;
-    }
-
-    case BookmarkItem::Separator: {
-        QFrame* separator = new QFrame(this);
-        separator->setFrameShape(QFrame::VLine);
-        m_layout->addWidget(separator);
-        break;
-    }
-
-    default:
-        break;
-    }
-}
-
-void BookmarksToolbar::clear()
-{
-    int count = m_layout->count();
-
-    for (int i = 0; i < count; ++i) {
-        QLayoutItem* item = m_layout->takeAt(0);
-        delete item->widget();
-        delete item;
-    }
-
-    Q_ASSERT(m_layout->isEmpty());
 }
 
 void BookmarksToolbar::refresh()
@@ -176,22 +136,72 @@ void BookmarksToolbar::deleteBookmark()
     }
 }
 
+void BookmarksToolbar::clear()
+{
+    int count = m_layout->count();
+
+    for (int i = 0; i < count; ++i) {
+        QLayoutItem* item = m_layout->takeAt(0);
+        delete item->widget();
+        delete item;
+    }
+
+    Q_ASSERT(m_layout->isEmpty());
+}
+
+void BookmarksToolbar::addItem(BookmarkItem* item)
+{
+    Q_ASSERT(item);
+
+    switch (item->type()) {
+    case BookmarkItem::Folder:
+    case BookmarkItem::Url: {
+        BookmarksToolbarButton* button = new BookmarksToolbarButton(item, this);
+        button->setMainWindow(m_window);
+        button->setShowOnlyIcon(m_bookmarks->showOnlyIconsInToolbar());
+        m_layout->addWidget(button);
+        break;
+    }
+
+    case BookmarkItem::Separator: {
+        QFrame* separator = new QFrame(this);
+        separator->setFrameShape(QFrame::VLine);
+        m_layout->addWidget(separator);
+        break;
+    }
+
+    default:
+        break;
+    }
+}
+
+BookmarksToolbarButton* BookmarksToolbar::buttonAt(const QPoint &pos)
+{
+    return qobject_cast<BookmarksToolbarButton*>(QApplication::widgetAt(mapToGlobal(pos)));
+}
+
 void BookmarksToolbar::dropEvent(QDropEvent* e)
 {
     const QMimeData* mime = e->mimeData();
 
-    if (!mime->hasUrls() || !mime->hasText()) {
+    if (!mime->hasUrls()) {
         QWidget::dropEvent(e);
         return;
     }
 
-    QString title = mime->text();
     QUrl url = mime->urls().at(0);
+    QString title = mime->hasText() ? mime->text() : url.toEncoded(QUrl::RemoveScheme);
+
+    BookmarkItem* parent = m_bookmarks->toolbarFolder();
+    BookmarksToolbarButton* button = buttonAt(e->pos());
+    if (button && button->bookmark()->isFolder()) {
+        parent = button->bookmark();
+    }
 
     BookmarkItem* bookmark = new BookmarkItem(BookmarkItem::Url);
     bookmark->setTitle(title);
     bookmark->setUrl(url);
-    m_bookmarks->addBookmark(m_bookmarks->toolbarFolder(), bookmark);
+    m_bookmarks->addBookmark(parent, bookmark);
 }
 
 void BookmarksToolbar::dragEnterEvent(QDragEnterEvent* e)

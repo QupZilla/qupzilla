@@ -28,6 +28,7 @@ class QTimer;
 class QupZilla;
 class Bookmarks;
 class BookmarkItem;
+class BookmarksToolbarButton;
 
 class QT_QUPZILLA_EXPORT BookmarksToolbar : public QWidget
 {
@@ -49,6 +50,7 @@ private slots:
 private:
     void clear();
     void addItem(BookmarkItem* item);
+    BookmarksToolbarButton* buttonAt(const QPoint &pos);
 
     void dropEvent(QDropEvent* e);
     void dragEnterEvent(QDragEnterEvent* e);
