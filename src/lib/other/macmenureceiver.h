@@ -118,7 +118,7 @@ private slots:
     void zoomIn();
     void zoomOut();
     void zoomReset();
-    void toggleFullScreen(bool make);
+    void toggleFullScreen();
     void changeEncoding(QObject* obj = 0);
 
     void triggerCaretBrowsing();
