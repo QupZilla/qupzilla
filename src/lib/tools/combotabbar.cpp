@@ -828,6 +828,21 @@ void TabBarHelper::setActiveTabBar(bool activate)
     }
 }
 
+void TabBarHelper::removeTab(int index)
+{
+    // Removing tab in inactive tabbar will change current index and thus
+    // changing active tabbar, which is really not wanted.
+    if (!m_activeTabBar) {
+        blockSignals(true);
+    }
+
+    QTabBar::removeTab(index);
+
+    if (!m_activeTabBar) {
+        blockSignals(false);
+    }
+}
+
 void TabBarHelper::setScrollArea(QScrollArea* scrollArea)
 {
     m_scrollArea = scrollArea;
