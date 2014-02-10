@@ -25,8 +25,6 @@
 #include "settings.h"
 #include "json.h"
 
-#include <QSqlQuery>
-#include <QTextStream>
 #include <QDebug>
 #include <QFile>
 
