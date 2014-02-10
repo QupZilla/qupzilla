@@ -13,10 +13,7 @@ include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
 include(../../translations/translations.pri)
 #include(../../tests/modeltest/modeltest.pri)
-
-!mac:contains(DEFINES, USE_QTWEBKIT_2_2) {
-    include(plugins/qtwebkit/qtwebkit-plugins.pri)
-}
+include(plugins/qtwebkit/qtwebkit-plugins.pri)
 
 unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
 

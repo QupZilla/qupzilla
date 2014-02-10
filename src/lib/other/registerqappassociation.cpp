@@ -149,6 +149,7 @@ bool RegisterQAppAssociation::isVistaOrNewer()
 void RegisterQAppAssociation::registerAssociation(const QString &assocName, AssociationType type)
 {
     if (isVistaOrNewer()) { // Vista and newer
+#ifndef __MINGW32__
         IApplicationAssociationRegistration* pAAR;
 
         HRESULT hr = CoCreateInstance(CLSID_ApplicationAssociationRegistration,
@@ -187,6 +188,7 @@ void RegisterQAppAssociation::registerAssociation(const QString &assocName, Asso
 
             pAAR->Release();
         }
+#endif // #ifndef __MINGW32__
     }
     else { // Older than Vista
         QSettings regUserRoot(_UserRootKey, QSettings::NativeFormat);
@@ -246,9 +248,11 @@ void RegisterQAppAssociation::registerAllAssociation()
     }
 
     if (!isVistaOrNewer()) {
+#ifndef __MINGW32__
         // On Windows Vista or newer for updating icons 'pAAR->SetAppAsDefault()'
         // calls 'SHChangeNotify()'. Thus, we just need care about older Windows.
         SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_FLUSHNOWAIT, 0 , 0);
+#endif
     }
 }
 
