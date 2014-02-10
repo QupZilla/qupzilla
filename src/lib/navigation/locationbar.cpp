@@ -185,6 +185,11 @@ QUrl LocationBar::createUrl()
 
 QString LocationBar::convertUrlToText(const QUrl &url) const
 {
+    // It was most probably entered by user, so don't urlencode it
+    if (url.scheme().isEmpty()) {
+        return url.toString();
+    }
+
     QString stringUrl = QzTools::urlEncodeQueryString(url);
 
     if (stringUrl == QLatin1String("qupzilla:speeddial") || stringUrl == QLatin1String("about:blank")) {
