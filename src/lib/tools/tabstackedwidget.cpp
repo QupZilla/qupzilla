@@ -232,7 +232,10 @@ int TabStackedWidget::pinUnPinTab(int index, const QString &title)
     int newIndex = -1;
     if (QWidget* w = m_stack->widget(index)) {
         QWidget* button = m_tabBar->tabButton(index, m_tabBar->iconButtonPosition());
+
+        m_tabBar->setUpdatesEnabled(false);
         m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), 0);
+
         if (index < m_tabBar->pinnedTabsCount()) {
             // Unpin
             // fix selecting and loading a tab after removing the tab that contains 'w'
@@ -249,7 +252,9 @@ int TabStackedWidget::pinUnPinTab(int index, const QString &title)
             m_tabBar->blockSignals(false);
             newIndex = insertTab(0, w, QString(), true);
         }
+
         m_tabBar->setTabButton(newIndex, m_tabBar->iconButtonPosition(), button);
+        m_tabBar->setUpdatesEnabled(true);
     }
 
     return newIndex;
