@@ -25,6 +25,8 @@
 #include "qz_namespace.h"
 #include "bookmarks.h"
 
+class BookmarkItem;
+
 class QT_QUPZILLA_EXPORT FirefoxImporter : public QObject
 {
 public:
@@ -33,7 +35,7 @@ public:
     void setFile(const QString &path);
     bool openDatabase();
 
-    QVector<Bookmarks::Bookmark> exportBookmarks();
+    BookmarkItem* exportBookmarks();
 
     bool error() { return m_error; }
     QString errorString() { return m_errorString; }

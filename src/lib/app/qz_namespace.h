@@ -43,6 +43,9 @@ static const int sessionVersion = 0x0003 | 0x050000;
 static const int sessionVersion = 0x0003;
 #endif
 
+// Version of bookmarks.json file
+static const int bookmarksVersion = 1;
+
 enum AppMessageType {
     AM_SetAdBlockIconEnabled,
     AM_CheckPrivateBrowsing,

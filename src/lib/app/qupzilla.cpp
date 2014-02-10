@@ -30,7 +30,6 @@
 #include "downloadmanager.h"
 #include "cookiejar.h"
 #include "cookiemanager.h"
-#include "bookmarksmanager.h"
 #include "bookmarkstoolbar.h"
 #include "clearprivatedata.h"
 #include "sourceviewer.h"
@@ -67,6 +66,8 @@
 #include "speeddial.h"
 #include "menubar.h"
 #include "qtwin.h"
+#include "bookmarkstools.h"
+#include "bookmarksmenu.h"
 
 #include <QKeyEvent>
 #include <QSplitter>
@@ -567,14 +568,8 @@ void QupZilla::setupMenu()
     /******************
      * Bookmarks Menu *
      ******************/
-    m_menuBookmarks = new Menu(tr("&Bookmarks"));
-    m_menuBookmarks->addAction(QIcon::fromTheme("bookmark-new"), tr("Bookmark &This Page"), MENU_RECEIVER, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
-    m_menuBookmarks->addAction(QIcon::fromTheme("bookmark-new-list"), tr("Bookmark &All Tabs"), MENU_RECEIVER, SLOT(bookmarkAllTabs()));
-    m_menuBookmarks->addAction(qIconProvider->fromTheme("bookmarks-organize"), tr("Organize &Bookmarks"), MENU_RECEIVER, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
-    m_menuBookmarks->addSeparator();
-
-    connect(m_menuBookmarks, SIGNAL(aboutToShow()), MENU_RECEIVER, SLOT(aboutToShowBookmarksMenu()));
-    connect(m_menuBookmarks, SIGNAL(menuMiddleClicked(Menu*)), MENU_RECEIVER, SLOT(loadFolderBookmarks(Menu*)));
+    m_menuBookmarks = new BookmarksMenu();
+    m_menuBookmarks->setMainWindow(this);
 
     /**************
      * Tools Menu *
@@ -1010,120 +1005,6 @@ void QupZilla::aboutToHideFileMenu()
     m_actionCloseWindow->setEnabled(true);
 }
 
-void QupZilla::aboutToShowBookmarksMenu()
-{
-    if (!bookmarksMenuChanged()) {
-        if (menuBookmarksAction()) {
-            menuBookmarksAction()->setVisible(m_bookmarksToolbar->isVisible());
-        }
-        return;
-    }
-    setBookmarksMenuChanged(false);
-
-    while (m_menuBookmarks->actions().count() != 4) {
-        QAction* act = m_menuBookmarks->actions().at(4);
-        if (act->menu()) {
-            act->menu()->clear();
-        }
-        m_menuBookmarks->removeAction(act);
-        delete act;
-    }
-
-    QSqlQuery query;
-    query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksMenu'");
-    while (query.next()) {
-        QString title = query.value(0).toString();
-        const QUrl url = query.value(1).toUrl();
-        const QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
-        if (title.length() > 40) {
-            title.truncate(40);
-            title += "..";
-        }
-
-        Action* act = new Action(icon, title);
-        act->setData(url);
-        connect(act, SIGNAL(triggered()), MENU_RECEIVER, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
-        m_menuBookmarks->addAction(act);
-    }
-
-    Menu* menuBookmarks = new Menu(_bookmarksToolbar, m_menuBookmarks);
-    menuBookmarks->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
-
-    query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar'");
-    while (query.next()) {
-        QString title = query.value(0).toString();
-        const QUrl url = query.value(1).toUrl();
-        const QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
-        if (title.length() > 40) {
-            title.truncate(40);
-            title += "..";
-        }
-
-        Action* act = new Action(icon, title);
-        act->setData(url);
-        connect(act, SIGNAL(triggered()), MENU_RECEIVER, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
-        menuBookmarks->addAction(act);
-    }
-    if (menuBookmarks->isEmpty()) {
-        menuBookmarks->addAction(tr("Empty"))->setEnabled(false);
-    }
-    setMenuBookmarksAction(m_menuBookmarks->addMenu(menuBookmarks));
-
-    query.exec("SELECT name FROM folders");
-    while (query.next()) {
-        const QString folderName = query.value(0).toString();
-        Menu* tempFolder = new Menu(folderName, m_menuBookmarks);
-        tempFolder->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
-
-        QSqlQuery query2;
-        query2.prepare("SELECT title, url, icon FROM bookmarks WHERE folder=?");
-        query2.addBindValue(folderName);
-        query2.exec();
-        while (query2.next()) {
-            QString title = query2.value(0).toString();
-            const QUrl url = query2.value(1).toUrl();
-            const QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query2.value(2).toByteArray()));
-            if (title.length() > 40) {
-                title.truncate(40);
-                title += "..";
-            }
-
-            Action* act = new Action(icon, title);
-            act->setData(url);
-            connect(act, SIGNAL(triggered()), MENU_RECEIVER, SLOT(loadActionUrl()));
-            connect(act, SIGNAL(middleClicked()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
-            tempFolder->addAction(act);
-        }
-        if (tempFolder->isEmpty()) {
-            tempFolder->addAction(tr("Empty"))->setEnabled(false);
-        }
-        m_menuBookmarks->addMenu(tempFolder);
-    }
-
-    m_menuBookmarks->addSeparator();
-
-    query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='unsorted'");
-    while (query.next()) {
-        QString title = query.value(0).toString();
-        const QUrl url = query.value(1).toUrl();
-        const QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
-        if (title.length() > 40) {
-            title.truncate(40);
-            title += "..";
-        }
-
-        Action* act = new Action(icon, title);
-        act->setData(url);
-        connect(act, SIGNAL(triggered()), MENU_RECEIVER, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
-        m_menuBookmarks->addAction(act);
-    }
-
-    menuBookmarksAction()->setVisible(m_bookmarksToolbar->isVisible());
-}
-
 void QupZilla::aboutToShowHistoryMenu()
 {
     TabbedWebView* view = weView();
@@ -1180,7 +1061,7 @@ void QupZilla::aboutToShowHistoryRecentMenu()
         Action* act = new Action(_iconForUrl(url), title);
         act->setData(url);
         connect(act, SIGNAL(triggered()), MENU_RECEIVER, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
+        connect(act, SIGNAL(ctrlTriggered()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
         m_menuHistoryRecent->addAction(act);
     }
 
@@ -1205,7 +1086,7 @@ void QupZilla::aboutToShowHistoryMostMenu()
         Action* act = new Action(_iconForUrl(entry.url), title);
         act->setData(entry.url);
         connect(act, SIGNAL(triggered()), MENU_RECEIVER, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
+        connect(act, SIGNAL(ctrlTriggered()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
         m_menuHistoryMost->addAction(act);
     }
 
@@ -1379,17 +1260,18 @@ void QupZilla::triggerCaretBrowsing()
 
 void QupZilla::bookmarkPage()
 {
-    mApp->browsingLibrary()->bookmarksManager()->addBookmark(weView());
-}
-
-void QupZilla::addBookmark(const QUrl &url, const QString &title, const QIcon &icon)
-{
-    mApp->browsingLibrary()->bookmarksManager()->insertBookmark(url, title, icon);
+    TabbedWebView* view = weView();
+    BookmarksTools::addBookmarkDialog(this, view->url(), view->title());
 }
 
 void QupZilla::bookmarkAllTabs()
 {
-    mApp->browsingLibrary()->bookmarksManager()->insertAllTabs();
+    BookmarksTools::bookmarkAllTabsDialog(this, m_tabWidget);
+}
+
+void QupZilla::addBookmark(const QUrl &url, const QString &title)
+{
+    BookmarksTools::addBookmarkDialog(this, url, title);
 }
 
 void QupZilla::newWindow()
@@ -1500,22 +1382,16 @@ void QupZilla::loadActionUrlInNewNotSelectedTab(QObject* obj)
     }
 }
 
-void QupZilla::loadFolderBookmarks(Menu* menu)
-{
-    const QString folder = Bookmarks::fromTranslatedFolder(menu->title());
-    if (folder.isEmpty()) {
-        return;
-    }
-
-    foreach (const Bookmark &b, mApp->bookmarks()->getFolderBookmarks(folder)) {
-        tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
-    }
-}
-
 void QupZilla::loadAddress(const QUrl &url)
 {
-    weView()->setFocus();
-    weView()->load(url);
+    if (weView()->webTab()->isPinned()) {
+        int index = m_tabWidget->addView(url, qzSettings->newTabPosition);
+        weView(index)->setFocus();
+    }
+    else {
+        weView()->setFocus();
+        weView()->load(url);
+    }
 }
 
 void QupZilla::showCookieManager()

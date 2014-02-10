@@ -18,7 +18,6 @@
 #ifndef BOOKMARKSWIDGET_H
 #define BOOKMARKSWIDGET_H
 
-#include <QUrl>
 #include <QMenu>
 
 #include "qz_namespace.h"
@@ -32,37 +31,31 @@ class BookmarksWidget;
 class WebView;
 class SpeedDial;
 class Bookmarks;
-class BookmarksTree;
+class BookmarkItem;
 
 class QT_QUPZILLA_EXPORT BookmarksWidget : public LocationBarPopup
 {
     Q_OBJECT
 public:
-    explicit BookmarksWidget(WebView* view, QWidget* parent = 0);
+    explicit BookmarksWidget(WebView* view, BookmarkItem* bookmark, QWidget* parent = 0);
     ~BookmarksWidget();
 
-signals:
-    void bookmarkDeleted();
-
 private slots:
-    void on_saveRemove_clicked(bool);
-    void bookmarkEdited();
-    void comboItemActive(int index);
-
     void toggleSpeedDial();
+    void toggleBookmark();
+    void bookmarkEdited();
 
 private:
-    void loadBookmark();
+    void init();
+    void closePopup();
 
     Ui::BookmarksWidget* ui;
-    QUrl m_url;
-    int m_bookmarkId;
-
     WebView* m_view;
+    BookmarkItem* m_bookmark;
+
     Bookmarks* m_bookmarks;
     SpeedDial* m_speedDial;
     bool m_edited;
-    BookmarksTree* m_bookmarksTree;
 };
 
 #endif // BOOKMARKSWIDGET_H

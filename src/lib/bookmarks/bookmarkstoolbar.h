@@ -21,15 +21,14 @@
 #include <QWidget>
 
 #include "qz_namespace.h"
-#include "bookmarks.h"
 
 class QHBoxLayout;
+class QTimer;
 
 class QupZilla;
 class Bookmarks;
-class History;
-class ToolButton;
-class Menu;
+class BookmarkItem;
+class BookmarksToolbarButton;
 
 class QT_QUPZILLA_EXPORT BookmarksToolbar : public QWidget
 {
@@ -37,56 +36,30 @@ class QT_QUPZILLA_EXPORT BookmarksToolbar : public QWidget
 public:
     explicit BookmarksToolbar(QupZilla* mainClass, QWidget* parent = 0);
 
-signals:
-
-public slots:
-    void refreshBookmarks();
-    void refreshMostVisited();
-    void showMostVisited();
-
 private slots:
-    void loadClickedBookmark();
-    void loadClickedBookmarkInNewTab();
-    void loadFolderBookmarksInTabs();
+    void contextMenuRequested(const QPoint &pos);
 
-    void aboutToShowFolderMenu();
-    void showBookmarkContextMenu(const QPoint &pos);
-    void customContextMenuRequested(const QPoint &pos);
+    void refresh();
+    void bookmarksChanged();
+    void showOnlyIconsChanged(bool state);
 
-    void moveRight();
-    void moveLeft();
-    void editBookmark();
-    void removeButton();
-
-    void hidePanel();
-    void toggleShowOnlyIcons();
-
-    void addBookmark(const Bookmarks::Bookmark &bookmark);
-    void removeBookmark(const Bookmarks::Bookmark &bookmark);
-    void bookmarkEdited(const Bookmarks::Bookmark &before, const Bookmarks::Bookmark &after);
-    void subfolderAdded(const QString &name);
-    void folderDeleted(const QString &name);
-    void folderRenamed(const QString &before, const QString &after);
-
-    void changeBookmarkParent(const QString &name, const QByteArray &imageData, int id,
-                              const QUrl &url, const QString &oldParent, const QString &newParent);
-    void changeFolderParent(const QString &name, bool isSubfolder);
+    void openBookmarkInNewTab();
+    void openBookmarkInNewWindow();
+    void deleteBookmark();
 
 private:
+    void clear();
+    void addItem(BookmarkItem* item);
+    BookmarksToolbarButton* buttonAt(const QPoint &pos);
+
     void dropEvent(QDropEvent* e);
     void dragEnterEvent(QDragEnterEvent* e);
 
-    void showOnlyIconsChanged();
-    int indexOfLastBookmark();
-
-    QupZilla* p_QupZilla;
+    QupZilla* m_window;
     Bookmarks* m_bookmarks;
-    History* m_historyModel;
-    Menu* m_menuMostVisited;
-    ToolButton* m_mostVis;
+    BookmarkItem* m_clickedBookmark;
     QHBoxLayout* m_layout;
-
-    Qt::ToolButtonStyle m_toolButtonStyle;
+    QTimer* m_updateTimer;
 };
 
 #endif // BOOKMARKSTOOLBAR_H

@@ -53,6 +53,9 @@ private slots:
     void currentIndexChanged(int index);
     void search();
 
+    void importBookmarks();
+    void exportBookmarks();
+
 private:
     void closeEvent(QCloseEvent* e);
     void keyPressEvent(QKeyEvent* e);
@@ -62,7 +65,6 @@ private:
     BookmarksManager* m_bookmarksManager;
     RSSManager* m_rssManager;
 
-    bool m_bookmarksLoaded;
     bool m_rssLoaded;
 };
 

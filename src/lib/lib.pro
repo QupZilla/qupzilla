@@ -12,7 +12,8 @@ DEFINES *= QUPZILLA_SHAREDLIBRARY
 include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
 include(../../translations/translations.pri)
-#include(../../tests/modeltest/modeltest.pri)
+
+CONFIG(debug, debug|release): include(../../tests/modeltest/modeltest.pri)
 
 !mac:contains(DEFINES, USE_QTWEBKIT_2_2) {
     include(plugins/qtwebkit/qtwebkit-plugins.pri)
@@ -132,7 +133,6 @@ SOURCES += \
     adblock/adblockicon.cpp \
     tools/docktitlebarwidget.cpp \
     sidebar/bookmarkssidebar.cpp \
-    bookmarks/bookmarkicon.cpp \
     sidebar/historysidebar.cpp \
     desktopnotifications/desktopnotification.cpp \
     desktopnotifications/desktopnotificationsfactory.cpp \
@@ -196,7 +196,6 @@ SOURCES += \
     preferences/pluginlistdelegate.cpp \
     popupwindow/popupstatusbarmessage.cpp \
     other/licenseviewer.cpp \
-    bookmarksimport/bookmarksimporticonfetcher.cpp \
     other/checkboxdialog.cpp \
     tools/plaineditwithlines.cpp \
     tools/focusselectlineedit.cpp \
@@ -224,7 +223,6 @@ SOURCES += \
     network/schemehandlers/adblockschemehandler.cpp \
     network/schemehandlers/fileschemehandler.cpp \
     tools/listitemdelegate.cpp \
-    bookmarks/bookmarkstree.cpp \
     tools/html5permissions/html5permissionsmanager.cpp \
     tools/html5permissions/html5permissionsnotification.cpp \
     tools/html5permissions/html5permissionsdialog.cpp \
@@ -251,7 +249,16 @@ SOURCES += \
     tools/tabstackedwidget.cpp \
     tools/combotabbar.cpp \
     webview/javascript/externaljsobject.cpp \
-    bookmarks/bookmarks.cpp
+    bookmarks/bookmarks.cpp \
+    bookmarks/bookmarkitem.cpp \
+    tools/json.cpp \
+    bookmarks/bookmarksmodel.cpp \
+    bookmarks/bookmarkstreeview.cpp \
+    bookmarks/bookmarkstools.cpp \
+    bookmarks/bookmarksmenu.cpp \
+    bookmarks/bookmarksicon.cpp \
+    bookmarks/bookmarksitemdelegate.cpp \
+    bookmarks/bookmarkstoolbarbutton.cpp
 
 
 HEADERS  += \
@@ -315,7 +322,6 @@ HEADERS  += \
     adblock/adblockicon.h \
     tools/docktitlebarwidget.h \
     sidebar/bookmarkssidebar.h \
-    bookmarks/bookmarkicon.h \
     sidebar/historysidebar.h \
     desktopnotifications/desktopnotification.h \
     desktopnotifications/desktopnotificationsfactory.h \
@@ -381,7 +387,6 @@ HEADERS  += \
     preferences/pluginlistdelegate.h \
     popupwindow/popupstatusbarmessage.h \
     other/licenseviewer.h \
-    bookmarksimport/bookmarksimporticonfetcher.h \
     other/checkboxdialog.h \
     tools/plaineditwithlines.h \
     sidebar/sidebarinterface.h \
@@ -410,7 +415,6 @@ HEADERS  += \
     network/schemehandlers/adblockschemehandler.h \
     network/schemehandlers/fileschemehandler.h \
     tools/listitemdelegate.h \
-    bookmarks/bookmarkstree.h \
     tools/html5permissions/html5permissionsmanager.h \
     tools/html5permissions/html5permissionsnotification.h \
     tools/html5permissions/html5permissionsdialog.h \
@@ -439,7 +443,16 @@ HEADERS  += \
     tools/tabstackedwidget.h \
     tools/combotabbar.h \
     webview/javascript/externaljsobject.h \
-    bookmarks/bookmarks.h
+    bookmarks/bookmarks.h \
+    bookmarks/bookmarkitem.h \
+    tools/json.h \
+    bookmarks/bookmarksmodel.h \
+    bookmarks/bookmarkstreeview.h \
+    bookmarks/bookmarkstools.h \
+    bookmarks/bookmarksmenu.h \
+    bookmarks/bookmarksicon.h \
+    bookmarks/bookmarksitemdelegate.h \
+    bookmarks/bookmarkstoolbarbutton.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -502,6 +515,10 @@ isEqual(QT_MAJOR_VERSION, 5) {
     include(3rdparty/qftp.pri)
 
     SOURCES += tools/qzregexp.cpp
+}
+
+!isEqual(QT_MAJOR_VERSION, 5) {
+    LIBS += -lqjson
 }
 
 !mac:unix {

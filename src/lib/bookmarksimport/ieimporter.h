@@ -21,9 +21,10 @@
 #include <QObject>
 
 #include "qz_namespace.h"
-#include "bookmarks.h"
 
 #include <QFileInfoList>
+
+class BookmarkItem;
 
 class IeImporter : public QObject
 {
@@ -34,7 +35,7 @@ public:
     void setFile(const QString &path);
     bool openFile();
 
-    QVector<Bookmarks::Bookmark> exportBookmarks();
+    BookmarkItem* exportBookmarks();
 
     bool error() { return m_error; }
     QString errorString() { return m_errorString; }

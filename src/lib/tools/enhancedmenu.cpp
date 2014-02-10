@@ -32,7 +32,7 @@ Menu::Menu(const QString &title, QWidget* parent)
 
 void Menu::mouseReleaseEvent(QMouseEvent* e)
 {
-    QAction* qact = actionAt(e->pos());
+    QAction* qact = activeAction();
     Action* act = qobject_cast<Action*> (qact);
 
     if (qact && qact->menu()) {
@@ -60,7 +60,44 @@ void Menu::mouseReleaseEvent(QMouseEvent* e)
     }
     else if (e->button() == Qt::MiddleButton || (e->button() == Qt::LeftButton && e->modifiers() == Qt::ControlModifier)) {
         closeAllMenus();
-        act->triggerMiddleClick();
+        act->emitCtrlTriggered();
+        e->accept();
+    }
+    else if (e->button() == Qt::LeftButton && e->modifiers() == Qt::ShiftModifier) {
+        closeAllMenus();
+        act->emitShiftTriggered();
+        e->accept();
+    }
+}
+
+void Menu::keyPressEvent(QKeyEvent* e)
+{
+    if (e->key() != Qt::Key_Enter && e->key() != Qt::Key_Return) {
+        QMenu::keyPressEvent(e);
+        return;
+    }
+
+    QAction* qact = activeAction();
+    Action* act = qobject_cast<Action*> (qact);
+
+    if (!act) {
+        QMenu::keyPressEvent(e);
+        return;
+    }
+
+    if (e->modifiers() == Qt::NoModifier) {
+        closeAllMenus();
+        act->trigger();
+        e->accept();
+    }
+    else if (e->modifiers() == Qt::ControlModifier) {
+        closeAllMenus();
+        act->emitCtrlTriggered();
+        e->accept();
+    }
+    else if (e->modifiers() == Qt::ShiftModifier) {
+        closeAllMenus();
+        act->emitShiftTriggered();
         e->accept();
     }
 }
@@ -90,7 +127,12 @@ Action::Action(const QIcon &icon, const QString &text, QObject* parent)
 {
 }
 
-void Action::triggerMiddleClick()
+void Action::emitCtrlTriggered()
 {
-    emit middleClicked();
+    emit ctrlTriggered();
+}
+
+void Action::emitShiftTriggered()
+{
+    emit shiftTriggered();
 }

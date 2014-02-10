@@ -21,58 +21,39 @@
 #include <QWidget>
 
 #include "qz_namespace.h"
-#include "bookmarks.h"
 
 namespace Ui
 {
 class BookmarksSideBar;
 }
 
-class QTreeWidgetItem;
-
 class QupZilla;
 class Bookmarks;
+class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarksSideBar : public QWidget
+class QT_QUPZILLA_EXPORT BookmarksSidebar : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit BookmarksSideBar(QupZilla* mainClass, QWidget* parent = 0);
-    ~BookmarksSideBar();
-    void setMainWindow(QupZilla* window);
-
-public slots:
-    void refreshTable();
+    explicit BookmarksSidebar(QupZilla* mainClass, QWidget* parent = 0);
+    ~BookmarksSidebar();
 
 private slots:
-    void deleteItem();
-    void contextMenuRequested(const QPoint &position);
-    void loadInNewTab();
-    void itemControlClicked(QTreeWidgetItem* item);
-    void itemDoubleClicked(QTreeWidgetItem* item);
+    void bookmarkActivated(BookmarkItem* item);
+    void bookmarkCtrlActivated(BookmarkItem* item);
+    void bookmarkShiftActivated(BookmarkItem* item);
 
-    void copyAddress();
+    void openBookmark(BookmarkItem* item = 0);
+    void openBookmarkInNewTab(BookmarkItem* item = 0);
+    void openBookmarkInNewWindow(BookmarkItem* item = 0);
 
-    void addBookmark(const Bookmarks::Bookmark &bookmark);
-    void removeBookmark(const Bookmarks::Bookmark &bookmark);
-    void bookmarkEdited(const Bookmarks::Bookmark &before, const Bookmarks::Bookmark &after);
-    void addFolder(const QString &name);
-    void removeFolder(const QString &name);
-    void renameFolder(const QString &before, const QString &after);
-
-    void changeBookmarkParent(const QString &name, const QByteArray &imageData, int id,
-                              const QUrl &url, const QString &oldParent, const QString &newParent);
-    void changeFolderParent(const QString &name, bool isSubfolder);
+    void deleteBookmarks();
+    void createContextMenu(const QPoint &pos);
 
 private:
-    void keyPressEvent(QKeyEvent* event);
-
-    QupZilla* getQupZilla();
-
-    bool m_isRefreshing;
     Ui::BookmarksSideBar* ui;
-    QupZilla* p_QupZilla;
+    QupZilla* m_window;
     Bookmarks* m_bookmarks;
 };
 

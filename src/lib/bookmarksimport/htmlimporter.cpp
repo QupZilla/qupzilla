@@ -17,8 +17,10 @@
 * ============================================================ */
 #include "htmlimporter.h"
 #include "bookmarksimportdialog.h"
-
+#include "bookmarkitem.h"
 #include "qzregexp.h"
+
+#include <QUrl>
 
 HtmlImporter::HtmlImporter(QObject* parent)
     : QObject(parent)
@@ -59,10 +61,8 @@ int qzMin(int a, int b)
     }
 }
 
-QVector<Bookmark> HtmlImporter::exportBookmarks()
+BookmarkItem* HtmlImporter::exportBookmarks()
 {
-    QVector<Bookmarks::Bookmark> list;
-
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
 
@@ -84,7 +84,11 @@ QVector<Bookmark> HtmlImporter::exportBookmarks()
     bookmarks = bookmarks.left(bookmarks.lastIndexOf(QLatin1String("</dl><p>")));
     int start = bookmarks.indexOf(QLatin1String("<dl><p>"));
 
-    QStringList folders("Html Import");
+    BookmarkItem* root = new BookmarkItem(BookmarkItem::Folder);
+    root->setTitle("HTML Import");
+
+    QList<BookmarkItem*> folders;
+    folders.append(root);
 
     while (start > 0) {
         QString string = bookmarks.mid(start);
@@ -107,7 +111,9 @@ QVector<Bookmark> HtmlImporter::exportBookmarks()
 //            QString arguments = rx.cap(1);
             QString folderName = rx.cap(2).trimmed();
 
-            folders.append(folderName);
+            BookmarkItem* folder = new BookmarkItem(BookmarkItem::Folder, folders.isEmpty() ? root : folders.last());
+            folder->setTitle(folderName);
+            folders.append(folder);
 
             start += posOfFolder + rx.cap(0).size();
         }
@@ -141,14 +147,11 @@ QVector<Bookmark> HtmlImporter::exportBookmarks()
                 continue;
             }
 
-            Bookmarks::Bookmark b;
-            b.folder = folders.last();
-            b.title = linkName;
-            b.url = url;
-
-            list.append(b);
+            BookmarkItem* b = new BookmarkItem(BookmarkItem::Url, folders.isEmpty() ? root : folders.last());
+            b->setTitle(linkName);
+            b->setUrl(url);
         }
     }
 
-    return list;
+    return root;
 }

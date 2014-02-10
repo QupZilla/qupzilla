@@ -62,7 +62,7 @@ void SideBar::setWidget(QWidget* widget)
 void SideBar::showBookmarks()
 {
     m_titleBar->setTitle(tr("Bookmarks"));
-    BookmarksSideBar* bar = new BookmarksSideBar(p_QupZilla);
+    BookmarksSidebar* bar = new BookmarksSidebar(p_QupZilla);
     setWidget(bar);
 }
 

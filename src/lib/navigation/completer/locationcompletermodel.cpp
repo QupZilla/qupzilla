@@ -16,9 +16,11 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "locationcompletermodel.h"
-#include "iconprovider.h"
-#include "qzsettings.h"
 #include "mainapplication.h"
+#include "iconprovider.h"
+#include "bookmarkitem.h"
+#include "bookmarks.h"
+#include "qzsettings.h"
 #include "qupzilla.h"
 #include "tabwidget.h"
 
@@ -58,32 +60,31 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
     QList<QUrl> urlList;
     QList<QStandardItem*> itemList;
 
-    // TODO: Those 2 SQL queries can be merged with UNION
-
     if (showType == HistoryAndBookmarks || showType == Bookmarks) {
-        QSqlQuery query = createQuery(string, "history.count DESC", urlList, limit, true);
-        query.exec();
+        QList<BookmarkItem*> bookmarks = mApp->bookmarks()->searchBookmarks(string);
 
-        while (query.next()) {
+        foreach (BookmarkItem* bookmark, bookmarks) {
+            Q_ASSERT(bookmark->isUrl());
+
             QStandardItem* item = new QStandardItem();
-            const QUrl url = query.value(1).toUrl();
 
-            item->setIcon(qIconProvider->iconFromImage(QImage::fromData(query.value(4).toByteArray())));
-            item->setText(url.toEncoded());
-            item->setData(query.value(0), IdRole);
-            item->setData(query.value(2), TitleRole);
-            item->setData(query.value(3), CountRole);
+            item->setIcon(bookmark->icon());
+            item->setText(bookmark->url().toEncoded());
+            item->setData(-1, IdRole);
+            item->setData(bookmark->title(), TitleRole);
+            item->setData(bookmark->visitCount(), CountRole);
             item->setData(QVariant(true), BookmarkRole);
             item->setData(string, SearchStringRole);
+
             if (qzSettings->showSwitchTab) {
-                item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(url)), TabPositionRole);
+                item->setData(QVariant::fromValue<TabPosition>(tabPositionForUrl(bookmark->url())), TabPositionRole);
             }
 
-            urlList.append(url);
+            urlList.append(bookmark->url());
             itemList.append(item);
         }
 
-        limit -= query.size();
+        limit -= itemList.count();
     }
 
     if (showType == HistoryAndBookmarks || showType == History) {
@@ -183,28 +184,19 @@ QString LocationCompleterModel::completeDomain(const QString &text)
 }
 
 QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const QString &orderBy,
-        const QList<QUrl> &alreadyFound, int limit, bool bookmarks, bool exactMatch)
+        const QList<QUrl> &alreadyFound, int limit, bool exactMatch)
 {
-    QString table = bookmarks ? "bookmarks" : "history";
-    QString query = QString("SELECT %1.id, %1.url, %1.title, history.count").arg(table);
     QStringList searchList;
+    QString query = QLatin1String("SELECT id, url, title, count FROM history WHERE ");
 
-    if (bookmarks) {
-        query.append(QLatin1String(", bookmarks.icon FROM bookmarks LEFT JOIN history ON bookmarks.url=history.url "));
-    }
-    else {
-        query.append(QLatin1String(" FROM history "));
-    }
-
-    query.append(QLatin1String("WHERE "));
     if (exactMatch) {
-        query.append(QString("%1.title LIKE ? OR %1.url LIKE ? ").arg(table));
+        query.append(QLatin1String("title LIKE ? OR url LIKE ? "));
     }
     else {
         searchList = searchString.split(QLatin1Char(' '), QString::SkipEmptyParts);
         const int slSize = searchList.size();
         for (int i = 0; i < slSize; ++i) {
-            query.append(QString("(%1.title LIKE ? OR %1.url LIKE ?) ").arg(table));
+            query.append(QLatin1String("(title LIKE ? OR url LIKE ?) "));
             if (i < slSize - 1) {
                 query.append(QLatin1String("AND "));
             }
@@ -212,13 +204,13 @@ QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const
     }
 
     for (int i = 0; i < alreadyFound.count(); i++) {
-        query.append(QString("AND (NOT %1.url=?) ").arg(table));
+        query.append(QLatin1String("AND (NOT url=?) "));
     }
 
-    query.append(QString("GROUP BY %1.url ").arg(table));
+    query.append(QLatin1String("GROUP BY url "));
 
     if (!orderBy.isEmpty()) {
-        query.append("ORDER BY " + orderBy);
+        query.append(QLatin1String("ORDER BY ") + orderBy);
     }
 
     query.append(QLatin1String(" LIMIT ?"));

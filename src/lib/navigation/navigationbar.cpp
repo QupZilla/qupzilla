@@ -259,7 +259,7 @@ void NavigationBar::aboutToShowHistoryBackMenu()
             Action* act = new Action(icon, title);
             act->setData(i);
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
-            connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
+            connect(act, SIGNAL(ctrlTriggered()), this, SLOT(goAtHistoryIndexInNewTab()));
             m_menuBack->addAction(act);
         }
 
@@ -293,7 +293,7 @@ void NavigationBar::aboutToShowHistoryNextMenu()
             Action* act = new Action(icon, title);
             act->setData(i);
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
-            connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
+            connect(act, SIGNAL(ctrlTriggered()), this, SLOT(goAtHistoryIndexInNewTab()));
             m_menuForward->addAction(act);
         }
 

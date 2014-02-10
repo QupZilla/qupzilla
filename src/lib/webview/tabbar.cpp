@@ -459,7 +459,7 @@ void TabBar::bookmarkTab()
 
     WebTab* tab = view->webTab();
 
-    p_QupZilla->addBookmark(tab->url(), tab->title(), tab->icon());
+    p_QupZilla->addBookmark(tab->url(), tab->title());
 }
 
 void TabBar::pinTab()

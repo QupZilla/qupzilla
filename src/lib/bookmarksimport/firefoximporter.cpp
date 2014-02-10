@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "firefoximporter.h"
 #include "bookmarksimportdialog.h"
+#include "bookmarkitem.h"
 
 #include <QSqlQuery>
 #include <QSqlError>
@@ -54,9 +55,10 @@ bool FirefoxImporter::openDatabase()
     return true;
 }
 
-QVector<Bookmark> FirefoxImporter::exportBookmarks()
+BookmarkItem* FirefoxImporter::exportBookmarks()
 {
-    QVector<Bookmark> list;
+    BookmarkItem* root = new BookmarkItem(BookmarkItem::Folder);
+    root->setTitle("Firefox Import");
 
     QSqlQuery query(db);
     query.exec("SELECT title, fk FROM moz_bookmarks WHERE title != ''");
@@ -78,12 +80,9 @@ QVector<Bookmark> FirefoxImporter::exportBookmarks()
             continue;
         }
 
-        Bookmarks::Bookmark b;
-        b.folder = "Firefox Import";
-        b.title = title;
-        b.url = url;
-
-        list.append(b);
+        BookmarkItem* b = new BookmarkItem(BookmarkItem::Url, root);
+        b->setTitle(title);
+        b->setUrl(url);
     }
 
     if (query.lastError().isValid()) {
@@ -91,5 +90,5 @@ QVector<Bookmark> FirefoxImporter::exportBookmarks()
         m_errorString = query.lastError().text();
     }
 
-    return list;
+    return root;
 }

@@ -38,6 +38,7 @@ QByteArray QT_QUPZILLA_EXPORT pixmapToByteArray(const QPixmap &pix);
 QPixmap QT_QUPZILLA_EXPORT pixmapFromByteArray(const QByteArray &data);
 
 QString QT_QUPZILLA_EXPORT readAllFileContents(const QString &filename);
+QByteArray QT_QUPZILLA_EXPORT readAllFileByteContents(const QString &filename);
 
 void QT_QUPZILLA_EXPORT centerWidgetOnScreen(QWidget* w);
 void QT_QUPZILLA_EXPORT centerWidgetToParent(QWidget* w, QWidget* parent);

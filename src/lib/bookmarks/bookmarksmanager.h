@@ -21,7 +21,6 @@
 #include <QWidget>
 #include <QPointer>
 
-#include "bookmarks.h"
 #include "qz_namespace.h"
 
 namespace Ui
@@ -29,11 +28,12 @@ namespace Ui
 class BookmarksManager;
 }
 
-class QTreeWidgetItem;
+class QUrl;
 
-class WebView;
 class QupZilla;
 class Bookmarks;
+class BookmarkItem;
+
 class QT_QUPZILLA_EXPORT BookmarksManager : public QWidget
 {
     Q_OBJECT
@@ -41,52 +41,53 @@ class QT_QUPZILLA_EXPORT BookmarksManager : public QWidget
 public:
     explicit BookmarksManager(QupZilla* mainClass, QWidget* parent = 0);
     ~BookmarksManager();
-    void addBookmark(WebView* view);
-    void insertBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder = QString());
+
     void setMainWindow(QupZilla* window);
 
+public slots:
     void search(const QString &string);
 
-public slots:
-    void refreshTable();
-    void insertAllTabs();
-
 private slots:
-    void deleteItem();
-    void itemChanged(QTreeWidgetItem* item);
-    void addSubfolder();
-    void addFolder(QWidget* parent = 0, QString* folder = 0, bool showInsertDialog = false,
-                   const QString &bookmarkTitle = QString(), WebView* = 0);
-    void renameFolder();
-    void contextMenuRequested(const QPoint &position);
-    void loadInNewTab();
-    void itemControlClicked(QTreeWidgetItem* item);
-    void moveBookmark();
-    void renameBookmark();
-    void changeIcon();
+    void bookmarkActivated(BookmarkItem* item);
+    void bookmarkCtrlActivated(BookmarkItem* item);
+    void bookmarkShiftActivated(BookmarkItem* item);
+    void bookmarksSelected(const QList<BookmarkItem*> &items);
+    void createContextMenu(const QPoint &pos);
+
+    void openBookmark(BookmarkItem* item = 0);
+    void openBookmarkInNewTab(BookmarkItem* item = 0);
+    void openBookmarkInNewWindow(BookmarkItem* item = 0);
+
+    void addBookmark();
+    void addFolder();
+    void addSeparator();
+    void deleteBookmarks();
+
+    void bookmarkEdited();
+    void descriptionEdited();
+    void enableUpdates();
 
     void importBookmarks();
     void exportBookmarks();
 
-    void addFolder(const QString &name);
-    void addSubfolder(const QString &name);
-    void removeFolder(const QString &name);
-    void renameFolder(const QString &before, const QString &after);
-
-    void addBookmark(const Bookmarks::Bookmark &bookmark);
-    void removeBookmark(const Bookmarks::Bookmark &bookmark);
-    void bookmarkEdited(const Bookmarks::Bookmark &before, const Bookmarks::Bookmark &after);
-
-    void changeBookmarkParent(const QString &name, const QByteArray &, int id,
-                              const QUrl &, const QString &, const QString &newParent);
-    void changeFolderParent(const QString &name, bool isSubfolder);
-
 private:
+    void updateEditBox(BookmarkItem* item);
+    bool bookmarkEditable(BookmarkItem* item) const;
+    void addBookmark(BookmarkItem* item);
+    BookmarkItem* parentForNewBookmark() const;
     QupZilla* getQupZilla();
 
-    bool m_isRefreshing;
+    void showEvent(QShowEvent* event);
+    void keyPressEvent(QKeyEvent* event);
+
     Ui::BookmarksManager* ui;
     QPointer<QupZilla> p_QupZilla;
+
     Bookmarks* m_bookmarks;
+    BookmarkItem* m_selectedBookmark;
+    bool m_blockDescriptionChangedSignal;
+    bool m_adjustHeaderSizesOnShow;
+
 };
+
 #endif // BOOKMARKSMANAGER_H

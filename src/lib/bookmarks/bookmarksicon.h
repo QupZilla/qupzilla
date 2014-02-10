@@ -15,30 +15,28 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef BOOKMARKICON_H
-#define BOOKMARKICON_H
+#ifndef BOOKMARKSICON_H
+#define BOOKMARKSICON_H
 
 #include <QUrl>
 
 #include "clickablelabel.h"
-#include "bookmarks.h"
 #include "qz_namespace.h"
 
-class SpeedDial;
 class WebView;
+class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarkIcon : public ClickableLabel
+class QT_QUPZILLA_EXPORT BookmarksIcon : public ClickableLabel
 {
     Q_OBJECT
 public:
-    explicit BookmarkIcon(QWidget* parent = 0);
+    explicit BookmarksIcon(QWidget* parent = 0);
 
     void setWebView(WebView* view);
     void checkBookmark(const QUrl &url, bool forceCheck = false);
 
 private slots:
-    void bookmarkAdded(const Bookmarks::Bookmark &bookmark);
-    void bookmarkDeleted(const Bookmarks::Bookmark &bookmark);
+    void bookmarksChanged();
     void speedDialChanged();
 
     void iconClicked();
@@ -50,12 +48,9 @@ private:
     void setBookmarkSaved();
     void setBookmarkDisabled();
 
-    Bookmarks* m_bookmarks;
-    SpeedDial* m_speedDial;
     WebView* m_view;
-
+    BookmarkItem* m_bookmark;
     QUrl m_lastUrl;
-
 };
 
-#endif // BOOKMARKICON_H
+#endif // BOOKMARKSICON_H
