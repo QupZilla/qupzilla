@@ -252,11 +252,11 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
             }
         }
         else {
-            fileNameChoosed(m_downloadPath + m_h_fileName, true);
+            fileNameChoosed(m_downloadPath + QLatin1Char('/') + m_h_fileName, true);
         }
     }
     else {
-        fileNameChoosed(mApp->tempPath() + "/" + m_h_fileName, true);
+        fileNameChoosed(mApp->tempPath() + QLatin1Char('/') + m_h_fileName, true);
     }
 }
 
