@@ -470,12 +470,6 @@ void TabBar::pinTab()
     }
 
     webTab->pinTab(m_clickedTab);
-
-    // We need to recalculate size of all tabs and repaint tabbar
-    // Unfortunately, Qt doesn't offer refresh() function as a public API
-
-    // So we are calling the lightest function that calls d->refresh()
-    setElideMode(elideMode());
 }
 
 void TabBar::overrideTabTextColor(int index, QColor color)
