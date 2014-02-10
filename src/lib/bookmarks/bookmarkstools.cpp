@@ -363,7 +363,8 @@ bool BookmarksTools::migrateBookmarksIfNecessary(Bookmarks* bookmarks)
         const QString title = query.value(0).toString();
         bool subfolder = query.value(1).toString() == QLatin1String("yes");
 
-        BookmarkItem* folder = new BookmarkItem(BookmarkItem::Folder, subfolder ? bookmarks->toolbarFolder() : 0);
+        BookmarkItem* parent = subfolder ? bookmarks->toolbarFolder() : bookmarks->unsortedFolder();
+        BookmarkItem* folder = new BookmarkItem(BookmarkItem::Folder, parent);
         folder->setTitle(title);
         folders.insert(folder->title(), folder);
     }
