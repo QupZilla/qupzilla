@@ -204,6 +204,9 @@ void BookmarksToolbarButton::init()
 QString BookmarksToolbarButton::createTooltip() const
 {
     if (!m_bookmark->description().isEmpty()) {
+        if (!m_bookmark->urlString().isEmpty()) {
+            return QString("%1\n%2").arg(m_bookmark->description(), m_bookmark->urlString());
+        }
         return m_bookmark->description();
     }
 

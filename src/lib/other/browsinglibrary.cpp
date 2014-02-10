@@ -108,6 +108,7 @@ void BrowsingLibrary::importBookmarks()
 
 void BrowsingLibrary::exportBookmarks()
 {
+    qDebug("BrowsingLibrary::exportBookmarks() NOT IMPLEMENTED");
 }
 
 void BrowsingLibrary::showHistory(QupZilla* mainClass)
