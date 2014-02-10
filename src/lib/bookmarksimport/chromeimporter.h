@@ -22,7 +22,8 @@
 #include <QFile>
 
 #include "qz_namespace.h"
-#include "bookmarks.h"
+
+class BookmarkItem;
 
 class QT_QUPZILLA_EXPORT ChromeImporter : public QObject
 {
@@ -32,7 +33,7 @@ public:
     void setFile(const QString &path);
     bool openFile();
 
-    QVector<Bookmark> exportBookmarks();
+    BookmarkItem* exportBookmarks();
 
     bool error() { return m_error; }
     QString errorString() { return m_errorString; }

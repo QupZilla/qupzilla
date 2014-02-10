@@ -16,10 +16,11 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "ieimporter.h"
-
 #include "bookmarksimportdialog.h"
+#include "bookmarkitem.h"
 
 #include <QDir>
+#include <QUrl>
 #include <QSettings>
 
 IeImporter::IeImporter(QObject* parent)
@@ -57,22 +58,20 @@ bool IeImporter::openFile()
     return true;
 }
 
-QVector<Bookmarks::Bookmark> IeImporter::exportBookmarks()
+BookmarkItem* IeImporter::exportBookmarks()
 {
-    QVector<Bookmarks::Bookmark> bookmarks;
+    BookmarkItem* root = new BookmarkItem(BookmarkItem::Folder);
+    root->setTitle("Internet Explorer Import");
 
     foreach (QFileInfo file, urls) {
         QSettings urlFile(file.absoluteFilePath(), QSettings::IniFormat, this);
 
         QUrl url = urlFile.value("InternetShortcut/URL").toUrl();
 
-        Bookmarks::Bookmark bookmark;
-        bookmark.folder = "Internet Explorer Import";
-        bookmark.title = file.baseName();
-        bookmark.url = url;
-
-        bookmarks.append(bookmark);
+        BookmarkItem* b = new BookmarkItem(BookmarkItem::Url, root);
+        b->setTitle(file.baseName());
+        b->setUrl(url);
     }
 
-    return bookmarks;
+    return root;
 }

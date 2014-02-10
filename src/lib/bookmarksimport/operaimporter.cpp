@@ -17,7 +17,10 @@
 * ============================================================ */
 #include "operaimporter.h"
 #include "bookmarksimportdialog.h"
+#include "bookmarkitem.h"
 #include "qzregexp.h"
+
+#include <QUrl>
 
 OperaImporter::OperaImporter(QObject* parent)
     : QObject(parent)
@@ -44,15 +47,16 @@ bool OperaImporter::openFile()
     return true;
 }
 
-QVector<Bookmark> OperaImporter::exportBookmarks()
+BookmarkItem* OperaImporter::exportBookmarks()
 {
-    QVector<Bookmark> list;
-
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
 
     QzRegExp rx("#URL(.*)CREATED", Qt::CaseSensitive);
     rx.setMinimal(true);
+
+    BookmarkItem* root = new BookmarkItem(BookmarkItem::Folder);
+    root->setTitle("Opera Import");
 
     int pos = 0;
     while ((pos = rx.indexIn(bookmarks, pos)) != -1) {
@@ -72,13 +76,10 @@ QVector<Bookmark> OperaImporter::exportBookmarks()
             continue;
         }
 
-        Bookmarks::Bookmark b;
-        b.folder = "Opera Import";
-        b.title = name;
-        b.url = url;
-
-        list.append(b);
+        BookmarkItem* b = new BookmarkItem(BookmarkItem::Url, root);
+        b->setTitle(name);
+        b->setUrl(url);
     }
 
-    return list;
+    return root;
 }

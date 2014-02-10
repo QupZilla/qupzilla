@@ -21,11 +21,12 @@
 #include "bookmarksmanager.h"
 #include "rssmanager.h"
 #include "mainapplication.h"
-#include "downloaditem.h"
 #include "qztools.h"
 #include "settings.h"
-#include "history.h"
 
+#include "bookmarksimportdialog.h"
+
+#include <QMenu>
 #include <QCloseEvent>
 
 BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
@@ -49,9 +50,13 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     ui->tabs->AddTab(m_historyManager, QIcon(":/icons/other/bighistory.png"), tr("History"));
     ui->tabs->AddTab(m_bookmarksManager, QIcon(":/icons/other/bigstar.png"), tr("Bookmarks"));
     ui->tabs->AddTab(m_rssManager, QIcon(":/icons/other/feed.png"), tr("RSS"));
-
     ui->tabs->SetMode(FancyTabWidget::Mode_LargeSidebar);
     ui->tabs->setFocus();
+
+    QMenu* m = new QMenu(this);
+    m->addAction(tr("Import Bookmarks..."), this, SLOT(importBookmarks()));
+    m->addAction(tr("Export Bookmarks to HTML..."), this, SLOT(exportBookmarks()));
+    ui->importExport->setMenu(m);
 
     connect(ui->tabs, SIGNAL(CurrentChanged(int)), this, SLOT(currentIndexChanged(int)));
     connect(ui->searchLine, SIGNAL(textChanged(QString)), this, SLOT(search()));
@@ -93,6 +98,17 @@ void BrowsingLibrary::search()
     else {
         m_bookmarksManager->search(ui->searchLine->text());
     }
+}
+
+void BrowsingLibrary::importBookmarks()
+{
+    BookmarksImportDialog* d = new BookmarksImportDialog(this);
+    d->show();
+}
+
+void BrowsingLibrary::exportBookmarks()
+{
+
 }
 
 void BrowsingLibrary::showHistory(QupZilla* mainClass)

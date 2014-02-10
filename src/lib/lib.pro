@@ -196,7 +196,6 @@ SOURCES += \
     preferences/pluginlistdelegate.cpp \
     popupwindow/popupstatusbarmessage.cpp \
     other/licenseviewer.cpp \
-    bookmarksimport/bookmarksimporticonfetcher.cpp \
     other/checkboxdialog.cpp \
     tools/plaineditwithlines.cpp \
     tools/focusselectlineedit.cpp \
@@ -388,7 +387,6 @@ HEADERS  += \
     preferences/pluginlistdelegate.h \
     popupwindow/popupstatusbarmessage.h \
     other/licenseviewer.h \
-    bookmarksimport/bookmarksimporticonfetcher.h \
     other/checkboxdialog.h \
     tools/plaineditwithlines.h \
     sidebar/sidebarinterface.h \

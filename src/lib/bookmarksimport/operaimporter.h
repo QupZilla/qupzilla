@@ -32,7 +32,7 @@ public:
     void setFile(const QString &path);
     bool openFile();
 
-    QVector<Bookmarks::Bookmark> exportBookmarks();
+    BookmarkItem* exportBookmarks();
 
     bool error() { return m_error; }
     QString errorString() { return m_errorString; }

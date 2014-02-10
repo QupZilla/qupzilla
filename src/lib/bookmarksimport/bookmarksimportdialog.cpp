@@ -22,24 +22,19 @@
 #include "operaimporter.h"
 #include "htmlimporter.h"
 #include "ieimporter.h"
+#include "bookmarkitem.h"
 #include "mainapplication.h"
-#include "bookmarksimporticonfetcher.h"
 #include "iconprovider.h"
-#include "networkmanager.h"
 #include "qztools.h"
 
-#include <QWebSettings>
 #include <QMessageBox>
 #include <QFileDialog>
-#include <QThread>
 
 BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::BookmarksImportDialog)
     , m_currentPage(0)
     , m_browser(Firefox)
-    , m_fetcher(0)
-    , m_fetcherThread(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
@@ -53,7 +48,6 @@ BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
     connect(ui->nextButton, SIGNAL(clicked()), this, SLOT(nextPage()));
     connect(ui->chooseFile, SIGNAL(clicked()), this, SLOT(setFile()));
     connect(ui->cancelButton, SIGNAL(clicked()), this, SLOT(close()));
-    connect(ui->stopButton, SIGNAL(clicked()), this, SLOT(stopDownloading()));
 }
 
 void BookmarksImportDialog::nextPage()
@@ -85,111 +79,14 @@ void BookmarksImportDialog::nextPage()
         if (exportedOK()) {
             m_currentPage++;
             ui->stackedWidget->setCurrentIndex(m_currentPage);
-
-            if (!ui->fetchIcons->isChecked()) {
-                addExportedBookmarks();
-                close();
-                return;
-            }
-
-            startFetchingIcons();
+            showExportedBookmarks();
         }
-        break;
-
-    case 2:
-        addExportedBookmarks();
-        close();
         break;
 
     default:
+        addExportedBookmarks();
+        close();
         break;
-    }
-}
-
-void BookmarksImportDialog::startFetchingIcons()
-{
-    ui->nextButton->setText(tr("Finish"));
-    ui->nextButton->setEnabled(false);
-    ui->progressBar->setValue(0);
-    ui->progressBar->setMaximum(m_exportedBookmarks.count());
-
-    m_fetcherThread = new QThread();
-    m_fetcher = new BookmarksImportIconFetcher();
-    m_fetcher->moveToThread(m_fetcherThread);
-
-    QIcon defaultIcon = qIconProvider->emptyWebIcon();
-    QIcon folderIcon = style()->standardIcon(QStyle::SP_DirIcon);
-    QHash<QString, QTreeWidgetItem*> hash;
-
-    foreach (const Bookmark &b, m_exportedBookmarks) {
-        QTreeWidgetItem* item;
-        QTreeWidgetItem* findParent = hash[b.folder];
-        if (findParent) {
-            item = new QTreeWidgetItem(findParent);
-        }
-        else {
-            QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->treeWidget);
-            newParent->setText(0, b.folder);
-            newParent->setIcon(0, folderIcon);
-            ui->treeWidget->addTopLevelItem(newParent);
-            hash[b.folder] = newParent;
-
-            item = new QTreeWidgetItem(newParent);
-        }
-
-        QVariant bookmarkVariant = QVariant::fromValue(b);
-        item->setText(0, b.title);
-        if (b.image.isNull()) {
-            item->setIcon(0, defaultIcon);
-        }
-        else {
-            item->setIcon(0, QIcon(QPixmap::fromImage(b.image)));
-        }
-        item->setText(1, b.url.toString());
-        item->setData(0, Qt::UserRole + 10, bookmarkVariant);
-
-        ui->treeWidget->addTopLevelItem(item);
-
-        m_fetcher->addEntry(b.url, item);
-    }
-
-    ui->treeWidget->expandAll();
-
-    connect(m_fetcher, SIGNAL(iconFetched(QImage,QTreeWidgetItem*)), this, SLOT(iconFetched(QImage,QTreeWidgetItem*)));
-    connect(m_fetcher, SIGNAL(oneFinished()), this, SLOT(loadFinished()));
-
-    m_fetcherThread->start();
-    m_fetcher->startFetching();
-}
-
-void BookmarksImportDialog::stopDownloading()
-{
-    ui->nextButton->setEnabled(true);
-    ui->stopButton->hide();
-    ui->progressBar->setValue(ui->progressBar->maximum());
-    ui->fetchingLabel->setText(tr("Please press Finish to complete importing process."));
-}
-
-void BookmarksImportDialog::loadFinished()
-{
-    ui->progressBar->setValue(ui->progressBar->value() + 1);
-
-    if (ui->progressBar->value() == ui->progressBar->maximum()) {
-        ui->stopButton->hide();
-        ui->nextButton->setEnabled(true);
-        ui->fetchingLabel->setText(tr("Please press Finish to complete importing process."));
-    }
-}
-
-void BookmarksImportDialog::iconFetched(const QImage &image, QTreeWidgetItem* item)
-{
-    item->setIcon(0, QIcon(QPixmap::fromImage(image)));
-
-    Bookmark b = item->data(0, Qt::UserRole + 10).value<Bookmark>();
-
-    int index = m_exportedBookmarks.indexOf(b);
-    if (index != -1) {
-        m_exportedBookmarks[index].image = image;
     }
 }
 
@@ -199,7 +96,7 @@ bool BookmarksImportDialog::exportedOK()
         FirefoxImporter firefox(this);
         firefox.setFile(ui->fileLine->text());
         if (firefox.openDatabase()) {
-            m_exportedBookmarks = firefox.exportBookmarks();
+            m_exportedFolder = firefox.exportBookmarks();
         }
 
         if (firefox.error()) {
@@ -211,7 +108,7 @@ bool BookmarksImportDialog::exportedOK()
         ChromeImporter chrome(this);
         chrome.setFile(ui->fileLine->text());
         if (chrome.openFile()) {
-            m_exportedBookmarks = chrome.exportBookmarks();
+            m_exportedFolder = chrome.exportBookmarks();
         }
 
         if (chrome.error()) {
@@ -223,7 +120,7 @@ bool BookmarksImportDialog::exportedOK()
         OperaImporter opera(this);
         opera.setFile(ui->fileLine->text());
         if (opera.openFile()) {
-            m_exportedBookmarks = opera.exportBookmarks();
+            m_exportedFolder = opera.exportBookmarks();
         }
 
         if (opera.error()) {
@@ -235,7 +132,7 @@ bool BookmarksImportDialog::exportedOK()
         HtmlImporter html(this);
         html.setFile(ui->fileLine->text());
         if (html.openFile()) {
-            m_exportedBookmarks = html.exportBookmarks();
+            m_exportedFolder = html.exportBookmarks();
         }
 
         if (html.error()) {
@@ -249,7 +146,7 @@ bool BookmarksImportDialog::exportedOK()
         ie.setFile(ui->fileLine->text());
 
         if (ie.openFile()) {
-            m_exportedBookmarks = ie.exportBookmarks();
+            m_exportedFolder = ie.exportBookmarks();
         }
 
         if (ie.error()) {
@@ -257,12 +154,36 @@ bool BookmarksImportDialog::exportedOK()
         }
     }
 #endif
-    if (m_exportedBookmarks.isEmpty()) {
+
+    if (!m_exportedFolder || m_exportedFolder->children().isEmpty()) {
         QMessageBox::critical(this, tr("Error!"), tr("The file doesn't contain any bookmark."));
         return false;
     }
 
+    Q_ASSERT(m_exportedFolder->isFolder());
     return true;
+}
+
+void BookmarksImportDialog::showExportedBookmarks()
+{
+    ui->nextButton->setText(tr("Finish"));
+
+    QTreeWidgetItem* root = new QTreeWidgetItem(ui->treeWidget);
+    root->setText(0, m_exportedFolder->title());
+    root->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
+    ui->treeWidget->addTopLevelItem(root);
+
+    foreach (BookmarkItem* b, m_exportedFolder->children()) {
+        // TODO: Multi-level bookmarks
+        if (b->isUrl()) {
+            QTreeWidgetItem* item = new QTreeWidgetItem(root);
+            item->setText(0, b->title());
+            item->setIcon(0, _iconForUrl(b->url()));
+            item->setText(1, b->urlString());
+        }
+    }
+
+    ui->treeWidget->expandAll();
 }
 
 void BookmarksImportDialog::setFile()
@@ -288,21 +209,7 @@ void BookmarksImportDialog::setFile()
 
 void BookmarksImportDialog::addExportedBookmarks()
 {
-#if 0
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    Bookmarks* model = mApp->bookmarks();
-
-    QSqlDatabase db = QSqlDatabase::database();
-    db.transaction();
-
-    foreach (const Bookmark &b, m_exportedBookmarks) {
-        model->saveBookmark(b.url, b.title, qIconProvider->iconFromImage(b.image), b.folder);
-    }
-
-    db.commit();
-
-    QApplication::restoreOverrideCursor();
-#endif
+    mApp->bookmarks()->addBookmark(mApp->bookmarks()->unsortedFolder(), m_exportedFolder);
 }
 
 void BookmarksImportDialog::setupBrowser(Browser browser)
@@ -381,12 +288,4 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
 BookmarksImportDialog::~BookmarksImportDialog()
 {
     delete ui;
-
-    if (m_fetcherThread) {
-        m_fetcherThread->exit();
-        m_fetcherThread->wait();
-
-        m_fetcherThread->deleteLater();
-        m_fetcher->deleteLater();
-    }
 }

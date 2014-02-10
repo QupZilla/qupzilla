@@ -53,6 +53,9 @@ private slots:
     void currentIndexChanged(int index);
     void search();
 
+    void importBookmarks();
+    void exportBookmarks();
+
 private:
     void closeEvent(QCloseEvent* e);
     void keyPressEvent(QKeyEvent* e);

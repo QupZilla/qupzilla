@@ -19,20 +19,15 @@
 #define BOOKMARKSIMPORTDIALOG_H
 
 #include <QDialog>
-#include <QPair>
 
 #include "qz_namespace.h"
-#include "bookmarks.h"
 
 namespace Ui
 {
 class BookmarksImportDialog;
 }
 
-class QTreeWidgetItem;
-class QThread;
-
-class BookmarksImportIconFetcher;
+class BookmarkItem;
 
 class QT_QUPZILLA_EXPORT BookmarksImportDialog : public QDialog
 {
@@ -46,16 +41,19 @@ private slots:
     void nextPage();
     void setFile();
 
-    void stopDownloading();
-    void iconFetched(const QImage &image, QTreeWidgetItem* item);
-    void loadFinished();
-
 private:
-    enum Browser { Firefox = 0, Chrome = 1, Opera = 2, IE = 3, Html = 4};
+    enum Browser {
+        Firefox = 0,
+        Chrome = 1,
+        Opera = 2,
+        IE = 3,
+        Html = 4
+    };
 
     void setupBrowser(Browser browser);
     bool exportedOK();
-    void startFetchingIcons();
+
+    void showExportedBookmarks();
     void addExportedBookmarks();
 
     Ui::BookmarksImportDialog* ui;
@@ -70,10 +68,7 @@ private:
     QPixmap m_browserPixmap;
     QString m_browserBookmarkFile;
 
-    QVector<Bookmark> m_exportedBookmarks;
-
-    BookmarksImportIconFetcher* m_fetcher;
-    QThread* m_fetcherThread;
+    BookmarkItem* m_exportedFolder;
 };
 
 #endif // BOOKMARKSIMPORTDIALOG_H

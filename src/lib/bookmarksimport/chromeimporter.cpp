@@ -18,6 +18,7 @@
 #include "chromeimporter.h"
 #include "qztools.h"
 #include "bookmarksimportdialog.h"
+#include "bookmarkitem.h"
 
 #include <QScriptEngine>
 #include <QScriptValue>
@@ -49,10 +50,8 @@ bool ChromeImporter::openFile()
     return true;
 }
 
-QVector<Bookmark> ChromeImporter::exportBookmarks()
+BookmarkItem* ChromeImporter::exportBookmarks()
 {
-    QVector<Bookmark> list;
-
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
 
@@ -66,6 +65,9 @@ QVector<Bookmark> ChromeImporter::exportBookmarks()
         pos += rx.matchedLength();
     }
 
+    BookmarkItem* root = new BookmarkItem(BookmarkItem::Folder);
+    root->setTitle("Chrome Import");
+
     QScriptEngine* scriptEngine = new QScriptEngine();
     foreach (QString parsedString, parsedBookmarks) {
         parsedString = "(" + parsedString + ")";
@@ -78,12 +80,9 @@ QVector<Bookmark> ChromeImporter::exportBookmarks()
                 continue;
             }
 
-            Bookmarks::Bookmark b;
-            b.folder = "Chrome Import";
-            b.title = name;
-            b.url = url;
-
-            list.append(b);
+            BookmarkItem* b = new BookmarkItem(BookmarkItem::Url, root);
+            b->setTitle(name);
+            b->setUrl(url);
         }
         else {
             m_error = true;
@@ -91,6 +90,6 @@ QVector<Bookmark> ChromeImporter::exportBookmarks()
         }
     }
 
-    return list;
+    return root;
 }
 
