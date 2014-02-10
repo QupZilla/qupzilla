@@ -18,7 +18,6 @@
 #include "bookmarksmodel.h"
 #include "bookmarkitem.h"
 #include "bookmarks.h"
-#include "iconprovider.h"
 
 #include <QApplication>
 #include <QMimeData>
@@ -127,25 +126,11 @@ QVariant BookmarksModel::data(const QModelIndex &index, int role) const
         default:
             return QVariant();
         }
-        switch (index.column()) {
-        case 0:
-        case 1:
-            return itm->url().toEncoded();
-        default:
-            return QVariant();
-        }
     case Qt::DecorationRole:
-        if (index.column() != 0) {
-            return QVariant();
+        if (index.column() == 0) {
+            return itm->icon();
         }
-        switch (itm->type()) {
-        case BookmarkItem::Folder:
-            return QApplication::style()->standardIcon(QStyle::SP_DirIcon);
-        case BookmarkItem::Url:
-            return _iconForUrl(itm->url());
-        default:
-            return QVariant();
-        }
+        return QVariant();
     default:
         return QVariant();
     }

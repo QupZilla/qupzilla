@@ -20,7 +20,6 @@
 #include "bookmarkitem.h"
 #include "bookmarks.h"
 #include "mainapplication.h"
-#include "iconprovider.h"
 #include "enhancedmenu.h"
 
 #include <QStyle>
@@ -58,8 +57,7 @@ bool BookmarksToolbarButton::showOnlyIcon() const
 void BookmarksToolbarButton::setShowOnlyIcon(bool show)
 {
     m_showOnlyIcon = show;
-
-    setText(show ? QString() : m_bookmark->title());
+    updateGeometry();
 }
 
 QSize BookmarksToolbarButton::sizeHint() const
@@ -69,7 +67,7 @@ QSize BookmarksToolbarButton::sizeHint() const
     int width = m_padding * 2 + 16;
 
     if (!m_showOnlyIcon) {
-        width += m_padding * 2 + fontMetrics().width(text());
+        width += m_padding * 2 + fontMetrics().width(m_bookmark->title());
 
         if (menu()) {
             width += m_padding + 8;
@@ -193,16 +191,9 @@ void BookmarksToolbarButton::init()
     setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
     setIconSize(QSize(16, 16));
     setMaximumHeight(24);
-
-    setText(createText());
     setToolTip(createTooltip());
 
-    if (m_bookmark->isUrl()) {
-        setIcon(_iconForUrl(m_bookmark->url()));
-    }
-    else if (m_bookmark->isFolder()) {
-        setIcon(style()->standardIcon(QStyle::SP_DirIcon));
-
+    if (m_bookmark->isFolder()) {
         Menu* m = new Menu(this);
         connect(m, SIGNAL(aboutToShow()), this, SLOT(createMenu()));
         connect(m, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(menuMiddleClicked(Menu*)));
@@ -220,11 +211,6 @@ QString BookmarksToolbarButton::createTooltip() const
         return QString("%1\n%2").arg(m_bookmark->title(), m_bookmark->urlString());
     }
 
-    return m_bookmark->title();
-}
-
-QString BookmarksToolbarButton::createText() const
-{
     return m_bookmark->title();
 }
 
@@ -295,7 +281,7 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
 
     // Draw icon
     QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
-    p.drawPixmap(iconRect, icon().pixmap(iconSize));
+    p.drawPixmap(iconRect, m_bookmark->icon().pixmap(iconSize));
     leftPosition = iconRect.right() + m_padding;
 
     // Draw menu arrow
@@ -313,7 +299,7 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
     if (!m_showOnlyIcon) {
         const int textWidth = rightPosition - leftPosition;
         const int textYPos = center - fontMetrics().height() / 2;
-        const QString txt = fontMetrics().elidedText(text(), Qt::ElideRight, textWidth);
+        const QString txt = fontMetrics().elidedText(m_bookmark->title(), Qt::ElideRight, textWidth);
         QRect textRect(leftPosition, textYPos, textWidth, fontMetrics().height());
         style()->drawItemText(&p, textRect, Qt::TextSingleLine | Qt::AlignCenter, opt.palette, true, txt);
     }

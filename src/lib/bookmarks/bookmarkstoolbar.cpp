@@ -149,7 +149,6 @@ void BookmarksToolbar::showOnlyIconsChanged(bool state)
 {
     for (int i = 0; i < m_layout->count(); ++i) {
         BookmarksToolbarButton* b = qobject_cast<BookmarksToolbarButton*>(m_layout->itemAt(i)->widget());
-
         if (b) {
             b->setShowOnlyIcon(state);
         }

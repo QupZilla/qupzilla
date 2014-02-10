@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "bookmarkitem.h"
+#include "iconprovider.h"
 
 BookmarkItem::BookmarkItem(BookmarkItem::Type type, BookmarkItem* parent)
     : m_type(type)
@@ -61,12 +62,29 @@ bool BookmarkItem::isSeparator() const
 
 BookmarkItem* BookmarkItem::parent() const
 {
-    return  m_parent;
+    return m_parent;
 }
 
 QList<BookmarkItem*> BookmarkItem::children() const
 {
     return m_children;
+}
+
+QIcon BookmarkItem::icon()
+{
+    switch (m_type) {
+    case Url:
+        // Cache icon for 20 seconds
+        if (m_iconTime < QTime::currentTime().addSecs(-20)) {
+            m_icon = _iconForUrl(m_url);
+            m_iconTime = QTime::currentTime();
+        }
+        return m_icon;
+    case Folder:
+        return qIconProvider->standardIcon(QStyle::SP_DirIcon);
+    default:
+        return QIcon();
+    }
 }
 
 QString BookmarkItem::urlString() const

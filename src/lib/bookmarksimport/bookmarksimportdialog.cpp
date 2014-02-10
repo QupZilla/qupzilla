@@ -170,7 +170,7 @@ void BookmarksImportDialog::showExportedBookmarks()
 
     QTreeWidgetItem* root = new QTreeWidgetItem(ui->treeWidget);
     root->setText(0, m_exportedFolder->title());
-    root->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
+    root->setIcon(0, m_exportedFolder->icon());
     ui->treeWidget->addTopLevelItem(root);
 
     foreach (BookmarkItem* b, m_exportedFolder->children()) {
@@ -178,7 +178,7 @@ void BookmarksImportDialog::showExportedBookmarks()
         if (b->isUrl()) {
             QTreeWidgetItem* item = new QTreeWidgetItem(root);
             item->setText(0, b->title());
-            item->setIcon(0, _iconForUrl(b->url()));
+            item->setIcon(0, b->icon());
             item->setText(1, b->urlString());
         }
     }

@@ -53,13 +53,11 @@ void BookmarksFoldersMenu::folderChoosed()
     }
 }
 
-#define FOLDER_ICON QApplication::style()->standardIcon(QStyle::SP_DirIcon)
-
 void BookmarksFoldersMenu::init()
 {
 #define ADD_MENU(name) \
     BookmarkItem* f_##name = mApp->bookmarks()->name(); \
-    QMenu* m_##name = addMenu(FOLDER_ICON, f_##name->title()); \
+    QMenu* m_##name = addMenu(f_##name->icon(), f_##name->title()); \
     createMenu(m_##name, f_##name);
 
     ADD_MENU(toolbarFolder)
@@ -78,7 +76,7 @@ void BookmarksFoldersMenu::createMenu(QMenu* menu, BookmarkItem* parent)
 
     foreach (BookmarkItem* child, parent->children()) {
         if (child->isFolder()) {
-            QMenu* m = menu->addMenu(FOLDER_ICON, child->title());
+            QMenu* m = menu->addMenu(child->icon(), child->title());
             createMenu(m, child);
         }
     }
@@ -108,6 +106,7 @@ void BookmarksFoldersButton::setSelectedFolder(BookmarkItem* folder)
 
     m_selectedFolder = folder;
     setText(folder->title());
+    setIcon(folder->icon());
 
     if (sender()) {
         emit selectedFolderChanged(folder);
@@ -116,9 +115,7 @@ void BookmarksFoldersButton::setSelectedFolder(BookmarkItem* folder)
 
 void BookmarksFoldersButton::init()
 {
-    setIcon(FOLDER_ICON);
     setMenu(m_menu);
-
     setSelectedFolder(m_selectedFolder);
 }
 
@@ -275,8 +272,6 @@ void BookmarksTools::openFolderInTabs(QupZilla* window, BookmarkItem* folder)
     }
 }
 
-#define FOLDER_ICON QApplication::style()->standardIcon(QStyle::SP_DirIcon)
-
 void BookmarksTools::addActionToMenu(QObject* receiver, Menu* menu, BookmarkItem* item)
 {
     Q_ASSERT(menu);
@@ -304,7 +299,7 @@ void BookmarksTools::addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem
     Q_ASSERT(folder->isFolder());
 
     Menu* m = new Menu(folder->title());
-    m->setIcon(FOLDER_ICON);
+    m->setIcon(folder->icon());
     QObject::connect(m, SIGNAL(menuMiddleClicked(Menu*)), receiver, SLOT(menuMiddleClicked(Menu*)));
 
     QAction* act = menu->addMenu(m);
@@ -325,7 +320,7 @@ void BookmarksTools::addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* b
     Q_ASSERT(bookmark);
     Q_ASSERT(bookmark->isUrl());
 
-    Action* act = new Action(_iconForUrl(bookmark->url()), bookmark->title());
+    Action* act = new Action(bookmark->icon(), bookmark->title());
     act->setData(QVariant::fromValue<void*>(static_cast<void*>(bookmark)));
 
     QObject::connect(act, SIGNAL(triggered()), receiver, SLOT(bookmarkActivated()));

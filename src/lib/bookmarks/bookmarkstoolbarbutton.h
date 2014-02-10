@@ -59,7 +59,6 @@ private slots:
 private:
     void init();
     QString createTooltip() const;
-    QString createText() const;
 
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);

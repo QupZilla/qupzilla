@@ -68,7 +68,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
 
             QStandardItem* item = new QStandardItem();
 
-            item->setIcon(_iconForUrl(bookmark->url()));
+            item->setIcon(bookmark->icon());
             item->setText(bookmark->url().toEncoded());
             item->setData(-1, IdRole);
             item->setData(bookmark->title(), TitleRole);

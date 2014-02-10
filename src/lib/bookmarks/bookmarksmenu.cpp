@@ -158,8 +158,6 @@ void BookmarksMenu::init()
     connect(this, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(menuMiddleClicked(Menu*)));
 }
 
-#define FOLDER_ICON style()->standardIcon(QStyle::SP_DirIcon)
-
 void BookmarksMenu::refresh()
 {
     while (actions().count() != 4) {

@@ -20,6 +20,8 @@
 
 #include <QString>
 #include <QList>
+#include <QIcon>
+#include <QTime>
 #include <QUrl>
 
 #include "qz_namespace.h"
@@ -48,7 +50,9 @@ public:
     BookmarkItem* parent() const;
     QList<BookmarkItem*> children() const;
 
+    QIcon icon();
     QString urlString() const;
+
     QUrl url() const;
     void setUrl(const QUrl &url);
 
@@ -87,6 +91,8 @@ private:
     QString m_title;
     QString m_description;
     QString m_keyword;
+    QIcon m_icon;
+    QTime m_iconTime;
     int m_visitCount;
     bool m_expanded;
     bool m_sidebarExpanded;
