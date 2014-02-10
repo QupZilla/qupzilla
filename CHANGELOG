@@ -6,6 +6,7 @@ Version 1.6.2
     * fixed: small fix in loading previews in speeddial
     * fixed: incorrect exception rules handling in AdBlock
     * fixed: flickering when removing tabs from tabbar
+    * mac: fixed toggle fullscreen action in menu
 
 Version 1.6.1
     * released 26 January 2014

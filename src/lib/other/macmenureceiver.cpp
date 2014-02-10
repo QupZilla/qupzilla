@@ -299,9 +299,9 @@ void MacMenuReceiver::zoomReset()
     callSlot("zoomReset");
 }
 
-void MacMenuReceiver::toggleFullScreen(bool make)
+void MacMenuReceiver::toggleFullScreen()
 {
-    callSlot("toggleFullScreen", false, Q_ARG(bool, make));
+    callSlot("toggleFullScreen");
 }
 
 void MacMenuReceiver::changeEncoding(QObject* obj)
