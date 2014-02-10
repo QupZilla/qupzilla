@@ -77,7 +77,7 @@ void BookmarksMenu::aboutToShow()
     }
 }
 
-void BookmarksMenu::loadMenu(Menu* menu)
+void BookmarksMenu::menuMiddleClicked(Menu* menu)
 {
     BookmarkItem* item = static_cast<BookmarkItem*>(menu->menuAction()->data().value<void*>());
     Q_ASSERT(item);
@@ -155,10 +155,10 @@ void BookmarksMenu::init()
     addSeparator();
 
     connect(this, SIGNAL(aboutToShow()), this, SLOT(aboutToShow()));
-    connect(this, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(loadMenu(Menu*)));
+    connect(this, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(menuMiddleClicked(Menu*)));
 }
 
-#define FOLDER_ICON QApplication::style()->standardIcon(QStyle::SP_DirIcon)
+#define FOLDER_ICON style()->standardIcon(QStyle::SP_DirIcon)
 
 void BookmarksMenu::refresh()
 {
@@ -171,63 +171,13 @@ void BookmarksMenu::refresh()
         delete act;
     }
 
-    addItem(this, mApp->bookmarks()->toolbarFolder());
+    BookmarksTools::addActionToMenu(this, this, mApp->bookmarks()->toolbarFolder());
     addSeparator();
 
     foreach (BookmarkItem* child, mApp->bookmarks()->menuFolder()->children()) {
-        addItem(this, child);
+        BookmarksTools::addActionToMenu(this, this, child);
     }
 
     addSeparator();
-    addItem(this, mApp->bookmarks()->unsortedFolder());
-}
-
-void BookmarksMenu::addItem(Menu* menu, BookmarkItem* item)
-{
-    Q_ASSERT(menu);
-    Q_ASSERT(item);
-
-    switch (item->type()) {
-    case BookmarkItem::Url:
-        addBookmark(menu, item);
-        break;
-    case BookmarkItem::Folder:
-        addFolder(menu, item);
-        break;
-    case BookmarkItem::Separator:
-        menu->addSeparator();
-        break;
-    default:
-        break;
-    }
-}
-
-void BookmarksMenu::addFolder(Menu* menu, BookmarkItem* folder)
-{
-    Menu* m = new Menu(folder->title());
-    m->setIcon(FOLDER_ICON);
-    connect(m, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(loadMenu(Menu*)));
-
-    QAction* act = menu->addMenu(m);
-    act->setData(QVariant::fromValue<void*>(static_cast<void*>(folder)));
-
-    foreach (BookmarkItem* child, folder->children()) {
-        addItem(m, child);
-    }
-
-    if (folder->children().isEmpty()) {
-        m->addAction(tr("Empty"))->setDisabled(true);
-    }
-}
-
-void BookmarksMenu::addBookmark(Menu* menu, BookmarkItem* bookmark)
-{
-    Action* act = new Action(_iconForUrl(bookmark->url()), bookmark->title());
-    act->setData(QVariant::fromValue<void*>(static_cast<void*>(bookmark)));
-
-    connect(act, SIGNAL(triggered()), this, SLOT(bookmarkActivated()));
-    connect(act, SIGNAL(ctrlTriggered()), this, SLOT(bookmarkCtrlActivated()));
-    connect(act, SIGNAL(shiftTriggered()), this, SLOT(bookmarkShiftActivated()));
-
-    menu->addAction(act);
+    BookmarksTools::addActionToMenu(this, this, mApp->bookmarks()->unsortedFolder());
 }

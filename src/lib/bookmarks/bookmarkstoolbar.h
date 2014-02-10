@@ -21,15 +21,13 @@
 #include <QWidget>
 
 #include "qz_namespace.h"
-#include "bookmarks.h"
 
 class QHBoxLayout;
+class QTimer;
 
 class QupZilla;
 class Bookmarks;
-class History;
-class ToolButton;
-class Menu;
+class BookmarkItem;
 
 class QT_QUPZILLA_EXPORT BookmarksToolbar : public QWidget
 {
@@ -37,45 +35,29 @@ class QT_QUPZILLA_EXPORT BookmarksToolbar : public QWidget
 public:
     explicit BookmarksToolbar(QupZilla* mainClass, QWidget* parent = 0);
 
-signals:
-
-public slots:
-    void refreshBookmarks();
-    void refreshMostVisited();
-    void showMostVisited();
-
 private slots:
-    void loadClickedBookmark();
-    void loadClickedBookmarkInNewTab();
-    void loadFolderBookmarksInTabs();
+    void contextMenuRequested(const QPoint &pos);
+    void setShowOnlyIcons(bool show);
 
-    void aboutToShowFolderMenu();
-    void showBookmarkContextMenu(const QPoint &pos);
-    void customContextMenuRequested(const QPoint &pos);
+    void refresh();
+    void bookmarksChanged();
 
-    void moveRight();
-    void moveLeft();
-    void editBookmark();
-    void removeButton();
-
-    void hidePanel();
-    void toggleShowOnlyIcons();
+    void openBookmarkInNewTab();
+    void openBookmarkInNewWindow();
+    void deleteBookmark();
 
 private:
+    void clear();
+    void addItem(BookmarkItem* item);
+
     void dropEvent(QDropEvent* e);
     void dragEnterEvent(QDragEnterEvent* e);
 
-    void showOnlyIconsChanged();
-    int indexOfLastBookmark();
-
-    QupZilla* p_QupZilla;
+    QupZilla* m_window;
     Bookmarks* m_bookmarks;
-    History* m_historyModel;
-    Menu* m_menuMostVisited;
-    ToolButton* m_mostVis;
+    BookmarkItem* m_clickedBookmark;
     QHBoxLayout* m_layout;
-
-    Qt::ToolButtonStyle m_toolButtonStyle;
+    QTimer* m_updateTimer;
 };
 
 #endif // BOOKMARKSTOOLBAR_H

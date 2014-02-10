@@ -258,7 +258,8 @@ SOURCES += \
     bookmarks/bookmarkstools.cpp \
     bookmarks/bookmarksmenu.cpp \
     bookmarks/bookmarksicon.cpp \
-    bookmarks/bookmarksitemdelegate.cpp
+    bookmarks/bookmarksitemdelegate.cpp \
+    bookmarks/bookmarkstoolbarbutton.cpp
 
 
 HEADERS  += \
@@ -452,7 +453,8 @@ HEADERS  += \
     bookmarks/bookmarkstools.h \
     bookmarks/bookmarksmenu.h \
     bookmarks/bookmarksicon.h \
-    bookmarks/bookmarksitemdelegate.h
+    bookmarks/bookmarksitemdelegate.h \
+    bookmarks/bookmarkstoolbarbutton.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

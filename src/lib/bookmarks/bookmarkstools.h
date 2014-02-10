@@ -71,17 +71,27 @@ private:
 
 class QupZilla;
 class TabWidget;
+class Action;
+class Menu;
 
 class QT_QUPZILLA_EXPORT BookmarksTools
 {
 public:
+    // Add Bookmark Dialogs
     static bool addBookmarkDialog(QWidget* parent, const QUrl &url, const QString &title, BookmarkItem* folder = 0);
     static bool bookmarkAllTabsDialog(QWidget* parent, TabWidget* tabWidget, BookmarkItem* folder = 0);
 
+    // Open Bookmarks
     static void openBookmark(QupZilla* window, BookmarkItem* item);
     static void openBookmarkInNewTab(QupZilla* window, BookmarkItem* item);
     static void openBookmarkInNewWindow(BookmarkItem* item);
     static void openFolderInTabs(QupZilla* window, BookmarkItem* folder);
+
+    // Create Menu
+    static void addActionToMenu(QObject* receiver, Menu* menu, BookmarkItem* item);
+    static void addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem* folder);
+    static void addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* bookmark);
+    static void addSeparatorToMenu(Menu* menu, BookmarkItem* separator);
 };
 
 #endif // BOOKMARKSTOOLS_H

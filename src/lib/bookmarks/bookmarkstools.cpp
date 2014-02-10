@@ -20,6 +20,7 @@
 #include "bookmarks.h"
 #include "mainapplication.h"
 #include "iconprovider.h"
+#include "enhancedmenu.h"
 #include "tabwidget.h"
 #include "qzsettings.h"
 #include "qupzilla.h"
@@ -272,4 +273,72 @@ void BookmarksTools::openFolderInTabs(QupZilla* window, BookmarkItem* folder)
             openFolderInTabs(window, child);
         }
     }
+}
+
+#define FOLDER_ICON QApplication::style()->standardIcon(QStyle::SP_DirIcon)
+
+void BookmarksTools::addActionToMenu(QObject* receiver, Menu* menu, BookmarkItem* item)
+{
+    Q_ASSERT(menu);
+    Q_ASSERT(item);
+
+    switch (item->type()) {
+    case BookmarkItem::Url:
+        addUrlToMenu(receiver, menu, item);
+        break;
+    case BookmarkItem::Folder:
+        addFolderToMenu(receiver, menu, item);
+        break;
+    case BookmarkItem::Separator:
+        addSeparatorToMenu(menu, item);
+        break;
+    default:
+        break;
+    }
+}
+
+void BookmarksTools::addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem* folder)
+{
+    Q_ASSERT(menu);
+    Q_ASSERT(folder);
+    Q_ASSERT(folder->isFolder());
+
+    Menu* m = new Menu(folder->title());
+    m->setIcon(FOLDER_ICON);
+    QObject::connect(m, SIGNAL(menuMiddleClicked(Menu*)), receiver, SLOT(menuMiddleClicked(Menu*)));
+
+    QAction* act = menu->addMenu(m);
+    act->setData(QVariant::fromValue<void*>(static_cast<void*>(folder)));
+
+    foreach (BookmarkItem* child, folder->children()) {
+        addActionToMenu(receiver, m, child);
+    }
+
+    if (m->isEmpty()) {
+        m->addAction(Bookmarks::tr("Empty"))->setDisabled(true);
+    }
+}
+
+void BookmarksTools::addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* bookmark)
+{
+    Q_ASSERT(menu);
+    Q_ASSERT(bookmark);
+    Q_ASSERT(bookmark->isUrl());
+
+    Action* act = new Action(_iconForUrl(bookmark->url()), bookmark->title());
+    act->setData(QVariant::fromValue<void*>(static_cast<void*>(bookmark)));
+
+    QObject::connect(act, SIGNAL(triggered()), receiver, SLOT(bookmarkActivated()));
+    QObject::connect(act, SIGNAL(ctrlTriggered()), receiver, SLOT(bookmarkCtrlActivated()));
+    QObject::connect(act, SIGNAL(shiftTriggered()), receiver, SLOT(bookmarkShiftActivated()));
+
+    menu->addAction(act);
+}
+
+void BookmarksTools::addSeparatorToMenu(Menu* menu, BookmarkItem* separator)
+{
+    Q_ASSERT(menu);
+    Q_ASSERT(separator->isSeparator());
+
+    menu->addSeparator();
 }

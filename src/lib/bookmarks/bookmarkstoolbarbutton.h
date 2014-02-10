@@ -15,38 +15,41 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef BOOKMARKSMENU_H
-#define BOOKMARKSMENU_H
+#ifndef BOOKMARKSTOOLBARBUTTON_H
+#define BOOKMARKSTOOLBARBUTTON_H
 
-#include <QPointer>
+#include <QPushButton>
 
-#include "enhancedmenu.h"
 #include "qz_namespace.h"
 
+class Menu;
 class QupZilla;
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarksMenu : public Menu
+class QT_QUPZILLA_EXPORT BookmarksToolbarButton : public QPushButton
 {
     Q_OBJECT
 
 public:
-    explicit BookmarksMenu(QWidget* parent = 0);
+    explicit BookmarksToolbarButton(BookmarkItem* bookmark, QWidget* parent = 0);
 
+    BookmarkItem* bookmark() const;
     void setMainWindow(QupZilla* window);
 
+    bool showOnlyIcon() const;
+    void setShowOnlyIcon(bool show);
+
+    QSize sizeHint() const;
+    QSize minimumSizeHint() const;
+
 private slots:
-    void bookmarkPage();
-    void bookmarkAllTabs();
-    void showBookmarksManager();
+    void bookmarkRemoved(BookmarkItem* bookmark);
+    void createMenu();
 
-    void bookmarksChanged();
-    void aboutToShow();
     void menuMiddleClicked(Menu* menu);
-
-    void bookmarkActivated();
-    void bookmarkCtrlActivated();
-    void bookmarkShiftActivated();
+    void bookmarkActivated(BookmarkItem* item = 0);
+    void bookmarkCtrlActivated(BookmarkItem* item = 0);
+    void bookmarkShiftActivated(BookmarkItem* item = 0);
 
     void openFolder(BookmarkItem* item);
     void openBookmark(BookmarkItem* item);
@@ -55,10 +58,21 @@ private slots:
 
 private:
     void init();
-    void refresh();
+    QString createTooltip() const;
+    QString createText() const;
 
-    QPointer<QupZilla> m_window;
-    bool m_changed;
+    void mousePressEvent(QMouseEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
+    void paintEvent(QPaintEvent* event);
+
+    BookmarkItem* m_bookmark;
+    QupZilla* m_window;
+
+    Qt::MouseButtons m_buttons;
+    Qt::KeyboardModifiers m_modifiers;
+    bool m_showOnlyIcon;
+    int m_padding;
+
 };
 
-#endif // BOOKMARKSMENU_H
+#endif // BOOKMARKSTOOLBARBUTTON_H
