@@ -19,7 +19,7 @@
 #define CLOSEDTABSMANAGER_H
 
 #include <QUrl>
-#include <QVector>
+#include <QLinkedList>
 
 #include "qz_namespace.h"
 
@@ -44,20 +44,22 @@ public:
     explicit ClosedTabsManager();
 
     void saveView(WebTab* tab, int position);
-    ClosedTabsManager::Tab getFirstClosedTab();
-    ClosedTabsManager::Tab getTabAt(int index);
-
     bool isClosedTabAvailable();
+
+    // Takes tab that was most recently closed
+    Tab takeLastClosedTab();
+    // Takes tab at given index
+    Tab takeTabAt(int index);
+
+    QLinkedList<Tab> allClosedTabs();
     void clearList();
 
-    QVector<ClosedTabsManager::Tab> allClosedTabs();
-
 private:
-    QVector<ClosedTabsManager::Tab> m_closedTabs;
+    QLinkedList<Tab> m_closedTabs;
 
 };
 
-// Hint to QVector to use std::realloc on item moving
+// Hint to Qt to use std::realloc on item moving
 Q_DECLARE_TYPEINFO(ClosedTabsManager::Tab, Q_MOVABLE_TYPE);
 
 #endif // CLOSEDTABSMANAGER_H

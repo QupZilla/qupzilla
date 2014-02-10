@@ -42,43 +42,49 @@ void ClosedTabsManager::saveView(WebTab* tab, int position)
     m_closedTabs.prepend(closedTab);
 }
 
-ClosedTabsManager::Tab ClosedTabsManager::getFirstClosedTab()
+bool ClosedTabsManager::isClosedTabAvailable()
+{
+    return !m_closedTabs.isEmpty();
+}
+
+
+ClosedTabsManager::Tab ClosedTabsManager::takeLastClosedTab()
 {
     Tab tab;
     tab.position = -1;
 
     if (m_closedTabs.count() > 0) {
-        tab = m_closedTabs.first();
-        m_closedTabs.remove(0);
+        tab = m_closedTabs.takeFirst();
     }
 
     return tab;
 }
 
-ClosedTabsManager::Tab ClosedTabsManager::getTabAt(int index)
+ClosedTabsManager::Tab ClosedTabsManager::takeTabAt(int index)
 {
     Tab tab;
     tab.position = -1;
 
-    if (QzTools::vectorContainsIndex(m_closedTabs, index)) {
-        tab = m_closedTabs.at(index);
-        m_closedTabs.remove(index);
+    QLinkedList<Tab>::iterator it;
+    int i = 0;
+
+    for (it = m_closedTabs.begin(); it != m_closedTabs.end(); ++it, ++i) {
+        if (i == index) {
+            tab = *it;
+            m_closedTabs.erase(it);
+            break;
+        }
     }
 
     return tab;
 }
 
-bool ClosedTabsManager::isClosedTabAvailable()
+QLinkedList<ClosedTabsManager::Tab> ClosedTabsManager::allClosedTabs()
 {
-    return (m_closedTabs.count() != 0);
+    return m_closedTabs;
 }
 
 void ClosedTabsManager::clearList()
 {
     m_closedTabs.clear();
-}
-
-QVector<ClosedTabsManager::Tab> ClosedTabsManager::allClosedTabs()
-{
-    return m_closedTabs;
 }
