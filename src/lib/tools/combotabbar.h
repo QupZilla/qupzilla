@@ -200,6 +200,8 @@ public:
     bool isActiveTabBar();
     void setActiveTabBar(bool activate);
 
+    void removeTab(int index);
+
     void setScrollArea(QScrollArea* scrollArea);
     void useFastTabSizeHint(bool enabled);
     bool isDisplayedOnViewPort(int globalLeft, int globalRight);
