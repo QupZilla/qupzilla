@@ -514,10 +514,6 @@ isEqual(QT_MAJOR_VERSION, 5) {
     SOURCES += tools/qzregexp.cpp
 }
 
-!isEqual(QT_MAJOR_VERSION, 5) {
-    LIBS += -lqjson
-}
-
 !mac:unix {
     target.path = $$library_folder
 

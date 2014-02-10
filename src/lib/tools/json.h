@@ -19,15 +19,31 @@
 #define JSON_H
 
 #include <QVariant>
-#include <QByteArray>
+#include <QString>
 
 #include "qz_namespace.h"
+
+class QScriptValue;
+class QScriptEngine;
 
 class QT_QUPZILLA_EXPORT Json
 {
 public:
-    static QVariant parse(const QByteArray &data, bool* ok);
-    static QByteArray serialize(const QVariant &variant, bool* ok);
+    explicit Json();
+    ~Json();
+
+    QVariant parse(const QString &data);
+    QString serialize(const QVariant &variant);
+
+    bool ok() const;
+
+private:
+    QMap<QString, QVariant> decodeInner(QScriptValue object);
+    QList<QVariant> decodeInnerToList(QScriptValue arrayValue);
+    QScriptValue encodeInner(const QMap<QString, QVariant> &map);
+
+    QScriptEngine* m_engine;
+    bool m_ok;
 };
 
 #endif // JSON_H

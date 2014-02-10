@@ -280,10 +280,10 @@ void Bookmarks::loadBookmarks()
     QByteArray data = file.readAll();
     file.close();
 
-    bool ok;
-    const QVariant res = Json::parse(data, &ok);
+    Json json;
+    const QVariant res = json.parse(QString::fromUtf8(data));
 
-    if (!ok || res.type() != QVariant::Map) {
+    if (!json.ok() || res.type() != QVariant::Map) {
         qWarning() << "Bookmarks::init() Error parsing bookmarks! Using default bookmarks!";
         qWarning() << "Bookmarks::init() Your bookmarks have been backed up in" << backupFile;
 
@@ -292,9 +292,9 @@ void Bookmarks::loadBookmarks()
         QFile::copy(bookmarksFile, backupFile);
 
         // Load default bookmarks
-        const QVariant data = Json::parse(QzTools::readAllFileByteContents(":data/bookmarks.json"), &ok);
+        const QVariant data = json.parse(QzTools::readAllFileContents(":data/bookmarks.json"));
 
-        Q_ASSERT(ok);
+        Q_ASSERT(json.ok());
         Q_ASSERT(data.type() == QVariant::Map);
 
         loadBookmarksFromMap(data.toMap().value("roots").toMap());
@@ -327,10 +327,10 @@ void Bookmarks::saveBookmarks()
     map.insert("version", Qz::bookmarksVersion);
     map.insert("roots", bookmarksMap);
 
-    bool ok;
-    const QByteArray data = Json::serialize(map, &ok);
+    Json json;
+    const QString data = json.serialize(map);
 
-    if (!ok || data.isEmpty()) {
+    if (!json.ok() || data.isEmpty()) {
         qWarning() << "Bookmarks::saveBookmarks() Error serializing bookmarks!";
         return;
     }
@@ -341,7 +341,7 @@ void Bookmarks::saveBookmarks()
         qWarning() << "Bookmarks::saveBookmarks() Error opening bookmarks file for writing!";
     }
 
-    file.write(data);
+    file.write(data.toUtf8());
     file.close();
 }
 
@@ -410,7 +410,7 @@ QVariantList Bookmarks::writeBookmarks(BookmarkItem* parent)
 
         switch (child->type()) {
         case BookmarkItem::Url:
-            map.insert("url", child->url().toEncoded());
+            map.insert("url", child->urlString());
             map.insert("name", child->title());
             map.insert("description", child->description());
             map.insert("keyword", child->keyword());
