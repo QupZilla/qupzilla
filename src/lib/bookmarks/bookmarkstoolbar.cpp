@@ -70,8 +70,8 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
     menu.addSeparator();
     QAction* act = menu.addAction(tr("Show Only Icons"));
     act->setCheckable(true);
-    act->setChecked(m_bookmarks->isShowingOnlyIconsInToolbar());
-    connect(act, SIGNAL(toggled(bool)), this, SLOT(setShowOnlyIcons(bool)));
+    act->setChecked(m_bookmarks->showOnlyIconsInToolbar());
+    connect(act, SIGNAL(toggled(bool)), m_bookmarks, SLOT(setShowOnlyIconsInToolbar(bool)));
 
     connect(actNewTab, SIGNAL(triggered()), this, SLOT(openBookmarkInNewTab()));
     connect(actNewWindow, SIGNAL(triggered()), this, SLOT(openBookmarkInNewWindow()));
@@ -86,19 +86,6 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
     m_clickedBookmark = 0;
 }
 
-void BookmarksToolbar::setShowOnlyIcons(bool show)
-{
-    m_bookmarks->setShowingOnlyIconsInToolbar(show);
-
-    for (int i = 0; i < m_layout->count(); ++i) {
-        BookmarksToolbarButton* b = qobject_cast<BookmarksToolbarButton*>(m_layout->itemAt(i)->widget());
-
-        if (b) {
-            b->setShowOnlyIcon(show);
-        }
-    }
-}
-
 void BookmarksToolbar::addItem(BookmarkItem* item)
 {
     Q_ASSERT(item);
@@ -108,7 +95,7 @@ void BookmarksToolbar::addItem(BookmarkItem* item)
     case BookmarkItem::Url: {
         BookmarksToolbarButton* button = new BookmarksToolbarButton(item, this);
         button->setMainWindow(m_window);
-        button->setShowOnlyIcon(m_bookmarks->isShowingOnlyIconsInToolbar());
+        button->setShowOnlyIcon(m_bookmarks->showOnlyIconsInToolbar());
         m_layout->addWidget(button);
         break;
     }
@@ -155,6 +142,17 @@ void BookmarksToolbar::bookmarksChanged()
 {
     m_updateTimer->stop();
     m_updateTimer->start();
+}
+
+void BookmarksToolbar::showOnlyIconsChanged(bool state)
+{
+    for (int i = 0; i < m_layout->count(); ++i) {
+        BookmarksToolbarButton* b = qobject_cast<BookmarksToolbarButton*>(m_layout->itemAt(i)->widget());
+
+        if (b) {
+            b->setShowOnlyIcon(state);
+        }
+    }
 }
 
 void BookmarksToolbar::openBookmarkInNewTab()

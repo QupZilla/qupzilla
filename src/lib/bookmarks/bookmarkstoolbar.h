@@ -37,10 +37,10 @@ public:
 
 private slots:
     void contextMenuRequested(const QPoint &pos);
-    void setShowOnlyIcons(bool show);
 
     void refresh();
     void bookmarksChanged();
+    void showOnlyIconsChanged(bool state);
 
     void openBookmarkInNewTab();
     void openBookmarkInNewWindow();

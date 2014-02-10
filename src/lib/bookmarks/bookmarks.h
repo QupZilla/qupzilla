@@ -18,20 +18,13 @@
 #ifndef BOOKMARKS_H
 #define BOOKMARKS_H
 
-#define _bookmarksToolbar Bookmarks::toTranslatedFolder("bookmarksToolbar")
-#define _bookmarksMenu Bookmarks::toTranslatedFolder("bookmarksMenu")
-#define _bookmarksUnsorted Bookmarks::toTranslatedFolder("unsorted")
-
 #include <QObject>
-#include <QUrl>
-#include <QImage>
 #include <QVariant>
 
 #include "qz_namespace.h"
 
-class QIcon;
+class QUrl;
 
-class WebView;
 class BookmarkItem;
 class BookmarksModel;
 
@@ -40,62 +33,38 @@ class QT_QUPZILLA_EXPORT Bookmarks : public QObject
     Q_OBJECT
 public:
     explicit Bookmarks(QObject* parent = 0);
-
-    struct Bookmark {
-        int id;
-        QString title;
-        QString folder;
-        QUrl url;
-        QImage image;
-        bool inSubfolder;
-
-        Bookmark() : id(-1) , inSubfolder(false) { }
-
-        bool operator==(const Bookmark &other) const {
-            return (this->title == other.title &&
-                    this->folder == other.folder &&
-                    this->url == other.url &&
-                    this->inSubfolder == other.inSubfolder);
-        }
-    };
+    ~Bookmarks();
 
     void loadSettings();
-    void saveBookmarks();
+    void saveSettings();
 
-    bool isShowingMostVisited() const;
-    void setShowingMostVisited(bool state);
-
-    bool isShowingOnlyIconsInToolbar() const;
-    void setShowingOnlyIconsInToolbar(bool state);
-
-    void setLastFolder(const QString &folder);
+    bool showOnlyIconsInToolbar() const;
     void exportToHtml(const QString &fileName);
-
-    static QString toTranslatedFolder(const QString &name);
-    static QString fromTranslatedFolder(const QString &name);
 
     BookmarkItem* rootItem() const;
     BookmarkItem* toolbarFolder() const;
     BookmarkItem* menuFolder() const;
     BookmarkItem* unsortedFolder() const;
-
     BookmarkItem* lastUsedFolder() const;
+
     BookmarksModel* model() const;
 
     bool isBookmarked(const QUrl &url);
+    bool canBeModified(BookmarkItem* item) const;
 
     // Search bookmarks (urls only) for exact url match
     QList<BookmarkItem*> searchBookmarks(const QUrl &url) const;
     // Search bookmarks (urls only) for contains match through all properties
     QList<BookmarkItem*> searchBookmarks(const QString &string, Qt::CaseSensitivity sensitive = Qt::CaseInsensitive) const;
 
-    bool canBeModified(BookmarkItem* item) const;
-
     void addBookmark(BookmarkItem* parent, BookmarkItem* item);
     void insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item);
     bool removeBookmark(BookmarkItem* item);
 
     void notifyBookmarkChanged(BookmarkItem* item);
+
+public slots:
+    void setShowOnlyIconsInToolbar(bool state);
 
 signals:
     // Item was added to bookmarks
@@ -105,8 +74,11 @@ signals:
     // Item data has changed
     void bookmarkChanged(BookmarkItem* item);
 
+    void showOnlyIconsInToolbarChanged(bool show);
+
 private:
     void init();
+    void saveBookmarks();
 
     void loadBookmarksFromMap(const QVariantMap &map);
     void readBookmarks(const QVariantList &list, BookmarkItem* parent);
@@ -123,15 +95,7 @@ private:
     BookmarkItem* m_lastFolder;
     BookmarksModel* m_model;
 
-    bool m_showMostVisited;
     bool m_showOnlyIconsInToolbar;
 };
-
-typedef Bookmarks::Bookmark Bookmark;
-
-// Hint to QVector to use std::realloc on item moving
-Q_DECLARE_TYPEINFO(Bookmark, Q_MOVABLE_TYPE);
-
-Q_DECLARE_METATYPE(Bookmark)
 
 #endif // BOOKMARKS_H

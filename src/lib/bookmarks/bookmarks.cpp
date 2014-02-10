@@ -36,6 +36,217 @@ Bookmarks::Bookmarks(QObject* parent)
     loadSettings();
 }
 
+Bookmarks::~Bookmarks()
+{
+    delete m_root;
+}
+
+void Bookmarks::loadSettings()
+{
+    Settings settings;
+    settings.beginGroup("Bookmarks");
+    m_showOnlyIconsInToolbar = settings.value("showOnlyIconsInToolbar", false).toBool();
+    settings.endGroup();
+}
+
+void Bookmarks::saveSettings()
+{
+    Settings settings;
+    settings.beginGroup("Bookmarks");
+    settings.setValue("showOnlyIconsInToolbar", m_showOnlyIconsInToolbar);
+    settings.endGroup();
+
+    saveBookmarks();
+}
+
+bool Bookmarks::showOnlyIconsInToolbar() const
+{
+    return m_showOnlyIconsInToolbar;
+}
+
+void Bookmarks::exportToHtml(const QString &fileName)
+{
+    Q_UNUSED(fileName)
+#if 0
+    QFile file(fileName);
+
+    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
+        qWarning() << "Bookmarks::exportHtml Cannot open file for writing!" << file.errorString();
+    }
+
+    QTextStream out(&file);
+
+    out << "<!DOCTYPE NETSCAPE-Bookmark-file-1>" << endl;
+    out << "<!-- This is an automatically generated file." << endl;
+    out << "     It will be read and overwritten." << endl;
+    out << "     DO NOT EDIT! -->" << endl;
+    out << "<META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=UTF-8\">" << endl;
+    out << "<TITLE>Bookmarks</TITLE>" << endl;
+    out << "<H1>Bookmarks</H1>" << endl;
+
+    out << "<DL><p>" << endl;
+
+    QString indent = "    ";
+    QList<QPair<QString, bool> > allFolders;
+
+    QPair<QString, bool> menu;
+    menu.first = "bookmarksMenu";
+    menu.second = false;
+
+    QPair<QString, bool> toolbar;
+    toolbar.first = "bookmarksToolbar";
+    toolbar.second = false;
+
+    allFolders.append(menu);
+    allFolders.append(toolbar);
+
+    QSqlQuery query;
+    query.exec("SELECT name, subfolder FROM folders");
+
+    while (query.next()) {
+        QPair<QString, bool> pair;
+        pair.first = query.value(0).toString();
+        pair.second = query.value(1).toString() == QLatin1String("yes");
+
+        allFolders.append(pair);
+    }
+
+    for (int i = 0; i < allFolders.size(); ++i) {
+        QPair<QString, bool> pair = allFolders.at(i);
+
+        out << indent << "<DT><H3 TOOLBAR_SUBFOLDER=\"" << (pair.second ? "yes" : "no") << "\">" << pair.first << "</H3>" << endl;
+        out << indent << "<DL><p>" << endl;
+
+        QSqlQuery q;
+        q.prepare("SELECT title, url FROM bookmarks WHERE folder = ?");
+        q.addBindValue(pair.first);
+        q.exec();
+
+        while (q.next()) {
+            QString title = q.value(0).toString();
+            QString url = q.value(1).toString();
+
+            out << indent << indent << "<DT><A HREF=\"" << url << "\">" << title << "</A>" << endl;
+        }
+
+        out << indent << "</DL><p>" << endl;
+    }
+
+    query.exec("SELECT title, url FROM bookmarks WHERE folder='' OR folder='unsorted'");
+
+    while (query.next()) {
+        QString title = query.value(0).toString();
+        QString url = query.value(1).toString();
+
+        out << indent << "<DT><A HREF=\"" << url << "\">" << title << "</A>" << endl;
+    }
+
+    out << "</DL><p>" << endl;
+#endif
+}
+
+BookmarkItem* Bookmarks::rootItem() const
+{
+    return m_root;
+}
+
+BookmarkItem* Bookmarks::toolbarFolder() const
+{
+    return m_folderToolbar;
+}
+
+BookmarkItem* Bookmarks::menuFolder() const
+{
+    return m_folderMenu;
+}
+
+BookmarkItem* Bookmarks::unsortedFolder() const
+{
+    return m_folderUnsorted;
+}
+
+BookmarkItem* Bookmarks::lastUsedFolder() const
+{
+    return m_lastFolder;
+}
+
+BookmarksModel* Bookmarks::model() const
+{
+    return m_model;
+}
+
+bool Bookmarks::isBookmarked(const QUrl &url)
+{
+    return !searchBookmarks(url).isEmpty();
+}
+
+bool Bookmarks::canBeModified(BookmarkItem* item) const
+{
+    Q_ASSERT(item);
+
+    return item != m_root &&
+           item != m_folderToolbar &&
+           item != m_folderMenu &&
+           item != m_folderUnsorted;
+}
+
+QList<BookmarkItem*> Bookmarks::searchBookmarks(const QUrl &url) const
+{
+    QList<BookmarkItem*> items;
+    search(&items, m_root, url);
+    return items;
+}
+
+QList<BookmarkItem*> Bookmarks::searchBookmarks(const QString &string, Qt::CaseSensitivity sensitive) const
+{
+    QList<BookmarkItem*> items;
+    search(&items, m_root, string, sensitive);
+    return items;
+}
+
+void Bookmarks::addBookmark(BookmarkItem* parent, BookmarkItem* item)
+{
+    Q_ASSERT(parent);
+    Q_ASSERT(parent->isFolder());
+    Q_ASSERT(item);
+
+    insertBookmark(parent, 0, item);
+}
+
+void Bookmarks::insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item)
+{
+    Q_ASSERT(parent);
+    Q_ASSERT(parent->isFolder());
+    Q_ASSERT(item);
+
+    m_lastFolder = parent;
+    m_model->addBookmark(parent, row, item);
+    emit bookmarkAdded(item);
+}
+
+bool Bookmarks::removeBookmark(BookmarkItem* item)
+{
+    if (!canBeModified(item)) {
+        return false;
+    }
+
+    m_model->removeBookmark(item);
+    emit bookmarkRemoved(item);
+    return true;
+}
+
+void Bookmarks::notifyBookmarkChanged(BookmarkItem* item)
+{
+    Q_ASSERT(item);
+    emit bookmarkChanged(item);
+}
+
+void Bookmarks::setShowOnlyIconsInToolbar(bool state)
+{
+    m_showOnlyIconsInToolbar = state;
+    emit showOnlyIconsInToolbarChanged(state);
+}
+
 void Bookmarks::init()
 {
     m_root = new BookmarkItem(BookmarkItem::Root);
@@ -87,19 +298,6 @@ void Bookmarks::init()
     m_model = new BookmarksModel(this, this);
 }
 
-void Bookmarks::loadBookmarksFromMap(const QVariantMap &map)
-{
-#define READ_FOLDER(name, folder) \
-    readBookmarks(map.value(name).toMap().value("children").toList(), folder); \
-    folder->setExpanded(map.value(name).toMap().value("expanded").toBool()); \
-    folder->setSidebarExpanded(map.value(name).toMap().value("expanded_sidebar").toBool());
-
-    READ_FOLDER("bookmark_bar", m_folderToolbar)
-    READ_FOLDER("bookmark_menu", m_folderMenu)
-    READ_FOLDER("other", m_folderUnsorted)
-#undef READ_FOLDER
-}
-
 void Bookmarks::saveBookmarks()
 {
     QVariantMap bookmarksMap;
@@ -139,6 +337,19 @@ void Bookmarks::saveBookmarks()
 
     file.write(data);
     file.close();
+}
+
+void Bookmarks::loadBookmarksFromMap(const QVariantMap &map)
+{
+#define READ_FOLDER(name, folder) \
+    readBookmarks(map.value(name).toMap().value("children").toList(), folder); \
+    folder->setExpanded(map.value(name).toMap().value("expanded").toBool()); \
+    folder->setSidebarExpanded(map.value(name).toMap().value("expanded_sidebar").toBool());
+
+    READ_FOLDER("bookmark_bar", m_folderToolbar)
+    READ_FOLDER("bookmark_menu", m_folderMenu)
+    READ_FOLDER("other", m_folderUnsorted)
+#undef READ_FOLDER
 }
 
 void Bookmarks::readBookmarks(const QVariantList &list, BookmarkItem* parent)
@@ -270,261 +481,4 @@ void Bookmarks::search(QList<BookmarkItem*>* items, BookmarkItem* parent, const 
     default:
         break;
     }
-}
-
-void Bookmarks::loadSettings()
-{
-    Settings settings;
-    settings.beginGroup("Bookmarks");
-    m_showMostVisited = settings.value("showMostVisited", true).toBool();
-    m_showOnlyIconsInToolbar = settings.value("showOnlyIconsInToolbar", false).toBool();
-    settings.endGroup();
-}
-
-bool Bookmarks::isShowingMostVisited() const
-{
-    return m_showMostVisited;
-}
-
-void Bookmarks::setShowingMostVisited(bool state)
-{
-    Settings settings;
-    settings.beginGroup("Bookmarks");
-    settings.setValue("showMostVisited", state);
-    settings.endGroup();
-    m_showMostVisited = state;
-}
-
-bool Bookmarks::isShowingOnlyIconsInToolbar() const
-{
-    return m_showOnlyIconsInToolbar;
-}
-
-void Bookmarks::setShowingOnlyIconsInToolbar(bool state)
-{
-    Settings settings;
-    settings.beginGroup("Bookmarks");
-    settings.setValue("showOnlyIconsInToolbar", state);
-    settings.endGroup();
-    m_showOnlyIconsInToolbar = state;
-}
-
-void Bookmarks::setLastFolder(const QString &folder)
-{
-    Settings settings;
-    settings.beginGroup("Bookmarks");
-    settings.setValue("lastFolder", folder);
-    settings.endGroup();
-}
-
-void Bookmarks::exportToHtml(const QString &fileName)
-{
-    QFile file(fileName);
-
-    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
-        qWarning() << "Bookmarks::exportHtml Cannot open file for writing!" << file.errorString();
-    }
-
-    QTextStream out(&file);
-
-    out << "<!DOCTYPE NETSCAPE-Bookmark-file-1>" << endl;
-    out << "<!-- This is an automatically generated file." << endl;
-    out << "     It will be read and overwritten." << endl;
-    out << "     DO NOT EDIT! -->" << endl;
-    out << "<META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=UTF-8\">" << endl;
-    out << "<TITLE>Bookmarks</TITLE>" << endl;
-    out << "<H1>Bookmarks</H1>" << endl;
-
-    out << "<DL><p>" << endl;
-
-    QString indent = "    ";
-    QList<QPair<QString, bool> > allFolders;
-
-    QPair<QString, bool> menu;
-    menu.first = "bookmarksMenu";
-    menu.second = false;
-
-    QPair<QString, bool> toolbar;
-    toolbar.first = "bookmarksToolbar";
-    toolbar.second = false;
-
-    allFolders.append(menu);
-    allFolders.append(toolbar);
-
-    QSqlQuery query;
-    query.exec("SELECT name, subfolder FROM folders");
-
-    while (query.next()) {
-        QPair<QString, bool> pair;
-        pair.first = query.value(0).toString();
-        pair.second = query.value(1).toString() == QLatin1String("yes");
-
-        allFolders.append(pair);
-    }
-
-    for (int i = 0; i < allFolders.size(); ++i) {
-        QPair<QString, bool> pair = allFolders.at(i);
-
-        out << indent << "<DT><H3 TOOLBAR_SUBFOLDER=\"" << (pair.second ? "yes" : "no") << "\">" << pair.first << "</H3>" << endl;
-        out << indent << "<DL><p>" << endl;
-
-        QSqlQuery q;
-        q.prepare("SELECT title, url FROM bookmarks WHERE folder = ?");
-        q.addBindValue(pair.first);
-        q.exec();
-
-        while (q.next()) {
-            QString title = q.value(0).toString();
-            QString url = q.value(1).toString();
-
-            out << indent << indent << "<DT><A HREF=\"" << url << "\">" << title << "</A>" << endl;
-        }
-
-        out << indent << "</DL><p>" << endl;
-    }
-
-    query.exec("SELECT title, url FROM bookmarks WHERE folder='' OR folder='unsorted'");
-
-    while (query.next()) {
-        QString title = query.value(0).toString();
-        QString url = query.value(1).toString();
-
-        out << indent << "<DT><A HREF=\"" << url << "\">" << title << "</A>" << endl;
-    }
-
-    out << "</DL><p>" << endl;
-}
-
-QString Bookmarks::toTranslatedFolder(const QString &name)
-{
-    QString trFolder;
-    if (name == QLatin1String("bookmarksMenu")) {
-        trFolder = tr("Bookmarks In Menu");
-    }
-    else if (name == QLatin1String("bookmarksToolbar")) {
-        trFolder = tr("Bookmarks In ToolBar");
-    }
-    else if (name == QLatin1String("unsorted")) {
-        trFolder = tr("Unsorted Bookmarks");
-    }
-    else {
-        trFolder = name;
-    }
-    return trFolder;
-}
-
-QString Bookmarks::fromTranslatedFolder(const QString &name)
-{
-    QString folder;
-    if (name == tr("Bookmarks In Menu")) {
-        folder = "bookmarksMenu";
-    }
-    else if (name == tr("Bookmarks In ToolBar")) {
-        folder = "bookmarksToolbar";
-    }
-    else if (name == tr("Unsorted Bookmarks")) {
-        folder = "unsorted";
-    }
-    else {
-        folder = name;
-    }
-    return folder;
-}
-
-BookmarksModel* Bookmarks::model() const
-{
-    return m_model;
-}
-
-BookmarkItem* Bookmarks::rootItem() const
-{
-    return m_root;
-}
-
-BookmarkItem* Bookmarks::toolbarFolder() const
-{
-    return m_folderToolbar;
-}
-
-BookmarkItem* Bookmarks::menuFolder() const
-{
-    return m_folderMenu;
-}
-
-BookmarkItem* Bookmarks::unsortedFolder() const
-{
-    return m_folderUnsorted;
-}
-
-BookmarkItem* Bookmarks::lastUsedFolder() const
-{
-    return m_lastFolder;
-}
-
-bool Bookmarks::isBookmarked(const QUrl &url)
-{
-    return !searchBookmarks(url).isEmpty();
-}
-
-QList<BookmarkItem*> Bookmarks::searchBookmarks(const QUrl &url) const
-{
-    QList<BookmarkItem*> items;
-    search(&items, m_root, url);
-    return items;
-}
-
-QList<BookmarkItem*> Bookmarks::searchBookmarks(const QString &string, Qt::CaseSensitivity sensitive) const
-{
-    QList<BookmarkItem*> items;
-    search(&items, m_root, string, sensitive);
-    return items;
-}
-
-bool Bookmarks::removeBookmark(BookmarkItem* item)
-{
-    if (!canBeModified(item)) {
-        return false;
-    }
-
-    m_model->removeBookmark(item);
-    emit bookmarkRemoved(item);
-
-    return true;
-}
-
-void Bookmarks::notifyBookmarkChanged(BookmarkItem* item)
-{
-    Q_ASSERT(item);
-
-    emit bookmarkChanged(item);
-}
-
-bool Bookmarks::canBeModified(BookmarkItem* item) const
-{
-    Q_ASSERT(item);
-
-    return item != m_root &&
-           item != m_folderToolbar &&
-           item != m_folderMenu &&
-           item != m_folderUnsorted;
-}
-
-void Bookmarks::addBookmark(BookmarkItem* parent, BookmarkItem* item)
-{
-    Q_ASSERT(parent);
-    Q_ASSERT(parent->isFolder());
-    Q_ASSERT(item);
-
-    insertBookmark(parent, 0, item);
-}
-
-void Bookmarks::insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item)
-{
-    Q_ASSERT(parent);
-    Q_ASSERT(parent->isFolder());
-    Q_ASSERT(item);
-
-    m_lastFolder = parent;
-    m_model->addBookmark(parent, row, item);
-    emit bookmarkAdded(item);
 }

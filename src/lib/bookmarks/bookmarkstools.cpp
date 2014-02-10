@@ -337,6 +337,8 @@ void BookmarksTools::addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* b
 
 void BookmarksTools::addSeparatorToMenu(Menu* menu, BookmarkItem* separator)
 {
+    Q_UNUSED(separator)
+
     Q_ASSERT(menu);
     Q_ASSERT(separator->isSeparator());
 

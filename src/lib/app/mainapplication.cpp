@@ -1189,7 +1189,7 @@ bool MainApplication::saveStateSlot()
 
     // Save cookies & bookmarks
     m_cookiejar->saveCookies();
-    m_bookmarks->saveBookmarks();
+    m_bookmarks->saveSettings();
 
     return true;
 }
