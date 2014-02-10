@@ -39,6 +39,7 @@
 #include <QStackedWidget>
 #include <QMouseEvent>
 #include <QWebHistory>
+#include <QWebFrame>
 #include <QClipboard>
 #include <QFile>
 #include <QScrollArea>
@@ -467,10 +468,12 @@ void TabWidget::closeTab(int index, bool force)
         }
     }
 
-    // window.beforeunload handling
-    webView->load(QUrl());
-    if (webView->url() != QUrl()) {
-        return;
+    // window.onbeforeunload handling
+    if (!webView->page()->mainFrame()->evaluateJavaScript("window.onbeforeunload===null").toBool()) {
+        webView->load(QUrl());
+        if (webView->url() != QUrl()) {
+            return;
+        }
     }
 
     m_locationBars->removeWidget(webView->webTab()->locationBar());
