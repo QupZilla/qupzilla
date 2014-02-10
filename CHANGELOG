@@ -1,5 +1,7 @@
 Version 1.7.0
     * development version
+    * completely rewritten bookmarks (including multi-level folders support)
+    * menus are not closed when opening links with middle mouse button
     * added support for window.onload event
     * added support for external.AddSearchProvider js function
 

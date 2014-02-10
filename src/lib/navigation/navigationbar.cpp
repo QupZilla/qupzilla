@@ -123,8 +123,10 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     setButtonIconSize(m_buttonAddTab);
 
     m_menuBack = new Menu(this);
+    m_menuBack->setCloseOnMiddleClick(true);
     m_buttonBack->setMenu(m_menuBack);
     m_menuForward = new Menu(this);
+    m_menuForward->setCloseOnMiddleClick(true);
     m_buttonNext->setMenu(m_menuForward);
 
 #ifndef Q_OS_MAC

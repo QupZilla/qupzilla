@@ -32,6 +32,7 @@ PopupWebView::PopupWebView(QWidget* parent)
     , m_page(0)
     , m_menu(new Menu(this))
 {
+    m_menu->setCloseOnMiddleClick(true);
 }
 
 void PopupWebView::setWebPage(PopupWebPage* page)

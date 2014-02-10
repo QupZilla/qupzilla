@@ -930,6 +930,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
         if (frameAtPos && page()->mainFrame() != frameAtPos) {
             m_clickedFrame = frameAtPos;
             Menu* frameMenu = new Menu(tr("This frame"));
+            frameMenu->setCloseOnMiddleClick(true);
             frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
             Action* act = new Action(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("Show this frame in new &tab"));
             connect(act, SIGNAL(triggered()), this, SLOT(loadClickedFrameInNewTab()));
@@ -1088,6 +1089,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
 
     // Search with ...
     Menu* swMenu = new Menu(tr("Search with..."), menu);
+    swMenu->setCloseOnMiddleClick(true);
     SearchEnginesManager* searchManager = mApp->searchEnginesManager();
     foreach (const SearchEngine &en, searchManager->allEngines()) {
         Action* act = new Action(en.icon, en.name);

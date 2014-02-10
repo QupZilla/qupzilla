@@ -355,11 +355,6 @@ void MacMenuReceiver::bookmarkPage()
     callSlot("bookmarkPage");
 }
 
-void MacMenuReceiver::loadFolderBookmarks(Menu* menu)
-{
-    callSlot("loadFolderBookmarks", false, Q_ARG(Menu*, menu));
-}
-
 void MacMenuReceiver::closeTab()
 {
     callSlot("closeTab");

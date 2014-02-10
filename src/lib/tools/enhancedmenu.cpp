@@ -22,12 +22,24 @@
 
 Menu::Menu(QWidget* parent)
     : QMenu(parent)
+    , m_closeOnMiddleClick(false)
 {
 }
 
 Menu::Menu(const QString &title, QWidget* parent)
     : QMenu(title, parent)
+    , m_closeOnMiddleClick(false)
 {
+}
+
+bool Menu::closeOnMiddleClick() const
+{
+    return m_closeOnMiddleClick;
+}
+
+void Menu::setCloseOnMiddleClick(bool close)
+{
+    m_closeOnMiddleClick = close;
 }
 
 void Menu::mouseReleaseEvent(QMouseEvent* e)
@@ -59,7 +71,9 @@ void Menu::mouseReleaseEvent(QMouseEvent* e)
         e->accept();
     }
     else if (e->button() == Qt::MiddleButton || (e->button() == Qt::LeftButton && e->modifiers() == Qt::ControlModifier)) {
-        closeAllMenus();
+        if ((e->button() == Qt::MiddleButton && m_closeOnMiddleClick) || e->button() != Qt::MiddleButton) {
+            closeAllMenus();
+        }
         act->emitCtrlTriggered();
         e->accept();
     }

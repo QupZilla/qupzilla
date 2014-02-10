@@ -137,7 +137,6 @@ private slots:
     void loadActionUrl(QObject* obj = 0);
     void loadActionUrlInNewTab(QObject* obj = 0);
     void loadActionUrlInNewNotSelectedTab(QObject* obj = 0);
-    void loadFolderBookmarks(Menu* menu);
 
     void closeTab();
     void restoreClosedTab(QObject* obj = 0);

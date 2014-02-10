@@ -32,6 +32,10 @@ public:
     explicit Menu(QWidget* parent = 0);
     explicit Menu(const QString &title, QWidget* parent = 0);
 
+    // Default is false, menu will NOT be closed on middle click
+    bool closeOnMiddleClick() const;
+    void setCloseOnMiddleClick(bool close);
+
 signals:
     void menuMiddleClicked(Menu*);
 
@@ -42,6 +46,8 @@ private:
     void keyPressEvent(QKeyEvent* e);
 
     void closeAllMenus();
+
+    bool m_closeOnMiddleClick;
 };
 
 class QT_QUPZILLA_EXPORT Action : public QAction
