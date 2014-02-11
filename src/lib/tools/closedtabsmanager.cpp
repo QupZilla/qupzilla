@@ -47,7 +47,6 @@ bool ClosedTabsManager::isClosedTabAvailable()
     return !m_closedTabs.isEmpty();
 }
 
-
 ClosedTabsManager::Tab ClosedTabsManager::takeLastClosedTab()
 {
     Tab tab;

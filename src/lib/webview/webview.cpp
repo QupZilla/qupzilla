@@ -234,6 +234,17 @@ QWebElement WebView::activeElement() const
     return page()->mainFrame()->hitTestContent(activeRect.center()).element();
 }
 
+bool WebView::onBeforeUnload()
+{
+    const QString res = page()->mainFrame()->evaluateJavaScript("window.onbeforeunload(new Event(\"beforeunload\"))").toString();
+
+    if (!res.isEmpty()) {
+        return page()->javaScriptConfirm(page()->mainFrame(), res);
+    }
+
+    return true;
+}
+
 bool WebView::isUrlValid(const QUrl &url)
 {
     // Valid url must have scheme and actually contains something (therefore scheme:// is invalid)

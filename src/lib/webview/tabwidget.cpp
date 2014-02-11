@@ -472,13 +472,9 @@ void TabWidget::closeTab(int index, bool force)
     m_closedTabsManager->saveView(webTab, index);
 
     // window.onbeforeunload handling
-    if (!webView->page()->mainFrame()->evaluateJavaScript("window.onbeforeunload===null").toBool()) {
-        webView->load(QUrl());
-        if (webView->url() != QUrl()) {
-            // We are not closing, let's remove the tab from history
-            m_closedTabsManager->takeLastClosedTab();
-            return;
-        }
+    if (!webView->onBeforeUnload()) {
+        m_closedTabsManager->takeLastClosedTab();
+        return;
     }
 
     m_locationBars->removeWidget(webView->webTab()->locationBar());
