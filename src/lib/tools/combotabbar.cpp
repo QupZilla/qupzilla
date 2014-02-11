@@ -41,7 +41,6 @@ ComboTabBar::ComboTabBar(QWidget* parent)
     : QWidget(parent)
     , m_mainTabBar(0)
     , m_pinnedTabBar(0)
-    , m_maxVisiblePinnedTab(0)
     , m_mainBarOverFlowed(false)
     , m_dragOffset(0)
     , m_usesScrollButtons(false)
@@ -457,12 +456,6 @@ bool ComboTabBar::isPinned(int index) const
     return index >= 0 && index < pinnedTabsCount();
 }
 
-void ComboTabBar::setMaxVisiblePinnedTab(int max)
-{
-    m_maxVisiblePinnedTab = max;
-    setMinimumWidths();
-}
-
 void ComboTabBar::setObjectName(const QString &name)
 {
     m_mainTabBar->setObjectName(name);
@@ -505,6 +498,11 @@ void ComboTabBar::setUpLayout()
     m_pinnedTabBarWidget->setUpLayout();
 
     setMinimumWidths();
+
+    if (isVisible()) {
+        // ComboTabBar is now visible, we can sync heights of both tabbars
+        m_pinnedTabBar->setFixedHeight(m_mainTabBar->height());
+    }
 }
 
 void ComboTabBar::insertCloseButton(int index)
@@ -744,11 +742,6 @@ void ComboTabBar::setMinimumWidths()
 
     int pinnedTabBarWidth = pinnedTabsCount() * comboTabBarPixelMetric(PinnedTabWidth);
     m_pinnedTabBar->setMinimumWidth(pinnedTabBarWidth);
-
-    if (m_maxVisiblePinnedTab > 0) {
-        pinnedTabBarWidth = qMin(pinnedTabBarWidth, m_maxVisiblePinnedTab * comboTabBarPixelMetric(PinnedTabWidth));
-    }
-
     m_pinnedTabBarWidget->setMaximumWidth(pinnedTabBarWidth);
 
     int mainTabBarWidth = comboTabBarPixelMetric(NormalTabMinimumWidth) * (m_mainTabBar->count() - 1) +
