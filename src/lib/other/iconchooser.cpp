@@ -115,7 +115,8 @@ void IconChooserDelegate::paint(QPainter* painter, const QStyleOptionViewItem &o
     const QStyle* style = w ? w->style() : QApplication::style();
 
     // Draw background
-    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
+    // Use PanelItemViewRow, because of Qt5's Fusion style incorrectly renders PanelItemViewItem
+    style->drawPrimitive(QStyle::PE_PanelItemViewRow, &opt, painter, w);
 
     // Draw icon
     QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
