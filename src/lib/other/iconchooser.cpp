@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "iconchooser.h"
 #include "ui_iconchooser.h"
+#include "mainapplication.h"
+#include "proxystyle.h"
 #include "qztools.h"
 
 #include <QFileDialog>
@@ -115,8 +117,12 @@ void IconChooserDelegate::paint(QPainter* painter, const QStyleOptionViewItem &o
     const QStyle* style = w ? w->style() : QApplication::style();
 
     // Draw background
-    // Use PanelItemViewRow, because of Qt5's Fusion style incorrectly renders PanelItemViewItem
-    style->drawPrimitive(QStyle::PE_PanelItemViewRow, &opt, painter, w);
+    if (mApp->proxyStyle()->name() == QLatin1String("fusion")) {
+        style->drawPrimitive(QStyle::PE_PanelItemViewRow, &opt, painter, w);
+    }
+    else {
+        style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
+    }
 
     // Draw icon
     QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
