@@ -979,13 +979,6 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
                 continue;
             }
 
-            // update mouse over state when scrolling
-            tab.state = tab.state & ~QStyle::State_MouseOver;
-            int index = tabAt(mapFromGlobal(QCursor::pos()));
-            if (i == index) {
-                tab.state = tab.state | QStyle::State_MouseOver;
-            }
-
             p.drawControl(QStyle::CE_TabBarTab, tab);
         }
 
@@ -995,6 +988,14 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
             initStyleOption(&tab, selected);
 
             if (!m_activeTabBar) {
+                // If this is inactive tab, we still need to draw selected tab outside the tabbar
+                // Some themes (eg. Oxygen) draws line under tabs with selected tab
+                // Let's just move it outside rect(), it appears to work
+                QStyleOptionTabV3 tb = tab;
+                tb.rect.moveRight((rect().x() + rect().width()) * 2);
+                p.drawControl(QStyle::CE_TabBarTab, tb);
+
+                // Draw the tab without selected state
                 tab.state = tab.state & ~QStyle::State_Selected;
             }
 
