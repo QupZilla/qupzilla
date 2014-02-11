@@ -82,6 +82,9 @@ QMap<QString, QVariant> Json::decodeInner(QScriptValue object)
         else if (it.value().isString()) {
             map.insert(it.name(), QVariant(it.value().toString()));
         }
+        else if (it.value().isBool()) {
+            map.insert(it.name(), QVariant(it.value().toBool()));
+        }
         else if (it.value().isNull()) {
             map.insert(it.name(), QVariant());
         }
@@ -114,6 +117,9 @@ QList<QVariant> Json::decodeInnerToList(QScriptValue arrayValue)
         else if (it.value().isString()) {
             list.append(QVariant(it.value().toString()));
         }
+        else if (it.value().isBool()) {
+            list.append(QVariant(it.value().toBool()));
+        }
         else if (it.value().isNull()) {
             list.append(QVariant());
         }
@@ -138,6 +144,9 @@ QScriptValue Json::encodeInner(const QMap<QString, QVariant> &map)
         }
         else if (i.value().type() == QVariant::Int) {
             obj.setProperty(i.key(), i.value().toInt());
+        }
+        else if (i.value().type() == QVariant::Bool) {
+            obj.setProperty(i.key(), i.value().toBool());
         }
         else if (i.value().type() == QVariant::Double) {
             obj.setProperty(i.key(), i.value().toDouble());
