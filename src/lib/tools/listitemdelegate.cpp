@@ -16,6 +16,8 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "listitemdelegate.h"
+#include "mainapplication.h"
+#include "proxystyle.h"
 
 #include <QApplication>
 #include <QPainter>
@@ -65,7 +67,12 @@ void ListItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opti
 
     // Draw background
     // Use PanelItemViewRow, because of Qt5's Fusion style incorrectly renders PanelItemViewItem
-    style->drawPrimitive(QStyle::PE_PanelItemViewRow, &opt, painter);
+    if (mApp->proxyStyle()->name() == QLatin1String("fusion")) {
+        style->drawPrimitive(QStyle::PE_PanelItemViewRow, &opt, painter, w);
+    }
+    else {
+        style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
+    }
 
     // Draw icon
     QRect iconRect(opt.rect.left() + (opt.rect.width() - m_iconSize) / 2, topPosition, m_iconSize, m_iconSize);
