@@ -1,16 +1,20 @@
 Version 1.6.2
     * not yet released
     * workaround for servers not understanding TLSv1 handshake
+    * tabs on top are now enabled by default
+    * restore session after launch is now enabled by default
+    * don't load tabs until selected is now enabled by default
     * fixed: setting DuckDuckGo as default search provider
     * fixed: issues detected by scan.coverity.com
     * fixed: showing more default search engines with same name
     * fixed: incorrect exception rules handling in AdBlock
     * fixed: flickering when removing tabs from tabbar
     * fixed: flickering when (un)pinning tabs
-    * fixed: drawing tabbar correctly with Oxygen theme
+    * fixed: drawing tabbar correctly with Oxygen style
     * fixed: incorrectly changing current index when closing tabs in inactive tabbar
     * fixed: incorrectly showing url in locationbar when load request was not accepted
     * fixed: always add slash '/' between path and filename when downloading files
+    * fixed: drawing list items with Qt5 Fusion style
     * mac: fixed toggle fullscreen action in menu
     * windows: save application data in %APPDATA%
 

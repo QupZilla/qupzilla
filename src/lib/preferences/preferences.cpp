@@ -126,11 +126,11 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     m_newTabUrl = settings.value("newTabUrl", "qupzilla:speeddial").toString();
     ui->homepage->setText(m_homepage);
     ui->newTabUrl->setText(m_newTabUrl);
-    int afterLaunch = settings.value("afterLaunch", 1).toInt();
+    int afterLaunch = settings.value("afterLaunch", 3).toInt();
     settings.endGroup();
     ui->afterLaunch->setCurrentIndex(afterLaunch);
     ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool());
-    ui->dontLoadTabsUntilSelected->setChecked(settings.value("Web-Browser-Settings/LoadTabsOnActivation", false).toBool());
+    ui->dontLoadTabsUntilSelected->setChecked(settings.value("Web-Browser-Settings/LoadTabsOnActivation", true).toBool());
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     ui->checkDefaultBrowser->setChecked(settings.value("Web-Browser-Settings/CheckDefaultBrowser", DEFAULT_CHECK_DEFAULTBROWSER).toBool());
