@@ -310,6 +310,12 @@ void ComboTabBar::enableUpdates()
     setUpdatesEnabled(true);
 }
 
+void ComboTabBar::updateTabBars()
+{
+    m_mainTabBar->update();
+    m_pinnedTabBar->update();
+}
+
 int ComboTabBar::count() const
 {
     return pinnedTabsCount() + m_mainTabBar->count();
@@ -776,6 +782,22 @@ void ComboTabBar::showEvent(QShowEvent* event)
     QWidget::showEvent(event);
 }
 
+void ComboTabBar::enterEvent(QEvent* event)
+{
+    QWidget::enterEvent(event);
+
+    // Make sure tabs are painted with correct mouseover state
+    QTimer::singleShot(100, this, SLOT(updateTabBars()));
+}
+
+void ComboTabBar::leaveEvent(QEvent* event)
+{
+    QWidget::leaveEvent(event);
+
+    // Make sure tabs are painted with correct mouseover state
+    QTimer::singleShot(100, this, SLOT(updateTabBars()));
+}
+
 
 TabBarHelper::TabBarHelper(ComboTabBar* comboTabBar)
     : QTabBar(comboTabBar)
@@ -884,7 +906,7 @@ bool TabBarHelper::event(QEvent* ev)
     case QEvent::Wheel:
         ev->ignore();
         return false;
-        break;
+
     default:
         break;
     }
@@ -938,97 +960,85 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
     }
 
     // note: this code doesn't support vertical tabs
-    if (!m_dragInProgress) {
-        QStyleOptionTabBarBaseV2 optTabBase;
-        initStyleBaseOption(&optTabBase, this, size());
-
-        QStylePainter p(this);
-        int selected = currentIndex();
-
-        for (int i = 0; i < count(); ++i) {
-            optTabBase.tabBarRect |= tabRect(i);
-        }
-
-        optTabBase.selectedTabRect = QRect();
-
-        if (drawBase()) {
-            p.drawPrimitive(QStyle::PE_FrameTabBarBase, optTabBase);
-        }
-
-        for (int i = 0; i < count(); ++i) {
-            QStyleOptionTabV3 tab;
-            initStyleOption(&tab, i);
-
-            if (!(tab.state & QStyle::State_Enabled)) {
-                tab.palette.setCurrentColorGroup(QPalette::Disabled);
-            }
-
-            // Don't bother drawing a tab if the entire tab is outside of the visible tab bar.
-            if (!isDisplayedOnViewPort(mapToGlobal(tab.rect.topLeft()).x(), mapToGlobal(tab.rect.topRight()).x())) {
-                continue;
-            }
-
-            if (i == selected) {
-                continue;
-            }
-
-            p.drawControl(QStyle::CE_TabBarTab, tab);
-        }
-
-        // Draw the selected tab last to get it "on top"
-        if (selected >= 0) {
-            QStyleOptionTabV3 tab;
-            initStyleOption(&tab, selected);
-
-            if (!m_activeTabBar) {
-                // If this is inactive tab, we still need to draw selected tab outside the tabbar
-                // Some themes (eg. Oxygen) draws line under tabs with selected tab
-                // Let's just move it outside rect(), it appears to work
-                QStyleOptionTabV3 tb = tab;
-                tb.rect.moveRight((rect().x() + rect().width()) * 2);
-                p.drawControl(QStyle::CE_TabBarTab, tb);
-
-                // Draw the tab without selected state
-                tab.state = tab.state & ~QStyle::State_Selected;
-            }
-
-            p.drawControl(QStyle::CE_TabBarTab, tab);
-        }
-    }
-    else {
+    if (m_dragInProgress) {
         QTabBar::paintEvent(event);
+        return;
     }
 
-#if 0
-    if (m_scrollArea) {
-        const int tearWidth = 15;
-        const int maxAlpha = 200;
-        const int colorId = 150;
-        const bool ltr = isLeftToRight();
-        QWidget* viewPort = m_scrollArea->viewport();
-        QPoint globalTopLeft = ltr ? viewPort->mapToGlobal(QPoint(0, 0)) :
-                               viewPort->mapToGlobal(QPoint(viewPort->width() - tearWidth, 0));
-        if (m_scrollArea->horizontalScrollBar()->value() > m_scrollArea->horizontalScrollBar()->minimum()) {
-            QPainter p(this);
-            QPoint localTopLeft = mapFromGlobal(globalTopLeft);
-            QLinearGradient fade(localTopLeft, localTopLeft + QPoint(tearWidth, 0));
-            fade.setColorAt(ltr ? 0 : 1, QColor(colorId, colorId, colorId, maxAlpha));
-            fade.setColorAt(ltr ? 1 : 0, QColor(colorId, colorId, colorId, 0));
-            p.fillRect(QRect(localTopLeft, QSize(tearWidth, height())), fade);
+    QStyleOptionTabBarBaseV2 optTabBase;
+    initStyleBaseOption(&optTabBase, this, size());
+
+    QStylePainter p(this);
+    int selected = currentIndex();
+
+    for (int i = 0; i < count(); ++i) {
+        optTabBase.tabBarRect |= tabRect(i);
+    }
+
+    optTabBase.selectedTabRect = QRect();
+
+    if (drawBase()) {
+        p.drawPrimitive(QStyle::PE_FrameTabBarBase, optTabBase);
+    }
+
+    const QPoint cursorPos = QCursor::pos();
+    int indexUnderMouse = isDisplayedOnViewPort(cursorPos.x(), cursorPos.x()) ? tabAt(mapFromGlobal(cursorPos)) : -1;
+
+    for (int i = 0; i < count(); ++i) {
+        QStyleOptionTabV3 tab;
+        initStyleOption(&tab, i);
+
+        if (i == selected) {
+            continue;
         }
 
-        QPoint globalTopRight = ltr ? viewPort->mapToGlobal(QPoint(viewPort->width() - tearWidth, 0)) :
-                                viewPort->mapToGlobal(QPoint(0, 0));
-        if (m_scrollArea->horizontalScrollBar()->value() < m_scrollArea->horizontalScrollBar()->maximum()) {
-            QPainter p(this);
-            globalTopRight = mapFromGlobal(globalTopRight);
-            QLinearGradient fade(globalTopRight, globalTopRight + QPoint(tearWidth, 0));
-            fade.setColorAt(ltr ? 0 : 1, QColor(colorId, colorId, colorId, 0));
-            fade.setColorAt(ltr ? 1 : 0, QColor(colorId, colorId, colorId, maxAlpha));
-            p.fillRect(QRect(globalTopRight, QSize(tearWidth, height())), fade);
+        // Don't bother drawing a tab if the entire tab is outside of the visible tab bar.
+        if (!isDisplayedOnViewPort(mapToGlobal(tab.rect.topLeft()).x(), mapToGlobal(tab.rect.topRight()).x())) {
+            continue;
         }
+
+        if (!(tab.state & QStyle::State_Enabled)) {
+            tab.palette.setCurrentColorGroup(QPalette::Disabled);
+        }
+
+        // Update mouseover state when scrolling
+        if (i == indexUnderMouse) {
+            tab.state |= QStyle::State_MouseOver;
+        }
+        else {
+            tab.state &= ~QStyle::State_MouseOver;
+        }
+
+        p.drawControl(QStyle::CE_TabBarTab, tab);
     }
-#endif
+
+    // Draw the selected tab last to get it "on top"
+    if (selected >= 0) {
+        QStyleOptionTabV3 tab;
+        initStyleOption(&tab, selected);
+
+        // Update mouseover state when scrolling
+        if (selected == indexUnderMouse) {
+            tab.state |= QStyle::State_MouseOver;
+        }
+        else {
+            tab.state &= ~QStyle::State_MouseOver;
+        }
+
+        if (!m_activeTabBar) {
+            // If this is inactive tab, we still need to draw selected tab outside the tabbar
+            // Some themes (eg. Oxygen) draws line under tabs with selected tab
+            // Let's just move it outside rect(), it appears to work
+            QStyleOptionTabV3 tb = tab;
+            tb.rect.moveRight((rect().x() + rect().width()) * 2);
+            p.drawControl(QStyle::CE_TabBarTab, tb);
+
+            // Draw the tab without selected state
+            tab.state = tab.state & ~QStyle::State_Selected;
+        }
+
+        p.drawControl(QStyle::CE_TabBarTab, tab);
+    }
 }
 
 void TabBarHelper::mousePressEvent(QMouseEvent* event)
