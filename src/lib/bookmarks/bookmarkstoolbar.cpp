@@ -77,7 +77,7 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
     connect(actNewWindow, SIGNAL(triggered()), this, SLOT(openBookmarkInNewWindow()));
     connect(actDelete, SIGNAL(triggered()), this, SLOT(deleteBookmark()));
 
-    actDelete->setEnabled(m_clickedBookmark && (m_clickedBookmark->isUrl() || m_clickedBookmark->isFolder()));
+    actDelete->setEnabled(m_clickedBookmark && m_bookmarks->canBeModified(m_clickedBookmark));
     actNewTab->setEnabled(m_clickedBookmark && m_clickedBookmark->isUrl());
     actNewWindow->setEnabled(m_clickedBookmark && m_clickedBookmark->isUrl());
 
@@ -158,26 +158,10 @@ void BookmarksToolbar::addItem(BookmarkItem* item)
 {
     Q_ASSERT(item);
 
-    switch (item->type()) {
-    case BookmarkItem::Folder:
-    case BookmarkItem::Url: {
-        BookmarksToolbarButton* button = new BookmarksToolbarButton(item, this);
-        button->setMainWindow(m_window);
-        button->setShowOnlyIcon(m_bookmarks->showOnlyIconsInToolbar());
-        m_layout->addWidget(button);
-        break;
-    }
-
-    case BookmarkItem::Separator: {
-        QFrame* separator = new QFrame(this);
-        separator->setFrameShape(QFrame::VLine);
-        m_layout->addWidget(separator);
-        break;
-    }
-
-    default:
-        break;
-    }
+    BookmarksToolbarButton* button = new BookmarksToolbarButton(item, this);
+    button->setMainWindow(m_window);
+    button->setShowOnlyIcon(m_bookmarks->showOnlyIconsInToolbar());
+    m_layout->addWidget(button);
 }
 
 BookmarksToolbarButton* BookmarksToolbar::buttonAt(const QPoint &pos)

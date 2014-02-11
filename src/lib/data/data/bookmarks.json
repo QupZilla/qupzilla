@@ -1,74 +1,73 @@
 {
- "roots" :  {
-  "bookmark_bar" :   {
-   "children" : [
+ "roots": {
+  "bookmark_bar": {
+   "children": [
     {
-     "description" : "Source code of QupZilla",
-     "keyword" : "qz-git",
-     "name" : "QupZilla Git",
-     "type" : "url",
-     "url" : "https://github.com/QupZilla/qupzilla",
-     "visit_count" : 0
+     "description": "Source code of QupZilla",
+     "keyword": "qz-git",
+     "name": "QupZilla Git",
+     "type": "url",
+     "url": "https://github.com/QupZilla/qupzilla",
+     "visit_count": 0
     },
     {
-     "description" : "GitHub Issue Tracker for QupZilla",
-     "keyword" : "qz-issues",
-     "name" : "QupZilla Issues",
-     "type" : "url",
-     "url" : "https://github.com/QupZilla/qupzilla/issues",
-     "visit_count" : 0
+     "description": "",
+     "keyword": "qz-wiki",
+     "name": "QupZilla Wiki",
+     "type": "url",
+     "url": "https://github.com/QupZilla/qupzilla/wiki",
+     "visit_count": 0
     },
     {
-     "description" : "",
-     "keyword" : "qz-wiki",
-     "name" : "QupZilla Wiki",
-     "type" : "url",
-     "url" : "https://github.com/QupZilla/qupzilla/wiki",
-     "visit_count" : 0
+     "description": "GitHub Issue Tracker for QupZilla",
+     "keyword": "qz-issues",
+     "name": "QupZilla Issues",
+     "type": "url",
+     "url": "https://github.com/QupZilla/qupzilla/issues",
+     "visit_count": 0
     },
     {
-     "description" : "Blog with development updates",
-     "keyword" : "qz-blog",
-     "name" : "QupZilla Blog",
-     "type" : "url",
-     "url" : "http://blog.qupzilla.com/",
-     "visit_count" : 0
+     "type": "separator"
     },
     {
-     "description" : "QupZilla Homepage",
-     "keyword" : "qz-home",
-     "name" : "QupZilla Home",
-     "type" : "url",
-     "url" : "http://www.qupzilla.com/",
-     "visit_count" : 0
+     "description": "Blog with development updates",
+     "keyword": "qz-blog",
+     "name": "QupZilla Blog",
+     "type": "url",
+     "url": "http://blog.qupzilla.com/",
+     "visit_count": 0
+    },
+    {
+     "description": "QupZilla Homepage",
+     "keyword": "qz-home",
+     "name": "QupZilla Home",
+     "type": "url",
+     "url": "http://www.qupzilla.com/",
+     "visit_count": 0
     }
    ],
-   "description" : "Bookmarks located in Bookmarks Toolbar",
-   "expanded" : true,
-   "expanded_sidebar" : true,
-   "name" : "Bookmarks Toolbar",
-   "type" : "folder"
+   "description": "Bookmarks located in Bookmarks Toolbar",
+   "expanded": true,
+   "expanded_sidebar": true,
+   "name": "Bookmarks Toolbar",
+   "type": "folder"
   },
-  "bookmark_menu" :   {
-   "children" : [
-
-   ],
-   "description" : "Bookmarks located in Bookmarks Menu",
-   "expanded" : true,
-   "expanded_sidebar" : true,
-   "name" : "Bookmarks Menu",
-   "type" : "folder"
+  "bookmark_menu": {
+   "children": [],
+   "description": "Bookmarks located in Bookmarks Menu",
+   "expanded": true,
+   "expanded_sidebar": true,
+   "name": "Bookmarks Menu",
+   "type": "folder"
   },
-  "other" :   {
-   "children" : [
-
-   ],
-   "description" : "All other bookmarks",
-   "expanded" : true,
-   "expanded_sidebar" : true,
-   "name" : "Unsorted Bookmarks",
-   "type" : "folder"
+  "other": {
+   "children": [],
+   "description": "All other bookmarks",
+   "expanded": true,
+   "expanded_sidebar": true,
+   "name": "Unsorted Bookmarks",
+   "type": "folder"
   }
  },
- "version" : 1
+ "version": 1
 }

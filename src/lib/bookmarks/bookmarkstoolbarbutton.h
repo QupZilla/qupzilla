@@ -69,7 +69,6 @@ private:
     Qt::MouseButtons m_buttons;
     Qt::KeyboardModifiers m_modifiers;
     bool m_showOnlyIcon;
-    int m_padding;
 
 };
 

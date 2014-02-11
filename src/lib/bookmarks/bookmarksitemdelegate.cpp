@@ -20,7 +20,7 @@
 #include "bookmarksmodel.h"
 #include "bookmarkitem.h"
 
-#include <QStyleOptionFrameV3>
+#include <QStyleOption>
 #include <QApplication>
 #include <QStyle>
 
@@ -35,9 +35,8 @@ void BookmarksItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem 
     QStyledItemDelegate::paint(painter, option, index);
 
     if (index.data(BookmarksModel::TypeRole).toInt() == BookmarkItem::Separator) {
-        QStyleOptionFrameV3 opt;
-        opt.frameShape = QFrame::HLine;
-        opt.rect = option.rect;
+        QStyleOption opt = option;
+        opt.state &= ~QStyle::State_Horizontal;
 
         // We need to fake continuous line over 2 columns
         if (m_tree->viewType() == BookmarksTreeView::BookmarksManagerViewType) {
@@ -50,6 +49,6 @@ void BookmarksItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem 
             }
         }
 
-        QApplication::style()->drawControl(QStyle::CE_ShapedFrame, &opt, painter);
+        QApplication::style()->drawPrimitive(QStyle::PE_IndicatorToolBarSeparator, &opt, painter);
     }
 }

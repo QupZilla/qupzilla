@@ -27,6 +27,10 @@
 #include <QMouseEvent>
 #include <QStyleOptionButton>
 
+#define MAX_WIDTH 150
+#define SEPARATOR_WIDTH 8
+#define PADDING 5
+
 BookmarksToolbarButton::BookmarksToolbarButton(BookmarkItem* bookmark, QWidget* parent)
     : QPushButton(parent)
     , m_bookmark(bookmark)
@@ -34,7 +38,6 @@ BookmarksToolbarButton::BookmarksToolbarButton(BookmarkItem* bookmark, QWidget* 
     , m_buttons(Qt::NoButton)
     , m_modifiers(Qt::NoModifier)
     , m_showOnlyIcon(false)
-    , m_padding(5)
 {
     init();
 }
@@ -62,29 +65,33 @@ void BookmarksToolbarButton::setShowOnlyIcon(bool show)
 
 QSize BookmarksToolbarButton::sizeHint() const
 {
-    const int maxWidth = 150;
+    int width = PADDING * 2 + 16;
 
-    int width = m_padding * 2 + 16;
-
-    if (!m_showOnlyIcon) {
-        width += m_padding * 2 + fontMetrics().width(m_bookmark->title());
+    if (m_bookmark->isSeparator()) {
+        width = SEPARATOR_WIDTH;
+    }
+    else if (!m_showOnlyIcon) {
+        width += PADDING * 2 + fontMetrics().width(m_bookmark->title());
 
         if (menu()) {
-            width += m_padding + 8;
+            width += PADDING + 8;
         }
     }
 
     QSize s = QPushButton::sizeHint();
-    s.setWidth(qMin(width, maxWidth));
+    s.setWidth(qMin(width, MAX_WIDTH));
     return s;
 }
 
 QSize BookmarksToolbarButton::minimumSizeHint() const
 {
-    int width = m_padding * 2 + 16;
+    int width = PADDING * 2 + 16;
 
-    if (!m_showOnlyIcon && menu()) {
-        width += m_padding + 8;
+    if (m_bookmark->isSeparator()) {
+        width = SEPARATOR_WIDTH;
+    }
+    else if (!m_showOnlyIcon && menu()) {
+        width += PADDING + 8;
     }
 
     QSize s = QPushButton::minimumSizeHint();
@@ -184,7 +191,6 @@ void BookmarksToolbarButton::openBookmarkInNewWindow(BookmarkItem* item)
 void BookmarksToolbarButton::init()
 {
     Q_ASSERT(m_bookmark);
-    Q_ASSERT(m_bookmark->type() == BookmarkItem::Url || m_bookmark->type() == BookmarkItem::Folder);
 
     setFlat(true);
     setFocusPolicy(Qt::NoFocus);
@@ -262,30 +268,38 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
     Q_UNUSED(event)
 
     QPainter p(this);
-    QStyleOptionButton opt;
-    initStyleOption(&opt);
+    QStyleOptionButton option;
+    initStyleOption(&option);
+
+    // Just draw separator
+    if (m_bookmark->isSeparator()) {
+        QStyleOption opt = option;
+        opt.state |= QStyle::State_Horizontal;
+        style()->drawPrimitive(QStyle::PE_IndicatorToolBarSeparator, &opt, &p);
+        return;
+    }
 
     // This ensures correct rendering of Down state with Oxygen
     if (isDown())  {
-        opt.state &= ~QStyle::State_MouseOver;
+        option.state &= ~QStyle::State_MouseOver;
     }
 
     // Draw button base
-    style()->drawControl(QStyle::CE_PushButtonBevel, &opt, &p, this);
+    style()->drawControl(QStyle::CE_PushButtonBevel, &option, &p, this);
 
-    const int height = opt.rect.height();
-    const int center = height / 2 + opt.rect.top();
+    const int height = option.rect.height();
+    const int center = height / 2 + option.rect.top();
 
     const int iconSize = 16;
     const int iconYPos = center - iconSize / 2;
 
-    int leftPosition = m_padding;
-    int rightPosition = opt.rect.right() - m_padding;
+    int leftPosition = PADDING;
+    int rightPosition = option.rect.right() - PADDING;
 
     // Draw icon
     QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
     p.drawPixmap(iconRect, m_bookmark->icon().pixmap(iconSize));
-    leftPosition = iconRect.right() + m_padding;
+    leftPosition = iconRect.right() + PADDING;
 
     // Draw menu arrow
     if (!m_showOnlyIcon && menu()) {
@@ -295,7 +309,7 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
         opt.rect = QRect(rightPosition - 8, center - arrowSize / 2, arrowSize, arrowSize);
         opt.state &= QStyle::State_MouseOver;
         style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &opt, &p, this);
-        rightPosition = opt.rect.left() - m_padding;
+        rightPosition = opt.rect.left() - PADDING;
     }
 
     // Draw text
@@ -304,6 +318,6 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
         const int textYPos = center - fontMetrics().height() / 2;
         const QString txt = fontMetrics().elidedText(m_bookmark->title(), Qt::ElideRight, textWidth);
         QRect textRect(leftPosition, textYPos, textWidth, fontMetrics().height());
-        style()->drawItemText(&p, textRect, Qt::TextSingleLine | Qt::AlignCenter, opt.palette, true, txt);
+        style()->drawItemText(&p, textRect, Qt::TextSingleLine | Qt::AlignCenter, option.palette, true, txt);
     }
 }
