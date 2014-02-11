@@ -83,6 +83,11 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
 
     menu.exec(mapToGlobal(pos));
 
+    if (button) {
+        // Clear mouseover state after closing menu
+        button->update();
+    }
+
     m_clickedBookmark = 0;
 }
 
