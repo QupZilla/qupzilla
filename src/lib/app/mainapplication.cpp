@@ -314,7 +314,7 @@ MainApplication::MainApplication(int &argc, char** argv)
         Settings settings;
         m_startingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
         bool checkUpdates = settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool();
-        int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
+        int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 3).toInt();
         settings.setValue("SessionRestore/isRunning", true);
 
 #ifndef DISABLE_UPDATES_CHECK

@@ -178,7 +178,7 @@ void QupZilla::postLaunch()
     loadSettings();
 
     Settings settings;
-    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
+    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 3).toInt();
     bool addTab = true;
     QUrl startUrl;
 
@@ -2057,7 +2057,7 @@ void QupZilla::closeEvent(QCloseEvent* event)
     }
 
     Settings settings;
-    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
+    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 3).toInt();
     bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", true).toBool();
 
     if (afterLaunch == 3 && mApp->windowCount() == 1) {

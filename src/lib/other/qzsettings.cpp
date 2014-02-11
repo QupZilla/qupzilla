@@ -45,7 +45,7 @@ void QzSettings::loadSettings()
 
     settings.beginGroup("Web-Browser-Settings");
     defaultZoom = settings.value("DefaultZoom", 100).toInt();
-    loadTabsOnActivation = settings.value("LoadTabsOnActivation", false).toBool();
+    loadTabsOnActivation = settings.value("LoadTabsOnActivation", true).toBool();
     autoOpenProtocols = settings.value("AutomaticallyOpenProtocols", QStringList()).toStringList();
     blockedProtocols = settings.value("BlockOpeningProtocols", QStringList()).toStringList();
     allowJsGeometryChange = settings.value("allowJavaScriptGeometryChange", true).toBool();
@@ -57,7 +57,7 @@ void QzSettings::loadSettings()
 
     settings.beginGroup("Browser-Tabs-Settings");
     newTabPosition = settings.value("OpenNewTabsSelected", false).toBool() ? Qz::NT_SelectedTab : Qz::NT_NotSelectedTab;
-    tabsOnTop = settings.value("TabsOnTop", false).toBool();
+    tabsOnTop = settings.value("TabsOnTop", true).toBool();
     alwaysSwitchTabsWithWheel = settings.value("AlwaysSwitchTabsWithWheel", false).toBool();
     settings.endGroup();
 }
