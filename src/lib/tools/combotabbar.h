@@ -142,12 +142,15 @@ private slots:
     void slotTabMoved(int from, int to);
     void closeTabFromButton();
     void enableUpdates();
+    void updateTabBars();
 
 protected:
     int mainTabBarWidth() const;
     int pinTabBarWidth() const;
     void wheelEvent(QWheelEvent* event);
     void showEvent(QShowEvent* event);
+    void enterEvent(QEvent* event);
+    void leaveEvent(QEvent* event);
     void resizeEvent(QResizeEvent* event);
     bool eventFilter(QObject* obj, QEvent* ev);
 
