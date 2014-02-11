@@ -55,8 +55,8 @@ SearchEnginesManager::SearchEnginesManager()
 {
     Settings settings;
     settings.beginGroup("SearchEngines");
-    m_startingEngineName = settings.value("activeEngine", "Google").toString();
-    m_defaultEngineName = settings.value("DefaultEngine", "Google").toString();
+    m_startingEngineName = settings.value("activeEngine", "DuckDuckGo").toString();
+    m_defaultEngineName = settings.value("DefaultEngine", "DuckDuckGo").toString();
     settings.endGroup();
 
     connect(this, SIGNAL(enginesChanged()), this, SLOT(scheduleSave()));
