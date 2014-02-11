@@ -171,7 +171,6 @@ private:
     TabBarScrollWidget* m_mainTabBarWidget;
     TabBarScrollWidget* m_pinnedTabBarWidget;
 
-    int m_maxVisiblePinnedTab;
     QString m_closeButtonsToolTip;
     bool m_mainBarOverFlowed;
     int m_dragOffset;

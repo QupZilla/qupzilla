@@ -78,7 +78,6 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     // ComboTabBar features
     setUsesScrollButtons(true);
     setCloseButtonsToolTip(QupZilla::tr("Close Tab"));
-    setMaxVisiblePinnedTab(0);
     connect(this, SIGNAL(overFlowChanged(bool)), this, SLOT(overFlowChange(bool)));
     connect(this, SIGNAL(scrollBarValueChanged(int)), this, SLOT(hideTabPreview()));
 }
