@@ -38,6 +38,7 @@ BookmarksTreeView::BookmarksTreeView(QWidget* parent)
     setDragEnabled(true);
     setAcceptDrops(true);
     setDropIndicatorShown(true);
+    setAllColumnsShowFocus(true);
     setSelectionMode(QAbstractItemView::ExtendedSelection);
     setContextMenuPolicy(Qt::CustomContextMenu);
     setItemDelegate(new BookmarksItemDelegate(this));
