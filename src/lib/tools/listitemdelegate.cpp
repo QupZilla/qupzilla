@@ -64,7 +64,8 @@ void ListItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opti
     int topPosition = opt.rect.top() + m_padding;
 
     // Draw background
-    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
+    // Use PanelItemViewRow, because of Qt5's Fusion style incorrectly renders PanelItemViewItem
+    style->drawPrimitive(QStyle::PE_PanelItemViewRow, &opt, painter);
 
     // Draw icon
     QRect iconRect(opt.rect.left() + (opt.rect.width() - m_iconSize) / 2, topPosition, m_iconSize, m_iconSize);

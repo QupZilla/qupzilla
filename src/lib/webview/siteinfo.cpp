@@ -41,9 +41,7 @@ QString SiteInfo::showCertInfo(const QString &string)
     if (string.isEmpty()) {
         return tr("<not set in certificate>");
     }
-    else {
-        return string;
-    }
+    return string;
 }
 
 SiteInfo::SiteInfo(WebView* view, QWidget* parent)
