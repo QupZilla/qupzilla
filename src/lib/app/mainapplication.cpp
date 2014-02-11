@@ -75,6 +75,8 @@
 
 #if QT_VERSION < 0x050000
 #include "qwebkitversion.h"
+#else
+#include <QStandardPaths>
 #endif
 
 MainApplication::MainApplication(int &argc, char** argv)
@@ -194,16 +196,38 @@ MainApplication::MainApplication(int &argc, char** argv)
         PROFILEDIR = DATADIR + "profiles/";
     }
     else {
-        bool confPathExists = QDir(QDir::homePath() + "/.config/qupzilla").exists();
-        bool homePathExists = QDir(QDir::homePath() + "/.qupzilla").exists();
+#if defined(Q_OS_WIN) || defined(Q_OS_OS2)
+        // Use %APPDATA%/qupzilla as PROFILEDIR on Windows
+#if QT_VERSION >= 0x050000
+        QString dataLocation = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
+#else
+        QString dataLocation = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+#endif
+        if (dataLocation.isEmpty()) {
+            dataLocation = QDir::homePath() + QLatin1String("/.config/qupzilla/");
+        }
 
-        if (homePathExists && !confPathExists) {
-            PROFILEDIR = QDir::homePath() + "/.qupzilla/";
+        QDir confPath = QDir(dataLocation);
+#else // Unix
+        QDir confPath = QDir(QDir::homePath() + QLatin1String("/.config/qupzilla/"));
+#endif
+        QDir homePath = QDir(QDir::homePath() + QLatin1String("/.qupzilla/"));
+
+        if (homePath.exists() && !confPath.exists()) {
+            PROFILEDIR = homePath.absolutePath() + QLatin1Char('/');
+
+            qWarning() << "WARNING: Using deprecated configuration path" << homePath.absolutePath();
+            qWarning() << "WARNING: This path may not be supported in future versions!";
+            qWarning() << "WARNING: Please move your configuration into" << confPath.absolutePath();
         }
         else {
-            PROFILEDIR = QDir::homePath() + "/.config/qupzilla/";
+            PROFILEDIR = confPath.absolutePath() + QLatin1Char('/');
         }
     }
+
+    // Make sure the path exists
+    QDir dir;
+    dir.mkpath(PROFILEDIR);
 
     TRANSLATIONSDIR = DATADIR + "locale/";
     THEMESDIR = DATADIR + "themes/";
