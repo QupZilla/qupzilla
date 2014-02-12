@@ -237,7 +237,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->dontQuitOnTab->setChecked(settings.value("dontQuitWithOneTab", false).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     ui->closedInsteadOpened->setChecked(settings.value("closedInsteadOpenedTabs", false).toBool());
-    ui->showTabPreviews->setChecked(settings.value("showTabPreviews", true).toBool());
+    ui->showTabPreviews->setChecked(settings.value("showTabPreviews", false).toBool());
     ui->animatedTabPreviews->setChecked(settings.value("tabPreviewAnimationsEnabled", true).toBool());
     settings.endGroup();
 

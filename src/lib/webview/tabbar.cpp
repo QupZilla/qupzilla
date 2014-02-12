@@ -88,7 +88,7 @@ void TabBar::loadSettings()
     settings.beginGroup("Browser-Tabs-Settings");
     m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
     m_tabPreview->setAnimationsEnabled(settings.value("tabPreviewAnimationsEnabled", true).toBool());
-    m_showTabPreviews = settings.value("showTabPreviews", true).toBool();
+    m_showTabPreviews = settings.value("showTabPreviews", false).toBool();
     bool activateLastTab = settings.value("ActivateLastTabWhenClosingActual", false).toBool();
     settings.endGroup();
 
