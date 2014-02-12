@@ -7,3 +7,13 @@
 {
     qproperty-multiIcon: url(images/navigation-forward.png);
 }
+
+#tabbar-button-right
+{
+    qproperty-icon: url(images/tab-left-arrow.png);
+}
+
+#tabbar-button-left
+{
+    qproperty-icon: url(images/tab-right-arrow.png);
+}

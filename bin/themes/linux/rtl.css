@@ -10,3 +10,12 @@
     qproperty-fallbackIcon: url(images/go-next.png);
 }
 
+#tabbar-button-right
+{
+    qproperty-icon: url(images/tab-left-arrow.png);
+}
+
+#tabbar-button-left
+{
+    qproperty-icon: url(images/tab-right-arrow.png);
+}
