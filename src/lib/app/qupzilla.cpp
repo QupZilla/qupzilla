@@ -1582,7 +1582,10 @@ void QupZilla::showPageInfo()
 void QupZilla::showBookmarksToolbar()
 {
     bool status = m_bookmarksToolbar->isVisible();
+
+    setUpdatesEnabled(false);
     m_bookmarksToolbar->setVisible(!status);
+    setUpdatesEnabled(true);
 
     Settings settings;
     settings.setValue("Browser-View-Settings/showBookmarksToolbar", !status);
