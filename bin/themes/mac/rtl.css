@@ -12,3 +12,13 @@
 {
     qproperty-multiIcon: url(images/tabs-list-button_rtl.png);
 }
+
+#tabbar-button-right
+{
+    qproperty-icon: url(images/tab-left-arrow.png);
+}
+
+#tabbar-button-left
+{
+    qproperty-icon: url(images/tab-right-arrow.png);
+}

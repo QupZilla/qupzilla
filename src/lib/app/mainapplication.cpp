@@ -198,7 +198,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     else {
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
         // Use %APPDATA%/qupzilla as PROFILEDIR on Windows
-#if QT_VERSION >= 0x050000
+#if QT_VERSION < 0x050000
         QString dataLocation = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
 #else
         QString dataLocation = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
