@@ -417,7 +417,6 @@ void QupZilla::setupMenu()
     m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("&New Window"), MENU_RECEIVER, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
     m_menuFile->addAction(QIcon::fromTheme("document-open-remote"), tr("Open Location"), MENU_RECEIVER, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
     m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File..."), MENU_RECEIVER, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
-    m_menuFile->addAction(tr("Close Tab"), MENU_RECEIVER, SLOT(closeTab()))->setShortcut(QKeySequence("Ctrl+W"));
     m_actionCloseWindow = m_menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close Window"), MENU_RECEIVER, SLOT(closeWindow()));
     m_actionCloseWindow->setShortcut(QKeySequence("Ctrl+Shift+W"));
     m_menuFile->addSeparator();
@@ -693,8 +692,10 @@ void QupZilla::setupOtherActions()
     QShortcut* openLocationAction = new QShortcut(QKeySequence("Alt+D"), this);
     connect(openLocationAction, SIGNAL(activated()), MENU_RECEIVER, SLOT(openLocation()));
 
-    QShortcut* closeTabAction = new QShortcut(QKeySequence("Ctrl+F4"), this);
+    QShortcut* closeTabAction = new QShortcut(QKeySequence("Ctrl+W"), this);
+    QShortcut* closeTabAction2 = new QShortcut(QKeySequence("Ctrl+F4"), this);
     connect(closeTabAction, SIGNAL(activated()), MENU_RECEIVER, SLOT(closeTab()));
+    connect(closeTabAction2, SIGNAL(activated()), MENU_RECEIVER, SLOT(closeTab()));
 
     // Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
@@ -2187,7 +2188,10 @@ bool QupZilla::quitApp()
 
 void QupZilla::closeTab()
 {
-    m_tabWidget->closeTab();
+    // Don't close pinned tabs with keyboard shortcuts (Ctrl+W, Ctrl+F4)
+    if (weView() && !weView()->webTab()->isPinned()) {
+        m_tabWidget->closeTab();
+    }
 }
 
 void QupZilla::restoreClosedTab(QObject* obj)
