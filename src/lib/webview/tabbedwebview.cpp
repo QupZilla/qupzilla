@@ -30,6 +30,7 @@
 #include "searchenginesmanager.h"
 #include "enhancedmenu.h"
 #include "adblockicon.h"
+#include "locationbar.h"
 
 #include <QMovie>
 #include <QStatusBar>
@@ -241,13 +242,14 @@ void TabbedWebView::closeView()
     emit wantsCloseTab(tabIndex());
 }
 
-void TabbedWebView::loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op, const QByteArray &data, Qz::NewTabPositionFlag position)
+void TabbedWebView::loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op, const QByteArray &data, Qz::NewTabPositionFlags position)
 {
     QNetworkRequest r(req);
     r.setRawHeader("Referer", url().toEncoded());
     r.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 
     int index = tabWidget()->addView(QUrl(), position);
+    p_QupZilla->weView(index)->webTab()->locationBar()->showUrl(r.url());
     p_QupZilla->weView(index)->load(r, op, data);
 }
 
