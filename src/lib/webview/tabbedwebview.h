@@ -70,7 +70,7 @@ public slots:
 
     void closeView();
     void loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op,
-                      const QByteArray &data, Qz::NewTabPositionFlag position);
+                      const QByteArray &data, Qz::NewTabPositionFlags position);
     void openNewTab();
 
 private slots:

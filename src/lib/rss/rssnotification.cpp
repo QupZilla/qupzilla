@@ -131,7 +131,7 @@ void RSSNotification::addRss()
         const RssApp app = m_rssApps.at(index);
         const QUrl url = QUrl::fromEncoded(QString(app.address + QUrl::toPercentEncoding(m_url.toString())).toLatin1());
 
-        m_view->openUrlInNewTab(url, Qz::NT_SelectedTab);
+        m_view->openUrlInNewTab(url, Qz::NT_CleanSelectedTab);
         success = true;
         break;
     }

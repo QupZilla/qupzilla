@@ -514,7 +514,7 @@ void WebView::savePageAs()
     dManager->download(request, info);
 }
 
-void WebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position)
+void WebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlags position)
 {
     loadInNewTab(QNetworkRequest(url), QNetworkAccessManager::GetOperation, QByteArray(), position);
 }
@@ -615,22 +615,30 @@ void WebView::showSourceOfSelection()
 void WebView::openUrlInSelectedTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        openUrlInNewTab(action->data().toUrl(), Qz::NT_SelectedTab);
+        openUrlInNewTab(action->data().toUrl(), Qz::NT_CleanSelectedTab);
     }
 }
 
 void WebView::openUrlInBackgroundTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        openUrlInNewTab(action->data().toUrl(), Qz::NT_NotSelectedTab);
+        openUrlInNewTab(action->data().toUrl(), Qz::NT_CleanNotSelectedTab);
     }
 }
 
 void WebView::userDefinedOpenUrlInNewTab(const QUrl &url, bool invert)
 {
-    Qz::NewTabPositionFlag position = qzSettings->newTabPosition;
+    Qz::NewTabPositionFlags position = qzSettings->newTabPosition;
     if (invert) {
-        position = (position == Qz::NT_SelectedTab) ? Qz::NT_NotSelectedTab : Qz::NT_SelectedTab;
+        if (position & Qz::NT_SelectedTab) {
+            position &= ~Qz::NT_SelectedTab;
+            position |= Qz::NT_NotSelectedTab;
+        }
+        else {
+            position &= ~Qz::NT_NotSelectedTab;
+            position |= Qz::NT_SelectedTab;
+
+        }
     }
 
     QUrl actionUrl;

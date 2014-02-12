@@ -59,7 +59,7 @@ public:
     QStringList blockedProtocols;
 
     // Browser-Tabs-Settings
-    Qz::NewTabPositionFlag newTabPosition;
+    Qz::NewTabPositionFlags newTabPosition;
     bool tabsOnTop;
     bool alwaysSwitchTabsWithWheel;
 };

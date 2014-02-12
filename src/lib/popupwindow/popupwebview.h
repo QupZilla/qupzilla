@@ -35,7 +35,7 @@ public:
 
     QWidget* overlayForJsAlert();
     void loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op,
-                      const QByteArray &data, Qz::NewTabPositionFlag position);
+                      const QByteArray &data, Qz::NewTabPositionFlags position);
 
 signals:
 

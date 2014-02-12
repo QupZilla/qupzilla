@@ -61,7 +61,7 @@ QWidget* PopupWebView::overlayForJsAlert()
     return this;
 }
 
-void PopupWebView::loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op, const QByteArray &data, Qz::NewTabPositionFlag position)
+void PopupWebView::loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op, const QByteArray &data, Qz::NewTabPositionFlags position)
 {
     Q_UNUSED(position)
 
