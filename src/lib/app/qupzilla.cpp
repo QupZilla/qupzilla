@@ -1505,11 +1505,15 @@ void QupZilla::showNavigationToolbar()
         showMenubar();
     }
 
+    setUpdatesEnabled(false);
+
     bool status = m_navigationBar->isVisible();
     m_navigationBar->setVisible(!status);
 
     Settings settings;
     settings.setValue("Browser-View-Settings/showNavigationToolbar", !status);
+
+    setUpdatesEnabled(true);
 }
 
 void QupZilla::showMenubar()
@@ -1519,21 +1523,29 @@ void QupZilla::showMenubar()
         showNavigationToolbar();
     }
 
+    setUpdatesEnabled(false);
+
     menuBar()->setVisible(!menuBar()->isVisible());
     m_navigationBar->setSuperMenuVisible(!menuBar()->isVisible());
 
     Settings settings;
     settings.setValue("Browser-View-Settings/showMenubar", menuBar()->isVisible());
+
+    setUpdatesEnabled(true);
 #endif
 }
 
 void QupZilla::showStatusbar()
 {
+    setUpdatesEnabled(false);
+
     bool status = statusBar()->isVisible();
     statusBar()->setVisible(!status);
 
     Settings settings;
     settings.setValue("Browser-View-Settings/showStatusbar", !status);
+
+    setUpdatesEnabled(true);
 }
 
 void QupZilla::showWebInspector(bool toggle)
