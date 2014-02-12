@@ -241,8 +241,7 @@ public:
 
     ~TabScrollBar();
 
-    void animateToValue(int to, QEasingCurve::Type type = QEasingCurve::InOutExpo);
-    void wheelEvent(QWheelEvent* event);
+    void animateToValue(int to, QEasingCurve::Type type = QEasingCurve::OutQuad);
 
 private:
     QPropertyAnimation* m_animation;
@@ -275,8 +274,8 @@ public:
 
 public slots:
     void ensureVisible(int index = -1, int xmargin = 132);
-    void scrollToLeft(int n = 1);
-    void scrollToRight(int n = 1);
+    void scrollToLeft(int n = 5, QEasingCurve::Type type = QEasingCurve::OutQuad);
+    void scrollToRight(int n = 5, QEasingCurve::Type type = QEasingCurve::OutQuad);
     void scrollToLeftEdge();
     void scrollToRightEdge();
     void setUpLayout();
@@ -285,7 +284,6 @@ private slots:
     void scrollBarValueChange();
     void overFlowChanged(bool overflowed);
     void scrollStart();
-    void scrollStop();
 
 private:
     bool eventFilter(QObject* obj, QEvent* ev);
@@ -302,7 +300,7 @@ private:
     QWidget* m_rightContainer;
     bool m_usesScrollButtons;
     bool m_bluredBackground;
-    QPropertyAnimation* m_scrollByButtonAnim;
+    int m_totalDeltas;
 };
 
 // Class for close button on tabs

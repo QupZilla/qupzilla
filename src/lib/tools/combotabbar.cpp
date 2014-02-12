@@ -82,6 +82,7 @@ ComboTabBar::ComboTabBar(QWidget* parent)
     m_pinnedTabBar->setAutoFillBackground(false);
 
     m_mainTabBar->installEventFilter(this);
+    m_pinnedTabBar->installEventFilter(this);
 }
 
 int ComboTabBar::addTab(const QString &text)
@@ -596,6 +597,11 @@ bool ComboTabBar::eventFilter(QObject* obj, QEvent* ev)
             setUpLayout();
         }
     }
+    if (ev->type() == QEvent::Wheel) {
+        // Handle wheel events exclusively in ComboTabBar
+        wheelEvent(static_cast<QWheelEvent*>(ev));
+        return true;
+    }
 
     return QWidget::eventFilter(obj, ev);
 }
@@ -904,7 +910,6 @@ bool TabBarHelper::event(QEvent* ev)
 {
     switch (ev->type()) {
     case QEvent::ToolTip:
-    case QEvent::Wheel:
         ev->ignore();
         return false;
 
@@ -1086,8 +1091,8 @@ void TabBarHelper::resetDragState()
 
 TabScrollBar::TabScrollBar(QWidget* parent)
     : QScrollBar(Qt::Horizontal, parent)
-    , m_animation(0)
 {
+    m_animation = new QPropertyAnimation(this, "value", this);
 }
 
 TabScrollBar::~TabScrollBar()
@@ -1096,33 +1101,16 @@ TabScrollBar::~TabScrollBar()
 
 void TabScrollBar::animateToValue(int to, QEasingCurve::Type type)
 {
-    if (!m_animation) {
-        m_animation = new QPropertyAnimation(this, "value", this);
-    }
-    m_animation->setEasingCurve(type);
-
-    int current = value();
     to = qBound(minimum(), to, maximum());
-    int lenght = qAbs(to - current);
-
+    int lenght = qAbs(to - value());
     int duration = qMin(1500, 200 + lenght / 2);
 
+    m_animation->stop();
+    m_animation->setEasingCurve(type);
     m_animation->setDuration(duration);
-
-    if (m_animation->state() != QAbstractAnimation::Running) {
-        m_animation->setStartValue(value());
-    }
+    m_animation->setStartValue(value());
     m_animation->setEndValue(to);
     m_animation->start();
-}
-
-void TabScrollBar::wheelEvent(QWheelEvent* event)
-{
-    int delta = isRightToLeft() ? -event->delta() : event->delta();
-    QWheelEvent fakeEvent(event->pos(), delta, event->buttons(),
-                          event->modifiers(), Qt::Vertical);
-    QScrollBar::wheelEvent(&fakeEvent);
-    event->accept();
 }
 
 
@@ -1131,7 +1119,7 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
     , m_tabBar(tabBar)
     , m_usesScrollButtons(false)
     , m_bluredBackground(false)
-    , m_scrollByButtonAnim(0)
+    , m_totalDeltas(0)
 {
     m_scrollArea = new QScrollArea(this);
     m_scrollArea->setFrameStyle(QFrame::NoFrame);
@@ -1146,16 +1134,20 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
     m_leftScrollButton = new ToolButton(this);
     m_leftScrollButton->setAutoRaise(true);
     m_leftScrollButton->setObjectName("tabbar-button-left");
+    m_leftScrollButton->setAutoRepeat(true);
+    m_leftScrollButton->setAutoRepeatDelay(200);
+    m_leftScrollButton->setAutoRepeatInterval(200);
     connect(m_leftScrollButton, SIGNAL(pressed()), this, SLOT(scrollStart()));
-    connect(m_leftScrollButton, SIGNAL(released()), this, SLOT(scrollStop()));
     connect(m_leftScrollButton, SIGNAL(doubleClicked()), this, SLOT(scrollToLeftEdge()));
     connect(m_leftScrollButton, SIGNAL(middleMouseClicked()), this, SLOT(ensureVisible()));
 
     m_rightScrollButton = new ToolButton(this);
     m_rightScrollButton->setAutoRaise(true);
     m_rightScrollButton->setObjectName("tabbar-button-right");
+    m_rightScrollButton->setAutoRepeat(true);
+    m_rightScrollButton->setAutoRepeatDelay(200);
+    m_rightScrollButton->setAutoRepeatInterval(200);
     connect(m_rightScrollButton, SIGNAL(pressed()), this, SLOT(scrollStart()));
-    connect(m_rightScrollButton, SIGNAL(released()), this, SLOT(scrollStop()));
     connect(m_rightScrollButton, SIGNAL(doubleClicked()), this, SLOT(scrollToRightEdge()));
     connect(m_rightScrollButton, SIGNAL(middleMouseClicked()), this, SLOT(ensureVisible()));
 
@@ -1250,16 +1242,16 @@ void TabBarScrollWidget::ensureVisible(int index, int xmargin)
     }
 }
 
-void TabBarScrollWidget::scrollToLeft(int n)
+void TabBarScrollWidget::scrollToLeft(int n, QEasingCurve::Type type)
 {
     n = qMax(1, n);
-    m_scrollBar->animateToValue(m_scrollBar->value() - n * m_scrollBar->singleStep(), QEasingCurve::Linear);
+    m_scrollBar->animateToValue(m_scrollBar->value() - n * m_scrollBar->singleStep(), type);
 }
 
-void TabBarScrollWidget::scrollToRight(int n)
+void TabBarScrollWidget::scrollToRight(int n, QEasingCurve::Type type)
 {
     n = qMax(1, n);
-    m_scrollBar->animateToValue(m_scrollBar->value() + n * m_scrollBar->singleStep(), QEasingCurve::Linear);
+    m_scrollBar->animateToValue(m_scrollBar->value() + n * m_scrollBar->singleStep(), type);
 }
 
 void TabBarScrollWidget::scrollToLeftEdge()
@@ -1305,39 +1297,23 @@ void TabBarScrollWidget::overFlowChanged(bool overflowed)
 
 void TabBarScrollWidget::scrollStart()
 {
-    if (QApplication::keyboardModifiers() & Qt::CTRL) {
-        if (sender() == m_leftScrollButton) {
+    bool ctrlModifier = QApplication::keyboardModifiers() & Qt::ControlModifier;
+
+    if (sender() == m_leftScrollButton) {
+        if (ctrlModifier) {
             scrollToLeftEdge();
         }
-        else if (sender() == m_rightScrollButton) {
-            scrollToRightEdge();
+        else {
+            scrollToLeft(5, QEasingCurve::Linear);
         }
-        return;
-    }
-
-    if (!m_scrollByButtonAnim) {
-        m_scrollByButtonAnim = new QPropertyAnimation(m_scrollBar, "value", this);
-        m_scrollByButtonAnim->setEasingCurve(QEasingCurve::Linear);
-    }
-    m_scrollByButtonAnim->stop();
-    int len = m_scrollBar->value();
-    m_scrollByButtonAnim->setStartValue(len);
-    if (sender() == m_leftScrollButton) {
-        len = len - m_scrollBar->minimum();
-        m_scrollByButtonAnim->setEndValue(m_scrollBar->minimum());
     }
     else if (sender() == m_rightScrollButton) {
-        len = m_scrollBar->maximum() - len;
-        m_scrollByButtonAnim->setEndValue(m_scrollBar->maximum());
-    }
-    m_scrollByButtonAnim->setDuration(len * 3);
-    m_scrollByButtonAnim->start();
-}
-
-void TabBarScrollWidget::scrollStop()
-{
-    if (m_scrollByButtonAnim) {
-        m_scrollByButtonAnim->stop();
+        if (ctrlModifier) {
+            scrollToRightEdge();
+        }
+        else {
+            scrollToRight(5, QEasingCurve::Linear);
+        }
     }
 }
 
@@ -1359,21 +1335,42 @@ void TabBarScrollWidget::scrollByWheel(QWheelEvent* event)
 {
     event->accept();
 
-    // support for some finer mouse
-    static int totalDeltas = 0;
-
-    if (totalDeltas * event->delta() < 0) {
-        // direction has changed from last time
-        totalDeltas = 0;
+    // Check if direction has changed from last time
+    if (m_totalDeltas * event->delta() < 0) {
+        m_totalDeltas = 0;
     }
-    totalDeltas += event->delta();
 
+    m_totalDeltas += event->delta();
+
+    // Slower scrolling for horizontal wheel scrolling
+    if (event->orientation() == Qt::Horizontal) {
+        if (event->delta() > 0) {
+            scrollToLeft();
+        }
+        else if (event->delta() < 0) {
+            scrollToRight();
+        }
+        return;
+    }
+
+    // Faster scrolling with control modifier
+    if (event->orientation() == Qt::Vertical && event->modifiers() == Qt::ControlModifier) {
+        if (event->delta() > 0) {
+            scrollToLeft(10);
+        }
+        else if (event->delta() < 0) {
+            scrollToRight(10);
+        }
+        return;
+    }
+
+    // Fast scrolling with just wheel scroll
     int factor = qMax(m_scrollBar->pageStep() / 3, m_scrollBar->singleStep());
     if ((event->modifiers() & Qt::ControlModifier) || (event->modifiers() & Qt::ShiftModifier)) {
         factor = m_scrollBar->pageStep();
     }
 
-    int offset = (totalDeltas / 120) * factor;
+    int offset = (m_totalDeltas / 120) * factor;
     if (offset != 0) {
         if (isRightToLeft()) {
             m_scrollBar->animateToValue(m_scrollBar->value() + offset);
@@ -1382,7 +1379,7 @@ void TabBarScrollWidget::scrollByWheel(QWheelEvent* event)
             m_scrollBar->animateToValue(m_scrollBar->value() - offset);
         }
 
-        totalDeltas -= (offset / factor) * 120;
+        m_totalDeltas -= (offset / factor) * 120;
     }
 }
 

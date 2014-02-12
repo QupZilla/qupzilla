@@ -5,6 +5,7 @@ Version 1.6.2
     * restore session after launch is now enabled by default
     * don't load tabs until selected is now enabled by default
     * tab previews are now disabled by default
+    * reworked scrolling with wheel in tabbar
     * Ctrl+W shortcut no longer closes a pinned tab
     * fixed: setting DuckDuckGo as default search provider
     * fixed: issues detected by scan.coverity.com
