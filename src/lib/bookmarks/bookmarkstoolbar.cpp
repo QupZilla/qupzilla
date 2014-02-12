@@ -35,13 +35,16 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     , m_clickedBookmark(0)
 {
     setObjectName("bookmarksbar");
-    setContextMenuPolicy(Qt::CustomContextMenu);
     setAcceptDrops(true);
+    setContextMenuPolicy(Qt::CustomContextMenu);
 
     m_layout = new QHBoxLayout(this);
     m_layout->setMargin(1);
     m_layout->setSpacing(0);
     setLayout(m_layout);
+
+    // Set some sane value, will be updated to correct value on first added button
+    setMinimumHeight(25);
 
     m_updateTimer = new QTimer(this);
     m_updateTimer->setInterval(300);
@@ -162,6 +165,8 @@ void BookmarksToolbar::addItem(BookmarkItem* item)
     button->setMainWindow(m_window);
     button->setShowOnlyIcon(m_bookmarks->showOnlyIconsInToolbar());
     m_layout->addWidget(button);
+
+    setFixedHeight(m_layout->spacing() * 2 + button->preferredHeight());
 }
 
 BookmarksToolbarButton* BookmarksToolbar::buttonAt(const QPoint &pos)

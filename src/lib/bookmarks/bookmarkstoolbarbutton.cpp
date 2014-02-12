@@ -78,9 +78,7 @@ QSize BookmarksToolbarButton::sizeHint() const
         }
     }
 
-    QSize s = QPushButton::sizeHint();
-    s.setWidth(qMin(width, MAX_WIDTH));
-    return s;
+    return QSize(qMin(width, MAX_WIDTH), preferredHeight());
 }
 
 QSize BookmarksToolbarButton::minimumSizeHint() const
@@ -94,9 +92,12 @@ QSize BookmarksToolbarButton::minimumSizeHint() const
         width += PADDING + 8;
     }
 
-    QSize s = QPushButton::minimumSizeHint();
-    s.setWidth(width);
-    return s;
+    return QSize(width, preferredHeight());
+}
+
+int BookmarksToolbarButton::preferredHeight() const
+{
+    return fontMetrics().height() + PADDING * 2;
 }
 
 void BookmarksToolbarButton::createMenu()
@@ -196,7 +197,6 @@ void BookmarksToolbarButton::init()
     setFocusPolicy(Qt::NoFocus);
     setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
     setIconSize(QSize(16, 16));
-    setMaximumHeight(24);
     setToolTip(createTooltip());
 
     if (m_bookmark->isFolder()) {

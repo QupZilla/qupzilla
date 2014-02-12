@@ -41,6 +41,7 @@ public:
 
     QSize sizeHint() const;
     QSize minimumSizeHint() const;
+    int preferredHeight() const;
 
 private slots:
     void createMenu();
