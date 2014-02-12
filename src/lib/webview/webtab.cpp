@@ -266,7 +266,6 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 
         m_view->tabWidget()->setTabIcon(index, tab.icon);
         m_view->tabWidget()->setTabText(index, tab.title);
-        m_view->tabWidget()->setTabToolTip(index, tab.title);
         m_locationBar.data()->showUrl(tab.url);
 
         if (!tab.url.isEmpty()) {
@@ -372,6 +371,7 @@ void WebTab::pinTab(int index)
 
     m_pinned = !m_pinned;
     index = tabWidget->pinUnPinTab(index, m_view->title());
+    tabWidget->setTabText(index, m_view->title());
     tabWidget->setCurrentIndex(index);
 }
 
