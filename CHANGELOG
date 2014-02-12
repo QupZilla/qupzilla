@@ -4,17 +4,22 @@ Version 1.6.2
     * tabs on top are now enabled by default
     * restore session after launch is now enabled by default
     * don't load tabs until selected is now enabled by default
+    * tab previews are now disabled by default
+    * Ctrl+W shortcut no longer closes a pinned tab
     * fixed: setting DuckDuckGo as default search provider
     * fixed: issues detected by scan.coverity.com
     * fixed: showing more default search engines with same name
     * fixed: incorrect exception rules handling in AdBlock
     * fixed: flickering when removing tabs from tabbar
     * fixed: flickering when (un)pinning tabs
+    * fixed: flickering when opening new tabs with sites that loads instantly
+    * fixed: drawing correct mouseouver state for tabs
     * fixed: drawing tabbar correctly with Oxygen style
+    * fixed: drawing list items with Qt5 Fusion style
+    * fixed: tooltips disappearing on (un)pinning tabs
     * fixed: incorrectly changing current index when closing tabs in inactive tabbar
     * fixed: incorrectly showing url in locationbar when load request was not accepted
     * fixed: always add slash '/' between path and filename when downloading files
-    * fixed: drawing list items with Qt5 Fusion style
     * mac: fixed toggle fullscreen action in menu
     * windows: save application data in %APPDATA%
 

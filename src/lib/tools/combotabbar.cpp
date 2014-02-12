@@ -308,6 +308,7 @@ void ComboTabBar::closeTabFromButton()
 void ComboTabBar::enableUpdates()
 {
     setUpdatesEnabled(true);
+    updateTabBars();
 }
 
 void ComboTabBar::updateTabBars()
