@@ -15,7 +15,7 @@
     <widget class="QTreeWidget" name="treeWidget">
      <column>
       <property name="text">
-       <string notr="true">Windows and Tabs</string>
+       <string>Windows and Tabs</string>
       </property>
      </column>
     </widget>
