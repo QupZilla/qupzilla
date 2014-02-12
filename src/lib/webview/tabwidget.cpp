@@ -324,6 +324,12 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         QtWin::extendFrameIntoClientArea(p_QupZilla);
     }
 #endif
+    // Pause updates, so pages that loads instantly (eg. qupzilla: internal pages) don't cause
+    // flickering in navigationbar (load button and locationbar)
+    // Also disable updates of tabwidget, so background of webview doesn't flashes
+    p_QupZilla->navigationBar()->pauseUpdates();
+    setUpdatesEnabled(false);
+
     QUrl url = req.url();
     m_lastTabIndex = currentIndex();
 
@@ -361,6 +367,7 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
 
     TabbedWebView* webView = weTab(index)->view();
     locBar->setWebView(webView);
+    locBar->showUrl(url);
 
     setTabText(index, title);
     setTabIcon(index, qIconProvider->emptyWebIcon());
@@ -399,6 +406,8 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
             webView->page()->setViewportSize(currentView->page()->viewportSize());
         }
     }
+
+    setUpdatesEnabled(true);
 
 #ifdef Q_OS_WIN
     QTimer::singleShot(0, p_QupZilla, SLOT(applyBlurToMainWindow()));
