@@ -58,6 +58,18 @@ void ToolButton::setIcon(const QIcon &image)
     QToolButton::setIcon(image);
 }
 
+void ToolButton::setMenu(QMenu* m)
+{
+    if (m) {
+        connect(m, SIGNAL(aboutToHide()), this, SLOT(menuAboutToHide()));
+    }
+    else if (menu()) {
+        disconnect(menu(), SIGNAL(aboutToHide()), this, SLOT(menuAboutToHide()));
+    }
+
+    QToolButton::setMenu(m);
+}
+
 void ToolButton::setShowMenuInside(bool inside)
 {
     m_showMenuInside = inside;
@@ -173,6 +185,8 @@ void ToolButton::showMenu()
         return;
     }
 
+    m->popup(QPoint(0, 0));
+
     QPoint pos = mapToGlobal(rect().bottomRight());
     if (QApplication::layoutDirection() == Qt::RightToLeft) {
         pos.setX(pos.x() - rect().width());
@@ -181,8 +195,11 @@ void ToolButton::showMenu()
         pos.setX(pos.x() - m->sizeHint().width());
     }
 
-    setDown(true);
-    m->exec(pos);
+    m->move(pos);
+}
+
+void ToolButton::menuAboutToHide()
+{
     setDown(false);
 }
 
