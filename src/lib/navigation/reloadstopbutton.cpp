@@ -18,6 +18,7 @@
 #include "reloadstopbutton.h"
 
 #include <QHBoxLayout>
+#include <QTimer>
 
 ReloadStopButton::ReloadStopButton(QWidget* parent)
     : QWidget(parent)
@@ -46,22 +47,39 @@ ReloadStopButton::ReloadStopButton(QWidget* parent)
     lay->setSpacing(0);
 }
 
-void ReloadStopButton::showReloadButton()
-{
-    setUpdatesEnabled(false);
-    m_buttonStop->hide();
-    m_buttonReload->show();
-    setUpdatesEnabled(true);
-}
-
 void ReloadStopButton::showStopButton()
 {
-    setUpdatesEnabled(false);
+    if (updatesEnabled()) {
+        setUpdatesEnabled(false);
+        QTimer::singleShot(100, this, SLOT(enableUpdates()));
+    }
+
     m_buttonReload->hide();
     m_buttonStop->show();
-    setUpdatesEnabled(true);
 }
 
-ReloadStopButton::~ReloadStopButton()
+void ReloadStopButton::showReloadButton()
 {
+    if (updatesEnabled()) {
+        setUpdatesEnabled(false);
+        QTimer::singleShot(100, this, SLOT(enableUpdates()));
+    }
+
+    m_buttonStop->hide();
+    m_buttonReload->show();
+}
+
+ToolButton* ReloadStopButton::buttonStop() const
+{
+    return m_buttonStop;
+}
+
+ToolButton* ReloadStopButton::buttonReload() const
+{
+    return m_buttonReload;
+}
+
+void ReloadStopButton::enableUpdates()
+{
+    setUpdatesEnabled(true);
 }

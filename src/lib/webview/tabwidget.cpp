@@ -326,10 +326,6 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         QtWin::extendFrameIntoClientArea(p_QupZilla);
     }
 #endif
-    // Pause updates, so pages that loads instantly (eg. qupzilla: internal pages) don't cause
-    // flickering in navigationbar (load button and locationbar)
-    // Also disable updates of tabwidget, so background of webview doesn't flashes
-    p_QupZilla->navigationBar()->pauseUpdates();
     setUpdatesEnabled(false);
 
     QUrl url = req.url();

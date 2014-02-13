@@ -23,15 +23,19 @@
 
 class QT_QUPZILLA_EXPORT ReloadStopButton : public QWidget
 {
+    Q_OBJECT
+
 public:
     explicit ReloadStopButton(QWidget* parent = 0);
-    ~ReloadStopButton();
 
     void showStopButton();
     void showReloadButton();
 
-    ToolButton* buttonStop() { return m_buttonStop; }
-    ToolButton* buttonReload() { return m_buttonReload; }
+    ToolButton* buttonStop() const;
+    ToolButton* buttonReload() const;
+
+private slots:
+    void enableUpdates();
 
 private:
     ToolButton* m_buttonStop;
