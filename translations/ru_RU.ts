@@ -567,7 +567,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/autofillwidget.ui" line="11"/>
         <source>Login as:</source>
-        <translation type="unfinished"/>
+        <translation>Войти как:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillicon.cpp" line="29"/>
@@ -1130,7 +1130,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="96"/>
         <source>Remove from Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Удалить из закладок</translation>
     </message>
 </context>
 <context>
@@ -1604,17 +1604,17 @@ Please install latest version of QupZilla.</source>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="258"/>
         <source>%n seconds</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n секунда</numerusform><numerusform>%n секунд</numerusform><numerusform>%n секунды</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="261"/>
         <source>%n minutes</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n минута</numerusform><numerusform>%n минут</numerusform><numerusform>%n минуты</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="264"/>
         <source>%n hours</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n час</numerusform><numerusform>%n часов</numerusform><numerusform>%n часа</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="271"/>
@@ -1694,7 +1694,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="382"/>
         <source>Remove From List</source>
-        <translation type="unfinished"/>
+        <translation>Удалить из списка</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="384"/>
@@ -1711,7 +1711,9 @@ Please install latest version of QupZilla.</source>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"/>
+        <translation>Извините, файл
+%1
+не найден!</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
@@ -3127,7 +3129,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="734"/>
         <source>Always switch between tabs with mouse wheel</source>
-        <translation type="unfinished"/>
+        <translation>Переключаться между вкладками колесом мыши</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="741"/>
@@ -3324,12 +3326,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1120"/>
         <source>If you disable this, it will still be accesible via standard Qt shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Если отключить, она всё равно будет доступна через стандартные ярлыки Qt</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
         <source>Enable Undo/Redo for editable forms</source>
-        <translation type="unfinished"/>
+        <translation>Включить Отменить/Повторить для форм редактирования</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
@@ -3958,12 +3960,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>Открыть новое приватное окно</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Opens a new private window</source>
-        <translation type="unfinished"/>
+        <translation>Открывает новое приватное окно</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="400"/>
@@ -4403,7 +4405,8 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/app/qupzilla.cpp" line="2193"/>
         <source>There are still %1 open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
-        <translation type="unfinished"/>
+        <translation>У Вас открыто %1 вкладок и Ваша сессия не сохранится. 
+Вы уверены, что хотите закрыть это окно?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="2194"/>
@@ -5019,7 +5022,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="72"/>
         <source>You already have this feed.</source>
-        <translation type="unfinished"/>
+        <translation>Вы уже подписаны на эту ленту.</translation>
     </message>
 </context>
 <context>
@@ -5917,7 +5920,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/webview/tabwidget.cpp" line="288"/>
         <location filename="../src/lib/webview/tabwidget.cpp" line="498"/>
         <source>Currently you have %n opened tab(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>В данный момент у Вас открыта %n вкладка</numerusform><numerusform>В данный момент у Вас открыто %n вкладок</numerusform><numerusform>В данный момент у Вас открыто %n вкладки</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="311"/>
@@ -6108,7 +6111,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/webview/webpage.cpp" line="532"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"/>
+        <translation>Чтобы открыть эту страницу QupZilla необходимо снова отправить запрос для загрузки.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="534"/>
@@ -6370,12 +6373,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="841"/>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Отменить</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="844"/>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Повторить</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="866"/>

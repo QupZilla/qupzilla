@@ -1,15 +1,15 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="uz@Latn" version="2.0">
 <context>
     <name>AKN_Settings</name>
     <message>
         <location filename="../akn_settings.ui" line="14"/>
         <source>Access Keys Navigation</source>
-        <translation>快捷键导航</translation>
+        <translation>Erkin foydalanish tugmalar navigatsiyasi</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="20"/>
         <source>&lt;h1&gt;Access Keys Navigation&lt;/h1&gt;</source>
-        <translation>&lt;H1&gt;快捷键导航&lt;/H1&gt;</translation>
+        <translation>&lt;h1&gt;Erkin foydalanish tugmalar navigatsiyasi&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="33"/>
@@ -29,17 +29,17 @@
     <message>
         <location filename="../akn_settings.ui" line="51"/>
         <source>Double press</source>
-        <translation>双击</translation>
+        <translation>Ikki marta bosish</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="58"/>
         <source>Key for showing access keys:</source>
-        <translation>快捷键激活方式：</translation>
+        <translation>Erkin foydalanish tugmalarni ko&apos;rsatish uchun tugma:</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="103"/>
         <source>License</source>
-        <translation>许可协议</translation>
+        <translation>Litsenziya</translation>
     </message>
 </context>
 </TS>

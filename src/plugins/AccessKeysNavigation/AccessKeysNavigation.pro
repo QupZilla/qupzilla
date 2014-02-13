@@ -27,6 +27,7 @@ TRANSLATIONS += \
     translations/el_GR.ts \
     translations/es_AR.ts \
     translations/es_ES.ts \
+    translations/es_MX.ts \
     translations/es_VE.ts \
     translations/es_419.ts \
     translations/eu_ES.ts \
@@ -55,6 +56,8 @@ TRANSLATIONS += \
     translations/sr_RS.ts \
     translations/sv_SE.ts \
     translations/uk_UA.ts \
+    translations/uz@Cyrl.ts \
+    translations/uz@Latn.ts \
     translations/zh_CN.ts \
     translations/zh_TW.ts \
 

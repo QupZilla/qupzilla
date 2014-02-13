@@ -1,30 +1,30 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es_ES" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ko_KR" version="2.0">
 <context>
     <name>TestPlugin</name>
     <message>
         <location filename="../testplugin.cpp" line="121"/>
         <source>Close</source>
-        <translation>Cerrar</translation>
+        <translation>종료</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="132"/>
         <source>Example Plugin Settings</source>
-        <translation>Preferencias del complemento de ejemplo</translation>
+        <translation>플러그인 설정 예제</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="160"/>
         <source>My first plugin action</source>
-        <translation>Mi primera acción del complemento</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="175"/>
         <source>Hello</source>
-        <translation>Hola</translation>
+        <translation>Hello</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="175"/>
         <source>First plugin action works :-)</source>
-        <translation>La primera acción del complemento funciona :-)</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -33,7 +33,7 @@
         <location filename="../testplugin_sidebar.cpp" line="32"/>
         <location filename="../testplugin_sidebar.cpp" line="37"/>
         <source>Testing Sidebar</source>
-        <translation>Probando barra lateral</translation>
+        <translation>사이드바 테스팅</translation>
     </message>
 </context>
 </TS>

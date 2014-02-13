@@ -34,22 +34,22 @@
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="48"/>
         <source>&lt;p&gt;runs at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;correr en&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;se ejecuta en&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="52"/>
         <source>&lt;p&gt;does not run at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;no correr en&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;no se ejecuta en&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="82"/>
         <source>Cannot install script</source>
-        <translation>No se pudo instalar el script</translation>
+        <translation>No se ha podido instalar el script</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="85"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation>&apos;%1&apos; instalado exitosamente</translation>
+        <translation>&apos;%1&apos; se ha instalado con éxito</translation>
     </message>
 </context>
 <context>
@@ -157,7 +157,7 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="138"/>
         <source>Namespace:</source>
-        <translation type="unfinished"/>
+        <translation>Espacio de nombre:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="155"/>
@@ -177,12 +177,12 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
         <source>Runs at:</source>
-        <translation>Ejecuta en:</translation>
+        <translation>Se ejecuta en:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="128"/>
         <source>Does not run at:</source>
-        <translation>No ejecutar en:</translation>
+        <translation>No se ejecuta en:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>

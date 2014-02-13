@@ -1292,7 +1292,7 @@ Bitte installieren Sie die aktuellste Version von QupZilla.</translation>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="108"/>
         <source>Are you sure to clear selected private data?</source>
-        <translation>Sind Sie sicher, dass Sie die gewählten privaten Daten löschen wollen?</translation>
+        <translation>Möchten Sie wirklich die gewählten privaten Daten löschen?</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
@@ -4302,7 +4302,7 @@ konnte nicht gefunden werden!</translation>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="594"/>
         <source>New &amp;Private Window</source>
-        <translation>Neues &amp;Fenster</translation>
+        <translation>Neues &amp;privates Fenster</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="608"/>

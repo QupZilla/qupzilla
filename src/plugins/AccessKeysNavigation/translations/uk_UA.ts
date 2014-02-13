@@ -29,7 +29,7 @@
     <message>
         <location filename="../akn_settings.ui" line="51"/>
         <source>Double press</source>
-        <translation>Подвійне натискання</translation>
+        <translation>Подвійне натиснення</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="58"/>

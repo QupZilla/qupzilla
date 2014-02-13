@@ -1,15 +1,15 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="uz@Cyrl" version="2.0">
 <context>
     <name>AKN_Settings</name>
     <message>
         <location filename="../akn_settings.ui" line="14"/>
         <source>Access Keys Navigation</source>
-        <translation>快捷键导航</translation>
+        <translation>Эркин фойдаланиш тугмалар навигацияси</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="20"/>
         <source>&lt;h1&gt;Access Keys Navigation&lt;/h1&gt;</source>
-        <translation>&lt;H1&gt;快捷键导航&lt;/H1&gt;</translation>
+        <translation>&lt;h1&gt;Эркин фойдаланиш тугмалар навигацияси&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="33"/>
@@ -29,17 +29,17 @@
     <message>
         <location filename="../akn_settings.ui" line="51"/>
         <source>Double press</source>
-        <translation>双击</translation>
+        <translation>Икки марта босиш</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="58"/>
         <source>Key for showing access keys:</source>
-        <translation>快捷键激活方式：</translation>
+        <translation>Эркин фойдаланиш тугмаларини кўрсатиш учун тугма:</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="103"/>
         <source>License</source>
-        <translation>许可协议</translation>
+        <translation>Лицензия</translation>
     </message>
 </context>
 </TS>
