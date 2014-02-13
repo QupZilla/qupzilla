@@ -1,4 +1,5 @@
 TARGET = $$qtLibraryTarget(StatusBarIcons)
+os2: TARGET = StatusBa
 
 SOURCES += statusbariconsplugin.cpp \
     sbi_iconsmanager.cpp \
