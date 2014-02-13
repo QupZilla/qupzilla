@@ -149,7 +149,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="122"/>
         <source>Use only essential part of EasyList (for performance reasons)</source>
-        <translation type="unfinished"/>
+        <translation>Hanya menggunakan bagian penting dari EasyList (untuk alasan kinerja)</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="50"/>
@@ -316,7 +316,8 @@
         <location filename="../src/lib/tools/aesinterface.cpp" line="144"/>
         <source>Data has been encrypted with a newer version of QupZilla.
 Please install latest version of QupZilla.</source>
-        <translation type="unfinished"/>
+        <translation>Data telah dienkripsi menggunakan QupZilla versi terbaru.
+Silakan pasang versi terbaru dari QupZilla.</translation>
     </message>
 </context>
 <context>
@@ -324,17 +325,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="245"/>
         <source>Database (encrypted)</source>
-        <translation type="unfinished"/>
+        <translation>Database (terenkripsi)</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="287"/>
         <source>Enter Master Password</source>
-        <translation type="unfinished"/>
+        <translation>Masukkan Kata Sandi Utama</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="288"/>
         <source>Permission is required, please enter Master Password:</source>
-        <translation type="unfinished"/>
+        <translation>Perijinan dibutuhkan, silakan masukkan Kata Sandi Utama:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="294"/>
@@ -345,12 +346,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="294"/>
         <source>Entered password is wrong!</source>
-        <translation type="unfinished"/>
+        <translation>Kata Sandi yang dimasukkan salah!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="591"/>
         <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
-        <translation type="unfinished"/>
+        <translation>Backend ini membutuhkan sandi utama! QupZilla kembali menggunakan backend bawaan</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="33"/>
@@ -363,17 +364,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="25"/>
         <source>Passwords are stored in:</source>
-        <translation>Kata kunci disimpan di:</translation>
+        <translation>Kata sandi disimpan di:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="35"/>
         <source>Change backend</source>
-        <translation type="unfinished"/>
+        <translation>Ubah backend</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="42"/>
         <source>Backend options</source>
-        <translation type="unfinished"/>
+        <translation>Opsi backend</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="71"/>
@@ -449,12 +450,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="126"/>
         <source>Change backend...</source>
-        <translation type="unfinished"/>
+        <translation>Ubah backend...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="126"/>
         <source>Change backend:</source>
-        <translation type="unfinished"/>
+        <translation>Ubah backend:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="175"/>
@@ -566,7 +567,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/autofillwidget.ui" line="11"/>
         <source>Login as:</source>
-        <translation type="unfinished"/>
+        <translation>Masuk sebagai:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillicon.cpp" line="29"/>
@@ -603,7 +604,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="74"/>
         <source>Internet Explorer</source>
-        <translation type="unfinished"/>
+        <translation>Internet Explorer</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="83"/>
@@ -628,7 +629,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="209"/>
         <source>Try to fetch icons for all bookmarks (may take a while)</source>
-        <translation type="unfinished"/>
+        <translation>Sedang mengunduh ikon untuk semua bookmark (dapat berlangsung beberapa saat)</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="243"/>
@@ -768,12 +769,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarksimport/ieimporter.cpp" line="42"/>
         <source>Directory does not exist.</source>
-        <translation type="unfinished"/>
+        <translation>Direktori tidak ada.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/ieimporter.cpp" line="53"/>
         <source>The directory does not contain any bookmarks.</source>
-        <translation type="unfinished"/>
+        <translation>Direktori ini tidak mengandung bookmark.</translation>
     </message>
 </context>
 <context>
@@ -817,12 +818,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="75"/>
         <source>Import Bookmarks...</source>
-        <translation type="unfinished"/>
+        <translation>Impor Bookmark</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="76"/>
         <source>Export Bookmarks to HTML...</source>
-        <translation type="unfinished"/>
+        <translation>Ekspor Bookmark ke HTML...</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="95"/>
@@ -966,7 +967,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="75"/>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Tutup Semua</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="91"/>
@@ -1119,7 +1120,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="29"/>
         <source>Add to bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Tambahkan ke bookmark</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="63"/>
@@ -1129,7 +1130,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="96"/>
         <source>Remove from Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Hapus dari Bookmark</translation>
     </message>
 </context>
 <context>
@@ -1281,7 +1282,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="170"/>
         <source>Optimize database</source>
-        <translation type="unfinished"/>
+        <translation>Optimasi Database</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="107"/>
@@ -1291,17 +1292,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="108"/>
         <source>Are you sure to clear selected private data?</source>
-        <translation type="unfinished"/>
+        <translation>Anda yakin untuk menghapus data privat yang dipilih?</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
         <source>Database Optimized</source>
-        <translation type="unfinished"/>
+        <translation>Database Teroptimasi</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation type="unfinished"/>
+        <translation>Database berhasil dioptimasi.&lt;br/&gt;&lt;b&gt;Ukuran Database Sebelumnya: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Ukuran Database Sekarang: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -1508,7 +1509,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Peringatan&lt;/b&gt; Opsi kecocokan domain dan penyaringan cookie penelusuran dapat menyebabkan ditolaknya cookie dari beberapa situs. Jika anda mendapatkan masalah dengan cookie, coba nonaktifkan opsi ini dahulu!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="79"/>
@@ -1602,17 +1603,17 @@ Please install latest version of QupZilla.</source>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="258"/>
         <source>%n seconds</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n detik</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="261"/>
         <source>%n minutes</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n menit</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="264"/>
         <source>%n hours</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n jam</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="271"/>
@@ -1692,7 +1693,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="382"/>
         <source>Remove From List</source>
-        <translation type="unfinished"/>
+        <translation>Hapus Dari Daftar</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="384"/>
@@ -1709,7 +1710,9 @@ Please install latest version of QupZilla.</source>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"/>
+        <translation>Maaf, berkas 
+ %1 
+ tidak ditemukan!</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
@@ -1851,12 +1854,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="106"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url or post data represent searched string</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Catatan: &lt;/b&gt;%s di url atau pos mewakili kata yang dicari</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="123"/>
         <source>Post Data:</source>
-        <translation type="unfinished"/>
+        <translation>Pos Data:</translation>
     </message>
 </context>
 <context>
@@ -2367,52 +2370,52 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="20"/>
         <source>Encrypted DataBase Settings</source>
-        <translation type="unfinished"/>
+        <translation>Pengaturan Enkripsi Database</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="33"/>
         <source>Set/Change Master Password...</source>
-        <translation type="unfinished"/>
+        <translation>Tetapkan/Ubah Kata Sandi Utama...</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="36"/>
         <source>This backend does not work without a master password.</source>
-        <translation type="unfinished"/>
+        <translation>Backend ini tidak dapat bekerja tanpa kata sandi utama.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="43"/>
         <source>Clear Master Password...</source>
-        <translation type="unfinished"/>
+        <translation>Hapus Kata Sandi Utama...</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="46"/>
         <source>This option clears the master password and moves all encrypted data to the &quot;DataBase (Plain Text)&quot; backend, and switches to it.</source>
-        <translation type="unfinished"/>
+        <translation>Opsi ini akan menghapus kata sandi utama dan memindahkan semua data yang terenkripsi ke backend &quot;Database (Teks Polos)&quot;, kemudian menggunakannya.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="64"/>
         <source>The Master Password is used to protect site passwords and form data. If you set a Master Password you will be asked to enter it once per session.</source>
-        <translation type="unfinished"/>
+        <translation>Kata Sandi Utama digunakan untuk melindungi kata-kata sandi situs dan formulir isian data. Jika anda menetapkan sebuah Kata Sandi Utama anda akan diminta untuk memasukkannya sekali persesi.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="76"/>
         <source>Current Password:</source>
-        <translation type="unfinished"/>
+        <translation>Kata Sandi Saat ini:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="83"/>
         <source>New Password:</source>
-        <translation>Kata kunci baru:</translation>
+        <translation>Kata Sandi baru:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="90"/>
         <source>Confirm Password:</source>
-        <translation type="unfinished"/>
+        <translation>Konfirmasi Kata Sandi:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="120"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; The Master Password is not resettable. Do not forget it, please.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Catatan:&lt;/b&gt; Kata Sandi Utama tidak dapat direset. Jangan sampai lupa, please.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="558"/>
@@ -2425,22 +2428,22 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="558"/>
         <source>You entered a wrong password!</source>
-        <translation>Anda memasukkan kata kunci yang salah!</translation>
+        <translation>Anda memasukkan kata sandi yang salah!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="563"/>
         <source>New/Confirm password fields do not match!</source>
-        <translation type="unfinished"/>
+        <translation>Isian kata sandi baru/konfirmasi tidak sama!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="612"/>
         <source>Are you sure to clear master password and decrypt data?</source>
-        <translation type="unfinished"/>
+        <translation>Anda yakin untuk menghapus kata sandi utama dan mendeskripsi data?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="655"/>
         <source>Some data has not been decrypted. The master password was not cleared!</source>
-        <translation type="unfinished"/>
+        <translation>Beberapa data belum dienkripsi. Kata sandi utama tidak dihapus!</translation>
     </message>
 </context>
 <context>
@@ -2577,7 +2580,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
         <source>Remember username and password for this proxy.</source>
-        <translation type="unfinished"/>
+        <translation>Simpan nama pengguna dan kata sandi untuk proksi ini.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="481"/>
@@ -2605,7 +2608,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/pagescreen.ui" line="91"/>
         <source>Browse...</source>
-        <translation type="unfinished"/>
+        <translation>Browse...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/pagescreen.cpp" line="61"/>
@@ -2620,12 +2623,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/pagescreen.cpp" line="115"/>
         <source>File &apos;%1&apos; already exists. Do you want to overwrite it?</source>
-        <translation type="unfinished"/>
+        <translation>Berkas &apos;%1&apos; sudah ada. Anda ingin menimpanya?</translation>
     </message>
     <message>
         <location filename="../src/lib/other/pagescreen.cpp" line="116"/>
         <source>File already exists</source>
-        <translation type="unfinished"/>
+        <translation>Berkas sudah ada</translation>
     </message>
 </context>
 <context>
@@ -3124,7 +3127,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="734"/>
         <source>Always switch between tabs with mouse wheel</source>
-        <translation type="unfinished"/>
+        <translation>Selalu pindah antartab dengan roda tetikus</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="741"/>
@@ -3179,22 +3182,22 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="846"/>
         <source>Enable inline suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Aktifkan saran dalam baris</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="853"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
-        <translation type="unfinished"/>
+        <translation>Tekan &quot;Shift&quot; untuk tidak pindah tab tetapi muat url di tab ini</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="856"/>
         <source>Propose to switch tab if completed url is already loaded</source>
-        <translation type="unfinished"/>
+        <translation>Sarankan untuk pindah tab jika url yang dituju sudah terbuka</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="863"/>
         <source>Always show go icon</source>
-        <translation type="unfinished"/>
+        <translation>Selalu tampilkan ikon pergi</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="870"/>
@@ -3321,12 +3324,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1120"/>
         <source>If you disable this, it will still be accesible via standard Qt shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Jika anda menonaktifkannya, anda masih dapat mengaksesnya melalui pintasan standar Qt</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
         <source>Enable Undo/Redo for editable forms</source>
-        <translation type="unfinished"/>
+        <translation>Aktifkan Pembatalan/Pengulangan untuk formulir yang dapat diubah</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
@@ -3564,7 +3567,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1953"/>
         <source>Add .co.uk domain by pressing ALT key in address bar</source>
-        <translation type="unfinished"/>
+        <translation>Tambahkan domain .co.id dengan menekan tombol ALT di panel alamat</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1977"/>
@@ -3955,12 +3958,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>Buka jendela privat baru</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Opens a new private window</source>
-        <translation type="unfinished"/>
+        <translation>Buka jendela privat baru</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="400"/>
@@ -4299,7 +4302,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="594"/>
         <source>New &amp;Private Window</source>
-        <translation>Jendela Privat Baru</translation>
+        <translation>Jendela &amp;Privat Baru</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="608"/>
@@ -4400,7 +4403,8 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/app/qupzilla.cpp" line="2193"/>
         <source>There are still %1 open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
-        <translation type="unfinished"/>
+        <translation>Masih ada %1 tab yang terbuka dan sesi anda tidak akan disimpan. 
+Anda yakin untuk menutup jendela ini?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="2194"/>
@@ -5016,7 +5020,7 @@ Silakan tambahi dengan menggunakan icon RSS di bilah navigasi bilamana situs men
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="72"/>
         <source>You already have this feed.</source>
-        <translation type="unfinished"/>
+        <translation>Anda telah memiliki feed ini.</translation>
     </message>
 </context>
 <context>
@@ -5796,7 +5800,7 @@ Setelah menambah atau menghapus lokasi sertifikat, QupZilla harus direstart agar
     <message>
         <location filename="../src/lib/network/sslerrordialog.ui" line="14"/>
         <source>SSL Certificate Error!</source>
-        <translation type="unfinished"/>
+        <translation>Sertifikat SSL Salah!</translation>
     </message>
     <message>
         <location filename="../src/lib/network/sslerrordialog.cpp" line="31"/>
@@ -5880,12 +5884,12 @@ Setelah menambah atau menghapus lokasi sertifikat, QupZilla harus direstart agar
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="205"/>
         <source>Close Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Tutup Tab</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="205"/>
         <source>Do you really want to close other tabs?</source>
-        <translation type="unfinished"/>
+        <translation>Anda ingin menutup tab yang lain?</translation>
     </message>
 </context>
 <context>
@@ -5915,7 +5919,7 @@ Setelah menambah atau menghapus lokasi sertifikat, QupZilla harus direstart agar
         <location filename="../src/lib/webview/tabwidget.cpp" line="288"/>
         <location filename="../src/lib/webview/tabwidget.cpp" line="498"/>
         <source>Currently you have %n opened tab(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Saat ini anda memiliki %n tab(s) yang terbuka</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="311"/>
@@ -6106,7 +6110,8 @@ Setelah menambah atau menghapus lokasi sertifikat, QupZilla harus direstart agar
         <location filename="../src/lib/webview/webpage.cpp" line="532"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"/>
+        <translation>Untuk menampilkan halaman ini, QupZilla harus mengirim ulang permintaan yang sudah dilakukan
+(seperti pencarian saat berbelanja, yang sudah pernah dilakukan sebelumnya.)</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="534"/>
@@ -6368,12 +6373,12 @@ Setelah menambah atau menghapus lokasi sertifikat, QupZilla harus direstart agar
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="841"/>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="844"/>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Ulangi</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="866"/>
@@ -6483,12 +6488,12 @@ Setelah menambah atau menghapus lokasi sertifikat, QupZilla harus direstart agar
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="974"/>
         <source>&amp;Add New Page</source>
-        <translation type="unfinished"/>
+        <translation>T&amp;ambah Halaman Baru</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="975"/>
         <source>&amp;Configure Speed Dial</source>
-        <translation type="unfinished"/>
+        <translation>Konfigurasi Panggilan &amp;Cepat</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="987"/>

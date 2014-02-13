@@ -1,85 +1,85 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es_ES" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ko_KR" version="2.0">
 <context>
     <name>PIM_Handler</name>
     <message>
         <location filename="../PIM_handler.cpp" line="60"/>
         <source>Last Name</source>
-        <translation>Apellido</translation>
+        <translation>성</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="61"/>
         <source>First Name</source>
-        <translation>Nombre</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="62"/>
         <source>E-mail</source>
-        <translation>Correo electrónico</translation>
+        <translation>이메일</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="63"/>
         <source>Mobile</source>
-        <translation>Teléfono móvil</translation>
+        <translation>모바일</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="64"/>
         <source>Phone</source>
-        <translation>Teléfono</translation>
+        <translation>폰</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="65"/>
         <source>Address</source>
-        <translation>Dirección</translation>
+        <translation>주소</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="66"/>
         <source>City</source>
-        <translation>Ciudad</translation>
+        <translation>시/군</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="67"/>
         <source>ZIP Code</source>
-        <translation>Código postal</translation>
+        <translation>우편번호</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="68"/>
         <source>State/Region</source>
-        <translation>Región/Provincia</translation>
+        <translation>도/시</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="69"/>
         <source>Country</source>
-        <translation>País</translation>
+        <translation>국가</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="70"/>
         <source>Home Page</source>
-        <translation>Página de inicio</translation>
+        <translation>홈 페이지</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="71"/>
         <source>Custom 1</source>
-        <translation>Dato adicional 1</translation>
+        <translation>커스텀 1</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="72"/>
         <source>Custom 2</source>
-        <translation>Dato adicional 2</translation>
+        <translation>커스텀 2</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="73"/>
         <source>Custom 3</source>
-        <translation>Dato adicional 3</translation>
+        <translation>커스텀 3</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="115"/>
         <source>Insert Personal Information</source>
-        <translation>Introducir información personal</translation>
+        <translation>개인 정보 입력</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="136"/>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation>편집</translation>
     </message>
 </context>
 <context>
@@ -87,92 +87,92 @@
     <message>
         <location filename="../PIM_settings.ui" line="14"/>
         <source>PIM Settings</source>
-        <translation>Ajustes de PIM</translation>
+        <translation>PIM 설정</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="42"/>
         <source>&lt;h2&gt;Personal Information Manager&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;Administrador de información personal&lt;/h2&gt;</translation>
+        <translation>&lt;h2&gt;개인 정보 관리자&lt;/h2&gt;</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="64"/>
         <source>Your personal information that will be used on webpages.</source>
-        <translation>Información personal suya que se utilizará en páginas web.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="76"/>
         <source>First Name:</source>
-        <translation>Nombre:</translation>
+        <translation>이름:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="89"/>
         <source>Last Name:</source>
-        <translation>Apellido:</translation>
+        <translation>성:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="102"/>
         <source>E-mail:</source>
-        <translation>Correo electrónico:</translation>
+        <translation>이메일:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="115"/>
         <source>Phone:</source>
-        <translation>Teléfono:</translation>
+        <translation>폰:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="128"/>
         <source>Mobile Phone:</source>
-        <translation>Teléfono móvil:</translation>
+        <translation>모바일 폰:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="141"/>
         <source>Address:</source>
-        <translation>Dirección:</translation>
+        <translation>주소:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="154"/>
         <source>City:</source>
-        <translation>Ciudad:</translation>
+        <translation>시/군:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="167"/>
         <source>ZIP Code:</source>
-        <translation>Código postal:</translation>
+        <translation>우편번호:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="180"/>
         <source>State/Region:</source>
-        <translation>Región/Provincia:</translation>
+        <translation>도/시:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="193"/>
         <source>Country:</source>
-        <translation>País:</translation>
+        <translation>국가:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="206"/>
         <source>Home Page:</source>
-        <translation>Página de inicio:</translation>
+        <translation>홈 페이지:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="219"/>
         <source>Custom 1:</source>
-        <translation>Dato adicional 1:</translation>
+        <translation>커스텀 1:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="232"/>
         <source>Custom 2:</source>
-        <translation>Dato adicional 2:</translation>
+        <translation>커스텀 2:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="245"/>
         <source>Custom 3:</source>
-        <translation>Dato adicional 3:</translation>
+        <translation>커스텀 3:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="260"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Press Ctrl+ENTER to autofill form fields for which QupZilla finds personal entries.</source>
-        <translation>&lt;b&gt;Nota:&lt;/b&gt; Presione Ctrl+INTRO para rellenar automáticamente campos de formularios para los cuales QupZilla encuentre entradas personales.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

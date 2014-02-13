@@ -1693,7 +1693,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="382"/>
         <source>Remove From List</source>
-        <translation type="unfinished"/>
+        <translation>ߊ߬ ߖߐ߬ߛߌ߬ ߛߙߍߘߍ ߘߐ߫</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="384"/>
@@ -3960,12 +3960,12 @@ Appuyez sur &quot;Shift&quot; pour ne pas changer l&apos;onglet mais charger l&a
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>ߜߎ߲߬ߘߎ߬ ߝߢߐߘߊ߫ ߞߎߘߊ ߘߊߦߟߍ߬</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Opens a new private window</source>
-        <translation type="unfinished"/>
+        <translation>ߜߎ߲߬ߘߎ߬ ߝߢߐߘߊ߫ ߞߎߘߊ ߘߏ߫ ߘߊߦߟߍ߬</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="400"/>

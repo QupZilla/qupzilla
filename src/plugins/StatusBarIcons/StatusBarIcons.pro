@@ -31,11 +31,13 @@ TRANSLATIONS += \
     translations/de_DE.ts \
     translations/el_GR.ts \
     translations/es_ES.ts \
+    translations/es_MX.ts \
     translations/es_VE.ts \
     translations/eu_ES.ts \
     translations/fa_IR.ts \
     translations/fr_FR.ts \
     translations/he_IL.ts \
+    translations/id_ID.ts \
     translations/it_IT.ts \
     translations/ja_JP.ts \
     translations/nl_NL.ts \

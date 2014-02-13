@@ -1693,7 +1693,7 @@ Instale a versão mais recente da aplicação.</translation>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="382"/>
         <source>Remove From List</source>
-        <translation type="unfinished"/>
+        <translation>Remover da lista</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="384"/>
@@ -3537,7 +3537,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1865"/>
         <source>Default Font Size</source>
-        <translation>Tamanho pré-definido do tipo de letra</translation>
+        <translation>Tamanho pré-definido das letras</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1892"/>
@@ -3624,7 +3624,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2096"/>
         <source>Leave blank if unsure</source>
-        <translation>Deixe em branco se não tiver certeza</translation>
+        <translation>Deixe em branco se não souber o que escrever</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2117"/>
@@ -3685,7 +3685,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2289"/>
         <source>Manage JavaScript privacy options</source>
-        <translation>Gerir opções dos JavaScript</translation>
+        <translation>Gerir opções de privacidade dos JavaScript</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2302"/>
@@ -3770,7 +3770,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2632"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Alterar identificação do navegador&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Mudar identificação do navegador&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2657"/>
@@ -3862,7 +3862,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="817"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation>Tem a certeza que pretende eliminar o perfil &quot;%1&quot; permanentemente? Esta ação não pode ser anulada!</translation>
+        <translation>Tem a certeza que pretende eliminar permanentemente o perfil &quot;%1&quot;? Esta ação não pode ser anulada!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="1104"/>
@@ -3938,32 +3938,32 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="388"/>
         <source>Open new tab</source>
-        <translation>Abrir um novo separador</translation>
+        <translation>Abrir novo separador</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="388"/>
         <source>Opens a new tab if browser is running</source>
-        <translation>Abre um novo separador se o navegador estiver aberto</translation>
+        <translation>Abre um novo separador se o navegador estiver em execução</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="392"/>
         <source>Open new window</source>
-        <translation>Abrir uma nova janela</translation>
+        <translation>Abrir nova janela</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="392"/>
         <source>Opens a new window if browser is running</source>
-        <translation>Abre uma nova janela se o navegador estiver aberto</translation>
+        <translation>Abre uma nova janela se o navegador estiver em execução</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>Abrir nova janela privada</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Opens a new private window</source>
-        <translation type="unfinished"/>
+        <translation>Abre uma nova janela privada</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="400"/>
@@ -3973,7 +3973,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="400"/>
         <source>Opens a download manager if browser is running</source>
-        <translation>Abre um gestor de transferências se o navegador estiver aberto</translation>
+        <translation>Abre um gestor de transferências se o navegador estiver em execução</translation>
     </message>
 </context>
 <context>
@@ -5919,7 +5919,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
         <location filename="../src/lib/webview/tabwidget.cpp" line="288"/>
         <location filename="../src/lib/webview/tabwidget.cpp" line="498"/>
         <source>Currently you have %n opened tab(s)</source>
-        <translation><numerusform>Atualmente tem %1 separador aberto</numerusform><numerusform>Atualmente tem %1 separadores abertos</numerusform></translation>
+        <translation><numerusform>Atualmente tem %n separador aberto</numerusform><numerusform>Atualmente tem %n separadores abertos</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="311"/>
@@ -6171,7 +6171,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="759"/>
         <source>Proxy authentication required</source>
-        <translation>Requer autorização de proxy</translation>
+        <translation>Requer autenticação de proxy</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="762"/>
@@ -6388,7 +6388,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="913"/>
         <source>&amp;Back</source>
-        <translation>&amp;Recuar</translation>
+        <translation>R&amp;ecuar</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="917"/>
@@ -6573,7 +6573,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1077"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation>Procurar &quot;%1 ...&quot; no %2</translation>
+        <translation>Procurar &quot;%1&quot; no %2</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1083"/>
