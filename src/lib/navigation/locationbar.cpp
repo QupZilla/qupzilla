@@ -123,7 +123,6 @@ void LocationBar::setText(const QString &text)
 {
     LineEdit::setText(text);
     m_forcePaintEvent = true;
-    setCursorPosition(0);
 }
 
 void LocationBar::updatePlaceHolderText()
@@ -435,7 +434,6 @@ void LocationBar::focusOutEvent(QFocusEvent* event)
 
     m_popupClosed = false;
     m_forcePaintEvent = true;
-    setCursorPosition(0);
     hideGoButton();
 
     if (text().trimmed().isEmpty()) {
