@@ -18,6 +18,10 @@
 #ifndef PROCESSINFO_H
 #define PROCESSINFO_H
 
+#ifdef QZ_WS_X11
+#include <unistd.h>
+#endif
+
 #include <QString>
 
 #include "qz_namespace.h"

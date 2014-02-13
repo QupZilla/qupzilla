@@ -18,7 +18,6 @@
 #include "processinfo.h"
 
 #ifdef QZ_WS_X11
-#include <unistd.h>
 #include <dirent.h>
 #include <sys/types.h>
 #include <sys/stat.h>
