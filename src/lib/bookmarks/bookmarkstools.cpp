@@ -376,7 +376,7 @@ bool BookmarksTools::migrateBookmarksIfNecessary(Bookmarks* bookmarks)
         const QUrl url = query.value(2).toUrl();
 
         BookmarkItem* parent = folders.value(folder);
-        if (folder.isEmpty()) {
+        if (!parent) {
             parent = bookmarks->unsortedFolder();
         }
         Q_ASSERT(parent);
