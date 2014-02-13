@@ -42,7 +42,6 @@ ComboTabBar::ComboTabBar(QWidget* parent)
     , m_mainTabBar(0)
     , m_pinnedTabBar(0)
     , m_mainBarOverFlowed(false)
-    , m_dragOffset(0)
     , m_usesScrollButtons(false)
 {
     m_mainTabBar = new TabBarHelper(this);
@@ -665,6 +664,11 @@ void ComboTabBar::setUsesScrollButtons(bool useButtons)
     m_mainTabBarWidget->setUsesScrollButtons(useButtons);
 }
 
+bool ComboTabBar::isDragInProgress() const
+{
+    return m_mainTabBar->isDragInProgress() || m_pinnedTabBar->isDragInProgress();
+}
+
 void ComboTabBar::addMainBarWidget(QWidget* widget, Qt::Alignment align, int stretch, Qt::Alignment layoutAlignment)
 {
     if (align == Qt::AlignRight) {
@@ -887,6 +891,11 @@ bool TabBarHelper::isDisplayedOnViewPort(int globalLeft, int globalRight)
     }
 
     return isVisible;
+}
+
+bool TabBarHelper::isDragInProgress() const
+{
+    return m_dragInProgress;
 }
 
 void TabBarHelper::enableBluredBackground(bool enable)

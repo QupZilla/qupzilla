@@ -128,6 +128,7 @@ public:
     bool usesScrollButtons() const;
     void setUsesScrollButtons(bool useButtons);
 
+    bool isDragInProgress() const;
     void addMainBarWidget(QWidget* widget, Qt::Alignment align, int stretch = 0, Qt::Alignment layoutAlignment = 0);
 
 public slots:
@@ -176,7 +177,6 @@ private:
 
     QString m_closeButtonsToolTip;
     bool m_mainBarOverFlowed;
-    int m_dragOffset;
     bool m_usesScrollButtons;
 
 signals:
@@ -206,7 +206,9 @@ public:
 
     void setScrollArea(QScrollArea* scrollArea);
     void useFastTabSizeHint(bool enabled);
+
     bool isDisplayedOnViewPort(int globalLeft, int globalRight);
+    bool isDragInProgress() const;
     void enableBluredBackground(bool enable);
 
 public slots:
