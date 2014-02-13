@@ -1,5 +1,5 @@
 Version 1.6.2
-    * not yet released
+    * released 13 February 2014
     * workaround for servers not understanding TLSv1 handshake
     * tabs on top are now enabled by default
     * restore session after launch is now enabled by default
