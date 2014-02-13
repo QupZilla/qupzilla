@@ -118,6 +118,10 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_macDockMenu(0)
 #endif
 {
+    setApplicationName("QupZilla");
+    setApplicationVersion(QupZilla::VERSION);
+    setOrganizationDomain("qupzilla");
+
 #if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR;
 #else
@@ -197,7 +201,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     }
     else {
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
-        // Use %APPDATA%/qupzilla as PROFILEDIR on Windows
+        // Use %LOCALAPPDATA%/qupzilla as PROFILEDIR on Windows
 #if QT_VERSION < 0x050000
         QString dataLocation = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
 #else
@@ -266,9 +270,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     setQuitOnLastWindowClosed(true);
 #endif
 
-    setApplicationName("QupZilla");
-    setApplicationVersion(QupZilla::VERSION);
-    setOrganizationDomain("qupzilla");
     QDesktopServices::setUrlHandler("http", this, "addNewTab");
     QDesktopServices::setUrlHandler("ftp", this, "addNewTab");
 
