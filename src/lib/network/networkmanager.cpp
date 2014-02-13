@@ -85,10 +85,6 @@ NetworkManager::NetworkManager(QObject* parent)
     setProxyFactory(m_proxyFactory);
     loadSettings();
 
-    // Force SSLv3 for servers that doesn't understand TLSv1 handshake
-    m_sslv3Sites << QLatin1String("centrum.sk") << QLatin1String("centrum.cz") << QLatin1String("oneaccount.com") << QLatin1String("hdi.de")
-                 << QLatin1String("live.com") << QLatin1String("i0.cz");
-
 }
 
 void NetworkManager::loadSettings()
@@ -101,11 +97,19 @@ void NetworkManager::loadSettings()
         setCache(cache);
     }
 
+    // Force SSLv3 for servers that doesn't understand TLSv1 handshake
+    QStringList sslv3Sites;
+    sslv3Sites << QLatin1String("centrum.sk") << QLatin1String("centrum.cz") << QLatin1String("oneaccount.com") << QLatin1String("hdi.de")
+                 << QLatin1String("live.com") << QLatin1String("i0.cz") << QLatin1String("sermepa.es");
+
     settings.beginGroup("Web-Browser-Settings");
     m_doNotTrack = settings.value("DoNotTrack", false).toBool();
     m_sendReferer = settings.value("SendReferer", true).toBool();
+    m_sslv3Sites = settings.value("SSLv3Sites", sslv3Sites).toStringList();
     settings.endGroup();
+
     m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
+
 
 #if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
     QString certDir = mApp->PROFILEDIR + "certificates";
@@ -676,12 +680,16 @@ bool NetworkManager::unregisterSchemeHandler(const QString &scheme, SchemeHandle
     return m_schemeHandlers.remove(scheme) == 1;
 }
 
-void NetworkManager::saveCertificates()
+void NetworkManager::saveSettings()
 {
     Settings settings;
     settings.beginGroup("SSL-Configuration");
     settings.setValue("CACertPaths", m_certPaths);
     settings.setValue("IgnoreAllSSLWarnings", m_ignoreAllWarnings);
+    settings.endGroup();
+
+    settings.beginGroup("Web-Browser-Settings");
+    settings.setValue("SSLv3Sites", m_sslv3Sites);
     settings.endGroup();
 }
 

@@ -37,7 +37,7 @@ public:
     QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 
     void loadSettings();
-    void saveCertificates();
+    void saveSettings();
     void loadCertificates();
 
     QList<QSslCertificate> getCaCertificates() { return m_caCerts; }
