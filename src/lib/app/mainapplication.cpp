@@ -916,7 +916,7 @@ void MainApplication::saveSettings()
     }
 
     m_searchEnginesManager->saveSettings();
-    m_networkmanager->saveCertificates();
+    m_networkmanager->saveSettings();
     m_plugins->shutdown();
     qIconProvider->saveIconsToDatabase();
     clearTempPath();
