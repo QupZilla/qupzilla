@@ -148,7 +148,6 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     m_buttonListTabs->setToolTip(tr("List of tabs"));
     m_buttonListTabs->setAutoRaise(true);
     m_buttonListTabs->setFocusPolicy(Qt::NoFocus);
-    m_buttonListTabs->setShowMenuInside(true);
 
     m_buttonAddTab = new AddTabButton(this, m_tabBar);
 
@@ -164,7 +163,6 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     m_buttonListTabs2->setToolTip(tr("List of tabs"));
     m_buttonListTabs2->setAutoRaise(true);
     m_buttonListTabs2->setFocusPolicy(Qt::NoFocus);
-    m_buttonListTabs2->setShowMenuInside(true);
 
     m_buttonAddTab2 = new AddTabButton(this, m_tabBar);
     m_buttonAddTab2->setProperty("outside-tabbar", true);

@@ -50,8 +50,6 @@ public:
     void setFallbackIcon(const QIcon &image);
     void setIcon(const QIcon &image);
 
-    void setMenu(QMenu* m);
-
     void setShowMenuInside(bool inside);
     bool showMenuInside() const;
 
@@ -66,9 +64,6 @@ signals:
 
 public slots:
     void showMenu();
-
-private slots:
-    void menuAboutToHide();
 
 protected:
     void mousePressEvent(QMouseEvent* e);
