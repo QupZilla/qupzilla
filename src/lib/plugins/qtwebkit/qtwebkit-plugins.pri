@@ -13,6 +13,11 @@ mac {
     buildPlugin = false
 }
 
+# OS/2
+os2 {
+    buildPlugin = false
+}
+
 # Windows
 win32 {
     win32-msvc* {
