@@ -507,7 +507,7 @@ void ComboTabBar::setUpLayout()
 
     setMinimumWidths();
 
-    if (isVisible()) {
+    if (isVisible() && m_mainTabBar->count() > 0) {
         // ComboTabBar is now visible, we can sync heights of both tabbars
         m_pinnedTabBar->setFixedHeight(m_mainTabBar->height());
     }
