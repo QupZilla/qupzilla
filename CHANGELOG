@@ -21,6 +21,7 @@ Version 1.6.2
     * fixed: incorrectly changing current index when closing tabs in inactive tabbar
     * fixed: incorrectly showing url in locationbar when load request was not accepted
     * fixed: always add slash '/' between path and filename when downloading files
+    * fixed: cursor jumping at the start in locationbar
     * mac: fixed toggle fullscreen action in menu
     * windows: save application data in %APPDATA%
 
