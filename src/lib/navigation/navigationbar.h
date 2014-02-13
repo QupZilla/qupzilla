@@ -63,9 +63,6 @@ public:
     int layoutSpacing() const;
     void setLayoutSpacing(int spacing);
 
-    // Pause updates for 100 msecs
-    void pauseUpdates();
-
 signals:
 
 public slots:
@@ -84,8 +81,6 @@ private slots:
     void goAtHistoryIndexInNewTab(int index = -1);
 
     void clearHistory();
-    void enableUpdates();
-
     void contextMenuRequested(const QPoint &pos);
 
 private:

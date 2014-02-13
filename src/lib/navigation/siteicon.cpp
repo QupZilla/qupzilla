@@ -22,6 +22,7 @@
 #include "qztools.h"
 
 #include <QDrag>
+#include <QTimer>
 #include <QMimeData>
 #include <QApplication>
 #include <QContextMenuEvent>

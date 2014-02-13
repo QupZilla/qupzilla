@@ -95,14 +95,14 @@ LocationBar::LocationBar(QupZilla* mainClass)
     connect(mApp, SIGNAL(message(Qz::AppMessageType,bool)), SLOT(onMessage(Qz::AppMessageType,bool)));
 
     loadSettings();
-
     clearIcon();
-    updatePlaceHolderText();
 
     // Hide icons by default
     hideGoButton();
     m_rssIcon->hide();
     m_autofillIcon->hide();
+
+    QTimer::singleShot(0, this, SLOT(updatePlaceHolderText()));
 }
 
 void LocationBar::setWebView(TabbedWebView* view)

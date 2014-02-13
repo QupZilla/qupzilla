@@ -357,6 +357,11 @@ void WebTab::slotRestore()
     m_view->tabWidget()->getTabBar()->restoreTabTextColor(tabIndex());
 }
 
+void WebTab::enableUpdates()
+{
+    setUpdatesEnabled(true);
+}
+
 int WebTab::tabIndex() const
 {
     return m_view->tabIndex();

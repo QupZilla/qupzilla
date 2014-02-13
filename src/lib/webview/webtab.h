@@ -100,6 +100,7 @@ public:
 private slots:
     void showNotification(QWidget* notif);
     void slotRestore();
+    void enableUpdates();
 
 private:
     QupZilla* p_QupZilla;

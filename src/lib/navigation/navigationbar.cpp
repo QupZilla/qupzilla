@@ -240,12 +240,6 @@ void NavigationBar::setLayoutSpacing(int spacing)
     m_layout->setSpacing(spacing);
 }
 
-void NavigationBar::pauseUpdates()
-{
-    setUpdatesEnabled(false);
-    QTimer::singleShot(100, this, SLOT(enableUpdates()));
-}
-
 void NavigationBar::aboutToShowHistoryBackMenu()
 {
     if (!m_menuBack || !p_QupZilla->weView()) {
@@ -319,11 +313,6 @@ void NavigationBar::clearHistory()
     QWebHistory* history = p_QupZilla->weView()->page()->history();
     history->clear();
     refreshHistory();
-}
-
-void NavigationBar::enableUpdates()
-{
-    setUpdatesEnabled(true);
 }
 
 void NavigationBar::contextMenuRequested(const QPoint &pos)
