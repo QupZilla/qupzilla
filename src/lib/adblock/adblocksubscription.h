@@ -103,6 +103,7 @@ public slots:
 
 signals:
     void subscriptionUpdated();
+    void subscriptionError(const QString &message);
 
 protected slots:
     void subscriptionDownloaded();

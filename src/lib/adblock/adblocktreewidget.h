@@ -45,6 +45,7 @@ private slots:
     void copyFilter();
 
     void subscriptionUpdated();
+    void subscriptionError(const QString &message);
 
 private:
     void adjustItemFeatures(QTreeWidgetItem* item, const AdBlockRule* rule);

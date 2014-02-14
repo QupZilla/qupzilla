@@ -83,8 +83,8 @@ NetworkManager::NetworkManager(QObject* parent)
 
     m_proxyFactory = new NetworkProxyFactory();
     setProxyFactory(m_proxyFactory);
-    loadSettings();
 
+    loadSettings();
 }
 
 void NetworkManager::loadSettings()
@@ -100,7 +100,7 @@ void NetworkManager::loadSettings()
     // Force SSLv3 for servers that doesn't understand TLSv1 handshake
     QStringList sslv3Sites;
     sslv3Sites << QLatin1String("centrum.sk") << QLatin1String("centrum.cz") << QLatin1String("oneaccount.com") << QLatin1String("hdi.de")
-                 << QLatin1String("live.com") << QLatin1String("i0.cz") << QLatin1String("sermepa.es");
+               << QLatin1String("live.com") << QLatin1String("i0.cz") << QLatin1String("sermepa.es") << QLatin1String("easylist-downloads.adblockplus.org");
 
     settings.beginGroup("Web-Browser-Settings");
     m_doNotTrack = settings.value("DoNotTrack", false).toBool();
@@ -109,7 +109,6 @@ void NetworkManager::loadSettings()
     settings.endGroup();
 
     m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
-
 
 #if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
     QString certDir = mApp->PROFILEDIR + "certificates";
