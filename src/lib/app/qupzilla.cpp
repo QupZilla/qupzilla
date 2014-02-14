@@ -2222,7 +2222,6 @@ void QupZilla::closeEvent(QCloseEvent* event)
     }
 
     m_isClosing = true;
-    mApp->saveStateSlot();
 
 #ifndef Q_OS_MAC
     if (mApp->windowCount() == 1) {
