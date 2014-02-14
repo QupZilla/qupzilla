@@ -16,12 +16,14 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "reloadstopbutton.h"
+#include "toolbutton.h"
 
 #include <QHBoxLayout>
 #include <QTimer>
 
 ReloadStopButton::ReloadStopButton(QWidget* parent)
     : QWidget(parent)
+    , m_loadInProgress(false)
 {
     QHBoxLayout* lay = new QHBoxLayout(this);
     setLayout(lay);
@@ -45,28 +47,22 @@ ReloadStopButton::ReloadStopButton(QWidget* parent)
     lay->addWidget(m_buttonReload);
     lay->setContentsMargins(0, 0, 0, 0);
     lay->setSpacing(0);
+
+    m_updateTimer = new QTimer(this);
+    m_updateTimer->setInterval(100);
+    connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateButton()));
 }
 
 void ReloadStopButton::showStopButton()
 {
-    if (updatesEnabled()) {
-        setUpdatesEnabled(false);
-        QTimer::singleShot(100, this, SLOT(enableUpdates()));
-    }
-
-    m_buttonReload->hide();
-    m_buttonStop->show();
+    m_loadInProgress = true;
+    m_updateTimer->start();
 }
 
 void ReloadStopButton::showReloadButton()
 {
-    if (updatesEnabled()) {
-        setUpdatesEnabled(false);
-        QTimer::singleShot(100, this, SLOT(enableUpdates()));
-    }
-
-    m_buttonStop->hide();
-    m_buttonReload->show();
+    m_loadInProgress = false;
+    m_updateTimer->start();
 }
 
 ToolButton* ReloadStopButton::buttonStop() const
@@ -79,7 +75,10 @@ ToolButton* ReloadStopButton::buttonReload() const
     return m_buttonReload;
 }
 
-void ReloadStopButton::enableUpdates()
+void ReloadStopButton::updateButton()
 {
+    setUpdatesEnabled(false);
+    m_buttonStop->setVisible(m_loadInProgress);
+    m_buttonReload->setVisible(!m_loadInProgress);
     setUpdatesEnabled(true);
 }
