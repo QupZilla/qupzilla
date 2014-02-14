@@ -201,16 +201,13 @@ QRect ComboTabBar::tabRect(int index) const
 
 int ComboTabBar::tabAt(const QPoint &pos) const
 {
-    int index = m_pinnedTabBarWidget->tabAt(pos);
+    int index = m_pinnedTabBarWidget->tabAt(m_pinnedTabBarWidget->mapFromParent(pos));
 
     if (index != -1) {
         return index;
     }
 
-    QPoint p = pos;
-    p.setX(p.x() - m_pinnedTabBarWidget->width());
-
-    index = m_mainTabBarWidget->tabAt(p);
+    index = m_mainTabBarWidget->tabAt(m_mainTabBarWidget->mapFromParent(pos));
 
     if (index != -1) {
         index += pinnedTabsCount();
@@ -1413,15 +1410,8 @@ bool TabBarScrollWidget::isOverflowed() const
 
 int TabBarScrollWidget::tabAt(const QPoint &pos) const
 {
-    if (!m_leftScrollButton->isVisible()) {
-        return m_tabBar->tabAt(pos);
-    }
-
-
-    QPoint p = pos;
-    p.setX(p.x() - m_leftScrollButton->width() - m_scrollArea->viewport()->width());
-
-    if (m_leftScrollButton->rect().contains(pos) || m_rightScrollButton->rect().contains(p)) {
+    if (m_leftScrollButton->isVisible() && (m_leftScrollButton->rect().contains(pos) ||
+                                            m_rightScrollButton->rect().contains(pos))) {
         return -1;
     }
 
