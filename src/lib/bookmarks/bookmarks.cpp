@@ -272,7 +272,7 @@ void Bookmarks::init()
     }
 
     m_lastFolder = m_folderUnsorted;
-    m_model = new BookmarksModel(this, this);
+    m_model = new BookmarksModel(m_root, this, this);
 }
 
 void Bookmarks::loadBookmarks()

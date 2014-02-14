@@ -30,11 +30,14 @@
 #include "modeltest.h"
 #endif
 
-BookmarksModel::BookmarksModel(Bookmarks* bookmarks, QObject* parent)
+BookmarksModel::BookmarksModel(BookmarkItem* root, Bookmarks* bookmarks, QObject* parent)
     : QAbstractItemModel(parent)
+    , m_root(root)
     , m_bookmarks(bookmarks)
 {
-    connect(m_bookmarks, SIGNAL(bookmarkChanged(BookmarkItem*)), this, SLOT(bookmarkChanged(BookmarkItem*)));
+    if (m_bookmarks) {
+        connect(m_bookmarks, SIGNAL(bookmarkChanged(BookmarkItem*)), this, SLOT(bookmarkChanged(BookmarkItem*)));
+    }
 
 #ifdef BOOKMARKSMODEL_DEBUG
     new ModelTest(this, this);
@@ -79,7 +82,7 @@ Qt::ItemFlags BookmarksModel::flags(const QModelIndex &index) const
         flags |= Qt::ItemIsDropEnabled;
     }
 
-    if (m_bookmarks->canBeModified(itm)) {
+    if (m_bookmarks && m_bookmarks->canBeModified(itm)) {
         flags |= Qt::ItemIsDragEnabled;
     }
 
@@ -215,7 +218,7 @@ bool BookmarksModel::dropMimeData(const QMimeData* data, Qt::DropAction action, 
         return true;
     }
 
-    if (!data->hasFormat(MIMETYPE) || !parent.isValid()) {
+    if (!m_bookmarks || !data->hasFormat(MIMETYPE) || !parent.isValid()) {
         return false;
     }
 
@@ -294,7 +297,7 @@ QModelIndex BookmarksModel::index(BookmarkItem* item, int column) const
 BookmarkItem* BookmarksModel::item(const QModelIndex &index) const
 {
     BookmarkItem* itm = static_cast<BookmarkItem*>(index.internalPointer());
-    return itm ? itm : m_bookmarks->rootItem();
+    return itm ? itm : m_root;
 }
 
 void BookmarksModel::bookmarkChanged(BookmarkItem* item)

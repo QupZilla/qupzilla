@@ -23,6 +23,7 @@
 #include "htmlimporter.h"
 #include "ieimporter.h"
 #include "bookmarkitem.h"
+#include "bookmarksmodel.h"
 #include "mainapplication.h"
 #include "iconprovider.h"
 #include "qztools.h"
@@ -168,22 +169,9 @@ void BookmarksImportDialog::showExportedBookmarks()
 {
     ui->nextButton->setText(tr("Finish"));
 
-    QTreeWidgetItem* root = new QTreeWidgetItem(ui->treeWidget);
-    root->setText(0, m_exportedFolder->title());
-    root->setIcon(0, m_exportedFolder->icon());
-    ui->treeWidget->addTopLevelItem(root);
-
-    foreach (BookmarkItem* b, m_exportedFolder->children()) {
-        // TODO: Multi-level bookmarks
-        if (b->isUrl()) {
-            QTreeWidgetItem* item = new QTreeWidgetItem(root);
-            item->setText(0, b->title());
-            item->setIcon(0, b->icon());
-            item->setText(1, b->urlString());
-        }
-    }
-
-    ui->treeWidget->expandAll();
+    ui->treeView->setModel(new BookmarksModel(m_exportedFolder, 0, this));
+    ui->treeView->header()->resizeSection(0, ui->treeView->header()->width() / 2);
+    ui->treeView->expandAll();
 }
 
 void BookmarksImportDialog::setFile()
