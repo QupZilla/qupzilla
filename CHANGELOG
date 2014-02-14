@@ -1,3 +1,10 @@
+Version 1.6.3
+    * released 14 February 2014
+    * addded new Spanish (Mexico) translation
+    * option to change list of SslV3 forced sites in settings.ini
+    * show error message when downloading AdBlock subscriptions fails
+    * fixed building on FreeBSD, OS/2
+
 Version 1.6.2
     * released 13 February 2014
     * workaround for servers not understanding TLSv1 handshake

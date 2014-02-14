@@ -72,7 +72,7 @@ void StatusBarIconsPlugin::unload()
 
 bool StatusBarIconsPlugin::testPlugin()
 {
-    return (QupZilla::VERSION == QLatin1String("1.6.2"));
+    return (QupZilla::VERSION == QLatin1String("1.6.3"));
 }
 
 QTranslator* StatusBarIconsPlugin::getTranslator(const QString &locale)
