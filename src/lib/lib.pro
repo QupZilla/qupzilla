@@ -164,10 +164,11 @@ SOURCES += \
     opensearch/searchenginesmanager.cpp \
     opensearch/searchenginesdialog.cpp \
     opensearch/editsearchengine.cpp \
-    bookmarksimport/firefoximporter.cpp \
-    bookmarksimport/chromeimporter.cpp \
-    bookmarksimport/operaimporter.cpp \
-    bookmarksimport/ieimporter.cpp \
+    bookmarks/import/firefoximporter.cpp \
+    bookmarks/import/chromeimporter.cpp \
+    bookmarks/import/operaimporter.cpp \
+    bookmarks/import/ieimporter.cpp \
+    bookmarks/import/htmlimporter.cpp \
     bookmarksimport/bookmarksimportdialog.cpp \
     tools/iconfetcher.cpp \
     tools/followredirectreply.cpp \
@@ -175,7 +176,6 @@ SOURCES += \
     tools/pagethumbnailer.cpp \
     plugins/speeddial.cpp \
     other/databasewriter.cpp \
-    bookmarksimport/htmlimporter.cpp \
     tools/enhancedmenu.cpp \
     navigation/siteicon.cpp \
     navigation/goicon.cpp \
@@ -255,7 +255,8 @@ SOURCES += \
     bookmarks/bookmarksmenu.cpp \
     bookmarks/bookmarksicon.cpp \
     bookmarks/bookmarksitemdelegate.cpp \
-    bookmarks/bookmarkstoolbarbutton.cpp
+    bookmarks/bookmarkstoolbarbutton.cpp \
+    bookmarks/import/bookmarksimporter.cpp
 
 
 HEADERS  += \
@@ -354,10 +355,11 @@ HEADERS  += \
     opensearch/searchenginesmanager.h \
     opensearch/searchenginesdialog.h \
     opensearch/editsearchengine.h \
-    bookmarksimport/firefoximporter.h \
-    bookmarksimport/chromeimporter.h \
-    bookmarksimport/operaimporter.h \
-    bookmarksimport/ieimporter.h \
+    bookmarks/import/firefoximporter.h \
+    bookmarks/import/chromeimporter.h \
+    bookmarks/import/operaimporter.h \
+    bookmarks/import/ieimporter.h \
+    bookmarks/import/htmlimporter.h \
     bookmarksimport/bookmarksimportdialog.h \
     tools/iconfetcher.h \
     tools/followredirectreply.h \
@@ -365,7 +367,6 @@ HEADERS  += \
     tools/pagethumbnailer.h \
     plugins/speeddial.h \
     other/databasewriter.h \
-    bookmarksimport/htmlimporter.h \
     tools/enhancedmenu.h \
     navigation/siteicon.h \
     navigation/goicon.h \
@@ -449,7 +450,8 @@ HEADERS  += \
     bookmarks/bookmarksmenu.h \
     bookmarks/bookmarksicon.h \
     bookmarks/bookmarksitemdelegate.h \
-    bookmarks/bookmarkstoolbarbutton.h
+    bookmarks/bookmarkstoolbarbutton.h \
+    bookmarks/import/bookmarksimporter.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

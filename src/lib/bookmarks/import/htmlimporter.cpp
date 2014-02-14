@@ -16,38 +16,47 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "htmlimporter.h"
-#include "bookmarksimportdialog.h"
 #include "bookmarkitem.h"
 #include "qzregexp.h"
 
 #include <QUrl>
+#include <QFileDialog>
 
 HtmlImporter::HtmlImporter(QObject* parent)
-    : QObject(parent)
-    , m_error(false)
-    , m_errorString(BookmarksImportDialog::tr("No Error"))
+    : BookmarksImporter(parent)
 {
 }
 
-void HtmlImporter::setFile(const QString &path)
+QString HtmlImporter::description() const
 {
-    m_path = path;
+    return BookmarksImporter::tr("You can import bookmarks from any browser that supports HTML exporting. "
+                                 "This file has usually these suffixes");
 }
 
-bool HtmlImporter::openFile()
+QString HtmlImporter::standardPath() const
+{
+    return QString();
+}
+
+QString HtmlImporter::getPath(QWidget* parent)
+{
+    m_path = QFileDialog::getOpenFileName(parent, BookmarksImporter::tr("Choose file..."), standardPath(), "Html (*.htm, *.html)");
+    return m_path;
+}
+
+bool HtmlImporter::prepareImport()
 {
     m_file.setFileName(m_path);
 
     if (!m_file.open(QFile::ReadOnly)) {
-        m_error = true;
-        m_errorString = BookmarksImportDialog::tr("Unable to open file.");
+        setError(BookmarksImporter::tr("Unable to open file."));
         return false;
     }
 
     return true;
 }
 
-int qzMin(int a, int b)
+static int qzMin(int a, int b)
 {
     if (a > -1 && b > -1) {
         return qMin(a, b);
@@ -61,7 +70,7 @@ int qzMin(int a, int b)
     }
 }
 
-BookmarkItem* HtmlImporter::exportBookmarks()
+BookmarkItem* HtmlImporter::importBookmarks()
 {
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();

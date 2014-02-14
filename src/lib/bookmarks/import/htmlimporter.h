@@ -15,34 +15,29 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef OPERAIMPORTER_H
-#define OPERAIMPORTER_H
+#ifndef HTMLIMPORTER_H
+#define HTMLIMPORTER_H
 
-#include <QObject>
 #include <QFile>
 
-#include "qz_namespace.h"
-#include "bookmarks.h"
+#include "bookmarksimporter.h"
 
-class QT_QUPZILLA_EXPORT OperaImporter : public QObject
+class QT_QUPZILLA_EXPORT HtmlImporter : public BookmarksImporter
 {
 public:
-    explicit OperaImporter(QObject* parent = 0);
+    explicit HtmlImporter(QObject* parent = 0);
 
-    void setFile(const QString &path);
-    bool openFile();
+    QString description() const;
+    QString standardPath() const;
 
-    BookmarkItem* exportBookmarks();
+    QString getPath(QWidget* parent);
+    bool prepareImport();
 
-    bool error() { return m_error; }
-    QString errorString() { return m_errorString; }
+    BookmarkItem* importBookmarks();
 
 private:
     QString m_path;
     QFile m_file;
-
-    bool m_error;
-    QString m_errorString;
 };
 
-#endif // OPERAIMPORTER_H
+#endif // HTMLIMPORTER_H

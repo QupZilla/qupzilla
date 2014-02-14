@@ -16,38 +16,52 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "operaimporter.h"
-#include "bookmarksimportdialog.h"
 #include "bookmarkitem.h"
 #include "qzregexp.h"
 
 #include <QUrl>
+#include <QDir>
+#include <QFileDialog>
 
 OperaImporter::OperaImporter(QObject* parent)
-    : QObject(parent)
-    , m_error(false)
-    , m_errorString(BookmarksImportDialog::tr("No Error"))
+    : BookmarksImporter(parent)
 {
 }
 
-void OperaImporter::setFile(const QString &path)
+QString OperaImporter::description() const
 {
-    m_path = path;
+    return BookmarksImporter::tr("Opera stores its bookmarks in <b>bookmarks.adr</b> text file. "
+                                 "This file is usually located in");
 }
 
-bool OperaImporter::openFile()
+QString OperaImporter::standardPath() const
+{
+#ifdef Q_OS_WIN
+    return QString("%APPDATA%/Opera/");
+#else
+    return QDir::homePath() + QLatin1String("/.opera/");
+#endif
+}
+
+QString OperaImporter::getPath(QWidget* parent)
+{
+    m_path = QFileDialog::getOpenFileName(parent, BookmarksImporter::tr("Choose file..."), standardPath(), "Bookmarks (bookmarks.adr)");
+    return m_path;
+}
+
+bool OperaImporter::prepareImport()
 {
     m_file.setFileName(m_path);
 
     if (!m_file.open(QFile::ReadOnly)) {
-        m_error = true;
-        m_errorString = BookmarksImportDialog::tr("Unable to open file.");
+        setError(BookmarksImporter::tr("Unable to open file."));
         return false;
     }
 
     return true;
 }
 
-BookmarkItem* OperaImporter::exportBookmarks()
+BookmarkItem* OperaImporter::importBookmarks()
 {
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();

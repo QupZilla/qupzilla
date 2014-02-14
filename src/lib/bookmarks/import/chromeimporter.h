@@ -15,50 +15,33 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef BOOKMARKSIMPORTDIALOG_H
-#define BOOKMARKSIMPORTDIALOG_H
+#ifndef CHROMEIMPORTER_H
+#define CHROMEIMPORTER_H
 
-#include <QDialog>
+#include <QFile>
 
-#include "qz_namespace.h"
+#include "bookmarksimporter.h"
 
-namespace Ui
+class QT_QUPZILLA_EXPORT ChromeImporter : public BookmarksImporter
 {
-class BookmarksImportDialog;
-}
-
-class BookmarkItem;
-class BookmarksImporter;
-
-class QT_QUPZILLA_EXPORT BookmarksImportDialog : public QDialog
-{
-    Q_OBJECT
-
 public:
-    explicit BookmarksImportDialog(QWidget* parent = 0);
-    ~BookmarksImportDialog();
+    explicit ChromeImporter(QObject* parent = 0);
 
-private slots:
-    void nextPage();
-    void setFile();
+    QString description() const;
+    QString standardPath() const;
+
+    QString getPath(QWidget* parent);
+    bool prepareImport();
+
+    BookmarkItem* importBookmarks();
 
 private:
-    enum Browser {
-        Firefox = 0,
-        Chrome = 1,
-        Opera = 2,
-        IE = 3,
-        Html = 4
-    };
+    QString m_path;
+    QFile m_file;
 
-    void showExportedBookmarks();
-    void addExportedBookmarks();
+    bool m_error;
+    QString m_errorString;
 
-    Ui::BookmarksImportDialog* ui;
-
-    int m_currentPage;
-    BookmarksImporter* m_importer;
-    BookmarkItem* m_importedFolder;
 };
 
-#endif // BOOKMARKSIMPORTDIALOG_H
+#endif // CHROMEIMPORTER_H

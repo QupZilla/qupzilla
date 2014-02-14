@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,38 +15,46 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef FIREFOXIMPORTER_H
-#define FIREFOXIMPORTER_H
+#ifndef BOOKMARKSIMPORTER_H
+#define BOOKMARKSIMPORTER_H
 
 #include <QObject>
-#include <QFile>
-#include <QSqlDatabase>
 
 #include "qz_namespace.h"
-#include "bookmarks.h"
+
+class QIcon;
 
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT FirefoxImporter : public QObject
+class QT_QUPZILLA_EXPORT BookmarksImporter : public QObject
 {
+    Q_OBJECT
+
 public:
-    explicit FirefoxImporter(QObject* parent = 0);
+    explicit BookmarksImporter(QObject* parent = 0);
+    virtual ~BookmarksImporter();
 
-    void setFile(const QString &path);
-    bool openDatabase();
+    bool error() const;
+    QString errorString() const;
 
-    BookmarkItem* exportBookmarks();
+    virtual QString description() const = 0;
+    virtual QString standardPath() const = 0;
 
-    bool error() { return m_error; }
-    QString errorString() { return m_errorString; }
+    // Get filename from user (or a directory)
+    virtual QString getPath(QWidget* parent) = 0;
+
+    // Prepare import (check if file exists, ...), return false on error
+    virtual bool prepareImport() = 0;
+
+    // Import bookmarks (it must return root folder)
+    virtual BookmarkItem* importBookmarks() = 0;
+
+protected:
+    // Empty error = no error
+    void setError(const QString &error);
 
 private:
-    QString m_path;
-    QSqlDatabase db;
-
-    bool m_error;
-    QString m_errorString;
-
+    QString m_error;
 };
 
-#endif // FIREFOXIMPORTER_H
+#endif // BOOKMARKSIMPORTER_H

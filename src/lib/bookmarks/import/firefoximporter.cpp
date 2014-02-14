@@ -19,54 +19,70 @@
 #include "bookmarksimportdialog.h"
 #include "bookmarkitem.h"
 
+#include <QDir>
+#include <QVariant>
 #include <QSqlQuery>
 #include <QSqlError>
+#include <QFileDialog>
 
 FirefoxImporter::FirefoxImporter(QObject* parent)
-    : QObject(parent)
-    , m_error(false)
-    , m_errorString(BookmarksImportDialog::tr("No Error"))
+    : BookmarksImporter(parent)
 {
 }
 
-void FirefoxImporter::setFile(const QString &path)
+QString FirefoxImporter::description() const
 {
-    m_path = path;
+    return BookmarksImporter::tr("Mozilla Firefox stores its bookmarks in <b>places.sqlite</b> SQLite "
+                                 "database. This file is usually located in");
 }
 
-bool FirefoxImporter::openDatabase()
+QString FirefoxImporter::standardPath() const
 {
-    db = QSqlDatabase::cloneDatabase(QSqlDatabase::database(), "import");
+#ifdef Q_OS_WIN
+    return QString("%APPDATA%/Mozilla/");
+#else
+    return QDir::homePath() + QLatin1String("/.mozilla/firefox/");
+#endif
+}
+
+QString FirefoxImporter::getPath(QWidget* parent)
+{
+    m_path = QFileDialog::getOpenFileName(parent, BookmarksImporter::tr("Choose file..."), standardPath(), "Places (places.sqlite)");
+    return m_path;
+}
+
+bool FirefoxImporter::prepareImport()
+{
+    m_db = QSqlDatabase::cloneDatabase(QSqlDatabase::database(), "firefox-import");
 
     if (!QFile::exists(m_path)) {
-        m_error = true;
-        m_errorString = BookmarksImportDialog::tr("File does not exist.");
+        setError(BookmarksImportDialog::tr("File does not exist."));
         return false;
     }
-    db.setDatabaseName(m_path);
-    bool open = db.open();
 
-    if (!open) {
-        m_error = true;
-        m_errorString = BookmarksImportDialog::tr("Unable to open database. Is Firefox running?");
+    m_db.setDatabaseName(m_path);
+
+    if (!m_db.open()) {
+        setError(BookmarksImportDialog::tr("Unable to open database. Is Firefox running?"));
         return false;
     }
 
     return true;
 }
 
-BookmarkItem* FirefoxImporter::exportBookmarks()
+BookmarkItem* FirefoxImporter::importBookmarks()
 {
     BookmarkItem* root = new BookmarkItem(BookmarkItem::Folder);
     root->setTitle("Firefox Import");
 
-    QSqlQuery query(db);
+    QSqlQuery query(m_db);
     query.exec("SELECT title, fk FROM moz_bookmarks WHERE title != ''");
+
     while (query.next()) {
         QString title = query.value(0).toString();
         int placesId = query.value(1).toInt();
 
-        QSqlQuery query2(db);
+        QSqlQuery query2(m_db);
         query2.exec("SELECT url FROM moz_places WHERE id=" + QString::number(placesId));
 
         if (!query2.next()) {
@@ -86,8 +102,7 @@ BookmarkItem* FirefoxImporter::exportBookmarks()
     }
 
     if (query.lastError().isValid()) {
-        m_error = true;
-        m_errorString = query.lastError().text();
+        setError(query.lastError().text());
     }
 
     return root;

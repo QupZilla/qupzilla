@@ -18,34 +18,25 @@
 #ifndef IEIMPORTER_H
 #define IEIMPORTER_H
 
-#include <QObject>
-
-#include "qz_namespace.h"
-
 #include <QFileInfoList>
 
-class BookmarkItem;
+#include "bookmarksimporter.h"
 
-class IeImporter : public QObject
+class IeImporter : public BookmarksImporter
 {
-    Q_OBJECT
 public:
     explicit IeImporter(QObject* parent = 0);
 
-    void setFile(const QString &path);
-    bool openFile();
+    QString description() const;
+    QString standardPath() const;
 
-    BookmarkItem* exportBookmarks();
+    QString getPath(QWidget* parent);
+    bool prepareImport();
 
-    bool error() { return m_error; }
-    QString errorString() { return m_errorString; }
-
+    BookmarkItem* importBookmarks();
 
 private:
-    bool m_error;
-    QString m_errorString;
     QString m_path;
-
     QFileInfoList urls;
 };
 

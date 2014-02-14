@@ -16,31 +16,40 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "ieimporter.h"
-#include "bookmarksimportdialog.h"
 #include "bookmarkitem.h"
 
 #include <QDir>
 #include <QUrl>
 #include <QSettings>
+#include <QFileDialog>
 
 IeImporter::IeImporter(QObject* parent)
-    : QObject(parent)
-    , m_error(false)
-    , m_errorString(BookmarksImportDialog::tr("No Error"))
+    : BookmarksImporter(parent)
 {
 }
 
-void IeImporter::setFile(const QString &path)
+QString IeImporter::description() const
 {
-    m_path = path;
+    return BookmarksImporter::tr("Internet Explorer stores its bookmarks in <b>Favorites</b> folder. "
+                                 "This folder is usually located in");
 }
 
-bool IeImporter::openFile()
+QString IeImporter::standardPath() const
+{
+    return QDir::homePath() + QLatin1String("/Favorites/");
+}
+
+QString IeImporter::getPath(QWidget* parent)
+{
+    m_path = QFileDialog::getOpenFileName(parent, BookmarksImporter::tr("Choose file..."), standardPath());
+    return m_path;
+}
+
+bool IeImporter::prepareImport()
 {
     QDir dir(m_path);
     if (!dir.exists()) {
-        m_error = true;
-        m_errorString = BookmarksImportDialog::tr("Directory does not exist.");
+        setError(BookmarksImporter::tr("Directory does not exist."));
         return false;
     }
 
@@ -50,15 +59,14 @@ bool IeImporter::openFile()
     urls = dir.entryInfoList(filters);
 
     if (urls.isEmpty()) {
-        m_error = true;
-        m_errorString = BookmarksImportDialog::tr("The directory does not contain any bookmarks.");
+        setError(BookmarksImporter::tr("The directory does not contain any bookmarks."));
         return false;
     }
 
     return true;
 }
 
-BookmarkItem* IeImporter::exportBookmarks()
+BookmarkItem* IeImporter::importBookmarks()
 {
     BookmarkItem* root = new BookmarkItem(BookmarkItem::Folder);
     root->setTitle("Internet Explorer Import");

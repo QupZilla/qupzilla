@@ -16,41 +16,54 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "chromeimporter.h"
-#include "qztools.h"
-#include "bookmarksimportdialog.h"
 #include "bookmarkitem.h"
+#include "qzregexp.h"
 
+#include <QDir>
+#include <QFileDialog>
 #include <QScriptEngine>
 #include <QScriptValue>
 #include <QScriptValueIterator>
-#include "qzregexp.h"
 
 ChromeImporter::ChromeImporter(QObject* parent)
-    : QObject(parent)
-    , m_error(false)
-    , m_errorString(BookmarksImportDialog::tr("No Error"))
+    : BookmarksImporter(parent)
 {
 }
 
-void ChromeImporter::setFile(const QString &path)
+QString ChromeImporter::description() const
 {
-    m_path = path;
+    return BookmarksImporter::tr("Google Chrome stores its bookmarks in <b>Bookmarks</b> text file. "
+                                 "This file is usually located in");
 }
 
-bool ChromeImporter::openFile()
+QString ChromeImporter::standardPath() const
+{
+#ifdef Q_OS_WIN
+    return QString("%APPDATA%/Chrome/");
+#else
+    return QDir::homePath() + QLatin1String("/.config/chrome/");
+#endif
+}
+
+QString ChromeImporter::getPath(QWidget* parent)
+{
+    m_path = QFileDialog::getOpenFileName(parent, BookmarksImporter::tr("Choose file..."), standardPath(), "Bookmarks (Bookmarks)");
+    return m_path;
+}
+
+bool ChromeImporter::prepareImport()
 {
     m_file.setFileName(m_path);
 
     if (!m_file.open(QFile::ReadOnly)) {
-        m_error = true;
-        m_errorString = BookmarksImportDialog::tr("Unable to open file.");
+        setError(BookmarksImporter::tr("Unable to open file."));
         return false;
     }
 
     return true;
 }
 
-BookmarkItem* ChromeImporter::exportBookmarks()
+BookmarkItem* ChromeImporter::importBookmarks()
 {
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
@@ -86,10 +99,10 @@ BookmarkItem* ChromeImporter::exportBookmarks()
         }
         else {
             m_error = true;
-            m_errorString = BookmarksImportDialog::tr("Cannot evaluate JSON code.");
+            m_errorString = BookmarksImporter::tr("Cannot evaluate JSON code.");
         }
     }
 
     return root;
-}
 
+}
