@@ -38,6 +38,7 @@ AdBlockTreeWidget::AdBlockTreeWidget(AdBlockSubscription* subscription, QWidget*
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
     connect(this, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
     connect(m_subscription, SIGNAL(subscriptionUpdated()), this, SLOT(subscriptionUpdated()));
+    connect(m_subscription, SIGNAL(subscriptionError(QString)), this, SLOT(subscriptionError(QString)));
 }
 
 AdBlockSubscription* AdBlockTreeWidget::subscription() const
@@ -175,6 +176,15 @@ void AdBlockTreeWidget::subscriptionUpdated()
 
     m_itemChangingBlock = true;
     m_topItem->setText(0, tr("%1 (recently updated)").arg(m_subscription->title()));
+    m_itemChangingBlock = false;
+}
+
+void AdBlockTreeWidget::subscriptionError(const QString &message)
+{
+    refresh();
+
+    m_itemChangingBlock = true;
+    m_topItem->setText(0, tr("%1 (Error: %2)").arg(m_subscription->title(), message));
     m_itemChangingBlock = false;
 }
 

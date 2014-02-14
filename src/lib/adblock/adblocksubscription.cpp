@@ -168,6 +168,9 @@ void AdBlockSubscription::subscriptionDownloaded()
         loadSubscription(AdBlockManager::instance()->disabledRules());
         emit subscriptionUpdated();
     }
+    else {
+        emit subscriptionError(tr("Cannot load subscription!"));
+    }
 
     m_reply->deleteLater();
     m_reply = 0;
