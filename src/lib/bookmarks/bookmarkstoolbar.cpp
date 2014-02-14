@@ -109,7 +109,6 @@ void BookmarksToolbar::refresh()
 
 void BookmarksToolbar::bookmarksChanged()
 {
-    m_updateTimer->stop();
     m_updateTimer->start();
 }
 

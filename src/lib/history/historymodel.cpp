@@ -529,7 +529,6 @@ void HistoryFilterModel::setFilterFixedString(const QString &pattern)
 {
     m_pattern = pattern;
 
-    m_filterTimer->stop();
     m_filterTimer->start();
 }
 

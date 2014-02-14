@@ -51,7 +51,6 @@ void DesktopNotification::show()
     ui->text->setText(m_text);
 
     if (!m_settingPosition) {
-        m_timer->stop();
         m_timer->setInterval(m_timeout);
         m_timer->start();
     }
