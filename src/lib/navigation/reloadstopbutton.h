@@ -18,8 +18,13 @@
 #ifndef RELOADSTOPBUTTON_H
 #define RELOADSTOPBUTTON_H
 
+#include <QWidget>
+
 #include "qz_namespace.h"
-#include "toolbutton.h"
+
+class QTimer;
+
+class ToolButton;
 
 class QT_QUPZILLA_EXPORT ReloadStopButton : public QWidget
 {
@@ -35,9 +40,12 @@ public:
     ToolButton* buttonReload() const;
 
 private slots:
-    void enableUpdates();
+    void updateButton();
 
 private:
+    bool m_loadInProgress;
+    QTimer* m_updateTimer;
+
     ToolButton* m_buttonStop;
     ToolButton* m_buttonReload;
 };
