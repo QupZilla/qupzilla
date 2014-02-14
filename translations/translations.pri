@@ -6,6 +6,7 @@ TRANSLATIONS += \
     $$PWD/de_DE.ts \
     $$PWD/el_GR.ts \
     $$PWD/es_ES.ts \
+    $$PWD/es_MX.ts \
     $$PWD/es_VE.ts \
     $$PWD/eu_ES.ts \
     $$PWD/fa_IR.ts \
