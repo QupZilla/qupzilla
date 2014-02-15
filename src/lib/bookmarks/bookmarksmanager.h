@@ -67,9 +67,6 @@ private slots:
     void descriptionEdited();
     void enableUpdates();
 
-    void importBookmarks();
-    void exportBookmarks();
-
 private:
     void updateEditBox(BookmarkItem* item);
     bool bookmarkEditable(BookmarkItem* item) const;

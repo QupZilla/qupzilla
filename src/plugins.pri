@@ -22,7 +22,6 @@ INCLUDEPATH += $$PWD/lib/3rdparty\
                $$PWD/lib/adblock\
                $$PWD/lib/desktopnotifications\
                $$PWD/lib/opensearch\
-               $$PWD/lib/bookmarksimport\
                $$PWD/lib/popupwindow\
 
 DEPENDPATH += $$PWD/lib/3rdparty\
@@ -47,7 +46,6 @@ DEPENDPATH += $$PWD/lib/3rdparty\
               $$PWD/lib/adblock\
               $$PWD/lib/desktopnotifications\
               $$PWD/lib/opensearch\
-              $$PWD/lib/bookmarksimport\
               $$PWD/lib/popupwindow\
 
 TEMPLATE = lib

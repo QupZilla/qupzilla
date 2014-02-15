@@ -17,14 +17,13 @@
 * ============================================================ */
 #include "browsinglibrary.h"
 #include "ui_browsinglibrary.h"
+#include "bookmarksimport/bookmarksimportdialog.h"
 #include "historymanager.h"
 #include "bookmarksmanager.h"
 #include "rssmanager.h"
 #include "mainapplication.h"
 #include "qztools.h"
 #include "settings.h"
-
-#include "bookmarksimportdialog.h"
 
 #include <QMenu>
 #include <QCloseEvent>

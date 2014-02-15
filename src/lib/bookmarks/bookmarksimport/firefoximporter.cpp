@@ -105,5 +105,8 @@ BookmarkItem* FirefoxImporter::importBookmarks()
         setError(query.lastError().text());
     }
 
+    m_db.close();
+    QSqlDatabase::removeDatabase("firefox-import");
+
     return root;
 }

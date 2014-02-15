@@ -40,7 +40,6 @@ INCLUDEPATH += 3rdparty\
                adblock\
                desktopnotifications\
                opensearch\
-               bookmarksimport\
                popupwindow\
 
 DEPENDPATH += 3rdparty\
@@ -65,7 +64,6 @@ DEPENDPATH += 3rdparty\
               adblock\
               desktopnotifications\
               opensearch\
-              bookmarksimport\
               popupwindow\
 
 SOURCES += \
@@ -164,12 +162,13 @@ SOURCES += \
     opensearch/searchenginesmanager.cpp \
     opensearch/searchenginesdialog.cpp \
     opensearch/editsearchengine.cpp \
-    bookmarks/import/firefoximporter.cpp \
-    bookmarks/import/chromeimporter.cpp \
-    bookmarks/import/operaimporter.cpp \
-    bookmarks/import/ieimporter.cpp \
-    bookmarks/import/htmlimporter.cpp \
-    bookmarksimport/bookmarksimportdialog.cpp \
+    bookmarks/bookmarksimport/bookmarksimporter.cpp \
+    bookmarks/bookmarksimport/firefoximporter.cpp \
+    bookmarks/bookmarksimport/chromeimporter.cpp \
+    bookmarks/bookmarksimport/operaimporter.cpp \
+    bookmarks/bookmarksimport/ieimporter.cpp \
+    bookmarks/bookmarksimport/htmlimporter.cpp \
+    bookmarks/bookmarksimport/bookmarksimportdialog.cpp \
     tools/iconfetcher.cpp \
     tools/followredirectreply.cpp \
     webview/webhistorywrapper.cpp \
@@ -255,8 +254,7 @@ SOURCES += \
     bookmarks/bookmarksmenu.cpp \
     bookmarks/bookmarksicon.cpp \
     bookmarks/bookmarksitemdelegate.cpp \
-    bookmarks/bookmarkstoolbarbutton.cpp \
-    bookmarks/import/bookmarksimporter.cpp
+    bookmarks/bookmarkstoolbarbutton.cpp
 
 
 HEADERS  += \
@@ -355,12 +353,13 @@ HEADERS  += \
     opensearch/searchenginesmanager.h \
     opensearch/searchenginesdialog.h \
     opensearch/editsearchengine.h \
-    bookmarks/import/firefoximporter.h \
-    bookmarks/import/chromeimporter.h \
-    bookmarks/import/operaimporter.h \
-    bookmarks/import/ieimporter.h \
-    bookmarks/import/htmlimporter.h \
-    bookmarksimport/bookmarksimportdialog.h \
+    bookmarks/bookmarksimport/bookmarksimporter.h \
+    bookmarks/bookmarksimport/firefoximporter.h \
+    bookmarks/bookmarksimport/chromeimporter.h \
+    bookmarks/bookmarksimport/operaimporter.h \
+    bookmarks/bookmarksimport/ieimporter.h \
+    bookmarks/bookmarksimport/htmlimporter.h \
+    bookmarks/bookmarksimport/bookmarksimportdialog.h \
     tools/iconfetcher.h \
     tools/followredirectreply.h \
     webview/webhistorywrapper.h \
@@ -450,8 +449,7 @@ HEADERS  += \
     bookmarks/bookmarksmenu.h \
     bookmarks/bookmarksicon.h \
     bookmarks/bookmarksitemdelegate.h \
-    bookmarks/bookmarkstoolbarbutton.h \
-    bookmarks/import/bookmarksimporter.h
+    bookmarks/bookmarkstoolbarbutton.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -492,7 +490,7 @@ FORMS    += \
     preferences/addacceptlanguage.ui \
     opensearch/searchenginesdialog.ui \
     opensearch/editsearchengine.ui \
-    bookmarksimport/bookmarksimportdialog.ui \
+    bookmarks/bookmarksimport/bookmarksimportdialog.ui \
     other/checkboxdialog.ui \
     other/iconchooser.ui \
     adblock/adblockaddsubscriptiondialog.ui \

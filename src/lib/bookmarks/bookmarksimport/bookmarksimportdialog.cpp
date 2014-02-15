@@ -17,11 +17,11 @@
 * ============================================================ */
 #include "bookmarksimportdialog.h"
 #include "ui_bookmarksimportdialog.h"
-#include "import/firefoximporter.h"
-#include "import/chromeimporter.h"
-#include "import/operaimporter.h"
-#include "import/htmlimporter.h"
-#include "import/ieimporter.h"
+#include "bookmarksimport/firefoximporter.h"
+#include "bookmarksimport/chromeimporter.h"
+#include "bookmarksimport/operaimporter.h"
+#include "bookmarksimport/htmlimporter.h"
+#include "bookmarksimport/ieimporter.h"
 #include "bookmarks.h"
 #include "bookmarkitem.h"
 #include "bookmarksmodel.h"
@@ -35,6 +35,7 @@ BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
     , m_currentPage(0)
     , m_importer(0)
     , m_importedFolder(0)
+    , m_model(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
@@ -42,17 +43,21 @@ BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
     ui->browserList->setCurrentRow(0);
 
     connect(ui->nextButton, SIGNAL(clicked()), this, SLOT(nextPage()));
+    connect(ui->backButton, SIGNAL(clicked()), this, SLOT(previousPage()));
     connect(ui->chooseFile, SIGNAL(clicked()), this, SLOT(setFile()));
-    connect(ui->cancelButton, SIGNAL(clicked()), this, SLOT(close()));
+    connect(ui->cancelButton, SIGNAL(rejected()), this, SLOT(close()));
 
 #ifndef Q_OS_WIN
     ui->browserList->setItemHidden(ui->browserList->item(IE), true);
 #endif
-
 }
 
 BookmarksImportDialog::~BookmarksImportDialog()
 {
+    ui->treeView->setModel(0);
+    delete m_model;
+    delete m_importedFolder;
+    delete m_importer;
     delete ui;
 }
 
@@ -85,11 +90,11 @@ void BookmarksImportDialog::nextPage()
             break;
         }
 
-        ui->iconLabel->setPixmap(ui->browserList->currentItem()->icon().pixmap(48));
-        ui->importingFromLabel->setText(tr("<b>Importing from %1</b>").arg(ui->browserList->currentItem()->text()));
-        ui->fileText1->setText(m_importer->description());
-        ui->standardDirLabel->setText(QString("<i>%1</i>").arg(m_importer->standardPath()));
+        ui->fileLine->clear();
+        showImporterPage();
+
         ui->nextButton->setEnabled(false);
+        ui->backButton->setEnabled(true);
         ui->stackedWidget->setCurrentIndex(++m_currentPage);
         break;
 
@@ -115,13 +120,53 @@ void BookmarksImportDialog::nextPage()
         Q_ASSERT(m_importedFolder->isFolder());
 
         ui->stackedWidget->setCurrentIndex(++m_currentPage);
+        ui->nextButton->setText(tr("Finish"));
         showExportedBookmarks();
         break;
 
-    default:
+    case 2:
         addExportedBookmarks();
         close();
         break;
+
+    default:
+        Q_ASSERT(!"Unreachable");
+    }
+}
+
+void BookmarksImportDialog::previousPage()
+{
+    switch (m_currentPage) {
+    case 0:
+        break;
+
+    case 1:
+        ui->nextButton->setEnabled(true);
+        ui->backButton->setEnabled(false);
+        ui->stackedWidget->setCurrentIndex(--m_currentPage);
+
+        delete m_importer;
+        m_importer = 0;
+        break;
+
+    case 2:
+        showImporterPage();
+
+        ui->nextButton->setText(tr("Next >"));
+        ui->nextButton->setEnabled(true);
+        ui->backButton->setEnabled(true);
+        ui->stackedWidget->setCurrentIndex(--m_currentPage);
+
+        ui->treeView->setModel(0);
+        delete m_model;
+        m_model = 0;
+
+        delete m_importedFolder;
+        m_importedFolder = 0;
+        break;
+
+    default:
+        Q_ASSERT(!"Unreachable");
     }
 }
 
@@ -133,11 +178,18 @@ void BookmarksImportDialog::setFile()
     ui->nextButton->setEnabled(!ui->fileLine->text().isEmpty());
 }
 
+void BookmarksImportDialog::showImporterPage()
+{
+    ui->iconLabel->setPixmap(ui->browserList->currentItem()->icon().pixmap(48));
+    ui->importingFromLabel->setText(tr("<b>Importing from %1</b>").arg(ui->browserList->currentItem()->text()));
+    ui->fileText1->setText(m_importer->description());
+    ui->standardDirLabel->setText(QString("<i>%1</i>").arg(m_importer->standardPath()));
+}
+
 void BookmarksImportDialog::showExportedBookmarks()
 {
-    ui->nextButton->setText(tr("Finish"));
-
-    ui->treeView->setModel(new BookmarksModel(m_importedFolder, 0, this));
+    m_model = new BookmarksModel(m_importedFolder, 0, this);
+    ui->treeView->setModel(m_model);
     ui->treeView->header()->resizeSection(0, ui->treeView->header()->width() / 2);
     ui->treeView->expandAll();
 }
@@ -145,4 +197,5 @@ void BookmarksImportDialog::showExportedBookmarks()
 void BookmarksImportDialog::addExportedBookmarks()
 {
     mApp->bookmarks()->addBookmark(mApp->bookmarks()->unsortedFolder(), m_importedFolder);
+    m_importedFolder = 0;
 }

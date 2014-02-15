@@ -21,7 +21,6 @@
 #include "bookmarkitem.h"
 #include "bookmarksmodel.h"
 #include "bookmarkstools.h"
-#include "bookmarksimportdialog.h"
 #include "mainapplication.h"
 #include "qupzilla.h"
 #include "qztools.h"
@@ -212,21 +211,6 @@ void BookmarksManager::descriptionEdited()
 void BookmarksManager::enableUpdates()
 {
     setUpdatesEnabled(true);
-}
-
-void BookmarksManager::importBookmarks()
-{
-    BookmarksImportDialog* b = new BookmarksImportDialog(this);
-    b->show();
-}
-
-void BookmarksManager::exportBookmarks()
-{
-    QString file = QzTools::getSaveFileName("BookmarksManager-Export", this, tr("Export to HTML..."), QDir::homePath() + "/bookmarks.html");
-
-    if (!file.isEmpty()) {
-        m_bookmarks->exportToHtml(file);
-    }
 }
 
 void BookmarksManager::updateEditBox(BookmarkItem* item)

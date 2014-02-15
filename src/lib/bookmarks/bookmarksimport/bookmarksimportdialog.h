@@ -28,6 +28,7 @@ class BookmarksImportDialog;
 }
 
 class BookmarkItem;
+class BookmarksModel;
 class BookmarksImporter;
 
 class QT_QUPZILLA_EXPORT BookmarksImportDialog : public QDialog
@@ -40,6 +41,7 @@ public:
 
 private slots:
     void nextPage();
+    void previousPage();
     void setFile();
 
 private:
@@ -51,6 +53,7 @@ private:
         Html = 4
     };
 
+    void showImporterPage();
     void showExportedBookmarks();
     void addExportedBookmarks();
 
@@ -59,6 +62,7 @@ private:
     int m_currentPage;
     BookmarksImporter* m_importer;
     BookmarkItem* m_importedFolder;
+    BookmarksModel* m_model;
 };
 
 #endif // BOOKMARKSIMPORTDIALOG_H
