@@ -24,10 +24,11 @@
 #include <QApplication>
 #include <QStyle>
 
-BookmarksItemDelegate::BookmarksItemDelegate(BookmarksTreeView* parent)
+BookmarksItemDelegate::BookmarksItemDelegate(QTreeView* parent)
     : QStyledItemDelegate(parent)
     , m_tree(parent)
 {
+    Q_ASSERT(m_tree);
 }
 
 void BookmarksItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -39,7 +40,7 @@ void BookmarksItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem 
         opt.state &= ~QStyle::State_Horizontal;
 
         // We need to fake continuous line over 2 columns
-        if (m_tree->viewType() == BookmarksTreeView::BookmarksManagerViewType) {
+        if (m_tree->model()->columnCount(index) == 2) {
             if (index.column() == 1) {
                 opt.rect = m_lastRect;
             }

@@ -25,6 +25,7 @@
 #include "bookmarks.h"
 #include "bookmarkitem.h"
 #include "bookmarksmodel.h"
+#include "bookmarksitemdelegate.h"
 #include "mainapplication.h"
 
 #include <QMessageBox>
@@ -41,6 +42,7 @@ BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
     ui->setupUi(this);
 
     ui->browserList->setCurrentRow(0);
+    ui->treeView->setItemDelegate(new BookmarksItemDelegate(ui->treeView));
 
     connect(ui->nextButton, SIGNAL(clicked()), this, SLOT(nextPage()));
     connect(ui->backButton, SIGNAL(clicked()), this, SLOT(previousPage()));

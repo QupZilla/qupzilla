@@ -22,19 +22,19 @@
 
 #include "qz_namespace.h"
 
-class BookmarksTreeView;
+class QTreeView;
 
 class QT_QUPZILLA_EXPORT BookmarksItemDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 
 public:
-    explicit BookmarksItemDelegate(BookmarksTreeView* parent = 0);
+    explicit BookmarksItemDelegate(QTreeView* parent = 0);
 
     void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 private:
-    BookmarksTreeView* m_tree;
+    QTreeView* m_tree;
     mutable QRect m_lastRect;
 };
 
