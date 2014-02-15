@@ -22,10 +22,12 @@
 #include <QUrl>
 #include <QDir>
 #include <QFileDialog>
+#include <QTextStream>
 
 OperaImporter::OperaImporter(QObject* parent)
     : BookmarksImporter(parent)
 {
+    m_stream.setCodec("UTF-8");
 }
 
 QString OperaImporter::description() const
@@ -58,42 +60,134 @@ bool OperaImporter::prepareImport()
         return false;
     }
 
+    m_stream.setDevice(&m_file);
+
+    if (m_stream.readLine() != QLatin1String("Opera Hotlist version 2.0")) {
+        setError(BookmarksImporter::tr("File is not valid Opera bookmarks file!"));
+        return false;
+    }
+
+    if (!m_stream.readLine().startsWith(QLatin1String("Options: encoding = utf8"))) {
+        setError(BookmarksImporter::tr("Only UTF-8 encoded Opera bookmarks file is supported!"));
+        return false;
+    }
+
     return true;
 }
 
 BookmarkItem* OperaImporter::importBookmarks()
 {
-    QString bookmarks = QString::fromUtf8(m_file.readAll());
-    m_file.close();
-
-    QzRegExp rx("#URL(.*)CREATED", Qt::CaseSensitive);
-    rx.setMinimal(true);
-
     BookmarkItem* root = new BookmarkItem(BookmarkItem::Folder);
     root->setTitle("Opera Import");
 
-    int pos = 0;
-    while ((pos = rx.indexIn(bookmarks, pos)) != -1) {
-        QString string = rx.cap(1);
-        pos += rx.matchedLength();
+    QList<BookmarkItem*> folders;
+    folders.append(root);
 
-        QzRegExp rx2("NAME=(.*)\\n");
-        rx2.setMinimal(true);
-        rx2.indexIn(string);
-        QString name = rx2.cap(1).trimmed();
+    BookmarkItem* item = 0;
 
-        rx2.setPattern("URL=(.*)\\n");
-        rx2.indexIn(string);
-        QUrl url = QUrl::fromEncoded(rx2.cap(1).trimmed().toUtf8());
+#define PARENT folders.isEmpty() ? root : folders.last()
 
-        if (name.isEmpty() || url.isEmpty()) {
-            continue;
+    while (!m_stream.atEnd()) {
+        switch (parseLine(m_stream.readLine())) {
+        case StartFolder:
+            item = new BookmarkItem(BookmarkItem::Folder, PARENT);
+            while (!m_stream.atEnd()) {
+                Token tok = parseLine(m_stream.readLine());
+                if (tok == EmptyLine) {
+                    break;
+                }
+                else if (tok == KeyValuePair && m_key == QLatin1String("NAME")) {
+                    item->setTitle(m_value);
+                }
+            }
+            folders.append(item);
+            break;
+
+        case EndFolder:
+            if (folders.count() > 0) {
+                folders.removeLast();
+            }
+            break;
+
+        case StartUrl:
+            item = new BookmarkItem(BookmarkItem::Url, PARENT);
+            while (!m_stream.atEnd()) {
+                Token tok = parseLine(m_stream.readLine());
+                if (tok == EmptyLine) {
+                    break;
+                }
+                else if (tok == KeyValuePair && m_key == QLatin1String("NAME")) {
+                    item->setTitle(m_value);
+                }
+                else if (tok == KeyValuePair && m_key == QLatin1String("URL")) {
+                    item->setUrl(QUrl(m_value));
+                }
+            }
+            break;
+
+        case StartSeparator:
+            item = new BookmarkItem(BookmarkItem::Separator, PARENT);
+            while (!m_stream.atEnd()) {
+                if (parseLine(m_stream.readLine()) == EmptyLine) {
+                    break;
+                }
+            }
+            break;
+
+        case StartDeleted:
+            while (!m_stream.atEnd()) {
+                if (parseLine(m_stream.readLine()) == EmptyLine) {
+                    break;
+                }
+            }
+            break;
+
+        default: // EmptyLine
+            break;
         }
-
-        BookmarkItem* b = new BookmarkItem(BookmarkItem::Url, root);
-        b->setTitle(name);
-        b->setUrl(url);
     }
 
+#undef PARENT
+
     return root;
+}
+
+OperaImporter::Token OperaImporter::parseLine(const QString &line)
+{
+    QString str = line.trimmed();
+
+    if (str.isEmpty()) {
+        return EmptyLine;
+    }
+
+    if (str == QLatin1String("#FOLDER")) {
+        return StartFolder;
+    }
+
+    if (str == QLatin1String("-")) {
+        return EndFolder;
+    }
+
+    if (str == QLatin1String("#URL")) {
+        return StartUrl;
+    }
+
+    if (str == QLatin1String("#SEPERATOR")) {
+        return StartSeparator;
+    }
+
+    if (str == QLatin1String("#DELETED")) {
+        return StartDeleted;
+    }
+
+    int index = str.indexOf(QLatin1Char('='));
+
+    // Let's assume "key=" is valid line with empty value (but not "=value")
+    if (index > 0) {
+        m_key = str.mid(0, index);
+        m_value = str.mid(index + 1);
+        return KeyValuePair;
+    }
+
+    return Invalid;
 }

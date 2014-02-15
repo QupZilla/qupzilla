@@ -19,6 +19,7 @@
 #define OPERAIMPORTER_H
 
 #include <QFile>
+#include <QTextStream>
 
 #include "bookmarksimporter.h"
 
@@ -36,8 +37,23 @@ public:
     BookmarkItem* importBookmarks();
 
 private:
+    enum Token { EmptyLine,
+                 StartFolder,
+                 EndFolder,
+                 StartUrl,
+                 StartSeparator,
+                 StartDeleted,
+                 KeyValuePair,
+                 Invalid
+               };
+
+    Token parseLine(const QString &line);
+    QString m_key;
+    QString m_value;
+
     QString m_path;
     QFile m_file;
+    QTextStream m_stream;
 };
 
 #endif // OPERAIMPORTER_H
