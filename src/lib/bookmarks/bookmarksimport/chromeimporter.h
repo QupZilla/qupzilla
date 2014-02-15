@@ -19,6 +19,7 @@
 #define CHROMEIMPORTER_H
 
 #include <QFile>
+#include <QVariantList>
 
 #include "bookmarksimporter.h"
 
@@ -36,12 +37,10 @@ public:
     BookmarkItem* importBookmarks();
 
 private:
+    void readBookmarks(const QVariantList &list, BookmarkItem* parent);
+
     QString m_path;
     QFile m_file;
-
-    bool m_error;
-    QString m_errorString;
-
 };
 
 #endif // CHROMEIMPORTER_H

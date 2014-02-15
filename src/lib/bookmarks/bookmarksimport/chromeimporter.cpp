@@ -17,13 +17,11 @@
 * ============================================================ */
 #include "chromeimporter.h"
 #include "bookmarkitem.h"
-#include "qzregexp.h"
+#include "json.h"
 
 #include <QDir>
 #include <QFileDialog>
-#include <QScriptEngine>
-#include <QScriptValue>
-#include <QScriptValueIterator>
+#include <QVariantList>
 
 ChromeImporter::ChromeImporter(QObject* parent)
     : BookmarksImporter(parent)
@@ -68,41 +66,62 @@ BookmarkItem* ChromeImporter::importBookmarks()
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
 
-    QStringList parsedBookmarks;
-    QzRegExp rx("\\{(\\s*)\"date_added(.*)\"(\\s*)\\}", Qt::CaseSensitive);
-    rx.setMinimal(true);
+    Json json;
+    const QVariant res = json.parse(bookmarks);
 
-    int pos = 0;
-    while ((pos = rx.indexIn(bookmarks, pos)) != -1) {
-        parsedBookmarks << rx.cap(0);
-        pos += rx.matchedLength();
+    if (!json.ok() || res.type() != QVariant::Map) {
+        setError(BookmarksImporter::tr("Cannot parse JSON file!"));
+        return 0;
     }
+
+    QVariantMap rootMap = res.toMap().value("roots").toMap();
 
     BookmarkItem* root = new BookmarkItem(BookmarkItem::Folder);
     root->setTitle("Chrome Import");
 
-    QScriptEngine* scriptEngine = new QScriptEngine();
-    foreach (QString parsedString, parsedBookmarks) {
-        parsedString = "(" + parsedString + ")";
-        if (scriptEngine->canEvaluate(parsedString)) {
-            QScriptValue object = scriptEngine->evaluate(parsedString);
-            QString name = object.property("name").toString().trimmed();
-            QUrl url = QUrl::fromEncoded(object.property("url").toString().trimmed().toUtf8());
+    BookmarkItem* toolbar = new BookmarkItem(BookmarkItem::Folder, root);
+    toolbar->setTitle(rootMap.value("bookmark_bar").toMap().value("name").toString());
+    readBookmarks(rootMap.value("bookmark_bar").toMap().value("children").toList(), toolbar);
 
-            if (name.isEmpty() || url.isEmpty()) {
-                continue;
-            }
+    BookmarkItem* other = new BookmarkItem(BookmarkItem::Folder, root);
+    other->setTitle(rootMap.value("other").toMap().value("name").toString());
+    readBookmarks(rootMap.value("other").toMap().value("children").toList(), other);
 
-            BookmarkItem* b = new BookmarkItem(BookmarkItem::Url, root);
-            b->setTitle(name);
-            b->setUrl(url);
-        }
-        else {
-            m_error = true;
-            m_errorString = BookmarksImporter::tr("Cannot evaluate JSON code.");
-        }
-    }
+    BookmarkItem* synced = new BookmarkItem(BookmarkItem::Folder, root);
+    synced->setTitle(rootMap.value("synced").toMap().value("name").toString());
+    readBookmarks(rootMap.value("synced").toMap().value("synced").toList(), other);
 
     return root;
+}
 
+void ChromeImporter::readBookmarks(const QVariantList &list, BookmarkItem* parent)
+{
+    Q_ASSERT(parent);
+
+    foreach (const QVariant &entry, list) {
+        const QVariantMap map = entry.toMap();
+        const QString typeString = map.value("type").toString();
+        BookmarkItem::Type type;
+
+        if (typeString == QLatin1String("url")) {
+            type = BookmarkItem::Url;
+        }
+        else if (typeString == QLatin1String("folder")) {
+            type = BookmarkItem::Folder;
+        }
+        else {
+            continue;
+        }
+
+        BookmarkItem* item = new BookmarkItem(type, parent);
+        item->setTitle(map.value("name").toString());
+
+        if (item->isUrl()) {
+            item->setUrl(QUrl::fromEncoded(map.value("url").toByteArray()));
+        }
+
+        if (map.contains("children")) {
+            readBookmarks(map.value("children").toList(), item);
+        }
+    }
 }
