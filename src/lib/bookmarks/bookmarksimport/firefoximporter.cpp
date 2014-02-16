@@ -17,17 +17,24 @@
 * ============================================================ */
 #include "firefoximporter.h"
 #include "bookmarksimportdialog.h"
-#include "bookmarkitem.h"
 
 #include <QDir>
 #include <QVariant>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QFileDialog>
+#include <QSqlDatabase>
+
+#define CONNECTION "firefox-places-import"
 
 FirefoxImporter::FirefoxImporter(QObject* parent)
     : BookmarksImporter(parent)
 {
+}
+
+FirefoxImporter::~FirefoxImporter()
+{
+    QSqlDatabase::removeDatabase(CONNECTION);
 }
 
 QString FirefoxImporter::description() const
@@ -53,16 +60,20 @@ QString FirefoxImporter::getPath(QWidget* parent)
 
 bool FirefoxImporter::prepareImport()
 {
-    m_db = QSqlDatabase::cloneDatabase(QSqlDatabase::database(), "firefox-import");
+    // Make sure this connection is properly closed if already opened
+    QSqlDatabase::removeDatabase(CONNECTION);
+
+    // Create new connection
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", CONNECTION);
 
     if (!QFile::exists(m_path)) {
         setError(BookmarksImportDialog::tr("File does not exist."));
         return false;
     }
 
-    m_db.setDatabaseName(m_path);
+    db.setDatabaseName(m_path);
 
-    if (!m_db.open()) {
+    if (!db.open()) {
         setError(BookmarksImportDialog::tr("Unable to open database. Is Firefox running?"));
         return false;
     }
@@ -72,41 +83,70 @@ bool FirefoxImporter::prepareImport()
 
 BookmarkItem* FirefoxImporter::importBookmarks()
 {
+    QList<Item> items;
+
     BookmarkItem* root = new BookmarkItem(BookmarkItem::Folder);
     root->setTitle("Firefox Import");
 
-    QSqlQuery query(m_db);
-    query.exec("SELECT title, fk FROM moz_bookmarks WHERE title != ''");
+    QSqlQuery query(QSqlDatabase::database(CONNECTION));
+    query.exec("SELECT id, parent, type, title, fk FROM moz_bookmarks WHERE title != '' OR type = 3");
 
     while (query.next()) {
-        QString title = query.value(0).toString();
-        int placesId = query.value(1).toInt();
+        Item item;
+        item.id = query.value(0).toInt();
+        item.parent = query.value(1).toInt();
+        item.type = typeFromValue(query.value(2).toInt());
+        item.title = query.value(3).toString();
+        int fk = query.value(4).toInt();
 
-        QSqlQuery query2(m_db);
-        query2.exec("SELECT url FROM moz_places WHERE id=" + QString::number(placesId));
-
-        if (!query2.next()) {
+        if (item.type == BookmarkItem::Invalid) {
             continue;
         }
 
-        QUrl url = query2.value(0).toUrl();
+        QSqlQuery query(QSqlDatabase::database(CONNECTION));
+        query.prepare("SELECT url FROM moz_places WHERE id=?");
+        query.addBindValue(fk);
+        query.exec();
 
-        if (title.isEmpty() || url.isEmpty() || url.scheme() == QLatin1String("place")
-                || url.scheme() == QLatin1String("about")) {
+        if (query.next()) {
+            item.url = query.value(0).toUrl();
+        }
+
+        if (item.url.scheme() == QLatin1String("place")) {
             continue;
         }
 
-        BookmarkItem* b = new BookmarkItem(BookmarkItem::Url, root);
-        b->setTitle(title);
-        b->setUrl(url);
+        items.append(item);
     }
 
     if (query.lastError().isValid()) {
         setError(query.lastError().text());
     }
 
-    m_db.close();
-    QSqlDatabase::removeDatabase("firefox-import");
+    QHash<int, BookmarkItem*> hash;
+
+    foreach (const Item &item, items) {
+        BookmarkItem* parent = hash.value(item.parent);
+        BookmarkItem* bookmark = new BookmarkItem(item.type, parent ? parent : root);
+        bookmark->setTitle(item.title);
+        bookmark->setUrl(item.url);
+
+        hash.insert(item.id, bookmark);
+    }
 
     return root;
+}
+
+BookmarkItem::Type FirefoxImporter::typeFromValue(int value)
+{
+    switch (value) {
+    case 1:
+        return BookmarkItem::Url;
+    case 2:
+        return BookmarkItem::Folder;
+    case 3:
+        return BookmarkItem::Separator;
+    default:
+        return BookmarkItem::Invalid;
+    }
 }

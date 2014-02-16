@@ -18,14 +18,16 @@
 #ifndef FIREFOXIMPORTER_H
 #define FIREFOXIMPORTER_H
 
-#include <QSqlDatabase>
+#include <QUrl>
 
 #include "bookmarksimporter.h"
+#include "bookmarkitem.h"
 
 class QT_QUPZILLA_EXPORT FirefoxImporter : public BookmarksImporter
 {
 public:
     explicit FirefoxImporter(QObject* parent = 0);
+    ~FirefoxImporter();
 
     QString description() const;
     QString standardPath() const;
@@ -36,8 +38,24 @@ public:
     BookmarkItem* importBookmarks();
 
 private:
+    enum Type {
+        Url,
+        Folder,
+        Separator,
+        Invalid
+    };
+
+    struct Item {
+        int id;
+        int parent;
+        BookmarkItem::Type type;
+        QString title;
+        QUrl url;
+    };
+
+    BookmarkItem::Type typeFromValue(int value);
+
     QString m_path;
-    QSqlDatabase m_db;
 
 };
 
