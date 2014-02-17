@@ -254,7 +254,10 @@ SOURCES += \
     bookmarks/bookmarksmenu.cpp \
     bookmarks/bookmarksicon.cpp \
     bookmarks/bookmarksitemdelegate.cpp \
-    bookmarks/bookmarkstoolbarbutton.cpp
+    bookmarks/bookmarkstoolbarbutton.cpp \
+    bookmarks/bookmarksexport/bookmarksexporter.cpp \
+    bookmarks/bookmarksexport/bookmarksexportdialog.cpp \
+    bookmarks/bookmarksexport/htmlexporter.cpp
 
 
 HEADERS  += \
@@ -449,7 +452,10 @@ HEADERS  += \
     bookmarks/bookmarksmenu.h \
     bookmarks/bookmarksicon.h \
     bookmarks/bookmarksitemdelegate.h \
-    bookmarks/bookmarkstoolbarbutton.h
+    bookmarks/bookmarkstoolbarbutton.h \
+    bookmarks/bookmarksexport/bookmarksexporter.h \
+    bookmarks/bookmarksexport/bookmarksexportdialog.h \
+    bookmarks/bookmarksexport/htmlexporter.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -500,7 +506,8 @@ FORMS    += \
     tools/html5permissions/html5permissionsdialog.ui \
     autofill/autofillwidget.ui \
     autofill/passwordbackends/masterpassworddialog.ui \
-    network/sslerrordialog.ui
+    network/sslerrordialog.ui \
+    bookmarks/bookmarksexport/bookmarksexportdialog.ui
 
 RESOURCES += \
     data/icons.qrc \

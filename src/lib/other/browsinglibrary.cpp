@@ -18,6 +18,7 @@
 #include "browsinglibrary.h"
 #include "ui_browsinglibrary.h"
 #include "bookmarksimport/bookmarksimportdialog.h"
+#include "bookmarksexport/bookmarksexportdialog.h"
 #include "historymanager.h"
 #include "bookmarksmanager.h"
 #include "rssmanager.h"
@@ -54,7 +55,7 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
 
     QMenu* m = new QMenu(this);
     m->addAction(tr("Import Bookmarks..."), this, SLOT(importBookmarks()));
-    m->addAction(tr("Export Bookmarks to HTML..."), this, SLOT(exportBookmarks()));
+    m->addAction(tr("Export Bookmarks..."), this, SLOT(exportBookmarks()));
     ui->importExport->setMenu(m);
 
     connect(ui->tabs, SIGNAL(CurrentChanged(int)), this, SLOT(currentIndexChanged(int)));
@@ -107,7 +108,8 @@ void BrowsingLibrary::importBookmarks()
 
 void BrowsingLibrary::exportBookmarks()
 {
-    qDebug("BrowsingLibrary::exportBookmarks() NOT IMPLEMENTED");
+    BookmarksExportDialog* d = new BookmarksExportDialog(this);
+    d->show();
 }
 
 void BrowsingLibrary::showHistory(QupZilla* mainClass)
