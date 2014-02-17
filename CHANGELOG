@@ -2,8 +2,43 @@ Version 1.7.0
     * development version
     * completely rewritten bookmarks (including multi-level folders support)
     * menus are not closed when opening links with middle mouse button
+    * added new autoscroll plugin
     * added support for window.onload event
     * added support for external.AddSearchProvider js function
+
+Version 1.6.3
+    * released 14 February 2014
+    * addded new Spanish (Mexico) translation
+    * option to change list of SslV3 forced sites in settings.ini
+    * show error message when downloading AdBlock subscriptions fails
+    * fixed building on FreeBSD, OS/2
+
+Version 1.6.2
+    * released 13 February 2014
+    * workaround for servers not understanding TLSv1 handshake
+    * tabs on top are now enabled by default
+    * restore session after launch is now enabled by default
+    * don't load tabs until selected is now enabled by default
+    * tab previews are now disabled by default
+    * reworked scrolling with wheel in tabbar
+    * Ctrl+W shortcut no longer closes a pinned tab
+    * fixed: setting DuckDuckGo as default search provider
+    * fixed: issues detected by scan.coverity.com
+    * fixed: showing more default search engines with same name
+    * fixed: incorrect exception rules handling in AdBlock
+    * fixed: flickering when removing tabs from tabbar
+    * fixed: flickering when (un)pinning tabs
+    * fixed: flickering when opening new tabs with sites that loads instantly
+    * fixed: drawing correct mouseouver state for tabs
+    * fixed: drawing tabbar correctly with Oxygen style
+    * fixed: drawing list items with Qt5 Fusion style
+    * fixed: tooltips disappearing on (un)pinning tabs
+    * fixed: incorrectly changing current index when closing tabs in inactive tabbar
+    * fixed: incorrectly showing url in locationbar when load request was not accepted
+    * fixed: always add slash '/' between path and filename when downloading files
+    * fixed: cursor jumping at the start in locationbar
+    * mac: fixed toggle fullscreen action in menu
+    * windows: save application data in %LOCALAPPDATA%
 
 Version 1.6.1
     * released 26 January 2014
