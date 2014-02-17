@@ -31,7 +31,7 @@ span.reload:hover {border-color: grey; border-radius: 4px;}
 #overlay-edit .buttonbox input {margin-%RIGHT_STR%:0px;margin-%LEFT_STR%:3px;}
 
 .formTable {width: 350px;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;margin-top: 15px;}
-.formTable input[type="text"] {width: 100%;-webkit-user-select: auto;}
+.formTable input[type="text"] {width: 100%;-webkit-user-select: auto;background-color: #eeeeee;border-radius: 5px;}
 
 .sett {position: absolute;%RIGHT_STR%:40px;top:10px;width: 32px;height: 32px;background: url(%IMG_SETTINGS%); cursor: pointer;}
 #settingsBox {margin-%LEFT_STR%:auto;margin-%RIGHT_STR%: auto;margin-top: 100px;width: 350px;height: auto;padding:0 8px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;border-width: 20px;}
@@ -476,9 +476,9 @@ $("#quickdial").sortable({
       </p></center>
     </div>
     <p class="buttonbox">
-    <input type="button" value=" %CLOSE% " onClick="$('#fadeOverlay2').fadeOut('slow');" />
-    <input type="button" value="   %APPLY%   " onClick="saveSettings();$('#fadeOverlay2').fadeOut('slow');"/>
-      </p>
+      <input type="button" value=" %CLOSE% " onClick="$('#fadeOverlay2').fadeOut('slow');" />
+      <input type="button" value="   %APPLY%   " onClick="saveSettings();$('#fadeOverlay2').fadeOut('slow');"/>
+    </p>
   </div>
 </div>
 </body>
