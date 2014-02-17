@@ -135,9 +135,9 @@ void PacTest::isInNetTest_data()
     QTest::newRow("doc2-3") << "128.94.249.79" << "198.95.0.0" << "255.255.0.0" << false;
     QTest::newRow("doc2-3") << "23.94.249.79" << "198.95.0.0" << "255.255.0.0" << false;
 
-    // is true if the IP address of host matches 85.118.128.* (qupzilla.com)
+    // is true if the IP address of host matches 46.36.35.* (qupzilla.com)
     // if host is passed as hostname, the function needs to resolve it
-    QTest::newRow("resolve1") << "qupzilla.com" << "85.118.128.38" << "255.255.255.0" << true;
+    QTest::newRow("resolve1") << "qupzilla.com" << "46.36.35.38" << "255.255.255.0" << true;
     QTest::newRow("resolve1-2") << "yahoo.com" << "173.194.70.0" << "255.255.255.0" << false;
     QTest::newRow("resolve1-3") << "netscape.com" << "173.194.70.0" << "255.255.255.0" << false;
     QTest::newRow("resolve1-4") << "mozilla.com" << "173.194.70.0" << "255.255.255.0" << false;
@@ -160,7 +160,7 @@ void PacTest::dnsResolveTest_data()
     QTest::addColumn<QString>("result");
 
     QTest::newRow("localhost") << "localhost" << "";
-    QTest::newRow("qz") << "qupzilla.com" << "85.118.128.38"; // This may change...
+    QTest::newRow("qz") << "qupzilla.com" << "46.36.35.106"; // This may change...
 }
 
 void PacTest::dnsResolveTest()
