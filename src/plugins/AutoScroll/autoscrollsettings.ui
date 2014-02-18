@@ -111,7 +111,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QDoubleSpinBox" name="divider"/>
+      <widget class="QDoubleSpinBox" name="divider">
+       <property name="minimum">
+        <double>1.000000000000000</double>
+       </property>
+      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_6">
