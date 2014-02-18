@@ -32,8 +32,8 @@ AutoScroller::AutoScroller(const QString &settings, QObject* parent)
     Q_UNUSED(settings)
 
     m_indicator = new QLabel;
-    m_indicator->resize(30, 30);
-    m_indicator->setStyleSheet("QLabel{background-color: red;}");
+    m_indicator->resize(32, 32);
+    m_indicator->setContentsMargins(0, 0, 0, 0);
     m_indicator->installEventFilter(this);
 
     m_frameScroller = new FrameScroller(this);
@@ -145,6 +145,16 @@ bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
 
     if (!vertical && !horizontal) {
         return false;
+    }
+
+    if (vertical && horizontal) {
+        m_indicator->setPixmap(QPixmap(":/autoscroll/data/scroll_all.png"));
+    }
+    else if (vertical) {
+        m_indicator->setPixmap(QPixmap(":/autoscroll/data/scroll_vertical.png"));
+    }
+    else {
+        m_indicator->setPixmap(QPixmap(":/autoscroll/data/scroll_horizontal.png"));
     }
 
     m_view = view;

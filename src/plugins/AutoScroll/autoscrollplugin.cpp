@@ -35,7 +35,7 @@ PluginSpec AutoScrollPlugin::pluginSpec()
     spec.name = "AutoScroll";
     spec.info = "AutoScroll plugin";
     spec.description = "Provides support for autoscroll with middle mouse button";
-    spec.version = "0.1.0";
+    spec.version = "0.1.1";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":/autoscroll/data/icon.png");
     spec.hasSettings = false;

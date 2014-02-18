@@ -28,7 +28,7 @@ FrameScroller::FrameScroller(QObject* parent)
     , m_lengthY(0)
 {
     m_timer = new QTimer(this);
-    m_timer->setInterval(20);
+    m_timer->setInterval(10);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(scrollStep()));
 }
 
