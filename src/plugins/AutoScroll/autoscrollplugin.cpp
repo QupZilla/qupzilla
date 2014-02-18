@@ -1,5 +1,5 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* AutoScroll - Autoscroll for QupZilla
 * Copyright (C) 2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "autoscrollplugin.h"
+#include "autoscrollsettings.h"
 #include "autoscroller.h"
 #include "qupzilla.h"
 #include "pluginproxy.h"
@@ -35,10 +36,10 @@ PluginSpec AutoScrollPlugin::pluginSpec()
     spec.name = "AutoScroll";
     spec.info = "AutoScroll plugin";
     spec.description = "Provides support for autoscroll with middle mouse button";
-    spec.version = "0.1.1";
+    spec.version = "0.1.2";
     spec.author = "David Rosca <nowrep@gmail.com>";
-    spec.icon = QPixmap(":/autoscroll/data/icon.png");
-    spec.hasSettings = false;
+    spec.icon = QPixmap(":/autoscroll/data/scroll_all.png");
+    spec.hasSettings = true;
 
     return spec;
 }
@@ -47,7 +48,7 @@ void AutoScrollPlugin::init(InitState state, const QString &settingsPath)
 {
     Q_UNUSED(state)
 
-    m_scroller = new AutoScroller(settingsPath, this);
+    m_scroller = new AutoScroller(settingsPath + QLatin1String("extensions.ini"), this);
 
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::MouseMoveHandler);
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::MousePressHandler);
@@ -69,6 +70,16 @@ QTranslator* AutoScrollPlugin::getTranslator(const QString &locale)
     QTranslator* translator = new QTranslator(this);
     translator->load(locale, ":/autoscroll/locale/");
     return translator;
+}
+
+void AutoScrollPlugin::showSettings(QWidget* parent)
+{
+    if (!m_settings) {
+        m_settings = new AutoScrollSettings(m_scroller, parent);
+    }
+
+    m_settings.data()->show();
+    m_settings.data()->raise();
 }
 
 bool AutoScrollPlugin::mouseMove(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)

@@ -1,5 +1,5 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* AutoScroll - Autoscroll for QupZilla
 * Copyright (C) 2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -22,21 +22,27 @@
 
 #include <QMouseEvent>
 #include <QWebFrame>
+#include <QSettings>
 #include <QLabel>
 #include <QDebug>
 
-AutoScroller::AutoScroller(const QString &settings, QObject* parent)
+AutoScroller::AutoScroller(const QString &settingsFile, QObject* parent)
     : QObject(parent)
     , m_view(0)
+    , m_settingsFile(settingsFile)
 {
-    Q_UNUSED(settings)
-
     m_indicator = new QLabel;
     m_indicator->resize(32, 32);
     m_indicator->setContentsMargins(0, 0, 0, 0);
     m_indicator->installEventFilter(this);
 
+    QSettings settings(m_settingsFile, QSettings::IniFormat);
+    settings.beginGroup("AutoScroll");
+
     m_frameScroller = new FrameScroller(this);
+    m_frameScroller->setScrollDivider(settings.value("ScrollDivider", 8.0).toDouble());
+
+    settings.endGroup();
 }
 
 bool AutoScroller::mouseMove(QObject* obj, QMouseEvent* event)
@@ -102,6 +108,21 @@ bool AutoScroller::mouseRelease(QObject* obj, QMouseEvent* event)
     }
 
     return false;
+}
+
+double AutoScroller::scrollDivider() const
+{
+    return m_frameScroller->scrollDivider();
+}
+
+void AutoScroller::setScrollDivider(double divider)
+{
+    QSettings settings(m_settingsFile, QSettings::IniFormat);
+    settings.beginGroup("AutoScroll");
+    settings.setValue("ScrollDivider", divider);
+    settings.endGroup();
+
+    m_frameScroller->setScrollDivider(divider);
 }
 
 bool AutoScroller::eventFilter(QObject* obj, QEvent* event)

@@ -15,39 +15,30 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef FRAMESCROLLER_H
-#define FRAMESCROLLER_H
+#include "autoscrollsettings.h"
+#include "ui_autoscrollsettings.h"
+#include "autoscroller.h"
 
-#include <QObject>
-
-class QTimer;
-class QWebFrame;
-
-class FrameScroller : public QObject
+AutoScrollSettings::AutoScrollSettings(AutoScroller* scroller, QWidget* parent)
+    : QDialog(parent)
+    , ui(new Ui::AutoScrollSettings)
+    , m_scroller(scroller)
 {
-    Q_OBJECT
+    setAttribute(Qt::WA_DeleteOnClose);
+    ui->setupUi(this);
+    ui->divider->setValue(m_scroller->scrollDivider());
 
-public:
-    explicit FrameScroller(QObject* parent = 0);
+    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accepted()));
+    connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
+}
 
-    void setFrame(QWebFrame* frame);
+AutoScrollSettings::~AutoScrollSettings()
+{
+    delete ui;
+}
 
-    double scrollDivider() const;
-    void setScrollDivider(double divider);
-
-    void startScrolling(int lengthX, int lengthY);
-    void stopScrolling();
-
-private slots:
-    void scrollStep();
-
-private:
-    QWebFrame* m_frame;
-    QTimer* m_timer;
-
-    int m_lengthX;
-    int m_lengthY;
-    double m_divider;
-};
-
-#endif // FRAMESCROLLER_H
+void AutoScrollSettings::accepted()
+{
+    m_scroller->setScrollDivider(ui->divider->value());
+    close();
+}

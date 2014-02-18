@@ -1,5 +1,5 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* AutoScroll - Autoscroll for QupZilla
 * Copyright (C) 2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -26,6 +26,7 @@ FrameScroller::FrameScroller(QObject* parent)
     , m_frame(0)
     , m_lengthX(0)
     , m_lengthY(0)
+    , m_divider(8.0)
 {
     m_timer = new QTimer(this);
     m_timer->setInterval(10);
@@ -35,6 +36,16 @@ FrameScroller::FrameScroller(QObject* parent)
 void FrameScroller::setFrame(QWebFrame* frame)
 {
     m_frame = frame;
+}
+
+double FrameScroller::scrollDivider() const
+{
+    return m_divider;
+}
+
+void FrameScroller::setScrollDivider(double divider)
+{
+    m_divider = divider;
 }
 
 void FrameScroller::startScrolling(int lengthX, int lengthY)
@@ -59,5 +70,5 @@ void FrameScroller::stopScrolling()
 
 void FrameScroller::scrollStep()
 {
-    m_frame->scroll(qCeil(m_lengthX / 8.0), qCeil(m_lengthY / 8.0));
+    m_frame->scroll(qCeil(m_lengthX / m_divider), qCeil(m_lengthY / m_divider));
 }

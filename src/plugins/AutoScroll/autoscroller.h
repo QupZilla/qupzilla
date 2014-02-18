@@ -1,5 +1,5 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* AutoScroll - Autoscroll for QupZilla
 * Copyright (C) 2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -32,11 +32,14 @@ class AutoScroller : public QObject
 {
     Q_OBJECT
 public:
-    explicit AutoScroller(const QString &settings, QObject* parent = 0);
+    explicit AutoScroller(const QString &settingsFile, QObject* parent = 0);
 
     bool mouseMove(QObject* obj, QMouseEvent* event);
     bool mousePress(QObject* obj, QMouseEvent* event);
     bool mouseRelease(QObject* obj, QMouseEvent* event);
+
+    double scrollDivider() const;
+    void setScrollDivider(double divider);
 
 private:
     bool eventFilter(QObject* obj, QEvent* event);
@@ -49,6 +52,7 @@ private:
     WebView* m_view;
     QLabel* m_indicator;
     FrameScroller* m_frameScroller;
+    QString m_settingsFile;
 };
 
 #endif // AUTOSCROLLER_H

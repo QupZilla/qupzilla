@@ -15,41 +15,32 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef AUTOSCROLLPLUGIN_H
-#define AUTOSCROLLPLUGIN_H
+#ifndef AUTOSCROLLSETTINGS_H
+#define AUTOSCROLLSETTINGS_H
 
-#include "plugininterface.h"
+#include <QDialog>
+
+namespace Ui
+{
+class AutoScrollSettings;
+}
 
 class AutoScroller;
-class AutoScrollSettings;
 
-class AutoScrollPlugin : public QObject, public PluginInterface
+class AutoScrollSettings : public QDialog
 {
     Q_OBJECT
-    Q_INTERFACES(PluginInterface)
-
-#if QT_VERSION >= 0x050000
-    Q_PLUGIN_METADATA(IID "QupZilla.Browser.plugin.TestPlugin")
-#endif
 
 public:
-    explicit AutoScrollPlugin();
-    PluginSpec pluginSpec();
+    explicit AutoScrollSettings(AutoScroller* scroller, QWidget* parent = 0);
+    ~AutoScrollSettings();
 
-    void init(InitState state, const QString &settingsPath);
-    void unload();
-    bool testPlugin();
-
-    QTranslator* getTranslator(const QString &locale);
-    void showSettings(QWidget* parent);
-
-    bool mouseMove(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
-    bool mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
-    bool mouseRelease(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
+private slots:
+    void accepted();
 
 private:
+    Ui::AutoScrollSettings* ui;
     AutoScroller* m_scroller;
-    QPointer<AutoScrollSettings> m_settings;
 };
 
-#endif // TESTPLUGIN_H
+#endif // AUTOSCROLLSETTINGS_H
