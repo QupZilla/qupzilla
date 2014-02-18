@@ -39,7 +39,6 @@ public:
     void saveSettings();
 
     bool showOnlyIconsInToolbar() const;
-    void exportToHtml(const QString &fileName);
 
     BookmarkItem* rootItem() const;
     BookmarkItem* toolbarFolder() const;
@@ -54,8 +53,8 @@ public:
 
     // Search bookmarks (urls only) for exact url match
     QList<BookmarkItem*> searchBookmarks(const QUrl &url) const;
-    // Search bookmarks (urls only) for contains match through all properties
-    QList<BookmarkItem*> searchBookmarks(const QString &string, Qt::CaseSensitivity sensitive = Qt::CaseInsensitive) const;
+    // Search bookmarks for contains match through all properties
+    QList<BookmarkItem*> searchBookmarks(const QString &string, int limit = -1, Qt::CaseSensitivity sensitive = Qt::CaseInsensitive) const;
 
     void addBookmark(BookmarkItem* parent, BookmarkItem* item);
     void insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item);
@@ -86,7 +85,7 @@ private:
     QVariantList writeBookmarks(BookmarkItem* parent);
 
     void search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QUrl &url) const;
-    void search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QString &string, Qt::CaseSensitivity sensitive) const;
+    void search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QString &string, int limit, Qt::CaseSensitivity sensitive) const;
 
     BookmarkItem* m_root;
     BookmarkItem* m_folderToolbar;

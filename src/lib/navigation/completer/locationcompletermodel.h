@@ -61,7 +61,7 @@ private:
         Nothing = 4
     };
 
-    QSqlQuery createQuery(const QString &searchString, const QString &orderBy, const QList<QUrl> &alreadyFound,
+    QSqlQuery createQuery(const QString &searchString,
                           int limit, bool exactMatch = false);
 
     TabPosition tabPositionForUrl(const QUrl &url) const;

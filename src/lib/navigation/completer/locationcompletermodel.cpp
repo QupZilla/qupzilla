@@ -34,8 +34,15 @@ LocationCompleterModel::LocationCompleterModel(QObject* parent)
 
 static bool countBiggerThan(const QStandardItem* i1, const QStandardItem* i2)
 {
-    return i1->data(LocationCompleterModel::CountRole).toInt() >
-           i2->data(LocationCompleterModel::CountRole).toInt();
+    // Move bookmarks up
+    bool i1Bookmark = i1->data(LocationCompleterModel::BookmarkRole).toBool();
+    bool i2Bookmark = i2->data(LocationCompleterModel::BookmarkRole).toBool();
+
+    if (i1Bookmark && i2Bookmark) {
+        return i1->data(LocationCompleterModel::CountRole).toInt() >
+               i2->data(LocationCompleterModel::CountRole).toInt();
+    }
+    return i1Bookmark;
 }
 
 void LocationCompleterModel::refreshCompletions(const QString &string)
@@ -54,20 +61,19 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
 
     clear();
 
-    Type showType = (Type) qzSettings->showLocationSuggestions;
-
-    int limit = string.size() < 3 ? 25 : 15;
+    const int bookmarksLimit = 10;
+    const int historyLimit = 20;
     QList<QUrl> urlList;
     QList<QStandardItem*> itemList;
+    Type showType = (Type) qzSettings->showLocationSuggestions;
 
     if (showType == HistoryAndBookmarks || showType == Bookmarks) {
-        QList<BookmarkItem*> bookmarks = mApp->bookmarks()->searchBookmarks(string);
+        QList<BookmarkItem*> bookmarks = mApp->bookmarks()->searchBookmarks(string, bookmarksLimit);
 
         foreach (BookmarkItem* bookmark, bookmarks) {
             Q_ASSERT(bookmark->isUrl());
 
             QStandardItem* item = new QStandardItem();
-
             item->setIcon(bookmark->icon());
             item->setText(bookmark->url().toEncoded());
             item->setData(-1, IdRole);
@@ -83,18 +89,20 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             urlList.append(bookmark->url());
             itemList.append(item);
         }
-
-        limit -= itemList.count();
     }
 
     if (showType == HistoryAndBookmarks || showType == History) {
-        QSqlQuery query = createQuery(string, "count DESC", urlList, limit);
+        QSqlQuery query = createQuery(string, historyLimit);
         query.exec();
 
         while (query.next()) {
-            QStandardItem* item = new QStandardItem();
             const QUrl url = query.value(1).toUrl();
 
+            if (urlList.contains(url)) {
+                continue;
+            }
+
+            QStandardItem* item = new QStandardItem();
             item->setIcon(_iconForUrl(url));
             item->setText(url.toEncoded());
             item->setData(query.value(0), IdRole);
@@ -183,8 +191,7 @@ QString LocationCompleterModel::completeDomain(const QString &text)
     return sqlQuery.value(0).toUrl().host();
 }
 
-QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const QString &orderBy,
-        const QList<QUrl> &alreadyFound, int limit, bool exactMatch)
+QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, int limit, bool exactMatch)
 {
     QStringList searchList;
     QString query = QLatin1String("SELECT id, url, title, count FROM history WHERE ");
@@ -203,17 +210,7 @@ QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const
         }
     }
 
-    for (int i = 0; i < alreadyFound.count(); i++) {
-        query.append(QLatin1String("AND (NOT url=?) "));
-    }
-
-    query.append(QLatin1String("GROUP BY url "));
-
-    if (!orderBy.isEmpty()) {
-        query.append(QLatin1String("ORDER BY ") + orderBy);
-    }
-
-    query.append(QLatin1String(" LIMIT ?"));
+    query.append(QLatin1String("LIMIT ?"));
 
     QSqlQuery sqlQuery;
     sqlQuery.prepare(query);
@@ -227,10 +224,6 @@ QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, const
             sqlQuery.addBindValue(QString("%%1%").arg(str));
             sqlQuery.addBindValue(QString("%%1%").arg(str));
         }
-    }
-
-    foreach (const QUrl &url, alreadyFound) {
-        sqlQuery.addBindValue(url);
     }
 
     sqlQuery.addBindValue(limit);
