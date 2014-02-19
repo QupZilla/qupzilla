@@ -24,7 +24,7 @@
 class BrowserWindow;
 class WebPage;
 
-class QT_QUPZILLA_EXPORT PluginProxy : public Plugins
+class QUPZILLA_EXPORT PluginProxy : public Plugins
 {
     Q_OBJECT
 public:

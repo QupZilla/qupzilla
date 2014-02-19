@@ -27,7 +27,7 @@ class QNetworkRequest;
 
 class AdBlockRule;
 
-class QT_QUPZILLA_EXPORT AdBlockSearchTree
+class QUPZILLA_EXPORT AdBlockSearchTree
 {
 public:
     explicit AdBlockSearchTree();

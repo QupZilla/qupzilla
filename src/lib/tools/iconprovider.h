@@ -34,7 +34,7 @@ class QIcon;
 class WebView;
 
 // Needs to be QWidget subclass, otherwise qproperty- setting won't work
-class QT_QUPZILLA_EXPORT IconProvider : public QWidget
+class QUPZILLA_EXPORT IconProvider : public QWidget
 {
     Q_OBJECT
     Q_PROPERTY(QPixmap bookmarkIcon READ bookmarkIcon WRITE setBookmarkIcon)

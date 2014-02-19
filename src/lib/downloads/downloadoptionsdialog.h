@@ -29,7 +29,7 @@ namespace Ui
 class DownloadOptionsDialog;
 }
 
-class QT_QUPZILLA_EXPORT DownloadOptionsDialog : public QDialog
+class QUPZILLA_EXPORT DownloadOptionsDialog : public QDialog
 {
     Q_OBJECT
 

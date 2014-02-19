@@ -25,7 +25,7 @@
 
 class WebTab;
 
-class QT_QUPZILLA_EXPORT ClosedTabsManager
+class QUPZILLA_EXPORT ClosedTabsManager
 {
 public:
     struct Tab {

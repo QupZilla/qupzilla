@@ -24,7 +24,7 @@
 class PopupWebPage;
 class Menu;
 
-class QT_QUPZILLA_EXPORT PopupWebView : public WebView
+class QUPZILLA_EXPORT PopupWebView : public WebView
 {
     Q_OBJECT
 public:

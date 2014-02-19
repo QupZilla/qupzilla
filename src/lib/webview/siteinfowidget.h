@@ -30,7 +30,7 @@ class SiteInfoWidget;
 
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT SiteInfoWidget : public LocationBarPopup
+class QUPZILLA_EXPORT SiteInfoWidget : public LocationBarPopup
 {
     Q_OBJECT
 public:

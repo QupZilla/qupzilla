@@ -34,61 +34,61 @@ class QUrl;
 
 namespace QzTools
 {
-QByteArray QT_QUPZILLA_EXPORT pixmapToByteArray(const QPixmap &pix);
-QPixmap QT_QUPZILLA_EXPORT pixmapFromByteArray(const QByteArray &data);
+QByteArray QUPZILLA_EXPORT pixmapToByteArray(const QPixmap &pix);
+QPixmap QUPZILLA_EXPORT pixmapFromByteArray(const QByteArray &data);
 
-QString QT_QUPZILLA_EXPORT readAllFileContents(const QString &filename);
-QByteArray QT_QUPZILLA_EXPORT readAllFileByteContents(const QString &filename);
+QString QUPZILLA_EXPORT readAllFileContents(const QString &filename);
+QByteArray QUPZILLA_EXPORT readAllFileByteContents(const QString &filename);
 
-void QT_QUPZILLA_EXPORT centerWidgetOnScreen(QWidget* w);
-void QT_QUPZILLA_EXPORT centerWidgetToParent(QWidget* w, QWidget* parent);
+void QUPZILLA_EXPORT centerWidgetOnScreen(QWidget* w);
+void QUPZILLA_EXPORT centerWidgetToParent(QWidget* w, QWidget* parent);
 
-bool QT_QUPZILLA_EXPORT removeFile(const QString &fullFileName);
-void QT_QUPZILLA_EXPORT removeDir(const QString &d);
+bool QUPZILLA_EXPORT removeFile(const QString &fullFileName);
+void QUPZILLA_EXPORT removeDir(const QString &d);
 
-QString QT_QUPZILLA_EXPORT samePartOfStrings(const QString &one, const QString &other);
-QString QT_QUPZILLA_EXPORT urlEncodeQueryString(const QUrl &url);
+QString QUPZILLA_EXPORT samePartOfStrings(const QString &one, const QString &other);
+QString QUPZILLA_EXPORT urlEncodeQueryString(const QUrl &url);
 
-QString QT_QUPZILLA_EXPORT ensureUniqueFilename(const QString &name, const QString &appendFormat = QString("(%1)"));
-QString QT_QUPZILLA_EXPORT getFileNameFromUrl(const QUrl &url);
-QString QT_QUPZILLA_EXPORT filterCharsFromFilename(const QString &name);
+QString QUPZILLA_EXPORT ensureUniqueFilename(const QString &name, const QString &appendFormat = QString("(%1)"));
+QString QUPZILLA_EXPORT getFileNameFromUrl(const QUrl &url);
+QString QUPZILLA_EXPORT filterCharsFromFilename(const QString &name);
 
-QString QT_QUPZILLA_EXPORT lastPathForFileDialog(const QString &dialogName, const QString &fallbackPath);
-void QT_QUPZILLA_EXPORT saveLastPathForFileDialog(const QString &dialogName, const QString &path);
+QString QUPZILLA_EXPORT lastPathForFileDialog(const QString &dialogName, const QString &fallbackPath);
+void QUPZILLA_EXPORT saveLastPathForFileDialog(const QString &dialogName, const QString &path);
 
-QString QT_QUPZILLA_EXPORT alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width);
-QString QT_QUPZILLA_EXPORT fileSizeToString(qint64 size);
+QString QUPZILLA_EXPORT alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width);
+QString QUPZILLA_EXPORT fileSizeToString(qint64 size);
 
-QPixmap QT_QUPZILLA_EXPORT createPixmapForSite(const QIcon &icon, const QString &title, const QString &url);
-QString QT_QUPZILLA_EXPORT applyDirectionToPage(QString &pageContents);
+QPixmap QUPZILLA_EXPORT createPixmapForSite(const QIcon &icon, const QString &title, const QString &url);
+QString QUPZILLA_EXPORT applyDirectionToPage(QString &pageContents);
 
-QString QT_QUPZILLA_EXPORT resolveFromPath(const QString &name);
-QStringList QT_QUPZILLA_EXPORT splitCommandArguments(const QString &command);
-bool QT_QUPZILLA_EXPORT startExternalProcess(const QString &executable, const QString &args);
+QString QUPZILLA_EXPORT resolveFromPath(const QString &name);
+QStringList QUPZILLA_EXPORT splitCommandArguments(const QString &command);
+bool QUPZILLA_EXPORT startExternalProcess(const QString &executable, const QString &args);
 
-QRegion QT_QUPZILLA_EXPORT roundedRect(const QRect &rect, int radius);
-QIcon QT_QUPZILLA_EXPORT iconFromFileName(const QString &fileName);
-bool QT_QUPZILLA_EXPORT isUtf8(const char* string);
+QRegion QUPZILLA_EXPORT roundedRect(const QRect &rect, int radius);
+QIcon QUPZILLA_EXPORT iconFromFileName(const QString &fileName);
+bool QUPZILLA_EXPORT isUtf8(const char* string);
 
 // QFileDialog static functions that remembers last used directory
-QString QT_QUPZILLA_EXPORT getExistingDirectory(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), QFileDialog::Options options = QFileDialog::ShowDirsOnly);
-QString QT_QUPZILLA_EXPORT getOpenFileName(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), const QString &filter = QString(), QString* selectedFilter = 0, QFileDialog::Options options = 0);
-QStringList QT_QUPZILLA_EXPORT getOpenFileNames(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), const QString &filter = QString(), QString* selectedFilter = 0, QFileDialog::Options options = 0);
-QString QT_QUPZILLA_EXPORT getSaveFileName(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), const QString &filter = QString(), QString* selectedFilter = 0, QFileDialog::Options options = 0);
+QString QUPZILLA_EXPORT getExistingDirectory(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), QFileDialog::Options options = QFileDialog::ShowDirsOnly);
+QString QUPZILLA_EXPORT getOpenFileName(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), const QString &filter = QString(), QString* selectedFilter = 0, QFileDialog::Options options = 0);
+QStringList QUPZILLA_EXPORT getOpenFileNames(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), const QString &filter = QString(), QString* selectedFilter = 0, QFileDialog::Options options = 0);
+QString QUPZILLA_EXPORT getSaveFileName(const QString &name, QWidget* parent = 0, const QString &caption = QString(), const QString &dir = QString(), const QString &filter = QString(), QString* selectedFilter = 0, QFileDialog::Options options = 0);
 
-bool QT_QUPZILLA_EXPORT matchDomain(const QString &pattern, const QString &domain);
+bool QUPZILLA_EXPORT matchDomain(const QString &pattern, const QString &domain);
 
-QString QT_QUPZILLA_EXPORT operatingSystem();
+QString QUPZILLA_EXPORT operatingSystem();
 
 // Qt5 migration help functions
-bool QT_QUPZILLA_EXPORT isCertificateValid(const QSslCertificate &cert);
-QString QT_QUPZILLA_EXPORT escape(const QString &string);
+bool QUPZILLA_EXPORT isCertificateValid(const QSslCertificate &cert);
+QString QUPZILLA_EXPORT escape(const QString &string);
 
 #if defined(QZ_WS_X11) && !defined(NO_X11)
 void* X11Display(const QWidget* widget);
 #endif
 
-void QT_QUPZILLA_EXPORT setWmClass(const QString &name, const QWidget* widget);
+void QUPZILLA_EXPORT setWmClass(const QString &name, const QWidget* widget);
 
 template <typename T>
 bool listContainsIndex(const QList<T> &list, int index)

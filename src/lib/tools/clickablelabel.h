@@ -25,7 +25,7 @@
 
 class QMouseEvent;
 
-class QT_QUPZILLA_EXPORT ClickableLabel : public QLabel
+class QUPZILLA_EXPORT ClickableLabel : public QLabel
 {
     Q_OBJECT
     Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)

@@ -28,7 +28,7 @@ class AdBlockTreeWidget;
 class AdBlockManager;
 class AdBlockRule;
 
-class QT_QUPZILLA_EXPORT AdBlockDialog : public QWidget, public Ui_AdBlockDialog
+class QUPZILLA_EXPORT AdBlockDialog : public QWidget, public Ui_AdBlockDialog
 {
     Q_OBJECT
 

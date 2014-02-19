@@ -72,7 +72,7 @@ QHash<QWidget*, bool> widgetsBlurState = QHash<QWidget*, bool>();
  * DWM compositing state changes and updates the widget
  * flags correspondingly.
  */
-class QT_QUPZILLA_EXPORT WindowNotifier : public QWidget
+class QUPZILLA_EXPORT WindowNotifier : public QWidget
 {
 public:
     WindowNotifier() {

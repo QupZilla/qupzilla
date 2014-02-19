@@ -24,7 +24,7 @@
 
 class WebView;
 
-class QT_QUPZILLA_EXPORT AutoFillIcon : public ClickableLabel
+class QUPZILLA_EXPORT AutoFillIcon : public ClickableLabel
 {
     Q_OBJECT
 

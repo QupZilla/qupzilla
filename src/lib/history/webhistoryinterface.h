@@ -23,7 +23,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT WebHistoryInterface : public QWebHistoryInterface
+class QUPZILLA_EXPORT WebHistoryInterface : public QWebHistoryInterface
 {
 public:
     explicit WebHistoryInterface(QObject* parent = 0);

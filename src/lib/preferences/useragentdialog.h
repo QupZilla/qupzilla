@@ -30,7 +30,7 @@ namespace Ui
 class UserAgentDialog;
 }
 
-class QT_QUPZILLA_EXPORT UserAgentDialog : public QDialog
+class QUPZILLA_EXPORT UserAgentDialog : public QDialog
 {
     Q_OBJECT
 

@@ -30,7 +30,7 @@ class AutoFillIcon;
 class BookmarksIcon;
 class RssIcon;
 
-class QT_QUPZILLA_EXPORT PopupLocationBar : public LineEdit
+class QUPZILLA_EXPORT PopupLocationBar : public LineEdit
 {
     Q_OBJECT
     Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)

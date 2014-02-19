@@ -58,7 +58,7 @@ class Speller;
 class MacMenuReceiver;
 #endif
 
-class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
+class QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
     Q_OBJECT
 

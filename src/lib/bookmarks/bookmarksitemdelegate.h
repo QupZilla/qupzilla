@@ -24,7 +24,7 @@
 
 class QTreeView;
 
-class QT_QUPZILLA_EXPORT BookmarksItemDelegate : public QStyledItemDelegate
+class QUPZILLA_EXPORT BookmarksItemDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 

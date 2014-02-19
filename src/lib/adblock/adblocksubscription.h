@@ -59,7 +59,7 @@ class QUrl;
 
 class FollowRedirectReply;
 
-class QT_QUPZILLA_EXPORT AdBlockSubscription : public QObject
+class QUPZILLA_EXPORT AdBlockSubscription : public QObject
 {
     Q_OBJECT
 public:

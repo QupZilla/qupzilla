@@ -23,7 +23,7 @@
 #include "bookmarksimporter.h"
 #include "bookmarkitem.h"
 
-class QT_QUPZILLA_EXPORT FirefoxImporter : public BookmarksImporter
+class QUPZILLA_EXPORT FirefoxImporter : public BookmarksImporter
 {
 public:
     explicit FirefoxImporter(QObject* parent = 0);

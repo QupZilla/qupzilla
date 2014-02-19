@@ -28,7 +28,7 @@ class ClearPrivateData;
 }
 
 class BrowserWindow;
-class QT_QUPZILLA_EXPORT ClearPrivateData : public QDialog
+class QUPZILLA_EXPORT ClearPrivateData : public QDialog
 {
     Q_OBJECT
 public:

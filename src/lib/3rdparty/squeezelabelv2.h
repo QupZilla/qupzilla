@@ -22,7 +22,7 @@
 
 #include <QLabel>
 
-class QT_QUPZILLA_EXPORT SqueezeLabelV2 : public QLabel
+class QUPZILLA_EXPORT SqueezeLabelV2 : public QLabel
 {
     Q_OBJECT
 

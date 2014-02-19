@@ -53,7 +53,7 @@ DEFINE_PROPERTYKEY(PKEY_AppUserModel_IsDestListSeparator, 0x9F4C2855, 0x9F79, 0x
 #endif
 #endif
 class WindowNotifier;
-class QT_QUPZILLA_EXPORT QtWin : public QObject
+class QUPZILLA_EXPORT QtWin : public QObject
 {
     Q_OBJECT
 public:

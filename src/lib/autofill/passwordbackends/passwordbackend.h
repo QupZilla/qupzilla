@@ -23,7 +23,7 @@
 
 class QWidget;
 
-class QT_QUPZILLA_EXPORT PasswordBackend
+class QUPZILLA_EXPORT PasswordBackend
 {
 public:
     explicit PasswordBackend();

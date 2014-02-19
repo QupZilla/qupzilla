@@ -31,7 +31,7 @@
  * written by user WitchCraft
  */
 
-class QT_QUPZILLA_EXPORT ProcessInfo
+class QUPZILLA_EXPORT ProcessInfo
 {
 public:
     explicit ProcessInfo(const QString &name);

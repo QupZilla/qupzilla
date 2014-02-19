@@ -23,7 +23,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT Widget : public QWidget
+class QUPZILLA_EXPORT Widget : public QWidget
 {
     Q_OBJECT
 public:
@@ -36,7 +36,7 @@ public slots:
 
 };
 
-class QT_QUPZILLA_EXPORT ResizableFrame : public QFrame
+class QUPZILLA_EXPORT ResizableFrame : public QFrame
 {
     Q_OBJECT
 public:

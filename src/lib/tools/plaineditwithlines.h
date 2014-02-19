@@ -69,7 +69,7 @@ class QWidget;
 class LineNumberArea;
 
 
-class QT_QUPZILLA_EXPORT PlainEditWithLines : public QPlainTextEdit
+class QUPZILLA_EXPORT PlainEditWithLines : public QPlainTextEdit
 {
     Q_OBJECT
 
@@ -103,7 +103,7 @@ private:
 };
 
 
-class QT_QUPZILLA_EXPORT LineNumberArea : public QWidget
+class QUPZILLA_EXPORT LineNumberArea : public QWidget
 {
 public:
     explicit LineNumberArea(PlainEditWithLines* editor);

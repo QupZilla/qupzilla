@@ -38,7 +38,7 @@ class EcWin7;
 class NetworkManager;
 class WebPage;
 
-class QT_QUPZILLA_EXPORT DownloadManager : public QWidget
+class QUPZILLA_EXPORT DownloadManager : public QWidget
 {
     Q_OBJECT
 public:

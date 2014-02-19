@@ -24,7 +24,7 @@
 
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarksExporter : public QObject
+class QUPZILLA_EXPORT BookmarksExporter : public QObject
 {
     Q_OBJECT
 

@@ -26,7 +26,7 @@ class QIcon;
 
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarksImporter : public QObject
+class QUPZILLA_EXPORT BookmarksImporter : public QObject
 {
     Q_OBJECT
 

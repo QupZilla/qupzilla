@@ -25,7 +25,7 @@ class LocationBar;
 class WebView;
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT SiteIcon : public ToolButton
+class QUPZILLA_EXPORT SiteIcon : public ToolButton
 {
     Q_OBJECT
 

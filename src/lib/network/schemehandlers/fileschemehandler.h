@@ -24,7 +24,7 @@
 #include "schemehandler.h"
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT FileSchemeHandler : public SchemeHandler
+class QUPZILLA_EXPORT FileSchemeHandler : public SchemeHandler
 {
 public:
     explicit FileSchemeHandler();
@@ -34,7 +34,7 @@ public:
     static void handleUrl(const QUrl &url);
 };
 
-class QT_QUPZILLA_EXPORT FileSchemeReply : public QNetworkReply
+class QUPZILLA_EXPORT FileSchemeReply : public QNetworkReply
 {
     Q_OBJECT
 public:

@@ -24,7 +24,7 @@
 
 class QTextBrowser;
 
-class QT_QUPZILLA_EXPORT LicenseViewer : public QWidget
+class QUPZILLA_EXPORT LicenseViewer : public QWidget
 {
     Q_OBJECT
 

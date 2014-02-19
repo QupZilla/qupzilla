@@ -31,7 +31,7 @@ class QWebElement;
 
 class WebView;
 
-class QT_QUPZILLA_EXPORT SearchEnginesManager : public QObject
+class QUPZILLA_EXPORT SearchEnginesManager : public QObject
 {
     Q_OBJECT
 public:

@@ -30,7 +30,7 @@ class QDBusError;
 
 class DesktopNotification;
 
-class QT_QUPZILLA_EXPORT DesktopNotificationsFactory : public QObject
+class QUPZILLA_EXPORT DesktopNotificationsFactory : public QObject
 {
     Q_OBJECT
 

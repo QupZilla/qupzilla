@@ -23,7 +23,7 @@
 
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT PopupWebPage : public WebPage
+class QUPZILLA_EXPORT PopupWebPage : public WebPage
 {
     Q_OBJECT
 public:

@@ -24,7 +24,7 @@
 
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT MenuBar : public QMenuBar
+class QUPZILLA_EXPORT MenuBar : public QMenuBar
 {
     Q_OBJECT
 public:

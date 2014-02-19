@@ -26,7 +26,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT BookmarkItem
+class QUPZILLA_EXPORT BookmarkItem
 {
 public:
     enum Type {

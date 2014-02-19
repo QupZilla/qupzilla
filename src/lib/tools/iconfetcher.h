@@ -30,7 +30,7 @@ class QUrl;
 
 class FollowRedirectReply;
 
-class QT_QUPZILLA_EXPORT IconFetcher : public QObject
+class QUPZILLA_EXPORT IconFetcher : public QObject
 {
     Q_OBJECT
 public:

@@ -22,7 +22,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT FocusSelectLineEdit : public QLineEdit
+class QUPZILLA_EXPORT FocusSelectLineEdit : public QLineEdit
 {
     Q_OBJECT
 public:

@@ -22,7 +22,7 @@
 
 #include "bookmarksimporter.h"
 
-class QT_QUPZILLA_EXPORT HtmlImporter : public BookmarksImporter
+class QUPZILLA_EXPORT HtmlImporter : public BookmarksImporter
 {
 public:
     explicit HtmlImporter(QObject* parent = 0);

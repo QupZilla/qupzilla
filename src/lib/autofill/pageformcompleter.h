@@ -38,7 +38,7 @@ struct PageFormData {
     }
 };
 
-class QT_QUPZILLA_EXPORT PageFormCompleter
+class QUPZILLA_EXPORT PageFormCompleter
 {
 public:
     explicit PageFormCompleter(QWebPage* page);

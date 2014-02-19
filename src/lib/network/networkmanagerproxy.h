@@ -25,7 +25,7 @@
 class WebPage;
 class NetworkManager;
 
-class QT_QUPZILLA_EXPORT NetworkManagerProxy : public QNetworkAccessManager
+class QUPZILLA_EXPORT NetworkManagerProxy : public QNetworkAccessManager
 {
 public:
     explicit NetworkManagerProxy(QObject* parent = 0);

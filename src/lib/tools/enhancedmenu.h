@@ -25,7 +25,7 @@
 
 class Action;
 
-class QT_QUPZILLA_EXPORT Menu : public QMenu
+class QUPZILLA_EXPORT Menu : public QMenu
 {
     Q_OBJECT
 public:
@@ -50,7 +50,7 @@ private:
     bool m_closeOnMiddleClick;
 };
 
-class QT_QUPZILLA_EXPORT Action : public QAction
+class QUPZILLA_EXPORT Action : public QAction
 {
     Q_OBJECT
 public:

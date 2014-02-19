@@ -30,7 +30,7 @@ namespace Ui
 class SearchEnginesDialog;
 }
 
-class QT_QUPZILLA_EXPORT SearchEnginesDialog : public QDialog
+class QUPZILLA_EXPORT SearchEnginesDialog : public QDialog
 {
     Q_OBJECT
 

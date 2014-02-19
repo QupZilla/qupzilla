@@ -23,7 +23,7 @@
 
 class WebView;
 
-class QT_QUPZILLA_EXPORT RssIcon : public ClickableLabel
+class QUPZILLA_EXPORT RssIcon : public ClickableLabel
 {
     Q_OBJECT
 public:

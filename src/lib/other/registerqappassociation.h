@@ -25,7 +25,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT RegisterQAppAssociation : public QObject
+class QUPZILLA_EXPORT RegisterQAppAssociation : public QObject
 {
     Q_OBJECT
 public:

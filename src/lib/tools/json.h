@@ -26,7 +26,7 @@
 class QScriptValue;
 class QScriptEngine;
 
-class QT_QUPZILLA_EXPORT Json
+class QUPZILLA_EXPORT Json
 {
 public:
     explicit Json();

@@ -51,7 +51,7 @@ class ClickableLabel;
 class WebInspectorDockWidget;
 class LocationBar;
 
-class QT_QUPZILLA_EXPORT BrowserWindow : public QMainWindow
+class QUPZILLA_EXPORT BrowserWindow : public QMainWindow
 {
     Q_OBJECT
 

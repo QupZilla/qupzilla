@@ -34,7 +34,7 @@ class BrowserWindow;
 class Bookmarks;
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarksManager : public QWidget
+class QUPZILLA_EXPORT BookmarksManager : public QWidget
 {
     Q_OBJECT
 

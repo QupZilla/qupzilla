@@ -30,7 +30,7 @@ class Bookmarks;
 class BookmarkItem;
 class BookmarksToolbarButton;
 
-class QT_QUPZILLA_EXPORT BookmarksToolbar : public QWidget
+class QUPZILLA_EXPORT BookmarksToolbar : public QWidget
 {
     Q_OBJECT
 public:

@@ -24,7 +24,7 @@
 #ifdef Q_OS_MAC
 #include <QPushButton>
 
-class QT_QUPZILLA_EXPORT MacToolButton : public QPushButton
+class QUPZILLA_EXPORT MacToolButton : public QPushButton
 {
     Q_OBJECT
     Q_PROPERTY(bool autoRaise READ autoRaise WRITE setAutoRaise)
@@ -44,7 +44,7 @@ private:
 #else
 #include <QToolButton>
 
-class QT_QUPZILLA_EXPORT MacToolButton : public QToolButton
+class QUPZILLA_EXPORT MacToolButton : public QToolButton
 {
     Q_OBJECT
 

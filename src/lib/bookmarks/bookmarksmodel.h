@@ -28,7 +28,7 @@ class QTimer;
 class Bookmarks;
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarksModel : public QAbstractItemModel
+class QUPZILLA_EXPORT BookmarksModel : public QAbstractItemModel
 {
     Q_OBJECT
 
@@ -77,7 +77,7 @@ private:
     Bookmarks* m_bookmarks;
 };
 
-class QT_QUPZILLA_EXPORT BookmarksFilterModel : public QSortFilterProxyModel
+class QUPZILLA_EXPORT BookmarksFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 

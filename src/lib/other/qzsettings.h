@@ -23,7 +23,7 @@
 
 #include <QStringList>
 
-class QT_QUPZILLA_EXPORT QzSettings
+class QUPZILLA_EXPORT QzSettings
 {
 public:
     QzSettings();

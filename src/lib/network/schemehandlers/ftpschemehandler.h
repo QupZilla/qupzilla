@@ -37,7 +37,7 @@
 
 #define FTP_AUTHENTICATOR FtpSchemeHandler::ftpAuthenticator
 
-class QT_QUPZILLA_EXPORT FtpSchemeHandler : public SchemeHandler
+class QUPZILLA_EXPORT FtpSchemeHandler : public SchemeHandler
 {
 public:
     explicit FtpSchemeHandler();
@@ -50,7 +50,7 @@ private:
     static QHash<QString, QAuthenticator*> m_ftpAuthenticatorsCache;
 };
 
-class QT_QUPZILLA_EXPORT FtpSchemeReply : public QNetworkReply
+class QUPZILLA_EXPORT FtpSchemeReply : public QNetworkReply
 {
     Q_OBJECT
 
@@ -91,7 +91,7 @@ signals:
     void downloadRequest(const QNetworkRequest &);
 };
 
-class QT_QUPZILLA_EXPORT FtpDownloader : public QFtp
+class QUPZILLA_EXPORT FtpDownloader : public QFtp
 {
     Q_OBJECT
 

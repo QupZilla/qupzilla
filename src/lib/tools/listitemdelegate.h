@@ -22,7 +22,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT ListItemDelegate : public QStyledItemDelegate
+class QUPZILLA_EXPORT ListItemDelegate : public QStyledItemDelegate
 {
 public:
     explicit ListItemDelegate(int iconSize, QWidget* parent);

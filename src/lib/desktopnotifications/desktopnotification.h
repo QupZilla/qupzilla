@@ -28,7 +28,7 @@ namespace Ui
 class DesktopNotification;
 }
 
-class QT_QUPZILLA_EXPORT DesktopNotification : public QWidget
+class QUPZILLA_EXPORT DesktopNotification : public QWidget
 {
     Q_OBJECT
 

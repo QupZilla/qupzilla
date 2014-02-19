@@ -29,7 +29,7 @@ class QPluginLoader;
 
 class SpeedDial;
 
-class QT_QUPZILLA_EXPORT Plugins : public QObject
+class QUPZILLA_EXPORT Plugins : public QObject
 {
     Q_OBJECT
 public:

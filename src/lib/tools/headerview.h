@@ -24,7 +24,7 @@ class QContextMenuEvent;
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT HeaderView : public QHeaderView
+class QUPZILLA_EXPORT HeaderView : public QHeaderView
 {
     Q_OBJECT
 public:

@@ -29,7 +29,7 @@ class BookmarksExportDialog;
 
 class BookmarksExporter;
 
-class QT_QUPZILLA_EXPORT BookmarksExportDialog : public QDialog
+class QUPZILLA_EXPORT BookmarksExportDialog : public QDialog
 {
     Q_OBJECT
 

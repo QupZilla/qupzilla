@@ -28,7 +28,7 @@ namespace Ui
 class JsOptions;
 }
 
-class QT_QUPZILLA_EXPORT JsOptions : public QDialog
+class QUPZILLA_EXPORT JsOptions : public QDialog
 {
     Q_OBJECT
 

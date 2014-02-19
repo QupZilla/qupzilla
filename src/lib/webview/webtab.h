@@ -33,7 +33,7 @@ class LocationBar;
 class WebView;
 class TabbedWebView;
 
-class QT_QUPZILLA_EXPORT WebTab : public QWidget
+class QUPZILLA_EXPORT WebTab : public QWidget
 {
     Q_OBJECT
 public:
@@ -49,8 +49,8 @@ public:
         bool isEmpty() const { return url.isEmpty(); }
         void clear();
 
-        friend QT_QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const SavedTab &tab);
-        friend QT_QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, SavedTab &tab);
+        friend QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const SavedTab &tab);
+        friend QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, SavedTab &tab);
     };
 
     explicit WebTab(BrowserWindow* window, LocationBar* locationBar);

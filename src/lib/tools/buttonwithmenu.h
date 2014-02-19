@@ -21,7 +21,7 @@
 #include "toolbutton.h"
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT ButtonWithMenu : public ToolButton
+class QUPZILLA_EXPORT ButtonWithMenu : public ToolButton
 {
     Q_OBJECT
 public:

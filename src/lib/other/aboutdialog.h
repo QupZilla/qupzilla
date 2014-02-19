@@ -27,7 +27,7 @@ namespace Ui
 class AboutDialog;
 }
 
-class QT_QUPZILLA_EXPORT AboutDialog : public QDialog
+class QUPZILLA_EXPORT AboutDialog : public QDialog
 {
     Q_OBJECT
 

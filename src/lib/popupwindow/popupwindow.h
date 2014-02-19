@@ -35,7 +35,7 @@ class PopupLocationBar;
 class ProgressBar;
 class SearchToolBar;
 
-class QT_QUPZILLA_EXPORT PopupWindow : public QWidget
+class QUPZILLA_EXPORT PopupWindow : public QWidget
 {
     Q_OBJECT
 public:

@@ -29,7 +29,7 @@ namespace Ui
 class AutoFillManager;
 }
 
-class QT_QUPZILLA_EXPORT AutoFillManager : public QWidget
+class QUPZILLA_EXPORT AutoFillManager : public QWidget
 {
     Q_OBJECT
 

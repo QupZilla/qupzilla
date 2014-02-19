@@ -30,7 +30,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT QzRegExp : public QRegularExpression
+class QUPZILLA_EXPORT QzRegExp : public QRegularExpression
 {
 public:
     QzRegExp();

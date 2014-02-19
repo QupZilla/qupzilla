@@ -24,7 +24,7 @@
 
 class QStyleOptionProgressBar;
 
-class QT_QUPZILLA_EXPORT ProgressBar : public QWidget
+class QUPZILLA_EXPORT ProgressBar : public QWidget
 {
     Q_OBJECT
 public:

@@ -24,7 +24,7 @@
 class AdBlockSubscription;
 class AdBlockRule;
 
-class QT_QUPZILLA_EXPORT AdBlockTreeWidget : public TreeWidget
+class QUPZILLA_EXPORT AdBlockTreeWidget : public TreeWidget
 {
     Q_OBJECT
 public:

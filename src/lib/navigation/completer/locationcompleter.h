@@ -28,7 +28,7 @@ class LocationCompleterModel;
 class LocationCompleterView;
 class LocationBar;
 
-class QT_QUPZILLA_EXPORT LocationCompleter : public QObject
+class QUPZILLA_EXPORT LocationCompleter : public QObject
 {
     Q_OBJECT
 public:

@@ -27,7 +27,7 @@
 class AesInterface;
 class MasterPasswordDialog;
 
-class QT_QUPZILLA_EXPORT DatabaseEncryptedPasswordBackend : public PasswordBackend
+class QUPZILLA_EXPORT DatabaseEncryptedPasswordBackend : public PasswordBackend
 {
 public:
     enum MasterPasswordState {

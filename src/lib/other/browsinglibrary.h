@@ -31,7 +31,7 @@ class HistoryManager;
 class BookmarksManager;
 class RSSManager;
 class BrowserWindow;
-class QT_QUPZILLA_EXPORT BrowsingLibrary : public QWidget
+class QUPZILLA_EXPORT BrowsingLibrary : public QWidget
 {
     Q_OBJECT
 

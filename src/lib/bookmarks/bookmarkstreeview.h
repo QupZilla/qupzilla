@@ -27,7 +27,7 @@ class BookmarkItem;
 class BookmarksModel;
 class BookmarksFilterModel;
 
-class QT_QUPZILLA_EXPORT BookmarksTreeView : public QTreeView
+class QUPZILLA_EXPORT BookmarksTreeView : public QTreeView
 {
     Q_OBJECT
 

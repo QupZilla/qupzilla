@@ -23,7 +23,7 @@
 #include "qz_namespace.h"
 #include "locationcompletermodel.h"
 
-class QT_QUPZILLA_EXPORT LocationCompleterView : public QListView
+class QUPZILLA_EXPORT LocationCompleterView : public QListView
 {
     Q_OBJECT
 public:

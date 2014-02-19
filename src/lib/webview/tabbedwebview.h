@@ -30,7 +30,7 @@ class WebPage;
 class WebTab;
 class Menu;
 
-class QT_QUPZILLA_EXPORT TabbedWebView : public WebView
+class QUPZILLA_EXPORT TabbedWebView : public WebView
 {
     Q_OBJECT
 public:

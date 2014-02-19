@@ -33,7 +33,7 @@ class QLineEdit;
 class WebView;
 class LineEdit;
 
-class QT_QUPZILLA_EXPORT SearchToolBar : public AnimatedWidget
+class QUPZILLA_EXPORT SearchToolBar : public AnimatedWidget
 {
     Q_OBJECT
 public:

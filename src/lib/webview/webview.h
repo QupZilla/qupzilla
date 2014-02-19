@@ -25,7 +25,7 @@
 
 class WebPage;
 
-class QT_QUPZILLA_EXPORT WebView : public QWebView
+class QUPZILLA_EXPORT WebView : public QWebView
 {
     Q_OBJECT
 public:

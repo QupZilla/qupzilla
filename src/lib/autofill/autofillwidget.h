@@ -32,7 +32,7 @@ class AutoFillWidget;
 class WebView;
 struct PasswordEntry;
 
-class QT_QUPZILLA_EXPORT AutoFillWidget : public LocationBarPopup
+class QUPZILLA_EXPORT AutoFillWidget : public LocationBarPopup
 {
     Q_OBJECT
 

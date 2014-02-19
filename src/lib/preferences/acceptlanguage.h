@@ -28,7 +28,7 @@ namespace Ui
 class AcceptLanguage;
 }
 
-class QT_QUPZILLA_EXPORT AcceptLanguage : public QDialog
+class QUPZILLA_EXPORT AcceptLanguage : public QDialog
 {
     Q_OBJECT
 

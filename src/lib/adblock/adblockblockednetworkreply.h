@@ -53,7 +53,7 @@
 class AdBlockRule;
 class AdBlockSubscription;
 
-class QT_QUPZILLA_EXPORT AdBlockBlockedNetworkReply : public QNetworkReply
+class QUPZILLA_EXPORT AdBlockBlockedNetworkReply : public QNetworkReply
 {
     Q_OBJECT
 

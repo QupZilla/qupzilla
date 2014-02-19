@@ -27,7 +27,7 @@ class QSettings;
 
 class QzSettings;
 
-class QT_QUPZILLA_EXPORT Settings
+class QUPZILLA_EXPORT Settings
 {
 public:
     explicit Settings();

@@ -51,7 +51,7 @@ namespace Core
 namespace Internal
 {
 
-class QT_QUPZILLA_EXPORT FancyTabProxyStyle : public QProxyStyle
+class QUPZILLA_EXPORT FancyTabProxyStyle : public QProxyStyle
 {
     Q_OBJECT
 
@@ -66,7 +66,7 @@ protected:
     bool eventFilter(QObject* o, QEvent* e);
 };
 
-class QT_QUPZILLA_EXPORT FancyTab : public QWidget
+class QUPZILLA_EXPORT FancyTab : public QWidget
 {
     Q_OBJECT
 
@@ -93,7 +93,7 @@ private:
     float m_fader;
 };
 
-class QT_QUPZILLA_EXPORT FancyTabBar : public QWidget
+class QUPZILLA_EXPORT FancyTabBar : public QWidget
 {
     Q_OBJECT
 
@@ -142,7 +142,7 @@ private:
 
 };
 
-class QT_QUPZILLA_EXPORT FancyTabWidget : public QWidget
+class QUPZILLA_EXPORT FancyTabWidget : public QWidget
 {
     Q_OBJECT
 

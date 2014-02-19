@@ -30,7 +30,7 @@ class QIcon;
 class WebView;
 class HistoryModel;
 
-class QT_QUPZILLA_EXPORT History : public QObject
+class QUPZILLA_EXPORT History : public QObject
 {
     Q_OBJECT
 public:

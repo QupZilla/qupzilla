@@ -26,7 +26,7 @@ class QNetworkReply;
 
 class NetworkManager;
 
-class QT_QUPZILLA_EXPORT CaBundleUpdater : public QObject
+class QUPZILLA_EXPORT CaBundleUpdater : public QObject
 {
     Q_OBJECT
 public:

@@ -25,7 +25,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT WebInspector : public QWebInspector
+class QUPZILLA_EXPORT WebInspector : public QWebInspector
 {
 public:
     explicit WebInspector(QWidget* parent) : QWebInspector(parent) { }
@@ -37,7 +37,7 @@ private:
 };
 
 class BrowserWindow;
-class QT_QUPZILLA_EXPORT WebInspectorDockWidget : public QDockWidget
+class QUPZILLA_EXPORT WebInspectorDockWidget : public QDockWidget
 {
     Q_OBJECT
 public:

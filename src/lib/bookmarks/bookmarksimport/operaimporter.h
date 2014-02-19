@@ -23,7 +23,7 @@
 
 #include "bookmarksimporter.h"
 
-class QT_QUPZILLA_EXPORT OperaImporter : public BookmarksImporter
+class QUPZILLA_EXPORT OperaImporter : public BookmarksImporter
 {
 public:
     explicit OperaImporter(QObject* parent = 0);

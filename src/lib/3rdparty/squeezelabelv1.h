@@ -37,7 +37,7 @@
 A label that will squeeze the set text to fit within the size of the
 widget. The text will be elided in the middle.
 */
-class QT_QUPZILLA_EXPORT SqueezeLabelV1 : public QLabel
+class QUPZILLA_EXPORT SqueezeLabelV1 : public QLabel
 {
     Q_OBJECT
 

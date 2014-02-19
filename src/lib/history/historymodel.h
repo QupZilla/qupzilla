@@ -29,7 +29,7 @@ class QTimer;
 class History;
 class HistoryItem;
 
-class QT_QUPZILLA_EXPORT HistoryModel : public QAbstractItemModel
+class QUPZILLA_EXPORT HistoryModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
@@ -87,7 +87,7 @@ private:
     History* m_history;
 };
 
-class QT_QUPZILLA_EXPORT HistoryFilterModel : public QSortFilterProxyModel
+class QUPZILLA_EXPORT HistoryFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:

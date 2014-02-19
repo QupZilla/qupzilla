@@ -26,7 +26,7 @@
 class BrowserWindow;
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarksMenu : public Menu
+class QUPZILLA_EXPORT BookmarksMenu : public Menu
 {
     Q_OBJECT
 

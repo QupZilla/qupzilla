@@ -32,7 +32,7 @@ namespace Ui
 class RSSNotification;
 }
 
-class QT_QUPZILLA_EXPORT RSSNotification : public AnimatedWidget
+class QUPZILLA_EXPORT RSSNotification : public AnimatedWidget
 {
     Q_OBJECT
 public:

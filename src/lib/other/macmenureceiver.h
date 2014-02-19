@@ -29,7 +29,7 @@ class QMenu;
 class QAction;
 class QMenuBar;
 
-class QT_QUPZILLA_EXPORT MacMenuReceiver : public QObject
+class QUPZILLA_EXPORT MacMenuReceiver : public QObject
 {
     Q_OBJECT
 public:

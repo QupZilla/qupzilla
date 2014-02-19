@@ -22,7 +22,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT SchemeHandler
+class QUPZILLA_EXPORT SchemeHandler
 {
 public:
     SchemeHandler() { }

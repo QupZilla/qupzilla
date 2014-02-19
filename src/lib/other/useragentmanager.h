@@ -25,7 +25,7 @@
 
 class QUrl;
 
-class QT_QUPZILLA_EXPORT UserAgentManager
+class QUPZILLA_EXPORT UserAgentManager
 {
 public:
     explicit UserAgentManager();

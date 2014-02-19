@@ -24,7 +24,7 @@
 
 class QAbstractButton;
 
-class QT_QUPZILLA_EXPORT ButtonBox : public QDialogButtonBox
+class QUPZILLA_EXPORT ButtonBox : public QDialogButtonBox
 {
     Q_OBJECT
 public:

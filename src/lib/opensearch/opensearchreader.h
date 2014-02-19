@@ -42,7 +42,7 @@
 
 class OpenSearchEngine;
 
-class QT_QUPZILLA_EXPORT OpenSearchReader : public QXmlStreamReader
+class QUPZILLA_EXPORT OpenSearchReader : public QXmlStreamReader
 {
 public:
     OpenSearchReader();

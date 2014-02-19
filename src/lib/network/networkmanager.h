@@ -29,7 +29,7 @@ class NetworkProxyFactory;
 class QupZillaSchemeHandler;
 class SchemeHandler;
 
-class QT_QUPZILLA_EXPORT NetworkManager : public NetworkManagerProxy
+class QUPZILLA_EXPORT NetworkManager : public NetworkManagerProxy
 {
     Q_OBJECT
 public:

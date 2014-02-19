@@ -62,7 +62,7 @@ As widgets are added to the class they are inserted from the outside
 into the center of the widget.
 */
 class SideWidget;
-class QT_QUPZILLA_EXPORT LineEdit : public QLineEdit
+class QUPZILLA_EXPORT LineEdit : public QLineEdit
 {
     Q_OBJECT
     Q_PROPERTY(int leftMargin READ leftMargin WRITE setLeftMargin)
@@ -109,7 +109,7 @@ private:
 };
 
 
-class QT_QUPZILLA_EXPORT SideWidget : public QWidget
+class QUPZILLA_EXPORT SideWidget : public QWidget
 {
     Q_OBJECT
 

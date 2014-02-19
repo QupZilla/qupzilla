@@ -26,7 +26,7 @@ class Menu;
 class BrowserWindow;
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarksToolbarButton : public QPushButton
+class QUPZILLA_EXPORT BookmarksToolbarButton : public QPushButton
 {
     Q_OBJECT
 

@@ -33,7 +33,7 @@ class SpeedDial;
 class Bookmarks;
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarksWidget : public LocationBarPopup
+class QUPZILLA_EXPORT BookmarksWidget : public LocationBarPopup
 {
     Q_OBJECT
 public:

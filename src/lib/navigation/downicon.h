@@ -21,7 +21,7 @@
 #include "qz_namespace.h"
 #include "clickablelabel.h"
 
-class QT_QUPZILLA_EXPORT DownIcon : public ClickableLabel
+class QUPZILLA_EXPORT DownIcon : public ClickableLabel
 {
 public:
     explicit DownIcon(QWidget* parent = 0);

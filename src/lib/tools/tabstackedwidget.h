@@ -28,7 +28,7 @@ class QStackedWidget;
 class QVBoxLayout;
 
 
-class QT_QUPZILLA_EXPORT TabStackedWidget : public QWidget
+class QUPZILLA_EXPORT TabStackedWidget : public QWidget
 {
     Q_OBJECT
 public:

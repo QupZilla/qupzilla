@@ -37,7 +37,7 @@ class QListWidgetItem;
 class DownloadManager;
 class FtpDownloader;
 
-class QT_QUPZILLA_EXPORT DownloadItem : public QWidget
+class QUPZILLA_EXPORT DownloadItem : public QWidget
 {
     Q_OBJECT
 

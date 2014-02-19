@@ -37,7 +37,7 @@ class PluginsManager;
 class DesktopNotification;
 class ThemeManager;
 
-class QT_QUPZILLA_EXPORT Preferences : public QDialog
+class QUPZILLA_EXPORT Preferences : public QDialog
 {
     Q_OBJECT
 

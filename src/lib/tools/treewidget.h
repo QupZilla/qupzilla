@@ -22,7 +22,7 @@
 
 #include <QTreeWidget>
 
-class QT_QUPZILLA_EXPORT TreeWidget : public QTreeWidget
+class QUPZILLA_EXPORT TreeWidget : public QTreeWidget
 {
     Q_OBJECT
 public:

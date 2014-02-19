@@ -31,7 +31,7 @@ class QScriptEngine;
  *
  * Based on qt-examples: https://gitorious.org/qt-examples/qt-examples/blobs/master/pac-files
  */
-class QT_QUPZILLA_EXPORT ProxyAutoConfig : public QObject
+class QUPZILLA_EXPORT ProxyAutoConfig : public QObject
 {
     Q_OBJECT
 

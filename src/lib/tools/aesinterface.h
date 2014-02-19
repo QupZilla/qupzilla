@@ -29,7 +29,7 @@
 #include <QHash>
 #include <QList>
 
-class QT_QUPZILLA_EXPORT AesInterface : public QObject
+class QUPZILLA_EXPORT AesInterface : public QObject
 {
     Q_OBJECT
 

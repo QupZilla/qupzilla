@@ -35,7 +35,7 @@ class GoIcon;
 class RssIcon;
 class AutoFillIcon;
 
-class QT_QUPZILLA_EXPORT LocationBar : public LineEdit
+class QUPZILLA_EXPORT LocationBar : public LineEdit
 {
     Q_OBJECT
     Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)

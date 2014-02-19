@@ -24,7 +24,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT DatabaseWriter : public QObject
+class QUPZILLA_EXPORT DatabaseWriter : public QObject
 {
     Q_OBJECT
 public:

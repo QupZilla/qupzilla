@@ -26,7 +26,7 @@ class QTimer;
 
 class ToolButton;
 
-class QT_QUPZILLA_EXPORT ReloadStopButton : public QWidget
+class QUPZILLA_EXPORT ReloadStopButton : public QWidget
 {
     Q_OBJECT
 

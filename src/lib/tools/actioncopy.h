@@ -22,7 +22,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT ActionCopy : public QAction
+class QUPZILLA_EXPORT ActionCopy : public QAction
 {
     Q_OBJECT
 public:

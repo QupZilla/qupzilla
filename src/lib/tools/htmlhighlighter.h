@@ -66,7 +66,7 @@
 
 class QTextDocument;
 
-class QT_QUPZILLA_EXPORT HtmlHighlighter : public QSyntaxHighlighter
+class QUPZILLA_EXPORT HtmlHighlighter : public QSyntaxHighlighter
 {
 public:
     HtmlHighlighter(QTextDocument* parent = 0);

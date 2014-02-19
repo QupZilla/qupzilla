@@ -31,7 +31,7 @@ class Hunspell;
 class QMenu;
 class QWebHitTestResult;
 
-class QT_QUPZILLA_EXPORT Speller : public QObject
+class QUPZILLA_EXPORT Speller : public QObject
 {
     Q_OBJECT
 

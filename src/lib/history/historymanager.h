@@ -33,7 +33,7 @@ class QTreeWidgetItem;
 
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT HistoryManager : public QWidget
+class QUPZILLA_EXPORT HistoryManager : public QWidget
 {
     Q_OBJECT
 

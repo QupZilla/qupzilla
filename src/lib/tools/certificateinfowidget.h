@@ -29,7 +29,7 @@ class CertificateInfoWidget;
 
 class QSslCertificate;
 
-class QT_QUPZILLA_EXPORT CertificateInfoWidget : public QWidget
+class QUPZILLA_EXPORT CertificateInfoWidget : public QWidget
 {
 public:
     explicit CertificateInfoWidget(const QSslCertificate &cert, QWidget* parent = 0);

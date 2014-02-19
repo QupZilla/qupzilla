@@ -33,7 +33,7 @@ class AutoFillNotification;
 
 class AnimatedWidget;
 
-class QT_QUPZILLA_EXPORT AutoFillNotification : public AnimatedWidget
+class QUPZILLA_EXPORT AutoFillNotification : public AnimatedWidget
 {
     Q_OBJECT
 

@@ -27,7 +27,7 @@ namespace Ui
 class EditSearchEngine;
 }
 
-class QT_QUPZILLA_EXPORT EditSearchEngine : public QDialog
+class QUPZILLA_EXPORT EditSearchEngine : public QDialog
 {
     Q_OBJECT
 public:

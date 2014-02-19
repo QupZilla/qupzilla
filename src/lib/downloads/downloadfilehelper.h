@@ -32,7 +32,7 @@ class DownloadItem;
 class DownloadManager;
 class WebPage;
 
-class QT_QUPZILLA_EXPORT DownloadFileHelper : public QObject
+class QUPZILLA_EXPORT DownloadFileHelper : public QObject
 {
     Q_OBJECT
 public:

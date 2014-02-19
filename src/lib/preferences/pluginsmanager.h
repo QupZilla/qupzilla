@@ -29,7 +29,7 @@ class PluginsList;
 
 class QListWidgetItem;
 
-class QT_QUPZILLA_EXPORT PluginsManager : public QWidget
+class QUPZILLA_EXPORT PluginsManager : public QWidget
 {
     Q_OBJECT
 

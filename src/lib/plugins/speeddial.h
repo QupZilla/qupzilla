@@ -29,7 +29,7 @@ class QPixmap;
 
 class PageThumbnailer;
 
-class QT_QUPZILLA_EXPORT SpeedDial : public QObject
+class QUPZILLA_EXPORT SpeedDial : public QObject
 {
     Q_OBJECT
 public:

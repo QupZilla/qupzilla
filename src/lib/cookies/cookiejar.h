@@ -26,7 +26,7 @@
 
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT CookieJar : public QNetworkCookieJar
+class QUPZILLA_EXPORT CookieJar : public QNetworkCookieJar
 {
 public:
     explicit CookieJar(BrowserWindow* window, QObject* parent = 0);

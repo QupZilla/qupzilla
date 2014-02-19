@@ -22,7 +22,7 @@
 #include "webtab.h"
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT RestoreManager
+class QUPZILLA_EXPORT RestoreManager
 {
 public:
     struct WindowData {

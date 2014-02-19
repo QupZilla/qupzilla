@@ -24,7 +24,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT DelayedFileWatcher : public QFileSystemWatcher
+class QUPZILLA_EXPORT DelayedFileWatcher : public QFileSystemWatcher
 {
     Q_OBJECT
 

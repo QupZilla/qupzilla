@@ -28,7 +28,7 @@
 class QWebPage;
 class QPixmap;
 
-class QT_QUPZILLA_EXPORT CleanPluginFactory : public QWebPluginFactory
+class QUPZILLA_EXPORT CleanPluginFactory : public QWebPluginFactory
 {
     Q_OBJECT
 public:
@@ -38,7 +38,7 @@ public:
     QObject* create(const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const;
 };
 
-class QT_QUPZILLA_EXPORT PageThumbnailer : public QObject
+class QUPZILLA_EXPORT PageThumbnailer : public QObject
 {
     Q_OBJECT
 public:

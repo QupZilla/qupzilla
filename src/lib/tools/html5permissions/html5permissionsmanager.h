@@ -27,7 +27,7 @@
 class QUrl;
 class WebPage;
 
-class QT_QUPZILLA_EXPORT HTML5PermissionsManager : public QObject
+class QUPZILLA_EXPORT HTML5PermissionsManager : public QObject
 {
 public:
     explicit HTML5PermissionsManager(QObject* parent);

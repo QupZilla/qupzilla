@@ -24,7 +24,7 @@
 #include "schemehandler.h"
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT QupZillaSchemeHandler : public SchemeHandler
+class QUPZILLA_EXPORT QupZillaSchemeHandler : public SchemeHandler
 {
 public:
     explicit QupZillaSchemeHandler();
@@ -32,7 +32,7 @@ public:
     QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 };
 
-class QT_QUPZILLA_EXPORT QupZillaSchemeReply : public QNetworkReply
+class QUPZILLA_EXPORT QupZillaSchemeReply : public QNetworkReply
 {
     Q_OBJECT
 public:

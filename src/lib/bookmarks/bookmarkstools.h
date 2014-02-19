@@ -26,7 +26,7 @@
 class Bookmarks;
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarksFoldersMenu : public QMenu
+class QUPZILLA_EXPORT BookmarksFoldersMenu : public QMenu
 {
     Q_OBJECT
 
@@ -48,7 +48,7 @@ private:
     BookmarkItem* m_selectedFolder;
 };
 
-class QT_QUPZILLA_EXPORT BookmarksFoldersButton : public QPushButton
+class QUPZILLA_EXPORT BookmarksFoldersButton : public QPushButton
 {
     Q_OBJECT
 
@@ -75,7 +75,7 @@ class TabWidget;
 class Action;
 class Menu;
 
-class QT_QUPZILLA_EXPORT BookmarksTools
+class QUPZILLA_EXPORT BookmarksTools
 {
 public:
     // Add Bookmark Dialogs

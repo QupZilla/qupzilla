@@ -34,7 +34,7 @@ class TabBarScrollWidget;
 class TabBarHelper;
 class ToolButton;
 
-class QT_QUPZILLA_EXPORT ComboTabBar : public QWidget
+class QUPZILLA_EXPORT ComboTabBar : public QWidget
 {
     Q_OBJECT
 
@@ -187,7 +187,7 @@ signals:
     void scrollBarValueChanged(int value);
 };
 
-class QT_QUPZILLA_EXPORT TabBarHelper : public QTabBar
+class QUPZILLA_EXPORT TabBarHelper : public QTabBar
 {
     Q_OBJECT
 
@@ -235,7 +235,7 @@ private:
     bool m_bluredBackground;
 };
 
-class QT_QUPZILLA_EXPORT TabScrollBar : public QScrollBar
+class QUPZILLA_EXPORT TabScrollBar : public QScrollBar
 {
     Q_OBJECT
 public:
@@ -250,7 +250,7 @@ private:
 };
 
 
-class QT_QUPZILLA_EXPORT TabBarScrollWidget : public QWidget
+class QUPZILLA_EXPORT TabBarScrollWidget : public QWidget
 {
     Q_OBJECT
 public:

@@ -28,7 +28,7 @@ namespace Ui
 class AdBlockAddSubscriptionDialog;
 }
 
-class QT_QUPZILLA_EXPORT AdBlockAddSubscriptionDialog : public QDialog
+class QUPZILLA_EXPORT AdBlockAddSubscriptionDialog : public QDialog
 {
     Q_OBJECT
 

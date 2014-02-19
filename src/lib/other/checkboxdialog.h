@@ -28,7 +28,7 @@ namespace Ui
 class CheckBoxDialog;
 }
 
-class QT_QUPZILLA_EXPORT CheckBoxDialog : public QDialog
+class QUPZILLA_EXPORT CheckBoxDialog : public QDialog
 {
     Q_OBJECT
 public:

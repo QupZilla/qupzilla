@@ -30,7 +30,7 @@ class SourceViewerSearch;
 
 class SourceViewer;
 
-class QT_QUPZILLA_EXPORT SourceViewerSearch : public AnimatedWidget
+class QUPZILLA_EXPORT SourceViewerSearch : public AnimatedWidget
 {
     Q_OBJECT
 public:

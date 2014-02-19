@@ -23,7 +23,7 @@
 #include "qz_namespace.h"
 #include "ui_docktitlebarwidget.h"
 
-class QT_QUPZILLA_EXPORT DockTitleBarWidget : public QWidget, public Ui_DockTitleBarWidget
+class QUPZILLA_EXPORT DockTitleBarWidget : public QWidget, public Ui_DockTitleBarWidget
 {
 public:
     explicit DockTitleBarWidget(const QString &title, QWidget* parent = 0);

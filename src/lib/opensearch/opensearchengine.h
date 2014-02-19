@@ -50,7 +50,7 @@ class QNetworkReply;
 class QScriptEngine;
 
 class OpenSearchEngineDelegate;
-class QT_QUPZILLA_EXPORT OpenSearchEngine : public QObject
+class QUPZILLA_EXPORT OpenSearchEngine : public QObject
 {
     Q_OBJECT
 

@@ -34,7 +34,7 @@ class QTreeWidgetItem;
 class WebView;
 class CertificateInfoWidget;
 
-class QT_QUPZILLA_EXPORT SiteInfo : public QDialog
+class QUPZILLA_EXPORT SiteInfo : public QDialog
 {
     Q_OBJECT
 

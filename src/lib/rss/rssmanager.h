@@ -38,7 +38,7 @@ class RSSManager;
 class BrowserWindow;
 class FollowRedirectReply;
 class NetworkManager;
-class QT_QUPZILLA_EXPORT RSSManager : public QWidget
+class QUPZILLA_EXPORT RSSManager : public QWidget
 {
     Q_OBJECT
 

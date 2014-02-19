@@ -24,7 +24,7 @@
 
 class QListWidget;
 
-class QT_QUPZILLA_EXPORT PluginListDelegate : public QStyledItemDelegate
+class QUPZILLA_EXPORT PluginListDelegate : public QStyledItemDelegate
 {
 public:
     explicit PluginListDelegate(QListWidget* parent);

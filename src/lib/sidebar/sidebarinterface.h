@@ -26,7 +26,7 @@ class QAction;
 
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT SideBarInterface : public QObject
+class QUPZILLA_EXPORT SideBarInterface : public QObject
 {
 public:
     explicit SideBarInterface(QObject* parent = 0) : QObject(parent) { }

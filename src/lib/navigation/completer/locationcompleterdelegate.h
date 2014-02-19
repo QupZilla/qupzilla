@@ -24,7 +24,7 @@
 
 class LocationCompleterView;
 
-class QT_QUPZILLA_EXPORT LocationCompleterDelegate : public QStyledItemDelegate
+class QUPZILLA_EXPORT LocationCompleterDelegate : public QStyledItemDelegate
 {
 public:
     explicit LocationCompleterDelegate(LocationCompleterView* parent = 0);

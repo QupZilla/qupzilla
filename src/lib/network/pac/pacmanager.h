@@ -29,7 +29,7 @@ class QNetworkProxy;
 class FollowRedirectReply;
 class ProxyAutoConfig;
 
-class QT_QUPZILLA_EXPORT PacManager : public QObject
+class QUPZILLA_EXPORT PacManager : public QObject
 {
     Q_OBJECT
 public:

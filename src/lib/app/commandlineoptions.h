@@ -25,7 +25,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT CommandLineOptions
+class QUPZILLA_EXPORT CommandLineOptions
 {
 public:
     struct ActionPair {

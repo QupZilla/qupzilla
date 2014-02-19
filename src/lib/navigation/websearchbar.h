@@ -35,7 +35,7 @@ class SearchEnginesManager;
 class SearchEnginesDialog;
 class OpenSearchEngine;
 
-class QT_QUPZILLA_EXPORT WebSearchBar_Button : public ClickableLabel
+class QUPZILLA_EXPORT WebSearchBar_Button : public ClickableLabel
 {
 public:
     explicit WebSearchBar_Button(QWidget* parent = 0);
@@ -44,7 +44,7 @@ private:
     void contextMenuEvent(QContextMenuEvent* event);
 };
 
-class QT_QUPZILLA_EXPORT WebSearchBar : public LineEdit
+class QUPZILLA_EXPORT WebSearchBar : public LineEdit
 {
     Q_OBJECT
     Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)

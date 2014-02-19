@@ -30,7 +30,7 @@ class RSSWidget;
 
 class WebView;
 
-class QT_QUPZILLA_EXPORT RSSWidget : public LocationBarPopup
+class QUPZILLA_EXPORT RSSWidget : public LocationBarPopup
 {
     Q_OBJECT
 

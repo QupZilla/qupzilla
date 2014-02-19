@@ -28,7 +28,7 @@ class QTimer;
 
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT TipLabel : public SqueezeLabelV1
+class QUPZILLA_EXPORT TipLabel : public SqueezeLabelV1
 {
 public:
     explicit TipLabel(QWidget* parent);
@@ -45,7 +45,7 @@ private:
     QTimer* m_timer;
 };
 
-class QT_QUPZILLA_EXPORT StatusBarMessage
+class QUPZILLA_EXPORT StatusBarMessage
 {
 public:
     explicit StatusBarMessage(BrowserWindow* window);

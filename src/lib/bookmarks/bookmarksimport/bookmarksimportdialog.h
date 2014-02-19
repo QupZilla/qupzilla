@@ -31,7 +31,7 @@ class BookmarkItem;
 class BookmarksModel;
 class BookmarksImporter;
 
-class QT_QUPZILLA_EXPORT BookmarksImportDialog : public QDialog
+class QUPZILLA_EXPORT BookmarksImportDialog : public QDialog
 {
     Q_OBJECT
 

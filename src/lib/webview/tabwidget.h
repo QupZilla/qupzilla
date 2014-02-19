@@ -37,7 +37,7 @@ class TabBar;
 class TabWidget;
 class ClosedTabsManager;
 
-class QT_QUPZILLA_EXPORT AddTabButton : public ToolButton
+class QUPZILLA_EXPORT AddTabButton : public ToolButton
 {
 public:
     explicit AddTabButton(TabWidget* tabWidget, TabBar* tabBar);
@@ -52,7 +52,7 @@ private:
     TabWidget* m_tabWidget;
 };
 
-class QT_QUPZILLA_EXPORT MenuTabs : public QMenu
+class QUPZILLA_EXPORT MenuTabs : public QMenu
 {
     Q_OBJECT
 public:
@@ -65,7 +65,7 @@ private:
     void mouseReleaseEvent(QMouseEvent* event);
 };
 
-class QT_QUPZILLA_EXPORT TabWidget : public TabStackedWidget
+class QUPZILLA_EXPORT TabWidget : public TabStackedWidget
 {
     Q_OBJECT
 public:

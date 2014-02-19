@@ -32,7 +32,7 @@ class AdBlockDialog;
 class AdBlockCustomList;
 class AdBlockSubscription;
 
-class QT_QUPZILLA_EXPORT AdBlockManager : public QObject
+class QUPZILLA_EXPORT AdBlockManager : public QObject
 {
     Q_OBJECT
 

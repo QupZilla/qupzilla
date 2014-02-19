@@ -21,7 +21,7 @@
 #include "qz_namespace.h"
 #include "clickablelabel.h"
 
-class QT_QUPZILLA_EXPORT GoIcon : public ClickableLabel
+class QUPZILLA_EXPORT GoIcon : public ClickableLabel
 {
 public:
     explicit GoIcon(QWidget* parent = 0);

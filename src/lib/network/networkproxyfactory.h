@@ -42,7 +42,7 @@ private:
     QzRegExp* m_regExp;
 };
 
-class QT_QUPZILLA_EXPORT NetworkProxyFactory : public QNetworkProxyFactory
+class QUPZILLA_EXPORT NetworkProxyFactory : public QNetworkProxyFactory
 {
 public:
     enum ProxyPreference { SystemProxy, NoProxy, ProxyAutoConfig, DefinedProxy };

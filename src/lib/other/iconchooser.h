@@ -30,7 +30,7 @@ namespace Ui
 class IconChooser;
 }
 
-class QT_QUPZILLA_EXPORT IconChooser : public QDialog
+class QUPZILLA_EXPORT IconChooser : public QDialog
 {
     Q_OBJECT
 
@@ -48,7 +48,7 @@ private:
     Ui::IconChooser* ui;
 };
 
-class QT_QUPZILLA_EXPORT IconChooserDelegate : public QStyledItemDelegate
+class QUPZILLA_EXPORT IconChooserDelegate : public QStyledItemDelegate
 {
 public:
     explicit IconChooserDelegate(QWidget* parent = 0);

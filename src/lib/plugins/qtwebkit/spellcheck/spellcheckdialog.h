@@ -27,7 +27,7 @@ namespace Ui
 class SpellCheckDialog;
 }
 
-class QT_QUPZILLA_EXPORT SpellCheckDialog : public QDialog
+class QUPZILLA_EXPORT SpellCheckDialog : public QDialog
 {
     Q_OBJECT
 

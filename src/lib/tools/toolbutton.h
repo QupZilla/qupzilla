@@ -23,7 +23,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT ToolButton : public QToolButton
+class QUPZILLA_EXPORT ToolButton : public QToolButton
 {
     Q_OBJECT
 

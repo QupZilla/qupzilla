@@ -55,7 +55,7 @@ class QFrame;
 
 class WebPage;
 
-class QT_QUPZILLA_EXPORT ClickToFlash : public QWidget
+class QUPZILLA_EXPORT ClickToFlash : public QWidget
 {
     Q_OBJECT
 

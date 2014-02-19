@@ -28,7 +28,7 @@ class QUrl;
 class BookmarkItem;
 class BookmarksModel;
 
-class QT_QUPZILLA_EXPORT Bookmarks : public QObject
+class QUPZILLA_EXPORT Bookmarks : public QObject
 {
     Q_OBJECT
 public:

@@ -23,7 +23,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT AnimatedWidget : public QWidget
+class QUPZILLA_EXPORT AnimatedWidget : public QWidget
 {
     Q_OBJECT
 

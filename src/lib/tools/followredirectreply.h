@@ -28,7 +28,7 @@ class QNetworkAccessManager;
 class QNetworkReply;
 class QUrl;
 
-class QT_QUPZILLA_EXPORT FollowRedirectReply : public QObject
+class QUPZILLA_EXPORT FollowRedirectReply : public QObject
 {
     Q_OBJECT
 public:

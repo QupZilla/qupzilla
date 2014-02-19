@@ -27,14 +27,14 @@ class QUrl;
 
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT Updater : public QObject
+class QUPZILLA_EXPORT Updater : public QObject
 {
     Q_OBJECT
 public:
     explicit Updater(BrowserWindow* window, QObject* parent = 0);
     ~Updater();
 
-    struct QT_QUPZILLA_EXPORT Version {
+    struct QUPZILLA_EXPORT Version {
         bool isValid;
         int majorVersion;
         int minorVersion;

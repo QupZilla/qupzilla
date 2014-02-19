@@ -29,7 +29,7 @@ class QBoxLayout;
 class QStatusBar;
 class QWebFrame;
 
-class QT_QUPZILLA_EXPORT SourceViewer : public QWidget
+class QUPZILLA_EXPORT SourceViewer : public QWidget
 {
     Q_OBJECT
 public:

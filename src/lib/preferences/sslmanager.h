@@ -28,7 +28,7 @@ namespace Ui
 class SSLManager;
 }
 
-class QT_QUPZILLA_EXPORT SSLManager : public QDialog
+class QUPZILLA_EXPORT SSLManager : public QDialog
 {
     Q_OBJECT
 

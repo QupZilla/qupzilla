@@ -28,7 +28,7 @@ class PasswordBackend;
 class DatabasePasswordBackend;
 class DatabaseEncryptedPasswordBackend;
 
-struct QT_QUPZILLA_EXPORT PasswordEntry {
+struct QUPZILLA_EXPORT PasswordEntry {
     QVariant id;
     QString host;
     QString username;
@@ -50,11 +50,11 @@ struct QT_QUPZILLA_EXPORT PasswordEntry {
         return updated > other.updated;
     }
 
-    friend QT_QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const PasswordEntry &entry);
-    friend QT_QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, PasswordEntry &entry);
+    friend QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const PasswordEntry &entry);
+    friend QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, PasswordEntry &entry);
 };
 
-class QT_QUPZILLA_EXPORT PasswordManager : public QObject
+class QUPZILLA_EXPORT PasswordManager : public QObject
 {
     Q_OBJECT
 public:

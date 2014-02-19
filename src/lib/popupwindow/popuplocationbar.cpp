@@ -28,7 +28,7 @@
 #include <QMovie>
 #include <QLabel>
 
-class QT_QUPZILLA_EXPORT PopupSiteIcon : public QWidget
+class QUPZILLA_EXPORT PopupSiteIcon : public QWidget
 {
 public:
     explicit PopupSiteIcon(QWidget* parent = 0) : QWidget(parent) { }

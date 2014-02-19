@@ -22,7 +22,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT EmptyNetworkReply : public QNetworkReply
+class QUPZILLA_EXPORT EmptyNetworkReply : public QNetworkReply
 {
     Q_OBJECT
 public:

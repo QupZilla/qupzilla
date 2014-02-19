@@ -24,7 +24,7 @@
 
 class WebPage;
 
-class QT_QUPZILLA_EXPORT WebPluginFactory : public QWebPluginFactory
+class QUPZILLA_EXPORT WebPluginFactory : public QWebPluginFactory
 {
 public:
     WebPluginFactory(WebPage* page);

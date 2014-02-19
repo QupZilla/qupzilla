@@ -26,7 +26,7 @@
 class WebView;
 class BookmarkItem;
 
-class QT_QUPZILLA_EXPORT BookmarksIcon : public ClickableLabel
+class QUPZILLA_EXPORT BookmarksIcon : public ClickableLabel
 {
     Q_OBJECT
 public:

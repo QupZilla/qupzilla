@@ -27,7 +27,7 @@ class QUrl;
 
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT AdBlockIcon : public ClickableLabel
+class QUPZILLA_EXPORT AdBlockIcon : public ClickableLabel
 {
     Q_OBJECT
 public:

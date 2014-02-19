@@ -30,7 +30,7 @@ class HistorySideBar;
 
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT HistorySideBar : public QWidget
+class QUPZILLA_EXPORT HistorySideBar : public QWidget
 {
     Q_OBJECT
 

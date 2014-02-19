@@ -23,7 +23,7 @@
 #include "qz_namespace.h"
 #include "history.h"
 
-class QT_QUPZILLA_EXPORT HistoryItem
+class QUPZILLA_EXPORT HistoryItem
 {
 public:
     explicit HistoryItem(HistoryItem* parent = 0);

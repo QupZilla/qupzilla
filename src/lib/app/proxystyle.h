@@ -22,7 +22,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT ProxyStyle : public QProxyStyle
+class QUPZILLA_EXPORT ProxyStyle : public QProxyStyle
 {
 public:
     explicit ProxyStyle();

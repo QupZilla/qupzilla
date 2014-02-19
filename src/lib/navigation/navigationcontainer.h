@@ -24,7 +24,7 @@
 
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT NavigationContainer : public QWidget
+class QUPZILLA_EXPORT NavigationContainer : public QWidget
 {
 public:
     explicit NavigationContainer(BrowserWindow* parent = 0);

@@ -32,7 +32,7 @@ class ThemeManager;
 
 class Preferences;
 
-class QT_QUPZILLA_EXPORT ThemeManager : public QWidget
+class QUPZILLA_EXPORT ThemeManager : public QWidget
 {
     Q_OBJECT
 

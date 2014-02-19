@@ -23,7 +23,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT AutoSaver : public QObject
+class QUPZILLA_EXPORT AutoSaver : public QObject
 {
     Q_OBJECT
 public:

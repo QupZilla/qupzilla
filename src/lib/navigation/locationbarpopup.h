@@ -23,7 +23,7 @@
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT LocationBarPopup : public QFrame
+class QUPZILLA_EXPORT LocationBarPopup : public QFrame
 {
 public:
     explicit LocationBarPopup(QWidget* parent);

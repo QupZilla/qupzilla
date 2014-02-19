@@ -32,7 +32,7 @@ class ReloadStopButton;
 class Menu;
 class QUrl;
 
-class QT_QUPZILLA_EXPORT NavigationBar : public QWidget
+class QUPZILLA_EXPORT NavigationBar : public QWidget
 {
     Q_OBJECT
 public:

@@ -21,7 +21,7 @@
 #include "qz_namespace.h"
 #include "schemehandler.h"
 
-class QT_QUPZILLA_EXPORT AdBlockSchemeHandler : public SchemeHandler
+class QUPZILLA_EXPORT AdBlockSchemeHandler : public SchemeHandler
 {
 public:
     AdBlockSchemeHandler();

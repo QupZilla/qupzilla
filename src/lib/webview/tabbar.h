@@ -28,7 +28,7 @@ class BrowserWindow;
 class TabWidget;
 class TabPreview;
 
-class QT_QUPZILLA_EXPORT TabBar : public ComboTabBar
+class QUPZILLA_EXPORT TabBar : public ComboTabBar
 {
     Q_OBJECT
 public:

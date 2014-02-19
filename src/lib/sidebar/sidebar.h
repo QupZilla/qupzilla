@@ -32,7 +32,7 @@ class SideBarInterface;
 class SideBarManager;
 class BrowserWindow;
 
-class QT_QUPZILLA_EXPORT SideBar : public QWidget
+class QUPZILLA_EXPORT SideBar : public QWidget
 {
     Q_OBJECT
 public:
@@ -54,7 +54,7 @@ private:
     SideBarManager* m_manager;
 };
 
-class QT_QUPZILLA_EXPORT SideBarManager : public QObject
+class QUPZILLA_EXPORT SideBarManager : public QObject
 {
     Q_OBJECT
 public:

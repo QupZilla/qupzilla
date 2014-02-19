@@ -23,7 +23,7 @@
 
 #include "bookmarksimporter.h"
 
-class QT_QUPZILLA_EXPORT ChromeImporter : public BookmarksImporter
+class QUPZILLA_EXPORT ChromeImporter : public BookmarksImporter
 {
 public:
     explicit ChromeImporter(QObject* parent = 0);
