@@ -20,7 +20,7 @@
 
 #include "clickablelabel.h"
 
-class QupZilla;
+class BrowserWindow;
 class GM_Manager;
 
 class GM_Icon : public ClickableLabel
@@ -28,14 +28,14 @@ class GM_Icon : public ClickableLabel
     Q_OBJECT
 
 public:
-    explicit GM_Icon(GM_Manager* manager, QupZilla* window);
+    explicit GM_Icon(GM_Manager* manager, BrowserWindow* window);
 
 private slots:
     void openSettings();
 
 private:
     GM_Manager* m_manager;
-    QupZilla* m_window;
+    BrowserWindow* m_window;
 };
 
 #endif // GM_ICON_H

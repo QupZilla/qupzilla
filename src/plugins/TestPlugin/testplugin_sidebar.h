@@ -29,7 +29,7 @@ public:
     QString title() const;
     QAction* createMenuAction();
 
-    QWidget* createSideBarWidget(QupZilla* mainWindow);
+    QWidget* createSideBarWidget(BrowserWindow* mainWindow);
 };
 
 #endif // TESTPLUGIN_SIDEBAR_H

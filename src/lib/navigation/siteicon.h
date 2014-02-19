@@ -23,14 +23,14 @@
 
 class LocationBar;
 class WebView;
-class QupZilla;
+class BrowserWindow;
 
 class QT_QUPZILLA_EXPORT SiteIcon : public ToolButton
 {
     Q_OBJECT
 
 public:
-    explicit SiteIcon(QupZilla* window, LocationBar* parent);
+    explicit SiteIcon(BrowserWindow* window, LocationBar* parent);
 
     void setWebView(WebView* view);
 
@@ -42,7 +42,7 @@ private:
     void mousePressEvent(QMouseEvent* e);
     void mouseMoveEvent(QMouseEvent* e);
 
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     LocationBar* m_locationBar;
     WebView* m_view;
 

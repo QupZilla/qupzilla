@@ -15,7 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 #include "tabbar.h"
 #include "webpage.h"
@@ -106,15 +106,9 @@
 #define MENU_RECEIVER mApp->macMenuReceiver()
 #endif
 
-const QString QupZilla::VERSION = "1.7.0";
-const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
-const QString QupZilla::AUTHOR = "David Rosca";
-const QString QupZilla::COPYRIGHT = "2010-2014";
-const QString QupZilla::WWWADDRESS = "http://www.qupzilla.com";
-const QString QupZilla::WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
-const QString QupZilla::WEBKITVERSION = qWebKitVersion();
+const QString BrowserWindow::WEBKITVERSION = qWebKitVersion();
 
-QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
+BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, QUrl startUrl)
     : QMainWindow(0)
     , m_historyMenuChanged(true)
     , m_bookmarksMenuChanged(true)
@@ -164,12 +158,12 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     }
 }
 
-void QupZilla::openWithTab(WebTab* tab)
+void BrowserWindow::openWithTab(WebTab* tab)
 {
     m_startTab = tab;
 }
 
-void QupZilla::postLaunch()
+void BrowserWindow::postLaunch()
 {
 #ifdef QZ_WS_X11
     setUpdatesEnabled(false);
@@ -280,7 +274,7 @@ void QupZilla::postLaunch()
     QTimer::singleShot(0, tabWidget()->getTabBar(), SLOT(ensureVisible()));
 }
 
-void QupZilla::setupUi()
+void BrowserWindow::setupUi()
 {
     int locationBarWidth;
     int websearchBarWidth;
@@ -377,7 +371,7 @@ void QupZilla::setupUi()
     QToolTip::setPalette(pal);
 }
 
-void QupZilla::setupMenu()
+void BrowserWindow::setupMenu()
 {
 #ifdef Q_OS_MAC
     if (menuBar()) {
@@ -674,7 +668,7 @@ void QupZilla::setupMenu()
 #endif
 }
 
-void QupZilla::setupOtherActions()
+void BrowserWindow::setupOtherActions()
 {
     m_actionRestoreTab = new QAction(QIcon::fromTheme("user-trash"), tr("Restore &Closed Tab"), this);
     m_actionRestoreTab->setShortcut(QKeySequence("Ctrl+Shift+T"));
@@ -708,7 +702,7 @@ void QupZilla::setupOtherActions()
     }
 }
 
-QKeySequence QupZilla::actionShortcut(QKeySequence shortcut, QKeySequence fallBack,
+QKeySequence BrowserWindow::actionShortcut(QKeySequence shortcut, QKeySequence fallBack,
                                       QKeySequence shortcutRTL, QKeySequence fallbackRTL)
 {
     if (isRightToLeft() && (!shortcutRTL.isEmpty() || !fallbackRTL.isEmpty())) {
@@ -769,7 +763,7 @@ void QupZilla::refreshStateOfAllActions()
 }
 #endif
 
-void QupZilla::loadSettings()
+void BrowserWindow::loadSettings()
 {
     Settings settings;
 
@@ -881,17 +875,17 @@ void QupZilla::loadSettings()
 #endif
 }
 
-void QupZilla::goNext()
+void BrowserWindow::goNext()
 {
     weView()->forward();
 }
 
-void QupZilla::goBack()
+void BrowserWindow::goBack()
 {
     weView()->back();
 }
 
-QMenuBar* QupZilla::menuBar() const
+QMenuBar* BrowserWindow::menuBar() const
 {
 #ifdef Q_OS_MAC
     return mApp->macMenuReceiver()->menuBar();
@@ -900,12 +894,12 @@ QMenuBar* QupZilla::menuBar() const
 #endif
 }
 
-TabbedWebView* QupZilla::weView() const
+TabbedWebView* BrowserWindow::weView() const
 {
     return weView(m_tabWidget->currentIndex());
 }
 
-TabbedWebView* QupZilla::weView(int index) const
+TabbedWebView* BrowserWindow::weView(int index) const
 {
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
     if (!webTab) {
@@ -915,29 +909,29 @@ TabbedWebView* QupZilla::weView(int index) const
     return webTab->view();
 }
 
-LocationBar* QupZilla::locationBar() const
+LocationBar* BrowserWindow::locationBar() const
 {
     return qobject_cast<LocationBar*>(m_tabWidget->locationBars()->currentWidget());
 }
 
-Qz::BrowserWindow QupZilla::windowType() const
+Qz::BrowserWindowType BrowserWindow::windowType() const
 {
     return m_windowType;
 }
 
-void QupZilla::popupToolbarsMenu(const QPoint &pos)
+void BrowserWindow::popupToolbarsMenu(const QPoint &pos)
 {
     aboutToShowViewMenu();
     m_toolbarsMenu->exec(pos);
     aboutToHideViewMenu();
 }
 
-bool QupZilla::isTransparentBackgroundAllowed()
+bool BrowserWindow::isTransparentBackgroundAllowed()
 {
     return m_usingTransparentBackground && !isFullScreen();
 }
 
-bool QupZilla::tabsOnTop() const
+bool BrowserWindow::tabsOnTop() const
 {
     if (m_tabsOnTopState == -1) {
         m_tabsOnTopState = qzSettings->tabsOnTop ? 1 : 0;
@@ -946,7 +940,7 @@ bool QupZilla::tabsOnTop() const
     return m_tabsOnTopState == 1;
 }
 
-void QupZilla::setWindowTitle(const QString &t)
+void BrowserWindow::setWindowTitle(const QString &t)
 {
     QString title = t;
 
@@ -962,7 +956,7 @@ void QupZilla::setWindowTitle(const QString &t)
     QMainWindow::setWindowTitle(title);
 }
 
-void QupZilla::receiveMessage(Qz::AppMessageType mes, bool state)
+void BrowserWindow::receiveMessage(Qz::AppMessageType mes, bool state)
 {
     switch (mes) {
     case Qz::AM_SetAdBlockIconEnabled:
@@ -994,19 +988,19 @@ void QupZilla::receiveMessage(Qz::AppMessageType mes, bool state)
     }
 }
 
-void QupZilla::aboutToShowFileMenu()
+void BrowserWindow::aboutToShowFileMenu()
 {
 #ifndef Q_OS_MAC
     m_actionCloseWindow->setEnabled(mApp->windowCount() > 1);
 #endif
 }
 
-void QupZilla::aboutToHideFileMenu()
+void BrowserWindow::aboutToHideFileMenu()
 {
     m_actionCloseWindow->setEnabled(true);
 }
 
-void QupZilla::aboutToShowHistoryMenu()
+void BrowserWindow::aboutToShowHistoryMenu()
 {
     TabbedWebView* view = weView();
     if (!view) {
@@ -1017,13 +1011,13 @@ void QupZilla::aboutToShowHistoryMenu()
     m_menuHistory->actions().at(1)->setEnabled(view->history()->canGoForward());
 }
 
-void QupZilla::aboutToHideHistoryMenu()
+void BrowserWindow::aboutToHideHistoryMenu()
 {
     m_menuHistory->actions().at(0)->setEnabled(true);
     m_menuHistory->actions().at(1)->setEnabled(true);
 }
 
-void QupZilla::aboutToShowClosedTabsMenu()
+void BrowserWindow::aboutToShowClosedTabsMenu()
 {
     m_menuClosedTabs->clear();
     int i = 0;
@@ -1046,7 +1040,7 @@ void QupZilla::aboutToShowClosedTabsMenu()
     }
 }
 
-void QupZilla::aboutToShowHistoryRecentMenu()
+void BrowserWindow::aboutToShowHistoryRecentMenu()
 {
     m_menuHistoryRecent->clear();
     QSqlQuery query;
@@ -1071,7 +1065,7 @@ void QupZilla::aboutToShowHistoryRecentMenu()
     }
 }
 
-void QupZilla::aboutToShowHistoryMostMenu()
+void BrowserWindow::aboutToShowHistoryMostMenu()
 {
     m_menuHistoryMost->clear();
 
@@ -1096,7 +1090,7 @@ void QupZilla::aboutToShowHistoryMostMenu()
     }
 }
 
-void QupZilla::aboutToShowViewMenu()
+void BrowserWindow::aboutToShowViewMenu()
 {
     m_actionShowToolbar->setChecked(m_navigationBar->isVisible());
 #ifndef Q_OS_MAC
@@ -1116,14 +1110,14 @@ void QupZilla::aboutToShowViewMenu()
 #endif
 }
 
-void QupZilla::aboutToHideViewMenu()
+void BrowserWindow::aboutToHideViewMenu()
 {
 #ifndef Q_OS_MAC
     m_actionPageSource->setEnabled(false);
 #endif
 }
 
-void QupZilla::aboutToShowEditMenu()
+void BrowserWindow::aboutToShowEditMenu()
 {
     WebView* view = weView();
 
@@ -1137,7 +1131,7 @@ void QupZilla::aboutToShowEditMenu()
     m_menuEdit->actions().at(7)->setEnabled(view->pageAction(QWebPage::SelectAll)->isEnabled());
 }
 
-void QupZilla::aboutToHideEditMenu()
+void BrowserWindow::aboutToHideEditMenu()
 {
 #ifndef Q_OS_MAC
     foreach (QAction* act, m_menuEdit->actions()) {
@@ -1149,19 +1143,19 @@ void QupZilla::aboutToHideEditMenu()
     m_actionPreferences->setEnabled(true);
 }
 
-void QupZilla::aboutToShowToolsMenu()
+void BrowserWindow::aboutToShowToolsMenu()
 {
     m_actionPageInfo->setEnabled(true);
 }
 
-void QupZilla::aboutToHideToolsMenu()
+void BrowserWindow::aboutToHideToolsMenu()
 {
 #ifndef Q_OS_MAC
     m_actionPageInfo->setEnabled(false);
 #endif
 }
 
-void QupZilla::aboutToShowEncodingMenu()
+void BrowserWindow::aboutToShowEncodingMenu()
 {
     m_menuEncoding->clear();
     QMenu* menuISO = new QMenu("ISO", this);
@@ -1228,7 +1222,7 @@ void QupZilla::aboutToShowEncodingMenu()
     }
 }
 
-void QupZilla::changeEncoding(QObject* obj)
+void BrowserWindow::changeEncoding(QObject* obj)
 {
     if (!obj) {
         obj = sender();
@@ -1245,7 +1239,7 @@ void QupZilla::changeEncoding(QObject* obj)
     }
 }
 
-void QupZilla::triggerCaretBrowsing()
+void BrowserWindow::triggerCaretBrowsing()
 {
 #if QTWEBKIT_FROM_2_3
     bool enable = !mApp->webSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled);
@@ -1259,98 +1253,98 @@ void QupZilla::triggerCaretBrowsing()
 #endif
 }
 
-void QupZilla::bookmarkPage()
+void BrowserWindow::bookmarkPage()
 {
     TabbedWebView* view = weView();
     BookmarksTools::addBookmarkDialog(this, view->url(), view->title());
 }
 
-void QupZilla::bookmarkAllTabs()
+void BrowserWindow::bookmarkAllTabs()
 {
     BookmarksTools::bookmarkAllTabsDialog(this, m_tabWidget);
 }
 
-void QupZilla::addBookmark(const QUrl &url, const QString &title)
+void BrowserWindow::addBookmark(const QUrl &url, const QString &title)
 {
     BookmarksTools::addBookmarkDialog(this, url, title);
 }
 
-void QupZilla::newWindow()
+void BrowserWindow::newWindow()
 {
     mApp->makeNewWindow(Qz::BW_NewWindow);
 }
 
-void QupZilla::goHome()
+void BrowserWindow::goHome()
 {
     loadAddress(m_homepage);
 }
 
-void QupZilla::editUndo()
+void BrowserWindow::editUndo()
 {
     weView()->triggerPageAction(QWebPage::Undo);
 }
 
-void QupZilla::editRedo()
+void BrowserWindow::editRedo()
 {
     weView()->triggerPageAction(QWebPage::Redo);
 }
 
-void QupZilla::editCut()
+void BrowserWindow::editCut()
 {
     weView()->triggerPageAction(QWebPage::Cut);
 }
 
-void QupZilla::editCopy()
+void BrowserWindow::editCopy()
 {
     weView()->triggerPageAction(QWebPage::Copy);
 }
 
-void QupZilla::editPaste()
+void BrowserWindow::editPaste()
 {
     weView()->triggerPageAction(QWebPage::Paste);
 }
 
-void QupZilla::editSelectAll()
+void BrowserWindow::editSelectAll()
 {
     weView()->selectAll();
 }
 
-void QupZilla::zoomIn()
+void BrowserWindow::zoomIn()
 {
     weView()->zoomIn();
 }
 
-void QupZilla::zoomOut()
+void BrowserWindow::zoomOut()
 {
     weView()->zoomOut();
 }
 
-void QupZilla::zoomReset()
+void BrowserWindow::zoomReset()
 {
     weView()->zoomReset();
 }
 
-void QupZilla::goHomeInNewTab()
+void BrowserWindow::goHomeInNewTab()
 {
     m_tabWidget->addView(m_homepage, Qz::NT_SelectedTab);
 }
 
-void QupZilla::stop()
+void BrowserWindow::stop()
 {
     weView()->stop();
 }
 
-void QupZilla::reload()
+void BrowserWindow::reload()
 {
     weView()->reload();
 }
 
-void QupZilla::reloadByPassCache()
+void BrowserWindow::reloadByPassCache()
 {
     weView()->triggerPageAction(QWebPage::ReloadAndBypassCache);
 }
 
-void QupZilla::loadActionUrl(QObject* obj)
+void BrowserWindow::loadActionUrl(QObject* obj)
 {
     if (!obj) {
         obj = sender();
@@ -1361,7 +1355,7 @@ void QupZilla::loadActionUrl(QObject* obj)
     }
 }
 
-void QupZilla::loadActionUrlInNewTab(QObject* obj)
+void BrowserWindow::loadActionUrlInNewTab(QObject* obj)
 {
     if (!obj) {
         obj = sender();
@@ -1372,7 +1366,7 @@ void QupZilla::loadActionUrlInNewTab(QObject* obj)
     }
 }
 
-void QupZilla::loadActionUrlInNewNotSelectedTab(QObject* obj)
+void BrowserWindow::loadActionUrlInNewNotSelectedTab(QObject* obj)
 {
     if (!obj) {
         obj = sender();
@@ -1383,7 +1377,7 @@ void QupZilla::loadActionUrlInNewNotSelectedTab(QObject* obj)
     }
 }
 
-void QupZilla::loadAddress(const QUrl &url)
+void BrowserWindow::loadAddress(const QUrl &url)
 {
     if (weView()->webTab()->isPinned()) {
         int index = m_tabWidget->addView(url, qzSettings->newTabPosition);
@@ -1395,7 +1389,7 @@ void QupZilla::loadAddress(const QUrl &url)
     }
 }
 
-void QupZilla::showCookieManager()
+void BrowserWindow::showCookieManager()
 {
     CookieManager* m = mApp->cookieManager();
     m->refreshTable();
@@ -1405,39 +1399,39 @@ void QupZilla::showCookieManager()
 }
 
 
-void QupZilla::showHistoryManager()
+void BrowserWindow::showHistoryManager()
 {
     mApp->browsingLibrary()->showHistory(this);
 }
 
-void QupZilla::showRSSManager()
+void BrowserWindow::showRSSManager()
 {
     mApp->browsingLibrary()->showRSS(this);
 }
 
-void QupZilla::showBookmarksManager()
+void BrowserWindow::showBookmarksManager()
 {
     mApp->browsingLibrary()->showBookmarks(this);
 }
 
-void QupZilla::showClearPrivateData()
+void BrowserWindow::showClearPrivateData()
 {
     ClearPrivateData clear(this, this);
     clear.exec();
 }
 
-void QupZilla::showDownloadManager()
+void BrowserWindow::showDownloadManager()
 {
     mApp->downManager()->show();
 }
 
-void QupZilla::showPreferences()
+void BrowserWindow::showPreferences()
 {
     Preferences* prefs = new Preferences(this, this);
     prefs->show();
 }
 
-void QupZilla::showSource(QWebFrame* frame, const QString &selectedHtml)
+void BrowserWindow::showSource(QWebFrame* frame, const QString &selectedHtml)
 {
     if (!frame) {
         frame = weView()->page()->mainFrame();
@@ -1448,14 +1442,14 @@ void QupZilla::showSource(QWebFrame* frame, const QString &selectedHtml)
     source->show();
 }
 
-void QupZilla::showPageInfo()
+void BrowserWindow::showPageInfo()
 {
     SiteInfo* info = new SiteInfo(weView(), this);
     info->setAttribute(Qt::WA_DeleteOnClose);
     info->show();
 }
 
-void QupZilla::showBookmarksToolbar()
+void BrowserWindow::showBookmarksToolbar()
 {
     bool status = m_bookmarksToolbar->isVisible();
 
@@ -1467,7 +1461,7 @@ void QupZilla::showBookmarksToolbar()
     settings.setValue("Browser-View-Settings/showBookmarksToolbar", !status);
 }
 
-SideBar* QupZilla::addSideBar()
+SideBar* BrowserWindow::addSideBar()
 {
     if (m_sideBar) {
         return m_sideBar.data();
@@ -1490,7 +1484,7 @@ SideBar* QupZilla::addSideBar()
     return m_sideBar.data();
 }
 
-void QupZilla::saveSideBarWidth()
+void BrowserWindow::saveSideBarWidth()
 {
     // That +1 is important here, without it, the sidebar width would
     // decrease by 1 pixel every close
@@ -1499,7 +1493,7 @@ void QupZilla::saveSideBarWidth()
     m_webViewWidth = width() - m_sideBarWidth;
 }
 
-void QupZilla::showNavigationToolbar()
+void BrowserWindow::showNavigationToolbar()
 {
     if (!menuBar()->isVisible() && !m_actionShowToolbar->isChecked()) {
         showMenubar();
@@ -1516,7 +1510,7 @@ void QupZilla::showNavigationToolbar()
     setUpdatesEnabled(true);
 }
 
-void QupZilla::showMenubar()
+void BrowserWindow::showMenubar()
 {
 #ifndef Q_OS_MAC
     if (!m_navigationBar->isVisible() && !m_actionShowMenubar->isChecked()) {
@@ -1535,7 +1529,7 @@ void QupZilla::showMenubar()
 #endif
 }
 
-void QupZilla::showStatusbar()
+void BrowserWindow::showStatusbar()
 {
     setUpdatesEnabled(false);
 
@@ -1548,7 +1542,7 @@ void QupZilla::showStatusbar()
     setUpdatesEnabled(true);
 }
 
-void QupZilla::showWebInspector(bool toggle)
+void BrowserWindow::showWebInspector(bool toggle)
 {
     if (m_webInspectorDock) {
         if (toggle) {
@@ -1572,13 +1566,13 @@ void QupZilla::showWebInspector(bool toggle)
 #endif
 }
 
-void QupZilla::showBookmarkImport()
+void BrowserWindow::showBookmarkImport()
 {
     BookmarksImportDialog* b = new BookmarksImportDialog(this);
     b->show();
 }
 
-void QupZilla::triggerTabsOnTop(bool enable)
+void BrowserWindow::triggerTabsOnTop(bool enable)
 {
     if (enable) {
         m_mainLayout->insertWidget(0, m_tabWidget->getTabBar());
@@ -1604,12 +1598,12 @@ void QupZilla::triggerTabsOnTop(bool enable)
 #endif
 }
 
-void QupZilla::refreshHistory()
+void BrowserWindow::refreshHistory()
 {
     m_navigationBar->refreshHistory();
 }
 
-void QupZilla::currentTabChanged()
+void BrowserWindow::currentTabChanged()
 {
     TabbedWebView* view = weView();
     if (!view) {
@@ -1632,7 +1626,7 @@ void QupZilla::currentTabChanged()
     setTabOrder(m_navigationBar->searchLine(), view);
 }
 
-void QupZilla::updateLoadingActions()
+void BrowserWindow::updateLoadingActions()
 {
     TabbedWebView* view = weView();
     if (!view) {
@@ -1655,37 +1649,37 @@ void QupZilla::updateLoadingActions()
     }
 }
 
-void QupZilla::addDeleteOnCloseWidget(QWidget* widget)
+void BrowserWindow::addDeleteOnCloseWidget(QWidget* widget)
 {
     if (!m_deleteOnCloseWidgets.contains(widget)) {
         m_deleteOnCloseWidgets.append(widget);
     }
 }
 
-void QupZilla::restoreWindowState(const RestoreManager::WindowData &d)
+void BrowserWindow::restoreWindowState(const RestoreManager::WindowData &d)
 {
     restoreState(d.windowState);
     m_tabWidget->restoreState(d.tabsState, d.currentTab);
 }
 
-void QupZilla::aboutQupZilla()
+void BrowserWindow::aboutQupZilla()
 {
     AboutDialog about(this);
     about.exec();
 }
 
-void QupZilla::addTab()
+void BrowserWindow::addTab()
 {
     m_tabWidget->addView(QUrl(), Qz::NT_SelectedNewEmptyTab, true);
 }
 
-void QupZilla::webSearch()
+void BrowserWindow::webSearch()
 {
     m_navigationBar->searchLine()->setFocus();
     m_navigationBar->searchLine()->selectAll();
 }
 
-void QupZilla::searchOnPage()
+void BrowserWindow::searchOnPage()
 {
     SearchToolBar* toolBar = searchToolBar();
 
@@ -1706,7 +1700,7 @@ void QupZilla::searchOnPage()
 #endif
 }
 
-void QupZilla::openFile()
+void BrowserWindow::openFile()
 {
     const QString fileTypes = QString("%1(*.html *.htm *.shtml *.shtm *.xhtml);;"
                                       "%2(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff);;"
@@ -1720,18 +1714,18 @@ void QupZilla::openFile()
     }
 }
 
-void QupZilla::openLocation()
+void BrowserWindow::openLocation()
 {
     locationBar()->setFocus();
     locationBar()->selectAll();
 }
 
-bool QupZilla::fullScreenNavigationVisible() const
+bool BrowserWindow::fullScreenNavigationVisible() const
 {
     return m_navigationContainer->isVisible();
 }
 
-void QupZilla::showNavigationWithFullScreen()
+void BrowserWindow::showNavigationWithFullScreen()
 {
     if (m_hideNavigationTimer->isActive()) {
         m_hideNavigationTimer->stop();
@@ -1741,14 +1735,14 @@ void QupZilla::showNavigationWithFullScreen()
     m_tabWidget->getTabBar()->updateVisibilityWithFullscreen(true);
 }
 
-void QupZilla::hideNavigationWithFullScreen()
+void BrowserWindow::hideNavigationWithFullScreen()
 {
     if (!m_hideNavigationTimer->isActive()) {
         m_hideNavigationTimer->start();
     }
 }
 
-void QupZilla::hideNavigationSlot()
+void BrowserWindow::hideNavigationSlot()
 {
     TabbedWebView* view = weView();
     bool mouseInView = view && view->underMouse();
@@ -1759,7 +1753,7 @@ void QupZilla::hideNavigationSlot()
     }
 }
 
-bool QupZilla::event(QEvent* event)
+bool BrowserWindow::event(QEvent* event)
 {
     switch (event->type()) {
     case QEvent::WindowStateChange: {
@@ -1822,7 +1816,7 @@ bool QupZilla::event(QEvent* event)
     return QMainWindow::event(event);
 }
 
-void QupZilla::toggleFullScreen()
+void BrowserWindow::toggleFullScreen()
 {
     if (isFullScreen()) {
         showNormal();
@@ -1832,21 +1826,21 @@ void QupZilla::toggleFullScreen()
     }
 }
 
-void QupZilla::savePage()
+void BrowserWindow::savePage()
 {
     weView()->savePageAs();
 }
 
-void QupZilla::sendLink()
+void BrowserWindow::sendLink()
 {
     weView()->sendPageByMail();
 }
 
-void QupZilla::printPage(QWebFrame* frame)
+void BrowserWindow::printPage(QWebFrame* frame)
 {
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
     dialog->resize(800, 750);
-    dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(VERSION, WWWADDRESS));
+    dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
 
     if (!frame) {
         dialog->printer()->setDocName(QzTools::getFileNameFromUrl(weView()->url()));
@@ -1864,20 +1858,20 @@ void QupZilla::printPage(QWebFrame* frame)
     dialog->deleteLater();
 }
 
-void QupZilla::savePageScreen()
+void BrowserWindow::savePageScreen()
 {
     PageScreen* p = new PageScreen(weView(), this);
     p->show();
 }
 
-void QupZilla::resizeEvent(QResizeEvent* event)
+void BrowserWindow::resizeEvent(QResizeEvent* event)
 {
     m_bookmarksToolbar->setMaximumWidth(width());
 
     QMainWindow::resizeEvent(event);
 }
 
-void QupZilla::keyPressEvent(QKeyEvent* event)
+void BrowserWindow::keyPressEvent(QKeyEvent* event)
 {
     if (mApp->plugins()->processKeyPress(Qz::ON_QupZilla, this, event)) {
         return;
@@ -2057,7 +2051,7 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
     QMainWindow::keyPressEvent(event);
 }
 
-void QupZilla::keyReleaseEvent(QKeyEvent* event)
+void BrowserWindow::keyReleaseEvent(QKeyEvent* event)
 {
     if (mApp->plugins()->processKeyRelease(Qz::ON_QupZilla, this, event)) {
         return;
@@ -2066,7 +2060,7 @@ void QupZilla::keyReleaseEvent(QKeyEvent* event)
     QMainWindow::keyReleaseEvent(event);
 }
 
-void QupZilla::closeEvent(QCloseEvent* event)
+void BrowserWindow::closeEvent(QCloseEvent* event)
 {
     if (mApp->isClosing()) {
         return;
@@ -2121,7 +2115,7 @@ void QupZilla::closeEvent(QCloseEvent* event)
     event->accept();
 }
 
-SearchToolBar* QupZilla::searchToolBar()
+SearchToolBar* BrowserWindow::searchToolBar()
 {
     SearchToolBar* toolBar = 0;
     const int searchPos = 3;
@@ -2133,7 +2127,7 @@ SearchToolBar* QupZilla::searchToolBar()
     return toolBar;
 }
 
-void QupZilla::disconnectObjects()
+void BrowserWindow::disconnectObjects()
 {
     // Disconnecting all important widgets before deleting this window
     // so it cannot happen that slots will be invoked after the object
@@ -2164,7 +2158,7 @@ void QupZilla::disconnectObjects()
     mApp->plugins()->emitMainWindowDeleted(this);
 }
 
-void QupZilla::closeWindow()
+void BrowserWindow::closeWindow()
 {
 #ifdef Q_OS_MAC
     close();
@@ -2175,7 +2169,7 @@ void QupZilla::closeWindow()
 #endif
 }
 
-bool QupZilla::quitApp()
+bool BrowserWindow::quitApp()
 {
     if (m_sideBar) {
         saveSideBarWidth();
@@ -2200,7 +2194,7 @@ bool QupZilla::quitApp()
     return true;
 }
 
-void QupZilla::closeTab()
+void BrowserWindow::closeTab()
 {
     // Don't close pinned tabs with keyboard shortcuts (Ctrl+W, Ctrl+F4)
     if (weView() && !weView()->webTab()->isPinned()) {
@@ -2208,7 +2202,7 @@ void QupZilla::closeTab()
     }
 }
 
-void QupZilla::restoreClosedTab(QObject* obj)
+void BrowserWindow::restoreClosedTab(QObject* obj)
 {
     if (!obj) {
         obj = sender();
@@ -2216,17 +2210,17 @@ void QupZilla::restoreClosedTab(QObject* obj)
     m_tabWidget->restoreClosedTab(obj);
 }
 
-void QupZilla::restoreAllClosedTabs()
+void BrowserWindow::restoreAllClosedTabs()
 {
     m_tabWidget->restoreAllClosedTabs();
 }
 
-void QupZilla::clearClosedTabsList()
+void BrowserWindow::clearClosedTabsList()
 {
     m_tabWidget->clearClosedTabsList();
 }
 
-bool QupZilla::bookmarksMenuChanged()
+bool BrowserWindow::bookmarksMenuChanged()
 {
 #ifdef Q_OS_MAC
     return mApp->macMenuReceiver()->bookmarksMenuChanged();
@@ -2235,7 +2229,7 @@ bool QupZilla::bookmarksMenuChanged()
 #endif
 }
 
-void QupZilla::setBookmarksMenuChanged(bool changed)
+void BrowserWindow::setBookmarksMenuChanged(bool changed)
 {
 #ifdef Q_OS_MAC
     mApp->macMenuReceiver()->setBookmarksMenuChanged(changed);
@@ -2244,7 +2238,7 @@ void QupZilla::setBookmarksMenuChanged(bool changed)
 #endif
 }
 
-QAction* QupZilla::menuBookmarksAction()
+QAction* BrowserWindow::menuBookmarksAction()
 {
 #ifdef Q_OS_MAC
     return mApp->macMenuReceiver()->menuBookmarksAction();
@@ -2253,7 +2247,7 @@ QAction* QupZilla::menuBookmarksAction()
 #endif
 }
 
-void QupZilla::setMenuBookmarksAction(QAction* action)
+void BrowserWindow::setMenuBookmarksAction(QAction* action)
 {
 #ifdef Q_OS_MAC
     mApp->macMenuReceiver()->setMenuBookmarksAction(action);
@@ -2262,7 +2256,7 @@ void QupZilla::setMenuBookmarksAction(QAction* action)
 #endif
 }
 
-QByteArray QupZilla::saveState(int version) const
+QByteArray BrowserWindow::saveState(int version) const
 {
 #if defined(QZ_WS_X11) && !defined(NO_X11)
     QByteArray data;
@@ -2277,7 +2271,7 @@ QByteArray QupZilla::saveState(int version) const
 #endif
 }
 
-bool QupZilla::restoreState(const QByteArray &state, int version)
+bool BrowserWindow::restoreState(const QByteArray &state, int version)
 {
 #if defined(QZ_WS_X11) && !defined(NO_X11)
     QByteArray windowState;
@@ -2296,7 +2290,7 @@ bool QupZilla::restoreState(const QByteArray &state, int version)
 }
 
 #if defined(QZ_WS_X11) && !defined(NO_X11)
-int QupZilla::getCurrentVirtualDesktop() const
+int BrowserWindow::getCurrentVirtualDesktop() const
 {
     Display* display = static_cast<Display*>(QzTools::X11Display(this));
     Atom actual_type;
@@ -2324,7 +2318,7 @@ int QupZilla::getCurrentVirtualDesktop() const
     return desktop;
 }
 
-void QupZilla::moveToVirtualDesktop(int desktopId)
+void BrowserWindow::moveToVirtualDesktop(int desktopId)
 {
     // Don't move when window is already visible or it is first app window
     if (desktopId < 0 || isVisible() || m_windowType == Qz::BW_FirstAppWindow) {
@@ -2490,6 +2484,6 @@ bool QupZilla::eventFilter(QObject* object, QEvent* event)
 }
 #endif
 
-QupZilla::~QupZilla()
+BrowserWindow::~BrowserWindow()
 {
 }

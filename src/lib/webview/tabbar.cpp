@@ -18,7 +18,7 @@
 #include "tabbar.h"
 #include "tabwidget.h"
 #include "tabpreview.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "webtab.h"
 #include "iconprovider.h"
 #include "toolbutton.h"
@@ -40,11 +40,11 @@
 #include <QHBoxLayout>
 #include <QToolTip>
 
-TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
+TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     : ComboTabBar()
-    , p_QupZilla(mainClass)
+    , m_window(window)
     , m_tabWidget(tabWidget)
-    , m_tabPreview(new TabPreview(mainClass, mainClass))
+    , m_tabPreview(new TabPreview(window, window))
     , m_showTabPreviews(false)
     , m_hideTabBarWithOneTab(false)
     , m_clickedTab(0)
@@ -77,7 +77,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
 
     // ComboTabBar features
     setUsesScrollButtons(true);
-    setCloseButtonsToolTip(QupZilla::tr("Close Tab"));
+    setCloseButtonsToolTip(BrowserWindow::tr("Close Tab"));
     connect(this, SIGNAL(overFlowChanged(bool)), this, SLOT(overFlowChange(bool)));
     connect(this, SIGNAL(scrollBarValueChanged(int)), this, SLOT(hideTabPreview()));
 }
@@ -122,7 +122,7 @@ void TabBar::updateVisibilityWithFullscreen(bool visible)
 
 void TabBar::setVisible(bool visible)
 {
-    if (visible && p_QupZilla->isFullScreen()) {
+    if (visible && m_window->isFullScreen()) {
         return;
     }
 
@@ -149,7 +149,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
     m_clickedTab = index;
 
     QMenu menu;
-    menu.addAction(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("&New tab"), p_QupZilla, SLOT(addTab()));
+    menu.addAction(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("&New tab"), m_window, SLOT(addTab()));
     menu.addSeparator();
     if (index != -1) {
         WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
@@ -157,7 +157,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
             return;
         }
 
-        if (p_QupZilla->weView(m_clickedTab)->isLoading()) {
+        if (m_window->weView(m_clickedTab)->isLoading()) {
             menu.addAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop Tab"), this, SLOT(stopTab()));
         }
         else {
@@ -174,9 +174,9 @@ void TabBar::contextMenuRequested(const QPoint &position)
         menu.addSeparator();
         menu.addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
         menu.addAction(tr("&Bookmark This Tab"), this, SLOT(bookmarkTab()));
-        menu.addAction(tr("Bookmark &All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
+        menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
-        QAction* action = p_QupZilla->actionRestoreTab();
+        QAction* action = m_window->actionRestoreTab();
         action->setEnabled(m_tabWidget->canRestoreTab());
         menu.addAction(action);
         menu.addSeparator();
@@ -186,7 +186,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
     }
     else {
         menu.addAction(tr("Reloa&d All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
-        menu.addAction(tr("Bookmark &All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
+        menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
         QAction* action = menu.addAction(QIcon::fromTheme("user-trash"), tr("Restore &Closed Tab"), m_tabWidget, SLOT(restoreClosedTab()));
         action->setEnabled(m_tabWidget->canRestoreTab());
@@ -197,7 +197,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
 
-    p_QupZilla->actionRestoreTab()->setEnabled(true);
+    m_window->actionRestoreTab()->setEnabled(true);
 }
 
 void TabBar::closeAllButCurrent()
@@ -451,14 +451,14 @@ void TabBar::currentTabChanged(int index)
 
 void TabBar::bookmarkTab()
 {
-    TabbedWebView* view = p_QupZilla->weView(m_clickedTab);
+    TabbedWebView* view = m_window->weView(m_clickedTab);
     if (!view) {
         return;
     }
 
     WebTab* tab = view->webTab();
 
-    p_QupZilla->addBookmark(tab->url(), tab->title());
+    m_window->addBookmark(tab->url(), tab->title());
 }
 
 void TabBar::pinTab()
@@ -510,8 +510,8 @@ void TabBar::showTabPreview(bool delayed)
     m_tabPreview->setWebTab(webTab, m_tabPreview->previewIndex() == currentIndex());
 
     QRect r(tabRect(m_tabPreview->previewIndex()));
-    r.setTopLeft(mapTo(p_QupZilla, r.topLeft()));
-    r.setBottomRight(mapTo(p_QupZilla, r.bottomRight()));
+    r.setTopLeft(mapTo(m_window, r.topLeft()));
+    r.setBottomRight(mapTo(m_window, r.bottomRight()));
 
     m_tabPreview->showOnRect(r);
 }
@@ -734,7 +734,7 @@ void TabBar::dropEvent(QDropEvent* event)
         }
     }
     else {
-        WebTab* tab = p_QupZilla->weView(index)->webTab();
+        WebTab* tab = m_window->weView(index)->webTab();
         if (tab->isRestored()) {
             tab->view()->load(mime->urls().at(0));
         }

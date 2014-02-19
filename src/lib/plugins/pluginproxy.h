@@ -21,7 +21,7 @@
 #include "plugins.h"
 #include "qz_namespace.h"
 
-class QupZilla;
+class BrowserWindow;
 class WebPage;
 
 class QT_QUPZILLA_EXPORT PluginProxy : public Plugins
@@ -54,15 +54,15 @@ public:
     void emitWebPageCreated(WebPage* page);
     void emitWebPageDeleted(WebPage* page);
 
-    void emitMainWindowCreated(QupZilla* window);
-    void emitMainWindowDeleted(QupZilla* window);
+    void emitMainWindowCreated(BrowserWindow* window);
+    void emitMainWindowDeleted(BrowserWindow* window);
 
 signals:
     void webPageCreated(WebPage* page);
     void webPageDeleted(WebPage* page);
 
-    void mainWindowCreated(QupZilla* window);
-    void mainWindowDeleted(QupZilla* window);
+    void mainWindowCreated(BrowserWindow* window);
+    void mainWindowDeleted(BrowserWindow* window);
 
 private slots:
     void pluginUnloaded(PluginInterface* plugin);

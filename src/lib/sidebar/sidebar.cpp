@@ -21,16 +21,16 @@
 #include "bookmarkssidebar.h"
 #include "historysidebar.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "settings.h"
 
 #include <QMenu>
 
 QHash<QString, QPointer<SideBarInterface> > SideBarManager::s_sidebars;
 
-SideBar::SideBar(SideBarManager* manager, QupZilla* mainClass)
-    : QWidget(mainClass)
-    , p_QupZilla(mainClass)
+SideBar::SideBar(SideBarManager* manager, BrowserWindow* window)
+    : QWidget(window)
+    , m_window(window)
     , m_manager(manager)
 {
     setObjectName("sidebar");
@@ -62,14 +62,14 @@ void SideBar::setWidget(QWidget* widget)
 void SideBar::showBookmarks()
 {
     m_titleBar->setTitle(tr("Bookmarks"));
-    BookmarksSidebar* bar = new BookmarksSidebar(p_QupZilla);
+    BookmarksSidebar* bar = new BookmarksSidebar(m_window);
     setWidget(bar);
 }
 
 void SideBar::showHistory()
 {
     m_titleBar->setTitle(tr("History"));
-    HistorySideBar* bar = new HistorySideBar(p_QupZilla);
+    HistorySideBar* bar = new HistorySideBar(m_window);
     setWidget(bar);
 }
 
@@ -85,9 +85,9 @@ void SideBar::close()
     QWidget::close();
 }
 
-SideBarManager::SideBarManager(QupZilla* parent)
+SideBarManager::SideBarManager(BrowserWindow* parent)
     : QObject(parent)
-    , p_QupZilla(parent)
+    , m_window(parent)
     , m_menu(0)
 {
 }
@@ -103,7 +103,7 @@ void SideBarManager::addSidebar(const QString &id, SideBarInterface* interface)
 {
     s_sidebars[id] = interface;
 
-    foreach (QupZilla* window, mApp->mainWindows()) {
+    foreach (BrowserWindow* window, mApp->mainWindows()) {
         window->sideBarManager()->refreshMenu();
     }
 }
@@ -112,7 +112,7 @@ void SideBarManager::removeSidebar(const QString &id)
 {
     s_sidebars.remove(id);
 
-    foreach (QupZilla* window, mApp->mainWindows()) {
+    foreach (BrowserWindow* window, mApp->mainWindows()) {
         window->sideBarManager()->sideBarRemoved(id);
     }
 }
@@ -124,7 +124,7 @@ void SideBarManager::refreshMenu()
     }
 
     foreach (QAction* action, m_menu->actions()) {
-        p_QupZilla->removeAction(action);
+        m_window->removeAction(action);
     }
     m_menu->clear();
 
@@ -150,7 +150,7 @@ void SideBarManager::refreshMenu()
         m_menu->addAction(act);
     }
 
-    p_QupZilla->addActions(m_menu->actions());
+    m_window->addActions(m_menu->actions());
 
     updateActions();
 }
@@ -180,7 +180,7 @@ void SideBarManager::showSideBar(const QString &id, bool toggle)
     }
 
     if (!m_sideBar) {
-        m_sideBar = p_QupZilla->addSideBar();
+        m_sideBar = m_window->addSideBar();
     }
 
     if (id == m_activeBar) {
@@ -209,7 +209,7 @@ void SideBarManager::showSideBar(const QString &id, bool toggle)
         }
 
         m_sideBar.data()->setTitle(sidebar->title());
-        m_sideBar.data()->setWidget(sidebar->createSideBarWidget(p_QupZilla));
+        m_sideBar.data()->setWidget(sidebar->createSideBarWidget(m_window));
     }
 
     m_activeBar = id;
@@ -239,7 +239,7 @@ void SideBarManager::closeSideBar()
     Settings settings;
     settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
 
-    p_QupZilla->saveSideBarWidth();
+    m_window->saveSideBarWidth();
 
     updateActions();
 }

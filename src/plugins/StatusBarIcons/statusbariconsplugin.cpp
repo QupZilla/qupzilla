@@ -19,7 +19,7 @@
 #include "sbi_iconsmanager.h"
 #include "sbi_settingsdialog.h"
 #include "pluginproxy.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <QTranslator>
 
@@ -47,12 +47,12 @@ void StatusBarIconsPlugin::init(InitState state, const QString &settingsPath)
 {
     m_manager = new SBI_IconsManager(settingsPath);
 
-    connect(mApp->plugins(), SIGNAL(mainWindowCreated(QupZilla*)), m_manager, SLOT(mainWindowCreated(QupZilla*)));
-    connect(mApp->plugins(), SIGNAL(mainWindowDeleted(QupZilla*)), m_manager, SLOT(mainWindowDeleted(QupZilla*)));
+    connect(mApp->plugins(), SIGNAL(mainWindowCreated(BrowserWindow*)), m_manager, SLOT(mainWindowCreated(BrowserWindow*)));
+    connect(mApp->plugins(), SIGNAL(mainWindowDeleted(BrowserWindow*)), m_manager, SLOT(mainWindowDeleted(BrowserWindow*)));
 
     // Make sure icons are added also to already created windows
     if (state == LateInitState) {
-        foreach (QupZilla* window, mApp->mainWindows()) {
+        foreach (BrowserWindow* window, mApp->mainWindows()) {
             m_manager->mainWindowCreated(window);
         }
     }
@@ -62,7 +62,7 @@ void StatusBarIconsPlugin::unload()
 {
     // Make sure icons are properly removed when unloading plugin (but not when closing app)
     if (!mApp->isClosing()) {
-        foreach (QupZilla* window, mApp->mainWindows()) {
+        foreach (BrowserWindow* window, mApp->mainWindows()) {
             m_manager->mainWindowDeleted(window);
         }
 
@@ -72,7 +72,7 @@ void StatusBarIconsPlugin::unload()
 
 bool StatusBarIconsPlugin::testPlugin()
 {
-    return (QupZilla::VERSION == QLatin1String("1.7.0"));
+    return (Qz::VERSION == QLatin1String("1.7.0"));
 }
 
 QTranslator* StatusBarIconsPlugin::getTranslator(const QString &locale)

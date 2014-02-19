@@ -23,7 +23,7 @@
 #include "webpage.h"
 #include "qztools.h"
 #include "networkmanager.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "settings.h"
 
 #include <QDateTime>

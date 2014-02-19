@@ -22,17 +22,17 @@
 
 #include "qzsettings.h"
 
-class QupZilla;
+class BrowserWindow;
 
 class QT_QUPZILLA_EXPORT NavigationContainer : public QWidget
 {
 public:
-    explicit NavigationContainer(QupZilla* parent = 0);
+    explicit NavigationContainer(BrowserWindow* parent = 0);
 
 private:
     void paintEvent(QPaintEvent* event);
 
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
 
 };
 

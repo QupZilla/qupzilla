@@ -17,9 +17,9 @@
 * ============================================================ */
 #include "gm_icon.h"
 #include "gm_manager.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
-GM_Icon::GM_Icon(GM_Manager* manager, QupZilla* window)
+GM_Icon::GM_Icon(GM_Manager* manager, BrowserWindow* window)
     : ClickableLabel(window)
     , m_manager(manager)
     , m_window(window)

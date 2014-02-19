@@ -26,7 +26,7 @@
 #include <QGraphicsOpacityEffect>
 #endif
 
-class QupZilla;
+class BrowserWindow;
 class WebTab;
 class QLabel;
 
@@ -34,7 +34,7 @@ class TabPreview : public QFrame
 {
     Q_OBJECT
 public:
-    explicit TabPreview(QupZilla* mainClass, QWidget* parent);
+    explicit TabPreview(BrowserWindow* window, QWidget* parent);
 
     void setWebTab(WebTab* webTab, bool noPixmap);
     void showOnRect(const QRect &rect);
@@ -65,7 +65,7 @@ private:
     void calculateSteps(const QRect &oldGeometry, const QRect &newGeometry);
     QPoint calculatePosition(const QRect &tabRect, const QSize &previewSize);
 
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     QLabel* m_pixmapLabel;
     QLabel* m_title;
 

@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "tabbedwebview.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "webpage.h"
 #include "tabwidget.h"
 #include "networkmanager.h"
@@ -38,9 +38,9 @@
 #include <QWebFrame>
 #include <QContextMenuEvent>
 
-TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
+TabbedWebView::TabbedWebView(BrowserWindow* window, WebTab* webTab)
     : WebView(webTab)
-    , p_QupZilla(mainClass)
+    , m_window(window)
     , m_webTab(webTab)
     , m_menu(new Menu(this))
     , m_mouseTrack(false)
@@ -55,11 +55,11 @@ TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     connect(this, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
     connect(this, SIGNAL(iconChanged()), this, SLOT(showIcon()));
 
-    connect(this, SIGNAL(statusBarMessage(QString)), p_QupZilla->statusBar(), SLOT(showMessage(QString)));
-    connect(p_QupZilla, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
+    connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
+    connect(m_window, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
 
     // Tracking mouse also on tabs created in fullscreen
-    trackMouse(p_QupZilla->isFullScreen());
+    trackMouse(m_window->isFullScreen());
 }
 
 void TabbedWebView::setWebPage(WebPage* page)
@@ -73,7 +73,7 @@ void TabbedWebView::setWebPage(WebPage* page)
 
 void TabbedWebView::inspectElement()
 {
-    p_QupZilla->showWebInspector(false);
+    m_window->showWebInspector(false);
     triggerPageAction(QWebPage::InspectElement);
 }
 
@@ -84,7 +84,7 @@ WebTab* TabbedWebView::webTab() const
 
 TabWidget* TabbedWebView::tabWidget() const
 {
-    return p_QupZilla->tabWidget();
+    return m_window->tabWidget();
 }
 
 QString TabbedWebView::getIp() const
@@ -105,7 +105,7 @@ bool TabbedWebView::isCurrent()
 void TabbedWebView::urlChanged(const QUrl &url)
 {
     if (isCurrent()) {
-        p_QupZilla->navigationBar()->refreshHistory();
+        m_window->navigationBar()->refreshHistory();
     }
 
     if (lastUrl() != url) {
@@ -118,7 +118,7 @@ void TabbedWebView::loadProgress(int prog)
     Q_UNUSED(prog)
 
     if (isCurrent()) {
-        p_QupZilla->updateLoadingActions();
+        m_window->updateLoadingActions();
     }
 }
 
@@ -149,7 +149,7 @@ void TabbedWebView::slotLoadFinished()
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
 
     if (isCurrent()) {
-        p_QupZilla->updateLoadingActions();
+        m_window->updateLoadingActions();
     }
 }
 
@@ -171,7 +171,7 @@ void TabbedWebView::titleChanged()
     const QString t = title();
 
     if (isCurrent()) {
-        p_QupZilla->setWindowTitle(tr("%1 - QupZilla").arg(t));
+        m_window->setWindowTitle(tr("%1 - QupZilla").arg(t));
     }
 
     tabWidget()->setTabText(tabIndex(), t);
@@ -198,14 +198,14 @@ void TabbedWebView::linkHovered(const QString &link, const QString &title, const
 
     if (isCurrent()) {
         if (link.isEmpty()) {
-            p_QupZilla->statusBarMessage()->clearMessage();
+            m_window->statusBarMessage()->clearMessage();
         }
         else {
             // QUrl::fromEncoded(link.toUtf8());
             // Don't decode link from percent encoding (to show all utf8 chars), as it doesn't
             // works correctly in all cases
             // See #1095
-            p_QupZilla->statusBarMessage()->showMessage(link);
+            m_window->statusBarMessage()->showMessage(link);
         }
     }
 }
@@ -215,23 +215,23 @@ int TabbedWebView::tabIndex() const
     return tabWidget()->indexOf(m_webTab);
 }
 
-QupZilla* TabbedWebView::mainWindow() const
+BrowserWindow* TabbedWebView::mainWindow() const
 {
-    return p_QupZilla;
+    return m_window;
 }
 
-void TabbedWebView::moveToWindow(QupZilla* window)
+void TabbedWebView::moveToWindow(BrowserWindow* window)
 {
-    disconnect(this, SIGNAL(statusBarMessage(QString)), p_QupZilla->statusBar(), SLOT(showMessage(QString)));
-    disconnect(p_QupZilla, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
+    disconnect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
+    disconnect(m_window, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
 
-    p_QupZilla = window;
+    m_window = window;
 
-    connect(this, SIGNAL(statusBarMessage(QString)), p_QupZilla->statusBar(), SLOT(showMessage(QString)));
-    connect(p_QupZilla, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
+    connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
+    connect(m_window, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
 
     // Tracking mouse also on tabs created in fullscreen
-    trackMouse(p_QupZilla->isFullScreen());
+    trackMouse(m_window->isFullScreen());
 }
 
 QWidget* TabbedWebView::overlayForJsAlert()
@@ -251,8 +251,8 @@ void TabbedWebView::loadInNewTab(const QNetworkRequest &req, QNetworkAccessManag
     r.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 
     int index = tabWidget()->addView(QUrl(), position);
-    p_QupZilla->weView(index)->webTab()->locationBar()->showUrl(r.url());
-    p_QupZilla->weView(index)->load(r, op, data);
+    m_window->weView(index)->webTab()->locationBar()->showUrl(r.url());
+    m_window->weView(index)->load(r, op, data);
 }
 
 void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
@@ -264,7 +264,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
     createContextMenu(m_menu, hitTest, event->pos());
 
     if (!hitTest.isContentEditable() && !hitTest.isContentSelected()) {
-        m_menu->addAction(p_QupZilla->adBlockIcon()->menuAction());
+        m_menu->addAction(m_window->adBlockIcon()->menuAction());
     }
 
     m_menu->addSeparator();
@@ -301,11 +301,11 @@ void TabbedWebView::setAsCurrentTab()
 void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
 {
     if (m_mouseTrack) {
-        if (p_QupZilla->fullScreenNavigationVisible()) {
-            p_QupZilla->hideNavigationWithFullScreen();
+        if (m_window->fullScreenNavigationVisible()) {
+            m_window->hideNavigationWithFullScreen();
         }
         else if (event->y() < 5) {
-            p_QupZilla->showNavigationWithFullScreen();
+            m_window->showNavigationWithFullScreen();
         }
     }
 
@@ -315,7 +315,7 @@ void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
 void TabbedWebView::disconnectObjects()
 {
     disconnect(this);
-    disconnect(p_QupZilla->statusBar());
+    disconnect(m_window->statusBar());
 
     WebView::disconnectObjects();
 }

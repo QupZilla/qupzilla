@@ -18,7 +18,7 @@
 #include "webpage.h"
 #include "tabbedwebview.h"
 #include "tabwidget.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "pluginproxy.h"
 #include "downloadmanager.h"
 #include "webpluginfactory.h"

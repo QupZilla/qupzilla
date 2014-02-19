@@ -23,7 +23,7 @@
 #include "qz_namespace.h"
 
 class Menu;
-class QupZilla;
+class BrowserWindow;
 class BookmarkItem;
 
 class QT_QUPZILLA_EXPORT BookmarksToolbarButton : public QPushButton
@@ -34,7 +34,7 @@ public:
     explicit BookmarksToolbarButton(BookmarkItem* bookmark, QWidget* parent = 0);
 
     BookmarkItem* bookmark() const;
-    void setMainWindow(QupZilla* window);
+    void setMainWindow(BrowserWindow* window);
 
     bool showOnlyIcon() const;
     void setShowOnlyIcon(bool show);
@@ -65,7 +65,7 @@ private:
     void paintEvent(QPaintEvent* event);
 
     BookmarkItem* m_bookmark;
-    QupZilla* m_window;
+    BrowserWindow* m_window;
 
     Qt::MouseButtons m_buttons;
     Qt::KeyboardModifiers m_modifiers;

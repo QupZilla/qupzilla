@@ -36,12 +36,12 @@ private:
     }
 };
 
-class QupZilla;
+class BrowserWindow;
 class QT_QUPZILLA_EXPORT WebInspectorDockWidget : public QDockWidget
 {
     Q_OBJECT
 public:
-    explicit WebInspectorDockWidget(QupZilla* mainClass);
+    explicit WebInspectorDockWidget(BrowserWindow* window);
     ~WebInspectorDockWidget();
 
     void toggleVisibility();
@@ -55,7 +55,7 @@ public slots:
     void show();
 
 private:
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     QHash<QWebPage*, QPointer<WebInspector> > m_inspectors;
 
     QPointer<WebInspector> m_currentInspector;

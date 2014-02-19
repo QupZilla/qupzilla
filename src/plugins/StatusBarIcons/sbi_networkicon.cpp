@@ -22,15 +22,15 @@
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "networkproxyfactory.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <QDebug>
 #include <QMenu>
 #include <QNetworkConfigurationManager>
 
-SBI_NetworkIcon::SBI_NetworkIcon(QupZilla* window)
+SBI_NetworkIcon::SBI_NetworkIcon(BrowserWindow* window)
     : ClickableLabel(window)
-    , p_QupZilla(window)
+    , m_window(window)
     , m_networkConfiguration(new QNetworkConfigurationManager(this))
 {
     setCursor(Qt::PointingHandCursor);
@@ -55,7 +55,7 @@ void SBI_NetworkIcon::onlineStateChanged(bool online)
 
 void SBI_NetworkIcon::showDialog()
 {
-    SBI_NetworkIconDialog dialog(p_QupZilla);
+    SBI_NetworkIconDialog dialog(m_window);
     dialog.exec();
 }
 

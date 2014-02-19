@@ -20,11 +20,11 @@
 #include "webpage.h"
 #include "tabbedwebview.h"
 #include "webtab.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
-WebInspectorDockWidget::WebInspectorDockWidget(QupZilla* mainClass)
-    : QDockWidget(mainClass)
-    , p_QupZilla(mainClass)
+WebInspectorDockWidget::WebInspectorDockWidget(BrowserWindow* window)
+    : QDockWidget(window)
+    , m_window(window)
 {
     setWindowTitle(tr("Web Inspector"));
     setObjectName("WebInspector");
@@ -46,20 +46,20 @@ void WebInspectorDockWidget::toggleVisibility()
 
 void WebInspectorDockWidget::close()
 {
-    p_QupZilla->weView()->webTab()->setInspectorVisible(false);
-    p_QupZilla->weView()->setFocus();
+    m_window->weView()->webTab()->setInspectorVisible(false);
+    m_window->weView()->setFocus();
 
     hide();
 }
 
 void WebInspectorDockWidget::show()
 {
-    QWebPage* page = p_QupZilla->weView()->page();
+    QWebPage* page = m_window->weView()->page();
     QPointer<WebInspector> inspector = m_inspectors[page];
 
     if (!inspector) {
         inspector = new WebInspector(this);
-        inspector.data()->setPage(p_QupZilla->weView()->page());
+        inspector.data()->setPage(m_window->weView()->page());
 
         m_inspectors[page] = inspector;
     }
@@ -69,14 +69,14 @@ void WebInspectorDockWidget::show()
         m_currentInspector = inspector;
     }
 
-    p_QupZilla->weView()->webTab()->setInspectorVisible(true);
+    m_window->weView()->webTab()->setInspectorVisible(true);
 
     QDockWidget::show();
 }
 
 void WebInspectorDockWidget::tabChanged()
 {
-    if (p_QupZilla->weView()->webTab()->inspectorVisible()) {
+    if (m_window->weView()->webTab()->inspectorVisible()) {
         show();
     }
     else {

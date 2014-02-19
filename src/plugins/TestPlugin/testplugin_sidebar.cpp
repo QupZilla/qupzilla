@@ -40,7 +40,7 @@ QAction* TestPlugin_Sidebar::createMenuAction()
     return act;
 }
 
-QWidget* TestPlugin_Sidebar::createSideBarWidget(QupZilla* mainWindow)
+QWidget* TestPlugin_Sidebar::createSideBarWidget(BrowserWindow* mainWindow)
 {
     Q_UNUSED(mainWindow)
 

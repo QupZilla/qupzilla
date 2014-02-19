@@ -35,7 +35,7 @@ namespace Ui
 class RSSManager;
 }
 
-class QupZilla;
+class BrowserWindow;
 class FollowRedirectReply;
 class NetworkManager;
 class QT_QUPZILLA_EXPORT RSSManager : public QWidget
@@ -44,11 +44,11 @@ class QT_QUPZILLA_EXPORT RSSManager : public QWidget
 
     friend class BrowsingLibrary;
 public:
-    explicit RSSManager(QupZilla* mainClass, QWidget* parent = 0);
+    explicit RSSManager(BrowserWindow* window, QWidget* parent = 0);
     ~RSSManager();
 
     bool addRssFeed(const QUrl &url, const QString &title, const QIcon &icon);
-    void setMainWindow(QupZilla* window);
+    void setMainWindow(BrowserWindow* window);
 
 public slots:
     void refreshTable();
@@ -66,7 +66,7 @@ private slots:
     void loadFeedInNewTab();
 
 private:
-    QupZilla* getQupZilla();
+    BrowserWindow* getQupZilla();
     void deleteAllTabs();
 
     QList<QPair<FollowRedirectReply*, QUrl> > m_replies;
@@ -74,7 +74,7 @@ private:
 
     Ui::RSSManager* ui;
     QToolButton* m_reloadButton;
-    QPointer<QupZilla> p_QupZilla;
+    QPointer<BrowserWindow> m_window;
 };
 
 #endif // RSSMANAGER_H

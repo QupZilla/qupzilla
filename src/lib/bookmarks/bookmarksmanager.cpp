@@ -22,16 +22,16 @@
 #include "bookmarksmodel.h"
 #include "bookmarkstools.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "qztools.h"
 
 #include <QMenu>
 #include <QTimer>
 
-BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
+BookmarksManager::BookmarksManager(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::BookmarksManager)
-    , p_QupZilla(mainClass)
+    , m_window(window)
     , m_bookmarks(mApp->bookmarks())
     , m_selectedBookmark(0)
     , m_blockDescriptionChangedSignal(false)
@@ -59,10 +59,10 @@ BookmarksManager::~BookmarksManager()
     delete ui;
 }
 
-void BookmarksManager::setMainWindow(QupZilla* window)
+void BookmarksManager::setMainWindow(BrowserWindow* window)
 {
     if (window) {
-        p_QupZilla = window;
+        m_window = window;
     }
 }
 
@@ -319,12 +319,12 @@ void BookmarksManager::keyPressEvent(QKeyEvent* event)
     QWidget::keyPressEvent(event);
 }
 
-QupZilla* BookmarksManager::getQupZilla()
+BrowserWindow* BookmarksManager::getQupZilla()
 {
-    if (!p_QupZilla) {
-        p_QupZilla = mApp->getWindow();
+    if (!m_window) {
+        m_window = mApp->getWindow();
     }
-    return p_QupZilla.data();
+    return m_window.data();
 }
 
 void BookmarksManager::showEvent(QShowEvent* event)

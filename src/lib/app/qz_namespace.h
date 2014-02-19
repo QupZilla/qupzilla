@@ -19,6 +19,7 @@
 #define QZ_NAMESPACE_H
 
 #include <QFlags>
+#include <QString>
 
 #ifdef QUPZILLA_SHAREDLIBRARY
 #define QT_QUPZILLA_EXPORT Q_DECL_EXPORT
@@ -46,6 +47,14 @@ static const int sessionVersion = 0x0003;
 // Version of bookmarks.json file
 static const int bookmarksVersion = 1;
 
+static const QString APPNAME = "QupZilla";
+static const QString VERSION = "1.7.0";
+static const QString BUILDTIME =  __DATE__" "__TIME__;
+static const QString AUTHOR = "David Rosca";
+static const QString COPYRIGHT = "2010-2014";
+static const QString WWWADDRESS = "http://www.qupzilla.com";
+static const QString WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
+
 enum AppMessageType {
     AM_SetAdBlockIconEnabled,
     AM_CheckPrivateBrowsing,
@@ -54,7 +63,7 @@ enum AppMessageType {
     AM_BookmarksChanged
 };
 
-enum BrowserWindow {
+enum BrowserWindowType {
     BW_FirstAppWindow,
     BW_OtherRestoredWindow,
     BW_NewWindow,

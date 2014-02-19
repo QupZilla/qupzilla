@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "statusbarmessage.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 #include "squeezelabelv1.h"
@@ -101,28 +101,28 @@ bool TipLabel::eventFilter(QObject* o, QEvent* e)
     return false;
 }
 
-StatusBarMessage::StatusBarMessage(QupZilla* mainClass)
-    : p_QupZilla(mainClass)
-    , m_statusBarText(new TipLabel(mainClass))
+StatusBarMessage::StatusBarMessage(BrowserWindow* window)
+    : m_window(window)
+    , m_statusBarText(new TipLabel(window))
 {
 }
 
 void StatusBarMessage::showMessage(const QString &message)
 {
-    if (p_QupZilla->statusBar()->isVisible()) {
-        p_QupZilla->statusBar()->showMessage(message);
+    if (m_window->statusBar()->isVisible()) {
+        m_window->statusBar()->showMessage(message);
     }
 #ifdef Q_OS_WIN
-    else if (mApp->activeWindow() == p_QupZilla) {
+    else if (mApp->activeWindow() == m_window) {
 #else
     else {
 #endif
-        WebView* view = p_QupZilla->weView();
+        WebView* view = m_window->weView();
         QWebFrame* mainFrame = view->page()->mainFrame();
 
         int horizontalScrollSize = 0;
         int verticalScrollSize = 0;
-        const int scrollbarSize = p_QupZilla->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
+        const int scrollbarSize = m_window->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
 
         if (mainFrame->scrollBarMaximum(Qt::Horizontal)) {
             horizontalScrollSize = scrollbarSize;
@@ -149,8 +149,8 @@ void StatusBarMessage::showMessage(const QString &message)
 
 void StatusBarMessage::clearMessage()
 {
-    if (p_QupZilla->statusBar()->isVisible()) {
-        p_QupZilla->statusBar()->showMessage(QString());
+    if (m_window->statusBar()->isVisible()) {
+        m_window->statusBar()->showMessage(QString());
     }
     else {
         m_statusBarText->hideDelayed();

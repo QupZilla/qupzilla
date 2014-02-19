@@ -20,7 +20,7 @@
 #include "tabbedwebview.h"
 #include "tabwidget.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "mousegesturessettingsdialog.h"
 
 #include "QjtMouseGestureFilter.h"

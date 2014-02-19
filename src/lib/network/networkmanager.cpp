@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "networkmanager.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "autofill.h"
 #include "networkmanagerproxy.h"
 #include "mainapplication.h"

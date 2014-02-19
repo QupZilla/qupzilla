@@ -28,18 +28,18 @@ namespace Ui
 class SiteInfoWidget;
 }
 
-class QupZilla;
+class BrowserWindow;
 
 class QT_QUPZILLA_EXPORT SiteInfoWidget : public LocationBarPopup
 {
     Q_OBJECT
 public:
-    explicit SiteInfoWidget(QupZilla* mainClass, QWidget* parent = 0);
+    explicit SiteInfoWidget(BrowserWindow* window, QWidget* parent = 0);
     ~SiteInfoWidget();
 
 private:
     Ui::SiteInfoWidget* ui;
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
 };
 
 #endif // SITEINFOWIDGET_H

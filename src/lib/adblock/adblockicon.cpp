@@ -20,7 +20,7 @@
 #include "adblockmanager.h"
 #include "adblocksubscription.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "webpage.h"
 #include "tabbedwebview.h"
 #include "tabwidget.h"
@@ -29,9 +29,9 @@
 #include <QMenu>
 #include <QTimer>
 
-AdBlockIcon::AdBlockIcon(QupZilla* mainClass, QWidget* parent)
+AdBlockIcon::AdBlockIcon(BrowserWindow* window, QWidget* parent)
     : ClickableLabel(parent)
-    , p_QupZilla(mainClass)
+    , m_window(window)
     , m_menuAction(0)
     , m_flashTimer(0)
     , m_timerTicks(0)
@@ -104,7 +104,7 @@ void AdBlockIcon::createMenu(QMenu* menu)
     AdBlockManager* manager = AdBlockManager::instance();
     AdBlockCustomList* customList = manager->customList();
 
-    WebPage* page = p_QupZilla->weView()->page();
+    WebPage* page = m_window->weView()->page();
     const QUrl pageUrl = page->url();
 
     menu->addAction(tr("Show AdBlock &Settings"), manager, SLOT(showDialog()));

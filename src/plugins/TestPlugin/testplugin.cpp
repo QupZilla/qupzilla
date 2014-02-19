@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "testplugin.h"
 #include "testplugin_sidebar.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "webview.h"
 #include "pluginproxy.h"
 #include "mainapplication.h"
@@ -97,7 +97,7 @@ bool TestPlugin::testPlugin()
     //There should be some testing if plugin is loaded correctly
     //If this function returns false, plugin is automatically unloaded
 
-    return (QupZilla::VERSION == QLatin1String("1.7.0"));
+    return (Qz::VERSION == QLatin1String("1.7.0"));
 }
 
 QTranslator* TestPlugin::getTranslator(const QString &locale)

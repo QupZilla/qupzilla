@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 #include "bookmarkstoolbar.h"
 #include "cookiemanager.h"
@@ -119,7 +119,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 #endif
 {
     setApplicationName("QupZilla");
-    setApplicationVersion(QupZilla::VERSION);
+    setApplicationVersion(Qz::VERSION);
     setOrganizationDomain("qupzilla");
 
 #if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
@@ -303,7 +303,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     translateApp();
 
-    QupZilla* qupzilla = new QupZilla(Qz::BW_FirstAppWindow, startUrl);
+    BrowserWindow* qupzilla = new BrowserWindow(Qz::BW_FirstAppWindow, startUrl);
     m_mainWindows.prepend(qupzilla);
 
     connect(qupzilla, SIGNAL(message(Qz::AppMessageType,bool)), this, SLOT(sendMessages(Qz::AppMessageType,bool)));
@@ -479,9 +479,9 @@ void MainApplication::setupJumpList()
     QtWin::setupJumpList();
 }
 
-QupZilla* MainApplication::getWindow()
+BrowserWindow* MainApplication::getWindow()
 {
-    QupZilla* activeW = qobject_cast<QupZilla*>(activeWindow());
+    BrowserWindow* activeW = qobject_cast<BrowserWindow*>(activeWindow());
     if (activeW) {
         return activeW;
     }
@@ -512,9 +512,9 @@ bool MainApplication::isStateChanged()
     return false;
 }
 
-QList<QupZilla*> MainApplication::mainWindows()
+QList<BrowserWindow*> MainApplication::mainWindows()
 {
-    QList<QupZilla*> list;
+    QList<BrowserWindow*> list;
 
     for (int i = 0; i < m_mainWindows.count(); i++) {
         if (!m_mainWindows.at(i)) {
@@ -610,7 +610,7 @@ void MainApplication::receiveAppMessage(QString message)
             actWin = downManager();
         }
         else if (text == QLatin1String("ToggleFullScreen") && actWin) {
-            QupZilla* qz = static_cast<QupZilla*>(actWin);
+            BrowserWindow* qz = static_cast<BrowserWindow*>(actWin);
             qz->toggleFullScreen();
         }
         else if (text.startsWith(QLatin1String("OpenUrlInCurrentTab"))) {
@@ -635,7 +635,7 @@ void MainApplication::receiveAppMessage(QString message)
     actWin->activateWindow();
     actWin->setFocus();
 
-    QupZilla* qz = qobject_cast<QupZilla*>(actWin);
+    BrowserWindow* qz = qobject_cast<BrowserWindow*>(actWin);
 
     if (qz && !actUrl.isEmpty()) {
         qz->loadAddress(actUrl);
@@ -651,13 +651,13 @@ void MainApplication::addNewTab(const QUrl &url)
     getWindow()->tabWidget()->addView(url, url.isEmpty() ? Qz::NT_SelectedNewEmptyTab : Qz::NT_SelectedTabAtTheEnd);
 }
 
-QupZilla* MainApplication::makeNewWindow(Qz::BrowserWindow type, const QUrl &startUrl)
+BrowserWindow* MainApplication::makeNewWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
 {
     if (m_mainWindows.count() == 0 && type != Qz::BW_MacFirstWindow) {
         type = Qz::BW_FirstAppWindow;
     }
 
-    QupZilla* newWindow = new QupZilla(type, startUrl);
+    BrowserWindow* newWindow = new BrowserWindow(type, startUrl);
     m_mainWindows.prepend(newWindow);
 
     return newWindow;
@@ -1166,7 +1166,7 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
     return QUrl(dataString);
 }
 
-void MainApplication::aboutToCloseWindow(QupZilla* window)
+void MainApplication::aboutToCloseWindow(BrowserWindow* window)
 {
     if (!window) {
         return;
@@ -1199,7 +1199,7 @@ bool MainApplication::saveStateSlot()
     stream << m_mainWindows.count();
 
     for (int i = 0; i < m_mainWindows.count(); i++) {
-        QupZilla* qz = m_mainWindows.at(i).data();
+        BrowserWindow* qz = m_mainWindows.at(i).data();
         if (!qz) {
             continue;
         }
@@ -1213,7 +1213,7 @@ bool MainApplication::saveStateSlot()
     }
     file.close();
 
-    QupZilla* qupzilla_ = getWindow();
+    BrowserWindow* qupzilla_ = getWindow();
     if (qupzilla_ && m_mainWindows.count() == 1) {
         qupzilla_->tabWidget()->savePinnedTabs();
     }
@@ -1225,7 +1225,7 @@ bool MainApplication::saveStateSlot()
     return true;
 }
 
-bool MainApplication::restoreStateSlot(QupZilla* window, RestoreData recoveryData)
+bool MainApplication::restoreStateSlot(BrowserWindow* window, RestoreData recoveryData)
 {
     if (m_isPrivateSession || recoveryData.isEmpty()) {
         return false;
@@ -1242,7 +1242,7 @@ bool MainApplication::restoreStateSlot(QupZilla* window, RestoreData recoveryDat
         // some new tabs.
         // Instead create new one and restore pinned tabs there
 
-        QupZilla* newWin = makeNewWindow(Qz::BW_OtherRestoredWindow);
+        BrowserWindow* newWin = makeNewWindow(Qz::BW_OtherRestoredWindow);
         newWin->restoreWindowState(recoveryData.first());
         recoveryData.remove(0);
     }
@@ -1260,7 +1260,7 @@ bool MainApplication::restoreStateSlot(QupZilla* window, RestoreData recoveryDat
     }
 
     foreach (const RestoreManager::WindowData &data, recoveryData) {
-        QupZilla* window = makeNewWindow(Qz::BW_OtherRestoredWindow);
+        BrowserWindow* window = makeNewWindow(Qz::BW_OtherRestoredWindow);
         window->restoreWindowState(data);
         // for correct geometry calculation in QupZilla::setupUi()
         mApp->processEvents();
@@ -1318,7 +1318,7 @@ bool MainApplication::checkSettingsDir()
 
     QFile versionFile(PROFILEDIR + "profiles/default/version");
     versionFile.open(QFile::WriteOnly);
-    versionFile.write(QupZilla::VERSION.toUtf8());
+    versionFile.write(Qz::VERSION.toUtf8());
     versionFile.close();
 
     return dir.isReadable();

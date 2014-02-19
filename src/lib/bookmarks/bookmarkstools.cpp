@@ -23,7 +23,7 @@
 #include "enhancedmenu.h"
 #include "tabwidget.h"
 #include "qzsettings.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <iostream>
 #include <QSqlQuery>
@@ -215,7 +215,7 @@ bool BookmarksTools::bookmarkAllTabsDialog(QWidget* parent, TabWidget* tabWidget
     return true;
 }
 
-void BookmarksTools::openBookmark(QupZilla* window, BookmarkItem* item)
+void BookmarksTools::openBookmark(BrowserWindow* window, BookmarkItem* item)
 {
     Q_ASSERT(window);
 
@@ -232,7 +232,7 @@ void BookmarksTools::openBookmark(QupZilla* window, BookmarkItem* item)
     }
 }
 
-void BookmarksTools::openBookmarkInNewTab(QupZilla* window, BookmarkItem* item)
+void BookmarksTools::openBookmarkInNewTab(BrowserWindow* window, BookmarkItem* item)
 {
     Q_ASSERT(window);
 
@@ -259,7 +259,7 @@ void BookmarksTools::openBookmarkInNewWindow(BookmarkItem* item)
     mApp->makeNewWindow(Qz::BW_NewWindow, item->url());
 }
 
-void BookmarksTools::openFolderInTabs(QupZilla* window, BookmarkItem* folder)
+void BookmarksTools::openFolderInTabs(BrowserWindow* window, BookmarkItem* folder)
 {
     Q_ASSERT(window);
     Q_ASSERT(folder->isFolder());

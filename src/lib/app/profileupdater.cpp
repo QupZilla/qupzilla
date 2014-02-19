@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "profileupdater.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "updater.h"
 #include "qztools.h"
 #include "mainapplication.h"
@@ -47,14 +47,14 @@ void ProfileUpdater::checkProfile()
         versionFile.close();
         versionFile.remove();
 
-        updateProfile(QupZilla::VERSION, profileVersion.trimmed());
+        updateProfile(Qz::VERSION, profileVersion.trimmed());
     }
     else {
         copyDataToProfile();
     }
 
     versionFile.open(QFile::WriteOnly);
-    versionFile.write(QupZilla::VERSION.toUtf8());
+    versionFile.write(Qz::VERSION.toUtf8());
     versionFile.close();
 }
 

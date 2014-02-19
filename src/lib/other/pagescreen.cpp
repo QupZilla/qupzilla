@@ -20,7 +20,7 @@
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "qztools.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "settings.h"
 
 #include <QFileDialog>
@@ -169,7 +169,7 @@ void PageScreen::saveAsDocument(const QString &format)
     }
 
     QPrinter printer;
-    printer.setCreator(QupZilla::tr("QupZilla %1 (%2)").arg(QupZilla::VERSION, QupZilla::WWWADDRESS));
+    printer.setCreator(BrowserWindow::tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
     printer.setOutputFileName(pathWithoutSuffix + suffix);
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setPaperSize(m_pageImages.first().size(), QPrinter::DevicePixel);

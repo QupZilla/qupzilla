@@ -22,19 +22,19 @@
 
 #include <QMenuBar>
 
-class QupZilla;
+class BrowserWindow;
 
 class QT_QUPZILLA_EXPORT MenuBar : public QMenuBar
 {
     Q_OBJECT
 public:
-    explicit MenuBar(QupZilla* parent);
+    explicit MenuBar(BrowserWindow* parent);
 
 private slots:
     void contextMenuRequested(const QPoint &pos);
 
 private:
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
 
 };
 

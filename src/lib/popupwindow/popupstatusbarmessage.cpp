@@ -26,9 +26,9 @@
 #include <QStyle>
 #include <QWebFrame>
 
-PopupStatusBarMessage::PopupStatusBarMessage(PopupWindow* mainClass)
-    : m_popupWindow(mainClass)
-    , m_statusBarText(new TipLabel(mainClass))
+PopupStatusBarMessage::PopupStatusBarMessage(PopupWindow* window)
+    : m_popupWindow(window)
+    , m_statusBarText(new TipLabel(window))
 {
 }
 

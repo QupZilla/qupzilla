@@ -18,7 +18,7 @@
 * ============================================================ */
 #include "macmenureceiver.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "settings.h"
 
 #include <QAction>
@@ -78,7 +78,7 @@ bool MacMenuReceiver::callSlot(const char* member, bool makeIfNoWindow, QGeneric
 {
     //qDebug("MacMenuReceiver::callSlot: \'QupZilla::%s()\'", member);
 
-    QupZilla* qzWindow = mApp->getWindow();
+    BrowserWindow* qzWindow = mApp->getWindow();
     if (!qzWindow) {
         if (!makeIfNoWindow) {
             return false;

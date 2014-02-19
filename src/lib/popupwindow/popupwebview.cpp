@@ -18,7 +18,7 @@
 #include "popupwebview.h"
 #include "popupwebpage.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 #include "iconprovider.h"
@@ -65,7 +65,7 @@ void PopupWebView::loadInNewTab(const QNetworkRequest &req, QNetworkAccessManage
 {
     Q_UNUSED(position)
 
-    QupZilla* window = mApp->getWindow();
+    BrowserWindow* window = mApp->getWindow();
 
     if (window) {
         QNetworkRequest r(req);

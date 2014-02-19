@@ -28,7 +28,7 @@
 class QWebSecurityOrigin;
 class QEventLoop;
 
-class QupZilla;
+class BrowserWindow;
 class AdBlockRule;
 class TabbedWebView;
 class SpeedDial;

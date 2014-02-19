@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "updater.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "qztools.h"
 #include "mainapplication.h"
 #include "tabwidget.h"
@@ -111,17 +111,17 @@ QString Updater::Version::versionString() const
     return QString("%1.%2.%3").arg(majorVersion, minorVersion, revisionNumber);
 }
 
-Updater::Updater(QupZilla* mainClass, QObject* parent)
+Updater::Updater(BrowserWindow* window, QObject* parent)
     : QObject(parent)
-    , p_QupZilla(mainClass)
+    , m_window(window)
 {
     QTimer::singleShot(60 * 1000, this, SLOT(start())); // Start checking after 1 minute
 }
 
 void Updater::start()
 {
-    QUrl url = QUrl(QString("%1/update.php?v=%2&os=%3").arg(QupZilla::WWWADDRESS,
-                    QupZilla::VERSION,
+    QUrl url = QUrl(QString("%1/update.php?v=%2&os=%3").arg(Qz::WWWADDRESS,
+                    Qz::VERSION,
                     QzTools::operatingSystem()));
 
     startDownloadingUpdateInfo(url);
@@ -141,7 +141,7 @@ void Updater::downCompleted(QNetworkReply* reply)
 
     if (html.startsWith(QLatin1String("Version:"))) {
         html.remove(QLatin1String("Version:"));
-        Version current(QupZilla::VERSION);
+        Version current(Qz::VERSION);
         Version updated(html);
 
         if (current.isValid && updated.isValid && current < updated) {
@@ -154,7 +154,7 @@ void Updater::downCompleted(QNetworkReply* reply)
 
 void Updater::downloadNewVersion()
 {
-    p_QupZilla->tabWidget()->addView(QUrl(QupZilla::WWWADDRESS + "/download"), tr("Update"), Qz::NT_NotSelectedTab);
+    m_window->tabWidget()->addView(QUrl(Qz::WWWADDRESS + "/download"), tr("Update"), Qz::NT_NotSelectedTab);
 }
 
 Updater::~Updater()

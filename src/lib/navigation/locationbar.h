@@ -24,7 +24,7 @@
 #include "lineedit.h"
 #include "completer/locationcompleter.h"
 
-class QupZilla;
+class BrowserWindow;
 class LineEdit;
 class LocationCompleter;
 class ClickableLabel;
@@ -43,7 +43,7 @@ class QT_QUPZILLA_EXPORT LocationBar : public LineEdit
     Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)
 
 public:
-    explicit LocationBar(QupZilla* mainClass);
+    explicit LocationBar(BrowserWindow* window);
     ~LocationBar();
 
     void setWebView(TabbedWebView* view);
@@ -111,7 +111,7 @@ private:
     SiteIcon* m_siteIcon;
     AutoFillIcon* m_autofillIcon;
 
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     TabbedWebView* m_webView;
 
     QAction* m_pasteAndGoAction;

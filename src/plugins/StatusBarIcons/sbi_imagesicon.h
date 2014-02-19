@@ -24,14 +24,14 @@
 
 class QWebSettings;
 
-class QupZilla;
+class BrowserWindow;
 
 class SBI_ImagesIcon : public ClickableLabel
 {
     Q_OBJECT
 
 public:
-    explicit SBI_ImagesIcon(QupZilla* window, const QString &settingsPath);
+    explicit SBI_ImagesIcon(BrowserWindow* window, const QString &settingsPath);
 
 private slots:
     void showMenu(const QPoint &point);
@@ -43,7 +43,7 @@ private slots:
 private:
     QWebSettings* currentPageSettings();
 
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     QString m_settingsFile;
 
     QIcon m_icon;

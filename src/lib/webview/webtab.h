@@ -28,7 +28,7 @@
 class QVBoxLayout;
 class QWebHistory;
 
-class QupZilla;
+class BrowserWindow;
 class LocationBar;
 class WebView;
 class TabbedWebView;
@@ -53,7 +53,7 @@ public:
         friend QT_QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, SavedTab &tab);
     };
 
-    explicit WebTab(QupZilla* mainClass, LocationBar* locationBar);
+    explicit WebTab(BrowserWindow* window, LocationBar* locationBar);
     ~WebTab();
 
     TabbedWebView* view() const;
@@ -64,7 +64,7 @@ public:
     QIcon icon() const;
     QWebHistory* history() const;
 
-    void moveToWindow(QupZilla* window);
+    void moveToWindow(BrowserWindow* window);
 
     void setHistoryData(const QByteArray &data);
     QByteArray historyData() const;
@@ -103,7 +103,7 @@ private slots:
     void enableUpdates();
 
 private:
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     TabbedWebView* m_view;
     QVBoxLayout* m_layout;
     QWidget* m_navigationContainer;

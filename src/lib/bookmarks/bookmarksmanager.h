@@ -30,7 +30,7 @@ class BookmarksManager;
 
 class QUrl;
 
-class QupZilla;
+class BrowserWindow;
 class Bookmarks;
 class BookmarkItem;
 
@@ -39,10 +39,10 @@ class QT_QUPZILLA_EXPORT BookmarksManager : public QWidget
     Q_OBJECT
 
 public:
-    explicit BookmarksManager(QupZilla* mainClass, QWidget* parent = 0);
+    explicit BookmarksManager(BrowserWindow* window, QWidget* parent = 0);
     ~BookmarksManager();
 
-    void setMainWindow(QupZilla* window);
+    void setMainWindow(BrowserWindow* window);
 
 public slots:
     void search(const QString &string);
@@ -72,13 +72,13 @@ private:
     bool bookmarkEditable(BookmarkItem* item) const;
     void addBookmark(BookmarkItem* item);
     BookmarkItem* parentForNewBookmark() const;
-    QupZilla* getQupZilla();
+    BrowserWindow* getQupZilla();
 
     void showEvent(QShowEvent* event);
     void keyPressEvent(QKeyEvent* event);
 
     Ui::BookmarksManager* ui;
-    QPointer<QupZilla> p_QupZilla;
+    QPointer<BrowserWindow> m_window;
 
     Bookmarks* m_bookmarks;
     BookmarkItem* m_selectedBookmark;

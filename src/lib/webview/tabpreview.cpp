@@ -16,7 +16,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabpreview.h"
 #include "qztools.h"
 #include "webtab.h"
@@ -31,9 +31,9 @@
 #include <QVBoxLayout>
 #include <QStyleOptionFrame>
 
-TabPreview::TabPreview(QupZilla* mainClass, QWidget* parent)
+TabPreview::TabPreview(BrowserWindow* window, QWidget* parent)
     : QFrame(parent)
-    , p_QupZilla(mainClass)
+    , m_window(window)
     , m_previewIndex(-1)
     , m_animationsEnabled(true)
     , m_stepX(0)
@@ -280,8 +280,8 @@ QPoint TabPreview::calculatePosition(const QRect &tabRect, const QSize &previewS
     if (p.x() < 0) {
         p.setX(0);
     }
-    if (p.x() + previewSize.width() > p_QupZilla->width()) {
-        int extraWidth = p.x() + previewSize.width() - p_QupZilla->width();
+    if (p.x() + previewSize.width() > m_window->width()) {
+        int extraWidth = p.x() + previewSize.width() - m_window->width();
         p.setX(p.x() - extraWidth);
     }
 

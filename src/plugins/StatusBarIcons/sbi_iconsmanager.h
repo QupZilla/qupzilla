@@ -21,7 +21,7 @@
 #include <QWidget>
 #include <QHash>
 
-class QupZilla;
+class BrowserWindow;
 class SBI_NetworkManager;
 
 class SBI_IconsManager : public QObject
@@ -48,8 +48,8 @@ public:
 signals:
 
 public slots:
-    void mainWindowCreated(QupZilla* window);
-    void mainWindowDeleted(QupZilla* window);
+    void mainWindowCreated(BrowserWindow* window);
+    void mainWindowDeleted(BrowserWindow* window);
 
 private:
     QString m_settingsPath;
@@ -57,7 +57,7 @@ private:
     bool m_showJavaScriptIcon;
     bool m_showNetworkIcon;
 
-    QHash<QupZilla*, QWidgetList> m_windows;
+    QHash<BrowserWindow*, QWidgetList> m_windows;
     SBI_NetworkManager* m_networkManager;
 };
 

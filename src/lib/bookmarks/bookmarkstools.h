@@ -70,7 +70,7 @@ private:
     BookmarkItem* m_selectedFolder;
 };
 
-class QupZilla;
+class BrowserWindow;
 class TabWidget;
 class Action;
 class Menu;
@@ -83,10 +83,10 @@ public:
     static bool bookmarkAllTabsDialog(QWidget* parent, TabWidget* tabWidget, BookmarkItem* folder = 0);
 
     // Open Bookmarks
-    static void openBookmark(QupZilla* window, BookmarkItem* item);
-    static void openBookmarkInNewTab(QupZilla* window, BookmarkItem* item);
+    static void openBookmark(BrowserWindow* window, BookmarkItem* item);
+    static void openBookmarkInNewTab(BrowserWindow* window, BookmarkItem* item);
     static void openBookmarkInNewWindow(BookmarkItem* item);
-    static void openFolderInTabs(QupZilla* window, BookmarkItem* folder);
+    static void openFolderInTabs(BrowserWindow* window, BookmarkItem* folder);
 
     // Create Menu
     static void addActionToMenu(QObject* receiver, Menu* menu, BookmarkItem* item);

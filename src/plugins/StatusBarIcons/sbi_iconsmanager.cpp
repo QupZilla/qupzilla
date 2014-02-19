@@ -20,7 +20,7 @@
 #include "sbi_javascripticon.h"
 #include "sbi_networkicon.h"
 #include "sbi_networkmanager.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <QDebug>
 #include <QSettings>
@@ -88,7 +88,7 @@ void SBI_IconsManager::setShowNetworkIcon(bool show)
 
 void SBI_IconsManager::reloadIcons()
 {
-    QHashIterator<QupZilla*, QWidgetList> it(m_windows);
+    QHashIterator<BrowserWindow*, QWidgetList> it(m_windows);
 
     while (it.hasNext()) {
         it.next();
@@ -99,7 +99,7 @@ void SBI_IconsManager::reloadIcons()
 
 void SBI_IconsManager::destroyIcons()
 {
-    QHashIterator<QupZilla*, QWidgetList> it(m_windows);
+    QHashIterator<BrowserWindow*, QWidgetList> it(m_windows);
 
     while (it.hasNext()) {
         it.next();
@@ -107,7 +107,7 @@ void SBI_IconsManager::destroyIcons()
     }
 }
 
-void SBI_IconsManager::mainWindowCreated(QupZilla* window)
+void SBI_IconsManager::mainWindowCreated(BrowserWindow* window)
 {
     if (m_showImagesIcon) {
         SBI_ImagesIcon* w = new SBI_ImagesIcon(window, m_settingsPath);
@@ -132,7 +132,7 @@ void SBI_IconsManager::mainWindowCreated(QupZilla* window)
     }
 }
 
-void SBI_IconsManager::mainWindowDeleted(QupZilla* window)
+void SBI_IconsManager::mainWindowDeleted(BrowserWindow* window)
 {
     foreach (QWidget* w, m_windows[window]) {
         window->statusBar()->removeWidget(w);

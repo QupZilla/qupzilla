@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "clearprivatedata.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 #include "cookiejar.h"
 #include "history.h"
@@ -38,9 +38,9 @@
 #include <QCloseEvent>
 #include <QFileInfo>
 
-ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent)
+ClearPrivateData::ClearPrivateData(BrowserWindow* window, QWidget* parent)
     : QDialog(parent)
-    , p_QupZilla(mainClass)
+    , m_window(window)
     , ui(new Ui::ClearPrivateData)
 {
     ui->setupUi(this);

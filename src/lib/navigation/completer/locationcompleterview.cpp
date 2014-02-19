@@ -19,7 +19,7 @@
 #include "locationcompletermodel.h"
 #include "locationcompleterdelegate.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "history.h"
 #include "tabwidget.h"
 #include "qzsettings.h"
@@ -264,7 +264,7 @@ void LocationCompleterView::mouseReleaseEvent(QMouseEvent* event)
 
 void LocationCompleterView::activateTab(TabPosition pos)
 {
-    QupZilla* win = mApp->mainWindows().at(pos.windowIndex);
+    BrowserWindow* win = mApp->mainWindows().at(pos.windowIndex);
     if (mApp->getWindow() != win || mApp->getWindow()->tabWidget()->currentIndex() != pos.tabIndex) {
         emit aboutToActivateTab(pos);
         close();

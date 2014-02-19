@@ -18,7 +18,7 @@
 #include "kwalletplugin.h"
 #include "kwalletpasswordbackend.h"
 #include "pluginproxy.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <QTranslator>
 
@@ -59,7 +59,7 @@ void KWalletPlugin::unload()
 
 bool KWalletPlugin::testPlugin()
 {
-    return (QupZilla::VERSION == QLatin1String("1.7.0"));
+    return (Qz::VERSION == QLatin1String("1.7.0"));
 }
 
 QTranslator* KWalletPlugin::getTranslator(const QString &locale)

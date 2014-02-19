@@ -24,14 +24,14 @@
 
 class QNetworkConfigurationManager;
 
-class QupZilla;
+class BrowserWindow;
 
 class SBI_NetworkIcon : public ClickableLabel
 {
     Q_OBJECT
 
 public:
-    explicit SBI_NetworkIcon(QupZilla* window);
+    explicit SBI_NetworkIcon(BrowserWindow* window);
 
 private slots:
     void onlineStateChanged(bool online);
@@ -44,7 +44,7 @@ private:
     void updateToolTip();
     void enterEvent(QEvent* event);
 
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     QNetworkConfigurationManager* m_networkConfiguration;
 };
 

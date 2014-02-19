@@ -18,7 +18,7 @@
 #include "history.h"
 #include "historymodel.h"
 #include "tabbedwebview.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "iconprovider.h"
 #include "settings.h"
 

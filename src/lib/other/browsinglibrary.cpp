@@ -29,11 +29,11 @@
 #include <QMenu>
 #include <QCloseEvent>
 
-BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
+BrowsingLibrary::BrowsingLibrary(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::BrowsingLibrary)
-    , m_historyManager(new HistoryManager(mainClass))
-    , m_bookmarksManager(new BookmarksManager(mainClass))
+    , m_historyManager(new HistoryManager(window))
+    , m_bookmarksManager(new BookmarksManager(window))
     , m_rssManager(mApp->rssManager())
     , m_rssLoaded(false)
 {
@@ -112,31 +112,31 @@ void BrowsingLibrary::exportBookmarks()
     d->show();
 }
 
-void BrowsingLibrary::showHistory(QupZilla* mainClass)
+void BrowsingLibrary::showHistory(BrowserWindow* window)
 {
     ui->tabs->SetCurrentIndex(0);
     show();
-    m_historyManager->setMainWindow(mainClass);
+    m_historyManager->setMainWindow(window);
 
     raise();
     activateWindow();
 }
 
-void BrowsingLibrary::showBookmarks(QupZilla* mainClass)
+void BrowsingLibrary::showBookmarks(BrowserWindow* window)
 {
     ui->tabs->SetCurrentIndex(1);
     show();
-    m_bookmarksManager->setMainWindow(mainClass);
+    m_bookmarksManager->setMainWindow(window);
 
     raise();
     activateWindow();
 }
 
-void BrowsingLibrary::showRSS(QupZilla* mainClass)
+void BrowsingLibrary::showRSS(BrowserWindow* window)
 {
     ui->tabs->SetCurrentIndex(2);
     show();
-    m_rssManager->setMainWindow(mainClass);
+    m_rssManager->setMainWindow(window);
 
     if (!m_rssLoaded) {
         m_rssManager->refreshTable();

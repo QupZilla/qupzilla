@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "qupzillaschemehandler.h"
 #include "qztools.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "mainapplication.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
@@ -31,6 +31,12 @@
 #include <QTimer>
 #include <QSettings>
 #include <QWebSecurityOrigin>
+
+#if QT_VERSION < 0x050000
+#include "qwebkitversion.h"
+#else
+#include <QWebPage>
+#endif
 
 static QString authorString(const char* name, const QString &mail)
 {
@@ -158,13 +164,13 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace(QLatin1String("%FIELDS-ARE-REQUIRED%"), tr("Please fill out all required fields!"));
 
     bPage.replace(QLatin1String("%INFO_OS%"), QzTools::operatingSystem());
-    bPage.replace(QLatin1String("%INFO_APP%"), QupZilla::VERSION
+    bPage.replace(QLatin1String("%INFO_APP%"), Qz::VERSION
 #ifdef GIT_REVISION
                   + " (" + GIT_REVISION + ")"
 #endif
                  );
     bPage.replace(QLatin1String("%INFO_QT%"), QString("%1 (built with %2)").arg(qVersion(), QT_VERSION_STR));
-    bPage.replace(QLatin1String("%INFO_WEBKIT%"), QupZilla::WEBKITVERSION),
+    bPage.replace(QLatin1String("%INFO_WEBKIT%"), qWebKitVersion()),
                   bPage = QzTools::applyDirectionToPage(bPage);
 
     return bPage;
@@ -186,7 +192,7 @@ QString QupZillaSchemeReply::startPage()
     sPage.replace(QLatin1String("%TITLE%"), tr("Start Page"));
     sPage.replace(QLatin1String("%BUTTON-LABEL%"), tr("Search on Web"));
     sPage.replace(QLatin1String("%SEARCH-BY%"), tr("Search results provided by DuckDuckGo"));
-    sPage.replace(QLatin1String("%WWW%"), QupZilla::WIKIADDRESS);
+    sPage.replace(QLatin1String("%WWW%"), Qz::WIKIADDRESS);
     sPage.replace(QLatin1String("%ABOUT-QUPZILLA%"), tr("About QupZilla"));
     sPage.replace(QLatin1String("%PRIVATE-BROWSING%"), mApp->isPrivateSession() ? tr("<h1>Private Browsing</h1>") : QString());
     sPage = QzTools::applyDirectionToPage(sPage);
@@ -211,14 +217,14 @@ QString QupZillaSchemeReply::aboutPage()
         aPage.replace(QLatin1String("%COPYRIGHT%"), tr("Copyright"));
 
         aPage.replace(QLatin1String("%VERSION-INFO%"),
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"), QupZilla::VERSION
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"), Qz::VERSION
 #ifdef GIT_REVISION
                               + " (" + GIT_REVISION + ")"
 #endif
                                                           ) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION));
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), qWebKitVersion()));
         aPage.replace(QLatin1String("%MAIN-DEVELOPER%"), tr("Main developer"));
-        aPage.replace(QLatin1String("%MAIN-DEVELOPER-TEXT%"), authorString(QupZilla::AUTHOR.toUtf8(), "nowrep@gmail.com"));
+        aPage.replace(QLatin1String("%MAIN-DEVELOPER-TEXT%"), authorString(Qz::AUTHOR.toUtf8(), "nowrep@gmail.com"));
         aPage.replace(QLatin1String("%CONTRIBUTORS%"), tr("Contributors"));
         aPage.replace(QLatin1String("%CONTRIBUTORS-TEXT%"),
                       authorString("Mladen Pejaković", "pejakm@autistici.org") + "<br/>" +
@@ -380,14 +386,14 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace(QLatin1String("%PL-DESC%"), tr("Description"));
 
         cPage.replace(QLatin1String("%VERSION-INFO%"),
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Application version"), QupZilla::VERSION
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Application version"), Qz::VERSION
 #ifdef GIT_REVISION
                               + " (" + GIT_REVISION + ")"
 #endif
                                                           ) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), qWebKitVersion()) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), Qz::BUILDTIME) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), QzTools::operatingSystem()));
 
         cPage.replace(QLatin1String("%PATHS-TEXT%"),

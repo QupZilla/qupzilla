@@ -20,7 +20,7 @@
 #include "mainapplication.h"
 #include "autofill.h"
 #include "aesinterface.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "ui_masterpassworddialog.h"
 
 #include <QVector>

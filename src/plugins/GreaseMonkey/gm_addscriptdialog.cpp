@@ -22,7 +22,7 @@
 #include "gm_notification.h"
 
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 #include "qztools.h"
@@ -61,7 +61,7 @@ GM_AddScriptDialog::GM_AddScriptDialog(GM_Manager* manager, GM_Script* script, Q
 
 void GM_AddScriptDialog::showSource()
 {
-    QupZilla* qz = mApp->getWindow();
+    BrowserWindow* qz = mApp->getWindow();
     if (!qz) {
         return;
     }

@@ -21,7 +21,7 @@
 #include "bookmarkitem.h"
 #include "bookmarks.h"
 #include "qzsettings.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 
 #include <QSqlQuery>
@@ -238,11 +238,11 @@ TabPosition LocationCompleterModel::tabPositionForUrl(const QUrl &url) const
 
 TabPosition LocationCompleterModel::tabPositionForEncodedUrl(const QString &encodedUrl) const
 {
-    QList<QupZilla*> windows = mApp->mainWindows();
+    QList<BrowserWindow*> windows = mApp->mainWindows();
     int currentWindowIdx = windows.indexOf(mApp->getWindow());
     windows.prepend(mApp->getWindow());
     for (int win = 0; win < windows.count(); ++win) {
-        QupZilla* mainWin = windows.at(win);
+        BrowserWindow* mainWin = windows.at(win);
         QList<WebTab*> tabs = mainWin->tabWidget()->allTabs();
         for (int tab = 0; tab < tabs.count(); ++tab) {
             if (tabs[tab]->url().toEncoded() == encodedUrl) {

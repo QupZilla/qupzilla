@@ -18,7 +18,7 @@
 #include "qztools.h"
 #include "siteinfowidget.h"
 #include "ui_siteinfowidget.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "mainapplication.h"
 #include "webpage.h"
 #include "tabbedwebview.h"
@@ -26,17 +26,17 @@
 #include <QToolTip>
 #include <QSqlQuery>
 
-SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
+SiteInfoWidget::SiteInfoWidget(BrowserWindow* window, QWidget* parent)
     : LocationBarPopup(parent)
     , ui(new Ui::SiteInfoWidget)
-    , p_QupZilla(mainClass)
+    , m_window(window)
 {
     this->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
     setPopupAlignment(Qt::AlignLeft);
 
-    WebView* view = p_QupZilla->weView();
+    WebView* view = m_window->weView();
     WebPage* webPage = view->page();
     QUrl url = view->url();
 
@@ -82,7 +82,7 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
             ui->historyLabel->setText(tr("This is your <b>%1</b> visit of this site.").arg(text));
         }
     }
-    connect(ui->pushButton, SIGNAL(clicked()), p_QupZilla, SLOT(showPageInfo()));
+    connect(ui->pushButton, SIGNAL(clicked()), m_window, SLOT(showPageInfo()));
 }
 
 SiteInfoWidget::~SiteInfoWidget()

@@ -21,13 +21,13 @@
 #include "restoremanager.h"
 #include "mainapplication.h"
 #include "webview.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
-RecoveryWidget::RecoveryWidget(WebView* view, QupZilla* mainClass)
+RecoveryWidget::RecoveryWidget(WebView* view, BrowserWindow* window)
     : QWidget()
     , ui(new Ui::RecoveryWidget)
     , m_view(view)
-    , p_QupZilla(mainClass)
+    , m_window(window)
 {
     ui->setupUi(this);
 
@@ -96,14 +96,14 @@ void RecoveryWidget::restoreSession()
         }
     }
 
-    if (!mApp->restoreStateSlot(p_QupZilla, data)) {
+    if (!mApp->restoreStateSlot(m_window, data)) {
         newSession();
     }
 }
 
 void RecoveryWidget::newSession()
 {
-    m_view->load(p_QupZilla->homepageUrl());
+    m_view->load(m_window->homepageUrl());
 
     mApp->destroyRestoreManager();
 }

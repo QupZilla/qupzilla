@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "useragentmanager.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "qztools.h"
 #include "settings.h"
 
@@ -25,7 +25,7 @@
 UserAgentManager::UserAgentManager()
     : m_usePerDomainUserAgent(false)
 {
-    m_fakeUserAgent = QString("Mozilla/5.0 (%1) AppleWebKit/%2 (KHTML, like Gecko) Chrome/10.0 Safari/%2").arg(QzTools::operatingSystem(), QupZilla::WEBKITVERSION);
+    m_fakeUserAgent = QString("Mozilla/5.0 (%1) AppleWebKit/%2 (KHTML, like Gecko) Chrome/10.0 Safari/%2").arg(QzTools::operatingSystem(), BrowserWindow::WEBKITVERSION);
 }
 
 void UserAgentManager::loadSettings()

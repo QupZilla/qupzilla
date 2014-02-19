@@ -18,7 +18,7 @@
 #include "popupwebpage.h"
 #include "popupwebview.h"
 #include "popupwindow.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 
@@ -31,9 +31,9 @@
 //
 // Got an idea how to determine it from kWebKitPart.
 
-PopupWebPage::PopupWebPage(QWebPage::WebWindowType type, QupZilla* mainClass)
+PopupWebPage::PopupWebPage(QWebPage::WebWindowType type, BrowserWindow* window)
     : WebPage()
-    , p_QupZilla(mainClass)
+    , m_window(window)
     , m_type(type)
     , m_createNewWindow(false)
     , m_menuBarVisible(false)
@@ -54,9 +54,9 @@ PopupWebPage::PopupWebPage(QWebPage::WebWindowType type, QupZilla* mainClass)
     QTimer::singleShot(0, this, SLOT(checkBehaviour()));
 }
 
-QupZilla* PopupWebPage::mainWindow() const
+BrowserWindow* PopupWebPage::mainWindow() const
 {
-    return p_QupZilla;
+    return m_window;
 }
 
 void PopupWebPage::slotGeometryChangeRequested(const QRect &rect)
@@ -129,7 +129,7 @@ void PopupWebPage::checkBehaviour()
             view->fakeLoadingProgress(m_progress);
         }
 
-        p_QupZilla->addDeleteOnCloseWidget(popup);
+        m_window->addDeleteOnCloseWidget(popup);
 
         disconnect(this, SIGNAL(geometryChangeRequested(QRect)), this, SLOT(slotGeometryChangeRequested(QRect)));
         disconnect(this, SIGNAL(menuBarVisibilityChangeRequested(bool)), this, SLOT(slotMenuBarVisibilityChangeRequested(bool)));
@@ -141,8 +141,8 @@ void PopupWebPage::checkBehaviour()
         disconnect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished(bool)));
     }
     else {
-        int index = p_QupZilla->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
-        TabbedWebView* view = p_QupZilla->weView(index);
+        int index = m_window->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
+        TabbedWebView* view = m_window->weView(index);
         view->setWebPage(this);
 
         if (m_isLoading) {

@@ -28,9 +28,9 @@
 #include <QTimer>
 #include <QFrame>
 
-BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
+BookmarksToolbar::BookmarksToolbar(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
-    , m_window(mainClass)
+    , m_window(window)
     , m_bookmarks(mApp->bookmarks())
     , m_clickedBookmark(0)
 {

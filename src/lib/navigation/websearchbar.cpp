@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "websearchbar.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "mainapplication.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
@@ -52,9 +52,9 @@ void WebSearchBar_Button::contextMenuEvent(QContextMenuEvent* event)
     event->accept();
 }
 
-WebSearchBar::WebSearchBar(QupZilla* mainClass)
-    : LineEdit(mainClass)
-    , p_QupZilla(mainClass)
+WebSearchBar::WebSearchBar(BrowserWindow* window)
+    : LineEdit(window)
+    , m_window(window)
     , m_pasteAndGoAction(0)
     , m_clearAction(0)
     , m_reloadingEngines(false)
@@ -202,25 +202,25 @@ void WebSearchBar::instantSearchChanged(bool enable)
 
 void WebSearchBar::search()
 {
-    p_QupZilla->weView()->setFocus();
+    m_window->weView()->setFocus();
 
     SearchEnginesManager::SearchResult res = m_searchManager->searchResult(m_activeEngine, text());
-    p_QupZilla->weView()->load(res.request, res.operation, res.data);
+    m_window->weView()->load(res.request, res.operation, res.data);
 }
 
 void WebSearchBar::searchInNewTab()
 {
-    p_QupZilla->weView()->setFocus();
+    m_window->weView()->setFocus();
 
-    int index = p_QupZilla->tabWidget()->addView(QUrl());
+    int index = m_window->tabWidget()->addView(QUrl());
 
     SearchEnginesManager::SearchResult res = m_searchManager->searchResult(m_activeEngine, text());
-    p_QupZilla->weView(index)->load(res.request, res.operation, res.data);
+    m_window->weView(index)->load(res.request, res.operation, res.data);
 }
 
 void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
 {
-    WebView* view = p_QupZilla->weView();
+    WebView* view = m_window->weView();
     QWebFrame* frame = view->page()->mainFrame();
 
     QWebElementCollection elements = frame->documentElement().findAll(QLatin1String("link[rel=search]"));

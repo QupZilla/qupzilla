@@ -22,7 +22,7 @@
 #include "mainapplication.h"
 #include "browsinglibrary.h"
 #include "iconprovider.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "qzsettings.h"
 #include "tabwidget.h"
 
@@ -38,7 +38,7 @@ BookmarksMenu::BookmarksMenu(QWidget* parent)
     connect(mApp->bookmarks(), SIGNAL(bookmarkChanged(BookmarkItem*)), this, SLOT(bookmarksChanged()));
 }
 
-void BookmarksMenu::setMainWindow(QupZilla* window)
+void BookmarksMenu::setMainWindow(BrowserWindow* window)
 {
     m_window = window;
 }

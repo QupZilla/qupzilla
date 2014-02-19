@@ -19,7 +19,7 @@
 #include "pluginproxy.h"
 #include "mousegestures.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <QTranslator>
 
@@ -65,7 +65,7 @@ bool MouseGesturesPlugin::testPlugin()
 {
     // Let's be sure, require latest version of QupZilla
 
-    return (QupZilla::VERSION == QLatin1String("1.7.0"));
+    return (Qz::VERSION == QLatin1String("1.7.0"));
 }
 
 QTranslator* MouseGesturesPlugin::getTranslator(const QString &locale)

@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "gm_plugin.h"
 #include "gm_manager.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "webpage.h"
 #include "pluginproxy.h"
 #include "mainapplication.h"
@@ -55,12 +55,12 @@ void GM_Plugin::init(InitState state, const QString &settingsPath)
     m_settingsPath = settingsPath;
 
     connect(mApp->plugins(), SIGNAL(webPageCreated(WebPage*)), this, SLOT(webPageCreated(WebPage*)));
-    connect(mApp->plugins(), SIGNAL(mainWindowCreated(QupZilla*)), m_manager, SLOT(mainWindowCreated(QupZilla*)));
-    connect(mApp->plugins(), SIGNAL(mainWindowDeleted(QupZilla*)), m_manager, SLOT(mainWindowDeleted(QupZilla*)));
+    connect(mApp->plugins(), SIGNAL(mainWindowCreated(BrowserWindow*)), m_manager, SLOT(mainWindowCreated(BrowserWindow*)));
+    connect(mApp->plugins(), SIGNAL(mainWindowDeleted(BrowserWindow*)), m_manager, SLOT(mainWindowDeleted(BrowserWindow*)));
 
     // Make sure userscripts works also with already created WebPages
     if (state == LateInitState) {
-        foreach (QupZilla* window, mApp->mainWindows()) {
+        foreach (BrowserWindow* window, mApp->mainWindows()) {
             m_manager->mainWindowCreated(window);
 
             for (int i = 0; i < window->tabWidget()->count(); ++i) {
@@ -81,7 +81,7 @@ void GM_Plugin::unload()
 
 bool GM_Plugin::testPlugin()
 {
-    return (QupZilla::VERSION == QLatin1String("1.7.0"));
+    return (Qz::VERSION == QLatin1String("1.7.0"));
 }
 
 QTranslator* GM_Plugin::getTranslator(const QString &locale)

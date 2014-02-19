@@ -32,7 +32,7 @@ class QMenu;
 class QWebSettings;
 class QNetworkDiskCache;
 
-class QupZilla;
+class BrowserWindow;
 class CookieManager;
 class BrowsingLibrary;
 class History;
@@ -73,12 +73,12 @@ public:
 
     void connectDatabase();
     void reloadSettings();
-    bool restoreStateSlot(QupZilla* window, RestoreData recoveryData);
-    QupZilla* makeNewWindow(Qz::BrowserWindow type, const QUrl &startUrl = QUrl());
-    void aboutToCloseWindow(QupZilla* window);
+    bool restoreStateSlot(BrowserWindow* window, RestoreData recoveryData);
+    BrowserWindow* makeNewWindow(Qz::BrowserWindowType type, const QUrl &startUrl = QUrl());
+    void aboutToCloseWindow(BrowserWindow* window);
     bool isStateChanged();
 
-    QList<QupZilla*> mainWindows();
+    QList<BrowserWindow*> mainWindows();
 
     static MainApplication* getInstance() { return static_cast<MainApplication*>(QCoreApplication::instance()); }
 
@@ -102,7 +102,7 @@ public:
     QString currentStyle() const;
     QString tempPath() const;
 
-    QupZilla* getWindow();
+    BrowserWindow* getWindow();
     CookieManager* cookieManager();
     BrowsingLibrary* browsingLibrary();
     History* history();
@@ -191,7 +191,7 @@ private:
 #endif
     DatabaseWriter* m_dbWriter;
     UserAgentManager* m_uaManager;
-    QList<QPointer<QupZilla> > m_mainWindows;
+    QList<QPointer<BrowserWindow> > m_mainWindows;
 
     QString m_activeProfil;
     QString m_activeLanguage;

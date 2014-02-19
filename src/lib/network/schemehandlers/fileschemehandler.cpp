@@ -20,7 +20,7 @@
 #include "iconprovider.h"
 #include "downloadoptionsdialog.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <QFileIconProvider>
 #include <QFileDialog>

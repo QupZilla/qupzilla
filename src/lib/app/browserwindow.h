@@ -51,21 +51,15 @@ class ClickableLabel;
 class WebInspectorDockWidget;
 class LocationBar;
 
-class QT_QUPZILLA_EXPORT QupZilla : public QMainWindow
+class QT_QUPZILLA_EXPORT BrowserWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    static const QString VERSION;
-    static const QString BUILDTIME;
-    static const QString AUTHOR;
-    static const QString COPYRIGHT;
-    static const QString WWWADDRESS;
-    static const QString WIKIADDRESS;
     static const QString WEBKITVERSION;
 
-    explicit QupZilla(Qz::BrowserWindow type, QUrl startUrl = QUrl());
-    ~QupZilla();
+    explicit BrowserWindow(Qz::BrowserWindowType type, QUrl startUrl = QUrl());
+    ~BrowserWindow();
 
     void openWithTab(WebTab* tab);
 
@@ -94,7 +88,7 @@ public:
     TabbedWebView* weView(int index) const;
     LocationBar* locationBar() const;
 
-    Qz::BrowserWindow windowType() const;
+    Qz::BrowserWindowType windowType() const;
     TabWidget* tabWidget() { return m_tabWidget; }
     BookmarksToolbar* bookmarksToolbar() { return m_bookmarksToolbar; }
     StatusBarMessage* statusBarMessage() { return m_statusBarMessage; }
@@ -268,7 +262,7 @@ private:
     bool m_isStarting;
     QUrl m_startingUrl;
     QUrl m_homepage;
-    Qz::BrowserWindow m_windowType;
+    Qz::BrowserWindowType m_windowType;
     WebTab* m_startTab;
 
     QVBoxLayout* m_mainLayout;

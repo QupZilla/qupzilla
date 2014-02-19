@@ -29,14 +29,14 @@ class RecoveryWidget;
 class QTreeWidgetItem;
 
 class WebView;
-class QupZilla;
+class BrowserWindow;
 
 class RecoveryWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit RecoveryWidget(WebView* view, QupZilla* mainClass);
+    explicit RecoveryWidget(WebView* view, BrowserWindow* window);
     ~RecoveryWidget();
 
 private slots:
@@ -47,7 +47,7 @@ private:
     Ui::RecoveryWidget* ui;
 
     WebView* m_view;
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
 };
 
 #endif // RECOVERYWIDGET_H

@@ -16,11 +16,11 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "menubar.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
-MenuBar::MenuBar(QupZilla* parent)
+MenuBar::MenuBar(BrowserWindow* parent)
     : QMenuBar(parent)
-    , p_QupZilla(parent)
+    , m_window(parent)
 {
     setObjectName("mainwindow-menubar");
     setCursor(Qt::ArrowCursor);
@@ -33,6 +33,6 @@ MenuBar::MenuBar(QupZilla* parent)
 void MenuBar::contextMenuRequested(const QPoint &pos)
 {
     if (!actionAt(pos)) {
-        p_QupZilla->popupToolbarsMenu(mapToGlobal(pos));
+        m_window->popupToolbarsMenu(mapToGlobal(pos));
     }
 }

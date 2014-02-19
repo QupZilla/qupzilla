@@ -30,18 +30,18 @@ class BrowsingLibrary;
 class HistoryManager;
 class BookmarksManager;
 class RSSManager;
-class QupZilla;
+class BrowserWindow;
 class QT_QUPZILLA_EXPORT BrowsingLibrary : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit BrowsingLibrary(QupZilla* mainClass, QWidget* parent = 0);
+    explicit BrowsingLibrary(BrowserWindow* window, QWidget* parent = 0);
     ~BrowsingLibrary();
 
-    void showHistory(QupZilla* mainClass);
-    void showBookmarks(QupZilla* mainClass);
-    void showRSS(QupZilla* mainClass);
+    void showHistory(BrowserWindow* window);
+    void showBookmarks(BrowserWindow* window);
+    void showRSS(BrowserWindow* window);
 
     void optimizeDatabase();
 

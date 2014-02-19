@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "commandlineoptions.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <QCoreApplication>
 #include <QFileInfo>
@@ -63,7 +63,7 @@ void CommandLineOptions::showHelp()
                        " For more information please visit wiki at \n"
                        " https://github.com/QupZilla/qupzilla/wiki \n";
 
-    cout << help << " > " << QupZilla::WWWADDRESS.toUtf8().data() << endl;
+    cout << help << " > " << Qz::WWWADDRESS.toUtf8().data() << endl;
 }
 
 void CommandLineOptions::parseActions()
@@ -97,11 +97,11 @@ void CommandLineOptions::parseActions()
         }
 
         if (arg == QLatin1String("-v") || arg == QLatin1String("--version")) {
-            cout << "QupZilla v" << QupZilla::VERSION.toUtf8().data()
+            cout << "QupZilla v" << Qz::VERSION.toUtf8().data()
 #ifdef GIT_REVISION
                  << " rev " << GIT_REVISION << " "
 #endif
-                 << "(build " << QupZilla::BUILDTIME.toUtf8().data() << ")"
+                 << "(build " << Qz::BUILDTIME.toUtf8().data() << ")"
                  << endl;
             ActionPair pair;
             pair.action = Qz::CL_ExitAction;

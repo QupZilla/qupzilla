@@ -17,11 +17,17 @@
 * ============================================================ */
 #include "aboutdialog.h"
 #include "ui_aboutdialog.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "mainapplication.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "qtwin.h"
+
+#if QT_VERSION < 0x050000
+#include "qwebkitversion.h"
+#else
+#include <QWebPage>
+#endif
 
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog(parent),
@@ -60,15 +66,15 @@ void AboutDialog::showAbout()
     ui->authorsButton->setText(tr("Authors and Contributors"));
     if (m_aboutHtml.isEmpty()) {
         m_aboutHtml += "<center><div style='margin:10px;'>";
-        m_aboutHtml += tr("<p><b>Application version %1</b><br/>").arg(QupZilla::VERSION
+        m_aboutHtml += tr("<p><b>Application version %1</b><br/>").arg(Qz::VERSION
 #ifdef GIT_REVISION
                        + " (" + GIT_REVISION + ")"
 #endif
                                                                       );
-        m_aboutHtml += tr("<b>WebKit version %1</b></p>").arg(QupZilla::WEBKITVERSION);
-        m_aboutHtml += QString("<p>&copy; %1 %2<br/>").arg(QupZilla::COPYRIGHT, QupZilla::AUTHOR);
-        m_aboutHtml += tr("<small>Build time: %1 </small></p>").arg(QupZilla::BUILDTIME);
-        m_aboutHtml += QString("<p><a href=%1>%1</a></p>").arg(QupZilla::WWWADDRESS);
+        m_aboutHtml += tr("<b>WebKit version %1</b></p>").arg(qWebKitVersion());
+        m_aboutHtml += QString("<p>&copy; %1 %2<br/>").arg(Qz::COPYRIGHT, Qz::AUTHOR);
+        m_aboutHtml += tr("<small>Build time: %1 </small></p>").arg(Qz::BUILDTIME);
+        m_aboutHtml += QString("<p><a href=%1>%1</a></p>").arg(Qz::WWWADDRESS);
         m_aboutHtml += "<p>" + (mApp->windowCount() > 0 ? mApp->getWindow()->weView()->page()->userAgentForUrl(QUrl()) : QString()) + "</p>";
         m_aboutHtml += "</div></center>";
     }
@@ -80,7 +86,7 @@ void AboutDialog::showAuthors()
     ui->authorsButton->setText(tr("< About QupZilla"));
     if (m_authorsHtml.isEmpty()) {
         m_authorsHtml += "<center><div style='margin:10px;'>";
-        m_authorsHtml += tr("<p><b>Main developer:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>");
+        m_authorsHtml += tr("<p><b>Main developer:</b><br/>%1 &lt;%2&gt;</p>").arg(Qz::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>");
         m_authorsHtml += tr("<p><b>Contributors:</b><br/>%1</p>").arg(
                              QString::fromUtf8("Mladen Pejaković<br/>"
                                                "Alexander Samilov<br/>"

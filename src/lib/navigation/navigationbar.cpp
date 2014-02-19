@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "navigationbar.h"
 #include "toolbutton.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "mainapplication.h"
 #include "iconprovider.h"
 #include "websearchbar.h"
@@ -69,9 +69,9 @@ static inline void setButtonIconSize(ToolButton* button)
     button->setIconSize(QSize(size, size));
 }
 
-NavigationBar::NavigationBar(QupZilla* mainClass)
-    : QWidget(mainClass)
-    , p_QupZilla(mainClass)
+NavigationBar::NavigationBar(BrowserWindow* window)
+    : QWidget(window)
+    , m_window(window)
 {
     setObjectName("navigationbar");
     m_layout = new QHBoxLayout(this);
@@ -137,15 +137,15 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     m_supMenu->setToolTip(tr("Main Menu"));
     m_supMenu->setAutoRaise(true);
     m_supMenu->setFocusPolicy(Qt::NoFocus);
-    m_supMenu->setMenu(p_QupZilla->superMenu());
+    m_supMenu->setMenu(m_window->superMenu());
     m_supMenu->setShowMenuInside(true);
     setButtonIconSize(m_supMenu);
 #endif
 
-    m_searchLine = new WebSearchBar(p_QupZilla);
+    m_searchLine = new WebSearchBar(m_window);
 
     m_navigationSplitter = new QSplitter(this);
-    m_navigationSplitter->addWidget(p_QupZilla->tabWidget()->locationBars());
+    m_navigationSplitter->addWidget(m_window->tabWidget()->locationBars());
     m_navigationSplitter->addWidget(m_searchLine);
 
     m_navigationSplitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
@@ -182,14 +182,14 @@ NavigationBar::NavigationBar(QupZilla* mainClass)
     connect(m_buttonNext, SIGNAL(middleMouseClicked()), this, SLOT(goForwardInNewTab()));
     connect(m_buttonNext, SIGNAL(controlClicked()), this, SLOT(goForwardInNewTab()));
 
-    connect(m_reloadStop->buttonStop(), SIGNAL(clicked()), p_QupZilla, SLOT(stop()));
-    connect(m_reloadStop->buttonReload(), SIGNAL(clicked()), p_QupZilla, SLOT(reload()));
-    connect(m_buttonHome, SIGNAL(clicked()), p_QupZilla, SLOT(goHome()));
-    connect(m_buttonHome, SIGNAL(middleMouseClicked()), p_QupZilla, SLOT(goHomeInNewTab()));
-    connect(m_buttonHome, SIGNAL(controlClicked()), p_QupZilla, SLOT(goHomeInNewTab()));
-    connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
-    connect(m_buttonAddTab, SIGNAL(middleMouseClicked()), p_QupZilla->tabWidget(), SLOT(addTabFromClipboard()));
-    connect(m_exitFullscreen, SIGNAL(clicked(bool)), p_QupZilla, SLOT(toggleFullScreen()));
+    connect(m_reloadStop->buttonStop(), SIGNAL(clicked()), m_window, SLOT(stop()));
+    connect(m_reloadStop->buttonReload(), SIGNAL(clicked()), m_window, SLOT(reload()));
+    connect(m_buttonHome, SIGNAL(clicked()), m_window, SLOT(goHome()));
+    connect(m_buttonHome, SIGNAL(middleMouseClicked()), m_window, SLOT(goHomeInNewTab()));
+    connect(m_buttonHome, SIGNAL(controlClicked()), m_window, SLOT(goHomeInNewTab()));
+    connect(m_buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
+    connect(m_buttonAddTab, SIGNAL(middleMouseClicked()), m_window->tabWidget(), SLOT(addTabFromClipboard()));
+    connect(m_exitFullscreen, SIGNAL(clicked(bool)), m_window, SLOT(toggleFullScreen()));
 }
 
 void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
@@ -244,11 +244,11 @@ void NavigationBar::setLayoutSpacing(int spacing)
 
 void NavigationBar::aboutToShowHistoryBackMenu()
 {
-    if (!m_menuBack || !p_QupZilla->weView()) {
+    if (!m_menuBack || !m_window->weView()) {
         return;
     }
     m_menuBack->clear();
-    QWebHistory* history = p_QupZilla->weView()->history();
+    QWebHistory* history = m_window->weView()->history();
 
     int curindex = history->currentItemIndex();
     int count = 0;
@@ -278,12 +278,12 @@ void NavigationBar::aboutToShowHistoryBackMenu()
 
 void NavigationBar::aboutToShowHistoryNextMenu()
 {
-    if (!m_menuForward || !p_QupZilla->weView()) {
+    if (!m_menuForward || !m_window->weView()) {
         return;
     }
     m_menuForward->clear();
 
-    QWebHistory* history = p_QupZilla->weView()->history();
+    QWebHistory* history = m_window->weView()->history();
     int curindex = history->currentItemIndex();
     int count = 0;
 
@@ -312,19 +312,19 @@ void NavigationBar::aboutToShowHistoryNextMenu()
 
 void NavigationBar::clearHistory()
 {
-    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    QWebHistory* history = m_window->weView()->page()->history();
     history->clear();
     refreshHistory();
 }
 
 void NavigationBar::contextMenuRequested(const QPoint &pos)
 {
-    p_QupZilla->popupToolbarsMenu(mapToGlobal(pos));
+    m_window->popupToolbarsMenu(mapToGlobal(pos));
 }
 
 void NavigationBar::goAtHistoryIndex()
 {
-    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    QWebHistory* history = m_window->weView()->page()->history();
 
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         history->goToItem(history->itemAt(action->data().toInt()));
@@ -343,10 +343,10 @@ void NavigationBar::goAtHistoryIndexInNewTab(int index)
         return;
     }
 
-    TabWidget* tabWidget = p_QupZilla->tabWidget();
+    TabWidget* tabWidget = m_window->tabWidget();
     int tabIndex = tabWidget->duplicateTab(tabWidget->currentIndex());
 
-    QWebHistory* history = p_QupZilla->weView(tabIndex)->page()->history();
+    QWebHistory* history = m_window->weView(tabIndex)->page()->history();
     history->goToItem(history->itemAt(index));
 
     if (qzSettings->newTabPosition == Qz::NT_SelectedTab) {
@@ -356,24 +356,24 @@ void NavigationBar::goAtHistoryIndexInNewTab(int index)
 
 void NavigationBar::refreshHistory()
 {
-    if (mApp->isClosing() || p_QupZilla->isClosing() || !p_QupZilla->weView()) {
+    if (mApp->isClosing() || m_window->isClosing() || !m_window->weView()) {
         return;
     }
 
-    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    QWebHistory* history = m_window->weView()->page()->history();
     m_buttonBack->setEnabled(history->canGoBack());
     m_buttonNext->setEnabled(history->canGoForward());
 }
 
 void NavigationBar::goBack()
 {
-    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    QWebHistory* history = m_window->weView()->page()->history();
     history->back();
 }
 
 void NavigationBar::goBackInNewTab()
 {
-    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    QWebHistory* history = m_window->weView()->page()->history();
 
     if (!history->canGoBack()) {
         return;
@@ -389,13 +389,13 @@ void NavigationBar::goBackInNewTab()
 
 void NavigationBar::goForward()
 {
-    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    QWebHistory* history = m_window->weView()->page()->history();
     history->forward();
 }
 
 void NavigationBar::goForwardInNewTab()
 {
-    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    QWebHistory* history = m_window->weView()->page()->history();
 
     if (!history->canGoForward()) {
         return;

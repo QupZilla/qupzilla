@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "preferences.h"
 #include "ui_preferences.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "bookmarkstoolbar.h"
 #include "history.h"
 #include "tabwidget.h"
@@ -70,10 +70,10 @@ static QString createLanguageItem(const QString &lang)
     return QString("%1, %2 (%3)").arg(language, country, lang);
 }
 
-Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
+Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::Preferences)
-    , p_QupZilla(mainClass)
+    , m_window(window)
     , m_autoFillManager(0)
     , m_pluginsList(0)
     , m_autoFillEnabled(false)
@@ -169,7 +169,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     afterLaunchChanged(ui->afterLaunch->currentIndex());
     connect(ui->afterLaunch, SIGNAL(currentIndexChanged(int)), this, SLOT(afterLaunchChanged(int)));
     connect(ui->newTab, SIGNAL(currentIndexChanged(int)), this, SLOT(newTabChanged(int)));
-    if (p_QupZilla) {
+    if (m_window) {
         connect(ui->useCurrentBut, SIGNAL(clicked()), this, SLOT(useActualHomepage()));
         connect(ui->newTabUseCurrent, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
     }
@@ -206,9 +206,9 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //APPEREANCE
     settings.beginGroup("Browser-View-Settings");
     ui->showStatusbar->setChecked(settings.value("showStatusBar", true).toBool());
-    if (p_QupZilla) {
-        ui->showBookmarksToolbar->setChecked(p_QupZilla->bookmarksToolbar()->isVisible());
-        ui->showNavigationToolbar->setChecked(p_QupZilla->navigationBar()->isVisible());
+    if (m_window) {
+        ui->showBookmarksToolbar->setChecked(m_window->bookmarksToolbar()->isVisible());
+        ui->showNavigationToolbar->setChecked(m_window->navigationBar()->isVisible());
     }
     else {
         ui->showBookmarksToolbar->setChecked(settings.value("showBookmarksToolbar", true).toBool());
@@ -260,7 +260,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     bool pbInABuseCC = settings.value("UseCustomProgressColor", false).toBool();
     ui->checkBoxCustomProgressColor->setChecked(pbInABuseCC);
     ui->progressBarColorSelector->setEnabled(pbInABuseCC);
-    QColor pbColor = settings.value("CustomProgressColor", p_QupZilla->palette().color(QPalette::Highlight)).value<QColor>();
+    QColor pbColor = settings.value("CustomProgressColor", m_window->palette().color(QPalette::Highlight)).value<QColor>();
     setProgressBarColorIcon(pbColor);
     connect(ui->customColorToolButton, SIGNAL(clicked(bool)), SLOT(selectCustomProgressBarColor()));
     connect(ui->resetProgressBarcolor, SIGNAL(clicked()), SLOT(setProgressBarColorIcon()));
@@ -478,7 +478,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
 
-    ui->version->setText(" QupZilla v" + QupZilla::VERSION);
+    ui->version->setText(" QupZilla v" + Qz::VERSION);
     ui->listWidget->setCurrentRow(currentSettingsPage);
 
     QDesktopWidget* desktop = QApplication::desktop();
@@ -575,12 +575,12 @@ void Preferences::allowCacheChanged(bool state)
 
 void Preferences::useActualHomepage()
 {
-    ui->homepage->setText(p_QupZilla->weView()->url().toString());
+    ui->homepage->setText(m_window->weView()->url().toString());
 }
 
 void Preferences::useActualNewTab()
 {
-    ui->newTabUrl->setText(p_QupZilla->weView()->url().toString());
+    ui->newTabUrl->setText(m_window->weView()->url().toString());
 }
 
 void Preferences::chooseDownPath()
@@ -807,7 +807,7 @@ void Preferences::createProfile()
 
     QFile versionFile(dir.absolutePath() + "/version");
     versionFile.open(QFile::WriteOnly);
-    versionFile.write(QupZilla::VERSION.toUtf8());
+    versionFile.write(Qz::VERSION.toUtf8());
     versionFile.close();
 
     ui->startProfile->insertItem(0, name);
@@ -1096,7 +1096,7 @@ void Preferences::setProgressBarColorIcon(QColor color)
     const int size = style()->pixelMetric(QStyle::PM_ToolBarIconSize);
     QPixmap pm(QSize(size, size));
     if (!color.isValid()) {
-        color = p_QupZilla->palette().color(QPalette::Highlight);
+        color = m_window->palette().color(QPalette::Highlight);
     }
     pm.fill(color);
     ui->customColorToolButton->setIcon(pm);

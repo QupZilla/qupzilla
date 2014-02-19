@@ -44,7 +44,7 @@
 #include "squeezelabelv2.h"
 #include "webpage.h"
 #include "qztools.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <QHBoxLayout>
 #include <QToolButton>

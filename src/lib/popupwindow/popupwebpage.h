@@ -21,15 +21,15 @@
 #include "qz_namespace.h"
 #include "webpage.h"
 
-class QupZilla;
+class BrowserWindow;
 
 class QT_QUPZILLA_EXPORT PopupWebPage : public WebPage
 {
     Q_OBJECT
 public:
-    explicit PopupWebPage(WebWindowType type, QupZilla* mainClass);
+    explicit PopupWebPage(WebWindowType type, BrowserWindow* window);
 
-    QupZilla* mainWindow() const;
+    BrowserWindow* mainWindow() const;
 
 private slots:
     void slotGeometryChangeRequested(const QRect &rect);
@@ -44,7 +44,7 @@ private slots:
     void checkBehaviour();
 
 private:
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     QWebPage::WebWindowType m_type;
     bool m_createNewWindow;
 

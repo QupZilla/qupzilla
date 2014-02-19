@@ -26,7 +26,7 @@
 class QUrl;
 class QNetworkRequest;
 
-class QupZilla;
+class BrowserWindow;
 class GM_Script;
 class GM_JSObject;
 class GM_Settings;
@@ -64,8 +64,8 @@ signals:
     void scriptsChanged();
 
 public slots:
-    void mainWindowCreated(QupZilla* window);
-    void mainWindowDeleted(QupZilla* window);
+    void mainWindowCreated(BrowserWindow* window);
+    void mainWindowDeleted(BrowserWindow* window);
 
     void pageLoadStart();
 
@@ -82,7 +82,7 @@ private:
     QList<GM_Script*> m_endScripts;
     QList<GM_Script*> m_startScripts;
 
-    QHash<QupZilla*, GM_Icon*> m_windows;
+    QHash<BrowserWindow*, GM_Icon*> m_windows;
 };
 
 #endif // GM_MANAGER_H

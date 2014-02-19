@@ -17,17 +17,17 @@
 * ============================================================ */
 #include "historysidebar.h"
 #include "ui_historysidebar.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 #include "mainapplication.h"
 #include "historymodel.h"
 #include "qzsettings.h"
 
-HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent)
+HistorySideBar::HistorySideBar(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::HistorySideBar)
-    , p_QupZilla(mainClass)
+    , m_window(window)
 {
     ui->setupUi(this);
 
@@ -43,10 +43,10 @@ HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent)
 void HistorySideBar::openLink(const QUrl &url, HistoryView::OpenBehavior openIn)
 {
     if (openIn == HistoryView::OpenInNewTab) {
-        p_QupZilla->tabWidget()->addView(url, qzSettings->newTabPosition);
+        m_window->tabWidget()->addView(url, qzSettings->newTabPosition);
     }
     else {
-        p_QupZilla->weView()->load(url);
+        m_window->weView()->load(url);
     }
 }
 

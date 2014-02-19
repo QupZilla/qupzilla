@@ -17,13 +17,13 @@
 * ============================================================ */
 #include "navigationcontainer.h"
 #include "qzsettings.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <QPainter>
 
-NavigationContainer::NavigationContainer(QupZilla* parent)
+NavigationContainer::NavigationContainer(BrowserWindow* parent)
     : QWidget(parent)
-    , p_QupZilla(parent)
+    , m_window(parent)
 {
 }
 
@@ -31,12 +31,12 @@ void NavigationContainer::paintEvent(QPaintEvent* event)
 {
     QWidget::paintEvent(event);
 
-    if (p_QupZilla->tabsOnTop()) {
+    if (m_window->tabsOnTop()) {
         // Draw line at the bottom of navigation bar if tabs are on top
         // To visually distinguish navigation bar from the page
         QPainter p(this);
         QRect lineRect(0, height() - 1, width(), 1);
-        QColor c = p_QupZilla->palette().window().color().darker(125);
+        QColor c = m_window->palette().window().color().darker(125);
         p.fillRect(lineRect, c);
     }
 }

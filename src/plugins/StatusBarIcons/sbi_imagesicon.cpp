@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "sbi_imagesicon.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
@@ -27,9 +27,9 @@
 #include <QSettings>
 #include <QMenu>
 
-SBI_ImagesIcon::SBI_ImagesIcon(QupZilla* window, const QString &settingsPath)
+SBI_ImagesIcon::SBI_ImagesIcon(BrowserWindow* window, const QString &settingsPath)
     : ClickableLabel(window)
-    , p_QupZilla(window)
+    , m_window(window)
     , m_settingsFile(settingsPath + "extensions.ini")
 {
     setCursor(Qt::PointingHandCursor);
@@ -47,7 +47,7 @@ SBI_ImagesIcon::SBI_ImagesIcon(QupZilla* window, const QString &settingsPath)
 
     updateIcon();
 
-    connect(p_QupZilla->tabWidget(), SIGNAL(currentChanged(int)), this, SLOT(updateIcon()));
+    connect(m_window->tabWidget(), SIGNAL(currentChanged(int)), this, SLOT(updateIcon()));
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(showMenu(QPoint)));
 }
 
@@ -84,7 +84,7 @@ void SBI_ImagesIcon::toggleLoadingImages()
 
     // We should reload page on disabling images
     if (current) {
-        p_QupZilla->weView()->reload();
+        m_window->weView()->reload();
     }
 
     updateIcon();
@@ -105,13 +105,13 @@ void SBI_ImagesIcon::setGlobalLoadingImages(bool enable)
 
     // We should reload page on disabling images
     if (!enable) {
-        p_QupZilla->weView()->reload();
+        m_window->weView()->reload();
     }
 }
 
 QWebSettings* SBI_ImagesIcon::currentPageSettings()
 {
-    return p_QupZilla->weView()->page()->settings();
+    return m_window->weView()->page()->settings();
 }
 
 void SBI_ImagesIcon::updateIcon()

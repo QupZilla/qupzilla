@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "downloadmanager.h"
 #include "ui_downloadmanager.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "mainapplication.h"
 #include "downloadoptionsdialog.h"
 #include "downloaditem.h"

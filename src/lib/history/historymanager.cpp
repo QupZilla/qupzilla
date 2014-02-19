@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "historymanager.h"
 #include "ui_historymanager.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "mainapplication.h"
 #include "history.h"
 #include "browsinglibrary.h"
@@ -29,10 +29,10 @@
 
 #include <QMessageBox>
 
-HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
+HistoryManager::HistoryManager(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::HistoryManager)
-    , p_QupZilla(mainClass)
+    , m_window(window)
 {
     ui->setupUi(this);
 
@@ -44,18 +44,18 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
     ui->historyTree->setFocus();
 }
 
-QupZilla* HistoryManager::getQupZilla()
+BrowserWindow* HistoryManager::getQupZilla()
 {
-    if (!p_QupZilla) {
-        p_QupZilla = mApp->getWindow();
+    if (!m_window) {
+        m_window = mApp->getWindow();
     }
-    return p_QupZilla.data();
+    return m_window.data();
 }
 
-void HistoryManager::setMainWindow(QupZilla* window)
+void HistoryManager::setMainWindow(BrowserWindow* window)
 {
     if (window) {
-        p_QupZilla = window;
+        m_window = window;
     }
 }
 

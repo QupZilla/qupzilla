@@ -18,7 +18,7 @@
 #include "gnomekeyringplugin.h"
 #include "gnomekeyringpasswordbackend.h"
 #include "pluginproxy.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <QTranslator>
 
@@ -59,7 +59,7 @@ void GnomeKeyringPlugin::unload()
 
 bool GnomeKeyringPlugin::testPlugin()
 {
-    return (QupZilla::VERSION == QLatin1String("1.7.0"));
+    return (Qz::VERSION == QLatin1String("1.7.0"));
 }
 
 QTranslator* GnomeKeyringPlugin::getTranslator(const QString &locale)

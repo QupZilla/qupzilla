@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "webtab.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "tabbar.h"
@@ -88,9 +88,9 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
     return stream;
 }
 
-WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
+WebTab::WebTab(BrowserWindow* window, LocationBar* locationBar)
     : QWidget()
-    , p_QupZilla(mainClass)
+    , m_window(window)
     , m_navigationContainer(0)
     , m_locationBar(locationBar)
     , m_pinned(false)
@@ -105,7 +105,7 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
 
-    m_view = new TabbedWebView(p_QupZilla, this);
+    m_view = new TabbedWebView(m_window, this);
     m_view->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     WebPage* page = new WebPage;
     m_view->setWebPage(page);
@@ -176,11 +176,11 @@ QWebHistory* WebTab::history() const
     return m_view->history();
 }
 
-void WebTab::moveToWindow(QupZilla* window)
+void WebTab::moveToWindow(BrowserWindow* window)
 {
-    p_QupZilla = window;
+    m_window = window;
 
-    m_view->moveToWindow(p_QupZilla);
+    m_view->moveToWindow(m_window);
 }
 
 void WebTab::setHistoryData(const QByteArray &data)
@@ -301,7 +301,7 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 
 QPixmap WebTab::renderTabPreview()
 {
-    TabbedWebView* currentWebView = p_QupZilla->weView();
+    TabbedWebView* currentWebView = m_window->weView();
     WebPage* page = m_view->page();
     const QSize oldSize = page->viewportSize();
     const QPoint originalScrollPosition = page->mainFrame()->scrollPosition();
@@ -369,7 +369,7 @@ int WebTab::tabIndex() const
 
 void WebTab::pinTab(int index)
 {
-    TabWidget* tabWidget = p_QupZilla->tabWidget();
+    TabWidget* tabWidget = m_window->tabWidget();
     if (!tabWidget) {
         return;
     }

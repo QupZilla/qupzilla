@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "rssmanager.h"
 #include "ui_rssmanager.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 #include "mainapplication.h"
 #include "treewidget.h"
@@ -38,10 +38,10 @@
 #include <QBuffer>
 #include <QSqlQuery>
 
-RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
+RSSManager::RSSManager(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::RSSManager)
-    , p_QupZilla(mainClass)
+    , m_window(window)
 {
     ui->setupUi(this);
 #ifdef Q_OS_MAC
@@ -63,12 +63,12 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     connect(ui->edit, SIGNAL(clicked()), this, SLOT(editFeed()));
 }
 
-QupZilla* RSSManager::getQupZilla()
+BrowserWindow* RSSManager::getQupZilla()
 {
-    if (!p_QupZilla) {
-        p_QupZilla = mApp->getWindow();
+    if (!m_window) {
+        m_window = mApp->getWindow();
     }
-    return p_QupZilla.data();
+    return m_window.data();
 }
 
 void RSSManager::deleteAllTabs()
@@ -80,10 +80,10 @@ void RSSManager::deleteAllTabs()
     }
 }
 
-void RSSManager::setMainWindow(QupZilla* window)
+void RSSManager::setMainWindow(BrowserWindow* window)
 {
     if (window) {
-        p_QupZilla = window;
+        m_window = window;
     }
 }
 

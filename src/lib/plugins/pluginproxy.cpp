@@ -213,12 +213,12 @@ void PluginProxy::emitWebPageDeleted(WebPage* page)
     emit webPageDeleted(page);
 }
 
-void PluginProxy::emitMainWindowCreated(QupZilla* window)
+void PluginProxy::emitMainWindowCreated(BrowserWindow* window)
 {
     emit mainWindowCreated(window);
 }
 
-void PluginProxy::emitMainWindowDeleted(QupZilla* window)
+void PluginProxy::emitMainWindowDeleted(BrowserWindow* window)
 {
     emit mainWindowDeleted(window);
 }

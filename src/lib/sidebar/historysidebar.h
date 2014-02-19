@@ -28,14 +28,14 @@ namespace Ui
 class HistorySideBar;
 }
 
-class QupZilla;
+class BrowserWindow;
 
 class QT_QUPZILLA_EXPORT HistorySideBar : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit HistorySideBar(QupZilla* mainClass, QWidget* parent = 0);
+    explicit HistorySideBar(BrowserWindow* window, QWidget* parent = 0);
     ~HistorySideBar();
 
 private slots:
@@ -43,7 +43,7 @@ private slots:
 
 private:
     Ui::HistorySideBar* ui;
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
 };
 
 #endif // HISTORYSIDEBAR_H

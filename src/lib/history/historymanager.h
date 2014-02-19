@@ -31,17 +31,17 @@ class HistoryManager;
 
 class QTreeWidgetItem;
 
-class QupZilla;
+class BrowserWindow;
 
 class QT_QUPZILLA_EXPORT HistoryManager : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit HistoryManager(QupZilla* mainClass, QWidget* parent = 0);
+    explicit HistoryManager(BrowserWindow* window, QWidget* parent = 0);
     ~HistoryManager();
 
-    void setMainWindow(QupZilla* window);
+    void setMainWindow(BrowserWindow* window);
 
     void restoreState(const QByteArray &state);
     QByteArray saveState();
@@ -54,10 +54,10 @@ private slots:
     void clearHistory();
 
 private:
-    QupZilla* getQupZilla();
+    BrowserWindow* getQupZilla();
 
     Ui::HistoryManager* ui;
-    QPointer<QupZilla> p_QupZilla;
+    QPointer<BrowserWindow> m_window;
 };
 
 #endif // HISTORYMANAGER_H

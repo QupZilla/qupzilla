@@ -20,7 +20,7 @@
 #include "tabbedwebview.h"
 #include "downloadoptionsdialog.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "downloaditem.h"
 #include "downloadmanager.h"
 #include "qztools.h"

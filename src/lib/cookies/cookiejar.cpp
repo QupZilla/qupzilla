@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "cookiejar.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "mainapplication.h"
 #include "settings.h"
 #include "qztools.h"
@@ -29,9 +29,9 @@
 
 //#define COOKIE_DEBUG
 
-CookieJar::CookieJar(QupZilla* mainClass, QObject* parent)
+CookieJar::CookieJar(BrowserWindow* window, QObject* parent)
     : QNetworkCookieJar(parent)
-    , p_QupZilla(mainClass)
+    , m_window(window)
 {
     m_activeProfil = mApp->currentProfilePath();
     loadSettings();

@@ -25,13 +25,13 @@
 class QMenu;
 class QUrl;
 
-class QupZilla;
+class BrowserWindow;
 
 class QT_QUPZILLA_EXPORT AdBlockIcon : public ClickableLabel
 {
     Q_OBJECT
 public:
-    explicit AdBlockIcon(QupZilla* mainClass, QWidget* parent = 0);
+    explicit AdBlockIcon(BrowserWindow* window, QWidget* parent = 0);
     ~AdBlockIcon();
 
     void popupBlocked(const QString &ruleString, const QUrl &url);
@@ -51,7 +51,7 @@ private slots:
     void stopAnimation();
 
 private:
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     QAction* m_menuAction;
 
     QVector<QPair<AdBlockRule, QUrl> > m_blockedPopups;

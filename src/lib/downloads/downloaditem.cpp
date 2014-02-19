@@ -18,7 +18,7 @@
 #include "downloaditem.h"
 #include "ui_downloaditem.h"
 #include "mainapplication.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabwidget.h"
 #include "webpage.h"
 #include "downloadmanager.h"
@@ -389,7 +389,7 @@ void DownloadItem::customContextMenuRequested(const QPoint &pos)
 
 void DownloadItem::goToDownloadPage()
 {
-    QupZilla* qz = mApp->getWindow();
+    BrowserWindow* qz = mApp->getWindow();
 
     if (qz) {
         qz->tabWidget()->addView(m_downloadPage, Qz::NT_SelectedTab);

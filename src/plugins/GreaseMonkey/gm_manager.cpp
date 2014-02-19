@@ -22,7 +22,7 @@
 #include "gm_icon.h"
 #include "settings/gm_settings.h"
 
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "webpage.h"
 #include "qztools.h"
 #include "mainapplication.h"
@@ -100,7 +100,7 @@ void GM_Manager::unloadPlugin()
     delete m_settings.data();
 
     // Remove icons from all windows
-    QHashIterator<QupZilla*, GM_Icon*> it(m_windows);
+    QHashIterator<BrowserWindow*, GM_Icon*> it(m_windows);
     while (it.hasNext()) {
         it.next();
         mainWindowDeleted(it.key());
@@ -280,14 +280,14 @@ bool GM_Manager::canRunOnScheme(const QString &scheme)
             || scheme == QLatin1String("data") || scheme == QLatin1String("ftp"));
 }
 
-void GM_Manager::mainWindowCreated(QupZilla* window)
+void GM_Manager::mainWindowCreated(BrowserWindow* window)
 {
     GM_Icon* icon = new GM_Icon(this, window);
     window->statusBar()->addPermanentWidget(icon);
     m_windows[window] = icon;
 }
 
-void GM_Manager::mainWindowDeleted(QupZilla* window)
+void GM_Manager::mainWindowDeleted(BrowserWindow* window)
 {
     window->statusBar()->removeWidget(m_windows[window]);
     delete m_windows[window];

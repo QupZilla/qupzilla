@@ -26,7 +26,7 @@ class QUrl;
 class QWebElement;
 class QNetworkRequest;
 
-class QupZilla;
+class BrowserWindow;
 class WebPage;
 class PasswordManager;
 struct PageFormData;

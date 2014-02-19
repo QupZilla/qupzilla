@@ -27,7 +27,7 @@ namespace Ui
 class BookmarksSideBar;
 }
 
-class QupZilla;
+class BrowserWindow;
 class Bookmarks;
 class BookmarkItem;
 
@@ -36,7 +36,7 @@ class QT_QUPZILLA_EXPORT BookmarksSidebar : public QWidget
     Q_OBJECT
 
 public:
-    explicit BookmarksSidebar(QupZilla* mainClass, QWidget* parent = 0);
+    explicit BookmarksSidebar(BrowserWindow* window, QWidget* parent = 0);
     ~BookmarksSidebar();
 
 private slots:
@@ -53,7 +53,7 @@ private slots:
 
 private:
     Ui::BookmarksSideBar* ui;
-    QupZilla* m_window;
+    BrowserWindow* m_window;
     Bookmarks* m_bookmarks;
 };
 

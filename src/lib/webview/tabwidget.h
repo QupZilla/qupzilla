@@ -31,7 +31,7 @@
 class QStackedWidget;
 class QMenu;
 
-class QupZilla;
+class BrowserWindow;
 class TabbedWebView;
 class TabBar;
 class TabWidget;
@@ -69,7 +69,7 @@ class QT_QUPZILLA_EXPORT TabWidget : public TabStackedWidget
 {
     Q_OBJECT
 public:
-    explicit TabWidget(QupZilla* mainclass, QWidget* parent = 0);
+    explicit TabWidget(BrowserWindow* mainclass, QWidget* parent = 0);
     ~TabWidget();
 
     void loadSettings();
@@ -152,7 +152,7 @@ private:
     bool m_newEmptyTabAfterActive;
     QUrl m_urlOnNewTab;
 
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
 
     int m_lastTabIndex;
     int m_lastBackgroundTabIndex;

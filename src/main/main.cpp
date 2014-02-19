@@ -25,8 +25,6 @@
 #include <signal.h>
 #include <execinfo.h>
 
-#include "qupzilla.h"
-
 #include <QDir>
 #include <QDateTime>
 #include <QTextStream>
@@ -93,7 +91,7 @@ void qupzilla_signal_handler(int s)
         QTextStream stream(&file);
         stream << "Time: " << currentDateTime.toString() << endl;
         stream << "Qt version: " << qVersion() << " (compiled with " << QT_VERSION_STR << ")" << endl;
-        stream << "QupZilla version: " << QupZilla::VERSION << endl;
+        stream << "QupZilla version: " << Qz::VERSION << endl;
         stream << "WebKit version: " << qWebKitVersion() << endl;
         stream << endl;
         stream << "============== BACKTRACE ==============" << endl;

@@ -30,13 +30,13 @@ class QMenu;
 class DockTitleBarWidget;
 class SideBarInterface;
 class SideBarManager;
-class QupZilla;
+class BrowserWindow;
 
 class QT_QUPZILLA_EXPORT SideBar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SideBar(SideBarManager* manager, QupZilla* mainClass);
+    explicit SideBar(SideBarManager* manager, BrowserWindow* window);
 
     void showBookmarks();
     void showHistory();
@@ -48,7 +48,7 @@ public slots:
     void close();
 
 private:
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     QVBoxLayout* m_layout;
     DockTitleBarWidget* m_titleBar;
     SideBarManager* m_manager;
@@ -58,7 +58,7 @@ class QT_QUPZILLA_EXPORT SideBarManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit SideBarManager(QupZilla* parent);
+    explicit SideBarManager(BrowserWindow* parent);
 
     void setSideBarMenu(QMenu* menu);
     void refreshMenu();
@@ -77,7 +77,7 @@ private slots:
 private:
     void updateActions();
 
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     QPointer<SideBar> m_sideBar;
     QMenu* m_menu;
 

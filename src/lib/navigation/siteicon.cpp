@@ -27,9 +27,9 @@
 #include <QApplication>
 #include <QContextMenuEvent>
 
-SiteIcon::SiteIcon(QupZilla* window, LocationBar* parent)
+SiteIcon::SiteIcon(BrowserWindow* window, LocationBar* parent)
     : ToolButton(parent)
-    , p_QupZilla(window)
+    , m_window(window)
     , m_locationBar(parent)
     , m_view(0)
 {
@@ -49,7 +49,7 @@ void SiteIcon::setWebView(WebView* view)
 
 void SiteIcon::iconClicked()
 {
-    if (!m_view || !p_QupZilla) {
+    if (!m_view || !m_window) {
         return;
     }
 
@@ -59,7 +59,7 @@ void SiteIcon::iconClicked()
         return;
     }
 
-    SiteInfoWidget* info = new SiteInfoWidget(p_QupZilla);
+    SiteInfoWidget* info = new SiteInfoWidget(m_window);
     info->showAt(parentWidget());
 }
 

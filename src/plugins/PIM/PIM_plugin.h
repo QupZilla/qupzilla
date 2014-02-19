@@ -22,7 +22,7 @@
 #include "plugininterface.h"
 
 class WebPage;
-class QupZilla;
+class BrowserWindow;
 class PIM_Handler;
 
 class PIM_Plugin : public QObject, public PluginInterface

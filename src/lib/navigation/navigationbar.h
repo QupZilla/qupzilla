@@ -27,7 +27,7 @@ class QSplitter;
 
 class ToolButton;
 class WebSearchBar;
-class QupZilla;
+class BrowserWindow;
 class ReloadStopButton;
 class Menu;
 class QUrl;
@@ -36,7 +36,7 @@ class QT_QUPZILLA_EXPORT NavigationBar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NavigationBar(QupZilla* mainClass);
+    explicit NavigationBar(BrowserWindow* window);
 
     Q_PROPERTY(int layoutMargin READ layoutMargin WRITE setLayoutMargin)
     Q_PROPERTY(int layoutSpacing READ layoutSpacing WRITE setLayoutSpacing)
@@ -87,7 +87,7 @@ private:
     QString titleForUrl(QString title, const QUrl &url);
     QIcon iconForPage(const QUrl &url, const QIcon &sIcon);
 
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
 
     QHBoxLayout* m_layout;
     QSplitter* m_navigationSplitter;

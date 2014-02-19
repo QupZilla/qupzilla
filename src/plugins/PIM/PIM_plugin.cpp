@@ -21,7 +21,7 @@
 #include "PIM_settings.h"
 #include "mainapplication.h"
 #include "pluginproxy.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "webview.h"
 
 #include <QTranslator>
@@ -67,7 +67,7 @@ bool PIM_Plugin::testPlugin()
 {
     // Let's be sure, require latest version of QupZilla
 
-    return (QupZilla::VERSION == QLatin1String("1.7.0"));
+    return (Qz::VERSION == QLatin1String("1.7.0"));
 }
 
 QTranslator* PIM_Plugin::getTranslator(const QString &locale)

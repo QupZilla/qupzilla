@@ -24,12 +24,12 @@
 #include <QStringList>
 #include <QNetworkCookieJar>
 
-class QupZilla;
+class BrowserWindow;
 
 class QT_QUPZILLA_EXPORT CookieJar : public QNetworkCookieJar
 {
 public:
-    explicit CookieJar(QupZilla* mainClass, QObject* parent = 0);
+    explicit CookieJar(BrowserWindow* window, QObject* parent = 0);
 
     void loadSettings();
     bool setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url);
@@ -48,7 +48,7 @@ public:
 private:
     bool rejectCookie(const QString &domain, const QNetworkCookie &cookie) const;
 
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
 
     bool m_allowCookies;
     bool m_filterTrackingCookie;

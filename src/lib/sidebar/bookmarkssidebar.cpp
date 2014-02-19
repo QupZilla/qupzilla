@@ -24,10 +24,10 @@
 
 #include <QMenu>
 
-BookmarksSidebar::BookmarksSidebar(QupZilla* mainClass, QWidget* parent)
+BookmarksSidebar::BookmarksSidebar(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::BookmarksSideBar)
-    , m_window(mainClass)
+    , m_window(window)
     , m_bookmarks(mApp->bookmarks())
 {
     ui->setupUi(this);

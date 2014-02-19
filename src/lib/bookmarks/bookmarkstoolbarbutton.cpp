@@ -47,7 +47,7 @@ BookmarkItem* BookmarksToolbarButton::bookmark() const
     return m_bookmark;
 }
 
-void BookmarksToolbarButton::setMainWindow(QupZilla* window)
+void BookmarksToolbarButton::setMainWindow(BrowserWindow* window)
 {
     m_window = window;
 }

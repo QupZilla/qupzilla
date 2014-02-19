@@ -70,7 +70,6 @@ SOURCES += \
     webview/tabpreview.cpp \
     3rdparty/qtwin.cpp \
     3rdparty/lineedit.cpp \
-    app/qupzilla.cpp \
     app/mainapplication.cpp \
     app/autosaver.cpp \
     preferences/autofillmanager.cpp \
@@ -257,14 +256,14 @@ SOURCES += \
     bookmarks/bookmarkstoolbarbutton.cpp \
     bookmarks/bookmarksexport/bookmarksexporter.cpp \
     bookmarks/bookmarksexport/bookmarksexportdialog.cpp \
-    bookmarks/bookmarksexport/htmlexporter.cpp
+    bookmarks/bookmarksexport/htmlexporter.cpp \
+    app/browserwindow.cpp
 
 
 HEADERS  += \
     webview/tabpreview.h \
     3rdparty/qtwin.h \
     3rdparty/lineedit.h \
-    app/qupzilla.h \
     app/mainapplication.h \
     app/autosaver.h \
     preferences/autofillmanager.h \
@@ -455,7 +454,8 @@ HEADERS  += \
     bookmarks/bookmarkstoolbarbutton.h \
     bookmarks/bookmarksexport/bookmarksexporter.h \
     bookmarks/bookmarksexport/bookmarksexportdialog.h \
-    bookmarks/bookmarksexport/htmlexporter.h
+    bookmarks/bookmarksexport/htmlexporter.h \
+    app/browserwindow.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

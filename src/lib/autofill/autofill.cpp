@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "autofill.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "webpage.h"
 #include "tabbedwebview.h"
 #include "popupwebview.h"

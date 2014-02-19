@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "cookiemanager.h"
 #include "ui_cookiemanager.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "cookiejar.h"
 #include "mainapplication.h"
 #include "qztools.h"

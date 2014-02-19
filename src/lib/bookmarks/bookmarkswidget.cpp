@@ -23,7 +23,7 @@
 #include "pluginproxy.h"
 #include "speeddial.h"
 #include "webview.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 
 #include <QTimer>
 

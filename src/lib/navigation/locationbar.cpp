@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "locationbar.h"
-#include "qupzilla.h"
+#include "browserwindow.h"
 #include "tabbedwebview.h"
 #include "rssmanager.h"
 #include "mainapplication.h"
@@ -45,9 +45,9 @@
 #include <QAction>
 #include <QMenu>
 
-LocationBar::LocationBar(QupZilla* mainClass)
-    : LineEdit(mainClass)
-    , p_QupZilla(mainClass)
+LocationBar::LocationBar(BrowserWindow* window)
+    : LineEdit(window)
+    , m_window(window)
     , m_webView(0)
     , m_pasteAndGoAction(0)
     , m_clearAction(0)
@@ -65,7 +65,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     m_bookmarkIcon = new BookmarksIcon(this);
     m_goIcon = new GoIcon(this);
     m_rssIcon = new RssIcon(this);
-    m_siteIcon = new SiteIcon(p_QupZilla, this);
+    m_siteIcon = new SiteIcon(m_window, this);
     m_autofillIcon = new AutoFillIcon(this);
     DownIcon* down = new DownIcon(this);
 
@@ -515,7 +515,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
 
         case Qt::AltModifier:
             m_completer.closePopup();
-            p_QupZilla->tabWidget()->addView(createUrl());
+            m_window->tabWidget()->addView(createUrl());
             m_holdingAlt = false;
             break;
 

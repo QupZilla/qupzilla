@@ -24,7 +24,7 @@
 
 class QWebSettings;
 
-class QupZilla;
+class BrowserWindow;
 class WebPage;
 
 class SBI_JavaScriptIcon : public ClickableLabel
@@ -32,7 +32,7 @@ class SBI_JavaScriptIcon : public ClickableLabel
     Q_OBJECT
 
 public:
-    explicit SBI_JavaScriptIcon(QupZilla* window);
+    explicit SBI_JavaScriptIcon(BrowserWindow* window);
 
 private slots:
     void showMenu(const QPoint &point);
@@ -45,7 +45,7 @@ private:
     WebPage* currentPage();
     QWebSettings* currentPageSettings();
 
-    QupZilla* p_QupZilla;
+    BrowserWindow* m_window;
     QIcon m_icon;
 };
 
