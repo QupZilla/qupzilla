@@ -58,7 +58,7 @@ void ButtonWithMenu::selectPreviousItem()
 {
     int index = m_items.indexOf(m_currentItem) - 1;
 
-    if (index > 0) {
+    if (index >= 0) {
         setCurrentIndex(index);
     }
 }
@@ -124,20 +124,11 @@ void ButtonWithMenu::setCurrentIndex(int index, bool emitSignal)
 
 void ButtonWithMenu::wheelEvent(QWheelEvent* event)
 {
-    int currItemIndex = m_items.indexOf(m_currentItem);
-    int itemsCount = m_items.count();
-
-    if (itemsCount == 0) {
-        return;
-    }
-
     if (event->delta() > 0) {
-        if (currItemIndex != 0) {
-            setCurrentItem(m_items.at(currItemIndex - 1));
-        }
+        selectPreviousItem();
     }
-    else if (currItemIndex < itemsCount - 1) {
-        setCurrentItem(m_items.at(currItemIndex + 1));
+    else {
+        selectNextItem();
     }
 
     event->accept();
