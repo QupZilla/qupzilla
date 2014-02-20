@@ -306,6 +306,7 @@ void BookmarksTools::addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem
 
     QAction* act = menu->addMenu(m);
     act->setData(QVariant::fromValue<void*>(static_cast<void*>(folder)));
+    act->setIconVisibleInMenu(true);
 
     foreach (BookmarkItem* child, folder->children()) {
         addActionToMenu(receiver, m, child);
@@ -324,6 +325,7 @@ void BookmarksTools::addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* b
 
     Action* act = new Action(bookmark->icon(), bookmark->title());
     act->setData(QVariant::fromValue<void*>(static_cast<void*>(bookmark)));
+    act->setIconVisibleInMenu(true);
 
     QObject::connect(act, SIGNAL(triggered()), receiver, SLOT(bookmarkActivated()));
     QObject::connect(act, SIGNAL(ctrlTriggered()), receiver, SLOT(bookmarkCtrlActivated()));
