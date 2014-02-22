@@ -259,6 +259,16 @@ void BookmarksTools::openBookmarkInNewWindow(BookmarkItem* item)
     mApp->makeNewWindow(Qz::BW_NewWindow, item->url());
 }
 
+void BookmarksTools::openBookmarkInNewPrivateWindow(BookmarkItem* item)
+{
+    if (!item->isUrl()) {
+        return;
+    }
+
+    item->setVisitCount(item->visitCount() + 1);
+    mApp->startPrivateBrowsing(item->url());
+}
+
 void BookmarksTools::openFolderInTabs(BrowserWindow* window, BookmarkItem* folder)
 {
     Q_ASSERT(window);

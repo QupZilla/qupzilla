@@ -86,6 +86,7 @@ public:
     static void openBookmark(BrowserWindow* window, BookmarkItem* item);
     static void openBookmarkInNewTab(BrowserWindow* window, BookmarkItem* item);
     static void openBookmarkInNewWindow(BookmarkItem* item);
+    static void openBookmarkInNewPrivateWindow(BookmarkItem* item);
     static void openFolderInTabs(BrowserWindow* window, BookmarkItem* folder);
 
     // Create Menu

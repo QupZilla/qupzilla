@@ -144,7 +144,7 @@ public slots:
     void setStateChanged();
     void addNewTab(const QUrl &url = QUrl());
 
-    void startPrivateBrowsing();
+    void startPrivateBrowsing(const QUrl &startUrl = QUrl());
     void reloadUserStyleSheet();
     bool checkDefaultWebBrowser();
 

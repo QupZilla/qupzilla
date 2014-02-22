@@ -79,6 +79,12 @@ void BookmarksSidebar::openBookmarkInNewWindow(BookmarkItem* item)
     BookmarksTools::openBookmarkInNewWindow(item);
 }
 
+void BookmarksSidebar::openBookmarkInNewPrivateWindow(BookmarkItem* item)
+{
+    item = item ? item : ui->tree->selectedBookmark();
+    BookmarksTools::openBookmarkInNewPrivateWindow(item);
+}
+
 void BookmarksSidebar::deleteBookmarks()
 {
     QList<BookmarkItem*> items = ui->tree->selectedBookmarks();
@@ -95,11 +101,14 @@ void BookmarksSidebar::createContextMenu(const QPoint &pos)
     QMenu menu;
     QAction* actNewTab = menu.addAction(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("Open in new tab"));
     QAction* actNewWindow = menu.addAction(QIcon::fromTheme("window-new"), tr("Open in new window"));
+    QAction* actNewPrivateWindow = menu.addAction(QIcon(":icons/locationbar/privatebrowsing.png"), tr("Open in new private window"));
+
     menu.addSeparator();
     QAction* actDelete = menu.addAction(QIcon::fromTheme("edit-delete"), tr("Delete"));
 
     connect(actNewTab, SIGNAL(triggered()), this, SLOT(openBookmarkInNewTab()));
     connect(actNewWindow, SIGNAL(triggered()), this, SLOT(openBookmarkInNewWindow()));
+    connect(actNewPrivateWindow, SIGNAL(triggered()), this, SLOT(openBookmarkInNewPrivateWindow()));
     connect(actDelete, SIGNAL(triggered()), this, SLOT(deleteBookmarks()));
 
     bool canBeDeleted = false;
@@ -119,6 +128,7 @@ void BookmarksSidebar::createContextMenu(const QPoint &pos)
     if (!ui->tree->selectedBookmark() || !ui->tree->selectedBookmark()->isUrl()) {
         actNewTab->setDisabled(true);
         actNewWindow->setDisabled(true);
+        actNewPrivateWindow->setDisabled(true);
     }
 
     menu.exec(pos);

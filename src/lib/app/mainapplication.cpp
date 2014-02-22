@@ -1062,9 +1062,9 @@ Speller* MainApplication::speller()
 }
 #endif
 
-void MainApplication::startPrivateBrowsing()
+void MainApplication::startPrivateBrowsing(const QUrl &startUrl)
 {
-    const QUrl url = qobject_cast<QAction*>(sender())->data().toUrl();
+    const QUrl url = !startUrl.isEmpty() ? startUrl : qobject_cast<QAction*>(sender())->data().toUrl();
 
     QStringList args;
     foreach (const QString &arg, arguments()) {

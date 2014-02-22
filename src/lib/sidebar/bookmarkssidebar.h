@@ -47,6 +47,7 @@ private slots:
     void openBookmark(BookmarkItem* item = 0);
     void openBookmarkInNewTab(BookmarkItem* item = 0);
     void openBookmarkInNewWindow(BookmarkItem* item = 0);
+    void openBookmarkInNewPrivateWindow(BookmarkItem* item = 0);
 
     void deleteBookmarks();
     void createContextMenu(const QPoint &pos);

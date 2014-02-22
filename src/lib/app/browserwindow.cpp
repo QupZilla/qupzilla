@@ -703,7 +703,7 @@ void BrowserWindow::setupOtherActions()
 }
 
 QKeySequence BrowserWindow::actionShortcut(QKeySequence shortcut, QKeySequence fallBack,
-                                      QKeySequence shortcutRTL, QKeySequence fallbackRTL)
+        QKeySequence shortcutRTL, QKeySequence fallbackRTL)
 {
     if (isRightToLeft() && (!shortcutRTL.isEmpty() || !fallbackRTL.isEmpty())) {
         return (shortcutRTL.isEmpty() ? fallbackRTL : shortcutRTL);
