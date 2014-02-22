@@ -61,13 +61,12 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
 
     clear();
 
-    const int bookmarksLimit = 10;
-    const int historyLimit = 20;
     QList<QUrl> urlList;
     QList<QStandardItem*> itemList;
     Type showType = (Type) qzSettings->showLocationSuggestions;
 
     if (showType == HistoryAndBookmarks || showType == Bookmarks) {
+        const int bookmarksLimit = 10;
         QList<BookmarkItem*> bookmarks = mApp->bookmarks()->searchBookmarks(string, bookmarksLimit);
 
         foreach (BookmarkItem* bookmark, bookmarks) {
@@ -92,6 +91,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
     }
 
     if (showType == HistoryAndBookmarks || showType == History) {
+        const int historyLimit = 20;
         QSqlQuery query = createQuery(string, historyLimit);
         query.exec();
 
