@@ -277,7 +277,7 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
                 tabBar->showCloseButton(currentIndex());
             }
             if (m_showCloseOnInactive == 1) {
-                // Hiding close buttons to save some space
+                // Always showing close buttons
                 tabBar->setTabsClosable(true);
                 tabBar->showCloseButton(currentIndex());
             }
