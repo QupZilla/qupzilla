@@ -239,6 +239,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     ui->closedInsteadOpened->setChecked(settings.value("closedInsteadOpenedTabs", false).toBool());
     ui->showTabPreviews->setChecked(settings.value("showTabPreviews", false).toBool());
     ui->animatedTabPreviews->setChecked(settings.value("tabPreviewAnimationsEnabled", true).toBool());
+    ui->showCloseOnInactive->setCurrentIndex(settings.value("showCloseOnInactiveTabs", 0).toInt());
     settings.endGroup();
 
     connect(ui->showTabPreviews, SIGNAL(toggled(bool)), this, SLOT(showTabPreviewsChanged(bool)));
@@ -914,6 +915,7 @@ void Preferences::saveSettings()
     settings.setValue("closedInsteadOpenedTabs", ui->closedInsteadOpened->isChecked());
     settings.setValue("showTabPreviews", ui->showTabPreviews->isChecked());
     settings.setValue("tabPreviewAnimationsEnabled", ui->animatedTabPreviews->isChecked());
+    settings.setValue("showCloseOnInactiveTabs", ui->showCloseOnInactive->currentIndex());
     settings.endGroup();
 
     //DOWNLOADS
