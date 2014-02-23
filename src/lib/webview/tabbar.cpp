@@ -47,6 +47,7 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     , m_tabPreview(new TabPreview(window, window))
     , m_showTabPreviews(false)
     , m_hideTabBarWithOneTab(false)
+    , m_showCloseOnInactive(0)
     , m_clickedTab(0)
     , m_normalTabWidth(0)
     , m_activeTabWidth(0)
@@ -56,7 +57,7 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     setElideMode(Qt::ElideRight);
     setDocumentMode(true);
     setFocusPolicy(Qt::NoFocus);
-    setTabsClosable(true);
+    setTabsClosable(false);
     setMouseTracking(true);
     setMovable(true);
 
@@ -90,6 +91,7 @@ void TabBar::loadSettings()
     m_tabPreview->setAnimationsEnabled(settings.value("tabPreviewAnimationsEnabled", true).toBool());
     m_showTabPreviews = settings.value("showTabPreviews", false).toBool();
     bool activateLastTab = settings.value("ActivateLastTabWhenClosingActual", false).toBool();
+    m_showCloseOnInactive = settings.value("showCloseOnInactiveTabs", 0).toInt(0);
     settings.endGroup();
 
     setSelectionBehaviorOnRemove(activateLastTab ? QTabBar::SelectPreviousTab : QTabBar::SelectRightTab);
@@ -269,9 +271,14 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
 
             bool tryAdjusting = availableWidth >= MINIMUM_TAB_WIDTH * normalTabsCount;
 
-            if (tabsClosable() && availableWidth < (MINIMUM_TAB_WIDTH + 25) * normalTabsCount) {
+            if (m_showCloseOnInactive != 1 && tabsClosable() && availableWidth < (MINIMUM_TAB_WIDTH + 25) * normalTabsCount) {
                 // Hiding close buttons to save some space
                 tabBar->setTabsClosable(false);
+                tabBar->showCloseButton(currentIndex());
+            }
+            if (m_showCloseOnInactive == 1) {
+                // Always showing close buttons
+                tabBar->setTabsClosable(true);
                 tabBar->showCloseButton(currentIndex());
             }
 
@@ -296,7 +303,7 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
         }
 
         // Restore close buttons according to preferences
-        if (!tabsClosable() && availableWidth >= (MINIMUM_TAB_WIDTH + 25) * normalTabsCount) {
+        if (m_showCloseOnInactive != 2 && !tabsClosable() && availableWidth >= (MINIMUM_TAB_WIDTH + 25) * normalTabsCount) {
             tabBar->setTabsClosable(true);
 
             // Hide close buttons on pinned tabs

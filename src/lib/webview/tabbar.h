@@ -113,6 +113,7 @@ private:
     bool m_showTabPreviews;
     bool m_hideTabBarWithOneTab;
 
+    int m_showCloseOnInactive;
     int m_clickedTab;
 
     mutable int m_normalTabWidth;
