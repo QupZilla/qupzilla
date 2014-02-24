@@ -203,12 +203,20 @@ void BrowserWindow::postLaunch()
         else if (afterLaunch == 3 && mApp->restoreManager()) {
             addTab = !mApp->restoreStateSlot(this, mApp->restoreManager()->restoreData());
         }
+        else {
+            // Pinned tabs are restored in MainApplication::restoreStateSlot
+            // Make sure they will be restored also when not restoring session
+            m_tabWidget->restorePinnedTabs();
+        }
         break;
 
     case Qz::BW_MacFirstWindow:
 #ifdef Q_OS_MAC
         QTimer::singleShot(0, this, SLOT(refreshStateOfAllActions()));
 #endif
+        m_tabWidget->restorePinnedTabs();
+        // fallthrough
+
     case Qz::BW_NewWindow:
         addTab = true;
         break;
