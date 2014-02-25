@@ -722,7 +722,7 @@ QKeySequence BrowserWindow::actionShortcut(QKeySequence shortcut, QKeySequence f
 }
 
 #ifdef Q_OS_MAC
-void QupZilla::setupMacMenu()
+void BrowserWindow::setupMacMenu()
 {
     // menus
     m_menuFile = menuBar()->actions().at(0)->menu();
@@ -760,7 +760,7 @@ void QupZilla::setupMacMenu()
     m_actionPrivateBrowsing = m_menuTools->actions().at(9);
 }
 
-void QupZilla::refreshStateOfAllActions()
+void BrowserWindow::refreshStateOfAllActions()
 {
     mApp->macMenuReceiver()->aboutToShowFileMenu(m_menuFile);
     mApp->macMenuReceiver()->aboutToShowHistoryMenu(m_menuHistory);
@@ -2351,10 +2351,10 @@ void BrowserWindow::moveToVirtualDesktop(int desktopId)
 
 #ifdef Q_OS_WIN
 #if (QT_VERSION < 0x050000)
-bool QupZilla::winEvent(MSG* message, long* result)
+bool BrowserWindow::winEvent(MSG* message, long* result)
 {
 #else
-bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* result)
+bool BrowserWindow::nativeEvent(const QByteArray &eventType, void* _message, long* result)
 {
     Q_UNUSED(eventType)
     MSG* message = static_cast<MSG*>(_message);
@@ -2406,7 +2406,7 @@ bool QupZilla::nativeEvent(const QByteArray &eventType, void* _message, long* re
 #endif
 }
 
-void QupZilla::paintEvent(QPaintEvent* event)
+void BrowserWindow::paintEvent(QPaintEvent* event)
 {
     if (isTransparentBackgroundAllowed()) {
         QPainter p(this);
@@ -2417,7 +2417,7 @@ void QupZilla::paintEvent(QPaintEvent* event)
     QMainWindow::paintEvent(event);
 }
 
-void QupZilla::applyBlurToMainWindow(bool force)
+void BrowserWindow::applyBlurToMainWindow(bool force)
 {
     if (isClosing() || m_isStarting) {
         return;
@@ -2462,7 +2462,7 @@ void QupZilla::applyBlurToMainWindow(bool force)
     QtWin::extendFrameIntoClientArea(this, leftMargin, topMargin, rightMargin, bottomMargin);
 }
 
-bool QupZilla::eventFilter(QObject* object, QEvent* event)
+bool BrowserWindow::eventFilter(QObject* object, QEvent* event)
 {
     switch (event->type()) {
     case QEvent::Hide:

@@ -76,8 +76,6 @@ void MacMenuReceiver::setDisabledSelectedMenuActions(QMenu* menu, const QList<in
 
 bool MacMenuReceiver::callSlot(const char* member, bool makeIfNoWindow, QGenericArgument val0, QGenericArgument val1)
 {
-    //qDebug("MacMenuReceiver::callSlot: \'QupZilla::%s()\'", member);
-
     BrowserWindow* qzWindow = mApp->getWindow();
     if (!qzWindow) {
         if (!makeIfNoWindow) {
@@ -92,7 +90,7 @@ bool MacMenuReceiver::callSlot(const char* member, bool makeIfNoWindow, QGeneric
     bool success = QMetaObject::invokeMethod(qzWindow, member, val0, val1);
 
     if (!success) {
-        qCritical("Warning: try to invoke \'QupZilla::%s()\' with incorrect parameter(s) or no such slot.", member);
+        qCritical("Warning: try to invoke \'BrowserWindow::%s()\' with incorrect parameter(s) or no such slot.", member);
         // this should never happen, for now:
         // we just ignore it!
     }

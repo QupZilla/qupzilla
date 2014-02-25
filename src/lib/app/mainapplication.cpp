@@ -1269,7 +1269,7 @@ bool MainApplication::restoreStateSlot(BrowserWindow* window, RestoreData recove
     foreach (const RestoreManager::WindowData &data, recoveryData) {
         BrowserWindow* window = makeNewWindow(Qz::BW_OtherRestoredWindow);
         window->restoreWindowState(data);
-        // for correct geometry calculation in QupZilla::setupUi()
+        // for correct geometry calculation in BrowserWindow::setupUi()
         mApp->processEvents();
     }
 
