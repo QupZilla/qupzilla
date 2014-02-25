@@ -372,7 +372,7 @@ QString AdBlockManager::elementHidingRules() const
 
 QString AdBlockManager::elementHidingRulesForDomain(const QUrl &url) const
 {
-    if (!isEnabled() || !canRunOnScheme(url.scheme())) {
+    if (!isEnabled() || !canRunOnScheme(url.scheme()) || !canBeBlocked(url)) {
         return QString();
     }
 
