@@ -24,7 +24,7 @@
 #include <QVariant>
 #include <QNetworkRequest>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "opensearchengine.h"
 
 class QWebElement;

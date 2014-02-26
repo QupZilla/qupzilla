@@ -22,7 +22,7 @@
 #include <QList>
 #include <QUrl>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QNetworkProxy;
 

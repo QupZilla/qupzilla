@@ -21,7 +21,7 @@
 #include <QDialog>
 #include <QUrl>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "downloadmanager.h"
 
 namespace Ui

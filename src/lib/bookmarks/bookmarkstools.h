@@ -21,7 +21,7 @@
 #include <QMenu>
 #include <QPushButton>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class Bookmarks;
 class BookmarkItem;

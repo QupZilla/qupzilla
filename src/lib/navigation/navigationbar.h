@@ -20,7 +20,7 @@
 
 #include <QWidget>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QHBoxLayout;
 class QSplitter;

@@ -22,7 +22,7 @@
 #include <QString>
 #include <QByteArray>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QWebPage;
 class QWebElement;

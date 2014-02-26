@@ -18,7 +18,7 @@
 #ifndef POPUPSTATUSBARMESSAGE_H
 #define POPUPSTATUSBARMESSAGE_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class PopupWindow;
 class TipLabel;

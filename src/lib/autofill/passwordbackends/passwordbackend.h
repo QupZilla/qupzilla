@@ -19,7 +19,7 @@
 #define PASSWORDBACKEND_H
 
 #include "passwordmanager.h"
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QWidget;
 

@@ -23,7 +23,7 @@
 #include <QNetworkRequest>
 #include <QWebHitTestResult>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 struct PluginSpec {
     QString name;

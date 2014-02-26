@@ -19,7 +19,7 @@
 #define DATABASEPASSWORDBACKEND_H
 
 #include "passwordbackend.h"
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT DatabasePasswordBackend : public PasswordBackend
 {

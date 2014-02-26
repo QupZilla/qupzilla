@@ -18,7 +18,7 @@
 #ifndef QZSETTINGS_H
 #define QZSETTINGS_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "settings.h"
 
 #include <QStringList>

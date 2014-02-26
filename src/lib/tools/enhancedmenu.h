@@ -20,7 +20,7 @@
 
 #include <QMenu>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 
 class Action;

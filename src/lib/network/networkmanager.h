@@ -21,7 +21,7 @@
 #include <QSslError>
 #include <QStringList>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "networkmanagerproxy.h"
 
 class AdBlockManager;

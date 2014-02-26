@@ -20,7 +20,7 @@
 
 #include <QWebPluginFactory>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class WebPage;
 

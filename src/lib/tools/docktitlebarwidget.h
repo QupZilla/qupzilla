@@ -20,7 +20,7 @@
 
 #include <QWidget>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "ui_docktitlebarwidget.h"
 
 class QUPZILLA_EXPORT DockTitleBarWidget : public QWidget, public Ui_DockTitleBarWidget

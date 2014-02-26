@@ -18,7 +18,7 @@
 #ifndef ADBLOCKICON_H
 #define ADBLOCKICON_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "clickablelabel.h"
 #include "adblockrule.h"
 

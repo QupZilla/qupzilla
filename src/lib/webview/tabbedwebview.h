@@ -18,7 +18,7 @@
 #ifndef TABBEDWEBVIEW_H
 #define TABBEDWEBVIEW_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "webview.h"
 
 class QLabel;

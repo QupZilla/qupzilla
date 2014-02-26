@@ -18,7 +18,7 @@
 #ifndef COMBOTABBAR_H
 #define COMBOTABBAR_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QTabBar>
 #include <QScrollBar>

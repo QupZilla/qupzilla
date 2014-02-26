@@ -24,7 +24,7 @@
 #include <QTime>
 #include <QUrl>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT BookmarkItem
 {

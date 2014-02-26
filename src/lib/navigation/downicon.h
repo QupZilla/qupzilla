@@ -18,7 +18,7 @@
 #ifndef DOWNICON_H
 #define DOWNICON_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "clickablelabel.h"
 
 class QUPZILLA_EXPORT DownIcon : public ClickableLabel

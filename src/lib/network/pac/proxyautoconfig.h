@@ -21,7 +21,7 @@
 #include <QObject>
 #include <QScriptValue>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QScriptContext;
 class QScriptEngine;

@@ -49,7 +49,7 @@
 #include <QVector>
 #include <QUrl>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "adblockrule.h"
 #include "adblocksearchtree.h"
 

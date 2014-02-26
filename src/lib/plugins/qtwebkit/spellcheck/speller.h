@@ -23,7 +23,7 @@
 #include <QVector>
 #include <QFile>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QTextCodec;
 class Hunspell;

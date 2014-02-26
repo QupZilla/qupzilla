@@ -18,7 +18,7 @@
 #ifndef AUTOFILLICON_H
 #define AUTOFILLICON_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "clickablelabel.h"
 #include "passwordmanager.h"
 

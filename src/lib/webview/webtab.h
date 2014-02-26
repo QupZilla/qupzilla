@@ -23,7 +23,7 @@
 #include <QIcon>
 #include <QUrl>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QVBoxLayout;
 class QWebHistory;

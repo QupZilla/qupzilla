@@ -21,7 +21,7 @@
 #include <qglobal.h>
 #include <QVariant>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QSettings;
 

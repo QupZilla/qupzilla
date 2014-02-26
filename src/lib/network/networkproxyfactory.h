@@ -21,7 +21,7 @@
 #include <QNetworkProxyFactory>
 #include <QStringList>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "qzregexp.h"
 
 class PacManager;

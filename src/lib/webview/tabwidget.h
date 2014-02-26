@@ -25,7 +25,7 @@
 
 #include "tabstackedwidget.h"
 #include "toolbutton.h"
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "webtab.h"
 
 class QStackedWidget;

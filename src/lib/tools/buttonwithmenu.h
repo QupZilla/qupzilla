@@ -19,7 +19,7 @@
 #define BUTTONWITHMENU_H
 
 #include "toolbutton.h"
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT ButtonWithMenu : public ToolButton
 {

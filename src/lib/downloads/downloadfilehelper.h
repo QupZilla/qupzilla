@@ -22,7 +22,7 @@
 #include <QPixmap>
 #include <QUrl>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "downloadmanager.h"
 
 class QFileIconProvider;

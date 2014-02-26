@@ -21,7 +21,7 @@
 
 #include <QObject>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QWebFrame;
 class Menu;

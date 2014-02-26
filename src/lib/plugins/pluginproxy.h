@@ -19,7 +19,7 @@
 #define PLUGINPROXY_H
 
 #include "plugins.h"
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class BrowserWindow;
 class WebPage;

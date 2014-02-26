@@ -18,7 +18,7 @@
 #ifndef COOKIEJAR_H
 #define COOKIEJAR_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QFile>
 #include <QStringList>

@@ -21,7 +21,7 @@
 
 #include <QFrame>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT LocationBarPopup : public QFrame
 {

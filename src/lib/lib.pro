@@ -382,7 +382,6 @@ HEADERS  += \
     popupwindow/popuplocationbar.h \
     webview/tabbedwebview.h \
     webview/webview.h \
-    app/qz_namespace.h \
     preferences/pluginlistdelegate.h \
     popupwindow/popupstatusbarmessage.h \
     other/licenseviewer.h \
@@ -455,7 +454,8 @@ HEADERS  += \
     bookmarks/bookmarksexport/bookmarksexporter.h \
     bookmarks/bookmarksexport/bookmarksexportdialog.h \
     bookmarks/bookmarksexport/htmlexporter.h \
-    app/browserwindow.h
+    app/browserwindow.h \
+    app/qzcommon.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

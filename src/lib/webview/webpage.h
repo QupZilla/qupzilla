@@ -22,7 +22,7 @@
 #include <QSslCertificate>
 #include <QVector>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "passwordmanager.h"
 
 class QWebSecurityOrigin;

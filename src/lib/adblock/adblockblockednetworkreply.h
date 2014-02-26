@@ -48,7 +48,7 @@
 
 #include <QNetworkReply>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class AdBlockRule;
 class AdBlockSubscription;

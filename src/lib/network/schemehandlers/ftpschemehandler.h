@@ -33,7 +33,7 @@
 #endif
 
 #include "schemehandler.h"
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #define FTP_AUTHENTICATOR FtpSchemeHandler::ftpAuthenticator
 

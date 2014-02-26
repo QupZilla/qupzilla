@@ -15,8 +15,8 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef QZ_NAMESPACE_H
-#define QZ_NAMESPACE_H
+#ifndef QZCOMMON_H
+#define QZCOMMON_H
 
 #include <QFlags>
 #include <QString>
@@ -153,4 +153,4 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 #define QTWEBKIT_TO_2_3 \
     (QT_VERSION < 0x050000 && (QTWEBKIT_VERSION < QTWEBKIT_VERSION_CHECK(2, 3, 0)))
 
-#endif // QZ_NAMESPACE_H
+#endif // QZCOMMON_H

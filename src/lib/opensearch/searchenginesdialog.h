@@ -18,7 +18,7 @@
 #ifndef SEARCHENGINESDIALOG_H
 #define SEARCHENGINESDIALOG_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "searchenginesmanager.h"
 
 #include <QDialog>

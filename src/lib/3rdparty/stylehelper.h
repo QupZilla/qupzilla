@@ -30,7 +30,7 @@
 #ifndef STYLEHELPER_H
 #define STYLEHELPER_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QColor>
 #include <QStyle>

@@ -23,7 +23,7 @@
 #include <QHash>
 #include <QPair>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT RegisterQAppAssociation : public QObject
 {

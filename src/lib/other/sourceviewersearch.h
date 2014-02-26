@@ -20,7 +20,7 @@
 
 #include <QTextDocument>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "animatedwidget.h"
 
 namespace Ui

@@ -37,7 +37,7 @@
 #ifndef OPENSEARCHENGINE_H
 #define OPENSEARCHENGINE_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <qpair.h>
 #include <qimage.h>

@@ -22,7 +22,7 @@
 #include <QStringList>
 #include <QPointer>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUrl;
 class QNetworkReply;

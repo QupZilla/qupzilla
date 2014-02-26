@@ -21,7 +21,7 @@
 #include <QAbstractItemModel>
 #include <QSortFilterProxyModel>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "history.h"
 
 class QTimer;

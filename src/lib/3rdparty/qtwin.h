@@ -27,7 +27,7 @@
 #ifndef QTWIN_H
 #define QTWIN_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QColor>
 #include <QWidget>

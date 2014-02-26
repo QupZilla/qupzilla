@@ -20,7 +20,7 @@
 #define DATABASEENCRYPTEDPASSWORDBACKEND_H
 
 #include "passwordbackend.h"
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QDialog>
 

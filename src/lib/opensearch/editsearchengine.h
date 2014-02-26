@@ -18,7 +18,7 @@
 #ifndef EDITSEARCHENGINES_H
 #define EDITSEARCHENGINES_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QDialog>
 

@@ -18,7 +18,7 @@
 #ifndef POPUPWEBVIEW_H
 #define POPUPWEBVIEW_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "webview.h"
 
 class PopupWebPage;

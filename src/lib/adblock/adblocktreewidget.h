@@ -18,7 +18,7 @@
 #ifndef ADBLOCKTREEWIDGET_H
 #define ADBLOCKTREEWIDGET_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "treewidget.h"
 
 class AdBlockSubscription;

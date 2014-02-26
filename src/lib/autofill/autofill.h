@@ -20,7 +20,7 @@
 
 #include <QObject>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUrl;
 class QWebElement;

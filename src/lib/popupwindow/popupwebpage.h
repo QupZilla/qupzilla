@@ -18,7 +18,7 @@
 #ifndef POPUPWEBPAGE_H
 #define POPUPWEBPAGE_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "webpage.h"
 
 class BrowserWindow;

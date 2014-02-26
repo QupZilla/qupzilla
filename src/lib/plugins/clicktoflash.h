@@ -42,7 +42,7 @@
 #ifndef CLICKTOFLASH_H
 #define CLICKTOFLASH_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 // Qt Includes
 #include <QUrl>

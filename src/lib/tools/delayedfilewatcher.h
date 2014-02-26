@@ -22,7 +22,7 @@
 #include <QPointer>
 #include <QQueue>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT DelayedFileWatcher : public QFileSystemWatcher
 {

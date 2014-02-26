@@ -21,7 +21,7 @@
 #include <QWidget>
 #include <QList>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "locationbarpopup.h"
 
 namespace Ui

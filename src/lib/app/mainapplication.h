@@ -26,7 +26,7 @@
 
 #include "restoremanager.h"
 #include "qtsingleapplication.h"
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QMenu;
 class QWebSettings;

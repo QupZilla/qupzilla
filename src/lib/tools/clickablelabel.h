@@ -21,7 +21,7 @@
 #include <QLabel>
 #include <QIcon>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QMouseEvent;
 

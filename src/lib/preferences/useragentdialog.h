@@ -21,7 +21,7 @@
 #include <QDialog>
 #include <QStringList>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class UserAgentManager;
 

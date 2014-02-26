@@ -18,7 +18,7 @@
 #ifndef RSSMANAGER_H
 #define RSSMANAGER_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QWidget>
 #include <QTreeWidget>

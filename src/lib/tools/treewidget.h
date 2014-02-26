@@ -18,7 +18,7 @@
 #ifndef BOOKMARKSTREEWIDGET_H
 #define BOOKMARKSTREEWIDGET_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QTreeWidget>
 

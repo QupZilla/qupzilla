@@ -22,7 +22,7 @@
 #include <QUrl>
 
 #include "restoremanager.h"
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QMenuBar;
 class QLabel;

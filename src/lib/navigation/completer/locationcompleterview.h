@@ -20,7 +20,7 @@
 
 #include <QListView>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "locationcompletermodel.h"
 
 class QUPZILLA_EXPORT LocationCompleterView : public QListView

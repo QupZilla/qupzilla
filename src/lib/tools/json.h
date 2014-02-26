@@ -21,7 +21,7 @@
 #include <QVariant>
 #include <QString>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QScriptValue;
 class QScriptEngine;

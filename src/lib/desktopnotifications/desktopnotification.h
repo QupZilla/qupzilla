@@ -18,7 +18,7 @@
 #ifndef DESKTOPNOTIFICATION_H
 #define DESKTOPNOTIFICATION_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QWidget>
 #include <QPixmap>

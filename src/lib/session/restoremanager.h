@@ -20,7 +20,7 @@
 #define RESTOREMANAGER_H
 
 #include "webtab.h"
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT RestoreManager
 {

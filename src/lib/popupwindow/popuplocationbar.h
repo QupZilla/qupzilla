@@ -18,7 +18,7 @@
 #ifndef POPUPLOCATIONBAR_H
 #define POPUPLOCATIONBAR_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "lineedit.h"
 
 class QUrl;

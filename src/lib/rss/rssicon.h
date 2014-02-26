@@ -18,7 +18,7 @@
 #ifndef RSSICON_H
 #define RSSICON_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "clickablelabel.h"
 
 class WebView;

@@ -24,7 +24,7 @@
 
 #include <QString>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 /*
  * Code used from http://ubuntuforums.org/showpost.php?p=6593782&postcount=5

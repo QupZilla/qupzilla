@@ -22,7 +22,7 @@
 
 #include <QRect>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class BrowserWindow;
 class TabWidget;

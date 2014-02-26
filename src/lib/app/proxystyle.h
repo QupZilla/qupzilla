@@ -20,7 +20,7 @@
 
 #include <QProxyStyle>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT ProxyStyle : public QProxyStyle
 {

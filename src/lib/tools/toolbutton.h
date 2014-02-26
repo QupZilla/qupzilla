@@ -21,7 +21,7 @@
 #include <QToolButton>
 #include <QVariant>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT ToolButton : public QToolButton
 {

@@ -20,7 +20,7 @@
 
 #include <QNetworkAccessManager>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class WebPage;
 class NetworkManager;

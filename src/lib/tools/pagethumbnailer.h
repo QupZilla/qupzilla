@@ -23,7 +23,7 @@
 #include <QUrl>
 #include <QWebPluginFactory>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QWebPage;
 class QPixmap;

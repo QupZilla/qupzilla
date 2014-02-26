@@ -18,7 +18,7 @@
 #ifndef ICONFETCHER_H
 #define ICONFETCHER_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QObject>
 #include <QIcon>

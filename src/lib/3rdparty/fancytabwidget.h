@@ -30,7 +30,7 @@
 #ifndef FANCYTABWIDGET_H
 #define FANCYTABWIDGET_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QIcon>
 #include <QProxyStyle>

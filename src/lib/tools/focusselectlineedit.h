@@ -20,7 +20,7 @@
 
 #include <QLineEdit>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT FocusSelectLineEdit : public QLineEdit
 {

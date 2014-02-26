@@ -25,7 +25,7 @@
 #include <QNetworkReply>
 #include <QTime>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 namespace Ui
 {

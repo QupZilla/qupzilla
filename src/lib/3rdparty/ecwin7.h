@@ -20,7 +20,7 @@
 #ifndef ECWIN7_H
 #define ECWIN7_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QtGlobal>
 #include <QWidget>

@@ -22,7 +22,7 @@
 #include <QObject>
 #include <QNetworkReply>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QNetworkAccessManager;
 class QNetworkReply;

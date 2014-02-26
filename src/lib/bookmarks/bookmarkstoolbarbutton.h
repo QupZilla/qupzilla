@@ -20,7 +20,7 @@
 
 #include <QPushButton>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class Menu;
 class BrowserWindow;

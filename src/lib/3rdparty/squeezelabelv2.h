@@ -18,7 +18,7 @@
 #ifndef SQUEEZELABELV2_H
 #define SQUEEZELABELV2_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QLabel>
 

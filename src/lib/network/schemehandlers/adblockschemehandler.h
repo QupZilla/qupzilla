@@ -18,7 +18,7 @@
 #ifndef ADBLOCKSCHEMEHANDLER_H
 #define ADBLOCKSCHEMEHANDLER_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "schemehandler.h"
 
 class QUPZILLA_EXPORT AdBlockSchemeHandler : public SchemeHandler

@@ -36,7 +36,7 @@
 #ifndef OPENSEARCHREADER_H
 #define OPENSEARCHREADER_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <qxmlstream.h>
 

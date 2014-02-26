@@ -21,7 +21,7 @@
 #ifndef AESINTERFACE_H
 #define AESINTERFACE_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <openssl/evp.h>
 

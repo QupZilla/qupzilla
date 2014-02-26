@@ -21,7 +21,7 @@
 #include <QChar>
 #include <QHash>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QNetworkRequest;
 

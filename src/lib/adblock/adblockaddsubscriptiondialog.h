@@ -21,7 +21,7 @@
 #include <QDialog>
 #include <QVector>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 namespace Ui
 {

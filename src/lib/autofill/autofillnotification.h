@@ -20,7 +20,7 @@
 
 #include <QUrl>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "animatedwidget.h"
 #include "pageformcompleter.h"
 #include "passwordmanager.h"

@@ -21,7 +21,7 @@
 #include <QDialog>
 #include <QDialogButtonBox>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 namespace Ui
 {

@@ -22,7 +22,7 @@
 #include <QUrl>
 #include <QVariant>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class PasswordBackend;
 class DatabasePasswordBackend;

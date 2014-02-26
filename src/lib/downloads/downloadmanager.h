@@ -20,7 +20,7 @@
 
 #include <QBasicTimer>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "ecwin7.h"
 
 namespace Ui

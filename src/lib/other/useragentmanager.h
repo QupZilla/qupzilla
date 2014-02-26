@@ -21,7 +21,7 @@
 #include <QHash>
 #include <QString>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUrl;
 

@@ -20,7 +20,7 @@
 
 #include <QIcon>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "history.h"
 
 class QUPZILLA_EXPORT HistoryItem

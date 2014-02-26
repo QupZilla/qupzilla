@@ -21,7 +21,7 @@
 #include <QObject>
 #include <QBasicTimer>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT AutoSaver : public QObject
 {

@@ -21,7 +21,7 @@
 #include <QWidget>
 #include <QTimeLine>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT AnimatedWidget : public QWidget
 {

@@ -22,7 +22,7 @@
 #include <QVariant>
 #include <QPointer>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "plugininterface.h"
 
 class QPluginLoader;

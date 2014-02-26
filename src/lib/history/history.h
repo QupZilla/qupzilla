@@ -23,7 +23,7 @@
 #include <QDateTime>
 #include <QUrl>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QIcon;
 

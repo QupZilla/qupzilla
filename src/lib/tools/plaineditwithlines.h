@@ -59,7 +59,7 @@
 
 #include <QPlainTextEdit>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QPaintEvent;
 class QResizeEvent;

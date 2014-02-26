@@ -21,7 +21,7 @@
 #include <QObject>
 #include <QVariant>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUrl;
 

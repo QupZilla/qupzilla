@@ -23,7 +23,7 @@
 #include <QRegion>
 #include <QFileDialog>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QSslCertificate;
 class QFontMetrics;

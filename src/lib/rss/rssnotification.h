@@ -22,7 +22,7 @@
 #include <QIcon>
 #include <QVector>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "animatedwidget.h"
 
 class WebView;

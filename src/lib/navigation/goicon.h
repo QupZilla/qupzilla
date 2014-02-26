@@ -18,7 +18,7 @@
 #ifndef GOICON_H
 #define GOICON_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "clickablelabel.h"
 
 class QUPZILLA_EXPORT GoIcon : public ClickableLabel

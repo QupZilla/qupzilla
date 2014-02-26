@@ -21,7 +21,7 @@
 #include <QWebView>
 #include <QWebElement>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class WebPage;
 

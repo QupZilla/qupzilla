@@ -27,7 +27,7 @@ class SslErrorDialog;
 
 class QAbstractButton;
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT SslErrorDialog : public QDialog
 {

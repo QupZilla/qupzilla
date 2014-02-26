@@ -19,7 +19,7 @@
 #ifndef MACTOOLBUTTON_H
 #define MACTOOLBUTTON_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #ifdef Q_OS_MAC
 #include <QPushButton>

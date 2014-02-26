@@ -21,7 +21,7 @@
 #include <QUrl>
 
 #include "clickablelabel.h"
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class WebView;
 class BookmarkItem;

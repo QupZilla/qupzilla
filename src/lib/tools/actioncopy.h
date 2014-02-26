@@ -20,7 +20,7 @@
 
 #include <QAction>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT ActionCopy : public QAction
 {

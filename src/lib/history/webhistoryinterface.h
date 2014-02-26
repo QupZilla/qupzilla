@@ -21,7 +21,7 @@
 #include <QWebHistoryInterface>
 #include <set>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT WebHistoryInterface : public QWebHistoryInterface
 {

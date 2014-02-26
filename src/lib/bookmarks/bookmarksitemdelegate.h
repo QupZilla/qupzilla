@@ -20,7 +20,7 @@
 
 #include <QStyledItemDelegate>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QTreeView;
 

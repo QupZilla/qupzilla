@@ -18,7 +18,7 @@
 #ifndef MENUBAR_H
 #define MENUBAR_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QMenuBar>
 

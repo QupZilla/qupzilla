@@ -18,7 +18,7 @@
 #ifndef SITEICON_H
 #define SITEICON_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "toolbutton.h"
 
 class LocationBar;

@@ -28,7 +28,7 @@
 #include <QRegularExpression>
 #include <QStringList>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QUPZILLA_EXPORT QzRegExp : public QRegularExpression
 {

@@ -21,7 +21,7 @@
 #include <QObject>
 #include <QStringList>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "webpage.h"
 
 class QUrl;

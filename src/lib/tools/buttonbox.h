@@ -20,7 +20,7 @@
 
 #include <QDialogButtonBox>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QAbstractButton;
 

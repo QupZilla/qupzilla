@@ -18,7 +18,7 @@
 #ifndef SITEINFO_H
 #define SITEINFO_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QDialog>
 #include <QUrl>

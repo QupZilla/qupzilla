@@ -21,7 +21,7 @@
 #include <QWidget>
 #include <QPointer>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class PlainEditWithLines;
 

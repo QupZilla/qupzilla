@@ -20,7 +20,7 @@
 
 #include <QPointer>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 #include "lineedit.h"
 #include "buttonwithmenu.h"
 #include "searchenginesmanager.h"

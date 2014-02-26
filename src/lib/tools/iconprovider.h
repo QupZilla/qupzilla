@@ -26,7 +26,7 @@
 #include <QUrl>
 #include <QStyle>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QTimer;
 class QIcon;

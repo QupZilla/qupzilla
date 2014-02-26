@@ -20,7 +20,7 @@
 
 #include <QStandardItemModel>
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 class QSqlQuery;
 class QUrl;

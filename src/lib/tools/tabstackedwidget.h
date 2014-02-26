@@ -18,7 +18,7 @@
 #ifndef TABSTACKEDWIDGET_H
 #define TABSTACKEDWIDGET_H
 
-#include "qz_namespace.h"
+#include "qzcommon.h"
 
 #include <QWidget>
 
