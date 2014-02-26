@@ -90,7 +90,7 @@ enum CommandLineAction {
 enum ObjectName {
     ON_WebView,
     ON_TabBar,
-    ON_QupZilla
+    ON_BrowserWindow
 };
 
 enum NewTabPositionFlag {

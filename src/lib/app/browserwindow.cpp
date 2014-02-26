@@ -1881,7 +1881,7 @@ void BrowserWindow::resizeEvent(QResizeEvent* event)
 
 void BrowserWindow::keyPressEvent(QKeyEvent* event)
 {
-    if (mApp->plugins()->processKeyPress(Qz::ON_QupZilla, this, event)) {
+    if (mApp->plugins()->processKeyPress(Qz::ON_BrowserWindow, this, event)) {
         return;
     }
 
@@ -2061,7 +2061,7 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
 
 void BrowserWindow::keyReleaseEvent(QKeyEvent* event)
 {
-    if (mApp->plugins()->processKeyRelease(Qz::ON_QupZilla, this, event)) {
+    if (mApp->plugins()->processKeyRelease(Qz::ON_BrowserWindow, this, event)) {
         return;
     }
 
