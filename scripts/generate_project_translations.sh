@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Generates list of all translations for qmake .pro
+# Generates list of all translations for qmake .pro and .qrc files
 
 # Plugins translations
 PLUGINS="`ls -d ../src/plugins/*/translations`"
@@ -14,6 +14,14 @@ do
     do
         [[ "$translation" == *empty.ts ]] && continue
         echo "    `echo $translation | awk 'BEGIN{FS="/"}{printf "%s/%s",$5,$6}'` \\"
+    done
+
+    echo -e "\n"
+
+    for translation in $dir/*.ts
+    do
+        [[ "$translation" == *empty.ts ]] && continue
+        echo "        <file>locale/`echo $translation | awk 'BEGIN{FS="/"}{print substr($6,0,length($6)-2)}'`.qm</file>"
     done
 
     echo -e "\n\n"
