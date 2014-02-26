@@ -40,6 +40,7 @@ TRANSLATIONS += \
     translations/it_IT.ts \
     translations/ja_JP.ts \
     translations/ka_GE.ts \
+    translations/lv_LV.ts \
     translations/my_MM.ts \
     translations/nb_NO.ts \
     translations/nl_NL.ts \
@@ -55,6 +56,7 @@ TRANSLATIONS += \
     translations/sr_RS@latin.ts \
     translations/sr_RS.ts \
     translations/sv_SE.ts \
+    translations/tr_TR.ts \
     translations/uk_UA.ts \
     translations/uz@Cyrl.ts \
     translations/uz@Latn.ts \

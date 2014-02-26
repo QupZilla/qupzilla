@@ -114,7 +114,7 @@
 <context>
     <name>AdBlockCustomList</name>
     <message>
-        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="455"/>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="458"/>
         <source>Custom Rules</source>
         <translation>Reglas personalizadas</translation>
     </message>
@@ -149,7 +149,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="122"/>
         <source>Use only essential part of EasyList (for performance reasons)</source>
-        <translation type="unfinished"/>
+        <translation>Usar sólo la parte esencial de EasyList (por razones de rendimiento)</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="50"/>
@@ -260,31 +260,44 @@
     </message>
 </context>
 <context>
+    <name>AdBlockSubscription</name>
+    <message>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="172"/>
+        <source>Cannot load subscription!</source>
+        <translation>¡No se puede cargar la suscripción!</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockTreeWidget</name>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="78"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="79"/>
         <source>Add Rule</source>
         <translation>Añadir regla</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="80"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="81"/>
         <source>Remove Rule</source>
         <translation>Eliminar regla</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="139"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="140"/>
         <source>Add Custom Rule</source>
         <translation>Añadir una regla personalizada</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="139"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="140"/>
         <source>Please write your rule here:</source>
         <translation>Por favor escriba su regla aquí:</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="177"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="178"/>
         <source>%1 (recently updated)</source>
         <translation>%1 (recientemente actualizado)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="187"/>
+        <source>%1 (Error: %2)</source>
+        <translation>%1 (Error: %2)</translation>
     </message>
 </context>
 <context>
@@ -302,7 +315,7 @@
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="32"/>
         <source>Personal definition:</source>
-        <translation>Definición Personal</translation>
+        <translation>Definición Personal:</translation>
     </message>
 </context>
 <context>
@@ -310,13 +323,14 @@
     <message>
         <location filename="../src/lib/tools/aesinterface.cpp" line="144"/>
         <source>Warning!</source>
-        <translation type="unfinished"/>
+        <translation>¡Advertencia!</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/aesinterface.cpp" line="144"/>
         <source>Data has been encrypted with a newer version of QupZilla.
 Please install latest version of QupZilla.</source>
-        <translation type="unfinished"/>
+        <translation>Los datos se han cifrado con una versión más reciente de QupZilla.
+Por favor, instale la última versión de QupZilla.</translation>
     </message>
 </context>
 <context>
@@ -324,17 +338,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="245"/>
         <source>Database (encrypted)</source>
-        <translation type="unfinished"/>
+        <translation>Base de datos (cifrada)</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="287"/>
         <source>Enter Master Password</source>
-        <translation type="unfinished"/>
+        <translation>Introduzca la contraseña maestra</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="288"/>
         <source>Permission is required, please enter Master Password:</source>
-        <translation type="unfinished"/>
+        <translation>Se necesita permiso, por favor ingrese la contraseña maestra:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="294"/>
@@ -345,17 +359,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="294"/>
         <source>Entered password is wrong!</source>
-        <translation type="unfinished"/>
+        <translation>¡La contraseña que ha introducido es incorrecta!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="591"/>
         <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
-        <translation type="unfinished"/>
+        <translation>¡Este motor necesita una contraseña maestra para ser establecido! QupZilla sólo cambia a su motor predeterminado</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="33"/>
         <source>Database (plaintext)</source>
-        <translation type="unfinished"/>
+        <translation>Base de datos (texto plano)</translation>
     </message>
 </context>
 <context>
@@ -363,17 +377,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="25"/>
         <source>Passwords are stored in:</source>
-        <translation type="unfinished"/>
+        <translation>Las contraseñas se almacenan en:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="35"/>
         <source>Change backend</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar motor</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="42"/>
         <source>Backend options</source>
-        <translation type="unfinished"/>
+        <translation>Opciones de motor</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="71"/>
@@ -434,7 +448,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="63"/>
         <source>Import Passwords from File...</source>
-        <translation>Importar contraseñas desde archivo</translation>
+        <translation>Importar contraseñas desde archivo...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="64"/>
@@ -444,17 +458,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="66"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Buscar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="126"/>
         <source>Change backend...</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar motor...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="126"/>
         <source>Change backend:</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar motor:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="175"/>
@@ -523,7 +537,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="69"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="85"/>
@@ -533,12 +547,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="101"/>
         <source>Never For This Site</source>
-        <translation type="unfinished"/>
+        <translation>Nunca para este sitio</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="117"/>
         <source>Not Now</source>
-        <translation type="unfinished"/>
+        <translation>Ahora no</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="41"/>
@@ -553,7 +567,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="49"/>
         <source>Do you want QupZilla to update saved password %1?</source>
-        <translation type="unfinished"/>
+        <translation>¿Quiere que QupZilla actualice la contraseña guardada %1?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="55"/>
@@ -566,12 +580,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/autofillwidget.ui" line="11"/>
         <source>Login as:</source>
-        <translation type="unfinished"/>
+        <translation>Entrar como:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillicon.cpp" line="29"/>
         <source>Choose username to login</source>
-        <translation type="unfinished"/>
+        <translation>Elegir nombre de usuario para iniciar sesión</translation>
     </message>
 </context>
 <context>
@@ -603,7 +617,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="74"/>
         <source>Internet Explorer</source>
-        <translation type="unfinished"/>
+        <translation>Internet Explorer</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="83"/>
@@ -628,7 +642,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="209"/>
         <source>Try to fetch icons for all bookmarks (may take a while)</source>
-        <translation type="unfinished"/>
+        <translation>Tratar de buscar todos los iconos de los marcadores (puede tardar un poco)</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="243"/>
@@ -768,12 +782,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarksimport/ieimporter.cpp" line="42"/>
         <source>Directory does not exist.</source>
-        <translation>Directorio no existe</translation>
+        <translation>El directorio no existe.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/ieimporter.cpp" line="53"/>
         <source>The directory does not contain any bookmarks.</source>
-        <translation>El directorio no contiene ningún marcador</translation>
+        <translation>El directorio no contiene ningún marcador.</translation>
     </message>
 </context>
 <context>
@@ -822,7 +836,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="76"/>
         <source>Export Bookmarks to HTML...</source>
-        <translation type="unfinished"/>
+        <translation>Exportar marcadores a HTML...</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="95"/>
@@ -842,7 +856,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="134"/>
         <source>Choose name for new bookmark folder: </source>
-        <translation>Elegir nombre para la nueva carpeta de marcadores</translation>
+        <translation>Elegir nombre para la nueva carpeta de marcadores: </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="177"/>
@@ -966,12 +980,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="75"/>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Contraer Todo</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="91"/>
         <source>Expand All</source>
-        <translation type="unfinished"/>
+        <translation>Desplegar Todo</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="136"/>
@@ -1014,7 +1028,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="81"/>
         <source>Show Most &amp;Visited</source>
-        <translation>Mostrar lo más visitado</translation>
+        <translation>Mostrar lo más &amp;visitado</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="86"/>
@@ -1071,7 +1085,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="237"/>
         <source>Url: </source>
-        <translation>URL</translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="245"/>
@@ -1129,7 +1143,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="96"/>
         <source>Remove from Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar de los marcadores</translation>
     </message>
 </context>
 <context>
@@ -1251,7 +1265,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="93"/>
         <source>Choose what you want to delete:</source>
-        <translation>Elija que desea borrar:</translation>
+        <translation>Elegir que desea borrar:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="100"/>
@@ -1286,12 +1300,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="107"/>
         <source>Clear Private Data</source>
-        <translation type="unfinished"/>
+        <translation>Borrar datos privados</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="108"/>
         <source>Are you sure to clear selected private data?</source>
-        <translation type="unfinished"/>
+        <translation>¿Está seguro de borrar los datos privados seleccionados?</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
@@ -1301,7 +1315,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation type="unfinished"/>
+        <translation>Base de datos optimizada con éxito. &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Tamaño de base de datos antes: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Tamaño de base de datos despues: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -1508,7 +1522,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Advertencia: &lt;/b&gt; Las opciones de igualar el dominio exactamente y el filtrar las cookies de rastreo puede rechazar algunas cookies de los sitios. ¡Si tiene problemas con las cookies, trate de desactivar estas opciones primero!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="79"/>
@@ -1602,17 +1616,17 @@ Please install latest version of QupZilla.</source>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="258"/>
         <source>%n seconds</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n segundo</numerusform><numerusform>%n segundos</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="261"/>
         <source>%n minutes</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n minuto</numerusform><numerusform>%n minutos</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="264"/>
         <source>%n hours</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n hora</numerusform><numerusform>%n horas</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="271"/>
@@ -1622,17 +1636,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="276"/>
         <source>kB/s</source>
-        <translation type="unfinished"/>
+        <translation>kB/s</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="281"/>
         <source>MB/s</source>
-        <translation type="unfinished"/>
+        <translation>MB/s</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="285"/>
         <source>GB/s</source>
-        <translation type="unfinished"/>
+        <translation>GB/s</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="309"/>
@@ -1692,7 +1706,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="382"/>
         <source>Remove From List</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar de la lista</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="384"/>
@@ -1709,7 +1723,9 @@ Please install latest version of QupZilla.</source>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"/>
+        <translation>¡Lo sentimos, pero el archivo 
+ %1 
+ no fue encontrado!</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
@@ -1740,7 +1756,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="180"/>
         <source>%1% - Download Manager</source>
-        <translation type="unfinished"/>
+        <translation>%1% - Administrador de Descarga</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="273"/>
@@ -1803,7 +1819,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="146"/>
         <source>Copy download link</source>
-        <translation type="unfinished"/>
+        <translation>Copiar enlace de descarga</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="169"/>
@@ -1818,7 +1834,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="99"/>
         <source>Download link copied.</source>
-        <translation type="unfinished"/>
+        <translation>Enlace de descarga copiado.</translation>
     </message>
 </context>
 <context>
@@ -1851,12 +1867,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="106"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url or post data represent searched string</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Nota: &lt;/b&gt;%s en la URL o los datos de POST representan una cadena de busqueda</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="123"/>
         <source>Post Data:</source>
-        <translation type="unfinished"/>
+        <translation>Datos de POST:</translation>
     </message>
 </context>
 <context>
@@ -1908,7 +1924,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="468"/>
         <source>Cancelled!</source>
-        <translation type="unfinished"/>
+        <translation>¡Cancelado!</translation>
     </message>
 </context>
 <context>
@@ -1977,7 +1993,7 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="45"/>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="99"/>
         <source>Behaviour</source>
-        <translation type="unfinished"/>
+        <translation>Comportamiento</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="68"/>
@@ -2228,7 +2244,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="42"/>
         <source>Choose file...</source>
-        <translation>Desde archivo...</translation>
+        <translation>Elegir archivo...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="52"/>
@@ -2326,7 +2342,7 @@ Please install latest version of QupZilla.</source>
         <translation>.co.uk</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/siteicon.cpp" line="38"/>
+        <location filename="../src/lib/navigation/siteicon.cpp" line="39"/>
         <source>Show information about this page</source>
         <translation>Mostrar información acerca de esta página</translation>
     </message>
@@ -2336,28 +2352,28 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="134"/>
         <source>Switch to tab</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar a la pestaña</translation>
     </message>
 </context>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1090"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1097"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>QupZilla no es actualmente tu navegador predeterminado. ¿Le gustaria hacerlo su navegador predeterminado?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1091"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1098"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Siempre realizar esta comprobacion cuando QupZilla se inicie.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1093"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1100"/>
         <source>Default Browser</source>
         <translation>Navegador Predeterminado</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1113"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1120"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla es un nuevo, rapido y seguro navegador de WWW de codigo abierto. QupZilla esta licenciado bajo la version 3 de la GPL o (a su eleccion) cualquier version posterior. Esta basado en el motor WebKit y el Qt Framework.</translation>
     </message>
@@ -2367,37 +2383,37 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="20"/>
         <source>Encrypted DataBase Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de base de datos cifrada</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="33"/>
         <source>Set/Change Master Password...</source>
-        <translation type="unfinished"/>
+        <translation>Establecer/Cambiar Contraseña Maestra...</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="36"/>
         <source>This backend does not work without a master password.</source>
-        <translation type="unfinished"/>
+        <translation>Esta motor no funciona sin una contraseña maestra.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="43"/>
         <source>Clear Master Password...</source>
-        <translation type="unfinished"/>
+        <translation>Borrar contraseña maestra...</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="46"/>
         <source>This option clears the master password and moves all encrypted data to the &quot;DataBase (Plain Text)&quot; backend, and switches to it.</source>
-        <translation type="unfinished"/>
+        <translation>Esta opcion borra la contraseña maestra y mueve todos los datos cifrados al motor &quot;Base de datos (Texto PLano)&quot;, y cambia a la misma.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="64"/>
         <source>The Master Password is used to protect site passwords and form data. If you set a Master Password you will be asked to enter it once per session.</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña maestra es usada para proteger las contraseñas de los sitios y los datos de formularios. Si se establece una contraseña maestra, se le pedirá que la introduzca una vez por sesión.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="76"/>
         <source>Current Password:</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña actual:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="83"/>
@@ -2407,12 +2423,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="90"/>
         <source>Confirm Password:</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar contraseña:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="120"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; The Master Password is not resettable. Do not forget it, please.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Nota:&lt;/b&gt; La contraseña maestra no se puede reiniciar. Por favor, no la olvide.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="558"/>
@@ -2420,27 +2436,27 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="612"/>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="655"/>
         <source>Warning!</source>
-        <translation type="unfinished"/>
+        <translation>¡Advertencia!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="558"/>
         <source>You entered a wrong password!</source>
-        <translation type="unfinished"/>
+        <translation>¡Ha introducida una contraseña incorrecta!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="563"/>
         <source>New/Confirm password fields do not match!</source>
-        <translation type="unfinished"/>
+        <translation>¡Los campos Nueva/Confirmar no coinciden!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="612"/>
         <source>Are you sure to clear master password and decrypt data?</source>
-        <translation type="unfinished"/>
+        <translation>¿Está seguro de borrar la contraseña maestra y descifrar los datos?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="655"/>
         <source>Some data has not been decrypted. The master password was not cleared!</source>
-        <translation type="unfinished"/>
+        <translation>Algunos datos no han sido descifrados. ¡La contraseña maestra no fue borrada!</translation>
     </message>
 </context>
 <context>
@@ -2481,8 +2497,8 @@ Please install latest version of QupZilla.</source>
         <translation>Salir de pantalla completa</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="280"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="314"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="274"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="308"/>
         <source>Clear history</source>
         <translation>Borrar el historial</translation>
     </message>
@@ -2490,96 +2506,96 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="200"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="203"/>
         <source>SSL Certificate Error!</source>
         <translation>¡Error de Certificado SSL!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="201"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation>La página que estas intentando acceder, tiene los siguientes problemas en el certificado SSL:</translation>
+        <translation>La página que esta intentando acceder tiene los siguientes errores en el certificado SSL:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="216"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="219"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organización: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="218"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="221"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Nombre de Dominio: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="223"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Fecha de Vencimiento: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="229"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Error: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="234"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="237"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>¿Le gustaria hacer una excepcion para este certificado?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="274"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="277"/>
         <source>Authorisation required</source>
-        <translation type="unfinished"/>
+        <translation>Autorización requerida</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="281"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="388"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="460"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="284"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="391"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="463"/>
         <source>Username: </source>
         <translation>Nombre de usuario:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="282"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="389"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="461"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="392"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
         <source>Password: </source>
         <translation>Contraseña:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="287"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="290"/>
         <source>Save username and password on this site</source>
         <translation>Guardar nombre de usuario y contraseña en este sitio</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="296"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="299"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
-        <translation>Un nombre y contraseña son solicitados por %1. El sitio dice: &quot;%2&quot;</translation>
+        <translation>Un nombre y contraseña estan siendo solicitados por %1. El sitio dice: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="381"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="384"/>
         <source>FTP authorisation required</source>
-        <translation type="unfinished"/>
+        <translation>Autorización de FTP requerida</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="394"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="397"/>
         <source>Login anonymously</source>
         <translation>Acceder de forma anónima</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="411"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
         <source>A username and password are being requested by %1:%2.</source>
-        <translation>Un nombre de usuario y contraseña son solicitados por %1:%2</translation>
+        <translation>Un nombre de usuario y contraseña esta siendo solicitados por %1:%2.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="453"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="456"/>
         <source>Proxy authorisation required</source>
-        <translation type="unfinished"/>
+        <translation>Autorizacion de proxy requerida</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="473"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="476"/>
         <source>Remember username and password for this proxy.</source>
-        <translation type="unfinished"/>
+        <translation>Recordar nombre de usuario y contraseña para este proxy.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="475"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="478"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Un nombre y contraseña son solicitados por el proxy %1.</translation>
     </message>
@@ -2594,37 +2610,37 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/other/pagescreen.ui" line="62"/>
         <source>Format:</source>
-        <translation type="unfinished"/>
+        <translation>Formato:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/pagescreen.ui" line="72"/>
         <source>Location:</source>
-        <translation type="unfinished"/>
+        <translation>Ubicación:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/pagescreen.ui" line="91"/>
         <source>Browse...</source>
-        <translation type="unfinished"/>
+        <translation>Examinar...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/pagescreen.cpp" line="61"/>
         <source>Save as %1</source>
-        <translation type="unfinished"/>
+        <translation>Guardar como %1</translation>
     </message>
     <message>
         <location filename="../src/lib/other/pagescreen.cpp" line="104"/>
         <source>Choose location...</source>
-        <translation type="unfinished"/>
+        <translation>Elegir ubicación...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/pagescreen.cpp" line="115"/>
         <source>File &apos;%1&apos; already exists. Do you want to overwrite it?</source>
-        <translation type="unfinished"/>
+        <translation>El archivo %1 ya existe. ¿Quiere sobreescribirlo?</translation>
     </message>
     <message>
         <location filename="../src/lib/other/pagescreen.cpp" line="116"/>
         <source>File already exists</source>
-        <translation type="unfinished"/>
+        <translation>El archivo ya existe</translation>
     </message>
 </context>
 <context>
@@ -2781,7 +2797,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="79"/>
         <source>Find</source>
-        <translation>Buscar:</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="84"/>
@@ -2948,7 +2964,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="303"/>
         <source>Homepage: </source>
-        <translation>Página de inicio</translation>
+        <translation>Página de inicio: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="324"/>
@@ -2988,7 +3004,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="390"/>
         <source>In order to change language, you must restart browser.</source>
-        <translation>Para cambiar el idioma, deberá reiniciar el navegador</translation>
+        <translation>Para cambiar el idioma, deberá reiniciar el navegador.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="397"/>
@@ -2998,7 +3014,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="418"/>
         <source>Available translations: </source>
-        <translation>Traducciones disponibles</translation>
+        <translation>Traducciones disponibles: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="430"/>
@@ -3048,7 +3064,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="572"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Barra de herramientas  de Navegación&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Barra de Navegación&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="579"/>
@@ -3088,7 +3104,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="653"/>
         <source>Tabs behaviour</source>
-        <translation type="unfinished"/>
+        <translation>Comportamiento de las pestañas</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="661"/>
@@ -3123,7 +3139,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="734"/>
         <source>Always switch between tabs with mouse wheel</source>
-        <translation type="unfinished"/>
+        <translation>Siempre cambiar entre pestañas con la rueda del ratón</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="741"/>
@@ -3148,7 +3164,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="783"/>
         <source>Address Bar behaviour</source>
-        <translation type="unfinished"/>
+        <translation>Comportamiento de la barra de dirección</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="791"/>
@@ -3178,22 +3194,22 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="846"/>
         <source>Enable inline suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar sugerencias en linea</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="853"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
-        <translation type="unfinished"/>
+        <translation>Presionar &quot;Shift&quot; para no cambiar la pestaña pero cargar la URL en la pestaña actual</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="856"/>
         <source>Propose to switch tab if completed url is already loaded</source>
-        <translation type="unfinished"/>
+        <translation>Proponer cambiar la pestaña si la URL completada ya está cargada</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="863"/>
         <source>Always show go icon</source>
-        <translation type="unfinished"/>
+        <translation>Siempre mostrar el icono de ir</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="870"/>
@@ -3310,7 +3326,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1106"/>
         <source>Enable spatial navigation</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar navegación espacial</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1113"/>
@@ -3320,12 +3336,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1120"/>
         <source>If you disable this, it will still be accesible via standard Qt shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Si deshabilitas esto, seguirá siendo accesible a través de los atajos estándar de Qt</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
         <source>Enable Undo/Redo for editable forms</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar Deshacer/Rehacer para formularios editables</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
@@ -3375,7 +3391,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1334"/>
         <source>Store cache in:</source>
-        <translation type="unfinished"/>
+        <translation>Almacenar cache en:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1362"/>
@@ -3410,7 +3426,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1472"/>
         <source>Proxy Auto-Config (.pac) file</source>
-        <translation type="unfinished"/>
+        <translation>Archivo Proxy Auto Config (.pac)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1479"/>
@@ -3478,7 +3494,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1718"/>
         <source>Use script for automatic configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Usar script para la configuración automática:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1725"/>
@@ -3563,7 +3579,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1953"/>
         <source>Add .co.uk domain by pressing ALT key in address bar</source>
-        <translation type="unfinished"/>
+        <translation>Añadir el dominio .co.uk presionando la tecla ALT en la barra de direccion</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1977"/>
@@ -3625,7 +3641,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2117"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;%d&lt;/b&gt; sera reemplazado con el URL para ser descargado</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2143"/>
@@ -3711,7 +3727,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2378"/>
         <source>HTML5 Permissions</source>
-        <translation type="unfinished"/>
+        <translation>Permisos de HTML5</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2389"/>
@@ -3736,7 +3752,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2464"/>
         <source>Expiration timeout:</source>
-        <translation>Tiempo de espera de vencimiento</translation>
+        <translation>Tiempo de espera de vencimiento:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2477"/>
@@ -3751,7 +3767,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2542"/>
         <source>StyleSheet automatically loaded with all websites: </source>
-        <translation>Hoja de estilo cargada automaticamente con todos los sitios web</translation>
+        <translation>Hoja de estilo cargada automaticamente con todos los sitios web:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2561"/>
@@ -3782,12 +3798,12 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/preferences/preferences.cpp" line="138"/>
         <location filename="../src/lib/preferences/preferences.cpp" line="562"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Predeterminado</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="142"/>
         <source>Set as default</source>
-        <translation type="unfinished"/>
+        <translation>Establecer como predeterminado</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="546"/>
@@ -3802,12 +3818,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="588"/>
         <source>Choose download location...</source>
-        <translation>Elija la ubicación de descarga...</translation>
+        <translation>Elegir la ubicación de descarga...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="602"/>
         <source>Choose stylesheet location...</source>
-        <translation>Elija la ubicación de la hoja de estilo</translation>
+        <translation>Elija la ubicación de la hoja de estilo...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="613"/>
@@ -3817,12 +3833,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="619"/>
         <source>Choose executable location...</source>
-        <translation>Elija la ubicación del ejecutable</translation>
+        <translation>Elegir la ubicación del ejecutable...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="743"/>
         <source>Choose cache path...</source>
-        <translation type="unfinished"/>
+        <translation>Elija la ruta de la caché...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="789"/>
@@ -3896,17 +3912,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="314"/>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="319"/>
         <source>MB</source>
-        <translation type="unfinished"/>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="323"/>
         <source>GB</source>
-        <translation type="unfinished"/>
+        <translation>GB</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="752"/>
@@ -3921,12 +3937,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="755"/>
         <source>Cannot start external program</source>
-        <translation type="unfinished"/>
+        <translation>No se puede iniciar el programa externo</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="756"/>
         <source>Cannot start external program! %1</source>
-        <translation type="unfinished"/>
+        <translation>¡No se puede iniciar el programa externo! %1</translation>
     </message>
 </context>
 <context>
@@ -3949,27 +3965,27 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="392"/>
         <source>Opens a new window if browser is running</source>
-        <translation type="unfinished"/>
+        <translation>Abre una nueva ventana si el navegador se está ejecutando</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>Abra una nueva ventana privada</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Opens a new private window</source>
-        <translation type="unfinished"/>
+        <translation>Abre una nueva ventana privada</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="400"/>
         <source>Open download manager</source>
-        <translation type="unfinished"/>
+        <translation>Abrir administrador de descarga</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="400"/>
         <source>Opens a download manager if browser is running</source>
-        <translation type="unfinished"/>
+        <translation>Abre un administrador de descarga si el navegador se está ejecutando</translation>
     </message>
 </context>
 <context>
@@ -3982,12 +3998,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="360"/>
         <source>Private Browsing Enabled</source>
-        <translation type="unfinished"/>
+        <translation>Navegación privada habilitada</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="364"/>
         <source>IP Address of current page</source>
-        <translation type="unfinished"/>
+        <translation>Dirección IP de la página actual</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="395"/>
@@ -3997,7 +4013,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="399"/>
         <source>Pr&amp;eferences</source>
-        <translation type="unfinished"/>
+        <translation>Pr&amp;eferencias</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="404"/>
@@ -4007,7 +4023,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="414"/>
         <source>&amp;File</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Archivo</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="415"/>
@@ -4022,12 +4038,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="417"/>
         <source>Open Location</source>
-        <translation type="unfinished"/>
+        <translation>Abrir ubicación</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="418"/>
         <source>Open &amp;File...</source>
-        <translation type="unfinished"/>
+        <translation>Abrir &amp;Archivo...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="419"/>
@@ -4037,12 +4053,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="422"/>
         <source>&amp;Save Page As...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Guardar página como...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="423"/>
         <source>Save Page Screen</source>
-        <translation type="unfinished"/>
+        <translation>Guardar captura de pantalla</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="424"/>
@@ -4052,7 +4068,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="425"/>
         <source>&amp;Print...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Imprimir...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="427"/>
@@ -4067,12 +4083,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="440"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Deshacer</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="441"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Rehacer</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="443"/>
@@ -4082,7 +4098,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="444"/>
         <source>C&amp;opy</source>
-        <translation type="unfinished"/>
+        <translation>C&amp;opiar</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="445"/>
@@ -4092,12 +4108,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="447"/>
         <source>Select &amp;All</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar &amp;Todo</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="448"/>
         <source>&amp;Find</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Buscar</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="459"/>
@@ -4107,197 +4123,197 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="460"/>
         <source>&amp;Navigation Toolbar</source>
-        <translation type="unfinished"/>
+        <translation>Barra de herramientas de &amp;Navegación</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="463"/>
         <source>&amp;Bookmarks Toolbar</source>
-        <translation type="unfinished"/>
+        <translation>Barra de herramientas de Ma&amp;rcadores</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="466"/>
         <source>Sta&amp;tus Bar</source>
-        <translation type="unfinished"/>
+        <translation>Barra de Es&amp;tado</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="470"/>
         <source>&amp;Menu Bar</source>
-        <translation type="unfinished"/>
+        <translation>Barra de &amp;Menú</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="477"/>
         <source>&amp;Tabs on Top</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Pestañas en la parte superior</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="480"/>
         <source>&amp;Fullscreen</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Pantalla Completa</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="488"/>
         <source>&amp;Stop</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Detener</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="491"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Recargar</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="494"/>
         <source>Character &amp;Encoding</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Codificación de caracteres</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="497"/>
         <source>Enable &amp;Caret Browsing</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar navegación por &amp;cursor</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="507"/>
         <source>Toolbars</source>
-        <translation type="unfinished"/>
+        <translation>Barra de Herramientas</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="515"/>
         <source>Sidebars</source>
-        <translation type="unfinished"/>
+        <translation>Barras Laterales</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="525"/>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Acercar</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="526"/>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished"/>
+        <translation>Al&amp;ejar</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="527"/>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Reiniciar</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="532"/>
         <source>&amp;Page Source</source>
-        <translation type="unfinished"/>
+        <translation>Codigo fuente de la &amp;página</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="542"/>
         <source>Hi&amp;story</source>
-        <translation type="unfinished"/>
+        <translation>Hi&amp;storial</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="543"/>
         <source>&amp;Back</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Atras</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="545"/>
         <source>&amp;Forward</source>
-        <translation type="unfinished"/>
+        <translation>A&amp;delante</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="547"/>
         <source>&amp;Home</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Inicio</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="548"/>
         <source>Show &amp;All History</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar &amp;todo el historial</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="553"/>
         <source>Closed Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Pestañas Cerradas</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="556"/>
         <source>Recently Visited</source>
-        <translation type="unfinished"/>
+        <translation>Visitados recientemente</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="559"/>
         <source>Most Visited</source>
-        <translation type="unfinished"/>
+        <translation>Más visitado</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="569"/>
         <source>&amp;Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Marcadores</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="570"/>
         <source>Bookmark &amp;This Page</source>
-        <translation type="unfinished"/>
+        <translation>Añadir &amp;esta página a marcadores</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="571"/>
         <source>Bookmark &amp;All Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Añadir a marcadores &amp;todas las pestañas</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="572"/>
         <source>Organize &amp;Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Organizar &amp;Marcadores</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="581"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Herramientas</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="582"/>
         <source>&amp;Web Search</source>
-        <translation type="unfinished"/>
+        <translation>Busqueda en la &amp;web</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="583"/>
         <source>Page &amp;Info</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Información de la página</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="587"/>
         <source>&amp;Download Manager</source>
-        <translation type="unfinished"/>
+        <translation>Administrador de &amp;descarga</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="588"/>
         <source>&amp;Cookies Manager</source>
-        <translation type="unfinished"/>
+        <translation>Administrador de &amp;Cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="589"/>
         <source>&amp;AdBlock</source>
-        <translation type="unfinished"/>
+        <translation>&amp;AdBlock</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="590"/>
         <source>RSS &amp;Reader</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Lector de RSS</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="591"/>
         <source>Web In&amp;spector</source>
-        <translation type="unfinished"/>
+        <translation>In&amp;spector Web</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="592"/>
         <source>Clear Recent &amp;History</source>
-        <translation type="unfinished"/>
+        <translation>Borrar el &amp;historial reciente</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="593"/>
         <source>New &amp;Private Window</source>
-        <translation type="unfinished"/>
+        <translation>Nueva ventana &amp;privada</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="607"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Ayuda</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="609"/>
@@ -4307,22 +4323,22 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="613"/>
         <source>Information about application</source>
-        <translation type="unfinished"/>
+        <translation>Información sobre la aplicación</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="618"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"/>
+        <translation>Información de la Configuración</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="619"/>
         <source>Report &amp;Issue</source>
-        <translation type="unfinished"/>
+        <translation>Informar de un &amp;problema</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="684"/>
         <source>Restore &amp;Closed Tab</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar pestaña &amp;cerrada</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="959"/>
@@ -4341,17 +4357,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1163"/>
         <source>Restore All Closed Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar todas las pestañas cerradas</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1164"/>
         <source>Clear list</source>
-        <translation type="unfinished"/>
+        <translation>Borrar lista</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1290"/>
         <source>Other</source>
-        <translation type="unfinished"/>
+        <translation>Otro</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1743"/>
@@ -4381,29 +4397,30 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1840"/>
         <source>Open file...</source>
-        <translation type="unfinished"/>
+        <translation>Abrir archivo...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1973"/>
         <location filename="../src/lib/other/pagescreen.cpp" line="172"/>
         <source>QupZilla %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="2209"/>
         <source>There are still %1 open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
-        <translation type="unfinished"/>
+        <translation>Todavía hay %1 pestanas abiertas y la sesión no sera almacenada. 
+¿Está seguro de cerra esta ventana?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="2210"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished"/>
+        <translation>No volver a preguntar</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="2211"/>
         <source>There are still open tabs</source>
-        <translation type="unfinished"/>
+        <translation>Todavía hay pestañas abiertas</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="80"/>
@@ -4416,38 +4433,38 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="69"/>
         <source>No Error</source>
-        <translation type="unfinished"/>
+        <translation>No hay error</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="75"/>
         <source>Not Found</source>
-        <translation type="unfinished"/>
+        <translation>No se ha encontrado</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="148"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="149"/>
         <source>Report Issue</source>
-        <translation type="unfinished"/>
+        <translation>Informar de un problema</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="150"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"/>
+        <translation>Si esta experimentando problemas con QupZilla, por favor trate de deshabilitar las extensiones primero. &lt;br/&gt;Si esto no lo soluciona, por favor llene este formulario:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="152"/>
         <source>Your E-mail</source>
-        <translation type="unfinished"/>
+        <translation>Su correo electrónico</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="153"/>
         <source>Issue type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de problema</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="154"/>
         <source>Issue description</source>
-        <translation type="unfinished"/>
+        <translation>Descripción del problema</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="155"/>
@@ -4457,27 +4474,27 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="156"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation type="unfinished"/>
+        <translation>El correo electrónico es opcional&lt;br/&gt;&lt;b&gt;Nota: &lt;/b&gt;Por favor, lea como hacer un informe de error &lt;a href=%1&gt;aquí&lt;/a&gt; primero.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="158"/>
         <source>Please fill out all required fields!</source>
-        <translation type="unfinished"/>
+        <translation>¡Por favor, llene los campos requeridos!</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="186"/>
         <source>Start Page</source>
-        <translation type="unfinished"/>
+        <translation>Página de inicio</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="187"/>
         <source>Search on Web</source>
-        <translation type="unfinished"/>
+        <translation>Buscar en la web</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="188"/>
         <source>Search results provided by DuckDuckGo</source>
-        <translation type="unfinished"/>
+        <translation>Resultados de busqueda proporcionados por DuckDuckGo</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="190"/>
@@ -4495,12 +4512,12 @@ Are you sure to close this window?</source>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="210"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="367"/>
         <source>Information about version</source>
-        <translation type="unfinished"/>
+        <translation>Información acerca de la versión</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="211"/>
         <source>Copyright</source>
-        <translation type="unfinished"/>
+        <translation>Copyright</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="214"/>
@@ -4512,17 +4529,17 @@ Are you sure to close this window?</source>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="219"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
         <source>WebKit version</source>
-        <translation type="unfinished"/>
+        <translation>Versión de WebKit</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="220"/>
         <source>Main developer</source>
-        <translation type="unfinished"/>
+        <translation>Desarrollador principal</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="222"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Colaboradores</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="233"/>
@@ -4532,37 +4549,37 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
         <source>Speed Dial</source>
-        <translation type="unfinished"/>
+        <translation>Marcado Rápido</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
         <source>Add New Page</source>
-        <translation type="unfinished"/>
+        <translation>Añadir Nueva Página</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
         <source>Reload</source>
-        <translation type="unfinished"/>
+        <translation>Recargar</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
         <source>Are you sure to remove this speed dial?</source>
-        <translation type="unfinished"/>
+        <translation>¿Está seguro de eliminarlo del marcado rápido?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
         <source>Load title from page</source>
-        <translation type="unfinished"/>
+        <translation>Cargar el título de la página</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
@@ -4577,7 +4594,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
@@ -4587,47 +4604,47 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
         <source>New Page</source>
-        <translation type="unfinished"/>
+        <translation>Nueva Página</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
         <source>Speed Dial settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de Marcado Rápido</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
         <source>Placement: </source>
-        <translation type="unfinished"/>
+        <translation>Colocación:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Auto</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
         <source>Cover</source>
-        <translation type="unfinished"/>
+        <translation>Cubierta</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Ajustado</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
         <source>Fit Width</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste horizontal</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
         <source>Fit Height</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste vertical</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
         <source>Use background image</source>
-        <translation type="unfinished"/>
+        <translation>Usar imagen de fondo</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
@@ -4637,42 +4654,42 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
         <source>Maximum pages in a row:</source>
-        <translation type="unfinished"/>
+        <translation>Máximo de páginas por fila:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
         <source>Change size of pages:</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar tamaño de páginas:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="316"/>
         <source>Center speed dials</source>
-        <translation type="unfinished"/>
+        <translation>Centrar marcadores</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="344"/>
         <source>Restore Session</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar Sesión</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="345"/>
         <source>Oops, QupZilla crashed.</source>
-        <translation type="unfinished"/>
+        <translation>Lo sentimos, QupZilla fallo.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="346"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation type="unfinished"/>
+        <translation>Pedimos disculpas por esto. ¿Desea restaurar el último estado guardado?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="347"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation type="unfinished"/>
+        <translation>Intente eliminar una o más pestañas que usted piensa causan problemas</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
         <source>Or you can start completely new session</source>
-        <translation type="unfinished"/>
+        <translation>O puede iniciar completamente una nueva sesión</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="365"/>
@@ -4683,7 +4700,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"/>
+        <translation>Esta página contiene información sobre la actual configuración de QupZilla - relevante para la solución de problemas. Por favor, incluya esta información al enviar los reportes de error.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
@@ -4698,7 +4715,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
         <source>Build Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Configuración del compilado</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
@@ -4738,17 +4755,17 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
         <source>Application version</source>
-        <translation type="unfinished"/>
+        <translation>Versión de la aplicación</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
         <source>Qt version</source>
-        <translation type="unfinished"/>
+        <translation>Versión de Qt</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
         <source>Build time</source>
-        <translation type="unfinished"/>
+        <translation>Fecha de compilación</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="390"/>
@@ -4768,17 +4785,17 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
         <source>Saved session</source>
-        <translation type="unfinished"/>
+        <translation>Sesion guardada</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
         <source>Pinned tabs</source>
-        <translation type="unfinished"/>
+        <translation>Pestañas fijas</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="397"/>
         <source>Data</source>
-        <translation type="unfinished"/>
+        <translation>Datos</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="398"/>
@@ -4788,7 +4805,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
         <source>Translations</source>
-        <translation type="unfinished"/>
+        <translation>Traducciones</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="402"/>
@@ -4811,32 +4828,32 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="428"/>
         <source>Debug build</source>
-        <translation type="unfinished"/>
+        <translation>Versión de depuración</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="429"/>
         <source>WebGL support</source>
-        <translation type="unfinished"/>
+        <translation>Soporte WebGL</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="430"/>
         <source>Windows 7 API</source>
-        <translation type="unfinished"/>
+        <translation>API Windows 7</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
         <source>KDE integration</source>
-        <translation type="unfinished"/>
+        <translation>Integración con KDE</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="432"/>
         <source>Portable build</source>
-        <translation type="unfinished"/>
+        <translation>Versión portátil</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="450"/>
         <source>No available extensions.</source>
-        <translation type="unfinished"/>
+        <translation>No hay extensiones disponibles.</translation>
     </message>
 </context>
 <context>
@@ -4844,110 +4861,111 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="14"/>
         <source>RSS Reader</source>
-        <translation type="unfinished"/>
+        <translation>Lector de RSS</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="33"/>
         <location filename="../src/lib/rss/rssmanager.cpp" line="141"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vacío</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="54"/>
         <source>Add feed</source>
-        <translation type="unfinished"/>
+        <translation>Añadir fuente</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="64"/>
         <source>Edit feed</source>
-        <translation type="unfinished"/>
+        <translation>Editar fuente</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="74"/>
         <source>Delete feed</source>
-        <translation type="unfinished"/>
+        <translation>Borrar fuente</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="55"/>
         <source>Reload</source>
-        <translation type="unfinished"/>
+        <translation>Recargar</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="103"/>
         <source>News</source>
-        <translation type="unfinished"/>
+        <translation>Noticias</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="113"/>
         <location filename="../src/lib/rss/rssmanager.cpp" line="154"/>
         <source>Loading...</source>
-        <translation type="unfinished"/>
+        <translation>Cargando...</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="139"/>
         <source>You don't have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
-        <translation type="unfinished"/>
+        <translation>Usted no tiene ninguna fuente de RSS.&lt;br/&gt;
+Por favor, agregue alguna con el icono de RSS en la barra de navegación en el sitio que la ofrezca.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="162"/>
         <source>Add new feed</source>
-        <translation type="unfinished"/>
+        <translation>Añadir nueva fuente</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="162"/>
         <source>Please enter URL of new feed:</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, introduzca la URL de la fuente:</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="168"/>
         <source>New feed</source>
-        <translation type="unfinished"/>
+        <translation>Nueva fuente</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="207"/>
         <source>Fill title and URL of a feed: </source>
-        <translation type="unfinished"/>
+        <translation>Llene el título y la URL de una fuente de noticias: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="209"/>
         <source>Feed title: </source>
-        <translation type="unfinished"/>
+        <translation>Título de fuente:</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="210"/>
         <source>Feed URL: </source>
-        <translation type="unfinished"/>
+        <translation>URL de fuente:</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="216"/>
         <source>Edit RSS Feed</source>
-        <translation type="unfinished"/>
+        <translation>Editar fuente de RSS</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="257"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"/>
+        <translation>Abrir enlace en la pestaña actual</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="258"/>
         <source>Open link in new tab</source>
-        <translation type="unfinished"/>
+        <translation>Abrir enlace en una pestaña nueva</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="383"/>
         <source>Error in fetching feed</source>
-        <translation type="unfinished"/>
+        <translation>Error al obtener la fuente</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="417"/>
         <source>RSS feed duplicated</source>
-        <translation type="unfinished"/>
+        <translation>Fuente de RSS duplicada</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="417"/>
         <source>You already have this feed.</source>
-        <translation type="unfinished"/>
+        <translation>Usted ya tiene esta fuente.</translation>
     </message>
 </context>
 <context>
@@ -4955,47 +4973,47 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="52"/>
         <source>Add this feed into</source>
-        <translation type="unfinished"/>
+        <translation>Añadir esta fuente en</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="81"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Añadir</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="45"/>
         <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Fuente de RSS &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="104"/>
         <source>Internal Reader</source>
-        <translation type="unfinished"/>
+        <translation>Lector interno</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="105"/>
         <source>Other...</source>
-        <translation type="unfinished"/>
+        <translation>Otro...</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="143"/>
         <source>Liferea not running</source>
-        <translation type="unfinished"/>
+        <translation>Liferea no esta funcionando</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="143"/>
         <source>Liferea must be running in order to add new feed.</source>
-        <translation type="unfinished"/>
+        <translation>Liferea debe estar ejecutadose para añadir la fuente de noticias.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="155"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
-        <translation type="unfinished"/>
+        <translation>Para añadir esta fuente de RSS en otra aplicación, por favor use esta información:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Título: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;URL: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt; La dirección URL de esta fuente ha sido copiada al portapapeles.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="158"/>
         <source>Add feed into other application</source>
-        <translation type="unfinished"/>
+        <translation>Añadir fuente en otra aplicación</translation>
     </message>
 </context>
 <context>
@@ -5003,17 +5021,17 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rsswidget.ui" line="14"/>
         <source>Add RSS Feeds from this site</source>
-        <translation type="unfinished"/>
+        <translation>Añadir fuentes de RSS de este sitio</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="55"/>
         <source>Untitled feed</source>
-        <translation type="unfinished"/>
+        <translation>Fuente sin título</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="72"/>
         <source>You already have this feed.</source>
-        <translation type="unfinished"/>
+        <translation>Usted ya tiene esta fuente.</translation>
     </message>
 </context>
 <context>
@@ -5021,22 +5039,22 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="18"/>
         <source>Windows and Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Ventanas y pestañas</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="34"/>
         <source>Start New Session</source>
-        <translation type="unfinished"/>
+        <translation>Iniciar nueva sesión</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="47"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.cpp" line="43"/>
         <source>Window %1</source>
-        <translation type="unfinished"/>
+        <translation>Ventana %1</translation>
     </message>
 </context>
 <context>
@@ -5044,13 +5062,14 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/other/registerqappassociation.cpp" line="108"/>
         <source>Warning!</source>
-        <translation type="unfinished"/>
+        <translation>¡Advertencia!</translation>
     </message>
     <message>
         <location filename="../src/lib/other/registerqappassociation.cpp" line="109"/>
         <source>There are some problems. Please, reinstall QupZilla.
 Maybe relaunch with administrator right do a magic for you! ;)</source>
-        <translation type="unfinished"/>
+        <translation>Hay algunos problemas. Por favor, vuelva instalar QupZilla.
+¡Tal vez relanzarlo con privilegios de administrador haga magia para usted! ;)</translation>
     </message>
 </context>
 <context>
@@ -5058,7 +5077,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/rss/rssicon.cpp" line="30"/>
         <source>Add RSS from this page...</source>
-        <translation type="unfinished"/>
+        <translation>Añadir RSS de esta página...</translation>
     </message>
 </context>
 <context>
@@ -5066,90 +5085,91 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="14"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"/>
+        <translation>Administrador de certificados</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="24"/>
         <source>CA Authorities Certificates</source>
-        <translation type="unfinished"/>
+        <translation>Autoridades de Certificación CA</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="48"/>
         <location filename="../src/lib/preferences/sslmanager.ui" line="99"/>
         <source>Show info</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar información</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="57"/>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
-        <translation type="unfinished"/>
+        <translation>Esta es una lista de Autoridades de Certificación CA almacenada en la ruta del sistema estándar y en las rutas especificadas por le usuario.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="68"/>
         <source>Local Certificates</source>
-        <translation type="unfinished"/>
+        <translation>Certificados locales</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="79"/>
         <source>Import</source>
-        <translation type="unfinished"/>
+        <translation>Importar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="106"/>
         <location filename="../src/lib/preferences/sslmanager.ui" line="157"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="115"/>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
-        <translation type="unfinished"/>
+        <translation>Esta es una lista de certificados locales almacenados en su perfil de usuario. También contiene todos los certificados, que han recibido una excepción.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="126"/>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="150"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Añadir</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="166"/>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
-        <translation type="unfinished"/>
+        <translation>Si los certificados de la Autoridad CA no se cargaron automáticamente desde el sistema, puede especificar las rutas manualmente donde se almacenan los certificados.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="178"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;NOTA:&lt;/b&gt; ¡Establecer esta opción es un alto riesgo de seguridad!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="217"/>
         <source>Ignore all SSL Warnings</source>
-        <translation type="unfinished"/>
+        <translation>Ignorar todas las advertencias SSL</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="239"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
-        <translation type="unfinished"/>
+        <translation>Todos los certificados deben tener el sufijo .crt.
+Despues de añadir o eliminar las rutas de los certificados. es necesario reiniciar QupZilla para que los cambios surtan efecto.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="61"/>
         <source>Choose path...</source>
-        <translation type="unfinished"/>
+        <translation>Elegir ruta...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="132"/>
         <source>Import certificate...</source>
-        <translation type="unfinished"/>
+        <translation>Importar certificado...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="163"/>
         <source>Certificate Informations</source>
-        <translation type="unfinished"/>
+        <translation>Información de certificados</translation>
     </message>
 </context>
 <context>
@@ -5157,73 +5177,73 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="14"/>
         <source>Manage Search Engines</source>
-        <translation type="unfinished"/>
+        <translation>Administrar motores de busqueda</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="22"/>
         <source>Add...</source>
-        <translation type="unfinished"/>
+        <translation>Añadir...</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="29"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="36"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="56"/>
         <source>Set as default</source>
-        <translation type="unfinished"/>
+        <translation>Establecer como predeterminado</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="63"/>
         <source>Up</source>
-        <translation type="unfinished"/>
+        <translation>Subir</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="70"/>
         <source>Down</source>
-        <translation type="unfinished"/>
+        <translation>Bajar</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="86"/>
         <source>Search Engine</source>
-        <translation type="unfinished"/>
+        <translation>Motor de búsqueda</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="91"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Atajo</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="101"/>
         <source>Defaults</source>
-        <translation type="unfinished"/>
+        <translation>Predeterminados</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="48"/>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="315"/>
         <source>Add Search Engine</source>
-        <translation type="unfinished"/>
+        <translation>Añadir motor de búsqueda</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="85"/>
         <source>Remove Engine</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar motor</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="86"/>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
-        <translation type="unfinished"/>
+        <translation>No puede eliminar el motor de búsqueda predeterminado.&lt;br&gt;Establezca un motor diferente como predeterminado antes de eliminar %1.</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="103"/>
         <source>Edit Search Engine</source>
-        <translation type="unfinished"/>
+        <translation>Editar motor de búsqueda</translation>
     </message>
 </context>
 <context>
@@ -5231,27 +5251,27 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="401"/>
         <source>Search Engine Added</source>
-        <translation type="unfinished"/>
+        <translation>Motor de busqueda añadido</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="401"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
-        <translation type="unfinished"/>
+        <translation>El motor de búsqueda &quot;%1&quot; ha sido añadido con éxito.</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="408"/>
         <source>Search Engine is not valid!</source>
-        <translation type="unfinished"/>
+        <translation>¡El motor de busqueda no es válido!</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="409"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Error</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="409"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>Error al añadir el motor de búsqueda &lt;br&gt;&lt;b&gt; Mensaje de error: &lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
@@ -5259,7 +5279,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/searchtoolbar.cpp" line="151"/>
         <source>No results found.</source>
-        <translation type="unfinished"/>
+        <translation>No se han encontrado resultados.</translation>
     </message>
 </context>
 <context>
@@ -5267,22 +5287,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="36"/>
         <source>Search: </source>
-        <translation type="unfinished"/>
+        <translation>Buscar: </translation>
     </message>
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="55"/>
         <source>Search...</source>
-        <translation type="unfinished"/>
+        <translation>Buscar...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="88"/>
         <source>Highlight</source>
-        <translation type="unfinished"/>
+        <translation>Destacar</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/searchtoolbar.ui" line="98"/>
         <source>Case sensitive</source>
-        <translation type="unfinished"/>
+        <translation>Mayúsculas y minúsculas</translation>
     </message>
 </context>
 <context>
@@ -5291,13 +5311,13 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/sidebar/sidebar.cpp" line="64"/>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="131"/>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Marcadores</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="71"/>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="136"/>
         <source>History</source>
-        <translation type="unfinished"/>
+        <translation>Historial</translation>
     </message>
 </context>
 <context>
@@ -5305,68 +5325,68 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="14"/>
         <source>Site Info</source>
-        <translation type="unfinished"/>
+        <translation>Información del sitio</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="24"/>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="29"/>
         <source>Media</source>
-        <translation type="unfinished"/>
+        <translation>Medios</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="34"/>
         <source>Databases</source>
-        <translation type="unfinished"/>
+        <translation>Bases de datos</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="39"/>
         <source>Security</source>
-        <translation type="unfinished"/>
+        <translation>Seguridad</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="101"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="359"/>
         <source>Size:</source>
-        <translation type="unfinished"/>
+        <translation>Tamaño:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="146"/>
         <source>Site address:</source>
-        <translation type="unfinished"/>
+        <translation>Dirección de sitio:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="153"/>
         <source>Encoding:</source>
-        <translation type="unfinished"/>
+        <translation>Etiqueta:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="162"/>
         <source>Meta tags of site:</source>
-        <translation type="unfinished"/>
+        <translation>Etiquetas meta del sitio:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="176"/>
         <source>Tag</source>
-        <translation type="unfinished"/>
+        <translation>Etiqueta</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="181"/>
         <source>Value</source>
-        <translation type="unfinished"/>
+        <translation>Valor</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="195"/>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Información de Seguridad&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="215"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Detalles</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="278"/>
@@ -5381,64 +5401,64 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="308"/>
         <source>&lt;b&gt;Preview&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Vista previa&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="336"/>
         <source>&lt;b&gt;Database details&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Detalles de base datos&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="345"/>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nombre:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="352"/>
         <source>Path:</source>
-        <translation type="unfinished"/>
+        <translation>Ruta:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="372"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="388"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="404"/>
         <source>&lt;database not selected&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;base de datos no seleccionada&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="42"/>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;no se establece en el certificado&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="149"/>
         <source>No databases are used by this page.</source>
-        <translation type="unfinished"/>
+        <translation>Ninguna base de datos es usada por esta página.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="155"/>
         <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;La conexión está cifrada.&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="156"/>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Su conexión a esta página está protegida por este certificado: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="161"/>
         <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;La conexión no esta cifrada.&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="162"/>
         <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;¡Su conexión a esta página no está asegurada!&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="189"/>
         <source>Copy Image Location</source>
-        <translation type="unfinished"/>
+        <translation>Copiar ubicación de imagen</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="190"/>
@@ -5448,18 +5468,18 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="192"/>
         <source>Save Image to Disk</source>
-        <translation type="unfinished"/>
+        <translation>Guardar imagen en disco</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="231"/>
         <location filename="../src/lib/webview/siteinfo.cpp" line="243"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>¡Error!</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="231"/>
         <source>This preview is not available!</source>
-        <translation type="unfinished"/>
+        <translation>¡Esta vista previa no está disponible!</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="237"/>
@@ -5469,12 +5489,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="243"/>
         <source>Cannot write to file!</source>
-        <translation type="unfinished"/>
+        <translation>¡No se puede escribir a archivo!</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="281"/>
         <source>Preview not available</source>
-        <translation type="unfinished"/>
+        <translation>Previsualización no disponible</translation>
     </message>
 </context>
 <context>
@@ -5482,43 +5502,43 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfowidget.ui" line="90"/>
         <source>More...</source>
-        <translation type="unfinished"/>
+        <translation>Más...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="44"/>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Su conexión a este sitio es &lt;b&gt;segura&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="48"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Su conexión a este sitio es &lt;b&gt;no es segura&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="63"/>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="82"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation type="unfinished"/>
+        <translation>Esta es su &lt;b&gt;%1&lt;/b&gt; visita a este sitio.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="67"/>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
-        <translation type="unfinished"/>
+        <translation>Usted &lt;b&gt;nunca&lt;/b&gt; ha visitado este sitio antes.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="74"/>
         <source>first</source>
-        <translation type="unfinished"/>
+        <translation>primero</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="77"/>
         <source>second</source>
-        <translation type="unfinished"/>
+        <translation>segundo</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="80"/>
         <source>third</source>
-        <translation type="unfinished"/>
+        <translation>tercero</translation>
     </message>
 </context>
 <context>
@@ -5526,73 +5546,73 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="42"/>
         <source>Source of </source>
-        <translation type="unfinished"/>
+        <translation>Fuente de </translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="70"/>
         <source>File</source>
-        <translation type="unfinished"/>
+        <translation>Archivo</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="71"/>
         <source>Load in page</source>
-        <translation type="unfinished"/>
+        <translation>Cargar en la página</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="72"/>
         <source>Save as...</source>
-        <translation type="unfinished"/>
+        <translation>Guardar como...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="74"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="77"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="78"/>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Deshacer</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="79"/>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Rehacer</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="81"/>
         <source>Cut</source>
-        <translation type="unfinished"/>
+        <translation>Cortar</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="82"/>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Copiar</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="83"/>
         <source>Paste</source>
-        <translation type="unfinished"/>
+        <translation>Pegar</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="85"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar Todo</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="86"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>Buscar</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="88"/>
         <location filename="../src/lib/other/sourceviewer.cpp" line="228"/>
         <source>Go to Line...</source>
-        <translation type="unfinished"/>
+        <translation>Ir a la línea...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="97"/>
@@ -5602,32 +5622,32 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="98"/>
         <source>Reload</source>
-        <translation type="unfinished"/>
+        <translation>Recargar</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="100"/>
         <source>Editable</source>
-        <translation type="unfinished"/>
+        <translation>Editable</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="101"/>
         <source>Word Wrap</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste de texto</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="138"/>
         <source>Source loaded in page</source>
-        <translation type="unfinished"/>
+        <translation>Código fuente cargado en la página</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="141"/>
         <source>Cannot load in page. Page has been closed.</source>
-        <translation type="unfinished"/>
+        <translation>No se puede cargar en la página. La página ha sido cerrada.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="168"/>
         <source>Save file...</source>
-        <translation>Guardar archivo</translation>
+        <translation>Guardar archivo...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="175"/>
@@ -5637,42 +5657,42 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="175"/>
         <source>Cannot write to file!</source>
-        <translation type="unfinished"/>
+        <translation>¡No se puede escribir a archivo!</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="176"/>
         <source>Error writing to file</source>
-        <translation type="unfinished"/>
+        <translation>Error al escribir en el archivo</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="182"/>
         <source>Source successfully saved</source>
-        <translation type="unfinished"/>
+        <translation>Código fuente guardado correctamente</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="204"/>
         <source>Source reloaded</source>
-        <translation type="unfinished"/>
+        <translation>Código fuente recargado</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="207"/>
         <source>Cannot reload source. Page has been closed.</source>
-        <translation type="unfinished"/>
+        <translation>No se puede recargar el código fuente. La página ha sido cerrada.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="216"/>
         <source>Editable changed</source>
-        <translation type="unfinished"/>
+        <translation>Editable cambiado</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="223"/>
         <source>Word Wrap changed</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste de texto cambiado</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="228"/>
         <source>Enter line number</source>
-        <translation type="unfinished"/>
+        <translation>Introduzca el número de línea</translation>
     </message>
 </context>
 <context>
@@ -5680,17 +5700,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="42"/>
         <source>Search: </source>
-        <translation type="unfinished"/>
+        <translation>Buscar: </translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="49"/>
         <source>Search...</source>
-        <translation type="unfinished"/>
+        <translation>Buscar...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="88"/>
         <source>Whole words</source>
-        <translation type="unfinished"/>
+        <translation>Palabras completas</translation>
     </message>
 </context>
 <context>
@@ -5708,7 +5728,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="342"/>
         <source>Unable to load</source>
-        <translation type="unfinished"/>
+        <translation>No es posible cargar</translation>
     </message>
 </context>
 <context>
@@ -5716,22 +5736,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="14"/>
         <source>SpellCheck</source>
-        <translation type="unfinished"/>
+        <translation>Corrector ortográfico</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="20"/>
         <source>&lt;b&gt;Dictionary path&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Ruta de Diccionario&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="36"/>
         <source>Change...</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar...</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="61"/>
         <source>&lt;b&gt;User dictionary&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Diccionario de usuario&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="88"/>
@@ -5746,12 +5766,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="108"/>
         <source>Using Hunspell library</source>
-        <translation type="unfinished"/>
+        <translation>Usando la biblioteca Hunspell</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="71"/>
         <source>Choose dictionary path...</source>
-        <translation type="unfinished"/>
+        <translation>Elegir la ruta del dicionario...</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="80"/>
@@ -5770,12 +5790,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="191"/>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="341"/>
         <source>No suggestions</source>
-        <translation type="unfinished"/>
+        <translation>No hay sugerencias</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="194"/>
         <source>Add to dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Añadir al diccionario</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="346"/>
@@ -5796,12 +5816,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/network/sslerrordialog.ui" line="14"/>
         <source>SSL Certificate Error!</source>
-        <translation type="unfinished"/>
+        <translation>¡Error de Certificado SSL!</translation>
     </message>
     <message>
         <location filename="../src/lib/network/sslerrordialog.cpp" line="31"/>
         <source>Only for this session</source>
-        <translation type="unfinished"/>
+        <translation>Sólo para esta sesión</translation>
     </message>
 </context>
 <context>
@@ -5809,83 +5829,83 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="152"/>
         <source>&amp;New tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Nueva pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
         <source>&amp;Stop Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Detener pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
         <source>&amp;Reload Tab</source>
-        <translation type="unfinished"/>
+        <translation>Recar&amp;gar pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="167"/>
         <source>&amp;Duplicate Tab</source>
-        <translation type="unfinished"/>
+        <translation>D&amp;uplicar pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="170"/>
         <source>D&amp;etach Tab</source>
-        <translation type="unfinished"/>
+        <translation>S&amp;eparar pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="173"/>
         <source>Un&amp;pin Tab</source>
-        <translation type="unfinished"/>
+        <translation>Des&amp;prender pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="173"/>
         <source>&amp;Pin Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Fijar pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="175"/>
         <source>Re&amp;load All Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Rec&amp;argar todas las pestañas</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="176"/>
         <source>&amp;Bookmark This Tab</source>
-        <translation type="unfinished"/>
+        <translation>Añadir a &amp;marcadores esta pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="177"/>
         <location filename="../src/lib/webview/tabbar.cpp" line="189"/>
         <source>Bookmark &amp;All Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Añadir a marcadores &amp;todas las pestañas</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="183"/>
         <source>Close Ot&amp;her Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Cerrar ot&amp;ras pestañas</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="184"/>
         <source>Cl&amp;ose</source>
-        <translation type="unfinished"/>
+        <translation>Cerra&amp;r</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="188"/>
         <source>Reloa&amp;d All Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Re&amp;cargar todas las pestañas</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="191"/>
         <source>Restore &amp;Closed Tab</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar pestañas &amp;cerradas</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="205"/>
         <source>Close Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Cerrar pestañas</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="205"/>
         <source>Do you really want to close other tabs?</source>
-        <translation type="unfinished"/>
+        <translation>¿Realmente desea cerrar otras pestañas?</translation>
     </message>
 </context>
 <context>
@@ -5893,13 +5913,13 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="55"/>
         <source>New Tab</source>
-        <translation type="unfinished"/>
+        <translation>Nueva Pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="148"/>
         <location filename="../src/lib/webview/tabwidget.cpp" line="163"/>
         <source>List of tabs</source>
-        <translation type="unfinished"/>
+        <translation>Lista de pestañas</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="266"/>
@@ -5913,32 +5933,32 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message numerus="yes">
         <location filename="../src/lib/webview/tabwidget.cpp" line="288"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="501"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="497"/>
         <source>Currently you have %n opened tab(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Actualmente tiene %n pestaña abierta</numerusform><numerusform>Actualmente tiene %n pestañas abiertas</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="311"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="925"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="921"/>
         <location filename="../src/lib/webview/tabwidget.h" line="114"/>
         <location filename="../src/lib/webview/tabwidget.h" line="115"/>
         <source>New tab</source>
         <translation>Nueva Pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="828"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="824"/>
         <source>Empty</source>
         <translation>Vacío</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="831"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="827"/>
         <source>Restore All Closed Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar todas las pestañas cerradas</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="832"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="828"/>
         <source>Clear list</source>
-        <translation type="unfinished"/>
+        <translation>Borrar lista</translation>
     </message>
 </context>
 <context>
@@ -5946,7 +5966,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/tabbedwebview.cpp" line="136"/>
         <source>Loading...</source>
-        <translation type="unfinished"/>
+        <translation>Cargando...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbedwebview.cpp" line="172"/>
@@ -5985,14 +6005,14 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>ToolButton</name>
     <message>
-        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="30"/>
+        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="31"/>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>Detener</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="38"/>
+        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="39"/>
         <source>Reload</source>
-        <translation type="unfinished"/>
+        <translation>Recargar</translation>
     </message>
 </context>
 <context>
@@ -6000,17 +6020,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/updater.cpp" line="143"/>
         <source>Update available</source>
-        <translation type="unfinished"/>
+        <translation>Actualización disponible</translation>
     </message>
     <message>
         <location filename="../src/lib/other/updater.cpp" line="143"/>
         <source>New version of QupZilla is ready to download.</source>
-        <translation type="unfinished"/>
+        <translation>La nueva versión de QupZilla está lista para descargar.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/updater.cpp" line="152"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar</translation>
     </message>
 </context>
 <context>
@@ -6018,7 +6038,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="14"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"/>
+        <translation>Administrador de Agente de Usuario</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="20"/>
@@ -6082,7 +6102,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/webview/webinspectordockwidget.cpp" line="29"/>
         <location filename="../src/lib/webview/webinspectordockwidget.cpp" line="32"/>
         <source>Web Inspector</source>
-        <translation type="unfinished"/>
+        <translation>Inspector web</translation>
     </message>
 </context>
 <context>
@@ -6090,43 +6110,44 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="373"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla no puede tratar enlaces &lt;b&gt;%1&lt;/b&gt;. El enlace solicitado es &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;¿Quiere que QupZilla intente abrir el enlace en la aplicación del sistema?</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="378"/>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"/>
+        <translation>Recordar mi elección para este protocolo</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="379"/>
         <source>External Protocol Request</source>
-        <translation type="unfinished"/>
+        <translation>Solicitud de Protocolo Externo</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="533"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"/>
+        <translation>Para mostrar esta página, QupZilla debe volver enviar la solicitud lo cual hará de nuevo 
+(como la busqueda de hacer una compra, que ya ha sido hecha.)</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="535"/>
         <source>Confirm form resubmission</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar reenvío del formulario</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="712"/>
         <source>Select files to upload...</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar los archivos para subir...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="733"/>
         <source>Server refused the connection</source>
-        <translation type="unfinished"/>
+        <translation>El servidor ha rechazado la conexión</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="736"/>
         <source>Server closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>El servidor ha cerrado la conexión</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="739"/>
@@ -6136,37 +6157,37 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="742"/>
         <source>Connection timed out</source>
-        <translation type="unfinished"/>
+        <translation>Conexión caducada</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="745"/>
         <source>Untrusted connection</source>
-        <translation type="unfinished"/>
+        <translation>La conexión no es de confianza</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="748"/>
         <source>Temporary network failure</source>
-        <translation type="unfinished"/>
+        <translation>Falla de red temporal</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="751"/>
         <source>Proxy connection refused</source>
-        <translation type="unfinished"/>
+        <translation>Conexión de proxy denegada</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="754"/>
         <source>Proxy server not found</source>
-        <translation type="unfinished"/>
+        <translation>Servidor proxy no encontrado</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="757"/>
         <source>Proxy connection timed out</source>
-        <translation type="unfinished"/>
+        <translation>Conexión de proxy caducada</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="760"/>
         <source>Proxy authentication required</source>
-        <translation type="unfinished"/>
+        <translation>Autenticacion de proxy requerida</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="763"/>
@@ -6181,7 +6202,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="796"/>
         <source>AdBlocked Content</source>
-        <translation type="unfinished"/>
+        <translation>Contenido bloqueado por AdBlock</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="800"/>
@@ -6191,7 +6212,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="817"/>
         <source>Content Access Denied</source>
-        <translation type="unfinished"/>
+        <translation>Acceso a Contenidos Denegado</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="832"/>
@@ -6201,7 +6222,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="844"/>
         <source>Failed loading page</source>
-        <translation type="unfinished"/>
+        <translation>Error al cargar la página</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="850"/>
@@ -6216,42 +6237,42 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="854"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
-        <translation type="unfinished"/>
+        <translation>Comprobar la dirección por errores de escritura como &lt;b&gt;ww.&lt;/b&gt;ejemplo.com en lugar de &lt;b&gt;www.&lt;/b&gt;ejemplo.com</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="855"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
-        <translation type="unfinished"/>
+        <translation>Si no puede cargar ninguna página, compruebe la conexión de red de su computadora.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="856"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
-        <translation type="unfinished"/>
+        <translation>Si su computadora o red esta protegida por un cortafuegos o un proxy, asegúrese que QupZilla se le permite acceder a la Web.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="857"/>
         <source>Try Again</source>
-        <translation type="unfinished"/>
+        <translation>Intentar de nuevo</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="957"/>
         <source>JavaScript alert</source>
-        <translation type="unfinished"/>
+        <translation>Alerta de JavaSvript</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="965"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished"/>
+        <translation>Evitar que esta página cree dialogos adicionales</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="1019"/>
         <source>Choose file...</source>
-        <translation>Elegir archivo</translation>
+        <translation>Elegir archivo...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="1027"/>
         <source>Cannot read data from &lt;b&gt;%1&lt;/b&gt;. Upload was cancelled!</source>
-        <translation type="unfinished"/>
+        <translation>No se pueden leer los datos de &lt;b&gt;%1&lt;/b&gt;. ¡El envío se cancelo!</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="1028"/>
@@ -6264,7 +6285,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="109"/>
         <source>Manage Search Engines</source>
-        <translation type="unfinished"/>
+        <translation>Administrar motores de busqueda</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="241"/>
@@ -6274,22 +6295,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="264"/>
         <source>Paste And &amp;Search</source>
-        <translation type="unfinished"/>
+        <translation>Pegar y &amp;Buscar</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="270"/>
         <source>Clear All</source>
-        <translation type="unfinished"/>
+        <translation>Borrar Todo</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="312"/>
         <source>Show suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar sugerencias</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="317"/>
         <source>Search when engine changed</source>
-        <translation type="unfinished"/>
+        <translation>Buscar cuando el motor cambia</translation>
     </message>
 </context>
 <context>
@@ -6297,12 +6318,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="121"/>
         <source>No Named Page</source>
-        <translation type="unfinished"/>
+        <translation>Página sin nombre</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="776"/>
         <source>Create Search Engine</source>
-        <translation type="unfinished"/>
+        <translation>Crear motor de búsqueda</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="793"/>
@@ -6327,188 +6348,188 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="801"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Predeterminado</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="802"/>
         <source>Left to Right</source>
-        <translation type="unfinished"/>
+        <translation>De izquierda a derecha</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="803"/>
         <source>Right to Left</source>
-        <translation type="unfinished"/>
+        <translation>De derecha a izquierda</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="804"/>
         <source>Bold</source>
-        <translation type="unfinished"/>
+        <translation>Negrita</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="805"/>
         <source>Italic</source>
-        <translation type="unfinished"/>
+        <translation>Itálica</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="806"/>
         <source>Underline</source>
-        <translation type="unfinished"/>
+        <translation>Subrayado</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="808"/>
         <location filename="../src/lib/webview/webview.cpp" line="944"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Recargar</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="809"/>
         <source>S&amp;top</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Detener</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="849"/>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Deshacer</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="852"/>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Rehacer</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="874"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Borrar</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="921"/>
         <source>&amp;Back</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Atras</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="925"/>
         <source>&amp;Forward</source>
-        <translation type="unfinished"/>
+        <translation>Ad&amp;elante</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="937"/>
         <source>This frame</source>
-        <translation type="unfinished"/>
+        <translation>Este marco</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="938"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar &amp;sólo este marco</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="939"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar este marco en una nueva &amp;pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="945"/>
         <source>Print frame</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir marco</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="947"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Acercar</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="948"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished"/>
+        <translation>Ale&amp;jar</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="949"/>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Reiniciar</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="951"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar fue&amp;nte de marco</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="957"/>
         <source>Book&amp;mark page</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Añadir a marcadores esta página</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="958"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Guardar pagina como...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="959"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Copiar enlace de página</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="960"/>
         <source>Send page link...</source>
-        <translation type="unfinished"/>
+        <translation>Enviar enlace de pagina...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="961"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Imprimir página</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="963"/>
         <source>Select &amp;all</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar &amp;todo</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="968"/>
         <source>Validate page</source>
-        <translation type="unfinished"/>
+        <translation>Validar la página</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="972"/>
         <source>Translate page</source>
-        <translation type="unfinished"/>
+        <translation>Traducir página</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="976"/>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar código &amp;fuente</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="977"/>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar informacion ace&amp;rca del sitio</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="982"/>
         <source>&amp;Add New Page</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Añadir nueva página</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="983"/>
         <source>&amp;Configure Speed Dial</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Configurar Marcado Rápido</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="995"/>
         <source>Open link in new &amp;tab</source>
-        <translation type="unfinished"/>
+        <translation>Abrir enlace en una nueva &amp;pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1000"/>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished"/>
+        <translation>Abrir enlace en una nueva &amp;ventana</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1005"/>
         <source>B&amp;ookmark link</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Agregar a marcadores este enlace</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1007"/>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Guardar enlace como...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1008"/>
@@ -6518,27 +6539,27 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1009"/>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Copiar dirección de enlace</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1021"/>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar i&amp;magen</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1026"/>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished"/>
+        <translation>Copiar im&amp;agen</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1027"/>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished"/>
+        <translation>Copiar d&amp;irección de imagen</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1029"/>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Guardar imagen como...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1030"/>
@@ -6563,57 +6584,57 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1075"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"/>
+        <translation>Ir a la dirección &amp;web</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1089"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished"/>
+        <translation>Buscar &quot;%1 ..&quot; con %2</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1095"/>
         <source>Search with...</source>
-        <translation type="unfinished"/>
+        <translation>Buscar con...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1122"/>
         <source>&amp;Play</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Reproducir</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1122"/>
         <source>&amp;Pause</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Pausa</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1123"/>
         <source>Un&amp;mute</source>
-        <translation type="unfinished"/>
+        <translation>Acti&amp;var sonido</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1123"/>
         <source>&amp;Mute</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Silenciar</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1125"/>
         <source>&amp;Copy Media Address</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Copiar dirección de medio</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1126"/>
         <source>&amp;Send Media Address</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Enviar dirección de medio</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1127"/>
         <source>Save Media To &amp;Disk</source>
-        <translation type="unfinished"/>
+        <translation>Guardar medio en &amp;disco</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1136"/>
         <source>Check &amp;Spelling</source>
-        <translation type="unfinished"/>
+        <translation>Revisar la &amp;ortografía</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="1141"/>
@@ -6626,7 +6647,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/jsalert.ui" line="125"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished"/>
+        <translation>Evitar que esta página cree dialogos adicionales</translation>
     </message>
 </context>
 </TS>

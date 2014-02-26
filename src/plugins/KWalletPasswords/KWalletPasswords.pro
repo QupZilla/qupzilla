@@ -26,6 +26,7 @@ TRANSLATIONS += \
     translations/it_IT.ts \
     translations/ja_JP.ts \
     translations/ko_KR.ts \
+    translations/lv_LV.ts \
     translations/nb_NO.ts \
     translations/nl_NL.ts \
     translations/nqo.ts \
@@ -37,6 +38,7 @@ TRANSLATIONS += \
     translations/sr_BA.ts \
     translations/sr_RS@latin.ts \
     translations/sr_RS.ts \
+    translations/tr_TR.ts \
     translations/uk_UA.ts \
     translations/uz@Cyrl.ts \
     translations/uz@Latn.ts \

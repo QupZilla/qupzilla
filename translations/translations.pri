@@ -19,6 +19,7 @@ TRANSLATIONS += \
     $$PWD/ja_JP.ts \
     $$PWD/ka_GE.ts \
     $$PWD/lg.ts \
+    $$PWD/lv_LV.ts \
     $$PWD/nl_NL.ts \
     $$PWD/nqo.ts \
     $$PWD/pl_PL.ts \

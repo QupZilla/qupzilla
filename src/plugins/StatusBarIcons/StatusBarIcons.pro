@@ -41,6 +41,7 @@ TRANSLATIONS += \
     translations/id_ID.ts \
     translations/it_IT.ts \
     translations/ja_JP.ts \
+    translations/lv_LV.ts \
     translations/nl_NL.ts \
     translations/nqo.ts \
     translations/pl_PL.ts \
