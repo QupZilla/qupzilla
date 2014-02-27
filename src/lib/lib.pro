@@ -257,7 +257,8 @@ SOURCES += \
     bookmarks/bookmarksexport/bookmarksexporter.cpp \
     bookmarks/bookmarksexport/bookmarksexportdialog.cpp \
     bookmarks/bookmarksexport/htmlexporter.cpp \
-    app/browserwindow.cpp
+    app/browserwindow.cpp \
+    history/historymenu.cpp
 
 
 HEADERS  += \
@@ -455,7 +456,8 @@ HEADERS  += \
     bookmarks/bookmarksexport/bookmarksexportdialog.h \
     bookmarks/bookmarksexport/htmlexporter.h \
     app/browserwindow.h \
-    app/qzcommon.h
+    app/qzcommon.h \
+    history/historymenu.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

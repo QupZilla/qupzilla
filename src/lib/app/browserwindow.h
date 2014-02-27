@@ -36,6 +36,7 @@ class TabWidget;
 class TabbedWebView;
 class LineEdit;
 class SearchToolBar;
+class HistoryMenu;
 class BookmarksMenu;
 class BookmarksToolbar;
 class AutoFill;
@@ -116,14 +117,20 @@ signals:
     void setWebViewMouseTracking(bool state);
 
 public slots:
+    void goHome();
+    void goHomeInNewTab();
+    void goBack();
+    void goForward();
+
     void setWindowTitle(const QString &t);
     void toggleFullScreen();
 
     void showWebInspector(bool toggle = true);
     void showBookmarksToolbar();
+    void showHistoryManager();
+
     void loadActionUrl(QObject* obj = 0);
     void loadActionUrlInNewTab(QObject* obj = 0);
-    void loadActionUrlInNewNotSelectedTab(QObject* obj = 0);
 
     void bookmarkPage();
     void bookmarkAllTabs();
@@ -135,10 +142,6 @@ public slots:
 
 private slots:
     void postLaunch();
-    void goNext();
-    void goBack();
-    void goHome();
-    void goHomeInNewTab();
     void stop();
     void reload();
     void reloadByPassCache();
@@ -148,9 +151,6 @@ private slots:
 
     void aboutToShowFileMenu();
     void aboutToHideFileMenu();
-    void aboutToShowHistoryMenu();
-    void aboutToHideHistoryMenu();
-    void aboutToShowClosedTabsMenu();
     void aboutToShowViewMenu();
     void aboutToHideViewMenu();
     void aboutToShowEditMenu();
@@ -161,7 +161,6 @@ private slots:
 
     void searchOnPage();
     void showCookieManager();
-    void showHistoryManager();
     void showBookmarksManager();
     void showRSSManager();
     void showDownloadManager();
@@ -169,8 +168,6 @@ private slots:
     void showNavigationToolbar();
     void showStatusbar();
     void showClearPrivateData();
-    void aboutToShowHistoryRecentMenu();
-    void aboutToShowHistoryMostMenu();
     void showPreferences();
     void showBookmarkImport();
 
@@ -275,10 +272,7 @@ private:
     QMenu* m_menuView;
     QMenu* m_toolbarsMenu;
     BookmarksMenu* m_menuBookmarks;
-    Menu* m_menuHistory;
-    QMenu* m_menuClosedTabs;
-    Menu* m_menuHistoryRecent;
-    Menu* m_menuHistoryMost;
+    HistoryMenu* m_menuHistory;
     QMenu* m_menuEncoding;
     QAction* m_menuBookmarksAction;
 

@@ -40,6 +40,8 @@ BookmarksMenu::BookmarksMenu(QWidget* parent)
 
 void BookmarksMenu::setMainWindow(BrowserWindow* window)
 {
+    Q_ASSERT(window);
+
     m_window = window;
 }
 

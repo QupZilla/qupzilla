@@ -68,6 +68,7 @@
 #include "qtwin.h"
 #include "bookmarkstools.h"
 #include "bookmarksmenu.h"
+#include "historymenu.h"
 
 #include <QKeyEvent>
 #include <QSplitter>
@@ -542,29 +543,9 @@ void BrowserWindow::setupMenu()
     /****************
      * History Menu *
      ****************/
-    m_menuHistory = new Menu(tr("Hi&story"));
-    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowBack), tr("&Back"),
-                             MENU_RECEIVER, SLOT(goBack()))->setShortcut(actionShortcut(QKeySequence::Back, Qt::ALT + Qt::Key_Left, QKeySequence::Forward, Qt::ALT + Qt::Key_Right));
-    m_menuHistory->addAction(qIconProvider->standardIcon(QStyle::SP_ArrowForward), tr("&Forward"),
-                             MENU_RECEIVER, SLOT(goNext()))->setShortcut(actionShortcut(QKeySequence::Forward, Qt::ALT + Qt::Key_Right, QKeySequence::Back, Qt::ALT + Qt::Key_Left));
-    m_menuHistory->addAction(qIconProvider->fromTheme("go-home"), tr("&Home"), MENU_RECEIVER, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
-    m_menuHistory->addAction(QIcon::fromTheme("view-history", QIcon(":/icons/menu/history.png")), tr("Show &All History"), MENU_RECEIVER, SLOT(showHistoryManager()))->setShortcut(QKeySequence("Ctrl+Shift+H"));
-    m_menuHistory->addSeparator();
-    connect(m_menuHistory, SIGNAL(aboutToShow()), MENU_RECEIVER, SLOT(aboutToShowHistoryMenu()));
-    connect(m_menuHistory, SIGNAL(aboutToHide()), MENU_RECEIVER, SLOT(aboutToHideHistoryMenu()));
 
-    m_menuClosedTabs = new QMenu(tr("Closed Tabs"));
-    connect(m_menuClosedTabs, SIGNAL(aboutToShow()), MENU_RECEIVER, SLOT(aboutToShowClosedTabsMenu()));
-
-    m_menuHistoryRecent = new Menu(tr("Recently Visited"), m_menuHistory);
-    connect(m_menuHistoryRecent, SIGNAL(aboutToShow()), MENU_RECEIVER, SLOT(aboutToShowHistoryRecentMenu()));
-
-    m_menuHistoryMost = new Menu(tr("Most Visited"), m_menuHistory);
-    connect(m_menuHistoryMost, SIGNAL(aboutToShow()), MENU_RECEIVER, SLOT(aboutToShowHistoryMostMenu()));
-
-    m_menuHistory->addMenu(m_menuHistoryRecent);
-    m_menuHistory->addMenu(m_menuHistoryMost);
-    m_menuHistory->addMenu(m_menuClosedTabs);
+    m_menuHistory = new HistoryMenu();
+    m_menuHistory->setMainWindow(this);
 
     /******************
      * Bookmarks Menu *
@@ -883,7 +864,7 @@ void BrowserWindow::loadSettings()
 #endif
 }
 
-void BrowserWindow::goNext()
+void BrowserWindow::goForward()
 {
     weView()->forward();
 }
@@ -1006,96 +987,6 @@ void BrowserWindow::aboutToShowFileMenu()
 void BrowserWindow::aboutToHideFileMenu()
 {
     m_actionCloseWindow->setEnabled(true);
-}
-
-void BrowserWindow::aboutToShowHistoryMenu()
-{
-    TabbedWebView* view = weView();
-    if (!view) {
-        return;
-    }
-
-    m_menuHistory->actions().at(0)->setEnabled(view->history()->canGoBack());
-    m_menuHistory->actions().at(1)->setEnabled(view->history()->canGoForward());
-}
-
-void BrowserWindow::aboutToHideHistoryMenu()
-{
-    m_menuHistory->actions().at(0)->setEnabled(true);
-    m_menuHistory->actions().at(1)->setEnabled(true);
-}
-
-void BrowserWindow::aboutToShowClosedTabsMenu()
-{
-    m_menuClosedTabs->clear();
-    int i = 0;
-    foreach (const ClosedTabsManager::Tab &tab, m_tabWidget->closedTabsManager()->allClosedTabs()) {
-        QString title = tab.title;
-        if (title.length() > 40) {
-            title.truncate(40);
-            title += "..";
-        }
-        m_menuClosedTabs->addAction(_iconForUrl(tab.url), title, MENU_RECEIVER, SLOT(restoreClosedTab()))->setData(i);
-        i++;
-    }
-    m_menuClosedTabs->addSeparator();
-    if (i == 0) {
-        m_menuClosedTabs->addAction(tr("Empty"))->setEnabled(false);
-    }
-    else {
-        m_menuClosedTabs->addAction(tr("Restore All Closed Tabs"), MENU_RECEIVER, SLOT(restoreAllClosedTabs()));
-        m_menuClosedTabs->addAction(tr("Clear list"), MENU_RECEIVER, SLOT(clearClosedTabsList()));
-    }
-}
-
-void BrowserWindow::aboutToShowHistoryRecentMenu()
-{
-    m_menuHistoryRecent->clear();
-    QSqlQuery query;
-    query.exec("SELECT title, url FROM history ORDER BY date DESC LIMIT 15");
-    while (query.next()) {
-        const QUrl url = query.value(1).toUrl();
-        QString title = query.value(0).toString();
-        if (title.length() > 40) {
-            title.truncate(40);
-            title += "..";
-        }
-
-        Action* act = new Action(_iconForUrl(url), title);
-        act->setData(url);
-        connect(act, SIGNAL(triggered()), MENU_RECEIVER, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(ctrlTriggered()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
-        m_menuHistoryRecent->addAction(act);
-    }
-
-    if (m_menuHistoryRecent->isEmpty()) {
-        m_menuHistoryRecent->addAction(tr("Empty"))->setEnabled(false);
-    }
-}
-
-void BrowserWindow::aboutToShowHistoryMostMenu()
-{
-    m_menuHistoryMost->clear();
-
-    const QVector<HistoryEntry> &mostList = mApp->history()->mostVisited(10);
-
-    foreach (const HistoryEntry &entry, mostList) {
-        QString title = entry.title;
-        if (title.length() > 40) {
-            title.truncate(40);
-            title += "..";
-        }
-
-        Action* act = new Action(_iconForUrl(entry.url), title);
-        act->setData(entry.url);
-        connect(act, SIGNAL(triggered()), MENU_RECEIVER, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(ctrlTriggered()), MENU_RECEIVER, SLOT(loadActionUrlInNewNotSelectedTab()));
-        m_menuHistoryMost->addAction(act);
-    }
-
-    if (m_menuHistoryMost->isEmpty()) {
-        m_menuHistoryMost->addAction(tr("Empty"))->setEnabled(false);
-    }
 }
 
 void BrowserWindow::aboutToShowViewMenu()
@@ -1371,17 +1262,6 @@ void BrowserWindow::loadActionUrlInNewTab(QObject* obj)
 
     if (QAction* action = qobject_cast<QAction*>(obj)) {
         m_tabWidget->addView(action->data().toUrl(), Qz::NT_SelectedTabAtTheEnd);
-    }
-}
-
-void BrowserWindow::loadActionUrlInNewNotSelectedTab(QObject* obj)
-{
-    if (!obj) {
-        obj = sender();
-    }
-
-    if (QAction* action = qobject_cast<QAction*>(obj)) {
-        m_tabWidget->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
     }
 }
 
