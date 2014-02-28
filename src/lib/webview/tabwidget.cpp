@@ -820,7 +820,7 @@ void TabWidget::aboutToShowClosedTabsMenu()
         m_menuTabs->clear();
 
         QAction* arestore = new QAction(tr("Restore All Closed Tabs"), this);
-        QAction* aclrlist = new QAction(tr("Clear list"), this);
+        QAction* aclrlist = new QAction(QIcon::fromTheme("user-trash-full"), tr("Clear list"), this);
 
         connect(arestore, SIGNAL(triggered()), this, SLOT(restoreAllClosedTabs()));
         connect(aclrlist, SIGNAL(triggered()), this, SLOT(clearClosedTabsList()));
@@ -844,7 +844,7 @@ void TabWidget::aboutToShowClosedTabsMenu()
         if (i == 0) {
             arestore->setVisible(false);
             aclrlist->setVisible(false);
-            m_menuTabs->addAction(tr("Empty"))->setEnabled(false);
+            m_menuTabs->addAction(QIcon::fromTheme("user-trash"), tr("Empty"))->setEnabled(false);
         }
     }
 }

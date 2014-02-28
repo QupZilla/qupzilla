@@ -156,6 +156,17 @@ void HistoryMenu::aboutToShowClosedTabs()
         return;
     }
 
+    QAction* arestore = new QAction(tr("Restore All Closed Tabs"), this);
+    QAction* aclrlist = new QAction(tr("Clear list"), this);
+
+    connect(arestore, SIGNAL(triggered()), this, SLOT(restoreAllClosedTabs()));
+    connect(aclrlist, SIGNAL(triggered()), this, SLOT(clearClosedTabsList()));
+
+    m_menuClosedTabs->addAction(arestore);
+    m_menuClosedTabs->addAction(aclrlist);
+
+    m_menuClosedTabs->addSeparator();
+
     TabWidget* tabWidget = m_window->tabWidget();
     const QLinkedList<ClosedTabsManager::Tab> closedTabs = tabWidget->closedTabsManager()->allClosedTabs();
     int i = 0;
@@ -166,14 +177,10 @@ void HistoryMenu::aboutToShowClosedTabs()
         act->setData(i++);
     }
 
-    m_menuClosedTabs->addSeparator();
-
-    if (m_menuClosedTabs->isEmpty()) {
+    if (i == 0) {
+        arestore->setVisible(false);
+        aclrlist->setVisible(false);
         m_menuClosedTabs->addAction(tr("Empty"))->setEnabled(false);
-    }
-    else {
-        m_menuClosedTabs->addAction(tr("Restore All Closed Tabs"), tabWidget, SLOT(restoreAllClosedTabs()));
-        m_menuClosedTabs->addAction(tr("Clear list"), tabWidget, SLOT(clearClosedTabsList()));
     }
 }
 
