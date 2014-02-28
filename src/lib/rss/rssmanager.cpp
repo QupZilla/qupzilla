@@ -400,7 +400,7 @@ bool RSSManager::addRssFeed(const QUrl &url, const QString &title, const QIcon &
         QImage image = icon.pixmap(16, 16).toImage();
 
         if (image == qIconProvider->emptyWebImage()) {
-            image.load(":icons/other/feed.png");
+            image.load(":icons/menu/rss.png");
         }
 
         query.prepare("INSERT INTO rss (address, title, icon) VALUES(?,?,?)");
