@@ -155,19 +155,17 @@ void HistoryMenu::aboutToShowClosedTabs()
     if (!m_window) {
         return;
     }
-
+    TabWidget* tabWidget = m_window->tabWidget();
     QAction* arestore = new QAction(tr("Restore All Closed Tabs"), this);
     QAction* aclrlist = new QAction(tr("Clear list"), this);
 
-    connect(arestore, SIGNAL(triggered()), this, SLOT(restoreAllClosedTabs()));
-    connect(aclrlist, SIGNAL(triggered()), this, SLOT(clearClosedTabsList()));
+    connect(arestore, SIGNAL(triggered()), tabWidget, SLOT(restoreAllClosedTabs()));
+    connect(aclrlist, SIGNAL(triggered()), tabWidget, SLOT(clearClosedTabsList()));
 
     m_menuClosedTabs->addAction(arestore);
     m_menuClosedTabs->addAction(aclrlist);
-
     m_menuClosedTabs->addSeparator();
 
-    TabWidget* tabWidget = m_window->tabWidget();
     const QLinkedList<ClosedTabsManager::Tab> closedTabs = tabWidget->closedTabsManager()->allClosedTabs();
     int i = 0;
 
