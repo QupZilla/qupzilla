@@ -25,27 +25,21 @@
 class QSqlQuery;
 class QUrl;
 
-struct TabPosition {
-    int windowIndex;
-    int tabIndex;
-    TabPosition()
-        : windowIndex(-1)
-        , tabIndex(-1)
-    {}
-};
-Q_DECLARE_METATYPE(TabPosition)
-
 class LocationCompleterModel : public QStandardItemModel
 {
 public:
     enum Role {
-        TitleRole = Qt::UserRole + 1,
-        BookmarkRole = Qt::UserRole + 2,
-        IdRole = Qt::UserRole + 3,
-        SearchStringRole = Qt::UserRole + 4,
-        CountRole = Qt::UserRole + 5,
-        TabPositionRole = Qt::UserRole + 6
+        IdRole = Qt::UserRole + 1,
+        TitleRole = Qt::UserRole + 2,
+        UrlRole = Qt::UserRole + 3,
+        CountRole = Qt::UserRole + 4,
+        BookmarkRole = Qt::UserRole + 5,
+        BookmarkItemRole = Qt::UserRole + 6,
+        SearchStringRole = Qt::UserRole + 7,
+        TabPositionWindowRole = Qt::UserRole + 8,
+        TabPositionTabRole = Qt::UserRole + 9
     };
+
     explicit LocationCompleterModel(QObject* parent = 0);
 
     void refreshCompletions(const QString &string);
@@ -61,12 +55,10 @@ private:
         Nothing = 4
     };
 
-    QSqlQuery createQuery(const QString &searchString,
-                          int limit, bool exactMatch = false);
+    QSqlQuery createQuery(const QString &searchString, int limit, bool exactMatch = false) const;
 
-    TabPosition tabPositionForUrl(const QUrl &url) const;
-    TabPosition tabPositionForEncodedUrl(const QString &encodedUrl) const;
-    void refreshTabPositions();
+    void setTabPosition(QStandardItem* item) const;
+    void refreshTabPositions() const;
 
     QString m_lastCompletion;
 };

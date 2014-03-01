@@ -22,7 +22,6 @@
 
 #include "qzcommon.h"
 #include "lineedit.h"
-#include "completer/locationcompleter.h"
 
 class BrowserWindow;
 class LineEdit;
@@ -71,6 +70,7 @@ private slots:
 
     void updatePlaceHolderText();
     void showCompletion(const QString &newText);
+    void clearCompletion();
     void completionPopupClosed();
 
     void onLoadStarted();
@@ -103,7 +103,7 @@ private:
 
     void loadSettings();
 
-    LocationCompleter m_completer;
+    LocationCompleter* m_completer;
 
     BookmarksIcon* m_bookmarkIcon;
     GoIcon* m_goIcon;

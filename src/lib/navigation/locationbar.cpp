@@ -37,6 +37,7 @@
 #include "qzsettings.h"
 #include "colors.h"
 #include "autofillicon.h"
+#include "completer/locationcompleter.h"
 
 #include <QMimeData>
 #include <QClipboard>
@@ -82,14 +83,17 @@ LocationBar::LocationBar(BrowserWindow* window)
     addWidget(m_goIcon, LineEdit::RightSide);
     addWidget(down, LineEdit::RightSide);
 
-    m_completer.setLocationBar(this);
-    connect(&m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));
-    connect(&m_completer, SIGNAL(completionActivated()), this, SLOT(urlEnter()));
-    connect(&m_completer, SIGNAL(popupClosed()), this, SLOT(completionPopupClosed()));
+    m_completer = new LocationCompleter(this);
+    m_completer->setMainWindow(m_window);
+    m_completer->setLocationBar(this);
+    connect(m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));
+    connect(m_completer, SIGNAL(loadCompletion()), this, SLOT(urlEnter()));
+    connect(m_completer, SIGNAL(clearCompletion()), this, SLOT(clearCompletion()));
+    connect(m_completer, SIGNAL(popupClosed()), this, SLOT(completionPopupClosed()));
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
-    connect(down, SIGNAL(clicked(QPoint)), &m_completer, SLOT(showMostVisited()));
+    connect(down, SIGNAL(clicked(QPoint)), m_completer, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp->searchEnginesManager(), SIGNAL(defaultEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp, SIGNAL(message(Qz::AppMessageType,bool)), SLOT(onMessage(Qz::AppMessageType,bool)));
@@ -143,6 +147,12 @@ void LocationBar::showCompletion(const QString &newText)
     end(false);
 }
 
+void LocationBar::clearCompletion()
+{
+    m_webView->setFocus();
+    showUrl(m_webView->url());
+}
+
 void LocationBar::completionPopupClosed()
 {
     m_inlineCompletionVisible = false;
@@ -166,7 +176,7 @@ QUrl LocationBar::createUrl()
     }
 
     if (isInlineCompletionVisible()) {
-        urlToLoad = WebView::guessUrlFromString(text() + m_completer.domainCompletion());
+        urlToLoad = WebView::guessUrlFromString(text() + m_completer->domainCompletion());
     }
 
     if (urlToLoad.isEmpty()) {
@@ -200,7 +210,7 @@ QString LocationBar::convertUrlToText(const QUrl &url) const
 
 bool LocationBar::isInlineCompletionVisible() const
 {
-    return m_inlineCompletionVisible && !m_completer.domainCompletion().isEmpty();
+    return m_inlineCompletionVisible && !m_completer->domainCompletion().isEmpty();
 }
 
 void LocationBar::urlEnter()
@@ -208,7 +218,7 @@ void LocationBar::urlEnter()
     const QUrl url = createUrl();
     const QString urlString = convertUrlToText(url);
 
-    m_completer.closePopup();
+    m_completer->closePopup();
     m_webView->setFocus();
 
     if (urlString != text()) {
@@ -221,11 +231,11 @@ void LocationBar::urlEnter()
 void LocationBar::textEdit()
 {
     if (!text().isEmpty()) {
-        m_completer.complete(text());
+        m_completer->complete(text());
         m_inlineCompletionVisible = true;
     }
     else {
-        m_completer.closePopup();
+        m_completer->closePopup();
     }
 
     showGoButton();
@@ -459,29 +469,29 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         break;
 
     case Qt::Key_Down:
-        m_completer.complete(text());
+        m_completer->complete(text());
         break;
 
     case Qt::Key_End:
     case Qt::Key_Right: {
-        const QString completionText = m_completer.domainCompletion();
+        const QString completionText = m_completer->domainCompletion();
         if (m_inlineCompletionVisible && !completionText.isEmpty()) {
             m_inlineCompletionVisible = false;
 
             setText(text() + completionText);
             setCursorPosition(text().size());
-            m_completer.closePopup();
+            m_completer->closePopup();
         }
 
-        if (m_completer.isPopupVisible()) {
-            m_completer.closePopup();
+        if (m_completer->isPopupVisible()) {
+            m_completer->closePopup();
         }
         break;
     }
 
     case Qt::Key_Left:
-        if (m_completer.isPopupVisible()) {
-            m_completer.closePopup();
+        if (m_completer->isPopupVisible()) {
+            m_completer->closePopup();
         }
         break;
 
@@ -514,7 +524,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
             break;
 
         case Qt::AltModifier:
-            m_completer.closePopup();
+            m_completer->closePopup();
             m_window->tabWidget()->addView(createUrl());
             m_holdingAlt = false;
             break;
@@ -647,7 +657,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
 
     if (hasFocus() && m_inlineCompletionVisible) {
         // Draw inline domain completion if available
-        const QString completionText = m_completer.domainCompletion();
+        const QString completionText = m_completer->domainCompletion();
 
         if (!completionText.isEmpty()) {
             QRect completionRect = textRect;
@@ -665,7 +675,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
         }
     }
 
-    if (m_completer.isPopupVisible() && !m_completer.showingMostVisited()) {
+    if (m_completer->isPopupVisible() && !m_completer->isShowingMostVisited()) {
         // We need to draw cursor when popup is visible
         // But don't paint it if we are just showing most visited sites
         const int cursorWidth = style()->pixelMetric(QStyle::PM_TextCursorWidth, &option, this);

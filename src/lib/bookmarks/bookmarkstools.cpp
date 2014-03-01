@@ -227,7 +227,7 @@ void BookmarksTools::openBookmark(BrowserWindow* window, BookmarkItem* item)
         openFolderInTabs(window, item);
     }
     else if (item->isUrl()) {
-        item->setVisitCount(item->visitCount() + 1);
+        item->updateVisitCount();
         window->loadAddress(item->url());
     }
 }
@@ -244,7 +244,7 @@ void BookmarksTools::openBookmarkInNewTab(BrowserWindow* window, BookmarkItem* i
         openFolderInTabs(window, item);
     }
     else if (item->isUrl()) {
-        item->setVisitCount(item->visitCount() + 1);
+        item->updateVisitCount();
         window->tabWidget()->addView(item->url(), item->title(), qzSettings->newTabPosition);
     }
 }
@@ -255,7 +255,7 @@ void BookmarksTools::openBookmarkInNewWindow(BookmarkItem* item)
         return;
     }
 
-    item->setVisitCount(item->visitCount() + 1);
+    item->updateVisitCount();
     mApp->makeNewWindow(Qz::BW_NewWindow, item->url());
 }
 
@@ -265,7 +265,7 @@ void BookmarksTools::openBookmarkInNewPrivateWindow(BookmarkItem* item)
         return;
     }
 
-    item->setVisitCount(item->visitCount() + 1);
+    item->updateVisitCount();
     mApp->startPrivateBrowsing(item->url());
 }
 

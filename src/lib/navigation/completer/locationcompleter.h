@@ -22,11 +22,13 @@
 
 #include "qzcommon.h"
 
+class QUrl;
 class QModelIndex;
 
+class LocationBar;
+class BrowserWindow;
 class LocationCompleterModel;
 class LocationCompleterView;
-class LocationBar;
 
 class QUPZILLA_EXPORT LocationCompleter : public QObject
 {
@@ -34,17 +36,20 @@ class QUPZILLA_EXPORT LocationCompleter : public QObject
 public:
     explicit LocationCompleter(QObject* parent = 0);
 
+    void setMainWindow(BrowserWindow* window);
     void setLocationBar(LocationBar* locationBar);
 
     QString domainCompletion() const;
-    bool showingMostVisited() const;
-    bool isPopupSelected() const;
+    bool isShowingMostVisited() const;
+
     bool isPopupVisible() const;
     void closePopup();
 
 signals:
-    void showCompletion(const QString &);
-    void completionActivated();
+    void showCompletion(const QString &completion);
+    void loadCompletion();
+    void clearCompletion();
+
     void popupClosed();
 
 public slots:
@@ -55,16 +60,23 @@ private slots:
     void currentChanged(const QModelIndex &index);
     void slotPopupClosed();
 
+    void indexActivated(const QModelIndex &index);
+    void indexCtrlActivated(const QModelIndex &index);
+    void indexShiftActivated(const QModelIndex &index);
+    void indexDeleteRequested(const QModelIndex &index);
+
 private:
     QString createDomainCompletionString(const QString &text);
+    void switchToTab(BrowserWindow* window, int tab);
+    void loadUrl(const QUrl &url);
 
     void showPopup();
     void adjustPopupSize();
 
+    BrowserWindow* m_window;
     LocationBar* m_locationBar;
     QString m_originalText;
     QString m_completedDomain;
-    bool m_ignoreCurrentChangedSignal;
     bool m_showingMostVisited;
 
     static LocationCompleterView* s_view;

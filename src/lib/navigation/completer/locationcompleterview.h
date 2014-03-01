@@ -21,7 +21,8 @@
 #include <QListView>
 
 #include "qzcommon.h"
-#include "locationcompletermodel.h"
+
+class LocationCompleterDelegate;
 
 class QUPZILLA_EXPORT LocationCompleterView : public QListView
 {
@@ -35,23 +36,29 @@ public:
 
 signals:
     void closed();
-    void aboutToActivateTab(TabPosition pos);
+
+    void indexActivated(const QModelIndex &index);
+    void indexCtrlActivated(const QModelIndex &index);
+    void indexShiftActivated(const QModelIndex &index);
+    void indexDeleteRequested(const QModelIndex &index);
 
 public slots:
     void close();
 
 private slots:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous);
-    void activateTab(TabPosition pos);
 
 protected:
     void mouseMoveEvent(QMouseEvent* event);
+    void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
 
 private:
     bool m_ignoreNextMouseMove;
 
+    LocationCompleterDelegate* m_delegate;
     QPersistentModelIndex m_hoveredIndex;
+    Qt::MouseButtons m_buttons;
 };
 
 #endif // LOCATIONCOMPLETERVIEW_H

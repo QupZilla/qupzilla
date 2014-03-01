@@ -32,9 +32,12 @@ public:
     void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
-    void drawSwitchToTab(bool enable);
+    void setShowSwitchToTab(bool enable);
 
 private:
+    bool drawSwitchToTab() const;
+    QRect adjustRect(const QRect &original, const QRect &created) const;
+
     void drawHighlightedTextLine(const QRect &rect, const QString &text, const QString &searchText,
                                  QPainter* painter, const QStyle* style, const QStyleOptionViewItemV4 &option,
                                  const QPalette::ColorRole &role) const;
@@ -42,8 +45,6 @@ private:
     void drawTextLine(const QRect &rect, QString text, QPainter* painter,
                       const QStyle* style, const QStyleOptionViewItemV4 &option,
                       const QPalette::ColorRole &role) const;
-
-    inline QRect adjustRect(const QRect &original, const QRect &created) const;
 
     mutable int m_rowHeight;
     mutable int m_padding;

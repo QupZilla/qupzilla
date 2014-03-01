@@ -68,6 +68,9 @@ public:
     int visitCount() const;
     void setVisitCount(int count);
 
+    // Increments visitCount() (may also update last load time when implemented)
+    void updateVisitCount();
+
     // Expanded state in Manager
     bool isExpanded() const;
     void setExpanded(bool expanded);

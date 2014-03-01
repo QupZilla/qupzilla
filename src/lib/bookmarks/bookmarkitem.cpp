@@ -142,6 +142,11 @@ void BookmarkItem::setVisitCount(int count)
     m_visitCount = count;
 }
 
+void BookmarkItem::updateVisitCount()
+{
+    m_visitCount++;
+}
+
 bool BookmarkItem::isExpanded() const
 {
     return m_type == Root ? true : m_expanded;

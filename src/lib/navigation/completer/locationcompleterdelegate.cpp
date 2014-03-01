@@ -19,6 +19,7 @@
 #include "locationcompleterview.h"
 #include "locationcompletermodel.h"
 #include "iconprovider.h"
+#include "qzsettings.h"
 
 #include <QPainter>
 #include <QApplication>
@@ -86,7 +87,6 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
         const QPixmap starPixmap = qIconProvider->bookmarkIcon();
         QSize starSize = starPixmap.size();
-        //new
         starPixmapWidth = starSize.width();
         QPoint pos(rightPosition - starPixmapWidth, opt.rect.top() + m_padding);
         QRect starRect(pos, starSize);
@@ -109,9 +109,11 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading() + 2;
     QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
     const QByteArray linkArray = index.data(Qt::DisplayRole).toByteArray();
+
     // Let's assume that more than 500 characters won't fit in line on any display...
     // Fixes performance when trying to get elidedText for a really long
     // (length() > 1000000) urls - data: urls can get that long
+
     QString link;
     if (!linkArray.startsWith("data") && !linkArray.startsWith("javascript")) {
         link = QString::fromUtf8(QByteArray::fromPercentEncoding(linkArray)).left(500);
@@ -122,8 +124,11 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
     link = opt.fontMetrics.elidedText(link, Qt::ElideRight, linkRect.width());
     painter->setFont(opt.font);
-    TabPosition pos = index.data(LocationCompleterModel::TabPositionRole).value<TabPosition>();
-    if (m_drawSwitchToTab && pos.windowIndex != -1) {
+
+    // Draw url (or switch to tab)
+    int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt();
+
+    if (drawSwitchToTab() && tabPos != -1) {
         const QIcon tabIcon = QIcon(":icons/menu/tab.png");
         QRect iconRect(linkRect);
         iconRect.setWidth(m_padding + 16 + m_padding);
@@ -142,6 +147,53 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         QRect lineRect(opt.rect.left(), opt.rect.bottom(), opt.rect.width(), 1);
         painter->fillRect(lineRect, opt.palette.color(QPalette::AlternateBase));
     }
+}
+
+QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(index)
+
+    if (!m_rowHeight) {
+        QStyleOptionViewItemV4 opt(option);
+        initStyleOption(&opt, index);
+
+        const QWidget* w = opt.widget;
+        const QStyle* style = w ? w->style() : QApplication::style();
+        const int padding = style->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
+
+        QFont titleFont = opt.font;
+        titleFont.setPointSize(titleFont.pointSize() + 1);
+
+        m_padding = padding > 3 ? padding : 3;
+
+        const QFontMetrics titleMetrics(titleFont);
+
+        // 2 px bigger space between title and link because of underlining
+        m_rowHeight = 2 * m_padding + opt.fontMetrics.leading() + opt.fontMetrics.height() + titleMetrics.height() + 2;
+    }
+
+    return QSize(200, m_rowHeight);
+}
+
+void LocationCompleterDelegate::setShowSwitchToTab(bool enable)
+{
+    m_drawSwitchToTab = enable;
+}
+
+bool LocationCompleterDelegate::drawSwitchToTab() const
+{
+    return qzSettings->showSwitchTab && m_drawSwitchToTab;
+}
+
+QRect LocationCompleterDelegate::adjustRect(const QRect &original, const QRect &created) const
+{
+    if (created.left() + created.width() >= original.right()) {
+        QRect nRect = created;
+        nRect.setWidth(original.right() - created.left());
+        return nRect;
+    }
+
+    return created;
 }
 
 static bool sizeBiggerThan(const QString &s1, const QString &s2)
@@ -280,47 +332,3 @@ void LocationCompleterDelegate::drawTextLine(const QRect &rect, QString text, QP
         style->drawItemText(painter, rect, Qt::TextSingleLine | alignment, option.palette, true, text, role);
     }
 }
-
-QRect LocationCompleterDelegate::adjustRect(const QRect &original, const QRect &created) const
-{
-    if (created.left() + created.width() >= original.right()) {
-        QRect nRect = created;
-        nRect.setWidth(original.right() - created.left());
-
-        return nRect;
-    }
-
-    return created;
-}
-
-QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
-{
-    Q_UNUSED(index)
-
-    if (!m_rowHeight) {
-        QStyleOptionViewItemV4 opt(option);
-        initStyleOption(&opt, index);
-
-        const QWidget* w = opt.widget;
-        const QStyle* style = w ? w->style() : QApplication::style();
-        const int padding = style->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
-
-        QFont titleFont = opt.font;
-        titleFont.setPointSize(titleFont.pointSize() + 1);
-
-        m_padding = padding > 3 ? padding : 3;
-
-        const QFontMetrics titleMetrics(titleFont);
-
-        // 2 px bigger space between title and link because of underlining
-        m_rowHeight = 2 * m_padding + opt.fontMetrics.leading() + opt.fontMetrics.height() + titleMetrics.height() + 2;
-    }
-
-    return QSize(200, m_rowHeight);
-}
-
-void LocationCompleterDelegate::drawSwitchToTab(bool enable)
-{
-    m_drawSwitchToTab = enable;
-}
-
