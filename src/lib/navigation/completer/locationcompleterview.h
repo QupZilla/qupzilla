@@ -50,7 +50,6 @@ private slots:
 
 protected:
     void mouseMoveEvent(QMouseEvent* event);
-    void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
 
 private:
@@ -58,7 +57,6 @@ private:
 
     LocationCompleterDelegate* m_delegate;
     QPersistentModelIndex m_hoveredIndex;
-    Qt::MouseButtons m_buttons;
 };
 
 #endif // LOCATIONCOMPLETERVIEW_H

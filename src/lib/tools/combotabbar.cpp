@@ -1056,7 +1056,7 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
 void TabBarHelper::mousePressEvent(QMouseEvent* event)
 {
     event->ignore();
-    if (event->button() == Qt::LeftButton) {
+    if (event->buttons() == Qt::LeftButton) {
         m_pressedIndex = tabAt(event->pos());
         if (m_pressedIndex != -1) {
             m_pressedGlobalX = event->globalX();

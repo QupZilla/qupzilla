@@ -27,7 +27,6 @@
 LocationCompleterView::LocationCompleterView()
     : QListView(0)
     , m_ignoreNextMouseMove(false)
-    , m_buttons(Qt::NoButton)
 {
     setWindowFlags(Qt::Popup);
 
@@ -243,29 +242,23 @@ void LocationCompleterView::mouseMoveEvent(QMouseEvent* event)
     QListView::mouseMoveEvent(event);
 }
 
-void LocationCompleterView::mousePressEvent(QMouseEvent* event)
-{
-    m_buttons = event->buttons();
-
-    QListView::mousePressEvent(event);
-}
-
 void LocationCompleterView::mouseReleaseEvent(QMouseEvent* event)
 {
     if (m_hoveredIndex.isValid()) {
+        Qt::MouseButton button = event->button();
         Qt::KeyboardModifiers modifiers = event->modifiers();
 
-        if (m_buttons == Qt::LeftButton && modifiers == Qt::NoModifier) {
+        if (button == Qt::LeftButton && modifiers == Qt::NoModifier) {
             emit indexActivated(m_hoveredIndex);
             return;
         }
 
-        if (m_buttons == Qt::MiddleButton || (m_buttons == Qt::LeftButton && modifiers == Qt::ControlModifier)) {
+        if (button == Qt::MiddleButton || (button == Qt::LeftButton && modifiers == Qt::ControlModifier)) {
             emit indexCtrlActivated(m_hoveredIndex);
             return;
         }
 
-        if (m_buttons == Qt::LeftButton && modifiers == Qt::ShiftModifier) {
+        if (button == Qt::LeftButton && modifiers == Qt::ShiftModifier) {
             emit indexShiftActivated(m_hoveredIndex);
             return;
         }

@@ -67,10 +67,7 @@ private:
     BookmarkItem* m_bookmark;
     BrowserWindow* m_window;
 
-    Qt::MouseButtons m_buttons;
-    Qt::KeyboardModifiers m_modifiers;
     bool m_showOnlyIcon;
-
 };
 
 #endif // BOOKMARKSTOOLBARBUTTON_H

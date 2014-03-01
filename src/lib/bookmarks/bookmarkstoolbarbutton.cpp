@@ -35,8 +35,6 @@ BookmarksToolbarButton::BookmarksToolbarButton(BookmarkItem* bookmark, QWidget* 
     : QPushButton(parent)
     , m_bookmark(bookmark)
     , m_window(0)
-    , m_buttons(Qt::NoButton)
-    , m_modifiers(Qt::NoModifier)
     , m_showOnlyIcon(false)
 {
     init();
@@ -225,9 +223,6 @@ QString BookmarksToolbarButton::createTooltip() const
 
 void BookmarksToolbarButton::mousePressEvent(QMouseEvent* event)
 {
-    m_buttons = event->buttons();
-    m_modifiers = event->modifiers();
-
     if (m_bookmark && m_bookmark->isFolder()) {
         if (event->buttons() == Qt::LeftButton && event->modifiers() == Qt::ControlModifier) {
             openFolder(m_bookmark);
@@ -241,24 +236,24 @@ void BookmarksToolbarButton::mousePressEvent(QMouseEvent* event)
 void BookmarksToolbarButton::mouseReleaseEvent(QMouseEvent* event)
 {
     if (m_bookmark && rect().contains(event->pos())) {
+        Qt::MouseButton button = event->button();
+        Qt::KeyboardModifiers modifiers = event->modifiers();
+
         if (m_bookmark->isUrl()) {
-            if (m_buttons == Qt::LeftButton && m_modifiers == Qt::NoModifier) {
+            if (button == Qt::LeftButton && modifiers == Qt::NoModifier) {
                 bookmarkActivated(m_bookmark);
             }
-            else if (m_buttons == Qt::LeftButton && m_modifiers == Qt::ShiftModifier) {
+            else if (button == Qt::LeftButton && modifiers == Qt::ShiftModifier) {
                 bookmarkShiftActivated(m_bookmark);
             }
-            else if (m_buttons == Qt::MiddleButton || m_modifiers == Qt::ControlModifier) {
+            else if (button == Qt::MiddleButton || modifiers == Qt::ControlModifier) {
                 bookmarkCtrlActivated(m_bookmark);
             }
         }
-        else if (m_bookmark->isFolder() && m_buttons == Qt::MiddleButton) {
+        else if (m_bookmark->isFolder() && button == Qt::MiddleButton) {
             openFolder(m_bookmark);
         }
     }
-
-    m_buttons = Qt::NoButton;
-    m_modifiers = Qt::NoModifier;
 
     QPushButton::mouseReleaseEvent(event);
 }

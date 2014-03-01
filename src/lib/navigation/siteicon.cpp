@@ -71,7 +71,7 @@ void SiteIcon::contextMenuEvent(QContextMenuEvent* e)
 
 void SiteIcon::mousePressEvent(QMouseEvent* e)
 {
-    if (e->buttons() & Qt::LeftButton) {
+    if (e->buttons() == Qt::LeftButton) {
         m_dragStartPosition = e->pos();
     }
 
@@ -83,7 +83,7 @@ void SiteIcon::mousePressEvent(QMouseEvent* e)
 
 void SiteIcon::mouseMoveEvent(QMouseEvent* e)
 {
-    if (!m_locationBar || !(e->buttons() & Qt::LeftButton)) {
+    if (!m_locationBar || e->buttons() != Qt::LeftButton) {
         ToolButton::mouseMoveEvent(e);
         return;
     }

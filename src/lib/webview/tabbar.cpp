@@ -572,7 +572,7 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
         return;
     }
 
-    if (event->button() == Qt::LeftButton && tabAt(event->pos()) == -1) {
+    if (event->buttons() == Qt::LeftButton && tabAt(event->pos()) == -1) {
         m_tabWidget->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd, true);
         return;
     }
@@ -588,7 +588,7 @@ void TabBar::mousePressEvent(QMouseEvent* event)
         return;
     }
 
-    if (event->buttons() & Qt::LeftButton && tabAt(event->pos()) != -1) {
+    if (event->buttons() == Qt::LeftButton && tabAt(event->pos()) != -1) {
         m_dragStartPosition = mapFromGlobal(event->globalPos());
     }
     else {
