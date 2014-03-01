@@ -87,9 +87,6 @@ private:
     BookmarksModel* m_model;
     BookmarksFilterModel* m_filter;
     ViewType m_type;
-
-    Qt::MouseButtons m_buttons;
-    Qt::KeyboardModifiers m_modifiers;
 };
 
 #endif // BOOKMARKSTREEVIEW_H

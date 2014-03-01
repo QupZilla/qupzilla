@@ -31,15 +31,12 @@ BookmarksTreeView::BookmarksTreeView(QWidget* parent)
     , m_model(m_bookmarks->model())
     , m_filter(new BookmarksFilterModel(m_model))
     , m_type(BookmarksManagerViewType)
-    , m_buttons(Qt::NoButton)
-    , m_modifiers(Qt::NoModifier)
 {
     setModel(m_filter);
     setDragEnabled(true);
     setAcceptDrops(true);
     setDropIndicatorShown(true);
     setAllColumnsShowFocus(true);
-    setSelectionMode(QAbstractItemView::ExtendedSelection);
     setContextMenuPolicy(Qt::CustomContextMenu);
     setItemDelegate(new BookmarksItemDelegate(this));
     header()->resizeSections(QHeaderView::ResizeToContents);
@@ -65,11 +62,13 @@ void BookmarksTreeView::setViewType(BookmarksTreeView::ViewType type)
         setColumnHidden(1, false);
         setHeaderHidden(false);
         setMouseTracking(false);
+        setSelectionMode(QAbstractItemView::ExtendedSelection);
         break;
     case BookmarksSidebarViewType:
         setColumnHidden(1, true);
         setHeaderHidden(true);
         setMouseTracking(true);
+        setSelectionMode(QAbstractItemView::SingleSelection);
         break;
     default:
         break;
@@ -199,23 +198,20 @@ void BookmarksTreeView::mouseMoveEvent(QMouseEvent* event)
 
 void BookmarksTreeView::mousePressEvent(QMouseEvent* event)
 {
-    m_buttons = event->buttons();
-    m_modifiers = event->modifiers();
-
     QTreeView::mousePressEvent(event);
 
     if (selectionModel()->selectedRows().count() == 1) {
         QModelIndex index = indexAt(event->pos());
+        Qt::MouseButtons buttons = event->buttons();
+        Qt::KeyboardModifiers modifiers = event->modifiers();
 
         if (index.isValid()) {
             BookmarkItem* item = m_model->item(m_filter->mapToSource(index));
-            Qt::MouseButtons buttons = event->buttons();
-            Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
 
             if (buttons == Qt::LeftButton && modifiers == Qt::ShiftModifier) {
                 emit bookmarkShiftActivated(item);
             }
-            else if (buttons == Qt::MiddleButton || modifiers == Qt::ControlModifier) {
+            else if (buttons == Qt::MiddleButton || (buttons == Qt::LeftButton && modifiers == Qt::ControlModifier)) {
                 emit bookmarkCtrlActivated(item);
             }
         }
@@ -233,14 +229,11 @@ void BookmarksTreeView::mouseReleaseEvent(QMouseEvent* event)
             BookmarkItem* item = m_model->item(m_filter->mapToSource(index));
 
             // Activate bookmarks with single mouse click in Sidebar
-            if (m_type == BookmarksSidebarViewType && m_buttons == Qt::LeftButton && m_modifiers == Qt::NoModifier) {
+            if (m_type == BookmarksSidebarViewType && event->button() == Qt::LeftButton && event->modifiers() == Qt::NoModifier) {
                 emit bookmarkActivated(item);
             }
         }
     }
-
-    m_buttons = Qt::NoButton;
-    m_modifiers = Qt::NoModifier;
 }
 
 void BookmarksTreeView::mouseDoubleClickEvent(QMouseEvent* event)
