@@ -321,7 +321,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->deleteHtml5storageOnClose->setChecked(settings.value("deleteHTML5StorageOnClose", false).toBool());
     connect(ui->html5storage, SIGNAL(toggled(bool)), this, SLOT(allowHtml5storageChanged(bool)));
     // Other
-    ui->doNotTrack->setChecked(settings.value("DoNotTrack", false).toBool());
+    ui->doNotTrack->setChecked(settings.value("DoNotTrack", true).toBool());
     ui->sendReferer->setChecked(settings.value("SendReferer", true).toBool());
 
     //CSS Style
