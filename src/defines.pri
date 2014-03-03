@@ -126,8 +126,8 @@ equals(d_disable_updates_check, "true") { DEFINES *= DISABLE_UPDATES_CHECK }
     rev = $$system(cd ../ && sh $$PWD/../scripts/getrevision.sh)
     !equals(rev, ""): DEFINES *= GIT_REVISION=\\\"""$$rev"\\\""
 
-    # Define QZ_WS_X11 even with Qt5
-    DEFINES *= QZ_WS_X11
+    # Define QZ_WS_X11 even with Qt5 (but only when building for X11)
+    !contains(DEFINES, NO_X11) DEFINES *= QZ_WS_X11
 }
 
 isEmpty(QMAKE_LRELEASE) {

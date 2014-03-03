@@ -93,7 +93,7 @@
 #include "qwebkitversion.h"
 #endif
 
-#if defined(QZ_WS_X11) && !defined(NO_X11)
+#ifdef QZ_WS_X11
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 #endif
@@ -447,7 +447,7 @@ void QupZilla::setupMenu()
     m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &All"), MENU_RECEIVER, SLOT(editSelectAll()))->setShortcut(QKeySequence("Ctrl+A"));
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), MENU_RECEIVER, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
     m_menuEdit->addSeparator();
-#ifdef QZ_WS_X11
+#ifdef Q_OS_UNIX
     m_menuEdit->addAction(m_actionPreferences);
 #endif
     connect(m_menuEdit, SIGNAL(aboutToShow()), MENU_RECEIVER, SLOT(aboutToShowEditMenu()));
@@ -595,7 +595,7 @@ void QupZilla::setupMenu()
     connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), mApp, SLOT(startPrivateBrowsing()));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
-#if !defined(QZ_WS_X11) && !defined(Q_OS_MAC)
+#if !defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
     m_menuTools->addAction(m_actionPreferences);
 #endif
     connect(m_menuTools, SIGNAL(aboutToShow()), MENU_RECEIVER, SLOT(aboutToShowToolsMenu()));
@@ -2388,7 +2388,7 @@ void QupZilla::setMenuBookmarksAction(QAction* action)
 
 QByteArray QupZilla::saveState(int version) const
 {
-#if defined(QZ_WS_X11) && !defined(NO_X11)
+#ifdef QZ_WS_X11
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
@@ -2403,7 +2403,7 @@ QByteArray QupZilla::saveState(int version) const
 
 bool QupZilla::restoreState(const QByteArray &state, int version)
 {
-#if defined(QZ_WS_X11) && !defined(NO_X11)
+#ifdef QZ_WS_X11
     QByteArray windowState;
     int desktopId = -1;
 
@@ -2419,7 +2419,6 @@ bool QupZilla::restoreState(const QByteArray &state, int version)
 #endif
 }
 
-#if defined(QZ_WS_X11) && !defined(NO_X11)
 int QupZilla::getCurrentVirtualDesktop() const
 {
     Display* display = static_cast<Display*>(QzTools::X11Display(this));

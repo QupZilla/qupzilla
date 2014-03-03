@@ -122,7 +122,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     setApplicationVersion(QupZilla::VERSION);
     setOrganizationDomain("qupzilla");
 
-#if defined(QZ_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
+#if defined(Q_OS_UNIX) && !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR;
 #else
     DATADIR = qApp->applicationDirPath() + "/";
@@ -764,7 +764,7 @@ void MainApplication::loadTheme(const QString &name)
      * #id[style=QtStyle] (QtStyle = QMacStyle, QWindowsVistaStyle, QGtkStyle, ...)
      * should be enough instead of loading special stylesheets
      */
-#ifdef QZ_WS_X11
+#ifdef Q_OS_UNIX
     if (QFile(m_activeThemePath + "linux.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "linux.css");
         cssFile.open(QFile::ReadOnly);
@@ -1135,7 +1135,7 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
 {
     QString userStyle;
 
-#ifndef QZ_WS_X11
+#ifndef Q_OS_UNIX
     // Don't grey out selection on losing focus (to prevent graying out found text)
     QString highlightColor;
     QString highlightedTextColor;
@@ -1358,7 +1358,7 @@ QString MainApplication::tempPath() const
     QString path = PROFILEDIR + "tmp/";
     QDir dir(path);
     if (!dir.exists()) {
-#ifdef QZ_WS_X11
+#ifdef Q_OS_UNIX
         // Symlink it to standard temporary path /tmp
         QDir().mkpath(QDir::tempPath() + "/qupzilla/tmp");
         QFile::remove(PROFILEDIR + "tmp");

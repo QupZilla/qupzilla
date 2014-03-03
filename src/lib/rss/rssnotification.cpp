@@ -70,7 +70,7 @@ RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView*
 
     m_rssApps << bloglines << myaol << netvibes << yahoo;
 
-#ifdef QZ_WS_X11
+#ifdef Q_OS_UNIX
     const QString akregatorBin = QzTools::resolveFromPath("akregator");
     const QString lifereaBin = QzTools::resolveFromPath("liferea");
     const QString lifereaAddFeedBin = QzTools::resolveFromPath("liferea-add-feed");

@@ -405,7 +405,7 @@ QString QupZillaSchemeReply::configPage()
         QString debugBuild = tr("Disabled");
 #endif
 
-#if defined (USE_WEBGL) || (QTWEBKIT_FROM_2_3 && defined(QZ_WS_X11))
+#if defined (USE_WEBGL) || (QTWEBKIT_FROM_2_3 && defined(Q_OS_UNIX))
         QString webGLEnabled = tr("<b>Enabled</b>");
 #else
         QString webGLEnabled = tr("Disabled");
@@ -417,7 +417,7 @@ QString QupZillaSchemeReply::configPage()
         QString w7APIEnabled = tr("Disabled");
 #endif
 
-#if defined(QZ_WS_X11) && defined(KDE_INTEGRATION)
+#if defined(Q_OS_UNIX) && defined(KDE_INTEGRATION)
         QString KDEIntegration = tr("<b>Enabled</b>");
 #else
         QString KDEIntegration = tr("Disabled");

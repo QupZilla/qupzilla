@@ -46,7 +46,7 @@
 #else
 #include <QX11Info>
 #endif
-#if defined(QZ_WS_X11) && !defined(NO_X11)
+#ifdef QZ_WS_X11
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #endif
@@ -781,7 +781,7 @@ QString QzTools::escape(const QString &string)
 #endif
 }
 
-#if defined(QZ_WS_X11) && !defined(NO_X11)
+#ifdef QZ_WS_X11
 void* QzTools::X11Display(const QWidget* widget)
 {
     Q_UNUSED(widget)
@@ -796,7 +796,7 @@ void* QzTools::X11Display(const QWidget* widget)
 
 void QzTools::setWmClass(const QString &name, const QWidget* widget)
 {
-#if defined(QZ_WS_X11) && !defined(NO_X11)
+#ifdef QZ_WS_X11
     QByteArray nameData = name.toUtf8();
 
     XClassHint classHint;
