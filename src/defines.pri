@@ -109,18 +109,18 @@ equals(d_disable_updates_check, "true") { DEFINES *= DISABLE_UPDATES_CHECK }
     hicolor_folder = /usr/share/icons/hicolor
 
     !equals(d_prefix, "") {
-        binary_folder = "$$d_prefix"bin
-        library_folder = "$$d_prefix"lib
-        data_folder = "$$d_prefix"share/qupzilla
-        launcher_folder = "$$d_prefix"share/applications
-        icon_folder = "$$d_prefix"share/pixmaps
-        hicolor_folder = "$$d_prefix"share/icons/hicolor
+        binary_folder = "$$d_prefix"/bin
+        library_folder = "$$d_prefix"/lib
+        data_folder = "$$d_prefix"/share/qupzilla
+        launcher_folder = "$$d_prefix"/share/applications
+        icon_folder = "$$d_prefix"/share/pixmaps
+        hicolor_folder = "$$d_prefix"/share/icons/hicolor
     }
 
     !equals(d_use_lib_path, ""):library_folder = $$d_use_lib_path
 
-    DEFINES *= USE_LIBPATH=\\\"""$$library_folder/"\\\""
-    DEFINES *= USE_DATADIR=\\\"""$$data_folder/"\\\""
+    DEFINES *= USE_LIBPATH=\\\"""$$library_folder"\\\""
+    DEFINES *= USE_DATADIR=\\\"""$$data_folder"\\\""
 
     # Git revision
     rev = $$system(cd ../ && sh $$PWD/../scripts/getrevision.sh)

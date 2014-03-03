@@ -1,5 +1,6 @@
 Version 1.6.4
     * not yet released
+    * enabled sending DoNotTrack header by default
     * fixed: text visibility in speeddial inputs with dark themes
     * fixed: getting tab index with rtl layout
     * fixed: ctrl+up shortcut in websearchbar correctly select first item
