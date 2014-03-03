@@ -10,5 +10,5 @@ install:
 
 script:
   - qmake
-  - make
+  - make || exit 1
   - cd scripts && ./run_tests.sh

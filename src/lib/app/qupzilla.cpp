@@ -2419,6 +2419,7 @@ bool QupZilla::restoreState(const QByteArray &state, int version)
 #endif
 }
 
+#ifdef QZ_WS_X11
 int QupZilla::getCurrentVirtualDesktop() const
 {
     Display* display = static_cast<Display*>(QzTools::X11Display(this));
