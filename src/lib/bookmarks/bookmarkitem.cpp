@@ -72,12 +72,14 @@ QList<BookmarkItem*> BookmarkItem::children() const
 
 QIcon BookmarkItem::icon()
 {
+    // Cache icon for 20 seconds
+    const int iconCacheTime = 20 * 1000;
+
     switch (m_type) {
     case Url:
-        // Cache icon for 20 seconds
-        if (m_iconTime < QTime::currentTime().addSecs(-20)) {
+        if (m_iconTime.isNull() || m_iconTime.elapsed() > iconCacheTime) {
             m_icon = _iconForUrl(m_url);
-            m_iconTime = QTime::currentTime();
+            m_iconTime.restart();
         }
         return m_icon;
     case Folder:

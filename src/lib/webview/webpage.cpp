@@ -387,6 +387,7 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
             qzSettings->saveSettings();
         }
 
+
         QDesktopServices::openUrl(url);
         break;
 
@@ -406,10 +407,11 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
 void WebPage::desktopServicesOpen(const QUrl &url)
 {
     // Open same url only once in 2 secs
+    const int sameUrlTimeout = 2 * 1000;
 
-    if (s_lastUnsupportedUrl != url || QTime::currentTime() > s_lastUnsupportedUrlTime.addSecs(2)) {
+    if (s_lastUnsupportedUrl != url || s_lastUnsupportedUrlTime.isNull() || s_lastUnsupportedUrlTime.elapsed() > sameUrlTimeout) {
         s_lastUnsupportedUrl = url;
-        s_lastUnsupportedUrlTime = QTime::currentTime();
+        s_lastUnsupportedUrlTime.restart();
         QDesktopServices::openUrl(url);
     }
     else {
