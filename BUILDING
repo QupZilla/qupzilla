@@ -58,7 +58,7 @@ MAC OS X
   After successful compilation, you need to run macdeploy.sh script to correctly
   build the application bundle. You will do it with following command:
 
-    $ ./scripts/macdeploy.sh <path-to-macdeployqt>
+    $ ./mac/macdeploy.sh <path-to-macdeployqt>
 
   You need to specifiy path to macdeployqt (usually in QTDIR/bin/macdeployqt) only
   if it is not in PATH.
@@ -152,7 +152,7 @@ Available Defines
  Linux / Unix specific defines:
 
      NO_X11               Disable all direct X11 calls.
-                          Enable when building for Wayland.
+                          Enable this when building for Wayland.
 
                           example:
                           $ export NO_X11="true"
@@ -173,10 +173,10 @@ Available Defines
 
      USE_LIBPATH          By default, /usr/lib/ is used for libQupZilla and /usr/lib/qupzilla
                           for plugins.
-                          You can change it by setting this define. Ending slash is needed!
+                          You can change it by setting this define.
 
                           example:
-                          $ export USE_LIBPATH="/usr/lib64/"
+                          $ export USE_LIBPATH="/usr/lib64"
 
      NO_SYSTEM_DATAPATH   By default, QupZilla is using /usr/share/qupzilla/ path
                           for storing themes and translations.
@@ -186,15 +186,14 @@ Available Defines
                           example:
                           $ export NO_SYSTEM_DATAPATH="true"
 
-     QUPZILLA_PREFIX      You can define different prefix. Prefix must contain ending slash.
-                          (default prefix is "/usr/")
+     QUPZILLA_PREFIX      You can define different prefix.
                           QupZilla binary will then be moved to PREFIX/bin/, use
                           PREFIX/share/qupzilla/ as datadir, PREFIX/share/applications for
                           desktop launcher and PREFIX/share/pixmaps for icon.
-                          Ending slash is needed!
+                          (default prefix is "/usr/")
 
                           example:
-                          $ export QUPZILLA_PREFIX="/usr/"
+                          $ export QUPZILLA_PREFIX="/usr"
 
      DISABLE_DBUS         Build without QtDBus module. Native desktop notifications
                           will be disabled.
