@@ -366,7 +366,7 @@ bool Speller::dictionaryExists(const QString &path) const
 
 QString Speller::getDictionaryPath() const
 {
-#ifdef QZ_WS_X11
+#ifdef Q_OS_UNIX
     const QString defaultDicPath = "/usr/share/hunspell/";
 #else
     const QString defaultDicPath = mApp->DATADIR + "hunspell/";

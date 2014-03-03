@@ -380,7 +380,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     DesktopNotificationsFactory::Type notifyType;
     settings.beginGroup("Notifications");
     ui->notificationTimeout->setValue(settings.value("Timeout", 6000).toInt() / 1000);
-#ifdef QZ_WS_X11
+#if defined(Q_OS_UNIX) && !defined(DISABLE_DBUS)
     notifyType = settings.value("UseNativeDesktop", true).toBool() ? DesktopNotificationsFactory::DesktopNative : DesktopNotificationsFactory::PopupWidget;
 #else
     notifyType = DesktopNotificationsFactory::PopupWidget;

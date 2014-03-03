@@ -18,7 +18,7 @@
 #ifndef PROCESSINFO_H
 #define PROCESSINFO_H
 
-#ifdef QZ_WS_X11
+#ifdef Q_OS_UNIX
 #include <unistd.h>
 #endif
 
@@ -39,7 +39,7 @@ public:
     bool isRunning() const;
 
 private:
-#ifdef QZ_WS_X11
+#ifdef Q_OS_UNIX
     bool IsNumeric(const char* ccharptr_CharacterList) const;
 
     pid_t GetPIDbyName(const char* cchrptr_ProcessName) const;

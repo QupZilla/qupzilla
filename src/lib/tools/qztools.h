@@ -84,7 +84,7 @@ QString QUPZILLA_EXPORT operatingSystem();
 bool QUPZILLA_EXPORT isCertificateValid(const QSslCertificate &cert);
 QString QUPZILLA_EXPORT escape(const QString &string);
 
-#if defined(QZ_WS_X11) && !defined(NO_X11)
+#ifdef QZ_WS_X11
 void* X11Display(const QWidget* widget);
 #endif
 
