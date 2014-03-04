@@ -40,7 +40,8 @@ QString HtmlImporter::standardPath() const
 
 QString HtmlImporter::getPath(QWidget* parent)
 {
-    m_path = QFileDialog::getOpenFileName(parent, BookmarksImporter::tr("Choose file..."), QDir::homePath(), "Html (*.htm, *.html)");
+    const QString filter = BookmarksImporter::tr("Html Bookmarks") + QLatin1String(" (*.htm *.html)");
+    m_path = QFileDialog::getOpenFileName(parent, BookmarksImporter::tr("Choose file..."), QDir::homePath(), filter);
     return m_path;
 }
 
