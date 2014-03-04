@@ -1,10 +1,11 @@
 Version 1.7.0
     * development version
-    * completely rewritten bookmarks (including multi-level folders support)
-    * menus are not closed when opening links with middle mouse button
     * added new autoscroll plugin
     * added support for window.onload event
     * added support for external.AddSearchProvider js function
+    * completely rewritten bookmarks (including multi-level folders support)
+    * menus are not closed when opening links with middle mouse button
+    * support for shadow builds with Qt Creator
 
 Version 1.6.3
     * released 14 February 2014

@@ -44,4 +44,5 @@ TRANSLATIONS += \
 LIBS += $$system(pkg-config --libs gnome-keyring-1)
 QMAKE_CXXFLAGS += $$system(pkg-config --cflags gnome-keyring-1)
 
+PLUGIN_DIR = $$PWD
 include(../../plugins.pri)

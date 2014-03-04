@@ -62,4 +62,5 @@ FORMS += \
     sbi_networkicondialog.ui \
     sbi_settingsdialog.ui
 
+PLUGIN_DIR = $$PWD
 include(../../plugins.pri)

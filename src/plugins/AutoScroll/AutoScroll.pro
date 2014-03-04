@@ -12,9 +12,10 @@ HEADERS += autoscrollplugin.h \
     framescroller.h \
     autoscrollsettings.h
 
-RESOURCES += autoscroll.qrc
-
-include(../../plugins.pri)
-
 FORMS += \
     autoscrollsettings.ui
+
+RESOURCES += autoscroll.qrc
+
+PLUGIN_DIR = $$PWD
+include(../../plugins.pri)

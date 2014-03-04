@@ -45,4 +45,5 @@ TRANSLATIONS += \
 
 LIBS += -lkdeui
 
+PLUGIN_DIR = $$PWD
 include(../../plugins.pri)

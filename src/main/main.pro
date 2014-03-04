@@ -1,3 +1,5 @@
+include(../defines.pri)
+
 isEqual(QT_MAJOR_VERSION, 5) {
     QT += webkitwidgets network widgets printsupport sql script
 } else {
@@ -9,11 +11,8 @@ mac: TARGET = QupZilla
 
 TEMPLATE = app
 
-!unix|mac: LIBS += -L../../bin -lQupZilla
-!mac:unix: LIBS += ../../bin/libQupZilla.so
-
-include(../defines.pri)
-include(../install.pri)
+!unix|mac: LIBS += -L$$QZ_DESTDIR -lQupZilla
+!mac:unix: LIBS += $$QZ_DESTDIR/libQupZilla.so
 
 unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
 
@@ -34,5 +33,7 @@ OTHER_FILES += appicon.rc \
 
 os2:RC_FILE = appicon_os2.rc
 win32:RC_FILE = appicon.rc
+
+include(../install.pri)
 
 unix:contains(DEFINES, "NO_SYSTEM_DATAPATH"): QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}\\$\$ORIGIN

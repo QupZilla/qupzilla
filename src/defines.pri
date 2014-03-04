@@ -1,4 +1,5 @@
 DESTDIR = $$PWD/../bin
+QZ_DESTDIR = $$DESTDIR
 OBJECTS_DIR = $$PWD/../build
 MOC_DIR = $$PWD/../build
 RCC_DIR = $$PWD/../build

@@ -61,4 +61,5 @@ TRANSLATIONS += \
     translations/zh_CN.ts \
     translations/zh_TW.ts \
 
+PLUGIN_DIR = $$PWD
 include(../../plugins.pri)

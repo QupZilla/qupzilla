@@ -1,3 +1,5 @@
+include(../defines.pri)
+
 isEqual(QT_MAJOR_VERSION, 5) {
     QT += webkitwidgets network widgets printsupport sql script gui-private
 } else {
@@ -10,7 +12,6 @@ TEMPLATE = lib
 DEFINES *= QUPZILLA_SHAREDLIBRARY
 
 include(3rdparty/qtsingleapplication.pri)
-include(../defines.pri)
 include(../../translations/translations.pri)
 include(plugins/qtwebkit/qtwebkit-plugins.pri)
 

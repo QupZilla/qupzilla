@@ -50,7 +50,7 @@ DEPENDPATH += $$PWD/lib/3rdparty\
 
 TEMPLATE = lib
 CONFIG += plugin
-DESTDIR = $$PWD/../bin/plugins/
+DESTDIR = $$QZ_DESTDIR/plugins/
 
 isEqual(QT_MAJOR_VERSION, 5) {
     QT *= webkitwidgets network
@@ -63,8 +63,8 @@ MOC_DIR = build
 RCC_DIR = build
 UI_DIR = build
 
-!unix|mac: LIBS += -L$$PWD/../bin -lQupZilla
-!mac:unix: LIBS += $$PWD/../bin/libQupZilla.so
+!unix|mac: LIBS += -L$$QZ_DESTDIR -lQupZilla
+!mac:unix: LIBS += $$QZ_DESTDIR/libQupZilla.so
 
 !mac:unix {
     target.path = $$library_folder/qupzilla
@@ -73,7 +73,7 @@ UI_DIR = build
 }
 
 updateqm.input = TRANSLATIONS
-updateqm.output = locale/${QMAKE_FILE_BASE}.qm
-updateqm.commands = $$QMAKE_LRELEASE -silent ${QMAKE_FILE_IN} -qm locale/${QMAKE_FILE_BASE}.qm
+updateqm.output = $$PLUGIN_DIR/locale/${QMAKE_FILE_BASE}.qm
+updateqm.commands = $$QMAKE_LRELEASE -silent ${QMAKE_FILE_IN} -qm $$PLUGIN_DIR/locale/${QMAKE_FILE_BASE}.qm
 updateqm.CONFIG += no_link target_predeps
 QMAKE_EXTRA_COMPILERS += updateqm

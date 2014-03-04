@@ -1,10 +1,12 @@
+include(defines.pri)
+
 mac {
     QMAKE_INFO_PLIST = $$PWD/main/Info.plist
     ICON = $$PWD/lib/data/icons/exeicons/qupzilla.icns
 
-    bundle_target.files += $$PWD/../bin/locale
-    bundle_target.files += $$PWD/../bin/themes
-    bundle_target.files += $$PWD/../bin/plugins
+    bundle_target.files += $$QZ_DESTDIR/locale
+    bundle_target.files += $$QZ_DESTDIR/themes
+    bundle_target.files += $$QZ_DESTDIR/plugins
     bundle_target.path = Contents/Resources
 
     QMAKE_BUNDLE_DATA += bundle_target
@@ -13,8 +15,8 @@ mac {
 !mac:unix {
     target.path = $$binary_folder
 
-    target1.files += $$PWD/../bin/locale
-    target1.files += $$PWD/../bin/themes
+    target1.files += $$QZ_DESTDIR/locale
+    target1.files += $$QZ_DESTDIR/themes
     target1.path = $$data_folder
 
     target2.files = $$PWD/../linux/applications/qupzilla.desktop
