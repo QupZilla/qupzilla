@@ -36,15 +36,18 @@ mac: DEFINES *= DISABLE_DBUS
 
     isEqual(QT_MAJOR_VERSION, 5) {
         greaterThan(QTWEBKIT_VERSION_MAJOR, 4) {
+            # There is one Qt5WebKitWidgets version now, which has same features as QtWebKit 2.3
             DEFINES *= USE_QTWEBKIT_2_2 USE_QTWEBKIT_2_3
         }
     }
     else { # Qt 4
-        greaterThan(QTWEBKIT_VERSION_MAJOR, 3):greaterThan(QTWEBKIT_VERSION_MINOR, 8) {
+        equals(QTWEBKIT_VERSION_MAJOR, 4):greaterThan(QTWEBKIT_VERSION_MINOR, 8) {
+            # 4.9.x = QtWebKit 2.2
             DEFINES *= USE_QTWEBKIT_2_2
         }
 
-        greaterThan(QTWEBKIT_VERSION_MAJOR, 3):greaterThan(QTWEBKIT_VERSION_MINOR, 9) {
+        equals(QTWEBKIT_VERSION_MAJOR, 4):greaterThan(QTWEBKIT_VERSION_MINOR, 9) {
+            # 4.10.x = QtWebKit 2.3
             DEFINES *= USE_QTWEBKIT_2_3
         }
     }
