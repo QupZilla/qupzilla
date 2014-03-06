@@ -1188,9 +1188,8 @@ bool MainApplication::saveStateSlot()
         return false;
     }
 
-    QFile file(m_activeProfil + "session.dat");
-    file.open(QIODevice::WriteOnly);
-    QDataStream stream(&file);
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
 
     stream << Qz::sessionVersion;
     stream << m_mainWindows.count();
@@ -1208,12 +1207,16 @@ bool MainApplication::saveStateSlot()
             stream << qz->saveState();
         }
     }
-    file.close();
 
     BrowserWindow* qupzilla_ = getWindow();
     if (qupzilla_ && m_mainWindows.count() == 1) {
         qupzilla_->tabWidget()->savePinnedTabs();
     }
+
+    QFile file(m_activeProfil + QLatin1String("session.dat"));
+    file.open(QIODevice::WriteOnly);
+    file.write(data);
+    file.close();
 
     return true;
 }
