@@ -108,7 +108,7 @@ void CookieManager::removeCookie()
         return;
     }
 
-    QList<QNetworkCookie> allCookies = mApp->cookieJar()->getAllCookies();
+    QList<QNetworkCookie> allCookies = mApp->cookieJar()->allCookies();
 
     if (current->text(1).isEmpty()) {     //Remove whole cookie group
         const QString domain = current->data(0, Qt::UserRole + 10).toString();
@@ -178,7 +178,7 @@ void CookieManager::refreshTable()
 
 void CookieManager::slotRefreshTable()
 {
-    const QList<QNetworkCookie> &allCookies = mApp->cookieJar()->getAllCookies();
+    const QList<QNetworkCookie> &allCookies = mApp->cookieJar()->allCookies();
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
     ui->cookieTree->clear();

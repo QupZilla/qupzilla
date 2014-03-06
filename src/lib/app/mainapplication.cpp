@@ -81,9 +81,10 @@
 
 MainApplication::MainApplication(int &argc, char** argv)
     : QtSingleApplication(argc, argv)
+    , m_autoSaver(0)
     , m_cookiemanager(0)
     , m_browsingLibrary(0)
-    , m_historymodel(0)
+    , m_history(0)
     , m_websettings(0)
     , m_networkmanager(0)
     , m_cookiejar(0)
@@ -102,11 +103,10 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_speller(0)
 #endif
     , m_dbWriter(new DatabaseWriter(this))
-    , m_uaManager(new UserAgentManager)
+    , m_uaManager(new UserAgentManager(this))
     , m_isPrivateSession(false)
     , m_isPortable(false)
     , m_isClosing(false)
-    , m_isStateChanged(false)
     , m_isRestoring(false)
     , m_startingAfterCrash(false)
     , m_databaseConnected(false)
@@ -301,6 +301,9 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     Settings::createSettings(m_activeProfil + "settings.ini");
 
+    m_autoSaver = new AutoSaver(this);
+    connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveStateSlot()));
+
     translateApp();
 
     BrowserWindow* qupzilla = new BrowserWindow(Qz::BW_FirstAppWindow, startUrl);
@@ -360,9 +363,6 @@ void MainApplication::postLaunch()
     if (m_postLaunchActions.contains(ToggleFullScreen)) {
         getWindow()->toggleFullScreen();
     }
-
-    AutoSaver* saver = new AutoSaver();
-    connect(saver, SIGNAL(saveApp()), this, SLOT(saveStateSlot()));
 
     QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, m_activeProfil);
     QWebHistoryInterface::setDefaultInterface(new WebHistoryInterface(this));
@@ -500,17 +500,8 @@ BrowserWindow* MainApplication::getWindow()
 
 void MainApplication::setStateChanged()
 {
-    m_isStateChanged = true;
+    m_autoSaver->changeOcurred();
     sendMessages(Qz::AM_HistoryStateChanged, true);
-}
-
-bool MainApplication::isStateChanged()
-{
-    if (m_isStateChanged) {
-        m_isStateChanged = false;
-        return true;
-    }
-    return false;
 }
 
 QList<BrowserWindow*> MainApplication::mainWindows()
@@ -870,12 +861,12 @@ void MainApplication::quitApplication()
         return;
     }
 
+    if (m_mainWindows.count() > 0) {
+        m_autoSaver->saveIfNecessary();
+    }
+
     m_isClosing = true;
     m_networkmanager->disconnectObjects();
-
-    if (m_mainWindows.count() > 0) {
-        saveStateSlot();
-    }
 
     // Saving settings in saveSettings() slot called from quit() so
     // everything gets saved also when quitting application in other
@@ -910,7 +901,7 @@ void MainApplication::saveSettings()
     settings.endGroup();
 
     if (deleteHistory) {
-        m_historymodel->clearHistory();
+        m_history->clearHistory();
     }
     if (deleteHtml5Storage) {
         ClearPrivateData::clearLocalStorage();
@@ -946,10 +937,10 @@ CookieManager* MainApplication::cookieManager()
 
 History* MainApplication::history()
 {
-    if (!m_historymodel) {
-        m_historymodel = new History(this);
+    if (!m_history) {
+        m_history = new History(this);
     }
-    return m_historymodel;
+    return m_history;
 }
 
 QWebSettings* MainApplication::webSettings()
@@ -971,8 +962,7 @@ NetworkManager* MainApplication::networkManager()
 CookieJar* MainApplication::cookieJar()
 {
     if (!m_cookiejar) {
-        m_cookiejar = new CookieJar(getWindow());
-        m_cookiejar->restoreCookies();
+        m_cookiejar = new CookieJar(m_isPrivateSession ? QString() : m_activeProfil, this);
     }
     return m_cookiejar;
 }
@@ -993,7 +983,7 @@ PluginProxy* MainApplication::plugins()
 Bookmarks* MainApplication::bookmarks()
 {
     if (!m_bookmarks) {
-        m_bookmarks = new Bookmarks(this);
+        m_bookmarks = new Bookmarks(m_activeProfil, this);
     }
     return m_bookmarks;
 }
@@ -1225,10 +1215,6 @@ bool MainApplication::saveStateSlot()
         qupzilla_->tabWidget()->savePinnedTabs();
     }
 
-    // Save cookies & bookmarks
-    m_cookiejar->saveCookies();
-    m_bookmarks->saveSettings();
-
     return true;
 }
 
@@ -1384,7 +1370,6 @@ QString MainApplication::tempPath() const
 
 MainApplication::~MainApplication()
 {
-    delete m_uaManager;
 #ifdef Q_OS_MAC
     delete m_macDockMenu;
 #endif

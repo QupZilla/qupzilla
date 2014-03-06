@@ -18,17 +18,19 @@
 #ifndef USERAGENTMANAGER_H
 #define USERAGENTMANAGER_H
 
+#include <QObject>
 #include <QHash>
-#include <QString>
 
 #include "qzcommon.h"
 
 class QUrl;
 
-class QUPZILLA_EXPORT UserAgentManager
+class QUPZILLA_EXPORT UserAgentManager : QObject
 {
+    Q_OBJECT
+
 public:
-    explicit UserAgentManager();
+    explicit UserAgentManager(QObject* parent = 0);
 
     void loadSettings();
 

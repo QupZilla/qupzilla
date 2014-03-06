@@ -135,6 +135,9 @@ public slots:
 
     void tabBarOverFlowChanged(bool overFlowed);
 
+signals:
+    void changed();
+
 private slots:
     void aboutToShowTabsMenu();
     void actionChangeIndex();

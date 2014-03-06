@@ -206,7 +206,7 @@ void BookmarksManager::bookmarkEdited()
     item->setKeyword(ui->keyword->text());
     item->setDescription(ui->description->toPlainText());
 
-    m_bookmarks->notifyBookmarkChanged(item);
+    m_bookmarks->changeBookmark(item);
 }
 
 void BookmarksManager::descriptionEdited()

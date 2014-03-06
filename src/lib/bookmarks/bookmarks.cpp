@@ -19,24 +19,29 @@
 #include "bookmarkitem.h"
 #include "bookmarksmodel.h"
 #include "bookmarkstools.h"
-#include "mainapplication.h"
-#include "qztools.h"
-#include "webview.h"
+#include "autosaver.h"
 #include "settings.h"
+#include "qztools.h"
 #include "json.h"
 
 #include <QDebug>
 #include <QFile>
 
-Bookmarks::Bookmarks(QObject* parent)
+Bookmarks::Bookmarks(const QString &profilePath, QObject* parent)
     : QObject(parent)
+    , m_autoSaver(0)
+    , m_profilePath(profilePath)
 {
     init();
     loadSettings();
+
+    m_autoSaver = new AutoSaver(this);
+    connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveSettings()));
 }
 
 Bookmarks::~Bookmarks()
 {
+    m_autoSaver->saveIfNecessary();
     delete m_root;
 }
 
@@ -46,16 +51,6 @@ void Bookmarks::loadSettings()
     settings.beginGroup("Bookmarks");
     m_showOnlyIconsInToolbar = settings.value("showOnlyIconsInToolbar", false).toBool();
     settings.endGroup();
-}
-
-void Bookmarks::saveSettings()
-{
-    Settings settings;
-    settings.beginGroup("Bookmarks");
-    settings.setValue("showOnlyIconsInToolbar", m_showOnlyIconsInToolbar);
-    settings.endGroup();
-
-    saveBookmarks();
 }
 
 bool Bookmarks::showOnlyIconsInToolbar() const
@@ -129,6 +124,8 @@ void Bookmarks::addBookmark(BookmarkItem* parent, BookmarkItem* item)
     Q_ASSERT(item);
 
     insertBookmark(parent, 0, item);
+
+    m_autoSaver->changeOcurred();
 }
 
 void Bookmarks::insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item)
@@ -140,6 +137,8 @@ void Bookmarks::insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item
     m_lastFolder = parent;
     m_model->addBookmark(parent, row, item);
     emit bookmarkAdded(item);
+
+    m_autoSaver->changeOcurred();
 }
 
 bool Bookmarks::removeBookmark(BookmarkItem* item)
@@ -150,19 +149,33 @@ bool Bookmarks::removeBookmark(BookmarkItem* item)
 
     m_model->removeBookmark(item);
     emit bookmarkRemoved(item);
+
+    m_autoSaver->changeOcurred();
     return true;
 }
 
-void Bookmarks::notifyBookmarkChanged(BookmarkItem* item)
+void Bookmarks::changeBookmark(BookmarkItem* item)
 {
     Q_ASSERT(item);
     emit bookmarkChanged(item);
+
+    m_autoSaver->changeOcurred();
 }
 
 void Bookmarks::setShowOnlyIconsInToolbar(bool state)
 {
     m_showOnlyIconsInToolbar = state;
     emit showOnlyIconsInToolbarChanged(state);
+}
+
+void Bookmarks::saveSettings()
+{
+    Settings settings;
+    settings.beginGroup("Bookmarks");
+    settings.setValue("showOnlyIconsInToolbar", m_showOnlyIconsInToolbar);
+    settings.endGroup();
+
+    saveBookmarks();
 }
 
 void Bookmarks::init()
@@ -196,7 +209,7 @@ void Bookmarks::init()
 
 void Bookmarks::loadBookmarks()
 {
-    const QString bookmarksFile = mApp->currentProfilePath() + QLatin1String("/bookmarks.json");
+    const QString bookmarksFile = m_profilePath + QLatin1String("/bookmarks.json");
     const QString backupFile = bookmarksFile + QLatin1String(".old");
 
     QFile file(bookmarksFile);
@@ -259,7 +272,7 @@ void Bookmarks::saveBookmarks()
         return;
     }
 
-    QFile file(mApp->currentProfilePath() + QLatin1String("/bookmarks.json"));
+    QFile file(m_profilePath + QLatin1String("/bookmarks.json"));
 
     if (!file.open(QFile::WriteOnly)) {
         qWarning() << "Bookmarks::saveBookmarks() Error opening bookmarks file for writing!";

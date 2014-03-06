@@ -16,20 +16,37 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "autosaver.h"
-#include "mainapplication.h"
+
+#include <QTimerEvent>
+
+#define SAVE_DELAY 1000 * 10 // 10 seconds
 
 AutoSaver::AutoSaver(QObject* parent)
     : QObject(parent)
 {
-    m_timer.start(1000 * 5, this);
+}
+
+void AutoSaver::changeOcurred()
+{
+    if (!m_timer.isActive()) {
+        m_timer.start(SAVE_DELAY, this);
+    }
+}
+
+void AutoSaver::saveIfNecessary()
+{
+    if (m_timer.isActive()) {
+        m_timer.stop();
+        emit save();
+    }
 }
 
 void AutoSaver::timerEvent(QTimerEvent* event)
 {
-    if (event->timerId() == m_timer.timerId() && mApp->isStateChanged()) {
-        emit saveApp();
+    if (event->timerId() == m_timer.timerId()) {
+        m_timer.stop();
+        emit save();
     }
-    else {
-        QObject::timerEvent(event);
-    }
+
+    QObject::timerEvent(event);
 }

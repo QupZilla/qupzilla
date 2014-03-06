@@ -127,6 +127,7 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     setTabBar(m_tabBar);
 
     connect(this, SIGNAL(currentChanged(int)), m_window, SLOT(refreshHistory()));
+    connect(this, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
 
     connect(m_tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(reloadTab(int)), this, SLOT(reloadTab(int)));
@@ -378,7 +379,7 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     }
 
     connect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    connect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
+    connect(webView, SIGNAL(changed()), this, SIGNAL(changed()));
     connect(webView, SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     if (url.isValid()) {
@@ -407,6 +408,8 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
 
     setUpdatesEnabled(true);
 
+    emit changed();
+
 #ifdef Q_OS_WIN
     QTimer::singleShot(0, m_window, SLOT(applyBlurToMainWindow()));
 #endif
@@ -429,7 +432,7 @@ int TabWidget::addView(WebTab* tab)
     }
 
     connect(tab->view(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    connect(tab->view(), SIGNAL(changed()), mApp, SLOT(setStateChanged()));
+    connect(tab->view(), SIGNAL(changed()), this, SIGNAL(changed()));
     connect(tab->view(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     return index;
@@ -486,7 +489,7 @@ void TabWidget::closeTab(int index, bool force)
 
     m_locationBars->removeWidget(webView->webTab()->locationBar());
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    disconnect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
+    disconnect(webView, SIGNAL(changed()), this, SIGNAL(changed()));
     disconnect(webView, SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
@@ -505,6 +508,8 @@ void TabWidget::closeTab(int index, bool force)
         QAction* labelAction = m_menuTabs->actions().last();
         labelAction->setText(tr("Currently you have %n opened tab(s)", "", count() - 1));
     }
+
+    emit changed();
 }
 
 void TabWidget::currentTabChanged(int index)
@@ -526,6 +531,8 @@ void TabWidget::currentTabChanged(int index)
 
     webTab->setCurrentTab();
     m_window->currentTabChanged();
+
+    emit changed();
 }
 
 void TabWidget::tabMoved(int before, int after)
@@ -707,7 +714,7 @@ void TabWidget::detachTab(int index)
 
     m_locationBars->removeWidget(tab->locationBar());
     disconnect(tab->view(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    disconnect(tab->view(), SIGNAL(changed()), mApp, SLOT(setStateChanged()));
+    disconnect(tab->view(), SIGNAL(changed()), this, SIGNAL(changed()));
     disconnect(tab->view(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     BrowserWindow* window = mApp->makeNewWindow(Qz::BW_NewWindow);

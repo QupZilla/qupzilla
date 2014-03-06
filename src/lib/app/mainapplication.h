@@ -52,6 +52,7 @@ class UserAgentManager;
 class ProxyStyle;
 class RegisterQAppAssociation;
 class HTML5PermissionsManager;
+class AutoSaver;
 class Speller;
 
 #ifdef Q_OS_MAC
@@ -76,7 +77,6 @@ public:
     bool restoreStateSlot(BrowserWindow* window, RestoreData recoveryData);
     BrowserWindow* makeNewWindow(Qz::BrowserWindowType type, const QUrl &startUrl = QUrl());
     void aboutToCloseWindow(BrowserWindow* window);
-    bool isStateChanged();
 
     QList<BrowserWindow*> mainWindows();
 
@@ -169,9 +169,10 @@ private:
 
     QUrl userStyleSheet(const QString &filePath) const;
 
+    AutoSaver* m_autoSaver;
     CookieManager* m_cookiemanager;
     BrowsingLibrary* m_browsingLibrary;
-    History* m_historymodel;
+    History* m_history;
     QWebSettings* m_websettings;
     NetworkManager* m_networkmanager;
     CookieJar* m_cookiejar;
@@ -200,7 +201,6 @@ private:
     bool m_isPrivateSession;
     bool m_isPortable;
     bool m_isClosing;
-    bool m_isStateChanged;
     bool m_isRestoring;
     bool m_startingAfterCrash;
 

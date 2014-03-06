@@ -22,8 +22,9 @@
 
 #include <QWebPage> // QTWEBKIT_VERSION_CHECK macro
 
-UserAgentManager::UserAgentManager()
-    : m_usePerDomainUserAgent(false)
+UserAgentManager::UserAgentManager(QObject* parent)
+    : QObject(parent)
+    , m_usePerDomainUserAgent(false)
 {
     m_fakeUserAgent = QString("Mozilla/5.0 (%1) AppleWebKit/%2 (KHTML, like Gecko) Chrome/10.0 Safari/%2").arg(QzTools::operatingSystem(), BrowserWindow::WEBKITVERSION);
 }
@@ -76,7 +77,6 @@ QString UserAgentManager::userAgentForUrl(const QUrl &url) const
         return "Mozilla/5.0 (Windows XP) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7";
     }
 #endif
-
 
     return m_globalUserAgent;
 }

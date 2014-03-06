@@ -29,7 +29,6 @@ class QUPZILLA_EXPORT NetworkManagerProxy : public QNetworkAccessManager
 {
 public:
     explicit NetworkManagerProxy(QObject* parent = 0);
-    ~NetworkManagerProxy();
 
     void setPage(WebPage* page) { m_page = page; }
     void setPrimaryNetworkAccessManager(NetworkManager* manager);
