@@ -20,17 +20,43 @@
 
 #include <QObject>
 
+#include "cookiejar.h"
+
+class CookieJar_Tst : public CookieJar
+{
+public:
+    explicit CookieJar_Tst()
+        : CookieJar(QString())
+    {
+    }
+
+    bool matchDomain(QString cookieDomain, QString siteDomain) const
+    {
+        return CookieJar::matchDomain(cookieDomain, siteDomain);
+    }
+
+    bool listMatchesDomain(const QStringList &list, const QString &cookieDomain) const
+    {
+        return CookieJar::listMatchesDomain(list, cookieDomain);
+    }
+};
+
 class CookiesTest : public QObject
 {
     Q_OBJECT
 
 private slots:
+    void initTestCase();
+    void cleanupTestCase();
+
     void domainMatchingTest_data();
     void domainMatchingTest();
 
     void listMatchesDomainTest_data();
     void listMatchesDomainTest();
 
+private:
+    CookieJar_Tst *m_cookieJar;
 };
 
 #endif // COOKIESTEST_H

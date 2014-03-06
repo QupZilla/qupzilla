@@ -49,10 +49,12 @@ public:
 private slots:
     void saveCookies();
 
-private:
-    bool rejectCookie(const QString &domain, const QNetworkCookie &cookie) const;
+protected:
     bool matchDomain(QString cookieDomain, QString siteDomain) const;
     bool listMatchesDomain(const QStringList &list, const QString &cookieDomain) const;
+
+private:
+    bool rejectCookie(const QString &domain, const QNetworkCookie &cookie) const;
 
     bool m_allowCookies;
     bool m_filterTrackingCookie;
