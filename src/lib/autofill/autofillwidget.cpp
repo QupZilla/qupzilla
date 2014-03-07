@@ -65,7 +65,7 @@ void AutoFillWidget::loginToPage()
     bool ok;
     int index = button->property("data-index").toInt(&ok);
 
-    if (ok && QzTools::vectorContainsIndex(m_data, index)) {
+    if (ok && QzTools::containsIndex(m_data, index)) {
         const PasswordEntry entry = m_data.at(index);
 
         PageFormCompleter completer(m_view->page());

@@ -1100,7 +1100,7 @@ bool MainApplication::checkDefaultWebBrowser()
         dialog.setCheckBoxText(tr("Always perform this check when starting QupZilla."));
         dialog.setDefaultCheckState(Qt::Checked);
         dialog.setWindowTitle(tr("Default Browser"));
-        dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning));
+        dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning));
 
         if (dialog.exec() == QDialog::Accepted) {
             associationManager()->registerAllAssociation();

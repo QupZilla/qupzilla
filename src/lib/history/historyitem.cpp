@@ -82,7 +82,7 @@ void HistoryItem::insertChild(int row, HistoryItem* child)
 
 void HistoryItem::removeChild(int row)
 {
-    if (QzTools::listContainsIndex(m_children, row)) {
+    if (QzTools::containsIndex(m_children, row)) {
         removeChild(m_children.at(row));
     }
 }
@@ -94,7 +94,7 @@ void HistoryItem::removeChild(HistoryItem* child)
 
 HistoryItem* HistoryItem::child(int row) const
 {
-    if (QzTools::listContainsIndex(m_children, row)) {
+    if (QzTools::containsIndex(m_children, row)) {
         return m_children.at(row);
     }
 

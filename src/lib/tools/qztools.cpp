@@ -787,18 +787,20 @@ QString QzTools::escape(const QString &string)
 #endif
 }
 
-#ifdef QZ_WS_X11
 void* QzTools::X11Display(const QWidget* widget)
 {
     Q_UNUSED(widget)
 
+#ifdef QZ_WS_X11
 #if QT_VERSION >= 0x050000
     return qApp->platformNativeInterface()->nativeResourceForWindow("display", widget->windowHandle());
 #else
     return QX11Info::display();
 #endif
-}
 #endif
+
+    return 0;
+}
 
 void QzTools::setWmClass(const QString &name, const QWidget* widget)
 {
