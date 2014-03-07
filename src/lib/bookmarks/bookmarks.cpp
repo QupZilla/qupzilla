@@ -235,6 +235,9 @@ void Bookmarks::loadBookmarks()
         Q_ASSERT(data.type() == QVariant::Map);
 
         loadBookmarksFromMap(data.toMap().value("roots").toMap());
+
+        // Don't forget to save the bookmarks
+        m_autoSaver->changeOcurred();
     }
     else {
         loadBookmarksFromMap(res.toMap().value("roots").toMap());
