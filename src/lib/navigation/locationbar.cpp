@@ -303,7 +303,7 @@ void LocationBar::siteIconChanged()
 
 void LocationBar::clearIcon()
 {
-    m_siteIcon->setIcon(qIconProvider->emptyWebIcon());
+    m_siteIcon->setIcon(IconProvider::emptyWebIcon());
 }
 
 void LocationBar::setPrivacy(bool state)

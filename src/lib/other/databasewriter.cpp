@@ -19,6 +19,8 @@
 
 #include <QTimer>
 
+DatabaseWriter* DatabaseWriter::s_instance = 0;
+
 DatabaseWriter::DatabaseWriter(QObject* parent)
     : QObject(parent)
 {
@@ -27,18 +29,23 @@ DatabaseWriter::DatabaseWriter(QObject* parent)
 void DatabaseWriter::executeQuery(const QSqlQuery &query)
 {
     m_queries.append(query);
-
     QTimer::singleShot(0, this, SLOT(execute()));
+}
+
+DatabaseWriter* DatabaseWriter::instance()
+{
+    if (!s_instance) {
+        s_instance = new DatabaseWriter;
+    }
+    return s_instance;
 }
 
 void DatabaseWriter::execute()
 {
-    if (m_queries.count() == 0) {
+    if (m_queries.isEmpty()) {
         return;
     }
 
-    QSqlQuery query = m_queries.first();
-    query.exec();
-
+    m_queries.first().exec();
     m_queries.remove(0);
 }

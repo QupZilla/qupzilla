@@ -95,7 +95,7 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     m_actionPaste->setShortcut(QKeySequence("Ctrl+V"));
 
     QMenu* menuView = new QMenu(tr("View"));
-    menuView->addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("Reload"), this, SLOT(reload()))->setShortcut(QKeySequence("F5"));
+    menuView->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("Reload"), this, SLOT(reload()))->setShortcut(QKeySequence("F5"));
     menuView->addSeparator();
     menuView->addAction(tr("Editable"), this, SLOT(setTextEditable()))->setCheckable(true);
     menuView->addAction(tr("Word Wrap"), this, SLOT(setTextWordWrap()))->setCheckable(true);

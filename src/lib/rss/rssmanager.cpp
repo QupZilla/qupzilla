@@ -53,7 +53,7 @@ RSSManager::RSSManager(BrowserWindow* window, QWidget* parent)
     m_reloadButton = new QToolButton(this);
     m_reloadButton->setAutoRaise(true);
     m_reloadButton->setToolTip(tr("Reload"));
-    m_reloadButton->setIcon(qIconProvider->standardIcon(QStyle::SP_BrowserReload));
+    m_reloadButton->setIcon(IconProvider::standardIcon(QStyle::SP_BrowserReload));
 
     ui->tabWidget->setCornerWidget(m_reloadButton);
 
@@ -98,7 +98,7 @@ void RSSManager::refreshTable()
     while (query.next()) {
         QUrl address = query.value(0).toUrl();
         QString title = query.value(1).toString();
-        QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
+        QIcon icon = QPixmap::fromImage(QImage::fromData(query.value(2).toByteArray()));
         TreeWidget* tree = new TreeWidget();
         tree->setHeaderLabel(tr("News"));
         tree->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -165,7 +165,7 @@ void RSSManager::addFeed()
         return;
     }
 
-    addRssFeed(url, tr("New feed"), _iconForUrl(url));
+    addRssFeed(url, tr("New feed"), IconProvider::iconForUrl(url));
     refreshTable();
 }
 
@@ -399,7 +399,7 @@ bool RSSManager::addRssFeed(const QUrl &url, const QString &title, const QIcon &
     if (!query.next()) {
         QImage image = icon.pixmap(16, 16).toImage();
 
-        if (image == qIconProvider->emptyWebImage()) {
+        if (image == IconProvider::emptyWebImage()) {
             image.load(":icons/menu/rss.png");
         }
 

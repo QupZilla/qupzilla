@@ -252,7 +252,7 @@ QString FtpSchemeReply::loadDirectory()
     if (sPage.isEmpty()) {
         sPage = QzTools::readAllFileContents(":/html/dirlist.html");
         sPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
-        sPage.replace(QLatin1String("%UP-IMG%"), QzTools::pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_FileDialogToParent).pixmap(22)));
+        sPage.replace(QLatin1String("%UP-IMG%"), QzTools::pixmapToByteArray(IconProvider::standardIcon(QStyle::SP_FileDialogToParent).pixmap(22)));
         sPage.replace(QLatin1String("%UP-DIR-TEXT%"), tr("Up to higher level directory"));
         sPage.replace(QLatin1String("%SHOW-HIDDEN-TEXT%"), tr("Show hidden files"));
         sPage.replace(QLatin1String("%NAME%"), tr("Name"));
@@ -307,13 +307,13 @@ QString FtpSchemeReply::loadDirectory()
 
         QIcon itemIcon;
         if (item.isSymLink()) {
-            itemIcon = qIconProvider->standardIcon(QStyle::SP_DirLinkIcon);
+            itemIcon = IconProvider::standardIcon(QStyle::SP_DirLinkIcon);
         }
         else if (item.isFile()) {
             itemIcon = QzTools::iconFromFileName(itemPath);
         }
         else {
-            itemIcon = qIconProvider->standardIcon(QStyle::SP_DirIcon);
+            itemIcon = IconProvider::standardIcon(QStyle::SP_DirIcon);
         }
 
         line += QLatin1String("><td class=\"td-name\" style=\"background-image:url(data:image/png;base64,");

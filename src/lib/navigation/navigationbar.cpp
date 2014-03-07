@@ -56,7 +56,7 @@ QString NavigationBar::titleForUrl(QString title, const QUrl &url)
 QIcon NavigationBar::iconForPage(const QUrl &url, const QIcon &sIcon)
 {
     QIcon icon;
-    icon.addPixmap(url.scheme() == QLatin1String("qupzilla") ? QIcon(":icons/qupzilla.png").pixmap(16, 16) : _iconForUrl(url).pixmap(16, 16));
+    icon.addPixmap(url.scheme() == QLatin1String("qupzilla") ? QIcon(":icons/qupzilla.png").pixmap(16, 16) : IconProvider::iconForUrl(url).pixmap(16, 16));
     icon.addPixmap(sIcon.pixmap(16, 16), QIcon::Active);
     return icon;
 }
@@ -258,7 +258,7 @@ void NavigationBar::aboutToShowHistoryBackMenu()
         if (item.isValid()) {
             QString title = titleForUrl(item.title(), item.url());
 
-            const QIcon icon = iconForPage(item.url(), qIconProvider->standardIcon(QStyle::SP_ArrowBack));
+            const QIcon icon = iconForPage(item.url(), IconProvider::standardIcon(QStyle::SP_ArrowBack));
             Action* act = new Action(icon, title);
             act->setData(i);
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
@@ -292,7 +292,7 @@ void NavigationBar::aboutToShowHistoryNextMenu()
         if (item.isValid()) {
             QString title = titleForUrl(item.title(), item.url());
 
-            const QIcon icon = iconForPage(item.url(), qIconProvider->standardIcon(QStyle::SP_ArrowForward));
+            const QIcon icon = iconForPage(item.url(), IconProvider::standardIcon(QStyle::SP_ArrowForward));
             Action* act = new Action(icon, title);
             act->setData(i);
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));

@@ -110,13 +110,13 @@ bool AKN_Handler::handleKeyPress(QObject* obj, QKeyEvent* event)
         triggerShowAccessKeys();
     }
     else {
-        const int doublePressInterval = 500; // 500 msecs
-
         if (m_lastKeyPressTime.isNull()) {
             // It is the first press of our button
             m_lastKeyPressTime.start();
         }
         else {
+            const int doublePressInterval = 500; // 500 msecs
+
             // It is the second press of our button
             if (m_lastKeyPressTime.elapsed() <= doublePressInterval) {
                 triggerShowAccessKeys();

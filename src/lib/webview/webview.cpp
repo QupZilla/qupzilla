@@ -91,11 +91,11 @@ QIcon WebView::icon() const
     }
 
     if (url().scheme() == QLatin1String("file")) {
-        return qIconProvider->standardIcon(QStyle::SP_DriveHDIcon);
+        return IconProvider::standardIcon(QStyle::SP_DriveHDIcon);
     }
 
     if (url().scheme() == QLatin1String("ftp")) {
-        return qIconProvider->standardIcon(QStyle::SP_ComputerIcon);
+        return IconProvider::standardIcon(QStyle::SP_ComputerIcon);
     }
 
     if (!QWebView::icon().isNull()) {
@@ -106,7 +106,7 @@ QIcon WebView::icon() const
         return m_siteIcon;
     }
 
-    return _iconForUrl(url());
+    return IconProvider::iconForUrl(url());
 }
 
 QString WebView::title() const
@@ -442,7 +442,7 @@ void WebView::slotIconChanged()
         m_siteIcon = icon();
         m_siteIconUrl = url();
 
-        qIconProvider->saveIcon(this);
+        IconProvider::instance()->saveIcon(this);
     }
 }
 
@@ -816,8 +816,8 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         pageAction(QWebPage::ToggleItalic)->setText(tr("Italic"));
         pageAction(QWebPage::ToggleUnderline)->setText(tr("Underline"));
 
-        m_actionReload = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
-        m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this);
+        m_actionReload = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
+        m_actionStop = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this);
 
         connect(m_actionReload, SIGNAL(triggered()), this, SLOT(reload()));
         connect(m_actionStop, SIGNAL(triggered()), this, SLOT(stop()));
@@ -930,11 +930,11 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     QWebFrame* frameAtPos = page()->frameAt(pos);
 
     QAction* action = menu->addAction(tr("&Back"), this, SLOT(back()));
-    action->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowBack));
+    action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
     action->setEnabled(history()->canGoBack());
 
     action = menu->addAction(tr("&Forward"), this, SLOT(forward()));
-    action->setIcon(qIconProvider->standardIcon(QStyle::SP_ArrowForward));
+    action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
     action->setEnabled(history()->canGoForward());
 
     if (url() != QUrl("qupzilla:speeddial")) {
@@ -953,7 +953,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
             connect(act, SIGNAL(ctrlTriggered()), this, SLOT(loadClickedFrameInBgTab()));
             frameMenu->addAction(act);
             frameMenu->addSeparator();
-            frameMenu->addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
+            frameMenu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
             frameMenu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
             frameMenu->addSeparator();
             frameMenu->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &in"), this, SLOT(clickedFrameZoomIn()));
@@ -966,7 +966,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
         }
 
         menu->addSeparator();
-        menu->addAction(qIconProvider->fromTheme("bookmark-new"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
+        menu->addAction(IconProvider::iconFromTheme("bookmark-new"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
         menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(savePageAs()));
         menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
         menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
@@ -1015,7 +1015,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
 
     QVariantList bData;
     bData << hitTest.linkUrl() << hitTest.linkTitle();
-    menu->addAction(qIconProvider->fromTheme("bookmark-new"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(bData);
+    menu->addAction(IconProvider::iconFromTheme("bookmark-new"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(bData);
 
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadUrlToDisk()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(hitTest.linkUrl());

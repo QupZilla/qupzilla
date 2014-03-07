@@ -18,13 +18,10 @@
 #ifndef ICONPROVIDER_H
 #define ICONPROVIDER_H
 
-#define qIconProvider IconProvider::instance()
-#define _iconForUrl(url) qIconProvider->iconFromImage(qIconProvider->iconForUrl(url))
-
 #include <QWidget>
+#include <QStyle>
 #include <QImage>
 #include <QUrl>
-#include <QStyle>
 
 #include "qzcommon.h"
 
@@ -32,6 +29,7 @@ class QTimer;
 class QIcon;
 
 class WebView;
+class AutoSaver;
 
 // Needs to be QWidget subclass, otherwise qproperty- setting won't work
 class QUPZILLA_EXPORT IconProvider : public QWidget
@@ -42,47 +40,42 @@ class QUPZILLA_EXPORT IconProvider : public QWidget
 public:
     explicit IconProvider(QWidget* parent = 0);
 
-    static IconProvider* instance();
-
-    void clearIconDatabase();
-
     void saveIcon(WebView* view);
-    QImage iconForUrl(const QUrl &url);
-    QImage iconForDomain(const QUrl &url);
 
-    QIcon iconFromImage(const QImage &image);
-
-    QIcon iconFromBase64(const QByteArray &data);
-    QByteArray iconToBase64(const QIcon &icon);
-
-    QIcon standardIcon(QStyle::StandardPixmap icon);
-    QIcon fromTheme(const QString &icon);
-
-    QIcon emptyWebIcon();
-    QImage emptyWebImage();
-
-    QPixmap bookmarkIcon();
+    QPixmap bookmarkIcon() const;
     void setBookmarkIcon(const QPixmap &pixmap);
 
-signals:
+    // QStyle equivalents
+    static QIcon standardIcon(QStyle::StandardPixmap icon);
+    static QIcon iconFromTheme(const QString &icon);
+
+    // Icon for empty page
+    static QIcon emptyWebIcon();
+    static QImage emptyWebImage();
+
+    // Icon for url (only available for urls in history)
+    static QIcon iconForUrl(const QUrl &url);
+    // Icon for domain (only available for urls in history)
+    static QIcon iconForDomain(const QUrl &url);
+
+    static IconProvider* instance();
 
 public slots:
     void saveIconsToDatabase();
+    void clearIconsDatabase();
 
 private:
-    QTimer* m_timer;
+    typedef QPair<QUrl, QImage> BufferedIcon;
 
-    struct Icon {
-        QUrl url;
-        QImage image;
-    };
-
-    static IconProvider* s_instance;
+    QIcon iconFromImage(const QImage &image);
 
     QImage m_emptyWebImage;
     QPixmap m_bookmarkIcon;
+    QVector<BufferedIcon> m_iconBuffer;
 
-    QVector<Icon> m_iconBuffer;
+    AutoSaver* m_autoSaver;
+
+    static IconProvider* s_instance;
 };
 
 #endif // ICONPROVIDER_H

@@ -89,7 +89,7 @@ void ClearPrivateData::clearCache()
 void ClearPrivateData::clearIcons()
 {
     mApp->webSettings()->clearIconDatabase();
-    qIconProvider->clearIconDatabase();
+    IconProvider::instance()->clearIconsDatabase();
 }
 
 void ClearPrivateData::closeEvent(QCloseEvent* e)

@@ -158,7 +158,7 @@ QString FileSchemeReply::loadDirectory()
     if (sPage.isEmpty()) {
         sPage = QzTools::readAllFileContents(":/html/dirlist.html");
         sPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
-        sPage.replace(QLatin1String("%UP-IMG%"), QzTools::pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_FileDialogToParent).pixmap(22)));
+        sPage.replace(QLatin1String("%UP-IMG%"), QzTools::pixmapToByteArray(IconProvider::standardIcon(QStyle::SP_FileDialogToParent).pixmap(22)));
         sPage.replace(QLatin1String("%UP-DIR-TEXT%"), tr("Up to higher level directory"));
         sPage.replace(QLatin1String("%SHOW-HIDDEN-TEXT%"), tr("Show hidden files"));
         sPage.replace(QLatin1String("%NAME%"), tr("Name"));

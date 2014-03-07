@@ -369,7 +369,7 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     locBar->showUrl(url);
 
     setTabText(index, title);
-    setTabIcon(index, qIconProvider->emptyWebIcon());
+    setTabIcon(index, IconProvider::emptyWebIcon());
 
     if (openFlags & Qz::NT_SelectedTab) {
         setCurrentIndex(index);
@@ -844,7 +844,7 @@ void TabWidget::aboutToShowClosedTabsMenu()
                 title.truncate(40);
                 title += "..";
             }
-            m_menuTabs->addAction(_iconForUrl(tab.url), title, this, SLOT(restoreClosedTab()))->setData(i);
+            m_menuTabs->addAction(IconProvider::iconForUrl(tab.url), title, this, SLOT(restoreClosedTab()))->setData(i);
             i++;
         }
 

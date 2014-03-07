@@ -40,7 +40,6 @@
 #include "qztools.h"
 #include "profileupdater.h"
 #include "searchenginesmanager.h"
-#include "databasewriter.h"
 #include "speeddial.h"
 #include "webpage.h"
 #include "settings.h"
@@ -64,8 +63,10 @@
 #include <QFileOpenEvent>
 #include <QMenu>
 #endif
+
 #include <QNetworkDiskCache>
 #include <QDesktopServices>
+#include <QSqlDatabase>
 #include <QTranslator>
 #include <QSettings>
 #include <QProcess>
@@ -102,7 +103,6 @@ MainApplication::MainApplication(int &argc, char** argv)
 #ifdef USE_HUNSPELL
     , m_speller(0)
 #endif
-    , m_dbWriter(new DatabaseWriter(this))
     , m_uaManager(new UserAgentManager(this))
     , m_isPrivateSession(false)
     , m_isPortable(false)
@@ -447,7 +447,7 @@ void MainApplication::loadSettings()
     m_websettings->setFontSize(QWebSettings::MinimumLogicalFontSize, settings.value("MinimumLogicalFontSize", m_websettings->fontSize(QWebSettings::MinimumLogicalFontSize)).toInt());
     settings.endGroup();
 
-    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, qIconProvider->emptyWebIcon().pixmap(16, 16));
+    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::emptyWebIcon().pixmap(16, 16));
     m_websettings->setWebGraphic(QWebSettings::MissingImageGraphic, QPixmap());
 
     if (m_isPrivateSession) {
@@ -910,7 +910,6 @@ void MainApplication::saveSettings()
     m_searchEnginesManager->saveSettings();
     m_networkmanager->saveSettings();
     m_plugins->shutdown();
-    qIconProvider->saveIconsToDatabase();
     clearTempPath();
 
     qzSettings->saveSettings();
@@ -1050,6 +1049,11 @@ Speller* MainApplication::speller()
         m_speller = new Speller(this);
     }
     return m_speller;
+}
+
+MainApplication* MainApplication::instance()
+{
+    return static_cast<MainApplication*>(QCoreApplication::instance());
 }
 #endif
 

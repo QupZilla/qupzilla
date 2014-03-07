@@ -31,6 +31,7 @@
 #include <QNetworkReply>
 #include <QMessageBox>
 #include <QWebElement>
+#include <QBuffer>
 
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
@@ -38,14 +39,32 @@
 
 #define ENSURE_LOADED if (!m_settingsLoaded) loadSettings();
 
-QIcon SearchEnginesManager::iconForSearchEngine(const QUrl &url)
+static QIcon iconFromBase64(const QByteArray &data)
 {
-    QIcon ic = qIconProvider->iconFromImage(qIconProvider->iconForDomain(url));
-    if (ic.isNull()) {
-        ic = QIcon(":icons/menu/search-icon.png");
+    QIcon image;
+    QByteArray bArray = QByteArray::fromBase64(data);
+    QBuffer buffer(&bArray);
+    buffer.open(QIODevice::ReadOnly);
+    QDataStream in(&buffer);
+    in >> image;
+    buffer.close();
+
+    if (!image.isNull()) {
+        return image;
     }
 
-    return ic;
+    return IconProvider::emptyWebIcon();
+}
+
+static QByteArray iconToBase64(const QIcon &icon)
+{
+    QByteArray bArray;
+    QBuffer buffer(&bArray);
+    buffer.open(QIODevice::WriteOnly);
+    QDataStream out(&buffer);
+    out << icon;
+    buffer.close();
+    return bArray.toBase64();
 }
 
 SearchEnginesManager::SearchEnginesManager()
@@ -71,7 +90,7 @@ void SearchEnginesManager::loadSettings()
     while (query.next()) {
         Engine en;
         en.name = query.value(0).toString();
-        en.icon = qIconProvider->iconFromBase64(query.value(1).toByteArray());
+        en.icon = iconFromBase64(query.value(1).toByteArray());
         en.url = query.value(2).toString();
         en.shortcut = query.value(3).toString();
         en.suggestionsUrl = query.value(4).toString();
@@ -184,6 +203,18 @@ void SearchEnginesManager::restoreDefaults()
     m_defaultEngine = duck;
 
     emit enginesChanged();
+}
+
+// static
+QIcon SearchEnginesManager::iconForSearchEngine(const QUrl &url)
+{
+    QIcon ic = IconProvider::iconForDomain(url);
+
+    if (ic.isNull()) {
+        ic = QIcon(":icons/menu/search-icon.png");
+    }
+
+    return ic;
 }
 
 void SearchEnginesManager::engineChangedImage()
@@ -498,7 +529,7 @@ void SearchEnginesManager::saveSettings()
     foreach (const Engine &en, m_allEngines) {
         query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, suggestionsUrl, suggestionsParameters, postData) VALUES (?, ?, ?, ?, ?, ?, ?)");
         query.addBindValue(en.name);
-        query.addBindValue(qIconProvider->iconToBase64(en.icon));
+        query.addBindValue(iconToBase64(en.icon));
         query.addBindValue(en.url);
         query.addBindValue(en.shortcut);
         query.addBindValue(en.suggestionsUrl);

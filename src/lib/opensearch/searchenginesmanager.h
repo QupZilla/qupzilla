@@ -85,12 +85,12 @@ public:
     void setAllEngines(const QVector<Engine> &engines);
     QVector<Engine> allEngines();
 
-    static QIcon iconForSearchEngine(const QUrl &url);
-
     QString startingEngineName() { return m_startingEngineName; }
 
     void saveSettings();
     void restoreDefaults();
+
+    static QIcon iconForSearchEngine(const QUrl &url);
 
 signals:
     void enginesChanged();

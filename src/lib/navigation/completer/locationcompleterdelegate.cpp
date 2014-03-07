@@ -85,7 +85,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw star to bookmark items
     int starPixmapWidth = 0;
     if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
-        const QPixmap starPixmap = qIconProvider->bookmarkIcon();
+        const QPixmap starPixmap = IconProvider::instance()->bookmarkIcon();
         QSize starSize = starPixmap.size();
         starPixmapWidth = starSize.width();
         QPoint pos(rightPosition - starPixmapWidth, opt.rect.top() + m_padding);

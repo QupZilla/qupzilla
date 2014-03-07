@@ -16,9 +16,10 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "iconprovider.h"
-#include "webview.h"
 #include "mainapplication.h"
 #include "databasewriter.h"
+#include "autosaver.h"
+#include "webview.h"
 
 #include <QTimer>
 #include <QBuffer>
@@ -28,140 +29,57 @@ IconProvider* IconProvider::s_instance = 0;
 IconProvider::IconProvider(QWidget* parent)
     : QWidget(parent)
 {
-    m_timer = new QTimer(this);
-    m_timer->setInterval(10 * 1000);
-    m_timer->start();
-
-    connect(m_timer, SIGNAL(timeout()), this, SLOT(saveIconsToDatabase()));
-}
-
-IconProvider* IconProvider::instance()
-{
-    if (!s_instance) {
-        s_instance = new IconProvider;
-    }
-
-    return s_instance;
+    m_autoSaver = new AutoSaver(this);
+    connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveIconsToDatabase()));
 }
 
 void IconProvider::saveIcon(WebView* view)
 {
+    // Don't save icons in private mode.
     if (mApp->isPrivateSession()) {
-        // Don't save icons in private mode.
         return;
     }
 
-    Icon item;
-    item.image = view->icon().pixmap(16, 16).toImage();
-    item.url = view->url();
+    BufferedIcon item;
+    item.first = view->url();
+    item.second = view->icon().pixmap(16, 16).toImage();
 
-    if (item.image == IconProvider::emptyWebImage()) {
+    if (item.second == IconProvider::emptyWebImage()) {
         return;
     }
 
-    foreach (const Icon &ic, m_iconBuffer) {
-        if (ic.url == item.url && ic.image == item.image) {
-            return;
-        }
+    if (m_iconBuffer.contains(item)) {
+        return;
     }
 
+    m_autoSaver->changeOcurred();
     m_iconBuffer.append(item);
 }
 
-QImage IconProvider::iconForUrl(const QUrl &url)
+QPixmap IconProvider::bookmarkIcon() const
 {
-    if (url.path().isEmpty()) {
-        return IconProvider::emptyWebImage();
-    }
-
-    foreach (const Icon &ic, m_iconBuffer) {
-        if (ic.url.toString().startsWith(url.toString())) {
-            return ic.image;
-        }
-    }
-
-    QSqlQuery query;
-    query.prepare("SELECT icon FROM icons WHERE url LIKE ? LIMIT 1");
-    query.addBindValue(QString("%1%").arg(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment))));
-    query.exec();
-
-    if (query.next()) {
-        return QImage::fromData(query.value(0).toByteArray());
-    }
-
-    return IconProvider::emptyWebImage();
+    return m_bookmarkIcon;
 }
 
-QImage IconProvider::iconForDomain(const QUrl &url)
+void IconProvider::setBookmarkIcon(const QPixmap &pixmap)
 {
-    foreach (const Icon &ic, m_iconBuffer) {
-        if (ic.url.host() == url.host()) {
-            return ic.image;
-        }
-    }
-
-    QSqlQuery query;
-    query.prepare("SELECT icon FROM icons WHERE url LIKE ?");
-    query.addBindValue(QString("%%1%").arg(url.host()));
-    query.exec();
-
-    if (query.next()) {
-        return QImage::fromData(query.value(0).toByteArray());
-    }
-
-    return QImage();
-}
-
-void IconProvider::saveIconsToDatabase()
-{
-    foreach (const Icon &ic, m_iconBuffer) {
-        QSqlQuery query;
-        query.prepare("SELECT id FROM icons WHERE url = ?");
-        query.bindValue(0, ic.url.toEncoded(QUrl::RemoveFragment));
-        query.exec();
-
-        if (query.next()) {
-            query.prepare("UPDATE icons SET icon = ? WHERE url = ?");
-        }
-        else {
-            query.prepare("INSERT INTO icons (icon, url) VALUES (?,?)");
-        }
-
-        QByteArray ba;
-        QBuffer buffer(&ba);
-        buffer.open(QIODevice::WriteOnly);
-        ic.image.save(&buffer, "PNG");
-        query.bindValue(0, buffer.data());
-        query.bindValue(1, ic.url.toEncoded(QUrl::RemoveFragment));
-        mApp->dbWriter()->executeQuery(query);
-    }
-
-    m_iconBuffer.clear();
-}
-
-void IconProvider::clearIconDatabase()
-{
-    QSqlQuery query;
-    query.exec("DELETE FROM icons");
-    query.exec("VACUUM");
-
-    m_iconBuffer.clear();
+    m_bookmarkIcon = pixmap;
 }
 
 QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
 {
     switch (icon) {
     case QStyle::SP_MessageBoxCritical:
-        return QIcon::fromTheme("dialog-error", mApp->style()->standardIcon(QStyle::SP_MessageBoxCritical));
+        return QIcon::fromTheme("dialog-error", QApplication::style()->standardIcon(QStyle::SP_MessageBoxCritical));
 
     case QStyle::SP_MessageBoxInformation:
-        return QIcon::fromTheme("dialog-information", mApp->style()->standardIcon(QStyle::SP_MessageBoxInformation));
+        return QIcon::fromTheme("dialog-information", QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation));
 
     case QStyle::SP_MessageBoxQuestion:
-        return QIcon::fromTheme("dialog-question", mApp->style()->standardIcon(QStyle::SP_MessageBoxQuestion));
+        return QIcon::fromTheme("dialog-question", QApplication::style()->standardIcon(QStyle::SP_MessageBoxQuestion));
 
     case QStyle::SP_MessageBoxWarning:
-        return QIcon::fromTheme("dialog-warning", mApp->style()->standardIcon(QStyle::SP_MessageBoxWarning));
+        return QIcon::fromTheme("dialog-warning", QApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning));
 
 #ifndef QZ_WS_X11
     case QStyle::SP_DialogCloseButton:
@@ -195,11 +113,11 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
         }
 #endif
     default:
-        return mApp->style()->standardIcon(icon);
+        return QApplication::style()->standardIcon(icon);
     }
 }
 
-QIcon IconProvider::fromTheme(const QString &icon)
+QIcon IconProvider::iconFromTheme(const QString &icon)
 {
     // TODO: This should actually look in :icons/theme for fallback icon, not hardcode every icon
 
@@ -234,60 +152,112 @@ QIcon IconProvider::fromTheme(const QString &icon)
 
 QIcon IconProvider::emptyWebIcon()
 {
-    return QPixmap::fromImage(m_emptyWebImage);
+    return QPixmap::fromImage(instance()->m_emptyWebImage);
 }
 
 QImage IconProvider::emptyWebImage()
 {
-    if (m_emptyWebImage.isNull()) {
-        m_emptyWebImage = fromTheme("text-plain").pixmap(16, 16).toImage();
+    if (instance()->m_emptyWebImage.isNull()) {
+        instance()->m_emptyWebImage = iconFromTheme("text-plain").pixmap(16, 16).toImage();
     }
 
-    return m_emptyWebImage;
+    return instance()->m_emptyWebImage;
 }
 
-QPixmap IconProvider::bookmarkIcon()
+QIcon IconProvider::iconForUrl(const QUrl &url)
 {
-    return m_bookmarkIcon;
+    if (url.path().isEmpty()) {
+        return IconProvider::emptyWebIcon();
+    }
+
+    foreach (const BufferedIcon &ic, instance()->m_iconBuffer) {
+        if (ic.first.toString().startsWith(url.toString())) {
+            return instance()->iconFromImage(ic.second);
+        }
+    }
+
+    QSqlQuery query;
+    query.prepare("SELECT icon FROM icons WHERE url LIKE ? LIMIT 1");
+    query.addBindValue(QString("%1%").arg(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment))));
+    query.exec();
+
+    if (query.next()) {
+        return instance()->iconFromImage(QImage::fromData(query.value(0).toByteArray()));
+    }
+
+    return IconProvider::emptyWebIcon();
 }
 
-void IconProvider::setBookmarkIcon(const QPixmap &pixmap)
+QIcon IconProvider::iconForDomain(const QUrl &url)
 {
-    m_bookmarkIcon = pixmap;
+    foreach (const BufferedIcon &ic, instance()->m_iconBuffer) {
+        if (ic.first.host() == url.host()) {
+            return instance()->iconFromImage(ic.second);
+        }
+    }
+
+    QSqlQuery query;
+    query.prepare("SELECT icon FROM icons WHERE url LIKE ?");
+    query.addBindValue(QString("%%1%").arg(url.host()));
+    query.exec();
+
+    if (query.next()) {
+        return instance()->iconFromImage(QImage::fromData(query.value(0).toByteArray()));
+    }
+
+    return QIcon();
+}
+
+IconProvider* IconProvider::instance()
+{
+    if (!s_instance) {
+        s_instance = new IconProvider;
+    }
+    return s_instance;
+}
+
+void IconProvider::saveIconsToDatabase()
+{
+    foreach (const BufferedIcon &ic, m_iconBuffer) {
+        QSqlQuery query;
+        query.prepare("SELECT id FROM icons WHERE url = ?");
+        query.bindValue(0, ic.first.toEncoded(QUrl::RemoveFragment));
+        query.exec();
+
+        if (query.next()) {
+            query.prepare("UPDATE icons SET icon = ? WHERE url = ?");
+        }
+        else {
+            query.prepare("INSERT INTO icons (icon, url) VALUES (?,?)");
+        }
+
+        QByteArray ba;
+        QBuffer buffer(&ba);
+        buffer.open(QIODevice::WriteOnly);
+        ic.second.save(&buffer, "PNG");
+        query.bindValue(0, buffer.data());
+        query.bindValue(1, ic.first.toEncoded(QUrl::RemoveFragment));
+
+        DatabaseWriter::instance()->executeQuery(query);
+    }
+
+    m_iconBuffer.clear();
+}
+
+void IconProvider::clearIconsDatabase()
+{
+    QSqlQuery query;
+    query.exec("DELETE FROM icons");
+    query.exec("VACUUM");
+
+    m_iconBuffer.clear();
 }
 
 QIcon IconProvider::iconFromImage(const QImage &image)
 {
     if (m_emptyWebImage.isNull()) {
-        m_emptyWebImage = fromTheme("text-plain").pixmap(16, 16).toImage();
+        m_emptyWebImage = iconFromTheme("text-plain").pixmap(16, 16).toImage();
     }
 
     return QIcon(QPixmap::fromImage(image));
-}
-
-QIcon IconProvider::iconFromBase64(const QByteArray &data)
-{
-    QIcon image;
-    QByteArray bArray = QByteArray::fromBase64(data);
-    QBuffer buffer(&bArray);
-    buffer.open(QIODevice::ReadOnly);
-    QDataStream in(&buffer);
-    in >> image;
-    buffer.close();
-
-    if (!image.isNull()) {
-        return image;
-    }
-    return IconProvider::emptyWebIcon();
-}
-
-QByteArray IconProvider::iconToBase64(const QIcon &icon)
-{
-    QByteArray bArray;
-    QBuffer buffer(&bArray);
-    buffer.open(QIODevice::WriteOnly);
-    QDataStream out(&buffer);
-    out << icon;
-    buffer.close();
-    return bArray.toBase64();
 }

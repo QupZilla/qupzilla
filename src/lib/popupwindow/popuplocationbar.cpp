@@ -51,7 +51,7 @@ PopupLocationBar::PopupLocationBar(QWidget* parent)
     , m_view(0)
 {
     m_siteIcon = new PopupSiteIcon(this);
-    m_siteIcon->setIcon(qIconProvider->emptyWebIcon());
+    m_siteIcon->setIcon(IconProvider::emptyWebIcon());
     m_siteIcon->setFixedSize(26, 26);
 
     m_bookmarkIcon = new BookmarksIcon(this);

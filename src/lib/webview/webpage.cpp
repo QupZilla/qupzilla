@@ -378,7 +378,7 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
     dialog.setText(text);
     dialog.setCheckBoxText(tr("Remember my choice for this protocol"));
     dialog.setWindowTitle(tr("External Protocol Request"));
-    dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxQuestion));
+    dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxQuestion));
 
     switch (dialog.exec()) {
     case QDialog::Accepted:
@@ -846,8 +846,8 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     QString errString = file.readAll();
     errString.replace(QLatin1String("%TITLE%"), tr("Failed loading page"));
 
-    errString.replace(QLatin1String("%IMAGE%"), QzTools::pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
-    errString.replace(QLatin1String("%FAVICON%"), QzTools::pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
+    errString.replace(QLatin1String("%IMAGE%"), QzTools::pixmapToByteArray(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
+    errString.replace(QLatin1String("%FAVICON%"), QzTools::pixmapToByteArray(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
     errString.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
 
     QString heading2 = loadedUrl.host().isEmpty() ? tr("QupZilla can't load page.") : tr("QupZilla can't load page from %1.").arg(loadedUrl.host());
@@ -966,7 +966,7 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     dialog.setWindowTitle(title);
     dialog.setText(msg);
     dialog.setCheckBoxText(tr("Prevent this page from creating additional dialogs"));
-    dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxInformation));
+    dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxInformation));
     dialog.exec();
 
     m_blockAlerts = dialog.isChecked();

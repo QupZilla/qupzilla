@@ -28,7 +28,7 @@ GM_SettingsListDelegate::GM_SettingsListDelegate(QObject* parent)
     , m_rowHeight(0)
     , m_padding(0)
 {
-    m_removePixmap = qIconProvider->standardIcon(QStyle::SP_DialogCloseButton).pixmap(16);
+    m_removePixmap = IconProvider::standardIcon(QStyle::SP_DialogCloseButton).pixmap(16);
 }
 
 int GM_SettingsListDelegate::padding() const

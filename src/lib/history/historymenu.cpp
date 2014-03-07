@@ -115,7 +115,7 @@ void HistoryMenu::aboutToShowRecentlyVisited()
         const QUrl url = query.value(1).toUrl();
         const QString title = truncatedTitle(query.value(0).toString());
 
-        Action* act = new Action(_iconForUrl(url), title);
+        Action* act = new Action(IconProvider::iconForUrl(url), title);
         act->setData(url);
         connect(act, SIGNAL(triggered()), this, SLOT(historyEntryActivated()));
         connect(act, SIGNAL(ctrlTriggered()), this, SLOT(historyEntryCtrlActivated()));
@@ -135,7 +135,7 @@ void HistoryMenu::aboutToShowMostVisited()
     const QVector<HistoryEntry> mostVisited = mApp->history()->mostVisited(10);
 
     foreach (const HistoryEntry &entry, mostVisited) {
-        Action* act = new Action(_iconForUrl(entry.url), truncatedTitle(entry.title));
+        Action* act = new Action(IconProvider::iconForUrl(entry.url), truncatedTitle(entry.title));
         act->setData(entry.url);
         connect(act, SIGNAL(triggered()), this, SLOT(historyEntryActivated()));
         connect(act, SIGNAL(ctrlTriggered()), this, SLOT(historyEntryCtrlActivated()));
@@ -171,7 +171,7 @@ void HistoryMenu::aboutToShowClosedTabs()
 
     foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
         const QString title = truncatedTitle(tab.title);
-        QAction* act = m_menuClosedTabs->addAction(_iconForUrl(tab.url), title, tabWidget, SLOT(restoreClosedTab()));
+        QAction* act = m_menuClosedTabs->addAction(IconProvider::iconForUrl(tab.url), title, tabWidget, SLOT(restoreClosedTab()));
         act->setData(i++);
     }
 
@@ -226,13 +226,13 @@ void HistoryMenu::init()
 {
     setTitle(tr("Hi&story"));
 
-    QAction* act = addAction(qIconProvider->standardIcon(QStyle::SP_ArrowBack), tr("&Back"), this, SLOT(goBack()));
+    QAction* act = addAction(IconProvider::standardIcon(QStyle::SP_ArrowBack), tr("&Back"), this, SLOT(goBack()));
     act->setShortcut(actionShortcut(QKeySequence::Back, Qt::ALT + Qt::Key_Left, QKeySequence::Forward, Qt::ALT + Qt::Key_Right));
 
-    act = addAction(qIconProvider->standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), this, SLOT(goForward()));
+    act = addAction(IconProvider::standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), this, SLOT(goForward()));
     act->setShortcut(actionShortcut(QKeySequence::Forward, Qt::ALT + Qt::Key_Right, QKeySequence::Back, Qt::ALT + Qt::Key_Left));
 
-    act = addAction(qIconProvider->fromTheme("go-home"), tr("&Home"), this, SLOT(goHome()));
+    act = addAction(IconProvider::iconFromTheme("go-home"), tr("&Home"), this, SLOT(goHome()));
     act->setShortcut(QKeySequence(Qt::ALT + Qt::Key_Home));
 
     act = addAction(QIcon::fromTheme("view-history", QIcon(":/icons/menu/history.png")), tr("Show &All History"), this, SLOT(showHistoryManager()));

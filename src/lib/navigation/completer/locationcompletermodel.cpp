@@ -102,7 +102,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
             }
 
             QStandardItem* item = new QStandardItem();
-            item->setIcon(_iconForUrl(url));
+            item->setIcon(IconProvider::iconForUrl(url));
             item->setText(url.toEncoded());
             item->setData(query.value(0), IdRole);
             item->setData(query.value(2), TitleRole);
@@ -133,7 +133,7 @@ void LocationCompleterModel::showMostVisited()
         QStandardItem* item = new QStandardItem();
         const QUrl url = query.value(1).toUrl();
 
-        item->setIcon(_iconForUrl(url));
+        item->setIcon(IconProvider::iconForUrl(url));
         item->setText(url.toEncoded());
         item->setData(query.value(0), IdRole);
         item->setData(query.value(2), TitleRole);

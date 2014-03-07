@@ -489,10 +489,10 @@ void BrowserWindow::setupMenu()
     m_actionShowFullScreen->setShortcut(QKeySequence("Ctrl+F11"));
 #endif
     connect(m_actionShowFullScreen, SIGNAL(triggered(bool)), MENU_RECEIVER, SLOT(toggleFullScreen()));
-    m_actionStop = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), MENU_RECEIVER);
+    m_actionStop = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), MENU_RECEIVER);
     connect(m_actionStop, SIGNAL(triggered()), MENU_RECEIVER, SLOT(stop()));
     m_actionStop->setShortcut(QKeySequence("Esc"));
-    m_actionReload = new QAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), MENU_RECEIVER);
+    m_actionReload = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), MENU_RECEIVER);
     connect(m_actionReload, SIGNAL(triggered()), MENU_RECEIVER, SLOT(reload()));
     m_actionReload->setShortcut(QKeySequence("F5"));
     QAction* actionEncoding = new QAction(tr("Character &Encoding"), MENU_RECEIVER);
@@ -1967,7 +1967,7 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
         dialog.setText(tr("There are still %1 open tabs and your session won't be stored. \nAre you sure to close this window?").arg(m_tabWidget->count()));
         dialog.setCheckBoxText(tr("Don't ask again"));
         dialog.setWindowTitle(tr("There are still open tabs"));
-        dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning));
+        dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning));
 
         if (dialog.exec() != QDialog::Accepted) {
             event->ignore();

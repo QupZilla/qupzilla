@@ -18,14 +18,14 @@
 #ifndef MAINAPPLICATION_H
 #define MAINAPPLICATION_H
 
-#define mApp MainApplication::getInstance()
+#define mApp MainApplication::instance()
 
 #include <QList>
 #include <QUrl>
 #include <QPointer>
 
-#include "restoremanager.h"
 #include "qtsingleapplication.h"
+#include "restoremanager.h"
 #include "qzcommon.h"
 
 class QMenu;
@@ -47,7 +47,6 @@ class AutoFill;
 class DesktopNotificationsFactory;
 class IconProvider;
 class SearchEnginesManager;
-class DatabaseWriter;
 class UserAgentManager;
 class ProxyStyle;
 class RegisterQAppAssociation;
@@ -79,8 +78,6 @@ public:
     void aboutToCloseWindow(BrowserWindow* window);
 
     QList<BrowserWindow*> mainWindows();
-
-    static MainApplication* getInstance() { return static_cast<MainApplication*>(QCoreApplication::instance()); }
 
     bool isClosing() const;
     bool isRestoring() const;
@@ -122,7 +119,6 @@ public:
     Speller* speller();
 #endif
 
-    DatabaseWriter* dbWriter() { return m_dbWriter; }
     UserAgentManager* uaManager() { return m_uaManager; }
     RestoreManager* restoreManager() { return m_restoreManager; }
 
@@ -135,6 +131,8 @@ public:
     QMenu* macDockMenu();
     bool event(QEvent* e);
 #endif
+
+    static MainApplication* instance();
 
 public slots:
     bool saveStateSlot();
@@ -190,7 +188,6 @@ private:
 #ifdef USE_HUNSPELL
     Speller* m_speller;
 #endif
-    DatabaseWriter* m_dbWriter;
     UserAgentManager* m_uaManager;
     QList<QPointer<BrowserWindow> > m_mainWindows;
 

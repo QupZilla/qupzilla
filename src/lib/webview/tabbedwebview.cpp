@@ -185,7 +185,7 @@ void TabbedWebView::showIcon()
 
     QIcon icon_ = icon();
     if (icon_.isNull()) {
-        icon_ = qIconProvider->emptyWebIcon();
+        icon_ = IconProvider::emptyWebIcon();
     }
 
     tabWidget()->setTabIcon(tabIndex(), icon_);

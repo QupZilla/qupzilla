@@ -41,7 +41,7 @@ RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView*
     setAttribute(Qt::WA_DeleteOnClose);
 
     ui->setupUi(widget());
-    ui->closeButton->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));
+    ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
     ui->label->setText(tr("RSS feed <b>\"%1\"</b>").arg(title));
 
     RssApp bloglines;

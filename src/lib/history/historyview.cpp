@@ -184,13 +184,8 @@ void HistoryView::drawRow(QPainter* painter, const QStyleOptionViewItem &options
     bool iconLoaded = index.data(HistoryModel::IconLoadedRole).toBool();
 
     if (index.isValid() && !itemTopLevel && !iconLoaded) {
-        QImage image = qIconProvider->iconForUrl(index.data(HistoryModel::UrlRole).toUrl());
-        if (image == qIconProvider->emptyWebImage()) {
-            model()->setData(index, QIcon(), HistoryModel::IconRole);
-        }
-        else {
-            model()->setData(index, QIcon(QPixmap::fromImage(image)), HistoryModel::IconRole);
-        }
+        const QIcon icon = IconProvider::iconForUrl(index.data(HistoryModel::UrlRole).toUrl());
+        model()->setData(index, icon, HistoryModel::IconRole);
     }
 
     QTreeView::drawRow(painter, options, index);

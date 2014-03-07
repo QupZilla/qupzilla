@@ -34,7 +34,7 @@ HTML5PermissionsNotification::HTML5PermissionsNotification(const QString &host, 
     setAutoFillBackground(true);
     ui->setupUi(widget());
 
-    ui->close->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));
+    ui->close->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
 
     QString message;
     QString site = m_host.isEmpty() ? tr("this site") : QString("<b>%1</b>").arg(m_host);

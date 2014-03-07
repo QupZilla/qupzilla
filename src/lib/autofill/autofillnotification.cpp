@@ -32,7 +32,7 @@ AutoFillNotification::AutoFillNotification(const QUrl &url, const PageFormData &
     setAutoFillBackground(true);
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
-    ui->closeButton->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));
+    ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
 
     QString hostPart;
     QString userPart;

@@ -149,7 +149,7 @@ bool BookmarksTools::addBookmarkDialog(QWidget* parent, const QUrl &url, const Q
     label->setText(Bookmarks::tr("Choose name and location of this bookmark."));
     edit->setText(title);
     edit->setCursorPosition(0);
-    dialog->setWindowIcon(_iconForUrl(url));
+    dialog->setWindowIcon(IconProvider::iconForUrl(url));
     dialog->setWindowTitle(Bookmarks::tr("Add New Bookmark"));
 
     QSize size = dialog->size();

@@ -132,7 +132,7 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
         break;
     case Qt::DecorationRole:
         if (index.column() == 0) {
-            return item->icon().isNull() ? qIconProvider->emptyWebIcon() : item->icon();
+            return item->icon().isNull() ? IconProvider::emptyWebIcon() : item->icon();
         }
     }
 

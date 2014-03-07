@@ -36,7 +36,7 @@ ToolButton::ToolButton(QWidget* parent)
 void ToolButton::setThemeIcon(const QString &image)
 {
     m_themeIcon = image;
-    setIcon(qIconProvider->fromTheme(image));
+    setIcon(IconProvider::iconFromTheme(image));
     m_usingMultiIcon = false;
 }
 

@@ -27,7 +27,7 @@ SslErrorDialog::SslErrorDialog(QWidget* parent)
     , m_result(No)
 {
     ui->setupUi(this);
-    ui->icon->setPixmap(qIconProvider->standardIcon(QStyle::SP_MessageBoxCritical).pixmap(52));
+    ui->icon->setPixmap(IconProvider::standardIcon(QStyle::SP_MessageBoxCritical).pixmap(52));
     ui->buttonBox->addButton(tr("Only for this session"), QDialogButtonBox::ApplyRole);
     ui->buttonBox->button(QDialogButtonBox::No)->setFocus();
 

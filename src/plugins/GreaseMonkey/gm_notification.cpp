@@ -34,7 +34,7 @@ GM_Notification::GM_Notification(GM_Manager* manager, const QString &tmpfileName
     setAutoFillBackground(true);
     ui->setupUi(widget());
 
-    ui->close->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));
+    ui->close->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
 
     connect(ui->install, SIGNAL(clicked()), this, SLOT(installScript()));
     connect(ui->close, SIGNAL(clicked()), this, SLOT(hide()));
