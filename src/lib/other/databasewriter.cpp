@@ -19,10 +19,10 @@
 
 #include <QTimer>
 
-DatabaseWriter* DatabaseWriter::s_instance = 0;
+Q_GLOBAL_STATIC(DatabaseWriter, qz_database_writer)
 
-DatabaseWriter::DatabaseWriter(QObject* parent)
-    : QObject(parent)
+DatabaseWriter::DatabaseWriter()
+    : QObject()
 {
 }
 
@@ -34,10 +34,7 @@ void DatabaseWriter::executeQuery(const QSqlQuery &query)
 
 DatabaseWriter* DatabaseWriter::instance()
 {
-    if (!s_instance) {
-        s_instance = new DatabaseWriter;
-    }
-    return s_instance;
+    return qz_database_writer();
 }
 
 void DatabaseWriter::execute()

@@ -914,6 +914,7 @@ void MainApplication::saveSettings()
 
     qzSettings->saveSettings();
     AdBlockManager::instance()->save();
+    IconProvider::instance()->saveIconsToDatabase();
     QFile::remove(currentProfilePath() + "WebpageIcons.db");
     Settings::syncSettings();
 }

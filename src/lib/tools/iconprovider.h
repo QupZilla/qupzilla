@@ -38,7 +38,7 @@ class QUPZILLA_EXPORT IconProvider : public QWidget
     Q_PROPERTY(QPixmap bookmarkIcon READ bookmarkIcon WRITE setBookmarkIcon)
 
 public:
-    explicit IconProvider(QWidget* parent = 0);
+    explicit IconProvider();
 
     void saveIcon(WebView* view);
 
@@ -74,8 +74,6 @@ private:
     QVector<BufferedIcon> m_iconBuffer;
 
     AutoSaver* m_autoSaver;
-
-    static IconProvider* s_instance;
 };
 
 #endif // ICONPROVIDER_H

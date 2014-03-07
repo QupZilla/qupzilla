@@ -28,7 +28,7 @@ class QUPZILLA_EXPORT DatabaseWriter : public QObject
 {
     Q_OBJECT
 public:
-    explicit DatabaseWriter(QObject* parent = 0);
+    explicit DatabaseWriter();
 
     // Delayed execution of query
     void executeQuery(const QSqlQuery &query);
@@ -40,8 +40,6 @@ private slots:
 
 private:
     QVector<QSqlQuery> m_queries;
-
-    static DatabaseWriter* s_instance;
 };
 
 #endif // DATABASEWRITER_H

@@ -24,10 +24,10 @@
 #include <QTimer>
 #include <QBuffer>
 
-IconProvider* IconProvider::s_instance = 0;
+Q_GLOBAL_STATIC(IconProvider, qz_icon_provider)
 
-IconProvider::IconProvider(QWidget* parent)
-    : QWidget(parent)
+IconProvider::IconProvider()
+    : QWidget()
 {
     m_autoSaver = new AutoSaver(this);
     connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveIconsToDatabase()));
@@ -210,10 +210,7 @@ QIcon IconProvider::iconForDomain(const QUrl &url)
 
 IconProvider* IconProvider::instance()
 {
-    if (!s_instance) {
-        s_instance = new IconProvider;
-    }
-    return s_instance;
+    return qz_icon_provider();
 }
 
 void IconProvider::saveIconsToDatabase()
