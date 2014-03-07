@@ -185,7 +185,7 @@ void ToolButton::showMenu()
         return;
     }
 
-    m->popup(QPoint(0, 0));
+    emit aboutToShowMenu();
 
     QPoint pos = mapToGlobal(rect().bottomRight());
     if (QApplication::layoutDirection() == Qt::RightToLeft) {
@@ -195,7 +195,7 @@ void ToolButton::showMenu()
         pos.setX(pos.x() - m->sizeHint().width());
     }
 
-    m->move(pos);
+    m->popup(pos);
 }
 
 void ToolButton::menuAboutToHide()

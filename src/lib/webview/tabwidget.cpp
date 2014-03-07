@@ -142,20 +142,20 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     connect(m_tabBar, SIGNAL(showButtons()), this, SLOT(showButtons()));
     connect(m_tabBar, SIGNAL(hideButtons()), this, SLOT(hideButtons()));
 
+    m_menuTabs = new MenuTabs(m_tabBar);
+
     m_buttonListTabs = new ToolButton(m_tabBar);
     m_buttonListTabs->setObjectName("tabwidget-button-opentabs");
-    m_menuTabs = new MenuTabs(m_tabBar);
     m_buttonListTabs->setMenu(m_menuTabs);
     m_buttonListTabs->setPopupMode(QToolButton::InstantPopup);
     m_buttonListTabs->setToolTip(tr("List of tabs"));
     m_buttonListTabs->setAutoRaise(true);
     m_buttonListTabs->setFocusPolicy(Qt::NoFocus);
     m_buttonListTabs->setShowMenuInside(true);
+    connect(m_buttonListTabs, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowClosedTabsMenu()));
 
     m_buttonAddTab = new AddTabButton(this, m_tabBar);
-
     connect(m_buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
-    connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
 
     // Copy of buttons
     m_buttonListTabs2 = new ToolButton(m_tabBar);
@@ -167,6 +167,7 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     m_buttonListTabs2->setAutoRaise(true);
     m_buttonListTabs2->setFocusPolicy(Qt::NoFocus);
     m_buttonListTabs2->setShowMenuInside(true);
+    connect(m_buttonListTabs2, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowClosedTabsMenu()));
 
     m_buttonAddTab2 = new AddTabButton(this, m_tabBar);
     m_buttonAddTab2->setProperty("outside-tabbar", true);

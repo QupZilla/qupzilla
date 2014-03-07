@@ -64,6 +64,9 @@ signals:
     void controlClicked();
     void doubleClicked();
 
+    // Emitted when showMenuInside is true
+    void aboutToShowMenu();
+
 public slots:
     void showMenu();
 
