@@ -1051,12 +1051,12 @@ Speller* MainApplication::speller()
     }
     return m_speller;
 }
+#endif
 
 MainApplication* MainApplication::instance()
 {
     return static_cast<MainApplication*>(QCoreApplication::instance());
 }
-#endif
 
 void MainApplication::startPrivateBrowsing(const QUrl &startUrl)
 {

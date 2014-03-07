@@ -77,7 +77,7 @@ int QzRegExp::matchedLength() const
 
 QString QzRegExp::cap(int nth) const
 {
-    if (!QzTools::listContainsIndex(m_capturedTexts, nth)) {
+    if (!QzTools::containsIndex(m_capturedTexts, nth)) {
         return QString();
     }
 
