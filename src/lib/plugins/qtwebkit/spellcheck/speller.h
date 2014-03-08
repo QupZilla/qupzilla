@@ -48,7 +48,7 @@ public:
         }
     };
 
-    explicit Speller(QObject* parent);
+    explicit Speller();
     ~Speller();
 
     bool isEnabled() const;
@@ -58,12 +58,15 @@ public:
     QVector<Language> availableLanguages();
 
     QString dictionaryPath() const;
+
+    void createContextMenu(QMenu* menu);
     void populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
 
     bool isMisspelled(const QString &string);
     QStringList suggest(const QString &word);
 
     static bool isValidWord(const QString &str);
+    static Speller* instance();
 
 public slots:
     void populateLanguagesMenu();

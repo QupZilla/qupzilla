@@ -832,7 +832,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
 #ifdef USE_HUNSPELL
     // Show spellcheck menu as the first
     if (hitTest.isContentEditable() && !hitTest.isContentSelected()) {
-        mApp->speller()->populateContextMenu(menu, hitTest);
+        Speller::instance()->populateContextMenu(menu, hitTest);
         spellCheckActionCount = menu->actions().count();
     }
 #endif
@@ -902,7 +902,9 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
             checkForForm(menu, hitTest.element());
         }
 
-        createSpellCheckContextMenu(menu);
+#ifdef USE_HUNSPELL
+        Speller::instance()->createContextMenu(menu);
+#endif
     }
 
     if (!selectedText().isEmpty()) {
@@ -1139,25 +1141,6 @@ void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy Media Address"), this, SLOT(copyLinkToClipboard()))->setData(videoUrl);
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendLinkByMail()))->setData(videoUrl);
     menu->addAction(QIcon::fromTheme("document-save"), tr("Save Media To &Disk"), this, SLOT(downloadUrlToDisk()))->setData(videoUrl);
-}
-
-void WebView::createSpellCheckContextMenu(QMenu* menu)
-{
-    Q_UNUSED(menu)
-#ifdef USE_HUNSPELL
-    menu->addSeparator();
-
-    QAction* act = menu->addAction(tr("Check &Spelling"), mApp->speller(), SLOT(toggleEnableSpellChecking()));
-    act->setCheckable(true);
-    act->setChecked(mApp->speller()->isEnabled());
-
-    if (mApp->speller()->isEnabled()) {
-        QMenu* men = menu->addMenu(tr("Languages"));
-        connect(men, SIGNAL(aboutToShow()), mApp->speller(), SLOT(populateLanguagesMenu()));
-    }
-
-    menu->addSeparator();
-#endif
 }
 
 void WebView::pauseMedia()

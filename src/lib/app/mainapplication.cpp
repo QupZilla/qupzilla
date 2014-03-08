@@ -54,10 +54,6 @@
 #include "registerqappassociation.h"
 #include "html5permissions/html5permissionsmanager.h"
 
-#ifdef USE_HUNSPELL
-#include "qtwebkit/spellcheck/speller.h"
-#endif
-
 #ifdef Q_OS_MAC
 #include "macmenureceiver.h"
 #include <QFileOpenEvent>
@@ -100,9 +96,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_restoreManager(0)
     , m_proxyStyle(0)
     , m_html5permissions(0)
-#ifdef USE_HUNSPELL
-    , m_speller(0)
-#endif
     , m_uaManager(new UserAgentManager(this))
     , m_isPrivateSession(false)
     , m_isPortable(false)
@@ -1042,16 +1035,6 @@ HTML5PermissionsManager* MainApplication::html5permissions()
     }
     return m_html5permissions;
 }
-
-#ifdef USE_HUNSPELL
-Speller* MainApplication::speller()
-{
-    if (!m_speller) {
-        m_speller = new Speller(this);
-    }
-    return m_speller;
-}
-#endif
 
 MainApplication* MainApplication::instance()
 {

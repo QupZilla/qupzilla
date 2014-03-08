@@ -51,9 +51,6 @@ private:
                    const QTextBoundaryFinder::BoundaryType &type);
     bool startOfWord(const QTextBoundaryFinder::BoundaryReasons &reasons,
                      const QTextBoundaryFinder::BoundaryType &type);
-
-    Speller* m_speller;
-
 };
 
 #endif // SPELLCHECKER_H

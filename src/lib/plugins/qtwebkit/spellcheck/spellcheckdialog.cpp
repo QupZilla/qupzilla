@@ -35,7 +35,7 @@ SpellCheckDialog::SpellCheckDialog(QWidget* parent)
 {
     ui->setupUi(this);
 
-    ui->dictPath->setText(mApp->speller()->dictionaryPath());
+    ui->dictPath->setText(Speller::instance()->dictionaryPath());
 
     QFile file(mApp->currentProfilePath() + "userdictionary.txt");
     if (!file.open(QFile::ReadOnly)) {
@@ -103,7 +103,7 @@ void SpellCheckDialog::saveSettings()
 {
     // Save only when changed
 
-    if (ui->dictPath->text() != mApp->speller()->dictionaryPath()) {
+    if (ui->dictPath->text() != Speller::instance()->dictionaryPath()) {
         Settings settings;
         settings.beginGroup("SpellCheck");
         settings.setValue("dictionaryPath", ui->dictPath->text());

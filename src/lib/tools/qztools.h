@@ -86,8 +86,7 @@ public:
     static void setWmClass(const QString &name, const QWidget* widget);
 
     template <typename T>
-    static bool containsIndex(const T &container, int index)
-    {
+    static bool containsIndex(const T &container, int index) {
         return (index >= 0 && container.count() > index);
     }
 };

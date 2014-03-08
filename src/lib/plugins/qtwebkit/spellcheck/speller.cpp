@@ -35,8 +35,10 @@
 
 #include <hunspell/hunspell.hxx>
 
-Speller::Speller(QObject* parent)
-    : QObject(parent)
+Q_GLOBAL_STATIC(Speller, qz_speller)
+
+Speller::Speller()
+    : QObject()
     , m_textCodec(0)
     , m_hunspell(0)
     , m_enabled(false)
@@ -149,6 +151,22 @@ QVector<Speller::Language> Speller::availableLanguages()
 QString Speller::dictionaryPath() const
 {
     return m_dictionaryPath;
+}
+
+void Speller::createContextMenu(QMenu* menu)
+{
+    menu->addSeparator();
+
+    QAction* act = menu->addAction(tr("Check &Spelling"), this, SLOT(toggleEnableSpellChecking()));
+    act->setCheckable(true);
+    act->setChecked(m_enabled);
+
+    if (m_enabled) {
+        QMenu* men = menu->addMenu(tr("Languages"));
+        connect(men, SIGNAL(aboutToShow()), this, SLOT(populateLanguagesMenu()));
+    }
+
+    menu->addSeparator();
 }
 
 void Speller::populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
@@ -319,6 +337,11 @@ bool Speller::isValidWord(const QString &str)
     }
 
     return false;
+}
+
+Speller* Speller::instance()
+{
+    return qz_speller();
 }
 
 void Speller::populateLanguagesMenu()

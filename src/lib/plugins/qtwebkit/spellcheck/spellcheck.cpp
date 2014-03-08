@@ -20,17 +20,15 @@
 
 #include "spellcheck.h"
 #include "speller.h"
-#include "mainapplication.h"
 
 SpellCheck::SpellCheck()
     : QWebSpellChecker()
-    , m_speller(mApp->speller())
 {
 }
 
 bool SpellCheck::isContinousSpellCheckingEnabled() const
 {
-    return mApp->speller()->isEnabled();
+    return Speller::instance()->isEnabled();
 }
 
 void SpellCheck::toggleContinousSpellChecking()
@@ -70,7 +68,7 @@ void SpellCheck::checkSpellingOfString(const QString &word,
             end = finder.position();
             QString str = finder.string().mid(start, end - start);
             if (Speller::isValidWord(str)) {
-                if (m_speller->isMisspelled(str)) {
+                if (Speller::instance()->isMisspelled(str)) {
                     *misspellingLocation = start;
                     *misspellingLength = end - start;
                 }
@@ -92,7 +90,7 @@ QString SpellCheck::autoCorrectSuggestionForMisspelledWord(const QString &word)
     Q_UNUSED(word)
     return QString();
 #if 0
-    QStringList words = m_speller->suggest(word);
+    QStringList words = Speller::instance()->suggest(word);
     if (words.size() > 0) {
         return words[0];
     }
@@ -109,11 +107,7 @@ void SpellCheck::guessesForWord(const QString &word,
 {
     Q_UNUSED(context);
 
-    if (!m_speller) {
-        return;
-    }
-
-    QStringList words = m_speller->suggest(word);
+    QStringList words = Speller::instance()->suggest(word);
     guesses = words;
 }
 

@@ -155,7 +155,6 @@ protected:
     void createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
     void createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
     void createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
-    void createSpellCheckContextMenu(QMenu* menu);
 
 private slots:
     void pauseMedia();

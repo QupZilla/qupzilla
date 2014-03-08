@@ -50,7 +50,6 @@ class ProxyStyle;
 class RegisterQAppAssociation;
 class HTML5PermissionsManager;
 class AutoSaver;
-class Speller;
 
 #ifdef Q_OS_MAC
 class MacMenuReceiver;
@@ -113,9 +112,6 @@ public:
     QNetworkDiskCache* networkCache();
     DesktopNotificationsFactory* desktopNotifications();
     HTML5PermissionsManager* html5permissions();
-#ifdef USE_HUNSPELL
-    Speller* speller();
-#endif
 
     UserAgentManager* uaManager() { return m_uaManager; }
     RestoreManager* restoreManager() { return m_restoreManager; }
@@ -183,10 +179,8 @@ private:
     RestoreManager* m_restoreManager;
     ProxyStyle* m_proxyStyle;
     HTML5PermissionsManager* m_html5permissions;
-#ifdef USE_HUNSPELL
-    Speller* m_speller;
-#endif
     UserAgentManager* m_uaManager;
+
     QList<QPointer<BrowserWindow> > m_mainWindows;
 
     QString m_activeProfil;
