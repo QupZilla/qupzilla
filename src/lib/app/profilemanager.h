@@ -15,22 +15,44 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef PROFILEUPDATER_H
-#define PROFILEUPDATER_H
+#ifndef PROFILEMANAGER_H
+#define PROFILEMANAGER_H
 
 #include <QString>
 
 #include "qzcommon.h"
 
-class ProfileUpdater
+class ProfileManager
 {
 public:
-    explicit ProfileUpdater(const QString &profilePath);
-    void checkProfile();
+    explicit ProfileManager();
+
+    // Make sure the config dir exists and have correct structure
+    void initConfigDir() const;
+    // Set current profile name (from profiles.ini) and ensure dir exists with correct structure
+    void initCurrentProfile(const QString &profileName);
+
+    // Return 0 on success, -1 profile already exists, -2 cannot create directory
+    int createProfile(const QString &profileName);
+    // Return false on error (profile does not exists)
+    bool removeProfile(const QString &profileName);
+
+    // Name of current profile
+    QString currentProfile() const;
+
+    // Name of starting profile
+    QString startingProfile() const;
+    void setStartingProfile(const QString &profileName);
+
+    // Names of available profiles
+    QStringList availableProfiles() const;
 
 private:
+    void updateCurrentProfile();
     void updateProfile(const QString &current, const QString &profile);
     void copyDataToProfile();
+
+    void connectDatabase();
 
     void update100();
     void update118();
@@ -38,7 +60,7 @@ private:
     void update130();
     void update140();
 
-    QString m_profilePath;
+    bool m_databaseConnected;
 };
 
-#endif // PROFILEUPDATER_H
+#endif // PROFILEMANAGER_H

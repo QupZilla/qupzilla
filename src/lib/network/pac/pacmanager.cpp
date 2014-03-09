@@ -21,6 +21,7 @@
 #include "networkmanager.h"
 #include "followredirectreply.h"
 #include "settings.h"
+#include "datapaths.h"
 #include "qztools.h"
 
 #include <QNetworkProxy>
@@ -98,7 +99,7 @@ void PacManager::replyFinished()
     m_reply->deleteLater();
     m_reply = 0;
 
-    QFile file(mApp->currentProfilePath() + "proxy.pac");
+    QFile file(DataPaths::currentProfilePath() + "proxy.pac");
 
     if (!file.open(QFile::WriteOnly)) {
         qWarning() << "PacManager: Cannot open PAC file for writing" << file.fileName();
@@ -117,7 +118,7 @@ void PacManager::reloadScript()
         m_pacrunner = new ProxyAutoConfig(this);
     }
 
-    QFile file(m_url.scheme() == QLatin1String("file") ? m_url.path() : mApp->currentProfilePath() + "proxy.pac");
+    QFile file(m_url.scheme() == QLatin1String("file") ? m_url.path() : DataPaths::currentProfilePath() + "proxy.pac");
 
     if (!file.open(QFile::ReadOnly)) {
         qWarning() << "PacManager: Cannot open PAC file for reading" << file.fileName();

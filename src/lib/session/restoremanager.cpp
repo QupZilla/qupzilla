@@ -17,12 +17,13 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "restoremanager.h"
+#include "datapaths.h"
 
 #include <QFile>
 
-RestoreManager::RestoreManager(const QString &sessionFile)
+RestoreManager::RestoreManager()
 {
-    createFromFile(sessionFile);
+    createFromFile(DataPaths::currentProfilePath() + QLatin1String("session.dat"));
 }
 
 RestoreData RestoreManager::restoreData() const

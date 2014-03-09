@@ -31,8 +31,7 @@ class QUPZILLA_EXPORT CookieJar : public QNetworkCookieJar
     Q_OBJECT
 
 public:
-    // Passing empty profilePath will create empty CookieJar (for Private Session)
-    explicit CookieJar(const QString &profilePath, QObject* parent = 0);
+    explicit CookieJar(QObject* parent = 0);
     ~CookieJar();
 
     void loadSettings();
@@ -65,7 +64,6 @@ private:
     QStringList m_blacklist;
 
     AutoSaver* m_autoSaver;
-    QString m_profilePath;
 };
 
 #endif // COOKIEJAR_H

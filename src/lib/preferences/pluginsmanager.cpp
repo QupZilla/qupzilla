@@ -119,7 +119,7 @@ void PluginsManager::save()
                 allowedPlugins.append(plugin.fullPath);
             }
             else {
-                allowedPlugins.append(mApp->DATADIR + "plugins/" + plugin.fileName);
+                allowedPlugins.append(plugin.fileName);
             }
         }
     }

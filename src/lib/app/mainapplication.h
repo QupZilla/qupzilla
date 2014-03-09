@@ -60,11 +60,6 @@ class QUPZILLA_EXPORT MainApplication : public QtSingleApplication
     Q_OBJECT
 
 public:
-    QString DATADIR;
-    QString PROFILEDIR;
-    QString TRANSLATIONSDIR;
-    QString THEMESDIR;
-
     explicit MainApplication(int &argc, char** argv);
     ~MainApplication();
 
@@ -84,17 +79,13 @@ public:
     int windowCount() const;
     QString currentLanguageFile() const;
     QString currentLanguage() const;
-    QString currentProfilePath() const;
 
-    bool checkSettingsDir();
     void destroyRestoreManager();
-    void clearTempPath();
 
     ProxyStyle* proxyStyle() const;
     void setProxyStyle(ProxyStyle* style);
 
     QString currentStyle() const;
-    QString tempPath() const;
 
     BrowserWindow* getWindow();
     CookieManager* cookieManager();
@@ -182,17 +173,14 @@ private:
 
     QList<QPointer<BrowserWindow> > m_mainWindows;
 
-    QString m_activeProfil;
-    QString m_activeLanguage;
-    QString m_activeThemePath;
+    QString m_currentLanguage;
 
     bool m_isPrivateSession;
     bool m_isPortable;
     bool m_isClosing;
     bool m_isRestoring;
-    bool m_startingAfterCrash;
+    bool m_isStartingAfterCrash;
 
-    bool m_databaseConnected;
     QList<PostLaunchAction> m_postLaunchActions;
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)

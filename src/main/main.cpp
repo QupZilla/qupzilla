@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "mainapplication.h"
 #include "proxystyle.h"
+#include "datapaths.h"
 
 #include <QMessageBox> // For QT_REQUIRE_VERSION
 #include <iostream>
@@ -47,7 +48,7 @@ void qupzilla_signal_handler(int s)
     }
     sigSegvServed = true;
 
-    std::cout << "QupZilla: Crashed :( Saving backtrace in " << qPrintable(mApp->PROFILEDIR) << "crashlog ..." << std::endl;
+    std::cout << "QupZilla: Crashed :( Saving backtrace in " << qPrintable(DataPaths::path(DataPaths::Config)) << "crashlog ..." << std::endl;
 
     void* array[100];
     int size = backtrace(array, 100);
@@ -58,15 +59,15 @@ void qupzilla_signal_handler(int s)
         abort();
     }
 
-    QDir dir(mApp->PROFILEDIR);
+    QDir dir(DataPaths::path(DataPaths::Config));
     if (!dir.exists()) {
-        std::cout << qPrintable(mApp->PROFILEDIR) << " does not exist" << std::endl;
+        std::cout << qPrintable(DataPaths::path(DataPaths::Config)) << " does not exist" << std::endl;
         abort();
     }
 
     if (!dir.cd("crashlog")) {
         if (!dir.mkdir("crashlog")) {
-            std::cout << "Cannot create " << qPrintable(mApp->PROFILEDIR) << "crashlog directory!" << std::endl;
+            std::cout << "Cannot create " << qPrintable(DataPaths::path(DataPaths::Config)) << "crashlog directory!" << std::endl;
             abort();
         }
 

@@ -18,6 +18,7 @@
 #include "speller.h"
 #include "spellcheckdialog.h"
 #include "settings.h"
+#include "datapaths.h"
 #include "mainapplication.h"
 #include "qztools.h"
 
@@ -64,7 +65,7 @@ void Speller::loadSettings()
     m_language.name = nameForLanguage(m_language.code);
     settings.endGroup();
 
-    m_userDictionary.setFileName(mApp->currentProfilePath() + "userdictionary.txt");
+    m_userDictionary.setFileName(DataPaths::currentProfilePath() + "userdictionary.txt");
 
     if (m_enabled) {
         initialize();
@@ -392,7 +393,7 @@ QString Speller::getDictionaryPath() const
 #ifdef Q_OS_UNIX
     const QString defaultDicPath = "/usr/share/hunspell/";
 #else
-    const QString defaultDicPath = mApp->DATADIR + "hunspell/";
+    const QString defaultDicPath = DataPaths::path(DataPaths::AppData) + "hunspell/";
 #endif
 
     QString dicPath = QString::fromLocal8Bit(qgetenv("DICPATH")).trimmed();

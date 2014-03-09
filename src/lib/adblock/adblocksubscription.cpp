@@ -47,6 +47,7 @@
 #include "adblocksearchtree.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
+#include "datapaths.h"
 #include "qztools.h"
 #include "followredirectreply.h"
 
@@ -457,7 +458,7 @@ AdBlockSubscription::~AdBlockSubscription()
 AdBlockCustomList::AdBlockCustomList(QObject* parent)
     : AdBlockSubscription(tr("Custom Rules"), parent)
 {
-    setFilePath(mApp->currentProfilePath() + "adblock/customlist.txt");
+    setFilePath(DataPaths::currentProfilePath() + "adblock/customlist.txt");
 }
 
 void AdBlockCustomList::saveSubscription()

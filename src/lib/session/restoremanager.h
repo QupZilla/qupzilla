@@ -31,7 +31,7 @@ public:
         QVector<WebTab::SavedTab> tabsState;
     };
 
-    RestoreManager(const QString &sessionFile);
+    explicit RestoreManager();
 
     QVector<RestoreManager::WindowData> restoreData() const;
     bool isValid() const;

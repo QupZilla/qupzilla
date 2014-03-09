@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "qztools.h"
-#include "mainapplication.h"
+#include "datapaths.h"
 #include "settings.h"
 
 #include <QTextDocument>
@@ -422,7 +422,7 @@ QIcon QzTools::iconFromFileName(const QString &fileName)
     }
 
     QFileIconProvider iconProvider;
-    QTemporaryFile tempFile(mApp->tempPath() + "/XXXXXX." + tempInfo.suffix());
+    QTemporaryFile tempFile(DataPaths::path(DataPaths::Temp) + "/XXXXXX." + tempInfo.suffix());
     tempFile.open();
     tempInfo.setFile(tempFile.fileName());
 

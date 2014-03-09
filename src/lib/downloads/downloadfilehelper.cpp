@@ -24,6 +24,7 @@
 #include "downloaditem.h"
 #include "downloadmanager.h"
 #include "qztools.h"
+#include "datapaths.h"
 #include "settings.h"
 #include "qzregexp.h"
 
@@ -71,7 +72,7 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, const Do
     m_reply = reply;
 
     QFileInfo fileInfo(m_h_fileName);
-    QTemporaryFile tempFile(mApp->tempPath() + "/XXXXXX." + fileInfo.suffix());
+    QTemporaryFile tempFile(DataPaths::path(DataPaths::Temp) + "/XXXXXX." + fileInfo.suffix());
     tempFile.open();
     tempFile.write(m_reply->peek(1024 * 1024));
     QFileInfo tempInfo(tempFile.fileName());
@@ -256,7 +257,7 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
         }
     }
     else {
-        fileNameChoosed(mApp->tempPath() + QLatin1Char('/') + m_h_fileName, true);
+        fileNameChoosed(DataPaths::path(DataPaths::Temp) + QLatin1Char('/') + m_h_fileName, true);
     }
 }
 
@@ -284,7 +285,7 @@ void DownloadFileHelper::fileNameChoosed(const QString &name, bool fileNameAutoG
         m_fileName = QzTools::ensureUniqueFilename(m_fileName);
     }
 
-    if (!m_path.contains(mApp->tempPath())) {
+    if (!m_path.contains(DataPaths::path(DataPaths::Temp))) {
         m_lastDownloadPath = m_path;
     }
 

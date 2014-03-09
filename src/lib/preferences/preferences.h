@@ -84,7 +84,7 @@ private slots:
 
     void createProfile();
     void deleteProfile();
-    void startProfileIndexChanged(QString index);
+    void startProfileIndexChanged(int index);
 
     void setProgressBarColorIcon(QColor col = QColor());
     void selectCustomProgressBarColor();

@@ -33,7 +33,7 @@ class QUPZILLA_EXPORT Bookmarks : public QObject
 {
     Q_OBJECT
 public:
-    explicit Bookmarks(const QString &profilePath, QObject* parent = 0);
+    explicit Bookmarks(QObject* parent = 0);
     ~Bookmarks();
 
     void loadSettings();
@@ -98,7 +98,6 @@ private:
     BookmarksModel* m_model;
     AutoSaver* m_autoSaver;
 
-    QString m_profilePath;
     bool m_showOnlyIconsInToolbar;
 };
 

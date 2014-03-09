@@ -16,8 +16,9 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "cookiejar.h"
-#include "autosaver.h"
 #include "mainapplication.h"
+#include "datapaths.h"
+#include "autosaver.h"
 #include "settings.h"
 #include "qztools.h"
 
@@ -28,16 +29,15 @@
 
 //#define COOKIE_DEBUG
 
-CookieJar::CookieJar(const QString &profilePath, QObject* parent)
+CookieJar::CookieJar(QObject* parent)
     : QNetworkCookieJar(parent)
     , m_autoSaver(0)
-    , m_profilePath(profilePath)
 {
-    loadSettings();
-    restoreCookies();
-
     m_autoSaver = new AutoSaver(this);
     connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveCookies()));
+
+    loadSettings();
+    restoreCookies();
 }
 
 CookieJar::~CookieJar()
@@ -111,11 +111,11 @@ void CookieJar::clearCookies()
 
 void CookieJar::restoreCookies()
 {
-    if (m_profilePath.isEmpty()) {
+    if (mApp->isPrivateSession()) {
         return;
     }
 
-    const QString cookiesFile = m_profilePath + QLatin1String("cookies.dat");
+    const QString cookiesFile = DataPaths::currentProfilePath() + QLatin1String("cookies.dat");
     QDateTime now = QDateTime::currentDateTime();
 
     QList<QNetworkCookie> restoredCookies;
@@ -147,7 +147,7 @@ void CookieJar::restoreCookies()
 
 void CookieJar::saveCookies()
 {
-    if (m_profilePath.isEmpty()) {
+    if (mApp->isPrivateSession()) {
         return;
     }
 
@@ -165,7 +165,7 @@ void CookieJar::saveCookies()
         }
     }
 
-    QFile file(m_profilePath + QLatin1String("cookies.dat"));
+    QFile file(DataPaths::currentProfilePath() + QLatin1String("cookies.dat"));
     file.open(QIODevice::WriteOnly);
     QDataStream stream(&file);
     int count = cookies.count();

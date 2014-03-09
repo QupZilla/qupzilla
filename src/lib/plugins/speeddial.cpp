@@ -16,9 +16,9 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "speeddial.h"
-#include "mainapplication.h"
 #include "pagethumbnailer.h"
 #include "settings.h"
+#include "datapaths.h"
 #include "qztools.h"
 
 #include <QDir>
@@ -63,11 +63,11 @@ void SpeedDial::loadSettings()
     }
     changed(allPages);
 
-    m_thumbnailsDir = mApp->currentProfilePath() + "thumbnails/";
+    m_thumbnailsDir = DataPaths::currentProfilePath() + "thumbnails/";
 
     // If needed, create thumbnails directory
     if (!QDir(m_thumbnailsDir).exists()) {
-        QDir(mApp->currentProfilePath()).mkdir("thumbnails");
+        QDir(DataPaths::currentProfilePath()).mkdir("thumbnails");
     }
 }
 

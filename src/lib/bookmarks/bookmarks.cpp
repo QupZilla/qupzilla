@@ -20,6 +20,7 @@
 #include "bookmarksmodel.h"
 #include "bookmarkstools.h"
 #include "autosaver.h"
+#include "datapaths.h"
 #include "settings.h"
 #include "qztools.h"
 #include "json.h"
@@ -27,16 +28,15 @@
 #include <QDebug>
 #include <QFile>
 
-Bookmarks::Bookmarks(const QString &profilePath, QObject* parent)
+Bookmarks::Bookmarks(QObject* parent)
     : QObject(parent)
     , m_autoSaver(0)
-    , m_profilePath(profilePath)
 {
-    init();
-    loadSettings();
-
     m_autoSaver = new AutoSaver(this);
     connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveSettings()));
+
+    init();
+    loadSettings();
 }
 
 Bookmarks::~Bookmarks()
@@ -209,7 +209,7 @@ void Bookmarks::init()
 
 void Bookmarks::loadBookmarks()
 {
-    const QString bookmarksFile = m_profilePath + QLatin1String("/bookmarks.json");
+    const QString bookmarksFile = DataPaths::currentProfilePath() + QLatin1String("/bookmarks.json");
     const QString backupFile = bookmarksFile + QLatin1String(".old");
 
     QFile file(bookmarksFile);
@@ -275,7 +275,7 @@ void Bookmarks::saveBookmarks()
         return;
     }
 
-    QFile file(m_profilePath + QLatin1String("/bookmarks.json"));
+    QFile file(DataPaths::currentProfilePath() + QLatin1String("/bookmarks.json"));
 
     if (!file.open(QFile::WriteOnly)) {
         qWarning() << "Bookmarks::saveBookmarks() Error opening bookmarks file for writing!";

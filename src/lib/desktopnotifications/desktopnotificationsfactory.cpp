@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "desktopnotificationsfactory.h"
 #include "desktopnotification.h"
-#include "mainapplication.h"
+#include "datapaths.h"
 #include "settings.h"
 
 #include <QFile>
@@ -79,7 +79,7 @@ void DesktopNotificationsFactory::showNotification(const QPixmap &icon, const QS
         break;
     case DesktopNative:
 #if defined(Q_OS_UNIX) && !defined(DISABLE_DBUS)
-        QFile tmp(mApp->tempPath() + "/qupzilla_notif.png");
+        QFile tmp(DataPaths::path(DataPaths::Temp) + QLatin1String("/qupzilla_notif.png"));
         tmp.open(QFile::WriteOnly);
         icon.save(tmp.fileName());
 
@@ -102,7 +102,7 @@ void DesktopNotificationsFactory::showNotification(const QPixmap &icon, const QS
 void DesktopNotificationsFactory::nativeNotificationPreview()
 {
 #if defined(Q_OS_UNIX) && !defined(DISABLE_DBUS)
-    QFile tmp(mApp->tempPath() + "/qupzilla_notif.png");
+    QFile tmp(DataPaths::path(DataPaths::Temp) + "/qupzilla_notif.png");
     tmp.open(QFile::WriteOnly);
     QPixmap(":icons/preferences/dialog-question.png").save(tmp.fileName());
 

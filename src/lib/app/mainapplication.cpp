@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "mainapplication.h"
+#include "datapaths.h"
 #include "browserwindow.h"
 #include "tabwidget.h"
 #include "bookmarkstoolbar.h"
@@ -38,7 +39,7 @@
 #include "mainapplication.h"
 #include "webhistoryinterface.h"
 #include "qztools.h"
-#include "profileupdater.h"
+#include "profilemanager.h"
 #include "searchenginesmanager.h"
 #include "speeddial.h"
 #include "webpage.h"
@@ -101,8 +102,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_isPortable(false)
     , m_isClosing(false)
     , m_isRestoring(false)
-    , m_startingAfterCrash(false)
-    , m_databaseConnected(false)
+    , m_isStartingAfterCrash(false)
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     , m_registerQAppAssociation(0)
 #endif
@@ -114,18 +114,8 @@ MainApplication::MainApplication(int &argc, char** argv)
     setApplicationName("QupZilla");
     setApplicationVersion(Qz::VERSION);
     setOrganizationDomain("qupzilla");
-
-#if defined(Q_OS_UNIX) && !defined(NO_SYSTEM_DATAPATH)
-    DATADIR = USE_DATADIR "/";
-#else
-    DATADIR = qApp->applicationDirPath() + "/";
-#endif
-
-#ifdef Q_OS_MAC
-    DATADIR.append(QLatin1String("../Resources/"));
-#endif
-
     setWindowIcon(QIcon(":icons/exeicons/qupzilla-window.png"));
+
     bool noAddons = false;
     bool newInstance = false;
     QUrl startUrl;
@@ -190,50 +180,8 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     if (isPortable()) {
         std::cout << "QupZilla: Running in Portable Mode." << std::endl;
-        PROFILEDIR = DATADIR + "profiles/";
+        DataPaths::setPortableVersion();
     }
-    else {
-#if defined(Q_OS_WIN) || defined(Q_OS_OS2)
-        // Use %LOCALAPPDATA%/qupzilla as PROFILEDIR on Windows
-#if QT_VERSION < 0x050000
-        QString dataLocation = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
-#else
-        QString dataLocation = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
-#endif
-        if (dataLocation.isEmpty()) {
-            dataLocation = QDir::homePath() + QLatin1String("/.config/qupzilla/");
-        }
-
-        QDir confPath = QDir(dataLocation);
-
-        QDir homePath = QDir(QDir::homePath() + QLatin1String("/.qupzilla/"));
-
-        if (!homePath.exists()) {
-            homePath = QDir::homePath() + QLatin1String("/.config/qupzilla/");
-        }
-#else // Unix
-        QDir confPath = QDir(QDir::homePath() + QLatin1String("/.config/qupzilla/"));
-        QDir homePath = QDir(QDir::homePath() + QLatin1String("/.qupzilla/"));
-#endif
-
-        if (homePath.exists() && !confPath.exists()) {
-            PROFILEDIR = homePath.absolutePath() + QLatin1Char('/');
-
-            qWarning() << "WARNING: Using deprecated configuration path" << homePath.absolutePath();
-            qWarning() << "WARNING: This path may not be supported in future versions!";
-            qWarning() << "WARNING: Please move your configuration into" << confPath.absolutePath();
-        }
-        else {
-            PROFILEDIR = confPath.absolutePath() + QLatin1Char('/');
-        }
-    }
-
-    // Make sure the path exists
-    QDir dir;
-    dir.mkpath(PROFILEDIR);
-
-    TRANSLATIONSDIR = DATADIR + "locale/";
-    THEMESDIR = DATADIR + "themes/";
 
     // Don't start single application in private browsing
     if (!m_isPrivateSession) {
@@ -269,30 +217,15 @@ MainApplication::MainApplication(int &argc, char** argv)
     setQuitOnLastWindowClosed(true);
 #endif
 
+    QSettings::setDefaultFormat(QSettings::IniFormat);
     QDesktopServices::setUrlHandler("http", this, "addNewTab");
     QDesktopServices::setUrlHandler("ftp", this, "addNewTab");
 
-    checkSettingsDir();
+    ProfileManager profileManager;
+    profileManager.initConfigDir();
+    profileManager.initCurrentProfile(startProfile);
 
-    QSettings::setDefaultFormat(QSettings::IniFormat);
-    if (startProfile.isEmpty()) {
-        QSettings settings(PROFILEDIR + "profiles/profiles.ini", QSettings::IniFormat);
-        if (settings.value("Profiles/startProfile", "default").toString().contains(QLatin1Char('/'))) {
-            m_activeProfil = PROFILEDIR + "profiles/default/";
-        }
-        else {
-            m_activeProfil = PROFILEDIR + "profiles/" + settings.value("Profiles/startProfile", "default").toString() + "/";
-        }
-    }
-    else {
-        m_activeProfil = PROFILEDIR + "profiles/" + startProfile + "/";
-    }
-
-    ProfileUpdater u(m_activeProfil);
-    u.checkProfile();
-    connectDatabase();
-
-    Settings::createSettings(m_activeProfil + "settings.ini");
+    Settings::createSettings(DataPaths::currentProfilePath() + QLatin1String("settings.ini"));
 
     m_autoSaver = new AutoSaver(this);
     connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveStateSlot()));
@@ -314,7 +247,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     if (!m_isPrivateSession) {
         Settings settings;
-        m_startingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
+        m_isStartingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
         int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 3).toInt();
         settings.setValue("SessionRestore/isRunning", true);
 
@@ -328,8 +261,8 @@ MainApplication::MainApplication(int &argc, char** argv)
 
         backupSavedSessions();
 
-        if (m_startingAfterCrash || afterLaunch == 3) {
-            m_restoreManager = new RestoreManager(m_activeProfil + "session.dat");
+        if (m_isStartingAfterCrash || afterLaunch == 3) {
+            m_restoreManager = new RestoreManager();
             if (!m_restoreManager->isValid()) {
                 destroyRestoreManager();
             }
@@ -339,6 +272,16 @@ MainApplication::MainApplication(int &argc, char** argv)
     QTimer::singleShot(0, this, SLOT(postLaunch()));
 #ifdef Q_OS_WIN
     QTimer::singleShot(10 * 1000, this, SLOT(setupJumpList()));
+#endif
+}
+
+MainApplication::~MainApplication()
+{
+    // Delete all classes that are saving data in destructor
+    delete m_bookmarks;
+
+#ifdef Q_OS_MAC
+    delete m_macDockMenu;
 #endif
 }
 
@@ -356,7 +299,7 @@ void MainApplication::postLaunch()
         getWindow()->toggleFullScreen();
     }
 
-    QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, m_activeProfil);
+    QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, DataPaths::currentProfilePath());
     QWebHistoryInterface::setDefaultInterface(new WebHistoryInterface(this));
 
     connect(this, SIGNAL(messageReceived(QString)), this, SLOT(receiveAppMessage(QString)));
@@ -388,7 +331,7 @@ void MainApplication::loadSettings()
     settings.beginGroup("Web-Browser-Settings");
 
     if (!m_isPrivateSession) {
-        m_websettings->enablePersistentStorage(m_activeProfil);
+        m_websettings->enablePersistentStorage(DataPaths::currentProfilePath());
         m_websettings->setAttribute(QWebSettings::LocalStorageEnabled, settings.value("HTML5StorageEnabled", true).toBool());
     }
 
@@ -535,7 +478,7 @@ bool MainApplication::isPortable() const
 
 bool MainApplication::isStartingAfterCrash() const
 {
-    return m_startingAfterCrash;
+    return m_isStartingAfterCrash;
 }
 
 int MainApplication::windowCount() const
@@ -545,23 +488,18 @@ int MainApplication::windowCount() const
 
 QString MainApplication::currentLanguageFile() const
 {
-    return m_activeLanguage;
+    return m_currentLanguage;
 }
 
 QString MainApplication::currentLanguage() const
 {
-    QString lang = m_activeLanguage;
+    QString lang = m_currentLanguage;
 
     if (lang.isEmpty()) {
         return "en_US";
     }
 
     return lang.left(lang.length() - 3);
-}
-
-QString MainApplication::currentProfilePath() const
-{
-    return m_activeProfil;
 }
 
 void MainApplication::receiveAppMessage(QString message)
@@ -678,61 +616,25 @@ bool MainApplication::event(QEvent* e)
 }
 #endif
 
-void MainApplication::connectDatabase()
-{
-    if (m_databaseConnected) {
-        return;
-    }
-
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(m_activeProfil + "browsedata.db");
-    if (!QFile::exists(m_activeProfil + "browsedata.db")) {
-        QFile(":data/browsedata.db").copy(m_activeProfil + "browsedata.db");
-        QFile(m_activeProfil + "browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
-
-        db.setDatabaseName(m_activeProfil + "browsedata.db");
-        qWarning("Cannot find SQLite database file! Copying and using the defaults!");
-    }
-
-    if (m_isPrivateSession) {
-        db.setConnectOptions("QSQLITE_OPEN_READONLY");
-    }
-
-    if (!db.open()) {
-        qWarning("Cannot open SQLite database! Continuing without database....");
-    }
-
-    m_databaseConnected = true;
-}
-
 void MainApplication::loadTheme(const QString &name)
 {
-    // Themes are loaded from the following directories:
-    //  1. Directory "themes" in user profile
-    //  2. Directory "themes" in root profile directory
-    //  3. System data path
-    //       > /usr/share/qupzilla/themes on Linux
-    //       > $EXECUTABLE_DIR/themes on Windows
-
-    QStringList themePaths;
-    themePaths << m_activeProfil + "themes/"
-               << PROFILEDIR + "themes/"
-               << THEMESDIR;
+    QString activeThemePath;
+    const QStringList themePaths = DataPaths::allPaths(DataPaths::Themes);
 
     foreach (const QString &path, themePaths) {
         const QString theme = path + name + "/";
         if (QFile::exists(theme + "main.css")) {
-            m_activeThemePath = theme;
+            activeThemePath = theme;
             break;
         }
     }
 
-    if (m_activeThemePath.isEmpty()) {
-        qWarning("Cannot load theme '%s'!", qPrintable(name));
-        m_activeThemePath = THEMESDIR + DEFAULT_THEME_NAME + "/";
+    if (activeThemePath.isEmpty()) {
+        qWarning() << "Cannot load theme " << name;
+        activeThemePath = DataPaths::path(DataPaths::Themes) + DEFAULT_THEME_NAME + QLatin1Char('/');
     }
 
-    QFile cssFile(m_activeThemePath + "main.css");
+    QFile cssFile(activeThemePath + "main.css");
     cssFile.open(QFile::ReadOnly);
     QString css = cssFile.readAll();
     cssFile.close();
@@ -742,8 +644,8 @@ void MainApplication::loadTheme(const QString &name)
      * should be enough instead of loading special stylesheets
      */
 #ifdef Q_OS_UNIX
-    if (QFile(m_activeThemePath + "linux.css").exists()) {
-        cssFile.setFileName(m_activeThemePath + "linux.css");
+    if (QFile(activeThemePath + "linux.css").exists()) {
+        cssFile.setFileName(activeThemePath + "linux.css");
         cssFile.open(QFile::ReadOnly);
         css.append(cssFile.readAll());
         cssFile.close();
@@ -751,8 +653,8 @@ void MainApplication::loadTheme(const QString &name)
 #endif
 
 #ifdef Q_OS_MAC
-    if (QFile(m_activeThemePath + "mac.css").exists()) {
-        cssFile.setFileName(m_activeThemePath + "mac.css");
+    if (QFile(activeThemePath + "mac.css").exists()) {
+        cssFile.setFileName(activeThemePath + "mac.css");
         cssFile.open(QFile::ReadOnly);
         css.append(cssFile.readAll());
         cssFile.close();
@@ -760,8 +662,8 @@ void MainApplication::loadTheme(const QString &name)
 #endif
 
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
-    if (QFile(m_activeThemePath + "windows.css").exists()) {
-        cssFile.setFileName(m_activeThemePath + "windows.css");
+    if (QFile(activeThemePath + "windows.css").exists()) {
+        cssFile.setFileName(activeThemePath + "windows.css");
         cssFile.open(QFile::ReadOnly);
         css.append(cssFile.readAll());
         cssFile.close();
@@ -770,14 +672,14 @@ void MainApplication::loadTheme(const QString &name)
 
     // RTL Support
     // Loading 'rtl.css' when layout is right to left!
-    if (isRightToLeft() && QFile(m_activeThemePath + "rtl.css").exists()) {
-        cssFile.setFileName(m_activeThemePath + "rtl.css");
+    if (isRightToLeft() && QFile(activeThemePath + "rtl.css").exists()) {
+        cssFile.setFileName(activeThemePath + "rtl.css");
         cssFile.open(QFile::ReadOnly);
         css.append(cssFile.readAll());
         cssFile.close();
     }
 
-    QString relativePath = QDir::current().relativeFilePath(m_activeThemePath);
+    QString relativePath = QDir::current().relativeFilePath(activeThemePath);
     css.replace(QzRegExp("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)", Qt::CaseSensitive),
                 QString("url(%1\\1)").arg(relativePath + "/"));
 
@@ -793,26 +695,39 @@ void MainApplication::translateApp()
         file.append(".qm");
     }
 
-    // If "xx_yy" translation doesn't exists, try to use "xx*" translation
-    // It can only happen when Language is chosen from system locale
+    QString dir = DataPaths::path(DataPaths::Translations);
 
-    if (!file.isEmpty() && !QFile(TRANSLATIONSDIR + QLatin1String("/") + file).exists()) {
-        QDir translationsDir(TRANSLATIONSDIR);
-        QString lang = file.left(2) + QLatin1String("*.qm");
+    if (!file.isEmpty()) {
+        const QStringList translationsPaths = DataPaths::allPaths(DataPaths::Translations);
 
-        const QStringList translations = translationsDir.entryList(QStringList(lang));
+        foreach (const QString &path, translationsPaths) {
+            // If "xx_yy" translation doesn't exists, try to use "xx*" translation
+            // It can only happen when Language is chosen from system locale
 
-        // If no translation can be found, default English will be used
-        file = translations.isEmpty() ? QString() : translations.first();
+            if (!QFile(path + file).exists()) {
+                QDir dir(path);
+                QString lang = file.left(2) + QLatin1String("*.qm");
+
+                const QStringList translations = dir.entryList(QStringList(lang));
+
+                // If no translation can be found, default English will be used
+                file = translations.isEmpty() ? QString() : translations.first();
+            }
+
+            if (QFile(path + file).exists()) {
+                dir = path;
+                break;
+            }
+        }
     }
 
     QTranslator* app = new QTranslator(this);
-    app->load(file, TRANSLATIONSDIR);
+    app->load(file, dir);
 
     QTranslator* sys = new QTranslator(this);
-    sys->load("qt_" + file, TRANSLATIONSDIR);
+    sys->load("qt_" + file, dir);
 
-    m_activeLanguage = file;
+    m_currentLanguage = file;
 
     installTranslator(app);
     installTranslator(sys);
@@ -824,7 +739,7 @@ void MainApplication::backupSavedSessions()
     // session.dat.old  - first backup
     // session.dat.old1 - second backup
 
-    const QString sessionFile = m_activeProfil + "session.dat";
+    const QString sessionFile = DataPaths::currentProfilePath() + QLatin1String("session.dat");
 
     if (!QFile::exists(sessionFile)) {
         return;
@@ -895,12 +810,13 @@ void MainApplication::saveSettings()
     m_searchEnginesManager->saveSettings();
     m_networkmanager->saveSettings();
     m_plugins->shutdown();
-    clearTempPath();
+
+    DataPaths::clearTempData();
 
     qzSettings->saveSettings();
     AdBlockManager::instance()->save();
     IconProvider::instance()->saveIconsToDatabase();
-    QFile::remove(currentProfilePath() + "WebpageIcons.db");
+    QFile::remove(DataPaths::currentProfilePath() + QLatin1String("WebpageIcons.db"));
     Settings::syncSettings();
 }
 
@@ -947,7 +863,7 @@ NetworkManager* MainApplication::networkManager()
 CookieJar* MainApplication::cookieJar()
 {
     if (!m_cookiejar) {
-        m_cookiejar = new CookieJar(m_isPrivateSession ? QString() : m_activeProfil, this);
+        m_cookiejar = new CookieJar(this);
     }
     return m_cookiejar;
 }
@@ -968,7 +884,7 @@ PluginProxy* MainApplication::plugins()
 Bookmarks* MainApplication::bookmarks()
 {
     if (!m_bookmarks) {
-        m_bookmarks = new Bookmarks(m_activeProfil, this);
+        m_bookmarks = new Bookmarks(this);
     }
     return m_bookmarks;
 }
@@ -1001,10 +917,10 @@ QNetworkDiskCache* MainApplication::networkCache()
 {
     if (!m_networkCache) {
         Settings settings;
-        const QString basePath = settings.value("Web-Browser-Settings/CachePath",
-                                                QString("%1networkcache/").arg(m_activeProfil)).toString();
-
+        const QString defaultBasePath = QString("%1networkcache/").arg(DataPaths::currentProfilePath());
+        const QString basePath = settings.value("Web-Browser-Settings/CachePath", defaultBasePath).toString();
         const QString cachePath = QString("%1/%2-Qt%3/").arg(basePath, qWebKitVersion(), qVersion());
+
         m_networkCache = new QNetworkDiskCache(this);
         m_networkCache->setCacheDirectory(cachePath);
     }
@@ -1193,7 +1109,7 @@ bool MainApplication::saveStateSlot()
         qupzilla_->tabWidget()->savePinnedTabs();
     }
 
-    QFile file(m_activeProfil + QLatin1String("session.dat"));
+    QFile file(DataPaths::currentProfilePath() + QLatin1String("session.dat"));
     file.open(QIODevice::WriteOnly);
     file.write(data);
     file.close();
@@ -1248,58 +1164,6 @@ bool MainApplication::restoreStateSlot(BrowserWindow* window, RestoreData recove
     return true;
 }
 
-bool MainApplication::checkSettingsDir()
-{
-    /*
-    $HOMEDIR
-        |
-    .config/qupzilla/
-        |
-    profiles/---------------------
-        |                        |
-    default/-------------   profiles.ini
-        |               |
-    browsedata.db  bookmarks.json
-    */
-
-    if (QDir(PROFILEDIR).exists() && QFile(PROFILEDIR + "profiles/profiles.ini").exists()) {
-        return true;
-    }
-
-    std::cout << "QupZilla: Creating new profile directory" << std::endl;
-
-    QDir dir(PROFILEDIR);
-
-    if (!dir.exists()) {
-        dir.mkpath(PROFILEDIR);
-    }
-
-    dir.mkdir("profiles");
-    dir.cd("profiles");
-
-    //.config/qupzilla/profiles
-    QFile(PROFILEDIR + "profiles/profiles.ini").remove();
-    QFile(":data/profiles.ini").copy(PROFILEDIR + "profiles/profiles.ini");
-    QFile(PROFILEDIR + "profiles/profiles.ini").setPermissions(QFile::ReadUser | QFile::WriteUser);
-
-    dir.mkdir("default");
-    dir.cd("default");
-
-    //.config/qupzilla/profiles/default
-    QFile(PROFILEDIR + "profiles/default/browsedata.db").remove();
-    QFile(":data/browsedata.db").copy(PROFILEDIR + "profiles/default/browsedata.db");
-    QFile(PROFILEDIR + "profiles/default/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
-    QFile(":data/bookmarks.json").copy(PROFILEDIR + "profiles/default/bookmarks.json");
-    QFile(PROFILEDIR + "profiles/default/bookmarks.json").setPermissions(QFile::ReadUser | QFile::WriteUser);
-
-    QFile versionFile(PROFILEDIR + "profiles/default/version");
-    versionFile.open(QFile::WriteOnly);
-    versionFile.write(Qz::VERSION.toUtf8());
-    versionFile.close();
-
-    return dir.isReadable();
-}
-
 void MainApplication::destroyRestoreManager()
 {
     delete m_restoreManager;
@@ -1321,39 +1185,4 @@ void MainApplication::setProxyStyle(ProxyStyle* style)
 QString MainApplication::currentStyle() const
 {
     return m_proxyStyle->baseStyle()->objectName();
-}
-
-void MainApplication::clearTempPath()
-{
-    QString path = PROFILEDIR + "tmp/";
-    QDir dir(path);
-
-    if (dir.exists()) {
-        QzTools::removeDir(path);
-    }
-}
-
-QString MainApplication::tempPath() const
-{
-    QString path = PROFILEDIR + "tmp/";
-    QDir dir(path);
-    if (!dir.exists()) {
-#ifdef Q_OS_UNIX
-        // Symlink it to standard temporary path /tmp
-        QDir().mkpath(QDir::tempPath() + "/qupzilla/tmp");
-        QFile::remove(PROFILEDIR + "tmp");
-        QFile::link(QDir::tempPath() + "/qupzilla/tmp/", PROFILEDIR + "tmp");
-#else
-        dir.mkdir(path);
-#endif
-    }
-
-    return path;
-}
-
-MainApplication::~MainApplication()
-{
-#ifdef Q_OS_MAC
-    delete m_macDockMenu;
-#endif
 }

@@ -30,6 +30,7 @@
 #include "acceptlanguage.h"
 #include "cabundleupdater.h"
 #include "settings.h"
+#include "datapaths.h"
 #include "passwordmanager.h"
 #include "sslerrordialog.h"
 #include "schemehandlers/adblockschemehandler.h"
@@ -111,13 +112,13 @@ void NetworkManager::loadSettings()
     m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
 
 #if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
-    QString certDir = mApp->PROFILEDIR + "certificates";
+    QString certDir = DataPaths::currentProfilePath() + "certificates";
     QString bundlePath = certDir + "/ca-bundle.crt";
     QString bundleVersionPath = certDir + "/bundle_version";
 
     if (!QDir(certDir).exists()) {
-        QDir dir(mApp->PROFILEDIR);
-        dir.mkdir("certificates");
+        QDir dir;
+        dir.mkdir(certDir);
     }
 
     if (!QFile::exists(bundlePath)) {
@@ -593,7 +594,7 @@ void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
 
     // Delete cert file from profile
     bool deleted = false;
-    QDirIterator it(mApp->currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
+    QDirIterator it(DataPaths::currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it.hasNext()) {
         const QString filePath = it.next();
         const QList<QSslCertificate> &certs = QSslCertificate::fromPath(filePath);
@@ -627,13 +628,13 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     m_localCerts.append(cert);
     QSslSocket::addDefaultCaCertificate(cert);
 
-    QDir dir(mApp->currentProfilePath());
+    QDir dir(DataPaths::currentProfilePath());
     if (!dir.exists("certificates")) {
         dir.mkdir("certificates");
     }
 
     QString certFileName = fileNameForCert(cert);
-    QString fileName = QzTools::ensureUniqueFilename(mApp->currentProfilePath() + "certificates/" + certFileName);
+    QString fileName = QzTools::ensureUniqueFilename(DataPaths::currentProfilePath() + "certificates/" + certFileName);
 
     QFile file(fileName);
     if (file.open(QFile::WriteOnly)) {
@@ -725,7 +726,7 @@ void NetworkManager::loadCertificates()
     }
     // Local Certificates
 #ifdef Q_OS_WIN
-    QDirIterator it_(mApp->currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
+    QDirIterator it_(DataPaths::currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it_.hasNext()) {
         QString filePath = it_.next();
         if (!filePath.endsWith(QLatin1String(".crt"))) {
@@ -738,7 +739,7 @@ void NetworkManager::loadCertificates()
         }
     }
 #else
-    m_localCerts = QSslCertificate::fromPath(mApp->currentProfilePath() + "certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
+    m_localCerts = QSslCertificate::fromPath(DataPaths::currentProfilePath() + "certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
 #endif
 
     QSslSocket::setDefaultCaCertificates(m_caCerts + m_localCerts);

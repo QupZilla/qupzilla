@@ -41,10 +41,12 @@
 #include "qztools.h"
 #include "autofill.h"
 #include "settings.h"
+#include "datapaths.h"
 #include "tabbedwebview.h"
 #include "clearprivatedata.h"
 #include "useragentdialog.h"
 #include "registerqappassociation.h"
+#include "profilemanager.h"
 #include "html5permissions/html5permissionsdialog.h"
 #include "pac/pacmanager.h"
 
@@ -177,31 +179,23 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
         ui->useCurrentBut->setEnabled(false);
         ui->newTabUseCurrent->setEnabled(false);
     }
-    //PROFILES
-    m_actProfileName = mApp->currentProfilePath();
-    m_actProfileName = m_actProfileName.left(m_actProfileName.length() - 1);
-    m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf(QLatin1Char('/')));
-    m_actProfileName.remove(QLatin1Char('/'));
 
-    ui->activeProfile->setText("<b>" + m_actProfileName + "</b>");
+    // PROFILES
+    ProfileManager profileManager;
+    QString startingProfile = profileManager.startingProfile();
+    ui->activeProfile->setText("<b>" + profileManager.currentProfile() + "</b>");
+    ui->startProfile->addItem(startingProfile);
 
-    QSettings profileSettings(mApp->PROFILEDIR + "profiles/profiles.ini", QSettings::IniFormat);
-    QString actProfileName = profileSettings.value("Profiles/startProfile", "default").toString();
-
-    ui->startProfile->addItem(actProfileName);
-    QDir profilesDir(mApp->PROFILEDIR + "profiles/");
-    QStringList list_ = profilesDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-    foreach (const QString &name, list_) {
-        if (actProfileName == name) {
-            continue;
+    foreach (const QString &name, profileManager.availableProfiles()) {
+        if (startingProfile != name) {
+            ui->startProfile->addItem(name);
         }
-
-        ui->startProfile->addItem(name);
     }
+
     connect(ui->createProfile, SIGNAL(clicked()), this, SLOT(createProfile()));
     connect(ui->deleteProfile, SIGNAL(clicked()), this, SLOT(deleteProfile()));
-    connect(ui->startProfile, SIGNAL(currentIndexChanged(QString)), this, SLOT(startProfileIndexChanged(QString)));
-    startProfileIndexChanged(ui->startProfile->currentText());
+    connect(ui->startProfile, SIGNAL(currentIndexChanged(int)), this, SLOT(startProfileIndexChanged(int)));
+    startProfileIndexChanged(ui->startProfile->currentIndex());
 
     //APPEREANCE
     settings.beginGroup("Browser-View-Settings");
@@ -296,7 +290,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     ui->allowCache->setChecked(settings.value("AllowLocalCache", true).toBool());
     ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
     ui->MBlabel->setText(settings.value("LocalCacheSize", 50).toString() + " MB");
-    ui->cachePath->setText(settings.value("CachePath", QString("%1networkcache/").arg(mApp->currentProfilePath())).toString());
+    ui->cachePath->setText(settings.value("CachePath", QString("%1networkcache/").arg(DataPaths::currentProfilePath())).toString());
     connect(ui->allowCache, SIGNAL(clicked(bool)), this, SLOT(allowCacheChanged(bool)));
     connect(ui->cacheMB, SIGNAL(valueChanged(int)), this, SLOT(cacheValueChanged(int)));
     connect(ui->changeCachePath, SIGNAL(clicked()), this, SLOT(changeCachePathClicked()));
@@ -409,21 +403,25 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
 
     ui->languages->addItem("English (en_US)");
 
-    QDir lanDir(mApp->TRANSLATIONSDIR);
-    QStringList list = lanDir.entryList(QStringList("*.qm"));
-    foreach (const QString &name, list) {
-        if (name.startsWith(QLatin1String("qt_"))) {
-            continue;
+    const QStringList translationPaths = DataPaths::allPaths(DataPaths::Translations);
+
+    foreach (const QString &path, translationPaths) {
+        QDir lanDir(path);
+        QStringList list = lanDir.entryList(QStringList("*.qm"));
+        foreach (const QString &name, list) {
+            if (name.startsWith(QLatin1String("qt_"))) {
+                continue;
+            }
+
+            QString loc = name;
+            loc.remove(QLatin1String(".qm"));
+
+            if (loc == activeLanguage) {
+                continue;
+            }
+
+            ui->languages->addItem(createLanguageItem(loc), loc);
         }
-
-        QString loc = name;
-        loc.remove(QLatin1String(".qm"));
-
-        if (loc == activeLanguage) {
-            continue;
-        }
-
-        ui->languages->addItem(createLanguageItem(loc), loc);
     }
 
     // Proxy Configuration
@@ -789,30 +787,26 @@ void Preferences::createProfile()
 {
     QString name = QInputDialog::getText(this, tr("New Profile"), tr("Enter the new profile's name:"));
     name = QzTools::filterCharsFromFilename(name);
+
     if (name.isEmpty()) {
         return;
     }
-    QDir dir(mApp->PROFILEDIR + "profiles/");
-    if (QDir(dir.absolutePath() + "/" + name).exists()) {
+
+    ProfileManager profileManager;
+    int res = profileManager.createProfile(name);
+
+    if (res == -1) {
         QMessageBox::warning(this, tr("Error!"), tr("This profile already exists!"));
         return;
     }
-    if (!dir.mkdir(name)) {
+
+    if (res != 0) {
         QMessageBox::warning(this, tr("Error!"), tr("Cannot create profile directory!"));
         return;
     }
 
-    dir.cd(name);
-    QFile(":data/browsedata.db").copy(dir.absolutePath() + "/browsedata.db");
-    QFile(dir.absolutePath() + "/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
-
-    QFile versionFile(dir.absolutePath() + "/version");
-    versionFile.open(QFile::WriteOnly);
-    versionFile.write(Qz::VERSION.toUtf8());
-    versionFile.close();
-
-    ui->startProfile->insertItem(0, name);
-    ui->startProfile->setCurrentIndex(0);
+    ui->startProfile->addItem(name);
+    ui->startProfile->setCurrentIndex(ui->startProfile->count() - 1);
 }
 
 void Preferences::deleteProfile()
@@ -824,15 +818,19 @@ void Preferences::deleteProfile()
         return;
     }
 
-    QzTools::removeDir(mApp->PROFILEDIR + "profiles/" + name);
+    ProfileManager profileManager;
+    profileManager.removeProfile(name);
+
     ui->startProfile->removeItem(ui->startProfile->currentIndex());
 }
 
-void Preferences::startProfileIndexChanged(QString index)
+void Preferences::startProfileIndexChanged(int index)
 {
-    ui->deleteProfile->setEnabled(m_actProfileName != index);
+    // Index 0 is current profile
 
-    if (m_actProfileName == index) {
+    ui->deleteProfile->setEnabled(index != 0);
+
+    if (index == 0) {
         ui->cannotDeleteActiveProfileLabel->setText(tr("Note: You cannot delete active profile."));
     }
     else {
@@ -1071,7 +1069,7 @@ void Preferences::saveSettings()
     settings.endGroup();
 
     //Profiles
-    QSettings profileSettings(mApp->PROFILEDIR + "profiles/profiles.ini", QSettings::IniFormat);
+    QSettings profileSettings(DataPaths::path(DataPaths::Config) + "profiles/profiles.ini", QSettings::IniFormat);
     profileSettings.setValue("Profiles/startProfile", ui->startProfile->currentText());
 
     m_pluginsList->save();

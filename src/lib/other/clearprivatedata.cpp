@@ -21,6 +21,7 @@
 #include "cookiejar.h"
 #include "history.h"
 #include "settings.h"
+#include "datapaths.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "clickablelabel.h"
@@ -65,14 +66,14 @@ void ClearPrivateData::historyClicked(bool state)
 
 void ClearPrivateData::clearLocalStorage()
 {
-    const QString profile = mApp->currentProfilePath();
+    const QString profile = DataPaths::currentProfilePath();
 
     QzTools::removeDir(profile + "LocalStorage");
 }
 
 void ClearPrivateData::clearWebDatabases()
 {
-    const QString profile = mApp->currentProfilePath();
+    const QString profile = DataPaths::currentProfilePath();
 
     QWebDatabase::removeAllDatabases();
     QzTools::removeDir(profile + "Databases");
@@ -83,7 +84,7 @@ void ClearPrivateData::clearCache()
     mApp->networkCache()->clear();
     mApp->webSettings()->clearMemoryCaches();
 
-    QFile::remove(mApp->currentProfilePath() + "ApplicationCache.db");
+    QFile::remove(DataPaths::currentProfilePath() + "ApplicationCache.db");
 }
 
 void ClearPrivateData::clearIcons()
@@ -174,7 +175,7 @@ void ClearPrivateData::optimizeDb()
 {
     mApp->setOverrideCursor(Qt::WaitCursor);
 
-    QString profilePath = mApp->currentProfilePath();
+    QString profilePath = DataPaths::currentProfilePath();
     QString sizeBefore = QzTools::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
 
     mApp->history()->optimizeHistory();

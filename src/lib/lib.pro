@@ -153,7 +153,6 @@ SOURCES += \
     downloads/downloadfilehelper.cpp \
     tools/certificateinfowidget.cpp \
     webview/webinspectordockwidget.cpp \
-    app/profileupdater.cpp \
     preferences/acceptlanguage.cpp \
     opensearch/opensearchreader.cpp \
     opensearch/opensearchengine.cpp \
@@ -258,7 +257,9 @@ SOURCES += \
     bookmarks/bookmarksexport/bookmarksexportdialog.cpp \
     bookmarks/bookmarksexport/htmlexporter.cpp \
     app/browserwindow.cpp \
-    history/historymenu.cpp
+    history/historymenu.cpp \
+    app/datapaths.cpp \
+    app/profilemanager.cpp
 
 
 HEADERS  += \
@@ -348,7 +349,6 @@ HEADERS  += \
     tools/certificateinfowidget.h \
     webview/webinspectordockwidget.h \
     3rdparty/msvc2008.h \
-    app/profileupdater.h \
     preferences/acceptlanguage.h \
     opensearch/opensearchreader.h \
     opensearch/opensearchengine.h \
@@ -457,7 +457,9 @@ HEADERS  += \
     bookmarks/bookmarksexport/htmlexporter.h \
     app/browserwindow.h \
     app/qzcommon.h \
-    history/historymenu.h
+    history/historymenu.h \
+    app/datapaths.h \
+    app/profilemanager.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

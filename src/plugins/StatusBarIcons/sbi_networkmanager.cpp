@@ -19,6 +19,7 @@
 #include "sbi_networkproxy.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
+#include "datapaths.h"
 
 #include <QSettings>
 
@@ -122,7 +123,7 @@ void SBI_NetworkManager::applyCurrentProxy()
     }
 
     // Manually modify settings to apply proxy configuration
-    QSettings settings(mApp->currentProfilePath() + "settings.ini", QSettings::IniFormat);
+    QSettings settings(DataPaths::currentProfilePath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Proxy");
     m_currentProxy->saveToSettings(settings);
     settings.endGroup();

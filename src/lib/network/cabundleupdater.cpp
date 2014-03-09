@@ -19,6 +19,7 @@
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "browserwindow.h"
+#include "datapaths.h"
 #include "qztools.h"
 
 #include <QTimer>
@@ -34,9 +35,9 @@ CaBundleUpdater::CaBundleUpdater(NetworkManager* manager, QObject* parent)
     , m_reply(0)
     , m_latestBundleVersion(0)
 {
-    m_bundleVersionFileName = mApp->PROFILEDIR + "certificates/bundle_version";
-    m_bundleFileName = mApp->PROFILEDIR + "certificates/ca-bundle.crt";
-    m_lastUpdateFileName = mApp->PROFILEDIR + "certificates/last_update";
+    m_bundleVersionFileName = DataPaths::path(DataPaths::Config) + "certificates/bundle_version";
+    m_bundleFileName = DataPaths::path(DataPaths::Config) + "certificates/ca-bundle.crt";
+    m_lastUpdateFileName = DataPaths::path(DataPaths::Config) + "certificates/last_update";
 
     int updateTime = 30 * 1000;
 

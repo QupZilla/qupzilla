@@ -20,6 +20,7 @@
 #include "mainapplication.h"
 #include "speeddial.h"
 #include "settings.h"
+#include "datapaths.h"
 
 #include <iostream>
 #include <QPluginLoader>
@@ -124,7 +125,7 @@ void Plugins::loadPlugins()
         return;
     }
 
-    QDir settingsDir(mApp->currentProfilePath() + "extensions/");
+    QDir settingsDir(DataPaths::currentProfilePath() + "extensions/");
     if (!settingsDir.exists()) {
         settingsDir.mkdir(settingsDir.absolutePath());
     }
@@ -164,23 +165,14 @@ void Plugins::loadAvailablePlugins()
 
     m_pluginsLoaded = true;
 
-    QStringList dirs;
-    dirs << mApp->DATADIR + "plugins/";
+    QStringList dirs = DataPaths::allPaths(DataPaths::Plugins);
 
     // Portable build: Load only plugins from DATADIR/plugins/ directory.
     // Loaded plugins are saved with relative path, instead of absolute for
     // normal build.
 
-    if (!mApp->isPortable()) {
-        dirs
-#if defined(Q_OS_UNIX) && !defined(NO_SYSTEM_DATAPATH)
-#ifdef USE_LIBPATH
-                << USE_LIBPATH "/qupzilla/"
-#else
-                << "/usr/lib/qupzilla/"
-#endif
-#endif
-                << mApp->PROFILEDIR + "plugins/";
+    if (mApp->isPortable()) {
+        dirs = QStringList(DataPaths::path(DataPaths::Plugins));
     }
 
     foreach (const QString &dir, dirs) {
@@ -221,7 +213,7 @@ PluginInterface* Plugins::initPlugin(PluginInterface::InitState state, PluginInt
         return 0;
     }
 
-    interface->init(state, mApp->currentProfilePath() + "extensions/");
+    interface->init(state, DataPaths::currentProfilePath() + "extensions/");
 
     if (!interface->testPlugin()) {
         interface->unload();
