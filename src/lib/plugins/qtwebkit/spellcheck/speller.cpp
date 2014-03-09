@@ -65,7 +65,7 @@ void Speller::loadSettings()
     m_language.name = nameForLanguage(m_language.code);
     settings.endGroup();
 
-    m_userDictionary.setFileName(DataPaths::currentProfilePath() + "userdictionary.txt");
+    m_userDictionary.setFileName(DataPaths::currentProfilePath() + "/userdictionary.txt");
 
     if (m_enabled) {
         initialize();
@@ -393,7 +393,7 @@ QString Speller::getDictionaryPath() const
 #ifdef Q_OS_UNIX
     const QString defaultDicPath = "/usr/share/hunspell/";
 #else
-    const QString defaultDicPath = DataPaths::path(DataPaths::AppData) + "hunspell/";
+    const QString defaultDicPath = DataPaths::path(DataPaths::AppData) + "/hunspell/";
 #endif
 
     QString dicPath = QString::fromLocal8Bit(qgetenv("DICPATH")).trimmed();

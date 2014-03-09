@@ -42,13 +42,10 @@ void DataPaths::setPortableVersion()
     d->m_paths[Config] = d->m_paths[AppData];
 
     d->m_paths[Profiles] = d->m_paths[Config];
-    d->m_paths[Profiles].first().append(QLatin1String("profiles/"));
-
-    d->m_paths[CrashLogs] = d->m_paths[Config];
-    d->m_paths[CrashLogs].first().append(QLatin1String("crashlogs/"));
+    d->m_paths[Profiles].first().append(QLatin1String("/profiles"));
 
     d->m_paths[Temp] = d->m_paths[Config];
-    d->m_paths[Temp].first().append(QLatin1String("tmp/"));
+    d->m_paths[Temp].first().append(QLatin1String("/tmp"));
 }
 
 // static
@@ -85,16 +82,16 @@ void DataPaths::init()
 
     // AppData
 #if defined(Q_OS_MAC)
-    m_paths[AppData].append(QApplication::applicationDirPath() + QLatin1String("../Resources/"));
+    m_paths[AppData].append(QApplication::applicationDirPath() + QLatin1String("/../Resources"));
 #elif defined(Q_OS_UNIX) && !defined(NO_SYSTEM_DATAPATH)
-    m_paths[AppData].append(USE_DATADIR "/");
+    m_paths[AppData].append(USE_DATADIR);
 #else
-    m_paths[AppData].append(QApplication::applicationDirPath() + QLatin1Char('/'));
+    m_paths[AppData].append(QApplication::applicationDirPath());
 #endif
 
-    m_paths[Translations].append(m_paths[AppData].first() + QLatin1String("locale/"));
-    m_paths[Themes].append(m_paths[AppData].first() + QLatin1String("themes/"));
-    m_paths[Plugins].append(m_paths[AppData].first() + QLatin1String("plugins/"));
+    m_paths[Translations].append(m_paths[AppData].first() + QLatin1String("/locale"));
+    m_paths[Themes].append(m_paths[AppData].first() + QLatin1String("/themes"));
+    m_paths[Plugins].append(m_paths[AppData].first() + QLatin1String("/plugins"));
 
     // Config
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
@@ -106,29 +103,29 @@ void DataPaths::init()
 #endif
     // Backwards compatibility
     if (dataLocation.isEmpty()) {
-        dataLocation = QDir::homePath() + QLatin1String("/.config/qupzilla/");
+        dataLocation = QDir::homePath() + QLatin1String("/.config/qupzilla");
     }
 
     QDir confPath = QDir(dataLocation);
-    QDir homePath = QDir(QDir::homePath() + QLatin1String("/.qupzilla/"));
+    QDir homePath = QDir(QDir::homePath() + QLatin1String("/.qupzilla"));
 
     if (!homePath.exists()) {
-        homePath = QDir::homePath() + QLatin1String("/.config/qupzilla/");
+        homePath = QDir::homePath() + QLatin1String("/.config/qupzilla");
     }
 #else // Unix
-    QDir confPath = QDir(QDir::homePath() + QLatin1String("/.config/qupzilla/"));
-    QDir homePath = QDir(QDir::homePath() + QLatin1String("/.qupzilla/"));
+    QDir confPath = QDir(QDir::homePath() + QLatin1String("/.config/qupzilla"));
+    QDir homePath = QDir(QDir::homePath() + QLatin1String("/.qupzilla"));
 #endif
 
     if (homePath.exists() && !confPath.exists()) {
-        m_paths[Config].append(homePath.absolutePath() + QLatin1Char('/'));
+        m_paths[Config].append(homePath.absolutePath());
 
         qWarning() << "WARNING: Using deprecated configuration path" << homePath.absolutePath();
         qWarning() << "WARNING: This path may not be supported in future versions!";
         qWarning() << "WARNING: Please move your configuration into" << confPath.absolutePath();
     }
     else {
-        m_paths[Config].append(confPath.absolutePath() + QLatin1Char('/'));
+        m_paths[Config].append(confPath.absolutePath());
     }
 
     // Make sure the Config path exists
@@ -136,35 +133,30 @@ void DataPaths::init()
     dir.mkpath(m_paths[Config].first());
 
     // Profiles
-    m_paths[Profiles].append(m_paths[Config].first() + QLatin1String("profiles/"));
-
-    // Crashlogs
-    m_paths[CrashLogs].append(m_paths[Config].first() + QLatin1String("crashlogs/"));
+    m_paths[Profiles].append(m_paths[Config].first() + QLatin1String("/profiles"));
 
     // Temp
 #ifdef Q_OS_UNIX
     dir.mkpath(QDir::tempPath() + QLatin1String("/qupzilla/tmp"));
-    m_paths[Temp].append(QDir::tempPath() + QLatin1String("/qupzilla/tmp/"));
+    m_paths[Temp].append(QDir::tempPath() + QLatin1String("/qupzilla/tmp"));
 #else
-    m_paths[Temp].append(m_paths[Config].first() + QLatin1String("tmp/"));
+    m_paths[Temp].append(m_paths[Config].first() + QLatin1String("/tmp"));
 #endif
 
     // We also allow to load data from Config path
-    m_paths[Translations].append(m_paths[Config].first() + QLatin1String("locale/"));
-    m_paths[Themes].append(m_paths[Config].first() + QLatin1String("themes/"));
-    m_paths[Plugins].append(m_paths[Config].first() + QLatin1String("plugins/"));
+    m_paths[Translations].append(m_paths[Config].first() + QLatin1String("/locale"));
+    m_paths[Themes].append(m_paths[Config].first() + QLatin1String("/themes"));
+    m_paths[Plugins].append(m_paths[Config].first() + QLatin1String("/plugins"));
 
 #ifdef USE_LIBPATH
-    m_paths[Plugins].append(QLatin1String(USE_LIBPATH "/qupzilla/"));
+    m_paths[Plugins].append(QLatin1String(USE_LIBPATH "/qupzilla"));
 #else
     // FIXME: This should use QUPZILLA_PREFIX
-    m_paths[Plugins].append(QLatin1String("/usr/lib/qupzilla/"));
+    m_paths[Plugins].append(QLatin1String("/usr/lib/qupzilla"));
 #endif
 }
 
 void DataPaths::initCurrentProfile(const QString &profilePath)
 {
-    Q_ASSERT(profilePath.endsWith('/'));
-
     m_paths[CurrentProfile].append(profilePath);
 }

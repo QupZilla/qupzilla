@@ -225,7 +225,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     profileManager.initConfigDir();
     profileManager.initCurrentProfile(startProfile);
 
-    Settings::createSettings(DataPaths::currentProfilePath() + QLatin1String("settings.ini"));
+    Settings::createSettings(DataPaths::currentProfilePath() + QLatin1String("/settings.ini"));
 
     m_autoSaver = new AutoSaver(this);
     connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveStateSlot()));
@@ -622,8 +622,8 @@ void MainApplication::loadTheme(const QString &name)
     const QStringList themePaths = DataPaths::allPaths(DataPaths::Themes);
 
     foreach (const QString &path, themePaths) {
-        const QString theme = path + name + "/";
-        if (QFile::exists(theme + "main.css")) {
+        const QString theme = QString("%1/%2").arg(path, name);
+        if (QFile::exists(theme + "/main.css")) {
             activeThemePath = theme;
             break;
         }
@@ -631,10 +631,10 @@ void MainApplication::loadTheme(const QString &name)
 
     if (activeThemePath.isEmpty()) {
         qWarning() << "Cannot load theme " << name;
-        activeThemePath = DataPaths::path(DataPaths::Themes) + DEFAULT_THEME_NAME + QLatin1Char('/');
+        activeThemePath = DataPaths::path(DataPaths::Themes) + DEFAULT_THEME_NAME;
     }
 
-    QFile cssFile(activeThemePath + "main.css");
+    QFile cssFile(activeThemePath + "/main.css");
     cssFile.open(QFile::ReadOnly);
     QString css = cssFile.readAll();
     cssFile.close();
@@ -644,8 +644,8 @@ void MainApplication::loadTheme(const QString &name)
      * should be enough instead of loading special stylesheets
      */
 #ifdef Q_OS_UNIX
-    if (QFile(activeThemePath + "linux.css").exists()) {
-        cssFile.setFileName(activeThemePath + "linux.css");
+    if (QFile(activeThemePath + "/linux.css").exists()) {
+        cssFile.setFileName(activeThemePath + "/linux.css");
         cssFile.open(QFile::ReadOnly);
         css.append(cssFile.readAll());
         cssFile.close();
@@ -653,8 +653,8 @@ void MainApplication::loadTheme(const QString &name)
 #endif
 
 #ifdef Q_OS_MAC
-    if (QFile(activeThemePath + "mac.css").exists()) {
-        cssFile.setFileName(activeThemePath + "mac.css");
+    if (QFile(activeThemePath + "/mac.css").exists()) {
+        cssFile.setFileName(activeThemePath + "/mac.css");
         cssFile.open(QFile::ReadOnly);
         css.append(cssFile.readAll());
         cssFile.close();
@@ -662,8 +662,8 @@ void MainApplication::loadTheme(const QString &name)
 #endif
 
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
-    if (QFile(activeThemePath + "windows.css").exists()) {
-        cssFile.setFileName(activeThemePath + "windows.css");
+    if (QFile(activeThemePath + "/windows.css").exists()) {
+        cssFile.setFileName(activeThemePath + "/windows.css");
         cssFile.open(QFile::ReadOnly);
         css.append(cssFile.readAll());
         cssFile.close();
@@ -672,8 +672,8 @@ void MainApplication::loadTheme(const QString &name)
 
     // RTL Support
     // Loading 'rtl.css' when layout is right to left!
-    if (isRightToLeft() && QFile(activeThemePath + "rtl.css").exists()) {
-        cssFile.setFileName(activeThemePath + "rtl.css");
+    if (isRightToLeft() && QFile(activeThemePath + "/rtl.css").exists()) {
+        cssFile.setFileName(activeThemePath + "/rtl.css");
         cssFile.open(QFile::ReadOnly);
         css.append(cssFile.readAll());
         cssFile.close();
@@ -739,7 +739,7 @@ void MainApplication::backupSavedSessions()
     // session.dat.old  - first backup
     // session.dat.old1 - second backup
 
-    const QString sessionFile = DataPaths::currentProfilePath() + QLatin1String("session.dat");
+    const QString sessionFile = DataPaths::currentProfilePath() + QLatin1String("/session.dat");
 
     if (!QFile::exists(sessionFile)) {
         return;
@@ -816,7 +816,7 @@ void MainApplication::saveSettings()
     qzSettings->saveSettings();
     AdBlockManager::instance()->save();
     IconProvider::instance()->saveIconsToDatabase();
-    QFile::remove(DataPaths::currentProfilePath() + QLatin1String("WebpageIcons.db"));
+    QFile::remove(DataPaths::currentProfilePath() + QLatin1String("/WebpageIcons.db"));
     Settings::syncSettings();
 }
 
@@ -1109,7 +1109,7 @@ bool MainApplication::saveStateSlot()
         qupzilla_->tabWidget()->savePinnedTabs();
     }
 
-    QFile file(DataPaths::currentProfilePath() + QLatin1String("session.dat"));
+    QFile file(DataPaths::currentProfilePath() + QLatin1String("/session.dat"));
     file.open(QIODevice::WriteOnly);
     file.write(data);
     file.close();

@@ -112,7 +112,7 @@ void NetworkManager::loadSettings()
     m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
 
 #if defined(Q_OS_WIN) || defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
-    QString certDir = DataPaths::currentProfilePath() + "certificates";
+    QString certDir = DataPaths::currentProfilePath() + "/certificates";
     QString bundlePath = certDir + "/ca-bundle.crt";
     QString bundleVersionPath = certDir + "/bundle_version";
 
@@ -594,7 +594,7 @@ void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
 
     // Delete cert file from profile
     bool deleted = false;
-    QDirIterator it(DataPaths::currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
+    QDirIterator it(DataPaths::currentProfilePath() + "/certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it.hasNext()) {
         const QString filePath = it.next();
         const QList<QSslCertificate> &certs = QSslCertificate::fromPath(filePath);
@@ -634,7 +634,7 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     }
 
     QString certFileName = fileNameForCert(cert);
-    QString fileName = QzTools::ensureUniqueFilename(DataPaths::currentProfilePath() + "certificates/" + certFileName);
+    QString fileName = QzTools::ensureUniqueFilename(DataPaths::currentProfilePath() + "/certificates/" + certFileName);
 
     QFile file(fileName);
     if (file.open(QFile::WriteOnly)) {
@@ -726,7 +726,7 @@ void NetworkManager::loadCertificates()
     }
     // Local Certificates
 #ifdef Q_OS_WIN
-    QDirIterator it_(DataPaths::currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
+    QDirIterator it_(DataPaths::currentProfilePath() + "/certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it_.hasNext()) {
         QString filePath = it_.next();
         if (!filePath.endsWith(QLatin1String(".crt"))) {
@@ -739,7 +739,7 @@ void NetworkManager::loadCertificates()
         }
     }
 #else
-    m_localCerts = QSslCertificate::fromPath(DataPaths::currentProfilePath() + "certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
+    m_localCerts = QSslCertificate::fromPath(DataPaths::currentProfilePath() + "/certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
 #endif
 
     QSslSocket::setDefaultCaCertificates(m_caCerts + m_localCerts);

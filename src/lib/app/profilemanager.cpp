@@ -73,7 +73,7 @@ void ProfileManager::initConfigDir() const
 
 void ProfileManager::initCurrentProfile(const QString &profileName)
 {
-    QString profilePath = DataPaths::path(DataPaths::Profiles);
+    QString profilePath = DataPaths::path(DataPaths::Profiles) + QLatin1Char('/');
 
     if (profileName.isEmpty()) {
         profilePath.append(startingProfile());
@@ -82,7 +82,7 @@ void ProfileManager::initCurrentProfile(const QString &profileName)
         profilePath.append(profileName);
     }
 
-    DataPaths::setCurrentProfilePath(profilePath + QLatin1Char('/'));
+    DataPaths::setCurrentProfilePath(profilePath);
 
     updateCurrentProfile();
     connectDatabase();
@@ -126,9 +126,6 @@ bool ProfileManager::removeProfile(const QString &profileName)
 
 QString ProfileManager::currentProfile() const
 {
-    //const QString path = DataPaths::currentProfilePath();
-    //return path.mid(path.lastIndexOf(QLatin1Char('/')) + 1);
-
     QString path = DataPaths::currentProfilePath();
     path = path.mid(0, path.size() - 1);
     return path.mid(path.lastIndexOf(QLatin1Char('/')) + 1);
@@ -136,13 +133,13 @@ QString ProfileManager::currentProfile() const
 
 QString ProfileManager::startingProfile() const
 {
-    QSettings settings(DataPaths::path(DataPaths::Profiles) + QLatin1String("profiles.ini"), QSettings::IniFormat);
+    QSettings settings(DataPaths::path(DataPaths::Profiles) + QLatin1String("/profiles.ini"), QSettings::IniFormat);
     return settings.value(QLatin1String("Profiles/startProfile"), QLatin1String("default")).toString();
 }
 
 void ProfileManager::setStartingProfile(const QString &profileName)
 {
-    QSettings settings(DataPaths::path(DataPaths::Profiles) + QLatin1String("profiles.ini"), QSettings::IniFormat);
+    QSettings settings(DataPaths::path(DataPaths::Profiles) + QLatin1String("/profiles.ini"), QSettings::IniFormat);
     settings.setValue(QLatin1String("Profiles/startProfile"), profileName);
 }
 
@@ -249,7 +246,7 @@ void ProfileManager::copyDataToProfile()
 
 void ProfileManager::connectDatabase()
 {
-    const QString dbFile = DataPaths::currentProfilePath() + QLatin1String("browsedata.db");
+    const QString dbFile = DataPaths::currentProfilePath() + QLatin1String("/browsedata.db");
 
     // Reconnect
     if (m_databaseConnected) {

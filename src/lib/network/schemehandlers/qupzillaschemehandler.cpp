@@ -397,9 +397,9 @@ QString QupZillaSchemeReply::configPage()
 
         cPage.replace(QLatin1String("%PATHS-TEXT%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), DataPaths::currentProfilePath()) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), DataPaths::currentProfilePath() + "settings.ini") +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), DataPaths::currentProfilePath() + "session.dat") +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), DataPaths::currentProfilePath() + "pinnedtabs.dat") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), DataPaths::currentProfilePath() + "/settings.ini") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), DataPaths::currentProfilePath() + "/session.dat") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), DataPaths::currentProfilePath() + "/pinnedtabs.dat") +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), DataPaths::path(DataPaths::AppData)) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), DataPaths::path(DataPaths::Themes)) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), DataPaths::path(DataPaths::Translations)));

@@ -25,15 +25,14 @@ class DataPaths
 {
 public:
     enum Path {
-        AppData,             // /usr/share/qupzilla/ or . or ../Resources/
-        Translations,        // $AppData/locale/
-        Themes,              // $AppData/themes/
-        Plugins,             // $AppData/plugins/
-        Config,              // ~/.config/qupzilla/ or %LOCALAPPDATA%/qupzilla/ or $AppData/data (portable)
-        Profiles,            // $Config/profiles/
-        CurrentProfile,      // $Profiles/current_profile/
-        CrashLogs,           // $Config/crashlogs/
-        Temp                 // $Config/tmp/
+        AppData,             // /usr/share/qupzilla or . or ../Resources
+        Translations,        // $AppData/locale
+        Themes,              // $AppData/themes
+        Plugins,             // $AppData/plugins
+        Config,              // ~/.config/qupzilla or %LOCALAPPDATA%/qupzilla or $AppData/data (portable)
+        Profiles,            // $Config/profiles
+        CurrentProfile,      // $Profiles/current_profile
+        Temp                 // $Config/tmp
     };
 
     explicit DataPaths();

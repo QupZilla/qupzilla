@@ -290,6 +290,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     ui->allowCache->setChecked(settings.value("AllowLocalCache", true).toBool());
     ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
     ui->MBlabel->setText(settings.value("LocalCacheSize", 50).toString() + " MB");
+    // FIXME: !!!
     ui->cachePath->setText(settings.value("CachePath", QString("%1networkcache/").arg(DataPaths::currentProfilePath())).toString());
     connect(ui->allowCache, SIGNAL(clicked(bool)), this, SLOT(allowCacheChanged(bool)));
     connect(ui->cacheMB, SIGNAL(valueChanged(int)), this, SLOT(cacheValueChanged(int)));
@@ -1068,9 +1069,8 @@ void Preferences::saveSettings()
     settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(QLatin1Char(','), QString::SkipEmptyParts));
     settings.endGroup();
 
-    //Profiles
-    QSettings profileSettings(DataPaths::path(DataPaths::Config) + "profiles/profiles.ini", QSettings::IniFormat);
-    profileSettings.setValue("Profiles/startProfile", ui->startProfile->currentText());
+    ProfileManager profileManager;
+    profileManager.setStartingProfile(ui->startProfile->currentText());
 
     m_pluginsList->save();
     m_themesManager->save();

@@ -115,7 +115,7 @@ void CookieJar::restoreCookies()
         return;
     }
 
-    const QString cookiesFile = DataPaths::currentProfilePath() + QLatin1String("cookies.dat");
+    const QString cookiesFile = DataPaths::currentProfilePath() + QLatin1String("/cookies.dat");
     QDateTime now = QDateTime::currentDateTime();
 
     QList<QNetworkCookie> restoredCookies;
@@ -165,7 +165,7 @@ void CookieJar::saveCookies()
         }
     }
 
-    QFile file(DataPaths::currentProfilePath() + QLatin1String("cookies.dat"));
+    QFile file(DataPaths::currentProfilePath() + QLatin1String("/cookies.dat"));
     file.open(QIODevice::WriteOnly);
     QDataStream stream(&file);
     int count = cookies.count();

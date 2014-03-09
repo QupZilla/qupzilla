@@ -23,7 +23,7 @@
 
 RestoreManager::RestoreManager()
 {
-    createFromFile(DataPaths::currentProfilePath() + QLatin1String("session.dat"));
+    createFromFile(DataPaths::currentProfilePath() + QLatin1String("/session.dat"));
 }
 
 RestoreData RestoreManager::restoreData() const

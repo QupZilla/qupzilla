@@ -37,7 +37,7 @@ SpellCheckDialog::SpellCheckDialog(QWidget* parent)
 
     ui->dictPath->setText(Speller::instance()->dictionaryPath());
 
-    QFile file(DataPaths::currentProfilePath() + "userdictionary.txt");
+    QFile file(DataPaths::currentProfilePath() + "/userdictionary.txt");
     if (!file.open(QFile::ReadOnly)) {
         qWarning() << "SpellCheckDialog: Cannot open file" << file.fileName() << "for reading!";
     }
@@ -114,7 +114,7 @@ void SpellCheckDialog::saveSettings()
         return;
     }
 
-    QFile file(DataPaths::currentProfilePath() + "userdictionary.txt");
+    QFile file(DataPaths::currentProfilePath() + "/userdictionary.txt");
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
         qWarning() << "SpellCheckDialog: Cannot open file" << file.fileName() << "for reading!";
         return;

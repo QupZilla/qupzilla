@@ -458,7 +458,7 @@ AdBlockSubscription::~AdBlockSubscription()
 AdBlockCustomList::AdBlockCustomList(QObject* parent)
     : AdBlockSubscription(tr("Custom Rules"), parent)
 {
-    setFilePath(DataPaths::currentProfilePath() + "adblock/customlist.txt");
+    setFilePath(DataPaths::currentProfilePath() + QLatin1String("/adblock/customlist.txt"));
 }
 
 void AdBlockCustomList::saveSubscription()

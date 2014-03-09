@@ -47,7 +47,7 @@ ThemeManager::ThemeManager(QWidget* parent, Preferences* preferences)
         QDir dir(path);
         QStringList list = dir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
         foreach (const QString &name, list) {
-            Theme themeInfo = parseTheme(dir.absoluteFilePath(name) + "/", name);
+            Theme themeInfo = parseTheme(dir.absoluteFilePath(name) + QLatin1Char('/'), name);
             if (!themeInfo.isValid) {
                 continue;
             }

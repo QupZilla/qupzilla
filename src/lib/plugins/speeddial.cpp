@@ -63,7 +63,7 @@ void SpeedDial::loadSettings()
     }
     changed(allPages);
 
-    m_thumbnailsDir = DataPaths::currentProfilePath() + "thumbnails/";
+    m_thumbnailsDir = DataPaths::currentProfilePath() + "/thumbnails/";
 
     // If needed, create thumbnails directory
     if (!QDir(m_thumbnailsDir).exists()) {

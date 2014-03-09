@@ -125,7 +125,7 @@ void Plugins::loadPlugins()
         return;
     }
 
-    QDir settingsDir(DataPaths::currentProfilePath() + "extensions/");
+    QDir settingsDir(DataPaths::currentProfilePath() + "/extensions/");
     if (!settingsDir.exists()) {
         settingsDir.mkdir(settingsDir.absolutePath());
     }
@@ -213,7 +213,7 @@ PluginInterface* Plugins::initPlugin(PluginInterface::InitState state, PluginInt
         return 0;
     }
 
-    interface->init(state, DataPaths::currentProfilePath() + "extensions/");
+    interface->init(state, DataPaths::currentProfilePath() + "/extensions/");
 
     if (!interface->testPlugin()) {
         interface->unload();

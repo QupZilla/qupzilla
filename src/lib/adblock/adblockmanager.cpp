@@ -150,7 +150,7 @@ AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const
     }
 
     QString fileName = QzTools::filterCharsFromFilename(title.toLower()) + ".txt";
-    QString filePath = QzTools::ensureUniqueFilename(DataPaths::currentProfilePath() + "adblock/" + fileName);
+    QString filePath = QzTools::ensureUniqueFilename(DataPaths::currentProfilePath() + "/adblock/" + fileName);
 
     QByteArray data = QString("Title: %1\nUrl: %2\n[Adblock Plus 1.1.1]").arg(title, url).toLatin1();
 
@@ -222,7 +222,7 @@ void AdBlockManager::load()
         return;
     }
 
-    QDir adblockDir(DataPaths::currentProfilePath() + "adblock");
+    QDir adblockDir(DataPaths::currentProfilePath() + "/adblock");
     // Create if neccessary
     if (!adblockDir.exists()) {
         QDir(DataPaths::currentProfilePath()).mkdir("adblock");
@@ -261,7 +261,7 @@ void AdBlockManager::load()
     if (m_subscriptions.isEmpty()) {
         AdBlockSubscription* easyList = new AdBlockSubscription(tr("EasyList"), this);
         easyList->setUrl(QUrl(ADBLOCK_EASYLIST_URL));
-        easyList->setFilePath(DataPaths::currentProfilePath() + "adblock/easylist.txt");
+        easyList->setFilePath(DataPaths::currentProfilePath() + QLatin1String("/adblock/easylist.txt"));
         connect(easyList, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
 
         m_subscriptions.prepend(easyList);

@@ -901,7 +901,7 @@ void TabWidget::savePinnedTabs()
     stream << tabs;
     stream << tabsHistory;
 
-    QFile file(DataPaths::currentProfilePath() + "pinnedtabs.dat");
+    QFile file(DataPaths::currentProfilePath() + "/pinnedtabs.dat");
     file.open(QIODevice::WriteOnly);
     file.write(data);
     file.close();
@@ -913,7 +913,7 @@ void TabWidget::restorePinnedTabs()
         return;
     }
 
-    QFile file(DataPaths::currentProfilePath() + "pinnedtabs.dat");
+    QFile file(DataPaths::currentProfilePath() + "/pinnedtabs.dat");
     file.open(QIODevice::ReadOnly);
     QByteArray sd = file.readAll();
     file.close();
