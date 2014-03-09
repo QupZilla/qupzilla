@@ -40,8 +40,6 @@ public:
     AdBlockManager(QObject* parent = 0);
     ~AdBlockManager();
 
-    static AdBlockManager* instance();
-
     void load();
     void save();
 
@@ -68,6 +66,8 @@ public:
 
     AdBlockCustomList* customList() const;
 
+    static AdBlockManager* instance();
+
 signals:
     void enabledChanged(bool enabled);
 
@@ -81,7 +81,6 @@ public slots:
 
 private:
     inline bool canBeBlocked(const QUrl &url) const;
-    static AdBlockManager* s_adBlockManager;
 
     bool m_loaded;
     bool m_enabled;

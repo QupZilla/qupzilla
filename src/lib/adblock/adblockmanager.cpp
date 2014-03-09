@@ -38,7 +38,7 @@
 #include <QElapsedTimer>
 #endif
 
-AdBlockManager* AdBlockManager::s_adBlockManager = 0;
+Q_GLOBAL_STATIC(AdBlockManager, qz_adblock_manager)
 
 AdBlockManager::AdBlockManager(QObject* parent)
     : QObject(parent)
@@ -49,13 +49,14 @@ AdBlockManager::AdBlockManager(QObject* parent)
     load();
 }
 
+AdBlockManager::~AdBlockManager()
+{
+    qDeleteAll(m_subscriptions);
+}
+
 AdBlockManager* AdBlockManager::instance()
 {
-    if (!s_adBlockManager) {
-        s_adBlockManager = new AdBlockManager(mApp->networkManager());
-    }
-
-    return s_adBlockManager;
+    return qz_adblock_manager();
 }
 
 void AdBlockManager::setEnabled(bool enabled)
@@ -432,9 +433,4 @@ void AdBlockManager::showRule()
             showDialog()->showRule(rule);
         }
     }
-}
-
-AdBlockManager::~AdBlockManager()
-{
-    qDeleteAll(m_subscriptions);
 }
