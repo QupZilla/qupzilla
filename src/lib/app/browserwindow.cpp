@@ -128,7 +128,7 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, QUrl startUrl)
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("QupZilla"));
 
-    if (mApp->isPrivateSession()) {
+    if (mApp->isPrivate()) {
         setProperty("private", QVariant(true));
     }
 
@@ -146,11 +146,11 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, QUrl startUrl)
     m_hideNavigationTimer->setSingleShot(true);
     connect(m_hideNavigationTimer, SIGNAL(timeout()), this, SLOT(hideNavigationSlot()));
 
-    connect(mApp, SIGNAL(reloadSettings()), this, SLOT(loadSettings()));
+    connect(mApp, SIGNAL(settingsReloaded()), this, SLOT(loadSettings()));
 
     QTimer::singleShot(0, this, SLOT(postLaunch()));
 
-    if (mApp->isPrivateSession()) {
+    if (mApp->isPrivate()) {
         QzTools::setWmClass("QupZilla Browser (Private Window)", this);
     }
     else {
@@ -201,7 +201,7 @@ void BrowserWindow::postLaunch()
             startUrl = QUrl("qupzilla:restore");
         }
         else if (afterLaunch == 3 && mApp->restoreManager()) {
-            addTab = !mApp->restoreStateSlot(this, mApp->restoreManager()->restoreData());
+            addTab = !mApp->restoreSession(this, mApp->restoreManager()->restoreData());
         }
         else {
             // Pinned tabs are restored in MainApplication::restoreStateSlot
@@ -760,9 +760,6 @@ void BrowserWindow::loadSettings()
     m_homepage = settings.value("homepage", "qupzilla:start").toUrl();
     settings.endGroup();
 
-    QWebSettings* websettings = mApp->webSettings();
-    websettings->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
-
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
     bool showStatusBar = settings.value("showStatusBar", true).toBool();
@@ -813,7 +810,7 @@ void BrowserWindow::loadSettings()
     m_sideBarManager->showSideBar(activeSideBar, false);
 
     // Private browsing
-    m_privateBrowsing->setVisible(mApp->isPrivateSession());
+    m_privateBrowsing->setVisible(mApp->isPrivate());
 
 #ifdef Q_OS_WIN
     if (m_usingTransparentBackground && !makeTransparent) {
@@ -932,7 +929,7 @@ void BrowserWindow::setWindowTitle(const QString &t)
 {
     QString title = t;
 
-    if (mApp->isPrivateSession()) {
+    if (mApp->isPrivate()) {
         title.append(tr(" (Private Browsing)"));
     }
 
@@ -972,7 +969,7 @@ void BrowserWindow::aboutToShowViewMenu()
     m_actionPageSource->setEnabled(true);
 
 #if QTWEBKIT_FROM_2_3
-    m_actionCaretBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled));
+    m_actionCaretBrowsing->setChecked(QWebSettings::globalSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled));
 #endif
 }
 
@@ -1032,7 +1029,7 @@ void BrowserWindow::aboutToShowEncodingMenu()
 
     QList<QByteArray> available = QTextCodec::availableCodecs();
     qSort(available);
-    const QString activeCodec = mApp->webSettings()->defaultTextEncoding();
+    const QString activeCodec = QWebSettings::globalSettings()->defaultTextEncoding();
 
     foreach (const QByteArray &name, available) {
         QTextCodec* codec = QTextCodec::codecForName(name);
@@ -1096,7 +1093,7 @@ void BrowserWindow::changeEncoding(QObject* obj)
 
     if (QAction* action = qobject_cast<QAction*>(obj)) {
         const QString encoding = action->data().toString();
-        mApp->webSettings()->setDefaultTextEncoding(encoding);
+        QWebSettings::globalSettings()->setDefaultTextEncoding(encoding);
 
         Settings settings;
         settings.setValue("Web-Browser-Settings/DefaultEncoding", encoding);
@@ -1108,14 +1105,14 @@ void BrowserWindow::changeEncoding(QObject* obj)
 void BrowserWindow::triggerCaretBrowsing()
 {
 #if QTWEBKIT_FROM_2_3
-    bool enable = !mApp->webSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled);
+    bool enable = !QWebSettings::globalSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled);
 
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
     settings.setValue("CaretBrowsing", enable);
     settings.endGroup();
 
-    mApp->webSettings()->setAttribute(QWebSettings::CaretBrowsingEnabled, enable);
+    QWebSettings::globalSettings()->setAttribute(QWebSettings::CaretBrowsingEnabled, enable);
 #endif
 }
 
@@ -1137,7 +1134,7 @@ void BrowserWindow::addBookmark(const QUrl &url, const QString &title)
 
 void BrowserWindow::newWindow()
 {
-    mApp->makeNewWindow(Qz::BW_NewWindow);
+    mApp->createWindow(Qz::BW_NewWindow);
 }
 
 void BrowserWindow::goHome()
@@ -1277,7 +1274,7 @@ void BrowserWindow::showClearPrivateData()
 
 void BrowserWindow::showDownloadManager()
 {
-    mApp->downManager()->show();
+    mApp->downloadManager()->show();
 }
 
 void BrowserWindow::showPreferences()
@@ -1964,8 +1961,6 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
     QTimer::singleShot(0, this, SLOT(refreshStateOfAllActions()));
 #endif
 
-    mApp->aboutToCloseWindow(this);
-
     disconnectObjects();
     event->accept();
 }
@@ -2030,7 +2025,7 @@ bool BrowserWindow::quitApp()
         saveSideBarWidth();
     }
 
-    if (!mApp->isPrivateSession()) {
+    if (!mApp->isPrivate()) {
         Settings settings;
         settings.beginGroup("Browser-View-Settings");
         settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));

@@ -16,7 +16,6 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "sbi_imagesicon.h"
-#include "mainapplication.h"
 #include "browserwindow.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
@@ -43,7 +42,7 @@ SBI_ImagesIcon::SBI_ImagesIcon(BrowserWindow* window, const QString &settingsPat
     m_loadingImages = settings.value("LoadImages", true).toBool();
     settings.endGroup();
 
-    mApp->webSettings()->setAttribute(QWebSettings::AutoLoadImages, m_loadingImages);
+    QWebSettings::globalSettings()->setAttribute(QWebSettings::AutoLoadImages, m_loadingImages);
 
     updateIcon();
 
@@ -100,7 +99,7 @@ void SBI_ImagesIcon::setGlobalLoadingImages(bool enable)
 
     // Switch it in websettings
     m_loadingImages = enable;
-    mApp->webSettings()->setAttribute(QWebSettings::AutoLoadImages, m_loadingImages);
+    QWebSettings::globalSettings()->setAttribute(QWebSettings::AutoLoadImages, m_loadingImages);
     updateIcon();
 
     // We should reload page on disabling images

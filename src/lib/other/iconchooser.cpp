@@ -117,7 +117,7 @@ void IconChooserDelegate::paint(QPainter* painter, const QStyleOptionViewItem &o
     const QStyle* style = w ? w->style() : QApplication::style();
 
     // Draw background
-    if (mApp->proxyStyle()->name() == QLatin1String("fusion")) {
+    if (mApp->styleName() == QLatin1String("fusion")) {
         style->drawPrimitive(QStyle::PE_PanelItemViewRow, &opt, painter, w);
     }
     else {

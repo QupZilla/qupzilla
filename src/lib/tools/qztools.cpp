@@ -89,7 +89,7 @@ QByteArray QzTools::readAllFileByteContents(const QString &filename)
 {
     QFile file(filename);
 
-    if (file.open(QFile::ReadOnly)) {
+    if (!filename.isEmpty() && file.open(QFile::ReadOnly)) {
         const QByteArray a = file.readAll();
         file.close();
         return a;

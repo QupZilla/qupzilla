@@ -102,7 +102,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
         ui->treeTags->addTopLevelItem(item);
     }
     if (encoding.isEmpty()) {
-        encoding = mApp->webSettings()->defaultTextEncoding();
+        encoding = QWebSettings::globalSettings()->defaultTextEncoding();
     }
     ui->encodingLabel->setText(encoding.toUpper());
 

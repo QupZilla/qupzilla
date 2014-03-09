@@ -29,7 +29,7 @@ ClosedTabsManager::ClosedTabsManager()
 
 void ClosedTabsManager::saveView(WebTab* tab, int position)
 {
-    if (mApp->isPrivateSession() || (tab->url().isEmpty() && tab->history()->items().count() == 0)) {
+    if (mApp->isPrivate() || (tab->url().isEmpty() && tab->history()->items().count() == 0)) {
         return;
     }
 

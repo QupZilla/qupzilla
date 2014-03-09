@@ -36,7 +36,7 @@ IconProvider::IconProvider()
 void IconProvider::saveIcon(WebView* view)
 {
     // Don't save icons in private mode.
-    if (mApp->isPrivateSession()) {
+    if (mApp->isPrivate()) {
         return;
     }
 

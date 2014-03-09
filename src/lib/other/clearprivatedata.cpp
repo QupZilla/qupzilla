@@ -82,14 +82,14 @@ void ClearPrivateData::clearWebDatabases()
 void ClearPrivateData::clearCache()
 {
     mApp->networkCache()->clear();
-    mApp->webSettings()->clearMemoryCaches();
+    QWebSettings::globalSettings()->clearMemoryCaches();
 
     QFile::remove(DataPaths::currentProfilePath() + "/ApplicationCache.db");
 }
 
 void ClearPrivateData::clearIcons()
 {
-    mApp->webSettings()->clearIconDatabase();
+    QWebSettings::globalSettings()->clearIconDatabase();
     IconProvider::instance()->clearIconsDatabase();
 }
 

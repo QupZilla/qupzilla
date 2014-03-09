@@ -219,7 +219,7 @@ void HistoryMenu::openUrlInNewTab(const QUrl &url)
 
 void HistoryMenu::openUrlInNewWindow(const QUrl &url)
 {
-    mApp->makeNewWindow(Qz::BW_NewWindow, url);
+    mApp->createWindow(Qz::BW_NewWindow, url);
 }
 
 void HistoryMenu::init()

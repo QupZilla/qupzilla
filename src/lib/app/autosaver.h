@@ -30,10 +30,12 @@ class QUPZILLA_EXPORT AutoSaver : public QObject
 public:
     explicit AutoSaver(QObject* parent = 0);
 
-    // Tells AutoSaver that change occurred. Signal save() will be emitted after a delay
-    void changeOcurred();
     // Emits save() if timer is running. Call this from destructor.
     void saveIfNecessary();
+
+public slots:
+    // Tells AutoSaver that change occurred. Signal save() will be emitted after a delay
+    void changeOcurred();
 
 signals:
     void save();

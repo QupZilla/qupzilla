@@ -264,7 +264,7 @@ void ProfileManager::connectDatabase()
         db.setDatabaseName(dbFile);
     }
 
-    if (mApp->isPrivateSession()) {
+    if (mApp->isPrivate()) {
         db.setConnectOptions("QSQLITE_OPEN_READONLY");
     }
 

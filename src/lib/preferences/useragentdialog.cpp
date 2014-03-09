@@ -29,7 +29,7 @@
 UserAgentDialog::UserAgentDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::UserAgentDialog)
-    , m_manager(mApp->uaManager())
+    , m_manager(mApp->userAgentManager())
 {
     ui->setupUi(this);
     ui->globalComboBox->setLayoutDirection(Qt::LeftToRight);

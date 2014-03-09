@@ -60,7 +60,7 @@ void GM_Plugin::init(InitState state, const QString &settingsPath)
 
     // Make sure userscripts works also with already created WebPages
     if (state == LateInitState) {
-        foreach (BrowserWindow* window, mApp->mainWindows()) {
+        foreach (BrowserWindow* window, mApp->windows()) {
             m_manager->mainWindowCreated(window);
 
             for (int i = 0; i < window->tabWidget()->count(); ++i) {

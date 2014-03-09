@@ -96,7 +96,7 @@ LocationBar::LocationBar(BrowserWindow* window)
     connect(down, SIGNAL(clicked(QPoint)), m_completer, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp->searchEnginesManager(), SIGNAL(defaultEngineChanged()), this, SLOT(updatePlaceHolderText()));
-    connect(mApp, SIGNAL(reloadSettings()), SLOT(loadSettings()));
+    connect(mApp, SIGNAL(settingsReloaded()), SLOT(loadSettings()));
 
     loadSettings();
     clearIcon();

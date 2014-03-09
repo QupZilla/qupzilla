@@ -134,7 +134,7 @@ void HTML5PermissionsDialog::saveSettings()
     settings.setValue("GeolocationDenied", m_geolocationDenied);
     settings.endGroup();
 
-    mApp->html5permissions()->loadSettings();
+    mApp->html5PermissionsManager()->loadSettings();
 }
 
 HTML5PermissionsDialog::~HTML5PermissionsDialog()

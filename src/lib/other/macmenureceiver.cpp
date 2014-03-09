@@ -82,7 +82,7 @@ bool MacMenuReceiver::callSlot(const char* member, bool makeIfNoWindow, QGeneric
             return false;
         }
         else {
-            qzWindow = mApp->makeNewWindow(Qz::BW_MacFirstWindow);
+            qzWindow = mApp->createWindow(Qz::BW_MacFirstWindow);
             mApp->processEvents();
         }
     }
@@ -137,7 +137,7 @@ void MacMenuReceiver::aboutQupZilla()
 void MacMenuReceiver::addTab()
 {
     if (!callSlot("addTab")) {
-        mApp->makeNewWindow(Qz::BW_MacFirstWindow);
+        mApp->createWindow(Qz::BW_MacFirstWindow);
     }
 }
 
@@ -220,7 +220,7 @@ void MacMenuReceiver::bookmarkAllTabs()
 void MacMenuReceiver::newWindow()
 {
     if (!callSlot("newWindow")) {
-        mApp->makeNewWindow(Qz::BW_MacFirstWindow);
+        mApp->createWindow(Qz::BW_MacFirstWindow);
     }
 }
 

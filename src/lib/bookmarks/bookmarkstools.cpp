@@ -256,7 +256,7 @@ void BookmarksTools::openBookmarkInNewWindow(BookmarkItem* item)
     }
 
     item->updateVisitCount();
-    mApp->makeNewWindow(Qz::BW_NewWindow, item->url());
+    mApp->createWindow(Qz::BW_NewWindow, item->url());
 }
 
 void BookmarksTools::openBookmarkInNewPrivateWindow(BookmarkItem* item)

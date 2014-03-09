@@ -467,7 +467,7 @@ void WebView::slotUrlChanged(const QUrl &url)
 void WebView::openUrlInNewWindow()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        mApp->makeNewWindow(Qz::BW_NewWindow, action->data().toUrl());
+        mApp->createWindow(Qz::BW_NewWindow, action->data().toUrl());
     }
 }
 
@@ -510,7 +510,7 @@ void WebView::savePageAs()
     info.askWhatToDo = false;
     info.forceChoosingPath = true;
 
-    DownloadManager* dManager = mApp->downManager();
+    DownloadManager* dManager = mApp->downloadManager();
     dManager->download(request, info);
 }
 
@@ -530,7 +530,7 @@ void WebView::downloadUrlToDisk()
         info.askWhatToDo = false;
         info.forceChoosingPath = true;
 
-        DownloadManager* dManager = mApp->downManager();
+        DownloadManager* dManager = mApp->downloadManager();
         dManager->download(request, info);
     }
 }

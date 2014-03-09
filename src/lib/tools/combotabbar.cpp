@@ -488,7 +488,7 @@ void ComboTabBar::setUpLayout()
 
     // Workaround for Oxygen theme. For some reason, QTabBar::height() returns bigger
     // height than it actually should.
-    if (mApp->proxyStyle() && mApp->proxyStyle()->name() == QLatin1String("oxygen")) {
+    if (mApp->styleName() == QLatin1String("oxygen")) {
         height -= 4;
     }
 

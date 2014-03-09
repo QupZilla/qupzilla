@@ -77,7 +77,7 @@ WebPage::WebPage(QObject* parent)
     , m_secureStatus(false)
     , m_adjustingScheduled(false)
 {
-    m_javaScriptEnabled = mApp->webSettings()->testAttribute(QWebSettings::JavascriptEnabled);
+    m_javaScriptEnabled = QWebSettings::globalSettings()->testAttribute(QWebSettings::JavascriptEnabled);
 
     m_networkProxy = new NetworkManagerProxy(this);
     m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
@@ -323,7 +323,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
                     return;
                 }
             }
-            DownloadManager* dManager = mApp->downManager();
+            DownloadManager* dManager = mApp->downloadManager();
             dManager->handleUnsupportedContent(reply, this);
             return;
         }
@@ -422,7 +422,7 @@ void WebPage::desktopServicesOpen(const QUrl &url)
 
 void WebPage::downloadRequested(const QNetworkRequest &request)
 {
-    DownloadManager* dManager = mApp->downManager();
+    DownloadManager* dManager = mApp->downloadManager();
     dManager->download(request, this);
 }
 
@@ -460,7 +460,7 @@ void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 original
 
 void WebPage::featurePermissionRequested(QWebFrame* frame, const QWebPage::Feature &feature)
 {
-    mApp->html5permissions()->requestPermissions(this, frame, feature);
+    mApp->html5PermissionsManager()->requestPermissions(this, frame, feature);
 }
 #endif // USE_QTWEBKIT_2_2
 
@@ -676,7 +676,7 @@ void WebPage::cleanBlockedObjects()
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
 {
-    QString userAgent = mApp->uaManager()->userAgentForUrl(url);
+    QString userAgent = mApp->userAgentManager()->userAgentForUrl(url);
 
     if (userAgent.isEmpty()) {
         userAgent = QWebPage::userAgentForUrl(url);

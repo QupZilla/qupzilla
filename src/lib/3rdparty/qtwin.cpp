@@ -409,7 +409,7 @@ void QtWin::AddTasksToList(ICustomDestinationList* destinationList)
 #endif //W7API
 #endif //Q_OS_WIN
 
-void QtWin::setupJumpList()
+void QtWin::createJumpList()
 {
 #ifdef W7API
     if (!isRunningWindows7()) {

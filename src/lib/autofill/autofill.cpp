@@ -202,7 +202,7 @@ QVector<PasswordEntry> AutoFill::completePage(WebPage* page)
 void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingData)
 {
     // Don't save in private browsing
-    if (mApp->isPrivateSession()) {
+    if (mApp->isPrivate()) {
         return;
     }
 

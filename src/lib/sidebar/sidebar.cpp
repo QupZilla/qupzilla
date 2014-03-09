@@ -103,7 +103,7 @@ void SideBarManager::addSidebar(const QString &id, SideBarInterface* interface)
 {
     s_sidebars[id] = interface;
 
-    foreach (BrowserWindow* window, mApp->mainWindows()) {
+    foreach (BrowserWindow* window, mApp->windows()) {
         window->sideBarManager()->refreshMenu();
     }
 }
@@ -112,7 +112,7 @@ void SideBarManager::removeSidebar(const QString &id)
 {
     s_sidebars.remove(id);
 
-    foreach (BrowserWindow* window, mApp->mainWindows()) {
+    foreach (BrowserWindow* window, mApp->windows()) {
         window->sideBarManager()->sideBarRemoved(id);
     }
 }

@@ -128,7 +128,7 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     setTabBar(m_tabBar);
 
     connect(this, SIGNAL(currentChanged(int)), m_window, SLOT(refreshHistory()));
-    connect(this, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
+    connect(this, SIGNAL(changed()), mApp, SLOT(changeOcurred()));
 
     connect(m_tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(reloadTab(int)), this, SLOT(reloadTab(int)));
@@ -143,7 +143,7 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     connect(m_tabBar, SIGNAL(showButtons()), this, SLOT(showButtons()));
     connect(m_tabBar, SIGNAL(hideButtons()), this, SLOT(hideButtons()));
 
-    connect(mApp, SIGNAL(reloadSettings()), this, SLOT(loadSettings()));
+    connect(mApp, SIGNAL(settingsReloaded()), this, SLOT(loadSettings()));
 
     m_menuTabs = new MenuTabs(m_tabBar);
 
@@ -721,7 +721,7 @@ void TabWidget::detachTab(int index)
     disconnect(tab->view(), SIGNAL(changed()), this, SIGNAL(changed()));
     disconnect(tab->view(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
-    BrowserWindow* window = mApp->makeNewWindow(Qz::BW_NewWindow);
+    BrowserWindow* window = mApp->createWindow(Qz::BW_NewWindow);
     tab->moveToWindow(window);
     window->openWithTab(tab);
 
@@ -877,7 +877,7 @@ QList<WebTab*> TabWidget::allTabs(bool withPinned)
 
 void TabWidget::savePinnedTabs()
 {
-    if (mApp->isPrivateSession()) {
+    if (mApp->isPrivate()) {
         return;
     }
 
@@ -909,7 +909,7 @@ void TabWidget::savePinnedTabs()
 
 void TabWidget::restorePinnedTabs()
 {
-    if (mApp->isPrivateSession()) {
+    if (mApp->isPrivate()) {
         return;
     }
 

@@ -163,7 +163,7 @@ void RSSNotification::addRss()
     case Internal:
         success = mApp->rssManager()->addRssFeed(m_url, m_title, m_view->icon());
         if (success) {
-            mApp->browsingLibrary()->showRSS(mApp->mainWindows().at(0));
+            mApp->browsingLibrary()->showRSS(mApp->windows().at(0));
         }
         break;
 

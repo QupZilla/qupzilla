@@ -67,7 +67,7 @@ void HTML5PermissionsNotification::grantPermissions()
     page->setFeaturePermission(m_frame, m_feature, QWebPage::PermissionGrantedByUser);
 
     if (ui->remember->isChecked()) {
-        mApp->html5permissions()->rememberPermissions(m_host, m_feature, QWebPage::PermissionGrantedByUser);
+        mApp->html5PermissionsManager()->rememberPermissions(m_host, m_feature, QWebPage::PermissionGrantedByUser);
     }
 
     hide();
@@ -83,7 +83,7 @@ void HTML5PermissionsNotification::denyPermissions()
     page->setFeaturePermission(m_frame, m_feature, QWebPage::PermissionDeniedByUser);
 
     if (ui->remember->isChecked()) {
-        mApp->html5permissions()->rememberPermissions(m_host, m_feature, QWebPage::PermissionDeniedByUser);
+        mApp->html5PermissionsManager()->rememberPermissions(m_host, m_feature, QWebPage::PermissionDeniedByUser);
     }
 
     hide();

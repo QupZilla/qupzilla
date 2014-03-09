@@ -96,7 +96,7 @@ void RecoveryWidget::restoreSession()
         }
     }
 
-    if (!mApp->restoreStateSlot(m_window, data)) {
+    if (!mApp->restoreSession(m_window, data)) {
         newSession();
     }
 }

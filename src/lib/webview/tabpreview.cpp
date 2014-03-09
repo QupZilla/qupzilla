@@ -235,7 +235,7 @@ void TabPreview::resizeEvent(QResizeEvent* ev)
     QFrame::resizeEvent(ev);
 
     // Oxygen is setting rounded corners only for top-level tooltips
-    if (mApp->proxyStyle() && mApp->proxyStyle()->name() == QLatin1String("oxygen")) {
+    if (mApp->styleName() == QLatin1String("oxygen")) {
         setMask(QzTools::roundedRect(rect(), 4));
     }
 }

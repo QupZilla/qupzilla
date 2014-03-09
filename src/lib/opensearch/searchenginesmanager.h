@@ -35,7 +35,7 @@ class QUPZILLA_EXPORT SearchEnginesManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit SearchEnginesManager();
+    explicit SearchEnginesManager(QObject* parent = 0);
 
     struct Engine {
         QString name;

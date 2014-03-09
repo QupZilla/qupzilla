@@ -395,7 +395,7 @@ void DownloadItem::goToDownloadPage()
         qz->tabWidget()->addView(m_downloadPage, Qz::NT_SelectedTab);
     }
     else {
-        mApp->makeNewWindow(Qz::BW_NewWindow, m_downloadPage);
+        mApp->createWindow(Qz::BW_NewWindow, m_downloadPage);
     }
 }
 

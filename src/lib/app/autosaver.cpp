@@ -26,18 +26,18 @@ AutoSaver::AutoSaver(QObject* parent)
 {
 }
 
-void AutoSaver::changeOcurred()
-{
-    if (!m_timer.isActive()) {
-        m_timer.start(SAVE_DELAY, this);
-    }
-}
-
 void AutoSaver::saveIfNecessary()
 {
     if (m_timer.isActive()) {
         m_timer.stop();
         emit save();
+    }
+}
+
+void AutoSaver::changeOcurred()
+{
+    if (!m_timer.isActive()) {
+        m_timer.start(SAVE_DELAY, this);
     }
 }
 

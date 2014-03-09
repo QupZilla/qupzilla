@@ -52,7 +52,7 @@ void StatusBarIconsPlugin::init(InitState state, const QString &settingsPath)
 
     // Make sure icons are added also to already created windows
     if (state == LateInitState) {
-        foreach (BrowserWindow* window, mApp->mainWindows()) {
+        foreach (BrowserWindow* window, mApp->windows()) {
             m_manager->mainWindowCreated(window);
         }
     }
@@ -62,7 +62,7 @@ void StatusBarIconsPlugin::unload()
 {
     // Make sure icons are properly removed when unloading plugin (but not when closing app)
     if (!mApp->isClosing()) {
-        foreach (BrowserWindow* window, mApp->mainWindows()) {
+        foreach (BrowserWindow* window, mApp->windows()) {
             m_manager->mainWindowDeleted(window);
         }
 

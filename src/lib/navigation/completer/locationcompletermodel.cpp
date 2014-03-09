@@ -237,7 +237,7 @@ void LocationCompleterModel::setTabPosition(QStandardItem* item) const
     }
 
     const QUrl url = item->data(UrlRole).toUrl();
-    const QList<BrowserWindow*> windows = mApp->mainWindows();
+    const QList<BrowserWindow*> windows = mApp->windows();
 
     foreach (BrowserWindow* window, windows) {
         QList<WebTab*> tabs = window->tabWidget()->allTabs();

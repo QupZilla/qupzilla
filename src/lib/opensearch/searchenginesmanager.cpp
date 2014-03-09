@@ -67,8 +67,8 @@ static QByteArray iconToBase64(const QIcon &icon)
     return bArray.toBase64();
 }
 
-SearchEnginesManager::SearchEnginesManager()
-    : QObject()
+SearchEnginesManager::SearchEnginesManager(QObject* parent)
+    : QObject(parent)
     , m_settingsLoaded(false)
     , m_saveScheduled(false)
 {

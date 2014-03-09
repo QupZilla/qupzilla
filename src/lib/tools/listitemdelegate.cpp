@@ -67,7 +67,7 @@ void ListItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opti
 
     // Draw background
     // Use PanelItemViewRow, because of Qt5's Fusion style incorrectly renders PanelItemViewItem
-    if (mApp->proxyStyle()->name() == QLatin1String("fusion")) {
+    if (mApp->styleName() == QLatin1String("fusion")) {
         style->drawPrimitive(QStyle::PE_PanelItemViewRow, &opt, painter, w);
     }
     else {

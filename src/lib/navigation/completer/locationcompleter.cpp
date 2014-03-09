@@ -185,7 +185,7 @@ void LocationCompleter::indexShiftActivated(const QModelIndex &index)
     emit clearCompletion();
 
     // Open new window
-    mApp->makeNewWindow(Qz::BW_NewWindow, url);
+    mApp->createWindow(Qz::BW_NewWindow, url);
 }
 
 void LocationCompleter::indexDeleteRequested(const QModelIndex &index)

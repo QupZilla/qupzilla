@@ -111,7 +111,7 @@ void CookieJar::clearCookies()
 
 void CookieJar::restoreCookies()
 {
-    if (mApp->isPrivateSession()) {
+    if (mApp->isPrivate()) {
         return;
     }
 
@@ -147,7 +147,7 @@ void CookieJar::restoreCookies()
 
 void CookieJar::saveCookies()
 {
-    if (mApp->isPrivateSession()) {
+    if (mApp->isPrivate()) {
         return;
     }
 
