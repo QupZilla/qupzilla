@@ -142,6 +142,8 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     connect(m_tabBar, SIGNAL(showButtons()), this, SLOT(showButtons()));
     connect(m_tabBar, SIGNAL(hideButtons()), this, SLOT(hideButtons()));
 
+    connect(mApp, SIGNAL(reloadSettings()), this, SLOT(loadSettings()));
+
     m_menuTabs = new MenuTabs(m_tabBar);
 
     m_buttonListTabs = new ToolButton(m_tabBar);

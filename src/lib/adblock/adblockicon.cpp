@@ -41,6 +41,11 @@ AdBlockIcon::AdBlockIcon(BrowserWindow* window, QWidget* parent)
     setToolTip(tr("AdBlock lets you block unwanted content on web pages"));
 
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(showMenu(QPoint)));
+    connect(AdBlockManager::instance(), SIGNAL(enabledChanged(bool)), this, SLOT(setEnabled(bool)));
+}
+
+AdBlockIcon::~AdBlockIcon()
+{
 }
 
 void AdBlockIcon::popupBlocked(const QString &ruleString, const QUrl &url)
@@ -224,8 +229,4 @@ void AdBlockIcon::setEnabled(bool enabled)
     }
 
     m_enabled = enabled;
-}
-
-AdBlockIcon::~AdBlockIcon()
-{
 }

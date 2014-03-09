@@ -1078,7 +1078,7 @@ void Preferences::saveSettings()
     m_themesManager->save();
     mApp->cookieJar()->loadSettings();
     mApp->history()->loadSettings();
-    mApp->reloadSettings();
+    mApp->doReloadSettings();
     mApp->plugins()->c2f_saveSettings();
     mApp->networkManager()->loadSettings();
     mApp->desktopNotifications()->loadSettings();

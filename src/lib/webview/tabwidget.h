@@ -72,8 +72,6 @@ public:
     explicit TabWidget(BrowserWindow* mainclass, QWidget* parent = 0);
     ~TabWidget();
 
-    void loadSettings();
-
     QByteArray saveState();
     bool restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab);
     void closeRecoveryTab();
@@ -139,6 +137,8 @@ signals:
     void changed();
 
 private slots:
+    void loadSettings();
+
     void aboutToShowTabsMenu();
     void actionChangeIndex();
     void tabMoved(int before, int after);

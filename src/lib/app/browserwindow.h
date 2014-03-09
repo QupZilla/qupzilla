@@ -64,7 +64,6 @@ public:
 
     void openWithTab(WebTab* tab);
 
-    void loadSettings();
     void saveSideBarWidth();
 
     bool fullScreenNavigationVisible() const;
@@ -113,7 +112,6 @@ public:
 
 signals:
     void startingCompleted();
-    void message(Qz::AppMessageType mes, bool state);
     void setWebViewMouseTracking(bool state);
 
 public slots:
@@ -138,10 +136,11 @@ public slots:
     void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());
     void printPage(QWebFrame* frame = 0);
     void showPageInfo();
-    void receiveMessage(Qz::AppMessageType mes, bool state);
 
 private slots:
+    void loadSettings();
     void postLaunch();
+
     void stop();
     void reload();
     void reloadByPassCache();

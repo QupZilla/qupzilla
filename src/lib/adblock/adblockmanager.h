@@ -68,6 +68,9 @@ public:
 
     AdBlockCustomList* customList() const;
 
+signals:
+    void enabledChanged(bool enabled);
+
 public slots:
     void setEnabled(bool enabled);
     void showRule();

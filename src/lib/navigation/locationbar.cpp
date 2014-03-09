@@ -96,7 +96,7 @@ LocationBar::LocationBar(BrowserWindow* window)
     connect(down, SIGNAL(clicked(QPoint)), m_completer, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp->searchEnginesManager(), SIGNAL(defaultEngineChanged()), this, SLOT(updatePlaceHolderText()));
-    connect(mApp, SIGNAL(message(Qz::AppMessageType,bool)), SLOT(onMessage(Qz::AppMessageType,bool)));
+    connect(mApp, SIGNAL(reloadSettings()), SLOT(loadSettings()));
 
     loadSettings();
     clearIcon();
@@ -608,18 +608,6 @@ void LocationBar::loadSettings()
     bool customColor = settings.value("UseCustomProgressColor", false).toBool();
     m_progressColor = customColor ? settings.value("CustomProgressColor", palette().color(QPalette::Highlight)).value<QColor>() : QColor();
     settings.endGroup();
-}
-
-void LocationBar::onMessage(Qz::AppMessageType msg, bool state)
-{
-    Q_UNUSED(state)
-    if (!qzSettings->showLoadingProgress) {
-        return;
-    }
-
-    if (msg == Qz::AM_ReloadSettings) {
-        loadSettings();
-    }
 }
 
 void LocationBar::hideProgress()

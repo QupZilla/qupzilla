@@ -37,8 +37,6 @@ public:
     void popupBlocked(const QString &ruleString, const QUrl &url);
     QAction* menuAction();
 
-signals:
-
 public slots:
     void setEnabled(bool enabled);
     void createMenu(QMenu* menu = 0);

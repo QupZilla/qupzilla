@@ -69,7 +69,7 @@ public:
     ~MainApplication();
 
     void connectDatabase();
-    void reloadSettings();
+    void doReloadSettings();
     bool restoreStateSlot(BrowserWindow* window, RestoreData recoveryData);
     BrowserWindow* makeNewWindow(Qz::BrowserWindowType type, const QUrl &startUrl = QUrl());
     void aboutToCloseWindow(BrowserWindow* window);
@@ -131,7 +131,6 @@ public:
 public slots:
     bool saveStateSlot();
     void quitApplication();
-    void sendMessages(Qz::AppMessageType mes, bool state);
     void receiveAppMessage(QString message);
     void setStateChanged();
     void addNewTab(const QUrl &url = QUrl());
@@ -141,7 +140,7 @@ public slots:
     bool checkDefaultWebBrowser();
 
 signals:
-    void message(Qz::AppMessageType mes, bool state);
+    void reloadSettings();
 
 private slots:
     void loadSettings();

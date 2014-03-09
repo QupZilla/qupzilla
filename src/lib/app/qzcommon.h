@@ -55,14 +55,6 @@ static const QString COPYRIGHT = "2010-2014";
 static const QString WWWADDRESS = "http://www.qupzilla.com";
 static const QString WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
 
-enum AppMessageType {
-    AM_SetAdBlockIconEnabled,
-    AM_CheckPrivateBrowsing,
-    AM_ReloadSettings,
-    AM_HistoryStateChanged,
-    AM_BookmarksChanged
-};
-
 enum BrowserWindowType {
     BW_FirstAppWindow,
     BW_OtherRestoredWindow,

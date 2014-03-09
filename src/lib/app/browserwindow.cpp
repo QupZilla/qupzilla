@@ -111,7 +111,6 @@ const QString BrowserWindow::WEBKITVERSION = qWebKitVersion();
 
 BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, QUrl startUrl)
     : QMainWindow(0)
-    , m_historyMenuChanged(true)
     , m_bookmarksMenuChanged(true)
     , m_isClosing(false)
     , m_isStarting(false)
@@ -147,7 +146,7 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, QUrl startUrl)
     m_hideNavigationTimer->setSingleShot(true);
     connect(m_hideNavigationTimer, SIGNAL(timeout()), this, SLOT(hideNavigationSlot()));
 
-    connect(mApp, SIGNAL(message(Qz::AppMessageType,bool)), this, SLOT(receiveMessage(Qz::AppMessageType,bool)));
+    connect(mApp, SIGNAL(reloadSettings()), this, SLOT(loadSettings()));
 
     QTimer::singleShot(0, this, SLOT(postLaunch()));
 
@@ -943,38 +942,6 @@ void BrowserWindow::setWindowTitle(const QString &t)
     }
 
     QMainWindow::setWindowTitle(title);
-}
-
-void BrowserWindow::receiveMessage(Qz::AppMessageType mes, bool state)
-{
-    switch (mes) {
-    case Qz::AM_SetAdBlockIconEnabled:
-        m_adblockIcon->setEnabled(state);
-        break;
-
-    case Qz::AM_CheckPrivateBrowsing:
-        m_privateBrowsing->setVisible(state);
-        m_actionPrivateBrowsing->setChecked(state);
-        weView()->titleChanged();
-        break;
-
-    case Qz::AM_ReloadSettings:
-        loadSettings();
-        m_tabWidget->loadSettings();
-        break;
-
-    case Qz::AM_HistoryStateChanged:
-        m_historyMenuChanged = true;
-        break;
-
-    case Qz::AM_BookmarksChanged:
-        setBookmarksMenuChanged(true);
-        break;
-
-    default:
-        qWarning("Unresolved message sent! This could never happen!");
-        break;
-    }
 }
 
 void BrowserWindow::aboutToShowFileMenu()

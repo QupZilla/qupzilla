@@ -302,7 +302,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     BrowserWindow* qupzilla = new BrowserWindow(Qz::BW_FirstAppWindow, startUrl);
     m_mainWindows.prepend(qupzilla);
 
-    connect(qupzilla, SIGNAL(message(Qz::AppMessageType,bool)), this, SLOT(sendMessages(Qz::AppMessageType,bool)));
     connect(qupzilla, SIGNAL(startingCompleted()), this, SLOT(restoreCursor()));
 
     loadSettings();
@@ -456,11 +455,10 @@ void MainApplication::loadSettings()
     m_uaManager->loadSettings();
 }
 
-void MainApplication::reloadSettings()
+void MainApplication::doReloadSettings()
 {
-    QTimer::singleShot(0, this, SLOT(loadSettings()));
-
-    emit message(Qz::AM_ReloadSettings, true);
+    loadSettings();
+    emit reloadSettings();
 }
 
 void MainApplication::restoreCursor()
@@ -494,7 +492,6 @@ BrowserWindow* MainApplication::getWindow()
 void MainApplication::setStateChanged()
 {
     m_autoSaver->changeOcurred();
-    sendMessages(Qz::AM_HistoryStateChanged, true);
 }
 
 QList<BrowserWindow*> MainApplication::mainWindows()
@@ -565,11 +562,6 @@ QString MainApplication::currentLanguage() const
 QString MainApplication::currentProfilePath() const
 {
     return m_activeProfil;
-}
-
-void MainApplication::sendMessages(Qz::AppMessageType mes, bool state)
-{
-    emit message(mes, state);
 }
 
 void MainApplication::receiveAppMessage(QString message)

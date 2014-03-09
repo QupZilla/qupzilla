@@ -65,7 +65,7 @@ void AdBlockManager::setEnabled(bool enabled)
     }
 
     m_enabled = enabled;
-    mApp->sendMessages(Qz::AM_SetAdBlockIconEnabled, enabled);
+    emit enabledChanged(enabled);
 
     Settings settings;
     settings.beginGroup("AdBlock");

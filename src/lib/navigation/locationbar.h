@@ -78,7 +78,7 @@ private slots:
     void onLoadFinished();
     void hideProgress();
 
-    void onMessage(Qz::AppMessageType, bool);
+    void loadSettings();
 
 private:
     enum ProgressStyle {
@@ -100,8 +100,6 @@ private:
 
     void showGoButton();
     void hideGoButton();
-
-    void loadSettings();
 
     LocationCompleter* m_completer;
 
