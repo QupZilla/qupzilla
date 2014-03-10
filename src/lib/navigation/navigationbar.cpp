@@ -182,8 +182,8 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     connect(m_buttonNext, SIGNAL(middleMouseClicked()), this, SLOT(goForwardInNewTab()));
     connect(m_buttonNext, SIGNAL(controlClicked()), this, SLOT(goForwardInNewTab()));
 
-    connect(m_reloadStop->buttonStop(), SIGNAL(clicked()), m_window, SLOT(stop()));
-    connect(m_reloadStop->buttonReload(), SIGNAL(clicked()), m_window, SLOT(reload()));
+    connect(m_reloadStop->buttonStop(), SIGNAL(clicked()), this, SLOT(stop()));
+    connect(m_reloadStop->buttonReload(), SIGNAL(clicked()), this, SLOT(reload()));
     connect(m_buttonHome, SIGNAL(clicked()), m_window, SLOT(goHome()));
     connect(m_buttonHome, SIGNAL(middleMouseClicked()), m_window, SLOT(goHomeInNewTab()));
     connect(m_buttonHome, SIGNAL(controlClicked()), m_window, SLOT(goHomeInNewTab()));
@@ -319,7 +319,9 @@ void NavigationBar::clearHistory()
 
 void NavigationBar::contextMenuRequested(const QPoint &pos)
 {
-    m_window->popupToolbarsMenu(mapToGlobal(pos));
+    QMenu menu;
+    m_window->createToolbarsMenu(&menu);
+    menu.exec(mapToGlobal(pos));
 }
 
 void NavigationBar::goAtHistoryIndex()
@@ -363,6 +365,16 @@ void NavigationBar::refreshHistory()
     QWebHistory* history = m_window->weView()->page()->history();
     m_buttonBack->setEnabled(history->canGoBack());
     m_buttonNext->setEnabled(history->canGoForward());
+}
+
+void NavigationBar::stop()
+{
+    m_window->action(QSL("View/Stop"))->trigger();
+}
+
+void NavigationBar::reload()
+{
+    m_window->action(QSL("View/Reload"))->trigger();
 }
 
 void NavigationBar::goBack()

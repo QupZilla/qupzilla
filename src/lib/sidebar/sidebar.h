@@ -60,8 +60,7 @@ class QUPZILLA_EXPORT SideBarManager : public QObject
 public:
     explicit SideBarManager(BrowserWindow* parent);
 
-    void setSideBarMenu(QMenu* menu);
-    void refreshMenu();
+    void createMenu(QMenu* menu);
 
     void showSideBar(const QString &id, bool toggle = true);
     void sideBarRemoved(const QString &id);
@@ -73,10 +72,9 @@ public:
 
 private slots:
     void slotShowSideBar();
+    void clearMenu();
 
 private:
-    void updateActions();
-
     BrowserWindow* m_window;
     QPointer<SideBar> m_sideBar;
     QMenu* m_menu;

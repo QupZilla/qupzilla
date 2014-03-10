@@ -259,7 +259,8 @@ SOURCES += \
     app/browserwindow.cpp \
     history/historymenu.cpp \
     app/datapaths.cpp \
-    app/profilemanager.cpp
+    app/profilemanager.cpp \
+    app/mainmenu.cpp
 
 
 HEADERS  += \
@@ -459,7 +460,8 @@ HEADERS  += \
     app/qzcommon.h \
     history/historymenu.h \
     app/datapaths.h \
-    app/profilemanager.h
+    app/profilemanager.h \
+    app/mainmenu.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

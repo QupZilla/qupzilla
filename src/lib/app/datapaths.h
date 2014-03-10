@@ -21,7 +21,9 @@
 #include <QString>
 #include <QHash>
 
-class DataPaths
+#include "qzcommon.h"
+
+class QUPZILLA_EXPORT DataPaths
 {
 public:
     enum Path {

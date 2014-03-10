@@ -74,14 +74,21 @@ public slots:
     void zoomOut();
     void zoomReset();
 
+    void editUndo();
+    void editRedo();
+    void editCut();
+    void editCopy();
+    void editPaste();
+    void editSelectAll();
+    void editDelete();
+
     void load(const QUrl &url);
     void reload();
+    void reloadBypassCache();
 
     void back();
     void forward();
 
-    void editDelete();
-    void selectAll();
     void printPage(QWebFrame* frame = 0);
     void sendPageByMail();
     void savePageAs();

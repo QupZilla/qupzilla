@@ -67,7 +67,7 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
     int version;
     stream >> version;
 
-    // FIXME: HACK to ensure backwards compatibility
+    // Hack to ensure backwards compatibility
     if (version != savedTabVersion) {
         stream.device()->seek(stream.device()->pos() - sizeof(int));
         stream >> tab.title;

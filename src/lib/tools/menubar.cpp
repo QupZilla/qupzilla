@@ -33,6 +33,8 @@ MenuBar::MenuBar(BrowserWindow* parent)
 void MenuBar::contextMenuRequested(const QPoint &pos)
 {
     if (!actionAt(pos)) {
-        m_window->popupToolbarsMenu(mapToGlobal(pos));
+        QMenu menu;
+        m_window->createToolbarsMenu(&menu);
+        menu.exec(mapToGlobal(pos));
     }
 }

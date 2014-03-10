@@ -32,6 +32,7 @@ class QWebFrame;
 class QTimer;
 
 class Menu;
+class MainMenu;
 class TabWidget;
 class TabbedWebView;
 class LineEdit;
@@ -59,11 +60,12 @@ class QUPZILLA_EXPORT BrowserWindow : public QMainWindow
 public:
     static const QString WEBKITVERSION;
 
-    explicit BrowserWindow(Qz::BrowserWindowType type, QUrl startUrl = QUrl());
+    explicit BrowserWindow(Qz::BrowserWindowType type, const QUrl &url = QUrl());
     ~BrowserWindow();
 
-    void openWithTab(WebTab* tab);
+    void setStartTab(WebTab* tab);
 
+    void restoreWindowState(const RestoreManager::WindowData &d);
     void saveSideBarWidth();
 
     bool fullScreenNavigationVisible() const;
@@ -76,7 +78,9 @@ public:
     void addBookmark(const QUrl &url, const QString &title);
     void addDeleteOnCloseWidget(QWidget* widget);
 
-    void restoreWindowState(const RestoreManager::WindowData &d);
+    void createToolbarsMenu(QMenu* menu);
+    void createSidebarsMenu(QMenu* menu);
+    void createEncodingMenu(QMenu* menu);
 
     SideBar* addSideBar();
     virtual QMenuBar* menuBar() const;
@@ -86,33 +90,27 @@ public:
 
     TabbedWebView* weView() const;
     TabbedWebView* weView(int index) const;
-    LocationBar* locationBar() const;
 
     Qz::BrowserWindowType windowType() const;
-    TabWidget* tabWidget() { return m_tabWidget; }
-    BookmarksToolbar* bookmarksToolbar() { return m_bookmarksToolbar; }
-    StatusBarMessage* statusBarMessage() { return m_statusBarMessage; }
-    NavigationBar* navigationBar() { return m_navigationBar; }
-    SideBarManager* sideBarManager() { return m_sideBarManager; }
-    ProgressBar* progressBar() { return m_progressBar; }
-    QLabel* ipLabel() { return m_ipLabel; }
-    AdBlockIcon* adBlockIcon() { return m_adblockIcon; }
-    QAction* actionRestoreTab() { return m_actionRestoreTab; }
-    QAction* actionReload() { return m_actionReload; }
-    QMenu* menuHelp() { return m_menuHelp; }
-    QMenu* superMenu() { return m_superMenu; }
+    LocationBar* locationBar() const;
+    TabWidget* tabWidget() const;
+    BookmarksToolbar* bookmarksToolbar() const;
+    StatusBarMessage* statusBarMessage() const;
+    NavigationBar* navigationBar() const;
+    SideBarManager* sideBarManager() const;
+    QLabel* ipLabel() const;
+    AdBlockIcon* adBlockIcon() const;
+    QMenu* superMenu() const;
 
-    void popupToolbarsMenu(const QPoint &pos);
+    bool isClosing() const;
+    QUrl homepageUrl() const;
 
-    bool isClosing() { return m_isClosing; }
-    QUrl homepageUrl() { return m_homepage; }
+    bool isTransparentBackgroundAllowed() const;
 
-    bool isTransparentBackgroundAllowed();
-    bool tabsOnTop() const;
+    QAction* action(const QString &name) const;
 
 signals:
     void startingCompleted();
-    void setWebViewMouseTracking(bool state);
 
 public slots:
     void goHome();
@@ -135,76 +133,36 @@ public slots:
     void loadAddress(const QUrl &url);
     void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());
     void printPage(QWebFrame* frame = 0);
-    void showPageInfo();
 
 private slots:
+    void addTab();
+    void openLocation();
+    void openFile();
+    void closeWindow();
     void loadSettings();
     void postLaunch();
 
-    void stop();
-    void reload();
-    void reloadByPassCache();
-    void aboutQupZilla();
-    void addTab();
     void savePageScreen();
 
-    void aboutToShowFileMenu();
-    void aboutToHideFileMenu();
-    void aboutToShowViewMenu();
-    void aboutToHideViewMenu();
-    void aboutToShowEditMenu();
-    void aboutToHideEditMenu();
-    void aboutToShowToolsMenu();
-    void aboutToHideToolsMenu();
-    void aboutToShowEncodingMenu();
-
-    void searchOnPage();
-    void showCookieManager();
-    void showBookmarksManager();
-    void showRSSManager();
-    void showDownloadManager();
     void showMenubar();
     void showNavigationToolbar();
-    void showStatusbar();
-    void showClearPrivateData();
-    void showPreferences();
-    void showBookmarkImport();
+    void showStatusBar();
 
     void refreshHistory();
-    void newWindow();
 
-    void openLocation();
-    void openFile();
-    void savePage();
-    void sendLink();
     void webSearch();
 
-    // Edit menu actions
-    void editUndo();
-    void editRedo();
-    void editCut();
-    void editCopy();
-    void editPaste();
-    void editSelectAll();
+    void searchOnPage();
 
-    void zoomIn();
-    void zoomOut();
-    void zoomReset();
-    void changeEncoding(QObject* obj = 0);
+    void changeEncoding();
 
-    void triggerCaretBrowsing();
-    void triggerTabsOnTop(bool enable);
+    void toggleCaretBrowsing();
+    void toggleTabsOnTop(bool enable);
 
-    void closeWindow();
     bool quitApp();
     void closeTab();
-    void restoreClosedTab(QObject* obj = 0);
-    void restoreAllClosedTabs();
-    void clearClosedTabsList();
     void hideNavigationSlot();
-#ifdef Q_OS_MAC
-    void refreshStateOfAllActions();
-#endif
+
 #ifdef Q_OS_WIN
     void applyBlurToMainWindow(bool force = false);
 #endif
@@ -216,11 +174,10 @@ private:
     void keyReleaseEvent(QKeyEvent* event);
     void closeEvent(QCloseEvent* event);
 
-    SearchToolBar* searchToolBar();
+    SearchToolBar* searchToolBar() const;
 
     void setupUi();
     void setupMenu();
-    void setupOtherActions();
 #ifdef Q_OS_MAC
     void setupMacMenu();
 #endif
@@ -243,82 +200,39 @@ private:
     void moveToVirtualDesktop(int desktopId);
 #endif
 
-    bool bookmarksMenuChanged();
-    void setBookmarksMenuChanged(bool changed);
-
-    QAction* menuBookmarksAction();
-    void setMenuBookmarksAction(QAction* action);
-
-    QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallBack = QKeySequence(),
-                                QKeySequence shortcutRTL = QKeySequence(), QKeySequence fallbackRTL = QKeySequence());
-
-    bool m_historyMenuChanged;
-    bool m_bookmarksMenuChanged;
     bool m_isClosing;
     bool m_isStarting;
-    QUrl m_startingUrl;
+    QUrl m_startUrl;
     QUrl m_homepage;
     Qz::BrowserWindowType m_windowType;
     WebTab* m_startTab;
 
     QVBoxLayout* m_mainLayout;
     QSplitter* m_mainSplitter;
-    QMenu* m_superMenu;
-    QMenu* m_menuFile;
-    QMenu* m_menuEdit;
-    QMenu* m_menuTools;
-    QMenu* m_menuHelp;
-    QMenu* m_menuView;
-    QMenu* m_toolbarsMenu;
-    BookmarksMenu* m_menuBookmarks;
-    HistoryMenu* m_menuHistory;
-    QMenu* m_menuEncoding;
-    QAction* m_menuBookmarksAction;
-
-    QAction* m_actionAbout;
-    QAction* m_actionPreferences;
-    QAction* m_actionQuit;
-
-    QAction* m_actionCloseWindow;
-    QAction* m_actionShowToolbar;
-    QAction* m_actionShowBookmarksToolbar;
-    QAction* m_actionShowStatusbar;
-#ifndef Q_OS_MAC
-    QAction* m_actionShowMenubar;
-#endif
-    QAction* m_actionTabsOnTop;
-    QAction* m_actionShowFullScreen;
-    QAction* m_actionShowBookmarksSideBar;
-    QAction* m_actionShowHistorySideBar;
-    QAction* m_actionShowRssSideBar;
-    QAction* m_actionPrivateBrowsing;
-    QAction* m_actionStop;
-    QAction* m_actionReload;
-    QAction* m_actionCaretBrowsing;
-    QAction* m_actionRestoreTab;
-    QAction* m_actionPageInfo;
-    QAction* m_actionPageSource;
 
     QLabel* m_privateBrowsing;
     AdBlockIcon* m_adblockIcon;
     QPointer<WebInspectorDockWidget> m_webInspectorDock;
 
-    QWidget* m_navigationContainer;
-    BookmarksToolbar* m_bookmarksToolbar;
     TabWidget* m_tabWidget;
     QPointer<SideBar> m_sideBar;
     SideBarManager* m_sideBarManager;
     StatusBarMessage* m_statusBarMessage;
-    NavigationBar* m_navigationBar;
+
+    QWidget* m_navigationContainer;
+    NavigationBar* m_navigationToolbar;
+    BookmarksToolbar* m_bookmarksToolbar;
 
     ProgressBar* m_progressBar;
     QLabel* m_ipLabel;
 
-    QString m_lastWindowTitle;
+    QMenu* m_superMenu;
+    MainMenu* m_mainMenu;
 
     int m_sideBarWidth;
     int m_webViewWidth;
-    bool m_usingTransparentBackground;
+
+    bool m_useTransparentBackground;
 
     // Shortcuts
     bool m_useTabNumberShortcuts;
@@ -331,7 +245,6 @@ private:
     QTimer* m_hideNavigationTimer;
 
     QList<QPointer<QWidget> > m_deleteOnCloseWidgets;
-    mutable int m_tabsOnTopState;
 };
 
 #endif // QUPZILLA_H

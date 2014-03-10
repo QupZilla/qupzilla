@@ -791,14 +791,13 @@ void MainApplication::messageReceived(QString message)
     }
 }
 
-void MainApplication::windowDestroyed(QObject* window)
+void MainApplication::windowDestroyed(QObject *window)
 {
-    Q_ASSERT(qobject_cast<BrowserWindow*>(window));
-    Q_ASSERT(m_windows.contains(qobject_cast<BrowserWindow*>(window)));
+    // qobject_cast doesn't work because QObject::destroyed is emitted from destructor
+    Q_ASSERT(static_cast<BrowserWindow*>(window));
+    Q_ASSERT(m_windows.contains(static_cast<BrowserWindow*>(window)));
 
-    m_windows.removeOne(qobject_cast<BrowserWindow*>(window));
-
-    qDebug("Destroyed");
+    m_windows.removeOne(static_cast<BrowserWindow*>(window));
 }
 
 void MainApplication::loadSettings()

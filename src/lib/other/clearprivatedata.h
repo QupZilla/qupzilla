@@ -27,12 +27,11 @@ namespace Ui
 class ClearPrivateData;
 }
 
-class BrowserWindow;
 class QUPZILLA_EXPORT ClearPrivateData : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ClearPrivateData(BrowserWindow* window, QWidget* parent = 0);
+    explicit ClearPrivateData(QWidget* parent = 0);
 
     static void clearLocalStorage();
     static void clearWebDatabases();
@@ -50,7 +49,6 @@ private:
     void restoreState(const QByteArray &state);
     QByteArray saveState();
 
-    BrowserWindow* m_window;
     Ui::ClearPrivateData* ui;
 
 };

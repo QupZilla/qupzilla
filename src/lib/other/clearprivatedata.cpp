@@ -39,9 +39,8 @@
 #include <QCloseEvent>
 #include <QFileInfo>
 
-ClearPrivateData::ClearPrivateData(BrowserWindow* window, QWidget* parent)
+ClearPrivateData::ClearPrivateData(QWidget* parent)
     : QDialog(parent)
-    , m_window(window)
     , ui(new Ui::ClearPrivateData)
 {
     ui->setupUi(this);

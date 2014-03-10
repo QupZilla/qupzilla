@@ -178,9 +178,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
         menu.addAction(tr("&Bookmark This Tab"), this, SLOT(bookmarkTab()));
         menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
-        QAction* action = m_window->actionRestoreTab();
-        action->setEnabled(m_tabWidget->canRestoreTab());
-        menu.addAction(action);
+        menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
         menu.addSeparator();
         menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
         menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose"), this, SLOT(closeTab()));
@@ -190,16 +188,17 @@ void TabBar::contextMenuRequested(const QPoint &position)
         menu.addAction(tr("Reloa&d All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
         menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
-        QAction* action = menu.addAction(QIcon::fromTheme("user-trash"), tr("Restore &Closed Tab"), m_tabWidget, SLOT(restoreClosedTab()));
-        action->setEnabled(m_tabWidget->canRestoreTab());
+        menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
     }
+
+    m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(m_tabWidget->canRestoreTab());
 
     // Prevent choosing first option with double rightclick
     const QPoint pos = mapToGlobal(position);
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
 
-    m_window->actionRestoreTab()->setEnabled(true);
+    m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(true);
 }
 
 void TabBar::closeAllButCurrent()

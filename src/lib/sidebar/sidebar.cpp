@@ -88,24 +88,42 @@ void SideBar::close()
 SideBarManager::SideBarManager(BrowserWindow* parent)
     : QObject(parent)
     , m_window(parent)
-    , m_menu(0)
 {
 }
 
-void SideBarManager::setSideBarMenu(QMenu* menu)
+void SideBarManager::createMenu(QMenu* menu)
 {
-    m_menu = menu;
+    QAction* act = menu->addAction(SideBar::tr("Bookmarks"), this, SLOT(slotShowSideBar()));
+    act->setCheckable(true);
+    act->setShortcut(QKeySequence("Ctrl+Shift+B"));
+    act->setData("Bookmarks");
+    act->setChecked(m_activeBar == QL1S("Bookmarks"));
 
-    refreshMenu();
+    act = menu->addAction(SideBar::tr("History"), this, SLOT(slotShowSideBar()));
+    act->setCheckable(true);
+    act->setShortcut(QKeySequence("Ctrl+H"));
+    act->setData("History");
+    act->setChecked(m_activeBar == QL1S("History"));
+
+    foreach (const QPointer<SideBarInterface> &sidebar, s_sidebars) {
+        if (sidebar) {
+            QAction* act = sidebar.data()->createMenuAction();
+            act->setData(s_sidebars.key(sidebar));
+            act->setChecked(m_activeBar == s_sidebars.key(sidebar));
+            connect(act, SIGNAL(triggered()), this, SLOT(slotShowSideBar()));
+            menu->addAction(act);
+        }
+    }
+
+    m_window->addActions(menu->actions());
+
+    // Menu is only valid until hidden
+    connect(menu, SIGNAL(aboutToHide()), this, SLOT(clearMenu()));
 }
 
 void SideBarManager::addSidebar(const QString &id, SideBarInterface* interface)
 {
     s_sidebars[id] = interface;
-
-    foreach (BrowserWindow* window, mApp->windows()) {
-        window->sideBarManager()->refreshMenu();
-    }
 }
 
 void SideBarManager::removeSidebar(const QString &id)
@@ -117,44 +135,6 @@ void SideBarManager::removeSidebar(const QString &id)
     }
 }
 
-void SideBarManager::refreshMenu()
-{
-    if (!m_menu) {
-        return;
-    }
-
-    foreach (QAction* action, m_menu->actions()) {
-        m_window->removeAction(action);
-    }
-    m_menu->clear();
-
-    QAction* act = m_menu->addAction(SideBar::tr("Bookmarks"), this, SLOT(slotShowSideBar()));
-    act->setCheckable(true);
-    act->setShortcut(QKeySequence("Ctrl+Shift+B"));
-    act->setData("Bookmarks");
-
-    act = m_menu->addAction(SideBar::tr("History"), this, SLOT(slotShowSideBar()));
-    act->setCheckable(true);
-    act->setShortcut(QKeySequence("Ctrl+H"));
-    act->setData("History");
-
-    foreach (const QPointer<SideBarInterface> &sidebar, s_sidebars) {
-        if (!sidebar) {
-            continue;
-        }
-
-        QAction* act = sidebar.data()->createMenuAction();
-        act->setData(s_sidebars.key(sidebar));
-        connect(act, SIGNAL(triggered()), this, SLOT(slotShowSideBar()));
-
-        m_menu->addAction(act);
-    }
-
-    m_window->addActions(m_menu->actions());
-
-    updateActions();
-}
-
 void SideBarManager::slotShowSideBar()
 {
     if (QAction* act = qobject_cast<QAction*>(sender())) {
@@ -162,15 +142,12 @@ void SideBarManager::slotShowSideBar()
     }
 }
 
-void SideBarManager::updateActions()
+void SideBarManager::clearMenu()
 {
-    if (!m_menu) {
-        return;
-    }
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+    Q_ASSERT(menu);
 
-    foreach (QAction* act, m_menu->actions()) {
-        act->setChecked(act->data().toString() == m_activeBar);
-    }
+    menu->clear();
 }
 
 void SideBarManager::showSideBar(const QString &id, bool toggle)
@@ -216,8 +193,6 @@ void SideBarManager::showSideBar(const QString &id, bool toggle)
 
     Settings settings;
     settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
-
-    updateActions();
 }
 
 void SideBarManager::sideBarRemoved(const QString &id)
@@ -225,8 +200,6 @@ void SideBarManager::sideBarRemoved(const QString &id)
     if (m_activeBar == id && m_sideBar) {
         m_sideBar.data()->close();
     }
-
-    refreshMenu();
 }
 
 void SideBarManager::closeSideBar()
@@ -240,6 +213,4 @@ void SideBarManager::closeSideBar()
     settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
 
     m_window->saveSideBarWidth();
-
-    updateActions();
 }

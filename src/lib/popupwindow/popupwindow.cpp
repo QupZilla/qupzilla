@@ -218,7 +218,7 @@ void PopupWindow::closeEvent(QCloseEvent* event)
 
 void PopupWindow::editSelectAll()
 {
-    m_view->selectAll();
+    m_view->editSelectAll();
 }
 
 void PopupWindow::aboutToShowEditMenu()

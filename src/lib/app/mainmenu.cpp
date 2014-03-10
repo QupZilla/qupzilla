@@ -1,0 +1,681 @@
+/* ============================================================
+* QupZilla - WebKit based browser
+* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+* ============================================================ */
+#include "mainmenu.h"
+#include "siteinfo.h"
+#include "tabwidget.h"
+#include "historymenu.h"
+#include "aboutdialog.h"
+#include "preferences.h"
+#include "iconprovider.h"
+#include "cookiemanager.h"
+#include "bookmarksmenu.h"
+#include "tabbedwebview.h"
+#include "browserwindow.h"
+#include "adblockmanager.h"
+#include "downloadmanager.h"
+#include "mainapplication.h"
+#include "browsinglibrary.h"
+#include "clearprivatedata.h"
+
+#include <QApplication>
+#include <QMetaObject>
+#include <QStatusBar>
+#include <QWebPage>
+#include <QMenuBar>
+
+static QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallBack, QKeySequence shortcutRTL = QKeySequence(), QKeySequence fallbackRTL = QKeySequence())
+{
+    if (QApplication::isRightToLeft() && (!shortcutRTL.isEmpty() || !fallbackRTL.isEmpty())) {
+        return (shortcutRTL.isEmpty() ? fallbackRTL : shortcutRTL);
+    }
+    else {
+        return (shortcut.isEmpty() ? fallBack : shortcut);
+    }
+}
+
+static void callSlot(BrowserWindow* window, const char* slot)
+{
+    if (window) {
+        QMetaObject::invokeMethod(window, slot);
+    }
+}
+
+MainMenu::MainMenu(BrowserWindow* window, QWidget* parent)
+    : QMenu(parent)
+    , m_window(window)
+{
+    Q_ASSERT(m_window);
+
+    init();
+
+    // TODO: QSL with all strings
+}
+
+void MainMenu::setWindow(BrowserWindow* window)
+{
+    Q_ASSERT(window);
+
+    m_window = window;
+    addActionsToWindow();
+}
+
+void MainMenu::initMenuBar(QMenuBar* menuBar) const
+{
+    menuBar->addMenu(m_menuFile);
+    menuBar->addMenu(m_menuEdit);
+    menuBar->addMenu(m_menuView);
+    menuBar->addMenu(m_menuHistory);
+    menuBar->addMenu(m_menuBookmarks);
+    menuBar->addMenu(m_menuTools);
+    menuBar->addMenu(m_menuHelp);
+}
+
+void MainMenu::initSuperMenu(QMenu* superMenu) const
+{
+    superMenu->addAction(m_actions[QSL("File/NewTab")]);
+    superMenu->addAction(m_actions[QSL("File/NewWindow")]);
+    superMenu->addAction(m_actions[QSL("File/NewPrivateWindow")]);
+    superMenu->addAction(m_actions[QSL("File/OpenFile")]);
+    superMenu->addSeparator();
+    superMenu->addAction(m_actions[QSL("File/SavePageScreen")]);
+    superMenu->addAction(m_actions[QSL("File/SendLink")]);
+    superMenu->addSeparator();
+    superMenu->addAction(m_actions[QSL("Edit/SelectAll")]);
+    superMenu->addAction(m_actions[QSL("Edit/Find")]);
+    superMenu->addSeparator();
+    superMenu->addAction(m_menuHistory->actions().at(3));
+    superMenu->addAction(m_menuBookmarks->actions().at(2));
+    superMenu->addSeparator();
+    superMenu->addAction(m_actions[QSL("Standard/Preferences")]);
+    superMenu->addSeparator();
+    superMenu->addMenu(m_menuView);
+    superMenu->addMenu(m_menuHistory);
+    superMenu->addMenu(m_menuBookmarks);
+    superMenu->addMenu(m_menuTools);
+    superMenu->addSeparator();
+    superMenu->addAction(m_actions[QSL("Standard/About")]);
+    superMenu->addAction(m_actions[QSL("Help/InfoAboutApp")]);
+    superMenu->addAction(m_actions[QSL("Help/ConfigInfo")]);
+    superMenu->addAction(m_actions[QSL("Help/ReportIssue")]);
+    superMenu->addSeparator();
+    superMenu->addAction(m_actions[QSL("Standard/Quit")]);
+}
+
+QAction* MainMenu::action(const QString &name) const
+{
+    Q_ASSERT(m_actions.value(name));
+
+    return m_actions.value(name);
+}
+
+void MainMenu::showAboutDialog()
+{
+    AboutDialog about(m_window);
+    about.exec();
+}
+
+void MainMenu::showPreferences()
+{
+    Preferences* prefs = new Preferences(m_window, this);
+    prefs->show();
+}
+
+void MainMenu::quitApplication()
+{
+    mApp->quitApplication();
+}
+
+void MainMenu::newTab()
+{
+    callSlot(m_window, "addTab");
+}
+
+void MainMenu::newWindow()
+{
+    mApp->createWindow(Qz::BW_NewWindow);
+}
+
+void MainMenu::newPrivateWindow()
+{
+    mApp->startPrivateBrowsing();
+}
+
+void MainMenu::openLocation()
+{
+    callSlot(m_window, "openLocation");
+}
+
+void MainMenu::openFile()
+{
+    callSlot(m_window, "openFile");
+}
+
+void MainMenu::closeWindow()
+{
+    callSlot(m_window, "closeWindow");
+}
+
+void MainMenu::savePageAs()
+{
+    if (m_window) {
+        m_window->weView()->savePageAs();
+    }
+}
+
+void MainMenu::savePageScreen()
+{
+    callSlot(m_window, "savePageScreen");
+}
+
+void MainMenu::sendLink()
+{
+    if (m_window) {
+        m_window->weView()->savePageAs();
+    }
+}
+
+void MainMenu::printPage()
+{
+    callSlot(m_window, "printPage");
+}
+
+void MainMenu::editUndo()
+{
+    if (m_window) {
+        m_window->weView()->editUndo();
+    }
+}
+
+void MainMenu::editRedo()
+{
+    if (m_window) {
+        m_window->weView()->editRedo();
+    }
+}
+
+void MainMenu::editCut()
+{
+    if (m_window) {
+        m_window->weView()->editCut();
+    }
+}
+
+void MainMenu::editCopy()
+{
+    if (m_window) {
+        m_window->weView()->editCopy();
+    }
+}
+
+void MainMenu::editPaste()
+{
+    if (m_window) {
+        m_window->weView()->editPaste();
+    }
+}
+
+void MainMenu::editSelectAll()
+{
+    if (m_window) {
+        m_window->weView()->editSelectAll();
+    }
+}
+
+void MainMenu::editFind()
+{
+    callSlot(m_window, "searchOnPage");
+}
+
+void MainMenu::showStatusBar()
+{
+    callSlot(m_window, "showStatusBar");
+}
+
+void MainMenu::stop()
+{
+    if (m_window) {
+        m_window->weView()->stop();
+    }
+}
+
+void MainMenu::reload()
+{
+    if (m_window) {
+        m_window->weView()->reload();
+    }
+}
+
+void MainMenu::zoomIn()
+{
+    if (m_window) {
+        m_window->weView()->zoomIn();
+    }
+}
+
+void MainMenu::zoomOut()
+{
+    if (m_window) {
+        m_window->weView()->zoomOut();
+    }
+}
+
+void MainMenu::zoomReset()
+{
+    if (m_window) {
+        m_window->weView()->zoomReset();
+    }
+}
+
+void MainMenu::toggleCaretBrowsing()
+{
+    callSlot(m_window, "toggleCaretBrowsing");
+}
+
+void MainMenu::showPageSource()
+{
+    callSlot(m_window, "showSource");
+}
+
+void MainMenu::showFullScreen()
+{
+    callSlot(m_window, "toggleFullScreen");
+}
+
+void MainMenu::webSearch()
+{
+    callSlot(m_window, "webSearch");
+}
+
+void MainMenu::showSiteInfo()
+{
+    if (m_window) {
+        SiteInfo* info = new SiteInfo(m_window->weView(), m_window);
+        info->setAttribute(Qt::WA_DeleteOnClose);
+        info->show();
+    }
+}
+
+void MainMenu::showDownloadManager()
+{
+    DownloadManager* m = mApp->downloadManager();
+    m->show();
+    m->raise();
+}
+
+void MainMenu::showCookieManager()
+{
+    CookieManager* m = mApp->cookieManager();
+    m->refreshTable();
+    m->show();
+    m->raise();
+}
+
+void MainMenu::showAdBlockDialog()
+{
+    AdBlockManager::instance()->showDialog();
+}
+
+void MainMenu::showRssManager()
+{
+    if (m_window) {
+        mApp->browsingLibrary()->showRSS(m_window);
+    }
+}
+
+void MainMenu::showWebInspector()
+{
+    callSlot(m_window, "showWebInspector");
+}
+
+void MainMenu::showClearRecentHistoryDialog()
+{
+    ClearPrivateData clear(m_window);
+    clear.exec();
+}
+
+void MainMenu::aboutQt()
+{
+    QApplication::aboutQt();
+}
+
+void MainMenu::showInfoAboutApp()
+{
+    if (m_window) {
+        m_window->tabWidget()->addView(QUrl(QSL("qupzilla:about")), Qz::NT_CleanSelectedTab);
+    }
+}
+
+void MainMenu::showConfigInfo()
+{
+    if (m_window) {
+        m_window->tabWidget()->addView(QUrl(QSL("qupzilla:config")), Qz::NT_CleanSelectedTab);
+    }
+}
+
+void MainMenu::reportIssue()
+{
+    if (m_window) {
+        m_window->tabWidget()->addView(QUrl(QSL("qupzilla:reportbug")), Qz::NT_CleanSelectedTab);
+    }
+}
+
+void MainMenu::restoreClosedTab()
+{
+    if (m_window) {
+        m_window->tabWidget()->restoreClosedTab();
+    }
+}
+
+void MainMenu::aboutToShowFileMenu()
+{
+#ifndef Q_OS_MAC
+    m_actions[QSL("File/CloseWindow")]->setEnabled(mApp->windowCount() > 1);
+#endif
+}
+
+void MainMenu::aboutToHideFileMenu()
+{
+    m_actions[QSL("File/CloseWindow")]->setEnabled(true);
+}
+
+void MainMenu::aboutToShowViewMenu()
+{
+#if 0
+    m_actionShowToolbar->setChecked(m_navigationBar->isVisible());
+#ifndef Q_OS_MAC
+    m_actionShowMenubar->setChecked(menuBar()->isVisible());
+#else
+    m_sideBarManager->setSideBarMenu(m_menuView->actions().at(1)->menu());
+#endif
+
+    m_actionTabsOnTop->setChecked(tabsOnTop());
+    m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
+#endif
+
+    if (!m_window) {
+        return;
+    }
+
+    m_actions[QSL("View/ShowStatusBar")]->setChecked(m_window->statusBar()->isVisible());
+    m_actions[QSL("View/FullScreen")]->setChecked(m_window->isFullScreen());
+    m_actions[QSL("View/PageSource")]->setEnabled(true);
+
+#if QTWEBKIT_FROM_2_3
+    m_actions[QSL("View/CaretBrowsing")]->setChecked(m_window->weView()->settings()->testAttribute(QWebSettings::CaretBrowsingEnabled));
+#endif
+}
+
+void MainMenu::aboutToHideViewMenu()
+{
+    m_actions[QSL("View/PageSource")]->setEnabled(false);
+}
+
+void MainMenu::aboutToShowEditMenu()
+{
+    if (!m_window) {
+        return;
+    }
+
+    WebView* view = m_window->weView();
+
+    m_actions[QSL("Edit/Undo")]->setEnabled(view->pageAction(QWebPage::Undo)->isEnabled());
+    m_actions[QSL("Edit/Redo")]->setEnabled(view->pageAction(QWebPage::Redo)->isEnabled());
+    m_actions[QSL("Edit/Cut")]->setEnabled(view->pageAction(QWebPage::Cut)->isEnabled());
+    m_actions[QSL("Edit/Copy")]->setEnabled(view->pageAction(QWebPage::Copy)->isEnabled());
+    m_actions[QSL("Edit/Paste")]->setEnabled(view->pageAction(QWebPage::Paste)->isEnabled());
+    m_actions[QSL("Edit/SelectAll")]->setEnabled(view->pageAction(QWebPage::SelectAll)->isEnabled());
+}
+
+void MainMenu::aboutToHideEditMenu()
+{
+    m_actions[QSL("Edit/Undo")]->setEnabled(false);
+    m_actions[QSL("Edit/Redo")]->setEnabled(false);
+    m_actions[QSL("Edit/Cut")]->setEnabled(false);
+    m_actions[QSL("Edit/Copy")]->setEnabled(false);
+    m_actions[QSL("Edit/Paste")]->setEnabled(false);
+    m_actions[QSL("Edit/SelectAll")]->setEnabled(false);
+}
+
+void MainMenu::aboutToShowToolsMenu()
+{
+    m_actions[QSL("Tools/SiteInfo")]->setEnabled(true);
+}
+
+void MainMenu::aboutToHideToolsMenu()
+{
+    m_actions[QSL("Tools/SiteInfo")]->setEnabled(false);
+}
+
+void MainMenu::aboutToShowToolbarsMenu()
+{
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+    Q_ASSERT(menu);
+
+    if (m_window) {
+        menu->clear();
+        m_window->createToolbarsMenu(menu);
+    }
+}
+
+void MainMenu::aboutToShowSidebarsMenu()
+{
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+    Q_ASSERT(menu);
+
+    if (m_window) {
+        menu->clear();
+        m_window->createSidebarsMenu(menu);
+    }
+}
+
+void MainMenu::aboutToShowEncodingMenu()
+{
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+    Q_ASSERT(menu);
+
+    if (m_window) {
+        menu->clear();
+        m_window->createEncodingMenu(menu);
+    }
+}
+
+void MainMenu::init()
+{
+#define ADD_ACTION(name, menu, icon, trName, slot, shortcut) \
+    action = menu->addAction(icon, trName); \
+    action->setShortcut(QKeySequence(QSL(shortcut))); \
+    connect(action, SIGNAL(triggered()), this, slot); \
+    m_actions[QSL(name)] = action
+
+#define ADD_CHECKABLE_ACTION(name, menu, icon, trName, slot, shortcut) \
+    action = menu->addAction(icon, trName); \
+    action->setShortcut(QKeySequence(QSL(shortcut))); \
+    action->setCheckable(true); \
+    connect(action, SIGNAL(triggered(bool)), this, slot); \
+    m_actions[QSL(name)] = action
+
+    // Standard actions - needed on Mac to be placed correctly in "application" menu
+    QAction* action = new QAction(QIcon::fromTheme(QSL("help-about")), tr("&About QupZilla"), this);
+    action->setMenuRole(QAction::AboutRole);
+    connect(action, SIGNAL(triggered()), this, SLOT(showAboutDialog()));
+    m_actions[QSL("Standard/About")] = action;
+
+    action = new QAction(QIcon::fromTheme(QSL("preferences-desktop"), QIcon(QSL(":/icons/theme/settings.png"))), tr("Pr&eferences"), this);
+    action->setMenuRole(QAction::PreferencesRole);
+    action->setShortcut(QKeySequence(QKeySequence::Preferences));
+    connect(action, SIGNAL(triggered()), this, SLOT(showPreferences()));
+    m_actions[QSL("Standard/Preferences")] = action;
+
+    action = new QAction(QIcon::fromTheme(QSL("application-exit")), tr("Quit"), this);
+    action->setMenuRole(QAction::QuitRole);
+    action->setShortcut(actionShortcut(QKeySequence::Quit, QKeySequence(QSL("Ctrl+Q"))));
+    connect(action, SIGNAL(triggered()), this, SLOT(quitApplication()));
+    m_actions[QSL("Standard/Quit")] = action;
+
+    // File menu
+    m_menuFile = new QMenu(tr("&File"));
+    connect(m_menuFile, SIGNAL(aboutToShow()), this, SLOT(aboutToShowFileMenu()));
+    connect(m_menuFile, SIGNAL(aboutToHide()), this, SLOT(aboutToHideFileMenu()));
+
+    ADD_ACTION("File/NewTab", m_menuFile, QIcon::fromTheme(QSL("tab-new"), QIcon(QSL(":/icons/menu/tab-new.png"))), tr("New Tab"), SLOT(newTab()), "Ctrl+T");
+    ADD_ACTION("File/NewWindow", m_menuFile, QIcon::fromTheme(QSL("window-new")), tr("&New Window"), SLOT(newWindow()), "Ctrl+N");
+    ADD_ACTION("File/NewPrivateWindow", m_menuFile, QIcon(":/icons/locationbar/privatebrowsing.png"), tr("New &Private Window"), SLOT(newPrivateWindow()), "Ctrl+Shift+P");
+    ADD_ACTION("File/OpenLocation", m_menuFile, QIcon::fromTheme(QSL("document-open-remote")), tr("Open Location"), SLOT(openLocation()), "Ctrl+L");
+    ADD_ACTION("File/OpenFile", m_menuFile, QIcon::fromTheme("document-open"), tr("Open &File..."), SLOT(openFile()), "Ctrl+O");
+    ADD_ACTION("File/CloseWindow", m_menuFile, QIcon::fromTheme("window-close"), tr("Close Window"), SLOT(closeWindow()), "Ctrl+Shift+W");
+    m_menuFile->addSeparator();
+    ADD_ACTION("File/SavePageAs", m_menuFile, QIcon::fromTheme("document-save"), tr("&Save Page As..."), SLOT(savePageAs()), "Ctrl+S");
+    ADD_ACTION("File/SavePageScreen", m_menuFile, QIcon::fromTheme("image-loading"), tr("Save Page Screen"), SLOT(savePageScreen()), "Ctrl+Shift+S");
+    ADD_ACTION("File/SendLink", m_menuFile, QIcon::fromTheme("mail-message-new"), tr("Send Link..."), SLOT(sendLink()), "");
+    ADD_ACTION("File/Print", m_menuFile, QIcon::fromTheme("document-print"), tr("&Print..."), SLOT(printPage()), "Ctrl+P");
+    m_menuFile->addSeparator();
+    m_menuFile->addAction(m_actions[QSL("Standard/Quit")]);
+
+    // Edit menu
+    m_menuEdit = new QMenu(tr("&Edit"));
+    connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEditMenu()));
+    connect(m_menuEdit, SIGNAL(aboutToHide()), this, SLOT(aboutToHideEditMenu()));
+
+    ADD_ACTION("Edit/Undo", m_menuEdit, QIcon::fromTheme("edit-undo"), tr("&Undo"), SLOT(editUndo()), "Ctrl+Z");
+    ADD_ACTION("Edit/Redo", m_menuEdit, QIcon::fromTheme("edit-redo"), tr("&Redo"), SLOT(editRedo()), "Ctrl+Shift+Z");
+    m_menuEdit->addSeparator();
+    ADD_ACTION("Edit/Cut", m_menuEdit, QIcon::fromTheme("edit-cut"), tr("&Cut"), SLOT(editCut()), "Ctrl+X");
+    ADD_ACTION("Edit/Copy", m_menuEdit, QIcon::fromTheme("edit-copy"), tr("C&opy"), SLOT(editCopy()), "Ctrl+C");
+    ADD_ACTION("Edit/Paste", m_menuEdit, QIcon::fromTheme("edit-paste"), tr("&Paste"), SLOT(editPaste()), "Ctrl+V");
+    m_menuEdit->addSeparator();
+    ADD_ACTION("Edit/SelectAll", m_menuEdit, QIcon::fromTheme("edit-select-all"), tr("Select &All"), SLOT(editSelectAll()), "Ctrl+A");
+    ADD_ACTION("Edit/Find", m_menuEdit, QIcon::fromTheme("edit-find"), tr("&Find"), SLOT(editFind()), "Ctrl+F");
+    m_menuEdit->addSeparator();
+
+    // View menu
+    m_menuView = new QMenu(tr("&View"));
+    connect(m_menuView, SIGNAL(aboutToShow()), this, SLOT(aboutToShowViewMenu()));
+    connect(m_menuView, SIGNAL(aboutToHide()), this, SLOT(aboutToHideViewMenu()));
+
+    QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
+    connect(toolbarsMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowToolbarsMenu()));
+    QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
+    connect(sidebarsMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowSidebarsMenu()));
+    QMenu* encodingMenu = new QMenu(tr("Character &Encoding"));
+    connect(encodingMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
+
+    m_menuView->addMenu(toolbarsMenu);
+    m_menuView->addMenu(sidebarsMenu);
+    ADD_CHECKABLE_ACTION("View/ShowStatusBar", m_menuView, QIcon(), tr("Sta&tus Bar"), SLOT(showStatusBar()), "");
+    m_menuView->addSeparator();
+    ADD_ACTION("View/Stop", m_menuView, IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), SLOT(stop()), "Esc");
+    ADD_ACTION("View/Reload", m_menuView, IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), SLOT(reload()), "F5");
+    m_menuView->addSeparator();
+    ADD_ACTION("View/ZoomIn", m_menuView, QIcon::fromTheme("zoom-in"), tr("Zoom &In"), SLOT(zoomIn()), "Ctrl++");
+    ADD_ACTION("View/ZoomOut", m_menuView, QIcon::fromTheme("zoom-out"), tr("Zoom &Out"), SLOT(zoomOut()), "Ctrl+-");
+    ADD_ACTION("View/ZoomReset", m_menuView, QIcon::fromTheme("zoom-original"), tr("Reset"), SLOT(zoomReset()), "Ctrl+0");
+    m_menuView->addSeparator();
+    ADD_CHECKABLE_ACTION("View/CaretBrowsing", m_menuView, QIcon(), tr("&Caret Browsing"), SLOT(toggleCaretBrowsing()), "F7");
+    m_menuView->addMenu(encodingMenu);
+    m_menuView->addSeparator();
+    ADD_ACTION("View/PageSource", m_menuView, QIcon::fromTheme("text-html"), tr("&Page Source"), SLOT(showPageSource()), "");
+    ADD_CHECKABLE_ACTION("View/FullScreen", m_menuView, QIcon(), tr("&FullScreen"), SLOT(showFullScreen()), "F11");
+
+    // Tools menu
+    m_menuTools = new QMenu(tr("&Tools"));
+    connect(m_menuTools, SIGNAL(aboutToShow()), this, SLOT(aboutToShowToolsMenu()));
+    connect(m_menuTools, SIGNAL(aboutToHide()), this, SLOT(aboutToHideToolsMenu()));
+
+    ADD_ACTION("Tools/WebSearch", m_menuTools, QIcon(), tr("&Web Search"), SLOT(webSearch()), "Ctrl+K");
+    ADD_ACTION("Tools/SiteInfo", m_menuTools, QIcon::fromTheme("dialog-information"), tr("Site &Info"), SLOT(showSiteInfo()), "");
+    m_menuTools->addSeparator();
+    ADD_ACTION("Tools/DownloadManager", m_menuTools, QIcon(), tr("&Download Manager"), SLOT(showDownloadManager()), "Ctrl+Y");
+    ADD_ACTION("Tools/CookiesManager", m_menuTools, QIcon(), tr("&Cookies Manager"), SLOT(showCookieManager()), "");
+    ADD_ACTION("Tools/AdBlock", m_menuTools, QIcon(), tr("&AdBlock"), SLOT(showAdBlockDialog()), "");
+    ADD_ACTION("Tools/RssReader", m_menuTools, QIcon(":/icons/menu/rss.png"), tr("RSS &Reader"), SLOT(showRssManager()), "");
+    ADD_ACTION("Tools/WebInspector", m_menuTools, QIcon(), tr("Web In&spector"), SLOT(showWebInspector()), "Ctrl+Shift+I");
+    ADD_ACTION("Tools/ClearRecentHistory", m_menuTools, QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), SLOT(showClearRecentHistoryDialog()), "Ctrl+Shift+Del");
+    m_menuTools->addSeparator();
+
+    // Help menu
+    m_menuHelp = new QMenu(tr("&Help"));
+
+#ifndef Q_OS_MAC
+    ADD_ACTION("Help/AboutQt", m_menuHelp, QIcon(":/icons/menu/qt.png"), tr("About &Qt"), SLOT(aboutQt()), "");
+    m_menuHelp->addAction(m_actions[QSL("Standard/About")]);
+    m_menuHelp->addSeparator();
+#endif
+
+    ADD_ACTION("Help/InfoAboutApp", m_menuHelp, QIcon::fromTheme("help-contents"), tr("Information about application"), SLOT(showInfoAboutApp()), "");
+    ADD_ACTION("Help/ConfigInfo", m_menuHelp, QIcon(), tr("Configuration Information"), SLOT(showConfigInfo()), "");
+    ADD_ACTION("Help/ReportIssue", m_menuHelp, QIcon(), tr("Report &Issue"), SLOT(reportIssue()), "");
+
+    m_actions[QSL("Help/InfoAboutApp")]->setShortcut(QKeySequence(QKeySequence::HelpContents));
+
+    // History menu
+    m_menuHistory = new HistoryMenu();
+    m_menuHistory->setMainWindow(m_window);
+
+    // Bookmarks menu
+    m_menuBookmarks = new BookmarksMenu();
+    m_menuBookmarks->setMainWindow(m_window);
+
+    // Other actions
+    action = new QAction(QIcon::fromTheme("user-trash"), tr("Restore &Closed Tab"), this);
+    action->setShortcut(QKeySequence("Ctrl+Shift+T"));
+    connect(action, SIGNAL(triggered()), this, SLOT(restoreClosedTab()));
+    m_actions[QSL("Other/RestoreClosedTab")] = action;
+
+#ifdef Q_OS_MAC
+    m_actions[QSL("View/FullScreen")]->setShortcut(QKeySequence("F11"));
+
+    // Add standard actions to File Menu (as it won't be ever cleared) and Mac menubar should move them to "Application" menu
+    m_menuFile->addAction(m_actions[QSL("Standard/About")]);
+    m_menuFile->addAction(m_actions[QSL("Standard/Preferences")]);
+#endif
+
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+    m_menuEdit->addAction(m_actions["Standard/Preferences"]);
+#elif !defined(Q_OS_MAC)
+    m_menuTools->addAction(m_actions[QSL("Standard/Preferences")]);
+#endif
+
+#ifndef QTWEBKIT_FROM_2_3
+    m_actions[QSL("View/CaretBrowsing")]->setVisible(false);
+#endif
+
+    addActionsToWindow();
+}
+
+void MainMenu::addActionsToWindow()
+{
+    // Make shortcuts available even in fullscreen (hidden menu)
+
+    QList<QAction*> actions;
+    actions << m_menuFile->actions();
+    actions << m_menuEdit->actions();
+    actions << m_menuView->actions();
+    actions << m_menuTools->actions();
+    actions << m_menuHelp->actions();
+    actions << m_menuHistory->actions();
+    actions << m_menuBookmarks->actions();
+    actions << m_actions[QSL("Other/RestoreClosedTab")];
+
+    for (int i = 0; i < actions.size(); ++i) {
+        QAction* action = actions.at(i);
+        if (action->menu()) {
+            actions += action->menu()->actions();
+        }
+        m_window->addAction(action);
+    }
+}

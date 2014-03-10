@@ -43,7 +43,6 @@ TabbedWebView::TabbedWebView(BrowserWindow* window, WebTab* webTab)
     , m_window(window)
     , m_webTab(webTab)
     , m_menu(new Menu(this))
-    , m_mouseTrack(false)
 {
     m_menu->setCloseOnMiddleClick(true);
 
@@ -56,10 +55,10 @@ TabbedWebView::TabbedWebView(BrowserWindow* window, WebTab* webTab)
     connect(this, SIGNAL(iconChanged()), this, SLOT(showIcon()));
 
     connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
-    connect(m_window, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
+}
 
-    // Tracking mouse also on tabs created in fullscreen
-    trackMouse(m_window->isFullScreen());
+TabbedWebView::~TabbedWebView()
+{
 }
 
 void TabbedWebView::setWebPage(WebPage* page)
@@ -223,15 +222,10 @@ BrowserWindow* TabbedWebView::mainWindow() const
 void TabbedWebView::moveToWindow(BrowserWindow* window)
 {
     disconnect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
-    disconnect(m_window, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
 
     m_window = window;
 
     connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
-    connect(m_window, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
-
-    // Tracking mouse also on tabs created in fullscreen
-    trackMouse(m_window->isFullScreen());
 }
 
 QWidget* TabbedWebView::overlayForJsAlert()
@@ -300,7 +294,7 @@ void TabbedWebView::setAsCurrentTab()
 
 void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
 {
-    if (m_mouseTrack) {
+    if (m_window->isFullScreen()) {
         if (m_window->fullScreenNavigationVisible()) {
             m_window->hideNavigationWithFullScreen();
         }
@@ -318,8 +312,4 @@ void TabbedWebView::disconnectObjects()
     disconnect(m_window->statusBar());
 
     WebView::disconnectObjects();
-}
-
-TabbedWebView::~TabbedWebView()
-{
 }

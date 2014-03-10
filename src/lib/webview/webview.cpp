@@ -324,6 +324,42 @@ void WebView::zoomReset()
     applyZoom();
 }
 
+void WebView::editUndo()
+{
+    triggerPageAction(QWebPage::Undo);
+}
+
+void WebView::editRedo()
+{
+    triggerPageAction(QWebPage::Redo);
+}
+
+void WebView::editCut()
+{
+    triggerPageAction(QWebPage::Cut);
+}
+
+void WebView::editCopy()
+{
+    triggerPageAction(QWebPage::Copy);
+}
+
+void WebView::editPaste()
+{
+    triggerPageAction(QWebPage::Paste);
+}
+
+void WebView::editSelectAll()
+{
+    triggerPageAction(QWebPage::SelectAll);
+}
+
+void WebView::editDelete()
+{
+    QKeyEvent ev(QEvent::KeyPress, Qt::Key_Delete, Qt::NoModifier);
+    QApplication::sendEvent(this, &ev);
+}
+
 void WebView::reload()
 {
     m_isReloading = true;
@@ -333,6 +369,11 @@ void WebView::reload()
     }
 
     QWebView::reload();
+}
+
+void WebView::reloadBypassCache()
+{
+    triggerPageAction(QWebPage::ReloadAndBypassCache);
 }
 
 void WebView::back()
@@ -357,17 +398,6 @@ void WebView::forward()
         emit urlChanged(url());
         emit iconChanged();
     }
-}
-
-void WebView::editDelete()
-{
-    QKeyEvent ev(QEvent::KeyPress, Qt::Key_Delete, Qt::NoModifier);
-    QApplication::sendEvent(this, &ev);
-}
-
-void WebView::selectAll()
-{
-    triggerPageAction(QWebPage::SelectAll);
 }
 
 void WebView::slotLoadStarted()
@@ -974,7 +1004,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
         menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
         menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printPage()));
         menu->addSeparator();
-        menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
+        menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(editSelectAll()));
         menu->addSeparator();
 
         if (url().scheme() == QLatin1String("http") || url().scheme() == QLatin1String("https")) {
@@ -1317,7 +1347,7 @@ void WebView::keyPressEvent(QKeyEvent* event)
 
     case Qt::Key_A:
         if (event->modifiers() == Qt::ControlModifier) {
-            selectAll();
+            editSelectAll();
             event->accept();
             return;
         }

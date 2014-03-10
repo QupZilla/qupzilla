@@ -723,7 +723,7 @@ void TabWidget::detachTab(int index)
 
     BrowserWindow* window = mApp->createWindow(Qz::BW_NewWindow);
     tab->moveToWindow(window);
-    window->openWithTab(tab);
+    window->setStartTab(tab);
 
     if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
         setCurrentIndex(m_lastTabIndex);
