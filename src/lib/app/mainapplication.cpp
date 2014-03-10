@@ -122,14 +122,13 @@ MainApplication::MainApplication(int &argc, char** argv)
     setApplicationVersion(QupZilla::VERSION);
     setOrganizationDomain("qupzilla");
 
-#if defined(Q_OS_UNIX) && !defined(NO_SYSTEM_DATAPATH)
+#ifdef Q_OS_MAC
+    DATADIR qApp->applicationDirPath() + QLatin1String("/../Resources/");
+#endif
+#elif defined(Q_OS_UNIX) && !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR "/";
 #else
     DATADIR = qApp->applicationDirPath() + "/";
-#endif
-
-#ifdef Q_OS_MAC
-    DATADIR.append(QLatin1String("../Resources/"));
 #endif
 
     setWindowIcon(QIcon(":icons/exeicons/qupzilla-window.png"));
@@ -764,7 +763,7 @@ void MainApplication::loadTheme(const QString &name)
      * #id[style=QtStyle] (QtStyle = QMacStyle, QWindowsVistaStyle, QGtkStyle, ...)
      * should be enough instead of loading special stylesheets
      */
-#ifdef Q_OS_UNIX
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
     if (QFile(m_activeThemePath + "linux.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "linux.css");
         cssFile.open(QFile::ReadOnly);
