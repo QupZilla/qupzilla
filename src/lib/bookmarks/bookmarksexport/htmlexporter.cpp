@@ -34,7 +34,7 @@ QString HtmlExporter::name() const
 QString HtmlExporter::getPath(QWidget* parent)
 {
     const QString defaultPath = QDir::homePath() + QLatin1String("/bookmarks.html");
-    const QString filter = BookmarksExporter::tr("HTML Bookmarks (.html)");
+    const QString filter = BookmarksExporter::tr("HTML Bookmarks") + QL1S(" (.html)");
     m_path = QzTools::getSaveFileName("HtmlExporter", parent, BookmarksExporter::tr("Choose file..."), defaultPath, filter);
     return m_path;
 }

@@ -57,7 +57,7 @@
       <item>
        <widget class="QPushButton" name="importExport">
         <property name="text">
-         <string>Import / Export</string>
+         <string>Import and Export</string>
         </property>
        </widget>
       </item>

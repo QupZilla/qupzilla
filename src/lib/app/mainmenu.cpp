@@ -548,13 +548,13 @@ void MainMenu::init()
 
     QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
     connect(toolbarsMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowToolbarsMenu()));
-    QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
-    connect(sidebarsMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowSidebarsMenu()));
+    QMenu* sidebarMenu = new QMenu(tr("Sidebar"));
+    connect(sidebarMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowSidebarsMenu()));
     QMenu* encodingMenu = new QMenu(tr("Character &Encoding"));
     connect(encodingMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
 
     m_menuView->addMenu(toolbarsMenu);
-    m_menuView->addMenu(sidebarsMenu);
+    m_menuView->addMenu(sidebarMenu);
     ADD_CHECKABLE_ACTION("View/ShowStatusBar", m_menuView, QIcon(), tr("Sta&tus Bar"), SLOT(showStatusBar()), "");
     m_menuView->addSeparator();
     ADD_ACTION("View/Stop", m_menuView, IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), SLOT(stop()), "Esc");

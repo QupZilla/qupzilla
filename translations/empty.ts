@@ -413,7 +413,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="113"/>
-        <source>Import/Export</source>
+        <source>Import and Export</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -695,7 +695,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="37"/>
-        <source>HTML Bookmarks (.html)</source>
+        <source>HTML Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -846,7 +846,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="43"/>
-        <source>Html Bookmarks</source>
+        <source>HTML Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1178,7 +1178,7 @@ Are you sure to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/other/browsinglibrary.ui" line="60"/>
-        <source>Import / Export</source>
+        <source>Import and Export</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2607,7 +2607,7 @@ Are you sure to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="551"/>
-        <source>Sidebars</source>
+        <source>Sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
