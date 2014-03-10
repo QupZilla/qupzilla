@@ -55,13 +55,13 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     setObjectName("tabbar");
     setContextMenuPolicy(Qt::CustomContextMenu);
     setElideMode(Qt::ElideRight);
-    setDocumentMode(true);
     setFocusPolicy(Qt::NoFocus);
     setTabsClosable(false);
     setMouseTracking(true);
-    setMovable(true);
-
+    setDocumentMode(true);
     setAcceptDrops(true);
+    setDrawBase(false);
+    setMovable(true);
 
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
