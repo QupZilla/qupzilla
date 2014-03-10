@@ -26,7 +26,7 @@ class CookieJar_Tst : public CookieJar
 {
 public:
     explicit CookieJar_Tst()
-        : CookieJar(QString())
+        : CookieJar()
     {
     }
 

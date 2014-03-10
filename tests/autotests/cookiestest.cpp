@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "cookiestest.h"
+#include "datapaths.h"
 #include "settings.h"
 
 #include <QtTest/QtTest>
@@ -23,7 +24,8 @@
 
 void CookiesTest::initTestCase()
 {
-    Settings::createSettings(QDir::tempPath() + "/QupZilla-test.ini");
+    DataPaths::setCurrentProfilePath(QDir::tempPath() + "qz-test");
+    Settings::createSettings(QDir::tempPath() + "qz-test/settings.ini");
     m_cookieJar = new CookieJar_Tst;
 }
 
