@@ -763,13 +763,20 @@ void ComboTabBar::setMinimumWidths()
                           comboTabBarPixelMetric(ExtraReservedWidth);
 
     if (mainTabBarWidth <= m_mainTabBarWidget->width()) {
+        if (m_mainBarOverFlowed) {
+            m_mainBarOverFlowed = false;
+            emit overFlowChanged(false);
+        }
+
         m_mainTabBar->useFastTabSizeHint(false);
-        emit overFlowChanged(false);
         m_mainTabBar->setMinimumWidth(mainTabBarWidth);
-        m_mainBarOverFlowed = false;
     }
     else {
-        emit overFlowChanged(true);
+        if (!m_mainBarOverFlowed) {
+            m_mainBarOverFlowed = true;
+            emit overFlowChanged(true);
+        }
+
         // The following line is the cause of calling tabSizeHint() for all tabs that is
         // time consuming, Because of this we notify application to using a lighter
         // version of it. (this is safe because all normal tabs have the same size)
@@ -777,7 +784,6 @@ void ComboTabBar::setMinimumWidths()
         if (m_mainTabBar->count() * comboTabBarPixelMetric(OverflowedTabWidth) != m_mainTabBar->minimumWidth()) {
             m_mainTabBar->setMinimumWidth(m_mainTabBar->count() * comboTabBarPixelMetric(OverflowedTabWidth));
         }
-        m_mainBarOverFlowed = true;
     }
 }
 

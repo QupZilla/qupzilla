@@ -54,7 +54,6 @@ public:
 
     void removeTab(int index);
 
-    void setUpLayout();
 
     int currentIndex() const;
     QWidget* currentWidget() const;
@@ -69,6 +68,7 @@ signals:
 public slots:
     void setCurrentIndex(int index);
     void setCurrentWidget(QWidget* widget);
+    void setUpLayout();
 
 private slots:
     void tabWasRemoved(int index);
