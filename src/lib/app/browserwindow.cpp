@@ -145,6 +145,10 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     }
 }
 
+BrowserWindow::~BrowserWindow()
+{
+}
+
 void BrowserWindow::setStartTab(WebTab* tab)
 {
     m_startTab = tab;
@@ -1458,8 +1462,6 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
 
         return;
     }
-#else
-    QTimer::singleShot(0, this, SLOT(refreshStateOfAllActions()));
 #endif
 
     disconnectObjects();
@@ -1629,16 +1631,57 @@ void BrowserWindow::moveToVirtualDesktop(int desktopId)
         return;
     }
 
-    // Fixes issue when the property wasn't set on some X servers
-    // hmmm does it?
-    //setVisible(true);
-
     XChangeProperty(display, winId(), net_wm_desktop, XA_CARDINAL,
                     32, PropModeReplace, (unsigned char*) &desktopId, 1L);
 }
 #endif
 
 #ifdef Q_OS_WIN
+void BrowserWindow::applyBlurToMainWindow(bool force)
+{
+    if (isClosing() || m_isStarting) {
+        return;
+    }
+
+    if (!force && !isTransparentBackgroundAllowed()) {
+        return;
+    }
+    int topMargin = 0;
+    int bottomMargin = 1;
+    int rightMargin = 1;
+    int leftMargin = 1;
+
+    if (m_sideBar) {
+        if (isRightToLeft()) {
+            rightMargin += m_sideBar.data()->width() + m_mainSplitter->handleWidth();
+        }
+        else {
+            leftMargin += m_sideBar.data()->width() + m_mainSplitter->handleWidth();
+        }
+    }
+
+    topMargin += menuBar()->isVisible() ? menuBar()->height() : 0;
+    topMargin += m_navigationBar->isVisible() ? m_navigationBar->height() : 0;
+    topMargin += m_bookmarksToolbar->isVisible() ? m_bookmarksToolbar->height() : 0;
+    topMargin += m_tabWidget->getTabBar()->height();
+
+    SearchToolBar* search = searchToolBar();
+    if (search) {
+        bottomMargin += search->height();
+    }
+
+    bottomMargin += statusBar()->isVisible() ? statusBar()->height() : 0;
+
+    if (m_webInspectorDock) {
+        bottomMargin += m_webInspectorDock.data()->isVisible()
+                        ? m_webInspectorDock.data()->height()
+                        + m_webInspectorDock.data()->style()->pixelMetric(QStyle::PM_DockWidgetSeparatorExtent)
+                        : 0;
+    }
+
+    QtWin::extendFrameIntoClientArea(this, leftMargin, topMargin, rightMargin, bottomMargin);
+}
+
 #if (QT_VERSION < 0x050000)
 bool BrowserWindow::winEvent(MSG* message, long* result)
 {
@@ -1706,51 +1749,6 @@ void BrowserWindow::paintEvent(QPaintEvent* event)
     QMainWindow::paintEvent(event);
 }
 
-void BrowserWindow::applyBlurToMainWindow(bool force)
-{
-    if (isClosing() || m_isStarting) {
-        return;
-    }
-
-    if (!force && !isTransparentBackgroundAllowed()) {
-        return;
-    }
-    int topMargin = 0;
-    int bottomMargin = 1;
-    int rightMargin = 1;
-    int leftMargin = 1;
-
-    if (m_sideBar) {
-        if (isRightToLeft()) {
-            rightMargin += m_sideBar.data()->width() + m_mainSplitter->handleWidth();
-        }
-        else {
-            leftMargin += m_sideBar.data()->width() + m_mainSplitter->handleWidth();
-        }
-    }
-
-    topMargin += menuBar()->isVisible() ? menuBar()->height() : 0;
-    topMargin += m_navigationBar->isVisible() ? m_navigationBar->height() : 0;
-    topMargin += m_bookmarksToolbar->isVisible() ? m_bookmarksToolbar->height() : 0;
-    topMargin += m_tabWidget->getTabBar()->height();
-
-    SearchToolBar* search = searchToolBar();
-    if (search) {
-        bottomMargin += search->height();
-    }
-
-    bottomMargin += statusBar()->isVisible() ? statusBar()->height() : 0;
-
-    if (m_webInspectorDock) {
-        bottomMargin += m_webInspectorDock.data()->isVisible()
-                        ? m_webInspectorDock.data()->height()
-                        + m_webInspectorDock.data()->style()->pixelMetric(QStyle::PM_DockWidgetSeparatorExtent)
-                        : 0;
-    }
-
-    QtWin::extendFrameIntoClientArea(this, leftMargin, topMargin, rightMargin, bottomMargin);
-}
-
 bool BrowserWindow::eventFilter(QObject* object, QEvent* event)
 {
     switch (event->type()) {
@@ -1780,7 +1778,3 @@ bool BrowserWindow::eventFilter(QObject* object, QEvent* event)
     return QMainWindow::eventFilter(object, event);
 }
 #endif
-
-BrowserWindow::~BrowserWindow()
-{
-}

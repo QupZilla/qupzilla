@@ -117,9 +117,9 @@ private slots:
 private:
     void init();
     void addActionsToWindow();
+    void callSlot(const char* slot);
 
     QHash<QString, QAction*> m_actions;
-
     QPointer<BrowserWindow> m_window;
 
     QMenu* m_menuFile;

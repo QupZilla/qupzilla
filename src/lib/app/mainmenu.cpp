@@ -48,13 +48,6 @@ static QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallBack,
     }
 }
 
-static void callSlot(BrowserWindow* window, const char* slot)
-{
-    if (window) {
-        QMetaObject::invokeMethod(window, slot);
-    }
-}
-
 MainMenu::MainMenu(BrowserWindow* window, QWidget* parent)
     : QMenu(parent)
     , m_window(window)
@@ -62,8 +55,6 @@ MainMenu::MainMenu(BrowserWindow* window, QWidget* parent)
     Q_ASSERT(m_window);
 
     init();
-
-    // TODO: QSL with all strings
 }
 
 void MainMenu::setWindow(BrowserWindow* window)
@@ -142,7 +133,7 @@ void MainMenu::quitApplication()
 
 void MainMenu::newTab()
 {
-    callSlot(m_window, "addTab");
+    callSlot("addTab");
 }
 
 void MainMenu::newWindow()
@@ -157,17 +148,17 @@ void MainMenu::newPrivateWindow()
 
 void MainMenu::openLocation()
 {
-    callSlot(m_window, "openLocation");
+    callSlot("openLocation");
 }
 
 void MainMenu::openFile()
 {
-    callSlot(m_window, "openFile");
+    callSlot("openFile");
 }
 
 void MainMenu::closeWindow()
 {
-    callSlot(m_window, "closeWindow");
+    callSlot("closeWindow");
 }
 
 void MainMenu::savePageAs()
@@ -179,7 +170,7 @@ void MainMenu::savePageAs()
 
 void MainMenu::savePageScreen()
 {
-    callSlot(m_window, "savePageScreen");
+    callSlot("savePageScreen");
 }
 
 void MainMenu::sendLink()
@@ -191,7 +182,7 @@ void MainMenu::sendLink()
 
 void MainMenu::printPage()
 {
-    callSlot(m_window, "printPage");
+    callSlot("printPage");
 }
 
 void MainMenu::editUndo()
@@ -238,12 +229,12 @@ void MainMenu::editSelectAll()
 
 void MainMenu::editFind()
 {
-    callSlot(m_window, "searchOnPage");
+    callSlot("searchOnPage");
 }
 
 void MainMenu::showStatusBar()
 {
-    callSlot(m_window, "showStatusBar");
+    callSlot("showStatusBar");
 }
 
 void MainMenu::stop()
@@ -283,22 +274,22 @@ void MainMenu::zoomReset()
 
 void MainMenu::toggleCaretBrowsing()
 {
-    callSlot(m_window, "toggleCaretBrowsing");
+    callSlot("toggleCaretBrowsing");
 }
 
 void MainMenu::showPageSource()
 {
-    callSlot(m_window, "showSource");
+    callSlot("showSource");
 }
 
 void MainMenu::showFullScreen()
 {
-    callSlot(m_window, "toggleFullScreen");
+    callSlot("toggleFullScreen");
 }
 
 void MainMenu::webSearch()
 {
-    callSlot(m_window, "webSearch");
+    callSlot("webSearch");
 }
 
 void MainMenu::showSiteInfo()
@@ -339,7 +330,7 @@ void MainMenu::showRssManager()
 
 void MainMenu::showWebInspector()
 {
-    callSlot(m_window, "showWebInspector");
+    callSlot("showWebInspector");
 }
 
 void MainMenu::showClearRecentHistoryDialog()
@@ -395,18 +386,6 @@ void MainMenu::aboutToHideFileMenu()
 
 void MainMenu::aboutToShowViewMenu()
 {
-#if 0
-    m_actionShowToolbar->setChecked(m_navigationBar->isVisible());
-#ifndef Q_OS_MAC
-    m_actionShowMenubar->setChecked(menuBar()->isVisible());
-#else
-    m_sideBarManager->setSideBarMenu(m_menuView->actions().at(1)->menu());
-#endif
-
-    m_actionTabsOnTop->setChecked(tabsOnTop());
-    m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
-#endif
-
     if (!m_window) {
         return;
     }
@@ -534,15 +513,15 @@ void MainMenu::init()
 
     ADD_ACTION("File/NewTab", m_menuFile, QIcon::fromTheme(QSL("tab-new"), QIcon(QSL(":/icons/menu/tab-new.png"))), tr("New Tab"), SLOT(newTab()), "Ctrl+T");
     ADD_ACTION("File/NewWindow", m_menuFile, QIcon::fromTheme(QSL("window-new")), tr("&New Window"), SLOT(newWindow()), "Ctrl+N");
-    ADD_ACTION("File/NewPrivateWindow", m_menuFile, QIcon(":/icons/locationbar/privatebrowsing.png"), tr("New &Private Window"), SLOT(newPrivateWindow()), "Ctrl+Shift+P");
+    ADD_ACTION("File/NewPrivateWindow", m_menuFile, QIcon(QSL(":/icons/locationbar/privatebrowsing.png")), tr("New &Private Window"), SLOT(newPrivateWindow()), "Ctrl+Shift+P");
     ADD_ACTION("File/OpenLocation", m_menuFile, QIcon::fromTheme(QSL("document-open-remote")), tr("Open Location"), SLOT(openLocation()), "Ctrl+L");
-    ADD_ACTION("File/OpenFile", m_menuFile, QIcon::fromTheme("document-open"), tr("Open &File..."), SLOT(openFile()), "Ctrl+O");
-    ADD_ACTION("File/CloseWindow", m_menuFile, QIcon::fromTheme("window-close"), tr("Close Window"), SLOT(closeWindow()), "Ctrl+Shift+W");
+    ADD_ACTION("File/OpenFile", m_menuFile, QIcon::fromTheme(QSL("document-open")), tr("Open &File..."), SLOT(openFile()), "Ctrl+O");
+    ADD_ACTION("File/CloseWindow", m_menuFile, QIcon::fromTheme(QSL("window-close")), tr("Close Window"), SLOT(closeWindow()), "Ctrl+Shift+W");
     m_menuFile->addSeparator();
-    ADD_ACTION("File/SavePageAs", m_menuFile, QIcon::fromTheme("document-save"), tr("&Save Page As..."), SLOT(savePageAs()), "Ctrl+S");
-    ADD_ACTION("File/SavePageScreen", m_menuFile, QIcon::fromTheme("image-loading"), tr("Save Page Screen"), SLOT(savePageScreen()), "Ctrl+Shift+S");
-    ADD_ACTION("File/SendLink", m_menuFile, QIcon::fromTheme("mail-message-new"), tr("Send Link..."), SLOT(sendLink()), "");
-    ADD_ACTION("File/Print", m_menuFile, QIcon::fromTheme("document-print"), tr("&Print..."), SLOT(printPage()), "Ctrl+P");
+    ADD_ACTION("File/SavePageAs", m_menuFile, QIcon::fromTheme(QSL("document-save")), tr("&Save Page As..."), SLOT(savePageAs()), "Ctrl+S");
+    ADD_ACTION("File/SavePageScreen", m_menuFile, QIcon::fromTheme(QSL("image-loading")), tr("Save Page Screen"), SLOT(savePageScreen()), "Ctrl+Shift+S");
+    ADD_ACTION("File/SendLink", m_menuFile, QIcon::fromTheme(QSL("mail-message-new")), tr("Send Link..."), SLOT(sendLink()), "");
+    ADD_ACTION("File/Print", m_menuFile, QIcon::fromTheme(QSL("document-print")), tr("&Print..."), SLOT(printPage()), "Ctrl+P");
     m_menuFile->addSeparator();
     m_menuFile->addAction(m_actions[QSL("Standard/Quit")]);
 
@@ -551,15 +530,15 @@ void MainMenu::init()
     connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEditMenu()));
     connect(m_menuEdit, SIGNAL(aboutToHide()), this, SLOT(aboutToHideEditMenu()));
 
-    ADD_ACTION("Edit/Undo", m_menuEdit, QIcon::fromTheme("edit-undo"), tr("&Undo"), SLOT(editUndo()), "Ctrl+Z");
-    ADD_ACTION("Edit/Redo", m_menuEdit, QIcon::fromTheme("edit-redo"), tr("&Redo"), SLOT(editRedo()), "Ctrl+Shift+Z");
+    ADD_ACTION("Edit/Undo", m_menuEdit, QIcon::fromTheme(QSL("edit-undo")), tr("&Undo"), SLOT(editUndo()), "Ctrl+Z");
+    ADD_ACTION("Edit/Redo", m_menuEdit, QIcon::fromTheme(QSL("edit-redo")), tr("&Redo"), SLOT(editRedo()), "Ctrl+Shift+Z");
     m_menuEdit->addSeparator();
-    ADD_ACTION("Edit/Cut", m_menuEdit, QIcon::fromTheme("edit-cut"), tr("&Cut"), SLOT(editCut()), "Ctrl+X");
-    ADD_ACTION("Edit/Copy", m_menuEdit, QIcon::fromTheme("edit-copy"), tr("C&opy"), SLOT(editCopy()), "Ctrl+C");
-    ADD_ACTION("Edit/Paste", m_menuEdit, QIcon::fromTheme("edit-paste"), tr("&Paste"), SLOT(editPaste()), "Ctrl+V");
+    ADD_ACTION("Edit/Cut", m_menuEdit, QIcon::fromTheme(QSL("edit-cut")), tr("&Cut"), SLOT(editCut()), "Ctrl+X");
+    ADD_ACTION("Edit/Copy", m_menuEdit, QIcon::fromTheme(QSL("edit-copy")), tr("C&opy"), SLOT(editCopy()), "Ctrl+C");
+    ADD_ACTION("Edit/Paste", m_menuEdit, QIcon::fromTheme(QSL("edit-paste")), tr("&Paste"), SLOT(editPaste()), "Ctrl+V");
     m_menuEdit->addSeparator();
-    ADD_ACTION("Edit/SelectAll", m_menuEdit, QIcon::fromTheme("edit-select-all"), tr("Select &All"), SLOT(editSelectAll()), "Ctrl+A");
-    ADD_ACTION("Edit/Find", m_menuEdit, QIcon::fromTheme("edit-find"), tr("&Find"), SLOT(editFind()), "Ctrl+F");
+    ADD_ACTION("Edit/SelectAll", m_menuEdit, QIcon::fromTheme(QSL("edit-select-all")), tr("Select &All"), SLOT(editSelectAll()), "Ctrl+A");
+    ADD_ACTION("Edit/Find", m_menuEdit, QIcon::fromTheme(QSL("edit-find")), tr("&Find"), SLOT(editFind()), "Ctrl+F");
     m_menuEdit->addSeparator();
 
     // View menu
@@ -581,14 +560,14 @@ void MainMenu::init()
     ADD_ACTION("View/Stop", m_menuView, IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), SLOT(stop()), "Esc");
     ADD_ACTION("View/Reload", m_menuView, IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), SLOT(reload()), "F5");
     m_menuView->addSeparator();
-    ADD_ACTION("View/ZoomIn", m_menuView, QIcon::fromTheme("zoom-in"), tr("Zoom &In"), SLOT(zoomIn()), "Ctrl++");
-    ADD_ACTION("View/ZoomOut", m_menuView, QIcon::fromTheme("zoom-out"), tr("Zoom &Out"), SLOT(zoomOut()), "Ctrl+-");
-    ADD_ACTION("View/ZoomReset", m_menuView, QIcon::fromTheme("zoom-original"), tr("Reset"), SLOT(zoomReset()), "Ctrl+0");
+    ADD_ACTION("View/ZoomIn", m_menuView, QIcon::fromTheme(QSL("zoom-in")), tr("Zoom &In"), SLOT(zoomIn()), "Ctrl++");
+    ADD_ACTION("View/ZoomOut", m_menuView, QIcon::fromTheme(QSL("zoom-out")), tr("Zoom &Out"), SLOT(zoomOut()), "Ctrl+-");
+    ADD_ACTION("View/ZoomReset", m_menuView, QIcon::fromTheme(QSL("zoom-original")), tr("Reset"), SLOT(zoomReset()), "Ctrl+0");
     m_menuView->addSeparator();
     ADD_CHECKABLE_ACTION("View/CaretBrowsing", m_menuView, QIcon(), tr("&Caret Browsing"), SLOT(toggleCaretBrowsing()), "F7");
     m_menuView->addMenu(encodingMenu);
     m_menuView->addSeparator();
-    ADD_ACTION("View/PageSource", m_menuView, QIcon::fromTheme("text-html"), tr("&Page Source"), SLOT(showPageSource()), "");
+    ADD_ACTION("View/PageSource", m_menuView, QIcon::fromTheme(QSL("text-html")), tr("&Page Source"), SLOT(showPageSource()), "");
     ADD_CHECKABLE_ACTION("View/FullScreen", m_menuView, QIcon(), tr("&FullScreen"), SLOT(showFullScreen()), "F11");
 
     // Tools menu
@@ -597,26 +576,26 @@ void MainMenu::init()
     connect(m_menuTools, SIGNAL(aboutToHide()), this, SLOT(aboutToHideToolsMenu()));
 
     ADD_ACTION("Tools/WebSearch", m_menuTools, QIcon(), tr("&Web Search"), SLOT(webSearch()), "Ctrl+K");
-    ADD_ACTION("Tools/SiteInfo", m_menuTools, QIcon::fromTheme("dialog-information"), tr("Site &Info"), SLOT(showSiteInfo()), "");
+    ADD_ACTION("Tools/SiteInfo", m_menuTools, QIcon::fromTheme(QSL("dialog-information")), tr("Site &Info"), SLOT(showSiteInfo()), "");
     m_menuTools->addSeparator();
     ADD_ACTION("Tools/DownloadManager", m_menuTools, QIcon(), tr("&Download Manager"), SLOT(showDownloadManager()), "Ctrl+Y");
     ADD_ACTION("Tools/CookiesManager", m_menuTools, QIcon(), tr("&Cookies Manager"), SLOT(showCookieManager()), "");
     ADD_ACTION("Tools/AdBlock", m_menuTools, QIcon(), tr("&AdBlock"), SLOT(showAdBlockDialog()), "");
     ADD_ACTION("Tools/RssReader", m_menuTools, QIcon(":/icons/menu/rss.png"), tr("RSS &Reader"), SLOT(showRssManager()), "");
     ADD_ACTION("Tools/WebInspector", m_menuTools, QIcon(), tr("Web In&spector"), SLOT(showWebInspector()), "Ctrl+Shift+I");
-    ADD_ACTION("Tools/ClearRecentHistory", m_menuTools, QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), SLOT(showClearRecentHistoryDialog()), "Ctrl+Shift+Del");
+    ADD_ACTION("Tools/ClearRecentHistory", m_menuTools, QIcon::fromTheme(QSL("edit-clear")), tr("Clear Recent &History"), SLOT(showClearRecentHistoryDialog()), "Ctrl+Shift+Del");
     m_menuTools->addSeparator();
 
     // Help menu
     m_menuHelp = new QMenu(tr("&Help"));
 
 #ifndef Q_OS_MAC
-    ADD_ACTION("Help/AboutQt", m_menuHelp, QIcon(":/icons/menu/qt.png"), tr("About &Qt"), SLOT(aboutQt()), "");
+    ADD_ACTION("Help/AboutQt", m_menuHelp, QIcon(QSL(":/icons/menu/qt.png")), tr("About &Qt"), SLOT(aboutQt()), "");
     m_menuHelp->addAction(m_actions[QSL("Standard/About")]);
     m_menuHelp->addSeparator();
 #endif
 
-    ADD_ACTION("Help/InfoAboutApp", m_menuHelp, QIcon::fromTheme("help-contents"), tr("Information about application"), SLOT(showInfoAboutApp()), "");
+    ADD_ACTION("Help/InfoAboutApp", m_menuHelp, QIcon::fromTheme(QSL("help-contents")), tr("Information about application"), SLOT(showInfoAboutApp()), "");
     ADD_ACTION("Help/ConfigInfo", m_menuHelp, QIcon(), tr("Configuration Information"), SLOT(showConfigInfo()), "");
     ADD_ACTION("Help/ReportIssue", m_menuHelp, QIcon(), tr("Report &Issue"), SLOT(reportIssue()), "");
 
@@ -631,13 +610,13 @@ void MainMenu::init()
     m_menuBookmarks->setMainWindow(m_window);
 
     // Other actions
-    action = new QAction(QIcon::fromTheme("user-trash"), tr("Restore &Closed Tab"), this);
-    action->setShortcut(QKeySequence("Ctrl+Shift+T"));
+    action = new QAction(QIcon::fromTheme(QSL("user-trash")), tr("Restore &Closed Tab"), this);
+    action->setShortcut(QKeySequence(QSL("Ctrl+Shift+T")));
     connect(action, SIGNAL(triggered()), this, SLOT(restoreClosedTab()));
     m_actions[QSL("Other/RestoreClosedTab")] = action;
 
 #ifdef Q_OS_MAC
-    m_actions[QSL("View/FullScreen")]->setShortcut(QKeySequence("F11"));
+    m_actions[QSL("View/FullScreen")]->setShortcut(QKeySequence(QSL("F11")));
 
     // Add standard actions to File Menu (as it won't be ever cleared) and Mac menubar should move them to "Application" menu
     m_menuFile->addAction(m_actions[QSL("Standard/About")]);
@@ -645,7 +624,7 @@ void MainMenu::init()
 #endif
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
-    m_menuEdit->addAction(m_actions["Standard/Preferences"]);
+    m_menuEdit->addAction(m_actions[QSL("Standard/Preferences")]);
 #elif !defined(Q_OS_MAC)
     m_menuTools->addAction(m_actions[QSL("Standard/Preferences")]);
 #endif
@@ -677,5 +656,12 @@ void MainMenu::addActionsToWindow()
             actions += action->menu()->actions();
         }
         m_window->addAction(action);
+    }
+}
+
+void MainMenu::callSlot(const char* slot)
+{
+    if (m_window) {
+        QMetaObject::invokeMethod(m_window, slot);
     }
 }

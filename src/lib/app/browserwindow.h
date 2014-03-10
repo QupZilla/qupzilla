@@ -163,10 +163,6 @@ private slots:
     void closeTab();
     void hideNavigationSlot();
 
-#ifdef Q_OS_WIN
-    void applyBlurToMainWindow(bool force = false);
-#endif
-
 private:
     bool event(QEvent* event);
     void resizeEvent(QResizeEvent* event);
@@ -178,27 +174,8 @@ private:
 
     void setupUi();
     void setupMenu();
-#ifdef Q_OS_MAC
-    void setupMacMenu();
-#endif
 
     void disconnectObjects();
-
-#ifdef Q_OS_WIN
-#if (QT_VERSION < 0x050000)
-    bool winEvent(MSG* message, long* result);
-#else
-    bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
-#endif
-
-    void paintEvent(QPaintEvent* event);
-    bool eventFilter(QObject* object, QEvent* event);
-#endif
-
-#ifdef QZ_WS_X11
-    int getCurrentVirtualDesktop() const;
-    void moveToVirtualDesktop(int desktopId);
-#endif
 
     bool m_isClosing;
     bool m_isStarting;
@@ -245,6 +222,28 @@ private:
     QTimer* m_hideNavigationTimer;
 
     QList<QPointer<QWidget> > m_deleteOnCloseWidgets;
+
+#ifdef QZ_WS_X11
+private:
+    int getCurrentVirtualDesktop() const;
+    void moveToVirtualDesktop(int desktopId);
+#endif
+
+#ifdef Q_OS_WIN
+private slots:
+    void applyBlurToMainWindow(bool force = false);
+
+private:
+#if (QT_VERSION < 0x050000)
+    bool winEvent(MSG* message, long* result);
+#else
+    bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
+#endif
+
+    void paintEvent(QPaintEvent* event);
+    bool eventFilter(QObject* object, QEvent* event);
+#endif
+
 };
 
 #endif // QUPZILLA_H

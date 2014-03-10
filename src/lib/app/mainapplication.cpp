@@ -791,7 +791,7 @@ void MainApplication::messageReceived(QString message)
     }
 }
 
-void MainApplication::windowDestroyed(QObject *window)
+void MainApplication::windowDestroyed(QObject* window)
 {
     // qobject_cast doesn't work because QObject::destroyed is emitted from destructor
     Q_ASSERT(static_cast<BrowserWindow*>(window));
@@ -931,7 +931,7 @@ void MainApplication::translateApp()
         file.append(".qm");
     }
 
-    QString dir = DataPaths::path(DataPaths::Translations);
+    QString translationPath = DataPaths::path(DataPaths::Translations);
 
     if (!file.isEmpty()) {
         const QStringList translationsPaths = DataPaths::allPaths(DataPaths::Translations);
@@ -940,7 +940,7 @@ void MainApplication::translateApp()
             // If "xx_yy" translation doesn't exists, try to use "xx*" translation
             // It can only happen when Language is chosen from system locale
 
-            if (!QFile(path + file).exists()) {
+            if (!QFile(QString("%1/%2").arg(path, file)).exists()) {
                 QDir dir(path);
                 QString lang = file.left(2) + QLatin1String("*.qm");
 
@@ -950,18 +950,18 @@ void MainApplication::translateApp()
                 file = translations.isEmpty() ? QString() : translations.first();
             }
 
-            if (QFile(path + file).exists()) {
-                dir = path;
+            if (!file.isEmpty() && QFile(QString("%1/%2").arg(path, file)).exists()) {
+                translationPath = path;
                 break;
             }
         }
     }
 
     QTranslator* app = new QTranslator(this);
-    app->load(file, dir);
+    app->load(file, translationPath);
 
     QTranslator* sys = new QTranslator(this);
-    sys->load("qt_" + file, dir);
+    sys->load("qt_" + file, translationPath);
 
     m_languageFile = file;
 
