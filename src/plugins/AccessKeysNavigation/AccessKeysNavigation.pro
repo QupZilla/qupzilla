@@ -50,10 +50,10 @@ TRANSLATIONS += \
     translations/ro_RO.ts \
     translations/ru_RU.ts \
     translations/sk_SK.ts \
-    translations/sr_BA@latin.ts \
-    translations/sr_BA.ts \
-    translations/sr_RS@latin.ts \
-    translations/sr_RS.ts \
+    translations/sr.ts \
+    translations/sr@ijekavian.ts \
+    translations/sr@ijekavianlatin.ts \
+    translations/sr@latin.ts \
     translations/sv_SE.ts \
     translations/uk_UA.ts \
     translations/uz@Cyrl.ts \

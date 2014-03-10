@@ -17,5 +17,11 @@ FORMS += \
 
 RESOURCES += autoscroll.qrc
 
+TRANSLATIONS += \
+    translations/sr.ts \
+    translations/sr@ijekavian.ts \
+    translations/sr@ijekavianlatin.ts \
+    translations/sr@latin.ts
+
 PLUGIN_DIR = $$PWD
 include(../../plugins.pri)

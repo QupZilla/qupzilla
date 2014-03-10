@@ -27,10 +27,10 @@ TRANSLATIONS += \
     $$PWD/ro_RO.ts \
     $$PWD/ru_RU.ts \
     $$PWD/sk_SK.ts \
-    $$PWD/sr_BA@latin.ts \
-    $$PWD/sr_BA.ts \
-    $$PWD/sr_RS@latin.ts \
-    $$PWD/sr_RS.ts \
+    $$PWD/sr.ts \
+    $$PWD/sr@ijekavian.ts \
+    $$PWD/sr@ijekavianlatin.ts \
+    $$PWD/sr@latin.ts \
     $$PWD/sv_SE.ts \
     $$PWD/uk_UA.ts \
     $$PWD/uz@Latn.ts \
