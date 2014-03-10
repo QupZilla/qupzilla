@@ -124,7 +124,6 @@ MainApplication::MainApplication(int &argc, char** argv)
 
 #ifdef Q_OS_MAC
     DATADIR qApp->applicationDirPath() + QLatin1String("/../Resources/");
-#endif
 #elif defined(Q_OS_UNIX) && !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR "/";
 #else
