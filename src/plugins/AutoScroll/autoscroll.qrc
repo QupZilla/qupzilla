@@ -3,5 +3,9 @@
         <file>data/scroll_all.png</file>
         <file>data/scroll_horizontal.png</file>
         <file>data/scroll_vertical.png</file>
+        <file>locale/sr.qm</file>
+        <file>locale/sr@ijekavian.qm</file>
+        <file>locale/sr@ijekavianlatin.qm</file>
+        <file>locale/sr@latin.qm</file>
     </qresource>
 </RCC>

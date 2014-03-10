@@ -68,7 +68,18 @@ static QString createLanguageItem(const QString &lang)
     if (lang == QLatin1String("nqo")) {
         return QString("N'ko (nqo)");
     }
-
+    if (lang == QLatin1String("sr")) {
+        return QString::fromUtf8("српски екавски");
+    }
+    if (lang == QLatin1String("sr@ijekavian")) {
+        return QString::fromUtf8("српски ијекавски");
+    }
+    if (lang == QLatin1String("sr@latin")) {
+        return QString::fromUtf8("srpski ekavski");
+    }
+    if (lang == QLatin1String("sr@ijekavianlatin")) {
+        return QString::fromUtf8("srpski ijekavski");
+    }
     return QString("%1, %2 (%3)").arg(language, country, lang);
 }
 
