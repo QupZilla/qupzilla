@@ -28,7 +28,7 @@ HtmlExporter::HtmlExporter(QObject* parent)
 
 QString HtmlExporter::name() const
 {
-    return BookmarksExporter::tr("HTML File (bookmarks.html)");
+    return BookmarksExporter::tr("HTML File") + QL1S(" (bookmarks.html)");
 }
 
 QString HtmlExporter::getPath(QWidget* parent)

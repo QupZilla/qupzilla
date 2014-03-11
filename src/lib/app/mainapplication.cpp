@@ -840,8 +840,8 @@ void MainApplication::loadSettings()
 #endif
 
 #ifdef USE_WEBGL
-    m_websettings->setAttribute(QWebSettings::WebGLEnabled, true);
-    m_websettings->setAttribute(QWebSettings::AcceleratedCompositingEnabled, true);
+    webSettings->setAttribute(QWebSettings::WebGLEnabled, true);
+    webSettings->setAttribute(QWebSettings::AcceleratedCompositingEnabled, true);
 #endif
 
 #if QTWEBKIT_FROM_2_2

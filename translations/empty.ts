@@ -690,7 +690,7 @@ Please install latest version of QupZilla.</source>
     <name>BookmarksExporter</name>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="31"/>
-        <source>HTML File (bookmarks.html)</source>
+        <source>HTML File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
