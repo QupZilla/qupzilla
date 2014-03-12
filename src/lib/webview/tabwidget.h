@@ -149,7 +149,7 @@ private:
 
     inline bool validIndex(int index) const { return index >= 0 && index < count(); }
 
-    bool m_dontQuitWithOneTab;
+    bool m_dontCloseWithOneTab;
     bool m_closedInsteadOpened;
     bool m_newTabAfterActive;
     bool m_newEmptyTabAfterActive;

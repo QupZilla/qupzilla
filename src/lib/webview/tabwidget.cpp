@@ -189,7 +189,7 @@ void TabWidget::loadSettings()
 {
     Settings settings;
     settings.beginGroup("Browser-Tabs-Settings");
-    m_dontQuitWithOneTab = settings.value("dontQuitWithOneTab", false).toBool();
+    m_dontCloseWithOneTab = settings.value("dontCloseWithOneTab", false).toBool();
     m_closedInsteadOpened = settings.value("closedInsteadOpenedTabs", false).toBool();
     m_newTabAfterActive = settings.value("newTabAfterActive", true).toBool();
     m_newEmptyTabAfterActive = settings.value("newEmptyTabAfterActive", false).toBool();
@@ -466,28 +466,28 @@ void TabWidget::closeTab(int index, bool force)
     TabbedWebView* webView = webTab->view();
     WebPage* webPage = webView->page();
 
-    if (!force && webView->url().toString() == QLatin1String("qupzilla:restore") && mApp->restoreManager()) {
-        // Don't close restore page!
+    // Don't close restore page!
+    if (!force && webView->url().toString() == QL1S("qupzilla:restore") && mApp->restoreManager()) {
         return;
     }
 
-    if (!force && count() == 1) {
-        if (m_dontQuitWithOneTab && mApp->windowCount() == 1) {
-            webView->load(m_urlOnNewTab);
-            return;
-        }
-        else {
-            m_window->close();
-            return;
-        }
-    }
-
-    // Save last tab url and history
-    m_closedTabsManager->saveView(webTab, index);
-
     // window.onbeforeunload handling
     if (!webView->onBeforeUnload()) {
-        m_closedTabsManager->takeLastClosedTab();
+        return;
+    }
+
+    // Save tab url and history
+    m_closedTabsManager->saveView(webTab, index);
+
+    // This would close last tab, so we close the window instead
+    if (!force && count() == 1) {
+        // But only if we can
+        if (m_dontCloseWithOneTab) {
+            // We won't actually close the tab
+            m_closedTabsManager->takeLastClosedTab();
+            return;
+        }
+        m_window->close();
         return;
     }
 

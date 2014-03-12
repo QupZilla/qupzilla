@@ -239,7 +239,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     ui->openNewEmptyTabAfterActive->setChecked(settings.value("newEmptyTabAfterActive", false).toBool());
     ui->alwaysSwitchTabsWithWheel->setChecked(settings.value("AlwaysSwitchTabsWithWheel", false).toBool());
     ui->switchToNewTabs->setChecked(settings.value("OpenNewTabsSelected", false).toBool());
-    ui->dontQuitOnTab->setChecked(settings.value("dontQuitWithOneTab", false).toBool());
+    ui->dontCloseOnLastTab->setChecked(settings.value("dontCloseWithOneTab", false).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     ui->closedInsteadOpened->setChecked(settings.value("closedInsteadOpenedTabs", false).toBool());
     ui->showTabPreviews->setChecked(settings.value("showTabPreviews", false).toBool());
@@ -921,7 +921,7 @@ void Preferences::saveSettings()
     settings.setValue("newEmptyTabAfterActive", ui->openNewEmptyTabAfterActive->isChecked());
     settings.setValue("AlwaysSwitchTabsWithWheel", ui->alwaysSwitchTabsWithWheel->isChecked());
     settings.setValue("OpenNewTabsSelected", ui->switchToNewTabs->isChecked());
-    settings.setValue("dontQuitWithOneTab", ui->dontQuitOnTab->isChecked());
+    settings.setValue("dontCloseWithOneTab", ui->dontCloseOnLastTab->isChecked());
     settings.setValue("AskOnClosing", ui->askWhenClosingMultipleTabs->isChecked());
     settings.setValue("closedInsteadOpenedTabs", ui->closedInsteadOpened->isChecked());
     settings.setValue("showTabPreviews", ui->showTabPreviews->isChecked());

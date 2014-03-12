@@ -743,9 +743,9 @@
                 </widget>
                </item>
                <item>
-                <widget class="QCheckBox" name="dontQuitOnTab">
+                <widget class="QCheckBox" name="dontCloseOnLastTab">
                  <property name="text">
-                  <string>Don't quit upon closing last tab</string>
+                  <string>Don't close window upon closing last tab</string>
                  </property>
                 </widget>
                </item>
