@@ -227,9 +227,8 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     translateApp();
 
-    BrowserWindow* window = new BrowserWindow(Qz::BW_FirstAppWindow, startUrl);
+    BrowserWindow* window = createWindow(Qz::BW_FirstAppWindow, startUrl);
     connect(window, SIGNAL(startingCompleted()), this, SLOT(restoreOverrideCursor()));
-    m_windows.prepend(window);
 
     loadSettings();
 
