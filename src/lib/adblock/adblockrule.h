@@ -140,20 +140,27 @@ private:
     RuleOptions m_options;
     RuleOptions m_exceptions;
 
+    // Original rule filter
     QString m_filter;
-    QString m_cssSelector;
+    // Parsed rule for string matching (CSS Selector for CSS rules)
     QString m_matchString;
+    // Case sensitivity for string matching
     Qt::CaseSensitivity m_caseSensitivity;
 
     bool m_isEnabled;
     bool m_isException;
     bool m_isInternalDisabled;
 
-    QzRegExp* m_regExp;
-    QStringList m_regExpStrings;
-
     QStringList m_allowedDomains;
     QStringList m_blockedDomains;
+
+    struct RegExp {
+        QzRegExp regExp;
+        QStringList regExpStrings;
+    };
+
+    // Use dynamic allocation to save memory
+    RegExp* m_regExp;
 
     friend class AdBlockSearchTree;
 };

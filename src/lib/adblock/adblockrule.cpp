@@ -135,7 +135,7 @@ bool AdBlockRule::isCssRule() const
 
 QString AdBlockRule::cssSelector() const
 {
-    return m_cssSelector;
+    return m_matchString;
 }
 
 bool AdBlockRule::isDocument() const
@@ -217,7 +217,7 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
             return false;
         }
 
-        matched = (m_regExp->indexIn(encodedUrl) != -1);
+        matched = (m_regExp->regExp.indexIn(encodedUrl) != -1);
     }
 
     if (matched) {
@@ -380,7 +380,7 @@ void AdBlockRule::parseFilter()
             parseDomains(domains, QLatin1Char(','));
         }
 
-        m_cssSelector = parsedLine.mid(pos + 2);
+        m_matchString = parsedLine.mid(pos + 2);
 
         // CSS rule cannot have more options -> stop parsing
         return;
@@ -462,7 +462,9 @@ void AdBlockRule::parseFilter()
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
         m_type = RegExpMatchRule;
-        m_regExp = new QzRegExp(parsedLine, m_caseSensitivity);
+        m_regExp = new RegExp;
+        m_regExp->regExp = QzRegExp(parsedLine, m_caseSensitivity);
+        m_regExp->regExpStrings = parseRegExpFilter(parsedLine);
         return;
     }
 
@@ -516,8 +518,9 @@ void AdBlockRule::parseFilter()
         .replace(QzRegExp(QLatin1String("\\\\\\*")), QLatin1String(".*"));  // replace wildcards by .*
 
         m_type = RegExpMatchRule;
-        m_regExpStrings = parseRegExpFilter(parsedLine);
-        m_regExp = new QzRegExp(parsedRegExp, m_caseSensitivity);
+        m_regExp = new RegExp;
+        m_regExp->regExp = QzRegExp(parsedRegExp, m_caseSensitivity);
+        m_regExp->regExpStrings = parseRegExpFilter(parsedLine);
         return;
     }
 
@@ -554,7 +557,9 @@ bool AdBlockRule::isMatchingDomain(const QString &domain, const QString &filter)
 
 bool AdBlockRule::isMatchingRegExpStrings(const QString &url) const
 {
-    foreach (const QString &string, m_regExpStrings) {
+    Q_ASSERT(m_regExp);
+
+    foreach (const QString &string, m_regExp->regExpStrings) {
         if (!url.contains(string)) {
             return false;
         }
