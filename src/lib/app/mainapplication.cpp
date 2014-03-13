@@ -470,7 +470,7 @@ QNetworkDiskCache* MainApplication::networkCache()
 {
     if (!m_networkCache) {
         Settings settings;
-        const QString defaultBasePath = QString("%1networkcache/").arg(DataPaths::currentProfilePath());
+        const QString defaultBasePath = QString("%1/networkcache/").arg(DataPaths::currentProfilePath());
         const QString basePath = settings.value("Web-Browser-Settings/CachePath", defaultBasePath).toString();
         const QString cachePath = QString("%1/%2-Qt%3/").arg(basePath, qWebKitVersion(), qVersion());
 
