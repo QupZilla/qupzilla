@@ -126,6 +126,10 @@ WebPage::~WebPage()
     }
 
     s_livingPages.removeOne(this);
+
+    // Page's network manager will be deleted and then set to null
+    // Fixes issue with network manager being used after deleted in destructor
+    setNetworkAccessManager(0);
 }
 
 QUrl WebPage::url() const
