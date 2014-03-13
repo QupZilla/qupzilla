@@ -103,8 +103,6 @@ public:
     ToolButton* buttonListTabs() const;
     AddTabButton* buttonAddTab() const;
 
-    void disconnectObjects();
-
 public slots:
     int addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false, bool pinned = false);
     int addView(const QNetworkRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false, bool pinned = false);

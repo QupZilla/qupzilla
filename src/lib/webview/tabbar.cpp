@@ -746,8 +746,3 @@ void TabBar::dropEvent(QDropEvent* event)
         }
     }
 }
-
-void TabBar::disconnectObjects()
-{
-    disconnect(this);
-}

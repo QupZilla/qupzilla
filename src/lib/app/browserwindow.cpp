@@ -147,6 +147,13 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
 
 BrowserWindow::~BrowserWindow()
 {
+    mApp->plugins()->emitMainWindowDeleted(this);
+
+    foreach (const QPointer<QWidget> &pointer, m_deleteOnCloseWidgets) {
+        if (pointer) {
+            pointer->deleteLater();
+        }
+    }
 }
 
 void BrowserWindow::setStartTab(WebTab* tab)
@@ -1453,7 +1460,6 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
 #ifndef Q_OS_MAC
     if (mApp->windowCount() == 1) {
         if (quitApp()) {
-            disconnectObjects();
             event->accept();
         }
         else {
@@ -1464,7 +1470,6 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
     }
 #endif
 
-    disconnectObjects();
     event->accept();
 }
 
@@ -1478,37 +1483,6 @@ SearchToolBar* BrowserWindow::searchToolBar() const
     }
 
     return toolBar;
-}
-
-void BrowserWindow::disconnectObjects()
-{
-    // Disconnecting all important widgets before deleting this window
-    // so it cannot happen that slots will be invoked after the object
-    // is deleted.
-    // We have to do it this way, because ~QObject is deleting all child
-    // objects with plain delete - not deleteLater().
-    //
-    // Also using own disconnectObjects() method, not default disconnect()
-    // because we need to retain connections to destroyed(QObject*) signal
-    // in order to avoid crashes for example with setting stylesheets
-    // (QStyleSheet backend is holding list of all widgets)
-
-    m_tabWidget->disconnectObjects();
-    m_tabWidget->getTabBar()->disconnectObjects();
-
-    foreach (WebTab* tab, m_tabWidget->allTabs()) {
-        tab->disconnectObjects();
-        tab->view()->disconnectObjects();
-        tab->view()->page()->disconnectObjects();
-    }
-
-    foreach (const QPointer<QWidget> &pointer, m_deleteOnCloseWidgets) {
-        if (pointer) {
-            pointer.data()->deleteLater();
-        }
-    }
-
-    mApp->plugins()->emitMainWindowDeleted(this);
 }
 
 void BrowserWindow::closeWindow()

@@ -116,6 +116,18 @@ WebPage::WebPage(QObject* parent)
     s_livingPages.append(this);
 }
 
+WebPage::~WebPage()
+{
+    mApp->plugins()->emitWebPageDeleted(this);
+
+    if (m_runningLoop) {
+        m_runningLoop->exit(1);
+        m_runningLoop = 0;
+    }
+
+    s_livingPages.removeOne(this);
+}
+
 QUrl WebPage::url() const
 {
     return mainFrame()->url();
@@ -1043,29 +1055,4 @@ bool WebPage::isPointerSafeToUse(WebPage* page)
     // this hack.
 
     return page == 0 ? false : s_livingPages.contains(page);
-}
-
-void WebPage::disconnectObjects()
-{
-    if (m_runningLoop) {
-        m_runningLoop->exit(1);
-        m_runningLoop = 0;
-    }
-
-    s_livingPages.removeOne(this);
-
-    disconnect(this);
-    m_networkProxy->disconnectObjects();
-
-    mApp->plugins()->emitWebPageDeleted(this);
-}
-
-WebPage::~WebPage()
-{
-    if (m_runningLoop) {
-        m_runningLoop->exit(1);
-        m_runningLoop = 0;
-    }
-
-    s_livingPages.removeOne(this);
 }

@@ -57,10 +57,3 @@ QNetworkReply* NetworkManagerProxy::createRequest(QNetworkAccessManager::Operati
 
     return QNetworkAccessManager::createRequest(op, request, outgoingData);
 }
-
-void NetworkManagerProxy::disconnectObjects()
-{
-    m_page = 0;
-
-    disconnect(m_manager);
-}

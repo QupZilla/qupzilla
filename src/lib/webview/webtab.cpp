@@ -380,13 +380,6 @@ void WebTab::pinTab(int index)
     tabWidget->setCurrentIndex(index);
 }
 
-void WebTab::disconnectObjects()
-{
-    disconnect(this);
-    disconnect(m_locationBar.data());
-    disconnect(m_view);
-}
-
 WebTab::~WebTab()
 {
     delete m_locationBar.data();

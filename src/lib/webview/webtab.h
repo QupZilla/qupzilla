@@ -95,8 +95,6 @@ public:
 
     QPixmap renderTabPreview();
 
-    void disconnectObjects();
-
 private slots:
     void showNotification(QWidget* notif);
     void slotRestore();

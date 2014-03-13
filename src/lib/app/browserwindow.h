@@ -175,8 +175,6 @@ private:
     void setupUi();
     void setupMenu();
 
-    void disconnectObjects();
-
     bool m_isClosing;
     bool m_isStarting;
     QUrl m_startUrl;

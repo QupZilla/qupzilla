@@ -1533,8 +1533,3 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
 #endif
     return QWebView::eventFilter(obj, event);
 }
-
-void WebView::disconnectObjects()
-{
-    disconnect(this);
-}

@@ -44,8 +44,6 @@ public:
 
     void updatePinnedTabCloseButton(int index);
 
-    void disconnectObjects();
-
     void wheelEvent(QWheelEvent* event);
 
 signals:

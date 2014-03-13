@@ -748,8 +748,3 @@ void NetworkManager::loadCertificates()
     new CaBundleUpdater(this, this);
 #endif
 }
-
-void NetworkManager::disconnectObjects()
-{
-    disconnect(this);
-}

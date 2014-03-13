@@ -210,7 +210,6 @@ void PopupWindow::closeEvent(QCloseEvent* event)
         return;
     }
 
-    m_page->disconnectObjects();
     m_view->deleteLater();
 
     event->accept();

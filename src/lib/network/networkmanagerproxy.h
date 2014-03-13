@@ -35,8 +35,6 @@ public:
 
     QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 
-    void disconnectObjects();
-
 private:
     WebPage* m_page;
     NetworkManager* m_manager;

@@ -49,7 +49,6 @@ public:
     void moveToWindow(BrowserWindow* window);
 
     QWidget* overlayForJsAlert();
-    void disconnectObjects();
 
 signals:
     void wantsCloseTab(int);

@@ -305,11 +305,3 @@ void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
 
     WebView::mouseMoveEvent(event);
 }
-
-void TabbedWebView::disconnectObjects()
-{
-    disconnect(this);
-    disconnect(m_window->statusBar());
-
-    WebView::disconnectObjects();
-}

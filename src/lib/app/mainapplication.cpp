@@ -626,7 +626,6 @@ void MainApplication::quitApplication()
     }
 
     m_isClosing = true;
-    m_networkManager->disconnectObjects();
 
     // Saving settings in saveSettings() slot called from quit() so
     // everything gets saved also when quitting application in other
@@ -704,7 +703,6 @@ void MainApplication::saveSettings()
     }
 
     m_isClosing = true;
-    m_networkManager->disconnectObjects();
 
     Settings settings;
     settings.beginGroup("SessionRestore");

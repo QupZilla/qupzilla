@@ -464,7 +464,6 @@ void TabWidget::closeTab(int index, bool force)
     }
 
     TabbedWebView* webView = webTab->view();
-    WebPage* webPage = webView->page();
 
     // Don't close restore page!
     if (!force && webView->url().toString() == QL1S("qupzilla:restore") && mApp->restoreManager()) {
@@ -505,10 +504,6 @@ void TabWidget::closeTab(int index, bool force)
     }
 
     m_lastBackgroundTabIndex = -1;
-
-    webPage->disconnectObjects();
-    webView->disconnectObjects();
-    webTab->disconnectObjects();
 
     if (!m_closedInsteadOpened && m_menuTabs->isVisible()) {
         QAction* labelAction = m_menuTabs->actions().last();
@@ -1031,14 +1026,6 @@ void TabWidget::closeRecoveryTab()
             closeTab(tab->tabIndex(), true);
         }
     }
-}
-
-void TabWidget::disconnectObjects()
-{
-    disconnect(this);
-    disconnect(mApp);
-    disconnect(m_window);
-    disconnect(m_window->ipLabel());
 }
 
 TabWidget::~TabWidget()

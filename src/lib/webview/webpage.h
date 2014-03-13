@@ -84,7 +84,6 @@ public:
     QString userAgentForUrl(const QUrl &url) const;
 
     static bool isPointerSafeToUse(WebPage* page);
-    void disconnectObjects();
 
 signals:
     void privacyChanged(bool status);
