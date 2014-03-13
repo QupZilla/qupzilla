@@ -707,6 +707,11 @@ void ComboTabBar::tabRemoved(int index)
     Q_UNUSED(index)
 }
 
+TabBarHelper* ComboTabBar::mainTabBar() const
+{
+    return m_mainTabBar;
+}
+
 TabBarHelper* ComboTabBar::localTabBar(int index) const
 {
     if (index < 0 || index >= pinnedTabsCount()) {
@@ -1289,7 +1294,7 @@ void TabBarScrollWidget::overFlowChanged(bool overflowed)
     m_leftScrollButton->setVisible(overflowed && m_usesScrollButtons);
     m_rightScrollButton->setVisible(overflowed && m_usesScrollButtons);
 
-    // a workaround for UI issue of buttons on very fast resizing
+    // Workaround for UI issue of buttons on very fast resizing
     if (m_rightContainer->isVisible()) {
         m_rightContainer->hide();
         m_rightContainer->show();

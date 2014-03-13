@@ -410,6 +410,11 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         }
     }
 
+    // Make sure user notice opening new background tabs
+    if (!(openFlags & Qz::NT_SelectedTab)) {
+        m_tabBar->ensureVisible(index);
+    }
+
     setUpdatesEnabled(true);
 
     emit changed();
