@@ -142,7 +142,6 @@ private slots:
     void slotTabCloseRequested(int index);
     void slotTabMoved(int from, int to);
     void closeTabFromButton();
-    void enableUpdates();
     void updateTabBars();
 
 protected:

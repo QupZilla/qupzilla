@@ -136,12 +136,11 @@ void ComboTabBar::removeTab(int index)
 
         localTabBar(index)->removeTab(toLocalIndex(index));
         updatePinnedTabBarVisibility();
-
         tabRemoved(index);
         setMinimumWidths();
 
-        // Enable updates with a small delay to prevent flickering
-        QTimer::singleShot(50, this, SLOT(enableUpdates()));
+        setUpdatesEnabled(true);
+        updateTabBars();
     }
 }
 
@@ -300,12 +299,6 @@ void ComboTabBar::closeTabFromButton()
     if (tabToClose != -1) {
         emit tabCloseRequested(tabToClose + pinnedTabsCount());
     }
-}
-
-void ComboTabBar::enableUpdates()
-{
-    setUpdatesEnabled(true);
-    updateTabBars();
 }
 
 void ComboTabBar::updateTabBars()

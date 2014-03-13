@@ -82,7 +82,8 @@ SiteInfoWidget::SiteInfoWidget(BrowserWindow* window, QWidget* parent)
             ui->historyLabel->setText(tr("This is your <b>%1</b> visit of this site.").arg(text));
         }
     }
-    connect(ui->pushButton, SIGNAL(clicked()), m_window, SLOT(showPageInfo()));
+
+    connect(ui->pushButton, SIGNAL(clicked()), m_window->action(QSL("Tools/SiteInfo")), SLOT(trigger()));
 }
 
 SiteInfoWidget::~SiteInfoWidget()
