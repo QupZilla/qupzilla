@@ -121,10 +121,6 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
 
     m_isStarting = true;
 
-#ifndef QZ_WS_X11
-    setUpdatesEnabled(false);
-#endif
-
     setupUi();
     setupMenu();
 
@@ -163,10 +159,6 @@ void BrowserWindow::setStartTab(WebTab* tab)
 
 void BrowserWindow::postLaunch()
 {
-#ifdef QZ_WS_X11
-    setUpdatesEnabled(false);
-#endif
-
     loadSettings();
 
     Settings settings;
@@ -267,7 +259,6 @@ void BrowserWindow::postLaunch()
 
     m_isStarting = false;
 
-    setUpdatesEnabled(true);
     raise();
     activateWindow();
 
@@ -373,8 +364,8 @@ void BrowserWindow::setupUi()
 
 void BrowserWindow::setupMenu()
 {
-#ifdef Q_OS_MAC
     // TODO: Mac menu
+#ifdef Q_OS_MAC
     ActionCopy* copyActionPrivateBrowsing = new ActionCopy(m_actionPrivateBrowsing);
     copyActionPrivateBrowsing->setText(copyActionPrivateBrowsing->text().remove(QLatin1Char('&')));
     mApp->macDockMenu()->addAction(copyActionPrivateBrowsing);
@@ -626,20 +617,6 @@ void BrowserWindow::changeEncoding()
     }
 }
 
-void BrowserWindow::toggleCaretBrowsing()
-{
-#if QTWEBKIT_FROM_2_3
-    bool enable = !QWebSettings::globalSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled);
-
-    Settings settings;
-    settings.beginGroup("Web-Browser-Settings");
-    settings.setValue("CaretBrowsing", enable);
-    settings.endGroup();
-
-    QWebSettings::globalSettings()->setAttribute(QWebSettings::CaretBrowsingEnabled, enable);
-#endif
-}
-
 void BrowserWindow::bookmarkPage()
 {
     TabbedWebView* view = weView();
@@ -770,6 +747,18 @@ void BrowserWindow::toggleShowMenubar()
     }
 }
 
+void BrowserWindow::toggleShowStatusBar()
+{
+    setUpdatesEnabled(false);
+
+    statusBar()->setVisible(!statusBar()->isVisible());
+
+    setUpdatesEnabled(true);
+
+    Settings().setValue("Browser-View-Settings/showStatusbar", statusBar()->isVisible());
+
+}
+
 void BrowserWindow::toggleShowBookmarksToolbar()
 {
     setUpdatesEnabled(false);
@@ -818,17 +807,25 @@ void BrowserWindow::toggleTabsOnTop(bool enable)
 #endif
 }
 
-void BrowserWindow::showStatusBar()
+void BrowserWindow::toggleCaretBrowsing()
 {
-    setUpdatesEnabled(false);
+#if QTWEBKIT_FROM_2_3
+    bool enable = !QWebSettings::globalSettings()->testAttribute(QWebSettings::CaretBrowsingEnabled);
 
-    bool status = statusBar()->isVisible();
-    statusBar()->setVisible(!status);
+    Settings().setValue("Web-Browser-Settings/CaretBrowsing", enable);
 
-    Settings settings;
-    settings.setValue("Browser-View-Settings/showStatusbar", !status);
+    QWebSettings::globalSettings()->setAttribute(QWebSettings::CaretBrowsingEnabled, enable);
+#endif
+}
 
-    setUpdatesEnabled(true);
+void BrowserWindow::toggleFullScreen()
+{
+    if (isFullScreen()) {
+        showNormal();
+    }
+    else {
+        showFullScreen();
+    }
 }
 
 void BrowserWindow::showWebInspector(bool toggle)
@@ -1154,16 +1151,6 @@ bool BrowserWindow::event(QEvent* event)
     }
 
     return QMainWindow::event(event);
-}
-
-void BrowserWindow::toggleFullScreen()
-{
-    if (isFullScreen()) {
-        showNormal();
-    }
-    else {
-        showFullScreen();
-    }
 }
 
 void BrowserWindow::printPage(QWebFrame* frame)

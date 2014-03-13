@@ -119,15 +119,18 @@ public slots:
     void goForward();
 
     void setWindowTitle(const QString &t);
-    void toggleFullScreen();
 
     void showWebInspector(bool toggle = true);
     void showHistoryManager();
 
     void toggleShowMenubar();
+    void toggleShowStatusBar();
     void toggleShowBookmarksToolbar();
     void toggleShowNavigationToolbar();
     void toggleTabsOnTop(bool enable);
+
+    void toggleCaretBrowsing();
+    void toggleFullScreen();
 
     void loadActionUrl(QObject* obj = 0);
     void loadActionUrlInNewTab(QObject* obj = 0);
@@ -148,8 +151,6 @@ private slots:
 
     void savePageScreen();
 
-    void showStatusBar();
-
     void refreshHistory();
 
     void webSearch();
@@ -157,8 +158,6 @@ private slots:
     void searchOnPage();
 
     void changeEncoding();
-
-    void toggleCaretBrowsing();
 
     bool quitApp();
     void closeTab();

@@ -999,7 +999,6 @@ QByteArray TabWidget::saveState()
 bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab)
 {
     m_isRestoringState = true;
-    setUpdatesEnabled(false);
 
     Qz::BrowserWindowType type = m_window->windowType();
 
@@ -1015,8 +1014,6 @@ bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentT
     }
 
     m_isRestoringState = false;
-    setUpdatesEnabled(true);
-
 
     setCurrentIndex(currentTab);
     currentTabChanged(currentTab);
