@@ -481,10 +481,14 @@ void TabWidget::closeTab(int index, bool force)
 
     // This would close last tab, so we close the window instead
     if (!force && count() == 1) {
-        // But only if we can
+        // If we are not closing window upon closing last tab, let's just load new-tab-url
         if (m_dontCloseWithOneTab) {
-            // We won't actually close the tab
-            m_closedTabsManager->takeLastClosedTab();
+            if (webView->url() == m_urlOnNewTab) {
+                // We don't want to accumulate more than one closed tab, if user tries
+                // to close the last tab multiple times
+                m_closedTabsManager->takeLastClosedTab();
+            }
+            webView->load(m_urlOnNewTab);
             return;
         }
         m_window->close();
@@ -506,12 +510,13 @@ void TabWidget::closeTab(int index, bool force)
     webView->disconnectObjects();
     webTab->disconnectObjects();
 
-    webTab->deleteLater();
-
     if (!m_closedInsteadOpened && m_menuTabs->isVisible()) {
         QAction* labelAction = m_menuTabs->actions().last();
         labelAction->setText(tr("Currently you have %n opened tab(s)", "", count() - 1));
     }
+
+    removeTab(index);
+    delete webTab;
 
     emit changed();
 }

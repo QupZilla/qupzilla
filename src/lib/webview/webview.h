@@ -38,6 +38,7 @@ public:
     WebPage* page() const;
     void setPage(QWebPage* page);
 
+    void load(const QUrl &url);
     void load(const QNetworkRequest &request,
               QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation,
               const QByteArray &body = QByteArray());
@@ -82,7 +83,6 @@ public slots:
     void editSelectAll();
     void editDelete();
 
-    void load(const QUrl &url);
     void reload();
     void reloadBypassCache();
 
