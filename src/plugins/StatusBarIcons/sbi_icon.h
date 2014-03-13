@@ -1,6 +1,6 @@
 /* ============================================================
 * StatusBarIcons - Extra icons in statusbar for QupZilla
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,30 +15,32 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SBI_IMAGESICON_H
-#define SBI_IMAGESICON_H
+#ifndef SBI_ICON_H
+#define SBI_ICON_H
 
-#include <QIcon>
+#include <QWebSettings>
 
-#include "sbi_icon.h"
+#include "clickablelabel.h"
 
-class SBI_ImagesIcon : public SBI_Icon
+class BrowserWindow;
+class WebPage;
+
+class SBI_Icon : public ClickableLabel
 {
     Q_OBJECT
 
 public:
-    explicit SBI_ImagesIcon(BrowserWindow* window, const QString &settingsPath);
+    explicit SBI_Icon(BrowserWindow* window, const QString &settingsPath = QString());
 
-private slots:
-    void showMenu(const QPoint &point);
-    void updateIcon();
+protected:
+    bool testCurrentPageWebAttribute(QWebSettings::WebAttribute attr) const;
+    void setCurrentPageWebAttribute(QWebSettings::WebAttribute attr, bool value);
 
-    void toggleLoadingImages();
-    void setGlobalLoadingImages(bool enable);
+    QWebSettings* currentPageSettings() const;
+    WebPage* currentPage() const;
 
-private:
-    QIcon m_icon;
-    bool m_loadingImages;
+    BrowserWindow* m_window;
+    QString m_settingsFile;
 };
 
-#endif // SBI_IMAGESICON_H
+#endif // SBI_ICON_H

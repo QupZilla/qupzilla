@@ -27,8 +27,7 @@
 #include <QMenu>
 
 SBI_JavaScriptIcon::SBI_JavaScriptIcon(BrowserWindow* window)
-    : ClickableLabel(window)
-    , m_window(window)
+    : SBI_Icon(window)
 {
     setCursor(Qt::PointingHandCursor);
     setToolTip(tr("Modify JavaScript settings per-site and globally"));
@@ -48,7 +47,7 @@ void SBI_JavaScriptIcon::showMenu(const QPoint &point)
     QMenu menu;
     menu.addAction(m_icon, tr("Current page settings"))->setFont(boldFont);
 
-    if (currentPageSettings()->testAttribute(QWebSettings::JavascriptEnabled)) {
+    if (testCurrentPageWebAttribute(QWebSettings::JavascriptEnabled)) {
         menu.addAction(tr("Disable JavaScript (temporarily)"), this, SLOT(toggleJavaScript()));
     }
     else {
@@ -56,7 +55,7 @@ void SBI_JavaScriptIcon::showMenu(const QPoint &point)
     }
 
     // JavaScript needs to be always enabled for qupzilla: sites
-    if (currentPage()->url().scheme() == QLatin1String("qupzilla")) {
+    if (currentPage() && currentPage()->url().scheme() == QLatin1String("qupzilla")) {
         menu.actions().at(1)->setEnabled(false);
     }
 
@@ -68,7 +67,7 @@ void SBI_JavaScriptIcon::showMenu(const QPoint &point)
 
 void SBI_JavaScriptIcon::updateIcon()
 {
-    if (currentPageSettings()->testAttribute(QWebSettings::JavascriptEnabled)) {
+    if (testCurrentPageWebAttribute(QWebSettings::JavascriptEnabled)) {
         setGraphicsEffect(0);
     }
     else {
@@ -80,7 +79,12 @@ void SBI_JavaScriptIcon::updateIcon()
 
 void SBI_JavaScriptIcon::toggleJavaScript()
 {
-    bool current = currentPageSettings()->testAttribute(QWebSettings::JavascriptEnabled);
+    if (!currentPage()) {
+        return;
+
+    }
+
+    bool current = testCurrentPageWebAttribute(QWebSettings::JavascriptEnabled);
     currentPage()->setJavaScriptEnabled(!current);
 
     m_window->weView()->reload();
@@ -92,14 +96,4 @@ void SBI_JavaScriptIcon::openJavaScriptSettings()
 {
     JsOptions dialog(m_window);
     dialog.exec();
-}
-
-WebPage* SBI_JavaScriptIcon::currentPage()
-{
-    return m_window->weView()->page();
-}
-
-QWebSettings* SBI_JavaScriptIcon::currentPageSettings()
-{
-    return currentPage()->settings();
 }

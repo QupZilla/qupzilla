@@ -29,8 +29,7 @@
 #include <QNetworkConfigurationManager>
 
 SBI_NetworkIcon::SBI_NetworkIcon(BrowserWindow* window)
-    : ClickableLabel(window)
-    , m_window(window)
+    : SBI_Icon(window)
     , m_networkConfiguration(new QNetworkConfigurationManager(this))
 {
     setCursor(Qt::PointingHandCursor);
@@ -140,5 +139,5 @@ void SBI_NetworkIcon::enterEvent(QEvent* event)
 {
     updateToolTip();
 
-    ClickableLabel::enterEvent(event);
+    SBI_Icon::enterEvent(event);
 }

@@ -22,14 +22,11 @@
 #include "webpage.h"
 
 #include <QGraphicsColorizeEffect>
-#include <QWebSettings>
 #include <QSettings>
 #include <QMenu>
 
 SBI_ImagesIcon::SBI_ImagesIcon(BrowserWindow* window, const QString &settingsPath)
-    : ClickableLabel(window)
-    , m_window(window)
-    , m_settingsFile(settingsPath + "extensions.ini")
+    : SBI_Icon(window, settingsPath)
 {
     setCursor(Qt::PointingHandCursor);
     setToolTip(tr("Modify images loading settings per-site and globally"));
@@ -58,7 +55,7 @@ void SBI_ImagesIcon::showMenu(const QPoint &point)
     QMenu menu;
     menu.addAction(m_icon, tr("Current page settings"))->setFont(boldFont);
 
-    if (currentPageSettings()->testAttribute(QWebSettings::AutoLoadImages)) {
+    if (testCurrentPageWebAttribute(QWebSettings::AutoLoadImages)) {
         menu.addAction(tr("Disable loading images (temporarily)"), this, SLOT(toggleLoadingImages()));
     }
     else {
@@ -78,8 +75,8 @@ void SBI_ImagesIcon::showMenu(const QPoint &point)
 
 void SBI_ImagesIcon::toggleLoadingImages()
 {
-    bool current = currentPageSettings()->testAttribute(QWebSettings::AutoLoadImages);
-    currentPageSettings()->setAttribute(QWebSettings::AutoLoadImages, !current);
+    bool current = testCurrentPageWebAttribute(QWebSettings::AutoLoadImages);
+    setCurrentPageWebAttribute(QWebSettings::AutoLoadImages, !current);
 
     // We should reload page on disabling images
     if (current) {
@@ -108,14 +105,9 @@ void SBI_ImagesIcon::setGlobalLoadingImages(bool enable)
     }
 }
 
-QWebSettings* SBI_ImagesIcon::currentPageSettings()
-{
-    return m_window->weView()->page()->settings();
-}
-
 void SBI_ImagesIcon::updateIcon()
 {
-    if (currentPageSettings()->testAttribute(QWebSettings::AutoLoadImages)) {
+    if (testCurrentPageWebAttribute(QWebSettings::AutoLoadImages)) {
         setGraphicsEffect(0);
     }
     else {

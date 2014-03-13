@@ -20,13 +20,11 @@
 
 #include <QNetworkAccessManager>
 
-#include "clickablelabel.h"
+#include "sbi_icon.h"
 
 class QNetworkConfigurationManager;
 
-class BrowserWindow;
-
-class SBI_NetworkIcon : public ClickableLabel
+class SBI_NetworkIcon : public SBI_Icon
 {
     Q_OBJECT
 
@@ -44,7 +42,6 @@ private:
     void updateToolTip();
     void enterEvent(QEvent* event);
 
-    BrowserWindow* m_window;
     QNetworkConfigurationManager* m_networkConfiguration;
 };
 

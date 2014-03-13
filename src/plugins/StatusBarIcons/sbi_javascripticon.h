@@ -20,14 +20,9 @@
 
 #include <QIcon>
 
-#include "clickablelabel.h"
+#include "sbi_icon.h"
 
-class QWebSettings;
-
-class BrowserWindow;
-class WebPage;
-
-class SBI_JavaScriptIcon : public ClickableLabel
+class SBI_JavaScriptIcon : public SBI_Icon
 {
     Q_OBJECT
 
@@ -42,10 +37,6 @@ private slots:
     void openJavaScriptSettings();
 
 private:
-    WebPage* currentPage();
-    QWebSettings* currentPageSettings();
-
-    BrowserWindow* m_window;
     QIcon m_icon;
 };
 
