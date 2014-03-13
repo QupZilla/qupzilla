@@ -234,7 +234,9 @@ void MainMenu::editFind()
 
 void MainMenu::showStatusBar()
 {
-    callSlot("showStatusBar");
+    if (m_window) {
+        m_window->toggleShowStatusBar();
+    }
 }
 
 void MainMenu::stop()
@@ -284,7 +286,9 @@ void MainMenu::showPageSource()
 
 void MainMenu::showFullScreen()
 {
-    callSlot("toggleFullScreen");
+    if (m_window) {
+        m_window->toggleFullScreen();
+    }
 }
 
 void MainMenu::webSearch()
