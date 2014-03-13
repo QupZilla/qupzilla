@@ -844,7 +844,7 @@ void BrowserWindow::showWebInspector(bool toggle)
     }
 
     m_webInspectorDock = new WebInspectorDockWidget(this);
-    connect(m_tabWidget, SIGNAL(currentChanged(int)), m_webInspectorDock.data(), SLOT(tabChanged()));
+    connect(m_tabWidget, SIGNAL(currentChanged(int)), m_webInspectorDock.data(), SLOT(tabChanged(int)));
     addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock.data());
 
 #ifdef Q_OS_WIN

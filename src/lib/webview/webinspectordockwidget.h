@@ -49,7 +49,7 @@ public:
 signals:
 
 public slots:
-    void tabChanged();
+    void tabChanged(int index);
 
     void close();
     void show();

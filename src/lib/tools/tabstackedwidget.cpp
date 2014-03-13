@@ -168,6 +168,8 @@ void TabStackedWidget::showTab(int index)
         m_stack->setCurrentIndex(index);
     }
 
+    // This is slot connected to ComboTabBar::currentChanged
+    // We must send the signal even with invalid index (-1)
     emit currentChanged(index);
 }
 

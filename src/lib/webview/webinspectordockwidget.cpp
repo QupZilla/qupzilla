@@ -34,6 +34,10 @@ WebInspectorDockWidget::WebInspectorDockWidget(BrowserWindow* window)
     show();
 }
 
+WebInspectorDockWidget::~WebInspectorDockWidget()
+{
+}
+
 void WebInspectorDockWidget::toggleVisibility()
 {
     if (isVisible()) {
@@ -74,16 +78,12 @@ void WebInspectorDockWidget::show()
     QDockWidget::show();
 }
 
-void WebInspectorDockWidget::tabChanged()
+void WebInspectorDockWidget::tabChanged(int index)
 {
-    if (m_window->weView()->webTab()->inspectorVisible()) {
+    if (index >= 0 && m_window->weView()->webTab()->inspectorVisible()) {
         show();
     }
     else {
         close();
     }
-}
-
-WebInspectorDockWidget::~WebInspectorDockWidget()
-{
 }
