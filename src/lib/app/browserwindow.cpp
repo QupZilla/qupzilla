@@ -716,18 +716,6 @@ void BrowserWindow::showSource(QWebFrame* frame, const QString &selectedHtml)
     source->show();
 }
 
-void BrowserWindow::showBookmarksToolbar()
-{
-    bool status = m_bookmarksToolbar->isVisible();
-
-    setUpdatesEnabled(false);
-    m_bookmarksToolbar->setVisible(!status);
-    setUpdatesEnabled(true);
-
-    Settings settings;
-    settings.setValue("Browser-View-Settings/showBookmarksToolbar", !status);
-}
-
 SideBar* BrowserWindow::addSideBar()
 {
     if (m_sideBar) {
@@ -760,39 +748,73 @@ void BrowserWindow::saveSideBarWidth()
     m_webViewWidth = width() - m_sideBarWidth;
 }
 
-void BrowserWindow::showNavigationToolbar()
+void BrowserWindow::toggleShowMenubar()
 {
-    if (!menuBar()->isVisible() && !m_navigationToolbar->isVisible()) {
-        showMenubar();
-    }
-
-    setUpdatesEnabled(false);
-
-    bool status = m_navigationToolbar->isVisible();
-    m_navigationToolbar->setVisible(!status);
-
-    Settings settings;
-    settings.setValue("Browser-View-Settings/showNavigationToolbar", !status);
-
-    setUpdatesEnabled(true);
-}
-
-void BrowserWindow::showMenubar()
-{
-#ifndef Q_OS_MAC
-    if (!m_navigationToolbar->isVisible() && !menuBar()->isVisible()) {
-        showNavigationToolbar();
-    }
+#ifdef Q_OS_MAC
+    // We use one shared menubar on Mac
+    return;
+#endif
 
     setUpdatesEnabled(false);
 
     menuBar()->setVisible(!menuBar()->isVisible());
     m_navigationToolbar->setSuperMenuVisible(!menuBar()->isVisible());
 
-    Settings settings;
-    settings.setValue("Browser-View-Settings/showMenubar", menuBar()->isVisible());
+    setUpdatesEnabled(true);
+
+    Settings().setValue("Browser-View-Settings/showMenubar", menuBar()->isVisible());
+
+    // Make sure we show Navigation Toolbar when Menu Bar is hidden
+    if (!m_navigationToolbar->isVisible() && !menuBar()->isVisible()) {
+        toggleShowNavigationToolbar();
+    }
+}
+
+void BrowserWindow::toggleShowBookmarksToolbar()
+{
+    setUpdatesEnabled(false);
+
+    m_bookmarksToolbar->setVisible(!m_bookmarksToolbar->isVisible());
 
     setUpdatesEnabled(true);
+
+    Settings().setValue("Browser-View-Settings/showBookmarksToolbar", m_bookmarksToolbar->isVisible());
+}
+
+void BrowserWindow::toggleShowNavigationToolbar()
+{
+    setUpdatesEnabled(false);
+
+    m_navigationToolbar->setVisible(!m_navigationToolbar->isVisible());
+
+    setUpdatesEnabled(true);
+
+    Settings().setValue("Browser-View-Settings/showNavigationToolbar", m_navigationToolbar->isVisible());
+
+    // Make sure we show Menu Bar when Navigation Toolbar is hidden
+    if (!m_navigationToolbar->isVisible() && !menuBar()->isVisible()) {
+        toggleShowMenubar();
+    }
+}
+
+void BrowserWindow::toggleTabsOnTop(bool enable)
+{
+    if (enable) {
+        m_mainLayout->insertWidget(0, m_tabWidget->getTabBar());
+        m_mainLayout->insertWidget(1, m_navigationContainer);
+    }
+    else {
+        m_mainLayout->insertWidget(0, m_navigationContainer);
+        m_mainLayout->insertWidget(1, m_tabWidget->getTabBar());
+    }
+
+    qzSettings->tabsOnTop = enable;
+
+#ifdef Q_OS_WIN
+    // workaround for changing TabsOnTop state when sidebar is visible
+    // TODO: we need a solution that changing TabsOnTop state
+    //       doesn't call applyBlurToMainWindow() from eventFilter()
+    QTimer::singleShot(0, this, SLOT(applyBlurToMainWindow()));
 #endif
 }
 
@@ -830,27 +852,6 @@ void BrowserWindow::showWebInspector(bool toggle)
         applyBlurToMainWindow();
         m_webInspectorDock.data()->installEventFilter(this);
     }
-#endif
-}
-
-void BrowserWindow::toggleTabsOnTop(bool enable)
-{
-    if (enable) {
-        m_mainLayout->insertWidget(0, m_tabWidget->getTabBar());
-        m_mainLayout->insertWidget(1, m_navigationContainer);
-    }
-    else {
-        m_mainLayout->insertWidget(0, m_navigationContainer);
-        m_mainLayout->insertWidget(1, m_tabWidget->getTabBar());
-    }
-
-    qzSettings->tabsOnTop = enable;
-
-#ifdef Q_OS_WIN
-    // workaround for changing TabsOnTop state when sidebar is visible
-    // TODO: we need a solution that changing TabsOnTop state
-    //       doesn't call applyBlurToMainWindow() from eventFilter()
-    QTimer::singleShot(0, this, SLOT(applyBlurToMainWindow()));
 #endif
 }
 
@@ -921,15 +922,15 @@ void BrowserWindow::restoreWindowState(const RestoreManager::WindowData &d)
 
 void BrowserWindow::createToolbarsMenu(QMenu* menu)
 {
-    QAction* action = menu->addAction(tr("&Menu Bar"), this, SLOT(showMenubar()));
+    QAction* action = menu->addAction(tr("&Menu Bar"), this, SLOT(toggleShowMenubar()));
     action->setCheckable(true);
     action->setChecked(menuBar()->isVisible());
 
-    action = menu->addAction(tr("&Navigation Toolbar"), this, SLOT(showNavigationToolbar()));
+    action = menu->addAction(tr("&Navigation Toolbar"), this, SLOT(toggleShowNavigationToolbar()));
     action->setCheckable(true);
     action->setChecked(m_navigationToolbar->isVisible());
 
-    action = menu->addAction(tr("&Bookmarks Toolbar"), this, SLOT(showBookmarksToolbar()));
+    action = menu->addAction(tr("&Bookmarks Toolbar"), this, SLOT(toggleShowBookmarksToolbar()));
     action->setCheckable(true);
     action->setChecked(m_bookmarksToolbar->isVisible());
 

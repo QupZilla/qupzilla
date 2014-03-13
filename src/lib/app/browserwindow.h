@@ -122,8 +122,12 @@ public slots:
     void toggleFullScreen();
 
     void showWebInspector(bool toggle = true);
-    void showBookmarksToolbar();
     void showHistoryManager();
+
+    void toggleShowMenubar();
+    void toggleShowBookmarksToolbar();
+    void toggleShowNavigationToolbar();
+    void toggleTabsOnTop(bool enable);
 
     void loadActionUrl(QObject* obj = 0);
     void loadActionUrlInNewTab(QObject* obj = 0);
@@ -144,8 +148,6 @@ private slots:
 
     void savePageScreen();
 
-    void showMenubar();
-    void showNavigationToolbar();
     void showStatusBar();
 
     void refreshHistory();
@@ -157,7 +159,6 @@ private slots:
     void changeEncoding();
 
     void toggleCaretBrowsing();
-    void toggleTabsOnTop(bool enable);
 
     bool quitApp();
     void closeTab();
