@@ -102,7 +102,6 @@ public:
     AdBlockIcon* adBlockIcon() const;
     QMenu* superMenu() const;
 
-    bool isClosing() const;
     QUrl homepageUrl() const;
 
     bool isTransparentBackgroundAllowed() const;
@@ -175,8 +174,6 @@ private:
     void setupUi();
     void setupMenu();
 
-    bool m_isClosing;
-    bool m_isStarting;
     QUrl m_startUrl;
     QUrl m_homepage;
     Qz::BrowserWindowType m_windowType;

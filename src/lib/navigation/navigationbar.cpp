@@ -363,7 +363,7 @@ void NavigationBar::goAtHistoryIndexInNewTab(int index)
 
 void NavigationBar::refreshHistory()
 {
-    if (mApp->isClosing() || m_window->isClosing() || !m_window->weView()) {
+    if (mApp->isClosing() || !m_window->weView()) {
         return;
     }
 

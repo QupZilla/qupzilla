@@ -102,8 +102,6 @@ const QString BrowserWindow::WEBKITVERSION = qWebKitVersion();
 
 BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     : QMainWindow(0)
-    , m_isClosing(false)
-    , m_isStarting(false)
     , m_startUrl(startUrl)
     , m_windowType(type)
     , m_startTab(0)
@@ -118,8 +116,6 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     if (mApp->isPrivate()) {
         setProperty("private", QVariant(true));
     }
-
-    m_isStarting = true;
 
     setupUi();
     setupMenu();
@@ -246,8 +242,6 @@ void BrowserWindow::postLaunch()
 
     mApp->plugins()->emitMainWindowCreated(this);
     emit startingCompleted();
-
-    m_isStarting = false;
 
     raise();
     activateWindow();
@@ -555,11 +549,6 @@ AdBlockIcon* BrowserWindow::adBlockIcon() const
 QMenu* BrowserWindow::superMenu() const
 {
     return m_superMenu;
-}
-
-bool BrowserWindow::isClosing() const
-{
-    return m_isClosing;
 }
 
 QUrl BrowserWindow::homepageUrl() const
@@ -1428,8 +1417,6 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
         }
     }
 
-    m_isClosing = true;
-
 #ifndef Q_OS_MAC
     if (mApp->windowCount() == 1) {
         if (quitApp()) {
@@ -1587,10 +1574,6 @@ void BrowserWindow::moveToVirtualDesktop(int desktopId)
 #ifdef Q_OS_WIN
 void BrowserWindow::applyBlurToMainWindow(bool force)
 {
-    if (isClosing() || m_isStarting) {
-        return;
-    }
-
     if (!force && !isTransparentBackgroundAllowed()) {
         return;
     }
