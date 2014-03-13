@@ -93,7 +93,7 @@ void Speller::initialize()
     const QString affPath = dictionary + ".aff";
 
     m_hunspell = new Hunspell(affPath.toLocal8Bit().constData(),
-                              dicPath .toLocal8Bit().constData());
+                              dicPath.toLocal8Bit().constData());
 
     m_textCodec = QTextCodec::codecForName(m_hunspell->get_dic_encoding());
 

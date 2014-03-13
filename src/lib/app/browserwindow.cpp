@@ -244,16 +244,6 @@ void BrowserWindow::postLaunch()
         m_tabWidget->addView(request, Qz::NT_SelectedTabAtTheEnd);
     }
 
-#ifdef Q_OS_MAC
-    // Fill menus even if user don't call them
-    if (m_windowType == Qz::BW_FirstAppWindow) {
-        aboutToShowBookmarksMenu();
-        aboutToShowHistoryMostMenu();
-        aboutToShowHistoryRecentMenu();
-        aboutToShowEncodingMenu();
-    }
-#endif
-
     mApp->plugins()->emitMainWindowCreated(this);
     emit startingCompleted();
 
@@ -371,13 +361,14 @@ void BrowserWindow::setupMenu()
     mApp->macDockMenu()->addAction(copyActionPrivateBrowsing);
     mApp->macDockMenu()->addAction(m_menuFile->actions().at(1));
     mApp->macDockMenu()->addAction(m_menuFile->actions().at(0));
-#else
+
+    return;
+#endif
     setMenuBar(new MenuBar(this));
 
     m_mainMenu = new MainMenu(this, this);
     m_mainMenu->initMenuBar(menuBar());
     m_mainMenu->initSuperMenu(m_superMenu);
-#endif
 }
 
 void BrowserWindow::loadSettings()
@@ -426,9 +417,7 @@ void BrowserWindow::loadSettings()
     m_navigationToolbar->setVisible(showNavigationToolbar);
     menuBar()->setVisible(!isFullScreen() && showMenuBar);
 
-#ifndef Q_OS_MAC
     m_navigationToolbar->setSuperMenuVisible(!showMenuBar);
-#endif
     m_navigationToolbar->buttonReloadStop()->setVisible(showReloadButton);
     m_navigationToolbar->buttonHome()->setVisible(showHomeButton);
     m_navigationToolbar->buttonBack()->setVisible(showBackForwardButtons);
@@ -503,9 +492,9 @@ QMenuBar* BrowserWindow::menuBar() const
 {
 #ifdef Q_OS_MAC
     return mApp->macMenuReceiver()->menuBar();
-#else
-    return QMainWindow::menuBar();
 #endif
+
+    return QMainWindow::menuBar();
 }
 
 TabbedWebView* BrowserWindow::weView() const
@@ -728,7 +717,7 @@ void BrowserWindow::saveSideBarWidth()
 void BrowserWindow::toggleShowMenubar()
 {
 #ifdef Q_OS_MAC
-    // We use one shared menubar on Mac
+    // We use one shared global menubar on Mac that can't be hidden
     return;
 #endif
 
@@ -1110,9 +1099,7 @@ bool BrowserWindow::event(QEvent* event)
             statusBar()->hide();
             m_navigationContainer->hide();
             m_tabWidget->getTabBar()->hide();
-#ifndef Q_OS_MAC
             m_navigationToolbar->setSuperMenuVisible(false);
-#endif
             m_hideNavigationTimer->stop();
             m_navigationToolbar->buttonExitFullscreen()->setVisible(true);
 #ifdef Q_OS_WIN
@@ -1132,9 +1119,7 @@ bool BrowserWindow::event(QEvent* event)
             m_navigationContainer->show();
             m_tabWidget->getTabBar()->updateVisibilityWithFullscreen(true);
             m_tabWidget->getTabBar()->setVisible(true);
-#ifndef Q_OS_MAC
             m_navigationToolbar->setSuperMenuVisible(!m_menuBarVisible);
-#endif
             m_hideNavigationTimer->stop();
             m_navigationToolbar->buttonExitFullscreen()->setVisible(false);
 #ifdef Q_OS_WIN
@@ -1476,10 +1461,11 @@ SearchToolBar* BrowserWindow::searchToolBar() const
 void BrowserWindow::closeWindow()
 {
 #ifdef Q_OS_MAC
-    if (true) {
-#else
-    if (mApp->windowCount() > 1) {
+    close();
+    return;
 #endif
+
+    if (mApp->windowCount() > 1) {
         close();
     }
 }

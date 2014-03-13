@@ -212,14 +212,8 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     //APPEREANCE
     settings.beginGroup("Browser-View-Settings");
     ui->showStatusbar->setChecked(settings.value("showStatusBar", true).toBool());
-    if (m_window) {
-        ui->showBookmarksToolbar->setChecked(m_window->bookmarksToolbar()->isVisible());
-        ui->showNavigationToolbar->setChecked(m_window->navigationBar()->isVisible());
-    }
-    else {
-        ui->showBookmarksToolbar->setChecked(settings.value("showBookmarksToolbar", true).toBool());
-        ui->showNavigationToolbar->setChecked(settings.value("showNavigationToolbar", true).toBool());
-    }
+    ui->showBookmarksToolbar->setChecked(settings.value("showBookmarksToolbar", true).toBool());
+    ui->showNavigationToolbar->setChecked(settings.value("showNavigationToolbar", true).toBool());
     ui->showHome->setChecked(settings.value("showHomeButton", true).toBool());
     ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
     ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());

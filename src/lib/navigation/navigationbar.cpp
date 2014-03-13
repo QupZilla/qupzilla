@@ -219,6 +219,11 @@ void NavigationBar::showStopButton()
 
 void NavigationBar::setSuperMenuVisible(bool visible)
 {
+#ifdef Q_OS_MAC
+    Q_UNUSED(visible)
+    return;
+#endif
+
     m_supMenu->setVisible(visible);
 }
 
