@@ -896,7 +896,7 @@ void Preferences::saveSettings()
 
     //WINDOW
     settings.beginGroup("Browser-View-Settings");
-    settings.setValue("showStatusbar", ui->showStatusbar->isChecked());
+    settings.setValue("showStatusBar", ui->showStatusbar->isChecked());
     settings.setValue("showBookmarksToolbar", ui->showBookmarksToolbar->isChecked());
     settings.setValue("showNavigationToolbar", ui->showNavigationToolbar->isChecked());
     settings.setValue("showHomeButton", ui->showHome->isChecked());

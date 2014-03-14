@@ -733,7 +733,7 @@ void BrowserWindow::toggleShowStatusBar()
 
     setUpdatesEnabled(true);
 
-    Settings().setValue("Browser-View-Settings/showStatusbar", statusBar()->isVisible());
+    Settings().setValue("Browser-View-Settings/showStatusBar", statusBar()->isVisible());
 
 }
 
