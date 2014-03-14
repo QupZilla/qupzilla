@@ -50,11 +50,9 @@
 namespace Qz
 {
 // Version of session.dat file
-#if QT_VERSION >= 0x050000
-static const int sessionVersion = 0x0003 | 0x050000;
-#else
 static const int sessionVersion = 0x0003;
-#endif
+// Backwards compatibility (used to be different for Qt4 and Qt5)
+static const int sessionVersionQt5 = 0x0003 | 0x050000;
 
 // Version of bookmarks.json file
 static const int bookmarksVersion = 1;
