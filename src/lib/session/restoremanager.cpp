@@ -48,7 +48,7 @@ void RestoreManager::createFromFile(const QString &file)
     int version;
     stream >> version;
 
-    if (version != Qz::sessionVersion) {
+    if (version != Qz::sessionVersion && version != Qz::sessionVersionQt5) {
         return;
     }
 
