@@ -260,7 +260,8 @@ SOURCES += \
     history/historymenu.cpp \
     app/datapaths.cpp \
     app/profilemanager.cpp \
-    app/mainmenu.cpp
+    app/mainmenu.cpp \
+    tools/sqldatabase.cpp
 
 
 HEADERS  += \
@@ -461,7 +462,8 @@ HEADERS  += \
     history/historymenu.h \
     app/datapaths.h \
     app/profilemanager.h \
-    app/mainmenu.h
+    app/mainmenu.h \
+    tools/sqldatabase.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

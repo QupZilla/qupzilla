@@ -250,7 +250,7 @@ void ProfileManager::connectDatabase()
 
     // Reconnect
     if (m_databaseConnected) {
-        QSqlDatabase::removeDatabase(QLatin1String("qt_sql_default_connection"));
+        QSqlDatabase::removeDatabase(QSqlDatabase::database().connectionName());
     }
 
     QSqlDatabase db = QSqlDatabase::addDatabase(QLatin1String("QSQLITE"));

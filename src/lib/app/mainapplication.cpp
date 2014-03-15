@@ -32,6 +32,7 @@
 #include "rssmanager.h"
 #include "proxystyle.h"
 #include "pluginproxy.h"
+#include "sqldatabase.h"
 #include "iconprovider.h"
 #include "browserwindow.h"
 #include "cookiemanager.h"
@@ -271,6 +272,7 @@ MainApplication::~MainApplication()
     delete m_bookmarks;
     delete m_cookieJar;
 
+    SqlDatabase::destroy();
     IconProvider::instance()->saveIconsToDatabase();
 }
 
