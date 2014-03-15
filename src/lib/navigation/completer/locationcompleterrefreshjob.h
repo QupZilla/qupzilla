@@ -58,7 +58,6 @@ private:
 
     QString createDomainCompletion(const QString &completion) const;
 
-
     qint64 m_timestamp;
     QString m_searchString;
     QString m_domainCompletion;

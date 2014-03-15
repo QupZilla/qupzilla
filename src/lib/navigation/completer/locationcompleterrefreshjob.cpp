@@ -209,4 +209,3 @@ QString LocationCompleterRefreshJob::createDomainCompletion(const QString &compl
 
     return str.mid(m_searchString.size());
 }
-

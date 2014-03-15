@@ -117,6 +117,9 @@ public slots:
     void goBack();
     void goForward();
 
+    void reload();
+    void reloadBypassCache();
+
     void setWindowTitle(const QString &t);
 
     void showWebInspector(bool toggle = true);
@@ -145,21 +148,17 @@ private slots:
     void openLocation();
     void openFile();
     void closeWindow();
+    void closeTab();
     void loadSettings();
     void postLaunch();
 
     void savePageScreen();
-
     void refreshHistory();
-
     void webSearch();
-
     void searchOnPage();
-
     void changeEncoding();
 
     bool quitApp();
-    void closeTab();
     void hideNavigationSlot();
 
 private:

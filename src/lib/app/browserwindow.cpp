@@ -363,6 +363,23 @@ void BrowserWindow::setupMenu()
     m_mainMenu = new MainMenu(this, this);
     m_mainMenu->initMenuBar(menuBar());
     m_mainMenu->initSuperMenu(m_superMenu);
+
+    // Setup other shortcuts
+    QShortcut* reloadBypassCacheAction = new QShortcut(QKeySequence(QSL("Ctrl+F5")), this);
+    QShortcut* reloadBypassCacheAction2 = new QShortcut(QKeySequence(QSL("Ctrl+Shift+R")), this);
+    connect(reloadBypassCacheAction, SIGNAL(activated()), this, SLOT(reloadBypassCache()));
+    connect(reloadBypassCacheAction2, SIGNAL(activated()), this, SLOT(reloadBypassCache()));
+
+    QShortcut* reloadAction = new QShortcut(QKeySequence("Ctrl+R"), this);
+    connect(reloadAction, SIGNAL(activated()), this, SLOT(reload()));
+
+    QShortcut* openLocationAction = new QShortcut(QKeySequence("Alt+D"), this);
+    connect(openLocationAction, SIGNAL(activated()), this, SLOT(openLocation()));
+
+    QShortcut* closeTabAction = new QShortcut(QKeySequence("Ctrl+W"), this);
+    QShortcut* closeTabAction2 = new QShortcut(QKeySequence("Ctrl+F4"), this);
+    connect(closeTabAction, SIGNAL(activated()), this, SLOT(closeTab()));
+    connect(closeTabAction2, SIGNAL(activated()), this, SLOT(closeTab()));
 }
 
 void BrowserWindow::loadSettings()
@@ -475,6 +492,16 @@ void BrowserWindow::loadSettings()
 void BrowserWindow::goForward()
 {
     weView()->forward();
+}
+
+void BrowserWindow::reload()
+{
+    weView()->reload();
+}
+
+void BrowserWindow::reloadBypassCache()
+{
+    weView()->reloadBypassCache();
 }
 
 void BrowserWindow::goBack()
@@ -1200,26 +1227,6 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
         }
         break;
 
-    case Qt::Key_F5:
-        if (view && event->modifiers() == Qt::ControlModifier) {
-            view->reload();
-            event->accept();
-        }
-        break;
-
-    case Qt::Key_R:
-        if (view) {
-            if (event->modifiers() == Qt::ControlModifier) {
-                view->reload();
-                event->accept();
-            }
-            if (event->modifiers() == (Qt::ControlModifier + Qt::ShiftModifier)) {
-                view->reloadBypassCache();
-                event->accept();
-            }
-        }
-        break;
-
     case Qt::Key_HomePage:
         goHome();
         event->accept();
@@ -1306,21 +1313,6 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
     case Qt::Key_U:
         if (event->modifiers() == Qt::ControlModifier) {
             action(QSL("View/PageSource"))->trigger();
-            event->accept();
-        }
-        break;
-
-    case Qt::Key_D:
-        if (event->modifiers() == Qt::AltModifier) {
-            openLocation();
-            event->accept();
-        }
-        break;
-
-    case Qt::Key_F4:
-    case Qt::Key_W:
-        if (event->modifiers() == Qt::ControlModifier) {
-            closeTab();
             event->accept();
         }
         break;

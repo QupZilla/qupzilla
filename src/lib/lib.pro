@@ -1,7 +1,7 @@
 isEqual(QT_MAJOR_VERSION, 5) {
     QT += webkitwidgets network widgets printsupport sql script gui-private
 } else {
-    QT += core gui webkit sql network script
+    QT += core gui webkit sql network script concurrent
 }
 
 TARGET = QupZilla
