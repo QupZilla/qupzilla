@@ -48,7 +48,7 @@ void qupzilla_signal_handler(int s)
     }
     sigSegvServed = true;
 
-    std::cout << "QupZilla: Crashed :( Saving backtrace in " << qPrintable(DataPaths::path(DataPaths::Config)) << "crashlog ..." << std::endl;
+    std::cout << "QupZilla: Crashed :( Saving backtrace in " << qPrintable(DataPaths::path(DataPaths::Config)) << "/crashlog ..." << std::endl;
 
     void* array[100];
     int size = backtrace(array, 100);
