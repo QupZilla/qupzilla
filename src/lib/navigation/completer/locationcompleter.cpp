@@ -18,6 +18,7 @@
 #include "locationcompleter.h"
 #include "locationcompletermodel.h"
 #include "locationcompleterview.h"
+#include "locationcompleterrefreshjob.h"
 #include "locationbar.h"
 #include "mainapplication.h"
 #include "browserwindow.h"
@@ -35,6 +36,7 @@ LocationCompleter::LocationCompleter(QObject* parent)
     : QObject(parent)
     , m_window(0)
     , m_locationBar(0)
+    , m_lastRefreshTimestamp(0)
     , m_showingMostVisited(false)
 {
     if (!s_view) {
@@ -56,7 +58,7 @@ void LocationCompleter::setLocationBar(LocationBar* locationBar)
 
 QString LocationCompleter::domainCompletion() const
 {
-    return qzSettings->useInlineCompletion ? m_completedDomain : QString();
+    return qzSettings->useInlineCompletion ? m_domainCompletion : QString();
 }
 
 bool LocationCompleter::isShowingMostVisited() const
@@ -71,21 +73,20 @@ bool LocationCompleter::isPopupVisible() const
 
 void LocationCompleter::closePopup()
 {
-    m_completedDomain.clear();
+    m_domainCompletion.clear();
     m_showingMostVisited = false;
     s_view->close();
 }
 
 void LocationCompleter::complete(const QString &string)
 {
+    m_domainCompletion.clear();
     m_showingMostVisited = string.isEmpty();
 
-    if (qzSettings->useInlineCompletion) {
-        m_completedDomain = createDomainCompletionString(string);
-    }
+    LocationCompleterRefreshJob* job = new LocationCompleterRefreshJob(string);
+    connect(job, SIGNAL(finished()), this, SLOT(refreshJobFinished()));
 
-    s_model->refreshCompletions(string);
-    showPopup();
+    emit domainCompletionChanged();
 }
 
 void LocationCompleter::showMostVisited()
@@ -114,6 +115,23 @@ void LocationCompleter::slotPopupClosed()
     disconnect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
 
     emit popupClosed();
+}
+
+void LocationCompleter::refreshJobFinished()
+{
+    LocationCompleterRefreshJob* job = qobject_cast<LocationCompleterRefreshJob*>(sender());
+    Q_ASSERT(job);
+
+    if (job->timestamp() > m_lastRefreshTimestamp) {
+        m_domainCompletion = job->domainCompletion();
+        s_model->setCompletions(job->completions());
+        m_lastRefreshTimestamp = job->timestamp();
+
+        showPopup();
+        emit domainCompletionChanged();
+    }
+
+    job->deleteLater();
 }
 
 void LocationCompleter::indexActivated(const QModelIndex &index)
@@ -204,21 +222,6 @@ void LocationCompleter::indexDeleteRequested(const QModelIndex &index)
     }
 
     s_model->removeRow(index.row(), index.parent());
-}
-
-QString LocationCompleter::createDomainCompletionString(const QString &text)
-{
-    QString completion = s_model->completeDomain(text);
-
-    if (text.startsWith(QLatin1String("www."))) {
-        return completion.mid(text.size());
-    }
-
-    if (completion.startsWith(QLatin1String("www."))) {
-        completion = completion.mid(4);
-    }
-
-    return completion.mid(text.size());
 }
 
 void LocationCompleter::switchToTab(BrowserWindow* window, int tab)

@@ -31,7 +31,11 @@ SqlDatabase::SqlDatabase(QObject* parent)
 
 SqlDatabase::~SqlDatabase()
 {
-    // Close all databases
+    QMutableHashIterator<QThread*, QSqlDatabase> i(m_databases);
+    while (i.hasNext()) {
+        i.next();
+        i.value().close();
+    }
 }
 
 QSqlDatabase SqlDatabase::databaseForThread(QThread* thread)

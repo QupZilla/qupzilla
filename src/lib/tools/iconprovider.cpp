@@ -166,13 +166,18 @@ QImage IconProvider::emptyWebImage()
 
 QIcon IconProvider::iconForUrl(const QUrl &url)
 {
+    return instance()->iconFromImage(imageForUrl(url));
+}
+
+QImage IconProvider::imageForUrl(const QUrl &url)
+{
     if (url.path().isEmpty()) {
-        return IconProvider::emptyWebIcon();
+        return IconProvider::emptyWebImage();
     }
 
     foreach (const BufferedIcon &ic, instance()->m_iconBuffer) {
         if (ic.first.toString().startsWith(url.toString())) {
-            return instance()->iconFromImage(ic.second);
+            return ic.second;
         }
     }
 
@@ -182,17 +187,22 @@ QIcon IconProvider::iconForUrl(const QUrl &url)
     query.exec();
 
     if (query.next()) {
-        return instance()->iconFromImage(QImage::fromData(query.value(0).toByteArray()));
+        return QImage::fromData(query.value(0).toByteArray());
     }
 
-    return IconProvider::emptyWebIcon();
+    return IconProvider::emptyWebImage();
 }
 
 QIcon IconProvider::iconForDomain(const QUrl &url)
 {
+    return instance()->iconFromImage(imageForDomain(url));
+}
+
+QImage IconProvider::imageForDomain(const QUrl &url)
+{
     foreach (const BufferedIcon &ic, instance()->m_iconBuffer) {
         if (ic.first.host() == url.host()) {
-            return instance()->iconFromImage(ic.second);
+            return ic.second;
         }
     }
 
@@ -202,10 +212,10 @@ QIcon IconProvider::iconForDomain(const QUrl &url)
     query.exec();
 
     if (query.next()) {
-        return instance()->iconFromImage(QImage::fromData(query.value(0).toByteArray()));
+        return QImage::fromData(query.value(0).toByteArray());
     }
 
-    return QIcon();
+    return QImage();
 }
 
 IconProvider* IconProvider::instance()

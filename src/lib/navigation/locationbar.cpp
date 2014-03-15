@@ -89,6 +89,7 @@ LocationBar::LocationBar(BrowserWindow* window)
     connect(m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));
     connect(m_completer, SIGNAL(loadCompletion()), this, SLOT(urlEnter()));
     connect(m_completer, SIGNAL(clearCompletion()), this, SLOT(clearCompletion()));
+    connect(m_completer, SIGNAL(domainCompletionChanged()), this, SLOT(inlineCompletionChanged()));
     connect(m_completer, SIGNAL(popupClosed()), this, SLOT(completionPopupClosed()));
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
@@ -137,11 +138,11 @@ void LocationBar::updatePlaceHolderText()
     setPlaceholderText(tr("Enter URL address or search on %1").arg(engineName));
 }
 
-void LocationBar::showCompletion(const QString &newText)
+void LocationBar::showCompletion(const QString &completion)
 {
     m_inlineCompletionVisible = false;
 
-    LineEdit::setText(newText);
+    LineEdit::setText(completion);
 
     // Move cursor to the end
     end(false);
@@ -157,6 +158,11 @@ void LocationBar::completionPopupClosed()
 {
     m_inlineCompletionVisible = false;
     m_popupClosed = true;
+}
+
+void LocationBar::inlineCompletionChanged()
+{
+    repaint();
 }
 
 QUrl LocationBar::createUrl()

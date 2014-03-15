@@ -28,98 +28,22 @@
 
 LocationCompleterModel::LocationCompleterModel(QObject* parent)
     : QStandardItemModel(parent)
-    , m_lastCompletion(QChar(QChar::Nbsp))
 {
 }
 
-static bool countBiggerThan(const QStandardItem* i1, const QStandardItem* i2)
+void LocationCompleterModel::setCompletions(const QList<QStandardItem*> &items)
 {
-    // Move bookmarks up
-    bool i1Bookmark = i1->data(LocationCompleterModel::BookmarkRole).toBool();
-    bool i2Bookmark = i2->data(LocationCompleterModel::BookmarkRole).toBool();
+    foreach (QStandardItem* item, items) {
+        item->setIcon(QPixmap::fromImage(item->data(ImageRole).value<QImage>()));
+        setTabPosition(item);
 
-    if (i1Bookmark && i2Bookmark) {
-        return i1->data(LocationCompleterModel::CountRole).toInt() >
-               i2->data(LocationCompleterModel::CountRole).toInt();
-    }
-    return i1Bookmark;
-}
-
-void LocationCompleterModel::refreshCompletions(const QString &string)
-{
-    if (m_lastCompletion == string) {
-        refreshTabPositions();
-        return;
-    }
-
-    m_lastCompletion = string;
-
-    if (string.isEmpty()) {
-        showMostVisited();
-        return;
+        if (item->icon().isNull()) {
+            item->setIcon(IconProvider::emptyWebIcon());
+        }
     }
 
     clear();
-
-    QList<QUrl> urlList;
-    QList<QStandardItem*> itemList;
-    Type showType = (Type) qzSettings->showLocationSuggestions;
-
-    if (showType == HistoryAndBookmarks || showType == Bookmarks) {
-        const int bookmarksLimit = 10;
-        QList<BookmarkItem*> bookmarks = mApp->bookmarks()->searchBookmarks(string, bookmarksLimit);
-
-        foreach (BookmarkItem* bookmark, bookmarks) {
-            Q_ASSERT(bookmark->isUrl());
-
-            QStandardItem* item = new QStandardItem();
-            item->setIcon(bookmark->icon());
-            item->setText(bookmark->url().toEncoded());
-            item->setData(-1, IdRole);
-            item->setData(bookmark->title(), TitleRole);
-            item->setData(bookmark->url(), UrlRole);
-            item->setData(bookmark->visitCount(), CountRole);
-            item->setData(QVariant(true), BookmarkRole);
-            item->setData(QVariant::fromValue<void*>(static_cast<void*>(bookmark)), BookmarkItemRole);
-            item->setData(string, SearchStringRole);
-            setTabPosition(item);
-
-            urlList.append(bookmark->url());
-            itemList.append(item);
-        }
-    }
-
-    if (showType == HistoryAndBookmarks || showType == History) {
-        const int historyLimit = 20;
-        QSqlQuery query = createQuery(string, historyLimit);
-        query.exec();
-
-        while (query.next()) {
-            const QUrl url = query.value(1).toUrl();
-
-            if (urlList.contains(url)) {
-                continue;
-            }
-
-            QStandardItem* item = new QStandardItem();
-            item->setIcon(IconProvider::iconForUrl(url));
-            item->setText(url.toEncoded());
-            item->setData(query.value(0), IdRole);
-            item->setData(query.value(2), TitleRole);
-            item->setData(url, UrlRole);
-            item->setData(query.value(3), CountRole);
-            item->setData(QVariant(false), BookmarkRole);
-            item->setData(string, SearchStringRole);
-            setTabPosition(item);
-
-            itemList.append(item);
-        }
-    }
-
-    // Sort by count
-    qSort(itemList.begin(), itemList.end(), countBiggerThan);
-
-    appendColumn(itemList);
+    appendColumn(items);
 }
 
 void LocationCompleterModel::showMostVisited()
@@ -145,10 +69,10 @@ void LocationCompleterModel::showMostVisited()
     }
 }
 
-QString LocationCompleterModel::completeDomain(const QString &text)
+QSqlQuery LocationCompleterModel::createDomainQuery(const QString &text)
 {
     if (text.isEmpty() || text == QLatin1String("www.")) {
-        return QString();
+        return QSqlQuery();
     }
 
     bool withoutWww = text.startsWith(QLatin1Char('w')) && !text.startsWith(QLatin1String("www."));
@@ -179,16 +103,10 @@ QString LocationCompleterModel::completeDomain(const QString &text)
         sqlQuery.addBindValue(QString("https://www.%1%").arg(text));
     }
 
-    sqlQuery.exec();
-
-    if (!sqlQuery.next()) {
-        return QString();
-    }
-
-    return sqlQuery.value(0).toUrl().host();
+    return sqlQuery;
 }
 
-QSqlQuery LocationCompleterModel::createQuery(const QString &searchString, int limit, bool exactMatch) const
+QSqlQuery LocationCompleterModel::createHistoryQuery(const QString &searchString, int limit, bool exactMatch)
 {
     QStringList searchList;
     QString query = QLatin1String("SELECT id, url, title, count FROM history WHERE ");

@@ -260,7 +260,8 @@ SOURCES += \
     app/datapaths.cpp \
     app/profilemanager.cpp \
     app/mainmenu.cpp \
-    tools/sqldatabase.cpp
+    tools/sqldatabase.cpp \
+    navigation/completer/locationcompleterrefreshjob.cpp
 
 
 HEADERS  += \
@@ -461,7 +462,8 @@ HEADERS  += \
     app/datapaths.h \
     app/profilemanager.h \
     app/mainmenu.h \
-    tools/sqldatabase.h
+    tools/sqldatabase.h \
+    navigation/completer/locationcompleterrefreshjob.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

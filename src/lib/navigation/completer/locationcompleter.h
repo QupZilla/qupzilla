@@ -49,6 +49,7 @@ signals:
     void showCompletion(const QString &completion);
     void loadCompletion();
     void clearCompletion();
+    void domainCompletionChanged();
 
     void popupClosed();
 
@@ -57,8 +58,10 @@ public slots:
     void showMostVisited();
 
 private slots:
-    void currentChanged(const QModelIndex &index);
     void slotPopupClosed();
+    void refreshJobFinished();
+
+    void currentChanged(const QModelIndex &index);
 
     void indexActivated(const QModelIndex &index);
     void indexCtrlActivated(const QModelIndex &index);
@@ -66,7 +69,6 @@ private slots:
     void indexDeleteRequested(const QModelIndex &index);
 
 private:
-    QString createDomainCompletionString(const QString &text);
     void switchToTab(BrowserWindow* window, int tab);
     void loadUrl(const QUrl &url);
 
@@ -76,7 +78,8 @@ private:
     BrowserWindow* m_window;
     LocationBar* m_locationBar;
     QString m_originalText;
-    QString m_completedDomain;
+    QString m_domainCompletion;
+    qint64 m_lastRefreshTimestamp;
     bool m_showingMostVisited;
 
     static LocationCompleterView* s_view;

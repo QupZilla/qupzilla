@@ -69,9 +69,10 @@ private slots:
     void showRSSIcon(bool state);
 
     void updatePlaceHolderText();
-    void showCompletion(const QString &newText);
+    void showCompletion(const QString &completion);
     void clearCompletion();
     void completionPopupClosed();
+    void inlineCompletionChanged();
 
     void onLoadStarted();
     void onLoadProgress(int progress);

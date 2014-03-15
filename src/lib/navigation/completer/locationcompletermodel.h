@@ -37,15 +37,17 @@ public:
         BookmarkItemRole = Qt::UserRole + 6,
         SearchStringRole = Qt::UserRole + 7,
         TabPositionWindowRole = Qt::UserRole + 8,
-        TabPositionTabRole = Qt::UserRole + 9
+        TabPositionTabRole = Qt::UserRole + 9,
+        ImageRole = Qt::UserRole + 10
     };
 
     explicit LocationCompleterModel(QObject* parent = 0);
 
-    void refreshCompletions(const QString &string);
+    void setCompletions(const QList<QStandardItem*> &items);
     void showMostVisited();
 
-    QString completeDomain(const QString &text);
+    static QSqlQuery createHistoryQuery(const QString &searchString, int limit, bool exactMatch = false);
+    static QSqlQuery createDomainQuery(const QString &text);
 
 private:
     enum Type {
@@ -55,12 +57,8 @@ private:
         Nothing = 4
     };
 
-    QSqlQuery createQuery(const QString &searchString, int limit, bool exactMatch = false) const;
-
     void setTabPosition(QStandardItem* item) const;
     void refreshTabPositions() const;
-
-    QString m_lastCompletion;
 };
 
 #endif // LOCATIONCOMPLETERMODEL_H

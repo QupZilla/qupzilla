@@ -272,7 +272,6 @@ MainApplication::~MainApplication()
     delete m_bookmarks;
     delete m_cookieJar;
 
-    SqlDatabase::destroy();
     IconProvider::instance()->saveIconsToDatabase();
 }
 
