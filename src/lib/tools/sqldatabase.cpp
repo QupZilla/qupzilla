@@ -19,7 +19,12 @@
 
 #include <QThread>
 #include <QMutexLocker>
-#include <QtConcurrent/QtConcurrent>
+
+#if QT_VERSION >= 0x050000
+#include <QtConcurrent/QtConcurrentRun>
+#else
+#include <QtConcurrentRun>
+#endif
 
 Q_GLOBAL_STATIC(SqlDatabase, qz_sql_database)
 

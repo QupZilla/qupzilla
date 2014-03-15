@@ -702,7 +702,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
         return;
     }
 
-    if (hasFocus() || text().isEmpty() || m_forcePaintEvent) {
+    if (/*hasFocus() ||*/ text().isEmpty() || m_forcePaintEvent) {
         LineEdit::paintEvent(event);
         if (m_forcePaintEvent) {
             m_forcePaintEvent = false;
