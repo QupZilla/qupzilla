@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "iconprovider.h"
 #include "mainapplication.h"
-#include "databasewriter.h"
+#include "sqldatabase.h"
 #include "autosaver.h"
 #include "webview.h"
 
@@ -235,7 +235,7 @@ void IconProvider::saveIconsToDatabase()
         query.bindValue(0, buffer.data());
         query.bindValue(1, ic.first.toEncoded(QUrl::RemoveFragment));
 
-        DatabaseWriter::instance()->executeQuery(query);
+        SqlDatabase::instance()->execAsync(query);
     }
 
     m_iconBuffer.clear();

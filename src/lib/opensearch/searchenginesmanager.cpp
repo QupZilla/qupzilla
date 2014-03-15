@@ -23,7 +23,6 @@
 #include "networkmanager.h"
 #include "opensearchreader.h"
 #include "opensearchengine.h"
-#include "databasewriter.h"
 #include "settings.h"
 #include "qzsettings.h"
 #include "webview.h"
@@ -31,6 +30,7 @@
 #include <QNetworkReply>
 #include <QMessageBox>
 #include <QWebElement>
+#include <QSqlQuery>
 #include <QBuffer>
 
 #if QT_VERSION >= 0x050000
@@ -87,6 +87,7 @@ void SearchEnginesManager::loadSettings()
 
     QSqlQuery query;
     query.exec("SELECT name, icon, url, shortcut, suggestionsUrl, suggestionsParameters, postData FROM search_engines");
+
     while (query.next()) {
         Engine en;
         en.name = query.value(0).toString();

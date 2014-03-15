@@ -17,7 +17,6 @@
 * ============================================================ */
 #include "databasepasswordbackend.h"
 #include "mainapplication.h"
-#include "databasewriter.h"
 #include "autofill.h"
 
 #include <QVector>

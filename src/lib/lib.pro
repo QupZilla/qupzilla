@@ -172,7 +172,6 @@ SOURCES += \
     webview/webhistorywrapper.cpp \
     tools/pagethumbnailer.cpp \
     plugins/speeddial.cpp \
-    other/databasewriter.cpp \
     tools/enhancedmenu.cpp \
     navigation/siteicon.cpp \
     navigation/goicon.cpp \
@@ -370,7 +369,6 @@ HEADERS  += \
     webview/webhistorywrapper.h \
     tools/pagethumbnailer.h \
     plugins/speeddial.h \
-    other/databasewriter.h \
     tools/enhancedmenu.h \
     navigation/siteicon.h \
     navigation/goicon.h \

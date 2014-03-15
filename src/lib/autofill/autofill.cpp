@@ -18,12 +18,12 @@
 #include "autofill.h"
 #include "browserwindow.h"
 #include "webpage.h"
+#include "sqldatabase.h"
 #include "tabbedwebview.h"
 #include "popupwebview.h"
 #include "mainapplication.h"
 #include "autofillnotification.h"
 #include "pageformcompleter.h"
-#include "databasewriter.h"
 #include "settings.h"
 #include "passwordmanager.h"
 
@@ -100,7 +100,7 @@ void AutoFill::blockStoringforUrl(const QUrl &url)
     query.prepare("INSERT INTO autofill_exceptions (server) VALUES (?)");
     query.addBindValue(server);
 
-    DatabaseWriter::instance()->executeQuery(query);
+    SqlDatabase::instance()->execAsync(query);
 }
 
 QVector<PasswordEntry> AutoFill::getFormData(const QUrl &url)
