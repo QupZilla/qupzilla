@@ -72,6 +72,7 @@ public:
 
     QRect tabRect(int index) const;
     int tabAt(const QPoint &pos) const;
+    bool emptyArea(const QPoint &pos) const;
 
     int mainTabBarCurrentIndex() const;
     int currentIndex() const;
