@@ -216,6 +216,15 @@ int ComboTabBar::tabAt(const QPoint &pos) const
     return index;
 }
 
+bool ComboTabBar::emptyArea(const QPoint &pos) const
+{
+    if (tabAt(pos) != -1) {
+        return false;
+    }
+
+    return qobject_cast<TabBarHelper*>(QApplication::widgetAt(mapToGlobal(pos)));
+}
+
 int ComboTabBar::mainTabBarCurrentIndex() const
 {
     return (m_mainTabBar->currentIndex() == -1 ? -1 : pinnedTabsCount() + m_mainTabBar->currentIndex());
