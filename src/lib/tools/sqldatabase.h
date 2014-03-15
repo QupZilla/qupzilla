@@ -18,20 +18,13 @@
 #ifndef SQLDATABASE_H
 #define SQLDATABASE_H
 
-#include <QQueue>
-#include <QThread>
+#include <QHash>
+#include <QMutex>
+#include <QFuture>
 #include <QSqlQuery>
-#include <QSqlDatabase>
 
 #include "qzcommon.h"
 
-class QThread;
-class QSqlQuery;
-
-class DatabaseWorker;
-class DatabaseWorkerThread;
-
-// Queries are executed in FIFO order
 class QUPZILLA_EXPORT SqlDatabase : public QObject
 {
     Q_OBJECT
@@ -40,62 +33,20 @@ public:
     explicit SqlDatabase(QObject* parent = 0);
     ~SqlDatabase();
 
-    // Executes query async and send result if receiver is not null.
-    // Slot must have "name(QSqlQuery)" signature
-    void execAsync(const QSqlQuery &query, QObject* receiver = 0, const char* slot = 0);
+    // Returns database connection for thread, creates new connection if not exists
+    QSqlDatabase databaseForThread(QThread* thread);
 
-    // Executes transaction async without sending result
-    void transactionAsync(const QList<QSqlQuery> &queries);
+    // Executes query using correct database for current thread
+    QSqlQuery exec(const QSqlQuery &query);
 
-    // May be called only after creating QSqlDatabase connection in main thread
+    // Executes query asynchronously on one thread from QThreadPool
+    QFuture<QSqlQuery> execAsync(const QSqlQuery &query);
+
     static SqlDatabase* instance();
-    // Must be called before closing main thread QSqlDatabase connection
-    static void destroy();
 
 private:
-    DatabaseWorker* m_worker;
-    DatabaseWorkerThread* m_thread;
-
-    static SqlDatabase* s_instance;
-};
-
-class DatabaseWorker : public QObject
-{
-    Q_OBJECT
-
-public:
-    explicit DatabaseWorker();
-
-    void execQueryAsync(const QSqlQuery &query, QObject* receiver = 0, const char* slot = 0);
-    void transactionAsync(const QList<QSqlQuery> &queries);
-
-    bool hasPendingQueries() const;
-
-public slots:
-    void threadStarted();
-    void execPendingQueries();
-
-private:
-    struct QueryData {
-        QList<QSqlQuery> queries;
-        QObject* receiver;
-        const char* slot;
-    };
-
-    QQueue<QueryData> m_queries;
-    QSqlDatabase m_db;
-    bool m_started;
-};
-
-class DatabaseWorkerThread : public QThread
-{
-public:
-    explicit DatabaseWorkerThread(DatabaseWorker* worker);
-
-private:
-    void run();
-
-    DatabaseWorker* m_worker;
+    QHash<QThread*, QSqlDatabase> m_databases;
+    QMutex m_mutex;
 };
 
 #endif // SQLDATABASE_H
