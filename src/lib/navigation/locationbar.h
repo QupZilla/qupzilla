@@ -23,6 +23,8 @@
 #include "qzcommon.h"
 #include "lineedit.h"
 
+class QStringListModel;
+
 class BrowserWindow;
 class LineEdit;
 class LocationCompleter;
@@ -43,20 +45,19 @@ class QUPZILLA_EXPORT LocationBar : public LineEdit
 
 public:
     explicit LocationBar(BrowserWindow* window);
-    ~LocationBar();
 
+    TabbedWebView* webView() const;
     void setWebView(TabbedWebView* view);
-    TabbedWebView* webView() { return m_webView; }
-
-signals:
-    void loadUrl(const QUrl &url);
 
 public slots:
-    void showUrl(const QUrl &url);
     void setText(const QString &text);
+    void showUrl(const QUrl &url);
 
 protected:
     void paintEvent(QPaintEvent* event);
+
+signals:
+    void loadUrl(const QUrl &url);
 
 private slots:
     void textEdit();
@@ -70,9 +71,8 @@ private slots:
 
     void updatePlaceHolderText();
     void showCompletion(const QString &completion);
+    void showDomainCompletion(const QString &completion);
     void clearCompletion();
-    void completionPopupClosed();
-    void inlineCompletionChanged();
 
     void onLoadStarted();
     void onLoadProgress(int progress);
@@ -89,20 +89,22 @@ private:
     };
 
     void contextMenuEvent(QContextMenuEvent* event);
+    void showEvent(QShowEvent* event);
     void focusInEvent(QFocusEvent* event);
     void focusOutEvent(QFocusEvent* event);
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
     void dropEvent(QDropEvent* event);
 
-    QUrl createUrl();
+    QUrl createUrl() const;
     QString convertUrlToText(const QUrl &url) const;
-    bool isInlineCompletionVisible() const;
 
+    void refreshTextFormat();
     void showGoButton();
     void hideGoButton();
 
     LocationCompleter* m_completer;
+    QStringListModel* m_domainCompleterModel;
 
     BookmarksIcon* m_bookmarkIcon;
     GoIcon* m_goIcon;
@@ -123,10 +125,6 @@ private:
     bool m_progressVisible;
     ProgressStyle m_progressStyle;
     QColor m_progressColor;
-
-    bool m_forcePaintEvent;
-    bool m_inlineCompletionVisible;
-    bool m_popupClosed;
 };
 
 #endif // LOCATIONBAR_H

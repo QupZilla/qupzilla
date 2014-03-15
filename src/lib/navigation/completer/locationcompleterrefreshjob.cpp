@@ -24,7 +24,12 @@
 #include "bookmarks.h"
 
 #include <QDateTime>
-#include <QtConcurrent/QtConcurrent>
+
+#if QT_VERSION >= 0x050000
+#include <QtConcurrent/QtConcurrentRun>
+#else
+#include <QtConcurrentRun>
+#endif
 
 LocationCompleterRefreshJob::LocationCompleterRefreshJob(const QString &searchString)
     : QObject()
@@ -197,15 +202,15 @@ void LocationCompleterRefreshJob::completeMostVisited()
 
 QString LocationCompleterRefreshJob::createDomainCompletion(const QString &completion) const
 {
-    QString str = completion;
+    // Make sure search string and completion matches
 
-    if (m_searchString.startsWith(QLatin1String("www."))) {
-        return str.mid(m_searchString.size());
+    if (m_searchString.startsWith(QL1S("www.")) && !completion.startsWith(QL1S("www."))) {
+        return QL1S("www.") + completion;
     }
 
-    if (str.startsWith(QLatin1String("www."))) {
-        str = str.mid(4);
+    if (!m_searchString.startsWith(QL1S("www.")) && completion.startsWith(QL1S("www."))) {
+        return completion.mid(4);
     }
 
-    return str.mid(m_searchString.size());
+    return completion;
 }

@@ -114,6 +114,7 @@ void WebSearchBar::addSuggestions(const QStringList &list)
     if (qzSettings->showSearchSuggestions) {
         QStringList list_ = list.mid(0, 6);
         m_completerModel->setStringList(list_);
+        m_completer->complete();
     }
 }
 

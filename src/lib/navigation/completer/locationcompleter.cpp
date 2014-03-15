@@ -37,7 +37,7 @@ LocationCompleter::LocationCompleter(QObject* parent)
     , m_window(0)
     , m_locationBar(0)
     , m_lastRefreshTimestamp(0)
-    , m_showingMostVisited(false)
+    , m_popupClosed(false)
 {
     if (!s_view) {
         s_model = new LocationCompleterModel;
@@ -56,37 +56,22 @@ void LocationCompleter::setLocationBar(LocationBar* locationBar)
     m_locationBar = locationBar;
 }
 
-QString LocationCompleter::domainCompletion() const
-{
-    return qzSettings->useInlineCompletion ? m_domainCompletion : QString();
-}
-
-bool LocationCompleter::isShowingMostVisited() const
-{
-    return m_showingMostVisited;
-}
-
-bool LocationCompleter::isPopupVisible() const
-{
-    return s_view->isVisible();
-}
-
 void LocationCompleter::closePopup()
 {
-    m_domainCompletion.clear();
-    m_showingMostVisited = false;
+    m_popupClosed = true;
     s_view->close();
 }
 
 void LocationCompleter::complete(const QString &string)
 {
-    m_domainCompletion.clear();
-    m_showingMostVisited = string.isEmpty();
+    QString trimmedStr = string.trimmed();
 
-    LocationCompleterRefreshJob* job = new LocationCompleterRefreshJob(string);
+    // Indicates that new completion was requested by user
+    // Eg. popup was not closed yet this completion session
+    m_popupClosed = false;
+
+    LocationCompleterRefreshJob* job = new LocationCompleterRefreshJob(trimmedStr);
     connect(job, SIGNAL(finished()), this, SLOT(refreshJobFinished()));
-
-    emit domainCompletionChanged();
 }
 
 void LocationCompleter::showMostVisited()
@@ -94,15 +79,25 @@ void LocationCompleter::showMostVisited()
     complete(QString());
 }
 
-void LocationCompleter::currentChanged(const QModelIndex &index)
+void LocationCompleter::refreshJobFinished()
 {
-    QString completion = index.data().toString();
+    LocationCompleterRefreshJob* job = qobject_cast<LocationCompleterRefreshJob*>(sender());
+    Q_ASSERT(job);
 
-    if (completion.isEmpty()) {
-        completion = m_originalText;
+    // Don't show result of older jobs
+    // Also don't open the popup again when it was already closed
+    if (job->timestamp() > m_lastRefreshTimestamp && !m_popupClosed) {
+        s_model->setCompletions(job->completions());
+        m_lastRefreshTimestamp = job->timestamp();
+
+        showPopup();
+
+        if (qzSettings->useInlineCompletion) {
+            emit showDomainCompletion(job->domainCompletion());
+        }
     }
 
-    emit showCompletion(completion);
+    job->deleteLater();
 }
 
 void LocationCompleter::slotPopupClosed()
@@ -117,21 +112,15 @@ void LocationCompleter::slotPopupClosed()
     emit popupClosed();
 }
 
-void LocationCompleter::refreshJobFinished()
+void LocationCompleter::currentChanged(const QModelIndex &index)
 {
-    LocationCompleterRefreshJob* job = qobject_cast<LocationCompleterRefreshJob*>(sender());
-    Q_ASSERT(job);
+    QString completion = index.data().toString();
 
-    if (job->timestamp() > m_lastRefreshTimestamp) {
-        m_domainCompletion = job->domainCompletion();
-        s_model->setCompletions(job->completions());
-        m_lastRefreshTimestamp = job->timestamp();
-
-        showPopup();
-        emit domainCompletionChanged();
+    if (completion.isEmpty()) {
+        completion = m_originalText;
     }
 
-    job->deleteLater();
+    emit showCompletion(completion);
 }
 
 void LocationCompleter::indexActivated(const QModelIndex &index)

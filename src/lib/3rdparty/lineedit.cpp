@@ -23,6 +23,7 @@
 #include <QStyleOption>
 #include <QPainter>
 #include <QFocusEvent>
+#include <QApplication>
 
 SideWidget::SideWidget(QWidget* parent)
     : QWidget(parent)
@@ -183,6 +184,33 @@ int LineEdit::textMargin(WidgetPosition position) const
         return 0;
     }
     return w + spacing * 2;
+}
+
+int LineEdit::leftMargin() const
+{
+    return m_leftMargin;
+}
+
+// http://stackoverflow.com/a/14424003
+void LineEdit::setTextFormat(const LineEdit::TextFormat &format)
+{
+    QList<QInputMethodEvent::Attribute> attributes;
+
+    foreach (const QTextLayout::FormatRange &fr, format) {
+        QInputMethodEvent::AttributeType type = QInputMethodEvent::TextFormat;
+        int start = fr.start - cursorPosition();
+        int length = fr.length;
+        QVariant value = fr.format;
+        attributes.append(QInputMethodEvent::Attribute(type, start, length, value));
+    }
+
+    QInputMethodEvent event(QString(), attributes);
+    QApplication::sendEvent(this, &event);
+}
+
+void LineEdit::clearTextFormat()
+{
+    setTextFormat(TextFormat());
 }
 
 void LineEdit::updateTextMargins()

@@ -47,6 +47,7 @@
 * ============================================================ */
 
 #include <QLineEdit>
+#include <QTextLayout>
 #include "qzcommon.h"
 
 class QHBoxLayout;
@@ -68,6 +69,8 @@ class QUPZILLA_EXPORT LineEdit : public QLineEdit
     Q_PROPERTY(int leftMargin READ leftMargin WRITE setLeftMargin)
 
 public:
+    typedef QList<QTextLayout::FormatRange> TextFormat;
+
     enum WidgetPosition {
         LeftSide,
         RightSide
@@ -81,8 +84,10 @@ public:
     void setWidgetSpacing(int spacing);
     int widgetSpacing() const;
     int textMargin(WidgetPosition position) const;
+    int leftMargin() const;
 
-    int leftMargin() { return m_leftMargin; }
+    void setTextFormat(const TextFormat &format);
+    void clearTextFormat();
 
 public slots:
     void setLeftMargin(int margin);
