@@ -210,7 +210,17 @@ void LocationCompleter::indexDeleteRequested(const QModelIndex &index)
         mApp->history()->deleteHistoryEntry(id);
     }
 
+    s_view->setUpdatesEnabled(false);
     s_model->removeRow(index.row(), index.parent());
+    s_view->setUpdatesEnabled(true);
+
+    // Close popup when removing last item
+    if (s_model->rowCount() == 0) {
+        closePopup();
+    }
+    else {
+        adjustPopupSize();
+    }
 }
 
 void LocationCompleter::switchToTab(BrowserWindow* window, int tab)
