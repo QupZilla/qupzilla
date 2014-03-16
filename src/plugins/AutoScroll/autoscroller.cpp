@@ -20,6 +20,7 @@
 #include "webview.h"
 #include "webpage.h"
 
+#include <QApplication>
 #include <QMouseEvent>
 #include <QWebFrame>
 #include <QSettings>
@@ -190,12 +191,15 @@ bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
     m_frameScroller->setFrame(frame);
 
     m_view->grabMouse();
+    QApplication::setOverrideCursor(Qt::ArrowCursor);
+
     return true;
 }
 
 void AutoScroller::stopScrolling()
 {
     m_view->releaseMouse();
+    QApplication::restoreOverrideCursor();
 
     m_indicator->hide();
     m_indicator->setParent(0);
