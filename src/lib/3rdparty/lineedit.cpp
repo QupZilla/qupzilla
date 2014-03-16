@@ -27,6 +27,7 @@
 SideWidget::SideWidget(QWidget* parent)
     : QWidget(parent)
 {
+    setCursor(Qt::ArrowCursor);
 }
 
 bool SideWidget::event(QEvent* event)
@@ -34,6 +35,7 @@ bool SideWidget::event(QEvent* event)
     if (event->type() == QEvent::LayoutRequest) {
         emit sizeHintChanged();
     }
+
     return QWidget::event(event);
 }
 
@@ -41,19 +43,9 @@ LineEdit::LineEdit(QWidget* parent)
     : QLineEdit(parent)
     , m_leftLayout(0)
     , m_rightLayout(0)
+    , m_minHeight(0)
     , m_leftMargin(-1)
     , m_ignoreMousePress(false)
-{
-    init();
-}
-
-LineEdit::LineEdit(const QString &contents, QWidget* parent)
-    : QLineEdit(contents, parent)
-    , m_leftWidget(0)
-    , m_rightWidget(0)
-    , m_leftLayout(0)
-    , m_rightLayout(0)
-    , m_leftMargin(0)
 {
     init();
 }
@@ -65,12 +57,6 @@ void LineEdit::setLeftMargin(int margin)
 
 void LineEdit::init()
 {
-    // We use setTextMargins() instead of padding property, and we should
-    // uncomment following line or just update padding property of LineEdit's
-    // subclasses in all themes and use same value for padding-left and padding-right,
-    // with this new implementation padding-left and padding-right show padding from
-    // edges of m_leftWidget and m_rightWidget.
-
     mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->setSpacing(0);
@@ -78,41 +64,24 @@ void LineEdit::init()
     m_leftWidget = new SideWidget(this);
     m_leftWidget->resize(0, 0);
     m_leftLayout = new QHBoxLayout(m_leftWidget);
-    m_leftLayout->setContentsMargins(0, 0, 2, 0);
-
-    if (isRightToLeft()) {
-        m_leftLayout->setDirection(QBoxLayout::RightToLeft);
-    }
-    else {
-        m_leftLayout->setDirection(QBoxLayout::LeftToRight);
-    }
-    m_leftLayout->setSizeConstraint(QLayout::SetFixedSize);
+    m_leftLayout->setContentsMargins(0, 0, 0, 0);
+    m_leftLayout->setDirection(isRightToLeft() ? QBoxLayout::RightToLeft : QBoxLayout::LeftToRight);
 
     m_rightWidget = new SideWidget(this);
     m_rightWidget->resize(0, 0);
     m_rightLayout = new QHBoxLayout(m_rightWidget);
-    if (isRightToLeft()) {
-        m_rightLayout->setDirection(QBoxLayout::RightToLeft);
-    }
-    else {
-        m_rightLayout->setDirection(QBoxLayout::LeftToRight);
-    }
-
+    m_rightLayout->setDirection(isRightToLeft() ? QBoxLayout::RightToLeft : QBoxLayout::LeftToRight);
     m_rightLayout->setContentsMargins(0, 0, 2, 0);
-    QSpacerItem* horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter | Qt::AlignLeft);
-    mainLayout->addItem(horizontalSpacer);
+    mainLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum));
     mainLayout->addWidget(m_rightWidget, 0, Qt::AlignVCenter | Qt::AlignRight);
-    // by this we undo reversing of layout when direction is RTL.
-    // TODO: don't do this and show reversed icon when needed
     mainLayout->setDirection(isRightToLeft() ? QBoxLayout::RightToLeft : QBoxLayout::LeftToRight);
 
     setWidgetSpacing(3);
-    connect(m_leftWidget, SIGNAL(sizeHintChanged()),
-            this, SLOT(updateTextMargins()));
-    connect(m_rightWidget, SIGNAL(sizeHintChanged()),
-            this, SLOT(updateTextMargins()));
+
+    connect(m_leftWidget, SIGNAL(sizeHintChanged()), this, SLOT(updateTextMargins()));
+    connect(m_rightWidget, SIGNAL(sizeHintChanged()), this, SLOT(updateTextMargins()));
 }
 
 bool LineEdit::event(QEvent* event)
@@ -185,12 +154,38 @@ int LineEdit::textMargin(WidgetPosition position) const
     return w + spacing * 2;
 }
 
+int LineEdit::minHeight() const
+{
+    return m_minHeight;
+}
+
+void LineEdit::setMinHeight(int height)
+{
+    m_minHeight = height;
+}
+
+QSize LineEdit::sizeHint() const
+{
+    QSize s = QLineEdit::sizeHint();
+
+    if (s.height() < m_minHeight) {
+        s.setHeight(m_minHeight);
+    }
+
+    return s;
+}
+
 void LineEdit::updateTextMargins()
 {
-    int left = m_leftMargin < 0 ? m_leftWidget->sizeHint().width() : m_leftMargin;
+    int left = m_leftWidget->sizeHint().width();
     int right = m_rightWidget->sizeHint().width();
     int top = 0;
     int bottom = 0;
+
+    if (m_leftMargin >= 0) {
+        left = m_leftMargin;
+    }
+
     setTextMargins(left, top, right, bottom);
 }
 

@@ -129,13 +129,8 @@ IconProvider
 /*LocationBar*/
 #locationbar
 {
-    border-width: 4px;
-    padding-right: -4px;
-    padding-left: -4px;
-    padding-top: -2px;
-    padding-bottom: -2px;
-    qproperty-fixedheight: 27;
-    qproperty-leftMargin: 26;
+    qproperty-minHeight: 28;
+    qproperty-leftMargin: 22;
 }
 
 #locationbar[secured="true"]
@@ -156,14 +151,15 @@ IconProvider
 
 #locationbar-siteicon
 {
+    padding-left: 6px;
     border-image: url(images/transp.png);
-    qproperty-fixedsize:30px 27px;
-    padding-left: 0px;
+    qproperty-fixedsize: 22px 16px;
 }
 
 #locationbar-rss-icon
 {
     qproperty-pixmap: url(images/rss.png);
+    qproperty-fixedsize: 16px 16px;
 }
 
 #locationbar-goicon
@@ -181,6 +177,33 @@ IconProvider
 #locationbar-autofillicon
 {
     qproperty-pixmap: url(images/key.png);
+}
+
+/*WebSearchBar*/
+#websearchbar
+{
+    qproperty-minHeight: 28;
+    qproperty-leftMargin: 30;
+}
+
+#websearchbar-searchbutton
+{
+    qproperty-fixedsize: 22px 16px;
+    qproperty-themeIcon: "edit-find";
+    qproperty-fallbackIcon: url(images/edit-find.png);
+}
+
+#websearchbar-searchprovider-comobobox
+{
+    border-image: url(images/websearch-bg.png);
+    padding-right: 6px;
+    padding-left: 2px;
+    qproperty-fixedsize: 32px 16px;
+}
+
+#websearchbar-searchprovider-comobobox::menu-indicator
+{
+    image: none;
 }
 
 /*BookmarksToolbar*/
@@ -202,35 +225,6 @@ IconProvider
     background: transparent;
 }
 
-/*WebSearchBar*/
-#websearchbar
-{
-    border-width: 4px;
-    padding-right: -4px;
-    padding-top: -2px;
-    padding-bottom: -2px;
-    qproperty-fixedheight: 27;
-    qproperty-leftMargin: 30;
-}
-
-#websearchbar-searchbutton
-{
-    qproperty-fixedsize: 20px 16px;
-    qproperty-themeIcon: "edit-find";
-    qproperty-fallbackIcon: url(images/edit-find.png);
-}
-
-#websearchbar-searchprovider-comobobox
-{
-    border-image: url(images/websearch-bg.png);
-    padding-left:-8px;
-    qproperty-fixedsize: 37px 27px;
-}
-
-#websearchbar-searchprovider-comobobox::menu-indicator
-{
-    image: none;
-}
 
 /*SourceViewer*/
 #sourceviewer-textedit

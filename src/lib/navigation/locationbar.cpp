@@ -69,11 +69,6 @@ LocationBar::LocationBar(QupZilla* mainClass)
     m_autofillIcon = new AutoFillIcon(this);
     DownIcon* down = new DownIcon(this);
 
-    // RTL Support
-    // if we don't add 'm_siteIcon' by following code, then we should use suitable padding-left value
-    // but then, when typing RTL text the layout dynamically changed and within RTL layout direction
-    // padding-left is equivalent to padding-right and vice versa, and because style sheet is
-    // not changed dynamically this create padding problems.
     addWidget(m_siteIcon, LineEdit::LeftSide);
 
     addWidget(m_autofillIcon, LineEdit::RightSide);

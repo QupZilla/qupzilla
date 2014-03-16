@@ -65,7 +65,11 @@ class SideWidget;
 class QT_QUPZILLA_EXPORT LineEdit : public QLineEdit
 {
     Q_OBJECT
+    Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)
     Q_PROPERTY(int leftMargin READ leftMargin WRITE setLeftMargin)
+    Q_PROPERTY(int fixedwidth READ width WRITE setFixedWidth)
+    Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)
+    Q_PROPERTY(int minHeight READ minHeight WRITE setMinHeight)
 
 public:
     enum WidgetPosition {
@@ -74,15 +78,18 @@ public:
     };
 
     LineEdit(QWidget* parent = 0);
-    LineEdit(const QString &contents, QWidget* parent = 0);
 
     void addWidget(QWidget* widget, WidgetPosition position);
     void removeWidget(QWidget* widget);
     void setWidgetSpacing(int spacing);
     int widgetSpacing() const;
     int textMargin(WidgetPosition position) const;
-
     int leftMargin() { return m_leftMargin; }
+
+    int minHeight() const;
+    void setMinHeight(int height);
+
+    QSize sizeHint() const;
 
 public slots:
     void setLeftMargin(int margin);
@@ -104,6 +111,7 @@ private:
     QHBoxLayout* m_rightLayout;
     QHBoxLayout* mainLayout;
 
+    int m_minHeight;
     int m_leftMargin;
     bool m_ignoreMousePress;
 };
