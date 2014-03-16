@@ -127,7 +127,6 @@ bool ProfileManager::removeProfile(const QString &profileName)
 QString ProfileManager::currentProfile() const
 {
     QString path = DataPaths::currentProfilePath();
-    path = path.mid(0, path.size() - 1);
     return path.mid(path.lastIndexOf(QLatin1Char('/')) + 1);
 }
 

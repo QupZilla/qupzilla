@@ -78,6 +78,7 @@ QFuture<QSqlQuery> SqlDatabase::execAsync(const QSqlQuery &query)
     return QtConcurrent::run(this, &SqlDatabase::exec, query);
 }
 
+// instance
 SqlDatabase* SqlDatabase::instance()
 {
     return qz_sql_database();
