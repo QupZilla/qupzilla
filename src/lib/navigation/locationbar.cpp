@@ -39,6 +39,7 @@
 #include <QCompleter>
 #include <QStringListModel>
 #include <QContextMenuEvent>
+#include <QStyleOptionFrameV3>
 
 LocationBar::LocationBar(BrowserWindow* window)
     : LineEdit(window)
@@ -580,6 +581,9 @@ void LocationBar::hideProgress()
 
 void LocationBar::paintEvent(QPaintEvent* event)
 {
+    LineEdit::paintEvent(event);
+
+    // Show loading progress
     if (qzSettings->showLoadingProgress && m_progressVisible) {
         QStyleOptionFrameV3 option;
         initStyleOption(&option);
@@ -589,8 +593,6 @@ void LocationBar::paintEvent(QPaintEvent* event)
 
         QRect contentsRect = style()->subElementRect(QStyle::SE_LineEditContents, &option, this);
         contentsRect.adjust(lm, tm, -rm, -bm);
-
-        LineEdit::paintEvent(event);
 
         QColor bg = m_progressColor;
         if (!bg.isValid() || bg.alpha() == 0) {
@@ -631,9 +633,5 @@ void LocationBar::paintEvent(QPaintEvent* event)
         default:
             break;
         }
-
-        return;
     }
-
-    LineEdit::paintEvent(event);
 }

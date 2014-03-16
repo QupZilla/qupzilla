@@ -25,8 +25,11 @@
 #include <QClipboard>
 #include <QFocusEvent>
 #include <QStyleOption>
-#include <QInputContext>
 #include <QApplication>
+
+#if QT_VERSION < 0x050000
+#include <QInputContext>
+#endif
 
 SideWidget::SideWidget(QWidget* parent)
     : QWidget(parent)
@@ -106,7 +109,7 @@ bool LineEdit::event(QEvent* event)
     return QLineEdit::event(event);
 }
 
-#define ACCEL_KEY(k) QLatin1Char('\t') + QString(QKeySequence(k))
+#define ACCEL_KEY(k) QLatin1Char('\t') + QKeySequence(k).toString()
 
 // Modified QLineEdit::createStandardContextMenu to support icons and PasteAndGo action
 QMenu* LineEdit::createContextMenu(QAction* pasteAndGoAction)
@@ -166,7 +169,7 @@ QMenu* LineEdit::createContextMenu(QAction* pasteAndGoAction)
     action->setEnabled(!text().isEmpty() && selectedText() == text());
     connect(action, SIGNAL(triggered()), SLOT(selectAll()));
 
-#if !defined(QT_NO_IM)
+#if !defined(QT_NO_IM) && QT_VERSION < 0x050000
     QInputContext* qic = inputContext();
     if (qic) {
         QList<QAction*> imActions = qic->actions();
