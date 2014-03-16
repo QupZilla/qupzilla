@@ -282,7 +282,7 @@ void LocationBar::setGoIconVisible(bool state)
         m_goIcon->show();
     }
     else {
-        m_rssIcon->setVisible(m_webView->hasRss());
+        m_rssIcon->setVisible(m_webView && m_webView->hasRss());
         m_bookmarkIcon->show();
 
         if (!qzSettings->alwaysShowGoIcon) {
