@@ -56,6 +56,8 @@ AdBlockBlockedNetworkReply::AdBlockBlockedNetworkReply(const AdBlockSubscription
     setOperation(QNetworkAccessManager::GetOperation);
     setError(QNetworkReply::ContentAccessDenied, QString("AdBlock: %1 (%2)").arg(subscription->title(), rule->filter()));
 
+    open(QIODevice::ReadOnly);
+
     QTimer::singleShot(0, this, SLOT(delayedFinished()));
 }
 
