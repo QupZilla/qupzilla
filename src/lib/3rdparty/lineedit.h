@@ -100,12 +100,16 @@ public slots:
     void setLeftMargin(int margin);
     void updateTextMargins();
 
+    void slotDelete();
+
 protected:
     void focusInEvent(QFocusEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
     bool event(QEvent* event);
+
+    QMenu* createContextMenu(QAction* pasteAndGoAction);
 
 private:
     void init();

@@ -18,11 +18,15 @@
 #include "lineedit.h"
 #include "qzsettings.h"
 
+#include <QMenu>
 #include <QEvent>
 #include <QLayout>
-#include <QStyleOption>
 #include <QPainter>
+#include <QClipboard>
 #include <QFocusEvent>
+#include <QStyleOption>
+#include <QInputContext>
+#include <QApplication>
 
 SideWidget::SideWidget(QWidget* parent)
     : QWidget(parent)
@@ -100,6 +104,95 @@ bool LineEdit::event(QEvent* event)
         }
     }
     return QLineEdit::event(event);
+}
+
+#define ACCEL_KEY(k) QLatin1Char('\t') + QString(QKeySequence(k))
+
+// Modified QLineEdit::createStandardContextMenu to support icons and PasteAndGo action
+QMenu* LineEdit::createContextMenu(QAction* pasteAndGoAction)
+{
+    QMenu* popup = new QMenu(this);
+    popup->setObjectName(QSL("qt_edit_menu"));
+
+    QAction* action = 0;
+
+    if (!isReadOnly()) {
+        action = popup->addAction(QIcon::fromTheme(QSL("edit-undo")), tr("&Undo") + ACCEL_KEY(QKeySequence::Undo));
+        action->setEnabled(isUndoAvailable());
+        connect(action, SIGNAL(triggered()), SLOT(undo()));
+
+        action = popup->addAction(QIcon::fromTheme(QSL("edit-redo")), tr("&Redo") + ACCEL_KEY(QKeySequence::Redo));
+        action->setEnabled(isRedoAvailable());
+        connect(action, SIGNAL(triggered()), SLOT(redo()));
+
+        popup->addSeparator();
+    }
+
+#ifndef QT_NO_CLIPBOARD
+    if (!isReadOnly()) {
+        action = popup->addAction(QIcon::fromTheme(QSL("edit-cut")), tr("Cu&t") + ACCEL_KEY(QKeySequence::Cut));
+        action->setEnabled(hasSelectedText() && echoMode() == QLineEdit::Normal);
+        connect(action, SIGNAL(triggered()), SLOT(cut()));
+    }
+
+    action = popup->addAction(QIcon::fromTheme(QSL("edit-copy")), tr("&Copy") + ACCEL_KEY(QKeySequence::Copy));
+    action->setEnabled(hasSelectedText() && echoMode() == QLineEdit::Normal);
+    connect(action, SIGNAL(triggered()), SLOT(copy()));
+
+    if (!isReadOnly()) {
+        action = popup->addAction(QIcon::fromTheme(QSL("edit-paste")), tr("&Paste") + ACCEL_KEY(QKeySequence::Paste));
+        action->setEnabled(!QApplication::clipboard()->text().isEmpty());
+        connect(action, SIGNAL(triggered()), SLOT(paste()));
+
+        pasteAndGoAction->setEnabled(action->isEnabled());
+        popup->addAction(pasteAndGoAction);
+    }
+#endif
+
+    if (!isReadOnly()) {
+        action = popup->addAction(QIcon::fromTheme(QSL("edit-delete")), tr("Delete") + ACCEL_KEY(QKeySequence::Delete));
+        action->setEnabled(hasSelectedText());
+        connect(action, SIGNAL(triggered()), this, SLOT(slotDelete()));
+
+        action = popup->addAction(QIcon::fromTheme(QSL("edit-clear")), tr("Clear All"));
+        connect(action, SIGNAL(triggered()), this, SLOT(clear()));
+    }
+
+    if (!popup->isEmpty()) {
+        popup->addSeparator();
+    }
+
+    action = popup->addAction(QIcon::fromTheme(QSL("edit-select-all")), tr("Select All") + ACCEL_KEY(QKeySequence::SelectAll));
+    action->setEnabled(!text().isEmpty() && selectedText() == text());
+    connect(action, SIGNAL(triggered()), SLOT(selectAll()));
+
+#if !defined(QT_NO_IM)
+    QInputContext* qic = inputContext();
+    if (qic) {
+        QList<QAction*> imActions = qic->actions();
+        for (int i = 0; i < imActions.size(); ++i) {
+            popup->addAction(imActions.at(i));
+        }
+    }
+#endif
+
+    // Hack to get QUnicodeControlCharacterMenu
+    QMenu* tmp = createStandardContextMenu();
+    QAction* lastAction = !tmp->actions().isEmpty() ? tmp->actions().last() : 0;
+
+    if (lastAction && lastAction->menu() && lastAction->menu()->inherits("QUnicodeControlCharacterMenu")) {
+        tmp->removeAction(lastAction);
+        lastAction->setParent(0);
+        QMenu* m = lastAction->menu();
+        m->setParent(popup);
+        popup->addMenu(m);
+
+        delete lastAction;
+    }
+
+    delete tmp;
+
+    return popup;
 }
 
 void LineEdit::addWidget(QWidget* widget, WidgetPosition position)
@@ -198,6 +291,13 @@ void LineEdit::updateTextMargins()
     }
 
     setTextMargins(left, top, right, bottom);
+}
+
+void LineEdit::slotDelete()
+{
+    if (hasSelectedText()) {
+        del();
+    }
 }
 
 void LineEdit::focusInEvent(QFocusEvent* event)

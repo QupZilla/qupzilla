@@ -18,15 +18,12 @@
 #ifndef LOCATIONBAR_H
 #define LOCATIONBAR_H
 
-#include <QUrl>
-
 #include "qzcommon.h"
 #include "lineedit.h"
 
 class QStringListModel;
 
 class BrowserWindow;
-class LineEdit;
 class LocationCompleter;
 class ClickableLabel;
 class TabbedWebView;
@@ -49,9 +46,6 @@ public:
 public slots:
     void setText(const QString &text);
     void showUrl(const QUrl &url);
-
-protected:
-    void paintEvent(QPaintEvent* event);
 
 signals:
     void loadUrl(const QUrl &url);
@@ -93,10 +87,10 @@ private:
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
     void dropEvent(QDropEvent* event);
+    void paintEvent(QPaintEvent* event);
 
     QUrl createUrl() const;
     QString convertUrlToText(const QUrl &url) const;
-
     void refreshTextFormat();
 
     LocationCompleter* m_completer;
@@ -114,6 +108,7 @@ private:
     QAction* m_pasteAndGoAction;
     QAction* m_clearAction;
 
+    bool m_rssIconVisible;
     bool m_holdingAlt;
 
     int m_loadProgress;

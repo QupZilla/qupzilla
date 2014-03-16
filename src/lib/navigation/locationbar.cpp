@@ -18,16 +18,10 @@
 #include "locationbar.h"
 #include "browserwindow.h"
 #include "tabbedwebview.h"
-#include "rssmanager.h"
 #include "mainapplication.h"
-#include "clickablelabel.h"
 #include "webpage.h"
 #include "tabwidget.h"
 #include "bookmarksicon.h"
-#include "progressbar.h"
-#include "statusbarmessage.h"
-#include "toolbutton.h"
-#include "searchenginesmanager.h"
 #include "siteicon.h"
 #include "goicon.h"
 #include "rssicon.h"
@@ -37,16 +31,14 @@
 #include "qzsettings.h"
 #include "colors.h"
 #include "autofillicon.h"
+#include "searchenginesmanager.h"
 #include "completer/locationcompleter.h"
 
-#include <QMimeData>
-#include <QClipboard>
 #include <QTimer>
-#include <QContextMenuEvent>
-#include <QAction>
-#include <QMenu>
+#include <QMimeData>
 #include <QCompleter>
 #include <QStringListModel>
+#include <QContextMenuEvent>
 
 LocationBar::LocationBar(BrowserWindow* window)
     : LineEdit(window)
@@ -367,56 +359,13 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
         connect(m_pasteAndGoAction, SIGNAL(triggered()), this, SLOT(pasteAndGo()));
     }
 
-    if (!m_clearAction) {
-        m_clearAction = new QAction(QIcon::fromTheme("edit-clear"), tr("Clear All"), this);
-        connect(m_clearAction, SIGNAL(triggered()), this, SLOT(clear()));
-    }
-
-    QMenu* tempMenu = createStandardContextMenu();
-    QMenu menu(this);
-
-    int i = 0;
-    foreach (QAction* act, tempMenu->actions()) {
-        menu.addAction(act);
-
-        switch (i) {
-        case 0:
-            act->setIcon(QIcon::fromTheme("edit-undo"));
-            break;
-        case 1:
-            act->setIcon(QIcon::fromTheme("edit-redo"));
-            break;
-        case 3:
-            act->setIcon(QIcon::fromTheme("edit-cut"));
-            break;
-        case 4:
-            act->setIcon(QIcon::fromTheme("edit-copy"));
-            break;
-        case 5:
-            act->setIcon(QIcon::fromTheme("edit-paste"));
-            menu.addAction(act);
-            menu.addAction(m_pasteAndGoAction);
-            break;
-        case 6:
-            act->setIcon(QIcon::fromTheme("edit-delete"));
-            menu.addAction(act);
-            menu.addAction(m_clearAction);
-            break;
-        case 8:
-            act->setIcon(QIcon::fromTheme("edit-select-all"));
-            break;
-        }
-        ++i;
-    }
-
-    m_pasteAndGoAction->setEnabled(!QApplication::clipboard()->text().isEmpty());
+    QMenu* menu = createContextMenu(m_pasteAndGoAction);
+    menu->setAttribute(Qt::WA_DeleteOnClose);
 
     // Prevent choosing first option with double rightclick
     QPoint pos = event->globalPos();
-    QPoint p(pos.x(), pos.y() + 1);
-    menu.exec(p);
-
-    tempMenu->deleteLater();
+    pos.setY(pos.y() + 1);
+    menu->popup(pos);
 }
 
 void LocationBar::showEvent(QShowEvent* event)
