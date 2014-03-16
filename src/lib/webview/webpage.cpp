@@ -55,7 +55,6 @@
 #include <QWebHistory>
 #include <QTimer>
 #include <QNetworkReply>
-#include <QDebug>
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QFileDialog>

@@ -21,7 +21,6 @@
 #include "qzregexp.h"
 
 #include <QScriptEngine>
-#include <QDebug>
 #include <QNetworkInterface>
 #include <QHostAddress>
 #include <QHostInfo>

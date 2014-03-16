@@ -24,7 +24,6 @@
 #include <QWebFrame>
 #include <QSettings>
 #include <QLabel>
-#include <QDebug>
 
 AutoScroller::AutoScroller(const QString &settingsFile, QObject* parent)
     : QObject(parent)

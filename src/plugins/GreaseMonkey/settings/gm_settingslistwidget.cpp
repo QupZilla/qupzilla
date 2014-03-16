@@ -19,7 +19,6 @@
 #include "gm_settingslistdelegate.h"
 
 #include <QMouseEvent>
-#include <QDebug>
 
 GM_SettingsListWidget::GM_SettingsListWidget(QWidget* parent)
     : QListWidget(parent)

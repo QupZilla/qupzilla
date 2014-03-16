@@ -19,7 +19,6 @@
 #include "qztools.h"
 
 #include <QApplication>
-#include <QDebug>
 #include <QDir>
 
 Q_GLOBAL_STATIC(DataPaths, qz_data_paths)

@@ -29,7 +29,6 @@
 #include <QFile>
 #include <QSettings>
 #include "qzregexp.h"
-#include <QDebug>
 
 GM_Downloader::GM_Downloader(const QNetworkRequest &request, GM_Manager* manager)
     : QObject()

@@ -25,7 +25,6 @@
 #include <QNetworkCookie>
 #include <QWebSettings>
 #include <QDateTime>
-#include <QDebug>
 
 //#define COOKIE_DEBUG
 

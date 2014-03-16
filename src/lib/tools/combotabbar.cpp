@@ -32,7 +32,6 @@
 #include <QTabBar>
 #include <QMouseEvent>
 #include <QApplication>
-#include <QDebug>
 
 // taken from qtabbar_p.h
 #define ANIMATION_DURATION 250

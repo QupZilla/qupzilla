@@ -26,7 +26,6 @@
 //For clean plugin directory, please build necessary files into
 //plugin in .qrc data files
 
-#include <QDebug>
 #include <QLabel>
 #include <QMessageBox>
 #include <QWebElement>

@@ -21,8 +21,6 @@
 #include "speeddial.h"
 #include "searchenginesmanager.h"
 
-#include <QDebug>
-
 ExternalJsObject::ExternalJsObject(QObject* parent)
     : QObject(parent)
     , m_onSpeedDial(false)

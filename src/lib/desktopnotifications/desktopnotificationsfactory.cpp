@@ -22,7 +22,6 @@
 
 #include <QFile>
 #include <QDir>
-#include <QDebug>
 
 #if defined(Q_OS_UNIX) && !defined(DISABLE_DBUS)
 #include <QDBusInterface>

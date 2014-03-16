@@ -30,8 +30,6 @@
 #include "fancytabwidget.h"
 #include "stylehelper.h"
 
-#include <QDebug>
-
 #include <QAnimationGroup>
 #include <QColorDialog>
 #include <QHBoxLayout>

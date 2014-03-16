@@ -24,7 +24,6 @@
 #include <QFile>
 #include <QStringList>
 #include <QWebFrame>
-#include <QDebug>
 #include <QCryptographicHash>
 
 GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)

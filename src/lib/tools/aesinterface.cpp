@@ -28,7 +28,6 @@
 #include <QCryptographicHash>
 #include <QByteArray>
 #include <QMessageBox>
-#include <QDebug>
 
 //////////////////////////////////////////////
 /// Version 1:

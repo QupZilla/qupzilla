@@ -17,7 +17,6 @@
 * ============================================================ */
 #include "gm_urlmatcher.h"
 
-#include <QDebug>
 #include <QStringList>
 
 static bool wildcardMatch(const QString &string, const QString &pattern)

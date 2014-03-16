@@ -31,7 +31,6 @@
 #include <QTextStream>
 #include <QDir>
 #include <QTimer>
-#include <QDebug>
 
 //#define ADBLOCK_DEBUG
 

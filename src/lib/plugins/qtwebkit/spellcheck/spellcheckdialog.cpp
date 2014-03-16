@@ -26,7 +26,6 @@
 #include <QTextStream>
 #include <QFileDialog>
 #include <QInputDialog>
-#include <QDebug>
 
 SpellCheckDialog::SpellCheckDialog(QWidget* parent)
     : QDialog(parent)

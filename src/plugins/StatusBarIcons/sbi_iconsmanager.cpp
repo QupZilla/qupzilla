@@ -22,7 +22,6 @@
 #include "sbi_networkmanager.h"
 #include "browserwindow.h"
 
-#include <QDebug>
 #include <QSettings>
 #include <QStatusBar>
 

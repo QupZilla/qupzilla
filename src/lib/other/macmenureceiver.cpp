@@ -24,8 +24,6 @@
 #include <QAction>
 #include <QMenu>
 
-#include <QDebug>
-
 MacMenuReceiver::MacMenuReceiver(QObject* parent)
     : QObject(parent)
     , m_macMenuBar(0)

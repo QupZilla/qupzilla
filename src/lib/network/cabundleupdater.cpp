@@ -25,7 +25,6 @@
 #include <QTimer>
 #include <QDateTime>
 #include <QNetworkReply>
-#include <QDebug>
 #include <QFile>
 
 CaBundleUpdater::CaBundleUpdater(NetworkManager* manager, QObject* parent)

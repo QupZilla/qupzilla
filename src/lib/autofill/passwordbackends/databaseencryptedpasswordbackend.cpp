@@ -27,7 +27,6 @@
 #include <QSqlQuery>
 #include <QInputDialog>
 #include <QMessageBox>
-#include <QDebug>
 
 #define INTERNAL_SERVER_ID QLatin1String("qupzilla.internal")
 

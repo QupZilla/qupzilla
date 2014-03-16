@@ -49,7 +49,6 @@
 #include "qztools.h"
 #include "qzregexp.h"
 
-#include <QDebug>
 #include <QUrl>
 #include <QString>
 #include <QStringList>

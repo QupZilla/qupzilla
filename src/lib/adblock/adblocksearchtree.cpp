@@ -18,8 +18,6 @@
 #include "adblocksearchtree.h"
 #include "adblockrule.h"
 
-#include <QDebug>
-
 AdBlockSearchTree::AdBlockSearchTree()
     : m_root(new Node)
 {

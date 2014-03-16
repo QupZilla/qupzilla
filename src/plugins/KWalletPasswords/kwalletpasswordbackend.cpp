@@ -19,7 +19,6 @@
 #include "kwalletplugin.h"
 
 #include <QDateTime>
-#include <QDebug>
 
 static PasswordEntry decodeEntry(const QByteArray &data)
 {

@@ -22,7 +22,6 @@
 #include "adblockmanager.h"
 #include "webpage.h"
 
-#include <QDebug>
 #include <QNetworkRequest>
 
 WebPluginFactory::WebPluginFactory(WebPage* page)

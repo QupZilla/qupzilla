@@ -24,7 +24,6 @@
 #include "networkproxyfactory.h"
 #include "browserwindow.h"
 
-#include <QDebug>
 #include <QMenu>
 #include <QNetworkConfigurationManager>
 

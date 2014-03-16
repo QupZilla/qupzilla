@@ -29,8 +29,6 @@
 #include <QUrl>
 #include <QFile>
 
-#include <QDebug>
-
 PacManager::PacManager(QObject* parent)
     : QObject(parent)
     , m_pacrunner(0)

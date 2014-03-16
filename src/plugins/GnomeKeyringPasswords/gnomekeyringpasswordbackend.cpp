@@ -19,7 +19,6 @@
 #include "gnomekeyringplugin.h"
 
 #include <QDateTime>
-#include <QDebug>
 
 extern "C" {
 #include "gnome-keyring.h"

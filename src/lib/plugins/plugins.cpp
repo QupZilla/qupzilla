@@ -25,7 +25,6 @@
 #include <iostream>
 #include <QPluginLoader>
 #include <QDir>
-#include <QDebug>
 
 Plugins::Plugins(QObject* parent)
     : QObject(parent)

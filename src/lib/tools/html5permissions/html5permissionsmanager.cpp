@@ -21,7 +21,6 @@
 #include "webview.h"
 
 #include <QWebFrame>
-#include <QDebug>
 
 HTML5PermissionsManager::HTML5PermissionsManager(QObject* parent)
     : QObject(parent)

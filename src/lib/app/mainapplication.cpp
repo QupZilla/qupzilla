@@ -58,7 +58,6 @@
 #include <QThreadPool>
 #include <QSettings>
 #include <QProcess>
-#include <QDebug>
 #include <QTimer>
 #include <QDir>
 

@@ -32,7 +32,6 @@
 #include <QListWidgetItem>
 #include <QTemporaryFile>
 #include <QWebHistory>
-#include <QDebug>
 #include <QFileDialog>
 
 #if QT_VERSION >= 0x050000

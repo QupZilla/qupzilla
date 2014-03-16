@@ -25,7 +25,6 @@
 #include "qztools.h"
 #include "json.h"
 
-#include <QDebug>
 #include <QFile>
 
 Bookmarks::Bookmarks(QObject* parent)

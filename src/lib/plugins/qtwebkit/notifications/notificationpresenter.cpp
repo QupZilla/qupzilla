@@ -19,8 +19,6 @@
 #include "desktopnotificationsfactory.h"
 #include "mainapplication.h"
 
-#include <QDebug>
-
 NotificationPresenter::NotificationPresenter()
     : QWebNotificationPresenter()
 {

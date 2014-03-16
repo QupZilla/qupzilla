@@ -54,7 +54,6 @@
 #include <QFile>
 #include <QTimer>
 #include <QNetworkReply>
-#include <QDebug>
 
 AdBlockSubscription::AdBlockSubscription(const QString &title, QObject* parent)
     : QObject(parent)

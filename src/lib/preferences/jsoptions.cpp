@@ -23,7 +23,6 @@
 
 #include <QWebPage> // QTWEBKIT_VERSION_CHECK macro
 #include <QFileDialog>
-#include <QDebug>
 
 JsOptions::JsOptions(QWidget* parent)
     : QDialog(parent)

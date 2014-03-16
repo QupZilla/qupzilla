@@ -27,7 +27,6 @@
 #include <QTextStream>
 #include <QFile>
 #include <QLocale>
-#include <QDebug>
 #include <QDirIterator>
 #include <QWebHitTestResult>
 #include <QTextBoundaryFinder>

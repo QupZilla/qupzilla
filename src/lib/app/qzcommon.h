@@ -18,6 +18,7 @@
 #ifndef QZCOMMON_H
 #define QZCOMMON_H
 
+#include <QDebug>
 #include <QFlags>
 #include <QString>
 
