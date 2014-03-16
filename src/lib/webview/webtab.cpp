@@ -114,13 +114,6 @@ WebTab::WebTab(BrowserWindow* window, LocationBar* locationBar)
     setLayout(m_layout);
 
     connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
-    connect(m_view, SIGNAL(iconChanged()), m_locationBar.data(), SLOT(siteIconChanged()));
-    connect(m_view, SIGNAL(loadStarted()), m_locationBar.data(), SLOT(clearIcon()));
-    connect(m_view, SIGNAL(loadFinished(bool)), m_locationBar.data(), SLOT(siteIconChanged()));
-    connect(m_view, SIGNAL(urlChanged(QUrl)), m_locationBar.data(), SLOT(showUrl(QUrl)));
-    connect(m_view, SIGNAL(rssChanged(bool)), m_locationBar.data(), SLOT(showRSSIcon(bool)));
-    connect(m_view, SIGNAL(privacyChanged(bool)), m_locationBar.data(), SLOT(setPrivacy(bool)));
-    connect(m_locationBar.data(), SIGNAL(loadUrl(QUrl)), m_view, SLOT(userLoadAction(QUrl)));
 }
 
 TabbedWebView* WebTab::view() const

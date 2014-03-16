@@ -57,23 +57,24 @@ signals:
     void loadUrl(const QUrl &url);
 
 private slots:
-    void textEdit();
-    void urlEnter();
+    void textEditted();
+    void requestLoadUrl();
     void pasteAndGo();
 
-    void clearIcon();
-    void siteIconChanged();
-    void setPrivacy(bool state);
-    void showRSSIcon(bool state);
-
+    void updateSiteIcon();
     void updatePlaceHolderText();
+
+    void setPrivacyState(bool state);
+    void setRssIconVisible(bool state);
+    void setGoIconVisible(bool state);
+
     void showCompletion(const QString &completion);
     void showDomainCompletion(const QString &completion);
     void clearCompletion();
 
-    void onLoadStarted();
-    void onLoadProgress(int progress);
-    void onLoadFinished();
+    void loadStarted();
+    void loadProgress(int progress);
+    void loadFinished();
     void hideProgress();
 
     void loadSettings();
@@ -97,8 +98,6 @@ private:
     QString convertUrlToText(const QUrl &url) const;
 
     void refreshTextFormat();
-    void showGoButton();
-    void hideGoButton();
 
     LocationCompleter* m_completer;
     QStringListModel* m_domainCompleterModel;
@@ -115,7 +114,6 @@ private:
     QAction* m_pasteAndGoAction;
     QAction* m_clearAction;
 
-    bool m_rssIconVisible;
     bool m_holdingAlt;
 
     int m_loadProgress;

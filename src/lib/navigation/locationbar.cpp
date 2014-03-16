@@ -54,7 +54,6 @@ LocationBar::LocationBar(BrowserWindow* window)
     , m_webView(0)
     , m_pasteAndGoAction(0)
     , m_clearAction(0)
-    , m_rssIconVisible(false)
     , m_holdingAlt(false)
     , m_loadProgress(0)
     , m_progressVisible(false)
@@ -84,7 +83,7 @@ LocationBar::LocationBar(BrowserWindow* window)
     m_completer->setLocationBar(this);
     connect(m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));
     connect(m_completer, SIGNAL(showDomainCompletion(QString)), this, SLOT(showDomainCompletion(QString)));
-    connect(m_completer, SIGNAL(loadCompletion()), this, SLOT(urlEnter()));
+    connect(m_completer, SIGNAL(loadCompletion()), this, SLOT(requestLoadUrl()));
     connect(m_completer, SIGNAL(clearCompletion()), this, SLOT(clearCompletion()));
 
     m_domainCompleterModel = new QStringListModel(this);
@@ -93,18 +92,19 @@ LocationBar::LocationBar(BrowserWindow* window)
     domainCompleter->setModel(m_domainCompleterModel);
     setCompleter(domainCompleter);
 
-    connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
-    connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
+    connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEditted()));
+    connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(requestLoadUrl()));
     connect(down, SIGNAL(clicked(QPoint)), m_completer, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp->searchEnginesManager(), SIGNAL(defaultEngineChanged()), this, SLOT(updatePlaceHolderText()));
     connect(mApp, SIGNAL(settingsReloaded()), SLOT(loadSettings()));
 
     loadSettings();
-    clearIcon();
+
+    updateSiteIcon();
 
     // Hide icons by default
-    hideGoButton();
+    m_goIcon->setVisible(qzSettings->alwaysShowGoIcon);
     m_rssIcon->hide();
     m_autofillIcon->hide();
 
@@ -125,9 +125,15 @@ void LocationBar::setWebView(TabbedWebView* view)
     m_siteIcon->setWebView(m_webView);
     m_autofillIcon->setWebView(m_webView);
 
-    connect(m_webView, SIGNAL(loadStarted()), SLOT(onLoadStarted()));
-    connect(m_webView, SIGNAL(loadProgress(int)), SLOT(onLoadProgress(int)));
-    connect(m_webView, SIGNAL(loadFinished(bool)), SLOT(onLoadFinished()));
+    connect(m_webView, SIGNAL(loadStarted()), SLOT(loadStarted()));
+    connect(m_webView, SIGNAL(loadProgress(int)), SLOT(loadProgress(int)));
+    connect(m_webView, SIGNAL(loadFinished(bool)), SLOT(loadFinished()));
+    connect(m_webView, SIGNAL(iconChanged()), this, SLOT(updateSiteIcon()));
+    connect(m_webView, SIGNAL(urlChanged(QUrl)), this, SLOT(showUrl(QUrl)));
+    connect(m_webView, SIGNAL(rssChanged(bool)), this, SLOT(setRssIconVisible(bool)));
+    connect(m_webView, SIGNAL(privacyChanged(bool)), this, SLOT(setPrivacyState(bool)));
+
+    connect(this, SIGNAL(loadUrl(QUrl)), m_webView, SLOT(userLoadAction(QUrl)));
 }
 
 void LocationBar::setText(const QString &text)
@@ -248,7 +254,7 @@ void LocationBar::refreshTextFormat()
     setTextFormat(textFormat);
 }
 
-void LocationBar::urlEnter()
+void LocationBar::requestLoadUrl()
 {
     const QUrl url = createUrl();
     const QString urlString = convertUrlToText(url);
@@ -257,13 +263,13 @@ void LocationBar::urlEnter()
     m_webView->setFocus();
 
     if (urlString != text()) {
-        setText(convertUrlToText(url));
+        setText(urlString);
     }
 
     emit loadUrl(url);
 }
 
-void LocationBar::textEdit()
+void LocationBar::textEditted()
 {
     if (!text().isEmpty()) {
         m_completer->complete(text());
@@ -272,33 +278,29 @@ void LocationBar::textEdit()
         m_completer->closePopup();
     }
 
-    showGoButton();
+    setGoIconVisible(true);
 }
 
-void LocationBar::showGoButton()
+void LocationBar::setGoIconVisible(bool state)
 {
-    m_rssIconVisible = m_rssIcon->isVisible();
+    if (state) {
+        m_bookmarkIcon->hide();
+        m_rssIcon->hide();
+        m_goIcon->show();
+    }
+    else {
+        m_rssIcon->setVisible(m_webView->hasRss());
+        m_bookmarkIcon->show();
 
-    m_bookmarkIcon->hide();
-    m_rssIcon->hide();
-    m_goIcon->show();
-
-    updateTextMargins();
-}
-
-void LocationBar::hideGoButton()
-{
-    m_rssIcon->setVisible(m_rssIconVisible);
-    m_bookmarkIcon->show();
-
-    if (!qzSettings->alwaysShowGoIcon) {
-        m_goIcon->hide();
+        if (!qzSettings->alwaysShowGoIcon) {
+            m_goIcon->hide();
+        }
     }
 
     updateTextMargins();
 }
 
-void LocationBar::showRSSIcon(bool state)
+void LocationBar::setRssIconVisible(bool state)
 {
     m_rssIcon->setVisible(state);
 
@@ -324,28 +326,22 @@ void LocationBar::showUrl(const QUrl &url)
     // Move cursor to the start
     home(false);
 
-    hideGoButton();
     m_bookmarkIcon->checkBookmark(url);
 }
 
-void LocationBar::siteIconChanged()
+void LocationBar::updateSiteIcon()
 {
-    QIcon icon_ = m_webView->icon();
+    const QIcon icn = m_webView ? m_webView->icon() : QIcon();
 
-    if (icon_.isNull()) {
-        clearIcon();
+    if (icn.isNull()) {
+        m_siteIcon->setIcon(IconProvider::emptyWebIcon());
     }
     else {
-        m_siteIcon->setIcon(QIcon(icon_.pixmap(16, 16)));
+        m_siteIcon->setIcon(QIcon(icn.pixmap(16, 16)));
     }
 }
 
-void LocationBar::clearIcon()
-{
-    m_siteIcon->setIcon(IconProvider::emptyWebIcon());
-}
-
-void LocationBar::setPrivacy(bool state)
+void LocationBar::setPrivacyState(bool state)
 {
     m_siteIcon->setProperty("secured", QVariant(state));
     m_siteIcon->style()->unpolish(m_siteIcon);
@@ -360,7 +356,7 @@ void LocationBar::pasteAndGo()
 {
     clear();
     paste();
-    urlEnter();
+    requestLoadUrl();
 }
 
 void LocationBar::contextMenuEvent(QContextMenuEvent* event)
@@ -437,7 +433,7 @@ void LocationBar::focusInEvent(QFocusEvent* event)
 
         // Text has been edited, let's show go button
         if (stringUrl != text()) {
-            showGoButton();
+            setGoIconVisible(true);
         }
     }
 
@@ -455,7 +451,7 @@ void LocationBar::focusOutEvent(QFocusEvent* event)
 
     LineEdit::focusOutEvent(event);
 
-    hideGoButton();
+    setGoIconVisible(false);
 
     if (text().trimmed().isEmpty()) {
         clear();
@@ -531,7 +527,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         switch (event->modifiers()) {
         case Qt::ControlModifier:
             setText(text().append(QLatin1String(".com")));
-            urlEnter();
+            requestLoadUrl();
             m_holdingAlt = false;
             break;
 
@@ -542,7 +538,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
             break;
 
         default:
-            urlEnter();
+            requestLoadUrl();
             m_holdingAlt = false;
         }
 
@@ -584,13 +580,14 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
     LineEdit::keyReleaseEvent(event);
 }
 
-void LocationBar::onLoadStarted()
+void LocationBar::loadStarted()
 {
     m_progressVisible = true;
     m_autofillIcon->hide();
+    m_siteIcon->setIcon(IconProvider::emptyWebIcon());
 }
 
-void LocationBar::onLoadProgress(int progress)
+void LocationBar::loadProgress(int progress)
 {
     if (qzSettings->showLoadingProgress) {
         m_loadProgress = progress;
@@ -598,7 +595,7 @@ void LocationBar::onLoadProgress(int progress)
     }
 }
 
-void LocationBar::onLoadFinished()
+void LocationBar::loadFinished()
 {
     if (qzSettings->showLoadingProgress) {
         QTimer::singleShot(700, this, SLOT(hideProgress()));
@@ -610,6 +607,8 @@ void LocationBar::onLoadFinished()
         m_autofillIcon->setFormData(page->autoFillData());
         m_autofillIcon->show();
     }
+
+    updateSiteIcon();
 }
 
 void LocationBar::loadSettings()
