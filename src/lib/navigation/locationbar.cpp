@@ -62,6 +62,9 @@ LocationBar::LocationBar(BrowserWindow* window)
     setObjectName("locationbar");
     setDragEnabled(true);
 
+    // Disable Oxygen QLineEdit transitions, it breaks with setText() && home()
+    setProperty("_kde_no_animations", QVariant(true));
+
     m_bookmarkIcon = new BookmarksIcon(this);
     m_goIcon = new GoIcon(this);
     m_rssIcon = new RssIcon(this);
@@ -70,7 +73,6 @@ LocationBar::LocationBar(BrowserWindow* window)
     DownIcon* down = new DownIcon(this);
 
     addWidget(m_siteIcon, LineEdit::LeftSide);
-
     addWidget(m_autofillIcon, LineEdit::RightSide);
     addWidget(m_bookmarkIcon, LineEdit::RightSide);
     addWidget(m_rssIcon, LineEdit::RightSide);
@@ -311,11 +313,16 @@ void LocationBar::showUrl(const QUrl &url)
 
     const QString stringUrl = convertUrlToText(url);
 
-    if (stringUrl == text()) {
+    if (text() == stringUrl) {
+        home(false);
         return;
     }
 
-    setText(stringUrl);
+    // Set converted url as text
+    setText(convertUrlToText(url));
+
+    // Move cursor to the start
+    home(false);
 
     hideGoButton();
     m_bookmarkIcon->checkBookmark(url);

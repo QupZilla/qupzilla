@@ -23,7 +23,6 @@
 #include <QStyleOption>
 #include <QPainter>
 #include <QFocusEvent>
-#include <QApplication>
 
 SideWidget::SideWidget(QWidget* parent)
     : QWidget(parent)
@@ -157,8 +156,8 @@ void LineEdit::setTextFormat(const LineEdit::TextFormat &format)
         attributes.append(QInputMethodEvent::Attribute(type, start, length, value));
     }
 
-    QInputMethodEvent event(QString(), attributes);
-    QApplication::sendEvent(this, &event);
+    QInputMethodEvent ev(QString(), attributes);
+    event(&ev);
 }
 
 void LineEdit::clearTextFormat()
