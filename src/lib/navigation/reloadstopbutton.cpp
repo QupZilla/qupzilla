@@ -50,6 +50,7 @@ ReloadStopButton::ReloadStopButton(QWidget* parent)
 
     m_updateTimer = new QTimer(this);
     m_updateTimer->setInterval(100);
+    m_updateTimer->setSingleShot(true);
     connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateButton()));
 }
 

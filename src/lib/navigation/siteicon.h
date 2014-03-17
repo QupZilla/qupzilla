@@ -21,6 +21,8 @@
 #include "qzcommon.h"
 #include "toolbutton.h"
 
+class QTimer;
+
 class LocationBar;
 class WebView;
 class BrowserWindow;
@@ -34,8 +36,11 @@ public:
 
     void setWebView(WebView* view);
 
+    void setIcon(const QIcon &icon);
+
 private slots:
     void iconClicked();
+    void updateIcon();
 
 private:
     void contextMenuEvent(QContextMenuEvent* e);
@@ -45,8 +50,10 @@ private:
     BrowserWindow* m_window;
     LocationBar* m_locationBar;
     WebView* m_view;
+    QTimer* m_updateTimer;
 
     QPoint m_dragStartPosition;
+    QIcon m_icon;
 };
 
 #endif // SITEICON_H

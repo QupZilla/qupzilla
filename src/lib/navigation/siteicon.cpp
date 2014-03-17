@@ -40,11 +40,28 @@ SiteIcon::SiteIcon(BrowserWindow* window, LocationBar* parent)
     setFocusPolicy(Qt::ClickFocus);
 
     connect(this, SIGNAL(clicked()), this, SLOT(iconClicked()));
+
+    m_updateTimer = new QTimer(this);
+    m_updateTimer->setInterval(100);
+    m_updateTimer->setSingleShot(true);
+    connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateIcon()));
 }
 
 void SiteIcon::setWebView(WebView* view)
 {
     m_view = view;
+}
+
+void SiteIcon::setIcon(const QIcon &icon)
+{
+    m_icon = icon;
+
+    if (m_icon.isNull()) {
+        updateIcon();
+    }
+    else {
+        m_updateTimer->start();
+    }
 }
 
 void SiteIcon::iconClicked()
@@ -61,6 +78,11 @@ void SiteIcon::iconClicked()
 
     SiteInfoWidget* info = new SiteInfoWidget(m_window);
     info->showAt(parentWidget());
+}
+
+void SiteIcon::updateIcon()
+{
+    ToolButton::setIcon(m_icon);
 }
 
 void SiteIcon::contextMenuEvent(QContextMenuEvent* e)
