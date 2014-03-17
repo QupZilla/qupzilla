@@ -136,15 +136,20 @@
     qproperty-fixedsize: 18px 28px;
 }
 
+#tabwidget-button-opentabs::menu-indicator
+{
+    image: none;
+}
+
 #tabwidget-button-closedtabs
 {
     qproperty-icon: url(images/user-trash-full.png);
     qproperty-fixedsize: 22px 28px;
 }
 
-#tabwidget-button-opentabs::menu-indicator
+#tabwidget-button-closedtabs::menu-indicator
 {
-    background: url(images/transp.png);
+    image: none;
 }
 
 #tabwidget-button-addtab

@@ -117,6 +117,22 @@
     qproperty-fixedsize: 20px 27px;
 }
 
+#tabwidget-button-opentabs::menu-indicator
+{
+    image: none;
+}
+
+#tabwidget-button-closedtabs
+{
+    qproperty-icon: url(images/user-trash-full.png);
+    qproperty-fixedsize: 22px 25px;
+}
+
+#tabwidget-button-closedtabs::menu-indicator
+{
+    image: none;
+}
+
 #tabwidget-button-addtab
 {
     qproperty-icon: url(images/navigation-addtab.png);
@@ -138,17 +154,6 @@
 {
     qproperty-icon: url(images/tab-left-arrow.png);
     qproperty-fixedsize: 15px 25px;
-}
-
-#tabwidget-button-opentabs::menu-indicator
-{
-    background: url(images/transp.png);
-}
-
-#tabwidget-button-closedtabs
-{
-    qproperty-icon: url(images/user-trash-full.png);
-    qproperty-fixedsize: 22px 25px;
 }
 
 /*IconProvider*/

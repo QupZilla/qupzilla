@@ -131,6 +131,11 @@
     qproperty-fixedsize: 22px 25px;
 }
 
+#tabwidget-button-closedtabs::menu-indicator
+{
+    image: none;
+}
+
 #tabwidget-button-addtab
 {
     qproperty-multiIcon: url(images/tabbar-addtab.png);

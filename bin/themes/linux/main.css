@@ -107,6 +107,11 @@
     qproperty-fixedsize: 20px 25px;
 }
 
+#tabwidget-button-opentabs::menu-indicator
+{
+    image: none;
+}
+
 #tabwidget-button-closedtabs
 {
     qproperty-themeIcon: "user-trash-full";
@@ -114,16 +119,16 @@
     qproperty-fixedsize: 22px 25px;
 }
 
+#tabwidget-button-closedtabs::menu-indicator
+{
+    image: none;
+}
+
 #tabwidget-button-addtab
 {
     qproperty-themeIcon: "list-add";
     qproperty-fallbackIcon: url(images/list-add.png);
     qproperty-fixedsize: 22px 25px;
-}
-
-#tabwidget-button-opentabs::menu-indicator
-{
-    image: none;
 }
 
 /*IconProvider*/
