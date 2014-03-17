@@ -757,9 +757,9 @@
                 </widget>
                </item>
                <item>
-                <widget class="QCheckBox" name="closedInsteadOpened">
+                <widget class="QCheckBox" name="showClosedTabsButton">
                  <property name="text">
-                  <string>Closed tabs list instead of opened in tab bar</string>
+                  <string>Show closed tabs button</string>
                  </property>
                 </widget>
                </item>

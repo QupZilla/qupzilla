@@ -384,6 +384,14 @@ QString QzTools::applyDirectionToPage(QString &pageContents)
     return pageContents;
 }
 
+QString QzTools::truncatedText(const QString &text, int size)
+{
+    if (text.length() > size) {
+        return text.left(size) + QL1S("..");
+    }
+    return text;
+}
+
 // Thanks to http://www.qtcentre.org/threads/3205-Toplevel-widget-with-rounded-corners?p=17492#post17492
 QRegion QzTools::roundedRect(const QRect &rect, int radius)
 {

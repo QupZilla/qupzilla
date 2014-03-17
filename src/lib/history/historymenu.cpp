@@ -22,6 +22,7 @@
 #include "mainapplication.h"
 #include "closedtabsmanager.h"
 #include "tabwidget.h"
+#include "qztools.h"
 #include "history.h"
 #include "qzsettings.h"
 
@@ -36,15 +37,6 @@ static QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallback,
     }
 
     return (shortcut.isEmpty() ? fallback : shortcut);
-}
-
-static QString truncatedTitle(const QString &title)
-{
-    if (title.length() > 40) {
-        return title.left(40) + QLatin1String("..");
-    }
-
-    return title;
 }
 
 HistoryMenu::HistoryMenu(QWidget* parent)
@@ -113,7 +105,7 @@ void HistoryMenu::aboutToShowRecentlyVisited()
 
     while (query.next()) {
         const QUrl url = query.value(1).toUrl();
-        const QString title = truncatedTitle(query.value(0).toString());
+        const QString title = QzTools::truncatedText(query.value(0).toString(), 40);
 
         Action* act = new Action(IconProvider::iconForUrl(url), title);
         act->setData(url);
@@ -135,7 +127,7 @@ void HistoryMenu::aboutToShowMostVisited()
     const QVector<HistoryEntry> mostVisited = mApp->history()->mostVisited(10);
 
     foreach (const HistoryEntry &entry, mostVisited) {
-        Action* act = new Action(IconProvider::iconForUrl(entry.url), truncatedTitle(entry.title));
+        Action* act = new Action(IconProvider::iconForUrl(entry.url), QzTools::truncatedText(entry.title, 40));
         act->setData(entry.url);
         connect(act, SIGNAL(triggered()), this, SLOT(historyEntryActivated()));
         connect(act, SIGNAL(ctrlTriggered()), this, SLOT(historyEntryCtrlActivated()));
@@ -155,30 +147,25 @@ void HistoryMenu::aboutToShowClosedTabs()
     if (!m_window) {
         return;
     }
+
     TabWidget* tabWidget = m_window->tabWidget();
-    QAction* arestore = new QAction(tr("Restore All Closed Tabs"), this);
-    QAction* aclrlist = new QAction(tr("Clear list"), this);
 
-    connect(arestore, SIGNAL(triggered()), tabWidget, SLOT(restoreAllClosedTabs()));
-    connect(aclrlist, SIGNAL(triggered()), tabWidget, SLOT(clearClosedTabsList()));
-
-    m_menuClosedTabs->addAction(arestore);
-    m_menuClosedTabs->addAction(aclrlist);
-    m_menuClosedTabs->addSeparator();
-
-    const QLinkedList<ClosedTabsManager::Tab> closedTabs = tabWidget->closedTabsManager()->allClosedTabs();
     int i = 0;
+    const QLinkedList<ClosedTabsManager::Tab> closedTabs = tabWidget->closedTabsManager()->allClosedTabs();
 
     foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
-        const QString title = truncatedTitle(tab.title);
+        const QString title = QzTools::truncatedText(tab.title, 40);
         QAction* act = m_menuClosedTabs->addAction(IconProvider::iconForUrl(tab.url), title, tabWidget, SLOT(restoreClosedTab()));
         act->setData(i++);
     }
 
-    if (i == 0) {
-        arestore->setVisible(false);
-        aclrlist->setVisible(false);
+    if (m_menuClosedTabs->isEmpty()) {
         m_menuClosedTabs->addAction(tr("Empty"))->setEnabled(false);
+    }
+    else {
+        m_menuClosedTabs->addSeparator();
+        m_menuClosedTabs->addAction(tr("Restore All Closed Tabs"), tabWidget, SLOT(restoreAllClosedTabs()));
+        m_menuClosedTabs->addAction(tr("Clear list"), tabWidget, SLOT(clearClosedTabsList()));
     }
 }
 

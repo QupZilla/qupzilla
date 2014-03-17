@@ -130,6 +130,12 @@
     qproperty-multiIcon: url(images/tabs-list-button.png);
 }
 
+#tabwidget-button-closedtabs
+{
+    qproperty-icon: url(images/user-trash-full.png);
+    qproperty-fixedsize: 22px 25px;
+}
+
 #tabwidget-button-addtab
 {
     qproperty-multiIcon: url(images/tabbar-addtab.png);

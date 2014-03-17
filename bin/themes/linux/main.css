@@ -107,6 +107,13 @@
     qproperty-fixedsize: 20px 25px;
 }
 
+#tabwidget-button-closedtabs
+{
+    qproperty-themeIcon: "user-trash-full";
+    qproperty-fallbackIcon: url(images/user-trash-full.png);
+    qproperty-fixedsize: 22px 25px;
+}
+
 #tabwidget-button-addtab
 {
     qproperty-themeIcon: "list-add";

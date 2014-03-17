@@ -19,23 +19,21 @@
 #define TABWIDGET_H
 
 #include <QTabWidget>
-#include <QUrl>
 #include <QNetworkRequest>
 #include <QMenu>
 
 #include "tabstackedwidget.h"
 #include "toolbutton.h"
-#include "qzcommon.h"
 #include "webtab.h"
+#include "qzcommon.h"
 
-class QStackedWidget;
 class QMenu;
 
-class BrowserWindow;
-class TabbedWebView;
 class TabBar;
 class TabIcon;
 class TabWidget;
+class BrowserWindow;
+class TabbedWebView;
 class ClosedTabsManager;
 
 class QUPZILLA_EXPORT AddTabButton : public ToolButton
@@ -98,7 +96,7 @@ public:
     bool canRestoreTab() const;
 
     QStackedWidget* locationBars() const;
-    ToolButton* buttonListTabs() const;
+    ToolButton* buttonClosedTabs() const;
     AddTabButton* buttonAddTab() const;
 
 public slots:
@@ -121,7 +119,6 @@ public slots:
     void restoreClosedTab(QObject* obj = 0);
     void restoreAllClosedTabs();
     void clearClosedTabsList();
-    void aboutToShowClosedTabsMenu();
 
     void moveAddTabButton(int posX);
     void showButtons();
@@ -136,39 +133,42 @@ private slots:
     void loadSettings();
 
     void aboutToShowTabsMenu();
+    void aboutToShowClosedTabsMenu();
+
     void actionChangeIndex();
     void tabMoved(int before, int after);
 
 private:
     WebTab* weTab();
     WebTab* weTab(int index);
-
     TabIcon* tabIcon(int index);
 
-    inline bool validIndex(int index) const { return index >= 0 && index < count(); }
-
-    bool m_dontCloseWithOneTab;
-    bool m_closedInsteadOpened;
-    bool m_newTabAfterActive;
-    bool m_newEmptyTabAfterActive;
-    QUrl m_urlOnNewTab;
+    bool validIndex(int index) const;
+    void updateClosedTabsButton();
 
     BrowserWindow* m_window;
+    TabBar* m_tabBar;
+    QStackedWidget* m_locationBars;
+    ClosedTabsManager* m_closedTabsManager;
+
+    MenuTabs* m_menuTabs;
+    ToolButton* m_buttonListTabs;
+    QMenu* m_menuClosedTabs;
+    ToolButton* m_buttonClosedTabs;
+    ToolButton* m_buttonClosedTabs2;
+    AddTabButton* m_buttonAddTab;
+    AddTabButton* m_buttonAddTab2;
 
     int m_lastTabIndex;
     int m_lastBackgroundTabIndex;
     bool m_isClosingToLastTabIndex;
     bool m_isRestoringState;
 
-    TabBar* m_tabBar;
-    MenuTabs* m_menuTabs;
-    ToolButton* m_buttonListTabs;
-    AddTabButton* m_buttonAddTab;
-    ToolButton* m_buttonListTabs2;
-    AddTabButton* m_buttonAddTab2;
-    ClosedTabsManager* m_closedTabsManager;
-
-    QStackedWidget* m_locationBars;
+    bool m_dontCloseWithOneTab;
+    bool m_showClosedTabsButton;
+    bool m_newTabAfterActive;
+    bool m_newEmptyTabAfterActive;
+    QUrl m_urlOnNewTab;
 };
 
 #endif // TABWIDGET_H

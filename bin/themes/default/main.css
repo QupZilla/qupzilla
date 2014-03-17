@@ -145,6 +145,12 @@
     background: url(images/transp.png);
 }
 
+#tabwidget-button-closedtabs
+{
+    qproperty-icon: url(images/user-trash-full.png);
+    qproperty-fixedsize: 22px 25px;
+}
+
 /*IconProvider*/
 IconProvider
 {

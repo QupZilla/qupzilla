@@ -59,6 +59,7 @@ public:
 
     static QPixmap createPixmapForSite(const QIcon &icon, const QString &title, const QString &url);
     static QString applyDirectionToPage(QString &pageContents);
+    static QString truncatedText(const QString &text, int size);
 
     static QString resolveFromPath(const QString &name);
     static QStringList splitCommandArguments(const QString &command);

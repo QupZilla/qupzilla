@@ -344,6 +344,9 @@ void BrowserWindow::setupUi()
     col.setAlpha(0);
     pal.setColor(QPalette::Window, col);
     QToolTip::setPalette(pal);
+
+    // Set some sane minimum width
+    setMinimumWidth(300);
 }
 
 void BrowserWindow::setupMenu()

@@ -243,7 +243,7 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
     else {
         int availableWidth = mainTabBarWidth();
 
-        if (!m_tabWidget->buttonListTabs()->isForceHidden()) {
+        if (!m_tabWidget->buttonClosedTabs()->isForceHidden()) {
             availableWidth -= comboTabBarPixelMetric(ExtraReservedWidth);
         }
 
@@ -350,7 +350,10 @@ int TabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
         return 250;
 
     case ComboTabBar::ExtraReservedWidth:
-        return m_tabWidget->buttonListTabs()->width() + m_tabWidget->buttonAddTab()->width();
+        if (m_tabWidget->buttonClosedTabs()->isVisible()) {
+            return m_tabWidget->buttonClosedTabs()->width() + m_tabWidget->buttonAddTab()->width();
+        }
+        return m_tabWidget->buttonAddTab()->width();
 
     default:
         break;
@@ -538,13 +541,13 @@ void TabBar::overFlowChange(bool overFlowed)
 {
     if (overFlowed) {
         m_tabWidget->buttonAddTab()->setForceHidden(true);
-        m_tabWidget->buttonListTabs()->setForceHidden(true);
+        m_tabWidget->buttonClosedTabs()->setForceHidden(true);
         m_tabWidget->setUpLayout();
         ensureVisible(currentIndex());
     }
     else {
         m_tabWidget->buttonAddTab()->setForceHidden(false);
-        m_tabWidget->buttonListTabs()->setForceHidden(false);
+        m_tabWidget->buttonClosedTabs()->setForceHidden(false);
         m_tabWidget->showButtons();
         m_tabWidget->setUpLayout();
     }
@@ -696,9 +699,9 @@ void TabBar::resizeEvent(QResizeEvent* e)
         posit.setX(0);
     }
     else {
-        posit.setX(width() - m_tabWidget->buttonListTabs()->width());
+        posit.setX(width() - m_tabWidget->buttonClosedTabs()->width());
     }
-    m_tabWidget->buttonListTabs()->move(posit);
+    m_tabWidget->buttonClosedTabs()->move(posit);
 
     ComboTabBar::resizeEvent(e);
 }

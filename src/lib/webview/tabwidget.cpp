@@ -32,6 +32,7 @@
 #include "settings.h"
 #include "datapaths.h"
 #include "qzsettings.h"
+#include "qztools.h"
 #include "qtwin.h"
 #include "tabicon.h"
 
@@ -117,14 +118,15 @@ void MenuTabs::mouseReleaseEvent(QMouseEvent* event)
 TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     : TabStackedWidget(parent)
     , m_window(window)
+    , m_locationBars(new QStackedWidget)
+    , m_closedTabsManager(new ClosedTabsManager)
     , m_lastTabIndex(-1)
     , m_lastBackgroundTabIndex(-1)
     , m_isClosingToLastTabIndex(false)
     , m_isRestoringState(false)
-    , m_closedTabsManager(new ClosedTabsManager)
-    , m_locationBars(new QStackedWidget)
 {
-    setObjectName("tabwidget");
+    setObjectName(QSL("tabwidget"));
+
     m_tabBar = new TabBar(m_window, this);
     setTabBar(m_tabBar);
 
@@ -146,8 +148,27 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
 
     connect(mApp, SIGNAL(settingsReloaded()), this, SLOT(loadSettings()));
 
-    m_menuTabs = new MenuTabs(m_tabBar);
+    m_menuTabs = new MenuTabs(this);
+    connect(m_menuTabs, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
 
+    m_menuClosedTabs = new QMenu(this);
+
+    // ClosedTabs button displayed in the right corner of tabbar
+    m_buttonClosedTabs = new ToolButton(m_tabBar);
+    m_buttonClosedTabs->setObjectName("tabwidget-button-closedtabs");
+    m_buttonClosedTabs->setMenu(m_menuClosedTabs);
+    m_buttonClosedTabs->setPopupMode(QToolButton::InstantPopup);
+    m_buttonClosedTabs->setToolTip(tr("Closed tabs"));
+    m_buttonClosedTabs->setAutoRaise(true);
+    m_buttonClosedTabs->setFocusPolicy(Qt::NoFocus);
+    m_buttonClosedTabs->setShowMenuInside(true);
+    connect(m_buttonClosedTabs, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowClosedTabsMenu()));
+
+    // AddTab button displayed next to last tab
+    m_buttonAddTab = new AddTabButton(this, m_tabBar);
+    connect(m_buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
+
+    // ListTabs button is showed only when tabbar overflows
     m_buttonListTabs = new ToolButton(m_tabBar);
     m_buttonListTabs->setObjectName("tabwidget-button-opentabs");
     m_buttonListTabs->setMenu(m_menuTabs);
@@ -156,31 +177,30 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     m_buttonListTabs->setAutoRaise(true);
     m_buttonListTabs->setFocusPolicy(Qt::NoFocus);
     m_buttonListTabs->setShowMenuInside(true);
-    connect(m_buttonListTabs, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowClosedTabsMenu()));
+    m_buttonListTabs->hide();
+    connect(m_buttonListTabs, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowTabsMenu()));
 
-    m_buttonAddTab = new AddTabButton(this, m_tabBar);
-    connect(m_buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
-
-    // Copy of buttons
-    m_buttonListTabs2 = new ToolButton(m_tabBar);
-    m_buttonListTabs2->setObjectName("tabwidget-button-opentabs");
-    m_buttonListTabs2->setProperty("outside-tabbar", true);
-    m_buttonListTabs2->setMenu(m_menuTabs);
-    m_buttonListTabs2->setPopupMode(QToolButton::InstantPopup);
-    m_buttonListTabs2->setToolTip(tr("List of tabs"));
-    m_buttonListTabs2->setAutoRaise(true);
-    m_buttonListTabs2->setFocusPolicy(Qt::NoFocus);
-    m_buttonListTabs2->setShowMenuInside(true);
-    connect(m_buttonListTabs2, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowClosedTabsMenu()));
-
+    // AddTab button displayed outside tabbar (as corner widget)
     m_buttonAddTab2 = new AddTabButton(this, m_tabBar);
     m_buttonAddTab2->setProperty("outside-tabbar", true);
+    m_buttonAddTab2->hide();
     connect(m_buttonAddTab2, SIGNAL(clicked()), m_window, SLOT(addTab()));
 
+    // ClosedTabs button displayed outside tabbar (as corner widget)
+    m_buttonClosedTabs2 = new ToolButton(m_tabBar);
+    m_buttonClosedTabs2->setObjectName("tabwidget-button-closedtabs");
+    m_buttonClosedTabs2->setMenu(m_menuClosedTabs);
+    m_buttonClosedTabs2->setPopupMode(QToolButton::InstantPopup);
+    m_buttonClosedTabs2->setToolTip(tr("Closed tabs"));
+    m_buttonClosedTabs2->setAutoRaise(true);
+    m_buttonClosedTabs2->setFocusPolicy(Qt::NoFocus);
+    m_buttonClosedTabs2->setShowMenuInside(true);
+    m_buttonClosedTabs2->hide();
+    connect(m_buttonClosedTabs2, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowClosedTabsMenu()));
+
     m_tabBar->addMainBarWidget(m_buttonAddTab2, Qt::AlignRight);
-    m_tabBar->addMainBarWidget(m_buttonListTabs2, Qt::AlignRight);
-    m_buttonAddTab2->hide();
-    m_buttonListTabs2->hide();
+    m_tabBar->addMainBarWidget(m_buttonClosedTabs2, Qt::AlignRight);
+    m_tabBar->addMainBarWidget(m_buttonListTabs, Qt::AlignRight);
     connect(m_tabBar, SIGNAL(overFlowChanged(bool)), this, SLOT(tabBarOverFlowChanged(bool)));
 
     loadSettings();
@@ -191,7 +211,7 @@ void TabWidget::loadSettings()
     Settings settings;
     settings.beginGroup("Browser-Tabs-Settings");
     m_dontCloseWithOneTab = settings.value("dontCloseWithOneTab", false).toBool();
-    m_closedInsteadOpened = settings.value("closedInsteadOpenedTabs", false).toBool();
+    m_showClosedTabsButton = settings.value("showClosedTabsButton", true).toBool();
     m_newTabAfterActive = settings.value("newTabAfterActive", true).toBool();
     m_newEmptyTabAfterActive = settings.value("newEmptyTabAfterActive", false).toBool();
     settings.endGroup();
@@ -202,12 +222,7 @@ void TabWidget::loadSettings()
 
     m_tabBar->loadSettings();
 
-    if (m_closedInsteadOpened) {
-        disconnect(m_menuTabs, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
-    }
-    else {
-        connect(m_menuTabs, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
-    }
+    updateClosedTabsButton();
 }
 
 WebTab* TabWidget::weTab()
@@ -233,56 +248,76 @@ TabIcon* TabWidget::tabIcon(int index)
     return icon;
 }
 
+bool TabWidget::validIndex(int index) const
+{
+    return index >= 0 && index < count();
+}
+
+void TabWidget::updateClosedTabsButton()
+{
+    if (!m_showClosedTabsButton) {
+        m_buttonClosedTabs->hide();
+        m_buttonClosedTabs2->hide();
+    }
+    // Show closed tabs outside tabbar when overflowed
+    else if (m_buttonListTabs->isVisible()) {
+        m_buttonClosedTabs2->show();
+    }
+
+    m_buttonClosedTabs->setEnabled(canRestoreTab());
+    m_buttonClosedTabs2->setEnabled(canRestoreTab());
+}
+
 void TabWidget::showButtons()
 {
-    m_buttonListTabs->show();
+    // Show buttons inside tabbar
+    m_buttonClosedTabs->setVisible(m_showClosedTabsButton);
     m_buttonAddTab->show();
 }
 
 void TabWidget::hideButtons()
 {
-    m_buttonListTabs->hide();
+    // Hide buttons inside tabbar
+    m_buttonClosedTabs->hide();
     m_buttonAddTab->hide();
 }
 
 void TabWidget::tabBarOverFlowChanged(bool overFlowed)
 {
+    // Show buttons displayed outside tabbar (corner widgets)
     m_buttonAddTab2->setVisible(overFlowed);
-    m_buttonListTabs2->setVisible(overFlowed);
+    m_buttonClosedTabs2->setVisible(m_showClosedTabsButton && overFlowed);
+    m_buttonListTabs->setVisible(overFlowed);
 }
 
 void TabWidget::moveAddTabButton(int posX)
 {
     int posY = (m_tabBar->height() - m_buttonAddTab->height()) / 2;
-    //RTL Support
+    int buttonclosedTabsWidth = m_buttonClosedTabs->isVisible() ? m_buttonClosedTabs->width() : 0;
+
     if (QApplication::layoutDirection() == Qt::RightToLeft) {
-        posX = qMax(posX - m_buttonAddTab->width(), m_buttonListTabs->width());
+        posX = qMax(posX - m_buttonAddTab->width(), buttonclosedTabsWidth);
     }
     else {
-        posX = qMin(posX, m_tabBar->width() - m_buttonAddTab->width() - m_buttonListTabs->width());
+        posX = qMin(posX, m_tabBar->width() - m_buttonAddTab->width() - buttonclosedTabsWidth);
     }
+
     m_buttonAddTab->move(posX, posY);
 }
 
 void TabWidget::aboutToShowTabsMenu()
 {
     m_menuTabs->clear();
-    WebTab* actTab = weTab();
-    if (!actTab) {
-        return;
-    }
+
     for (int i = 0; i < count(); i++) {
         WebTab* tab = weTab(i);
         if (!tab) {
             continue;
         }
+
         QAction* action = new QAction(this);
-        if (tab == actTab) {
-            action->setIcon(QIcon(":/icons/menu/dot.png"));
-        }
-        else {
-            action->setIcon(tab->icon());
-        }
+        action->setIcon(i == currentIndex() ? QIcon(QSL(":/icons/menu/dot.png")) : tab->icon());
+
         if (tab->title().isEmpty()) {
             if (tab->isLoading()) {
                 action->setText(tr("Loading..."));
@@ -295,19 +330,39 @@ void TabWidget::aboutToShowTabsMenu()
         else {
             QString title = tab->title();
             title.replace(QLatin1Char('&'), QLatin1String("&&"));
-            if (title.length() > 40) {
-                title.truncate(40);
-                title += QLatin1String("..");
-            }
-            action->setText(title);
+            action->setText(QzTools::truncatedText(title, 40));
         }
+
         action->setData(QVariant::fromValue(qobject_cast<QWidget*>(tab)));
         connect(action, SIGNAL(triggered()), this, SLOT(actionChangeIndex()));
-
         m_menuTabs->addAction(action);
     }
+
     m_menuTabs->addSeparator();
     m_menuTabs->addAction(tr("Currently you have %n opened tab(s)", "", count()))->setEnabled(false);
+}
+
+void TabWidget::aboutToShowClosedTabsMenu()
+{
+    m_menuClosedTabs->clear();
+
+    int i = 0;
+    const QLinkedList<ClosedTabsManager::Tab> closedTabs = closedTabsManager()->allClosedTabs();
+
+    foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
+        const QString title = QzTools::truncatedText(tab.title, 40);
+        QAction* act = m_menuClosedTabs->addAction(IconProvider::iconForUrl(tab.url), title, this, SLOT(restoreClosedTab()));
+        act->setData(i++);
+    }
+
+    if (m_menuClosedTabs->isEmpty()) {
+        m_menuClosedTabs->addAction(tr("Empty"))->setEnabled(false);
+    }
+    else {
+        m_menuClosedTabs->addSeparator();
+        m_menuClosedTabs->addAction(tr("Restore All Closed Tabs"), this, SLOT(restoreAllClosedTabs()));
+        m_menuClosedTabs->addAction(tr("Clear list"), this, SLOT(clearClosedTabsList()));
+    }
 }
 
 void TabWidget::actionChangeIndex()
@@ -315,9 +370,7 @@ void TabWidget::actionChangeIndex()
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         WebTab* tab = qobject_cast<WebTab*>(qvariant_cast<QWidget*>(action->data()));
         if (tab) {
-            // needed when clicking on action of the current tab
             m_tabBar->ensureVisible(tab->tabIndex());
-
             setCurrentIndex(tab->tabIndex());
         }
     }
@@ -517,13 +570,15 @@ void TabWidget::closeTab(int index, bool force)
 
     m_lastBackgroundTabIndex = -1;
 
-    if (!m_closedInsteadOpened && m_menuTabs->isVisible()) {
+    if (m_menuTabs->isVisible()) {
         QAction* labelAction = m_menuTabs->actions().last();
         labelAction->setText(tr("Currently you have %n opened tab(s)", "", count() - 1));
     }
 
     removeTab(index);
     delete webTab;
+
+    updateClosedTabsButton();
 
     emit changed();
 }
@@ -724,6 +779,7 @@ void TabWidget::restoreClosedTab(QObject* obj)
     if (!obj) {
         obj = sender();
     }
+
     if (!m_closedTabsManager->isClosedTabAvailable()) {
         return;
     }
@@ -745,6 +801,8 @@ void TabWidget::restoreClosedTab(QObject* obj)
     int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab, false, tab.position);
     WebTab* webTab = weTab(index);
     webTab->p_restoreTab(tab.url, tab.history);
+
+    updateClosedTabsButton();
 }
 
 void TabWidget::restoreAllClosedTabs()
@@ -761,12 +819,13 @@ void TabWidget::restoreAllClosedTabs()
         webTab->p_restoreTab(tab.url, tab.history);
     }
 
-    m_closedTabsManager->clearList();
+    clearClosedTabsList();
 }
 
 void TabWidget::clearClosedTabsList()
 {
     m_closedTabsManager->clearList();
+    updateClosedTabsButton();
 }
 
 bool TabWidget::canRestoreTab() const
@@ -779,52 +838,14 @@ QStackedWidget* TabWidget::locationBars() const
     return m_locationBars;
 }
 
-ToolButton* TabWidget::buttonListTabs() const
+ToolButton* TabWidget::buttonClosedTabs() const
 {
-    return m_buttonListTabs;
+    return m_buttonClosedTabs;
 }
 
 AddTabButton* TabWidget::buttonAddTab() const
 {
     return m_buttonAddTab;
-}
-
-void TabWidget::aboutToShowClosedTabsMenu()
-{
-    if (!m_closedInsteadOpened) {
-        aboutToShowTabsMenu();
-    }
-    else {
-        m_menuTabs->clear();
-
-        QAction* arestore = new QAction(tr("Restore All Closed Tabs"), this);
-        QAction* aclrlist = new QAction(QIcon::fromTheme("user-trash-full"), tr("Clear list"), this);
-
-        connect(arestore, SIGNAL(triggered()), this, SLOT(restoreAllClosedTabs()));
-        connect(aclrlist, SIGNAL(triggered()), this, SLOT(clearClosedTabsList()));
-
-        m_menuTabs->addAction(arestore);
-        m_menuTabs->addAction(aclrlist);
-
-        m_menuTabs->addSeparator();
-
-        int i = 0;
-        foreach (const ClosedTabsManager::Tab &tab, closedTabsManager()->allClosedTabs()) {
-            QString title = tab.title;
-            if (title.length() > 40) {
-                title.truncate(40);
-                title += "..";
-            }
-            m_menuTabs->addAction(IconProvider::iconForUrl(tab.url), title, this, SLOT(restoreClosedTab()))->setData(i);
-            i++;
-        }
-
-        if (i == 0) {
-            arestore->setVisible(false);
-            aclrlist->setVisible(false);
-            m_menuTabs->addAction(QIcon::fromTheme("user-trash"), tr("Empty"))->setEnabled(false);
-        }
-    }
 }
 
 QList<WebTab*> TabWidget::allTabs(bool withPinned)
