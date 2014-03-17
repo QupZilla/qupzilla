@@ -65,8 +65,7 @@
 
 #navigation-button-supermenu
 {
-    qproperty-themeIcon: "preferences-desktop";
-    qproperty-fallbackIcon: url(images/preferences-desktop.png);
+    qproperty-icon: url(images/menu.png);
 }
 
 #navigation-button-exitfullscreen
@@ -166,11 +165,12 @@ IconProvider
 {
     qproperty-fixedsize: 16px 16px;
     qproperty-themeIcon: "go-jump-locationbar";
-    qproperty-fallbackIcon: url(images/gotoaddress.png);
+    qproperty-fallbackIcon: url(images/go-jump-locationbar.png);
 }
 
 #locationbar-down-icon
 {
+    padding-right: 2px;
     qproperty-pixmap: url(images/navigation-dropdown.png);
 }
 
