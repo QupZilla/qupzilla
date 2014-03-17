@@ -54,9 +54,11 @@ void SiteIcon::setWebView(WebView* view)
 
 void SiteIcon::setIcon(const QIcon &icon)
 {
+    bool wasNull = m_icon.isNull();
+
     m_icon = icon;
 
-    if (m_icon.isNull()) {
+    if (wasNull) {
         updateIcon();
     }
     else {
