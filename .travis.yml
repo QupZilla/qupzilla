@@ -5,6 +5,11 @@ env:
   - QT=qt4
   - QT=qt5
 
+branches:
+  only:
+    - 'master'
+    - 'v1.6'
+
 before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
