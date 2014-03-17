@@ -34,6 +34,7 @@ class QMenu;
 class BrowserWindow;
 class TabbedWebView;
 class TabBar;
+class TabIcon;
 class TabWidget;
 class ClosedTabsManager;
 
@@ -78,9 +79,6 @@ public:
 
     void savePinnedTabs();
     void restorePinnedTabs();
-
-    void startTabAnimation(int index);
-    void stopTabAnimation(int index);
 
     void setCurrentIndex(int index);
     void setTabIcon(int index, const QIcon &icon);
@@ -144,6 +142,8 @@ private slots:
 private:
     WebTab* weTab();
     WebTab* weTab(int index);
+
+    TabIcon* tabIcon(int index);
 
     inline bool validIndex(int index) const { return index >= 0 && index < count(); }
 

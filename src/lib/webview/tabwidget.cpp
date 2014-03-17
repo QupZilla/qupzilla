@@ -33,6 +33,7 @@
 #include "datapaths.h"
 #include "qzsettings.h"
 #include "qtwin.h"
+#include "tabicon.h"
 
 #include <QTimer>
 #include <QMovie>
@@ -217,6 +218,19 @@ WebTab* TabWidget::weTab()
 WebTab* TabWidget::weTab(int index)
 {
     return qobject_cast<WebTab*>(widget(index));
+}
+
+TabIcon* TabWidget::tabIcon(int index)
+{
+    TabIcon* icon = qobject_cast<TabIcon*>(m_tabBar->tabButton(index, m_tabBar->iconButtonPosition()));
+
+    if (!icon) {
+        icon = new TabIcon(this);
+        icon->setWebTab(weTab(index));
+        m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), icon);
+    }
+
+    return icon;
 }
 
 void TabWidget::showButtons()
@@ -433,13 +447,6 @@ int TabWidget::addView(WebTab* tab)
     int index = addTab(tab, QString());
     setTabText(index, tab->title());
 
-    if (!tab->isLoading()) {
-        setTabIcon(index, tab->icon());
-    }
-    else {
-        startTabAnimation(index);
-    }
-
     connect(tab->view(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(tab->view(), SIGNAL(changed()), this, SIGNAL(changed()));
     connect(tab->view(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
@@ -554,43 +561,6 @@ void TabWidget::tabMoved(int before, int after)
     m_lastTabIndex = before;
 }
 
-void TabWidget::startTabAnimation(int index)
-{
-    if (!validIndex(index)) {
-        return;
-    }
-
-    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, m_tabBar->iconButtonPosition()));
-    if (!label) {
-        label = new QLabel();
-        label->setObjectName("tab-icon");
-        m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), label);
-    }
-
-    if (label->movie()) {
-        label->movie()->start();
-        return;
-    }
-
-    QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), label);
-    movie->start();
-
-    label->setMovie(movie);
-}
-
-void TabWidget::stopTabAnimation(int index)
-{
-    if (!validIndex(index)) {
-        return;
-    }
-
-    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, m_tabBar->iconButtonPosition()));
-
-    if (label && label->movie()) {
-        label->movie()->stop();
-    }
-}
-
 void TabWidget::setCurrentIndex(int index)
 {
     m_lastTabIndex = currentIndex();
@@ -604,15 +574,7 @@ void TabWidget::setTabIcon(int index, const QIcon &icon)
         return;
     }
 
-    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, m_tabBar->iconButtonPosition()));
-    if (!label) {
-        label = new QLabel();
-        label->setObjectName("tab-icon");
-        label->resize(16, 16);
-        m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), label);
-    }
-
-    label->setPixmap(icon.pixmap(16, 16));
+    tabIcon(index)->setIcon(icon);
 }
 
 void TabWidget::setTabText(int index, const QString &text)

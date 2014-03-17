@@ -261,7 +261,8 @@ SOURCES += \
     app/profilemanager.cpp \
     app/mainmenu.cpp \
     tools/sqldatabase.cpp \
-    navigation/completer/locationcompleterrefreshjob.cpp
+    navigation/completer/locationcompleterrefreshjob.cpp \
+    webview/tabicon.cpp
 
 
 HEADERS  += \
@@ -463,7 +464,8 @@ HEADERS  += \
     app/profilemanager.h \
     app/mainmenu.h \
     tools/sqldatabase.h \
-    navigation/completer/locationcompleterrefreshjob.h
+    navigation/completer/locationcompleterrefreshjob.h \
+    webview/tabicon.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

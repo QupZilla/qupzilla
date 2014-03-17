@@ -25,7 +25,6 @@
         <file>icons/menu/rss.png</file>
         <file>icons/other/about.png</file>
         <file>icons/other/feed.png</file>
-        <file>icons/other/progress.gif</file>
         <file>icons/other/bigstar.png</file>
         <file>icons/theme/unsortedbookmarks.png</file>
         <file>icons/locationbar/safe.png</file>
@@ -81,5 +80,6 @@
         <file>icons/theme/collapse.png</file>
         <file>icons/theme/speeddial.png</file>
         <file>icons/theme/view-restore.png</file>
+        <file>icons/other/loading.png</file>
     </qresource>
 </RCC>

@@ -52,7 +52,6 @@ TabbedWebView::TabbedWebView(BrowserWindow* window, WebTab* webTab)
 
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
     connect(this, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
-    connect(this, SIGNAL(iconChanged()), this, SLOT(showIcon()));
 
     connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
 }
@@ -131,8 +130,6 @@ void TabbedWebView::userLoadAction(const QUrl &url)
 
 void TabbedWebView::slotLoadStarted()
 {
-    tabWidget()->startTabAnimation(tabIndex());
-
     if (title().isNull()) {
         tabWidget()->setTabText(tabIndex(), tr("Loading..."));
     }
@@ -142,9 +139,6 @@ void TabbedWebView::slotLoadStarted()
 
 void TabbedWebView::slotLoadFinished()
 {
-    tabWidget()->stopTabAnimation(tabIndex());
-
-    showIcon();
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
 
     if (isCurrent()) {
@@ -174,20 +168,6 @@ void TabbedWebView::titleChanged()
     }
 
     tabWidget()->setTabText(tabIndex(), t);
-}
-
-void TabbedWebView::showIcon()
-{
-    if (isLoading()) {
-        return;
-    }
-
-    QIcon icon_ = icon();
-    if (icon_.isNull()) {
-        icon_ = IconProvider::emptyWebIcon();
-    }
-
-    tabWidget()->setTabIcon(tabIndex(), icon_);
 }
 
 void TabbedWebView::linkHovered(const QString &link, const QString &title, const QString &content)

@@ -60,7 +60,6 @@ public slots:
     void setAsCurrentTab();
 
     void stop();
-    void showIcon();
 
     void slotLoadStarted();
     void loadProgress(int prog);
