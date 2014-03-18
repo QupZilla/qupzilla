@@ -79,7 +79,6 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     // ComboTabBar features
     setUsesScrollButtons(true);
     setCloseButtonsToolTip(BrowserWindow::tr("Close Tab"));
-    connect(this, SIGNAL(overFlowChanged(bool)), this, SLOT(overFlowChange(bool)));
     connect(this, SIGNAL(scrollBarValueChanged(int)), this, SLOT(hideTabPreview()));
 }
 
@@ -105,21 +104,18 @@ void TabBar::updateVisibilityWithFullscreen(bool visible)
     // It is needed to save original geometry, otherwise
     // tabbar will get 3px height in fullscreen once it was hidden
 
+    ComboTabBar::setVisible(visible);
+
     // Make sure to honor user preference
     if (visible) {
         visible = !(count() == 1 && m_hideTabBarWithOneTab);
     }
 
-    ComboTabBar::setVisible(visible);
-
     if (visible) {
         setGeometry(m_originalGeometry);
-        emit showButtons();
     }
-    else {
-        m_originalGeometry = geometry();
-        emit hideButtons();
-    }
+
+    m_tabWidget->setUpLayout();
 }
 
 void TabBar::setVisible(bool visible)
@@ -133,12 +129,8 @@ void TabBar::setVisible(bool visible)
         visible = !(count() == 1 && m_hideTabBarWithOneTab);
     }
 
-    if (visible) {
-        emit showButtons();
-    }
-    else {
+    if (!visible) {
         m_originalGeometry = geometry();
-        emit hideButtons();
     }
 
     hideTabPreview(false);
@@ -241,11 +233,7 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
         size.setWidth(PINNED_TAB_WIDTH);
     }
     else {
-        int availableWidth = mainTabBarWidth();
-
-        if (!m_tabWidget->buttonClosedTabs()->isForceHidden()) {
-            availableWidth -= comboTabBarPixelMetric(ExtraReservedWidth);
-        }
+        int availableWidth = mainTabBarWidth() - comboTabBarPixelMetric(ExtraReservedWidth);
 
         if (availableWidth < 0) {
             return QSize(-1, -1);
@@ -350,10 +338,7 @@ int TabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
         return 250;
 
     case ComboTabBar::ExtraReservedWidth:
-        if (m_tabWidget->buttonClosedTabs()->isVisible()) {
-            return m_tabWidget->buttonClosedTabs()->width() + m_tabWidget->buttonAddTab()->width();
-        }
-        return m_tabWidget->buttonAddTab()->width();
+        return m_tabWidget->extraReservedWidth();
 
     default:
         break;
@@ -534,22 +519,6 @@ void TabBar::hideTabPreview(bool delayed)
     }
     else {
         m_tabPreview->hideAnimated();
-    }
-}
-
-void TabBar::overFlowChange(bool overFlowed)
-{
-    if (overFlowed) {
-        m_tabWidget->buttonAddTab()->setForceHidden(true);
-        m_tabWidget->buttonClosedTabs()->setForceHidden(true);
-        m_tabWidget->setUpLayout();
-        ensureVisible(currentIndex());
-    }
-    else {
-        m_tabWidget->buttonAddTab()->setForceHidden(false);
-        m_tabWidget->buttonClosedTabs()->setForceHidden(false);
-        m_tabWidget->showButtons();
-        m_tabWidget->setUpLayout();
     }
 }
 

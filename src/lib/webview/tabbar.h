@@ -56,9 +56,6 @@ signals:
 
     void moveAddTabButton(int posX);
 
-    void showButtons();
-    void hideButtons();
-
 private slots:
     void currentTabChanged(int index);
 
@@ -77,8 +74,6 @@ private slots:
 
     void showTabPreview(bool delayed = true);
     void hideTabPreview(bool delayed = true);
-
-    void overFlowChange(bool overFlowed);
 
 private:
     inline bool validIndex(int index) const { return index >= 0 && index < count(); }

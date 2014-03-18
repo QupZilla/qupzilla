@@ -143,8 +143,6 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
 
     connect(m_tabBar, SIGNAL(moveAddTabButton(int)), this, SLOT(moveAddTabButton(int)));
-    connect(m_tabBar, SIGNAL(showButtons()), this, SLOT(showButtons()));
-    connect(m_tabBar, SIGNAL(hideButtons()), this, SLOT(hideButtons()));
 
     connect(mApp, SIGNAL(settingsReloaded()), this, SLOT(loadSettings()));
 
@@ -198,9 +196,9 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     m_buttonClosedTabs2->hide();
     connect(m_buttonClosedTabs2, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowClosedTabsMenu()));
 
-    m_tabBar->addMainBarWidget(m_buttonAddTab2, Qt::AlignRight);
-    m_tabBar->addMainBarWidget(m_buttonClosedTabs2, Qt::AlignRight);
-    m_tabBar->addMainBarWidget(m_buttonListTabs, Qt::AlignRight);
+    m_tabBar->addCornerWidget(m_buttonAddTab2, Qt::TopRightCorner);
+    m_tabBar->addCornerWidget(m_buttonClosedTabs2, Qt::TopRightCorner);
+    m_tabBar->addCornerWidget(m_buttonListTabs, Qt::TopRightCorner);
     connect(m_tabBar, SIGNAL(overFlowChanged(bool)), this, SLOT(tabBarOverFlowChanged(bool)));
 
     loadSettings();
@@ -268,26 +266,17 @@ void TabWidget::updateClosedTabsButton()
     m_buttonClosedTabs2->setEnabled(canRestoreTab());
 }
 
-void TabWidget::showButtons()
+void TabWidget::tabBarOverFlowChanged(bool overflowed)
 {
     // Show buttons inside tabbar
-    m_buttonClosedTabs->setVisible(m_showClosedTabsButton);
-    m_buttonAddTab->show();
-}
+    m_buttonClosedTabs->setVisible(m_showClosedTabsButton && !overflowed);
+    m_buttonAddTab->setVisible(!overflowed);
 
-void TabWidget::hideButtons()
-{
-    // Hide buttons inside tabbar
-    m_buttonClosedTabs->hide();
-    m_buttonAddTab->hide();
-}
 
-void TabWidget::tabBarOverFlowChanged(bool overFlowed)
-{
     // Show buttons displayed outside tabbar (corner widgets)
-    m_buttonAddTab2->setVisible(overFlowed);
-    m_buttonClosedTabs2->setVisible(m_showClosedTabsButton && overFlowed);
-    m_buttonListTabs->setVisible(overFlowed);
+    m_buttonAddTab2->setVisible(overflowed);
+    m_buttonClosedTabs2->setVisible(m_showClosedTabsButton && overflowed);
+    m_buttonListTabs->setVisible(overflowed);
 }
 
 void TabWidget::moveAddTabButton(int posX)
@@ -685,6 +674,12 @@ void TabWidget::reloadTab(int index)
 int TabWidget::lastTabIndex() const
 {
     return m_lastTabIndex;
+}
+
+int TabWidget::extraReservedWidth() const
+{
+    int w = m_buttonAddTab->width();
+    return m_showClosedTabsButton ? w + m_buttonClosedTabs->width() : w;
 }
 
 TabBar* TabWidget::getTabBar() const

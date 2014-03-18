@@ -60,11 +60,25 @@ ComboTabBar::ComboTabBar(QWidget* parent)
     m_mainTabBar->setActiveTabBar(true);
     m_pinnedTabBar->setTabsClosable(false);
 
+    m_leftLayout = new QHBoxLayout;
+    m_leftLayout->setSpacing(0);
+    m_leftLayout->setContentsMargins(0, 0, 0, 0);
+    m_leftContainer = new QWidget(this);
+    m_leftContainer->setLayout(m_leftLayout);
+
+    m_rightLayout = new QHBoxLayout;
+    m_rightLayout->setSpacing(0);
+    m_rightLayout->setContentsMargins(0, 0, 0, 0);
+    m_rightContainer = new QWidget(this);
+    m_rightContainer->setLayout(m_rightLayout);
+
     m_mainLayout = new QHBoxLayout;
     m_mainLayout->setSpacing(0);
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
-    m_mainLayout->addWidget(m_pinnedTabBarWidget, 4);
-    m_mainLayout->addWidget(m_mainTabBarWidget, 1);
+    m_mainLayout->addWidget(m_leftContainer);
+    m_mainLayout->addWidget(m_pinnedTabBarWidget);
+    m_mainLayout->addWidget(m_mainTabBarWidget);
+    m_mainLayout->addWidget(m_rightContainer);
     setLayout(m_mainLayout);
 
     connect(m_mainTabBar, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentChanged(int)));
@@ -108,8 +122,7 @@ int ComboTabBar::insertTab(int index, const QIcon &icon, const QString &text, bo
 
         if (tabsClosable()) {
             QWidget* closeButton = m_mainTabBar->tabButton(index, closeButtonPosition());
-            if ((closeButton && closeButton->objectName() != QLatin1String("combotabbar_tabs_close_button")) ||
-                    !closeButton) {
+            if ((closeButton && closeButton->objectName() != QLatin1String("combotabbar_tabs_close_button")) || !closeButton) {
                 // insert our close button
                 insertCloseButton(index + pinnedTabsCount());
                 if (closeButton) {
@@ -465,9 +478,6 @@ void ComboTabBar::setObjectName(const QString &name)
 {
     m_mainTabBar->setObjectName(name);
     m_pinnedTabBar->setObjectName(name);
-
-    m_pinnedTabBarWidget->setContainersName(name);
-    m_mainTabBarWidget->setContainersName(name);
 }
 
 void ComboTabBar::setMouseTracking(bool enable)
@@ -499,6 +509,8 @@ void ComboTabBar::setUpLayout()
 
     setFixedHeight(height);
     m_pinnedTabBar->setFixedHeight(height);
+    m_leftContainer->setFixedHeight(height);
+    m_rightContainer->setFixedHeight(height);
     m_mainTabBarWidget->setUpLayout();
     m_pinnedTabBarWidget->setUpLayout();
 
@@ -530,6 +542,7 @@ void ComboTabBar::setCloseButtonsToolTip(const QString &tip)
 
 void ComboTabBar::enableBluredBackground(bool enable)
 {
+    m_bluredBackground = enable;
     m_mainTabBar->enableBluredBackground(enable);
     m_pinnedTabBar->enableBluredBackground(enable);
     m_mainTabBarWidget->enableBluredBackground(enable);
@@ -581,19 +594,41 @@ void ComboTabBar::resizeEvent(QResizeEvent* event)
 {
     QWidget::resizeEvent(event);
 
+    // Handle overflowing eg. when entering fullscreen
     if (m_mainBarOverFlowed != m_mainTabBarWidget->isOverflowed()) {
         setMinimumWidths();
+    }
+
+    // Workaround for containers being hidden on very fast resizing
+    if (m_rightContainer->isVisible()) {
+        m_rightContainer->hide();
+        m_rightContainer->show();
+    }
+
+    if (m_leftContainer->isVisible()) {
+        m_leftContainer->hide();
+        m_leftContainer->show();
     }
 }
 
 bool ComboTabBar::eventFilter(QObject* obj, QEvent* ev)
 {
+    if (m_bluredBackground) {
+        if (ev->type() == QEvent::Paint && (obj == m_leftContainer || obj == m_rightContainer)) {
+            QPaintEvent* event = static_cast<QPaintEvent*>(ev);
+            QPainter p(qobject_cast<QWidget*>(obj));
+            p.setCompositionMode(QPainter::CompositionMode_Clear);
+            p.fillRect(event->rect(), QColor(0, 0, 0, 0));
+        }
+    }
+
     if (obj == m_mainTabBar && ev->type() == QEvent::Resize) {
         QResizeEvent* event = static_cast<QResizeEvent*>(ev);
         if (event->oldSize().height() != event->size().height()) {
             setUpLayout();
         }
     }
+
     if (ev->type() == QEvent::Wheel) {
         // Handle wheel events exclusively in ComboTabBar
         wheelEvent(static_cast<QWheelEvent*>(ev));
@@ -667,13 +702,21 @@ bool ComboTabBar::isDragInProgress() const
     return m_mainTabBar->isDragInProgress() || m_pinnedTabBar->isDragInProgress();
 }
 
-void ComboTabBar::addMainBarWidget(QWidget* widget, Qt::Alignment align, int stretch, Qt::Alignment layoutAlignment)
+bool ComboTabBar::isMainBarOverflowed() const
 {
-    if (align == Qt::AlignRight) {
-        m_mainTabBarWidget->addRightWidget(widget, stretch, layoutAlignment);
+    return m_mainBarOverFlowed;
+}
+
+void ComboTabBar::addCornerWidget(QWidget* widget, Qt::Corner corner)
+{
+    if (corner == Qt::TopLeftCorner) {
+        m_leftLayout->addWidget(widget);
+    }
+    else if (corner == Qt::TopRightCorner) {
+        m_rightLayout->addWidget(widget);
     }
     else {
-        m_mainTabBarWidget->addLeftWidget(widget, stretch, layoutAlignment);
+        qWarning() << "ComboTabBar::addCornerWidget Only TopLeft and TopRight corners are implemented!";
     }
 }
 
@@ -762,13 +805,18 @@ void ComboTabBar::setMinimumWidths()
 
     int pinnedTabBarWidth = pinnedTabsCount() * comboTabBarPixelMetric(PinnedTabWidth);
     m_pinnedTabBar->setMinimumWidth(pinnedTabBarWidth);
-    m_pinnedTabBarWidget->setMaximumWidth(pinnedTabBarWidth);
+    m_pinnedTabBarWidget->setFixedWidth(pinnedTabBarWidth);
 
+    // Width that is needed by main tabbar
     int mainTabBarWidth = comboTabBarPixelMetric(NormalTabMinimumWidth) * (m_mainTabBar->count() - 1) +
                           comboTabBarPixelMetric(ActiveTabMinimumWidth) +
                           comboTabBarPixelMetric(ExtraReservedWidth);
 
-    if (mainTabBarWidth <= m_mainTabBarWidget->width()) {
+    // This is the full width that would be needed for the tabbar (including pinned tabbar)
+    int realTabBarWidth = mainTabBarWidth + m_pinnedTabBarWidget->width();
+
+    // Does it fit in our widget?
+    if (realTabBarWidth <= width()) {
         if (m_mainBarOverFlowed) {
             m_mainBarOverFlowed = false;
             emit overFlowChanged(false);
@@ -783,13 +831,9 @@ void ComboTabBar::setMinimumWidths()
             emit overFlowChanged(true);
         }
 
-        // The following line is the cause of calling tabSizeHint() for all tabs that is
-        // time consuming, Because of this we notify application to using a lighter
-        // version of it. (this is safe because all normal tabs have the same size)
+        // All tabs have now same width, we can use fast tabSizeHint
         m_mainTabBar->useFastTabSizeHint(true);
-        if (m_mainTabBar->count() * comboTabBarPixelMetric(OverflowedTabWidth) != m_mainTabBar->minimumWidth()) {
-            m_mainTabBar->setMinimumWidth(m_mainTabBar->count() * comboTabBarPixelMetric(OverflowedTabWidth));
-        }
+        m_mainTabBar->setMinimumWidth(m_mainTabBar->count() * comboTabBarPixelMetric(OverflowedTabWidth));
     }
 }
 
@@ -1089,13 +1133,12 @@ void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
     QTabBar::mouseReleaseEvent(event);
 
     if (m_pressedIndex >= 0) {
-        int length = qAbs(m_pressedGlobalX - event->globalX());
-        int duration = qMin((length * ANIMATION_DURATION) / tabRect(m_pressedIndex).width(),
-                            ANIMATION_DURATION);
+        const int length = qAbs(m_pressedGlobalX - event->globalX());
+        const int duration = qMin((length * ANIMATION_DURATION) / tabRect(m_pressedIndex).width(), ANIMATION_DURATION);
+        QTimer::singleShot(duration, this, SLOT(resetDragState()));
 
         m_pressedIndex = -1;
         m_pressedGlobalX = -1;
-        QTimer::singleShot(duration, this, SLOT(resetDragState()));
     }
 }
 
@@ -1169,37 +1212,12 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
     connect(m_rightScrollButton, SIGNAL(doubleClicked()), this, SLOT(scrollToRightEdge()));
     connect(m_rightScrollButton, SIGNAL(middleMouseClicked()), this, SLOT(ensureVisible()));
 
-    m_leftLayout = new QHBoxLayout;
-    m_leftLayout->setSpacing(0);
-    m_leftLayout->setContentsMargins(0, 0, 0, 0);
-    m_rightLayout = new QHBoxLayout;
-    m_rightLayout->setSpacing(0);
-    m_rightLayout->setContentsMargins(0, 0, 0, 0);
-
-    QHBoxLayout* leftLayout = new QHBoxLayout;
-    leftLayout->setSpacing(0);
-    leftLayout->setContentsMargins(0, 0, 0, 0);
-    leftLayout->addLayout(m_leftLayout);
-    leftLayout->addWidget(m_leftScrollButton);
-    QHBoxLayout* rightLayout = new QHBoxLayout;
-    rightLayout->setSpacing(0);
-    rightLayout->setContentsMargins(0, 0, 0, 0);
-    rightLayout->addWidget(m_rightScrollButton);
-    rightLayout->addLayout(m_rightLayout);
-
-    m_leftContainer = new QWidget(this);
-    m_leftContainer->setLayout(leftLayout);
-    m_rightContainer = new QWidget(this);
-    m_rightContainer->setLayout(rightLayout);
-    m_leftContainer->installEventFilter(this);
-    m_rightContainer->installEventFilter(this);
-
     QHBoxLayout* hLayout = new QHBoxLayout;
     hLayout->setSpacing(0);
     hLayout->setContentsMargins(0, 0, 0, 0);
-    hLayout->addWidget(m_leftContainer);
+    hLayout->addWidget(m_leftScrollButton);
     hLayout->addWidget(m_scrollArea);
-    hLayout->addWidget(m_rightContainer);
+    hLayout->addWidget(m_rightScrollButton);
     setLayout(hLayout);
 
     m_scrollArea->viewport()->setAutoFillBackground(false);
@@ -1207,16 +1225,6 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
 
     scrollBarValueChange();
     overFlowChanged(false);
-}
-
-void TabBarScrollWidget::addLeftWidget(QWidget* widget, int stretch, Qt::Alignment alignment)
-{
-    m_leftLayout->addWidget(widget, stretch, alignment);
-}
-
-void TabBarScrollWidget::addRightWidget(QWidget* widget, int stretch, Qt::Alignment alignment)
-{
-    m_rightLayout->addWidget(widget, stretch, alignment);
 }
 
 QTabBar* TabBarScrollWidget::tabBar()
@@ -1287,8 +1295,6 @@ void TabBarScrollWidget::setUpLayout()
     const int height = m_tabBar->height();
 
     setFixedHeight(height);
-    m_leftContainer->setFixedHeight(height);
-    m_rightContainer->setFixedHeight(height);
 }
 
 void TabBarScrollWidget::scrollBarValueChange()
@@ -1299,17 +1305,13 @@ void TabBarScrollWidget::scrollBarValueChange()
 
 void TabBarScrollWidget::overFlowChanged(bool overflowed)
 {
-    m_leftScrollButton->setVisible(overflowed && m_usesScrollButtons);
-    m_rightScrollButton->setVisible(overflowed && m_usesScrollButtons);
+    bool showScrollButtons = overflowed && m_usesScrollButtons;
 
-    // Workaround for UI issue of buttons on very fast resizing
-    if (m_rightContainer->isVisible()) {
-        m_rightContainer->hide();
-        m_rightContainer->show();
-    }
-    if (m_leftContainer->isVisible()) {
-        m_leftContainer->hide();
-        m_leftContainer->show();
+    m_leftScrollButton->setVisible(showScrollButtons);
+    m_rightScrollButton->setVisible(showScrollButtons);
+
+    if (showScrollButtons) {
+        m_scrollArea->resize(m_scrollArea->size());
     }
 }
 
@@ -1333,20 +1335,6 @@ void TabBarScrollWidget::scrollStart()
             scrollToRight(5, QEasingCurve::Linear);
         }
     }
-}
-
-bool TabBarScrollWidget::eventFilter(QObject* obj, QEvent* ev)
-{
-    if (m_bluredBackground) {
-        if (ev->type() == QEvent::Paint && (obj == m_leftContainer || obj == m_rightContainer)) {
-            QPaintEvent* event = static_cast<QPaintEvent*>(ev);
-            QPainter p(qobject_cast<QWidget*>(obj));
-            p.setCompositionMode(QPainter::CompositionMode_Clear);
-            p.fillRect(event->rect(), QColor(0, 0, 0, 0));
-        }
-    }
-
-    return QWidget::eventFilter(obj, ev);
 }
 
 void TabBarScrollWidget::scrollByWheel(QWheelEvent* event)
@@ -1428,12 +1416,6 @@ int TabBarScrollWidget::tabAt(const QPoint &pos) const
     }
 
     return m_tabBar->tabAt(m_tabBar->mapFromGlobal(mapToGlobal(pos)));
-}
-
-void TabBarScrollWidget::setContainersName(const QString &name)
-{
-    m_leftContainer->setObjectName(name);
-    m_rightContainer->setObjectName(name);
 }
 
 void TabBarScrollWidget::enableBluredBackground(bool enable)

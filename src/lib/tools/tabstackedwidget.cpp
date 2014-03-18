@@ -70,6 +70,7 @@ void TabStackedWidget::setTabBar(ComboTabBar* tb)
 
     connect(m_tabBar, SIGNAL(currentChanged(int)), this, SLOT(showTab(int)));
     connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabWasMoved(int,int)));
+    connect(m_tabBar, SIGNAL(overFlowChanged(bool)), this, SLOT(setUpLayout()));
 
     if (m_tabBar->tabsClosable()) {
         connect(m_tabBar, SIGNAL(tabCloseRequested(int)), this, SIGNAL(tabCloseRequested(int)));

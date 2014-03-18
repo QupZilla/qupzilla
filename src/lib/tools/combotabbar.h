@@ -130,7 +130,9 @@ public:
     void setUsesScrollButtons(bool useButtons);
 
     bool isDragInProgress() const;
-    void addMainBarWidget(QWidget* widget, Qt::Alignment align, int stretch = 0, Qt::Alignment layoutAlignment = 0);
+    bool isMainBarOverflowed() const;
+
+    void addCornerWidget(QWidget* widget, Qt::Corner corner);
 
 public slots:
     void setUpLayout();
@@ -176,6 +178,10 @@ private:
     void updatePinnedTabBarVisibility();
 
     QHBoxLayout* m_mainLayout;
+    QHBoxLayout* m_leftLayout;
+    QHBoxLayout* m_rightLayout;
+    QWidget* m_leftContainer;
+    QWidget* m_rightContainer;
 
     TabBarHelper* m_mainTabBar;
     TabBarHelper* m_pinnedTabBar;
@@ -186,6 +192,7 @@ private:
     QString m_closeButtonsToolTip;
     bool m_mainBarOverFlowed;
     bool m_usesScrollButtons;
+    bool m_bluredBackground;
 };
 
 class QUPZILLA_EXPORT TabBarHelper : public QTabBar
@@ -257,9 +264,6 @@ class QUPZILLA_EXPORT TabBarScrollWidget : public QWidget
 public:
     explicit TabBarScrollWidget(QTabBar* tabBar, QWidget* parent = 0);
 
-    void addLeftWidget(QWidget* widget, int stretch = 0, Qt::Alignment alignment = 0);
-    void addRightWidget(QWidget* widget, int stretch = 0, Qt::Alignment alignment = 0);
-
     QTabBar* tabBar();
     QScrollArea* scrollArea();
     TabScrollBar* scrollBar();
@@ -272,7 +276,6 @@ public:
     bool isOverflowed() const;
     int tabAt(const QPoint &pos) const;
 
-    void setContainersName(const QString &name);
     void enableBluredBackground(bool enable);
 
 public slots:
@@ -289,18 +292,13 @@ private slots:
     void scrollStart();
 
 private:
-    bool eventFilter(QObject* obj, QEvent* ev);
     void mouseMoveEvent(QMouseEvent* event);
 
     QTabBar* m_tabBar;
     QScrollArea* m_scrollArea;
     TabScrollBar* m_scrollBar;
-    QHBoxLayout* m_leftLayout;
-    QHBoxLayout* m_rightLayout;
     ToolButton* m_rightScrollButton;
     ToolButton* m_leftScrollButton;
-    QWidget* m_leftContainer;
-    QWidget* m_rightContainer;
     bool m_usesScrollButtons;
     bool m_bluredBackground;
     int m_totalDeltas;

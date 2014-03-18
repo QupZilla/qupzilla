@@ -89,6 +89,7 @@ public:
     int normalTabsCount() const;
     int pinnedTabsCount() const;
     int lastTabIndex() const;
+    int extraReservedWidth() const;
 
     TabBar* getTabBar() const;
     ClosedTabsManager* closedTabsManager() const;
@@ -121,10 +122,8 @@ public slots:
     void clearClosedTabsList();
 
     void moveAddTabButton(int posX);
-    void showButtons();
-    void hideButtons();
 
-    void tabBarOverFlowChanged(bool overFlowed);
+    void tabBarOverFlowChanged(bool overflowed);
 
 signals:
     void changed();
