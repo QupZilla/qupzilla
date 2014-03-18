@@ -20,6 +20,7 @@
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "tabbar.h"
+#include "tabicon.h"
 #include "tabwidget.h"
 #include "locationbar.h"
 #include "qztools.h"
@@ -30,7 +31,6 @@
 #include <QWebHistory>
 #include <QWebFrame>
 #include <QLabel>
-#include <QStyle>
 #include <QTimer>
 
 static const int savedTabVersion = 1;
@@ -41,6 +41,11 @@ WebTab::SavedTab::SavedTab(WebTab* webTab)
     url = webTab->url();
     icon = webTab->icon();
     history = webTab->historyData();
+}
+
+bool WebTab::SavedTab::isEmpty() const
+{
+    return url.isEmpty();
 }
 
 void WebTab::SavedTab::clear()
@@ -67,16 +72,6 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
     int version;
     stream >> version;
 
-    // Hack to ensure backwards compatibility
-    if (version != savedTabVersion) {
-        stream.device()->seek(stream.device()->pos() - sizeof(int));
-        stream >> tab.title;
-        stream >> tab.url;
-        stream >> tab.icon;
-        stream >> tab.history;
-        return stream;
-    }
-
     QPixmap pixmap;
     stream >> tab.title;
     stream >> tab.url;
@@ -88,12 +83,11 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
     return stream;
 }
 
-WebTab::WebTab(BrowserWindow* window, LocationBar* locationBar)
+WebTab::WebTab(BrowserWindow* window)
     : QWidget()
     , m_window(window)
-    , m_navigationContainer(0)
-    , m_locationBar(locationBar)
-    , m_pinned(false)
+    , m_tabBar(window->tabWidget()->getTabBar())
+    , m_isPinned(false)
     , m_inspectorVisible(false)
 {
     setObjectName("webtab");
@@ -101,24 +95,30 @@ WebTab::WebTab(BrowserWindow* window, LocationBar* locationBar)
     // This fixes background of pages with dark themes
     setStyleSheet("#webtab {background-color:white;}");
 
+    m_webView = new TabbedWebView(m_window, this);
+    m_webView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+
+    WebPage* page = new WebPage(m_webView);
+    m_webView->setWebPage(page);
+
+    m_locationBar = new LocationBar(m_window);
+    m_locationBar->setWebView(m_webView);
+
+    m_tabIcon = new TabIcon(this);
+    m_tabIcon->setWebTab(this);
+
     m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
-
-    m_view = new TabbedWebView(m_window, this);
-    m_view->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
-    WebPage* page = new WebPage;
-    m_view->setWebPage(page);
-    m_layout->addWidget(m_view);
-
+    m_layout->addWidget(m_webView);
     setLayout(m_layout);
 
-    connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
+    connect(m_webView, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
 }
 
-TabbedWebView* WebTab::view() const
+TabbedWebView* WebTab::webView() const
 {
-    return m_view;
+    return m_webView;
 }
 
 void WebTab::setCurrentTab()
@@ -137,7 +137,7 @@ void WebTab::setCurrentTab()
 QUrl WebTab::url() const
 {
     if (isRestored()) {
-        return m_view->url();
+        return m_webView->url();
     }
     else {
         return m_savedTab.url;
@@ -147,7 +147,7 @@ QUrl WebTab::url() const
 QString WebTab::title() const
 {
     if (isRestored()) {
-        return m_view->title();
+        return m_webView->title();
     }
     else {
         return m_savedTab.title;
@@ -157,7 +157,7 @@ QString WebTab::title() const
 QIcon WebTab::icon() const
 {
     if (isRestored()) {
-        return m_view->icon();
+        return m_webView->icon();
     }
     else {
         return m_savedTab.icon;
@@ -166,20 +166,34 @@ QIcon WebTab::icon() const
 
 QWebHistory* WebTab::history() const
 {
-    return m_view->history();
+    return m_webView->history();
 }
 
 void WebTab::moveToWindow(BrowserWindow* window)
 {
     m_window = window;
+    m_webView->moveToWindow(m_window);
 
-    m_view->moveToWindow(m_window);
+    m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), 0);
+    m_tabIcon->setParent(0);
+}
+
+void WebTab::setTabbed(int index)
+{
+    m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), m_tabIcon);
+    m_tabBar->setTabText(index, title());
+}
+
+void WebTab::setTabTitle(const QString &title)
+{
+
+    m_tabBar->setTabText(tabIndex(), title);
 }
 
 void WebTab::setHistoryData(const QByteArray &data)
 {
     QDataStream historyStream(data);
-    historyStream >> *m_view->history();
+    historyStream >> *m_webView->history();
 }
 
 QByteArray WebTab::historyData() const
@@ -187,7 +201,7 @@ QByteArray WebTab::historyData() const
     if (isRestored()) {
         QByteArray historyArray;
         QDataStream historyStream(&historyArray, QIODevice::WriteOnly);
-        historyStream << *m_view->history();
+        historyStream << *m_webView->history();
 
         return historyArray;
     }
@@ -198,37 +212,37 @@ QByteArray WebTab::historyData() const
 
 void WebTab::reload()
 {
-    m_view->reload();
+    m_webView->reload();
 }
 
 void WebTab::stop()
 {
-    m_view->stop();
+    m_webView->stop();
 }
 
 bool WebTab::isLoading() const
 {
-    return m_view->isLoading();
+    return m_webView->isLoading();
 }
 
 bool WebTab::isPinned() const
 {
-    return m_pinned;
+    return m_isPinned;
 }
 
 void WebTab::setPinned(bool state)
 {
-    m_pinned = state;
-}
-
-void WebTab::setLocationBar(LocationBar* bar)
-{
-    m_locationBar = bar;
+    m_isPinned = state;
 }
 
 LocationBar* WebTab::locationBar() const
 {
-    return m_locationBar.data();
+    return m_locationBar;
+}
+
+TabIcon* WebTab::tabIcon() const
+{
+    return m_tabIcon;
 }
 
 bool WebTab::inspectorVisible() const
@@ -239,11 +253,6 @@ bool WebTab::inspectorVisible() const
 void WebTab::setInspectorVisible(bool v)
 {
     m_inspectorVisible = v;
-}
-
-WebTab::SavedTab WebTab::savedTab() const
-{
-    return m_savedTab;
 }
 
 bool WebTab::isRestored() const
@@ -257,12 +266,12 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
         m_savedTab = tab;
         int index = tabIndex();
 
-        m_view->tabWidget()->setTabIcon(index, tab.icon);
-        m_view->tabWidget()->setTabText(index, tab.title);
-        m_locationBar.data()->showUrl(tab.url);
+        m_tabBar->setTabText(index, tab.title);
+        m_locationBar->showUrl(tab.url);
+        m_tabIcon->setIcon(tab.icon);
 
         if (!tab.url.isEmpty()) {
-            QColor col = m_view->tabWidget()->getTabBar()->palette().text().color();
+            QColor col = m_tabBar->palette().text().color();
             QColor newCol = col.lighter(250);
 
             // It won't work for black color because (V) = 0
@@ -271,7 +280,7 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
                 newCol = Qt::gray;
             }
 
-            m_view->tabWidget()->getTabBar()->overrideTabTextColor(index, newCol);
+            m_tabBar->overrideTabTextColor(index, newCol);
         }
     }
     else {
@@ -281,10 +290,10 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 
 void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history)
 {
-    m_view->load(url);
+    m_webView->load(url);
 
     QDataStream historyStream(history);
-    historyStream >> *m_view->history();
+    historyStream >> *m_webView->history();
 }
 
 void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
@@ -295,7 +304,7 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 QPixmap WebTab::renderTabPreview()
 {
     TabbedWebView* currentWebView = m_window->weView();
-    WebPage* page = m_view->page();
+    WebPage* page = m_webView->page();
     const QSize oldSize = page->viewportSize();
     const QPoint originalScrollPosition = page->mainFrame()->scrollPosition();
 
@@ -319,7 +328,7 @@ QPixmap WebTab::renderTabPreview()
 
     QPainter p(&pageImage);
     p.scale(scalingFactor, scalingFactor);
-    m_view->page()->mainFrame()->render(&p, QWebFrame::ContentsLayer);
+    m_webView->page()->mainFrame()->render(&p, QWebFrame::ContentsLayer);
     p.end();
 
     page->setViewportSize(oldSize);
@@ -347,33 +356,24 @@ void WebTab::slotRestore()
     p_restoreTab(m_savedTab);
     m_savedTab.clear();
 
-    m_view->tabWidget()->getTabBar()->restoreTabTextColor(tabIndex());
+    m_tabBar->restoreTabTextColor(tabIndex());
 }
 
-void WebTab::enableUpdates()
+bool WebTab::isCurrentTab() const
 {
-    setUpdatesEnabled(true);
+    return tabIndex() == m_tabBar->currentIndex();
 }
 
 int WebTab::tabIndex() const
 {
-    return m_view->tabIndex();
+    return m_webView->tabIndex();
 }
 
 void WebTab::pinTab(int index)
 {
-    TabWidget* tabWidget = m_window->tabWidget();
-    if (!tabWidget) {
-        return;
-    }
+    m_isPinned = !m_isPinned;
 
-    m_pinned = !m_pinned;
-    index = tabWidget->pinUnPinTab(index, m_view->title());
-    tabWidget->setTabText(index, m_view->title());
-    tabWidget->setCurrentIndex(index);
-}
-
-WebTab::~WebTab()
-{
-    delete m_locationBar.data();
+    index = m_window->tabWidget()->pinUnPinTab(index, m_webView->title());
+    m_tabBar->setTabText(index, m_webView->title());
+    m_tabBar->setCurrentIndex(index);
 }

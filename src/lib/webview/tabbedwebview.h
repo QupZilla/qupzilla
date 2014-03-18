@@ -83,8 +83,6 @@ private:
     void contextMenuEvent(QContextMenuEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
 
-    bool isCurrent();
-
     BrowserWindow* m_window;
     WebTab* m_webTab;
     Menu* m_menu;

@@ -19,6 +19,7 @@
 #define QUPZILLA_H
 
 #include <QMainWindow>
+#include <QPointer>
 #include <QUrl>
 
 #include "restoremanager.h"

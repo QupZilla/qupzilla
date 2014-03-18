@@ -533,7 +533,7 @@ TabbedWebView* BrowserWindow::weView(int index) const
         return 0;
     }
 
-    return webTab->view();
+    return webTab->webView();
 }
 
 LocationBar* BrowserWindow::locationBar() const

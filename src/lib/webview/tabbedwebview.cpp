@@ -90,19 +90,9 @@ QString TabbedWebView::getIp() const
     return m_currentIp;
 }
 
-bool TabbedWebView::isCurrent()
-{
-    WebTab* webTab = qobject_cast<WebTab*>(tabWidget()->widget(tabWidget()->currentIndex()));
-    if (!webTab) {
-        return false;
-    }
-
-    return (webTab->view() == this);
-}
-
 void TabbedWebView::urlChanged(const QUrl &url)
 {
-    if (isCurrent()) {
+    if (m_webTab->isCurrentTab()) {
         m_window->navigationBar()->refreshHistory();
     }
 
@@ -115,7 +105,7 @@ void TabbedWebView::loadProgress(int prog)
 {
     Q_UNUSED(prog)
 
-    if (isCurrent()) {
+    if (m_webTab->isCurrentTab()) {
         m_window->updateLoadingActions();
     }
 }
@@ -131,7 +121,7 @@ void TabbedWebView::userLoadAction(const QUrl &url)
 void TabbedWebView::slotLoadStarted()
 {
     if (title().isNull()) {
-        tabWidget()->setTabText(tabIndex(), tr("Loading..."));
+        m_webTab->setTabTitle(tr("Loading..."));
     }
 
     m_currentIp.clear();
@@ -141,7 +131,7 @@ void TabbedWebView::slotLoadFinished()
 {
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
 
-    if (isCurrent()) {
+    if (m_webTab->isCurrentTab()) {
         m_window->updateLoadingActions();
     }
 }
@@ -154,20 +144,18 @@ void TabbedWebView::setIp(const QHostInfo &info)
 
     m_currentIp = QString("%1 (%2)").arg(info.hostName(), info.addresses().at(0).toString());
 
-    if (isCurrent()) {
+    if (m_webTab->isCurrentTab()) {
         emit ipChanged(m_currentIp);
     }
 }
 
 void TabbedWebView::titleChanged()
 {
-    const QString t = title();
-
-    if (isCurrent()) {
-        m_window->setWindowTitle(tr("%1 - QupZilla").arg(t));
+    if (m_webTab->isCurrentTab()) {
+        m_window->setWindowTitle(tr("%1 - QupZilla").arg(title()));
     }
 
-    tabWidget()->setTabText(tabIndex(), t);
+    m_webTab->setTabTitle(title());
 }
 
 void TabbedWebView::linkHovered(const QString &link, const QString &title, const QString &content)
@@ -175,7 +163,7 @@ void TabbedWebView::linkHovered(const QString &link, const QString &title, const
     Q_UNUSED(title)
     Q_UNUSED(content)
 
-    if (isCurrent()) {
+    if (m_webTab->isCurrentTab()) {
         if (link.isEmpty()) {
             m_window->statusBarMessage()->clearMessage();
         }

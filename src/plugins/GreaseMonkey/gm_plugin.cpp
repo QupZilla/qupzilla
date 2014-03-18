@@ -66,7 +66,7 @@ void GM_Plugin::init(InitState state, const QString &settingsPath)
             for (int i = 0; i < window->tabWidget()->count(); ++i) {
                 WebTab* tab = qobject_cast<WebTab*>(window->tabWidget()->widget(i));
                 if (tab) {
-                    webPageCreated(tab->view()->page());
+                    webPageCreated(tab->webView()->page());
                 }
             }
         }

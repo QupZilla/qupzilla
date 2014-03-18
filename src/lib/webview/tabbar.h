@@ -27,6 +27,7 @@
 class BrowserWindow;
 class TabWidget;
 class TabPreview;
+class WebTab;
 
 class QUPZILLA_EXPORT TabBar : public ComboTabBar
 {
@@ -42,6 +43,7 @@ public:
     void overrideTabTextColor(int index, QColor color);
     void restoreTabTextColor(int index);
 
+    void setTabText(int index, const QString &text);
     void updatePinnedTabCloseButton(int index);
 
     void wheelEvent(QWheelEvent* event);
@@ -96,6 +98,7 @@ private:
 
     QSize tabSizeHint(int index, bool fast) const;
     int comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const;
+    WebTab* webTab(int index = -1) const;
 
     BrowserWindow* m_window;
     TabWidget* m_tabWidget;

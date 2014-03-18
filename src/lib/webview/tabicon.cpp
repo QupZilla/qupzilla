@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "tabicon.h"
 #include "webtab.h"
+#include "iconprovider.h"
 #include "tabbedwebview.h"
 
 #include <QTimer>
@@ -39,15 +40,17 @@ TabIcon::TabIcon(QWidget* parent)
     connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateAnimationFrame()));
 
     resize(16, 16);
+
+    setIcon(IconProvider::emptyWebIcon());
 }
 
 void TabIcon::setWebTab(WebTab* tab)
 {
     m_tab = tab;
 
-    connect(m_tab->view(), SIGNAL(loadStarted()), this, SLOT(showLoadingAnimation()));
-    connect(m_tab->view(), SIGNAL(loadFinished(bool)), this, SLOT(hideLoadingAnimation()));
-    connect(m_tab->view(), SIGNAL(iconChanged()), this, SLOT(showIcon()));
+    connect(m_tab->webView(), SIGNAL(loadStarted()), this, SLOT(showLoadingAnimation()));
+    connect(m_tab->webView(), SIGNAL(loadFinished(bool)), this, SLOT(hideLoadingAnimation()));
+    connect(m_tab->webView(), SIGNAL(iconChanged()), this, SLOT(showIcon()));
 
     showIcon();
 }

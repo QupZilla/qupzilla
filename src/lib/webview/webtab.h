@@ -19,7 +19,6 @@
 #define WEBTAB_H
 
 #include <QWidget>
-#include <QPointer>
 #include <QIcon>
 #include <QUrl>
 
@@ -30,8 +29,9 @@ class QWebHistory;
 
 class BrowserWindow;
 class LocationBar;
-class WebView;
 class TabbedWebView;
+class TabIcon;
+class TabBar;
 
 class QUPZILLA_EXPORT WebTab : public QWidget
 {
@@ -46,18 +46,18 @@ public:
         SavedTab() { }
         SavedTab(WebTab* webTab);
 
-        bool isEmpty() const { return url.isEmpty(); }
+        bool isEmpty() const;
         void clear();
 
         friend QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const SavedTab &tab);
         friend QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, SavedTab &tab);
     };
 
-    explicit WebTab(BrowserWindow* window, LocationBar* locationBar);
-    ~WebTab();
+    explicit WebTab(BrowserWindow* window);
 
-    TabbedWebView* view() const;
-    void setCurrentTab();
+    TabbedWebView* webView() const;
+    LocationBar* locationBar() const;
+    TabIcon* tabIcon() const;
 
     QUrl url() const;
     QString title() const;
@@ -65,31 +65,30 @@ public:
     QWebHistory* history() const;
 
     void moveToWindow(BrowserWindow* window);
+    void setTabbed(int index);
+    void setTabTitle(const QString &title);
 
     void setHistoryData(const QByteArray &data);
     QByteArray historyData() const;
 
-    void reload();
     void stop();
+    void reload();
     bool isLoading() const;
 
     bool isPinned() const;
-    void pinTab(int index);
     void setPinned(bool state);
 
     int tabIndex() const;
+    void pinTab(int index);
 
-    void setLocationBar(LocationBar* bar);
-    LocationBar* locationBar() const;
+    bool isCurrentTab() const;
+    void setCurrentTab();
 
     bool inspectorVisible() const;
     void setInspectorVisible(bool v);
 
-    SavedTab savedTab() const;
     bool isRestored() const;
-
     void restoreTab(const SavedTab &tab);
-
     void p_restoreTab(const SavedTab &tab);
     void p_restoreTab(const QUrl &url, const QByteArray &history);
 
@@ -98,18 +97,17 @@ public:
 private slots:
     void showNotification(QWidget* notif);
     void slotRestore();
-    void enableUpdates();
 
 private:
     BrowserWindow* m_window;
-    TabbedWebView* m_view;
+    TabbedWebView* m_webView;
+    LocationBar* m_locationBar;
+    TabIcon* m_tabIcon;
+    TabBar* m_tabBar;
     QVBoxLayout* m_layout;
-    QWidget* m_navigationContainer;
-    QPointer<LocationBar> m_locationBar;
 
     SavedTab m_savedTab;
-
-    bool m_pinned;
+    bool m_isPinned;
     bool m_inspectorVisible;
 };
 

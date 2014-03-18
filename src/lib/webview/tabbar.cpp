@@ -347,6 +347,14 @@ int TabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
     return -1;
 }
 
+WebTab* TabBar::webTab(int index) const
+{
+    if (index == -1) {
+        return qobject_cast<WebTab*>(m_tabWidget->widget(currentIndex()));
+    }
+    return qobject_cast<WebTab*>(m_tabWidget->widget(index));
+}
+
 void TabBar::showCloseButton(int index)
 {
     if (!validIndex(index)) {
@@ -477,6 +485,23 @@ void TabBar::overrideTabTextColor(int index, QColor color)
 void TabBar::restoreTabTextColor(int index)
 {
     setTabTextColor(index, m_originalTabTextColor);
+}
+
+void TabBar::setTabText(int index, const QString &text)
+{
+    QString tabText = text;
+
+    // Avoid Alt+letter shortcuts
+    tabText.replace(QLatin1Char('&'), QLatin1String("&&"));
+
+    if (WebTab* tab = webTab(index)) {
+        if (tab->isPinned()) {
+            tabText.clear();
+        }
+    }
+
+    setTabToolTip(index, text);
+    ComboTabBar::setTabText(index, tabText);
 }
 
 void TabBar::showTabPreview(bool delayed)
@@ -714,7 +739,7 @@ void TabBar::dropEvent(QDropEvent* event)
     else {
         WebTab* tab = m_window->weView(index)->webTab();
         if (tab->isRestored()) {
-            tab->view()->load(mime->urls().at(0));
+            tab->webView()->load(mime->urls().at(0));
         }
     }
 }

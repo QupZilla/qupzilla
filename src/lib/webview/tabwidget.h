@@ -79,8 +79,6 @@ public:
     void restorePinnedTabs();
 
     void setCurrentIndex(int index);
-    void setTabIcon(int index, const QIcon &icon);
-    void setTabText(int index, const QString &text);
 
     void nextTab();
     void previousTab();

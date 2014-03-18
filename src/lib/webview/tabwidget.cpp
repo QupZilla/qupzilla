@@ -25,27 +25,21 @@
 #include "webtab.h"
 #include "clickablelabel.h"
 #include "closedtabsmanager.h"
-#include "progressbar.h"
-#include "navigationbar.h"
 #include "locationbar.h"
-#include "websearchbar.h"
 #include "settings.h"
 #include "datapaths.h"
 #include "qzsettings.h"
 #include "qztools.h"
-#include "qtwin.h"
 #include "tabicon.h"
 
+#include <QFile>
 #include <QTimer>
-#include <QMovie>
 #include <QMimeData>
 #include <QStackedWidget>
 #include <QMouseEvent>
 #include <QWebHistory>
 #include <QWebFrame>
 #include <QClipboard>
-#include <QFile>
-#include <QScrollArea>
 
 AddTabButton::AddTabButton(TabWidget* tabWidget, TabBar* tabBar)
     : ToolButton(tabBar)
@@ -235,15 +229,7 @@ WebTab* TabWidget::weTab(int index)
 
 TabIcon* TabWidget::tabIcon(int index)
 {
-    TabIcon* icon = qobject_cast<TabIcon*>(m_tabBar->tabButton(index, m_tabBar->iconButtonPosition()));
-
-    if (!icon) {
-        icon = new TabIcon(this);
-        icon->setWebTab(weTab(index));
-        m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), icon);
-    }
-
-    return icon;
+    return weTab(index)->tabIcon();
 }
 
 bool TabWidget::validIndex(int index) const
@@ -413,23 +399,13 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         }
     }
 
-    LocationBar* locBar = new LocationBar(m_window);
-    m_locationBars->addWidget(locBar);
-    int index;
+    WebTab* webTab = new WebTab(m_window);
+    webTab->locationBar()->showUrl(url);
+    m_locationBars->addWidget(webTab->locationBar());
 
-    if (position == -1) {
-        index = addTab(new WebTab(m_window, locBar), QString(), pinned);
-    }
-    else {
-        index = insertTab(position, new WebTab(m_window, locBar), QString(), pinned);
-    }
-
-    TabbedWebView* webView = weTab(index)->view();
-    locBar->setWebView(webView);
-    locBar->showUrl(url);
-
-    setTabText(index, title);
-    setTabIcon(index, IconProvider::emptyWebIcon());
+    int index = insertTab(position == -1 ? count() : position, webTab, QString(), pinned);
+    webTab->setTabbed(index);
+    webTab->setTabTitle(title);
 
     if (openFlags & Qz::NT_SelectedTab) {
         setCurrentIndex(index);
@@ -438,13 +414,13 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         m_lastBackgroundTabIndex = index;
     }
 
-    connect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    connect(webView, SIGNAL(changed()), this, SIGNAL(changed()));
-    connect(webView, SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
+    connect(webTab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
+    connect(webTab->webView(), SIGNAL(changed()), this, SIGNAL(changed()));
+    connect(webTab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     if (url.isValid()) {
         req.setUrl(url);
-        webView->load(req);
+        webTab->webView()->load(req);
     }
 
     if (selectLine && m_window->locationBar()->text().isEmpty()) {
@@ -459,10 +435,10 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         WebTab* currentWebTab = weTab();
         // Workarounding invalid QWebPage::viewportSize() until QWebView is shown
         // Fixes invalid scrolling to anchor(#) links
-        if (currentWebTab && currentWebTab->view()) {
-            TabbedWebView* currentView = currentWebTab->view();
-            webView->resize(currentView->size());
-            webView->page()->setViewportSize(currentView->page()->viewportSize());
+        if (currentWebTab && currentWebTab->webView()) {
+            TabbedWebView* currentView = currentWebTab->webView();
+            webTab->webView()->resize(currentView->size());
+            webTab->webView()->page()->setViewportSize(currentView->page()->viewportSize());
         }
     }
 
@@ -484,14 +460,12 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
 int TabWidget::addView(WebTab* tab)
 {
     m_locationBars->addWidget(tab->locationBar());
-    tab->locationBar()->setWebView(tab->view());
-
     int index = addTab(tab, QString());
-    setTabText(index, tab->title());
+    tab->setTabbed(index);
 
-    connect(tab->view(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    connect(tab->view(), SIGNAL(changed()), this, SIGNAL(changed()));
-    connect(tab->view(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
+    connect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
+    connect(tab->webView(), SIGNAL(changed()), this, SIGNAL(changed()));
+    connect(tab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     return index;
 }
@@ -517,7 +491,7 @@ void TabWidget::closeTab(int index, bool force)
         return;
     }
 
-    TabbedWebView* webView = webTab->view();
+    TabbedWebView* webView = webTab->webView();
 
     // Don't close restore page!
     if (!force && webView->url().toString() == QL1S("qupzilla:restore") && mApp->restoreManager()) {
@@ -610,34 +584,6 @@ void TabWidget::setCurrentIndex(int index)
     m_lastTabIndex = currentIndex();
 
     TabStackedWidget::setCurrentIndex(index);
-}
-
-void TabWidget::setTabIcon(int index, const QIcon &icon)
-{
-    if (!validIndex(index)) {
-        return;
-    }
-
-    tabIcon(index)->setIcon(icon);
-}
-
-void TabWidget::setTabText(int index, const QString &text)
-{
-    if (!validIndex(index)) {
-        return;
-    }
-
-    QString newtext = text;
-    newtext.replace(QLatin1Char('&'), QLatin1String("&&")); // Avoid Alt+letter shortcuts
-
-    if (WebTab* webTab = weTab(index)) {
-        if (webTab->isPinned()) {
-            newtext.clear();
-        }
-    }
-
-    setTabToolTip(index, text);
-    TabStackedWidget::setTabText(index, newtext);
 }
 
 void TabWidget::nextTab()
@@ -734,9 +680,9 @@ void TabWidget::detachTab(int index)
     }
 
     m_locationBars->removeWidget(tab->locationBar());
-    disconnect(tab->view(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    disconnect(tab->view(), SIGNAL(changed()), this, SIGNAL(changed()));
-    disconnect(tab->view(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
+    disconnect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
+    disconnect(tab->webView(), SIGNAL(changed()), this, SIGNAL(changed()));
+    disconnect(tab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     BrowserWindow* window = mApp->createWindow(Qz::BW_NewWindow);
     tab->moveToWindow(window);
