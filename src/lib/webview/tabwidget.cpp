@@ -243,10 +243,6 @@ void TabWidget::updateClosedTabsButton()
         m_buttonClosedTabs->hide();
         m_buttonClosedTabs2->hide();
     }
-    // Show closed tabs outside tabbar when overflowed
-    else if (m_buttonListTabs->isVisible()) {
-        m_buttonClosedTabs2->show();
-    }
 
     m_buttonClosedTabs->setEnabled(canRestoreTab());
     m_buttonClosedTabs2->setEnabled(canRestoreTab());
@@ -257,7 +253,6 @@ void TabWidget::tabBarOverFlowChanged(bool overflowed)
     // Show buttons inside tabbar
     m_buttonClosedTabs->setVisible(m_showClosedTabsButton && !overflowed);
     m_buttonAddTab->setVisible(!overflowed);
-
 
     // Show buttons displayed outside tabbar (corner widgets)
     m_buttonAddTab2->setVisible(overflowed);
