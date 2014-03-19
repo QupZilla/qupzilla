@@ -22,8 +22,10 @@
 #include <QWebElement>
 
 #include "qzcommon.h"
+#include "loadrequest.h"
 
 class WebPage;
+class LoadRequest;
 
 class QUPZILLA_EXPORT WebView : public QWebView
 {
@@ -38,10 +40,7 @@ public:
     WebPage* page() const;
     void setPage(QWebPage* page);
 
-    void load(const QUrl &url);
-    void load(const QNetworkRequest &request,
-              QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation,
-              const QByteArray &body = QByteArray());
+    void load(const LoadRequest &request);
 
     bool loadingError() const;
     bool isLoading() const;
@@ -96,8 +95,7 @@ public slots:
 
     virtual void closeView() = 0;
     virtual void openNewTab() { }
-    virtual void loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op,
-                              const QByteArray &data, Qz::NewTabPositionFlags position) = 0;
+    virtual void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position) = 0;
 
 protected slots:
     void slotLoadStarted();

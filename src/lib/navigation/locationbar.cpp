@@ -125,8 +125,6 @@ void LocationBar::setWebView(TabbedWebView* view)
     connect(m_webView, SIGNAL(urlChanged(QUrl)), this, SLOT(showUrl(QUrl)));
     connect(m_webView, SIGNAL(rssChanged(bool)), this, SLOT(setRssIconVisible(bool)));
     connect(m_webView, SIGNAL(privacyChanged(bool)), this, SLOT(setPrivacyState(bool)));
-
-    connect(this, SIGNAL(loadUrl(QUrl)), m_webView, SLOT(userLoadAction(QUrl)));
 }
 
 void LocationBar::setText(const QString &text)
@@ -163,33 +161,33 @@ void LocationBar::showDomainCompletion(const QString &completion)
     m_domainCompleterModel->setStringList(QStringList() << completion);
 }
 
-QUrl LocationBar::createUrl() const
+LoadRequest LocationBar::createLoadRequest() const
 {
-    QUrl urlToLoad;
+    LoadRequest req;
 
     // Check for Search Engine shortcut
     int firstSpacePos = text().indexOf(QLatin1Char(' '));
     if (firstSpacePos != -1) {
-        QString shortcut = text().left(firstSpacePos);
-        QString searchedString = QUrl::toPercentEncoding(text().mid(firstSpacePos).trimmed());
+        const QString shortcut = text().left(firstSpacePos);
+        const QString searchedString = text().mid(firstSpacePos).trimmed();
 
         SearchEngine en = mApp->searchEnginesManager()->engineForShortcut(shortcut);
         if (!en.name.isEmpty()) {
-            urlToLoad = QUrl::fromEncoded(en.url.replace(QLatin1String("%s"), searchedString).toUtf8());
+            req = mApp->searchEnginesManager()->searchResult(en, searchedString);
         }
     }
 
-    if (urlToLoad.isEmpty()) {
+    if (req.isEmpty()) {
         QUrl guessedUrl = WebView::guessUrlFromString(text());
         if (!guessedUrl.isEmpty()) {
-            urlToLoad = guessedUrl;
+            req.setUrl(guessedUrl);
         }
         else {
-            urlToLoad = QUrl::fromEncoded(text().toUtf8());
+            req.setUrl(QUrl::fromEncoded(text().toUtf8()));
         }
     }
 
-    return urlToLoad;
+    return req;
 }
 
 QString LocationBar::convertUrlToText(const QUrl &url) const
@@ -249,8 +247,8 @@ void LocationBar::refreshTextFormat()
 
 void LocationBar::requestLoadUrl()
 {
-    const QUrl url = createUrl();
-    const QString urlString = convertUrlToText(url);
+    const LoadRequest req = createLoadRequest();
+    const QString urlString = convertUrlToText(req.url());
 
     m_completer->closePopup();
     m_webView->setFocus();
@@ -259,7 +257,7 @@ void LocationBar::requestLoadUrl()
         setText(urlString);
     }
 
-    emit loadUrl(url);
+    m_webView->userLoadAction(req);
 }
 
 void LocationBar::textEditted()
@@ -412,7 +410,7 @@ void LocationBar::dropEvent(QDropEvent* event)
             setText(dropUrl.toString());
 
             m_webView->setFocus();
-            emit loadUrl(dropUrl);
+            m_webView->userLoadAction(dropUrl);
 
             QFocusEvent event(QFocusEvent::FocusOut);
             LineEdit::focusOutEvent(&event);
@@ -425,7 +423,7 @@ void LocationBar::dropEvent(QDropEvent* event)
             setText(dropUrl.toString());
 
             m_webView->setFocus();
-            emit loadUrl(dropUrl);
+            m_webView->userLoadAction(dropUrl);
 
             QFocusEvent event(QFocusEvent::FocusOut);
             LineEdit::focusOutEvent(&event);
@@ -477,7 +475,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
 
         case Qt::AltModifier:
             m_completer->closePopup();
-            m_window->tabWidget()->addView(createUrl());
+            m_window->tabWidget()->addView(createLoadRequest());
             m_holdingAlt = false;
             break;
 

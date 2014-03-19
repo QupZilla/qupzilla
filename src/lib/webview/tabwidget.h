@@ -24,6 +24,7 @@
 
 #include "tabstackedwidget.h"
 #include "toolbutton.h"
+#include "loadrequest.h"
 #include "webtab.h"
 #include "qzcommon.h"
 
@@ -99,11 +100,8 @@ public:
     AddTabButton* buttonAddTab() const;
 
 public slots:
-    int addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false, bool pinned = false);
-    int addView(const QNetworkRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false, bool pinned = false);
-
-    int addView(const QUrl &url, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1, bool pinned = false);
-    int addView(QNetworkRequest req, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1, bool pinned = false);
+    int addView(const LoadRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false, bool pinned = false);
+    int addView(const LoadRequest &req, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1, bool pinned = false);
     int addView(WebTab* tab);
 
     void addTabFromClipboard();

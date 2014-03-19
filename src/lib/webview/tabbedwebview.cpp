@@ -110,12 +110,15 @@ void TabbedWebView::loadProgress(int prog)
     }
 }
 
-void TabbedWebView::userLoadAction(const QUrl &url)
+void TabbedWebView::userLoadAction(const LoadRequest &req)
 {
-    QNetworkRequest request(url);
+    QNetworkRequest request(req.networkRequest());
     request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 
-    load(request);
+    LoadRequest r = req;
+    r.setNetworkRequest(request);
+
+    load(r);
 }
 
 void TabbedWebView::slotLoadStarted()
@@ -201,22 +204,6 @@ QWidget* TabbedWebView::overlayForJsAlert()
     return m_webTab;
 }
 
-void TabbedWebView::closeView()
-{
-    emit wantsCloseTab(tabIndex());
-}
-
-void TabbedWebView::loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op, const QByteArray &data, Qz::NewTabPositionFlags position)
-{
-    QNetworkRequest r(req);
-    r.setRawHeader("Referer", url().toEncoded());
-    r.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
-
-    int index = tabWidget()->addView(QUrl(), position);
-    m_window->weView(index)->webTab()->locationBar()->showUrl(r.url());
-    m_window->weView(index)->load(r, op, data);
-}
-
 void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
 {
     m_menu->clear();
@@ -250,9 +237,21 @@ void TabbedWebView::stop()
     slotLoadFinished();
 }
 
+void TabbedWebView::closeView()
+{
+    emit wantsCloseTab(tabIndex());
+}
+
 void TabbedWebView::openNewTab()
 {
     tabWidget()->addView(QUrl());
+}
+
+void TabbedWebView::loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position)
+{
+    int index = tabWidget()->addView(QUrl(), position);
+    m_window->weView(index)->webTab()->locationBar()->showUrl(req.url());
+    m_window->weView(index)->load(req);
 }
 
 void TabbedWebView::setAsCurrentTab()

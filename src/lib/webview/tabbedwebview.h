@@ -64,12 +64,12 @@ public slots:
     void slotLoadStarted();
     void loadProgress(int prog);
 
-    void userLoadAction(const QUrl &url);
+    void userLoadAction(const LoadRequest &req);
 
     void closeView();
-    void loadInNewTab(const QNetworkRequest &req, QNetworkAccessManager::Operation op,
-                      const QByteArray &data, Qz::NewTabPositionFlags position);
     void openNewTab();
+    void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position);
+
 
 private slots:
     void slotLoadFinished();

@@ -347,22 +347,12 @@ void TabWidget::actionChangeIndex()
     }
 }
 
-int TabWidget::addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine, bool pinned)
+int TabWidget::addView(const LoadRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine, bool pinned)
 {
-    return addView(QNetworkRequest(url), openFlags, selectLine, pinned);
+    return addView(req, QString(), openFlags, selectLine, -1, pinned);
 }
 
-int TabWidget::addView(const QNetworkRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine, bool pinned)
-{
-    return addView(req, tr("New tab"), openFlags, selectLine, -1, pinned);
-}
-
-int TabWidget::addView(const QUrl &url, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position, bool pinned)
-{
-    return addView(QNetworkRequest(url), title, openFlags, selectLine, position, pinned);
-}
-
-int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position, bool pinned)
+int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position, bool pinned)
 {
 #ifdef Q_OS_WIN
     if (m_window->isTransparentBackgroundAllowed()) {
@@ -414,8 +404,12 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     connect(webTab->webView(), SIGNAL(changed()), this, SIGNAL(changed()));
     connect(webTab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
-    if (url.isValid()) {
-        req.setUrl(url);
+    if (url.isValid() && url != req.url()) {
+        LoadRequest r(req);
+        r.setUrl(url);
+        webTab->webView()->load(r);
+    }
+    else {
         webTab->webView()->load(req);
     }
 

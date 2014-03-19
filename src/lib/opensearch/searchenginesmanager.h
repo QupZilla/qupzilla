@@ -30,6 +30,7 @@
 class QWebElement;
 
 class WebView;
+class LoadRequest;
 
 class QUPZILLA_EXPORT SearchEnginesManager : public QObject
 {
@@ -55,14 +56,8 @@ public:
         }
     };
 
-    struct SearchResult {
-        QNetworkRequest request;
-        QNetworkAccessManager::Operation operation;
-        QByteArray data;
-    };
-
-    SearchResult searchResult(const Engine &engine, const QString &string);
-    SearchResult searchResult(const QString &string);
+    LoadRequest searchResult(const Engine &engine, const QString &string);
+    LoadRequest searchResult(const QString &string);
 
     void addEngine(const QUrl &url);
     void addEngine(OpenSearchEngine* engine);
@@ -118,7 +113,6 @@ private:
     QVector<Engine> m_allEngines;
     Engine m_activeEngine;
     Engine m_defaultEngine;
-
 };
 
 typedef SearchEnginesManager::Engine SearchEngine;

@@ -32,6 +32,7 @@ class SiteIcon;
 class GoIcon;
 class RssIcon;
 class AutoFillIcon;
+class LoadRequest;
 
 class QUPZILLA_EXPORT LocationBar : public LineEdit
 {
@@ -46,9 +47,6 @@ public:
 public slots:
     void setText(const QString &text);
     void showUrl(const QUrl &url);
-
-signals:
-    void loadUrl(const QUrl &url);
 
 private slots:
     void textEditted();
@@ -89,7 +87,7 @@ private:
     void dropEvent(QDropEvent* event);
     void paintEvent(QPaintEvent* event);
 
-    QUrl createUrl() const;
+    LoadRequest createLoadRequest() const;
     QString convertUrlToText(const QUrl &url) const;
     void refreshTextFormat();
 

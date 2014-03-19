@@ -166,12 +166,7 @@ void WebView::setPage(QWebPage* page)
     page->setPalette(pal);
 }
 
-void WebView::load(const QUrl &url)
-{
-    load(QNetworkRequest(url));
-}
-
-void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operation operation, const QByteArray &body)
+void WebView::load(const LoadRequest &request)
 {
     const QUrl reqUrl = request.url();
 
@@ -190,16 +185,14 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
     }
 
     if (reqUrl.isEmpty() || isUrlValid(reqUrl)) {
-        QWebView::load(request, operation, body);
+        request.load(this);
         m_aboutToLoadUrl = reqUrl;
         return;
     }
 
-    SearchEnginesManager::SearchResult res = mApp->searchEnginesManager()->searchResult(reqUrl.toString());
-    const QUrl searchUrl = res.request.url();
-
-    QWebView::load(res.request, res.operation, res.data);
-    m_aboutToLoadUrl = searchUrl;
+    const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(reqUrl.toString());
+    m_aboutToLoadUrl = searchRequest.url();
+    searchRequest.load(this);
 }
 
 bool WebView::loadingError() const
@@ -546,7 +539,7 @@ void WebView::savePageAs()
 
 void WebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlags position)
 {
-    loadInNewTab(QNetworkRequest(url), QNetworkAccessManager::GetOperation, QByteArray(), position);
+    loadInNewTab(url, position);
 }
 
 void WebView::downloadUrlToDisk()
@@ -603,8 +596,13 @@ void WebView::searchSelectedText()
         }
     }
 
-    SearchEnginesManager::SearchResult res = mApp->searchEnginesManager()->searchResult(engine, selectedText());
-    loadInNewTab(res.request, res.operation, res.data, Qz::NT_SelectedTab);
+    LoadRequest req = mApp->searchEnginesManager()->searchResult(engine, selectedText());
+    QNetworkRequest r = req.networkRequest();
+    r.setRawHeader("Referer", req.url().toEncoded());
+    r.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
+    req.setNetworkRequest(r);
+
+    loadInNewTab(req, Qz::NT_SelectedTab);
 }
 
 void WebView::searchSelectedTextInBackgroundTab()
@@ -616,8 +614,13 @@ void WebView::searchSelectedTextInBackgroundTab()
         }
     }
 
-    SearchEnginesManager::SearchResult res = mApp->searchEnginesManager()->searchResult(engine, selectedText());
-    loadInNewTab(res.request, res.operation, res.data, Qz::NT_NotSelectedTab);
+    LoadRequest req = mApp->searchEnginesManager()->searchResult(engine, selectedText());
+    QNetworkRequest r = req.networkRequest();
+    r.setRawHeader("Referer", req.url().toEncoded());
+    r.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
+    req.setNetworkRequest(r);
+
+    loadInNewTab(req, Qz::NT_NotSelectedTab);
 }
 
 void WebView::bookmarkLink()

@@ -132,33 +132,29 @@ SearchEngine SearchEnginesManager::engineForShortcut(const QString &shortcut)
     return returnEngine;
 }
 
-SearchEnginesManager::SearchResult SearchEnginesManager::searchResult(const Engine &engine, const QString &string)
+LoadRequest SearchEnginesManager::searchResult(const Engine &engine, const QString &string)
 {
     ENSURE_LOADED;
 
-    SearchResult result;
-
+    // GET search engine
     if (engine.postData.isEmpty()) {
         QByteArray url = engine.url.toUtf8();
         url.replace(QLatin1String("%s"), QUrl::toPercentEncoding(string));
 
-        result.request = QNetworkRequest(QUrl::fromEncoded(url));
-        result.operation = QNetworkAccessManager::GetOperation;
-    }
-    else {
-        QByteArray data = engine.postData;
-        data.replace("%s", QUrl::toPercentEncoding(string));
-
-        result.request = QNetworkRequest(QUrl::fromEncoded(engine.url.toUtf8()));
-        result.request.setHeader(QNetworkRequest::ContentTypeHeader, QByteArray("application/x-www-form-urlencoded"));
-        result.operation = QNetworkAccessManager::PostOperation;
-        result.data = data;
+        return LoadRequest(QUrl::fromEncoded(url));
     }
 
-    return result;
+    // POST search engine
+    QByteArray data = engine.postData;
+    data.replace("%s", QUrl::toPercentEncoding(string));
+
+    QNetworkRequest req(QUrl::fromEncoded(engine.url.toUtf8()));
+    req.setHeader(QNetworkRequest::ContentTypeHeader, QByteArray("application/x-www-form-urlencoded"));
+
+    return LoadRequest(req, LoadRequest::PostOperation, data);
 }
 
-SearchEnginesManager::SearchResult SearchEnginesManager::searchResult(const QString &string)
+LoadRequest SearchEnginesManager::searchResult(const QString &string)
 {
     ENSURE_LOADED;
 
