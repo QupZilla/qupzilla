@@ -181,19 +181,13 @@ QMenu* LineEdit::createContextMenu(QAction* pasteAndGoAction)
 
     // Hack to get QUnicodeControlCharacterMenu
     QMenu* tmp = createStandardContextMenu();
+    tmp->setParent(popup);
+    tmp->hide();
     QAction* lastAction = !tmp->actions().isEmpty() ? tmp->actions().last() : 0;
 
     if (lastAction && lastAction->menu() && lastAction->menu()->inherits("QUnicodeControlCharacterMenu")) {
-        tmp->removeAction(lastAction);
-        lastAction->setParent(0);
-        QMenu* m = lastAction->menu();
-        m->setParent(popup);
-        popup->addMenu(m);
-
-        delete lastAction;
+        popup->addAction(lastAction);
     }
-
-    delete tmp;
 
     return popup;
 }
