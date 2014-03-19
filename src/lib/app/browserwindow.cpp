@@ -445,11 +445,11 @@ void BrowserWindow::loadSettings()
     m_privateBrowsing->setVisible(mApp->isPrivate());
 
 #ifdef Q_OS_WIN
-    if (m_usingTransparentBackground && !makeTransparent) {
+    if (m_useTransparentBackground && !makeTransparent) {
         QtWin::extendFrameIntoClientArea(this, 0, 0, 0, 0);
         QtWin::enableBlurBehindWindow(this, false);
         m_tabWidget->getTabBar()->enableBluredBackground(false);
-        m_usingTransparentBackground = false;
+        m_useTransparentBackground = false;
     }
 #endif
 
@@ -474,7 +474,7 @@ void BrowserWindow::loadSettings()
     if (QtWin::isCompositionEnabled()) {
         setContentsMargins(0, 0, 0, 0);
 
-        m_usingTransparentBackground = true;
+        m_useTransparentBackground = true;
 
         if (!isFullScreen()) {
             m_tabWidget->getTabBar()->enableBluredBackground(true);
@@ -484,7 +484,7 @@ void BrowserWindow::loadSettings()
         // Install event filters
         menuBar()->installEventFilter(this);
         m_tabWidget->getTabBar()->installEventFilter(this);
-        m_navigationBar->installEventFilter(this);
+        m_navigationToolbar->installEventFilter(this);
         m_bookmarksToolbar->installEventFilter(this);
         statusBar()->installEventFilter(this);
         m_navigationContainer->installEventFilter(this);
@@ -1122,7 +1122,7 @@ bool BrowserWindow::event(QEvent* event)
             m_hideNavigationTimer->stop();
             m_navigationToolbar->buttonExitFullscreen()->setVisible(true);
 #ifdef Q_OS_WIN
-            if (m_usingTransparentBackground) {
+            if (m_useTransparentBackground) {
                 m_tabWidget->getTabBar()->enableBluredBackground(false);
                 QtWin::extendFrameIntoClientArea(this, 0, 0, 0 , 0);
                 QtWin::enableBlurBehindWindow(this, false);
@@ -1142,7 +1142,7 @@ bool BrowserWindow::event(QEvent* event)
             m_hideNavigationTimer->stop();
             m_navigationToolbar->buttonExitFullscreen()->setVisible(false);
 #ifdef Q_OS_WIN
-            if (m_usingTransparentBackground) {
+            if (m_useTransparentBackground) {
                 m_tabWidget->getTabBar()->enableBluredBackground(true);
                 applyBlurToMainWindow(true);
             }
@@ -1587,7 +1587,7 @@ void BrowserWindow::applyBlurToMainWindow(bool force)
     }
 
     topMargin += menuBar()->isVisible() ? menuBar()->height() : 0;
-    topMargin += m_navigationBar->isVisible() ? m_navigationBar->height() : 0;
+    topMargin += m_navigationToolbar->isVisible() ? m_navigationToolbar->height() : 0;
     topMargin += m_bookmarksToolbar->isVisible() ? m_bookmarksToolbar->height() : 0;
     topMargin += m_tabWidget->getTabBar()->height();
 
@@ -1620,9 +1620,9 @@ bool BrowserWindow::nativeEvent(const QByteArray &eventType, void* _message, lon
     if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
         Settings settings;
         settings.beginGroup("Browser-View-Settings");
-        m_usingTransparentBackground = settings.value("useTransparentBackground", false).toBool();
+        m_useTransparentBackground = settings.value("useTransparentBackground", false).toBool();
         settings.endGroup();
-        if (m_usingTransparentBackground && QtWin::isCompositionEnabled()) {
+        if (m_useTransparentBackground && QtWin::isCompositionEnabled()) {
             setUpdatesEnabled(false);
 
             QtWin::extendFrameIntoClientArea(this, 0, 0, 0, 0);
@@ -1630,7 +1630,7 @@ bool BrowserWindow::nativeEvent(const QByteArray &eventType, void* _message, lon
 
             //install event filter
             menuBar()->installEventFilter(this);
-            m_navigationBar->installEventFilter(this);
+            m_navigationToolbar->installEventFilter(this);
             m_bookmarksToolbar->installEventFilter(this);
             statusBar()->installEventFilter(this);
 
@@ -1654,7 +1654,7 @@ bool BrowserWindow::nativeEvent(const QByteArray &eventType, void* _message, lon
             setUpdatesEnabled(true);
         }
         else {
-            m_usingTransparentBackground = false;
+            m_useTransparentBackground = false;
         }
     }
 #if (QT_VERSION < 0x050000)
@@ -1680,13 +1680,13 @@ bool BrowserWindow::eventFilter(QObject* object, QEvent* event)
     switch (event->type()) {
     case QEvent::Hide:
         if (object == m_navigationContainer) {
-            m_navigationBar->removeEventFilter(this);
+            m_navigationToolbar->removeEventFilter(this);
             m_bookmarksToolbar->removeEventFilter(this);
             break;
         }
     case QEvent::Show:
         if (object == m_navigationContainer) {
-            m_navigationBar->installEventFilter(this);
+            m_navigationToolbar->installEventFilter(this);
             m_bookmarksToolbar->installEventFilter(this);
             break;
         }

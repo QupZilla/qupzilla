@@ -31,6 +31,7 @@
 #include "qzsettings.h"
 #include "qztools.h"
 #include "tabicon.h"
+#include "qtwin.h"
 
 #include <QFile>
 #include <QTimer>

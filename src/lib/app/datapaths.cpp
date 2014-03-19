@@ -21,6 +21,12 @@
 #include <QApplication>
 #include <QDir>
 
+#if QT_VERSION < 0x050000
+#include <QDesktopServices>
+#else
+#include <QStandardPaths>
+#endif
+
 Q_GLOBAL_STATIC(DataPaths, qz_data_paths)
 
 DataPaths::DataPaths()

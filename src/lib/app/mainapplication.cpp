@@ -67,6 +67,10 @@
 #include <QStandardPaths>
 #endif
 
+#if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
+#include "registerqappassociation.h"
+#endif
+
 MainApplication::MainApplication(int &argc, char** argv)
     : QtSingleApplication(argc, argv)
     , m_isPrivate(false)
@@ -1055,8 +1059,6 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
 }
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
-#include "registerqappassociation.h"
-
 RegisterQAppAssociation* MainApplication::associationManager()
 {
     if (!m_registerQAppAssociation) {
