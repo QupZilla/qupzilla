@@ -484,7 +484,7 @@ void BrowserWindow::loadSettings()
         // Install event filters
         menuBar()->installEventFilter(this);
         m_tabWidget->getTabBar()->installEventFilter(this);
-        m_navigationBar->installEventFilter(this);
+        m_navigationToolbar->installEventFilter(this);
         m_bookmarksToolbar->installEventFilter(this);
         statusBar()->installEventFilter(this);
         m_navigationContainer->installEventFilter(this);
@@ -1587,7 +1587,7 @@ void BrowserWindow::applyBlurToMainWindow(bool force)
     }
 
     topMargin += menuBar()->isVisible() ? menuBar()->height() : 0;
-    topMargin += m_navigationBar->isVisible() ? m_navigationBar->height() : 0;
+    topMargin += m_navigationToolbar->isVisible() ? m_navigationToolbar->height() : 0;
     topMargin += m_bookmarksToolbar->isVisible() ? m_bookmarksToolbar->height() : 0;
     topMargin += m_tabWidget->getTabBar()->height();
 
@@ -1630,7 +1630,7 @@ bool BrowserWindow::nativeEvent(const QByteArray &eventType, void* _message, lon
 
             //install event filter
             menuBar()->installEventFilter(this);
-            m_navigationBar->installEventFilter(this);
+            m_navigationToolbar->installEventFilter(this);
             m_bookmarksToolbar->installEventFilter(this);
             statusBar()->installEventFilter(this);
 
@@ -1680,13 +1680,13 @@ bool BrowserWindow::eventFilter(QObject* object, QEvent* event)
     switch (event->type()) {
     case QEvent::Hide:
         if (object == m_navigationContainer) {
-            m_navigationBar->removeEventFilter(this);
+            m_navigationToolbar->removeEventFilter(this);
             m_bookmarksToolbar->removeEventFilter(this);
             break;
         }
     case QEvent::Show:
         if (object == m_navigationContainer) {
-            m_navigationBar->installEventFilter(this);
+            m_navigationToolbar->installEventFilter(this);
             m_bookmarksToolbar->installEventFilter(this);
             break;
         }
