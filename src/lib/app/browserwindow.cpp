@@ -445,11 +445,11 @@ void BrowserWindow::loadSettings()
     m_privateBrowsing->setVisible(mApp->isPrivate());
 
 #ifdef Q_OS_WIN
-    if (m_usingTransparentBackground && !makeTransparent) {
+    if (m_useTransparentBackground && !makeTransparent) {
         QtWin::extendFrameIntoClientArea(this, 0, 0, 0, 0);
         QtWin::enableBlurBehindWindow(this, false);
         m_tabWidget->getTabBar()->enableBluredBackground(false);
-        m_usingTransparentBackground = false;
+        m_useTransparentBackground = false;
     }
 #endif
 
@@ -474,7 +474,7 @@ void BrowserWindow::loadSettings()
     if (QtWin::isCompositionEnabled()) {
         setContentsMargins(0, 0, 0, 0);
 
-        m_usingTransparentBackground = true;
+        m_useTransparentBackground = true;
 
         if (!isFullScreen()) {
             m_tabWidget->getTabBar()->enableBluredBackground(true);
@@ -1122,7 +1122,7 @@ bool BrowserWindow::event(QEvent* event)
             m_hideNavigationTimer->stop();
             m_navigationToolbar->buttonExitFullscreen()->setVisible(true);
 #ifdef Q_OS_WIN
-            if (m_usingTransparentBackground) {
+            if (m_useTransparentBackground) {
                 m_tabWidget->getTabBar()->enableBluredBackground(false);
                 QtWin::extendFrameIntoClientArea(this, 0, 0, 0 , 0);
                 QtWin::enableBlurBehindWindow(this, false);
@@ -1142,7 +1142,7 @@ bool BrowserWindow::event(QEvent* event)
             m_hideNavigationTimer->stop();
             m_navigationToolbar->buttonExitFullscreen()->setVisible(false);
 #ifdef Q_OS_WIN
-            if (m_usingTransparentBackground) {
+            if (m_useTransparentBackground) {
                 m_tabWidget->getTabBar()->enableBluredBackground(true);
                 applyBlurToMainWindow(true);
             }
@@ -1620,9 +1620,9 @@ bool BrowserWindow::nativeEvent(const QByteArray &eventType, void* _message, lon
     if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
         Settings settings;
         settings.beginGroup("Browser-View-Settings");
-        m_usingTransparentBackground = settings.value("useTransparentBackground", false).toBool();
+        m_useTransparentBackground = settings.value("useTransparentBackground", false).toBool();
         settings.endGroup();
-        if (m_usingTransparentBackground && QtWin::isCompositionEnabled()) {
+        if (m_useTransparentBackground && QtWin::isCompositionEnabled()) {
             setUpdatesEnabled(false);
 
             QtWin::extendFrameIntoClientArea(this, 0, 0, 0, 0);
@@ -1654,7 +1654,7 @@ bool BrowserWindow::nativeEvent(const QByteArray &eventType, void* _message, lon
             setUpdatesEnabled(true);
         }
         else {
-            m_usingTransparentBackground = false;
+            m_useTransparentBackground = false;
         }
     }
 #if (QT_VERSION < 0x050000)
