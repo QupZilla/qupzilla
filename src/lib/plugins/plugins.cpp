@@ -206,26 +206,26 @@ void Plugins::loadAvailablePlugins()
     }
 }
 
-PluginInterface* Plugins::initPlugin(PluginInterface::InitState state, PluginInterface* interface, QPluginLoader* loader)
+PluginInterface* Plugins::initPlugin(PluginInterface::InitState state, PluginInterface* pluginInterface, QPluginLoader* loader)
 {
-    if (!interface) {
+    if (!pluginInterface) {
         return 0;
     }
 
-    interface->init(state, DataPaths::currentProfilePath() + "/extensions/");
+    pluginInterface->init(state, DataPaths::currentProfilePath() + "/extensions/");
 
-    if (!interface->testPlugin()) {
-        interface->unload();
+    if (!pluginInterface->testPlugin()) {
+        pluginInterface->unload();
         loader->unload();
 
-        emit pluginUnloaded(interface);
+        emit pluginUnloaded(pluginInterface);
 
         return 0;
     }
 
-    qApp->installTranslator(interface->getTranslator(mApp->currentLanguageFile()));
+    qApp->installTranslator(pluginInterface->getTranslator(mApp->currentLanguageFile()));
 
-    return interface;
+    return pluginInterface;
 }
 
 void Plugins::refreshLoadedPlugins()
