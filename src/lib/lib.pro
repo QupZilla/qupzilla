@@ -169,7 +169,6 @@ SOURCES += \
     bookmarks/bookmarksimport/bookmarksimportdialog.cpp \
     tools/iconfetcher.cpp \
     tools/followredirectreply.cpp \
-    webview/webhistorywrapper.cpp \
     tools/pagethumbnailer.cpp \
     plugins/speeddial.cpp \
     tools/enhancedmenu.cpp \
@@ -369,7 +368,6 @@ HEADERS  += \
     bookmarks/bookmarksimport/bookmarksimportdialog.h \
     tools/iconfetcher.h \
     tools/followredirectreply.h \
-    webview/webhistorywrapper.h \
     tools/pagethumbnailer.h \
     plugins/speeddial.h \
     tools/enhancedmenu.h \

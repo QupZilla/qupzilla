@@ -24,6 +24,7 @@
 
 class QHBoxLayout;
 class QSplitter;
+class QWebHistoryItem;
 
 class ToolButton;
 class WebSearchBar;
@@ -79,8 +80,8 @@ private slots:
     void aboutToShowHistoryNextMenu();
     void aboutToShowHistoryBackMenu();
 
-    void goAtHistoryIndex();
-    void goAtHistoryIndexInNewTab(int index = -1);
+    void loadHistoryIndex();
+    void loadHistoryIndexInNewTab(int index = -1);
 
     void clearHistory();
     void contextMenuRequested(const QPoint &pos);
@@ -88,6 +89,9 @@ private slots:
 private:
     QString titleForUrl(QString title, const QUrl &url);
     QIcon iconForPage(const QUrl &url, const QIcon &sIcon);
+
+    void loadHistoryItem(const QWebHistoryItem &item);
+    void loadHistoryItemInNewTab(const QWebHistoryItem &item);
 
     BrowserWindow* m_window;
 

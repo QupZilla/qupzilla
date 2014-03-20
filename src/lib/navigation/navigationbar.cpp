@@ -22,12 +22,12 @@
 #include "iconprovider.h"
 #include "websearchbar.h"
 #include "reloadstopbutton.h"
-#include "webhistorywrapper.h"
 #include "enhancedmenu.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "qzsettings.h"
+#include "qztools.h"
 
 #include <QTimer>
 #include <QSplitter>
@@ -37,31 +37,7 @@
 #include <QMouseEvent>
 #include <QStyleOption>
 
-QString NavigationBar::titleForUrl(QString title, const QUrl &url)
-{
-    if (title.isEmpty()) {
-        title = url.toString(QUrl::RemoveFragment);
-    }
-    if (title.isEmpty()) {
-        return NavigationBar::tr("No Named Page");
-    }
-    if (title.length() > 40) {
-        title.truncate(40);
-        title += "..";
-    }
-
-    return title;
-}
-
-QIcon NavigationBar::iconForPage(const QUrl &url, const QIcon &sIcon)
-{
-    QIcon icon;
-    icon.addPixmap(url.scheme() == QLatin1String("qupzilla") ? QIcon(":icons/qupzilla.png").pixmap(16, 16) : IconProvider::iconForUrl(url).pixmap(16, 16));
-    icon.addPixmap(sIcon.pixmap(16, 16), QIcon::Active);
-    return icon;
-}
-
-static inline void setButtonIconSize(ToolButton* button)
+static void setButtonIconSize(ToolButton* button)
 {
     QStyleOption opt;
     opt.initFrom(button);
@@ -266,8 +242,8 @@ void NavigationBar::aboutToShowHistoryBackMenu()
             const QIcon icon = iconForPage(item.url(), IconProvider::standardIcon(QStyle::SP_ArrowBack));
             Action* act = new Action(icon, title);
             act->setData(i);
-            connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
-            connect(act, SIGNAL(ctrlTriggered()), this, SLOT(goAtHistoryIndexInNewTab()));
+            connect(act, SIGNAL(triggered()), this, SLOT(loadHistoryIndex()));
+            connect(act, SIGNAL(ctrlTriggered()), this, SLOT(loadHistoryIndexInNewTab()));
             m_menuBack->addAction(act);
         }
 
@@ -300,8 +276,8 @@ void NavigationBar::aboutToShowHistoryNextMenu()
             const QIcon icon = iconForPage(item.url(), IconProvider::standardIcon(QStyle::SP_ArrowForward));
             Action* act = new Action(icon, title);
             act->setData(i);
-            connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
-            connect(act, SIGNAL(ctrlTriggered()), this, SLOT(goAtHistoryIndexInNewTab()));
+            connect(act, SIGNAL(triggered()), this, SLOT(loadHistoryIndex()));
+            connect(act, SIGNAL(ctrlTriggered()), this, SLOT(loadHistoryIndexInNewTab()));
             m_menuForward->addAction(act);
         }
 
@@ -329,18 +305,16 @@ void NavigationBar::contextMenuRequested(const QPoint &pos)
     menu.exec(mapToGlobal(pos));
 }
 
-void NavigationBar::goAtHistoryIndex()
+void NavigationBar::loadHistoryIndex()
 {
     QWebHistory* history = m_window->weView()->page()->history();
 
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        history->goToItem(history->itemAt(action->data().toInt()));
+        loadHistoryItem(history->itemAt(action->data().toInt()));
     }
-
-    refreshHistory();
 }
 
-void NavigationBar::goAtHistoryIndexInNewTab(int index)
+void NavigationBar::loadHistoryIndexInNewTab(int index)
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         index = action->data().toInt();
@@ -350,15 +324,8 @@ void NavigationBar::goAtHistoryIndexInNewTab(int index)
         return;
     }
 
-    TabWidget* tabWidget = m_window->tabWidget();
-    int tabIndex = tabWidget->duplicateTab(tabWidget->currentIndex());
-
-    QWebHistory* history = m_window->weView(tabIndex)->page()->history();
-    history->goToItem(history->itemAt(index));
-
-    if (qzSettings->newTabPosition == Qz::NT_SelectedTab) {
-        tabWidget->setCurrentIndex(tabIndex);
-    }
+    QWebHistory* history = m_window->weView()->page()->history();
+    loadHistoryItemInNewTab(history->itemAt(index));
 }
 
 void NavigationBar::refreshHistory()
@@ -396,12 +363,7 @@ void NavigationBar::goBackInNewTab()
         return;
     }
 
-    int itemIndex = WebHistoryWrapper::indexOfItem(history->items(), history->backItem());
-    if (itemIndex == -1) {
-        return;
-    }
-
-    goAtHistoryIndexInNewTab(itemIndex);
+    loadHistoryItemInNewTab(history->backItem());
 }
 
 void NavigationBar::goForward()
@@ -418,10 +380,47 @@ void NavigationBar::goForwardInNewTab()
         return;
     }
 
-    int itemIndex = WebHistoryWrapper::indexOfItem(history->items(), history->forwardItem());
-    if (itemIndex == -1) {
-        return;
+    loadHistoryItemInNewTab(history->forwardItem());
+}
+
+QString NavigationBar::titleForUrl(QString title, const QUrl &url)
+{
+    if (title.isEmpty()) {
+        title = url.toString(QUrl::RemoveFragment);
     }
 
-    goAtHistoryIndexInNewTab(itemIndex);
+    if (title.isEmpty()) {
+        return tr("No Named Page");
+    }
+
+    return QzTools::truncatedText(title, 40);
+}
+
+QIcon NavigationBar::iconForPage(const QUrl &url, const QIcon &sIcon)
+{
+    QIcon icon;
+    icon.addPixmap(url.scheme() == QL1S("qupzilla") ? QIcon(QSL(":icons/qupzilla.png")).pixmap(16, 16) : IconProvider::iconForUrl(url).pixmap(16, 16));
+    icon.addPixmap(sIcon.pixmap(16, 16), QIcon::Active);
+    return icon;
+}
+
+void NavigationBar::loadHistoryItem(const QWebHistoryItem &item)
+{
+    m_window->weView()->page()->history()->goToItem(item);
+
+    refreshHistory();
+}
+
+void NavigationBar::loadHistoryItemInNewTab(const QWebHistoryItem &item)
+{
+    TabWidget* tabWidget = m_window->tabWidget();
+    int tabIndex = tabWidget->duplicateTab(tabWidget->currentIndex());
+
+    QWebHistory* history = m_window->weView(tabIndex)->page()->history();
+    history->goToItem(item);
+
+    if (qzSettings->newTabPosition == Qz::NT_SelectedTab) {
+        tabWidget->setCurrentIndex(tabIndex);
+    }
+
 }
