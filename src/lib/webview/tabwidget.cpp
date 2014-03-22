@@ -391,7 +391,10 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
 
     int index = insertTab(position == -1 ? count() : position, webTab, QString(), pinned);
     webTab->setTabbed(index);
-    webTab->setTabTitle(title);
+
+    if (!title.isEmpty()) {
+        webTab->setTabTitle(title);
+    }
 
     if (openFlags & Qz::NT_SelectedTab) {
         setCurrentIndex(index);

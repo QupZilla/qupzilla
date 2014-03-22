@@ -186,7 +186,6 @@ void WebTab::setTabbed(int index)
 
 void WebTab::setTabTitle(const QString &title)
 {
-
     m_tabBar->setTabText(tabIndex(), title);
 }
 
