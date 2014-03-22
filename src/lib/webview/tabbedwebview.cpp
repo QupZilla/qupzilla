@@ -231,12 +231,6 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
     WebView::contextMenuEvent(event);
 }
 
-void TabbedWebView::stop()
-{
-    triggerPageAction(QWebPage::Stop);
-    slotLoadFinished();
-}
-
 void TabbedWebView::closeView()
 {
     emit wantsCloseTab(tabIndex());

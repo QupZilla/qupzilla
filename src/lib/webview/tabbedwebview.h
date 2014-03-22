@@ -59,8 +59,6 @@ public slots:
     void titleChanged();
     void setAsCurrentTab();
 
-    void stop();
-
     void slotLoadStarted();
     void loadProgress(int prog);
 
