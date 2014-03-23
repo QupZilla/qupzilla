@@ -275,7 +275,7 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
     }
 
     // This ensures correct rendering of Down state with Oxygen
-    if (isDown())  {
+    if (isDown() && menu())  {
         option.state &= ~QStyle::State_MouseOver;
     }
 
