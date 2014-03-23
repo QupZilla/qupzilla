@@ -66,6 +66,9 @@ static QString createLanguageItem(const QString &lang)
     QString country = QLocale::countryToString(locale.country());
     QString language = QLocale::languageToString(locale.language());
 
+    if (lang == QLatin1String("es_ES")) {
+        return QString::fromUtf8("Castellano");
+    }
     if (lang == QLatin1String("nqo")) {
         return QString("N'ko (nqo)");
     }
