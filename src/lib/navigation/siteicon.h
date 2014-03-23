@@ -42,6 +42,8 @@ private slots:
     void iconClicked();
     void updateIcon();
 
+    void popupClosed();
+
 private:
     void contextMenuEvent(QContextMenuEvent* e);
     void mousePressEvent(QMouseEvent* e);

@@ -78,13 +78,22 @@ void SiteIcon::iconClicked()
         return;
     }
 
+    setDown(true);
+
     SiteInfoWidget* info = new SiteInfoWidget(m_window);
     info->showAt(parentWidget());
+
+    connect(info, SIGNAL(destroyed()), this, SLOT(popupClosed()));
 }
 
 void SiteIcon::updateIcon()
 {
     ToolButton::setIcon(m_icon);
+}
+
+void SiteIcon::popupClosed()
+{
+    setDown(false);
 }
 
 void SiteIcon::contextMenuEvent(QContextMenuEvent* e)

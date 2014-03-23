@@ -137,11 +137,6 @@ void ToolButton::mousePressEvent(QMouseEvent* e)
         return;
     }
 
-
-    if (e->buttons() == Qt::MiddleButton) {
-        setDown(true);
-    }
-
     QToolButton::mousePressEvent(e);
 }
 
@@ -160,7 +155,6 @@ void ToolButton::mouseReleaseEvent(QMouseEvent* e)
     }
 
     QToolButton::mouseReleaseEvent(e);
-    setDown(false);
 }
 
 void ToolButton::mouseDoubleClickEvent(QMouseEvent* e)
