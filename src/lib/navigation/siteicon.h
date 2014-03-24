@@ -39,8 +39,6 @@ public:
 
 private slots:
     void updateIcon();
-
-    void showPopup();
     void popupClosed();
 
 private:
@@ -48,6 +46,8 @@ private:
     void mousePressEvent(QMouseEvent* e);
     void mouseReleaseEvent(QMouseEvent* e);
     void mouseMoveEvent(QMouseEvent* e);
+
+    void showPopup();
 
     BrowserWindow* m_window;
     LocationBar* m_locationBar;

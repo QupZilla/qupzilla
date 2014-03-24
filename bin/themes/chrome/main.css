@@ -132,7 +132,7 @@
 
 #tabwidget-button-closedtabs
 {
-    qproperty-icon: url(images/user-trash-full.png);
+    qproperty-themeIcon: "user-trash-full";
     qproperty-fixedsize: 22px 25px;
 }
 

@@ -20,7 +20,6 @@
 #navigation-button-back
 {
     qproperty-themeIcon: "go-previous";
-    qproperty-fallbackIcon: url(images/go-previous.png);
 }
 
 #navigation-button-back::menu-indicator
@@ -31,7 +30,6 @@
 #navigation-button-next
 {
     qproperty-themeIcon: "go-next";
-    qproperty-fallbackIcon: url(images/go-next.png);
 }
 
 #navigation-button-next::menu-indicator
@@ -42,25 +40,21 @@
 #navigation-button-stop
 {
     qproperty-themeIcon: "process-stop";
-    qproperty-fallbackIcon: url(images/process-stop.png);
 }
 
 #navigation-button-reload
 {
     qproperty-themeIcon: "view-refresh";
-    qproperty-fallbackIcon: url(images/view-refresh.png);
 }
 
 #navigation-button-home
 {
     qproperty-themeIcon: "go-home";
-    qproperty-fallbackIcon: url(images/go-home.png);
 }
 
 #navigation-button-addtab
 {
     qproperty-themeIcon: "list-add";
-    qproperty-fallbackIcon: url(images/list-add.png);
 }
 
 #navigation-button-supermenu
@@ -115,7 +109,6 @@
 #tabwidget-button-closedtabs
 {
     qproperty-themeIcon: "user-trash-full";
-    qproperty-fallbackIcon: url(images/user-trash-full.png);
     qproperty-fixedsize: 22px 25px;
 }
 
@@ -127,7 +120,6 @@
 #tabwidget-button-addtab
 {
     qproperty-themeIcon: "list-add";
-    qproperty-fallbackIcon: url(images/list-add.png);
     qproperty-fixedsize: 22px 25px;
 }
 
@@ -177,7 +169,6 @@ IconProvider
 {
     qproperty-fixedsize: 16px 16px;
     qproperty-themeIcon: "go-jump-locationbar";
-    qproperty-fallbackIcon: url(images/go-jump-locationbar.png);
 }
 
 #locationbar-down-icon
@@ -202,7 +193,6 @@ IconProvider
 {
     qproperty-fixedsize: 22px 16px;
     qproperty-themeIcon: "edit-find";
-    qproperty-fallbackIcon: url(images/edit-find.png);
 }
 
 #websearchbar-searchprovider-comobobox

@@ -20,6 +20,7 @@
         <file>oxygen-fallback/16x16/dialog-close.png</file>
         <file>oxygen-fallback/16x16/window-new.png</file>
         <file>oxygen-fallback/16x16/bookmark-new-list.png</file>
+        <file>oxygen-fallback/16x16/edit-find.png</file>
         <file>oxygen-fallback/22x22/go-down.png</file>
         <file>oxygen-fallback/22x22/go-home.png</file>
         <file>oxygen-fallback/22x22/go-jump-locationbar.png</file>
@@ -39,6 +40,7 @@
         <file>oxygen-fallback/22x22/dialog-close.png</file>
         <file>oxygen-fallback/22x22/window-new.png</file>
         <file>oxygen-fallback/22x22/bookmark-new-list.png</file>
+        <file>oxygen-fallback/22x22/edit-find.png</file>
         <file>oxygen-fallback/32x32/preferences-desktop.png</file>
         <file>oxygen-fallback/32x32/preferences-system-network.png</file>
     </qresource>
