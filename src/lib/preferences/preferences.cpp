@@ -239,7 +239,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     ui->switchToNewTabs->setChecked(settings.value("OpenNewTabsSelected", false).toBool());
     ui->dontCloseOnLastTab->setChecked(settings.value("dontCloseWithOneTab", false).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
-    ui->showClosedTabsButton->setChecked(settings.value("showClosedTabsButton", true).toBool());
+    ui->showClosedTabsButton->setChecked(settings.value("showClosedTabsButton", false).toBool());
     ui->showTabPreviews->setChecked(settings.value("showTabPreviews", false).toBool());
     ui->animatedTabPreviews->setChecked(settings.value("tabPreviewAnimationsEnabled", true).toBool());
     ui->showCloseOnInactive->setCurrentIndex(settings.value("showCloseOnInactiveTabs", 0).toInt());
