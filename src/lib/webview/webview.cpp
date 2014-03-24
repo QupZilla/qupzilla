@@ -84,6 +84,11 @@ WebView::WebView(QWidget* parent)
 #endif
 }
 
+WebView::~WebView()
+{
+    delete m_page;
+}
+
 QIcon WebView::icon() const
 {
     if (url().scheme() == QLatin1String("qupzilla")) {

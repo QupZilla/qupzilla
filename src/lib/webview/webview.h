@@ -32,6 +32,7 @@ class QUPZILLA_EXPORT WebView : public QWebView
     Q_OBJECT
 public:
     explicit WebView(QWidget* parent = 0);
+    ~WebView();
 
     QIcon icon() const;
     QString title() const;
