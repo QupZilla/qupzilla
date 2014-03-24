@@ -164,7 +164,6 @@ int main(int argc, char* argv[])
 
 #if defined(Q_OS_LINUX) || defined(__GLIBC__) || defined(__FreeBSD__)
     signal(SIGSEGV, qupzilla_signal_handler);
-    signal(SIGPIPE, qupzilla_signal_handler);
 #endif
 
     // Set fallback icon theme (eg. on Windows/Mac)
