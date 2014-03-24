@@ -14,6 +14,12 @@
         <file>oxygen-fallback/16x16/user-trash-full.png</file>
         <file>oxygen-fallback/16x16/view-refresh.png</file>
         <file>oxygen-fallback/16x16/view-restore.png</file>
+        <file>oxygen-fallback/16x16/bookmark-new.png</file>
+        <file>oxygen-fallback/16x16/bookmarks-organize.png</file>
+        <file>oxygen-fallback/16x16/configure.png</file>
+        <file>oxygen-fallback/16x16/dialog-close.png</file>
+        <file>oxygen-fallback/16x16/window-new.png</file>
+        <file>oxygen-fallback/16x16/bookmark-new-list.png</file>
         <file>oxygen-fallback/22x22/go-down.png</file>
         <file>oxygen-fallback/22x22/go-home.png</file>
         <file>oxygen-fallback/22x22/go-jump-locationbar.png</file>
@@ -27,17 +33,13 @@
         <file>oxygen-fallback/22x22/user-trash-full.png</file>
         <file>oxygen-fallback/22x22/view-refresh.png</file>
         <file>oxygen-fallback/22x22/view-restore.png</file>
-        <file>oxygen-fallback/32x32/preferences-desktop.png</file>
-        <file>oxygen-fallback/32x32/preferences-system-network.png</file>
-        <file>oxygen-fallback/16x16/bookmark-new.png</file>
-        <file>oxygen-fallback/16x16/bookmarks-organize.png</file>
-        <file>oxygen-fallback/16x16/configure.png</file>
         <file>oxygen-fallback/22x22/bookmark-new.png</file>
         <file>oxygen-fallback/22x22/bookmarks-organize.png</file>
         <file>oxygen-fallback/22x22/configure.png</file>
-        <file>oxygen-fallback/16x16/dialog-close.png</file>
         <file>oxygen-fallback/22x22/dialog-close.png</file>
-        <file>oxygen-fallback/16x16/window-new.png</file>
         <file>oxygen-fallback/22x22/window-new.png</file>
+        <file>oxygen-fallback/22x22/bookmark-new-list.png</file>
+        <file>oxygen-fallback/32x32/preferences-desktop.png</file>
+        <file>oxygen-fallback/32x32/preferences-system-network.png</file>
     </qresource>
 </RCC>
