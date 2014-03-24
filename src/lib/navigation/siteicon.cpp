@@ -39,8 +39,6 @@ SiteIcon::SiteIcon(BrowserWindow* window, LocationBar* parent)
     setToolTip(LocationBar::tr("Show information about this page"));
     setFocusPolicy(Qt::ClickFocus);
 
-    connect(this, SIGNAL(clicked()), this, SLOT(iconClicked()));
-
     m_updateTimer = new QTimer(this);
     m_updateTimer->setInterval(100);
     m_updateTimer->setSingleShot(true);
@@ -64,26 +62,6 @@ void SiteIcon::setIcon(const QIcon &icon)
     else {
         m_updateTimer->start();
     }
-}
-
-void SiteIcon::iconClicked()
-{
-    if (!m_view || !m_window) {
-        return;
-    }
-
-    QUrl url = m_view->url();
-
-    if (url.isEmpty() || url.scheme() == QLatin1String("qupzilla")) {
-        return;
-    }
-
-    setDown(true);
-
-    SiteInfoWidget* info = new SiteInfoWidget(m_window);
-    info->showAt(parentWidget());
-
-    connect(info, SIGNAL(destroyed()), this, SLOT(popupClosed()));
 }
 
 void SiteIcon::updateIcon()
@@ -112,6 +90,26 @@ void SiteIcon::mousePressEvent(QMouseEvent* e)
     e->accept();
 
     ToolButton::mousePressEvent(e);
+}
+
+void SiteIcon::mouseReleaseEvent(QMouseEvent* e)
+{
+    // Mouse release event is restoring Down state
+    // So we pause updates to prevent flicker
+
+    bool activated = e->button() == Qt::LeftButton && rect().contains(e->pos());
+
+    if (activated) {
+        setUpdatesEnabled(false);
+        showPopup();
+    }
+
+    ToolButton::mouseReleaseEvent(e);
+
+    if (activated) {
+        setDown(true);
+        setUpdatesEnabled(true);
+    }
 }
 
 void SiteIcon::mouseMoveEvent(QMouseEvent* e)
@@ -143,6 +141,28 @@ void SiteIcon::mouseMoveEvent(QMouseEvent* e)
 
     drag->setMimeData(mime);
     drag->setPixmap(QzTools::createPixmapForSite(icon(), title, url.toString()));
-
     drag->exec();
+
+    // Restore Down state
+    setDown(false);
+}
+
+void SiteIcon::showPopup()
+{
+    if (!m_view || !m_window) {
+        return;
+    }
+
+    QUrl url = m_view->url();
+
+    if (url.isEmpty() || url.scheme() == QLatin1String("qupzilla")) {
+        return;
+    }
+
+    setDown(true);
+
+    SiteInfoWidget* info = new SiteInfoWidget(m_window);
+    info->showAt(parentWidget());
+
+    connect(info, SIGNAL(destroyed()), this, SLOT(popupClosed()));
 }

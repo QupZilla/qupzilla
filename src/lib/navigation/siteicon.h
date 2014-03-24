@@ -35,18 +35,18 @@ public:
     explicit SiteIcon(BrowserWindow* window, LocationBar* parent);
 
     void setWebView(WebView* view);
-
     void setIcon(const QIcon &icon);
 
 private slots:
-    void iconClicked();
     void updateIcon();
 
+    void showPopup();
     void popupClosed();
 
 private:
     void contextMenuEvent(QContextMenuEvent* e);
     void mousePressEvent(QMouseEvent* e);
+    void mouseReleaseEvent(QMouseEvent* e);
     void mouseMoveEvent(QMouseEvent* e);
 
     BrowserWindow* m_window;
