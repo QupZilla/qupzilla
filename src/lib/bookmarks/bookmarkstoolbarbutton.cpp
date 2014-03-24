@@ -194,7 +194,6 @@ void BookmarksToolbarButton::init()
     setFlat(true);
     setFocusPolicy(Qt::NoFocus);
     setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
-    setIconSize(QSize(16, 16));
     setToolTip(createTooltip());
 
     if (m_bookmark->isFolder()) {
@@ -219,6 +218,20 @@ QString BookmarksToolbarButton::createTooltip() const
     }
 
     return m_bookmark->title();
+}
+
+void BookmarksToolbarButton::enterEvent(QEvent* event)
+{
+    QPushButton::enterEvent(event);
+
+    update();
+}
+
+void BookmarksToolbarButton::leaveEvent(QEvent* event)
+{
+    QPushButton::leaveEvent(event);
+
+    update();
 }
 
 void BookmarksToolbarButton::mousePressEvent(QMouseEvent* event)
@@ -274,21 +287,25 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
         return;
     }
 
-    // This ensures correct rendering of Down state with Oxygen
-    if (isDown() && menu())  {
-        option.state &= ~QStyle::State_MouseOver;
+    // We are manually drawing the arrow
+    option.features &= ~QStyleOptionButton::HasMenu;
+
+    // Draw button base (only under mouse, this is autoraise button)
+    if (isDown() || underMouse()) {
+        option.state |= QStyle::State_AutoRaise | QStyle::State_Raised;
+        style()->drawPrimitive(QStyle::PE_PanelButtonTool, &option, &p, this);
     }
 
-    // Draw button base
-    style()->drawControl(QStyle::CE_PushButtonBevel, &option, &p, this);
+    const int shiftX = isDown() ? style()->pixelMetric(QStyle::PM_ButtonShiftHorizontal, &option, this) : 0;
+    const int shiftY = isDown() ? style()->pixelMetric(QStyle::PM_ButtonShiftVertical, &option, this) : 0;
 
     const int height = option.rect.height();
-    const int center = height / 2 + option.rect.top();
+    const int center = height / 2 + option.rect.top() + shiftY;
 
     const int iconSize = 16;
     const int iconYPos = center - iconSize / 2;
 
-    int leftPosition = PADDING;
+    int leftPosition = PADDING + shiftX;
     int rightPosition = option.rect.right() - PADDING;
 
     // Draw icon
@@ -302,7 +319,7 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
         QStyleOption opt;
         opt.initFrom(this);
         opt.rect = QRect(rightPosition - 8, center - arrowSize / 2, arrowSize, arrowSize);
-        opt.state &= QStyle::State_MouseOver;
+        opt.state &= ~QStyle::State_MouseOver;
         style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &opt, &p, this);
         rightPosition = opt.rect.left() - PADDING;
     }

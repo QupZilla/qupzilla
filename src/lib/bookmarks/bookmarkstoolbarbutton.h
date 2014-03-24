@@ -60,6 +60,8 @@ private:
     void init();
     QString createTooltip() const;
 
+    void enterEvent(QEvent* event);
+    void leaveEvent(QEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
     void paintEvent(QPaintEvent* event);
