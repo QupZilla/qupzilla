@@ -6,25 +6,15 @@
         <file>icons/preferences/applications-system.png</file>
         <file>icons/preferences/applications-webbrowsers.png</file>
         <file>icons/preferences/preferences-desktop.png</file>
-        <file>icons/theme/go-up.png</file>
-        <file>icons/theme/back.png</file>
-        <file>icons/theme/close.png</file>
-        <file>icons/theme/forward.png</file>
-        <file>icons/theme/home.png</file>
-        <file>icons/theme/reload.png</file>
-        <file>icons/theme/stop.png</file>
         <file>icons/preferences/extension.png</file>
-        <file>icons/theme/settings.png</file>
         <file>qupzilla.png</file>
         <file>icons/menu/history.png</file>
         <file>icons/menu/history_entry.png</file>
         <file>icons/menu/tab-new.png</file>
         <file>icons/menu/qt.png</file>
-        <file>icons/menu/rss.png</file>
         <file>icons/other/about.png</file>
         <file>icons/other/feed.png</file>
         <file>icons/other/bigstar.png</file>
-        <file>icons/theme/unsortedbookmarks.png</file>
         <file>icons/locationbar/safe.png</file>
         <file>icons/locationbar/unsafe.png</file>
         <file>icons/locationbar/visit1.png</file>
@@ -39,16 +29,11 @@
         <file>icons/other/bighistory.png</file>
         <file>icons/menu/dot.png</file>
         <file>icons/preferences/style-default.png</file>
-        <file>icons/theme/user-bookmarks.png</file>
         <file>icons/other/adblock-disabled.png</file>
         <file>icons/menu/search-icon.png</file>
-        <file>icons/menu/gear.png</file>
         <file>icons/browsers/firefox.png</file>
         <file>icons/browsers/chrome.png</file>
         <file>icons/browsers/opera.png</file>
-        <file>icons/theme/go-next.png</file>
-        <file>icons/theme/go-previous.png</file>
-        <file>icons/theme/list-remove.png</file>
         <file>icons/preferences/application-x-theme.png</file>
         <file>icons/preferences/dialog-password.png</file>
         <file>icons/preferences/dialog-question.png</file>
@@ -74,10 +59,6 @@
         <file>icons/browsers/internet-explorer.png</file>
         <file>icons/sites/startpage.png</file>
         <file>icons/sites/w3.png</file>
-        <file>icons/theme/expand.png</file>
-        <file>icons/theme/collapse.png</file>
-        <file>icons/theme/speeddial.png</file>
-        <file>icons/theme/view-restore.png</file>
         <file>icons/other/loading.png</file>
         <file>icons/other/empty-page.png</file>
         <file>icons/menu/privatebrowsing.png</file>
