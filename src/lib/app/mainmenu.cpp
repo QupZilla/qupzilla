@@ -498,7 +498,7 @@ void MainMenu::init()
     connect(action, SIGNAL(triggered()), this, SLOT(showAboutDialog()));
     m_actions[QSL("Standard/About")] = action;
 
-    action = new QAction(QIcon::fromTheme(QSL("preferences-desktop"), QIcon(QSL(":/icons/theme/settings.png"))), tr("Pr&eferences"), this);
+    action = new QAction(IconProvider::settingsIcon(), tr("Pr&eferences"), this);
     action->setMenuRole(QAction::PreferencesRole);
     action->setShortcut(QKeySequence(QKeySequence::Preferences));
     connect(action, SIGNAL(triggered()), this, SLOT(showPreferences()));
@@ -515,9 +515,9 @@ void MainMenu::init()
     connect(m_menuFile, SIGNAL(aboutToShow()), this, SLOT(aboutToShowFileMenu()));
     connect(m_menuFile, SIGNAL(aboutToHide()), this, SLOT(aboutToHideFileMenu()));
 
-    ADD_ACTION("File/NewTab", m_menuFile, QIcon::fromTheme(QSL("tab-new"), QIcon(QSL(":/icons/menu/tab-new.png"))), tr("New Tab"), SLOT(newTab()), "Ctrl+T");
-    ADD_ACTION("File/NewWindow", m_menuFile, QIcon::fromTheme(QSL("window-new")), tr("&New Window"), SLOT(newWindow()), "Ctrl+N");
-    ADD_ACTION("File/NewPrivateWindow", m_menuFile, QIcon(QSL(":/icons/locationbar/privatebrowsing.png")), tr("New &Private Window"), SLOT(newPrivateWindow()), "Ctrl+Shift+P");
+    ADD_ACTION("File/NewTab", m_menuFile, IconProvider::newTabIcon(), tr("New Tab"), SLOT(newTab()), "Ctrl+T");
+    ADD_ACTION("File/NewWindow", m_menuFile, IconProvider::newWindowIcon(), tr("&New Window"), SLOT(newWindow()), "Ctrl+N");
+    ADD_ACTION("File/NewPrivateWindow", m_menuFile, IconProvider::privateBrowsingIcon(), tr("New &Private Window"), SLOT(newPrivateWindow()), "Ctrl+Shift+P");
     ADD_ACTION("File/OpenLocation", m_menuFile, QIcon::fromTheme(QSL("document-open-remote")), tr("Open Location"), SLOT(openLocation()), "Ctrl+L");
     ADD_ACTION("File/OpenFile", m_menuFile, QIcon::fromTheme(QSL("document-open")), tr("Open &File..."), SLOT(openFile()), "Ctrl+O");
     ADD_ACTION("File/CloseWindow", m_menuFile, QIcon::fromTheme(QSL("window-close")), tr("Close Window"), SLOT(closeWindow()), "Ctrl+Shift+W");
@@ -561,8 +561,8 @@ void MainMenu::init()
     m_menuView->addMenu(sidebarMenu);
     ADD_CHECKABLE_ACTION("View/ShowStatusBar", m_menuView, QIcon(), tr("Sta&tus Bar"), SLOT(showStatusBar()), "");
     m_menuView->addSeparator();
-    ADD_ACTION("View/Stop", m_menuView, IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), SLOT(stop()), "Esc");
-    ADD_ACTION("View/Reload", m_menuView, IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), SLOT(reload()), "F5");
+    ADD_ACTION("View/Stop", m_menuView, QIcon::fromTheme(QSL("process-stop")), tr("&Stop"), SLOT(stop()), "Esc");
+    ADD_ACTION("View/Reload", m_menuView, QIcon::fromTheme(QSL("view-refresh")), tr("&Reload"), SLOT(reload()), "F5");
     m_menuView->addSeparator();
     ADD_ACTION("View/ZoomIn", m_menuView, QIcon::fromTheme(QSL("zoom-in")), tr("Zoom &In"), SLOT(zoomIn()), "Ctrl++");
     ADD_ACTION("View/ZoomOut", m_menuView, QIcon::fromTheme(QSL("zoom-out")), tr("Zoom &Out"), SLOT(zoomOut()), "Ctrl+-");
@@ -585,7 +585,7 @@ void MainMenu::init()
     ADD_ACTION("Tools/DownloadManager", m_menuTools, QIcon(), tr("&Download Manager"), SLOT(showDownloadManager()), "Ctrl+Y");
     ADD_ACTION("Tools/CookiesManager", m_menuTools, QIcon(), tr("&Cookies Manager"), SLOT(showCookieManager()), "");
     ADD_ACTION("Tools/AdBlock", m_menuTools, QIcon(), tr("&AdBlock"), SLOT(showAdBlockDialog()), "");
-    ADD_ACTION("Tools/RssReader", m_menuTools, QIcon(":/icons/menu/rss.png"), tr("RSS &Reader"), SLOT(showRssManager()), "");
+    ADD_ACTION("Tools/RssReader", m_menuTools, QIcon(), tr("RSS &Reader"), SLOT(showRssManager()), "");
     ADD_ACTION("Tools/WebInspector", m_menuTools, QIcon(), tr("Web In&spector"), SLOT(showWebInspector()), "Ctrl+Shift+I");
     ADD_ACTION("Tools/ClearRecentHistory", m_menuTools, QIcon::fromTheme(QSL("edit-clear")), tr("Clear Recent &History"), SLOT(showClearRecentHistoryDialog()), "Ctrl+Shift+Del");
     m_menuTools->addSeparator();

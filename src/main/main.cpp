@@ -167,6 +167,11 @@ int main(int argc, char* argv[])
     signal(SIGPIPE, qupzilla_signal_handler);
 #endif
 
+    if (!QIcon::hasThemeIcon(QSL("document-open"))) {
+        QIcon::setThemeSearchPaths(QStringList() << QL1S(":/oxygen-fallback"));
+        QIcon::setThemeName(QSL("oxygen-fallback"));
+    }
+
     MainApplication app(argc, argv);
 
     if (app.isClosing()) {

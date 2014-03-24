@@ -53,7 +53,7 @@ RSSManager::RSSManager(BrowserWindow* window, QWidget* parent)
     m_reloadButton = new QToolButton(this);
     m_reloadButton->setAutoRaise(true);
     m_reloadButton->setToolTip(tr("Reload"));
-    m_reloadButton->setIcon(IconProvider::standardIcon(QStyle::SP_BrowserReload));
+    m_reloadButton->setIcon(QIcon::fromTheme(QSL("view-refresh")));
 
     ui->tabWidget->setCornerWidget(m_reloadButton);
 

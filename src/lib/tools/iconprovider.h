@@ -45,9 +45,13 @@ public:
     QPixmap bookmarkIcon() const;
     void setBookmarkIcon(const QPixmap &pixmap);
 
-    // QStyle equivalents
+    // QStyle equivalent
     static QIcon standardIcon(QStyle::StandardPixmap icon);
-    static QIcon iconFromTheme(const QString &icon);
+
+    static QIcon newTabIcon();
+    static QIcon newWindowIcon();
+    static QIcon privateBrowsingIcon();
+    static QIcon settingsIcon();
 
     // Icon for empty page
     static QIcon emptyWebIcon();

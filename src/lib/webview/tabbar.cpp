@@ -20,13 +20,13 @@
 #include "tabpreview.h"
 #include "browserwindow.h"
 #include "webtab.h"
-#include "iconprovider.h"
 #include "toolbutton.h"
 #include "settings.h"
 #include "tabbedwebview.h"
 #include "mainapplication.h"
 #include "pluginproxy.h"
 #include "proxystyle.h"
+#include "iconprovider.h"
 
 #include <QMenu>
 #include <QMimeData>
@@ -143,7 +143,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
     m_clickedTab = index;
 
     QMenu menu;
-    menu.addAction(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("&New tab"), m_window, SLOT(addTab()));
+    menu.addAction(IconProvider::newTabIcon(), tr("&New tab"), m_window, SLOT(addTab()));
     menu.addSeparator();
     if (index != -1) {
         WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
@@ -152,10 +152,10 @@ void TabBar::contextMenuRequested(const QPoint &position)
         }
 
         if (m_window->weView(m_clickedTab)->isLoading()) {
-            menu.addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop Tab"), this, SLOT(stopTab()));
+            menu.addAction(QIcon::fromTheme(QSL("process-stop")), tr("&Stop Tab"), this, SLOT(stopTab()));
         }
         else {
-            menu.addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload Tab"), this, SLOT(reloadTab()));
+            menu.addAction(QIcon::fromTheme(QSL("view-refresh")), tr("&Reload Tab"), this, SLOT(reloadTab()));
         }
 
         menu.addAction(QIcon::fromTheme("tab-duplicate"), tr("&Duplicate Tab"), this, SLOT(duplicateTab()));

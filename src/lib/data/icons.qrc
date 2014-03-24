@@ -16,8 +16,6 @@
         <file>icons/preferences/extension.png</file>
         <file>icons/theme/settings.png</file>
         <file>qupzilla.png</file>
-        <file>icons/locationbar/privatebrowsing.png</file>
-        <file>icons/locationbar/unknownpage.png</file>
         <file>icons/menu/history.png</file>
         <file>icons/menu/history_entry.png</file>
         <file>icons/menu/tab-new.png</file>
@@ -81,5 +79,8 @@
         <file>icons/theme/speeddial.png</file>
         <file>icons/theme/view-restore.png</file>
         <file>icons/other/loading.png</file>
+        <file>icons/other/empty-page.png</file>
+        <file>icons/menu/privatebrowsing.png</file>
+        <file>icons/menu/settings.png</file>
     </qresource>
 </RCC>

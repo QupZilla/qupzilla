@@ -17,12 +17,13 @@
 * ============================================================ */
 #include "bookmarksmanager.h"
 #include "ui_bookmarksmanager.h"
-#include "bookmarks.h"
-#include "bookmarkitem.h"
 #include "bookmarksmodel.h"
 #include "bookmarkstools.h"
+#include "bookmarkitem.h"
+#include "bookmarks.h"
 #include "mainapplication.h"
 #include "browserwindow.h"
+#include "iconprovider.h"
 #include "qztools.h"
 
 #include <QMenu>
@@ -101,9 +102,9 @@ void BookmarksManager::bookmarksSelected(const QList<BookmarkItem*> &items)
 void BookmarksManager::createContextMenu(const QPoint &pos)
 {
     QMenu menu;
-    QAction* actNewTab = menu.addAction(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("Open in new tab"));
-    QAction* actNewWindow = menu.addAction(QIcon::fromTheme("window-new"), tr("Open in new window"));
-    QAction* actNewPrivateWindow = menu.addAction(QIcon(":icons/locationbar/privatebrowsing.png"), tr("Open in new private window"));
+    QAction* actNewTab = menu.addAction(IconProvider::newTabIcon(), tr("Open in new tab"));
+    QAction* actNewWindow = menu.addAction(IconProvider::newWindowIcon(), tr("Open in new window"));
+    QAction* actNewPrivateWindow = menu.addAction(IconProvider::privateBrowsingIcon(), tr("Open in new private window"));
 
     menu.addSeparator();
     menu.addAction(tr("New Bookmark"), this, SLOT(addBookmark()));

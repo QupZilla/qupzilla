@@ -28,6 +28,7 @@
 #include "searchenginesmanager.h"
 #include "searchenginesdialog.h"
 #include "networkmanager.h"
+#include "iconprovider.h"
 
 #include <QMimeData>
 #include <QAbstractItemView>
@@ -106,7 +107,7 @@ void WebSearchBar::aboutToShowMenu()
     menu->addSeparator();
     completeMenuWithAvailableEngines(menu);
     menu->addSeparator();
-    menu->addAction(QIcon(":icons/menu/gear.png"), tr("Manage Search Engines"), this, SLOT(openSearchEnginesDialog()));
+    menu->addAction(IconProvider::settingsIcon(), tr("Manage Search Engines"), this, SLOT(openSearchEnginesDialog()));
 }
 
 void WebSearchBar::addSuggestions(const QStringList &list)

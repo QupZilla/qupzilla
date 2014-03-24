@@ -325,7 +325,7 @@ void BrowserWindow::setupUi()
     statusBar()->setCursor(Qt::ArrowCursor);
     m_progressBar = new ProgressBar(statusBar());
     m_privateBrowsing = new QLabel(this);
-    m_privateBrowsing->setPixmap(QPixmap(":/icons/locationbar/privatebrowsing.png"));
+    m_privateBrowsing->setPixmap(IconProvider::privateBrowsingIcon().pixmap(16));
     m_privateBrowsing->setVisible(false);
     m_privateBrowsing->setToolTip(tr("Private Browsing Enabled"));
     m_adblockIcon = new AdBlockIcon(this);

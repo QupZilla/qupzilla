@@ -524,6 +524,7 @@ RESOURCES += \
     data/html.qrc \
     data/data.qrc \
     data/certs.qrc \
+    data/oxygen-fallback.qrc
 
 isEqual(QT_MAJOR_VERSION, 5) {
     include(3rdparty/qftp.pri)

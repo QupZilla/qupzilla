@@ -70,95 +70,81 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
 {
     switch (icon) {
     case QStyle::SP_MessageBoxCritical:
-        return QIcon::fromTheme("dialog-error", QApplication::style()->standardIcon(QStyle::SP_MessageBoxCritical));
+        return QIcon::fromTheme(QSL("dialog-error"), QApplication::style()->standardIcon(icon));
 
     case QStyle::SP_MessageBoxInformation:
-        return QIcon::fromTheme("dialog-information", QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation));
+        return QIcon::fromTheme(QSL("dialog-information"), QApplication::style()->standardIcon(icon));
 
     case QStyle::SP_MessageBoxQuestion:
-        return QIcon::fromTheme("dialog-question", QApplication::style()->standardIcon(QStyle::SP_MessageBoxQuestion));
+        return QIcon::fromTheme(QSL("dialog-question"), QApplication::style()->standardIcon(icon));
 
     case QStyle::SP_MessageBoxWarning:
-        return QIcon::fromTheme("dialog-warning", QApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning));
+        return QIcon::fromTheme(QSL("dialog-warning"), QApplication::style()->standardIcon(icon));
 
-#ifndef QZ_WS_X11
     case QStyle::SP_DialogCloseButton:
-        return QIcon(":/icons/theme/close.png");
+        return QIcon::fromTheme(QSL("dialog-close"), QApplication::style()->standardIcon(icon));
 
     case QStyle::SP_BrowserStop:
-        return QIcon(":/icons/theme/stop.png");
+        return QIcon::fromTheme(QSL("process-stop"), QApplication::style()->standardIcon(icon));
 
     case QStyle::SP_BrowserReload:
-        return QIcon(":/icons/theme/reload.png");
+        return QIcon::fromTheme(QSL("view-refresh"), QApplication::style()->standardIcon(icon));
 
     case QStyle::SP_FileDialogToParent:
-        return QIcon(":/icons/theme/go-up.png");
+        return QIcon::fromTheme(QSL("go-up"), QApplication::style()->standardIcon(icon));
+
+    case QStyle::SP_ArrowUp:
+        return QIcon::fromTheme(QSL("go-up"), QApplication::style()->standardIcon(icon));
+
+    case QStyle::SP_ArrowDown:
+        return QIcon::fromTheme(QSL("go-down"), QApplication::style()->standardIcon(icon));
 
     case QStyle::SP_ArrowForward:
-        //RTL Support
         if (QApplication::layoutDirection() == Qt::RightToLeft) {
-            return QIcon(":/icons/theme/back.png");
+            return QIcon::fromTheme(QSL("go-previous"), QApplication::style()->standardIcon(icon));
         }
-        else {
-            return QIcon(":/icons/theme/forward.png");
-        }
+        return QIcon::fromTheme(QSL("go-next"), QApplication::style()->standardIcon(icon));
 
     case QStyle::SP_ArrowBack:
-        //RTL Support
         if (QApplication::layoutDirection() == Qt::RightToLeft) {
-            return QIcon(":/icons/theme/forward.png");
+            return QIcon::fromTheme(QSL("go-next"), QApplication::style()->standardIcon(icon));
         }
-        else {
-            return QIcon(":/icons/theme/back.png");
-        }
-#endif
+        return QIcon::fromTheme(QSL("go-previous"), QApplication::style()->standardIcon(icon));
+
     default:
         return QApplication::style()->standardIcon(icon);
     }
 }
 
-QIcon IconProvider::iconFromTheme(const QString &icon)
+QIcon IconProvider::newTabIcon()
 {
-    // TODO: This should actually look in :icons/theme for fallback icon, not hardcode every icon
+    return QIcon::fromTheme(QSL("tab-new"), QIcon(QSL(":/icons/menu/tab-new.png")));
+}
 
-    if (icon == QLatin1String("go-home")) {
-        return QIcon::fromTheme("go-home", QIcon(":/icons/theme/home.png"));
-    }
-    else if (icon == QLatin1String("text-plain")) {
-        return QIcon::fromTheme("text-plain", QIcon(":icons/locationbar/unknownpage.png"));
-    }
-    else if (icon == QLatin1String("bookmarks-organize")) {
-        return QIcon::fromTheme("bookmarks-organize", QIcon(":icons/theme/user-bookmarks.png"));
-    }
-    else if (icon == QLatin1String("bookmark-new")) {
-        return QIcon::fromTheme("bookmark-new", QIcon(":icons/theme/user-bookmarks.png"));
-    }
-    else if (icon == QLatin1String("list-remove")) {
-        return QIcon::fromTheme("list-remove", QIcon(":icons/theme/list-remove.png"));
-    }
-    else if (icon == QLatin1String("go-next")) {
-        return QIcon::fromTheme("go-next", QIcon(":icons/theme/go-next.png"));
-    }
-    else if (icon == QLatin1String("go-previous")) {
-        return QIcon::fromTheme("go-previous", QIcon(":icons/theme/go-previous.png"));
-    }
-    else if (icon == QLatin1String("view-restore")) {
-        return QIcon::fromTheme("view-restore", QIcon(":icons/theme/view-restore.png"));
-    }
-    else {
-        return QIcon::fromTheme(icon);
-    }
+QIcon IconProvider::newWindowIcon()
+{
+    return QIcon::fromTheme(QSL("window-new"), QIcon(QSL(":/icons/menu/window-new.png")));
+}
+
+QIcon IconProvider::privateBrowsingIcon()
+{
+    return QIcon(QSL(":/icons/menu/privatebrowsing.png"));
+}
+
+QIcon IconProvider::settingsIcon()
+{
+    return QIcon(QSL(":/icons/menu/settings.png"));
 }
 
 QIcon IconProvider::emptyWebIcon()
 {
-    return QPixmap::fromImage(instance()->m_emptyWebImage);
+    return QPixmap::fromImage(instance()->emptyWebImage());
 }
 
 QImage IconProvider::emptyWebImage()
 {
     if (instance()->m_emptyWebImage.isNull()) {
-        instance()->m_emptyWebImage = iconFromTheme("text-plain").pixmap(16, 16).toImage();
+        instance()->m_emptyWebImage = QPixmap(":icons/other/empty-page.png").toImage();
     }
 
     return instance()->m_emptyWebImage;
@@ -262,9 +248,5 @@ void IconProvider::clearIconsDatabase()
 
 QIcon IconProvider::iconFromImage(const QImage &image)
 {
-    if (m_emptyWebImage.isNull()) {
-        m_emptyWebImage = iconFromTheme("text-plain").pixmap(16, 16).toImage();
-    }
-
     return QIcon(QPixmap::fromImage(image));
 }

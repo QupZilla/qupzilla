@@ -19,8 +19,9 @@
 #include "bookmarkstoolbarbutton.h"
 #include "bookmarkstools.h"
 #include "bookmarkitem.h"
-#include "mainapplication.h"
 #include "bookmarks.h"
+#include "mainapplication.h"
+#include "iconprovider.h"
 
 #include <QDragEnterEvent>
 #include <QHBoxLayout>
@@ -66,8 +67,8 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
     m_clickedBookmark = button ? button->bookmark() : 0;
 
     QMenu menu;
-    QAction* actNewTab = menu.addAction(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("Open in new tab"));
-    QAction* actNewWindow = menu.addAction(QIcon::fromTheme("window-new"), tr("Open in new window"));
+    QAction* actNewTab = menu.addAction(IconProvider::newTabIcon(), tr("Open in new tab"));
+    QAction* actNewWindow = menu.addAction(IconProvider::newWindowIcon(), tr("Open in new window"));
     menu.addSeparator();
     QAction* actDelete = menu.addAction(QIcon::fromTheme("edit-delete"), tr("Delete"));
     menu.addSeparator();

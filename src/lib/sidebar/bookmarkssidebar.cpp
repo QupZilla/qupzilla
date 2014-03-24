@@ -21,6 +21,7 @@
 #include "bookmarkitem.h"
 #include "bookmarks.h"
 #include "mainapplication.h"
+#include "iconprovider.h"
 
 #include <QMenu>
 
@@ -99,9 +100,9 @@ void BookmarksSidebar::deleteBookmarks()
 void BookmarksSidebar::createContextMenu(const QPoint &pos)
 {
     QMenu menu;
-    QAction* actNewTab = menu.addAction(QIcon::fromTheme("tab-new", QIcon(":/icons/menu/tab-new.png")), tr("Open in new tab"));
-    QAction* actNewWindow = menu.addAction(QIcon::fromTheme("window-new"), tr("Open in new window"));
-    QAction* actNewPrivateWindow = menu.addAction(QIcon(":icons/locationbar/privatebrowsing.png"), tr("Open in new private window"));
+    QAction* actNewTab = menu.addAction(IconProvider::newTabIcon(), tr("Open in new tab"));
+    QAction* actNewWindow = menu.addAction(IconProvider::newWindowIcon(), tr("Open in new window"));
+    QAction* actNewPrivateWindow = menu.addAction(IconProvider::privateBrowsingIcon(), tr("Open in new private window"));
 
     menu.addSeparator();
     QAction* actDelete = menu.addAction(QIcon::fromTheme("edit-delete"), tr("Delete"));

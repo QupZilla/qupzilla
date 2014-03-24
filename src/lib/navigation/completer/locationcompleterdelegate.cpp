@@ -129,7 +129,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt();
 
     if (drawSwitchToTab() && tabPos != -1) {
-        const QIcon tabIcon = QIcon(":icons/menu/tab.png");
+        const QIcon tabIcon = QIcon(QSL(":icons/menu/tab.png"));
         QRect iconRect(linkRect);
         iconRect.setWidth(m_padding + 16 + m_padding);
         tabIcon.paint(painter, iconRect);

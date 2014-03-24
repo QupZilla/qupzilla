@@ -16,7 +16,6 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "toolbutton.h"
-#include "iconprovider.h"
 
 #include <QMouseEvent>
 #include <QMenu>
@@ -36,7 +35,7 @@ ToolButton::ToolButton(QWidget* parent)
 void ToolButton::setThemeIcon(const QString &image)
 {
     m_themeIcon = image;
-    setIcon(IconProvider::iconFromTheme(image));
+    setIcon(QIcon::fromTheme(image));
     m_usingMultiIcon = false;
 }
 

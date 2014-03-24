@@ -25,7 +25,6 @@
 #include "qzsettings.h"
 #include "popuplocationbar.h"
 #include "qztools.h"
-#include "iconprovider.h"
 
 #include <QVBoxLayout>
 #include <QStatusBar>
@@ -82,9 +81,9 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_menuBar->addMenu(m_menuEdit);
 
     m_menuView = new QMenu(tr("View"));
-    m_actionStop = m_menuView->addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), m_view, SLOT(stop()));
+    m_actionStop = m_menuView->addAction(QIcon::fromTheme(QSL("process-stop")), tr("&Stop"), m_view, SLOT(stop()));
     m_actionStop->setShortcut(QKeySequence("Esc"));
-    m_actionReload = m_menuView->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), m_view, SLOT(reload()));
+    m_actionReload = m_menuView->addAction(QIcon::fromTheme(QSL("view-refresh")), tr("&Reload"), m_view, SLOT(reload()));
     m_actionReload->setShortcut(QKeySequence("F5"));
     m_menuView->addSeparator();
     m_menuView->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &In"), m_view, SLOT(zoomIn()))->setShortcut(QKeySequence("Ctrl++"));

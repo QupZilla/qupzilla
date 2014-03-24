@@ -22,6 +22,7 @@
 #include "mainapplication.h"
 #include "qztools.h"
 #include "settings.h"
+#include "iconprovider.h"
 
 #include <QNetworkCookie>
 #include <QMessageBox>
@@ -202,7 +203,7 @@ void CookieManager::slotRefreshTable()
         else {
             QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->cookieTree);
             newParent->setText(0, cookieDomain);
-            newParent->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
+            newParent->setIcon(0, IconProvider::standardIcon(QStyle::SP_DirIcon));
             newParent->setData(0, Qt::UserRole + 10, cookie.domain());
             ui->cookieTree->addTopLevelItem(newParent);
             hash[cookieDomain] = newParent;
