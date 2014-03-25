@@ -47,7 +47,7 @@ private:
     void mouseReleaseEvent(QMouseEvent* e);
     void mouseMoveEvent(QMouseEvent* e);
 
-    void showPopup();
+    bool showPopup();
 
     BrowserWindow* m_window;
     LocationBar* m_locationBar;

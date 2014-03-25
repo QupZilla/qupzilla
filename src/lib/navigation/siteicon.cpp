@@ -97,11 +97,15 @@ void SiteIcon::mouseReleaseEvent(QMouseEvent* e)
     // Mouse release event is restoring Down state
     // So we pause updates to prevent flicker
 
-    bool activated = e->button() == Qt::LeftButton && rect().contains(e->pos());
+    bool activated = false;
+
+    if (e->button() == Qt::LeftButton && rect().contains(e->pos())) {
+        // Popup may not be always shown, eg. on qupzilla: pages
+        activated = showPopup();
+    }
 
     if (activated) {
         setUpdatesEnabled(false);
-        showPopup();
     }
 
     ToolButton::mouseReleaseEvent(e);
@@ -147,16 +151,16 @@ void SiteIcon::mouseMoveEvent(QMouseEvent* e)
     setDown(false);
 }
 
-void SiteIcon::showPopup()
+bool SiteIcon::showPopup()
 {
     if (!m_view || !m_window) {
-        return;
+        return false;
     }
 
     QUrl url = m_view->url();
 
     if (url.isEmpty() || url.scheme() == QLatin1String("qupzilla")) {
-        return;
+        return false;
     }
 
     setDown(true);
@@ -165,4 +169,6 @@ void SiteIcon::showPopup()
     info->showAt(parentWidget());
 
     connect(info, SIGNAL(destroyed()), this, SLOT(popupClosed()));
+
+    return true;
 }
