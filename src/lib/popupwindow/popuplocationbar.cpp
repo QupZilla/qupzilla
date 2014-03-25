@@ -34,7 +34,7 @@ public:
     explicit PopupSiteIcon(QWidget* parent = 0) : QWidget(parent) { }
     void setIcon(const QIcon &icon) {
         m_icon = QIcon(icon.pixmap(16, 16));
-        repaint();
+        update();
     }
 
 private:

@@ -33,7 +33,7 @@ void ProgressBar::setValue(int value)
 {
     m_value = value;
     if (m_lastPaintedValue != m_value) {
-        repaint();
+        update();
     }
 }
 
