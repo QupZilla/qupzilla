@@ -407,9 +407,10 @@ QString Speller::nameForLanguage(const QString &code) const
 {
     QLocale loc = QLocale(code);
     QString name = QLocale::languageToString(loc.language());
+    QString scrcode = " (" + QLocale::scriptToString(loc.script()) + ")";
 
     if (loc.country() != QLocale::AnyCountry) {
-        name.append(" / " + QLocale::countryToString(loc.country()));
+        name.append((code.contains(QLatin1Char('-')) ? scrcode : "") + " / " + QLocale::countryToString(loc.country()));
     }
 
     return name;
