@@ -532,7 +532,7 @@ void TabWidget::closeTab(int index, bool force)
     }
 
     removeTab(index);
-    delete webTab;
+    webTab->deleteLater();
 
     updateClosedTabsButton();
 

@@ -352,6 +352,7 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
     }
 
     m_isRestoring = true;
+    setOverrideCursor(Qt::BusyCursor);
 
     window->tabWidget()->closeRecoveryTab();
 
@@ -387,6 +388,7 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
     }
 
     destroyRestoreManager();
+    restoreOverrideCursor();
     m_isRestoring = false;
 
     return true;
