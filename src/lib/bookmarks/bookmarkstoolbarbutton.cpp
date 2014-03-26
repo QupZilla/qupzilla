@@ -191,7 +191,6 @@ void BookmarksToolbarButton::init()
 {
     Q_ASSERT(m_bookmark);
 
-    setFlat(true);
     setFocusPolicy(Qt::NoFocus);
     setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
     setToolTip(createTooltip());
@@ -276,16 +275,18 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
     Q_UNUSED(event)
 
     QPainter p(this);
-    QStyleOptionButton option;
-    initStyleOption(&option);
 
     // Just draw separator
     if (m_bookmark->isSeparator()) {
-        QStyleOption opt = option;
+        QStyleOption opt;
+        opt.initFrom(this);
         opt.state |= QStyle::State_Horizontal;
         style()->drawPrimitive(QStyle::PE_IndicatorToolBarSeparator, &opt, &p);
         return;
     }
+
+    QStyleOptionButton option;
+    initStyleOption(&option);
 
     // We are manually drawing the arrow
     option.features &= ~QStyleOptionButton::HasMenu;
