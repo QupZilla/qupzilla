@@ -557,6 +557,10 @@ void MainMenu::init()
     QMenu* encodingMenu = new QMenu(tr("Character &Encoding"));
     connect(encodingMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
 
+    // Create menus to make shortcuts available even before first showing the menu
+    m_window->createToolbarsMenu(toolbarsMenu);
+    m_window->createSidebarsMenu(sidebarMenu);
+
     m_menuView->addMenu(toolbarsMenu);
     m_menuView->addMenu(sidebarMenu);
     ADD_CHECKABLE_ACTION("View/ShowStatusBar", m_menuView, QIcon(), tr("Sta&tus Bar"), SLOT(showStatusBar()), "");
