@@ -167,7 +167,7 @@ int main(int argc, char* argv[])
 #endif
 
     // Set fallback icon theme (eg. on Windows/Mac)
-    if (!QIcon::hasThemeIcon(QSL("document-open"))) {
+    if (QIcon::fromTheme(QSL("document-open")).isNull()) {
         QIcon::setThemeSearchPaths(QStringList() << QL1S(":/oxygen-fallback"));
         QIcon::setThemeName(QSL("oxygen-fallback"));
     }
