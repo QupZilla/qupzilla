@@ -184,7 +184,7 @@ void DownloadItem::finished()
     m_timer.stop();
 
     QString host = m_reply ? m_reply->url().host() : m_ftpDownloader->url().host();
-    ui->downloadInfo->setText(tr("Done - %1 (%2)").arg(host, QDateTime::fromString("h:mm - dddd, d MMMM").toString()));
+    ui->downloadInfo->setText(tr("Done - %1 (%2)").arg(host, QDateTime::currentDateTime().toString(Qt::DefaultLocaleShortDate)));
     ui->progressBar->hide();
     ui->button->hide();
     ui->frame->hide();
