@@ -54,6 +54,7 @@
 #include <QNetworkDiskCache>
 #include <QDesktopServices>
 #include <QSqlDatabase>
+#include <QLibraryInfo>
 #include <QTranslator>
 #include <QThreadPool>
 #include <QSettings>
@@ -932,11 +933,14 @@ void MainApplication::loadTheme(const QString &name)
 void MainApplication::translateApp()
 {
     Settings settings;
-    QString file = settings.value("Language/language", QLocale::system().name()).toString();
+    QString file = settings.value(QSL("Language/language"), QLocale::system().name()).toString();
 
-    if (!file.isEmpty() && !file.endsWith(QLatin1String(".qm"))) {
-        file.append(".qm");
+    if (!file.isEmpty() && !file.endsWith(QL1S(".qm"))) {
+        file.append(QL1S(".qm"));
     }
+
+    // Either we load default language (with empty file), or we attempt to load xx.qm (xx_yy.qm)
+    Q_ASSERT(file.isEmpty() || file.size() >= 5);
 
     QString translationPath = DataPaths::path(DataPaths::Translations);
 
@@ -945,11 +949,11 @@ void MainApplication::translateApp()
 
         foreach (const QString &path, translationsPaths) {
             // If "xx_yy" translation doesn't exists, try to use "xx*" translation
-            // It can only happen when Language is chosen from system locale
+            // It can only happen when language is chosen from system locale
 
             if (!QFile(QString("%1/%2").arg(path, file)).exists()) {
                 QDir dir(path);
-                QString lang = file.left(2) + QLatin1String("*.qm");
+                QString lang = file.left(2) + QL1S("*.qm");
 
                 const QStringList translations = dir.entryList(QStringList(lang));
 
@@ -964,11 +968,18 @@ void MainApplication::translateApp()
         }
     }
 
+    // Load application translation
     QTranslator* app = new QTranslator(this);
     app->load(file, translationPath);
 
+    // Load Qt translation (first try to load from Qt path)
     QTranslator* sys = new QTranslator(this);
-    sys->load("qt_" + file, translationPath);
+    sys->load(QL1S("qt_") + file, QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+
+    // If there is no translation in Qt path for specified language, try to load it from our path
+    if (sys->isEmpty()) {
+        sys->load(QL1S("qt_") + file, translationPath);
+    }
 
     m_languageFile = file;
 
