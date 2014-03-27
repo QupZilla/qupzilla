@@ -1,6 +1,6 @@
 #!/bin/bash
-# It will probably work only for Debian based distros
+#Will probably work only for Debian based distros
 
-cat /etc/ssl/certs/*.pem > ../src/lib/data/data/ca-bundle.crt
+cp /etc/ssl/certs/ca-certificates.crt ../src/lib/data/data/ca-bundle.crt
 
 exit 0
