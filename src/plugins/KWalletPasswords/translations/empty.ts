@@ -4,7 +4,7 @@
 <context>
     <name>KWalletPlugin</name>
     <message>
-        <location filename="../kwalletpasswordbackend.cpp" line="48"/>
+        <location filename="../kwalletpasswordbackend.cpp" line="47"/>
         <source>KWallet</source>
         <translation type="unfinished"></translation>
     </message>
