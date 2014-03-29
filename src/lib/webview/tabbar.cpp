@@ -443,10 +443,13 @@ void TabBar::currentTabChanged(int index)
 
     hideTabPreview(false);
 
-    showCloseButton(index);
-    hideCloseButton(m_tabWidget->lastTabIndex());
+    // Don't hide close buttons when dragging tabs
+    if (m_dragStartPosition.isNull()) {
+        showCloseButton(index);
+        hideCloseButton(m_tabWidget->lastTabIndex());
 
-    ensureVisible(index);
+        ensureVisible(index);
+    }
 
     m_tabWidget->currentTabChanged(index);
 }
