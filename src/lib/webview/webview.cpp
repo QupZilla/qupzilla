@@ -53,7 +53,6 @@
 
 WebView::WebView(QWidget* parent)
     : QWebView(parent)
-    , m_currentZoom(100)
     , m_isLoading(false)
     , m_progress(0)
     , m_clickedFrame(0)
@@ -72,8 +71,8 @@ WebView::WebView(QWidget* parent)
     connect(this, SIGNAL(iconChanged()), this, SLOT(slotIconChanged()));
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
 
-    // Zoom levels same as in firefox
-    m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
+    m_zoomLevels = zoomLevels();
+    m_currentZoomLevel = m_zoomLevels.indexOf(100);
 
 #if QTWEBKIT_TO_2_3
     installEventFilter(this);
@@ -158,9 +157,11 @@ void WebView::setPage(QWebPage* page)
     QWebView::setPage(page);
     m_page = qobject_cast<WebPage*>(page);
 
-    setZoom(qzSettings->defaultZoom);
     connect(m_page, SIGNAL(saveFrameStateRequested(QWebFrame*,QWebHistoryItem*)), this, SLOT(frameStateChanged()));
     connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
+
+    // Set default zoom level
+    zoomReset();
 
     mApp->plugins()->emitWebPageCreated(m_page);
 
@@ -232,6 +233,17 @@ QWebElement WebView::activeElement() const
     return page()->mainFrame()->hitTestContent(activeRect.center()).element();
 }
 
+int WebView::zoomLevel() const
+{
+    return m_currentZoomLevel;
+}
+
+void WebView::setZoomLevel(int level)
+{
+    m_currentZoomLevel = level;
+    applyZoom();
+}
+
 bool WebView::onBeforeUnload()
 {
     const QString res = page()->mainFrame()->evaluateJavaScript("window.onbeforeunload(new Event(\"beforeunload\"))").toString();
@@ -243,12 +255,14 @@ bool WebView::onBeforeUnload()
     return true;
 }
 
+// static
 bool WebView::isUrlValid(const QUrl &url)
 {
     // Valid url must have scheme and actually contains something (therefore scheme:// is invalid)
     return url.isValid() && !url.scheme().isEmpty() && (!url.host().isEmpty() || !url.path().isEmpty() || url.hasQuery());
 }
 
+// static
 QUrl WebView::guessUrlFromString(const QString &string)
 {
     QString trimmedString = string.trimmed();
@@ -284,6 +298,14 @@ QUrl WebView::guessUrlFromString(const QString &string)
     return QUrl();
 }
 
+// static
+QList<int> WebView::zoomLevels()
+{
+    return QList<int>() << 30 << 40 << 50 << 67 << 80 << 90 << 100
+           << 110 << 120 << 133 << 150 << 170 << 200
+           << 220 << 233 << 250 << 270 << 285 << 300;
+}
+
 void WebView::addNotification(QWidget* notif)
 {
     emit showNotification(notif);
@@ -291,35 +313,33 @@ void WebView::addNotification(QWidget* notif)
 
 void WebView::applyZoom()
 {
-    setZoomFactor(qreal(m_currentZoom) / 100.0);
+    setZoomFactor(qreal(m_zoomLevels.at(m_currentZoomLevel)) / 100.0);
+
+    emit zoomLevelChanged(m_currentZoomLevel);
 }
 
 void WebView::zoomIn()
 {
-    int i = m_zoomLevels.indexOf(m_currentZoom);
-
-    if (i < m_zoomLevels.count() - 1) {
-        m_currentZoom = m_zoomLevels[i + 1];
+    if (m_currentZoomLevel < m_zoomLevels.count() - 1) {
+        m_currentZoomLevel++;
+        applyZoom();
     }
-
-    applyZoom();
 }
 
 void WebView::zoomOut()
 {
-    int i = m_zoomLevels.indexOf(m_currentZoom);
-
-    if (i > 0) {
-        m_currentZoom = m_zoomLevels[i - 1];
+    if (m_currentZoomLevel > 0) {
+        m_currentZoomLevel--;
+        applyZoom();
     }
-
-    applyZoom();
 }
 
 void WebView::zoomReset()
 {
-    m_currentZoom = 100;
-    applyZoom();
+    if (m_currentZoomLevel != qzSettings->defaultZoomLevel) {
+        m_currentZoomLevel = qzSettings->defaultZoomLevel;
+        applyZoom();
+    }
 }
 
 void WebView::editUndo()
@@ -1462,12 +1482,6 @@ void WebView::resizeEvent(QResizeEvent* event)
 {
     QWebView::resizeEvent(event);
     emit viewportResized(page()->viewportSize());
-}
-
-void WebView::setZoom(int zoom)
-{
-    m_currentZoom = zoom;
-    applyZoom();
 }
 
 ///

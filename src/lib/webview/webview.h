@@ -42,7 +42,6 @@ public:
     void setPage(QWebPage* page);
 
     void load(const LoadRequest &request);
-
     bool loadingError() const;
     bool isLoading() const;
 
@@ -51,6 +50,10 @@ public:
 
     bool hasRss() const;
     QWebElement activeElement() const;
+
+    // Set zoom level (0 - 17)
+    int zoomLevel() const;
+    void setZoomLevel(int level);
 
     // Executes window.onbeforeunload, returns true if view can be closed
     bool onBeforeUnload();
@@ -62,12 +65,14 @@ public:
 
     static bool isUrlValid(const QUrl &url);
     static QUrl guessUrlFromString(const QString &string);
+    static QList<int> zoomLevels();
 
 signals:
     void viewportResized(QSize);
     void showNotification(QWidget*);
     void privacyChanged(bool);
     void rssChanged(bool);
+    void zoomLevelChanged(int);
 
 public slots:
     void zoomIn();
@@ -147,7 +152,6 @@ protected:
     void keyReleaseEvent(QKeyEvent* event);
     void resizeEvent(QResizeEvent* event);
 
-    void setZoom(int zoom);
     void applyZoom();
     QUrl lastUrl();
 
@@ -172,7 +176,7 @@ private slots:
 
 private:
     QList<int> m_zoomLevels;
-    int m_currentZoom;
+    int m_currentZoomLevel;
 
     QIcon m_siteIcon;
     QUrl m_siteIconUrl;

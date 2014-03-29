@@ -11,7 +11,8 @@ SOURCES += statusbariconsplugin.cpp \
     sbi_networkicondialog.cpp \
     sbi_networkmanager.cpp \
     sbi_settingsdialog.cpp \
-    sbi_icon.cpp
+    sbi_icon.cpp \
+    sbi_zoomwidget.cpp
 
 HEADERS += statusbariconsplugin.h \
     sbi_iconsmanager.h \
@@ -23,7 +24,8 @@ HEADERS += statusbariconsplugin.h \
     sbi_networkicondialog.h \
     sbi_networkmanager.h \
     sbi_settingsdialog.h \
-    sbi_icon.h
+    sbi_icon.h \
+    sbi_zoomwidget.h
 
 RESOURCES += statusbaricons.qrc
 

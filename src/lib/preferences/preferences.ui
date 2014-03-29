@@ -1219,20 +1219,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QSpinBox" name="defaultZoom">
-                   <property name="suffix">
-                    <string notr="true"> %</string>
-                   </property>
-                   <property name="minimum">
-                    <number>30</number>
-                   </property>
-                   <property name="maximum">
-                    <number>300</number>
-                   </property>
-                   <property name="value">
-                    <number>100</number>
-                   </property>
-                  </widget>
+                  <widget class="QComboBox" name="defaultZoomLevel"/>
                  </item>
                  <item>
                   <spacer name="horizontalSpacer_12">
@@ -2777,7 +2764,6 @@
   <tabstop>tabWidget</tabstop>
   <tabstop>allowPlugins</tabstop>
   <tabstop>wheelScroll</tabstop>
-  <tabstop>defaultZoom</tabstop>
   <tabstop>fontStandard</tabstop>
   <tabstop>fontFixed</tabstop>
   <tabstop>fontSerif</tabstop>

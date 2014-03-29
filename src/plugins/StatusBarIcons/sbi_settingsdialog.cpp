@@ -29,6 +29,7 @@ SBI_SettingsDialog::SBI_SettingsDialog(SBI_IconsManager* manager, QWidget* paren
     ui->showImagesIcon->setChecked(m_manager->showImagesIcon());
     ui->showJavaScriptIcon->setChecked(m_manager->showJavaScriptIcon());
     ui->showNetworkIcon->setChecked(m_manager->showNetworkIcon());
+    ui->showZoomWidget->setChecked(m_manager->showZoomWidget());
 
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(saveSettings()));
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
@@ -39,6 +40,7 @@ void SBI_SettingsDialog::saveSettings()
     m_manager->setShowImagesIcon(ui->showImagesIcon->isChecked());
     m_manager->setShowJavaScriptIcon(ui->showJavaScriptIcon->isChecked());
     m_manager->setShowNetworkIcon(ui->showNetworkIcon->isChecked());
+    m_manager->setShowZoomWidget(ui->showZoomWidget->isChecked());
 
     m_manager->reloadIcons();
     close();

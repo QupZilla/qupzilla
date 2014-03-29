@@ -42,6 +42,9 @@ public:
     bool showNetworkIcon() const;
     void setShowNetworkIcon(bool show);
 
+    bool showZoomWidget() const;
+    void setShowZoomWidget(bool show);
+
     void reloadIcons();
     void destroyIcons();
 
@@ -56,6 +59,7 @@ private:
     bool m_showImagesIcon;
     bool m_showJavaScriptIcon;
     bool m_showNetworkIcon;
+    bool m_showZoomWidget;
 
     QHash<BrowserWindow*, QWidgetList> m_windows;
     SBI_NetworkManager* m_networkManager;

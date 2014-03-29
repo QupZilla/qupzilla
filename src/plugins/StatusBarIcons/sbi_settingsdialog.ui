@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>345</width>
-    <height>186</height>
+    <width>343</width>
+    <height>204</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -109,6 +109,13 @@
         <widget class="QCheckBox" name="showNetworkIcon">
          <property name="text">
           <string>Network Icon</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="showZoomWidget">
+         <property name="text">
+          <string>Zoom widget</string>
          </property>
         </widget>
        </item>

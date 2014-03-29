@@ -34,8 +34,8 @@ PluginSpec StatusBarIconsPlugin::pluginSpec()
     PluginSpec spec;
     spec.name = "StatusBar Icons";
     spec.info = "Icons in statusbar providing various actions";
-    spec.description = "Adds additional icons to statusbar";
-    spec.version = "0.1.6";
+    spec.description = "Adds additional icons and zoom widget to statusbar";
+    spec.version = "0.2.0";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":sbi/data/icon.png");
     spec.hasSettings = true;

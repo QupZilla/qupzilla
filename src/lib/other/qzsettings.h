@@ -47,7 +47,7 @@ public:
     bool searchWithDefaultEngine;
 
     // Web-Browser-Settings
-    int defaultZoom;
+    int defaultZoomLevel;
     bool loadTabsOnActivation;
     bool allowJsGeometryChange;
     bool allowJsHideMenuBar;

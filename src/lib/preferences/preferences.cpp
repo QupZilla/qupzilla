@@ -274,7 +274,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     ui->searchWithDefaultEngine->setChecked(settings.value("SearchWithDefaultEngine", false).toBool());
     settings.endGroup();
 
-    //BROWSING
+    // BROWSING
     settings.beginGroup("Web-Browser-Settings");
     ui->allowPlugins->setChecked(settings.value("allowFlash", true).toBool());
     ui->allowJavaScript->setChecked(settings.value("allowJavaScript", true).toBool());
@@ -287,9 +287,13 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     ui->animateScrolling->setChecked(settings.value("AnimateScrolling", true).toBool());
     ui->printEBackground->setChecked(settings.value("PrintElementBackground", true).toBool());
     ui->wheelScroll->setValue(settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt());
-    ui->defaultZoom->setValue(settings.value("DefaultZoom", 100).toInt());
     ui->xssAuditing->setChecked(settings.value("XSSAuditing", false).toBool());
     ui->formsUndoRedo->setChecked(settings.value("enableFormsUndoRedo", false).toBool());
+
+    foreach (int level, WebView::zoomLevels()) {
+        ui->defaultZoomLevel->addItem(QString("%1%").arg(level));
+    }
+    ui->defaultZoomLevel->setCurrentIndex(settings.value("DefaultZoomLevel", WebView::zoomLevels().indexOf(100)).toInt());
 
     //Cache
     ui->pagesInCache->setValue(settings.value("maximumCachedPages", 3).toInt());
@@ -978,7 +982,7 @@ void Preferences::saveSettings()
     settings.setValue("DoNotTrack", ui->doNotTrack->isChecked());
     settings.setValue("CheckUpdates", ui->checkUpdates->isChecked());
     settings.setValue("LoadTabsOnActivation", ui->dontLoadTabsUntilSelected->isChecked());
-    settings.setValue("DefaultZoom", ui->defaultZoom->value());
+    settings.setValue("DefaultZoomLevel", ui->defaultZoomLevel->currentIndex());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
     settings.setValue("enableFormsUndoRedo", ui->formsUndoRedo->isChecked());
 #ifdef Q_OS_WIN

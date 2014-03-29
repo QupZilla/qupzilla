@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "qzsettings.h"
 #include "settings.h"
+#include "webview.h"
 
 QzSettings::QzSettings()
 {
@@ -44,7 +45,7 @@ void QzSettings::loadSettings()
     settings.endGroup();
 
     settings.beginGroup("Web-Browser-Settings");
-    defaultZoom = settings.value("DefaultZoom", 100).toInt();
+    defaultZoomLevel = settings.value("DefaultZoomLevel", WebView::zoomLevels().indexOf(100)).toInt();
     loadTabsOnActivation = settings.value("LoadTabsOnActivation", true).toBool();
     autoOpenProtocols = settings.value("AutomaticallyOpenProtocols", QStringList()).toStringList();
     blockedProtocols = settings.value("BlockOpeningProtocols", QStringList()).toStringList();
