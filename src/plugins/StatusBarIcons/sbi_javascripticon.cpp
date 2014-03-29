@@ -37,6 +37,8 @@ SBI_JavaScriptIcon::SBI_JavaScriptIcon(BrowserWindow* window)
 
     connect(m_window->tabWidget(), SIGNAL(currentChanged(int)), this, SLOT(updateIcon()));
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(showMenu(QPoint)));
+
+    updateIcon();
 }
 
 void SBI_JavaScriptIcon::showMenu(const QPoint &point)
