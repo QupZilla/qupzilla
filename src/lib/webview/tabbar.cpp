@@ -80,6 +80,7 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     setUsesScrollButtons(true);
     setCloseButtonsToolTip(BrowserWindow::tr("Close Tab"));
     connect(this, SIGNAL(scrollBarValueChanged(int)), this, SLOT(hideTabPreview()));
+    connect(this, SIGNAL(overFlowChanged(bool)), this, SLOT(overflowChanged(bool)));
 }
 
 void TabBar::loadSettings()
@@ -170,6 +171,16 @@ void TabBar::contextMenuRequested(const QPoint &position)
     m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(true);
 }
 
+void TabBar::overflowChanged(bool overflowed)
+{
+    // Make sure close buttons on inactive tabs are hidden
+    // This is needed for when leaving fullscreen from non-overflowed to overflowed state
+    if (overflowed && m_showCloseOnInactive != 1) {
+        setTabsClosable(false);
+        showCloseButton(currentIndex());
+    }
+}
+
 void TabBar::closeAllButCurrent()
 {
     QMessageBox::StandardButton button = QMessageBox::question(this, tr("Close Tabs"), tr("Do you really want to close other tabs?"),
@@ -197,7 +208,7 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
 
     QSize size = ComboTabBar::tabSizeHint(index);
 
-    // The overflowed tabs have similar size and we can use this fast method
+    // The overflowed tabs have same size and we can use this fast method
     if (fast) {
         size.setWidth(index >= pinnedTabsCount() ? MINIMUM_TAB_WIDTH : PINNED_TAB_WIDTH);
         return size;

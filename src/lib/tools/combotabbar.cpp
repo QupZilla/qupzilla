@@ -41,6 +41,7 @@ ComboTabBar::ComboTabBar(QWidget* parent)
     , m_mainTabBar(0)
     , m_pinnedTabBar(0)
     , m_mainBarOverFlowed(false)
+    , m_lastAppliedOverflow(false)
     , m_usesScrollButtons(false)
 {
     m_mainTabBar = new TabBarHelper(this);
@@ -328,6 +329,14 @@ void ComboTabBar::updateTabBars()
     m_pinnedTabBar->update();
 }
 
+void ComboTabBar::emitOverFlowChanged()
+{
+    if (m_mainBarOverFlowed != m_lastAppliedOverflow) {
+        emit overFlowChanged(m_mainBarOverFlowed);
+        m_lastAppliedOverflow = m_mainBarOverFlowed;
+    }
+}
+
 int ComboTabBar::count() const
 {
     return pinnedTabsCount() + m_mainTabBar->count();
@@ -590,27 +599,6 @@ void ComboTabBar::wheelEvent(QWheelEvent* event)
     }
 }
 
-void ComboTabBar::resizeEvent(QResizeEvent* event)
-{
-    QWidget::resizeEvent(event);
-
-    // Handle overflowing eg. when entering fullscreen
-    if (m_mainBarOverFlowed != m_mainTabBarWidget->isOverflowed()) {
-        setMinimumWidths();
-    }
-
-    // Workaround for containers being hidden on very fast resizing
-    if (m_rightContainer->isVisible()) {
-        m_rightContainer->hide();
-        m_rightContainer->show();
-    }
-
-    if (m_leftContainer->isVisible()) {
-        m_leftContainer->hide();
-        m_leftContainer->show();
-    }
-}
-
 bool ComboTabBar::eventFilter(QObject* obj, QEvent* ev)
 {
     if (m_bluredBackground) {
@@ -819,7 +807,7 @@ void ComboTabBar::setMinimumWidths()
     if (realTabBarWidth <= width()) {
         if (m_mainBarOverFlowed) {
             m_mainBarOverFlowed = false;
-            emit overFlowChanged(false);
+            QTimer::singleShot(0, this, SLOT(emitOverFlowChanged()));
         }
 
         m_mainTabBar->useFastTabSizeHint(false);
@@ -828,7 +816,7 @@ void ComboTabBar::setMinimumWidths()
     else {
         if (!m_mainBarOverFlowed) {
             m_mainBarOverFlowed = true;
-            emit overFlowChanged(true);
+            QTimer::singleShot(0, this, SLOT(emitOverFlowChanged()));
         }
 
         // All tabs have now same width, we can use fast tabSizeHint
@@ -1221,9 +1209,9 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
     setLayout(hLayout);
 
     m_scrollArea->viewport()->setAutoFillBackground(false);
-    connect(m_scrollBar, SIGNAL(valueChanged(int)), this, SLOT(scrollBarValueChange()));
+    connect(m_scrollBar, SIGNAL(valueChanged(int)), this, SLOT(updateScrollButtonsState()));
 
-    scrollBarValueChange();
+    updateScrollButtonsState();
     overFlowChanged(false);
 }
 
@@ -1297,7 +1285,7 @@ void TabBarScrollWidget::setUpLayout()
     setFixedHeight(height);
 }
 
-void TabBarScrollWidget::scrollBarValueChange()
+void TabBarScrollWidget::updateScrollButtonsState()
 {
     m_leftScrollButton->setEnabled(m_scrollBar->value() != m_scrollBar->minimum());
     m_rightScrollButton->setEnabled(m_scrollBar->value() != m_scrollBar->maximum());
@@ -1309,10 +1297,6 @@ void TabBarScrollWidget::overFlowChanged(bool overflowed)
 
     m_leftScrollButton->setVisible(showScrollButtons);
     m_rightScrollButton->setVisible(showScrollButtons);
-
-    if (showScrollButtons) {
-        m_scrollArea->resize(m_scrollArea->size());
-    }
 }
 
 void TabBarScrollWidget::scrollStart()
@@ -1398,7 +1382,7 @@ void TabBarScrollWidget::setUsesScrollButtons(bool useButtons)
 {
     if (useButtons != m_usesScrollButtons) {
         m_usesScrollButtons = useButtons;
-        scrollBarValueChange();
+        updateScrollButtonsState();
         m_tabBar->setElideMode(m_tabBar->elideMode());
     }
 }
@@ -1429,6 +1413,13 @@ void TabBarScrollWidget::enableBluredBackground(bool enable)
 void TabBarScrollWidget::mouseMoveEvent(QMouseEvent* event)
 {
     event->ignore();
+}
+
+void TabBarScrollWidget::resizeEvent(QResizeEvent* event)
+{
+    QWidget::resizeEvent(event);
+
+    updateScrollButtonsState();
 }
 
 

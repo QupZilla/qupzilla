@@ -153,6 +153,7 @@ private slots:
     void slotTabMoved(int from, int to);
     void closeTabFromButton();
     void updateTabBars();
+    void emitOverFlowChanged();
 
 protected:
     int mainTabBarWidth() const;
@@ -162,7 +163,6 @@ protected:
     void showEvent(QShowEvent* event);
     void enterEvent(QEvent* event);
     void leaveEvent(QEvent* event);
-    void resizeEvent(QResizeEvent* event);
     bool eventFilter(QObject* obj, QEvent* ev);
 
     virtual int comboTabBarPixelMetric(SizeType sizeType) const;
@@ -191,6 +191,7 @@ private:
 
     QString m_closeButtonsToolTip;
     bool m_mainBarOverFlowed;
+    bool m_lastAppliedOverflow;
     bool m_usesScrollButtons;
     bool m_bluredBackground;
 };
@@ -287,12 +288,13 @@ public slots:
     void setUpLayout();
 
 private slots:
-    void scrollBarValueChange();
     void overFlowChanged(bool overflowed);
     void scrollStart();
+    void updateScrollButtonsState();
 
 private:
     void mouseMoveEvent(QMouseEvent* event);
+    void resizeEvent(QResizeEvent* event);
 
     QTabBar* m_tabBar;
     QScrollArea* m_scrollArea;

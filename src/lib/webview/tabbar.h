@@ -59,18 +59,20 @@ signals:
 
 private slots:
     void currentTabChanged(int index);
-
     void contextMenuRequested(const QPoint &position);
+    void overflowChanged(bool overflowed);
+
     void reloadTab() { emit reloadTab(m_clickedTab); }
     void stopTab() { emit stopTab(m_clickedTab); }
     void closeTab() { emit closeTab(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
     void detachTab() { emit detachTab(m_clickedTab); }
-    void closeAllButCurrent();
+
     void bookmarkTab();
     void pinTab();
 
     void closeCurrentTab();
+    void closeAllButCurrent();
     void closeTabFromButton();
 
     void showTabPreview(bool delayed = true);
