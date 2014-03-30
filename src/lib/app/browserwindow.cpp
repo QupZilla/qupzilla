@@ -301,7 +301,6 @@ void BrowserWindow::setupUi()
     m_mainLayout->setSpacing(0);
     m_mainSplitter = new QSplitter(this);
     m_mainSplitter->setObjectName("sidebar-splitter");
-    m_mainSplitter->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     m_tabWidget = new TabWidget(this);
     m_superMenu = new QMenu(this);
     m_navigationToolbar = new NavigationBar(this);
@@ -309,17 +308,15 @@ void BrowserWindow::setupUi()
     m_bookmarksToolbar = new BookmarksToolbar(this);
 
     m_navigationContainer = new NavigationContainer(this);
-    QVBoxLayout* l = new QVBoxLayout(m_navigationContainer);
-    l->setContentsMargins(0, 0, 0, 0);
-    l->setSpacing(0);
-    l->addWidget(m_navigationToolbar);
-    l->addWidget(m_bookmarksToolbar);
-    m_navigationContainer->setLayout(l);
+    m_navigationContainer->addWidget(m_navigationToolbar);
+    m_navigationContainer->addWidget(m_bookmarksToolbar);
+    m_navigationContainer->setTabBar(m_tabWidget->getTabBar());
 
     m_mainSplitter->addWidget(m_tabWidget);
-    toggleTabsOnTop(qzSettings->tabsOnTop);
-    m_mainLayout->addWidget(m_mainSplitter);
     m_mainSplitter->setCollapsible(0, false);
+
+    m_mainLayout->addWidget(m_navigationContainer);
+    m_mainLayout->addWidget(m_mainSplitter);
 
     statusBar()->setObjectName("mainwindow-statusbar");
     statusBar()->setCursor(Qt::ArrowCursor);
@@ -796,16 +793,8 @@ void BrowserWindow::toggleShowNavigationToolbar()
 
 void BrowserWindow::toggleTabsOnTop(bool enable)
 {
-    if (enable) {
-        m_mainLayout->insertWidget(0, m_tabWidget->getTabBar());
-        m_mainLayout->insertWidget(1, m_navigationContainer);
-    }
-    else {
-        m_mainLayout->insertWidget(0, m_navigationContainer);
-        m_mainLayout->insertWidget(1, m_tabWidget->getTabBar());
-    }
-
     qzSettings->tabsOnTop = enable;
+    m_navigationContainer->toggleTabsOnTop(enable);
 
 #ifdef Q_OS_WIN
     // workaround for changing TabsOnTop state when sidebar is visible
@@ -1081,7 +1070,6 @@ void BrowserWindow::showNavigationWithFullScreen()
     }
 
     m_navigationContainer->show();
-    m_tabWidget->getTabBar()->updateVisibilityWithFullscreen(true);
 }
 
 void BrowserWindow::hideNavigationWithFullScreen()
@@ -1098,7 +1086,6 @@ void BrowserWindow::hideNavigationSlot()
 
     if (isFullScreen() && mouseInView) {
         m_navigationContainer->hide();
-        m_tabWidget->getTabBar()->updateVisibilityWithFullscreen(false);
     }
 }
 
@@ -1116,10 +1103,9 @@ bool BrowserWindow::event(QEvent* event)
             m_statusBarVisible = statusBar()->isVisible();
             menuBar()->hide();
             statusBar()->hide();
+
             m_navigationContainer->hide();
-            m_tabWidget->getTabBar()->hide();
             m_navigationToolbar->setSuperMenuVisible(false);
-            m_hideNavigationTimer->stop();
             m_navigationToolbar->buttonExitFullscreen()->setVisible(true);
 #ifdef Q_OS_WIN
             if (m_useTransparentBackground) {
@@ -1135,11 +1121,9 @@ bool BrowserWindow::event(QEvent* event)
 
             menuBar()->setVisible(m_menuBarVisible);
             statusBar()->setVisible(m_statusBarVisible);
+
             m_navigationContainer->show();
-            m_tabWidget->getTabBar()->updateVisibilityWithFullscreen(true);
-            m_tabWidget->getTabBar()->setVisible(true);
             m_navigationToolbar->setSuperMenuVisible(!m_menuBarVisible);
-            m_hideNavigationTimer->stop();
             m_navigationToolbar->buttonExitFullscreen()->setVisible(false);
 #ifdef Q_OS_WIN
             if (m_useTransparentBackground) {
@@ -1148,6 +1132,8 @@ bool BrowserWindow::event(QEvent* event)
             }
 #endif
         }
+        m_hideNavigationTimer->stop();
+        break;
     }
 
     default:

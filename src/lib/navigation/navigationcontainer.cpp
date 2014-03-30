@@ -17,12 +17,44 @@
 * ============================================================ */
 #include "navigationcontainer.h"
 #include "qzsettings.h"
+#include "tabbar.h"
 
 #include <QPainter>
+#include <QVBoxLayout>
 
 NavigationContainer::NavigationContainer(QWidget* parent)
     : QWidget(parent)
+    , m_tabBar(0)
 {
+    m_layout = new QVBoxLayout(this);
+    m_layout->setContentsMargins(0, 0, 0, 0);
+    m_layout->setSpacing(0);
+
+    setLayout(m_layout);
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
+}
+
+void NavigationContainer::addWidget(QWidget* widget)
+{
+    m_layout->addWidget(widget);
+}
+
+void NavigationContainer::setTabBar(TabBar* tabBar)
+{
+    m_tabBar = tabBar;
+    m_layout->addWidget(m_tabBar);
+
+    toggleTabsOnTop(qzSettings->tabsOnTop);
+}
+
+void NavigationContainer::toggleTabsOnTop(bool enable)
+{
+    setUpdatesEnabled(false);
+
+    m_layout->removeWidget(m_tabBar);
+    m_layout->insertWidget(enable ? 0 : m_layout->count(), m_tabBar);
+
+    setUpdatesEnabled(true);
 }
 
 void NavigationContainer::paintEvent(QPaintEvent* event)

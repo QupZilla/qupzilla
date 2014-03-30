@@ -99,25 +99,6 @@ void TabBar::loadSettings()
     setUpLayout();
 }
 
-void TabBar::updateVisibilityWithFullscreen(bool visible)
-{
-    // It is needed to save original geometry, otherwise
-    // tabbar will get 3px height in fullscreen once it was hidden
-
-    ComboTabBar::setVisible(visible);
-
-    // Make sure to honor user preference
-    if (visible) {
-        visible = !(count() == 1 && m_hideTabBarWithOneTab);
-    }
-
-    if (visible) {
-        setGeometry(m_originalGeometry);
-    }
-
-    m_tabWidget->setUpLayout();
-}
-
 void TabBar::setVisible(bool visible)
 {
     if (visible && m_window->isFullScreen()) {
@@ -127,10 +108,6 @@ void TabBar::setVisible(bool visible)
     // Make sure to honor user preference
     if (visible) {
         visible = !(count() == 1 && m_hideTabBarWithOneTab);
-    }
-
-    if (!visible) {
-        m_originalGeometry = geometry();
     }
 
     hideTabPreview(false);

@@ -20,16 +20,27 @@
 
 #include <QWidget>
 
-#include "qzsettings.h"
+#include "qzcommon.h"
+
+class QVBoxLayout;
+
+class TabBar;
 
 class QUPZILLA_EXPORT NavigationContainer : public QWidget
 {
 public:
     explicit NavigationContainer(QWidget* parent = 0);
 
+    void addWidget(QWidget* widget);
+    void setTabBar(TabBar* tabBar);
+
+    void toggleTabsOnTop(bool enable);
+
 private:
     void paintEvent(QPaintEvent* event);
 
+    QVBoxLayout* m_layout;
+    TabBar* m_tabBar;
 };
 
 #endif // NAVIGATIONCONTAINER_H

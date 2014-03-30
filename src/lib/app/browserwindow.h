@@ -50,6 +50,7 @@ class SideBarManager;
 class ProgressBar;
 class StatusBarMessage;
 class NavigationBar;
+class NavigationContainer;
 class ClickableLabel;
 class WebInspectorDockWidget;
 class LocationBar;
@@ -191,7 +192,7 @@ private:
     SideBarManager* m_sideBarManager;
     StatusBarMessage* m_statusBarMessage;
 
-    QWidget* m_navigationContainer;
+    NavigationContainer* m_navigationContainer;
     NavigationBar* m_navigationToolbar;
     BookmarksToolbar* m_bookmarksToolbar;
 
@@ -210,7 +211,7 @@ private:
     bool m_useTabNumberShortcuts;
     bool m_useSpeedDialNumberShortcuts;
 
-    // Used for F11 FullScreen remember visibility of menubar and statusbar
+    // Remember visibility of menubar and statusbar after entering Fullscreen
     bool m_menuBarVisible;
     bool m_statusBarVisible;
     Qt::WindowStates m_windowStates;

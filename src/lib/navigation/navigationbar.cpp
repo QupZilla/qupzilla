@@ -49,7 +49,8 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     : QWidget(window)
     , m_window(window)
 {
-    setObjectName("navigationbar");
+    setObjectName(QSL("navigationbar"));
+
     m_layout = new QHBoxLayout(this);
     m_layout->setMargin(style()->pixelMetric(QStyle::PM_ToolBarItemMargin, 0, this));
     m_layout->setSpacing(style()->pixelMetric(QStyle::PM_ToolBarItemSpacing, 0, this));

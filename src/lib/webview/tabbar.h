@@ -38,7 +38,6 @@ public:
     void loadSettings();
 
     void setVisible(bool visible);
-    void updateVisibilityWithFullscreen(bool visible);
 
     void overrideTabTextColor(int index, QColor color);
     void restoreTabTextColor(int index);
@@ -116,7 +115,6 @@ private:
     mutable int m_activeTabWidth;
 
     QColor m_originalTabTextColor;
-    QRect m_originalGeometry;
     QPoint m_dragStartPosition;
 };
 
