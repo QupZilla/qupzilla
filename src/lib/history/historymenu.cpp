@@ -155,7 +155,7 @@ void HistoryMenu::aboutToShowClosedTabs()
 
     foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
         const QString title = QzTools::truncatedText(tab.title, 40);
-        QAction* act = m_menuClosedTabs->addAction(IconProvider::iconForUrl(tab.url), title, tabWidget, SLOT(restoreClosedTab()));
+        QAction* act = m_menuClosedTabs->addAction(tab.icon, title, tabWidget, SLOT(restoreClosedTab()));
         act->setData(i++);
     }
 

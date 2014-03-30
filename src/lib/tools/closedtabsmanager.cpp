@@ -27,15 +27,21 @@ ClosedTabsManager::ClosedTabsManager()
 {
 }
 
-void ClosedTabsManager::saveView(WebTab* tab, int position)
+void ClosedTabsManager::saveTab(WebTab* tab, int position)
 {
-    if (mApp->isPrivate() || (tab->url().isEmpty() && tab->history()->items().count() == 0)) {
+    if (mApp->isPrivate()) {
+        return;
+    }
+
+    // Don't save empty tab
+    if (tab->url().isEmpty() && tab->history()->items().count() == 0) {
         return;
     }
 
     Tab closedTab;
     closedTab.url = tab->url();
     closedTab.title = tab->title();
+    closedTab.icon = tab->icon();
     closedTab.position = position;
     closedTab.history = tab->historyData();
 

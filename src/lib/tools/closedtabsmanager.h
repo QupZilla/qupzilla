@@ -19,6 +19,7 @@
 #define CLOSEDTABSMANAGER_H
 
 #include <QUrl>
+#include <QIcon>
 #include <QLinkedList>
 
 #include "qzcommon.h"
@@ -30,8 +31,9 @@ class QUPZILLA_EXPORT ClosedTabsManager
 public:
     struct Tab {
         QUrl url;
-        QByteArray history;
         QString title;
+        QIcon icon;
+        QByteArray history;
         int position;
 
         bool operator==(const Tab &a) const {
@@ -43,7 +45,7 @@ public:
 
     explicit ClosedTabsManager();
 
-    void saveView(WebTab* tab, int position);
+    void saveTab(WebTab* tab, int position);
     bool isClosedTabAvailable();
 
     // Takes tab that was most recently closed

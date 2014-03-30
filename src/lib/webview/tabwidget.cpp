@@ -20,7 +20,6 @@
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "browserwindow.h"
-#include "iconprovider.h"
 #include "mainapplication.h"
 #include "webtab.h"
 #include "clickablelabel.h"
@@ -322,7 +321,7 @@ void TabWidget::aboutToShowClosedTabsMenu()
 
     foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
         const QString title = QzTools::truncatedText(tab.title, 40);
-        QAction* act = m_menuClosedTabs->addAction(IconProvider::iconForUrl(tab.url), title, this, SLOT(restoreClosedTab()));
+        QAction* act = m_menuClosedTabs->addAction(tab.icon, title, this, SLOT(restoreClosedTab()));
         act->setData(i++);
     }
 
@@ -497,7 +496,7 @@ void TabWidget::closeTab(int index, bool force)
     }
 
     // Save tab url and history
-    m_closedTabsManager->saveView(webTab, index);
+    m_closedTabsManager->saveTab(webTab, index);
 
     // This would close last tab, so we close the window instead
     if (!force && count() == 1) {
