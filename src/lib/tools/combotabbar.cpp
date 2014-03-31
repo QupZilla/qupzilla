@@ -602,13 +602,47 @@ bool ComboTabBar::eventFilter(QObject* obj, QEvent* ev)
             setUpLayout();
         }
     }
+
     if (ev->type() == QEvent::Wheel) {
-        // Handle wheel events exclusively in ComboTabBar
         wheelEvent(static_cast<QWheelEvent*>(ev));
         return true;
     }
 
     return QWidget::eventFilter(obj, ev);
+}
+
+void ComboTabBar::paintEvent(QPaintEvent* ev)
+{
+    QWidget::paintEvent(ev);
+
+    // Draw tabbar base even on parts of ComboTabBar that are not directly QTabBar
+    QPainter p(this);
+    QStyleOptionTabBarBaseV2 opt;
+    TabBarHelper::initStyleBaseOption(&opt, m_mainTabBar, size());
+
+    // Left container
+    opt.rect.setX(m_mainTabBarWidget->m_leftContainer->x());
+    opt.rect.setWidth(m_mainTabBarWidget->m_leftContainer->width());
+    style()->drawPrimitive(QStyle::PE_FrameTabBarBase, &opt, &p);
+
+    // Right container
+    opt.rect.setX(m_mainTabBarWidget->m_rightContainer->x());
+    opt.rect.setWidth(m_mainTabBarWidget->m_rightContainer->width());
+    style()->drawPrimitive(QStyle::PE_FrameTabBarBase, &opt, &p);
+
+    if (m_mainBarOverFlowed) {
+        const int scrollButtonWidth = m_mainTabBarWidget->scrollButtonsWidth();
+
+        // Left scroll button
+        opt.rect.setX(m_mainTabBarWidget->x());
+        opt.rect.setWidth(scrollButtonWidth);
+        style()->drawPrimitive(QStyle::PE_FrameTabBarBase, &opt, &p);
+
+        // Right scroll button
+        opt.rect.setX(m_mainTabBarWidget->x() + m_mainTabBarWidget->width() - scrollButtonWidth);
+        opt.rect.setWidth(scrollButtonWidth);
+        style()->drawPrimitive(QStyle::PE_FrameTabBarBase, &opt, &p);
+    }
 }
 
 int ComboTabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
@@ -937,7 +971,7 @@ bool TabBarHelper::event(QEvent* ev)
     return false;
 }
 
-// taken from qtabbar.cpp
+// Taken from qtabbar.cpp
 void TabBarHelper::initStyleBaseOption(QStyleOptionTabBarBaseV2* optTabBase, QTabBar* tabbar, QSize size)
 {
     QStyleOptionTab tabOverlap;
@@ -971,7 +1005,7 @@ void TabBarHelper::initStyleBaseOption(QStyleOptionTabBarBaseV2* optTabBase, QTa
     }
 }
 
-// some codes were taken from qtabbar.cpp
+// Adapted from qtabbar.cpp
 void TabBarHelper::paintEvent(QPaintEvent* event)
 {
     if (m_bluredBackground) {
@@ -980,7 +1014,7 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
         p.fillRect(event->rect(), QColor(0, 0, 0, 0));
     }
 
-    // note: this code doesn't support vertical tabs
+    // Note: this code doesn't support vertical tabs
     if (m_dragInProgress) {
         QTabBar::paintEvent(event);
         return;
@@ -1055,6 +1089,7 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
             p.drawControl(QStyle::CE_TabBarTab, tb);
 
             // Draw the tab without selected state
+
             tab.state = tab.state & ~QStyle::State_Selected;
         }
 
@@ -1396,6 +1431,12 @@ void TabBarScrollWidget::scrollByWheel(QWheelEvent* event)
 
         m_totalDeltas -= (offset / factor) * 120;
     }
+}
+
+int TabBarScrollWidget::scrollButtonsWidth() const
+{
+    // Assumes both buttons have the same width
+    return m_leftScrollButton->width();
 }
 
 bool TabBarScrollWidget::usesScrollButtons() const

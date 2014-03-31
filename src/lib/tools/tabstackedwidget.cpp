@@ -40,7 +40,6 @@ TabStackedWidget::TabStackedWidget(QWidget* parent)
     m_mainLayout->addWidget(m_stack);
     setLayout(m_mainLayout);
 
-    setTabBar(new ComboTabBar);
     connect(m_stack, SIGNAL(widgetRemoved(int)), this, SLOT(tabWasRemoved(int)));
 }
 

@@ -155,6 +155,7 @@ protected:
     void leaveEvent(QEvent* event);
     void resizeEvent(QResizeEvent* event);
     bool eventFilter(QObject* obj, QEvent* ev);
+    void paintEvent(QPaintEvent* ev);
 
     virtual int comboTabBarPixelMetric(SizeType sizeType) const;
     virtual QSize tabSizeHint(int index, bool fast = false) const;
@@ -212,6 +213,8 @@ public:
     bool isDragInProgress() const;
     void enableBluredBackground(bool enable);
 
+    static void initStyleBaseOption(QStyleOptionTabBarBaseV2* optTabBase, QTabBar* tabbar, QSize size);
+
 public slots:
     void setCurrentIndex(int index);
 
@@ -219,7 +222,6 @@ private slots:
     void resetDragState();
 
 private:
-    void initStyleBaseOption(QStyleOptionTabBarBaseV2* optTabBase, QTabBar* tabbar, QSize size);
     bool event(QEvent* ev);
     void paintEvent(QPaintEvent* event);
     void mousePressEvent(QMouseEvent* event);
@@ -266,6 +268,7 @@ public:
 
     void scrollByWheel(QWheelEvent* event);
 
+    int scrollButtonsWidth() const;
     bool usesScrollButtons() const;
     void setUsesScrollButtons(bool useButtons);
 
@@ -304,6 +307,8 @@ private:
     bool m_usesScrollButtons;
     bool m_bluredBackground;
     int m_totalDeltas;
+
+    friend class ComboTabBar;
 };
 
 // Class for close button on tabs
