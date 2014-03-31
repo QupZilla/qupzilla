@@ -23,14 +23,15 @@ EmptyNetworkReply::EmptyNetworkReply(QObject* parent)
     : QNetworkReply(parent)
 {
     setOperation(QNetworkAccessManager::GetOperation);
-    setError(QNetworkReply::OperationCanceledError, "QupZilla:No Error");
+    setError(QNetworkReply::OperationCanceledError, QSL("QupZilla:No Error"));
+
+    open(QIODevice::ReadOnly);
 
     QTimer::singleShot(0, this, SLOT(delayedFinish()));
 }
 
 void EmptyNetworkReply::delayedFinish()
 {
-
     emit finished();
 }
 

@@ -48,6 +48,11 @@ QNetworkReply::NetworkError FollowRedirectReply::error() const
     return m_reply->error();
 }
 
+QString FollowRedirectReply::errorString() const
+{
+    return m_reply->errorString();
+}
+
 QByteArray FollowRedirectReply::readAll()
 {
     return m_reply->readAll();

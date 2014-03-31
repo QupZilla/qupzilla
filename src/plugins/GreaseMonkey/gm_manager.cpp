@@ -64,17 +64,17 @@ QString GM_Manager::settinsPath() const
 
 QString GM_Manager::scriptsDirectory() const
 {
-    return m_settingsPath + "/greasemonkey/";
+    return m_settingsPath + QL1S("/greasemonkey");
 }
 
 QString GM_Manager::requireScripts(const QStringList &urlList) const
 {
-    QDir requiresDir(m_settingsPath + "greasemonkey/requires");
+    QDir requiresDir(m_settingsPath + QL1S("/greasemonkey/requires"));
     if (!requiresDir.exists() || urlList.isEmpty()) {
         return QString();
     }
 
-    QSettings settings(m_settingsPath + "greasemonkey/requires/requires.ini", QSettings::IniFormat);
+    QSettings settings(m_settingsPath + QL1S("/greasemonkey/requires/requires.ini"), QSettings::IniFormat);
     settings.beginGroup("Files");
 
     QString script;
@@ -245,7 +245,7 @@ void GM_Manager::load()
         gmDir.mkdir("requires");
     }
 
-    QSettings settings(m_settingsPath + "extensions.ini", QSettings::IniFormat);
+    QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
     settings.beginGroup("GreaseMonkey");
     m_disabledScripts = settings.value("disabledScripts", QStringList()).toStringList();
 
@@ -271,7 +271,7 @@ void GM_Manager::load()
     }
 
     m_bootstrap = QzTools::readAllFileContents(":gm/data/bootstrap.min.js");
-    m_jsObject->setSettingsFile(m_settingsPath + "extensions.ini");
+    m_jsObject->setSettingsFile(m_settingsPath + QL1S("/extensions.ini"));
 }
 
 bool GM_Manager::canRunOnScheme(const QString &scheme)

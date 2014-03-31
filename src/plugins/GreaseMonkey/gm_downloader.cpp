@@ -53,34 +53,39 @@ void GM_Downloader::scriptDownloaded()
         return;
     }
 
-    QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
+    if (m_reply->error() != QNetworkReply::NoError) {
+        qWarning() << "GreaseMonkey: Cannot download script" << m_reply->errorString();
+    }
+    else {
+        const QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
-    if (m_reply->error() == QNetworkReply::NoError && response.contains("// ==UserScript==")) {
-        const QString filePath = m_manager->scriptsDirectory() + QzTools::getFileNameFromUrl(m_reply->url());
-        m_fileName = QzTools::ensureUniqueFilename(filePath);
+        if (response.contains(QByteArray("// ==UserScript=="))) {
+            const QString filePath = m_manager->scriptsDirectory() + QzTools::getFileNameFromUrl(m_reply->url());
+            m_fileName = QzTools::ensureUniqueFilename(filePath);
 
-        QFile file(m_fileName);
+            QFile file(m_fileName);
 
-        if (!file.open(QFile::WriteOnly)) {
-            qWarning() << "GreaseMonkey: Cannot open file for writing" << m_fileName;
-            deleteLater();
-            return;
-        }
+            if (!file.open(QFile::WriteOnly)) {
+                qWarning() << "GreaseMonkey: Cannot open file for writing" << m_fileName;
+                deleteLater();
+                return;
+            }
 
-        file.write(response);
-        file.close();
+            file.write(response);
+            file.close();
 
-        QSettings settings(m_manager->settinsPath() + "greasemonkey/requires/requires.ini", QSettings::IniFormat);
-        settings.beginGroup("Files");
+            QSettings settings(m_manager->settinsPath() + QL1S("greasemonkey/requires/requires.ini"), QSettings::IniFormat);
+            settings.beginGroup("Files");
 
-        QzRegExp rx("@require(.*)\\n");
-        rx.setMinimal(true);
-        rx.indexIn(response);
+            QzRegExp rx("@require(.*)\\n");
+            rx.setMinimal(true);
+            rx.indexIn(response);
 
-        for (int i = 1; i <= rx.captureCount(); ++i) {
-            const QString url = rx.cap(i).trimmed();
-            if (!url.isEmpty() && !settings.contains(url)) {
-                m_requireUrls.append(QUrl(url));
+            for (int i = 1; i <= rx.captureCount(); ++i) {
+                const QString url = rx.cap(i).trimmed();
+                if (!url.isEmpty() && !settings.contains(url)) {
+                    m_requireUrls.append(QUrl(url));
+                }
             }
         }
     }
@@ -98,26 +103,31 @@ void GM_Downloader::requireDownloaded()
         return;
     }
 
-    QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
+    if (m_reply->error() != QNetworkReply::NoError) {
+        qWarning() << "GreaseMonkey: Cannot download require script" << m_reply->errorString();
+    }
+    else {
+        const QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
-    if (m_reply->error() == QNetworkReply::NoError && !response.isEmpty()) {
-        const QString filePath = m_manager->settinsPath() + "/greasemonkey/requires/require.js";
-        const QString fileName = QzTools::ensureUniqueFilename(filePath, "%1");
+        if (!response.isEmpty()) {
+            const QString filePath = m_manager->settinsPath() + QL1S("/greasemonkey/requires/require.js");
+            const QString fileName = QzTools::ensureUniqueFilename(filePath, "%1");
 
-        QFile file(fileName);
+            QFile file(fileName);
 
-        if (!file.open(QFile::WriteOnly)) {
-            qWarning() << "GreaseMonkey: Cannot open file for writing" << fileName;
-            deleteLater();
-            return;
+            if (!file.open(QFile::WriteOnly)) {
+                qWarning() << "GreaseMonkey: Cannot open file for writing" << fileName;
+                deleteLater();
+                return;
+            }
+
+            file.write(response);
+            file.close();
+
+            QSettings settings(m_manager->settinsPath() + QL1S("/greasemonkey/requires/requires.ini"), QSettings::IniFormat);
+            settings.beginGroup("Files");
+            settings.setValue(m_reply->originalUrl().toString(), fileName);
         }
-
-        file.write(response);
-        file.close();
-
-        QSettings settings(m_manager->settinsPath() + "greasemonkey/requires/requires.ini", QSettings::IniFormat);
-        settings.beginGroup("Files");
-        settings.setValue(m_reply->originalUrl().toString(), fileName);
     }
 
     m_reply->deleteLater();

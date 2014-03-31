@@ -40,6 +40,8 @@ public:
     QUrl url() const;
 
     QNetworkReply::NetworkError error() const;
+    QString errorString() const;
+
     QByteArray readAll();
 
 signals:

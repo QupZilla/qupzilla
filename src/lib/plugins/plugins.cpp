@@ -212,7 +212,7 @@ PluginInterface* Plugins::initPlugin(PluginInterface::InitState state, PluginInt
         return 0;
     }
 
-    pluginInterface->init(state, DataPaths::currentProfilePath() + "/extensions/");
+    pluginInterface->init(state, DataPaths::currentProfilePath() + QL1S("/extensions/"));
 
     if (!pluginInterface->testPlugin()) {
         pluginInterface->unload();
