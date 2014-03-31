@@ -52,7 +52,6 @@ class StatusBarMessage;
 class NavigationBar;
 class NavigationContainer;
 class ClickableLabel;
-class WebInspectorDockWidget;
 class LocationBar;
 
 class QUPZILLA_EXPORT BrowserWindow : public QMainWindow
@@ -124,7 +123,7 @@ public slots:
 
     void setWindowTitle(const QString &t);
 
-    void showWebInspector(bool toggle = true);
+    void showWebInspector();
     void showHistoryManager();
 
     void toggleShowMenubar();
@@ -184,7 +183,6 @@ private:
     QSplitter* m_mainSplitter;
 
     AdBlockIcon* m_adblockIcon;
-    QPointer<WebInspectorDockWidget> m_webInspectorDock;
 
     TabWidget* m_tabWidget;
     QPointer<SideBar> m_sideBar;

@@ -16,74 +16,41 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "webinspector.h"
-#include "docktitlebarwidget.h"
-#include "webpage.h"
-#include "tabbedwebview.h"
-#include "webtab.h"
-#include "browserwindow.h"
+#include "toolbutton.h"
+#include "iconprovider.h"
 
-WebInspectorDockWidget::WebInspectorDockWidget(BrowserWindow* window)
-    : QDockWidget(window)
-    , m_window(window)
+#include <QTimer>
+
+WebInspector::WebInspector(QWidget* parent)
+    : QWebInspector(parent)
+    , m_closeButton(0)
 {
-    setWindowTitle(tr("Web Inspector"));
-    setObjectName("WebInspector");
-    setFeatures(0);
-    setTitleBarWidget(new DockTitleBarWidget(tr("Web Inspector"), this));
-
-    show();
+    setObjectName(QSL("web-inspector"));
+    setMinimumHeight(80);
 }
 
-WebInspectorDockWidget::~WebInspectorDockWidget()
+void WebInspector::updateCloseButton()
 {
+    if (!m_closeButton) {
+        m_closeButton = new ToolButton(this);
+        m_closeButton->setAutoRaise(true);
+        m_closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
+        connect(m_closeButton, SIGNAL(clicked()), this, SLOT(hide()));
+    }
+
+    m_closeButton->show();
+    m_closeButton->move(width() - m_closeButton->width(), 0);
 }
 
-void WebInspectorDockWidget::toggleVisibility()
+void WebInspector::hideEvent(QHideEvent* event)
 {
-    if (isVisible()) {
-        close();
-    }
-    else {
-        show();
-    }
+    // Prevent re-initializing QWebInspector after changing tab / virtual desktop
+    Q_UNUSED(event);
 }
 
-void WebInspectorDockWidget::close()
+void WebInspector::resizeEvent(QResizeEvent* event)
 {
-    m_window->weView()->webTab()->setInspectorVisible(false);
-    m_window->weView()->setFocus();
+    QWebInspector::resizeEvent(event);
 
-    hide();
-}
-
-void WebInspectorDockWidget::show()
-{
-    QWebPage* page = m_window->weView()->page();
-    QPointer<WebInspector> inspector = m_inspectors[page];
-
-    if (!inspector) {
-        inspector = new WebInspector(this);
-        inspector.data()->setPage(m_window->weView()->page());
-
-        m_inspectors[page] = inspector;
-    }
-
-    if (m_currentInspector != inspector) {
-        setWidget(inspector.data());
-        m_currentInspector = inspector;
-    }
-
-    m_window->weView()->webTab()->setInspectorVisible(true);
-
-    QDockWidget::show();
-}
-
-void WebInspectorDockWidget::tabChanged(int index)
-{
-    if (index >= 0 && m_window->weView()->webTab()->inspectorVisible()) {
-        show();
-    }
-    else {
-        close();
-    }
+    QTimer::singleShot(0, this, SLOT(updateCloseButton()));
 }

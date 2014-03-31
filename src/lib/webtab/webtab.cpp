@@ -18,6 +18,7 @@
 #include "webtab.h"
 #include "browserwindow.h"
 #include "tabbedwebview.h"
+#include "webinspector.h"
 #include "webpage.h"
 #include "tabbar.h"
 #include "tabicon.h"
@@ -32,6 +33,7 @@
 #include <QWebFrame>
 #include <QLabel>
 #include <QTimer>
+#include <QSplitter>
 
 static const int savedTabVersion = 1;
 
@@ -86,20 +88,18 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
 WebTab::WebTab(BrowserWindow* window)
     : QWidget()
     , m_window(window)
+    , m_inspector(0)
     , m_tabBar(window->tabWidget()->getTabBar())
     , m_isPinned(false)
-    , m_inspectorVisible(false)
 {
-    setObjectName("webtab");
+    setObjectName(QSL("webtab"));
 
     // This fixes background of pages with dark themes
     setStyleSheet("#webtab {background-color:white;}");
 
     m_webView = new TabbedWebView(m_window, this);
     m_webView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
-
-    WebPage* page = new WebPage(m_webView);
-    m_webView->setWebPage(page);
+    m_webView->setWebPage(new WebPage(m_webView));
 
     m_locationBar = new LocationBar(m_window);
     m_locationBar->setWebView(m_webView);
@@ -107,10 +107,14 @@ WebTab::WebTab(BrowserWindow* window)
     m_tabIcon = new TabIcon(this);
     m_tabIcon->setWebTab(this);
 
+    m_splitter = new QSplitter(Qt::Vertical, this);
+    m_splitter->setChildrenCollapsible(false);
+    m_splitter->addWidget(m_webView);
+
     m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
-    m_layout->addWidget(m_webView);
+    m_layout->addWidget(m_splitter);
     setLayout(m_layout);
 
     connect(m_webView, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
@@ -121,17 +125,15 @@ TabbedWebView* WebTab::webView() const
     return m_webView;
 }
 
-void WebTab::setCurrentTab()
+void WebTab::showWebInspector()
 {
-    if (!isRestored()) {
-        // When session is being restored, restore the tab immediately
-        if (mApp->isRestoring()) {
-            slotRestore();
-        }
-        else {
-            QTimer::singleShot(0, this, SLOT(slotRestore()));
-        }
+    if (!m_inspector) {
+        m_inspector = new WebInspector(this);
+        m_inspector->setPage(m_webView->page());
+        m_splitter->addWidget(m_inspector);
     }
+
+    m_inspector->show();
 }
 
 QUrl WebTab::url() const
@@ -244,16 +246,6 @@ TabIcon* WebTab::tabIcon() const
     return m_tabIcon;
 }
 
-bool WebTab::inspectorVisible() const
-{
-    return m_inspectorVisible;
-}
-
-void WebTab::setInspectorVisible(bool v)
-{
-    m_inspectorVisible = v;
-}
-
 bool WebTab::isRestored() const
 {
     return m_savedTab.isEmpty();
@@ -356,6 +348,22 @@ void WebTab::slotRestore()
     m_savedTab.clear();
 
     m_tabBar->restoreTabTextColor(tabIndex());
+}
+
+void WebTab::showEvent(QShowEvent* event)
+{
+    QWidget::showEvent(event);
+
+    if (!isRestored()) {
+        // When session is being restored, restore the tab immediately
+        if (mApp->isRestoring()) {
+            slotRestore();
+        }
+        else {
+            QTimer::singleShot(0, this, SLOT(slotRestore()));
+        }
+    }
+
 }
 
 bool WebTab::isCurrentTab() const

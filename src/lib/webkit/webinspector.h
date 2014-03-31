@@ -19,46 +19,26 @@
 #define WEBINSPECTORDOCKWIDGET_H
 
 #include <QWebInspector>
-#include <QDockWidget>
-#include <QPointer>
-#include <QHash>
 
 #include "qzcommon.h"
 
+class ToolButton;
+
 class QUPZILLA_EXPORT WebInspector : public QWebInspector
 {
-public:
-    explicit WebInspector(QWidget* parent) : QWebInspector(parent) { }
-
-private:
-    void hideEvent(QHideEvent*) {
-        // Prevent re-initializing QWebInspector after changing tab / virtual desktop
-    }
-};
-
-class BrowserWindow;
-class QUPZILLA_EXPORT WebInspectorDockWidget : public QDockWidget
-{
     Q_OBJECT
+
 public:
-    explicit WebInspectorDockWidget(BrowserWindow* window);
-    ~WebInspectorDockWidget();
+    explicit WebInspector(QWidget* parent = 0);
 
-    void toggleVisibility();
-
-signals:
-
-public slots:
-    void tabChanged(int index);
-
-    void close();
-    void show();
+private slots:
+    void updateCloseButton();
 
 private:
-    BrowserWindow* m_window;
-    QHash<QWebPage*, QPointer<WebInspector> > m_inspectors;
+    void hideEvent(QHideEvent* event);
+    void resizeEvent(QResizeEvent* event);
 
-    QPointer<WebInspector> m_currentInspector;
+    ToolButton* m_closeButton;
 };
 
 #endif // WEBINSPECTORDOCKWIDGET_H

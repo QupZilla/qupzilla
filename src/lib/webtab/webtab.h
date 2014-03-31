@@ -26,10 +26,12 @@
 
 class QVBoxLayout;
 class QWebHistory;
+class QSplitter;
 
 class BrowserWindow;
-class LocationBar;
 class TabbedWebView;
+class WebInspector;
+class LocationBar;
 class TabIcon;
 class TabBar;
 
@@ -82,10 +84,8 @@ public:
     void pinTab(int index);
 
     bool isCurrentTab() const;
-    void setCurrentTab();
 
-    bool inspectorVisible() const;
-    void setInspectorVisible(bool v);
+    void showWebInspector();
 
     bool isRestored() const;
     void restoreTab(const SavedTab &tab);
@@ -99,16 +99,20 @@ private slots:
     void slotRestore();
 
 private:
+    void showEvent(QShowEvent* event);
+
     BrowserWindow* m_window;
+    QVBoxLayout* m_layout;
+    QSplitter* m_splitter;
+
     TabbedWebView* m_webView;
+    WebInspector* m_inspector;
     LocationBar* m_locationBar;
     TabIcon* m_tabIcon;
     TabBar* m_tabBar;
-    QVBoxLayout* m_layout;
 
     SavedTab m_savedTab;
     bool m_isPinned;
-    bool m_inspectorVisible;
 };
 
 #endif // WEBTAB_H

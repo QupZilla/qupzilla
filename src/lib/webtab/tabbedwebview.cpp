@@ -71,7 +71,7 @@ void TabbedWebView::setWebPage(WebPage* page)
 
 void TabbedWebView::inspectElement()
 {
-    m_window->showWebInspector(false);
+    m_window->showWebInspector();
     triggerPageAction(QWebPage::InspectElement);
 }
 

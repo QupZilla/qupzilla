@@ -539,7 +539,6 @@ void TabWidget::currentTabChanged(int index)
         m_locationBars->setCurrentWidget(locBar);
     }
 
-    webTab->setCurrentTab();
     m_window->currentTabChanged();
 
     emit changed();

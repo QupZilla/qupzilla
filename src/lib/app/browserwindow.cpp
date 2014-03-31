@@ -50,7 +50,6 @@
 #include "browsinglibrary.h"
 #include "navigationbar.h"
 #include "pagescreen.h"
-#include "webinspector.h"
 #include "bookmarksimport/bookmarksimportdialog.h"
 #include "qztools.h"
 #include "actioncopy.h"
@@ -818,28 +817,11 @@ void BrowserWindow::toggleFullScreen()
     }
 }
 
-void BrowserWindow::showWebInspector(bool toggle)
+void BrowserWindow::showWebInspector()
 {
-    if (m_webInspectorDock) {
-        if (toggle) {
-            m_webInspectorDock.data()->toggleVisibility();
-        }
-        else  {
-            m_webInspectorDock.data()->show();
-        }
-        return;
+    if (weView() && weView()->webTab()) {
+        weView()->webTab()->showWebInspector();
     }
-
-    m_webInspectorDock = new WebInspectorDockWidget(this);
-    connect(m_tabWidget, SIGNAL(currentChanged(int)), m_webInspectorDock.data(), SLOT(tabChanged(int)));
-    addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock.data());
-
-#ifdef Q_OS_WIN
-    if (QtWin::isCompositionEnabled()) {
-        applyBlurToMainWindow();
-        m_webInspectorDock.data()->installEventFilter(this);
-    }
-#endif
 }
 
 void BrowserWindow::refreshHistory()
@@ -1015,7 +997,7 @@ void BrowserWindow::searchOnPage()
     SearchToolBar* toolBar = searchToolBar();
 
     if (!toolBar) {
-        const int searchPos = 3;
+        const int searchPos = 2;
 
         toolBar = new SearchToolBar(weView(), this);
         m_mainLayout->insertWidget(searchPos, toolBar);
@@ -1413,7 +1395,7 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
 SearchToolBar* BrowserWindow::searchToolBar() const
 {
     SearchToolBar* toolBar = 0;
-    const int searchPos = 3;
+    const int searchPos = 2;
 
     if (m_mainLayout->count() == searchPos + 1) {
         toolBar = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(searchPos)->widget());
@@ -1580,13 +1562,6 @@ void BrowserWindow::applyBlurToMainWindow(bool force)
 
     bottomMargin += statusBar()->isVisible() ? statusBar()->height() : 0;
 
-    if (m_webInspectorDock) {
-        bottomMargin += m_webInspectorDock.data()->isVisible()
-                        ? m_webInspectorDock.data()->height()
-                        + m_webInspectorDock.data()->style()->pixelMetric(QStyle::PM_DockWidgetSeparatorExtent)
-                        : 0;
-    }
-
     QtWin::extendFrameIntoClientArea(this, leftMargin, topMargin, rightMargin, bottomMargin);
 }
 
@@ -1623,10 +1598,6 @@ bool BrowserWindow::nativeEvent(const QByteArray &eventType, void* _message, lon
             SearchToolBar* search = searchToolBar();
             if (search) {
                 search->installEventFilter(this);
-            }
-
-            if (m_webInspectorDock) {
-                m_webInspectorDock.data()->installEventFilter(this);
             }
 
             if (isVisible()) {
