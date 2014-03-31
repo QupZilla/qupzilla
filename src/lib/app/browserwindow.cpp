@@ -50,7 +50,7 @@
 #include "browsinglibrary.h"
 #include "navigationbar.h"
 #include "pagescreen.h"
-#include "webinspectordockwidget.h"
+#include "webinspector.h"
 #include "bookmarksimport/bookmarksimportdialog.h"
 #include "qztools.h"
 #include "actioncopy.h"

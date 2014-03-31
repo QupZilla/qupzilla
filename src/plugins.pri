@@ -1,52 +1,33 @@
 include(defines.pri)
 
-INCLUDEPATH += $$PWD/lib/3rdparty\
-               $$PWD/lib/app\
-               $$PWD/lib/autofill\
-               $$PWD/lib/bookmarks\
-               $$PWD/lib/cookies\
-               $$PWD/lib/session\
-               $$PWD/lib/downloads\
-               $$PWD/lib/history\
-               $$PWD/lib/navigation\
-               $$PWD/lib/network\
-               $$PWD/lib/other\
-               $$PWD/lib/preferences\
-               $$PWD/lib/rss\
-               $$PWD/lib/tools\
-               $$PWD/lib/utils\
-               $$PWD/lib/webview\
-               $$PWD/lib/plugins\
-               $$PWD/lib/sidebar\
-               $$PWD/lib/data\
-               $$PWD/lib/adblock\
-               $$PWD/lib/desktopnotifications\
-               $$PWD/lib/opensearch\
-               $$PWD/lib/popupwindow\
+INCLUDEPATH += $$PWD/lib/3rdparty \
+               $$PWD/lib/adblock \
+               $$PWD/lib/app \
+               $$PWD/lib/autofill \
+               $$PWD/lib/bookmarks \
+               $$PWD/lib/cookies \
+               $$PWD/lib/downloads \
+               $$PWD/lib/history \
+               $$PWD/lib/navigation \
+               $$PWD/lib/network \
+               $$PWD/lib/notifications \
+               $$PWD/lib/opensearch \
+               $$PWD/lib/other \
+               $$PWD/lib/plugins \
+               $$PWD/lib/popupwindow \
+               $$PWD/lib/preferences \
+               $$PWD/lib/rss \
+               $$PWD/lib/session \
+               $$PWD/lib/sidebar \
+               $$PWD/lib/tabwidget \
+               $$PWD/lib/tools \
+               $$PWD/lib/webkit \
+               $$PWD/lib/webtab \
 
-DEPENDPATH += $$PWD/lib/3rdparty\
-              $$PWD/lib/app\
-              $$PWD/lib/autofill\
-              $$PWD/lib/bookmarks\
-              $$PWD/lib/cookies\
-              $$PWD/lib/session\
-              $$PWD/lib/downloads\
-              $$PWD/lib/history\
-              $$PWD/lib/navigation\
-              $$PWD/lib/network\
-              $$PWD/lib/other\
-              $$PWD/lib/preferences\
-              $$PWD/lib/rss\
-              $$PWD/lib/tools\
-              $$PWD/lib/utils\
-              $$PWD/lib/webview\
-              $$PWD/lib/plugins\
-              $$PWD/lib/sidebar\
-              $$PWD/lib/data\
-              $$PWD/lib/adblock\
-              $$PWD/lib/desktopnotifications\
-              $$PWD/lib/opensearch\
-              $$PWD/lib/popupwindow\
+DEPENDPATH += $$INCLUDEPATH \
+              $$PWD/lib/data \
+
+include(lib/3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
 TEMPLATE = lib
 CONFIG += plugin
