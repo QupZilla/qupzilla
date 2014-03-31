@@ -729,6 +729,19 @@ bool ComboTabBar::isMainBarOverflowed() const
     return m_mainBarOverFlowed;
 }
 
+int ComboTabBar::cornerWidth(Qt::Corner corner) const
+{
+    if (corner == Qt::TopLeftCorner) {
+        return m_leftContainer->width();
+    }
+    else if (corner == Qt::TopRightCorner) {
+        return m_rightContainer->width();
+    }
+
+    qFatal("ComboTabBar::cornerWidth Only TopLeft and TopRight corners are implemented!");
+    return -1;
+}
+
 void ComboTabBar::addCornerWidget(QWidget* widget, Qt::Corner corner)
 {
     if (corner == Qt::TopLeftCorner) {
@@ -738,7 +751,7 @@ void ComboTabBar::addCornerWidget(QWidget* widget, Qt::Corner corner)
         m_rightLayout->addWidget(widget);
     }
     else {
-        qWarning() << "ComboTabBar::addCornerWidget Only TopLeft and TopRight corners are implemented!";
+        qFatal("ComboTabBar::addCornerWidget Only TopLeft and TopRight corners are implemented!");
     }
 }
 
@@ -835,7 +848,8 @@ void ComboTabBar::setMinimumWidths()
                           comboTabBarPixelMetric(ExtraReservedWidth);
 
     // This is the full width that would be needed for the tabbar (including pinned tabbar)
-    int realTabBarWidth = mainTabBarWidth + m_pinnedTabBarWidget->width();
+    int realTabBarWidth = mainTabBarWidth + m_pinnedTabBarWidget->width() +
+                          cornerWidth(Qt::TopLeftCorner);
 
     // Does it fit in our widget?
     if (realTabBarWidth <= width()) {

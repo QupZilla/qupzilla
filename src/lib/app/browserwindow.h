@@ -183,7 +183,6 @@ private:
     QVBoxLayout* m_mainLayout;
     QSplitter* m_mainSplitter;
 
-    QLabel* m_privateBrowsing;
     AdBlockIcon* m_adblockIcon;
     QPointer<WebInspectorDockWidget> m_webInspectorDock;
 

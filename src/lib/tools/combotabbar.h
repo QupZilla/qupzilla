@@ -37,11 +37,8 @@ class ToolButton;
 class QUPZILLA_EXPORT ComboTabBar : public QWidget
 {
     Q_OBJECT
-
     Q_PROPERTY(int currentIndex READ currentIndex WRITE setCurrentIndex NOTIFY currentChanged)
     Q_PROPERTY(int count READ count)
-
-    friend class TabBarHelper;
 
 public:
     enum SizeType {
@@ -132,6 +129,9 @@ public:
     bool isDragInProgress() const;
     bool isMainBarOverflowed() const;
 
+    // Width of all widgets in the corner
+    int cornerWidth(Qt::Corner corner) const;
+    // Add widget to the left/right corner
     void addCornerWidget(QWidget* widget, Qt::Corner corner);
 
 public slots:
@@ -195,6 +195,8 @@ private:
     bool m_lastAppliedOverflow;
     bool m_usesScrollButtons;
     bool m_bluredBackground;
+
+    friend class TabBarHelper;
 };
 
 class QUPZILLA_EXPORT TabBarHelper : public QTabBar

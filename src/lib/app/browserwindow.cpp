@@ -321,10 +321,6 @@ void BrowserWindow::setupUi()
     statusBar()->setObjectName("mainwindow-statusbar");
     statusBar()->setCursor(Qt::ArrowCursor);
     m_progressBar = new ProgressBar(statusBar());
-    m_privateBrowsing = new QLabel(this);
-    m_privateBrowsing->setPixmap(IconProvider::privateBrowsingIcon().pixmap(16));
-    m_privateBrowsing->setVisible(false);
-    m_privateBrowsing->setToolTip(tr("Private Browsing Enabled"));
     m_adblockIcon = new AdBlockIcon(this);
     m_ipLabel = new QLabel(this);
     m_ipLabel->setObjectName("statusbar-ip-label");
@@ -332,7 +328,6 @@ void BrowserWindow::setupUi()
 
     statusBar()->addPermanentWidget(m_progressBar);
     statusBar()->addPermanentWidget(m_ipLabel);
-    statusBar()->addPermanentWidget(m_privateBrowsing);
     statusBar()->addPermanentWidget(m_adblockIcon);
 
     // Workaround for Oxygen tooltips not having transparent background
@@ -437,9 +432,6 @@ void BrowserWindow::loadSettings()
     m_navigationToolbar->buttonAddTab()->setVisible(showAddTabButton);
 
     m_sideBarManager->showSideBar(activeSideBar, false);
-
-    // Private browsing
-    m_privateBrowsing->setVisible(mApp->isPrivate());
 
 #ifdef Q_OS_WIN
     if (m_useTransparentBackground && !makeTransparent) {

@@ -36,6 +36,7 @@
 #include <QApplication>
 #include <QTimer>
 #include <QRect>
+#include <QLabel>
 #include <QScrollArea>
 #include <QHBoxLayout>
 #include <QToolTip>
@@ -81,6 +82,15 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     setCloseButtonsToolTip(BrowserWindow::tr("Close Tab"));
     connect(this, SIGNAL(scrollBarValueChanged(int)), this, SLOT(hideTabPreview()));
     connect(this, SIGNAL(overFlowChanged(bool)), this, SLOT(overflowChanged(bool)));
+
+    if (mApp->isPrivate()) {
+        QLabel* privateBrowsing = new QLabel(this);
+        privateBrowsing->setObjectName(QSL("private-browsing-icon"));
+        privateBrowsing->setPixmap(IconProvider::privateBrowsingIcon().pixmap(16, 16));
+        privateBrowsing->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+        privateBrowsing->setFixedWidth(30);
+        addCornerWidget(privateBrowsing, Qt::TopLeftCorner);
+    }
 }
 
 void TabBar::loadSettings()
@@ -290,13 +300,12 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
 
     if (index == count() - 1) {
         WebTab* lastMainActiveTab = qobject_cast<WebTab*>(m_tabWidget->widget(mainTabBarCurrentIndex()));
-        int xForAddTabButton = pinTabBarWidth() + normalTabsCount() * m_normalTabWidth;
+        int xForAddTabButton = cornerWidth(Qt::TopLeftCorner) + pinTabBarWidth() + normalTabsCount() * m_normalTabWidth;
 
         if (lastMainActiveTab && m_activeTabWidth > m_normalTabWidth) {
             xForAddTabButton += m_activeTabWidth - m_normalTabWidth;
         }
 
-        // RTL Support
         if (QApplication::layoutDirection() == Qt::RightToLeft) {
             xForAddTabButton = width() - xForAddTabButton;
         }
