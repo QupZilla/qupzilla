@@ -422,6 +422,7 @@ void MainMenu::aboutToShowEditMenu()
     m_actions[QSL("Edit/Copy")]->setEnabled(view->pageAction(QWebPage::Copy)->isEnabled());
     m_actions[QSL("Edit/Paste")]->setEnabled(view->pageAction(QWebPage::Paste)->isEnabled());
     m_actions[QSL("Edit/SelectAll")]->setEnabled(view->pageAction(QWebPage::SelectAll)->isEnabled());
+    m_actions[QSL("Edit/Find")]->setEnabled(true);
 }
 
 void MainMenu::aboutToHideEditMenu()
@@ -432,6 +433,7 @@ void MainMenu::aboutToHideEditMenu()
     m_actions[QSL("Edit/Copy")]->setEnabled(false);
     m_actions[QSL("Edit/Paste")]->setEnabled(false);
     m_actions[QSL("Edit/SelectAll")]->setEnabled(false);
+    m_actions[QSL("Edit/Find")]->setEnabled(false);
 }
 
 void MainMenu::aboutToShowToolsMenu()
@@ -575,7 +577,7 @@ void MainMenu::init()
     ADD_CHECKABLE_ACTION("View/CaretBrowsing", m_menuView, QIcon(), tr("&Caret Browsing"), SLOT(toggleCaretBrowsing()), "F7");
     m_menuView->addMenu(encodingMenu);
     m_menuView->addSeparator();
-    ADD_ACTION("View/PageSource", m_menuView, QIcon::fromTheme(QSL("text-html")), tr("&Page Source"), SLOT(showPageSource()), "");
+    ADD_ACTION("View/PageSource", m_menuView, QIcon::fromTheme(QSL("text-html")), tr("&Page Source"), SLOT(showPageSource()), "Ctrl+U");
     ADD_CHECKABLE_ACTION("View/FullScreen", m_menuView, QIcon(), tr("&FullScreen"), SLOT(showFullScreen()), "F11");
 
     // Tools menu
@@ -584,7 +586,7 @@ void MainMenu::init()
     connect(m_menuTools, SIGNAL(aboutToHide()), this, SLOT(aboutToHideToolsMenu()));
 
     ADD_ACTION("Tools/WebSearch", m_menuTools, QIcon(), tr("&Web Search"), SLOT(webSearch()), "Ctrl+K");
-    ADD_ACTION("Tools/SiteInfo", m_menuTools, QIcon::fromTheme(QSL("dialog-information")), tr("Site &Info"), SLOT(showSiteInfo()), "");
+    ADD_ACTION("Tools/SiteInfo", m_menuTools, QIcon::fromTheme(QSL("dialog-information")), tr("Site &Info"), SLOT(showSiteInfo()), "Ctrl+I");
     m_menuTools->addSeparator();
     ADD_ACTION("Tools/DownloadManager", m_menuTools, QIcon(), tr("&Download Manager"), SLOT(showDownloadManager()), "Ctrl+Y");
     ADD_ACTION("Tools/CookiesManager", m_menuTools, QIcon(), tr("&Cookies Manager"), SLOT(showCookieManager()), "");
@@ -640,6 +642,12 @@ void MainMenu::init()
 #ifndef QTWEBKIT_FROM_2_3
     m_actions[QSL("View/CaretBrowsing")]->setVisible(false);
 #endif
+
+    // Menus are hidden by default
+    aboutToHideFileMenu();
+    aboutToHideViewMenu();
+    aboutToHideEditMenu();
+    aboutToHideToolsMenu();
 
     addActionsToWindow();
 }

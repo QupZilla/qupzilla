@@ -1284,6 +1284,13 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
         }
         break;
 
+    case Qt::Key_F:
+        if (event->modifiers() == Qt::ControlModifier) {
+            action(QSL("Edit/Find"))->trigger();
+            event->accept();
+        }
+        break;
+
     case Qt::Key_1:
         number = 1;
         break;
