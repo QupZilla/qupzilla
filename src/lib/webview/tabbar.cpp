@@ -684,22 +684,6 @@ bool TabBar::event(QEvent* event)
     return ComboTabBar::event(event);
 }
 
-void TabBar::resizeEvent(QResizeEvent* e)
-{
-    QPoint posit;
-    posit.setY(0);
-
-    if (isRightToLeft()) {
-        posit.setX(0);
-    }
-    else {
-        posit.setX(width() - m_tabWidget->buttonClosedTabs()->width());
-    }
-    m_tabWidget->buttonClosedTabs()->move(posit);
-
-    ComboTabBar::resizeEvent(e);
-}
-
 void TabBar::wheelEvent(QWheelEvent* event)
 {
     if (mApp->plugins()->processWheelEvent(Qz::ON_TabBar, this, event)) {

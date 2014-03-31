@@ -847,9 +847,10 @@ void ComboTabBar::setMinimumWidths()
                           comboTabBarPixelMetric(ActiveTabMinimumWidth) +
                           comboTabBarPixelMetric(ExtraReservedWidth);
 
-    // This is the full width that would be needed for the tabbar (including pinned tabbar)
+    // This is the full width that would be needed for the tabbar (including pinned tabbar and corner widgets)
     int realTabBarWidth = mainTabBarWidth + m_pinnedTabBarWidget->width() +
-                          cornerWidth(Qt::TopLeftCorner);
+                          cornerWidth(Qt::TopLeftCorner) +
+                          cornerWidth(Qt::TopRightCorner);
 
     // Does it fit in our widget?
     if (realTabBarWidth <= width()) {

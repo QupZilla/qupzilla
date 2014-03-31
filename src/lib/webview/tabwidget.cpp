@@ -145,7 +145,17 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
 
     m_menuClosedTabs = new QMenu(this);
 
-    // ClosedTabs button displayed in the right corner of tabbar
+    // AddTab button displayed next to last tab
+    m_buttonAddTab = new AddTabButton(this, m_tabBar);
+    connect(m_buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
+
+    // AddTab button displayed outside tabbar (as corner widget)
+    m_buttonAddTab2 = new AddTabButton(this, m_tabBar);
+    m_buttonAddTab2->setProperty("outside-tabbar", true);
+    m_buttonAddTab2->hide();
+    connect(m_buttonAddTab2, SIGNAL(clicked()), m_window, SLOT(addTab()));
+
+    // ClosedTabs button displayed as a permanent corner widget
     m_buttonClosedTabs = new ToolButton(m_tabBar);
     m_buttonClosedTabs->setObjectName("tabwidget-button-closedtabs");
     m_buttonClosedTabs->setMenu(m_menuClosedTabs);
@@ -155,10 +165,6 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     m_buttonClosedTabs->setFocusPolicy(Qt::NoFocus);
     m_buttonClosedTabs->setShowMenuInside(true);
     connect(m_buttonClosedTabs, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowClosedTabsMenu()));
-
-    // AddTab button displayed next to last tab
-    m_buttonAddTab = new AddTabButton(this, m_tabBar);
-    connect(m_buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
 
     // ListTabs button is showed only when tabbar overflows
     m_buttonListTabs = new ToolButton(m_tabBar);
@@ -172,26 +178,8 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     m_buttonListTabs->hide();
     connect(m_buttonListTabs, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowTabsMenu()));
 
-    // AddTab button displayed outside tabbar (as corner widget)
-    m_buttonAddTab2 = new AddTabButton(this, m_tabBar);
-    m_buttonAddTab2->setProperty("outside-tabbar", true);
-    m_buttonAddTab2->hide();
-    connect(m_buttonAddTab2, SIGNAL(clicked()), m_window, SLOT(addTab()));
-
-    // ClosedTabs button displayed outside tabbar (as corner widget)
-    m_buttonClosedTabs2 = new ToolButton(m_tabBar);
-    m_buttonClosedTabs2->setObjectName("tabwidget-button-closedtabs");
-    m_buttonClosedTabs2->setMenu(m_menuClosedTabs);
-    m_buttonClosedTabs2->setPopupMode(QToolButton::InstantPopup);
-    m_buttonClosedTabs2->setToolTip(tr("Closed tabs"));
-    m_buttonClosedTabs2->setAutoRaise(true);
-    m_buttonClosedTabs2->setFocusPolicy(Qt::NoFocus);
-    m_buttonClosedTabs2->setShowMenuInside(true);
-    m_buttonClosedTabs2->hide();
-    connect(m_buttonClosedTabs2, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowClosedTabsMenu()));
-
     m_tabBar->addCornerWidget(m_buttonAddTab2, Qt::TopRightCorner);
-    m_tabBar->addCornerWidget(m_buttonClosedTabs2, Qt::TopRightCorner);
+    m_tabBar->addCornerWidget(m_buttonClosedTabs, Qt::TopRightCorner);
     m_tabBar->addCornerWidget(m_buttonListTabs, Qt::TopRightCorner);
     connect(m_tabBar, SIGNAL(overFlowChanged(bool)), this, SLOT(tabBarOverFlowChanged(bool)));
 
@@ -241,35 +229,31 @@ void TabWidget::updateClosedTabsButton()
 {
     if (!m_showClosedTabsButton) {
         m_buttonClosedTabs->hide();
-        m_buttonClosedTabs2->hide();
     }
 
     m_buttonClosedTabs->setEnabled(canRestoreTab());
-    m_buttonClosedTabs2->setEnabled(canRestoreTab());
 }
 
 void TabWidget::tabBarOverFlowChanged(bool overflowed)
 {
     // Show buttons inside tabbar
-    m_buttonClosedTabs->setVisible(m_showClosedTabsButton && !overflowed);
     m_buttonAddTab->setVisible(!overflowed);
 
     // Show buttons displayed outside tabbar (corner widgets)
     m_buttonAddTab2->setVisible(overflowed);
-    m_buttonClosedTabs2->setVisible(m_showClosedTabsButton && overflowed);
     m_buttonListTabs->setVisible(overflowed);
+    m_buttonClosedTabs->setVisible(m_showClosedTabsButton);
 }
 
 void TabWidget::moveAddTabButton(int posX)
 {
     int posY = (m_tabBar->height() - m_buttonAddTab->height()) / 2;
-    int buttonclosedTabsWidth = m_buttonClosedTabs->isVisible() ? m_buttonClosedTabs->width() : 0;
 
     if (QApplication::layoutDirection() == Qt::RightToLeft) {
-        posX = qMax(posX - m_buttonAddTab->width(), buttonclosedTabsWidth);
+        posX = qMax(posX - m_buttonAddTab->width(), 0);
     }
     else {
-        posX = qMin(posX, m_tabBar->width() - m_buttonAddTab->width() - buttonclosedTabsWidth);
+        posX = qMin(posX, m_tabBar->width() - m_buttonAddTab->width());
     }
 
     m_buttonAddTab->move(posX, posY);
@@ -616,8 +600,7 @@ int TabWidget::lastTabIndex() const
 
 int TabWidget::extraReservedWidth() const
 {
-    int w = m_buttonAddTab->width();
-    return m_showClosedTabsButton ? w + m_buttonClosedTabs->width() : w;
+    return m_buttonAddTab->width();
 }
 
 TabBar* TabWidget::getTabBar() const

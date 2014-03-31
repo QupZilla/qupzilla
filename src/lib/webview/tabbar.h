@@ -92,7 +92,6 @@ private:
     void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
     bool event(QEvent* event);
-    void resizeEvent(QResizeEvent* e);
 
     void dragEnterEvent(QDragEnterEvent* event);
     void dropEvent(QDropEvent* event);

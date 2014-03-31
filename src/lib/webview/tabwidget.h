@@ -150,7 +150,6 @@ private:
     ToolButton* m_buttonListTabs;
     QMenu* m_menuClosedTabs;
     ToolButton* m_buttonClosedTabs;
-    ToolButton* m_buttonClosedTabs2;
     AddTabButton* m_buttonAddTab;
     AddTabButton* m_buttonAddTab2;
 
