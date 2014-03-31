@@ -108,6 +108,7 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     , m_sideBarManager(new SideBarManager(this))
     , m_statusBarMessage(new StatusBarMessage(this))
     , m_useTransparentBackground(false)
+    , m_hideNavigationTimer(0)
 {
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
@@ -1124,7 +1125,10 @@ bool BrowserWindow::event(QEvent* event)
             }
 #endif
         }
-        m_hideNavigationTimer->stop();
+
+        if (m_hideNavigationTimer) {
+            m_hideNavigationTimer->stop();
+        }
         break;
     }
 
