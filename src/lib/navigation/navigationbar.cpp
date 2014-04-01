@@ -391,7 +391,7 @@ QString NavigationBar::titleForUrl(QString title, const QUrl &url)
     }
 
     if (title.isEmpty()) {
-        return tr("No Named Page");
+        return tr("Empty Page");
     }
 
     return QzTools::truncatedText(title, 40);

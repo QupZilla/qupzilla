@@ -56,21 +56,17 @@ signals:
     void changed();
 
 public slots:
-    void titleChanged();
     void setAsCurrentTab();
-
-    void slotLoadStarted();
-    void loadProgress(int prog);
-
     void userLoadAction(const LoadRequest &req);
 
     void closeView();
     void openNewTab();
     void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position);
 
-
 private slots:
+    void slotLoadStarted();
     void slotLoadFinished();
+    void slotLoadProgress(int prog);
     void urlChanged(const QUrl &url);
     void linkHovered(const QString &link, const QString &title, const QString &content);
     void setIp(const QHostInfo &info);

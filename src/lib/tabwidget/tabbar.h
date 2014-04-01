@@ -37,6 +37,7 @@ public:
 
     void loadSettings();
 
+    TabWidget* tabWidget() const;
     void setVisible(bool visible);
 
     void overrideTabTextColor(int index, QColor color);

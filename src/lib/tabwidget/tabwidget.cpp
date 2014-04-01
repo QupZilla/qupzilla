@@ -272,20 +272,9 @@ void TabWidget::aboutToShowTabsMenu()
         QAction* action = new QAction(this);
         action->setIcon(i == currentIndex() ? QIcon(QSL(":/icons/menu/dot.png")) : tab->icon());
 
-        if (tab->title().isEmpty()) {
-            if (tab->isLoading()) {
-                action->setText(tr("Loading..."));
-                action->setIcon(QIcon(":/icons/other/progress.gif"));
-            }
-            else {
-                action->setText(tr("No Named Page"));
-            }
-        }
-        else {
-            QString title = tab->title();
-            title.replace(QLatin1Char('&'), QLatin1String("&&"));
-            action->setText(QzTools::truncatedText(title, 40));
-        }
+        QString title = tab->title();
+        title.replace(QLatin1Char('&'), QLatin1String("&&"));
+        action->setText(QzTools::truncatedText(title, 40));
 
         action->setData(QVariant::fromValue(qobject_cast<QWidget*>(tab)));
         connect(action, SIGNAL(triggered()), this, SLOT(actionChangeIndex()));
@@ -373,10 +362,10 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
     m_locationBars->addWidget(webTab->locationBar());
 
     int index = insertTab(position == -1 ? count() : position, webTab, QString(), pinned);
-    webTab->setTabbed(index);
+    webTab->attach(m_window, m_tabBar);
 
     if (!title.isEmpty()) {
-        webTab->setTabTitle(title);
+        m_tabBar->setTabText(index, title);
     }
 
     if (openFlags & Qz::NT_SelectedTab) {
@@ -437,7 +426,7 @@ int TabWidget::addView(WebTab* tab)
 {
     m_locationBars->addWidget(tab->locationBar());
     int index = addTab(tab, QString());
-    tab->setTabbed(index);
+    tab->attach(m_window, m_tabBar);
 
     connect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(tab->webView(), SIGNAL(changed()), this, SIGNAL(changed()));
@@ -658,8 +647,9 @@ void TabWidget::detachTab(int index)
     disconnect(tab->webView(), SIGNAL(changed()), this, SIGNAL(changed()));
     disconnect(tab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
+    tab->detach();
+
     BrowserWindow* window = mApp->createWindow(Qz::BW_NewWindow);
-    tab->moveToWindow(window);
     window->setStartTab(tab);
 
     if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {

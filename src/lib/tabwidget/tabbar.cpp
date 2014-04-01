@@ -110,6 +110,11 @@ void TabBar::loadSettings()
     setUpLayout();
 }
 
+TabWidget* TabBar::tabWidget() const
+{
+    return m_tabWidget;
+}
+
 void TabBar::setVisible(bool visible)
 {
     if (visible && m_window->isFullScreen()) {
@@ -466,11 +471,10 @@ void TabBar::bookmarkTab()
 void TabBar::pinTab()
 {
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
-    if (!webTab) {
-        return;
-    }
 
-    webTab->pinTab(m_clickedTab);
+    if (webTab) {
+        webTab->togglePinned();
+    }
 }
 
 void TabBar::overrideTabTextColor(int index, QColor color)

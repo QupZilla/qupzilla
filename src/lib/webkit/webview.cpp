@@ -122,10 +122,15 @@ QString WebView::title() const
     }
 
     if (title.isEmpty() || title == QLatin1String("about:blank")) {
-        return tr("No Named Page");
+        return tr("Empty Page");
     }
 
     return title;
+}
+
+bool WebView::isTitleEmpty() const
+{
+    return QWebView::title().isEmpty();
 }
 
 QUrl WebView::url() const

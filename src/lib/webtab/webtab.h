@@ -66,9 +66,8 @@ public:
     QIcon icon() const;
     QWebHistory* history() const;
 
-    void moveToWindow(BrowserWindow* window);
-    void setTabbed(int index);
-    void setTabTitle(const QString &title);
+    void detach();
+    void attach(BrowserWindow* window, TabBar* tabBar);
 
     void setHistoryData(const QByteArray &data);
     QByteArray historyData() const;
@@ -79,12 +78,11 @@ public:
 
     bool isPinned() const;
     void setPinned(bool state);
+    void togglePinned();
 
     int tabIndex() const;
-    void pinTab(int index);
 
     bool isCurrentTab() const;
-
     void showWebInspector();
 
     bool isRestored() const;
@@ -96,6 +94,9 @@ public:
 
 private slots:
     void showNotification(QWidget* notif);
+    void loadStarted();
+    void titleChanged(const QString &title);
+
     void slotRestore();
 
 private:

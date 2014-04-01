@@ -35,8 +35,10 @@ public:
     ~WebView();
 
     QIcon icon() const;
-    QString title() const;
     QUrl url() const;
+
+    QString title() const;
+    bool isTitleEmpty() const;
 
     WebPage* page() const;
     void setPage(QWebPage* page);

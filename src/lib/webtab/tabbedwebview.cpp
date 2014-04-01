@@ -47,12 +47,9 @@ TabbedWebView::TabbedWebView(BrowserWindow* window, WebTab* webTab)
     m_menu->setCloseOnMiddleClick(true);
 
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
-    connect(this, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
+    connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
-
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
-    connect(this, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
-
     connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
 }
 
@@ -101,7 +98,7 @@ void TabbedWebView::urlChanged(const QUrl &url)
     }
 }
 
-void TabbedWebView::loadProgress(int prog)
+void TabbedWebView::slotLoadProgress(int prog)
 {
     Q_UNUSED(prog)
 
@@ -123,10 +120,6 @@ void TabbedWebView::userLoadAction(const LoadRequest &req)
 
 void TabbedWebView::slotLoadStarted()
 {
-    if (title().isNull()) {
-        m_webTab->setTabTitle(tr("Loading..."));
-    }
-
     m_currentIp.clear();
 }
 
@@ -152,15 +145,6 @@ void TabbedWebView::setIp(const QHostInfo &info)
     }
 }
 
-void TabbedWebView::titleChanged()
-{
-    if (m_webTab->isCurrentTab()) {
-        m_window->setWindowTitle(tr("%1 - QupZilla").arg(title()));
-    }
-
-    m_webTab->setTabTitle(title());
-}
-
 void TabbedWebView::linkHovered(const QString &link, const QString &title, const QString &content)
 {
     Q_UNUSED(title)
@@ -182,7 +166,7 @@ void TabbedWebView::linkHovered(const QString &link, const QString &title, const
 
 int TabbedWebView::tabIndex() const
 {
-    return tabWidget()->indexOf(m_webTab);
+    return m_webTab->tabIndex();
 }
 
 BrowserWindow* TabbedWebView::mainWindow() const
@@ -192,11 +176,11 @@ BrowserWindow* TabbedWebView::mainWindow() const
 
 void TabbedWebView::moveToWindow(BrowserWindow* window)
 {
-    disconnect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
-
-    m_window = window;
-
-    connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
+    if (m_window != window) {
+        disconnect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
+        m_window = window;
+        connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
+    }
 }
 
 QWidget* TabbedWebView::overlayWidget()

@@ -89,7 +89,7 @@ WebTab::WebTab(BrowserWindow* window)
     : QWidget()
     , m_window(window)
     , m_inspector(0)
-    , m_tabBar(window->tabWidget()->getTabBar())
+    , m_tabBar(0)
     , m_isPinned(false)
 {
     setObjectName(QSL("webtab"));
@@ -118,6 +118,8 @@ WebTab::WebTab(BrowserWindow* window)
     setLayout(m_layout);
 
     connect(m_webView, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
+    connect(m_webView, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
+    connect(m_webView, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged(QString)));
 }
 
 TabbedWebView* WebTab::webView() const
@@ -171,24 +173,26 @@ QWebHistory* WebTab::history() const
     return m_webView->history();
 }
 
-void WebTab::moveToWindow(BrowserWindow* window)
+void WebTab::detach()
+{
+    // Remove icon from tab
+    m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), 0);
+
+    m_window = 0;
+    m_tabBar = 0;
+
+    setParent(0);
+    m_locationBar->setParent(this);
+}
+
+void WebTab::attach(BrowserWindow* window, TabBar* tabBar)
 {
     m_window = window;
+    m_tabBar = tabBar;
+
     m_webView->moveToWindow(m_window);
-
-    m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), 0);
-    m_tabIcon->setParent(0);
-}
-
-void WebTab::setTabbed(int index)
-{
-    m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), m_tabIcon);
-    m_tabBar->setTabText(index, title());
-}
-
-void WebTab::setTabTitle(const QString &title)
-{
-    m_tabBar->setTabText(tabIndex(), title);
+    m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), m_tabIcon);
+    m_tabBar->setTabText(tabIndex(), title());
 }
 
 void WebTab::setHistoryData(const QByteArray &data)
@@ -253,6 +257,8 @@ bool WebTab::isRestored() const
 
 void WebTab::restoreTab(const WebTab::SavedTab &tab)
 {
+    Q_ASSERT(m_tabBar);
+
     if (qzSettings->loadTabsOnActivation) {
         m_savedTab = tab;
         int index = tabIndex();
@@ -294,13 +300,13 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 
 QPixmap WebTab::renderTabPreview()
 {
-    TabbedWebView* currentWebView = m_window->weView();
     WebPage* page = m_webView->page();
     const QSize oldSize = page->viewportSize();
     const QPoint originalScrollPosition = page->mainFrame()->scrollPosition();
 
     // Hack to ensure rendering the same preview before and after the page was shown for the first time
     // This can occur eg. with opening background tabs
+    TabbedWebView* currentWebView = m_window ? m_window->weView() : 0;
     if (currentWebView) {
         page->setViewportSize(currentWebView->size());
     }
@@ -342,8 +348,30 @@ void WebTab::showNotification(QWidget* notif)
     notif->show();
 }
 
+void WebTab::loadStarted()
+{
+    if (m_tabBar && m_webView->isTitleEmpty()) {
+        m_tabBar->setTabText(tabIndex(), tr("Loading..."));
+    }
+}
+
+void WebTab::titleChanged(const QString &title)
+{
+    if (!m_tabBar || !m_window || title.isEmpty()) {
+        return;
+    }
+
+    if (isCurrentTab()) {
+        m_window->setWindowTitle(tr("%1 - QupZilla").arg(title));
+    }
+
+    m_tabBar->setTabText(tabIndex(), title);
+}
+
 void WebTab::slotRestore()
 {
+    Q_ASSERT(m_tabBar);
+
     p_restoreTab(m_savedTab);
     m_savedTab.clear();
 
@@ -363,24 +391,25 @@ void WebTab::showEvent(QShowEvent* event)
             QTimer::singleShot(0, this, SLOT(slotRestore()));
         }
     }
-
 }
 
 bool WebTab::isCurrentTab() const
 {
-    return tabIndex() == m_tabBar->currentIndex();
+    return m_tabBar && tabIndex() == m_tabBar->currentIndex();
 }
 
 int WebTab::tabIndex() const
 {
-    return m_webView->tabIndex();
+    Q_ASSERT(m_tabBar);
+
+    return m_tabBar->tabWidget()->indexOf(const_cast<WebTab*>(this));
 }
 
-void WebTab::pinTab(int index)
+void WebTab::togglePinned()
 {
-    m_isPinned = !m_isPinned;
+    Q_ASSERT(m_tabBar);
+    Q_ASSERT(m_window);
 
-    index = m_window->tabWidget()->pinUnPinTab(index, m_webView->title());
-    m_tabBar->setTabText(index, m_webView->title());
-    m_tabBar->setCurrentIndex(index);
+    m_isPinned = !m_isPinned;
+    m_window->tabWidget()->pinUnPinTab(tabIndex(), title());
 }

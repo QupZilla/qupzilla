@@ -43,6 +43,7 @@ ComboTabBar::ComboTabBar(QWidget* parent)
     , m_mainBarOverFlowed(false)
     , m_lastAppliedOverflow(false)
     , m_usesScrollButtons(false)
+    , m_blockCurrentChangedSignal(false)
 {
     m_mainTabBar = new TabBarHelper(this);
     m_pinnedTabBar = new TabBarHelper(this);
@@ -259,6 +260,10 @@ void ComboTabBar::setCurrentIndex(int index)
 
 void ComboTabBar::slotCurrentChanged(int index)
 {
+    if (m_blockCurrentChangedSignal) {
+        return;
+    }
+
     if (sender() == m_pinnedTabBar) {
         if (index == -1 && m_mainTabBar->count() > 0) {
             m_mainTabBar->setActiveTabBar(true);
@@ -949,14 +954,12 @@ void TabBarHelper::removeTab(int index)
     // Removing tab in inactive tabbar will change current index and thus
     // changing active tabbar, which is really not wanted.
     if (!m_activeTabBar) {
-        blockSignals(true);
+        m_comboTabBar->m_blockCurrentChangedSignal = true;
     }
 
     QTabBar::removeTab(index);
 
-    if (!m_activeTabBar) {
-        blockSignals(false);
-    }
+    m_comboTabBar->m_blockCurrentChangedSignal = false;
 }
 
 void TabBarHelper::setScrollArea(QScrollArea* scrollArea)

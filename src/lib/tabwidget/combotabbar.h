@@ -195,8 +195,10 @@ private:
     bool m_lastAppliedOverflow;
     bool m_usesScrollButtons;
     bool m_bluredBackground;
+    bool m_blockCurrentChangedSignal;
 
     friend class TabBarHelper;
+    friend class TabStackedWidget;
 };
 
 class QUPZILLA_EXPORT TabBarHelper : public QTabBar

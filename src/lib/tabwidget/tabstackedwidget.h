@@ -54,7 +54,6 @@ public:
 
     void removeTab(int index);
 
-
     int currentIndex() const;
     QWidget* currentWidget() const;
     QWidget* widget(int index) const;
@@ -71,9 +70,9 @@ public slots:
     void setUpLayout();
 
 private slots:
-    void tabWasRemoved(int index);
     void showTab(int index);
     void tabWasMoved(int from, int to);
+    void tabWasRemoved(int index);
 
 protected:
     bool eventFilter(QObject* obj, QEvent* event);

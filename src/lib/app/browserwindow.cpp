@@ -836,7 +836,7 @@ void BrowserWindow::currentTabChanged()
         return;
     }
 
-    setWindowTitle(tr("%1 - QupZilla").arg(view->title()));
+    setWindowTitle(tr("%1 - QupZilla").arg(view->webTab()->title()));
     m_ipLabel->setText(view->getIp());
     view->setFocus();
 

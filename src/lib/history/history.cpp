@@ -74,8 +74,9 @@ void History::addHistoryEntry(const QUrl &url, QString title)
             url.isEmpty()) {
         return;
     }
+
     if (title.isEmpty()) {
-        title = tr("No Named Page");
+        title = tr("Empty Page");
     }
 
     QSqlQuery query;
