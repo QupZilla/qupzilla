@@ -57,7 +57,7 @@ PopupWebPage* PopupWebView::webPage()
     return m_page;
 }
 
-QWidget* PopupWebView::overlayForJsAlert()
+QWidget* PopupWebView::overlayWidget()
 {
     return this;
 }

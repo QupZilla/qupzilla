@@ -199,7 +199,7 @@ void TabbedWebView::moveToWindow(BrowserWindow* window)
     connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
 }
 
-QWidget* TabbedWebView::overlayForJsAlert()
+QWidget* TabbedWebView::overlayWidget()
 {
     return m_webTab;
 }

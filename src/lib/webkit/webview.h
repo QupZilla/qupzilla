@@ -61,7 +61,7 @@ public:
     void addNotification(QWidget* notif);
     bool eventFilter(QObject* obj, QEvent* event);
 
-    virtual QWidget* overlayForJsAlert() = 0;
+    virtual QWidget* overlayWidget() = 0;
 
     static bool isUrlValid(const QUrl &url);
     static QUrl guessUrlFromString(const QString &string);

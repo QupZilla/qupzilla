@@ -889,7 +889,7 @@ bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, 
     }
 
     WebView* webView = qobject_cast<WebView*>(originatingFrame->page()->view());
-    ResizableFrame* widget = new ResizableFrame(webView->overlayForJsAlert());
+    ResizableFrame* widget = new ResizableFrame(webView->overlayWidget());
 
     widget->setObjectName("jsFrame");
     Ui_jsPrompt* ui = new Ui_jsPrompt();
@@ -933,7 +933,7 @@ bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
     }
 
     WebView* webView = qobject_cast<WebView*>(originatingFrame->page()->view());
-    ResizableFrame* widget = new ResizableFrame(webView->overlayForJsAlert());
+    ResizableFrame* widget = new ResizableFrame(webView->overlayWidget());
 
     widget->setObjectName("jsFrame");
     Ui_jsConfirm* ui = new Ui_jsConfirm();
@@ -985,10 +985,9 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     dialog.exec();
 
     m_blockAlerts = dialog.isChecked();
-
 #else
     WebView* webView = qobject_cast<WebView*>(originatingFrame->page()->view());
-    ResizableFrame* widget = new ResizableFrame(webView->overlayForJsAlert());
+    ResizableFrame* widget = new ResizableFrame(webView->overlayWidget());
 
     widget->setObjectName("jsFrame");
     Ui_jsAlert* ui = new Ui_jsAlert();

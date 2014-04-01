@@ -48,7 +48,7 @@ public:
     BrowserWindow* mainWindow() const;
     void moveToWindow(BrowserWindow* window);
 
-    QWidget* overlayForJsAlert();
+    QWidget* overlayWidget();
 
 signals:
     void wantsCloseTab(int);

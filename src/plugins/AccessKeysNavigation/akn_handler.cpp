@@ -352,7 +352,7 @@ void AKN_Handler::hideAccessKeys()
 
 void AKN_Handler::makeAccessKeyLabel(const QChar &accessKey, const QWebElement &element)
 {
-    QLabel* label = new QLabel(m_view.data());
+    QLabel* label = new QLabel(m_view.data()->overlayWidget());
     label->setText(QString(QLatin1String("<b>%1</b>")).arg(accessKey));
 
     QPalette p = QToolTip::palette();
@@ -365,8 +365,8 @@ void AKN_Handler::makeAccessKeyLabel(const QChar &accessKey, const QWebElement &
     label->setFrameStyle(QFrame::Box | QFrame::Plain);
     QPoint point = element.geometry().center();
     point -= m_view.data()->page()->currentFrame()->scrollPosition();
-    label->move(point);
     label->show();
+    label->resize(label->sizeHint());
     point.setX(point.x() - label->width() / 2);
     label->move(point);
     m_accessKeyLabels.append(label);

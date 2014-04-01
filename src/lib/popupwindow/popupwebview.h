@@ -34,7 +34,7 @@ public:
     void setWebPage(PopupWebPage* page);
     PopupWebPage* webPage();
 
-    QWidget* overlayForJsAlert();
+    QWidget* overlayWidget();
     void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position);
 
 signals:
