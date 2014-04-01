@@ -33,12 +33,14 @@ public:
 
 private slots:
     void updateCloseButton();
+    void hideInspector();
 
 private:
     void hideEvent(QHideEvent* event);
     void resizeEvent(QResizeEvent* event);
 
     ToolButton* m_closeButton;
+    bool m_blockHideEvent;
 };
 
 #endif // WEBINSPECTORDOCKWIDGET_H

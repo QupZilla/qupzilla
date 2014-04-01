@@ -24,6 +24,7 @@
 WebInspector::WebInspector(QWidget* parent)
     : QWebInspector(parent)
     , m_closeButton(0)
+    , m_blockHideEvent(true)
 {
     setObjectName(QSL("web-inspector"));
     setMinimumHeight(80);
@@ -35,17 +36,30 @@ void WebInspector::updateCloseButton()
         m_closeButton = new ToolButton(this);
         m_closeButton->setAutoRaise(true);
         m_closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
-        connect(m_closeButton, SIGNAL(clicked()), this, SLOT(hide()));
+        connect(m_closeButton, SIGNAL(clicked()), this, SLOT(hideInspector()));
     }
 
     m_closeButton->show();
     m_closeButton->move(width() - m_closeButton->width(), 0);
 }
 
+void WebInspector::hideInspector()
+{
+    m_blockHideEvent = false;
+    hide();
+    m_blockHideEvent = true;
+
+    // This is needed to correctly show close button after QWebInspector re-initialization
+    m_closeButton->deleteLater();
+    m_closeButton = 0;
+}
+
 void WebInspector::hideEvent(QHideEvent* event)
 {
-    // Prevent re-initializing QWebInspector after changing tab / virtual desktop
-    Q_UNUSED(event);
+    // Prevent re-initializing QWebInspector after changing tab
+    if (!m_blockHideEvent) {
+        QWebInspector::hideEvent(event);
+    }
 }
 
 void WebInspector::resizeEvent(QResizeEvent* event)
