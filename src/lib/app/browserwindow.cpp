@@ -232,8 +232,8 @@ void BrowserWindow::postLaunch()
         }
     }
 
-    if (m_tabWidget->getTabBar()->normalTabsCount() <= 0 && m_windowType != Qz::BW_OtherRestoredWindow) {
-        // Something went really wrong .. add one tab
+    // Something went really wrong .. add one tab
+    if (m_tabWidget->getTabBar()->normalTabsCount() <= 0) {
         QNetworkRequest request(m_homepage);
         request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 

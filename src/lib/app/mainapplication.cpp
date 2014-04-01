@@ -381,11 +381,13 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
         window->restoreWindowState(data);
     }
 
+    processEvents();
+
     foreach (const RestoreManager::WindowData &data, restoreData) {
         BrowserWindow* window = createWindow(Qz::BW_OtherRestoredWindow);
         window->restoreWindowState(data);
-        // for correct geometry calculation in BrowserWindow::setupUi()
-        mApp->processEvents();
+
+        processEvents();
     }
 
     destroyRestoreManager();
