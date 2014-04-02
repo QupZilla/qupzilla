@@ -197,7 +197,6 @@ SOURCES += \
     tabwidget/tabpreview.cpp \
     tabwidget/tabstackedwidget.cpp \
     tabwidget/tabwidget.cpp \
-    tools/actioncopy.cpp \
     tools/aesinterface.cpp \
     tools/animatedwidget.cpp \
     tools/buttonbox.cpp \
@@ -401,7 +400,6 @@ HEADERS  += \
     tabwidget/tabpreview.h \
     tabwidget/tabstackedwidget.h \
     tabwidget/tabwidget.h \
-    tools/actioncopy.h \
     tools/aesinterface.h \
     tools/animatedwidget.h \
     tools/buttonbox.h \

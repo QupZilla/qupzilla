@@ -87,7 +87,6 @@ void TabStackedWidget::tabWasMoved(int from, int to)
     QWidget* w = m_stack->widget(from);
     m_stack->removeWidget(w);
     m_stack->insertWidget(to, w);
-    m_stack->setCurrentIndex(currentIndex());
     m_stack->blockSignals(false);
 }
 

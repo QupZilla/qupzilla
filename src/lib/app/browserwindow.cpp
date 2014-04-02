@@ -52,7 +52,6 @@
 #include "pagescreen.h"
 #include "bookmarksimport/bookmarksimportdialog.h"
 #include "qztools.h"
-#include "actioncopy.h"
 #include "reloadstopbutton.h"
 #include "enhancedmenu.h"
 #include "navigationcontainer.h"
@@ -345,12 +344,6 @@ void BrowserWindow::setupMenu()
 {
     // TODO: Mac menu
 #ifdef Q_OS_MAC
-    ActionCopy* copyActionPrivateBrowsing = new ActionCopy(m_actionPrivateBrowsing);
-    copyActionPrivateBrowsing->setText(copyActionPrivateBrowsing->text().remove(QLatin1Char('&')));
-    mApp->macDockMenu()->addAction(copyActionPrivateBrowsing);
-    mApp->macDockMenu()->addAction(m_menuFile->actions().at(1));
-    mApp->macDockMenu()->addAction(m_menuFile->actions().at(0));
-
     return;
 #endif
     setMenuBar(new MenuBar(this));
