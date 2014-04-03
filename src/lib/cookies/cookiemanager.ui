@@ -431,9 +431,9 @@
         </spacer>
        </item>
        <item row="3" column="1" colspan="2">
-        <widget class="QCheckBox" name="matchExactly">
+        <widget class="QCheckBox" name="filter3rdParty">
          <property name="text">
-          <string>Match domain exactly</string>
+          <string>Filter 3rd party cookies</string>
          </property>
         </widget>
        </item>
@@ -460,7 +460,7 @@
        <item row="5" column="1" colspan="3">
         <widget class="QLabel" name="label_19">
          <property name="text">
-          <string>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</string>
+          <string>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
