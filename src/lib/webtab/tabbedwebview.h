@@ -34,19 +34,18 @@ class QUPZILLA_EXPORT TabbedWebView : public WebView
 {
     Q_OBJECT
 public:
-    explicit TabbedWebView(BrowserWindow* window, WebTab* webTab);
-    ~TabbedWebView();
+    explicit TabbedWebView(WebTab* webTab);
 
-    void setWebPage(WebPage* pag);
+    void setWebPage(WebPage* page);
+
+    BrowserWindow* browserWindow() const;
+    void setBrowserWindow(BrowserWindow* window);
 
     WebTab* webTab() const;
     TabWidget* tabWidget() const;
 
     QString getIp() const;
     int tabIndex() const;
-
-    BrowserWindow* mainWindow() const;
-    void moveToWindow(BrowserWindow* window);
 
     QWidget* overlayWidget();
 
@@ -82,7 +81,6 @@ private:
     Menu* m_menu;
 
     QString m_currentIp;
-
 };
 
 #endif // TABBEDWEBVIEW_H

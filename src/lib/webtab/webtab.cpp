@@ -97,9 +97,10 @@ WebTab::WebTab(BrowserWindow* window)
     // This fixes background of pages with dark themes
     setStyleSheet("#webtab {background-color:white;}");
 
-    m_webView = new TabbedWebView(m_window, this);
+    m_webView = new TabbedWebView(this);
+    m_webView->setBrowserWindow(m_window);
+    m_webView->setWebPage(new WebPage(this));
     m_webView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
-    m_webView->setWebPage(new WebPage(m_webView));
 
     m_locationBar = new LocationBar(m_window);
     m_locationBar->setWebView(m_webView);
@@ -178,19 +179,24 @@ void WebTab::detach()
     // Remove icon from tab
     m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), 0);
 
+    // Remove the tab from tabbar
+    setParent(0);
+    // Remove the locationbar from window
+    m_locationBar->setParent(this);
+    // Detach TabbedWebView
+    m_webView->setBrowserWindow(0);
+
+    // WebTab is now standalone widget
     m_window = 0;
     m_tabBar = 0;
-
-    setParent(0);
-    m_locationBar->setParent(this);
 }
 
-void WebTab::attach(BrowserWindow* window, TabBar* tabBar)
+void WebTab::attach(BrowserWindow* window)
 {
     m_window = window;
-    m_tabBar = tabBar;
+    m_tabBar = m_window->tabWidget()->getTabBar();
 
-    m_webView->moveToWindow(m_window);
+    m_webView->setBrowserWindow(m_window);
     m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), m_tabIcon);
     m_tabBar->setTabText(tabIndex(), title());
 }
@@ -207,7 +213,6 @@ QByteArray WebTab::historyData() const
         QByteArray historyArray;
         QDataStream historyStream(&historyArray, QIODevice::WriteOnly);
         historyStream << *m_webView->history();
-
         return historyArray;
     }
     else {
@@ -329,6 +334,7 @@ QPixmap WebTab::renderTabPreview()
     p.end();
 
     page->setViewportSize(oldSize);
+
     // Restore also scrollbar positions, to prevent messing scrolling to anchor links
     page->mainFrame()->setScrollBarValue(Qt::Vertical, originalScrollPosition.y());
     page->mainFrame()->setScrollBarValue(Qt::Horizontal, originalScrollPosition.x());

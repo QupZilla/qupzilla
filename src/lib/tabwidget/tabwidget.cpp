@@ -362,7 +362,7 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
     m_locationBars->addWidget(webTab->locationBar());
 
     int index = insertTab(position == -1 ? count() : position, webTab, QString(), pinned);
-    webTab->attach(m_window, m_tabBar);
+    webTab->attach(m_window);
 
     if (!title.isEmpty()) {
         m_tabBar->setTabText(index, title);
@@ -426,7 +426,7 @@ int TabWidget::addView(WebTab* tab)
 {
     m_locationBars->addWidget(tab->locationBar());
     int index = addTab(tab, QString());
-    tab->attach(m_window, m_tabBar);
+    tab->attach(m_window);
 
     connect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(tab->webView(), SIGNAL(changed()), this, SIGNAL(changed()));

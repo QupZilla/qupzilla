@@ -17,7 +17,6 @@
 * ============================================================ */
 #include "webpage.h"
 #include "tabbedwebview.h"
-#include "tabwidget.h"
 #include "browserwindow.h"
 #include "pluginproxy.h"
 #include "downloadmanager.h"
@@ -579,7 +578,7 @@ void WebPage::populateNetworkRequest(QNetworkRequest &request)
 QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
 {
     if (m_view) {
-        return new PopupWebPage(type, m_view->mainWindow());
+        return new PopupWebPage(type, m_view->browserWindow());
     }
 
     if (PopupWebPage* popupPage = qobject_cast<PopupWebPage*>(this)) {
@@ -597,7 +596,7 @@ QObject* WebPage::createPlugin(const QString &classid, const QUrl &url,
     Q_UNUSED(paramValues)
 
     if (classid == QLatin1String("RecoveryWidget") && mApp->restoreManager() && m_view) {
-        return new RecoveryWidget(m_view, m_view->mainWindow());
+        return new RecoveryWidget(m_view, m_view->browserWindow());
     }
     else {
         mainFrame()->load(QUrl("qupzilla:start"));

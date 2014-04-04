@@ -38,9 +38,9 @@
 #include <QWebFrame>
 #include <QContextMenuEvent>
 
-TabbedWebView::TabbedWebView(BrowserWindow* window, WebTab* webTab)
+TabbedWebView::TabbedWebView(WebTab* webTab)
     : WebView(webTab)
-    , m_window(window)
+    , m_window(0)
     , m_webTab(webTab)
     , m_menu(new Menu(this))
 {
@@ -50,11 +50,6 @@ TabbedWebView::TabbedWebView(BrowserWindow* window, WebTab* webTab)
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
-    connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
-}
-
-TabbedWebView::~TabbedWebView()
-{
 }
 
 void TabbedWebView::setWebPage(WebPage* page)
@@ -66,9 +61,27 @@ void TabbedWebView::setWebPage(WebPage* page)
     connect(page, SIGNAL(linkHovered(QString,QString,QString)), this, SLOT(linkHovered(QString,QString,QString)));
 }
 
+BrowserWindow* TabbedWebView::browserWindow() const
+{
+    return m_window;
+}
+
+void TabbedWebView::setBrowserWindow(BrowserWindow* window)
+{
+    if (m_window) {
+        disconnect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
+    }
+
+    m_window = window;
+
+    if (m_window) {
+        connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
+    }
+}
+
 void TabbedWebView::inspectElement()
 {
-    m_window->showWebInspector();
+    m_webTab->showWebInspector();
     triggerPageAction(QWebPage::InspectElement);
 }
 
@@ -79,7 +92,8 @@ WebTab* TabbedWebView::webTab() const
 
 TabWidget* TabbedWebView::tabWidget() const
 {
-    return m_window->tabWidget();
+    // FIXME:!!
+    return m_window ? m_window->tabWidget() : 0;
 }
 
 QString TabbedWebView::getIp() const
@@ -89,7 +103,7 @@ QString TabbedWebView::getIp() const
 
 void TabbedWebView::urlChanged(const QUrl &url)
 {
-    if (m_webTab->isCurrentTab()) {
+    if (m_webTab->isCurrentTab() && m_window) {
         m_window->navigationBar()->refreshHistory();
     }
 
@@ -102,7 +116,7 @@ void TabbedWebView::slotLoadProgress(int prog)
 {
     Q_UNUSED(prog)
 
-    if (m_webTab->isCurrentTab()) {
+    if (m_webTab->isCurrentTab() && m_window) {
         m_window->updateLoadingActions();
     }
 }
@@ -127,7 +141,7 @@ void TabbedWebView::slotLoadFinished()
 {
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
 
-    if (m_webTab->isCurrentTab()) {
+    if (m_webTab->isCurrentTab() && m_window) {
         m_window->updateLoadingActions();
     }
 }
@@ -150,7 +164,7 @@ void TabbedWebView::linkHovered(const QString &link, const QString &title, const
     Q_UNUSED(title)
     Q_UNUSED(content)
 
-    if (m_webTab->isCurrentTab()) {
+    if (m_webTab->isCurrentTab() && m_window) {
         if (link.isEmpty()) {
             m_window->statusBarMessage()->clearMessage();
         }
@@ -169,20 +183,6 @@ int TabbedWebView::tabIndex() const
     return m_webTab->tabIndex();
 }
 
-BrowserWindow* TabbedWebView::mainWindow() const
-{
-    return m_window;
-}
-
-void TabbedWebView::moveToWindow(BrowserWindow* window)
-{
-    if (m_window != window) {
-        disconnect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
-        m_window = window;
-        connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
-    }
-}
-
 QWidget* TabbedWebView::overlayWidget()
 {
     return m_webTab;
@@ -196,7 +196,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
 
     createContextMenu(m_menu, hitTest, event->pos());
 
-    if (!hitTest.isContentEditable() && !hitTest.isContentSelected()) {
+    if (!hitTest.isContentEditable() && !hitTest.isContentSelected() && m_window) {
         m_menu->addAction(m_window->adBlockIcon()->menuAction());
     }
 
@@ -227,9 +227,11 @@ void TabbedWebView::openNewTab()
 
 void TabbedWebView::loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position)
 {
-    int index = tabWidget()->addView(QUrl(), position);
-    m_window->weView(index)->webTab()->locationBar()->showUrl(req.url());
-    m_window->weView(index)->load(req);
+    if (m_window) {
+        int index = tabWidget()->addView(QUrl(), position);
+        m_window->weView(index)->webTab()->locationBar()->showUrl(req.url());
+        m_window->weView(index)->load(req);
+    }
 }
 
 void TabbedWebView::setAsCurrentTab()
@@ -239,7 +241,7 @@ void TabbedWebView::setAsCurrentTab()
 
 void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
 {
-    if (m_window->isFullScreen()) {
+    if (m_window && m_window->isFullScreen()) {
         if (m_window->fullScreenNavigationVisible()) {
             m_window->hideNavigationWithFullScreen();
         }

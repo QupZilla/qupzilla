@@ -67,7 +67,7 @@ public:
     QWebHistory* history() const;
 
     void detach();
-    void attach(BrowserWindow* window, TabBar* tabBar);
+    void attach(BrowserWindow* window);
 
     void setHistoryData(const QByteArray &data);
     QByteArray historyData() const;
