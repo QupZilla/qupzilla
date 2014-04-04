@@ -59,13 +59,6 @@ private slots:
     void loadProgress(int value);
     void loadFinished();
 
-    void editUndo();
-    void editRedo();
-    void editCut();
-    void editCopy();
-    void editPaste();
-    void editSelectAll();
-
     void aboutToShowEditMenu();
     void aboutToHideEditMenu();
 
