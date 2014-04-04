@@ -232,7 +232,7 @@ void BrowserWindow::postLaunch()
     }
 
     // Something went really wrong .. add one tab
-    if (m_tabWidget->getTabBar()->normalTabsCount() <= 0) {
+    if (m_tabWidget->tabBar()->normalTabsCount() <= 0) {
         QNetworkRequest request(m_homepage);
         request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
 
@@ -245,7 +245,7 @@ void BrowserWindow::postLaunch()
     raise();
     activateWindow();
 
-    QTimer::singleShot(0, tabWidget()->getTabBar(), SLOT(ensureVisible()));
+    QTimer::singleShot(0, tabWidget()->tabBar(), SLOT(ensureVisible()));
 }
 
 void BrowserWindow::setupUi()
@@ -309,7 +309,7 @@ void BrowserWindow::setupUi()
     m_navigationContainer = new NavigationContainer(this);
     m_navigationContainer->addWidget(m_navigationToolbar);
     m_navigationContainer->addWidget(m_bookmarksToolbar);
-    m_navigationContainer->setTabBar(m_tabWidget->getTabBar());
+    m_navigationContainer->setTabBar(m_tabWidget->tabBar());
 
     m_mainSplitter->addWidget(m_tabWidget);
     m_mainSplitter->setCollapsible(0, false);

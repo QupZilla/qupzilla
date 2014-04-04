@@ -194,7 +194,7 @@ void WebTab::detach()
 void WebTab::attach(BrowserWindow* window)
 {
     m_window = window;
-    m_tabBar = m_window->tabWidget()->getTabBar();
+    m_tabBar = m_window->tabWidget()->tabBar();
 
     m_webView->setBrowserWindow(m_window);
     m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), m_tabIcon);

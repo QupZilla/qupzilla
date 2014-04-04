@@ -90,7 +90,7 @@ public:
     int lastTabIndex() const;
     int extraReservedWidth() const;
 
-    TabBar* getTabBar() const;
+    TabBar* tabBar() const;
     ClosedTabsManager* closedTabsManager() const;
     QList<WebTab*> allTabs(bool withPinned = true);
     bool canRestoreTab() const;

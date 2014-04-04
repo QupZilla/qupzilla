@@ -591,7 +591,7 @@ int TabWidget::extraReservedWidth() const
     return m_buttonAddTab->width();
 }
 
-TabBar* TabWidget::getTabBar() const
+TabBar* TabWidget::tabBar() const
 {
     return m_tabBar;
 }
