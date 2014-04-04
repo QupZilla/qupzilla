@@ -405,11 +405,16 @@ QString Speller::getDictionaryPath() const
 
 QString Speller::nameForLanguage(const QString &code) const
 {
-    QLocale loc = QLocale(code);
-    QString name = QLocale::languageToString(loc.language());
+    QLocale locale = QLocale(code);
 
-    if (loc.country() != QLocale::AnyCountry) {
-        name.append(" / " + QLocale::countryToString(loc.country()));
+    QString name = QLocale::languageToString(locale.language());
+    const QString scriptName = QLocale::scriptToString(locale.script());
+
+    if (locale.country() != QLocale::AnyCountry) {
+        if (code.contains(QLatin1Char('-'))) {
+            name.append(QL1S(" (") + scriptName + QL1S(")"));
+        }
+        name.append(QL1S(" / ") + QLocale::countryToString(locale.country()));
     }
 
     return name;
