@@ -35,7 +35,7 @@ PluginSpec MouseGesturesPlugin::pluginSpec()
     spec.name = "Mouse Gestures";
     spec.info = "Mouse gestures for QupZilla";
     spec.description = "Provides support for navigating in webpages by mouse gestures";
-    spec.version = "0.3.3";
+    spec.version = "0.4.0";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":/mousegestures/data/icon.png");
     spec.hasSettings = true;
