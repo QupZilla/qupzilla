@@ -207,6 +207,7 @@ private:
     // Shortcuts
     bool m_useTabNumberShortcuts;
     bool m_useSpeedDialNumberShortcuts;
+    bool m_useSingleKeyShortcuts;
 
     // Remember visibility of menubar and statusbar after entering Fullscreen
     bool m_menuBarVisible;
