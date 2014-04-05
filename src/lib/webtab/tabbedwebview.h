@@ -23,6 +23,7 @@
 
 class QLabel;
 class QHostInfo;
+class QInputEvent;
 
 class BrowserWindow;
 class TabWidget;
@@ -75,6 +76,8 @@ private slots:
 private:
     void contextMenuEvent(QContextMenuEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
+    void _doContextMenu(const QPoint &pos, const QPoint &globalPos);
 
     BrowserWindow* m_window;
     WebTab* m_webTab;

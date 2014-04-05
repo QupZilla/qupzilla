@@ -31,7 +31,7 @@ class MouseGestures : public QObject
 {
     Q_OBJECT
 public:
-    explicit MouseGestures(QObject* parent = 0);
+    explicit MouseGestures(const QString &settingsPath, QObject* parent = 0);
     ~MouseGestures();
 
     bool mousePress(QObject* obj, QMouseEvent* event);
@@ -40,6 +40,14 @@ public:
 
     void showSettings(QWidget* parent);
     void unloadPlugin();
+
+    Qt::MouseButton gestureButton() const;
+    int buttonToIndex() const;
+    void setGestureButton(Qt::MouseButton button);
+    void setGestureButtonByIndex(int index);
+
+    void loadSettings();
+    void saveSettings();
 
 private slots:
     void upGestured();
@@ -55,9 +63,13 @@ private slots:
     void upRightGestured();
 
 private:
+    void initFilter();
+
     QjtMouseGestureFilter* m_filter;
     QPointer<MouseGesturesSettingsDialog> m_settings;
     QPointer<WebView> m_view;
+    Qt::MouseButton m_button;
+    QString m_settingsFile;
 };
 
 #endif // MOUSEGESTURES_H

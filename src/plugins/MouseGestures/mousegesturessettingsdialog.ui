@@ -61,10 +61,7 @@
    <item>
     <widget class="QLabel" name="label_17">
      <property name="text">
-      <string>Press and hold the middle mouse button and move your mouse in the indicated directions.</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <string>Press and hold the mouse button and move your mouse in the indicated directions.</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
@@ -72,17 +69,47 @@
     </widget>
    </item>
    <item>
-    <spacer name="verticalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label_22">
+       <property name="text">
+        <string>Mouse button:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="mouseButtonComboBox">
+       <item>
+        <property name="text">
+         <string>Middle button (default)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Right button (Opera 12.x)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Left button (not recommended)</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout">
@@ -260,7 +287,7 @@
         <enum>Qt::Horizontal</enum>
        </property>
        <property name="standardButtons">
-        <set>QDialogButtonBox::Close</set>
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
        </property>
       </widget>
      </item>
