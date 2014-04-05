@@ -28,9 +28,13 @@
 
 #include <QMouseEvent>
 #include <QWebFrame>
+#include <QWebHistory>
 
-MouseGestures::MouseGestures(QObject* parent) :
-    QObject(parent)
+MouseGestures::MouseGestures(QObject* parent)
+    : QObject(parent)
+    , m_blockNextRightMouseRelease(false)
+    , m_blockNextLeftMouseRelease(false)
+    , m_enableRockerNavigation(false)
 {
     m_filter = new QjtMouseGestureFilter(false, Qt::MiddleButton, 20);
 
@@ -85,6 +89,25 @@ bool MouseGestures::mousePress(QObject* obj, QMouseEvent* event)
         return false;
     }
 
+    if (m_enableRockerNavigation && event->buttons() == (Qt::RightButton | Qt::LeftButton)) {
+        bool accepted = false;
+
+        if (event->button() == Qt::LeftButton && m_view.data()->history()->canGoBack()) {
+            m_view.data()->back();
+            accepted = true;
+        }
+        else if (event->button() == Qt::RightButton && m_view.data()->history()->canGoForward()) {
+            m_view.data()->forward();
+            accepted = true;
+        }
+
+        if (accepted) {
+            m_blockNextLeftMouseRelease = true;
+            m_blockNextRightMouseRelease = true;
+            return true;
+        }
+    }
+
     m_filter->mouseButtonPressEvent(event);
 
     return false;
@@ -93,6 +116,16 @@ bool MouseGestures::mousePress(QObject* obj, QMouseEvent* event)
 bool MouseGestures::mouseRelease(QObject* obj, QMouseEvent* event)
 {
     Q_UNUSED(obj)
+
+    if (m_blockNextRightMouseRelease && event->button() == Qt::RightButton) {
+        m_blockNextRightMouseRelease = false;
+        return true;
+    }
+
+    if (m_blockNextLeftMouseRelease && event->button() == Qt::LeftButton) {
+        m_blockNextLeftMouseRelease = false;
+        return true;
+    }
 
     return m_filter->mouseButtonReleaseEvent(event);
 }

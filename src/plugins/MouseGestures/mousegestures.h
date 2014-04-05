@@ -58,6 +58,10 @@ private:
     QjtMouseGestureFilter* m_filter;
     QPointer<MouseGesturesSettingsDialog> m_settings;
     QPointer<WebView> m_view;
+    bool m_blockNextRightMouseRelease;
+    bool m_blockNextLeftMouseRelease;
+
+    bool m_enableRockerNavigation;
 };
 
 #endif // MOUSEGESTURES_H
