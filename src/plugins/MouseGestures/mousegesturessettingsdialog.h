@@ -26,19 +26,23 @@ namespace Ui
 class MouseGesturesSettingsDialog;
 }
 
+class MouseGestures;
+
 class MouseGesturesSettingsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit MouseGesturesSettingsDialog(QWidget* parent = 0);
+    explicit MouseGesturesSettingsDialog(MouseGestures* gestures, QWidget* parent = 0);
     ~MouseGesturesSettingsDialog();
 
 private slots:
     void showLicense();
+    void accepted();
 
 private:
     Ui::MouseGesturesSettingsDialog* ui;
+    MouseGestures* m_gestures;
 };
 
 #endif // MOUSEGESTURESSETTINGSDIALOG_H

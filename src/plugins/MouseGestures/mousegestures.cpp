@@ -29,14 +29,28 @@
 #include <QMouseEvent>
 #include <QWebFrame>
 #include <QWebHistory>
+#include <QSettings>
 
-MouseGestures::MouseGestures(QObject* parent)
+MouseGestures::MouseGestures(const QString &settingsPath, QObject* parent)
     : QObject(parent)
+    , m_filter(0)
+    , m_settingsFile(settingsPath + QL1S("/extensions.ini"))
+    , m_button(Qt::MiddleButton)
+    , m_enableRockerNavigation(false)
     , m_blockNextRightMouseRelease(false)
     , m_blockNextLeftMouseRelease(false)
-    , m_enableRockerNavigation(false)
 {
-    m_filter = new QjtMouseGestureFilter(false, Qt::MiddleButton, 20);
+    loadSettings();
+}
+
+void MouseGestures::initFilter()
+{
+    if (m_filter) {
+        m_filter->clearGestures(true);
+        delete m_filter;
+    }
+
+    m_filter = new QjtMouseGestureFilter(false, m_button, 20);
 
     QjtMouseGesture* upGesture = new QjtMouseGesture(DirectionList() << Up, m_filter);
     connect(upGesture, SIGNAL(gestured()), this, SLOT(upGestured()));
@@ -142,7 +156,7 @@ bool MouseGestures::mouseMove(QObject* obj, QMouseEvent* event)
 void MouseGestures::showSettings(QWidget* parent)
 {
     if (!m_settings) {
-        m_settings = new MouseGesturesSettingsDialog(parent);
+        m_settings = new MouseGesturesSettingsDialog(this, parent);
     }
 
     m_settings.data()->show();
@@ -255,6 +269,90 @@ void MouseGestures::upRightGestured()
     else {
         view->tabWidget()->nextTab();
     }
+}
+
+void MouseGestures::init()
+{
+    initFilter();
+
+    // We need to override right mouse button events
+    WebView::setForceContextMenuOnMouseRelease(m_button == Qt::RightButton || m_enableRockerNavigation);
+}
+
+void MouseGestures::setGestureButton(Qt::MouseButton button)
+{
+    m_button = button;
+    init();
+}
+
+void MouseGestures::setGestureButtonByIndex(int index)
+{
+    switch (index) {
+    case 0:
+        m_button = Qt::MiddleButton;
+        break;
+
+    case 1:
+        m_button = Qt::RightButton;
+        break;
+
+    default:
+        m_button = Qt::NoButton;
+    }
+
+    setGestureButton(m_button);
+}
+
+Qt::MouseButton MouseGestures::gestureButton() const
+{
+    return m_button;
+}
+
+int MouseGestures::buttonToIndex() const
+{
+    switch (m_button) {
+    case Qt::MiddleButton:
+        return 0;
+
+    case Qt::RightButton:
+        return 1;
+
+    default:
+        return 2;
+    }
+}
+
+bool MouseGestures::rockerNavigationEnabled() const
+{
+    return m_enableRockerNavigation;
+}
+
+void MouseGestures::setRockerNavigationEnabled(bool enable)
+{
+    m_enableRockerNavigation = enable;
+    init();
+}
+
+void MouseGestures::loadSettings()
+{
+    QSettings settings(m_settingsFile, QSettings::IniFormat);
+
+    settings.beginGroup("MouseGestures");
+    setGestureButtonByIndex(settings.value("Button", 0).toInt());
+    m_enableRockerNavigation = settings.value("RockerNavigation", true).toBool();
+    settings.endGroup();
+
+    init();
+}
+
+void MouseGestures::saveSettings()
+{
+    QSettings settings(m_settingsFile, QSettings::IniFormat);
+
+    settings.beginGroup("MouseGestures");
+    settings.setValue("Button", buttonToIndex());
+    settings.setValue("RockerNavigation", m_enableRockerNavigation);
+    settings.endGroup();
 }
 
 MouseGestures::~MouseGestures()

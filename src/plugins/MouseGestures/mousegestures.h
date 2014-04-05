@@ -31,7 +31,7 @@ class MouseGestures : public QObject
 {
     Q_OBJECT
 public:
-    explicit MouseGestures(QObject* parent = 0);
+    explicit MouseGestures(const QString &settingsPath, QObject* parent = 0);
     ~MouseGestures();
 
     bool mousePress(QObject* obj, QMouseEvent* event);
@@ -40,6 +40,17 @@ public:
 
     void showSettings(QWidget* parent);
     void unloadPlugin();
+
+    Qt::MouseButton gestureButton() const;
+    void setGestureButton(Qt::MouseButton button);
+    void setGestureButtonByIndex(int index);
+    int buttonToIndex() const;
+
+    bool rockerNavigationEnabled() const;
+    void setRockerNavigationEnabled(bool enable);
+
+    void loadSettings();
+    void saveSettings();
 
 private slots:
     void upGestured();
@@ -55,13 +66,19 @@ private slots:
     void upRightGestured();
 
 private:
+    void init();
+    void initFilter();
+
     QjtMouseGestureFilter* m_filter;
     QPointer<MouseGesturesSettingsDialog> m_settings;
     QPointer<WebView> m_view;
+
+    QString m_settingsFile;
+    Qt::MouseButton m_button;
+    bool m_enableRockerNavigation;
+
     bool m_blockNextRightMouseRelease;
     bool m_blockNextLeftMouseRelease;
-
-    bool m_enableRockerNavigation;
 };
 
 #endif // MOUSEGESTURES_H

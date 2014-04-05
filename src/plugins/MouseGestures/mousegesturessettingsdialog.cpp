@@ -18,12 +18,14 @@
 #include "mousegesturessettingsdialog.h"
 #include "ui_mousegesturessettingsdialog.h"
 #include "licenseviewer.h"
+#include "mousegestures.h"
 
 #include <QLabel>
 
-MouseGesturesSettingsDialog::MouseGesturesSettingsDialog(QWidget* parent)
+MouseGesturesSettingsDialog::MouseGesturesSettingsDialog(MouseGestures* gestures, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::MouseGesturesSettingsDialog)
+    , m_gestures(gestures)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
@@ -35,8 +37,14 @@ MouseGesturesSettingsDialog::MouseGesturesSettingsDialog(QWidget* parent)
         ui->label_20->setPixmap(QPixmap(":/mousegestures/data/up-left.gif"));
     }
 
+    m_gestures->loadSettings();
+    ui->mouseButtonComboBox->setCurrentIndex(m_gestures->buttonToIndex());
+    ui->enableRockerNavigation->setChecked(m_gestures->rockerNavigationEnabled());
+
     setAttribute(Qt::WA_DeleteOnClose);
 
+    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accepted()));
+    connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
     connect(ui->licenseButton, SIGNAL(clicked()), this, SLOT(showLicense()));
 }
 
@@ -51,4 +59,12 @@ void MouseGesturesSettingsDialog::showLicense()
     v->setLicenseFile(":mousegestures/data/copyright");
 
     v->show();
+}
+
+void MouseGesturesSettingsDialog::accepted()
+{
+    m_gestures->setGestureButtonByIndex(ui->mouseButtonComboBox->currentIndex());
+    m_gestures->setRockerNavigationEnabled(ui->enableRockerNavigation->isChecked());
+    m_gestures->saveSettings();
+    close();
 }
