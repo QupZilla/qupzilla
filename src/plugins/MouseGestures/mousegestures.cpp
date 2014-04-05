@@ -28,11 +28,20 @@
 
 #include <QMouseEvent>
 #include <QWebFrame>
+#include <QSettings>
 
-MouseGestures::MouseGestures(QObject* parent) :
+MouseGestures::MouseGestures(const QString &settingsPath, QObject* parent) :
     QObject(parent)
+    , m_filter(0)
+    , m_button(Qt::MiddleButton)
+    , m_settingsFile(settingsPath + "extensions.ini")
 {
-    m_filter = new QjtMouseGestureFilter(false, Qt::MiddleButton, 20);
+    loadSettings();
+    initFilter();
+}
+
+void MouseGestures::initFilter() {
+    m_filter = new QjtMouseGestureFilter(false, m_button, 20);
 
     QjtMouseGesture* upGesture = new QjtMouseGesture(DirectionList() << Up, m_filter);
     connect(upGesture, SIGNAL(gestured()), this, SLOT(upGestured()));
@@ -109,7 +118,7 @@ bool MouseGestures::mouseMove(QObject* obj, QMouseEvent* event)
 void MouseGestures::showSettings(QWidget* parent)
 {
     if (!m_settings) {
-        m_settings = new MouseGesturesSettingsDialog(parent);
+        m_settings = new MouseGesturesSettingsDialog(this, parent);
     }
 
     m_settings.data()->show();
@@ -222,6 +231,69 @@ void MouseGestures::upRightGestured()
     else {
         view->tabWidget()->nextTab();
     }
+}
+
+void MouseGestures::setGestureButton(Qt::MouseButton button)
+{
+    if (m_filter) {
+        m_filter->clearGestures(true);
+        delete m_filter;
+        m_filter = NULL;
+    }
+
+    m_button = button;
+    initFilter();
+}
+
+void MouseGestures::setGestureButtonByIndex(int index)
+{
+    switch (index) {
+	default:
+        case 0:
+	    m_button = Qt::MiddleButton;
+	    break;
+        case 1:
+	    m_button = Qt::RightButton;
+	    break;
+        case 2:
+	    m_button = Qt::LeftButton;
+	    break;
+    }
+
+    setGestureButton(m_button);
+}
+
+Qt::MouseButton MouseGestures::gestureButton() const
+{
+    return m_button;
+}
+
+int MouseGestures::buttonToIndex() const
+{
+    switch (m_button) {
+	default:
+	case Qt::MiddleButton: return 0;
+	case Qt::RightButton: return 1;
+	case Qt::LeftButton: return 2;
+    }
+}
+
+void MouseGestures::loadSettings()
+{
+    QSettings settings(m_settingsFile, QSettings::IniFormat);
+
+    settings.beginGroup("MouseGestures");
+    setGestureButtonByIndex(settings.value("Button", 0).toInt());
+    settings.endGroup();
+}
+
+void MouseGestures::saveSettings()
+{
+    QSettings settings(m_settingsFile, QSettings::IniFormat);
+
+    settings.beginGroup("MouseGestures");
+    settings.setValue("Button", buttonToIndex());
+    settings.endGroup();
 }
 
 MouseGestures::~MouseGestures()

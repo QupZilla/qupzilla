@@ -31,12 +31,14 @@
 #include "enhancedmenu.h"
 #include "adblockicon.h"
 #include "locationbar.h"
+#include "pluginproxy.h"
 
 #include <QMovie>
 #include <QStatusBar>
 #include <QHostInfo>
 #include <QWebFrame>
 #include <QContextMenuEvent>
+#include <QInputEvent>
 
 TabbedWebView::TabbedWebView(WebTab* webTab)
     : WebView(webTab)
@@ -188,13 +190,13 @@ QWidget* TabbedWebView::overlayWidget()
     return m_webTab;
 }
 
-void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
+void TabbedWebView::_doContextMenu(const QPoint &pos, const QPoint &globalPos)
 {
     m_menu->clear();
 
-    const QWebHitTestResult hitTest = page()->mainFrame()->hitTestContent(event->pos());
+    const QWebHitTestResult hitTest = page()->mainFrame()->hitTestContent(pos);
 
-    createContextMenu(m_menu, hitTest, event->pos());
+    createContextMenu(m_menu, hitTest, pos);
 
     if (!hitTest.isContentEditable() && !hitTest.isContentSelected() && m_window) {
         m_menu->addAction(m_window->adBlockIcon()->menuAction());
@@ -205,13 +207,21 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
 
     if (!m_menu->isEmpty()) {
         // Prevent choosing first option with double rightclick
-        const QPoint pos = event->globalPos();
+        const QPoint pos = globalPos;
         QPoint p(pos.x(), pos.y() + 1);
 
         m_menu->popup(p);
         return;
     }
+}
 
+void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
+{
+
+    if (event->reason() == QContextMenuEvent::Mouse)
+        return;
+
+    _doContextMenu(event->pos(), event->globalPos());
     WebView::contextMenuEvent(event);
 }
 
@@ -251,4 +261,15 @@ void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
     }
 
     WebView::mouseMoveEvent(event);
+}
+
+void TabbedWebView::mouseReleaseEvent(QMouseEvent* event)
+{
+    if (mApp->plugins()->processMouseRelease(Qz::ON_WebView, this, event))
+        return;
+
+    if (event->button() == Qt::RightButton)
+        _doContextMenu(event->pos(), event->globalPos());
+
+    WebView::mouseReleaseEvent(event);
 }

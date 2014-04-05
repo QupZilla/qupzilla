@@ -46,9 +46,8 @@ PluginSpec MouseGesturesPlugin::pluginSpec()
 void MouseGesturesPlugin::init(InitState state, const QString &settingsPath)
 {
     Q_UNUSED(state)
-    Q_UNUSED(settingsPath)
 
-    m_gestures = new MouseGestures(this);
+    m_gestures = new MouseGestures(settingsPath, this);
 
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::MousePressHandler);
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::MouseReleaseHandler);
