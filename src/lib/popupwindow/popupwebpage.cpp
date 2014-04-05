@@ -109,8 +109,9 @@ void PopupWebPage::checkBehaviour()
     // If so, we should open new window.
     // But not when all visibilities are false, it occurs with target=_blank links
 
-    if (!m_createNewWindow && (!m_menuBarVisible || !m_statusBarVisible || !m_toolBarVisible)
-            && !(!m_menuBarVisible && !m_statusBarVisible && !m_toolBarVisible)) {
+    if (!m_createNewWindow && (!m_menuBarVisible || !m_statusBarVisible || !m_toolBarVisible) &&
+        !(!m_menuBarVisible && !m_statusBarVisible && !m_toolBarVisible)
+       ) {
         m_createNewWindow = true;
     }
 

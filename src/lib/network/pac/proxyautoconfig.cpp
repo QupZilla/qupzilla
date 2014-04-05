@@ -228,10 +228,8 @@ QScriptValue ProxyAutoConfig::myIpAddress(QScriptContext* context, QScriptEngine
     }
 
     foreach (QHostAddress address, QNetworkInterface::allAddresses()) {
-        if (address != QHostAddress::LocalHost
-                && address != QHostAddress::LocalHostIPv6) {
+        if (address != QHostAddress::LocalHost && address != QHostAddress::LocalHostIPv6)
             return QScriptValue(engine, address.toString());
-        }
     }
 
     return engine->undefinedValue();

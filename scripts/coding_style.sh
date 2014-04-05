@@ -5,28 +5,24 @@
 #   normalize (Qt tool to normalize all signal/slots format)
 #
 
-function format_sources {
-    astyle --indent=spaces=4 --style=1tbs \
-       --indent-labels --pad-oper --unpad-paren --pad-header \
-       --convert-tabs --indent-preprocessor --break-closing-brackets \
-       --align-pointer=type --align-reference=name \
-       `find -type f -name '*.cpp'` | grep 'Formatted'
+OPTIONS="--indent=spaces=4 --style=linux
+         --pad-oper --unpad-paren --pad-header --convert-tabs
+         --indent-preprocessor --break-closing-brackets
+         --align-pointer=type --align-reference=name
+         --suffix=none --formatted"
 
-    find . -name "*.orig" -print0 | xargs -0 rm -rf
+function format_sources {
+    astyle $OPTIONS \
+        `find -type f \( -name '*.cpp' -not -name 'moc_*.cpp' \)`
 }
 
 function format_headers {
-    astyle --indent=spaces=4 --style=linux \
-       --indent-labels --pad-oper --unpad-paren --pad-header \
-       --keep-one-line-statements --keep-one-line-blocks \
-       --indent-preprocessor --convert-tabs \
-       --align-pointer=type --align-reference=name \
-       `find -type f -name '*.h'` | grep 'Formatted'
-
-    find . -name "*.orig" -print0 | xargs -0 rm -rf
+    astyle $OPTIONS --keep-one-line-statements --keep-one-line-blocks \
+       `find -type f -name '*.h'`
 }
 
 cd ../src
+
 echo "Running astyle for *.cpp ..."
 format_sources
 

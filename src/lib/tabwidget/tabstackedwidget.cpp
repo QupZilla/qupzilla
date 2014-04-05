@@ -118,9 +118,9 @@ bool TabStackedWidget::eventFilter(QObject* obj, QEvent* event)
 void TabStackedWidget::keyPressEvent(QKeyEvent* event)
 {
     if (((event->key() == Qt::Key_Tab || event->key() == Qt::Key_Backtab) &&
-            count() > 1 && event->modifiers() & Qt::ControlModifier)
+         count() > 1 && event->modifiers() & Qt::ControlModifier)
 #ifdef QT_KEYPAD_NAVIGATION
-            || QApplication::keypadNavigationEnabled() && (event->key() == Qt::Key_Left || event->key() == Qt::Key_Right) && count() > 1
+        || QApplication::keypadNavigationEnabled() && (event->key() == Qt::Key_Left || event->key() == Qt::Key_Right) && count() > 1
 #endif
        ) {
         int pageCount = count();
@@ -135,7 +135,7 @@ void TabStackedWidget::keyPressEvent(QKeyEvent* event)
             page += dx;
             if (page < 0
 #ifdef QT_KEYPAD_NAVIGATION
-                    && !event->isAutoRepeat()
+                && !event->isAutoRepeat()
 #endif
                ) {
                 page = count() - 1;

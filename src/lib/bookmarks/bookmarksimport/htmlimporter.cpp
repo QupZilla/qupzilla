@@ -152,10 +152,8 @@ BookmarkItem* HtmlImporter::importBookmarks()
 
             start += posOfLink + rx.cap(0).size();
 
-            if (linkName.isEmpty() || url.isEmpty() || url.scheme() == QLatin1String("place")
-                    || url.scheme() == QLatin1String("about")) {
+            if (linkName.isEmpty() || url.isEmpty() || url.scheme() == QL1S("place") || url.scheme() == QL1S("about"))
                 continue;
-            }
 
             BookmarkItem* b = new BookmarkItem(BookmarkItem::Url, folders.isEmpty() ? root : folders.last());
             b->setTitle(linkName);

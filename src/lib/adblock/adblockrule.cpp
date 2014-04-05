@@ -477,8 +477,10 @@ void AdBlockRule::parseFilter()
     }
 
     // We can use fast string matching for domain here
-    if (parsedLine.startsWith(QLatin1String("||")) && parsedLine.endsWith(QLatin1Char('^'))
-            && !parsedLine.contains(QzRegExp("[/:?=&\\*]"))) {
+    if (parsedLine.startsWith(QLatin1String("||")) &&
+        parsedLine.endsWith(QLatin1Char('^')) &&
+        !parsedLine.contains(QzRegExp("[/:?=&\\*]"))
+       ) {
         parsedLine = parsedLine.mid(2);
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
@@ -488,8 +490,10 @@ void AdBlockRule::parseFilter()
     }
 
     // If rule contains only | at end, we can also use string matching
-    if (parsedLine.endsWith(QLatin1Char('|')) && !parsedLine.contains(QzRegExp("[\\^\\*]"))
-            && parsedLine.count(QLatin1Char('|')) == 1) {
+    if (parsedLine.endsWith(QLatin1Char('|')) &&
+        parsedLine.count(QLatin1Char('|')) == 1 &&
+        !parsedLine.contains(QzRegExp("[\\^\\*]"))
+       ) {
         parsedLine = parsedLine.left(parsedLine.size() - 1);
 
         m_type = StringEndsMatchRule;
@@ -499,8 +503,10 @@ void AdBlockRule::parseFilter()
 
     // If we still find a wildcard (*) or separator (^) or (|)
     // we must modify parsedLine to comply with QzRegExp
-    if (parsedLine.contains(QLatin1Char('*')) || parsedLine.contains(QLatin1Char('^'))
-            || parsedLine.contains(QLatin1Char('|'))) {
+    if (parsedLine.contains(QLatin1Char('*')) ||
+        parsedLine.contains(QLatin1Char('^')) ||
+        parsedLine.contains(QLatin1Char('|'))
+       ) {
         QString parsedRegExp = parsedLine;
 
         parsedRegExp.replace(QzRegExp(QLatin1String("\\*+")), QLatin1String("*"))       // remove multiple wildcards

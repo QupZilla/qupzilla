@@ -100,7 +100,8 @@ OpenSearchEngine* OpenSearchReader::read()
     m_searchXml = device()->peek(1024 * 5);
 
     if (!m_searchXml.contains(QLatin1String("http://a9.com/-/spec/opensearch/1.1/")) &&
-            !m_searchXml.contains(QLatin1String("http://www.mozilla.org/2006/browser/search/"))) {
+        !m_searchXml.contains(QLatin1String("http://www.mozilla.org/2006/browser/search/"))
+       ) {
         raiseError(QObject::tr("The file is not an OpenSearch 1.1 file."));
         return engine;
     }
@@ -140,15 +141,17 @@ OpenSearchEngine* OpenSearchReader::read()
             QString url = attributes().value(QLatin1String("template")).toString();
             QString method = attributes().value(QLatin1String("method")).toString();
 
-            if (type == QLatin1String("application/x-suggestions+json")
-                    && !engine->suggestionsUrlTemplate().isEmpty()) {
+            if (type == QLatin1String("application/x-suggestions+json") &&
+                !engine->suggestionsUrlTemplate().isEmpty()
+               ) {
                 continue;
             }
 
-            if ((type.isEmpty()
-                    || type == QLatin1String("text/html")
-                    || type == QLatin1String("application/xhtml+xml"))
-                    && !engine->searchUrlTemplate().isEmpty()) {
+            if ((type.isEmpty() ||
+                 type == QLatin1String("text/html") ||
+                 type == QLatin1String("application/xhtml+xml")) &&
+                !engine->searchUrlTemplate().isEmpty()
+               ) {
                 continue;
             }
 
@@ -161,8 +164,9 @@ OpenSearchEngine* OpenSearchReader::read()
             readNext();
 
             while (!isEndElement() || (name() != QLatin1String("Url") && name() != QLatin1String("os:Url"))) {
-                if (!isStartElement() || (name() != QLatin1String("Param") && name() != QLatin1String("Parameter")
-                                          && name() != QLatin1String("os:Param") && name() != QLatin1String("os:Parameter"))) {
+                if (!isStartElement() || (name() != QLatin1String("Param") && name() != QLatin1String("Parameter") &&
+                                          name() != QLatin1String("os:Param") && name() != QLatin1String("os:Parameter"))
+                   ) {
                     readNext();
                     continue;
                 }
@@ -195,11 +199,12 @@ OpenSearchEngine* OpenSearchReader::read()
             engine->setImageUrl(readElementText());
         }
 
-        if (!engine->name().isEmpty()
-                && !engine->description().isEmpty()
-                && !engine->suggestionsUrlTemplate().isEmpty()
-                && !engine->searchUrlTemplate().isEmpty()
-                && !engine->imageUrl().isEmpty()) {
+        if (!engine->name().isEmpty() &&
+            !engine->description().isEmpty() &&
+            !engine->suggestionsUrlTemplate().isEmpty() &&
+            !engine->searchUrlTemplate().isEmpty() &&
+            !engine->imageUrl().isEmpty()
+           ) {
             break;
         }
     }

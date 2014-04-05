@@ -482,8 +482,9 @@ QFtp::Error FtpDownloader::error()
 QString FtpDownloader::errorString() const
 {
     if (!m_lastErrorString.isEmpty()
-            && m_lastError != QFtp::NoError
-            && QFtp::error() == QFtp::NoError) {
+        && m_lastError != QFtp::NoError
+        && QFtp::error() == QFtp::NoError
+       ) {
         return m_lastErrorString;
     }
     else {

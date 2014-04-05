@@ -609,7 +609,7 @@ void MasterPasswordDialog::showSetMasterPasswordPage()
 void MasterPasswordDialog::clearMasterPasswordAndConvert(bool forcedAskPass)
 {
     if (QMessageBox::information(this, tr("Warning!"), tr("Are you sure to clear master password and decrypt data?"), QMessageBox::Yes | QMessageBox::No)
-            == QMessageBox::No) {
+        == QMessageBox::No) {
         reject();
         return;
     }

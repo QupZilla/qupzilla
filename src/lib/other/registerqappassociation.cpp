@@ -172,9 +172,10 @@ void RegisterQAppAssociation::registerAssociation(const QString &assocName, Asso
                 hr = pAAR->SetAppAsDefault(_appRegisteredName.toStdWString().c_str(),
                                            assocName.toStdWString().c_str(),
                                            AT_URLPROTOCOL);
-                if (SUCCEEDED(hr)
-                        && !currentUrlDefault.isEmpty()
-                        && currentUrlDefault != _urlAssocHash.value(assocName)) {
+                if (SUCCEEDED(hr) &&
+                    !currentUrlDefault.isEmpty() &&
+                    currentUrlDefault != _urlAssocHash.value(assocName)
+                   ) {
                     regCurrentUserRoot.setValue("Software/Classes"
                                                 + assocName
                                                 + "/shell/open/command/backup_progid", currentUrlDefault);
@@ -199,9 +200,10 @@ void RegisterQAppAssociation::registerAssociation(const QString &assocName, Asso
             QString progId = _fileAssocHash.value(assocName);
             createProgId(progId);
             QString currentDefault = regClassesRoot.value(assocName + "/Default").toString();
-            if (!currentDefault.isEmpty()
-                    && currentDefault != progId
-                    && regUserRoot.value(assocName + "/backup_val").toString() != progId) {
+            if (!currentDefault.isEmpty() &&
+                currentDefault != progId &&
+                regUserRoot.value(assocName + "/backup_val").toString() != progId
+               ) {
                 regUserRoot.setValue(assocName + "/backup_val", currentDefault);
             }
             regUserRoot.setValue(assocName + "/.", progId);
@@ -212,9 +214,10 @@ void RegisterQAppAssociation::registerAssociation(const QString &assocName, Asso
             createProgId(progId);
             QString currentDefault = regClassesRoot.value(assocName + "/shell/open/command/Default").toString();
             QString command = "\"" + _appPath + "\" \"%1\"";
-            if (!currentDefault.isEmpty()
-                    && currentDefault != command
-                    && regUserRoot.value(assocName + "/shell/open/command/backup_val").toString() != command) {
+            if (!currentDefault.isEmpty() &&
+                currentDefault != command &&
+                regUserRoot.value(assocName + "/shell/open/command/backup_val").toString() != command
+               ) {
                 regUserRoot.setValue(assocName + "/shell/open/command/backup_val", currentDefault);
             }
 

@@ -173,8 +173,10 @@ void Speller::populateContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
 {
     m_element = hitTest.element();
 
-    if (!m_enabled || m_element.isNull() ||
-            m_element.attribute(QLatin1String("type")) == QLatin1String("password")) {
+    if (!m_enabled ||
+        m_element.isNull() ||
+        m_element.attribute(QLatin1String("type")) == QLatin1String("password")
+       ) {
         return;
     }
 

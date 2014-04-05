@@ -515,7 +515,8 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
     QString localDomain = tr(".co.uk", "Append domain name on ALT + Enter = Should be different for every country");
 
     if (event->key() == Qt::Key_Alt && m_holdingAlt && qzSettings->addCountryWithAlt &&
-            !text().endsWith(localDomain) && !text().endsWith(QLatin1Char('/'))) {
+        !text().endsWith(localDomain) && !text().endsWith(QLatin1Char('/'))
+       ) {
         LineEdit::setText(text().append(localDomain));
     }
 

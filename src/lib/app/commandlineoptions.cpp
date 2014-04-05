@@ -198,9 +198,14 @@ void CommandLineOptions::parseActions()
         url = fileInfo.absoluteFilePath();
     }
 
-    if (m_argc > 1 && !url.isEmpty() && !url.startsWith(QLatin1Char('-')) &&
-            (url.contains(QLatin1Char('.')) || url.contains(QLatin1Char('/'))
-             || url.contains(QLatin1Char('\\')))) {
+    if (m_argc > 1 &&
+        !url.isEmpty() &&
+        !url.startsWith(QLatin1Char('-')) &&
+        (url.contains(QLatin1Char('.')) ||
+         url.contains(QLatin1Char('/')) ||
+         url.contains(QLatin1Char('\\'))
+        )
+       ) {
         ActionPair pair;
         pair.action = Qz::CL_OpenUrl;
         pair.text = url;

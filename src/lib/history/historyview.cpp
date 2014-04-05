@@ -110,8 +110,9 @@ void HistoryView::itemPressed(const QModelIndex &index)
         return;
     }
 
-    if ((selectionMode() == QAbstractItemView::SingleSelection && QApplication::keyboardModifiers() & Qt::ControlModifier)
-            || (QApplication::mouseButtons() & Qt::MiddleButton)) {
+    if ((selectionMode() == QAbstractItemView::SingleSelection && QApplication::keyboardModifiers() & Qt::ControlModifier) ||
+        QApplication::mouseButtons() & Qt::MiddleButton
+       ) {
         emit openLink(index.data(HistoryModel::UrlRole).toUrl(), OpenInNewTab);
     }
 }

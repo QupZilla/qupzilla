@@ -80,7 +80,8 @@ bool MouseGestures::mousePress(QObject* obj, QMouseEvent* event)
     QWebFrame* frame = m_view.data()->page()->mainFrame();
 
     if (frame->scrollBarGeometry(Qt::Vertical).contains(event->pos()) ||
-            frame->scrollBarGeometry(Qt::Horizontal).contains(event->pos())) {
+        frame->scrollBarGeometry(Qt::Horizontal).contains(event->pos())
+       ) {
         return false;
     }
 

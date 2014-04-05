@@ -948,7 +948,8 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
                     // Hiding double Direction + Fonts menu (bug in QtWebKit 2.2)
                     if (i <= 1 && act->menu()) {
                         if (act->menu()->actions().contains(pageAction(QWebPage::SetTextDirectionDefault)) ||
-                                act->menu()->actions().contains(pageAction(QWebPage::ToggleBold))) {
+                            act->menu()->actions().contains(pageAction(QWebPage::ToggleBold))
+                           ) {
                             act->setVisible(false);
                         }
                     }
@@ -1526,9 +1527,10 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
     }
 
     if (event->type() == QEvent::MouseButtonPress ||
-            event->type() == QEvent::MouseButtonRelease ||
-            event->type() == QEvent::MouseButtonDblClick ||
-            event->type() == QEvent::MouseMove) {
+        event->type() == QEvent::MouseButtonRelease ||
+        event->type() == QEvent::MouseButtonDblClick ||
+        event->type() == QEvent::MouseMove
+       ) {
 
         QMouseEvent* ev = static_cast<QMouseEvent*>(event);
 

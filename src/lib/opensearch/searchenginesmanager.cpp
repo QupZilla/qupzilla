@@ -223,9 +223,10 @@ void SearchEnginesManager::engineChangedImage()
     }
 
     foreach (Engine e, m_allEngines) {
-        if (e.name == engine->name() && e.url.contains(engine->searchUrl("%s").toString())
-                && !engine->image().isNull()) {
-
+        if (e.name == engine->name() &&
+            e.url.contains(engine->searchUrl("%s").toString()) &&
+            !engine->image().isNull()
+           ) {
             int index = m_allEngines.indexOf(e);
             if (index != -1) {
                 m_allEngines[index].icon = QIcon(QPixmap::fromImage(engine->image()));

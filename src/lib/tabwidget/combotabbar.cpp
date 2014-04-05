@@ -979,7 +979,8 @@ bool TabBarHelper::isDisplayedOnViewPort(int globalLeft, int globalRight)
 
     if (m_scrollArea) {
         if (globalRight < m_scrollArea->viewport()->mapToGlobal(QPoint(0, 0)).x() ||
-                globalLeft > m_scrollArea->viewport()->mapToGlobal(m_scrollArea->viewport()->rect().topRight()).x()) {
+            globalLeft > m_scrollArea->viewport()->mapToGlobal(m_scrollArea->viewport()->rect().topRight()).x()
+           ) {
             isVisible = false;
         }
     }

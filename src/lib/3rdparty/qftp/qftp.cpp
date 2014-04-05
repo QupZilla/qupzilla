@@ -1149,7 +1149,8 @@ bool QFtpPI::processReply()
     }
     else if (replyCodeInt == 230) {
         if (currentCmd.startsWith(QLatin1String("USER ")) && pendingCommands.count() > 0 &&
-                pendingCommands.first().startsWith(QLatin1String("PASS "))) {
+            pendingCommands.first().startsWith(QLatin1String("PASS "))
+           ) {
             // no need to send the PASS -- we are already logged in
             pendingCommands.pop_front();
         }
