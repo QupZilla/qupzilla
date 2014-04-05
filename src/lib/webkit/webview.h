@@ -69,6 +69,11 @@ public:
     static QUrl guessUrlFromString(const QString &string);
     static QList<int> zoomLevels();
 
+    // Force context menu event to be sent on mouse release
+    // This allows to override right mouse button events (eg. for mouse gestures)
+    static bool forceContextMenuOnMouseRelease();
+    static void setForceContextMenuOnMouseRelease(bool force);
+
 signals:
     void viewportResized(QSize);
     void showNotification(QWidget*);
@@ -202,6 +207,8 @@ private:
 
     bool m_hasRss;
     bool m_rssChecked;
+
+    static bool s_forceContextMenuOnMouseRelease;
 };
 
 #endif // WEBVIEW_H

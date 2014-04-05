@@ -50,6 +50,8 @@
 #include <QTouchEvent>
 #include <QPrintPreviewDialog>
 
+bool WebView::s_forceContextMenuOnMouseRelease = false;
+
 WebView::WebView(QWidget* parent)
     : QWebView(parent)
     , m_isLoading(false)
@@ -73,9 +75,7 @@ WebView::WebView(QWidget* parent)
     m_zoomLevels = zoomLevels();
     m_currentZoomLevel = m_zoomLevels.indexOf(100);
 
-#if QTWEBKIT_TO_2_3
     installEventFilter(this);
-#endif
 
 #ifdef Q_OS_MAC
     new MacWebViewScroller(this);
@@ -308,6 +308,18 @@ QList<int> WebView::zoomLevels()
     return QList<int>() << 30 << 40 << 50 << 67 << 80 << 90 << 100
            << 110 << 120 << 133 << 150 << 170 << 200
            << 220 << 233 << 250 << 270 << 285 << 300;
+}
+
+// static
+bool WebView::forceContextMenuOnMouseRelease()
+{
+    return s_forceContextMenuOnMouseRelease;
+}
+
+// static
+void WebView::setForceContextMenuOnMouseRelease(bool force)
+{
+    s_forceContextMenuOnMouseRelease = force;
 }
 
 void WebView::addNotification(QWidget* notif)
@@ -1320,9 +1332,15 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
                 return;
             }
         }
-
         break;
     }
+
+    case Qt::RightButton:
+        if (s_forceContextMenuOnMouseRelease) {
+            QContextMenuEvent ev(QContextMenuEvent::Mouse, event->pos(), event->globalPos(), event->modifiers());
+            QApplication::sendEvent(this, &ev);
+        }
+        break;
 
     default:
         break;
@@ -1488,15 +1506,21 @@ void WebView::resizeEvent(QResizeEvent* event)
     emit viewportResized(page()->viewportSize());
 }
 
-///
+bool WebView::eventFilter(QObject* obj, QEvent* event)
+{
+    if (s_forceContextMenuOnMouseRelease && obj == this && event->type() == QEvent::ContextMenu) {
+        QContextMenuEvent* ev = static_cast<QContextMenuEvent*>(event);
+        if (ev->reason() == QContextMenuEvent::Mouse && ev->spontaneous()) {
+            ev->accept();
+            return true;
+        }
+    }
+
+// This hack is no longer needed with QtWebKit 2.3 (bundled in Qt 5)
+#if QTWEBKIT_TO_2_3
 // This function was taken and modified from QTestBrowser to fix bug #33 with flightradar24.com
 // You can find original source and copyright here:
 // http://gitorious.org/+qtwebkit-developers/webkit/qtwebkit/blobs/qtwebkit-2.2/Tools/QtTestBrowser/launcherwindow.cpp
-///
-bool WebView::eventFilter(QObject* obj, QEvent* event)
-{
-// This hack is no longer needed with QtWebKit 2.3 (bundled in Qt 5)
-#if QTWEBKIT_TO_2_3
     if (obj != this || m_disableTouchMocking) {
         return false;
     }
