@@ -47,7 +47,7 @@ QVariant GM_JSObject::getValue(const QString &nspace, const QString &name, const
         return dValue;
     }
 
-    switch (savedValue.at(0).unicode()) {
+    switch (savedValue.at(0).toLatin1()) {
     case 'b':
         return QVariant(actualValue == QLatin1String("true"));
 

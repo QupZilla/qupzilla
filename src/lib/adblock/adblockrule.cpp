@@ -545,7 +545,7 @@ bool AdBlockRule::filterIsOnlyDomain(const QString &filter) const
         return false;
 
     for (int i = 0; i < filter.size(); ++i) {
-        switch (filter.at(i).toAscii()) {
+        switch (filter.at(i).toLatin1()) {
         case '/':
         case ':':
         case '?':
@@ -564,7 +564,7 @@ bool AdBlockRule::filterIsOnlyDomain(const QString &filter) const
 bool AdBlockRule::filterIsOnlyEndsMatch(const QString &filter) const
 {
     for (int i = 0; i < filter.size(); ++i) {
-        switch (filter.at(i).toAscii()) {
+        switch (filter.at(i).toLatin1()) {
         case '^':
         case '*':
             return false;
@@ -592,7 +592,7 @@ QString AdBlockRule::createRegExpFromFilter(const QString &filter) const
 
     for (int i = 0; i < filter.size(); ++i) {
         const QChar c = filter.at(i);
-        switch (c.toAscii()) {
+        switch (c.toLatin1()) {
         case '^':
             parsed.append(QL1S("(?:[^\\w\\d\\-.%]|$)"));
             break;
