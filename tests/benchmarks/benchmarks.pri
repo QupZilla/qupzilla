@@ -7,12 +7,10 @@ isEqual(QT_MAJOR_VERSION, 5) {
     CONFIG += qtestlib
 }
 
-TARGET = autotests
-
 !unix|mac: LIBS += -L$$PWD/../../bin -lQupZilla
 !mac:unix: LIBS += $$PWD/../../bin/libQupZilla.so
 
-unix:contains(DEFINES, "NO_SYSTEM_DATAPATH"): QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}\\$\$ORIGIN
+unix:contains(DEFINES, "NO_SYSTEM_DATAPATH"): QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}$$PWD/../../bin
 
 # KWallet plugin
 exists($$PWD/../../bin/plugins/libKWalletPasswords.so) {
@@ -26,8 +24,7 @@ exists($$PWD/../../bin/plugins/libGnomeKeyringPasswords.so) {
     DEFINES += HAVE_GNOME_PASSWORDS_PLUGIN
 }
 
-
-DESTDIR = $$PWD/../../bin
+DESTDIR = 
 OBJECTS_DIR = build
 MOC_DIR = build
 RCC_DIR = build
@@ -56,26 +53,3 @@ INCLUDEPATH += $$PWD/../../src/lib/3rdparty \
                $$PWD/../../src/lib/tools \
                $$PWD/../../src/lib/webkit \
                $$PWD/../../src/lib/webtab \
-
-HEADERS += \
-    qztoolstest.h \
-    formcompletertest.h \
-    cookiestest.h \
-    downloadstest.h \
-    adblocktest.h \
-    updatertest.h \
-    pactest.h \
-    passwordbackendtest.h \
-    networktest.h
-
-SOURCES += \
-    qztoolstest.cpp \
-    main.cpp \
-    formcompletertest.cpp \
-    cookiestest.cpp \
-    downloadstest.cpp \
-    adblocktest.cpp \
-    updatertest.cpp \
-    pactest.cpp \
-    passwordbackendtest.cpp \
-    networktest.cpp

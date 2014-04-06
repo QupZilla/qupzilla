@@ -98,7 +98,7 @@ public:
 protected:
     bool isMatchingDomain(const QString &domain, const QString &filter) const;
     bool isMatchingRegExpStrings(const QString &url) const;
-    QStringList parseRegExpFilter(const QString &parsedFilter) const;
+    QStringList parseRegExpFilter(const QString &filter) const;
 
 private:
     enum RuleType {
@@ -133,6 +133,9 @@ private:
 
     void parseFilter();
     void parseDomains(const QString &domains, const QChar &separator);
+    bool filterIsOnlyDomain(const QString &filter) const;
+    bool filterIsOnlyEndsMatch(const QString &filter) const;
+    QString createRegExpFromFilter(const QString &filter) const;
 
     AdBlockSubscription* m_subscription;
 
