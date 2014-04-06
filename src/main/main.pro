@@ -32,6 +32,5 @@ os2:RC_FILE = appicon_os2.rc
 win32:RC_FILE = appicon.rc
 
 include(../install.pri)
-include(../lib/3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
 unix:contains(DEFINES, "NO_SYSTEM_DATAPATH"): QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}\\$\$ORIGIN

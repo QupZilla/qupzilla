@@ -430,7 +430,7 @@ void BrowserWindow::loadSettings()
     if (m_useTransparentBackground && !makeTransparent) {
         QtWin::extendFrameIntoClientArea(this, 0, 0, 0, 0);
         QtWin::enableBlurBehindWindow(this, false);
-        m_tabWidget->getTabBar()->enableBluredBackground(false);
+        m_tabWidget->tabBar()->enableBluredBackground(false);
         m_useTransparentBackground = false;
     }
 #endif
@@ -459,13 +459,13 @@ void BrowserWindow::loadSettings()
         m_useTransparentBackground = true;
 
         if (!isFullScreen()) {
-            m_tabWidget->getTabBar()->enableBluredBackground(true);
+            m_tabWidget->tabBar()->enableBluredBackground(true);
             QtWin::extendFrameIntoClientArea(this);
         }
 
         // Install event filters
         menuBar()->installEventFilter(this);
-        m_tabWidget->getTabBar()->installEventFilter(this);
+        m_tabWidget->tabBar()->installEventFilter(this);
         m_navigationToolbar->installEventFilter(this);
         m_bookmarksToolbar->installEventFilter(this);
         statusBar()->installEventFilter(this);
@@ -1077,7 +1077,7 @@ bool BrowserWindow::event(QEvent* event)
             m_navigationToolbar->buttonExitFullscreen()->setVisible(true);
 #ifdef Q_OS_WIN
             if (m_useTransparentBackground) {
-                m_tabWidget->getTabBar()->enableBluredBackground(false);
+                m_tabWidget->tabBar()->enableBluredBackground(false);
                 QtWin::extendFrameIntoClientArea(this, 0, 0, 0 , 0);
                 QtWin::enableBlurBehindWindow(this, false);
             }
@@ -1095,7 +1095,7 @@ bool BrowserWindow::event(QEvent* event)
             m_navigationToolbar->buttonExitFullscreen()->setVisible(false);
 #ifdef Q_OS_WIN
             if (m_useTransparentBackground) {
-                m_tabWidget->getTabBar()->enableBluredBackground(true);
+                m_tabWidget->tabBar()->enableBluredBackground(true);
                 applyBlurToMainWindow(true);
             }
 #endif
@@ -1553,7 +1553,7 @@ void BrowserWindow::applyBlurToMainWindow(bool force)
     topMargin += menuBar()->isVisible() ? menuBar()->height() : 0;
     topMargin += m_navigationToolbar->isVisible() ? m_navigationToolbar->height() : 0;
     topMargin += m_bookmarksToolbar->isVisible() ? m_bookmarksToolbar->height() : 0;
-    topMargin += m_tabWidget->getTabBar()->height();
+    topMargin += m_tabWidget->tabBar()->height();
 
     SearchToolBar* search = searchToolBar();
     if (search) {
