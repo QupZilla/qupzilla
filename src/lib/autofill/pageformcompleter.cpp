@@ -233,15 +233,15 @@ QWebElementCollection PageFormCompleter::getAllElementsFromPage(const QString &s
 {
     QWebElementCollection list;
 
-    if (!m_page) {
+    if (!m_page || !m_page->mainFrame())
         return list;
-    }
 
     QList<QWebFrame*> frames;
     frames.append(m_page->mainFrame());
+
     while (!frames.isEmpty()) {
         QWebFrame* frame = frames.takeFirst();
-        if (frame) {
+        if (frame && !frame->documentElement().isNull()) {
             list.append(frame->findAllElements(selector));
             frames += frame->childFrames();
         }
