@@ -1987,7 +1987,14 @@
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
+           <item row="4" column="0" colspan="2">
+            <widget class="QCheckBox" name="singleKeyShortcuts">
+             <property name="text">
+              <string>Use single key shortcuts (1 - prev tab, 2 - next tab)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
             <spacer name="verticalSpacer_13">
              <property name="orientation">
               <enum>Qt::Vertical</enum>

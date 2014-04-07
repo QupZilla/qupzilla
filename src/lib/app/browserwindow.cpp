@@ -407,6 +407,7 @@ void BrowserWindow::loadSettings()
     settings.beginGroup("Shortcuts");
     m_useTabNumberShortcuts = settings.value("useTabNumberShortcuts", true).toBool();
     m_useSpeedDialNumberShortcuts = settings.value("useSpeedDialNumberShortcuts", true).toBool();
+    m_useSingleKeyShortcuts = settings.value("useSingleKeyShortcuts", false).toBool();
     settings.endGroup();
 
     m_adblockIcon->setEnabled(settings.value("AdBlock/enabled", true).toBool());
@@ -1330,6 +1331,12 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
                 loadAddress(url);
                 return;
             }
+        }
+        if (event->modifiers() == Qt::NoModifier && m_useSingleKeyShortcuts) {
+            if (number == 1)
+                m_tabWidget->previousTab();
+            if (number == 2)
+                m_tabWidget->nextTab();
         }
     }
 

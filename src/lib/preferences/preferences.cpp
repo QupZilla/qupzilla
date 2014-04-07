@@ -380,6 +380,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     settings.beginGroup("Shortcuts");
     ui->switchTabsAlt->setChecked(settings.value("useTabNumberShortcuts", true).toBool());
     ui->loadSpeedDialsCtrl->setChecked(settings.value("useSpeedDialNumberShortcuts", true).toBool());
+    ui->singleKeyShortcuts->setChecked(settings.value("useSingleKeyShortcuts", false).toBool());
     settings.endGroup();
 
     //NOTIFICATIONS
@@ -964,6 +965,7 @@ void Preferences::saveSettings()
     settings.beginGroup("Shortcuts");
     settings.setValue("useTabNumberShortcuts", ui->switchTabsAlt->isChecked());
     settings.setValue("useSpeedDialNumberShortcuts", ui->loadSpeedDialsCtrl->isChecked());
+    settings.setValue("useSingleKeyShortcuts", ui->singleKeyShortcuts->isChecked());
     settings.endGroup();
 
     //BROWSING
