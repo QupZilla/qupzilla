@@ -110,6 +110,12 @@ MainApplication::MainApplication(int &argc, char** argv)
     setOrganizationDomain(QLatin1String("qupzilla"));
     setWindowIcon(QIcon(QLatin1String(":icons/exeicons/qupzilla-window.png")));
 
+    // Set fallback icon theme (eg. on Windows/Mac)
+    if (QIcon::fromTheme(QSL("view-refresh")).isNull()) {
+        QIcon::setThemeSearchPaths(QStringList() << QL1S(":/oxygen-fallback"));
+        QIcon::setThemeName(QSL("oxygen-fallback"));
+    }
+
     QUrl startUrl;
     QString startProfile;
     QStringList messages;

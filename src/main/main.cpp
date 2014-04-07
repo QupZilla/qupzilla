@@ -159,24 +159,18 @@ int main(int argc, char* argv[])
 #endif
 
 #if defined(QZ_WS_X11) && QT_VERSION < 0x050000
-    QApplication::setGraphicsSystem("raster"); // Better overall performance on X11
+    // Better overall performance on X11
+    QApplication::setGraphicsSystem(QSL("raster"));
 #endif
 
 #if defined(Q_OS_LINUX) || defined(__GLIBC__) || defined(__FreeBSD__)
     signal(SIGSEGV, qupzilla_signal_handler);
 #endif
 
-    // Set fallback icon theme (eg. on Windows/Mac)
-    if (QIcon::fromTheme(QSL("document-open")).isNull()) {
-        QIcon::setThemeSearchPaths(QStringList() << QL1S(":/oxygen-fallback"));
-        QIcon::setThemeName(QSL("oxygen-fallback"));
-    }
-
     MainApplication app(argc, argv);
 
-    if (app.isClosing()) {
+    if (app.isClosing())
         return 0;
-    }
 
     app.setProxyStyle(new ProxyStyle);
 
