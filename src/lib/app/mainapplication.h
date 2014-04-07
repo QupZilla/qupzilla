@@ -22,7 +22,7 @@
 
 #include <QList>
 
-#include "qtsingleapplication.h"
+#include "qtsingleapplication/qtsingleapplication.h"
 #include "restoremanager.h"
 #include "qzcommon.h"
 
