@@ -117,7 +117,6 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     , m_lastTabIndex(-1)
     , m_lastBackgroundTabIndex(-1)
     , m_isClosingToLastTabIndex(false)
-    , m_isRestoringState(false)
 {
     setObjectName(QSL("tabwidget"));
 
@@ -331,8 +330,6 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
         QtWin::extendFrameIntoClientArea(m_window);
     }
 #endif
-    setUpdatesEnabled(false);
-
     QUrl url = req.url();
     m_lastTabIndex = currentIndex();
 
@@ -411,8 +408,6 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
     if (!(openFlags & Qz::NT_SelectedTab)) {
         m_tabBar->ensureVisible(index);
     }
-
-    setUpdatesEnabled(true);
 
     emit changed();
 
@@ -513,9 +508,8 @@ void TabWidget::closeTab(int index, bool force)
 
 void TabWidget::currentTabChanged(int index)
 {
-    if (!validIndex(index) || m_isRestoringState) {
+    if (!validIndex(index))
         return;
-    }
 
     m_isClosingToLastTabIndex = m_lastBackgroundTabIndex == index;
     m_lastBackgroundTabIndex = -1;
@@ -827,8 +821,6 @@ void TabWidget::restorePinnedTabs()
     QList<QByteArray> tabHistory;
     stream >> tabHistory;
 
-    m_isRestoringState = true;
-
     for (int i = 0; i < pinnedTabs.count(); ++i) {
         QUrl url = QUrl::fromEncoded(pinnedTabs.at(i).toUtf8());
 
@@ -852,8 +844,6 @@ void TabWidget::restorePinnedTabs()
 
         m_tabBar->updatePinnedTabCloseButton(addedIndex);
     }
-
-    m_isRestoringState = false;
 }
 
 QByteArray TabWidget::saveState()
@@ -886,8 +876,6 @@ QByteArray TabWidget::saveState()
 
 bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab)
 {
-    m_isRestoringState = true;
-
     Qz::BrowserWindowType type = m_window->windowType();
 
     if (type == Qz::BW_FirstAppWindow || type == Qz::BW_MacFirstWindow) {
@@ -901,10 +889,11 @@ bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentT
         weTab(index)->restoreTab(tab);
     }
 
-    m_isRestoringState = false;
-
     setCurrentIndex(currentTab);
-    currentTabChanged(currentTab);
+
+    // WebTab is restoring state on showEvent
+    weTab()->hide();
+    weTab()->show();
 
     return true;
 }

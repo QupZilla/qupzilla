@@ -361,6 +361,7 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
     m_isRestoring = true;
     setOverrideCursor(Qt::BusyCursor);
 
+    window->setUpdatesEnabled(false);
     window->tabWidget()->closeRecoveryTab();
 
     if (window->tabWidget()->normalTabsCount() > 1) {
@@ -369,9 +370,10 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
         // Don't restore tabs in current window as user already opened
         // some new tabs.
         // Instead create new one and restore pinned tabs there
-
         BrowserWindow* newWin = createWindow(Qz::BW_OtherRestoredWindow);
+        newWin->setUpdatesEnabled(false);
         newWin->restoreWindowState(restoreData.first());
+        newWin->setUpdatesEnabled(true);
         restoreData.remove(0);
     }
     else {
@@ -383,15 +385,18 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
         RestoreManager::WindowData data = restoreData.first();
         data.currentTab += tabCount;
         restoreData.remove(0);
-
         window->restoreWindowState(data);
     }
+
+    window->setUpdatesEnabled(true);
 
     processEvents();
 
     foreach (const RestoreManager::WindowData &data, restoreData) {
         BrowserWindow* window = createWindow(Qz::BW_OtherRestoredWindow);
+        window->setUpdatesEnabled(false);
         window->restoreWindowState(data);
+        window->setUpdatesEnabled(true);
 
         processEvents();
     }
