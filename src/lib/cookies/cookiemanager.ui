@@ -430,14 +430,14 @@
          </property>
         </spacer>
        </item>
-       <item row="3" column="1" colspan="2">
-        <widget class="QCheckBox" name="filter3rdParty">
+       <item row="4" column="1" colspan="2">
+        <widget class="QLabel" name="label_14">
          <property name="text">
-          <string>Filter 3rd party cookies</string>
+          <string>Filter 3rd party cookies:</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="1" colspan="2">
+       <item row="3" column="1" colspan="2">
         <widget class="QCheckBox" name="filterTracking">
          <property name="text">
           <string>Filter tracking cookies</string>
@@ -472,6 +472,28 @@
          <property name="standardButtons">
           <set>QDialogButtonBox::Close</set>
          </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QComboBox" name="filter3rdParty">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Always:&lt;/span&gt; Allow third-party resources to set and retrieve cookies.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Never:&lt;/span&gt; Never allow third-party resources to set and retrieve cookies.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Keep existing:&lt;/span&gt; If the cookie jar already contains cookies from a third-party, allow it to set and retrieve new and existing cookies.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Always</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Never</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Keep existing</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>

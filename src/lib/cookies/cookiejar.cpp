@@ -49,7 +49,7 @@ void CookieJar::loadSettings()
     Settings settings;
     settings.beginGroup("Cookie-Settings");
     m_allowCookies = settings.value("allowCookies", true).toBool();
-    m_blockThirdParty = settings.value("allowCookiesFromVisitedDomainOnly", false).toBool();
+    m_blockThirdParty = settings.value("allowCookiesFromVisitedDomainOnly", 1).toInt();
     m_filterTrackingCookie = settings.value("filterTrackingCookie", false).toBool();
     m_deleteOnClose = settings.value("deleteCookiesOnClose", false).toBool();
     m_whitelist = settings.value("whitelist", QStringList()).toStringList();
@@ -57,9 +57,19 @@ void CookieJar::loadSettings()
     settings.endGroup();
 
 #if QTWEBKIT_FROM_2_3
-    QWebSettings::globalSettings()->setThirdPartyCookiePolicy(m_blockThirdParty ?
-            QWebSettings::AlwaysBlockThirdPartyCookies :
-            QWebSettings::AlwaysAllowThirdPartyCookies);
+    switch (m_blockThirdParty) {
+    case 0:
+        QWebSettings::globalSettings()->setThirdPartyCookiePolicy(QWebSettings::AlwaysAllowThirdPartyCookies);
+        break;
+
+    case 1:
+        QWebSettings::globalSettings()->setThirdPartyCookiePolicy(QWebSettings::AlwaysBlockThirdPartyCookies);
+        break;
+
+    case 2:
+        QWebSettings::globalSettings()->setThirdPartyCookiePolicy(QWebSettings::AllowThirdPartyWithExistingCookies);
+        break;
+    }
 #endif
 }
 
