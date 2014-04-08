@@ -120,6 +120,7 @@ WebTab::WebTab(BrowserWindow* window)
 
     connect(m_webView, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
     connect(m_webView, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
+    connect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
     connect(m_webView, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged(QString)));
 }
 
@@ -359,6 +360,11 @@ void WebTab::loadStarted()
     if (m_tabBar && m_webView->isTitleEmpty()) {
         m_tabBar->setTabText(tabIndex(), tr("Loading..."));
     }
+}
+
+void WebTab::loadFinished()
+{
+    titleChanged(m_webView->title());
 }
 
 void WebTab::titleChanged(const QString &title)
