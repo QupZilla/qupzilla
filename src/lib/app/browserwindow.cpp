@@ -1285,6 +1285,13 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
         }
         break;
 
+    case Qt::Key_Slash:
+        if (m_useSingleKeyShortcuts) {
+            action(QSL("Edit/Find"))->trigger();
+            event->accept();
+        }
+        break;
+
     case Qt::Key_1:
         number = 1;
         break;
