@@ -233,24 +233,23 @@ void ClickToFlash::load()
 
                 qz_c2f_substituteElement.width = this.width;
                 qz_c2f_substituteElement.height = this.height;
+                qz_c2f_substituteElement.type = "application/futuresplash";
 
                 this.parentNode.replaceChild(qz_c2f_substituteElement, this);
 
                 setTimeout(function(){
                     qz_c2f_parentNode.replaceChild(qz_c2f_clone, qz_c2f_substituteElement);
                 }, 250);
-
         */
 
         acceptedUrl = m_url;
         acceptedArgNames = m_argumentNames;
         acceptedArgValues = m_argumentValues;
 
-        m_element.setAttribute("type", "application/futuresplash");
-
         QString js = "var qz_c2f_clone=this.cloneNode(true);var qz_c2f_parentNode=this.parentNode;"
                      "var qz_c2f_substituteElement=document.createElement(this.tagName);"
                      "qz_c2f_substituteElement.width=this.width;qz_c2f_substituteElement.height=this.height;"
+                     "qz_c2f_substituteElement.type=\"application/futuresplash\";"
                      "this.parentNode.replaceChild(qz_c2f_substituteElement,this);setTimeout(function(){"
                      "qz_c2f_parentNode.replaceChild(qz_c2f_clone,qz_c2f_substituteElement);},250);";
 
