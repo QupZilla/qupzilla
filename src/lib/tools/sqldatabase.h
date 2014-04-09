@@ -23,6 +23,8 @@
 #include <QFuture>
 #include <QSqlQuery>
 
+#include <QVariant> // Fix build with Qt 4.7
+
 #include "qzcommon.h"
 
 class QUPZILLA_EXPORT SqlDatabase : public QObject
