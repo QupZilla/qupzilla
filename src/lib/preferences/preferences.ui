@@ -1989,8 +1989,11 @@
            </item>
            <item row="4" column="0" colspan="2">
             <widget class="QCheckBox" name="singleKeyShortcuts">
+             <property name="toolTip">
+              <string>Existing shortcuts:&lt;br/>&lt;b>1&lt;/b> - previous tab&lt;br/>&lt;b>2&lt;/b> - next tab</string>
+             </property>
              <property name="text">
-              <string>Use single key shortcuts (1 - prev tab, 2 - next tab)</string>
+              <string>Use single key shortcuts</string>
              </property>
             </widget>
            </item>
