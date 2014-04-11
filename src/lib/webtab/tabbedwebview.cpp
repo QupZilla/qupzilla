@@ -90,12 +90,6 @@ WebTab* TabbedWebView::webTab() const
     return m_webTab;
 }
 
-TabWidget* TabbedWebView::tabWidget() const
-{
-    // FIXME:!!
-    return m_window ? m_window->tabWidget() : 0;
-}
-
 QString TabbedWebView::getIp() const
 {
     return m_currentIp;
@@ -222,13 +216,15 @@ void TabbedWebView::closeView()
 
 void TabbedWebView::openNewTab()
 {
-    tabWidget()->addView(QUrl());
+    if (m_window) {
+        m_window->tabWidget()->addView(QUrl());
+    }
 }
 
 void TabbedWebView::loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position)
 {
     if (m_window) {
-        int index = tabWidget()->addView(QUrl(), position);
+        int index = m_window->tabWidget()->addView(QUrl(), position);
         m_window->weView(index)->webTab()->locationBar()->showUrl(req.url());
         m_window->weView(index)->load(req);
     }
@@ -236,7 +232,9 @@ void TabbedWebView::loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags
 
 void TabbedWebView::setAsCurrentTab()
 {
-    tabWidget()->setCurrentWidget(m_webTab);
+    if (m_window) {
+        m_window->tabWidget()->setCurrentWidget(m_webTab);
+    }
 }
 
 void TabbedWebView::mouseMoveEvent(QMouseEvent* event)

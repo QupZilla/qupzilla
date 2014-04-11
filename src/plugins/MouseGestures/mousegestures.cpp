@@ -244,31 +244,33 @@ void MouseGestures::upDownGestured()
 void MouseGestures::upLeftGestured()
 {
     TabbedWebView* view = qobject_cast<TabbedWebView*>(m_view.data());
-    if (!view) {
+    if (!view)
         return;
-    }
 
-    if (QApplication::isRightToLeft()) {
-        view->tabWidget()->nextTab();
-    }
-    else {
-        view->tabWidget()->previousTab();
-    }
+    BrowserWindow* window = view->browserWindow();
+    if (!window)
+        return;
+
+    if (QApplication::isRightToLeft())
+        window->tabWidget()->nextTab();
+    else
+        window->tabWidget()->previousTab();
 }
 
 void MouseGestures::upRightGestured()
 {
     TabbedWebView* view = qobject_cast<TabbedWebView*>(m_view.data());
-    if (!view) {
+    if (!view)
         return;
-    }
 
-    if (QApplication::isRightToLeft()) {
-        view->tabWidget()->previousTab();
-    }
-    else {
-        view->tabWidget()->nextTab();
-    }
+    BrowserWindow* window = view->browserWindow();
+    if (!window)
+        return;
+
+    if (QApplication::isRightToLeft())
+        window->tabWidget()->previousTab();
+    else
+        window->tabWidget()->nextTab();
 }
 
 void MouseGestures::init()

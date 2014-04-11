@@ -38,11 +38,11 @@ public:
 
     void setWebPage(WebPage* page);
 
+    // BrowserWindow can be null!
     BrowserWindow* browserWindow() const;
     void setBrowserWindow(BrowserWindow* window);
 
     WebTab* webTab() const;
-    TabWidget* tabWidget() const;
 
     QString getIp() const;
     int tabIndex() const;
