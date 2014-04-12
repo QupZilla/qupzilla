@@ -175,17 +175,14 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
 {
     const QUrl reqUrl = request.url();
 
-    if (reqUrl.scheme() == QLatin1String("javascript")) {
-        // Getting scriptSource from PercentEncoding to properly load bookmarklets
-        // First check if url is percent encoded (let's just look for space)
-        QString scriptSource;
-        if (reqUrl.path().trimmed().contains(' ')) {
-            scriptSource = reqUrl.toString().mid(11);
-        }
-        else {
-            scriptSource = QUrl::fromPercentEncoding(reqUrl.toString().mid(11).toUtf8());
-        }
-        page()->mainFrame()->evaluateJavaScript(scriptSource);
+    if (reqUrl.scheme() == QL1S("javascript")) {
+        const QString scriptSource = reqUrl.toString().mid(11);
+        // Is the javascript source percent encoded or not?
+        // Looking for % character in source should work in most cases
+        if (scriptSource.contains(QL1C('%')))
+            page()->mainFrame()->evaluateJavaScript(QUrl::fromPercentEncoding(scriptSource.toUtf8()));
+        else
+            page()->mainFrame()->evaluateJavaScript(scriptSource);
         return;
     }
 
