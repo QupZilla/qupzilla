@@ -36,3 +36,4 @@ bin/qupzilla.app
 .DS_Store
 *.dylib
 hunspell
+callgrind.out.*
