@@ -47,6 +47,7 @@
 #define ADBLOCKRULE_H
 
 #include <QObject>
+#include <QStringList>
 #include <QStringMatcher>
 
 #include "qzcommon.h"
