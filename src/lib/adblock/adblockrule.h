@@ -47,7 +47,7 @@
 #define ADBLOCKRULE_H
 
 #include <QObject>
-#include <QStringList>
+#include <QStringMatcher>
 
 #include "qzcommon.h"
 #include "qzregexp.h"
@@ -136,6 +136,7 @@ private:
     bool filterIsOnlyDomain(const QString &filter) const;
     bool filterIsOnlyEndsMatch(const QString &filter) const;
     QString createRegExpFromFilter(const QString &filter) const;
+    QList<QStringMatcher> createStringMatchers(const QStringList &filters) const;
 
     AdBlockSubscription* m_subscription;
 
@@ -159,7 +160,7 @@ private:
 
     struct RegExp {
         QzRegExp regExp;
-        QStringList regExpStrings;
+        QList<QStringMatcher> matchers;
     };
 
     // Use dynamic allocation to save memory

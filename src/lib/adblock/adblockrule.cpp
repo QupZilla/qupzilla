@@ -468,7 +468,7 @@ void AdBlockRule::parseFilter()
         m_type = RegExpMatchRule;
         m_regExp = new RegExp;
         m_regExp->regExp = QzRegExp(parsedLine, m_caseSensitivity);
-        m_regExp->regExpStrings = parseRegExpFilter(parsedLine);
+        m_regExp->matchers = createStringMatchers(parseRegExpFilter(parsedLine));
         return;
     }
 
@@ -509,7 +509,7 @@ void AdBlockRule::parseFilter()
         m_type = RegExpMatchRule;
         m_regExp = new RegExp;
         m_regExp->regExp = QzRegExp(createRegExpFromFilter(parsedLine), m_caseSensitivity);
-        m_regExp->regExpStrings = parseRegExpFilter(parsedLine);
+        m_regExp->matchers = createStringMatchers(parseRegExpFilter(parsedLine));
         return;
     }
 
@@ -632,6 +632,18 @@ QString AdBlockRule::createRegExpFromFilter(const QString &filter) const
     return parsed;
 }
 
+QList<QStringMatcher> AdBlockRule::createStringMatchers(const QStringList &filters) const
+{
+    QList<QStringMatcher> matchers;
+    matchers.reserve(filters.size());
+
+    foreach (const QString &filter, filters) {
+        matchers.append(QStringMatcher(filter, m_caseSensitivity));
+    }
+
+    return matchers;
+}
+
 bool AdBlockRule::isMatchingDomain(const QString &domain, const QString &filter) const
 {
     return QzTools::matchDomain(filter, domain);
@@ -641,10 +653,9 @@ bool AdBlockRule::isMatchingRegExpStrings(const QString &url) const
 {
     Q_ASSERT(m_regExp);
 
-    foreach (const QString &string, m_regExp->regExpStrings) {
-        if (!url.contains(string)) {
+    foreach (const QStringMatcher &matcher, m_regExp->matchers) {
+        if (matcher.indexIn(url) == -1)
             return false;
-        }
     }
 
     return true;
