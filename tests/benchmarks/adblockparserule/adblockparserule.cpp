@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -33,7 +33,7 @@ void AdBlockParseRule::parseEasyList()
 {
     QBENCHMARK {
         AdBlockSubscription* subscription = new AdBlockSubscription("EasyList", this);
-        subscription->setFilePath("easylist.txt");
+        subscription->setFilePath("../files/easylist.txt");
         subscription->loadSubscription(QStringList());
     }
 }

@@ -10,19 +10,7 @@ isEqual(QT_MAJOR_VERSION, 5) {
 !unix|mac: LIBS += -L$$PWD/../../bin -lQupZilla
 !mac:unix: LIBS += $$PWD/../../bin/libQupZilla.so
 
-unix:contains(DEFINES, "NO_SYSTEM_DATAPATH"): QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}$$PWD/../../bin
-
-# KWallet plugin
-exists($$PWD/../../bin/plugins/libKWalletPasswords.so) {
-    LIBS += $$PWD/../../bin/plugins/libKWalletPasswords.so
-    DEFINES += HAVE_KDE_PASSWORDS_PLUGIN
-}
-
-# GnomeKeyring plugin
-exists($$PWD/../../bin/plugins/libGnomeKeyringPasswords.so) {
-    LIBS += $$PWD/../../bin/plugins/libGnomeKeyringPasswords.so
-    DEFINES += HAVE_GNOME_PASSWORDS_PLUGIN
-}
+QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}$$PWD/../../bin
 
 DESTDIR = 
 OBJECTS_DIR = build

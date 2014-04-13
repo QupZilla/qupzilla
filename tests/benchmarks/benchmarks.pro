@@ -1,7 +1,5 @@
 TEMPLATE = subdirs
 
-include(benchmarks.pri)
-
 defineTest(addSubdir) {
     for(subdir, 1) {
         entries = $$files($$subdir/*)

@@ -8,8 +8,7 @@ if [ -n "$1" ]; then
 fi
 
 cd ../tests/autotests
-($QMAKE DEFINES+=NO_SYSTEM_DATAPATH && make) || exit 1
-cd ../../bin
+($QMAKE && make) || exit 1
 
 ./autotests
 exit $?
