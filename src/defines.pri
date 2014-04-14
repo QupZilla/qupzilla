@@ -7,7 +7,7 @@ UI_DIR = $$PWD/../build
 # workaround for #849: see https://bugreports.qt-project.org/browse/QTBUG-23196
 mocinclude.CONFIG *= fix_target
 
-unix: VERSION = 1.6.3
+unix: VERSION = 1.6.4
 
 # Please read BUILD information #
 #DEFINES *= PORTABLE_BUILD

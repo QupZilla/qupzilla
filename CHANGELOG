@@ -1,5 +1,5 @@
 Version 1.6.4
-    * not yet released
+    * released 14 April 2014
     * enabled sending DoNotTrack header by default
     * updated ca-bundle certificates
     * use same session files with both Qt4 and Qt5
