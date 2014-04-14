@@ -175,11 +175,11 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
 {
     const QUrl reqUrl = request.url();
 
-    if (reqUrl.scheme() == QL1S("javascript")) {
+    if (reqUrl.scheme() == QLatin1String("javascript")) {
         const QString scriptSource = reqUrl.toString().mid(11);
         // Is the javascript source percent encoded or not?
         // Looking for % character in source should work in most cases
-        if (scriptSource.contains(QL1C('%')))
+        if (scriptSource.contains(QLatin1Char('%')))
             page()->mainFrame()->evaluateJavaScript(QUrl::fromPercentEncoding(scriptSource.toUtf8()));
         else
             page()->mainFrame()->evaluateJavaScript(scriptSource);

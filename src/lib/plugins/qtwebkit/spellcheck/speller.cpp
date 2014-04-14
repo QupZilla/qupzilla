@@ -389,9 +389,9 @@ QString Speller::nameForLanguage(const QString &code) const
 
     if (locale.country() != QLocale::AnyCountry) {
         if (code.contains(QLatin1Char('-'))) {
-            name.append(QL1S(" (") + scriptName + QL1S(")"));
+            name.append(QLatin1String(" (") + scriptName + QLatin1String(")"));
         }
-        name.append(QL1S(" / ") + QLocale::countryToString(locale.country()));
+        name.append(QLatin1String(" / ") + QLocale::countryToString(locale.country()));
     }
 
     return name;
