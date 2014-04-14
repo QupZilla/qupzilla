@@ -39,7 +39,7 @@ public:
     bool isRunning() const;
 
 private:
-#ifdef Q_OS_UNIX
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
     bool IsNumeric(const char* ccharptr_CharacterList) const;
 
     pid_t GetPIDbyName(const char* cchrptr_ProcessName) const;
