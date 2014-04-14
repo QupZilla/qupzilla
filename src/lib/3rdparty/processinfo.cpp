@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "processinfo.h"
 
-#ifdef Q_OS_UNIX
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
 #include <dirent.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -36,7 +36,7 @@ ProcessInfo::ProcessInfo(const QString &name)
 
 bool ProcessInfo::isRunning() const
 {
-#ifdef Q_OS_UNIX
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
     pid_t pid = GetPIDbyName(qPrintable(m_name));
     // -1 = process not found
     // -2 = /proc fs access error
@@ -46,7 +46,7 @@ bool ProcessInfo::isRunning() const
 #endif
 }
 
-#ifdef Q_OS_UNIX
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
 bool ProcessInfo::IsNumeric(const char* ccharptr_CharacterList) const
 {
     for (; *ccharptr_CharacterList; ccharptr_CharacterList++) {
