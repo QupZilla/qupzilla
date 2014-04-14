@@ -36,5 +36,6 @@ done
 $MACDEPLOYQT QupZilla.app
 
 # create final dmg image
+cd ../scripts
 ./create_dmg.sh
 

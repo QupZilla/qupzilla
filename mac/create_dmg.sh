@@ -3,7 +3,6 @@
 BUNDLE_PATH=bin
 test -d bin || BUNDLE_PATH=../bin
 
-
 echo "We just want to make sure it's not in use"
 hdiutil detach /tmp/tmp-release-qupzilla
 
