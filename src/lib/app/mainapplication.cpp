@@ -123,7 +123,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     setOrganizationDomain("qupzilla");
 
 #ifdef Q_OS_MAC
-    DATADIR qApp->applicationDirPath() + QLatin1String("/../Resources/");
+    DATADIR = qApp->applicationDirPath() + QLatin1String("/../Resources/");
 #elif defined(Q_OS_UNIX) && !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR "/";
 #else
