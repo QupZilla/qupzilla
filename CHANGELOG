@@ -1,6 +1,11 @@
 Version 1.6.4
     * not yet released
     * enabled sending DoNotTrack header by default
+    * updated ca-bundle certificates
+    * use same session files with both Qt4 and Qt5
+    * fixed: Click2Flash playing videos on YouTube with Qt5
+    * fixed: hiding close button on current tab when dragging it with Qt5
+    * fixed: double clicking on scroll buttons in tabbar with Qt5
     * fixed: text visibility in speeddial inputs with dark themes
     * fixed: getting tab index with rtl layout
     * fixed: ctrl+up shortcut in websearchbar correctly select first item
