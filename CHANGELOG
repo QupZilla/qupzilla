@@ -7,6 +7,19 @@ Version 1.7.0
     * menus are not closed when opening links with middle mouse button
     * support for shadow builds with Qt Creator
 
+Version 1.6.4
+    * released 14 April 2014
+    * enabled sending DoNotTrack header by default
+    * updated ca-bundle certificates
+    * use same session files with both Qt4 and Qt5
+    * fixed: Click2Flash playing videos on YouTube with Qt5
+    * fixed: hiding close button on current tab when dragging it with Qt5
+    * fixed: double clicking on scroll buttons in tabbar with Qt5
+    * fixed: text visibility in speeddial inputs with dark themes
+    * fixed: getting tab index with rtl layout
+    * fixed: ctrl+up shortcut in websearchbar correctly select first item
+    * fixed: correctly loading translations of all plugins
+
 Version 1.6.3
     * released 14 February 2014
     * addded new Spanish (Mexico) translation
