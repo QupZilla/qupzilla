@@ -636,6 +636,7 @@ void ComboTabBar::paintEvent(QPaintEvent* ev)
 {
     QWidget::paintEvent(ev);
 
+#ifndef Q_OS_MAC
     // Draw tabbar base even on parts of ComboTabBar that are not directly QTabBar
     QPainter p(this);
     QStyleOptionTabBarBaseV2 opt;
@@ -664,6 +665,7 @@ void ComboTabBar::paintEvent(QPaintEvent* ev)
         opt.rect.setWidth(scrollButtonWidth);
         style()->drawPrimitive(QStyle::PE_FrameTabBarBase, &opt, &p);
     }
+#endif
 }
 
 int ComboTabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
