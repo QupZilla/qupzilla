@@ -108,7 +108,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     setApplicationName(QLatin1String("QupZilla"));
     setApplicationVersion(Qz::VERSION);
     setOrganizationDomain(QLatin1String("qupzilla"));
-    setWindowIcon(QIcon::fromTheme(QSL("qupzilla"), QIcon(QSL(":icons/exeicons/qupzilla-window.png")));
+    setWindowIcon(QIcon::fromTheme(QSL("qupzilla"), QIcon(QSL(":icons/exeicons/qupzilla-window.png"))));
 
     // Set fallback icon theme (eg. on Windows/Mac)
     if (QIcon::fromTheme(QSL("view-refresh")).isNull()) {
