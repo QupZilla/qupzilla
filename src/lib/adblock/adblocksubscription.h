@@ -109,7 +109,7 @@ protected slots:
     void subscriptionDownloaded();
 
 protected:
-    virtual void saveDownloadedData(const QByteArray &data);
+    virtual bool saveDownloadedData(const QByteArray &data);
 
     void populateCache();
 
