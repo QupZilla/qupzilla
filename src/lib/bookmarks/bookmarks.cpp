@@ -122,7 +122,7 @@ void Bookmarks::addBookmark(BookmarkItem* parent, BookmarkItem* item)
     Q_ASSERT(parent->isFolder());
     Q_ASSERT(item);
 
-    insertBookmark(parent, 0, item);
+    insertBookmark(parent, parent->children().count(), item);
 
     m_autoSaver->changeOcurred();
 }

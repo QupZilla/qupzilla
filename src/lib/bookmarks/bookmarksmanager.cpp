@@ -293,7 +293,7 @@ void BookmarksManager::addBookmark(BookmarkItem* item)
     BookmarkItem* parent = parentForNewBookmark();
     Q_ASSERT(parent);
 
-    m_bookmarks->addBookmark(parent, item);
+    m_bookmarks->insertBookmark(parent, 0, item);
 
     // Select newly added bookmark
     ui->tree->selectBookmark(item);
