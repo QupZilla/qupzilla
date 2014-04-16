@@ -34,9 +34,14 @@ CaBundleUpdater::CaBundleUpdater(NetworkManager* manager, QObject* parent)
     , m_reply(0)
     , m_latestBundleVersion(0)
 {
-    m_bundleVersionFileName = DataPaths::path(DataPaths::Config) + "/certificates/bundle_version";
-    m_bundleFileName = DataPaths::path(DataPaths::Config) + "/certificates/ca-bundle.crt";
-    m_lastUpdateFileName = DataPaths::path(DataPaths::Config) + "/certificates/last_update";
+    m_bundleVersionFileName = DataPaths::path(DataPaths::Config) + QL1S("/certificates/bundle_version");
+    m_bundleFileName = DataPaths::path(DataPaths::Config) + QL1S("/certificates/ca-bundle.crt");
+    m_lastUpdateFileName = DataPaths::path(DataPaths::Config) + QL1S("/certificates/last_update");
+
+    // Make sure the certificates directory exists
+    QDir certDir(DataPaths::path(DataPaths::Config) + QL1S("/certificates"));
+    if (!certDir.exists())
+        certDir.mkpath(certDir.absolutePath());
 
     int updateTime = 30 * 1000;
 
@@ -54,12 +59,12 @@ void CaBundleUpdater::start()
     bool updateNow = false;
 
     if (updateFile.exists()) {
-        if (!updateFile.open(QFile::ReadOnly)) {
-            qWarning() << "CaBundleUpdater::start cannot open file for reading" << m_lastUpdateFileName;
-        }
-        else {
+        if (updateFile.open(QFile::ReadOnly)) {
             QDateTime updateTime = QDateTime::fromString(updateFile.readAll());
             updateNow = updateTime.addDays(5) < QDateTime::currentDateTime();
+        }
+        else {
+            qWarning() << "CaBundleUpdater::start cannot open file for reading" << m_lastUpdateFileName;
         }
     }
     else {
@@ -69,7 +74,7 @@ void CaBundleUpdater::start()
     if (updateNow) {
         m_progress = CheckLastUpdate;
 
-        QUrl url = QUrl::fromEncoded(QString(Qz::WWWADDRESS + "/certs/bundle_version").toUtf8());
+        QUrl url = QUrl::fromEncoded(QString(Qz::WWWADDRESS + QL1S("/certs/bundle_version")).toUtf8());
         m_reply = m_manager->get(QNetworkRequest(url));
         connect(m_reply, SIGNAL(finished()), this, SLOT(replyFinished()));
     }
@@ -86,27 +91,30 @@ void CaBundleUpdater::replyFinished()
             return;
         }
 
-        m_latestBundleVersion = response.toInt();
-        int currentBundleVersion = QzTools::readAllFileContents(m_bundleVersionFileName).trimmed().toInt();
+        bool ok;
 
-        if (m_latestBundleVersion == 0) {
+        m_latestBundleVersion = response.toInt(&ok);
+        if (!ok || m_latestBundleVersion <= 0)
             return;
-        }
 
-        if (m_latestBundleVersion > currentBundleVersion) {
-            m_progress = LoadBundle;
-
-            QUrl url = QUrl::fromEncoded(QString(Qz::WWWADDRESS + "/certs/ca-bundle.crt").toUtf8());
-            m_reply = m_manager->get(QNetworkRequest(url));
-            connect(m_reply, SIGNAL(finished()), this, SLOT(replyFinished()));
-        }
+        int currentBundleVersion = QzTools::readAllFileContents(m_bundleVersionFileName).trimmed().toInt(&ok);
+        if (!ok)
+            currentBundleVersion = 0;
 
         QFile file(m_lastUpdateFileName);
         if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
             qWarning() << "CaBundleUpdater::replyFinished cannot open file for writing" << m_lastUpdateFileName;
+            return;
         }
-
         file.write(QDateTime::currentDateTime().toString().toUtf8());
+
+        if (m_latestBundleVersion > currentBundleVersion) {
+            m_progress = LoadBundle;
+
+            QUrl url = QUrl::fromEncoded(QString(Qz::WWWADDRESS + QL1S("/certs/ca-bundle.crt")).toUtf8());
+            m_reply = m_manager->get(QNetworkRequest(url));
+            connect(m_reply, SIGNAL(finished()), this, SLOT(replyFinished()));
+        }
     }
     else if (m_progress == LoadBundle) {
         QByteArray response = m_reply->readAll();
@@ -120,6 +128,7 @@ void CaBundleUpdater::replyFinished()
         QFile file(m_bundleVersionFileName);
         if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
             qWarning() << "CaBundleUpdater::replyFinished cannot open file for writing" << m_bundleVersionFileName;
+            return;
         }
 
         file.write(QByteArray::number(m_latestBundleVersion));
@@ -128,6 +137,7 @@ void CaBundleUpdater::replyFinished()
         file.setFileName(m_bundleFileName);
         if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
             qWarning() << "CaBundleUpdater::replyFinished cannot open file for writing" << m_bundleFileName;
+            return;
         }
 
         file.write(response);
