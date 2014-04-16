@@ -157,33 +157,39 @@ void AdBlockSubscription::subscriptionDownloaded()
         return;
     }
 
-    QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
+    bool error = false;
+    const QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
-    if (m_reply->error() == QNetworkReply::NoError && response.startsWith("[Adblock")) {
-        // Prepend subscription info
-        response.prepend(QString("Title: %1\nUrl: %2\n").arg(title(), url().toString()).toUtf8());
-
-        saveDownloadedData(response);
-
-        loadSubscription(AdBlockManager::instance()->disabledRules());
-        emit subscriptionUpdated();
-    }
-    else {
-        emit subscriptionError(tr("Cannot load subscription!"));
+    if (m_reply->error() != QNetworkReply::NoError ||
+        !response.startsWith(QByteArray("[Adblock")) ||
+        !saveDownloadedData(response)
+       ) {
+        error = true;
     }
 
     m_reply->deleteLater();
     m_reply = 0;
+
+    if (error) {
+        emit subscriptionError(tr("Cannot load subscription!"));
+        return;
+    }
+
+    loadSubscription(AdBlockManager::instance()->disabledRules());
+    emit subscriptionUpdated();
 }
 
-void AdBlockSubscription::saveDownloadedData(const QByteArray &data)
+bool AdBlockSubscription::saveDownloadedData(const QByteArray &data)
 {
     QFile file(m_filePath);
 
     if (!file.open(QFile::ReadWrite | QFile::Truncate)) {
         qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for writing:" << m_filePath;
-        return;
+        return false;
     }
+
+    // Write subscription header
+    file.write(QString("Title: %1\nUrl: %2\n").arg(title(), url().toString()).toUtf8());
 
     if (AdBlockManager::instance()->useLimitedEasyList() && m_url == QUrl(ADBLOCK_EASYLIST_URL)) {
         // Third-party advertisers rules are with start domain (||) placeholder which needs regexps
@@ -193,13 +199,15 @@ void AdBlockSubscription::saveDownloadedData(const QByteArray &data)
         QByteArray part1 = data.left(data.indexOf(QLatin1String("!-----------------------------Third-party adverts-----------------------------!")));
         QByteArray part2 = data.mid(data.indexOf(QLatin1String("!---------------------------------Whitelists----------------------------------!")));
 
-        file.write(part1 + part2);
+        file.write(part1);
+        file.write(part2);
         file.close();
-        return;
+        return true;
     }
 
     file.write(data);
     file.close();
+    return true;
 }
 
 const AdBlockRule* AdBlockSubscription::match(const QNetworkRequest &request, const QString &urlDomain, const QString &urlString) const
