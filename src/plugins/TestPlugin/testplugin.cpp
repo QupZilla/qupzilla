@@ -93,11 +93,11 @@ void TestPlugin::unload()
 
 bool TestPlugin::testPlugin()
 {
-    //This function is called right after init()
-    //There should be some testing if plugin is loaded correctly
-    //If this function returns false, plugin is automatically unloaded
+    // This function is called right after init()
+    // There should be some testing if plugin is loaded correctly
+    // If this function returns false, plugin is automatically unloaded
 
-    return (Qz::VERSION == QLatin1String("1.7.0"));
+    return (Qz::VERSION == QLatin1String(QUPZILLA_VERSION));
 }
 
 QTranslator* TestPlugin::getTranslator(const QString &locale)

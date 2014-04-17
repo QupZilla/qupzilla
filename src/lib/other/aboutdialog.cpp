@@ -66,9 +66,11 @@ void AboutDialog::showAbout()
     ui->authorsButton->setText(tr("Authors and Contributors"));
     if (m_aboutHtml.isEmpty()) {
         m_aboutHtml += "<center><div style='margin:10px;'>";
-        m_aboutHtml += tr("<p><b>Application version %1</b><br/>").arg(Qz::VERSION
+        m_aboutHtml += tr("<p><b>Application version %1</b><br/>").arg(
 #ifdef GIT_REVISION
-                       + " (" + GIT_REVISION + ")"
+    QString("%1 (%2)").arg(Qz::VERSION, GIT_REVISION)
+#else
+    Qz::VERSION
 #endif
                                                                       );
         m_aboutHtml += tr("<b>WebKit version %1</b></p>").arg(qWebKitVersion());

@@ -67,7 +67,7 @@ void ProfileManager::initConfigDir() const
 
     QFile versionFile(dir.filePath(QLatin1String("profiles/default/version")));
     versionFile.open(QFile::WriteOnly);
-    versionFile.write(Qz::VERSION.toUtf8());
+    versionFile.write(Qz::VERSION);
     versionFile.close();
 }
 
@@ -106,7 +106,7 @@ int ProfileManager::createProfile(const QString &profileName)
 
     QFile versionFile(dir.filePath(QLatin1String("/version")));
     versionFile.open(QFile::WriteOnly);
-    versionFile.write(Qz::VERSION.toUtf8());
+    versionFile.write(Qz::VERSION);
     versionFile.close();
 
     return 0;
@@ -172,7 +172,7 @@ void ProfileManager::updateCurrentProfile()
     }
 
     versionFile.open(QFile::WriteOnly);
-    versionFile.write(Qz::VERSION.toUtf8());
+    versionFile.write(Qz::VERSION);
     versionFile.close();
 }
 

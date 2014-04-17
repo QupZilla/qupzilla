@@ -9,6 +9,7 @@ UI_DIR = $$PWD/../build
 mocinclude.CONFIG *= fix_target
 
 unix: VERSION = 1.7.0
+DEFINES *= QUPZILLA_VERSION=\\\"""$$VERSION"\\\""
 
 # Please read BUILD information #
 #DEFINES *= PORTABLE_BUILD

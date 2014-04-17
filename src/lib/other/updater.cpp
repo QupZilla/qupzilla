@@ -154,7 +154,7 @@ void Updater::downCompleted(QNetworkReply* reply)
 
 void Updater::downloadNewVersion()
 {
-    m_window->tabWidget()->addView(QUrl(Qz::WWWADDRESS + "/download"), tr("Update"), Qz::NT_NotSelectedTab);
+    m_window->tabWidget()->addView(QUrl::fromEncoded(QByteArray(Qz::WWWADDRESS) + QByteArray("/download")), tr("Update"), Qz::NT_NotSelectedTab);
 }
 
 Updater::~Updater()

@@ -55,20 +55,20 @@
 namespace Qz
 {
 // Version of session.dat file
-static const int sessionVersion = 0x0003;
+extern const int sessionVersion;
 // Backwards compatibility (used to be different for Qt4 and Qt5)
-static const int sessionVersionQt5 = 0x0003 | 0x050000;
+extern const int sessionVersionQt5;
 
 // Version of bookmarks.json file
-static const int bookmarksVersion = 1;
+extern const int bookmarksVersion;
 
-static const QString APPNAME = "QupZilla";
-static const QString VERSION = "1.7.0";
-static const QString BUILDTIME =  __DATE__" "__TIME__;
-static const QString AUTHOR = "David Rosca";
-static const QString COPYRIGHT = "2010-2014";
-static const QString WWWADDRESS = "http://www.qupzilla.com";
-static const QString WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
+extern const char* APPNAME;
+extern const char* VERSION;
+extern const char* BUILDTIME;
+extern const char* AUTHOR;
+extern const char* COPYRIGHT;
+extern const char* WWWADDRESS;
+extern const char* WIKIADDRESS;
 
 enum BrowserWindowType {
     BW_FirstAppWindow,

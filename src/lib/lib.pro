@@ -71,6 +71,7 @@ SOURCES += \
     app/mainmenu.cpp \
     app/profilemanager.cpp \
     app/proxystyle.cpp \
+    app/qzcommon.cpp \
     app/settings.cpp \
     autofill/autofill.cpp \
     autofill/autofillicon.cpp \

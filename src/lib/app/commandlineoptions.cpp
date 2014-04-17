@@ -63,7 +63,7 @@ void CommandLineOptions::showHelp()
                        " For more information please visit wiki at \n"
                        " https://github.com/QupZilla/qupzilla/wiki \n";
 
-    cout << help << " > " << Qz::WWWADDRESS.toUtf8().data() << endl;
+    cout << help << " > " << Qz::WWWADDRESS << endl;
 }
 
 void CommandLineOptions::parseActions()
@@ -97,11 +97,11 @@ void CommandLineOptions::parseActions()
         }
 
         if (arg == QLatin1String("-v") || arg == QLatin1String("--version")) {
-            cout << "QupZilla v" << Qz::VERSION.toUtf8().data()
+            cout << "QupZilla v" << Qz::VERSION
 #ifdef GIT_REVISION
                  << " rev " << GIT_REVISION << " "
 #endif
-                 << "(build " << Qz::BUILDTIME.toUtf8().data() << ")"
+                 << "(build " << Qz::BUILDTIME << ")"
                  << endl;
             ActionPair pair;
             pair.action = Qz::CL_ExitAction;
