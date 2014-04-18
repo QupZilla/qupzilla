@@ -59,7 +59,7 @@ void KWalletPlugin::unload()
 
 bool KWalletPlugin::testPlugin()
 {
-    return (QupZilla::VERSION == QLatin1String("1.6.3"));
+    return (QupZilla::VERSION == QLatin1String("1.6.5"));
 }
 
 QTranslator* KWalletPlugin::getTranslator(const QString &locale)

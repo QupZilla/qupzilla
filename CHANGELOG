@@ -1,3 +1,10 @@
+Version 1.6.5
+    * released 18 April 2014
+    * fixed build issues on Mac
+    * fixed error handling when downloading CA certificates bundle
+    * fixed error handling when downloading AdBlock subscriptions
+    * fixed loading KWalletPasswords plugin
+
 Version 1.6.4
     * released 14 April 2014
     * enabled sending DoNotTrack header by default
