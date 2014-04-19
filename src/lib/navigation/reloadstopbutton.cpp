@@ -16,47 +16,27 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "reloadstopbutton.h"
-#include "toolbutton.h"
 
-#include <QHBoxLayout>
 #include <QTimer>
+#include <QStyle>
 
 ReloadStopButton::ReloadStopButton(QWidget* parent)
-    : QWidget(parent)
+    : ToolButton(parent)
     , m_loadInProgress(false)
 {
-    QHBoxLayout* lay = new QHBoxLayout(this);
-    setLayout(lay);
-
-    m_buttonStop = new ToolButton(this);
-    m_buttonStop->setObjectName("navigation-button-stop");
-    m_buttonStop->setToolTip(ToolButton::tr("Stop"));
-    m_buttonStop->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    m_buttonStop->setToolbarButtonLook(true);
-    m_buttonStop->setVisible(false);
-    m_buttonStop->setAutoRaise(true);
-    m_buttonStop->setFocusPolicy(Qt::NoFocus);
-
-    m_buttonReload = new ToolButton(this);
-    m_buttonReload->setObjectName("navigation-button-reload");
-    m_buttonReload->setToolTip(ToolButton::tr("Reload"));
-    m_buttonReload->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    m_buttonReload->setToolbarButtonLook(true);
-    m_buttonReload->setAutoRaise(true);
-    m_buttonReload->setFocusPolicy(Qt::NoFocus);
-
-    lay->addWidget(m_buttonStop);
-    lay->addWidget(m_buttonReload);
-    lay->setContentsMargins(0, 0, 0, 0);
-    lay->setSpacing(0);
+    setToolButtonStyle(Qt::ToolButtonIconOnly);
+    setToolbarButtonLook(true);
+    setAutoRaise(true);
+    setFocusPolicy(Qt::NoFocus);
 
     m_updateTimer = new QTimer(this);
-    m_updateTimer->setInterval(100);
+    m_updateTimer->setInterval(50);
     m_updateTimer->setSingleShot(true);
     connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateButton()));
 
-    connect(m_buttonStop, SIGNAL(clicked()), this, SIGNAL(stopClicked()));
-    connect(m_buttonReload, SIGNAL(clicked()), this, SIGNAL(reloadClicked()));
+    connect(this, SIGNAL(clicked()), this, SLOT(buttonClicked()));
+
+    updateButton();
 }
 
 void ReloadStopButton::showStopButton()
@@ -73,8 +53,24 @@ void ReloadStopButton::showReloadButton()
 
 void ReloadStopButton::updateButton()
 {
-    setUpdatesEnabled(false);
-    m_buttonStop->setVisible(m_loadInProgress);
-    m_buttonReload->setVisible(!m_loadInProgress);
-    setUpdatesEnabled(true);
+    if (m_loadInProgress) {
+        setToolTip(tr("Stop"));
+        setObjectName(QSL("navigation-button-stop"));
+    }
+    else {
+        setToolTip(tr("Reload"));
+        setObjectName(QSL("navigation-button-reload"));
+    }
+
+    // Update the stylesheet for the changed object name
+    style()->unpolish(this);
+    style()->polish(this);
+}
+
+void ReloadStopButton::buttonClicked()
+{
+    if (m_loadInProgress)
+        emit stopClicked();
+    else
+        emit reloadClicked();
 }
