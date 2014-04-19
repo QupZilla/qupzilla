@@ -57,14 +57,19 @@ public:
 
     // Align the right corner of menu to the right corner of button
     bool showMenuInside() const;
-    void setShowMenuInside(bool inside);
+    void setShowMenuInside(bool enable);
+
+    // Set the button to look as it was in toolbar
+    // (it now only sets the correct icon size)
+    bool toolbarButtonLook() const;
+    void setToolbarButtonLook(bool enable);
 
 signals:
     void middleMouseClicked();
     void controlClicked();
     void doubleClicked();
 
-    // It is needed to use these signals with showMenuInsied
+    // It is needed to use these signals with ShowMenuInside
     void aboutToShowMenu();
     void aboutToHideMenu();
 
@@ -87,8 +92,13 @@ private:
     QTimer m_pressTimer;
     QMenu* m_menu;
 
-    bool m_usingMultiIcon;
-    bool m_showMenuInside;
+    enum Options {
+        MultiIconOption = 1,
+        ShowMenuInsideOption = 2,
+        ToolBarLookOption = 4
+    };
+    Q_DECLARE_FLAGS(OptionsFlags, Options)
+    QFlags<OptionsFlags> m_options;
 };
 
 #endif // TOOLBUTTON_H

@@ -27,8 +27,6 @@
 ToolButton::ToolButton(QWidget* parent)
     : QToolButton(parent)
     , m_menu(0)
-    , m_usingMultiIcon(false)
-    , m_showMenuInside(false)
 {
     setMinimumWidth(16);
 
@@ -55,7 +53,7 @@ void ToolButton::setMultiIcon(const QPixmap &icon)
     m_activeIcon = icon.copy(0, h / 2, w, h / 4);
     m_disabledIcon = icon.copy(0, 3 * h / 4, w, h / 4);
 
-    m_usingMultiIcon = true;
+    m_options |= MultiIconOption;
     setFixedSize(m_normalIcon.size());
 }
 
@@ -72,15 +70,15 @@ void ToolButton::setThemeIcon(const QString &icon)
 
 QIcon ToolButton::icon() const
 {
-    return m_usingMultiIcon ? multiIcon() : QToolButton::icon();
+    return m_options & MultiIconOption ? multiIcon() : QToolButton::icon();
 }
 
 void ToolButton::setIcon(const QIcon &icon)
 {
-    if (m_usingMultiIcon)
+    if (m_options & MultiIconOption)
         setFixedSize(sizeHint());
 
-    m_usingMultiIcon = false;
+    m_options &= ~MultiIconOption;
     QToolButton::setIcon(icon);
 }
 
@@ -102,12 +100,35 @@ void ToolButton::setMenu(QMenu* menu)
 
 bool ToolButton::showMenuInside() const
 {
-    return m_showMenuInside;
+    return m_options & ShowMenuInsideOption;
 }
 
-void ToolButton::setShowMenuInside(bool inside)
+void ToolButton::setShowMenuInside(bool enable)
 {
-    m_showMenuInside = inside;
+    if (enable)
+        m_options |= ShowMenuInsideOption;
+    else
+        m_options &= ~ShowMenuInsideOption;
+}
+
+bool ToolButton::toolbarButtonLook() const
+{
+    return m_options & ToolBarLookOption;
+}
+
+void ToolButton::setToolbarButtonLook(bool enable)
+{
+    if (enable) {
+        m_options |= ToolBarLookOption;
+
+        QStyleOption opt;
+        opt.initFrom(this);
+        int size = style()->pixelMetric(QStyle::PM_ToolBarIconSize, &opt, this);
+        setIconSize(QSize(size, size));
+    }
+    else {
+        m_options &= ~ToolBarLookOption;
+    }
 }
 
 void ToolButton::menuAboutToHide()
@@ -125,7 +146,7 @@ void ToolButton::showMenu()
 
     QPoint pos;
 
-    if (m_showMenuInside) {
+    if (m_options & ShowMenuInsideOption) {
         pos = mapToGlobal(rect().bottomRight());
         if (QApplication::layoutDirection() == Qt::RightToLeft)
             pos.setX(pos.x() - rect().width());
@@ -185,7 +206,7 @@ void ToolButton::mouseDoubleClickEvent(QMouseEvent* e)
 
 void ToolButton::paintEvent(QPaintEvent* e)
 {
-    if (!m_usingMultiIcon) {
+    if (!(m_options & MultiIconOption)) {
         QToolButton::paintEvent(e);
         return;
     }

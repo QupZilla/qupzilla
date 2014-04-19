@@ -32,6 +32,7 @@ ReloadStopButton::ReloadStopButton(QWidget* parent)
     m_buttonStop->setObjectName("navigation-button-stop");
     m_buttonStop->setToolTip(ToolButton::tr("Stop"));
     m_buttonStop->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    m_buttonStop->setToolbarButtonLook(true);
     m_buttonStop->setVisible(false);
     m_buttonStop->setAutoRaise(true);
     m_buttonStop->setFocusPolicy(Qt::NoFocus);
@@ -40,6 +41,7 @@ ReloadStopButton::ReloadStopButton(QWidget* parent)
     m_buttonReload->setObjectName("navigation-button-reload");
     m_buttonReload->setToolTip(ToolButton::tr("Reload"));
     m_buttonReload->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    m_buttonReload->setToolbarButtonLook(true);
     m_buttonReload->setAutoRaise(true);
     m_buttonReload->setFocusPolicy(Qt::NoFocus);
 
@@ -52,6 +54,9 @@ ReloadStopButton::ReloadStopButton(QWidget* parent)
     m_updateTimer->setInterval(100);
     m_updateTimer->setSingleShot(true);
     connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateButton()));
+
+    connect(m_buttonStop, SIGNAL(clicked()), this, SIGNAL(stopClicked()));
+    connect(m_buttonReload, SIGNAL(clicked()), this, SIGNAL(reloadClicked()));
 }
 
 void ReloadStopButton::showStopButton()
@@ -64,16 +69,6 @@ void ReloadStopButton::showReloadButton()
 {
     m_loadInProgress = false;
     m_updateTimer->start();
-}
-
-ToolButton* ReloadStopButton::buttonStop() const
-{
-    return m_buttonStop;
-}
-
-ToolButton* ReloadStopButton::buttonReload() const
-{
-    return m_buttonReload;
 }
 
 void ReloadStopButton::updateButton()

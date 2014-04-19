@@ -36,8 +36,9 @@ public:
     void showStopButton();
     void showReloadButton();
 
-    ToolButton* buttonStop() const;
-    ToolButton* buttonReload() const;
+signals:
+    void stopClicked();
+    void reloadClicked();
 
 private slots:
     void updateButton();

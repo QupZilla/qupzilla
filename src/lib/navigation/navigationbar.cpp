@@ -37,14 +37,6 @@
 #include <QMouseEvent>
 #include <QStyleOption>
 
-static void setToolBarButtonIconSize(ToolButton* button)
-{
-    QStyleOption opt;
-    opt.initFrom(button);
-    int size = button->style()->pixelMetric(QStyle::PM_ToolBarIconSize, &opt, button);
-    button->setIconSize(QSize(size, size));
-}
-
 NavigationBar::NavigationBar(BrowserWindow* window)
     : QWidget(window)
     , m_window(window)
@@ -60,19 +52,19 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_buttonBack->setObjectName("navigation-button-back");
     m_buttonBack->setToolTip(tr("Back"));
     m_buttonBack->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    m_buttonBack->setToolbarButtonLook(true);
     m_buttonBack->setAutoRaise(true);
     m_buttonBack->setEnabled(false);
     m_buttonBack->setFocusPolicy(Qt::NoFocus);
-    setToolBarButtonIconSize(m_buttonBack);
 
     m_buttonForward = new ToolButton(this);
     m_buttonForward->setObjectName("navigation-button-next");
     m_buttonForward->setToolTip(tr("Forward"));
     m_buttonForward->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    m_buttonForward->setToolbarButtonLook(true);
     m_buttonForward->setAutoRaise(true);
     m_buttonForward->setEnabled(false);
     m_buttonForward->setFocusPolicy(Qt::NoFocus);
-    setToolBarButtonIconSize(m_buttonForward);
 
     QHBoxLayout* backNextLayout = new QHBoxLayout();
     backNextLayout->setContentsMargins(0, 0, 0, 0);
@@ -81,24 +73,22 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     backNextLayout->addWidget(m_buttonForward);
 
     m_reloadStop = new ReloadStopButton(this);
-    setToolBarButtonIconSize(m_reloadStop->buttonReload());
-    setToolBarButtonIconSize(m_reloadStop->buttonStop());
 
     m_buttonHome = new ToolButton(this);
     m_buttonHome->setObjectName("navigation-button-home");
     m_buttonHome->setToolTip(tr("Home"));
     m_buttonHome->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    m_buttonHome->setToolbarButtonLook(true);
     m_buttonHome->setAutoRaise(true);
     m_buttonHome->setFocusPolicy(Qt::NoFocus);
-    setToolBarButtonIconSize(m_buttonHome);
 
     m_buttonAddTab = new ToolButton(this);
     m_buttonAddTab->setObjectName("navigation-button-addtab");
     m_buttonAddTab->setToolTip(tr("New Tab"));
     m_buttonAddTab->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    m_buttonAddTab->setToolbarButtonLook(true);
     m_buttonAddTab->setAutoRaise(true);
     m_buttonAddTab->setFocusPolicy(Qt::NoFocus);
-    setToolBarButtonIconSize(m_buttonAddTab);
 
     m_menuBack = new Menu(this);
     m_menuBack->setCloseOnMiddleClick(true);
@@ -114,12 +104,12 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_supMenu = new ToolButton(this);
     m_supMenu->setObjectName("navigation-button-supermenu");
     m_supMenu->setPopupMode(QToolButton::InstantPopup);
+    m_supMenu->setToolbarButtonLook(true);
     m_supMenu->setToolTip(tr("Main Menu"));
     m_supMenu->setAutoRaise(true);
     m_supMenu->setFocusPolicy(Qt::NoFocus);
     m_supMenu->setMenu(m_window->superMenu());
     m_supMenu->setShowMenuInside(true);
-    setToolBarButtonIconSize(m_supMenu);
 #endif
 
     m_searchLine = new WebSearchBar(m_window);
@@ -135,10 +125,10 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_exitFullscreen->setObjectName("navigation-button-exitfullscreen");
     m_exitFullscreen->setToolTip(tr("Exit Fullscreen"));
     m_exitFullscreen->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    m_exitFullscreen->setToolbarButtonLook(true);
     m_exitFullscreen->setFocusPolicy(Qt::NoFocus);
     m_exitFullscreen->setAutoRaise(true);
     m_exitFullscreen->setVisible(false);
-    setToolBarButtonIconSize(m_exitFullscreen);
 
     m_layout->addLayout(backNextLayout);
     m_layout->addWidget(m_reloadStop);
