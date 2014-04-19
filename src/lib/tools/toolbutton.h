@@ -33,31 +33,23 @@ class QUPZILLA_EXPORT ToolButton : public QToolButton
     Q_PROPERTY(QPixmap multiIcon READ pixmap WRITE setMultiIcon)
     Q_PROPERTY(QIcon icon READ icon WRITE setIcon)
     Q_PROPERTY(QString themeIcon READ themeIcon WRITE setThemeIcon)
-    Q_PROPERTY(QIcon fallbackIcon READ icon WRITE setFallbackIcon)
 
 public:
     explicit ToolButton(QWidget* parent = 0);
 
-    void setData(const QVariant &data);
-    QVariant data();
+    // MultiIcon - Image containing pixmaps for all button states
+    QPixmap pixmap() const;
+    void setMultiIcon(const QPixmap &icon);
 
-    void setMultiIcon(const QPixmap &image);
-    QPixmap pixmap() { return m_normalIcon; }
+    // ThemeIcon - Standard QToolButton with theme icon
+    QString themeIcon() const;
+    void setThemeIcon(const QString &icon);
 
-    void setThemeIcon(const QString &image);
-    QString themeIcon() { return m_themeIcon; }
+    void setIcon(const QIcon &icon);
+    void setMenu(QMenu* menu);
 
-    void setFallbackIcon(const QIcon &image);
-    void setIcon(const QIcon &image);
-
-    void setMenu(QMenu* m);
-
-    void setShowMenuInside(bool inside);
     bool showMenuInside() const;
-
-    virtual void setVisible(bool visible);
-    bool isForceHidden();
-    void setForceHidden(bool enable);
+    void setShowMenuInside(bool inside);
 
 signals:
     void middleMouseClicked();
@@ -67,9 +59,6 @@ signals:
     // Emitted when showMenuInside is true
     void aboutToShowMenu();
 
-public slots:
-    void showMenu();
-
 private slots:
     void menuAboutToHide();
 
@@ -77,9 +66,10 @@ protected:
     void mousePressEvent(QMouseEvent* e);
     void mouseReleaseEvent(QMouseEvent* e);
     void mouseDoubleClickEvent(QMouseEvent* e);
+    void paintEvent(QPaintEvent* e);
 
 private:
-    void paintEvent(QPaintEvent* e);
+    void showMenu();
 
     bool m_usingMultiIcon;
     bool m_showMenuInside;
@@ -90,8 +80,6 @@ private:
     QPixmap m_disabledIcon;
 
     QString m_themeIcon;
-    QVariant m_data;
-    bool m_forceHidden;
 };
 
 #endif // TOOLBUTTON_H
