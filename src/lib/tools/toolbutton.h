@@ -98,7 +98,8 @@ private:
         ToolBarLookOption = 4
     };
     Q_DECLARE_FLAGS(OptionsFlags, Options)
-    QFlags<OptionsFlags> m_options;
+    OptionsFlags m_options;
 };
+
 
 #endif // TOOLBUTTON_H
