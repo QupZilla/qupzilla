@@ -923,9 +923,6 @@ void MainApplication::loadTheme(const QString &name)
 
     QString qss = QzTools::readAllFileContents(activeThemePath + QLatin1String("/main.css"));
 
-    // #id[style=QtStyle] (QtStyle = QMacStyle, QWindowsVistaStyle, QGtkStyle, ...)
-    // should be enough instead of loading special stylesheets
-
 #if defined(Q_OS_MAC)
     qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/linux.css")));
 #elif defined(Q_OS_UNIX)
@@ -939,7 +936,7 @@ void MainApplication::loadTheme(const QString &name)
     }
 
     QString relativePath = QDir::current().relativeFilePath(activeThemePath);
-    qss.replace(QzRegExp(QLatin1String("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)"), Qt::CaseSensitive), QString("url(%1\\1)").arg(relativePath + "/"));
+    qss.replace(QzRegExp(QSL("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)"), Qt::CaseSensitive), QString("url(%1/\\1)").arg(relativePath));
     setStyleSheet(qss);
 }
 

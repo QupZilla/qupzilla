@@ -167,9 +167,9 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace(QLatin1String("%INFO_OS%"), QzTools::operatingSystem());
     bPage.replace(QLatin1String("%INFO_APP%"),
 #ifdef GIT_REVISION
-    QString("%1 (%2)").arg(Qz::VERSION, GIT_REVISION)
+                  QString("%1 (%2)").arg(Qz::VERSION, GIT_REVISION)
 #else
-    Qz::VERSION
+                  Qz::VERSION
 #endif
                  );
     bPage.replace(QLatin1String("%INFO_QT%"), QString("%1 (built with %2)").arg(qVersion(), QT_VERSION_STR));
@@ -222,9 +222,9 @@ QString QupZillaSchemeReply::aboutPage()
         aPage.replace(QLatin1String("%VERSION-INFO%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"),
 #ifdef GIT_REVISION
-    QString("%1 (%2)").arg(Qz::VERSION, GIT_REVISION)
+                              QString("%1 (%2)").arg(Qz::VERSION, GIT_REVISION)
 #else
-    Qz::VERSION
+                              Qz::VERSION
 #endif
                                                           ) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), qWebKitVersion()));
@@ -391,9 +391,9 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace(QLatin1String("%VERSION-INFO%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Application version"),
 #ifdef GIT_REVISION
-    QString("%1 (%2)").arg(Qz::VERSION, GIT_REVISION)
+                              QString("%1 (%2)").arg(Qz::VERSION, GIT_REVISION)
 #else
-    Qz::VERSION
+                              Qz::VERSION
 #endif
                                                           ) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
