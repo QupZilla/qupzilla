@@ -22,19 +22,9 @@
     qproperty-themeIcon: "go-previous";
 }
 
-#navigation-button-back::menu-indicator
-{
-    image: none;
-}
-
 #navigation-button-next
 {
     qproperty-themeIcon: "go-next";
-}
-
-#navigation-button-next::menu-indicator
-{
-    image: none;
 }
 
 #navigation-button-stop
@@ -67,11 +57,6 @@
     qproperty-themeIcon: "view-restore";
 }
 
-#navigation-button-supermenu::menu-indicator
-{
-    image: none;
-}
-
 /*TabWidget*/
 #tabbar::tab
 {
@@ -101,20 +86,10 @@
     qproperty-fixedsize: 20px 25px;
 }
 
-#tabwidget-button-opentabs::menu-indicator
-{
-    image: none;
-}
-
 #tabwidget-button-closedtabs
 {
     qproperty-themeIcon: "user-trash-full";
     qproperty-fixedsize: 22px 25px;
-}
-
-#tabwidget-button-closedtabs::menu-indicator
-{
-    image: none;
 }
 
 #tabwidget-button-addtab
@@ -203,22 +178,12 @@ IconProvider
     qproperty-fixedsize: 32px 16px;
 }
 
-#websearchbar-searchprovider-comobobox::menu-indicator
-{
-    image: none;
-}
-
 /*BookmarksToolbar*/
 #bookmarksbar QToolButton
 {
     border-image: url(images/transp.png);
     border-width: 0px;
     height: 15px;
-}
-
-#bookmarksbar QToolButton::menu-indicator
-{
-    image: none;
 }
 
 /*SideBar*/

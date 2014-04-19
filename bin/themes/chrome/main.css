@@ -136,11 +136,6 @@
     qproperty-fixedsize: 22px 25px;
 }
 
-#tabwidget-button-closedtabs::menu-indicator
-{
-    image: none;
-}
-
 #tabwidget-button-addtab
 {
     qproperty-multiIcon: url(images/tabbar-addtab.png);
@@ -222,11 +217,6 @@ IconProvider
     height: 15px;
 }
 
-#bookmarksbar QToolButton::menu-indicator
-{
-    background: url(images/transp.png);
-}
-
 /*SideBar*/
 #sidebar
 {
@@ -265,11 +255,6 @@ IconProvider
     border-image: url(images/searchbar-provider-bg.png);
     padding-left:-8px;
     qproperty-fixedsize: 37px 27px;
-}
-
-#websearchbar-searchprovider-comobobox::menu-indicator
-{
-    background: url(images/transp.png);
 }
 
 /*SourceViewer*/

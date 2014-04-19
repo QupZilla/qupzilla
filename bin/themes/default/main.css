@@ -117,20 +117,10 @@
     qproperty-fixedsize: 20px 27px;
 }
 
-#tabwidget-button-opentabs::menu-indicator
-{
-    image: none;
-}
-
 #tabwidget-button-closedtabs
 {
     qproperty-themeIcon: "user-trash-full";
     qproperty-fixedsize: 22px 25px;
-}
-
-#tabwidget-button-closedtabs::menu-indicator
-{
-    image: none;
 }
 
 #tabwidget-button-addtab
@@ -245,16 +235,10 @@ IconProvider
 
 #websearchbar-searchprovider-comobobox
 {
-    border-image: url(images/siteicon-bg.png);
+    border-image: url(images/websearchbar-bg.png);
     padding-left:-6px;
     margin-left:2px;
     qproperty-fixedsize: 35px 25px;
-}
-
-#websearchbar-searchprovider-comobobox::menu-indicator
-{
-    background-image: url(images/arrow-down.gif);
-    background-repeat: no-repeat;
 }
 
 /*BookmarksToolbar*/
@@ -263,11 +247,6 @@ IconProvider
     border-image: url(images/transp.png);
     border-width: 0px;
     height: 15px;
-}
-
-#bookmarksbar QToolButton::menu-indicator
-{
-    background: url(images/transp.png);
 }
 
 /*SideBar*/

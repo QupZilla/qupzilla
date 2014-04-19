@@ -136,20 +136,10 @@
     qproperty-fixedsize: 18px 28px;
 }
 
-#tabwidget-button-opentabs::menu-indicator
-{
-    image: none;
-}
-
 #tabwidget-button-closedtabs
 {
     qproperty-themeIcon: "user-trash-full";
     qproperty-fixedsize: 22px 28px;
-}
-
-#tabwidget-button-closedtabs::menu-indicator
-{
-    image: none;
 }
 
 #tabwidget-button-addtab
@@ -238,11 +228,6 @@ IconProvider
     height: 15px;
 }
 
-#bookmarksbar QToolButton::menu-indicator
-{
-    background: url(images/transp.png);
-}
-
 /*SideBar*/
 #sidebar
 {
@@ -278,11 +263,6 @@ IconProvider
     border-image: url(images/searchbar-provider-bg.png);
     padding-left:-8px;
     qproperty-fixedsize: 32px 22px;
-}
-
-#websearchbar-searchprovider-comobobox::menu-indicator
-{
-    background: url(images/transp.png);
 }
 
 /*SourceViewer*/
