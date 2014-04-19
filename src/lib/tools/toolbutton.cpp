@@ -139,7 +139,7 @@ void ToolButton::menuAboutToHide()
 
 void ToolButton::showMenu()
 {
-    if (!m_menu)
+    if (!m_menu || m_menu->isVisible())
         return;
 
     emit aboutToShowMenu();
