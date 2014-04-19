@@ -48,7 +48,7 @@ public:
     void showStopButton();
 
     ToolButton* buttonBack() { return m_buttonBack; }
-    ToolButton* buttonNext() { return m_buttonNext; }
+    ToolButton* buttonForward() { return m_buttonForward; }
     ToolButton* buttonHome() { return m_buttonHome; }
     ToolButton* buttonAddTab() { return m_buttonAddTab; }
     ToolButton* buttonExitFullscreen() { return m_exitFullscreen; }
@@ -98,7 +98,7 @@ private:
     QHBoxLayout* m_layout;
     QSplitter* m_navigationSplitter;
     ToolButton* m_buttonBack;
-    ToolButton* m_buttonNext;
+    ToolButton* m_buttonForward;
     ToolButton* m_buttonHome;
     ToolButton* m_buttonAddTab;
     ToolButton* m_supMenu;

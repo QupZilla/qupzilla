@@ -29,7 +29,7 @@ ButtonWithMenu::ButtonWithMenu(QWidget* parent)
     setFocusPolicy(Qt::ClickFocus);
     setMenu(m_menu);
 
-    connect(m_menu, SIGNAL(aboutToShow()), this, SLOT(generateMenu()));
+    connect(this, SIGNAL(aboutToShowMenu()), this, SLOT(generateMenu()));
 }
 
 void ButtonWithMenu::setCurrentItem()

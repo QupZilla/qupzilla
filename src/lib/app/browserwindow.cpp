@@ -421,7 +421,7 @@ void BrowserWindow::loadSettings()
     m_navigationToolbar->buttonReloadStop()->setVisible(showReloadButton);
     m_navigationToolbar->buttonHome()->setVisible(showHomeButton);
     m_navigationToolbar->buttonBack()->setVisible(showBackForwardButtons);
-    m_navigationToolbar->buttonNext()->setVisible(showBackForwardButtons);
+    m_navigationToolbar->buttonForward()->setVisible(showBackForwardButtons);
     m_navigationToolbar->webSearchBar()->setVisible(showWebSearchBar);
     m_navigationToolbar->buttonAddTab()->setVisible(showAddTabButton);
 

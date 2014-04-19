@@ -17,21 +17,30 @@
 * ============================================================ */
 #include "toolbutton.h"
 
-#include <QMouseEvent>
 #include <QMenu>
+#include <QStyle>
 #include <QPainter>
+#include <QMouseEvent>
 #include <QApplication>
 #include <QStyleOptionToolButton>
 
 ToolButton::ToolButton(QWidget* parent)
     : QToolButton(parent)
+    , m_menu(0)
     , m_usingMultiIcon(false)
     , m_showMenuInside(false)
 {
     setMinimumWidth(16);
+
+    QStyleOptionToolButton opt;
+    initStyleOption(&opt);
+
+    m_pressTimer.setSingleShot(true);
+    m_pressTimer.setInterval(QApplication::style()->styleHint(QStyle::SH_ToolButton_PopupDelay, &opt, this));
+    connect(&m_pressTimer, SIGNAL(timeout()), this, SLOT(showMenu()));
 }
 
-QPixmap ToolButton::pixmap() const
+QPixmap ToolButton::multiIcon() const
 {
     return m_normalIcon;
 }
@@ -61,6 +70,11 @@ void ToolButton::setThemeIcon(const QString &icon)
     setIcon(QIcon::fromTheme(m_themeIcon));
 }
 
+QIcon ToolButton::icon() const
+{
+    return m_usingMultiIcon ? multiIcon() : QToolButton::icon();
+}
+
 void ToolButton::setIcon(const QIcon &icon)
 {
     if (m_usingMultiIcon)
@@ -70,15 +84,20 @@ void ToolButton::setIcon(const QIcon &icon)
     QToolButton::setIcon(icon);
 }
 
+QMenu* ToolButton::menu() const
+{
+    return m_menu;
+}
+
 void ToolButton::setMenu(QMenu* menu)
 {
     Q_ASSERT(menu);
 
-    if (QToolButton::menu())
-        disconnect(QToolButton::menu(), SIGNAL(aboutToHide()), this, SLOT(menuAboutToHide()));
+    if (m_menu)
+        disconnect(m_menu, SIGNAL(aboutToHide()), this, SLOT(menuAboutToHide()));
 
-    connect(menu, SIGNAL(aboutToHide()), this, SLOT(menuAboutToHide()));
-    QToolButton::setMenu(menu);
+    m_menu = menu;
+    connect(m_menu, SIGNAL(aboutToHide()), this, SLOT(menuAboutToHide()));
 }
 
 bool ToolButton::showMenuInside() const
@@ -94,45 +113,70 @@ void ToolButton::setShowMenuInside(bool inside)
 void ToolButton::menuAboutToHide()
 {
     setDown(false);
+    emit aboutToHideMenu();
+}
+
+void ToolButton::showMenu()
+{
+    if (!m_menu)
+        return;
+
+    emit aboutToShowMenu();
+
+    QPoint pos;
+
+    if (m_showMenuInside) {
+        pos = mapToGlobal(rect().bottomRight());
+        if (QApplication::layoutDirection() == Qt::RightToLeft)
+            pos.setX(pos.x() - rect().width());
+        else
+            pos.setX(pos.x() - m_menu->sizeHint().width());
+    }
+    else {
+        pos = mapToGlobal(rect().bottomLeft());
+    }
+
+    m_menu->popup(pos);
 }
 
 void ToolButton::mousePressEvent(QMouseEvent* e)
 {
+    QToolButton::mousePressEvent(e);
+
+    if (popupMode() == QToolButton::DelayedPopup)
+        m_pressTimer.start();
+
     if (e->buttons() == Qt::LeftButton && menu() && popupMode() == QToolButton::InstantPopup) {
         setDown(true);
         showMenu();
-        return;
     }
-
-    if (e->buttons() == Qt::RightButton && menu()) {
+    else if (e->buttons() == Qt::RightButton && menu()) {
         setDown(true);
         showMenu();
-        return;
     }
-
-    QToolButton::mousePressEvent(e);
 }
 
 void ToolButton::mouseReleaseEvent(QMouseEvent* e)
 {
+    QToolButton::mouseReleaseEvent(e);
+
+    m_pressTimer.stop();
+
     if (e->button() == Qt::MiddleButton && rect().contains(e->pos())) {
         emit middleMouseClicked();
         setDown(false);
-        return;
     }
-
-    if (e->button() == Qt::LeftButton && rect().contains(e->pos()) && e->modifiers() == Qt::ControlModifier) {
+    else if (e->button() == Qt::LeftButton && rect().contains(e->pos()) && e->modifiers() == Qt::ControlModifier) {
         emit controlClicked();
         setDown(false);
-        return;
     }
-
-    QToolButton::mouseReleaseEvent(e);
 }
 
 void ToolButton::mouseDoubleClickEvent(QMouseEvent* e)
 {
     QToolButton::mouseDoubleClickEvent(e);
+
+    m_pressTimer.stop();
 
     if (e->buttons() == Qt::LeftButton) {
         emit doubleClicked();
@@ -156,25 +200,4 @@ void ToolButton::paintEvent(QPaintEvent* e)
         p.drawPixmap(0, 0, m_hoverIcon);
     else
         p.drawPixmap(0, 0, m_normalIcon);
-}
-
-void ToolButton::showMenu()
-{
-    if (!m_showMenuInside) {
-        QToolButton::showMenu();
-        return;
-    }
-
-    QMenu* m = menu();
-    if (!m)
-        return;
-
-    emit aboutToShowMenu();
-
-    QPoint pos = mapToGlobal(rect().bottomRight());
-    if (QApplication::layoutDirection() == Qt::RightToLeft)
-        pos.setX(pos.x() - rect().width());
-    else
-        pos.setX(pos.x() - m->sizeHint().width());
-    m->popup(pos);
 }
