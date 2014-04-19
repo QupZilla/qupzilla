@@ -442,29 +442,27 @@ void TabWidget::addTabFromClipboard()
 
 void TabWidget::closeTab(int index, bool force)
 {
-    if (index == -1) {
+    if (index == -1)
         index = currentIndex();
-    }
 
     WebTab* webTab = weTab(index);
-    if (!webTab || !validIndex(index)) {
+    if (!webTab || !validIndex(index))
         return;
-    }
 
     TabbedWebView* webView = webTab->webView();
+    bool isRestorePage = webView->url().toString() == QL1S("qupzilla:restore");
 
     // Don't close restore page!
-    if (!force && webView->url().toString() == QL1S("qupzilla:restore") && mApp->restoreManager()) {
+    if (!force && isRestorePage && mApp->restoreManager())
         return;
-    }
 
     // window.onbeforeunload handling
-    if (!webView->onBeforeUnload()) {
+    if (!webView->onBeforeUnload())
         return;
-    }
 
     // Save tab url and history
-    m_closedTabsManager->saveTab(webTab, index);
+    if (!isRestorePage)
+        m_closedTabsManager->saveTab(webTab, index);
 
     // This would close last tab, so we close the window instead
     if (!force && count() == 1) {
@@ -487,9 +485,8 @@ void TabWidget::closeTab(int index, bool force)
     disconnect(webView, SIGNAL(changed()), this, SIGNAL(changed()));
     disconnect(webView, SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
-    if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
+    if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex())
         setCurrentIndex(m_lastTabIndex);
-    }
 
     m_lastBackgroundTabIndex = -1;
 
