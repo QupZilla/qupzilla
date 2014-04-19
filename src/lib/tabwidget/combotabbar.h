@@ -69,7 +69,12 @@ public:
     void setTabTextColor(int index, const QColor &color);
 
     QRect tabRect(int index) const;
+
+    // Returns tab index at pos, or -1
     int tabAt(const QPoint &pos) const;
+
+    // Returns true if there is an empty area at pos
+    // (returns false if there are buttons or other widgets on the pos)
     bool emptyArea(const QPoint &pos) const;
 
     int mainTabBarCurrentIndex() const;

@@ -644,14 +644,17 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
         return;
     }
 
-    int id = tabAt(event->pos());
-    if (id != -1 && event->button() == Qt::MiddleButton) {
-        m_tabWidget->closeTab(id);
-        return;
-    }
-    if (id == -1 && event->button() == Qt::MiddleButton) {
-        m_tabWidget->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd, true);
-        return;
+    if (event->button() == Qt::MiddleButton) {
+        if (emptyArea(event->pos())) {
+            m_tabWidget->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd, true);
+            return;
+        }
+
+        int id = tabAt(event->pos());
+        if (id != -1) {
+            m_tabWidget->closeTab(id);
+            return;
+        }
     }
 
     ComboTabBar::mouseReleaseEvent(event);
