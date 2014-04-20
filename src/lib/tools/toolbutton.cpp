@@ -129,6 +129,10 @@ void ToolButton::setToolbarButtonLook(bool enable)
     else {
         m_options &= ~ToolBarLookOption;
     }
+
+    setProperty("toolbar-look", QVariant(enable));
+    style()->unpolish(this);
+    style()->polish(this);
 }
 
 void ToolButton::menuAboutToHide()
