@@ -18,8 +18,8 @@
 
 #mainwindow-menubar
 {
-    background-image:url(images/transp.png);
-    border:none;
+    background: transparent;
+    border: none;
 }
 
 #mainwindow-menubar:item
@@ -42,12 +42,6 @@
 #mainwindow-statusbar
 {
     background-color: #e4edf9;
-}
-
-#mainwindow QToolBar
-{
-    background-image:url(images/transp.png);
-    border:none;
 }
 
 #statusbar-ip-label
@@ -105,6 +99,23 @@
 #navigation-button-exitfullscreen
 {
     qproperty-themeIcon: "view-restore";
+}
+
+ToolButton[toolbar-look="true"]
+{
+    qproperty-iconSize: 16px 16px;
+    qproperty-fixedsize: 31px 29px;
+    border-image: url(images/toolbutton.png);
+}
+
+ToolButton[toolbar-look="true"]:hover
+{
+    border-image: url(images/toolbutton-h.png);
+}
+
+ToolButton[toolbar-look="true"]:pressed
+{
+    border-image: url(images/toolbutton-a.png);
 }
 
 /*TabWidget*/
@@ -207,14 +218,6 @@ IconProvider
 {
     margin-bottom: 1px;
     qproperty-pixmap: url(images/key.png);
-}
-
-/*BookmarksToolbar*/
-#bookmarksbar QToolButton
-{
-    border-image: url(images/transp.png);
-    border-width: 0px;
-    height: 15px;
 }
 
 /*SideBar*/
