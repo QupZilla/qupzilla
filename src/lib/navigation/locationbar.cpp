@@ -596,6 +596,9 @@ void LocationBar::paintEvent(QPaintEvent* event)
         QPainter p(this);
         p.setBrush(QBrush(bg));
 
+        // We are painting over text, make sure the text stays visible
+        p.setOpacity(0.5);
+
         QPen outlinePen(bg.darker(110), 0.8);
         p.setPen(outlinePen);
 
