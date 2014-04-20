@@ -308,6 +308,7 @@ void LocationBar::showUrl(const QUrl &url)
 
     if (text() == stringUrl) {
         home(false);
+        refreshTextFormat();
         return;
     }
 
