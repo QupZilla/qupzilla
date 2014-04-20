@@ -113,11 +113,6 @@
 }
 
 /*TabWidget*/
-#tabbar::scroller
-{
-    width: 0px;
-}
-
 #tabbar-button-right
 {
     qproperty-icon: url(images/tab-right-arrow.png);

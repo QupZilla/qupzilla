@@ -46,6 +46,8 @@ ComboTabBar::ComboTabBar(QWidget* parent)
     , m_usesScrollButtons(false)
     , m_blockCurrentChangedSignal(false)
 {
+    QObject::setObjectName(QSL("tabbarwidget"));
+
     m_mainTabBar = new TabBarHelper(this);
     m_pinnedTabBar = new TabBarHelper(this);
     m_mainTabBarWidget = new TabBarScrollWidget(m_mainTabBar, this);
@@ -632,11 +634,16 @@ bool ComboTabBar::eventFilter(QObject* obj, QEvent* ev)
 
 void ComboTabBar::paintEvent(QPaintEvent* ev)
 {
-    QWidget::paintEvent(ev);
+    Q_UNUSED(ev);
+
+    // This is needed to apply style sheets
+    QStyleOption option;
+    option.init(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &option, &p, this);
 
 #ifndef Q_OS_MAC
     // Draw tabbar base even on parts of ComboTabBar that are not directly QTabBar
-    QPainter p(this);
     QStyleOptionTabBarBaseV2 opt;
     TabBarHelper::initStyleBaseOption(&opt, m_mainTabBar, size());
 

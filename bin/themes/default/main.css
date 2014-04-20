@@ -129,11 +129,6 @@
     qproperty-fixedsize: 25px 27px;
 }
 
-#tabbar::scroller
-{
-    width: 0px;
-}
-
 #tabbar-button-right
 {
     qproperty-icon: url(images/tab-right-arrow.png);
