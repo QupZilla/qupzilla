@@ -924,9 +924,9 @@ void MainApplication::loadTheme(const QString &name)
     QString qss = QzTools::readAllFileContents(activeThemePath + QLatin1String("/main.css"));
 
 #if defined(Q_OS_MAC)
-    qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/linux.css")));
-#elif defined(Q_OS_UNIX)
     qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/mac.css")));
+#elif defined(Q_OS_UNIX)
+    qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/linux.css")));
 #elif defined(Q_OS_WIN) || defined(Q_OS_OS2)
     qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/windows.css")));
 #endif
