@@ -44,6 +44,9 @@
     <string>QupZilla</string>
     <key>CFBundleDisplayName</key>
     <string>QupZilla</string>
+    
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.productivity</string>
 
     <key>NSPrincipalClass</key>
     <string>NSApplication</string>
