@@ -55,6 +55,8 @@ void ToolButton::setMultiIcon(const QPixmap &icon)
 
     m_options |= MultiIconOption;
     setFixedSize(m_normalIcon.size());
+
+    update();
 }
 
 QString ToolButton::themeIcon() const
