@@ -24,7 +24,7 @@ const int sessionVersionQt5 = 0x0003 | 0x050000;
 const int bookmarksVersion = 1;
 
 const char* APPNAME = "QupZilla";
-const char* VERSION = QUPZILLA_VERSION;
+QUPZILLA_EXPORT const char* VERSION = QUPZILLA_VERSION;
 const char* BUILDTIME =  __DATE__" "__TIME__;
 const char* AUTHOR = "David Rosca";
 const char* COPYRIGHT = "2010-2014";

@@ -63,7 +63,7 @@ extern const int sessionVersionQt5;
 extern const int bookmarksVersion;
 
 extern const char* APPNAME;
-extern const char* VERSION;
+QUPZILLA_EXPORT extern const char* VERSION;
 extern const char* BUILDTIME;
 extern const char* AUTHOR;
 extern const char* COPYRIGHT;
