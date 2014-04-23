@@ -84,9 +84,7 @@ d_disable_updates_check = $$(DISABLE_UPDATES_CHECK)
 
 equals(d_no_system_datapath, "true") { DEFINES *= NO_SYSTEM_DATAPATH }
 equals(d_use_webgl, "true") { DEFINES *= USE_WEBGL }
-win32-msvc* {
-    equals(d_w7api, "true") { DEFINES *= W7API }
-}
+win32-msvc*:equals(d_w7api, "true") { DEFINES *= W7API }
 equals(d_kde, "true") { DEFINES *= KDE_INTEGRATION }
 equals(d_kde_integration, "true") { DEFINES *= KDE_INTEGRATION }
 equals(d_gnome_integration, "true") { DEFINES *= GNOME_INTEGRATION }
@@ -102,8 +100,13 @@ equals(d_disable_updates_check, "true") { DEFINES *= DISABLE_UPDATES_CHECK }
     x64libpath = /usr/lib/x86_64-linux-gnu
     system_lib_path = /usr/lib
 
-    contains(QMAKE_HOST.arch, x86):exists($$x86libpath) system_lib_path = $$x86libpath
-    contains(QMAKE_HOST.arch, x86_64):exists($$x64libpath) system_lib_path = $$x64libpath
+    # QMAKE_HOST.arch is empty on x86
+    contains(QMAKE_HOST.arch, x86_64) {
+        exists($$x64libpath): system_lib_path = $$x64libpath
+    }
+    else {
+        exists($$x86libpath): system_lib_path = $$x86libpath
+    }
 
     d_prefix = $$(QUPZILLA_PREFIX)
     binary_folder = /usr/bin
