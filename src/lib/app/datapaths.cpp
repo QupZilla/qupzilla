@@ -155,9 +155,6 @@ void DataPaths::init()
 
 #ifdef USE_LIBPATH
     m_paths[Plugins].append(QLatin1String(USE_LIBPATH "/qupzilla"));
-#else
-    // FIXME: This should use QUPZILLA_PREFIX
-    m_paths[Plugins].append(QLatin1String("/usr/lib/qupzilla"));
 #endif
 }
 
