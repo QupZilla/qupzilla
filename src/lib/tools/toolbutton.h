@@ -30,7 +30,7 @@ class QUPZILLA_EXPORT ToolButton : public QToolButton
     Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)
     Q_PROPERTY(int fixedwidth READ width WRITE setFixedWidth)
     Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)
-    Q_PROPERTY(QPixmap multiIcon READ multiIcon WRITE setMultiIcon)
+    Q_PROPERTY(QImage multiIcon READ multiIcon WRITE setMultiIcon)
     Q_PROPERTY(QIcon icon READ icon WRITE setIcon)
     Q_PROPERTY(QString themeIcon READ themeIcon WRITE setThemeIcon)
 
@@ -38,8 +38,8 @@ public:
     explicit ToolButton(QWidget* parent = 0);
 
     // MultiIcon - Image containing pixmaps for all button states
-    QPixmap multiIcon() const;
-    void setMultiIcon(const QPixmap &icon);
+    QImage multiIcon() const;
+    void setMultiIcon(const QImage &image);
 
     // ThemeIcon - Standard QToolButton with theme icon
     QString themeIcon() const;
@@ -84,10 +84,7 @@ protected:
     void paintEvent(QPaintEvent* e);
 
 private:
-    QPixmap m_normalIcon;
-    QPixmap m_hoverIcon;
-    QPixmap m_activeIcon;
-    QPixmap m_disabledIcon;
+    QImage m_multiIcon;
     QString m_themeIcon;
     QTimer m_pressTimer;
     QMenu* m_menu;

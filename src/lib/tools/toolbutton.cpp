@@ -38,23 +38,16 @@ ToolButton::ToolButton(QWidget* parent)
     connect(&m_pressTimer, SIGNAL(timeout()), this, SLOT(showMenu()));
 }
 
-QPixmap ToolButton::multiIcon() const
+QImage ToolButton::multiIcon() const
 {
-    return m_normalIcon;
+    return m_multiIcon;
 }
 
-void ToolButton::setMultiIcon(const QPixmap &icon)
+void ToolButton::setMultiIcon(const QImage &image)
 {
-    int w = icon.width();
-    int h = icon.height();
-
-    m_normalIcon = icon.copy(0, 0, w, h / 4);
-    m_hoverIcon = icon.copy(0, h / 4, w, h / 4);
-    m_activeIcon = icon.copy(0, h / 2, w, h / 4);
-    m_disabledIcon = icon.copy(0, 3 * h / 4, w, h / 4);
-
     m_options |= MultiIconOption;
-    setFixedSize(m_normalIcon.size());
+    m_multiIcon = image;
+    setFixedSize(m_multiIcon.width(), m_multiIcon.height() / 4);
 
     update();
 }
@@ -72,7 +65,7 @@ void ToolButton::setThemeIcon(const QString &icon)
 
 QIcon ToolButton::icon() const
 {
-    return m_options & MultiIconOption ? multiIcon() : QToolButton::icon();
+    return QToolButton::icon();
 }
 
 void ToolButton::setIcon(const QIcon &icon)
@@ -219,12 +212,15 @@ void ToolButton::paintEvent(QPaintEvent* e)
 
     QPainter p(this);
 
+    const int w = m_multiIcon.width();
+    const int h4 = m_multiIcon.height() / 4;
+
     if (!isEnabled())
-        p.drawPixmap(0, 0, m_disabledIcon);
+        p.drawImage(0, 0, m_multiIcon, 0, h4 * 3, w, h4);
     else if (isDown())
-        p.drawPixmap(0, 0, m_activeIcon);
+        p.drawImage(0, 0, m_multiIcon, 0, h4 * 2, w, h4);
     else if (underMouse())
-        p.drawPixmap(0, 0, m_hoverIcon);
+        p.drawImage(0, 0, m_multiIcon, 0, h4 * 1, w, h4);
     else
-        p.drawPixmap(0, 0, m_normalIcon);
+        p.drawImage(0, 0, m_multiIcon, 0, h4 * 0, w, h4);
 }
