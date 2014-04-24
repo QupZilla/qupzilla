@@ -55,6 +55,8 @@ public:
     QList<BookmarkItem*> searchBookmarks(const QUrl &url) const;
     // Search bookmarks for contains match through all properties
     QList<BookmarkItem*> searchBookmarks(const QString &string, int limit = -1, Qt::CaseSensitivity sensitive = Qt::CaseInsensitive) const;
+    // Search bookmarks for exact match of keyword
+    QList<BookmarkItem*> searchKeyword(const QString &keyword) const;
 
     void addBookmark(BookmarkItem* parent, BookmarkItem* item);
     void insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item);
@@ -88,6 +90,7 @@ private:
 
     void search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QUrl &url) const;
     void search(QList<BookmarkItem*>* items, BookmarkItem* parent, const QString &string, int limit, Qt::CaseSensitivity sensitive) const;
+    void searchKeyword(QList<BookmarkItem*>* items, BookmarkItem* parent, const QString &keyword) const;
 
     BookmarkItem* m_root;
     BookmarkItem* m_folderToolbar;

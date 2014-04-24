@@ -116,6 +116,13 @@ QList<BookmarkItem*> Bookmarks::searchBookmarks(const QString &string, int limit
     return items;
 }
 
+QList<BookmarkItem*> Bookmarks::searchKeyword(const QString &keyword) const
+{
+    QList<BookmarkItem*> items;
+    searchKeyword(&items, m_root, keyword);
+    return items;
+}
+
 void Bookmarks::addBookmark(BookmarkItem* parent, BookmarkItem* item)
 {
     Q_ASSERT(parent);
@@ -426,6 +433,28 @@ void Bookmarks::search(QList<BookmarkItem*>* items, BookmarkItem* parent, const 
            ) {
             items->append(parent);
         }
+        break;
+
+    default:
+        break;
+    }
+}
+
+void Bookmarks::searchKeyword(QList<BookmarkItem*>* items, BookmarkItem* parent, const QString &keyword) const
+{
+    Q_ASSERT(items);
+    Q_ASSERT(parent);
+
+    switch (parent->type()) {
+    case BookmarkItem::Root:
+    case BookmarkItem::Folder:
+        foreach (BookmarkItem* child, parent->children())
+            searchKeyword(items, child, keyword);
+        break;
+
+    case BookmarkItem::Url:
+        if (parent->keyword() == keyword)
+            items->append(parent);
         break;
 
     default:
