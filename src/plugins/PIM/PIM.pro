@@ -48,7 +48,6 @@ TRANSLATIONS += \
     translations/sk_SK.ts \
     translations/sr@ijekavianlatin.ts \
     translations/sr@ijekavian.ts \
-    translations/sr@Ijekavian.ts \
     translations/sr@latin.ts \
     translations/sr.ts \
     translations/tr_TR.ts \
