@@ -83,8 +83,6 @@ void DataPaths::clearTempData()
 
 void DataPaths::init()
 {
-    m_paths.reserve(5);
-
     // AppData
 #if defined(Q_OS_MAC)
     m_paths[AppData].append(QApplication::applicationDirPath() + QLatin1String("/../Resources"));

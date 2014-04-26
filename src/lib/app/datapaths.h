@@ -18,8 +18,7 @@
 #ifndef DATAPATHS_H
 #define DATAPATHS_H
 
-#include <QString>
-#include <QHash>
+#include <QStringList>
 
 #include "qzcommon.h"
 
@@ -27,14 +26,14 @@ class QUPZILLA_EXPORT DataPaths
 {
 public:
     enum Path {
-        AppData,             // /usr/share/qupzilla or . or ../Resources
-        Translations,        // $AppData/locale
-        Themes,              // $AppData/themes
-        Plugins,             // $AppData/plugins
-        Config,              // ~/.config/qupzilla or %LOCALAPPDATA%/qupzilla or $AppData/data (portable)
-        Profiles,            // $Config/profiles
-        CurrentProfile,      // $Profiles/current_profile
-        Temp                 // $Config/tmp
+        AppData = 0,             // /usr/share/qupzilla or . or ../Resources
+        Translations = 1,        // $AppData/locale
+        Themes = 2,              // $AppData/themes
+        Plugins = 3,             // $AppData/plugins
+        Config = 4,              // ~/.config/qupzilla or %LOCALAPPDATA%/qupzilla or $AppData/data (portable)
+        Profiles = 5,            // $Config/profiles
+        CurrentProfile = 6,      // $Profiles/current_profile
+        Temp = 7                 // $Config/tmp
     };
 
     explicit DataPaths();
@@ -58,7 +57,7 @@ private:
     void init();
     void initCurrentProfile(const QString &profilePath);
 
-    QHash<Path, QStringList> m_paths;
+    QStringList m_paths[8];
 };
 
 #endif // DATAPATHS_H
