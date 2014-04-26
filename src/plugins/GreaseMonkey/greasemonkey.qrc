@@ -1,7 +1,9 @@
 <RCC>
     <qresource prefix="/gm">
-        <file>data/icon.png</file>
         <file>data/bootstrap.min.js</file>
+        <file>data/icon.png</file>
+        <file>data/icon16.png</file>
+        <file>data/icon18.png</file>
         <file>data/script.png</file>
         <file>locale/ar_SA.qm</file>
         <file>locale/bg_BG.qm</file>

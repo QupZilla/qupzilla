@@ -60,7 +60,7 @@ void GM_Downloader::scriptDownloaded()
         const QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
         if (response.contains(QByteArray("// ==UserScript=="))) {
-            const QString filePath = m_manager->scriptsDirectory() + QzTools::getFileNameFromUrl(m_reply->url());
+            const QString filePath = QString("%1/%2").arg(m_manager->scriptsDirectory(),QzTools::getFileNameFromUrl(m_reply->url()));
             m_fileName = QzTools::ensureUniqueFilename(filePath);
 
             QFile file(m_fileName);
