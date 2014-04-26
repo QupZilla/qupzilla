@@ -1,0 +1,52 @@
+[main]
+host = https://www.transifex.com
+
+[qupzilla.app]
+file_filter = translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
+
+[qupzilla.accesskeysnavigation-plugin]
+file_filter = src/plugins/AccessKeysNavigation/translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
+
+[qupzilla.autoscroll-plugin]
+file_filter = src/plugins/AutoScroll/translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
+
+[qupzilla.gnomekeyringpasswords-plugin]
+file_filter = src/plugins/GnomeKeyringPasswords/translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
+
+[qupzilla.greasemonkey-plugin]
+file_filter = src/plugins/GreaseMonkey/translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
+
+[qupzilla.kwalletpasswords-plugin]
+file_filter = src/plugins/KWalletPasswords/translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
+
+[qupzilla.mousegestures-plugin]
+file_filter = src/plugins/MouseGestures/translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
+
+[qupzilla.pim-plugin]
+file_filter = src/plugins/PIM/translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
+
+[qupzilla.statusbaricons-plugin]
+file_filter = src/plugins/StatusBarIcons/translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
+
+[qupzilla.test-plugin]
+file_filter = src/plugins/TestPlugin/translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
