@@ -34,7 +34,7 @@
     <message>
         <location filename="../akn_settings.ui" line="58"/>
         <source>Key for showing access keys:</source>
-        <translation>מקש להצגת מקשי גישה:</translation>
+        <translation>מקש לשם הצגת מקשי גישה:</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="103"/>

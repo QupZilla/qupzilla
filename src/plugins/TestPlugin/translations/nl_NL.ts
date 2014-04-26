@@ -4,7 +4,7 @@
     <message>
         <location filename="../testplugin.cpp" line="121"/>
         <source>Close</source>
-        <translation>Sluit</translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="132"/>

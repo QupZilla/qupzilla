@@ -10,15 +10,18 @@ TRANSLATIONS += \
     $$PWD/es_VE.ts \
     $$PWD/eu_ES.ts \
     $$PWD/fa_IR.ts \
+    $$PWD/fi_FI.ts \
     $$PWD/fr_FR.ts \
     $$PWD/gl_ES.ts \
     $$PWD/he_IL.ts \
+    $$PWD/hr_HR.ts \
     $$PWD/hu_HU.ts \
     $$PWD/id_ID.ts \
     $$PWD/it_IT.ts \
     $$PWD/ja_JP.ts \
     $$PWD/ka_GE.ts \
     $$PWD/lg.ts \
+    $$PWD/lv_LV.ts \
     $$PWD/nl_NL.ts \
     $$PWD/nqo.ts \
     $$PWD/pl_PL.ts \
@@ -27,11 +30,12 @@ TRANSLATIONS += \
     $$PWD/ro_RO.ts \
     $$PWD/ru_RU.ts \
     $$PWD/sk_SK.ts \
-    $$PWD/sr.ts \
-    $$PWD/sr@ijekavian.ts \
     $$PWD/sr@ijekavianlatin.ts \
+    $$PWD/sr@ijekavian.ts \
     $$PWD/sr@latin.ts \
+    $$PWD/sr.ts \
     $$PWD/sv_SE.ts \
+    $$PWD/tr_TR.ts \
     $$PWD/uk_UA.ts \
     $$PWD/uz@Latn.ts \
     $$PWD/zh_CN.ts \

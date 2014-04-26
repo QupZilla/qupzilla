@@ -2,32 +2,32 @@
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="36"/>
+        <location filename="../sbi_imagesicon.cpp" line="32"/>
         <source>Modify images loading settings per-site and globally</source>
         <translation>Τροποποίηση ρυθμίσεων φόρτωσης εικόνων ανά σελίδα και γενικά</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="60"/>
+        <location filename="../sbi_imagesicon.cpp" line="56"/>
         <source>Current page settings</source>
         <translation>Τρέχουσες ρυθμίσεις σελίδας</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="63"/>
+        <location filename="../sbi_imagesicon.cpp" line="59"/>
         <source>Disable loading images (temporarily)</source>
         <translation>Απενεργοποίηση φόρτωσης εικόνων (προσωρινά)</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="66"/>
+        <location filename="../sbi_imagesicon.cpp" line="62"/>
         <source>Enable loading images (temporarily)</source>
         <translation>Ενεργοποίηση φόρτωσης εικόνων (προσωρινά)</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="70"/>
+        <location filename="../sbi_imagesicon.cpp" line="66"/>
         <source>Global settings</source>
         <translation>Γενικές ρυθμίσεις</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="72"/>
+        <location filename="../sbi_imagesicon.cpp" line="68"/>
         <source>Automatically load images</source>
         <translation>Αυτόματη φόρτωση εικόνων</translation>
     </message>
@@ -35,32 +35,32 @@
 <context>
     <name>SBI_JavaScriptIcon</name>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="34"/>
+        <location filename="../sbi_javascripticon.cpp" line="33"/>
         <source>Modify JavaScript settings per-site and globally</source>
         <translation>Τροποποίηση ρυθμίσεων JavaScript ανά σελίδα και γενικά</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="49"/>
+        <location filename="../sbi_javascripticon.cpp" line="48"/>
         <source>Current page settings</source>
         <translation>Τρέχουσες ρυθμίσεις σελίδας</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="52"/>
+        <location filename="../sbi_javascripticon.cpp" line="51"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>Απενεργοποίηση JavaScript (προσωρινά)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="55"/>
+        <location filename="../sbi_javascripticon.cpp" line="54"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>Ενεργοποίηση JavaScript (προσωρινά)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="59"/>
+        <location filename="../sbi_javascripticon.cpp" line="63"/>
         <source>Global settings</source>
         <translation>Γενικές ρυθμίσεις</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="60"/>
+        <location filename="../sbi_javascripticon.cpp" line="64"/>
         <source>Manage JavaScript settings</source>
         <translation>Διαχείριση ρυθμίσεων JavaScript</translation>
     </message>
@@ -68,57 +68,57 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="68"/>
+        <location filename="../sbi_networkicon.cpp" line="66"/>
         <source>Proxy configuration</source>
         <translation>Ρύθμιση proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="70"/>
+        <location filename="../sbi_networkicon.cpp" line="68"/>
         <source>Select proxy</source>
         <translation>Επιλογή proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="84"/>
+        <location filename="../sbi_networkicon.cpp" line="82"/>
         <source>Empty</source>
         <translation>Άδειο</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="88"/>
+        <location filename="../sbi_networkicon.cpp" line="86"/>
         <source>Manage proxies</source>
         <translation>Διαχείριση των proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="101"/>
+        <location filename="../sbi_networkicon.cpp" line="99"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>Εμφανίζει την κατάσταση του δικτύου και διαχειρίζεται το proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Δίκτυο:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="104"/>
+        <location filename="../sbi_networkicon.cpp" line="102"/>
         <source>Connected</source>
         <translation>Έγινε σύνδεση</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="107"/>
+        <location filename="../sbi_networkicon.cpp" line="105"/>
         <source>Offline</source>
         <translation>Εκτός σύνδεσης</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="112"/>
+        <location filename="../sbi_networkicon.cpp" line="110"/>
         <source>System proxy</source>
         <translation>Proxy συστήματος</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="116"/>
+        <location filename="../sbi_networkicon.cpp" line="114"/>
         <source>No proxy</source>
         <translation>Κανένα proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="120"/>
+        <location filename="../sbi_networkicon.cpp" line="118"/>
         <source>PAC (Proxy Auto-Config)</source>
         <translation>PAC (Proxy Auto-Config)</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="124"/>
+        <location filename="../sbi_networkicon.cpp" line="122"/>
         <source>User defined</source>
         <translation>Καθορισμένο από το Χρήστη</translation>
     </message>
@@ -284,6 +284,19 @@
         <location filename="../sbi_settingsdialog.ui" line="111"/>
         <source>Network Icon</source>
         <translation>Εικονίδιο δικτύου</translation>
+    </message>
+    <message>
+        <location filename="../sbi_settingsdialog.ui" line="118"/>
+        <source>Zoom widget</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>SBI_ZoomWidget</name>
+    <message>
+        <location filename="../sbi_zoomwidget.cpp" line="47"/>
+        <source>Zoom: %1%</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

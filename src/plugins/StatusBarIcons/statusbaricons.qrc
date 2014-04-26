@@ -9,18 +9,38 @@
         <file>data/preferences-network.png</file>
         <file>data/add.png</file>
         <file>data/remove.png</file>
+        <file>locale/ar_SA.qm</file>
+        <file>locale/bg_BG.qm</file>
+        <file>locale/ca_ES.qm</file>
+        <file>locale/cs_CZ.qm</file>
         <file>locale/de_DE.qm</file>
         <file>locale/el_GR.qm</file>
+        <file>locale/es_ES.qm</file>
+        <file>locale/es_MX.qm</file>
+        <file>locale/es_VE.qm</file>
+        <file>locale/eu_ES.qm</file>
+        <file>locale/fa_IR.qm</file>
+        <file>locale/fr_FR.qm</file>
         <file>locale/he_IL.qm</file>
+        <file>locale/hr_HR.qm</file>
+        <file>locale/id_ID.qm</file>
+        <file>locale/it_IT.qm</file>
         <file>locale/ja_JP.qm</file>
+        <file>locale/lv_LV.qm</file>
         <file>locale/nl_NL.qm</file>
+        <file>locale/nqo.qm</file>
         <file>locale/pl_PL.qm</file>
         <file>locale/pt_PT.qm</file>
         <file>locale/ru_RU.qm</file>
-        <file>locale/sr.qm</file>
-        <file>locale/sr@ijekavian.qm</file>
+        <file>locale/sk_SK.qm</file>
         <file>locale/sr@ijekavianlatin.qm</file>
+        <file>locale/sr@ijekavian.qm</file>
         <file>locale/sr@latin.qm</file>
+        <file>locale/sr.qm</file>
+        <file>locale/tr_TR.qm</file>
+        <file>locale/uk_UA.qm</file>
+        <file>locale/uz@Cyrl.qm</file>
+        <file>locale/uz@Latn.qm</file>
         <file>locale/zh_CN.qm</file>
         <file>locale/zh_TW.qm</file>
     </qresource>

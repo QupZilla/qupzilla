@@ -2,32 +2,32 @@
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="36"/>
+        <location filename="../sbi_imagesicon.cpp" line="32"/>
         <source>Modify images loading settings per-site and globally</source>
         <translation>画像の読み込みの全体の設定、またはサイトごとの設定を調整する。</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="60"/>
+        <location filename="../sbi_imagesicon.cpp" line="56"/>
         <source>Current page settings</source>
         <translation>現在のページの設定</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="63"/>
+        <location filename="../sbi_imagesicon.cpp" line="59"/>
         <source>Disable loading images (temporarily)</source>
         <translation>画像の読み込みを(一時的に)無効にする</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="66"/>
+        <location filename="../sbi_imagesicon.cpp" line="62"/>
         <source>Enable loading images (temporarily)</source>
         <translation>画像の読み込みを(一時的に)有効にする</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="70"/>
+        <location filename="../sbi_imagesicon.cpp" line="66"/>
         <source>Global settings</source>
         <translation>全体の設定</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="72"/>
+        <location filename="../sbi_imagesicon.cpp" line="68"/>
         <source>Automatically load images</source>
         <translation>自動的に画像を読み込む</translation>
     </message>
@@ -35,32 +35,32 @@
 <context>
     <name>SBI_JavaScriptIcon</name>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="34"/>
+        <location filename="../sbi_javascripticon.cpp" line="33"/>
         <source>Modify JavaScript settings per-site and globally</source>
         <translation>Javascript の全体の設定、またはサイトごとの設定を調整する。</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="49"/>
+        <location filename="../sbi_javascripticon.cpp" line="48"/>
         <source>Current page settings</source>
         <translation>現在のページの設定</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="52"/>
+        <location filename="../sbi_javascripticon.cpp" line="51"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>JavaScript を(一時的に)無効にする</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="55"/>
+        <location filename="../sbi_javascripticon.cpp" line="54"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>JavaScript を(一時的に)有効にする</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="59"/>
+        <location filename="../sbi_javascripticon.cpp" line="63"/>
         <source>Global settings</source>
         <translation>全体の設定</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="60"/>
+        <location filename="../sbi_javascripticon.cpp" line="64"/>
         <source>Manage JavaScript settings</source>
         <translation>JavaScript の設定の管理</translation>
     </message>
@@ -68,57 +68,57 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="68"/>
+        <location filename="../sbi_networkicon.cpp" line="66"/>
         <source>Proxy configuration</source>
         <translation>プロキシ設定</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="70"/>
+        <location filename="../sbi_networkicon.cpp" line="68"/>
         <source>Select proxy</source>
         <translation>プロキシの選択</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="84"/>
+        <location filename="../sbi_networkicon.cpp" line="82"/>
         <source>Empty</source>
         <translation>空</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="88"/>
+        <location filename="../sbi_networkicon.cpp" line="86"/>
         <source>Manage proxies</source>
         <translation>プロキシの管理</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="101"/>
+        <location filename="../sbi_networkicon.cpp" line="99"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>ネットワークステータスの表示とプロキシの管理&lt;br/&gt;&lt;br/&gt;&lt;b&gt;ネットワーク:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;プロキシ:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="104"/>
+        <location filename="../sbi_networkicon.cpp" line="102"/>
         <source>Connected</source>
         <translation>接続済</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="107"/>
+        <location filename="../sbi_networkicon.cpp" line="105"/>
         <source>Offline</source>
         <translation>オフライン</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="112"/>
+        <location filename="../sbi_networkicon.cpp" line="110"/>
         <source>System proxy</source>
         <translation>システムのプロキシ設定</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="116"/>
+        <location filename="../sbi_networkicon.cpp" line="114"/>
         <source>No proxy</source>
         <translation>プロキシを使用しない</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="120"/>
+        <location filename="../sbi_networkicon.cpp" line="118"/>
         <source>PAC (Proxy Auto-Config)</source>
         <translation>PAC (プロキシ自動設定)</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="124"/>
+        <location filename="../sbi_networkicon.cpp" line="122"/>
         <source>User defined</source>
         <translation>ユーザー指定</translation>
     </message>
@@ -284,6 +284,19 @@
         <location filename="../sbi_settingsdialog.ui" line="111"/>
         <source>Network Icon</source>
         <translation>ネットワークアイコン</translation>
+    </message>
+    <message>
+        <location filename="../sbi_settingsdialog.ui" line="118"/>
+        <source>Zoom widget</source>
+        <translation>ズームウィジェット</translation>
+    </message>
+</context>
+<context>
+    <name>SBI_ZoomWidget</name>
+    <message>
+        <location filename="../sbi_zoomwidget.cpp" line="47"/>
+        <source>Zoom: %1%</source>
+        <translation>ズーム: %1%</translation>
     </message>
 </context>
 </TS>

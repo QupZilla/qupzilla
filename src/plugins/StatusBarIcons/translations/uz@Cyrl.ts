@@ -2,32 +2,32 @@
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="36"/>
+        <location filename="../sbi_imagesicon.cpp" line="32"/>
         <source>Modify images loading settings per-site and globally</source>
         <translation>Тасвирлар юкланиш созламаларини ҳар қайси сайт учун ва глобал ўзгартириш</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="60"/>
+        <location filename="../sbi_imagesicon.cpp" line="56"/>
         <source>Current page settings</source>
         <translation>Жорий саҳифа созламалари</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="63"/>
+        <location filename="../sbi_imagesicon.cpp" line="59"/>
         <source>Disable loading images (temporarily)</source>
         <translation>Тасвирлар юкланишини ўчириш (вақтинча)</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="66"/>
+        <location filename="../sbi_imagesicon.cpp" line="62"/>
         <source>Enable loading images (temporarily)</source>
         <translation>Тасвирлар юкланишини ёқиш (вақтинча)</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="70"/>
+        <location filename="../sbi_imagesicon.cpp" line="66"/>
         <source>Global settings</source>
         <translation>Глобал созламалар</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="72"/>
+        <location filename="../sbi_imagesicon.cpp" line="68"/>
         <source>Automatically load images</source>
         <translation>Тасвирларни автоматик равишда юклаш</translation>
     </message>
@@ -35,32 +35,32 @@
 <context>
     <name>SBI_JavaScriptIcon</name>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="34"/>
+        <location filename="../sbi_javascripticon.cpp" line="33"/>
         <source>Modify JavaScript settings per-site and globally</source>
         <translation>JavaScript созламаларини ҳар қайси сайт учун ва глобал ўзгартириш</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="49"/>
+        <location filename="../sbi_javascripticon.cpp" line="48"/>
         <source>Current page settings</source>
         <translation>Жорий саҳифа созламалари</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="52"/>
+        <location filename="../sbi_javascripticon.cpp" line="51"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>JavaScript ўчириш (вақтинча)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="55"/>
+        <location filename="../sbi_javascripticon.cpp" line="54"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>JavaScript ёқиш (вақтинча)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="59"/>
+        <location filename="../sbi_javascripticon.cpp" line="63"/>
         <source>Global settings</source>
         <translation>Глобал созламалар</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="60"/>
+        <location filename="../sbi_javascripticon.cpp" line="64"/>
         <source>Manage JavaScript settings</source>
         <translation>JavaScript созламаларини бошқариш</translation>
     </message>
@@ -68,57 +68,57 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="68"/>
+        <location filename="../sbi_networkicon.cpp" line="66"/>
         <source>Proxy configuration</source>
         <translation>Прокси созлаш</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="70"/>
+        <location filename="../sbi_networkicon.cpp" line="68"/>
         <source>Select proxy</source>
         <translation>Прокси танлаш</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="84"/>
+        <location filename="../sbi_networkicon.cpp" line="82"/>
         <source>Empty</source>
         <translation>Бўш</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="88"/>
+        <location filename="../sbi_networkicon.cpp" line="86"/>
         <source>Manage proxies</source>
         <translation>Прокси бошқариш</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="101"/>
+        <location filename="../sbi_networkicon.cpp" line="99"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>Тармоқ ҳолатини кўрсатади ва прокси бошқаради&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Тармоқ:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Прокси:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="104"/>
+        <location filename="../sbi_networkicon.cpp" line="102"/>
         <source>Connected</source>
         <translation>Уланган</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="107"/>
+        <location filename="../sbi_networkicon.cpp" line="105"/>
         <source>Offline</source>
         <translation>Офлайн</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="112"/>
+        <location filename="../sbi_networkicon.cpp" line="110"/>
         <source>System proxy</source>
         <translation>Тизим прокси</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="116"/>
+        <location filename="../sbi_networkicon.cpp" line="114"/>
         <source>No proxy</source>
         <translation>Прокси йўқ</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="120"/>
+        <location filename="../sbi_networkicon.cpp" line="118"/>
         <source>PAC (Proxy Auto-Config)</source>
         <translation>PAC (Прокси авто-созлаш)</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="124"/>
+        <location filename="../sbi_networkicon.cpp" line="122"/>
         <source>User defined</source>
         <translation>Фойдаланувчи томонидан аниқланган</translation>
     </message>
@@ -284,6 +284,19 @@
         <location filename="../sbi_settingsdialog.ui" line="111"/>
         <source>Network Icon</source>
         <translation>Тармоқ иконачаси</translation>
+    </message>
+    <message>
+        <location filename="../sbi_settingsdialog.ui" line="118"/>
+        <source>Zoom widget</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>SBI_ZoomWidget</name>
+    <message>
+        <location filename="../sbi_zoomwidget.cpp" line="47"/>
+        <source>Zoom: %1%</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

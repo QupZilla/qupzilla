@@ -2,32 +2,32 @@
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="36"/>
+        <location filename="../sbi_imagesicon.cpp" line="32"/>
         <source>Modify images loading settings per-site and globally</source>
         <translation>Bewerk instellingen van afbeeldingen laden per website en globaal</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="60"/>
+        <location filename="../sbi_imagesicon.cpp" line="56"/>
         <source>Current page settings</source>
         <translation>Huidige paginainstellingen</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="63"/>
+        <location filename="../sbi_imagesicon.cpp" line="59"/>
         <source>Disable loading images (temporarily)</source>
         <translation>Schakel laden van afbeeldingen uit (tijdelijk)</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="66"/>
+        <location filename="../sbi_imagesicon.cpp" line="62"/>
         <source>Enable loading images (temporarily)</source>
         <translation>Schakel laden van afbeeldingen in (tijdelijk)</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="70"/>
+        <location filename="../sbi_imagesicon.cpp" line="66"/>
         <source>Global settings</source>
         <translation>Globale instellingen</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="72"/>
+        <location filename="../sbi_imagesicon.cpp" line="68"/>
         <source>Automatically load images</source>
         <translation>Laad afbeeldingen automatisch</translation>
     </message>
@@ -35,32 +35,32 @@
 <context>
     <name>SBI_JavaScriptIcon</name>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="34"/>
+        <location filename="../sbi_javascripticon.cpp" line="33"/>
         <source>Modify JavaScript settings per-site and globally</source>
         <translation>Bewerk JavaScript-instellingen per website en globaal</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="49"/>
+        <location filename="../sbi_javascripticon.cpp" line="48"/>
         <source>Current page settings</source>
         <translation>Huidige paginainstellingen</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="52"/>
+        <location filename="../sbi_javascripticon.cpp" line="51"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>Schakel laden van JavaScript uit (tijdelijk)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="55"/>
+        <location filename="../sbi_javascripticon.cpp" line="54"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>Schakel laden van afbeeldingen in (tijdelijk)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="59"/>
+        <location filename="../sbi_javascripticon.cpp" line="63"/>
         <source>Global settings</source>
         <translation>Globale instellingen</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="60"/>
+        <location filename="../sbi_javascripticon.cpp" line="64"/>
         <source>Manage JavaScript settings</source>
         <translation>Bewerk JavaScript-instellingen</translation>
     </message>
@@ -68,59 +68,59 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="68"/>
+        <location filename="../sbi_networkicon.cpp" line="66"/>
         <source>Proxy configuration</source>
         <translation>Proxy-configuratie</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="70"/>
+        <location filename="../sbi_networkicon.cpp" line="68"/>
         <source>Select proxy</source>
         <translation>Selecteer proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="84"/>
+        <location filename="../sbi_networkicon.cpp" line="82"/>
         <source>Empty</source>
         <translation>Leeg</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="88"/>
+        <location filename="../sbi_networkicon.cpp" line="86"/>
         <source>Manage proxies</source>
         <translation>Beheer proxies</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="101"/>
+        <location filename="../sbi_networkicon.cpp" line="99"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>Toon netwerkstatus en beheert proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Netwerk:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="104"/>
+        <location filename="../sbi_networkicon.cpp" line="102"/>
         <source>Connected</source>
         <translation>Verbonden</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="107"/>
+        <location filename="../sbi_networkicon.cpp" line="105"/>
         <source>Offline</source>
         <translation>Offline</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="112"/>
+        <location filename="../sbi_networkicon.cpp" line="110"/>
         <source>System proxy</source>
         <translation>Systeemproxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="116"/>
+        <location filename="../sbi_networkicon.cpp" line="114"/>
         <source>No proxy</source>
         <translation>Geen proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="120"/>
+        <location filename="../sbi_networkicon.cpp" line="118"/>
         <source>PAC (Proxy Auto-Config)</source>
         <translation>PAC (Proxy Auto-Config)</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="124"/>
+        <location filename="../sbi_networkicon.cpp" line="122"/>
         <source>User defined</source>
-        <translation>Gebruiker-gespecificeerd</translation>
+        <translation>Door gebruiker opgegeven</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,7 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="70"/>
         <source>These icons will be displayed in statusbar:</source>
-        <translation>Deze pictogrammen zullen getoond worden op de statusbalk:</translation>
+        <translation>Deze pictogrammen zullen worden weergegeven op de statusbalk:</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="97"/>
@@ -284,6 +284,19 @@
         <location filename="../sbi_settingsdialog.ui" line="111"/>
         <source>Network Icon</source>
         <translation>Netwerk-pictogram</translation>
+    </message>
+    <message>
+        <location filename="../sbi_settingsdialog.ui" line="118"/>
+        <source>Zoom widget</source>
+        <translation>Zoom-gadget</translation>
+    </message>
+</context>
+<context>
+    <name>SBI_ZoomWidget</name>
+    <message>
+        <location filename="../sbi_zoomwidget.cpp" line="47"/>
+        <source>Zoom: %1%</source>
+        <translation>Zoomniveau: %1%</translation>
     </message>
 </context>
 </TS>

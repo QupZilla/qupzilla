@@ -19,7 +19,7 @@
     <message>
         <location filename="../PIM_handler.cpp" line="63"/>
         <source>Mobile</source>
-        <translation>Mobiel</translation>
+        <translation>Mobiel telefoonnummer</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="64"/>
@@ -74,12 +74,12 @@
     <message>
         <location filename="../PIM_handler.cpp" line="115"/>
         <source>Insert Personal Information</source>
-        <translation>Vul persoonlijke informatie in</translation>
+        <translation>Persoonlijke informatie invoeren</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="136"/>
         <source>Edit</source>
-        <translation>Bewerk</translation>
+        <translation>Bewerken</translation>
     </message>
 </context>
 <context>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="64"/>
         <source>Your personal information that will be used on webpages.</source>
-        <translation>Uw persoonlijke informatie die zal worden gebruikt op websites.</translation>
+        <translation>Uw persoonlijke informatie welke zal worden gebruikt op websites.</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="76"/>
@@ -172,7 +172,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="260"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Press Ctrl+ENTER to autofill form fields for which QupZilla finds personal entries.</source>
-        <translation>&lt;b&gt;Noot:&lt;/b&gt; Druk op CTRL+ENTER om automatisch formuliervelden te vullen met persoonlijke informatie die QupZilla vindt.</translation>
+        <translation>&lt;b&gt;Tip:&lt;/b&gt; druk op CTRL+ENTER om formuliervelden automatisch te vullen met persoonlijke informatie die QupZilla vindt.</translation>
     </message>
 </context>
 </TS>

@@ -32,22 +32,22 @@
         <translation>Преглед на изходния код на скрипта</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="48"/>
+        <location filename="../gm_addscriptdialog.cpp" line="49"/>
         <source>&lt;p&gt;runs at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;работи на&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="52"/>
+        <location filename="../gm_addscriptdialog.cpp" line="53"/>
         <source>&lt;p&gt;does not run at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;не работи на&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="82"/>
+        <location filename="../gm_addscriptdialog.cpp" line="83"/>
         <source>Cannot install script</source>
         <translation>Скриптът не може да се инсталира</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="85"/>
+        <location filename="../gm_addscriptdialog.cpp" line="86"/>
         <source>&apos;%1&apos; installed successfully</source>
         <translation>&apos;%1&apos; е успешно инсталиран</translation>
     </message>
@@ -55,7 +55,7 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="144"/>
+        <location filename="../gm_downloader.cpp" line="145"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&apos;%1&apos; вече е инсталиран</translation>
     </message>
@@ -157,7 +157,7 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="138"/>
         <source>Namespace:</source>
-        <translation type="unfinished"/>
+        <translation>Местоположение:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="155"/>

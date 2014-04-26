@@ -32,22 +32,22 @@
         <translation>Mostra el codi font de l&apos;script</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="48"/>
+        <location filename="../gm_addscriptdialog.cpp" line="49"/>
         <source>&lt;p&gt;runs at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;s&apos;executa a&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="52"/>
+        <location filename="../gm_addscriptdialog.cpp" line="53"/>
         <source>&lt;p&gt;does not run at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;no s&apos;executa a&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="82"/>
+        <location filename="../gm_addscriptdialog.cpp" line="83"/>
         <source>Cannot install script</source>
         <translation>No s&apos;ha pogut instal·lar l&apos;script</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="85"/>
+        <location filename="../gm_addscriptdialog.cpp" line="86"/>
         <source>&apos;%1&apos; installed successfully</source>
         <translation>&apos;%1&apos; s&apos;ha instal·lat correctament</translation>
     </message>
@@ -55,7 +55,7 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="144"/>
+        <location filename="../gm_downloader.cpp" line="145"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&apos;%1&apos; ja està instal·lat</translation>
     </message>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../gm_icon.cpp" line="29"/>
         <source>Open GreaseMonkey settings</source>
-        <translation type="unfinished"/>
+        <translation>Preferències de GreaseMonkey</translation>
     </message>
 </context>
 <context>
@@ -157,12 +157,12 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="138"/>
         <source>Namespace:</source>
-        <translation type="unfinished"/>
+        <translation>Espai de noms:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="155"/>
         <source>Edit in text editor</source>
-        <translation type="unfinished"/>
+        <translation>Edita en l&apos;editor de text</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="65"/>
