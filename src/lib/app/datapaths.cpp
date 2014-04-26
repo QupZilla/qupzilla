@@ -112,20 +112,23 @@ void DataPaths::init()
     }
 
     QDir confPath = QDir(dataLocation);
-    QDir homePath = QDir(QDir::homePath() + QLatin1String("/.qupzilla"));
+    QDir oldConfPath = QDir(QDir::homePath() + QLatin1String("/.qupzilla"));
 
-    if (!homePath.exists()) {
-        homePath = QDir::homePath() + QLatin1String("/.config/qupzilla");
+    if (!oldConfPath.exists()) {
+        oldConfPath = QDir::homePath() + QLatin1String("/.config/qupzilla");
     }
+#elif defined(Q_OS_MAC)
+    QDir confPath = QDir(QDir::homePath() + QLatin1String("/Library/Application Support/QupZilla"));
+    QDir oldConfPath = QDir(QDir::homePath() + QLatin1String("/.config/qupzilla"));
 #else // Unix
     QDir confPath = QDir(QDir::homePath() + QLatin1String("/.config/qupzilla"));
-    QDir homePath = QDir(QDir::homePath() + QLatin1String("/.qupzilla"));
+    QDir oldConfPath = QDir(QDir::homePath() + QLatin1String("/.qupzilla"));
 #endif
 
-    if (homePath.exists() && !confPath.exists()) {
-        m_paths[Config].append(homePath.absolutePath());
+    if (oldConfPath.exists() && !confPath.exists()) {
+        m_paths[Config].append(oldConfPath.absolutePath());
 
-        qWarning() << "WARNING: Using deprecated configuration path" << homePath.absolutePath();
+        qWarning() << "WARNING: Using deprecated configuration path" << oldConfPath.absolutePath();
         qWarning() << "WARNING: This path may not be supported in future versions!";
         qWarning() << "WARNING: Please move your configuration into" << confPath.absolutePath();
     }
