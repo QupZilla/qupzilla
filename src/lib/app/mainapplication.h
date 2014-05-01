@@ -126,7 +126,7 @@ private slots:
     void saveSession();
     void saveSettings();
 
-    void messageReceived(QString message);
+    void messageReceived(const QString &message);
     void windowDestroyed(QObject* window);
 
 private:

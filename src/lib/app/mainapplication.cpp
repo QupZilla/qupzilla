@@ -757,7 +757,7 @@ void MainApplication::saveSettings()
     Settings::syncSettings();
 }
 
-void MainApplication::messageReceived(QString message)
+void MainApplication::messageReceived(const QString &message)
 {
     QWidget* actWin = getWindow();
     QUrl actUrl;
@@ -790,6 +790,10 @@ void MainApplication::messageReceived(QString message)
             createWindow(Qz::BW_NewWindow, QUrl::fromUserInput(text.mid(18)));
             return;
         }
+    }
+    else {
+        // User attempted to start another instance, let's open a new window
+        actWin = createWindow(Qz::BW_NewWindow);
     }
 
     if (!actWin) {
