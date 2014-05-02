@@ -116,7 +116,6 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     , p_QupZilla(mainClass)
     , m_lastTabIndex(-1)
     , m_lastBackgroundTabIndex(-1)
-    , m_isClosingToLastTabIndex(false)
     , m_isRestoringState(false)
     , m_closedTabsManager(new ClosedTabsManager)
     , m_locationBars(new QStackedWidget)
@@ -387,10 +386,6 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         p_QupZilla->locationBar()->setFocus();
     }
 
-    if (openFlags & Qz::NT_SelectedTab || openFlags & Qz::NT_NotSelectedTab) {
-        m_isClosingToLastTabIndex = true;
-    }
-
     if (openFlags & Qz::NT_NotSelectedTab) {
         WebTab* currentWebTab = weTab();
         // Workarounding invalid QWebPage::viewportSize() until QWebView is shown
@@ -480,10 +475,6 @@ void TabWidget::closeTab(int index, bool force)
     // Save last tab url and history
     m_closedTabsManager->saveView(webTab, index);
 
-    if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
-        setCurrentIndex(m_lastTabIndex);
-    }
-
     m_lastBackgroundTabIndex = -1;
 
     webPage->disconnectObjects();
@@ -504,7 +495,6 @@ void TabWidget::currentTabChanged(int index)
         return;
     }
 
-    m_isClosingToLastTabIndex = m_lastBackgroundTabIndex == index;
     m_lastBackgroundTabIndex = -1;
     m_lastTabIndex = index;
 
@@ -524,7 +514,6 @@ void TabWidget::tabMoved(int before, int after)
     Q_UNUSED(before)
     Q_UNUSED(after)
 
-    m_isClosingToLastTabIndex = false;
     m_lastBackgroundTabIndex = -1;
     m_lastTabIndex = before;
 }
@@ -704,10 +693,6 @@ void TabWidget::detachTab(int index)
     QupZilla* window = mApp->makeNewWindow(Qz::BW_NewWindow);
     tab->moveToWindow(window);
     window->openWithTab(tab);
-
-    if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
-        setCurrentIndex(m_lastTabIndex);
-    }
 }
 
 int TabWidget::duplicateTab(int index)

@@ -156,7 +156,6 @@ private:
 
     int m_lastTabIndex;
     int m_lastBackgroundTabIndex;
-    bool m_isClosingToLastTabIndex;
     bool m_isRestoringState;
 
     TabBar* m_tabBar;
