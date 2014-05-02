@@ -535,7 +535,8 @@ void ComboTabBar::setUpLayout()
 
     if (isVisible() && m_mainTabBar->count() > 0) {
         // ComboTabBar is now visible, we can sync heights of both tabbars
-        m_pinnedTabBar->setFixedHeight(m_mainTabBar->height());
+        m_pinnedTabBar->setFixedHeight(m_mainTabBar->sizeHint().height());
+        m_mainTabBar->setFixedHeight(m_mainTabBar->sizeHint().height());
     }
 }
 
@@ -840,11 +841,6 @@ int ComboTabBar::toLocalIndex(int globalIndex) const
 void ComboTabBar::updatePinnedTabBarVisibility()
 {
     m_pinnedTabBarWidget->setVisible(pinnedTabsCount() > 0);
-
-    if (pinnedTabsCount() > 0) {
-        m_pinnedTabBarWidget->setFixedHeight(m_mainTabBarWidget->height());
-        m_pinnedTabBar->setFixedHeight(m_mainTabBar->height());
-    }
 }
 
 void ComboTabBar::setMinimumWidths()
