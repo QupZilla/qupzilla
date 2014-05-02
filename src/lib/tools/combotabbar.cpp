@@ -648,6 +648,13 @@ void ComboTabBar::paintEvent(QPaintEvent* ev)
         opt.rect.setWidth(scrollButtonWidth);
         style()->drawPrimitive(QStyle::PE_FrameTabBarBase, &opt, &p);
     }
+
+    // Draw base even when main tabbar is empty
+    if (normalTabsCount() == 0) {
+        opt.rect.setX(m_mainTabBarWidget->x());
+        opt.rect.setWidth(m_mainTabBarWidget->width());
+        style()->drawPrimitive(QStyle::PE_FrameTabBarBase, &opt, &p);
+    }
 #endif
 }
 
@@ -1106,7 +1113,6 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
             p.drawControl(QStyle::CE_TabBarTab, tb);
 
             // Draw the tab without selected state
-
             tab.state = tab.state & ~QStyle::State_Selected;
         }
 
