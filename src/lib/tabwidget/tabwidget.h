@@ -155,7 +155,6 @@ private:
 
     int m_lastTabIndex;
     int m_lastBackgroundTabIndex;
-    bool m_isClosingToLastTabIndex;
 
     bool m_dontCloseWithOneTab;
     bool m_showClosedTabsButton;

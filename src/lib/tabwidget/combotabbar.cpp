@@ -49,8 +49,8 @@ ComboTabBar::ComboTabBar(QWidget* parent)
 {
     QObject::setObjectName(QSL("tabbarwidget"));
 
-    m_mainTabBar = new TabBarHelper(this);
-    m_pinnedTabBar = new TabBarHelper(this);
+    m_mainTabBar = new TabBarHelper(/*pinnedTabBar*/ false, this);
+    m_pinnedTabBar = new TabBarHelper(/*pinnedTabBar*/ true, this);
     m_mainTabBarWidget = new TabBarScrollWidget(m_mainTabBar, this);
     m_pinnedTabBarWidget = new TabBarScrollWidget(m_pinnedTabBar, this);
 
@@ -915,7 +915,7 @@ void ComboTabBar::leaveEvent(QEvent* event)
 }
 
 
-TabBarHelper::TabBarHelper(ComboTabBar* comboTabBar)
+TabBarHelper::TabBarHelper(bool pinnedTabBar, ComboTabBar* comboTabBar)
     : QTabBar(comboTabBar)
     , m_comboTabBar(comboTabBar)
     , m_scrollArea(0)
@@ -923,6 +923,7 @@ TabBarHelper::TabBarHelper(ComboTabBar* comboTabBar)
     , m_pressedGlobalX(-1)
     , m_dragInProgress(false)
     , m_activeTabBar(false)
+    , m_pinnedTabBar(pinnedTabBar)
     , m_useFastTabSizeHint(false)
     , m_bluredBackground(false)
 {
@@ -955,6 +956,17 @@ void TabBarHelper::setActiveTabBar(bool activate)
 {
     if (m_activeTabBar != activate) {
         m_activeTabBar = activate;
+
+        // If the last tab in a tabbar is closed, the selection jumps to the other
+        // tabbar. The stacked widget automatically selects the next tab, which is
+        // either the last tab in pinned tabbar or the first one in main tabbar.
+
+        if (!m_activeTabBar) {
+            m_comboTabBar->m_blockCurrentChangedSignal = true;
+            setCurrentIndex(m_pinnedTabBar ? count() - 1 : 0);
+            m_comboTabBar->m_blockCurrentChangedSignal = false;
+        }
+
         update();
     }
 }
@@ -963,9 +975,8 @@ void TabBarHelper::removeTab(int index)
 {
     // Removing tab in inactive tabbar will change current index and thus
     // changing active tabbar, which is really not wanted.
-    if (!m_activeTabBar) {
+    if (!m_activeTabBar)
         m_comboTabBar->m_blockCurrentChangedSignal = true;
-    }
 
     QTabBar::removeTab(index);
 
