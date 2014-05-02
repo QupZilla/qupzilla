@@ -560,6 +560,14 @@ void TabBar::tabRemoved(int index)
 
     showCloseButton(currentIndex());
     setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
+
+    // Make sure to move add tab button to correct position when there are no normal tabs
+    if (normalTabsCount() == 0) {
+        int xForAddTabButton = pinTabBarWidth();
+        if (QApplication::layoutDirection() == Qt::RightToLeft)
+            xForAddTabButton = width() - xForAddTabButton;
+        emit moveAddTabButton(xForAddTabButton);
+    }
 }
 
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
