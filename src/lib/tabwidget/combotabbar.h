@@ -245,6 +245,8 @@ private:
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
 
+    void initStyleOption(QStyleOptionTab* option, int tabIndex) const;
+
     ComboTabBar* m_comboTabBar;
     QScrollArea* m_scrollArea;
 

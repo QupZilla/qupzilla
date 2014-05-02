@@ -1207,6 +1207,25 @@ void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
     }
 }
 
+void TabBarHelper::initStyleOption(QStyleOptionTab* option, int tabIndex) const
+{
+    QTabBar::initStyleOption(option, tabIndex);
+
+    int index = m_pinnedTabBar ? tabIndex : m_comboTabBar->pinnedTabsCount() + tabIndex;
+
+    if (m_comboTabBar->count() > 1) {
+        if (index == 0)
+            option->position = QStyleOptionTab::Beginning;
+        else if (index == m_comboTabBar->count() - 1)
+            option->position = QStyleOptionTab::End;
+        else
+            option->position = QStyleOptionTab::Middle;
+    }
+    else {
+        option->position = QStyleOptionTab::OnlyOneTab;
+    }
+}
+
 void TabBarHelper::resetDragState()
 {
     if (m_pressedIndex == -1) {
