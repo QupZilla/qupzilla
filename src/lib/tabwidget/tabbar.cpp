@@ -54,7 +54,6 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     , m_activeTabWidth(0)
 {
     setObjectName("tabbar");
-    setContextMenuPolicy(Qt::CustomContextMenu);
     setElideMode(Qt::ElideRight);
     setFocusPolicy(Qt::NoFocus);
     setTabsClosable(false);
@@ -65,7 +64,6 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     setMovable(true);
 
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
-    connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
 
     m_tabPreviewShowTimer = new QTimer(this);
     m_tabPreviewShowTimer->setInterval(300);
@@ -128,62 +126,6 @@ void TabBar::setVisible(bool visible)
 
     hideTabPreview(false);
     ComboTabBar::setVisible(visible);
-}
-
-void TabBar::contextMenuRequested(const QPoint &position)
-{
-    int index = tabAt(position);
-    m_clickedTab = index;
-
-    QMenu menu;
-    menu.addAction(IconProvider::newTabIcon(), tr("&New tab"), m_window, SLOT(addTab()));
-    menu.addSeparator();
-    if (index != -1) {
-        WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
-        if (!webTab) {
-            return;
-        }
-
-        if (m_window->weView(m_clickedTab)->isLoading()) {
-            menu.addAction(QIcon::fromTheme(QSL("process-stop")), tr("&Stop Tab"), this, SLOT(stopTab()));
-        }
-        else {
-            menu.addAction(QIcon::fromTheme(QSL("view-refresh")), tr("&Reload Tab"), this, SLOT(reloadTab()));
-        }
-
-        menu.addAction(QIcon::fromTheme("tab-duplicate"), tr("&Duplicate Tab"), this, SLOT(duplicateTab()));
-
-        if (count() > 1 && !webTab->isPinned()) {
-            menu.addAction(QIcon::fromTheme("tab-detach"), tr("D&etach Tab"), this, SLOT(detachTab()));
-        }
-
-        menu.addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
-        menu.addSeparator();
-        menu.addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
-        menu.addAction(tr("&Bookmark This Tab"), this, SLOT(bookmarkTab()));
-        menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
-        menu.addSeparator();
-        menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
-        menu.addSeparator();
-        menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
-        menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose"), this, SLOT(closeTab()));
-        menu.addSeparator();
-    }
-    else {
-        menu.addAction(tr("Reloa&d All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
-        menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
-        menu.addSeparator();
-        menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
-    }
-
-    m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(m_tabWidget->canRestoreTab());
-
-    // Prevent choosing first option with double rightclick
-    const QPoint pos = mapToGlobal(position);
-    QPoint p(pos.x(), pos.y() + 1);
-    menu.exec(p);
-
-    m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(true);
 }
 
 void TabBar::overflowChanged(bool overflowed)
@@ -371,6 +313,62 @@ void TabBar::showCloseButton(int index)
     }
 
     insertCloseButton(index);
+}
+
+void TabBar::contextMenuEvent(QContextMenuEvent* event)
+{
+    int index = tabAt(event->pos());
+    m_clickedTab = index;
+
+    QMenu menu;
+    menu.addAction(IconProvider::newTabIcon(), tr("&New tab"), m_window, SLOT(addTab()));
+    menu.addSeparator();
+    if (index != -1) {
+        WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
+        if (!webTab) {
+            return;
+        }
+
+        if (m_window->weView(m_clickedTab)->isLoading()) {
+            menu.addAction(QIcon::fromTheme(QSL("process-stop")), tr("&Stop Tab"), this, SLOT(stopTab()));
+        }
+        else {
+            menu.addAction(QIcon::fromTheme(QSL("view-refresh")), tr("&Reload Tab"), this, SLOT(reloadTab()));
+        }
+
+        menu.addAction(QIcon::fromTheme("tab-duplicate"), tr("&Duplicate Tab"), this, SLOT(duplicateTab()));
+
+        if (count() > 1 && !webTab->isPinned()) {
+            menu.addAction(QIcon::fromTheme("tab-detach"), tr("D&etach Tab"), this, SLOT(detachTab()));
+        }
+
+        menu.addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
+        menu.addSeparator();
+        menu.addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
+        menu.addAction(tr("&Bookmark This Tab"), this, SLOT(bookmarkTab()));
+        menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
+        menu.addSeparator();
+        menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
+        menu.addSeparator();
+        menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
+        menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose"), this, SLOT(closeTab()));
+        menu.addSeparator();
+    }
+    else {
+        menu.addAction(tr("Reloa&d All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
+        menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
+        menu.addSeparator();
+        menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
+    }
+
+    m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(m_tabWidget->canRestoreTab());
+
+    // Prevent choosing first option with double rightclick
+    const QPoint pos = event->globalPos();
+    QPoint p(pos.x(), pos.y() + 1);
+    menu.exec(p);
+
+    m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(true);
 }
 
 void TabBar::hideCloseButton(int index)

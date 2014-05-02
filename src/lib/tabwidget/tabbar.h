@@ -60,7 +60,6 @@ signals:
 
 private slots:
     void currentTabChanged(int index);
-    void contextMenuRequested(const QPoint &position);
     void overflowChanged(bool overflowed);
 
     void reloadTab() { emit reloadTab(m_clickedTab); }
@@ -88,6 +87,7 @@ private:
     void hideCloseButton(int index);
     void showCloseButton(int index);
 
+    void contextMenuEvent(QContextMenuEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
