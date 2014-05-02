@@ -18,6 +18,7 @@
 * ============================================================ */
 #include "combotabbar.h"
 #include "toolbutton.h"
+#include "tabicon.h"
 #include "mainapplication.h"
 #include "proxystyle.h"
 #include "qzsettings.h"
@@ -217,7 +218,8 @@ QRect ComboTabBar::tabRect(int index) const
 
 int ComboTabBar::tabAt(const QPoint &pos) const
 {
-    if (!qobject_cast<TabBarHelper*>(QApplication::widgetAt(mapToGlobal(pos))))
+    QWidget* w = QApplication::widgetAt(mapToGlobal(pos));
+    if (!qobject_cast<TabBarHelper*>(w) && !qobject_cast<TabIcon*>(w))
         return -1;
 
     int index = m_pinnedTabBarWidget->tabAt(m_pinnedTabBarWidget->mapFromParent(pos));
