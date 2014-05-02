@@ -49,8 +49,8 @@ ComboTabBar::ComboTabBar(QWidget* parent)
 {
     QObject::setObjectName(QSL("tabbarwidget"));
 
-    m_mainTabBar = new TabBarHelper(/*pinnedTabBar*/ false, this);
-    m_pinnedTabBar = new TabBarHelper(/*pinnedTabBar*/ true, this);
+    m_mainTabBar = new TabBarHelper(/*isPinnedTabBar*/ false, this);
+    m_pinnedTabBar = new TabBarHelper(/*isPinnedTabBar*/ true, this);
     m_mainTabBarWidget = new TabBarScrollWidget(m_mainTabBar, this);
     m_pinnedTabBarWidget = new TabBarScrollWidget(m_pinnedTabBar, this);
 
@@ -918,7 +918,7 @@ void ComboTabBar::leaveEvent(QEvent* event)
 }
 
 
-TabBarHelper::TabBarHelper(bool pinnedTabBar, ComboTabBar* comboTabBar)
+TabBarHelper::TabBarHelper(bool isPinnedTabBar, ComboTabBar* comboTabBar)
     : QTabBar(comboTabBar)
     , m_comboTabBar(comboTabBar)
     , m_scrollArea(0)
@@ -926,7 +926,7 @@ TabBarHelper::TabBarHelper(bool pinnedTabBar, ComboTabBar* comboTabBar)
     , m_pressedGlobalX(-1)
     , m_dragInProgress(false)
     , m_activeTabBar(false)
-    , m_pinnedTabBar(pinnedTabBar)
+    , m_isPinnedTabBar(isPinnedTabBar)
     , m_useFastTabSizeHint(false)
     , m_bluredBackground(false)
 {
@@ -966,7 +966,7 @@ void TabBarHelper::setActiveTabBar(bool activate)
 
         if (!m_activeTabBar) {
             m_comboTabBar->m_blockCurrentChangedSignal = true;
-            setCurrentIndex(m_pinnedTabBar ? count() - 1 : 0);
+            setCurrentIndex(m_isPinnedTabBar ? count() - 1 : 0);
             m_comboTabBar->m_blockCurrentChangedSignal = false;
         }
 
@@ -1211,7 +1211,7 @@ void TabBarHelper::initStyleOption(QStyleOptionTab* option, int tabIndex) const
 {
     QTabBar::initStyleOption(option, tabIndex);
 
-    int index = m_pinnedTabBar ? tabIndex : m_comboTabBar->pinnedTabsCount() + tabIndex;
+    int index = m_isPinnedTabBar ? tabIndex : m_comboTabBar->pinnedTabsCount() + tabIndex;
 
     if (m_comboTabBar->count() > 1) {
         if (index == 0)

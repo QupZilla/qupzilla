@@ -212,7 +212,7 @@ class QUPZILLA_EXPORT TabBarHelper : public QTabBar
     Q_OBJECT
 
 public:
-    explicit TabBarHelper(bool pinnedTabBar, ComboTabBar* comboTabBar);
+    explicit TabBarHelper(bool isPinnedTabBar, ComboTabBar* comboTabBar);
 
     void setTabButton(int index, QTabBar::ButtonPosition position, QWidget* widget);
 
@@ -254,7 +254,7 @@ private:
     int m_pressedGlobalX;
     bool m_dragInProgress;
     bool m_activeTabBar;
-    bool m_pinnedTabBar;
+    bool m_isPinnedTabBar;
     bool m_useFastTabSizeHint;
     bool m_bluredBackground;
 };
