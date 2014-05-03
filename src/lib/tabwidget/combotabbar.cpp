@@ -1211,6 +1211,15 @@ void TabBarHelper::initStyleOption(QStyleOptionTab* option, int tabIndex) const
 {
     QTabBar::initStyleOption(option, tabIndex);
 
+    // Bespin doesn't highlight current tab when there is only one tab in tabbar
+    static int isBespin = -1;
+
+    if (isBespin == -1)
+        isBespin = mApp->styleName() == QL1S("bespin");
+
+    if (!isBespin)
+        return;
+
     int index = m_isPinnedTabBar ? tabIndex : m_comboTabBar->pinnedTabsCount() + tabIndex;
 
     if (m_comboTabBar->count() > 1) {
