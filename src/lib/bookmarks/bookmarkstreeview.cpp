@@ -189,7 +189,7 @@ void BookmarksTreeView::mouseMoveEvent(QMouseEvent* event)
                 cursor = Qt::PointingHandCursor;
             }
         }
-        setCursor(cursor);
+        viewport()->setCursor(cursor);
     }
 }
 
