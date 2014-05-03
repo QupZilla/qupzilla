@@ -21,8 +21,8 @@
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 #include "mainapplication.h"
-#include "historymodel.h"
 #include "qzsettings.h"
+#include "iconprovider.h"
 
 HistorySideBar::HistorySideBar(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
@@ -30,24 +30,77 @@ HistorySideBar::HistorySideBar(BrowserWindow* window, QWidget* parent)
     , m_window(window)
 {
     ui->setupUi(this);
+    ui->historyTree->setViewType(HistoryTreeView::HistorySidebarViewType);
 
-    ui->historyTree->setColumnHidden(1, true);
-    ui->historyTree->setColumnHidden(2, true);
-    ui->historyTree->setColumnHidden(3, true);
-    ui->historyTree->setSelectionMode(QAbstractItemView::SingleSelection);
+    connect(ui->historyTree, SIGNAL(urlActivated(QUrl)), this, SLOT(urlActivated(QUrl)));
+    connect(ui->historyTree, SIGNAL(urlCtrlActivated(QUrl)), this, SLOT(urlCtrlActivated(QUrl)));
+    connect(ui->historyTree, SIGNAL(urlShiftActivated(QUrl)), this, SLOT(urlShiftActivated(QUrl)));
+    connect(ui->historyTree, SIGNAL(contextMenuRequested(QPoint)), this, SLOT(createContextMenu(QPoint)));
 
-    connect(ui->historyTree, SIGNAL(openLink(QUrl,HistoryView::OpenBehavior)), this, SLOT(openLink(QUrl,HistoryView::OpenBehavior)));
-    connect(ui->search, SIGNAL(textEdited(QString)), ui->historyTree->filterModel(), SLOT(setFilterFixedString(QString)));
+    connect(ui->search, SIGNAL(textEdited(QString)), ui->historyTree, SLOT(search(QString)));
 }
 
-void HistorySideBar::openLink(const QUrl &url, HistoryView::OpenBehavior openIn)
+void HistorySideBar::urlActivated(const QUrl &url)
 {
-    if (openIn == HistoryView::OpenInNewTab) {
-        m_window->tabWidget()->addView(url, qzSettings->newTabPosition);
+    openUrl(url);
+}
+
+void HistorySideBar::urlCtrlActivated(const QUrl &url)
+{
+    openUrlInNewTab(url);
+}
+
+void HistorySideBar::urlShiftActivated(const QUrl &url)
+{
+    openUrlInNewWindow(url);
+}
+
+void HistorySideBar::openUrl(const QUrl &url)
+{
+    const QUrl u = !url.isEmpty() ? url : ui->historyTree->selectedUrl();
+    m_window->weView()->load(u);
+}
+
+void HistorySideBar::openUrlInNewTab(const QUrl &url)
+{
+    const QUrl u = !url.isEmpty() ? url : ui->historyTree->selectedUrl();
+    m_window->tabWidget()->addView(u, qzSettings->newTabPosition);
+}
+
+void HistorySideBar::openUrlInNewWindow(const QUrl &url)
+{
+    const QUrl u = !url.isEmpty() ? url : ui->historyTree->selectedUrl();
+    mApp->createWindow(Qz::BW_NewWindow, u);
+}
+
+void HistorySideBar::openUrlInNewPrivateWindow(const QUrl &url)
+{
+    const QUrl u = !url.isEmpty() ? url : ui->historyTree->selectedUrl();
+    mApp->startPrivateBrowsing(u);
+}
+
+void HistorySideBar::createContextMenu(const QPoint &pos)
+{
+    QMenu menu;
+    QAction* actNewTab = menu.addAction(IconProvider::newTabIcon(), tr("Open in new tab"));
+    QAction* actNewWindow = menu.addAction(IconProvider::newWindowIcon(), tr("Open in new window"));
+    QAction* actNewPrivateWindow = menu.addAction(IconProvider::privateBrowsingIcon(), tr("Open in new private window"));
+
+    menu.addSeparator();
+    QAction* actDelete = menu.addAction(QIcon::fromTheme(QSL("edit-delete")), tr("Delete"));
+
+    connect(actNewTab, SIGNAL(triggered()), this, SLOT(openUrlInNewTab()));
+    connect(actNewWindow, SIGNAL(triggered()), this, SLOT(openUrlInNewWindow()));
+    connect(actNewPrivateWindow, SIGNAL(triggered()), this, SLOT(openUrlInNewPrivateWindow()));
+    connect(actDelete, SIGNAL(triggered()), ui->historyTree, SLOT(removeSelectedItems()));
+
+    if (ui->historyTree->selectedUrl().isEmpty()) {
+        actNewTab->setDisabled(true);
+        actNewWindow->setDisabled(true);
+        actNewPrivateWindow->setDisabled(true);
     }
-    else {
-        m_window->weView()->load(url);
-    }
+
+    menu.exec(pos);
 }
 
 HistorySideBar::~HistorySideBar()

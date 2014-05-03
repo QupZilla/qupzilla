@@ -115,7 +115,7 @@ SOURCES += \
     history/historymanager.cpp \
     history/historymenu.cpp \
     history/historymodel.cpp \
-    history/historyview.cpp \
+    history/historytreeview.cpp \
     history/webhistoryinterface.cpp \
     navigation/completer/locationcompleter.cpp \
     navigation/completer/locationcompleterdelegate.cpp \
@@ -314,7 +314,7 @@ HEADERS  += \
     history/historymanager.h \
     history/historymenu.h \
     history/historymodel.h \
-    history/historyview.h \
+    history/historytreeview.h \
     history/webhistoryinterface.h \
     navigation/completer/locationcompleterdelegate.h \
     navigation/completer/locationcompleter.h \

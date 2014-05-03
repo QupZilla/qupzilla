@@ -20,9 +20,9 @@
 
 #include <QWidget>
 #include <QPointer>
+#include <QUrl>
 
 #include "qzcommon.h"
-#include "historyview.h"
 
 namespace Ui
 {
@@ -50,11 +50,23 @@ public slots:
     void search(const QString &searchText);
 
 private slots:
-    void openLink(const QUrl &url, HistoryView::OpenBehavior openIn);
+    void urlActivated(const QUrl &url);
+    void urlCtrlActivated(const QUrl &url);
+    void urlShiftActivated(const QUrl &url);
+
+    void openUrl(const QUrl &url = QUrl());
+    void openUrlInNewTab(const QUrl &url = QUrl());
+    void openUrlInNewWindow(const QUrl &url = QUrl());
+    void openUrlInNewPrivateWindow(const QUrl &url = QUrl());
+
+    void createContextMenu(const QPoint &pos);
+
+    void copyUrl();
+    void copyTitle();
     void clearHistory();
 
 private:
-    BrowserWindow* getQupZilla();
+    BrowserWindow* getWindow();
 
     Ui::HistoryManager* ui;
     QPointer<BrowserWindow> m_window;

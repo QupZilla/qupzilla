@@ -34,7 +34,7 @@
     </widget>
    </item>
    <item>
-    <widget class="HistoryView" name="historyTree">
+    <widget class="HistoryTreeView" name="historyTree">
      <property name="alternatingRowColors">
       <bool>true</bool>
      </property>
@@ -47,9 +47,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>HistoryView</class>
+   <class>HistoryTreeView</class>
    <extends>QTreeView</extends>
-   <header>historyview.h</header>
+   <header>historytreeview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

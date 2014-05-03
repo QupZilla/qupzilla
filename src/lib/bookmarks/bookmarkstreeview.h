@@ -71,12 +71,12 @@ private slots:
     void indexCollapsed(const QModelIndex &parent);
 
     void selectionChanged();
-    void createContextMenu(const QPoint &point);
 
 private:
     void restoreExpandedState(const QModelIndex &parent);
     void rowsInserted(const QModelIndex &parent, int start, int end);
 
+    void contextMenuEvent(QContextMenuEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);

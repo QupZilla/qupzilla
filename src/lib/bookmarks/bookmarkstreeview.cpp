@@ -35,17 +35,15 @@ BookmarksTreeView::BookmarksTreeView(QWidget* parent)
     setModel(m_filter);
     setDragEnabled(true);
     setAcceptDrops(true);
+    setUniformRowHeights(true);
     setDropIndicatorShown(true);
     setAllColumnsShowFocus(true);
-    setContextMenuPolicy(Qt::CustomContextMenu);
     setItemDelegate(new BookmarksItemDelegate(this));
     header()->resizeSections(QHeaderView::ResizeToContents);
 
     connect(this, SIGNAL(expanded(QModelIndex)), this, SLOT(indexExpanded(QModelIndex)));
     connect(this, SIGNAL(collapsed(QModelIndex)), this, SLOT(indexCollapsed(QModelIndex)));
     connect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SLOT(selectionChanged()));
-
-    connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(createContextMenu(QPoint)));
 }
 
 BookmarksTreeView::ViewType BookmarksTreeView::viewType() const
@@ -158,11 +156,6 @@ void BookmarksTreeView::selectionChanged()
     emit bookmarksSelected(selectedBookmarks());
 }
 
-void BookmarksTreeView::createContextMenu(const QPoint &point)
-{
-    emit contextMenuRequested(viewport()->mapToGlobal(point));
-}
-
 void BookmarksTreeView::restoreExpandedState(const QModelIndex &parent)
 {
     for (int i = 0; i < m_filter->rowCount(parent); ++i) {
@@ -179,6 +172,11 @@ void BookmarksTreeView::rowsInserted(const QModelIndex &parent, int start, int e
     QTreeView::rowsInserted(parent, start, end);
 }
 
+void BookmarksTreeView::contextMenuEvent(QContextMenuEvent* event)
+{
+    emit contextMenuRequested(viewport()->mapToGlobal(event->pos()));
+}
+
 void BookmarksTreeView::mouseMoveEvent(QMouseEvent* event)
 {
     QTreeView::mouseMoveEvent(event);
@@ -193,7 +191,6 @@ void BookmarksTreeView::mouseMoveEvent(QMouseEvent* event)
         }
         setCursor(cursor);
     }
-
 }
 
 void BookmarksTreeView::mousePressEvent(QMouseEvent* event)
