@@ -18,8 +18,8 @@
 #ifndef PROCESSINFO_H
 #define PROCESSINFO_H
 
-#ifdef Q_OS_UNIX
-#include <unistd.h>
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+#include <sys/types.h>
 #endif
 
 #include <QString>
@@ -41,7 +41,6 @@ public:
 private:
 #if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
     bool IsNumeric(const char* ccharptr_CharacterList) const;
-
     pid_t GetPIDbyName(const char* cchrptr_ProcessName) const;
 #endif
 

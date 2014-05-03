@@ -18,9 +18,9 @@
 #include "processinfo.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
-#include <dirent.h>
-#include <sys/types.h>
 #include <sys/stat.h>
+#include <dirent.h>
+#include <unistd.h>
 
 #include <iostream>
 #include <cstdio>
