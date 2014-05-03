@@ -57,10 +57,6 @@ public slots:
     void search(const QString &string);
     void removeSelectedItems();
 
-private slots:
-    void openLinkInCurrentTab();
-    void openLinkInNewTab();
-
 protected:
     void contextMenuEvent(QContextMenuEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
