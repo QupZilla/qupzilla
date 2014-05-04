@@ -19,7 +19,7 @@
     <message>
         <location filename="../PIM_handler.cpp" line="63"/>
         <source>Mobile</source>
-        <translation type="unfinished"/>
+        <translation>Celular</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="64"/>
@@ -54,27 +54,27 @@
     <message>
         <location filename="../PIM_handler.cpp" line="70"/>
         <source>Home Page</source>
-        <translation type="unfinished"/>
+        <translation>Página personal</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="71"/>
         <source>Custom 1</source>
-        <translation type="unfinished"/>
+        <translation>Referencia 1</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="72"/>
         <source>Custom 2</source>
-        <translation type="unfinished"/>
+        <translation>Referencia 2</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="73"/>
         <source>Custom 3</source>
-        <translation type="unfinished"/>
+        <translation>Referencia 3</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="115"/>
         <source>Insert Personal Information</source>
-        <translation type="unfinished"/>
+        <translation>Insertar Información Personal</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="136"/>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../PIM_settings.ui" line="42"/>
         <source>&lt;h2&gt;Personal Information Manager&lt;/h2&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;h2&gt;Personal Information Manager&lt;/h2&gt;</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="64"/>
         <source>Your personal information that will be used on webpages.</source>
-        <translation>Su información que sera utilizada en las páginas web.</translation>
+        <translation>Tu información personal que sera utilizada en las páginas web.</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="76"/>
@@ -122,7 +122,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="128"/>
         <source>Mobile Phone:</source>
-        <translation type="unfinished"/>
+        <translation>Celular:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="141"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="180"/>
         <source>State/Region:</source>
-        <translation>Estado/Región</translation>
+        <translation>Estado/Región:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="193"/>
@@ -152,27 +152,27 @@
     <message>
         <location filename="../PIM_settings.ui" line="206"/>
         <source>Home Page:</source>
-        <translation type="unfinished"/>
+        <translation>Página personal:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="219"/>
         <source>Custom 1:</source>
-        <translation type="unfinished"/>
+        <translation>Referencia 1:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="232"/>
         <source>Custom 2:</source>
-        <translation type="unfinished"/>
+        <translation>Referencia 2:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="245"/>
         <source>Custom 3:</source>
-        <translation type="unfinished"/>
+        <translation>Referencia 3:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="260"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Press Ctrl+ENTER to autofill form fields for which QupZilla finds personal entries.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Nota:&lt;/b&gt; Presione Ctrl+ENTER para autocompletar los campos de formulario para los que QupZilla encuentra entradas personales.</translation>
     </message>
 </context>
 </TS>

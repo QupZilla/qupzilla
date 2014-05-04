@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="sr@latin">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@latin" version="2.0">
 <context>
     <name>GnomeKeyringPlugin</name>
     <message>
-        <location filename="../gnomekeyringpasswordbackend.cpp" line="85"/>
+        <location filename="../gnomekeyringpasswordbackend.cpp" line="84"/>
         <source>Gnome Keyring</source>
         <translation>Gnomov privezak</translation>
     </message>

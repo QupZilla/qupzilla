@@ -12,44 +12,44 @@
         <translation>Mualliflar</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="50"/>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="60"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="56"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="66"/>
         <source>Authors and Contributors</source>
         <translation>Mualliflar va hamkorlar</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="53"/>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="80"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="59"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="86"/>
         <source>&lt; About QupZilla</source>
         <translation>&lt; QupZilla haqida</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="63"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="69"/>
         <source>&lt;p&gt;&lt;b&gt;Application version %1&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Dastur versiyasi %1&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="68"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="74"/>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
         <translation>&lt;b&gt;WebKit versiyasi %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="70"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="76"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;Yig&apos;ish vaqti: %1 &lt;/small&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="83"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="89"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Asosiy tuzuvchi:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="84"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="90"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Hamkorlar:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="95"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="101"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Tarjimonlar:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -114,7 +114,7 @@
 <context>
     <name>AdBlockCustomList</name>
     <message>
-        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="453"/>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="458"/>
         <source>Custom Rules</source>
         <translation>Ixtiyoriy qoidalar</translation>
     </message>
@@ -190,53 +190,53 @@
         <translation>AdBlock veb-sahifalarda istalmagan tarkibni bloklash imkonini beradi</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="64"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="69"/>
         <source>Blocked popup window</source>
         <translation>Bloklangan qalqib chiquvchi oyna</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="64"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="69"/>
         <source>AdBlock blocked unwanted popup window.</source>
         <translation>AdBlock istalmagan qalqib chiquvchi oynani blokladi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="83"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="88"/>
         <source>AdBlock</source>
         <translation>AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="110"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="115"/>
         <source>Show AdBlock &amp;Settings</source>
         <translation>AdBlock &amp;sozlamalarini ko&apos;rsatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="118"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="123"/>
         <source>Disable on %1</source>
         <translation>%1&apos;da o&apos;chirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="124"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="129"/>
         <source>Disable only on this page</source>
         <translation>Faqat shu sahifada o&apos;chirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="134"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="139"/>
         <source>Blocked Popup Windows</source>
         <translation>Bloklangan qalqib chiquvchi oynalar</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="139"/>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="156"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="144"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="161"/>
         <source>%1 with (%2)</source>
         <translation>%1 (%2) bilan</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="150"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="155"/>
         <source>No content blocked</source>
         <translation>Bliklangan tarkib yo&apos;q</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="153"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="158"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
         <translation>Bloklangan URL (AdBlock qoidasi) - qoidani tahrirlash uchun cherting</translation>
     </message>
@@ -244,7 +244,7 @@
 <context>
     <name>AdBlockManager</name>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="260"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="261"/>
         <source>EasyList</source>
         <translation>EasyList</translation>
     </message>
@@ -260,31 +260,44 @@
     </message>
 </context>
 <context>
+    <name>AdBlockSubscription</name>
+    <message>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="172"/>
+        <source>Cannot load subscription!</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AdBlockTreeWidget</name>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="78"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="79"/>
         <source>Add Rule</source>
         <translation>Qoidani qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="80"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="81"/>
         <source>Remove Rule</source>
         <translation>Qoidani olib tashlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="139"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="140"/>
         <source>Add Custom Rule</source>
         <translation>Ixtiyoriy qoidani qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="139"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="140"/>
         <source>Please write your rule here:</source>
         <translation>Qoidangizni shu joyda yozing:</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="177"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="178"/>
         <source>%1 (recently updated)</source>
         <translation>%1 (yaqinda yangilangan)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="187"/>
+        <source>%1 (Error: %2)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -308,12 +321,12 @@
 <context>
     <name>AesInterface</name>
     <message>
-        <location filename="../src/lib/tools/aesinterface.cpp" line="144"/>
+        <location filename="../src/lib/tools/aesinterface.cpp" line="143"/>
         <source>Warning!</source>
         <translation>Ogohlantirish!</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/aesinterface.cpp" line="144"/>
+        <location filename="../src/lib/tools/aesinterface.cpp" line="143"/>
         <source>Data has been encrypted with a newer version of QupZilla.
 Please install latest version of QupZilla.</source>
         <translation type="unfinished"/>
@@ -322,38 +335,38 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>AutoFill</name>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="245"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="244"/>
         <source>Database (encrypted)</source>
         <translation>Ma&apos;lumotlar bazasi (shifrlangan)</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="287"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="286"/>
         <source>Enter Master Password</source>
         <translation>Bosh parolni kiritish</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="288"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="287"/>
         <source>Permission is required, please enter Master Password:</source>
         <translation>Ruxsat talab qilinadi, iltimos, bosh parolni kiriting:</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="294"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="293"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="589"/>
         <source>Warning!</source>
         <translation>Ogohlantirish!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="294"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="293"/>
         <source>Entered password is wrong!</source>
         <translation>Kiritilgan parol noto&apos;g&apos;ri!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="591"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
         <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="33"/>
+        <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="32"/>
         <source>Database (plaintext)</source>
         <translation>Ma&apos;lumotlar bazasi (oddiy matn)</translation>
     </message>
@@ -398,8 +411,8 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="113"/>
-        <source>Import/Export</source>
-        <translation>Import/Eksport</translation>
+        <source>Import and Export</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="140"/>
@@ -575,561 +588,578 @@ Please install latest version of QupZilla.</source>
     </message>
 </context>
 <context>
-    <name>BookmarkIcon</name>
+    <name>Bookmarks</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkicon.cpp" line="38"/>
-        <location filename="../src/lib/bookmarks/bookmarkicon.cpp" line="111"/>
-        <source>Bookmark this Page</source>
-        <translation>Ushbu sahifani Xatcho&apos;plarga qo&apos;shish</translation>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="185"/>
+        <source>Bookmarks Toolbar</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkicon.cpp" line="103"/>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="186"/>
+        <source>Bookmarks located in Bookmarks Toolbar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="189"/>
+        <source>Bookmarks Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="190"/>
+        <source>Bookmarks located in Bookmarks Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="193"/>
+        <source>Unsorted Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="194"/>
+        <source>All other bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbarbutton.cpp" line="115"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="326"/>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="149"/>
+        <source>Choose name and location of this bookmark.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="153"/>
+        <source>Add New Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="193"/>
+        <source>Choose folder for bookmarks:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="194"/>
+        <source>Bookmark All Tabs</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BookmarksExportDialog</name>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="14"/>
+        <source>Export Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="20"/>
+        <source>&lt;b&gt;Export Bookmarks&lt;/b&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="27"/>
+        <source>Export options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="42"/>
+        <source>Choose...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="73"/>
+        <source>Output File:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="89"/>
+        <source>Format:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.cpp" line="64"/>
+        <source>Error!</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BookmarksExporter</name>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="31"/>
+        <source>HTML File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="37"/>
+        <source>HTML Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="38"/>
+        <source>Choose file...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="47"/>
+        <source>Cannot open file for writing!</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BookmarksFoldersMenu</name>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="73"/>
+        <source>Choose %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BookmarksIcon</name>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksicon.cpp" line="37"/>
+        <location filename="../src/lib/bookmarks/bookmarksicon.cpp" line="105"/>
+        <source>Bookmark this Page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksicon.cpp" line="97"/>
         <source>Edit this bookmark</source>
-        <translation>Ushbu xatcho&apos;pni tahrirlash</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BookmarksImportDialog</name>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="20"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="20"/>
         <source>Import Bookmarks</source>
         <translation>Xatcho&apos;plarni import qilish</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="26"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="26"/>
         <source>&lt;b&gt;Import Bookmarks&lt;/b&gt;</source>
         <translation>&lt;b&gt;Xatcho&apos;plarni import qilish&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="74"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="74"/>
         <source>Internet Explorer</source>
         <translation>Internet Explorer</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="83"/>
-        <source>From File</source>
-        <translation>Fayldan</translation>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="83"/>
+        <source>Html File</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="95"/>
-        <source>Choose browser from which you want to import bookmarks:</source>
-        <translation>Xatcho&apos;plarni import qilish uchun brauzerni tanlang:</translation>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="95"/>
+        <source>Choose from which you want to import bookmarks:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="102"/>
-        <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation>&lt;b&gt;Eslatma:&lt;/b&gt; Hozirda, xatcho&apos;p jildlarini import qilish faqat HTML faylidan amalga oshirsa bo&apos;ladi.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="161"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="125"/>
         <source>Choose...</source>
         <translation>Tanlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="209"/>
-        <source>Try to fetch icons for all bookmarks (may take a while)</source>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="257"/>
+        <source>&lt; Back</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="243"/>
-        <source>Fetching icons, please wait...</source>
-        <translation>Nishonchalar olinmoqda, kutib turing...</translation>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="270"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.cpp" line="157"/>
+        <source>Next &gt;</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="331"/>
-        <source>Title</source>
-        <translation>Sarlavha</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="336"/>
-        <source>Url</source>
-        <translation>URL</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="363"/>
-        <source>Next</source>
-        <translation>Keyingi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="370"/>
-        <source>Cancel</source>
-        <translation>Bekor qilish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="69"/>
-        <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
-        <translation>&lt;b&gt;%1&apos;dan import qilinmoqda&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="110"/>
-        <source>Finish</source>
-        <translation>Tugatish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="169"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="179"/>
-        <source>Please press Finish to complete importing process.</source>
-        <translation>Import jarayonini tugatish uchun Tugatish tugmasini bosing</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="205"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="217"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="229"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="241"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="255"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="260"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.cpp" line="113"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.cpp" line="118"/>
         <source>Error!</source>
         <translation>Xato!</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="260"/>
-        <source>The file doesn&apos;t contain any bookmark.</source>
-        <translation>Fayl tarkibida xatcho&apos;p yo&apos;q.</translation>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.cpp" line="118"/>
+        <source>No bookmarks were found.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="271"/>
-        <source>Choose directory...</source>
-        <translation>Katalogni tanlash...</translation>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.cpp" line="125"/>
+        <source>Finish</source>
+        <translation>Tugatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="279"/>
-        <source>Choose file...</source>
-        <translation>Faylni tanlash...</translation>
+        <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.cpp" line="186"/>
+        <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
+        <translation>&lt;b&gt;%1&apos;dan import qilinmoqda&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="312"/>
-        <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation>Mozilla Firefox xatcho&apos;plarini &lt;b&gt;places.sqlite&lt;/b&gt; SQLite ma&apos;lumotlar bazasida saqlaydi. Ushbu faylning odatdagi joylashgan joyi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="314"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="329"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="345"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="360"/>
-        <source>Please choose this file to begin importing bookmarks.</source>
-        <translation>Xatcho&apos;plar importini boshlash uchun ushbu faylni tanlang.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="327"/>
-        <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Google Chrome xatcho&apos;plarini &lt;b&gt;Xatcho&apos;plar&lt;/b&gt; matnli faylida saqlaydi. Ushbu faylning odatdagi joylashgan joyi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="343"/>
-        <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Opera xatcho&apos;plarini &lt;b&gt;bookmarks.adr&lt;/b&gt; matnli faylida saqlaydi. Ushbu faylning odatdagi joylashgan joyi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="358"/>
-        <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation>Siz xatcho&apos;plarni HTML eksportini qo&apos;llaydigan har qaysi brauzerdan import qilishingiz mumkin. Ushbu fayl odatda quyidagi suffikslarga ega</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="367"/>
-        <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation>Internet Explorer xatcho&apos;plarini &lt;b&gt;Tanlanganlar&lt;/b&gt; jildida saqlaydi. Ushbu jildning odatdagi joylashgan joyi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="369"/>
-        <source>Please choose this folder to begin importing bookmarks.</source>
-        <translation>Xatcho&apos;plar importini boshlash uchun ushbu jildni tanlang.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/chromeimporter.cpp" line="30"/>
-        <location filename="../src/lib/bookmarksimport/firefoximporter.cpp" line="27"/>
-        <location filename="../src/lib/bookmarksimport/htmlimporter.cpp" line="26"/>
-        <location filename="../src/lib/bookmarksimport/ieimporter.cpp" line="28"/>
-        <location filename="../src/lib/bookmarksimport/operaimporter.cpp" line="25"/>
-        <source>No Error</source>
-        <translation>Xato yo&apos;q</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/chromeimporter.cpp" line="45"/>
-        <location filename="../src/lib/bookmarksimport/htmlimporter.cpp" line="41"/>
-        <location filename="../src/lib/bookmarksimport/operaimporter.cpp" line="40"/>
-        <source>Unable to open file.</source>
-        <translation>Faylni ochib bo&apos;lmadi.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/chromeimporter.cpp" line="90"/>
-        <source>Cannot evaluate JSON code.</source>
-        <translation>JSON kodini hisoblab bo&apos;lmadi.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarksimport/firefoximporter.cpp" line="42"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="70"/>
         <source>File does not exist.</source>
         <translation>Fayl mavjud emas.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/firefoximporter.cpp" line="50"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="77"/>
         <source>Unable to open database. Is Firefox running?</source>
         <translation>Ma&apos;lumotlar bazasini ochib bo&apos;lmadi. Firefox ishga tushirilganmi?</translation>
     </message>
+</context>
+<context>
+    <name>BookmarksImporter</name>
     <message>
-        <location filename="../src/lib/bookmarksimport/ieimporter.cpp" line="42"/>
-        <source>Directory does not exist.</source>
-        <translation>Katalog mavjud emas.</translation>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="33"/>
+        <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/ieimporter.cpp" line="53"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="48"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="57"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="44"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="44"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="50"/>
+        <source>Choose file...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="57"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="53"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="59"/>
+        <source>Unable to open file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="73"/>
+        <source>Cannot parse JSON file!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="42"/>
+        <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="32"/>
+        <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="43"/>
+        <source>HTML Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="33"/>
+        <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="52"/>
+        <source>Directory does not exist.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="62"/>
         <source>The directory does not contain any bookmarks.</source>
-        <translation>Katalog tarkibida xatcho&apos;plar yo&apos;q.</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="35"/>
+        <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="66"/>
+        <source>File is not valid Opera bookmarks file!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="71"/>
+        <source>Only UTF-8 encoded Opera bookmarks file is supported!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BookmarksManager</name>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="14"/>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="131"/>
         <source>Bookmarks</source>
         <translation>Xatcho&apos;plar</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="20"/>
-        <source>Add Folder</source>
-        <translation>Jildni qo&apos;shish</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="32"/>
+        <source>Title:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="27"/>
-        <source>Collapse All</source>
-        <translation>Hammasini o&apos;rash</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="42"/>
+        <source>Address:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="63"/>
-        <source>Title</source>
-        <translation>Sarlavha</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="52"/>
+        <source>Keyword:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="68"/>
-        <source>Url</source>
-        <translation>URL</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="62"/>
+        <source>Description</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="76"/>
-        <source>Expand All</source>
-        <translation>Hammasini kengaytirish</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="105"/>
+        <source>Open in new tab</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="83"/>
-        <source>Import and Export</source>
-        <translation>Import va eksport</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="106"/>
+        <source>Open in new window</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="75"/>
-        <source>Import Bookmarks...</source>
-        <translation>Xatcho&apos;plarni import qilish...</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="107"/>
+        <source>Open in new private window</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="76"/>
-        <source>Export Bookmarks to HTML...</source>
-        <translation>Xatcho&apos;plarni HTML&apos;ga eksport qilish...</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="110"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="171"/>
+        <source>New Bookmark</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="95"/>
-        <source>Export to HTML...</source>
-        <translation>HTML&apos;ga eksport qilish...</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="111"/>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="179"/>
+        <source>New Folder</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="127"/>
-        <source>Add new folder</source>
-        <translation>Yangi jildni qo&apos;shish</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="112"/>
+        <source>New Separator</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="129"/>
-        <source>Choose parent folder for new folder: </source>
-        <translation>Yangi jild uchun ota-ona jildini tanlang:</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="114"/>
+        <source>Delete</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BookmarksMenu</name>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="151"/>
+        <source>&amp;Bookmarks</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="134"/>
-        <source>Choose name for new bookmark folder: </source>
-        <translation>Yangi xatcho&apos;plar jildi uchun nom tanlang: </translation>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="153"/>
+        <source>Bookmark &amp;This Page</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="177"/>
-        <source>Add new subfolder</source>
-        <translation>Yangi tagjildni qo&apos;shish</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="154"/>
+        <source>Bookmark &amp;All Tabs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="177"/>
-        <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation>Xatcho&apos;plar panelida yangi tagjild uchun nom tanlang:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="202"/>
-        <source>Rename Folder</source>
-        <translation>Jild nomini o&apos;zgartirish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="202"/>
-        <source>Choose name for folder: </source>
-        <translation>Jild nomini tanlang: </translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="326"/>
-        <source>Add Subfolder</source>
-        <translation>Tagjildni qo&apos;shish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="331"/>
-        <source>Rename folder</source>
-        <translation>Jild nomini o&apos;zgartirish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="332"/>
-        <source>Remove folder</source>
-        <translation>Jildni olib tashlash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="347"/>
-        <source>Open link in current &amp;tab</source>
-        <translation>Havolani joriy &amp;ilovada ochish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="348"/>
-        <source>Open link in &amp;new tab</source>
-        <translation>Havolani &amp;yangi ilovada ochish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="352"/>
-        <source>Move bookmark to &amp;folder</source>
-        <translation>Xatcho&apos;pni &amp;jildga ko&apos;chirish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="364"/>
-        <source>Change icon</source>
-        <translation>Nishonchani o&apos;zgartirish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="365"/>
-        <source>Rename bookmark</source>
-        <translation>Xatcho&apos;p nomini o&apos;zgartirish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="366"/>
-        <source>Remove bookmark</source>
-        <translation>Xatcho&apos;pni olib tashlash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="666"/>
-        <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
-        <translation>&lt;b&gt;Ogohlantirish: &lt;/b&gt;Ushbu sahifa Xatcho&apos;plarga qo&apos;shilib bo&apos;lgan!</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="684"/>
-        <source>Choose name and location of this bookmark.</source>
-        <translation>Ushbu xatcho&apos;p uchun nom va joylashuvni tanlang.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="688"/>
-        <source>Add New Bookmark</source>
-        <translation>Yangi xatcho&apos;pni qo&apos;shish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="747"/>
-        <source>Choose folder for bookmarks:</source>
-        <translation>Xatcho&apos;plar uchun jildni tanlash:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="748"/>
-        <source>Bookmark All Tabs</source>
-        <translation>Hamma ilovalarni Xatcho&apos;plarga qo&apos;shish</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="155"/>
+        <source>Organize &amp;Bookmarks</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="606"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="623"/>
-        <source>Bookmarks In Menu</source>
-        <translation>Xatcho&apos;plar menyuda</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="147"/>
+        <source>Title</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="609"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="626"/>
-        <source>Bookmarks In ToolBar</source>
-        <translation>Xatcho&apos;plar panelda</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="612"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="629"/>
-        <source>Unsorted Bookmarks</source>
-        <translation>Saralanmagan xatcho&apos;plar</translation>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="149"/>
+        <source>Address</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BookmarksSideBar</name>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="65"/>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="41"/>
         <source>Search...</source>
         <translation>Qidirish...</translation>
     </message>
+</context>
+<context>
+    <name>BookmarksSidebar</name>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="75"/>
-        <source>Collapse All</source>
-        <translation>Hammasini o&apos;rash</translation>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="103"/>
+        <source>Open in new tab</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="91"/>
-        <source>Expand All</source>
-        <translation>Hammasini kengaytirish</translation>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="104"/>
+        <source>Open in new window</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="136"/>
-        <source>Open link in current &amp;tab</source>
-        <translation>Havolani joriy &amp;ilovada ochish</translation>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="105"/>
+        <source>Open in new private window</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="137"/>
-        <source>Open link in &amp;new tab</source>
-        <translation>Havolani &amp;yangi ilovada ochish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="138"/>
-        <source>Copy address</source>
-        <translation>Manzilni nusxa olish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="140"/>
-        <source>&amp;Delete</source>
-        <translation>&amp;O&apos;chirish</translation>
+        <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="108"/>
+        <source>Delete</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BookmarksToolbar</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
-        <source>&amp;Bookmark Current Page</source>
-        <translation>Joriy sahifani &amp;Xatcho&apos;plarga qo&apos;shish</translation>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="70"/>
+        <source>Open in new tab</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="78"/>
-        <source>Bookmark &amp;All Tabs</source>
-        <translation>&amp;Hamma ilovalarni Xatcho&apos;plarga qo&apos;shish</translation>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="71"/>
+        <source>Open in new window</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="79"/>
-        <source>&amp;Organize Bookmarks</source>
-        <translation>Xatcho&apos;plarni &amp;tashkil qilish</translation>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="73"/>
+        <source>Delete</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="81"/>
-        <source>Show Most &amp;Visited</source>
-        <translation>Eng ko&apos;p &amp;tashrif buyurilganlarni ko&apos;rsatish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="86"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
         <source>Show Only Icons</source>
         <translation>Faqat nishonchalarni ko&apos;rsatish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="92"/>
-        <source>&amp;Hide Toolbar</source>
-        <translation>Panelni &amp;yashirish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="112"/>
-        <source>Open bookmark</source>
-        <translation>Xatcho&apos;pni ochish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="113"/>
-        <source>Open bookmark in new tab</source>
-        <translation>Xatcho&apos;pni yangi ilovada ochish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="118"/>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="122"/>
-        <source>Move right</source>
-        <translation>O&apos;ngga ko&apos;chirish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="119"/>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="123"/>
-        <source>Move left</source>
-        <translation>Chapga ko&apos;chirish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="125"/>
-        <source>Edit bookmark</source>
-        <translation>Xatcho&apos;pni tahrirlash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="127"/>
-        <source>Remove bookmark</source>
-        <translation>Xatcho&apos;pni olib tashlash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="234"/>
-        <source>Edit bookmark: </source>
-        <translation>Xatcho&apos;pni tahrirlash:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="236"/>
-        <source>Title: </source>
-        <translation>Sarlavha: </translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="237"/>
-        <source>Url: </source>
-        <translation>URL: </translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="245"/>
-        <source>Edit Bookmark</source>
-        <translation>Xatcho&apos;pni tahrirlash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="609"/>
-        <source>Most visited</source>
-        <translation>Eng ko&apos;p tashrif buyurilganlar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="610"/>
-        <source>Sites you visited the most</source>
-        <translation>Siz eng ko&apos;p tashrif buyurgan sahifalar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="647"/>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="713"/>
-        <source>Empty</source>
-        <translation>Bo&apos;sh</translation>
-    </message>
-</context>
-<context>
-    <name>BookmarksTree</name>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstree.cpp" line="68"/>
-        <source>Bookmarks</source>
-        <translation>Xatcho&apos;plar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkstree.cpp" line="114"/>
-        <source>New Folder...</source>
-        <translation>Yangi jild...</translation>
     </message>
 </context>
 <context>
     <name>BookmarksWidget</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="15"/>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="62"/>
-        <source>Add to Speed Dial</source>
-        <translation>Tez terishga qo&apos;shish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="29"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
         <source>Add to bookmarks</source>
         <translation>Xatcho&apos;plarga qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="63"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="37"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="111"/>
+        <source>Add to Speed Dial</source>
+        <translation>Tez terishga qo&apos;shish</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="97"/>
+        <source>Update Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="115"/>
         <source>Remove from Speed Dial</source>
         <translation>Tez terishdan olib tashlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="96"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="120"/>
         <source>Remove from Bookmarks</source>
         <translation>Xatcho&apos;plardan olib tashlash</translation>
+    </message>
+</context>
+<context>
+    <name>BrowserWindow</name>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="113"/>
+        <source>QupZilla</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="326"/>
+        <source>IP Address of current page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="591"/>
+        <source> (Private Browsing)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="832"/>
+        <source>%1 - QupZilla</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="887"/>
+        <source>&amp;Menu Bar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="891"/>
+        <source>&amp;Navigation Toolbar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="895"/>
+        <source>&amp;Bookmarks Toolbar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="901"/>
+        <source>&amp;Tabs on Top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="917"/>
+        <source>Other</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1014"/>
+        <source>HTML files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1014"/>
+        <source>Image files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1014"/>
+        <source>Text files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1014"/>
+        <source>All files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1016"/>
+        <source>Open file...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1121"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="172"/>
+        <source>QupZilla %1 (%2)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1364"/>
+        <source>There are still %1 open tabs and your session won't be stored. 
+Are you sure to close this window?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1365"/>
+        <source>Don&apos;t ask again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1366"/>
+        <source>There are still open tabs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="82"/>
+        <source>Close Tab</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1140,7 +1170,12 @@ Please install latest version of QupZilla.</source>
         <translation>Kutubxona</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.ui" line="79"/>
+        <location filename="../src/lib/other/browsinglibrary.ui" line="60"/>
+        <source>Import and Export</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/other/browsinglibrary.ui" line="86"/>
         <source>Search...</source>
         <translation>Qidirish...</translation>
     </message>
@@ -1158,6 +1193,16 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
         <source>RSS</source>
         <translation>RSS</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="57"/>
+        <source>Import Bookmarks...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="58"/>
+        <source>Export Bookmarks...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1327,22 +1372,22 @@ Please install latest version of QupZilla.</source>
         <translation>%1&apos;ni oq ro&apos;yxatga qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="294"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="293"/>
         <source>Flash Object</source>
         <translation>Flash obyekti</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="296"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="295"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Xususiyat nomi&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="297"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="296"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Qiymati&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="318"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="317"/>
         <source>No more information available.</source>
         <translation>Boshqa ma&apos;lumot mavjud emas.</translation>
     </message>
@@ -1391,8 +1436,8 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="114"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="249"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="264"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="250"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="265"/>
         <source>Server:</source>
         <translation>Server:</translation>
     </message>
@@ -1418,12 +1463,12 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="172"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="182"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="192"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="146"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="147"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="148"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="149"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="150"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="151"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="152"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation>&lt;cookie fayli tanlanmagan&gt;</translation>
     </message>
@@ -1434,7 +1479,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="224"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="154"/>
         <source>Remove cookies</source>
         <translation>Cookie fayllarini olib tashlash</translation>
     </message>
@@ -1497,8 +1542,8 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
-        <source>Match domain exactly</source>
-        <translation>Domenga aynan mos kelish</translation>
+        <source>Filter 3rd party cookies</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
@@ -1507,51 +1552,51 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
-        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
+        <source>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="79"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="80"/>
         <source>Search</source>
         <translation>Qidirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="93"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="94"/>
         <source>Confirmation</source>
         <translation>Tasdiqlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="94"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="95"/>
         <source>Are you sure to delete all cookies on your computer?</source>
         <translation>Kompyuteringizdagi hamma cookie fayllarini o&apos;chirishga ishonchingiz komilmi?</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="163"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="164"/>
         <source>Secure only</source>
         <translation>Faqat xavfsiz</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="163"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="164"/>
         <source>All connections</source>
         <translation>Hamma ulanishlar</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="164"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="165"/>
         <source>Session cookie</source>
         <translation>Sessiya cookie fayli</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="167"/>
         <source>Remove cookie</source>
         <translation>Cookie faylini olib tashlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="249"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="250"/>
         <source>Add to whitelist</source>
         <translation>Oq ro&apos;yxatga qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="264"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="265"/>
         <source>Add to blacklist</source>
         <translation>Qora ro&apos;yxatga qo&apos;shish</translation>
     </message>
@@ -1559,13 +1604,13 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>DownloadFileHelper</name>
     <message>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="220"/>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="225"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="221"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="226"/>
         <source>Save file as...</source>
         <translation>Faylni quyidagicha saqlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="320"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="321"/>
         <source>NoNameDownload</source>
         <translation>Nomi yo&apos;q yuklanma</translation>
     </message>
@@ -1573,147 +1618,147 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>DownloadItem</name>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="77"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="76"/>
         <source>Remaining time unavailable</source>
         <translation>Qolgan vaqt mavjud emas</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="138"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="445"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="137"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="444"/>
         <source>Error: Cannot write to file!</source>
         <translation>Xato: Faylga yozib bo&apos;lmadi!</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="187"/>
-        <source>Done - %1</source>
-        <translation>Bajarildi - %1</translation>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="186"/>
+        <source>Done - %1 (%2)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="249"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="384"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="248"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="383"/>
         <source>Cancelled</source>
         <translation>Bekor qilingan</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="255"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="254"/>
         <source>few seconds</source>
         <translation>bir necha soniya</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="258"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="257"/>
         <source>%n seconds</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="261"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="260"/>
         <source>%n minutes</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="264"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="263"/>
         <source>%n hours</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="271"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="270"/>
         <source>Unknown speed</source>
         <translation>Noma&apos;lum tezlik</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="276"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="275"/>
         <source>kB/s</source>
         <translation>kB/s</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="281"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="280"/>
         <source>MB/s</source>
         <translation>MB/s</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="285"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="284"/>
         <source>GB/s</source>
         <translation>GB/s</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="309"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="308"/>
         <source>Unknown size</source>
         <translation>Noma&apos;lum hajm</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="310"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="309"/>
         <source>%2 - unknown size (%3)</source>
         <translation>%2 - noma&apos;lum hajm (%3)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="313"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="312"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
         <translation>Qoldi %1 - %2 %3 (%4)&apos;dan</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="344"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="343"/>
         <source>Cancelled - %1</source>
         <translation>Bekor qilingan - %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="358"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="357"/>
         <source>Delete file</source>
         <translation>Faylni o&apos;chirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="358"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="357"/>
         <source>Do you want to also delete dowloaded file?</source>
         <translation>Siz yuklab olingan faylni o&apos;chirishga ham ishonchingiz komilmi?</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="374"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="373"/>
         <source>Open File</source>
         <translation>Faylni ochish</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="376"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="375"/>
         <source>Open Folder</source>
         <translation>Jildni ochish</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="378"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="377"/>
         <source>Go to Download Page</source>
         <translation>Yuklab olish sahifasiga o&apos;tish</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="379"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="378"/>
         <source>Copy Download Link</source>
         <translation>Yuklab olish havolasini nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="381"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="380"/>
         <source>Cancel downloading</source>
         <translation>Yuklab olishni bekor qilish</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="382"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="381"/>
         <source>Remove From List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="384"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="383"/>
         <source>Error</source>
         <translation>Xato</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="422"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="421"/>
         <source>Not found</source>
         <translation>Topilmadi</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="422"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="421"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="457"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="461"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="456"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="460"/>
         <source>Error: </source>
         <translation>Xato: </translation>
     </message>
@@ -1722,8 +1767,8 @@ Please install latest version of QupZilla.</source>
     <name>DownloadManager</name>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="142"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="279"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="143"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="280"/>
         <source>Download Manager</source>
         <translation>Yuklab olish boshqaruvchisi</translation>
     </message>
@@ -1733,32 +1778,32 @@ Please install latest version of QupZilla.</source>
         <translation>Tozalash</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="176"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="177"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% %2 fayldan (%3) %4 qoldi</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="179"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="180"/>
         <source>%1% - Download Manager</source>
         <translation>%1% - Yuklab olish boshqaruvchisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="272"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="273"/>
         <source>Download Finished</source>
         <translation>Yuklab olish tugatildi</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="272"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="273"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Hamma fayllar muvaffaqiyatli yuklab olindi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="329"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="330"/>
         <source>Warning</source>
         <translation>Ogohlantirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="330"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="331"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Chiqishga ishonchingiz komilmi? Hamma tugatilmagan yuklanmalar bekor qilinadi!</translation>
     </message>
@@ -2039,67 +2084,67 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>History</name>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="78"/>
-        <source>No Named Page</source>
-        <translation>Nomi yo&apos;q sahifa</translation>
+        <location filename="../src/lib/history/history.cpp" line="79"/>
+        <source>Empty Page</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="265"/>
+        <location filename="../src/lib/history/history.cpp" line="268"/>
         <source>January</source>
         <translation>Yanvar</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="267"/>
+        <location filename="../src/lib/history/history.cpp" line="270"/>
         <source>February</source>
         <translation>Fevral</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="269"/>
+        <location filename="../src/lib/history/history.cpp" line="272"/>
         <source>March</source>
         <translation>Mart</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="271"/>
+        <location filename="../src/lib/history/history.cpp" line="274"/>
         <source>April</source>
         <translation>Aprel</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="273"/>
+        <location filename="../src/lib/history/history.cpp" line="276"/>
         <source>May</source>
         <translation>May</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="275"/>
+        <location filename="../src/lib/history/history.cpp" line="278"/>
         <source>June</source>
         <translation>Iyun</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="277"/>
+        <location filename="../src/lib/history/history.cpp" line="280"/>
         <source>July</source>
         <translation>Iyul</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="279"/>
+        <location filename="../src/lib/history/history.cpp" line="282"/>
         <source>August</source>
         <translation>Avgust</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="281"/>
+        <location filename="../src/lib/history/history.cpp" line="284"/>
         <source>September</source>
         <translation>Sentyabr</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="283"/>
+        <location filename="../src/lib/history/history.cpp" line="286"/>
         <source>October</source>
         <translation>Oktyabr</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="285"/>
+        <location filename="../src/lib/history/history.cpp" line="288"/>
         <source>November</source>
         <translation>Noyabr</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="287"/>
+        <location filename="../src/lib/history/history.cpp" line="290"/>
         <source>December</source>
         <translation>Dekabr</translation>
     </message>
@@ -2130,6 +2175,66 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/history/historymanager.cpp" line="75"/>
         <source>Are you sure to delete all history?</source>
         <translation>Butun tarixni o&apos;chirishga ishonchingiz komilmi?</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryMenu</name>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="119"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="139"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="163"/>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="167"/>
+        <source>Restore All Closed Tabs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="168"/>
+        <source>Clear list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="214"/>
+        <source>Hi&amp;story</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="216"/>
+        <source>&amp;Back</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="219"/>
+        <source>&amp;Forward</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="222"/>
+        <source>&amp;Home</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="225"/>
+        <source>Show &amp;All History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="233"/>
+        <source>Recently Visited</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="236"/>
+        <source>Most Visited</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="239"/>
+        <source>Closed Tabs</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2211,7 +2316,7 @@ Please install latest version of QupZilla.</source>
     <name>IconChooser</name>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="14"/>
-        <location filename="../src/lib/other/iconchooser.cpp" line="40"/>
+        <location filename="../src/lib/other/iconchooser.cpp" line="42"/>
         <source>Choose icon...</source>
         <translation>Nishonchani tanlash...</translation>
     </message>
@@ -2241,7 +2346,7 @@ Please install latest version of QupZilla.</source>
         <translation>Sayt URL:</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/iconchooser.cpp" line="39"/>
+        <location filename="../src/lib/other/iconchooser.cpp" line="41"/>
         <source>Image files</source>
         <translation>Tasvir fayllari</translation>
     </message>
@@ -2303,30 +2408,68 @@ Please install latest version of QupZilla.</source>
     </message>
 </context>
 <context>
+    <name>LineEdit</name>
+    <message>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="123"/>
+        <source>&amp;Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="127"/>
+        <source>&amp;Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="136"/>
+        <source>Cu&amp;t</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="141"/>
+        <source>&amp;Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="146"/>
+        <source>&amp;Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="156"/>
+        <source>Delete</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="160"/>
+        <source>Clear All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="168"/>
+        <source>Select All</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="134"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="142"/>
         <source>Enter URL address or search on %1</source>
         <translation>URL manzilini kiritish yoki %1&apos;da qidirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="318"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="350"/>
         <source>Paste And &amp;Go</source>
         <translation>Qo‘shib qo‘yish va &amp;o&apos;tish</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="324"/>
-        <source>Clear All</source>
-        <translation>Hammasini tozalash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="552"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="515"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.co.uk</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/siteicon.cpp" line="38"/>
+        <location filename="../src/lib/navigation/siteicon.cpp" line="39"/>
         <source>Show information about this page</source>
         <translation>Ushbu sahifa haqida ma&apos;lumot ko&apos;rsatish</translation>
     </message>
@@ -2334,7 +2477,7 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>LocationCompleterView</name>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="134"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="139"/>
         <source>Switch to tab</source>
         <translation>Ilovaga o&apos;tish</translation>
     </message>
@@ -2342,24 +2485,277 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1063"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1031"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>QupZilla hozirda sukut brauzeringiz emas. Unu sukut brauzeri qilishni istaysizmi?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1064"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1032"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>QupZilla ishga tushganda har doim tekshirish.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1066"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1034"/>
         <source>Default Browser</source>
         <translation>Sukut brauzeri</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1086"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1080"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla bu yangi, tezkor va xavfsiz ochiq manbali veb-brauzer. QupZilla is licensed under GPL version 3 or (at your option) any later version. U WebKit va Qt Framework&apos;da asoslangan.</translation>
+    </message>
+</context>
+<context>
+    <name>MainMenu</name>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="498"/>
+        <source>&amp;About QupZilla</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="503"/>
+        <source>Pr&amp;eferences</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="509"/>
+        <source>Quit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="516"/>
+        <source>&amp;File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="520"/>
+        <source>New Tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
+        <source>&amp;New Window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="522"/>
+        <source>New &amp;Private Window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="523"/>
+        <source>Open Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
+        <source>Open &amp;File...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
+        <source>Close Window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
+        <source>&amp;Save Page As...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
+        <source>Save Page Screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
+        <source>Send Link...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
+        <source>&amp;Print...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="535"/>
+        <source>&amp;Edit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
+        <source>&amp;Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
+        <source>&amp;Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="542"/>
+        <source>&amp;Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="543"/>
+        <source>C&amp;opy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="544"/>
+        <source>&amp;Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="546"/>
+        <source>Select &amp;All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="547"/>
+        <source>&amp;Find</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="551"/>
+        <source>&amp;View</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="555"/>
+        <source>Toolbars</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="557"/>
+        <source>Sidebar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="559"/>
+        <source>Character &amp;Encoding</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="568"/>
+        <source>Sta&amp;tus Bar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="570"/>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="571"/>
+        <source>&amp;Reload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="573"/>
+        <source>Zoom &amp;In</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
+        <source>Zoom &amp;Out</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="575"/>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
+        <source>&amp;Caret Browsing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
+        <source>&amp;Page Source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="581"/>
+        <source>&amp;FullScreen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
+        <source>&amp;Tools</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="588"/>
+        <source>&amp;Web Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="589"/>
+        <source>Site &amp;Info</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="591"/>
+        <source>&amp;Download Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="592"/>
+        <source>&amp;Cookies Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="593"/>
+        <source>&amp;AdBlock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
+        <source>RSS &amp;Reader</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="595"/>
+        <source>Web In&amp;spector</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="596"/>
+        <source>Clear Recent &amp;History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="600"/>
+        <source>&amp;Help</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
+        <source>About &amp;Qt</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="608"/>
+        <source>Information about application</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
+        <source>Configuration Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="610"/>
+        <source>Report &amp;Issue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="623"/>
+        <source>Restore &amp;Closed Tab</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2415,30 +2811,30 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="558"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="563"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="612"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="655"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="557"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="562"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="611"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="654"/>
         <source>Warning!</source>
         <translation>Ogohlantirish!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="558"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="557"/>
         <source>You entered a wrong password!</source>
         <translation>Siz noto&apos;g&apos;ri parol kiritdingiz!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="563"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="562"/>
         <source>New/Confirm password fields do not match!</source>
         <translation>Yangi/parolni tasdiqlash maydonlari mos emas!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="612"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="611"/>
         <source>Are you sure to clear master password and decrypt data?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="655"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="654"/>
         <source>Some data has not been decrypted. The master password was not cleared!</source>
         <translation type="unfinished"/>
     </message>
@@ -2446,141 +2842,140 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="45"/>
-        <source>No Named Page</source>
-        <translation>Nomi yo&apos;q sahifa</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="83"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="61"/>
         <source>Back</source>
         <translation>Orqaga</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="92"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="70"/>
         <source>Forward</source>
         <translation>Oldinga</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="111"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="89"/>
         <source>Home</source>
         <translation>Uy</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="119"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="97"/>
         <source>New Tab</source>
         <translation>Yangi ilova</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="134"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="114"/>
         <source>Main Menu</source>
         <translation>Bosh menyu</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="152"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="153"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="133"/>
         <source>Exit Fullscreen</source>
         <translation>To&apos;liq ekrandan chiqish</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="270"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="304"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="258"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="292"/>
         <source>Clear history</source>
         <translation>Tarixni tozalash</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="394"/>
+        <source>Empty Page</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="206"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="203"/>
         <source>SSL Certificate Error!</source>
         <translation>SSL sertifikati xatosi!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="207"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>Siz foydalanmoqchi bo&apos;lgan sahifaning SSL sertifikatida quyidagi xatolar mavjud:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="219"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Tashkilot: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="221"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Domen nomi: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="223"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Amal qilish muddati: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="232"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="229"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Xato: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="240"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="237"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Siz ushbu sertifikat uchun istisno qilishni istaisizmi?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="280"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="277"/>
         <source>Authorisation required</source>
         <translation>Haqiqiylikni tekshirish talab qilindi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="287"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="394"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="466"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="284"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="391"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="463"/>
         <source>Username: </source>
         <translation>Foydalanuvchi nomi: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="288"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="395"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="467"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="392"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
         <source>Password: </source>
         <translation>Parol: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="293"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="290"/>
         <source>Save username and password on this site</source>
         <translation>Ushbu sahifa uchun foydalanuvchi nomi va parolni saqlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="302"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="299"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Foydalanuvchi nomi va parol %1 tomonidan so&apos;ralmoqda. The site says: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="387"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="384"/>
         <source>FTP authorisation required</source>
         <translation>FTP haqiqiylikni tekshirish talab qilindi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="400"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="397"/>
         <source>Login anonymously</source>
         <translation>Anonim tarzda kirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="417"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>Foydalanuvchi nomi va paroli %1tomonidan talab qilinadi:%2.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="459"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="456"/>
         <source>Proxy authorisation required</source>
         <translation>Proksi haqiqiylikni tekshirish talab qilindi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="476"/>
         <source>Remember username and password for this proxy.</source>
         <translation>Ushbu proksi uchun foydalanuvchi nomini va parolni eslab qolish.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="481"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="478"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Foydalanuvchi nomi va parol %1 proksi tomonidan talab qilinadi.</translation>
     </message>
@@ -2707,7 +3102,7 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>PopupWebView</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="99"/>
+        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="97"/>
         <source>Inspect Element</source>
         <translation>Elementni tekshirish</translation>
     </message>
@@ -2715,112 +3110,112 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>PopupWindow</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="61"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="60"/>
         <source>File</source>
         <translation>Fayl</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="62"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="61"/>
         <source>&amp;Save Page As...</source>
         <translation>&amp;Sahifani quyidagicha saqlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="63"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="62"/>
         <source>Save Page Screen</source>
         <translation>Sahifa ekranini saqlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="64"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="63"/>
         <source>Send Link...</source>
         <translation>Havolani yuborish...</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="65"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="64"/>
         <source>&amp;Print...</source>
         <translation>&amp;Chop etish...</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="67"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="66"/>
         <source>Close</source>
         <translation>Yopish</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="70"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="69"/>
         <source>Edit</source>
         <translation>Tahrirlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="71"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="70"/>
         <source>&amp;Undo</source>
         <translation>&amp;Qaytish</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="72"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="71"/>
         <source>&amp;Redo</source>
         <translation>Q&amp;aytarish</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="74"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="73"/>
         <source>&amp;Cut</source>
         <translation>&amp;Qirqish</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="75"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="74"/>
         <source>C&amp;opy</source>
         <translation>&amp;Nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="76"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="75"/>
         <source>&amp;Paste</source>
         <translation>Qo‘&amp;shib qo‘yish</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="78"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="77"/>
         <source>Select All</source>
         <translation>Hammasini tanlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="79"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="78"/>
         <source>Find</source>
         <translation>Topish</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="84"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="83"/>
         <source>View</source>
         <translation>Ko‘rish</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="85"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="84"/>
         <source>&amp;Stop</source>
         <translation>&amp;To&apos;xtatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="87"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="86"/>
         <source>&amp;Reload</source>
         <translation>&amp;Qayta yuklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="90"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="89"/>
         <source>Zoom &amp;In</source>
         <translation>&amp;Yirikroq</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="91"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="90"/>
         <source>Zoom &amp;Out</source>
         <translation>&amp;Kichikroq</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="92"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="91"/>
         <source>Reset</source>
         <translation>Tiklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="94"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="93"/>
         <source>&amp;Page Source</source>
         <translation>&amp;Sahifa manbai</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="292"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="290"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -2900,7 +3295,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="204"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="831"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="848"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Eslatma: Siz faol profilni o&apos;chira olmaysiz.</translation>
     </message>
@@ -3133,8 +3528,8 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="748"/>
-        <source>Don&apos;t quit upon closing last tab</source>
-        <translation>Oxirgi ilova yopilganda chiqilmasin</translation>
+        <source>Don&apos;t close window upon closing last tab</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="755"/>
@@ -3143,725 +3538,745 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="762"/>
-        <source>Closed tabs list instead of opened in tab bar</source>
-        <translation>Ilovalar panelida ochilganlar o&apos;rniga yopilgan ilovalar ro&apos;yxati</translation>
+        <source>Show closed tabs button</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="783"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="771"/>
+        <source>Show close buttons on inactive tabs:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="779"/>
+        <source>Automatic</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="784"/>
+        <source>Always</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="789"/>
+        <source>Never</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="829"/>
         <source>Address Bar behaviour</source>
         <translation>Manzillar paneli xulqi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="791"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="837"/>
         <source>Suggest when typing into address bar:</source>
         <translation>Manzillar paneliga kiritganda taklif qilish:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="805"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="851"/>
         <source>History and Bookmarks</source>
         <translation>Tarix va xatcho&apos;plar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="810"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="856"/>
         <source>History</source>
         <translation>Tarix</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="815"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="861"/>
         <source>Bookmarks</source>
         <translation>Xatcho&apos;plar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="820"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="866"/>
         <source>Nothing</source>
         <translation>Hech narsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="846"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="892"/>
         <source>Enable inline suggestions</source>
         <translation>Satr ichidagi takliflarni yoqish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="853"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="899"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="856"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="902"/>
         <source>Propose to switch tab if completed url is already loaded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="863"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="909"/>
         <source>Always show go icon</source>
         <translation>Har doim o&apos;tish ikonachasini ko&apos;rsatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="870"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="916"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>Manzillar panelida butun matnni ikki marta chertish bilan tanlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="877"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="923"/>
         <source>Select all text by clicking in address bar</source>
         <translation>Manzillar panelida chertib hamma matnni tanlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="884"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="930"/>
         <source>Search with Default Engine</source>
         <translation>Sukut tizimi bilan qidirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="907"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="953"/>
         <source>Show loading progress in address bar</source>
         <translation>Manzillar panelida yuklash bajarilishini ko&apos;rsatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="940"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="986"/>
         <source>Fill</source>
         <translation>To‘ldirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="945"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="991"/>
         <source>Bottom</source>
         <translation>Ost</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="950"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="996"/>
         <source>Top</source>
         <translation>Tepa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="958"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1004"/>
         <source>Custom color:</source>
         <translation>Boshqa rang:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="974"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1020"/>
         <source>Select color</source>
         <translation>Rangni tanlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="977"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1349"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2003"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2108"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2552"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1023"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1382"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2036"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2141"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="984"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1030"/>
         <source>Reset</source>
         <translation>Tiklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1035"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1081"/>
         <source>Web Configuration</source>
         <translation>Veb sozlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1043"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1089"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
         <translation>Netscape plaginlariga (Flash plagini) ruxsat etish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1050"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1096"/>
         <source>Allow JavaScript</source>
         <translation>JavaScript&apos;ga ruxsat etish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1057"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1103"/>
         <source>Allow JAVA</source>
         <translation>JAVA&apos;ga ruxsat etish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1064"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1110"/>
         <source>Allow DNS Prefetch</source>
         <translation>Oldindan DNS olishga ruxsat etish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1071"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1117"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>XSS tekshirishni yoqish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1078"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1124"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>Element orqa fonini chop etish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1085"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1131"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translation>Shu jumladan fokus zanjiridagi havolalar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1092"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1138"/>
         <source>Animated scrolling</source>
         <translation>Animatsiyalangan aylantirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1099"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1145"/>
         <source>Enable caret browsing</source>
         <translation>Qo&apos;shib ko&apos;rib chiqishni yoqish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1106"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1152"/>
         <source>Enable spatial navigation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1113"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1159"/>
         <source>Zoom text only</source>
         <translation>Faqat matnni masshtablash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1120"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1166"/>
         <source>If you disable this, it will still be accesible via standard Qt shortcuts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1169"/>
         <source>Enable Undo/Redo for editable forms</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1186"/>
         <source>Mouse wheel scrolls</source>
         <translation>Sichqoncha g&apos;ildiragining aylantirishlari</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1160"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1206"/>
         <source>lines on page</source>
         <translation>sahifada satrlar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1171"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1217"/>
         <source>Default zoom on pages: </source>
         <translation>Sahifalarda sukut masshablashtirishi: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1223"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1256"/>
         <source>Local Storage</source>
         <translation>Mahalliy saqlash joyi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1268"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1301"/>
         <source>Maximum </source>
         <translation>Eng katta</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1275"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1308"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1313"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1346"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1320"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1353"/>
         <source>Maximum pages in cache: </source>
         <translation>Keshda eng ko&apos;p sahifalar: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1327"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1360"/>
         <source>Allow storing network cache on disk</source>
         <translation>Tarmoq keshini diskda saqlashga ruxsat berish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1334"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1367"/>
         <source>Store cache in:</source>
         <translation>Kesh saqlash joyi:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1362"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1395"/>
         <source>Allow saving history</source>
         <translation>Tarixni saqlashga ruxsat etish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1369"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1402"/>
         <source>Delete history on close</source>
         <translation>Yopilganda tarixni o&apos;chirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1392"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1425"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1399"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1432"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1425"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1458"/>
         <source>Delete now</source>
         <translation>Xozir o&apos;chirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1464"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1497"/>
         <source>Proxy Configuration</source>
         <translation>Proksi sozlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1472"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1505"/>
         <source>Proxy Auto-Config (.pac) file</source>
         <translation>Proksi avto-sozlash (.pac) fayli</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1479"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1512"/>
         <source>Reload</source>
         <translation>Qayta yuklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1504"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1537"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Istisnolar&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1513"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1546"/>
         <source>Don&apos;t use on:</source>
         <translation>Quyidagida foydalanilmasin:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1538"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1571"/>
         <source>System proxy configuration</source>
         <translation>Tizim proksi sozlashi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1561"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1594"/>
         <source>Manual configuration</source>
         <translation>Qo&apos;l bilan sozlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1571"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1604"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1576"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1609"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1587"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1662"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1620"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1695"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1608"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1683"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1641"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1716"/>
         <source>Username:</source>
         <translation>Foydalanuvchi nomi:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1618"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1693"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1651"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1726"/>
         <source>Password:</source>
         <translation>Parol:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1643"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1676"/>
         <source>Use different proxy for https connection</source>
         <translation>HTTPS ulanishi uchun boshqa proksidan foydalanish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1652"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1685"/>
         <source>Server:</source>
         <translation>Server:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1718"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1751"/>
         <source>Use script for automatic configuration:</source>
         <translation>Avtomatik sozlash uchun skriptdan foydalaning:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1725"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1758"/>
         <source>Do not use proxy</source>
         <translation>Proksidan foydalanilmasin</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1740"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1773"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Shrift oilalari&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1753"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1786"/>
         <source>Standard</source>
         <translation>Standart</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1760"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1793"/>
         <source>Fixed</source>
         <translation>O‘zgarmas</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1770"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1803"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1780"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1813"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1790"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1823"/>
         <source>Cursive</source>
         <translation>Kursiv</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1842"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1875"/>
         <source>Fantasy</source>
         <translation>Fantaziya</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1849"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1882"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Shrift o‘lchami&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1858"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1891"/>
         <source>Fixed Font Size</source>
         <translation>O‘zgarmas shrift o&apos;lchami</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1865"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1898"/>
         <source>Default Font Size</source>
         <translation>Sukut shrift o&apos;lchami</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1892"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1925"/>
         <source>Minimum Font Size</source>
         <translation>Eng kichik shrift o&apos;lchami</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1899"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1932"/>
         <source>Minimum Logical Font Size</source>
         <translation>Eng kichik mantiqiy shrift o&apos;lchami</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1932"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1965"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation>&lt;b&gt;Yorliqlar&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1939"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1972"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation>Alt + ilova raqami bilan ilovalarga o&apos;tish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1946"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1979"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation>Ctrl + tez terish raqami bilan tez terishlarni yuklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1953"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1986"/>
         <source>Add .co.uk domain by pressing ALT key in address bar</source>
         <translation>Manzillar panelida ALT tugmasini bosib .co.uk domenini qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1977"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2010"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Yuklab olish joylashuvi&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1984"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2017"/>
         <source>Ask everytime for download location</source>
         <translation>Yuklab olish joylashuvi haqida har doim so&apos;ralsin</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1991"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2024"/>
         <source>Use defined location: </source>
         <translation>Aniq joylashuvdan foydalanish: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2041"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2074"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Yuklab olish parametrlari&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2048"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2081"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2056"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2089"/>
         <source>Close download manager when downloading finishes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2063"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2096"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Tashqi yuklab olish boshqaruvchisi&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2070"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2103"/>
         <source>Use external download manager</source>
         <translation>Tashqi yuklab olish boshqaruvchisidan foydalanish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2082"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2115"/>
         <source>Executable:</source>
         <translation>Bajariladigan fayllar:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2089"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2122"/>
         <source>Arguments:</source>
         <translation>Argumentlar:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2096"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2129"/>
         <source>Leave blank if unsure</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2117"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2150"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2143"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2176"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Avtoto‘ldirish parametrlari&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2150"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2183"/>
         <source>Allow saving passwords from sites</source>
         <translation>Saytlardan parollarni saqlashga ruxsat etish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2205"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2238"/>
         <source>Send Referer header to servers</source>
         <translation>Serverlarga Referer sarlavhasini yuborish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2212"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2245"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookie fayllari&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2219"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2252"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Serverlarga Kuzatilmasin sarlavhasini yuborish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2226"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2535"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2259"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2568"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Boshqa&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2233"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2266"/>
         <source>Manage CA certificates</source>
         <translation>CA sertifikatlarini boshqarish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2262"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2295"/>
         <source>Certificate Manager</source>
         <translation>Sertifikat boshqaruvchisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2269"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2302"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL sertifikatlari&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2279"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2312"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2289"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2322"/>
         <source>Manage JavaScript privacy options</source>
         <translation>JavaScript maxfiylik parametrlarini boshqarish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2302"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2335"/>
         <source>JavaScript options</source>
         <translation>JavaScript parametrlari</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2315"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2348"/>
         <source>Cookies Manager</source>
         <translation>Cookie fayllari boshqaruvchisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2338"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2371"/>
         <source>Manage Cookies</source>
         <translation>Cookie fayllarini boshqarish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2358"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2391"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation>&lt;b&gt;HTML5 ruxsatlari&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2365"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2398"/>
         <source>Manage HTML5 permissions</source>
         <translation>HTML5 ruxsatlarini boshqarish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2378"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2411"/>
         <source>HTML5 Permissions</source>
         <translation>HTML5 ruxsatlari</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2389"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2422"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Bildirishnomalar&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2396"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2429"/>
         <source>Use OSD Notifications</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2406"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2439"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Mahalliy tizim bildirishnomalarda foydalanish (faqat Linux)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2413"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2446"/>
         <source>Do not use Notifications</source>
         <translation>Bildirishnomalardan foydalanmaslik</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2464"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2497"/>
         <source>Expiration timeout:</source>
         <translation>Amal qilish muddati tugashi:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2477"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2510"/>
         <source> seconds</source>
         <translation>soniya</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2486"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2519"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2542"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2575"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>Hamma veb-saytlar bilan avtomatik ravishda yuklanadigan uslublar jadvali: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2561"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2594"/>
         <source>Languages</source>
         <translation>Tillar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2583"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2616"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Veb saytlar uchun afzal ko&apos;rilgan til&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2632"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2665"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Brauzer identifikatorini o&apos;zgartirish&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2657"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2690"/>
         <source>User Agent Manager</source>
         <translation>Foydalanuvchi agent boshqaruvchisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2694"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2727"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="134"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="558"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="155"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="575"/>
         <source>Default</source>
         <translation>Sukut</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="138"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="159"/>
         <source>Set as default</source>
         <translation>Sukut bo‘yicha o‘rnatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="542"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="559"/>
         <source>OSD Notification</source>
         <translation>OSD bildirishnomasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="543"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="560"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="584"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="601"/>
         <source>Choose download location...</source>
         <translation>Yuklab olish joylashuvini tanlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="598"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="615"/>
         <source>Choose stylesheet location...</source>
         <translation>Uslublar jadvali joylashuvini tanlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="609"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="626"/>
         <source>Deleted</source>
         <translation>O&apos;chirilgan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="615"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="632"/>
         <source>Choose executable location...</source>
         <translation>Bajariladigan faylning joylashuvini tanlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="739"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="756"/>
         <source>Choose cache path...</source>
         <translation>Kesh yo&apos;lini tanlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="785"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="802"/>
         <source>New Profile</source>
         <translation>Yangi profil</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="785"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="802"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Yangi profil nomini kiriting:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="792"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="796"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="818"/>
         <source>Error!</source>
         <translation>Xato!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="792"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
         <source>This profile already exists!</source>
         <translation>Ushbu profil mavjud!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="796"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="818"/>
         <source>Cannot create profile directory!</source>
         <translation>Profil katalogini yaratib bo&apos;lmadi!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="816"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="829"/>
         <source>Confirmation</source>
         <translation>Tasdiqlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="817"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="830"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1104"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1121"/>
         <source>Select Color</source>
         <translation>Rangni tanlash</translation>
     </message>
@@ -3869,14 +4284,14 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/lib/desktopnotifications/desktopnotificationsfactory.cpp" line="114"/>
-        <source>Native System Notification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="96"/>
         <source>Save file as...</source>
         <translation>Faylni quyidagicha saqlash...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/notifications/desktopnotificationsfactory.cpp" line="113"/>
+        <source>Native System Notification</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/opensearch/opensearchreader.cpp" line="104"/>
@@ -3889,42 +4304,42 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="309"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="315"/>
         <source>Unknown size</source>
         <translation>Noma&apos;lum hajm</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="314"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="320"/>
         <source>KB</source>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="319"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="325"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="323"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="329"/>
         <source>GB</source>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="752"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="766"/>
         <source>Executable: </source>
         <translation>Bajariladigan fayllar:</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="753"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="767"/>
         <source>Arguments: </source>
         <translation>Argumentlar: </translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="755"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="769"/>
         <source>Cannot start external program</source>
         <translation>Tashqi dasturni ishga tushirib bo&apos;lmadi</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="756"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="770"/>
         <source>Cannot start external program! %1</source>
         <translation>Tashqi dasturni ishga tushirib bo&apos;lmadi! %1</translation>
     </message>
@@ -3973,869 +4388,429 @@ Please install latest version of QupZilla.</source>
     </message>
 </context>
 <context>
-    <name>QupZilla</name>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="134"/>
-        <source>QupZilla</source>
-        <translation>QupZilla</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="360"/>
-        <source>Private Browsing Enabled</source>
-        <translation>Maxfiy ko&apos;rib chiqish yoqilgan</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="364"/>
-        <source>IP Address of current page</source>
-        <translation>Joriy sahifaning IP manzili</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="395"/>
-        <source>&amp;About QupZilla</source>
-        <translation>QupZilla &amp;haqida</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="399"/>
-        <source>Pr&amp;eferences</source>
-        <translation>&amp;Sozlamalar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="404"/>
-        <source>Quit</source>
-        <translation>Chiqish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="414"/>
-        <source>&amp;File</source>
-        <translation>&amp;Fayl</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="415"/>
-        <source>New Tab</source>
-        <translation>Yangi ilova</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="416"/>
-        <source>&amp;New Window</source>
-        <translation>Y&amp;angi oyna</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="417"/>
-        <source>Open Location</source>
-        <translation>Joylashuvni ochish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="418"/>
-        <source>Open &amp;File...</source>
-        <translation>&amp;Faylni ochish...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="419"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="79"/>
-        <source>Close Tab</source>
-        <translation>Ilovani yopish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="420"/>
-        <source>Close Window</source>
-        <translation>Oynani yopish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="423"/>
-        <source>&amp;Save Page As...</source>
-        <translation>&amp;Sahifani quyidagicha saqlash...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="424"/>
-        <source>Save Page Screen</source>
-        <translation>Sahifa ekranini saqlash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="425"/>
-        <source>Send Link...</source>
-        <translation>Havolani yuborish...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="426"/>
-        <source>&amp;Print...</source>
-        <translation>&amp;Chop etish...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="428"/>
-        <source>Import bookmarks...</source>
-        <translation>Xatcho&apos;plarni import qilish...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="440"/>
-        <source>&amp;Edit</source>
-        <translation>Tah&amp;rirlash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="441"/>
-        <source>&amp;Undo</source>
-        <translation>&amp;Qaytish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="442"/>
-        <source>&amp;Redo</source>
-        <translation>Q&amp;aytarish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="444"/>
-        <source>&amp;Cut</source>
-        <translation>&amp;Qirqish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="445"/>
-        <source>C&amp;opy</source>
-        <translation>&amp;Nusxa olish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="446"/>
-        <source>&amp;Paste</source>
-        <translation>Qo‘&amp;shib qo‘yish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="448"/>
-        <source>Select &amp;All</source>
-        <translation>&amp;Hammasini tanlash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="449"/>
-        <source>&amp;Find</source>
-        <translation>&amp;Topish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="460"/>
-        <source>&amp;View</source>
-        <translation>Ko‘rish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="461"/>
-        <source>&amp;Navigation Toolbar</source>
-        <translation>&amp;Navigatsiya paneli</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="464"/>
-        <source>&amp;Bookmarks Toolbar</source>
-        <translation>&amp;Xatcho&apos;plar paneli</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="467"/>
-        <source>Sta&amp;tus Bar</source>
-        <translation>&amp;Holat paneli</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="471"/>
-        <source>&amp;Menu Bar</source>
-        <translation>&amp;Menyu paneli</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="478"/>
-        <source>&amp;Tabs on Top</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="481"/>
-        <source>&amp;Fullscreen</source>
-        <translation>&amp;To&apos;liq ekran</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="489"/>
-        <source>&amp;Stop</source>
-        <translation>&amp;To&apos;xtatish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="492"/>
-        <source>&amp;Reload</source>
-        <translation>&amp;Qayta yuklash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="495"/>
-        <source>Character &amp;Encoding</source>
-        <translation>Belgilar &amp;kodlash usuli</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="498"/>
-        <source>Enable &amp;Caret Browsing</source>
-        <translation>&amp;Qo&apos;shib ko&apos;rib chiqishni yoqish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="508"/>
-        <source>Toolbars</source>
-        <translation>Asboblar panellari</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="516"/>
-        <source>Sidebars</source>
-        <translation>Yon panellari</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="526"/>
-        <source>Zoom &amp;In</source>
-        <translation>&amp;Yirikroq</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="527"/>
-        <source>Zoom &amp;Out</source>
-        <translation>&amp;Kichikroq</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="528"/>
-        <source>Reset</source>
-        <translation>Tiklash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="533"/>
-        <source>&amp;Page Source</source>
-        <translation>&amp;Sahifa manbai</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="543"/>
-        <source>Hi&amp;story</source>
-        <translation>Tar&amp;ix</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="544"/>
-        <source>&amp;Back</source>
-        <translation>&amp;Orqaga</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="546"/>
-        <source>&amp;Forward</source>
-        <translation>O&amp;ldinga</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="548"/>
-        <source>&amp;Home</source>
-        <translation>&amp;Uy</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="549"/>
-        <source>Show &amp;All History</source>
-        <translation>&amp;Butun tarixni ko&apos;rsatish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="554"/>
-        <source>Closed Tabs</source>
-        <translation>Yopilgan ilovalar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="557"/>
-        <source>Recently Visited</source>
-        <translation>Oxirgi tashrif buyurilganlar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="560"/>
-        <source>Most Visited</source>
-        <translation>Eng ko&apos;p tashrif buyurilganlar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="570"/>
-        <source>&amp;Bookmarks</source>
-        <translation>&amp;Xatcho&apos;plar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="571"/>
-        <source>Bookmark &amp;This Page</source>
-        <translation>&amp;Ushbu sahifani xatcho&apos;plarga qo&apos;shish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="572"/>
-        <source>Bookmark &amp;All Tabs</source>
-        <translation>&amp;Hamma ilovalarni xatcho&apos;plarga qo&apos;shish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="573"/>
-        <source>Organize &amp;Bookmarks</source>
-        <translation>&amp;Xatcho&apos;plarni tashkillashtirish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="582"/>
-        <source>&amp;Tools</source>
-        <translation>&amp;Vositalar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="583"/>
-        <source>&amp;Web Search</source>
-        <translation>&amp;Veb-qidirish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="584"/>
-        <source>Page &amp;Info</source>
-        <translation>Sahifa haqida &amp;ma&apos;lumot</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="588"/>
-        <source>&amp;Download Manager</source>
-        <translation>&amp;Yuklab olish boshqaruvchisi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="589"/>
-        <source>&amp;Cookies Manager</source>
-        <translation>&amp;Cookie fayllari boshqaruvchisi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="590"/>
-        <source>&amp;AdBlock</source>
-        <translation>&amp;AdBlock</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="591"/>
-        <source>RSS &amp;Reader</source>
-        <translation>RSS &amp;o&apos;qish vositasi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="592"/>
-        <source>Web In&amp;spector</source>
-        <translation>Veb-nazoratchi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="593"/>
-        <source>Clear Recent &amp;History</source>
-        <translation>So&apos;nggi &amp;tarixni tozalash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="594"/>
-        <source>New &amp;Private Window</source>
-        <translation>Yangi &amp;maxfiy oyna</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="608"/>
-        <source>&amp;Help</source>
-        <translation>&amp;Yordam</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="610"/>
-        <source>About &amp;Qt</source>
-        <translation>&amp;Qt haqida</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="614"/>
-        <source>Information about application</source>
-        <translation>Dastur haqida ma&apos;lumot</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="619"/>
-        <source>Configuration Information</source>
-        <translation>Sozlashlar haqida ma&apos;lumot</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="620"/>
-        <source>Report &amp;Issue</source>
-        <translation>&amp;Muammo haqida xabar berish</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="685"/>
-        <source>Restore &amp;Closed Tab</source>
-        <translation>&amp;Yopilgan ilovalarni tiklash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="958"/>
-        <source> (Private Browsing)</source>
-        <translation> (Maxfiy ko&apos;rib chiqish)</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1070"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1100"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1159"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1188"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1213"/>
-        <source>Empty</source>
-        <translation>Bo&apos;sh</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1162"/>
-        <source>Restore All Closed Tabs</source>
-        <translation>Hamma yopilgan ilovalarni tiklash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1163"/>
-        <source>Clear list</source>
-        <translation>Ro&apos;yxatni tozalash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1289"/>
-        <source>Other</source>
-        <translation>Boshqa</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1727"/>
-        <source>%1 - QupZilla</source>
-        <translation>%1 - QupZilla</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1822"/>
-        <source>HTML files</source>
-        <translation>HTML fayllari</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1822"/>
-        <source>Image files</source>
-        <translation>Tasvir fayllari</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1822"/>
-        <source>Text files</source>
-        <translation>Matn fayllari</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1822"/>
-        <source>All files</source>
-        <translation>Hamma fayllar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1824"/>
-        <source>Open file...</source>
-        <translation>Faylni ochish...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1957"/>
-        <location filename="../src/lib/other/pagescreen.cpp" line="172"/>
-        <source>QupZilla %1 (%2)</source>
-        <translation>QupZilla %1 (%2)</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2193"/>
-        <source>There are still %1 open tabs and your session won't be stored. 
-Are you sure to close this window?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2194"/>
-        <source>Don&apos;t ask again</source>
-        <translation>Qayta so&apos;ralmasin</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="2195"/>
-        <source>There are still open tabs</source>
-        <translation>Hali ochiq ilovalar mavjud</translation>
-    </message>
-</context>
-<context>
     <name>QupZillaSchemeReply</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="69"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="76"/>
         <source>No Error</source>
         <translation>Xato yo&apos;q</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="75"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="82"/>
         <source>Not Found</source>
         <translation>Topilmadi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="148"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="149"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="155"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="156"/>
         <source>Report Issue</source>
         <translation>Muammo haqida xabar berish</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="150"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="157"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="152"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="159"/>
         <source>Your E-mail</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="153"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="160"/>
         <source>Issue type</source>
         <translation>Muammo turi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="154"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="161"/>
         <source>Issue description</source>
         <translation>Muammo tavsifi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="155"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="162"/>
         <source>Send</source>
         <translation>Yuborish</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="156"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="163"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="158"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="165"/>
         <source>Please fill out all required fields!</source>
         <translation>Iltimos, hamma talab qilingan maydonlarni to&apos;ldiring!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="186"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="193"/>
         <source>Start Page</source>
         <translation>Boshlang‘ich sahifa</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="187"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="194"/>
         <source>Search on Web</source>
         <translation>Vebda qidirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="188"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
         <source>Search results provided by DuckDuckGo</source>
         <translation>Qidirish natijalari DuckDuckGo tomonidan taqdim qilingan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="190"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="208"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="209"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="197"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="215"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="216"/>
         <source>About QupZilla</source>
         <translation>QupZilla haqida</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="191"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="198"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Maxfiy ko&apos;rib chiqish&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="210"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="367"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="217"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
         <source>Information about version</source>
         <translation>Versiya haqida ma&apos;lumot</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="211"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="218"/>
         <source>Copyright</source>
         <translation>Mualliflik huquqi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="214"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="221"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="383"/>
         <source>Version</source>
         <translation>Versiya</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="219"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="226"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
         <source>WebKit version</source>
         <translation>WebKit versiyasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="220"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="227"/>
         <source>Main developer</source>
         <translation>Bosh tuzuvchi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="222"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="229"/>
         <source>Contributors</source>
         <translation>Hissadorlar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="233"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="240"/>
         <source>Translators</source>
         <translation>Tarjimonlar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
         <source>Speed Dial</source>
         <translation>Tez terish</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
         <source>Add New Page</source>
         <translation>Yangi sahifani qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
         <source>Edit</source>
         <translation>Tahrirlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
         <source>Remove</source>
         <translation>Olib tashlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
         <source>Reload</source>
         <translation>Qayta yuklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
         <source>Are you sure to remove this speed dial?</source>
         <translation>Ushbu tez terishni olib tashlashga ishonchingiz komilmi?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
         <source>Load title from page</source>
         <translation>Sarlavhani sahifadan yuklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
         <source>Url</source>
         <translation>URL</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
         <source>Title</source>
         <translation>Sarlavha</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
         <source>Apply</source>
         <translation>Qo&apos;llash</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
         <source>Close</source>
         <translation>Yopish</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
         <source>New Page</source>
         <translation>Yangi sahifa</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
         <source>Speed Dial settings</source>
         <translation>Tez terish sozlamalari</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
         <source>Placement: </source>
         <translation>Joylashtirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
         <source>Auto</source>
         <translation>Avto</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="316"/>
         <source>Cover</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="317"/>
         <source>Fit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="318"/>
         <source>Fit Width</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="319"/>
         <source>Fit Height</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="320"/>
         <source>Use background image</source>
         <translation>Orqa fon tasviridan foydalanish</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="321"/>
         <source>Select image</source>
         <translation>Tasvirni tanlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="322"/>
         <source>Maximum pages in a row:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="323"/>
         <source>Change size of pages:</source>
         <translation>Sahifalar o&apos;lchamlarini o&apos;zgartirish:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="316"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="324"/>
         <source>Center speed dials</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="344"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="350"/>
         <source>Restore Session</source>
         <translation>Sessiyani tiklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="345"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
         <source>Oops, QupZilla crashed.</source>
         <translation>QupZilla&apos;da xato ro&apos;y berdi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="346"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="347"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
         <source>Or you can start completely new session</source>
         <translation>Yoki siz butunlay yangi sessiyani boshlashingiz mumkin</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="365"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="366"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
         <source>Configuration Information</source>
         <translation>Sozlashlar haqida ma&apos;lumot</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
         <source>Browser Identification</source>
         <translation>Brauzer identifikatori</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="370"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
         <source>Paths</source>
         <translation>Yo&apos;llar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
         <source>Build Configuration</source>
         <translation>Yig&apos;ish sozlashi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
         <source>Preferences</source>
         <translation>Sozlashlar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
         <source>Option</source>
         <translation>Parametr</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
         <source>Value</source>
         <translation>Qiymati</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
         <source>Extensions</source>
         <translation>Kengaytmalar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
         <source>Name</source>
         <translation>Nomi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
         <source>Author</source>
         <translation>Muallif</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
         <source>Description</source>
         <translation>Tavsifi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
         <source>Application version</source>
         <translation>Dastur versiyasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="393"/>
         <source>Qt version</source>
         <translation>Qt versiyasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
         <source>Build time</source>
         <translation>Yig&apos;ish vaqti</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="390"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
         <source>Platform</source>
         <translation>Platforma</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="393"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
         <source>Settings</source>
         <translation>Sozlamalar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
         <source>Saved session</source>
         <translation>Saqlangan sessiya</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="402"/>
         <source>Pinned tabs</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="397"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
         <source>Data</source>
         <translation>Ma&apos;lumot</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="398"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
         <source>Themes</source>
         <translation>Mavzular</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
         <source>Translations</source>
         <translation>Tarjimalar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="402"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="414"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="420"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="425"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="426"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
         <translation>&lt;b&gt;Yoqilgan&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="410"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="416"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="422"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="425"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="428"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
         <source>Disabled</source>
         <translation>O‘chirilgan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="428"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="434"/>
         <source>Debug build</source>
         <translation>Tuzatish yig&apos;ishi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="429"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="435"/>
         <source>WebGL support</source>
         <translation>WebGL qo‘llab-quvvatlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="430"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="436"/>
         <source>Windows 7 API</source>
         <translation>Windows 7 API</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="437"/>
         <source>KDE integration</source>
         <translation>KDE integratsiyasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="432"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="438"/>
         <source>Portable build</source>
         <translation>Portativ yig&apos;ish</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="450"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="456"/>
         <source>No available extensions.</source>
         <translation>Mavjud kengaytmalar yo&apos;q.</translation>
     </message>
@@ -4936,17 +4911,22 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation>Havolani yangi ilovada ochish</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="383"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="259"/>
+        <source>Open link in &amp;private window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="384"/>
         <source>Error in fetching feed</source>
         <translation>Veb-kanal olishda xato</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="417"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="418"/>
         <source>RSS feed duplicated</source>
         <translation>RSS-kanal dublikatlangan</translation>
     </message>
     <message>
-        <location filename="../src/lib/rss/rssmanager.cpp" line="417"/>
+        <location filename="../src/lib/rss/rssmanager.cpp" line="418"/>
         <source>You already have this feed.</source>
         <translation>Sizda ushbu veb-kanal allaqachon mavjud.</translation>
     </message>
@@ -5019,6 +4999,11 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 </context>
 <context>
     <name>RecoveryWidget</name>
+    <message>
+        <location filename="../src/lib/session/recoverywidget.ui" line="18"/>
+        <source>Windows and Tabs</source>
+        <translation type="unfinished"/>
+    </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="34"/>
         <source>Start New Session</source>
@@ -5202,7 +5187,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="48"/>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="315"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="343"/>
         <source>Add Search Engine</source>
         <translation>Qidirish tizimini qo&apos;shish</translation>
     </message>
@@ -5225,27 +5210,27 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="401"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="429"/>
         <source>Search Engine Added</source>
         <translation>Qidirish tizimi qo&apos;shildi</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="401"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="429"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>&quot;%1&quot; qidirish tizimi muvaffaqiyatli qo&apos;shildi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="408"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="436"/>
         <source>Search Engine is not valid!</source>
         <translation>Qidirish tizimi haqiqiy emas!</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="409"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="437"/>
         <source>Error</source>
         <translation>Xato</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="409"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="437"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Qidirish tizimini qo&apos;shish xatosi &lt;br&gt;&lt;b&gt;Xato xabari: &lt;/b&gt; %1</translation>
     </message>
@@ -5253,7 +5238,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SearchToolBar</name>
     <message>
-        <location filename="../src/lib/webview/searchtoolbar.cpp" line="151"/>
+        <location filename="../src/lib/webtab/searchtoolbar.cpp" line="151"/>
         <source>No results found.</source>
         <translation>Natijalar topilmadi.</translation>
     </message>
@@ -5261,22 +5246,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SearchToolbar</name>
     <message>
-        <location filename="../src/lib/webview/searchtoolbar.ui" line="36"/>
+        <location filename="../src/lib/webtab/searchtoolbar.ui" line="36"/>
         <source>Search: </source>
         <translation>Qidirish: </translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/searchtoolbar.ui" line="55"/>
+        <location filename="../src/lib/webtab/searchtoolbar.ui" line="55"/>
         <source>Search...</source>
         <translation>Qidirish...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/searchtoolbar.ui" line="88"/>
+        <location filename="../src/lib/webtab/searchtoolbar.ui" line="88"/>
         <source>Highlight</source>
         <translation>Yoritish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/searchtoolbar.ui" line="98"/>
+        <location filename="../src/lib/webtab/searchtoolbar.ui" line="98"/>
         <source>Case sensitive</source>
         <translation>Registrga bog&apos;liq</translation>
     </message>
@@ -5285,13 +5270,13 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>SideBar</name>
     <message>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="64"/>
-        <location filename="../src/lib/sidebar/sidebar.cpp" line="131"/>
+        <location filename="../src/lib/sidebar/sidebar.cpp" line="96"/>
         <source>Bookmarks</source>
         <translation>Xatcho&apos;plar</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="71"/>
-        <location filename="../src/lib/sidebar/sidebar.cpp" line="136"/>
+        <location filename="../src/lib/sidebar/sidebar.cpp" line="102"/>
         <source>History</source>
         <translation>Tarix</translation>
     </message>
@@ -5299,176 +5284,176 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SiteInfo</name>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="14"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="14"/>
         <source>Site Info</source>
         <translation>Sayt haqida ma&apos;lumot</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="24"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="24"/>
         <source>General</source>
         <translation>Umumiy</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="29"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="29"/>
         <source>Media</source>
         <translation>Media</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="34"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="34"/>
         <source>Databases</source>
         <translation>Ma&apos;lumotlar bazalari</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="39"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="39"/>
         <source>Security</source>
         <translation>Xavfsizlik</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="101"/>
-        <location filename="../src/lib/webview/siteinfo.ui" line="359"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="101"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="359"/>
         <source>Size:</source>
         <translation>Hajmi:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="146"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="146"/>
         <source>Site address:</source>
         <translation>Sayt manzili:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="153"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="153"/>
         <source>Encoding:</source>
         <translation>Kodlash:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="162"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="162"/>
         <source>Meta tags of site:</source>
         <translation>Saytning meta-teglari:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="176"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="176"/>
         <source>Tag</source>
         <translation>Teg</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="181"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="181"/>
         <source>Value</source>
         <translation>Qiymati</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="195"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="195"/>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
         <translation>&lt;b&gt;Xavfsizlik ma&apos;lumoti&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="215"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="215"/>
         <source>Details</source>
         <translation>Tafsilotlar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="278"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="278"/>
         <source>Image</source>
         <translation>Tasvir</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="283"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="283"/>
         <source>Image address</source>
         <translation>Tasvir manzili</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="308"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="308"/>
         <source>&lt;b&gt;Preview&lt;/b&gt;</source>
         <translation>&lt;b&gt;Dastlabki ko&apos;rish&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="336"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="336"/>
         <source>&lt;b&gt;Database details&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ma&apos;lumotlar bazasi tafsilotlari&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="345"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="345"/>
         <source>Name:</source>
         <translation>Nomi:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="352"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="352"/>
         <source>Path:</source>
         <translation>Yo&apos;li:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="372"/>
-        <location filename="../src/lib/webview/siteinfo.ui" line="388"/>
-        <location filename="../src/lib/webview/siteinfo.ui" line="404"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="372"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="388"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="404"/>
         <source>&lt;database not selected&gt;</source>
         <translation>&lt;ma&apos;lumotlar bazasi tanlanmagan&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="42"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="42"/>
         <source>&lt;not set in certificate&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="151"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="149"/>
         <source>No databases are used by this page.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="157"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="155"/>
         <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ulanish shifrlangan.&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="158"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="156"/>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Ushbu saytga ulanishingiz quyidagi sertifikat bilan himoyalanmagan:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="163"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="161"/>
         <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ulanish shifrlanmagan.&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="164"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="162"/>
         <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ushbu saytga ulanishingiz himoyalanmagan!&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="191"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="189"/>
         <source>Copy Image Location</source>
         <translation>Tasvir joylashuvini nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="192"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="190"/>
         <source>Copy Image Name</source>
         <translation>Tasvir nomini nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="194"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="192"/>
         <source>Save Image to Disk</source>
         <translation>Tasvirni diskka saqlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="233"/>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="245"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="231"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="243"/>
         <source>Error!</source>
         <translation>Xato!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="233"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="231"/>
         <source>This preview is not available!</source>
         <translation>Ushbu dastlabki ko&apos;rish mavjud emas!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="239"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="237"/>
         <source>Save image...</source>
         <translation>Tasvirni saqlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="245"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="243"/>
         <source>Cannot write to file!</source>
         <translation>Faylga yozib bo&apos;lmadi!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="283"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="281"/>
         <source>Preview not available</source>
         <translation>Dastlabki ko‘rish imkoni yo‘q</translation>
     </message>
@@ -5476,43 +5461,43 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SiteInfoWidget</name>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.ui" line="90"/>
+        <location filename="../src/lib/other/siteinfowidget.ui" line="90"/>
         <source>More...</source>
         <translation>Qo&apos;shimcha...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="44"/>
+        <location filename="../src/lib/other/siteinfowidget.cpp" line="44"/>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
         <translation>Ushbu saytga ulanishingiz &lt;b&gt;himoyalangan&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="48"/>
+        <location filename="../src/lib/other/siteinfowidget.cpp" line="48"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
         <translation>Ushbu saytga ulanishingiz &lt;b&gt;himoyalanmagan&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="63"/>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="82"/>
+        <location filename="../src/lib/other/siteinfowidget.cpp" line="63"/>
+        <location filename="../src/lib/other/siteinfowidget.cpp" line="82"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
         <translation>Bu saytga sizning &lt;b&gt;%1&lt;/b&gt; tashrifingiz.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="67"/>
+        <location filename="../src/lib/other/siteinfowidget.cpp" line="67"/>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
         <translation>Siz avval ushbu saytga &lt;b&gt;hech qachon&lt;/b&gt; tashrif buyurmagansiz.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="74"/>
+        <location filename="../src/lib/other/siteinfowidget.cpp" line="74"/>
         <source>first</source>
         <translation>birinchi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="77"/>
+        <location filename="../src/lib/other/siteinfowidget.cpp" line="77"/>
         <source>second</source>
         <translation>ikkinchi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfowidget.cpp" line="80"/>
+        <location filename="../src/lib/other/siteinfowidget.cpp" line="80"/>
         <source>third</source>
         <translation>uchinchi</translation>
     </message>
@@ -5520,153 +5505,153 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SourceViewer</name>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="42"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="41"/>
         <source>Source of </source>
         <translation>Manba</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="70"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="69"/>
         <source>File</source>
         <translation>Fayl</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="71"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="70"/>
         <source>Load in page</source>
         <translation>Sahifada yuklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="72"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="71"/>
         <source>Save as...</source>
         <translation>Quyidagicha saqlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="74"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="73"/>
         <source>Close</source>
         <translation>Yopish</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="77"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="76"/>
         <source>Edit</source>
         <translation>Tahrirlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="78"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="77"/>
         <source>Undo</source>
         <translation>Qaytish</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="79"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="78"/>
         <source>Redo</source>
         <translation>Qaytarish</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="81"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="80"/>
         <source>Cut</source>
         <translation>Qirqish</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="82"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="81"/>
         <source>Copy</source>
         <translation>Nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="83"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="82"/>
         <source>Paste</source>
         <translation>Qo‘shib qo‘yish</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="85"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="84"/>
         <source>Select All</source>
         <translation>Hammasini tanlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="86"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="85"/>
         <source>Find</source>
         <translation>Topish</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="88"/>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="228"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="87"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="227"/>
         <source>Go to Line...</source>
         <translation>Satrga o&apos;tish...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="97"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="96"/>
         <source>View</source>
         <translation>Ko&apos;rish</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="98"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="97"/>
         <source>Reload</source>
         <translation>Qayta yuklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="100"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="99"/>
         <source>Editable</source>
         <translation>Tahrir qilinadigan</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="101"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="100"/>
         <source>Word Wrap</source>
         <translation>So‘zma-so‘z ko‘chirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="138"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="137"/>
         <source>Source loaded in page</source>
         <translation>Manba sahifada yuklandi</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="141"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="140"/>
         <source>Cannot load in page. Page has been closed.</source>
         <translation>Sahifada yuklab bo&apos;lmadi. Sahifa yopildi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="168"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="167"/>
         <source>Save file...</source>
         <translation>Faylni saqlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="175"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="174"/>
         <source>Error!</source>
         <translation>Xato!</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="175"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="174"/>
         <source>Cannot write to file!</source>
         <translation>Faylga yozib bo&apos;lmadi!</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="176"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="175"/>
         <source>Error writing to file</source>
         <translation>Faylga yozish xatosi</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="182"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="181"/>
         <source>Source successfully saved</source>
         <translation>Manba muvaffaqiyatli saqlandi</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="204"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="203"/>
         <source>Source reloaded</source>
         <translation>Manba qayta yuklandi</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="207"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="206"/>
         <source>Cannot reload source. Page has been closed.</source>
         <translation>Manbani qayta yuklab bo&apos;lmadi. Sahifa yopildi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="216"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="215"/>
         <source>Editable changed</source>
         <translation>Tahrir qilinadigan o&apos;zgardi</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="223"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="222"/>
         <source>Word Wrap changed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/other/sourceviewer.cpp" line="228"/>
+        <location filename="../src/lib/other/sourceviewer.cpp" line="227"/>
         <source>Enter line number</source>
         <translation>Satr raqamini kiritish</translation>
     </message>
@@ -5692,17 +5677,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="288"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="287"/>
         <source>Image files</source>
         <translation>Tasvir fayllari</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="289"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="288"/>
         <source>Select image...</source>
         <translation>Tasvirni tanlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="342"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="341"/>
         <source>Unable to load</source>
         <translation>Yuklab bo&apos;lmadi</translation>
     </message>
@@ -5745,17 +5730,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="71"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="70"/>
         <source>Choose dictionary path...</source>
         <translation>Lug&apos;at yo&apos;lini tanlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="80"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="79"/>
         <source>Add new word...</source>
         <translation>Yangi so&apos;zni qo&apos;shish...</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="80"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="79"/>
         <source>Add new word:</source>
         <translation>Yangi so&apos;zni qo&apos;shish:</translation>
     </message>
@@ -5763,18 +5748,28 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>Speller</name>
     <message>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="189"/>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="339"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="160"/>
+        <source>Check &amp;Spelling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="165"/>
+        <source>Languages</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="209"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="364"/>
         <source>No suggestions</source>
         <translation>Tavsiya etilganlar yo&apos;q</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="192"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="212"/>
         <source>Add to dictionary</source>
         <translation>Lug&apos;atga qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="344"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="369"/>
         <source>Settings</source>
         <translation>Sozlamalar</translation>
     </message>
@@ -5803,83 +5798,78 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="152"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="139"/>
         <source>&amp;New tab</source>
         <translation>&amp;Yangi ilova</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="161"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="148"/>
         <source>&amp;Stop Tab</source>
         <translation>Ilovani &amp;to&apos;xtatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="151"/>
         <source>&amp;Reload Tab</source>
         <translation>Ilovani &amp;qayta yuklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="167"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="154"/>
         <source>&amp;Duplicate Tab</source>
         <translation>Ilovani &amp;nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="170"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="157"/>
         <source>D&amp;etach Tab</source>
         <translation>Ilovani &amp;uzish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="173"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="160"/>
         <source>Un&amp;pin Tab</source>
         <translation>Ilovani &amp;qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="173"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="160"/>
         <source>&amp;Pin Tab</source>
         <translation>Ilovani &amp;olib tashlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="175"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="162"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Hamma ilovalarni qayta y&amp;uklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="176"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="163"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>Ushbu ilovani &amp;xatcho&apos;plarga qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="177"/>
-        <location filename="../src/lib/webview/tabbar.cpp" line="189"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="164"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="174"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>&amp;Hamma ilovalarni xatcho&apos;plarga qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="183"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="168"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>&amp;Boshqa ilovalarni yopish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="184"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="169"/>
         <source>Cl&amp;ose</source>
         <translation>&amp;Yopish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="188"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="173"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>&amp;Hamma ilovalarni qayta yuklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="191"/>
-        <source>Restore &amp;Closed Tab</source>
-        <translation>&amp;Yopilgan ilovalarni tiklash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="205"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="201"/>
         <source>Close Tabs</source>
         <translation>Ilovalarni yopish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="205"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="201"/>
         <source>Do you really want to close other tabs?</source>
         <translation>Siz rostdan boshqa ilovalarni yopishni istaysizmi?</translation>
     </message>
@@ -5887,70 +5877,52 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="55"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="53"/>
         <source>New Tab</source>
         <translation>Yangi ilova</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="148"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="163"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="163"/>
+        <source>Closed tabs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="174"/>
         <source>List of tabs</source>
         <translation>Ilovalar ro&apos;yxati</translation>
     </message>
-    <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="266"/>
-        <source>Loading...</source>
-        <translation>Yuklanmoqda...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="270"/>
-        <source>No Named Page</source>
-        <translation>Nomlanmagan sahifa</translation>
-    </message>
     <message numerus="yes">
-        <location filename="../src/lib/webview/tabwidget.cpp" line="288"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="498"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="285"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="503"/>
         <source>Currently you have %n opened tab(s)</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="311"/>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="918"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="114"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="115"/>
-        <source>New tab</source>
-        <translation>Yangi ilova</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="821"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="302"/>
         <source>Empty</source>
         <translation>Bo&apos;sh</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="824"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="306"/>
         <source>Restore All Closed Tabs</source>
         <translation>Hamma yopilgan ilovalarni tiklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="825"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="307"/>
         <source>Clear list</source>
         <translation>Ro&apos;yxatni tozalash</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="844"/>
+        <location filename="../src/lib/tabwidget/tabwidget.h" line="104"/>
+        <source>New tab</source>
+        <translation>Yangi ilova</translation>
     </message>
 </context>
 <context>
     <name>TabbedWebView</name>
     <message>
-        <location filename="../src/lib/webview/tabbedwebview.cpp" line="135"/>
-        <source>Loading...</source>
-        <translation>Yuklanmoqda...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbedwebview.cpp" line="171"/>
-        <source>%1 - QupZilla</source>
-        <translation>%1 - QupZilla</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/tabbedwebview.cpp" line="267"/>
+        <location filename="../src/lib/webtab/tabbedwebview.cpp" line="204"/>
         <source>Inspect Element</source>
         <translation>Elementni tekshirish</translation>
     </message>
@@ -5981,12 +5953,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>ToolButton</name>
     <message>
-        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="30"/>
+        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="33"/>
         <source>Stop</source>
         <translation>To&apos;xtatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="38"/>
+        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="41"/>
         <source>Reload</source>
         <translation>Qayta yuklash</translation>
     </message>
@@ -5994,17 +5966,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>Updater</name>
     <message>
-        <location filename="../src/lib/other/updater.cpp" line="139"/>
+        <location filename="../src/lib/other/updater.cpp" line="148"/>
         <source>Update available</source>
         <translation>Yangilanish mavjud</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/updater.cpp" line="139"/>
+        <location filename="../src/lib/other/updater.cpp" line="148"/>
         <source>New version of QupZilla is ready to download.</source>
         <translation>QupZilla&apos;ning yangi versiyasi yuklab olish uchun tayyor.</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/updater.cpp" line="148"/>
+        <location filename="../src/lib/other/updater.cpp" line="157"/>
         <source>Update</source>
         <translation>Yangilash</translation>
     </message>
@@ -6062,195 +6034,186 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Saytni tahrirlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="198"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="202"/>
         <source>Site domain: </source>
         <translation>Sayt domeni: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="199"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="203"/>
         <source>User Agent: </source>
         <translation>Foydalanuvchi agent:</translation>
     </message>
 </context>
 <context>
-    <name>WebInspectorDockWidget</name>
-    <message>
-        <location filename="../src/lib/webview/webinspectordockwidget.cpp" line="29"/>
-        <location filename="../src/lib/webview/webinspectordockwidget.cpp" line="32"/>
-        <source>Web Inspector</source>
-        <translation>Veb-nazoratchi</translation>
-    </message>
-</context>
-<context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="372"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="389"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="377"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="394"/>
         <source>Remember my choice for this protocol</source>
         <translation>Ushbu protokol uchun mening variantimni eslab qolish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="378"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="395"/>
         <source>External Protocol Request</source>
         <translation>Tashqi protokol so&apos;rovi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="532"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="551"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="534"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="553"/>
         <source>Confirm form resubmission</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="711"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="730"/>
         <source>Select files to upload...</source>
         <translation>Yuklab qo&apos;yish uchun fayllarni tanlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="732"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="751"/>
         <source>Server refused the connection</source>
         <translation>Server bog‘lanishni rad etdi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="735"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="754"/>
         <source>Server closed the connection</source>
         <translation>Server bog‘lanishni yopdi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="738"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="757"/>
         <source>Server not found</source>
         <translation>Server topilmadi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="741"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="760"/>
         <source>Connection timed out</source>
         <translation>Bog&apos;lanish taym-auti</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="744"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="763"/>
         <source>Untrusted connection</source>
         <translation>Ishonchsiz bog&apos;lanish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="747"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="766"/>
         <source>Temporary network failure</source>
         <translation>Vaqtincha tarmoq ishdan chiqishi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="750"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="769"/>
         <source>Proxy connection refused</source>
         <translation>Proksi ulanishi rad etildi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="753"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="772"/>
         <source>Proxy server not found</source>
         <translation>Proksi-server topilmadi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="756"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="775"/>
         <source>Proxy connection timed out</source>
         <translation>Proksi ulanishi taym-auti</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="759"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="778"/>
         <source>Proxy authentication required</source>
         <translation>Proksi haqiqiylikni tekshirish talab qilindi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="762"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="781"/>
         <source>Content not found</source>
         <translation>Tarkib topilmadi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="765"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="784"/>
         <source>Unknown network error</source>
         <translation>Noma&apos;lum tarmoq xatosi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="795"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="814"/>
         <source>AdBlocked Content</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="799"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="818"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>&lt;i&gt;%1&lt;/i&gt; tomonidan bloklangan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="816"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="835"/>
         <source>Content Access Denied</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="831"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="850"/>
         <source>Error code %1</source>
         <translation>Xato kodi %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="843"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="862"/>
         <source>Failed loading page</source>
         <translation>Sahifani yuklash muvaffaqiyatsiz tugadi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="849"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="868"/>
         <source>QupZilla can&apos;t load page.</source>
         <translation>QupZilla sahifani yuklay olmadi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="849"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="868"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla %1&apos;dan sahifani yuklay olmadi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="853"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="872"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="854"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="873"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="855"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="874"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="856"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="875"/>
         <source>Try Again</source>
         <translation>Qayta urinib ko&apos;rish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="956"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="975"/>
         <source>JavaScript alert</source>
         <translation>JavaScript ogohlantirishi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="964"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="983"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1018"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1036"/>
         <source>Choose file...</source>
         <translation>Faylni tanlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1026"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1044"/>
         <source>Cannot read data from &lt;b&gt;%1&lt;/b&gt;. Upload was cancelled!</source>
         <translation>&lt;b&gt;%1&lt;/b&gt;&apos;dan ma&apos;lumot o&apos;qib bo&apos;lmadi. Uzatish bekor qilindi!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="1027"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1045"/>
         <source>Cannot read file!</source>
         <translation>Faylni o&apos;qib bo&apos;lmadi!</translation>
     </message>
@@ -6258,369 +6221,372 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebSearchBar</name>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="109"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="110"/>
         <source>Manage Search Engines</source>
         <translation>Qidirish mexanizmlarini boshqarish</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="241"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="238"/>
         <source>Add %1 ...</source>
         <translation>%1&apos;ni qo&apos;shish ...</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="264"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="261"/>
         <source>Paste And &amp;Search</source>
         <translation>&amp;Qo‘shib qo‘yish va qidirish</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="270"/>
-        <source>Clear All</source>
-        <translation>Hammasini tozalash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="312"/>
         <source>Show suggestions</source>
         <translation>Takliflarni ko&apos;rsatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="317"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="275"/>
         <source>Search when engine changed</source>
         <translation>Mexanizm o&apos;zgarganda qidirish</translation>
     </message>
 </context>
 <context>
-    <name>WebView</name>
+    <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="121"/>
-        <source>No Named Page</source>
-        <translation>Nomi yo&apos;q sahifa</translation>
+        <location filename="../src/lib/webtab/webtab.cpp" line="354"/>
+        <source>Loading...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="768"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="365"/>
+        <source>%1 - QupZilla</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>WebView</name>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="125"/>
+        <source>Empty Page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="850"/>
         <source>Create Search Engine</source>
         <translation>Qidirish tizimini yaratish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="785"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="867"/>
         <source>Cut</source>
         <translation>Qirqish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="787"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="869"/>
         <source>Copy</source>
         <translation>Nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="789"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="871"/>
         <source>Paste</source>
         <translation>Qo‘shib qo‘yish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="791"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="873"/>
         <source>Select All</source>
         <translation>Hammasini tanlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="793"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="875"/>
         <source>Default</source>
         <translation>Sukut</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="794"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="876"/>
         <source>Left to Right</source>
         <translation>Chapdan o‘ngga</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="795"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="877"/>
         <source>Right to Left</source>
         <translation>O‘ngdan chapga</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="796"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="878"/>
         <source>Bold</source>
         <translation>Quyuq</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="797"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="879"/>
         <source>Italic</source>
         <translation>Kursiv</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="798"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="880"/>
         <source>Underline</source>
         <translation>Tagiga chizish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="800"/>
-        <location filename="../src/lib/webview/webview.cpp" line="936"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="882"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1021"/>
         <source>&amp;Reload</source>
         <translation>&amp;Qayta yuklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="801"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="883"/>
         <source>S&amp;top</source>
         <translation>&amp;To&apos;xtatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="841"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="923"/>
         <source>Undo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="844"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="926"/>
         <source>Redo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="866"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="948"/>
         <source>Delete</source>
         <translation>O&apos;chirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="913"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="997"/>
         <source>&amp;Back</source>
         <translation>&amp;Orqaga</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="917"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1001"/>
         <source>&amp;Forward</source>
         <translation>O&amp;ldinga</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="929"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1013"/>
         <source>This frame</source>
         <translation>Ushbu hoshiya</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="930"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1015"/>
         <source>Show &amp;only this frame</source>
         <translation>&amp;Faqat shu hoshiyani ko&apos;rsatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="931"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1016"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>Ushbu hoshiyani yangi &amp;ilovada ko&apos;rsatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="937"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1022"/>
         <source>Print frame</source>
         <translation>Hoshiyani chop etish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="939"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1024"/>
         <source>Zoom &amp;in</source>
         <translation>&amp;Yirikroq</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="940"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1025"/>
         <source>&amp;Zoom out</source>
         <translation>&amp;Kichikroq</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="941"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1026"/>
         <source>Reset</source>
         <translation>Tiklash</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="943"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1028"/>
         <source>Show so&amp;urce of frame</source>
         <translation>Hoshiya &amp;manbasini ko&apos;rsatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="949"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1034"/>
         <source>Book&amp;mark page</source>
         <translation>Sahifani &amp;xatcho&apos;plarga qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="950"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1035"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Sahifani quyidagicha saqlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="951"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1036"/>
         <source>&amp;Copy page link</source>
         <translation>Sahifaning havolasini &amp;nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="952"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1037"/>
         <source>Send page link...</source>
         <translation>Sahifaning havolasini yuborish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="953"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1038"/>
         <source>&amp;Print page</source>
         <translation>Sahifani &amp;chop etish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="955"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1040"/>
         <source>Select &amp;all</source>
         <translation>&amp;Hammasini tanlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="960"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1045"/>
         <source>Validate page</source>
         <translation>Sahifani tekshirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="964"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1049"/>
         <source>Translate page</source>
         <translation>Sahifani tarjima qilish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="968"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1053"/>
         <source>Show so&amp;urce code</source>
         <translation>&amp;Manba kodini ko&apos;rsatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="969"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1054"/>
         <source>Show info ab&amp;out site</source>
         <translation>Sayt &amp;haqida ma&apos;lumot ko&apos;rsatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="974"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1059"/>
         <source>&amp;Add New Page</source>
         <translation>Yangi sahifani &amp;qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="975"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1060"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>Tez terishni &amp;sozlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="987"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1072"/>
         <source>Open link in new &amp;tab</source>
         <translation>Havolani yangi &amp;ilovada ochish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="992"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1077"/>
         <source>Open link in new &amp;window</source>
         <translation>Havolani yangi &amp;oynada ochish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="994"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1078"/>
+        <source>Open link in &amp;private window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1083"/>
         <source>B&amp;ookmark link</source>
         <translation>Havolani &amp;xatcho&apos;plarga qo&apos;shish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="995"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1085"/>
         <source>&amp;Save link as...</source>
         <translation>Havolani quyidagicha &amp;saqlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="996"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1086"/>
         <source>Send link...</source>
         <translation>Havolani yuborish...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="997"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1087"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Havola manzilini nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1009"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1099"/>
         <source>Show i&amp;mage</source>
         <translation>Tasvirni &amp;ko&apos;rsatish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1014"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1104"/>
         <source>Copy im&amp;age</source>
         <translation>Tasvirni &amp;nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1015"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1105"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Tasvir manzilini &amp;nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1017"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1107"/>
         <source>&amp;Save image as...</source>
         <translation>Tasvirni quyidagicha &amp;saqlash...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1018"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1108"/>
         <source>Send image...</source>
         <translation>Tasvirni yuborish...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1037"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1127"/>
         <source>Send text...</source>
         <translation>Matnni yuborish...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1042"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1132"/>
         <source>Google Translate</source>
         <translation>Google tarjimoni</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1048"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1138"/>
         <source>Dictionary</source>
         <translation>Lug&apos;at</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1063"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1153"/>
         <source>Go to &amp;web address</source>
         <translation>&amp;Veb-manzilga o&apos;tish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1077"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1167"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Qidirish &quot;%1 ..&quot; %2 bilan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1083"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1173"/>
         <source>Search with...</source>
         <translation>Quyidagi bilan qidirish...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1110"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1201"/>
         <source>&amp;Play</source>
         <translation>&amp;Ijro ettirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1110"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1201"/>
         <source>&amp;Pause</source>
         <translation>&amp;To‘xtatib turish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1111"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1202"/>
         <source>Un&amp;mute</source>
         <translation>Ovozni &amp;yoqish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1111"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1202"/>
         <source>&amp;Mute</source>
         <translation>Ovozni &amp;o‘chirish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1113"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1204"/>
         <source>&amp;Copy Media Address</source>
         <translation>Media manzilini &amp;nusxa olish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1114"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1205"/>
         <source>&amp;Send Media Address</source>
         <translation>Media manzilini &amp;yuborish</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1115"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1206"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Media &amp;diskka saqlash</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1124"/>
-        <source>Check &amp;Spelling</source>
-        <translation>&amp;Imlo tekshiruvi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webview/webview.cpp" line="1129"/>
-        <source>Languages</source>
-        <translation>Tillar</translation>
     </message>
 </context>
 <context>
     <name>jsAlert</name>
     <message>
-        <location filename="../src/lib/webview/jsalert.ui" line="125"/>
+        <location filename="../src/lib/webkit/jsalert.ui" line="125"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation type="unfinished"/>
     </message>

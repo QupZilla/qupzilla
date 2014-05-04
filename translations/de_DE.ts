@@ -3518,7 +3518,7 @@ konnte nicht gefunden werden!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="727"/>
         <source>Open new empty tabs after active tab</source>
-        <translation>Neue, leere Tabs hinter dem aktivem Tab öffnen</translation>
+        <translation>Neue, leere Tabs hinter dem aktiven Tab öffnen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="734"/>

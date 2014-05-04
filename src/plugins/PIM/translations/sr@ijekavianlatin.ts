@@ -87,7 +87,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="14"/>
         <source>PIM Settings</source>
-        <translation>PIM podešavanja</translation>
+        <translation>PIM postavke</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="42"/>

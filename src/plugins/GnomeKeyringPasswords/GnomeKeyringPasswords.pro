@@ -23,6 +23,7 @@ TRANSLATIONS += \
     translations/fa_IR.ts \
     translations/fi_FI.ts \
     translations/fr_FR.ts \
+    translations/gl_ES.ts \
     translations/he_IL.ts \
     translations/hr_HR.ts \
     translations/id_ID.ts \

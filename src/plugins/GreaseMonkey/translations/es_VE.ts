@@ -32,22 +32,22 @@
         <translation>Mostrar codigo fuente del script</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="48"/>
+        <location filename="../gm_addscriptdialog.cpp" line="49"/>
         <source>&lt;p&gt;runs at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;correr como&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="52"/>
+        <location filename="../gm_addscriptdialog.cpp" line="53"/>
         <source>&lt;p&gt;does not run at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;No ejecuta desde&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="82"/>
+        <location filename="../gm_addscriptdialog.cpp" line="83"/>
         <source>Cannot install script</source>
         <translation>No instala el script</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="85"/>
+        <location filename="../gm_addscriptdialog.cpp" line="86"/>
         <source>&apos;%1&apos; installed successfully</source>
         <translation>&apos;%1&apos; instalado exitosamente</translation>
     </message>
@@ -55,7 +55,7 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="144"/>
+        <location filename="../gm_downloader.cpp" line="145"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&apos;%1&apos; esta actualmente instalado</translation>
     </message>

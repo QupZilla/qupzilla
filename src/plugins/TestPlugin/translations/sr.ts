@@ -9,7 +9,7 @@
     <message>
         <location filename="../testplugin.cpp" line="132"/>
         <source>Example Plugin Settings</source>
-        <translation>Подешавања пробног прикључка</translation>
+        <translation>Поставке пробног прикључка</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="160"/>

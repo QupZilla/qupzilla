@@ -264,7 +264,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="172"/>
         <source>Cannot load subscription!</source>
-        <translation type="unfinished"/>
+        <translation>Tilausta ei voida ladata!</translation>
     </message>
 </context>
 <context>
@@ -297,7 +297,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="187"/>
         <source>%1 (Error: %2)</source>
-        <translation type="unfinished"/>
+        <translation>%1 (Virhe: %2)</translation>
     </message>
 </context>
 <context>
@@ -580,7 +580,7 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/autofill/autofillwidget.ui" line="11"/>
         <source>Login as:</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu tunnuksella:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillicon.cpp" line="29"/>
@@ -593,58 +593,58 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="185"/>
         <source>Bookmarks Toolbar</source>
-        <translation type="unfinished"/>
+        <translation>Kirjanmerkkipalkki</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="186"/>
         <source>Bookmarks located in Bookmarks Toolbar</source>
-        <translation type="unfinished"/>
+        <translation>Kirjanmerkkipalkissa olevat kirjanmerkit</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="189"/>
         <source>Bookmarks Menu</source>
-        <translation type="unfinished"/>
+        <translation>Kirjanmerkkivalikko</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="190"/>
         <source>Bookmarks located in Bookmarks Menu</source>
-        <translation type="unfinished"/>
+        <translation>Kirjanmerkkivalikossa olevat kirjanmerkit</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="193"/>
         <source>Unsorted Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Lajittelemattomat kirjanmerkit</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="194"/>
         <source>All other bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Kaikki muut kirjanmerkit</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbarbutton.cpp" line="115"/>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="326"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjä</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="149"/>
         <source>Choose name and location of this bookmark.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse nimi ja sijainti tälle kirjanmerkille</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="153"/>
         <source>Add New Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Lisää uusi kirjanmerkki</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="193"/>
         <source>Choose folder for bookmarks:</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kansio kirjanmerkeille:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="194"/>
         <source>Bookmark All Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Tee kirjanmerkit kaikista välilehdistä</translation>
     </message>
 </context>
 <context>
@@ -652,22 +652,22 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="14"/>
         <source>Export Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Vie kirjanmerkit</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="20"/>
         <source>&lt;b&gt;Export Bookmarks&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Vie kirjanmerkit&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="27"/>
         <source>Export options</source>
-        <translation type="unfinished"/>
+        <translation>Vientiasetukset</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="42"/>
         <source>Choose...</source>
-        <translation type="unfinished"/>
+        <translation>Valitse…</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="73"/>
@@ -677,12 +677,12 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="89"/>
         <source>Format:</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostomuoto:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.cpp" line="64"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Virhe!</translation>
     </message>
 </context>
 <context>
@@ -1039,7 +1039,7 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
         <source>Add to bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kirjanmerkkeihin</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="37"/>
@@ -1060,7 +1060,7 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="120"/>
         <source>Remove from Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Poista kirjanmerkeistä</translation>
     </message>
 </context>
 <context>
@@ -1327,27 +1327,27 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="170"/>
         <source>Optimize database</source>
-        <translation type="unfinished"/>
+        <translation>Optimoi tietokanta</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="107"/>
         <source>Clear Private Data</source>
-        <translation type="unfinished"/>
+        <translation>Pyyhi yksityiset tiedot</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="108"/>
         <source>Are you sure to clear selected private data?</source>
-        <translation type="unfinished"/>
+        <translation>Haluatko varmasti pyyhkiä valitut yksityiset tiedot?</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
         <source>Database Optimized</source>
-        <translation type="unfinished"/>
+        <translation>Tietokanta optimoitu</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation type="unfinished"/>
+        <translation>Tietokanta optimoitiin onnistuneesti.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Tietokannan koko ennen: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Tietokannan koko jälkeen: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -1738,7 +1738,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="381"/>
         <source>Remove From List</source>
-        <translation type="unfinished"/>
+        <translation>Poista luettelosta.</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="383"/>
@@ -1755,7 +1755,9 @@ Are you sure to close this window?</source>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"/>
+        <translation>Pahoittelut. Tiedostoa 
+%1 
+ei löytynyt!</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="456"/>
@@ -2973,7 +2975,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="476"/>
         <source>Remember username and password for this proxy.</source>
-        <translation type="unfinished"/>
+        <translation>Muista käyttäjänimi ja salasana tälle välityspalvelimelle.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="478"/>
@@ -3520,7 +3522,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="734"/>
         <source>Always switch between tabs with mouse wheel</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda aina välilehteä hiiren rullalla.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="741"/>
@@ -3600,7 +3602,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="899"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
-        <translation type="unfinished"/>
+        <translation>Paina vaihtonäppäintä ladataksesti verkko-osoitteen nykyisessä välilehdessä.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="902"/>
@@ -4371,12 +4373,12 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>Avaa uusi yksityinen ikkuna</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="396"/>
         <source>Opens a new private window</source>
-        <translation type="unfinished"/>
+        <translation>Avaa uuden yksityisen ikkunan</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/qtwin.cpp" line="400"/>
@@ -4997,7 +4999,7 @@ Lisää syötteitä joltakin niitä tarjoavalta sivulta navigointipalkin RSS‐k
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="72"/>
         <source>You already have this feed.</source>
-        <translation type="unfinished"/>
+        <translation>Sinulla on jo tämä syöte.</translation>
     </message>
 </context>
 <context>
@@ -5005,7 +5007,7 @@ Lisää syötteitä joltakin niitä tarjoavalta sivulta navigointipalkin RSS‐k
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="18"/>
         <source>Windows and Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Ikkunat ja välilehdet</translation>
     </message>
     <message>
         <location filename="../src/lib/session/recoverywidget.ui" line="34"/>
@@ -5871,12 +5873,12 @@ Lisättyäsi tai poistettuasi varmenteen polkuja, QupZilla täytyy käynnistää
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="201"/>
         <source>Close Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Sulje välilehdet</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="201"/>
         <source>Do you really want to close other tabs?</source>
-        <translation type="unfinished"/>
+        <translation>Haluatko varmasti sulkea muut välilehdet?</translation>
     </message>
 </context>
 <context>
@@ -6070,7 +6072,8 @@ Lisättyäsi tai poistettuasi varmenteen polkuja, QupZilla täytyy käynnistää
         <location filename="../src/lib/webkit/webpage.cpp" line="551"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shopping, which has been already done.)</source>
-        <translation type="unfinished"/>
+        <translation>Näyttääkseen tämän sivun, Qupzillan täytyy lähettää tietoa uudelleen 
+(kuten esimerkiksi jo tehty haku verkkokaupasta).</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webpage.cpp" line="553"/>
@@ -6340,12 +6343,12 @@ Lisättyäsi tai poistettuasi varmenteen polkuja, QupZilla täytyy käynnistää
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="923"/>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Kumoa</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="926"/>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Tee uudelleen</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="948"/>
@@ -6440,7 +6443,7 @@ Lisättyäsi tai poistettuasi varmenteen polkuja, QupZilla täytyy käynnistää
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1049"/>
         <source>Translate page</source>
-        <translation type="unfinished"/>
+        <translation>Käännä sivu</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1053"/>
@@ -6455,12 +6458,12 @@ Lisättyäsi tai poistettuasi varmenteen polkuja, QupZilla täytyy käynnistää
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1059"/>
         <source>&amp;Add New Page</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Lisää uusi sivu</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1060"/>
         <source>&amp;Configure Speed Dial</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Konfiguroi pikavalinta</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1072"/>

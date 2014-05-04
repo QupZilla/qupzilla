@@ -9,7 +9,7 @@
     <message>
         <location filename="../autoscrollsettings.ui" line="72"/>
         <source>&lt;h1&gt;AutoScroll&lt;/h1&gt;</source>
-        <translation>&lt;h1&gt;Deslocação atomática&lt;/h1&gt;</translation>
+        <translation>&lt;h1&gt;Deslocação automática&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../autoscrollsettings.ui" line="109"/>

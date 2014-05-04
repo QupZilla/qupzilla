@@ -32,22 +32,22 @@
         <translation>ߊ߬ ߘߏߞߊ߲߫ ߓߊߛߎ߲ ߦߌ߬ߘߊ߬</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="48"/>
+        <location filename="../gm_addscriptdialog.cpp" line="49"/>
         <source>&lt;p&gt;runs at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;i&gt;%1&lt;/i&gt;&lt;p&gt;ߟߊߥߟߌ߬&lt;br/&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="52"/>
+        <location filename="../gm_addscriptdialog.cpp" line="53"/>
         <source>&lt;p&gt;does not run at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;i&gt;%1&lt;/i&gt;&lt;p&gt;ߞߊ߫ ߟߊߥߟߌ߬&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="82"/>
+        <location filename="../gm_addscriptdialog.cpp" line="83"/>
         <source>Cannot install script</source>
         <translation>ߣߐ߬ߣߐ߬ߟߊ ߕߍ߫ ߛߋ߫ ߡߊߞߍ߫ ߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="85"/>
+        <location filename="../gm_addscriptdialog.cpp" line="86"/>
         <source>&apos;%1&apos; installed successfully</source>
         <translation>&apos;%1&apos; ߓߘߊ߫ ߡߊߞߍ߫ ߞߏ߫ ߢߊ߬</translation>
     </message>
@@ -55,7 +55,7 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="144"/>
+        <location filename="../gm_downloader.cpp" line="145"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&apos;%1&apos; ߡߊߞߍߣߍ߲߫ ߞߊ߬ ߓߊ߲߫</translation>
     </message>
