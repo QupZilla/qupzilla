@@ -53,6 +53,7 @@
 
 #include <QNetworkDiskCache>
 #include <QDesktopServices>
+#include <QFontDatabase>
 #include <QSqlDatabase>
 #include <QLibraryInfo>
 #include <QTranslator>
@@ -115,6 +116,16 @@ MainApplication::MainApplication(int &argc, char** argv)
         QIcon::setThemeSearchPaths(QStringList() << QL1S(":/oxygen-fallback"));
         QIcon::setThemeName(QSL("oxygen-fallback"));
     }
+
+#ifdef Q_OS_WIN
+    // Set default app font (needed for N'ko)
+    int fontId = QFontDatabase::addApplicationFont(QSL("font.ttf"));
+    if (fontId != -1) {
+        const QStringList families = QFontDatabase::applicationFontFamilies(fontId);
+        if (!families.empty())
+            setFont(QFont(families.first()));
+    }
+#endif
 
     QUrl startUrl;
     QString startProfile;
