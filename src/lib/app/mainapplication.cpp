@@ -66,6 +66,7 @@
 #endif
 #include <QNetworkDiskCache>
 #include <QDesktopServices>
+#include <QFontDatabase>
 #include <QTranslator>
 #include <QSettings>
 #include <QProcess>
@@ -128,6 +129,16 @@ MainApplication::MainApplication(int &argc, char** argv)
     DATADIR = USE_DATADIR "/";
 #else
     DATADIR = qApp->applicationDirPath() + "/";
+#endif
+
+#ifdef Q_OS_WIN
+    // Set default app font (needed for N'ko)
+    int fontId = QFontDatabase::addApplicationFont("font.ttf");
+    if (fontId != -1) {
+        const QStringList families = QFontDatabase::applicationFontFamilies(fontId);
+        if (!families.empty())
+            setFont(QFont(families.first()));
+    }
 #endif
 
     setWindowIcon(QIcon(":icons/exeicons/qupzilla-window.png"));
