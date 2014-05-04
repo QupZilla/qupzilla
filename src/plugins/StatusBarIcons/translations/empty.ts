@@ -42,27 +42,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="48"/>
+        <location filename="../sbi_javascripticon.cpp" line="50"/>
         <source>Current page settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="51"/>
+        <location filename="../sbi_javascripticon.cpp" line="53"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="54"/>
+        <location filename="../sbi_javascripticon.cpp" line="56"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="63"/>
+        <location filename="../sbi_javascripticon.cpp" line="65"/>
         <source>Global settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="64"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Manage JavaScript settings</source>
         <translation type="unfinished"></translation>
     </message>
