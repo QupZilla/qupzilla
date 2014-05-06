@@ -71,7 +71,7 @@ CookieManager::CookieManager(QWidget* parent)
         ui->deleteCookiesOnClose->setEnabled(false);
     }
     ui->deleteCookiesOnClose->setChecked(settings.value("deleteCookiesOnClose", false).toBool());
-    ui->filter3rdParty->setChecked(settings.value("allowCookiesFromVisitedDomainOnly", false).toBool());
+    ui->filter3rdParty->setCurrentIndex(settings.value("allowCookiesFromVisitedDomainOnly", 1).toInt());
     ui->filterTracking->setChecked(settings.value("filterTrackingCookie", false).toBool());
     settings.endGroup();
 
@@ -327,7 +327,7 @@ void CookieManager::closeEvent(QCloseEvent* e)
     settings.beginGroup("Cookie-Settings");
     settings.setValue("allowCookies", ui->saveCookies->isChecked());
     settings.setValue("deleteCookiesOnClose", ui->deleteCookiesOnClose->isChecked());
-    settings.setValue("allowCookiesFromVisitedDomainOnly", ui->filter3rdParty->isChecked());
+    settings.setValue("allowCookiesFromVisitedDomainOnly", ui->filter3rdParty->currentIndex());
     settings.setValue("filterTrackingCookie", ui->filterTracking->isChecked());
     settings.setValue("whitelist", whitelist);
     settings.setValue("blacklist", blacklist);
