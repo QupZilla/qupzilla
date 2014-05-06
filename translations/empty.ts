@@ -1544,7 +1544,7 @@ Are you sure to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
-        <source>Filter 3rd party cookies</source>
+        <source>Filter 3rd party cookies:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1555,6 +1555,28 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="480"/>
+        <source>&lt;p&gt;&lt;b&gt;Always:&lt;/b&gt; Allow third-party resources to set and retrieve cookies.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Never:&lt;/b&gt; Never allow third-party resources to set and retrieve cookies.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Keep existing:&lt;/b&gt; If the cookie jar already contains cookies from a third-party, allow it to set and retrieve new and existing cookies.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="486"/>
+        <source>Always</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="491"/>
+        <source>Never</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="496"/>
+        <source>Keep existing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
