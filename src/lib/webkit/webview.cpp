@@ -1137,7 +1137,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addSeparator();
 
     QString langCode = mApp->currentLanguage().left(2).toUtf8();
-    QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto/%1/%2").arg(langCode, selectedText));
+    QUrl googleTranslateUrl = QUrl(QString("https://translate.google.com/#auto/%1/%2").arg(langCode, selectedText));
     Action* gtwact = new Action(QIcon(":icons/sites/translate.png"), tr("Google Translate"));
     gtwact->setData(googleTranslateUrl);
     connect(gtwact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
