@@ -1054,11 +1054,11 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
             menu->addAction(QIcon(":icons/sites/w3.png"), tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(w3url);
 
             QByteArray langCode = mApp->currentLanguage().left(2).toUtf8();
-            const QUrl gturl = QUrl::fromEncoded("http://translate.google.com/translate?sl=auto&tl=" + langCode + "&u=" + QUrl::toPercentEncoding(url().toEncoded()));
-            menu->addAction(QIcon(":icons/sites/translate.png"), tr("Translate page"), this, SLOT(openUrlInSelectedTab()))->setData(gturl);
+            const QUrl gturl = QUrl::fromEncoded("https://translate.google.com/translate?sl=auto&tl=" + langCode + "&u=" + QUrl::toPercentEncoding(url().toEncoded()));
+            menu->addAction(QIcon(":icons/sites/translate.png"), tr("Translate page using Google"), this, SLOT(openUrlInSelectedTab()))->setData(gturl);
 
             const QUrl yturl = QUrl::fromEncoded("https://translate.yandex.ru/translate?url=" + QUrl::toPercentEncoding(url().toEncoded()) + "&lang=" + langCode);
-            menu->addAction(QIcon(":icons/sites/translate.png"), tr("Translate page"), this, SLOT(openUrlInSelectedTab()))->setData(yturl);
+            menu->addAction(QIcon(":icons/sites/yandex-translate.png"), tr("Translate page using Yandex"), this, SLOT(openUrlInSelectedTab()))->setData(yturl);
         }
 
         menu->addSeparator();
@@ -1140,15 +1140,15 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addSeparator();
 
     QString langCode = mApp->currentLanguage().left(2).toUtf8();
-    QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto/%1/%2").arg(langCode, selectedText));
+    QUrl googleTranslateUrl = QUrl(QString("https://translate.google.com/#auto/%1/%2").arg(langCode, selectedText));
     Action* gtwact = new Action(QIcon(":icons/sites/translate.png"), tr("Google Translate"));
     gtwact->setData(googleTranslateUrl);
     connect(gtwact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
     connect(gtwact, SIGNAL(ctrlTriggered()), this, SLOT(openUrlInBackgroundTab()));
     menu->addAction(gtwact);
 
-    QUrl yandexTranslateUrl = QUrl(QString("http://translate.yandex.ru/?lang=%1&text=%2").arg(langCode, selectedText));
-    Action* ytwact = new Action(QIcon(":icons/sites/translate.png"), tr("Google Translate"));
+    QUrl yandexTranslateUrl = QUrl(QString("https://translate.yandex.ru/?lang=%1&text=%2").arg(langCode, selectedText));
+    Action* ytwact = new Action(QIcon(":icons/sites/yandex-translate.png"), tr("Yandex Translate"));
     ytwact->setData(yandexTranslateUrl);
     connect(ytwact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
     connect(ytwact, SIGNAL(ctrlTriggered()), this, SLOT(openUrlInBackgroundTab()));

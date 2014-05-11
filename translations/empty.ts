@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -6498,151 +6498,161 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1058"/>
-        <source>Translate page</source>
+        <source>Translate page using Google</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1062"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1061"/>
+        <source>Translate page using Yandex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1065"/>
         <source>Show so&amp;urce code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1063"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1066"/>
         <source>Show info ab&amp;out site</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1068"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1071"/>
         <source>&amp;Add New Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1069"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1072"/>
         <source>&amp;Configure Speed Dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1081"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1084"/>
         <source>Open link in new &amp;tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1086"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1089"/>
         <source>Open link in new &amp;window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1087"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1090"/>
         <source>Open link in &amp;private window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1092"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1095"/>
         <source>B&amp;ookmark link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1094"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1097"/>
         <source>&amp;Save link as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1095"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1098"/>
         <source>Send link...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1096"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1099"/>
         <source>&amp;Copy link address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1108"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1111"/>
         <source>Show i&amp;mage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1113"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1116"/>
         <source>Copy im&amp;age</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1114"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1117"/>
         <source>Copy image ad&amp;dress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1116"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1119"/>
         <source>&amp;Save image as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1117"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1120"/>
         <source>Send image...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1136"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1139"/>
         <source>Send text...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1141"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1144"/>
         <source>Google Translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1147"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1151"/>
+        <source>Yandex Translate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1157"/>
         <source>Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1162"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1172"/>
         <source>Go to &amp;web address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1176"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1186"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1182"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1192"/>
         <source>Search with...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1210"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1220"/>
         <source>&amp;Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1210"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1220"/>
         <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1211"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1221"/>
         <source>Un&amp;mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1211"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1221"/>
         <source>&amp;Mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1213"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1223"/>
         <source>&amp;Copy Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1214"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1224"/>
         <source>&amp;Send Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1215"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1225"/>
         <source>Save Media To &amp;Disk</source>
         <translation type="unfinished"></translation>
     </message>
