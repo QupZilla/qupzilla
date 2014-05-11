@@ -358,16 +358,19 @@ void BrowserWindow::setupMenu()
     connect(reloadBypassCacheAction, SIGNAL(activated()), this, SLOT(reloadBypassCache()));
     connect(reloadBypassCacheAction2, SIGNAL(activated()), this, SLOT(reloadBypassCache()));
 
+    QShortcut* closeTabAction = new QShortcut(QKeySequence(QSL("Ctrl+W")), this);
+    QShortcut* closeTabAction2 = new QShortcut(QKeySequence(QSL("Ctrl+F4")), this);
+    connect(closeTabAction, SIGNAL(activated()), this, SLOT(closeTab()));
+    connect(closeTabAction2, SIGNAL(activated()), this, SLOT(closeTab()));
+
     QShortcut* reloadAction = new QShortcut(QKeySequence("Ctrl+R"), this);
     connect(reloadAction, SIGNAL(activated()), this, SLOT(reload()));
 
     QShortcut* openLocationAction = new QShortcut(QKeySequence("Alt+D"), this);
     connect(openLocationAction, SIGNAL(activated()), this, SLOT(openLocation()));
 
-    QShortcut* closeTabAction = new QShortcut(QKeySequence("Ctrl+W"), this);
-    QShortcut* closeTabAction2 = new QShortcut(QKeySequence("Ctrl+F4"), this);
-    connect(closeTabAction, SIGNAL(activated()), this, SLOT(closeTab()));
-    connect(closeTabAction2, SIGNAL(activated()), this, SLOT(closeTab()));
+    QShortcut* inspectorAction = new QShortcut(QKeySequence(QSL("F12")), this);
+    connect(inspectorAction, SIGNAL(activated()), this, SLOT(showWebInspector()));
 }
 
 void BrowserWindow::loadSettings()
