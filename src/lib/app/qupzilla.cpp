@@ -702,6 +702,9 @@ void QupZilla::setupOtherActions()
     connect(closeTabAction, SIGNAL(activated()), MENU_RECEIVER, SLOT(closeTab()));
     connect(closeTabAction2, SIGNAL(activated()), MENU_RECEIVER, SLOT(closeTab()));
 
+    QShortcut* inspectorAction = new QShortcut(QKeySequence("F12"), this);
+    connect(inspectorAction, SIGNAL(activated()), this, SLOT(showWebInspector()));
+
     // Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
     for (int i = 0; i < actions.size(); ++i) {
