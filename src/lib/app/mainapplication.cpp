@@ -195,7 +195,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     if (isPortable()) {
         std::cout << "QupZilla: Running in Portable Mode." << std::endl;
-        PROFILEDIR = DATADIR + "profiles/";
+        PROFILEDIR = mApp->applicationDirPath() + "/profiles/";
     }
     else {
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
