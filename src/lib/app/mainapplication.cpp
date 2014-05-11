@@ -619,6 +619,10 @@ void MainApplication::receiveAppMessage(QString message)
             return;
         }
     }
+    else {
+        // User attempted to start another instance, let's open a new window
+        actWin = makeNewWindow(Qz::BW_NewWindow);
+    }
 
     if (!actWin) {
         if (!isClosing()) {
