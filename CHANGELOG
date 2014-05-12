@@ -7,6 +7,17 @@ Version 1.7.0
     * menus are not closed when opening links with middle mouse button
     * support for shadow builds with Qt Creator
 
+Version 1.6.6
+    * released 12 May 2014
+    * added new AutoScroll plugin
+    * added new F12 shortcut for Web Inspector
+    * fixed: correctly switching between tabbars when closing tabs
+    * fixed: draw tabbar base even when there are no tabs in main tabbar
+    * fixed: position of add tab button when there are no tabs in main tabbar
+    * mac: define application category in Info.plist
+    * windows: load font.ttf (if exists) and use it as app font
+    * linux: fixed setting correct paths for portable mode
+
 Version 1.6.5
     * released 18 April 2014
     * fixed build issues on Mac
