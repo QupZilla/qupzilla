@@ -1,0 +1,47 @@
+TARGET = $$qtLibraryTarget(AutoScroll)
+# OS/2 allows only 8 chars in TARGET
+os2: TARGET = AutoScrl
+
+SOURCES += autoscrollplugin.cpp \
+    autoscroller.cpp \
+    framescroller.cpp \
+    autoscrollsettings.cpp
+
+HEADERS += autoscrollplugin.h \
+    autoscroller.h \
+    framescroller.h \
+    autoscrollsettings.h
+
+FORMS += \
+    autoscrollsettings.ui
+
+RESOURCES += autoscroll.qrc
+
+TRANSLATIONS += \
+    translations/ar_SA.ts \
+    translations/bg_BG.ts \
+    translations/ca_ES.ts \
+    translations/cs_CZ.ts \
+    translations/de_DE.ts \
+    translations/el_GR.ts \
+    translations/es_ES.ts \
+    translations/es_MX.ts \
+    translations/eu_ES.ts \
+    translations/fi_FI.ts \
+    translations/fr_FR.ts \
+    translations/he_IL.ts \
+    translations/hr_HR.ts \
+    translations/it_IT.ts \
+    translations/ja_JP.ts \
+    translations/lv_LV.ts \
+    translations/nl_NL.ts \
+    translations/nqo.ts \
+    translations/pl_PL.ts \
+    translations/pt_PT.ts \
+    translations/ru_RU.ts \
+    translations/sk_SK.ts \
+    translations/tr_TR.ts \
+    translations/zh_TW.ts \
+
+PLUGIN_DIR = $$PWD
+include(../../plugins.pri)

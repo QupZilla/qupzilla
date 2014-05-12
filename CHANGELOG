@@ -1,5 +1,6 @@
 Version 1.6.6
     * not released yet
+    * added new AutoScroll plugin
     * added new F12 shortcut for Web Inspector
     * fixed: correctly switching between tabbars when closing tabs
     * fixed: draw tabbar base even when there are no tabs in main tabbar
