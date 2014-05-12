@@ -63,7 +63,7 @@ void AutoScrollPlugin::unload()
 bool AutoScrollPlugin::testPlugin()
 {
     // Require the version that the plugin was built with
-    return (QupZilla::VERSION == QLatin1String("1.6.5"));
+    return (QupZilla::VERSION == QLatin1String("1.6.6"));
 }
 
 QTranslator* AutoScrollPlugin::getTranslator(const QString &locale)

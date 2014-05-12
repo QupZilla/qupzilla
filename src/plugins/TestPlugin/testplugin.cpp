@@ -97,7 +97,7 @@ bool TestPlugin::testPlugin()
     //There should be some testing if plugin is loaded correctly
     //If this function returns false, plugin is automatically unloaded
 
-    return (QupZilla::VERSION == QLatin1String("1.6.5"));
+    return (QupZilla::VERSION == QLatin1String("1.6.6"));
 }
 
 QTranslator* TestPlugin::getTranslator(const QString &locale)

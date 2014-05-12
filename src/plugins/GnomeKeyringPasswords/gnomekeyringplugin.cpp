@@ -59,7 +59,7 @@ void GnomeKeyringPlugin::unload()
 
 bool GnomeKeyringPlugin::testPlugin()
 {
-    return (QupZilla::VERSION == QLatin1String("1.6.5"));
+    return (QupZilla::VERSION == QLatin1String("1.6.6"));
 }
 
 QTranslator* GnomeKeyringPlugin::getTranslator(const QString &locale)
