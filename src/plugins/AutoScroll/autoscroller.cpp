@@ -181,8 +181,8 @@ bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
     m_view = view;
 
     QPoint p;
-    p.setX(pos.x() - m_indicator->width() / 2);
-    p.setY(pos.y() - m_indicator->height() / 2);
+    p.setX(pos.x() - m_indicator->pixmap()->width() / 2);
+    p.setY(pos.y() - m_indicator->pixmap()->height() / 2);
 
     m_indicator->setParent(view->overlayForJsAlert());
     m_indicator->move(p);
