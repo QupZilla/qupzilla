@@ -47,7 +47,7 @@ void SBI_JavaScriptIcon::showMenu(const QPoint &point)
     boldFont.setBold(true);
 
     QMenu menu;
-    menu.addAction(m_icon, tr("Current page settings"))->setFont(boldFont);
+    menu.addAction(m_icon, tr("Current Page Settings"))->setFont(boldFont);
 
     if (testCurrentPageWebAttribute(QWebSettings::JavascriptEnabled)) {
         menu.addAction(tr("Disable JavaScript (temporarily)"), this, SLOT(toggleJavaScript()));
@@ -62,7 +62,7 @@ void SBI_JavaScriptIcon::showMenu(const QPoint &point)
     }
 
     menu.addSeparator();
-    menu.addAction(m_icon, tr("Global settings"))->setFont(boldFont);
+    menu.addAction(m_icon, tr("Global Settings"))->setFont(boldFont);
     menu.addAction(tr("Manage JavaScript settings"), this, SLOT(openJavaScriptSettings()));
     menu.exec(point);
 }

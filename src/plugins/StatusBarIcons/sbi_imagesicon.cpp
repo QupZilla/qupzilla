@@ -53,7 +53,7 @@ void SBI_ImagesIcon::showMenu(const QPoint &point)
     boldFont.setBold(true);
 
     QMenu menu;
-    menu.addAction(m_icon, tr("Current page settings"))->setFont(boldFont);
+    menu.addAction(m_icon, tr("Current Page Settings"))->setFont(boldFont);
 
     if (testCurrentPageWebAttribute(QWebSettings::AutoLoadImages)) {
         menu.addAction(tr("Disable loading images (temporarily)"), this, SLOT(toggleLoadingImages()));
@@ -63,7 +63,7 @@ void SBI_ImagesIcon::showMenu(const QPoint &point)
     }
 
     menu.addSeparator();
-    menu.addAction(m_icon, tr("Global settings"))->setFont(boldFont);
+    menu.addAction(m_icon, tr("Global Settings"))->setFont(boldFont);
 
     QAction* act = menu.addAction(tr("Automatically load images"));
     act->setCheckable(true);
