@@ -547,8 +547,8 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
         if (!view() || !view()->isVisible()) {
             return false;
         }
-        QString message = tr("To show this page, QupZilla must resend request which do it again \n"
-                             "(like searching on making an shopping, which has been already done.)");
+        QString message = tr("To display this page, QupZilla must resend the request \n"
+                             "(such as a search or order confirmation) that was performed earlier.");
         bool result = (QMessageBox::question(view(), tr("Confirm form resubmission"),
                                              message, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes);
         if (!result) {

@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
-        <source>Current page settings</source>
+        <source>Current Page Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
-        <source>Global settings</source>
+        <source>Global Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -43,7 +43,7 @@
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="50"/>
-        <source>Current page settings</source>
+        <source>Current Page Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -58,7 +58,7 @@
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="65"/>
-        <source>Global settings</source>
+        <source>Global Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -71,7 +71,7 @@
     <name>SBI_NetworkIcon</name>
     <message>
         <location filename="../sbi_networkicon.cpp" line="66"/>
-        <source>Proxy configuration</source>
+        <source>Proxy Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

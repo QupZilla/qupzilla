@@ -1142,11 +1142,14 @@ Please install latest version of QupZilla.</source>
         <source>QupZilla %1 (%2)</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../src/lib/app/browserwindow.cpp" line="1378"/>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. 
+        <source>There are still %n open tab(s) and your session won&apos;t be stored. 
 Are you sure to close this window?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1379"/>
@@ -6127,8 +6130,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/lib/webkit/webpage.cpp" line="550"/>
-        <source>To show this page, QupZilla must resend request which do it again 
-(like searching on making an shopping, which has been already done.)</source>
+        <source>To display this page, QupZilla must resend the request 
+(such as a search or order confirmation) that was performed earlier.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

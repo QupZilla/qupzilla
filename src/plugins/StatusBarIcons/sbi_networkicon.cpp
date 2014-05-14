@@ -63,7 +63,7 @@ void SBI_NetworkIcon::showMenu(const QPoint &pos)
     boldFont.setBold(true);
 
     QMenu menu;
-    menu.addAction(QIcon::fromTheme("preferences-system-network", QIcon(":sbi/data/preferences-network.png")), tr("Proxy configuration"))->setFont(boldFont);
+    menu.addAction(QIcon::fromTheme("preferences-system-network", QIcon(":sbi/data/preferences-network.png")), tr("Proxy Configuration"))->setFont(boldFont);
 
     QMenu* proxyMenu = menu.addMenu(tr("Select proxy"));
 
