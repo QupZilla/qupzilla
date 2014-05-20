@@ -27,6 +27,7 @@
 #include "networkproxyfactory.h"
 #include "certificateinfowidget.h"
 #include "qztools.h"
+#include "qzsettings.h"
 #include "acceptlanguage.h"
 #include "cabundleupdater.h"
 #include "settings.h"
@@ -511,6 +512,10 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
 
     QNetworkRequest req = request;
     QNetworkReply* reply = 0;
+
+    if (qzSettings->workOffline) {
+        req.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::AlwaysCache);
+    }
 
     // SchemeHandlers
     if (m_schemeHandlers.contains(req.url().scheme())) {

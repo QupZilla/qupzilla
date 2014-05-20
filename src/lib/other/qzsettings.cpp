@@ -54,6 +54,7 @@ void QzSettings::loadSettings()
     allowJsHideStatusBar = settings.value("allowJavaScriptHideStatusBar", true).toBool();
     allowJsHideToolBar = settings.value("allowJavaScriptHideToolBar", true).toBool();
     enableFormsUndoRedo = settings.value("enableFormsUndoRedo", true).toBool();
+    workOffline = settings.value("WorkOffline", false).toBool();
     settings.endGroup();
 
     settings.beginGroup("Browser-Tabs-Settings");
