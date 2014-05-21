@@ -134,6 +134,7 @@ public slots:
 
     void toggleCaretBrowsing();
     void toggleFullScreen();
+    void toggleOfflineMode();
 
     void loadActionUrl(QObject* obj = 0);
     void loadActionUrlInNewTab(QObject* obj = 0);
