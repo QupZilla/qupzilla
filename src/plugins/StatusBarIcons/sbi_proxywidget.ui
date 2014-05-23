@@ -113,7 +113,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="httpsProxyUsername"/>
+      <widget class="QLineEdit" name="proxyUsername"/>
      </item>
      <item>
       <widget class="QLabel" name="label_57">
@@ -123,7 +123,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="httpsProxyPassword"/>
+      <widget class="QLineEdit" name="proxyPassword"/>
      </item>
      <item>
       <spacer name="horizontalSpacer_28">
@@ -245,7 +245,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="proxyUsername"/>
+       <widget class="QLineEdit" name="httpsProxyUsername"/>
       </item>
       <item>
        <widget class="QLabel" name="label_39">
@@ -255,7 +255,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="proxyPassword"/>
+       <widget class="QLineEdit" name="httpsProxyPassword"/>
       </item>
       <item>
        <spacer name="horizontalSpacer_3">
