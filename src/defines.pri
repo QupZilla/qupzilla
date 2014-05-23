@@ -141,10 +141,11 @@ equals(d_disable_updates_check, "true") { DEFINES *= DISABLE_UPDATES_CHECK }
 isEmpty(QMAKE_LRELEASE) {
     win32|os2:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]\\lrelease.exe
     else:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]/lrelease
-    unix {
-        !exists($$QMAKE_LRELEASE) { QMAKE_LRELEASE = lrelease-qt4 }
-    } else {
-        !exists($$QMAKE_LRELEASE) { QMAKE_LRELEASE = lrelease }
+
+    # Try to use lrelease from PATH
+    unix:!exists($$QMAKE_LRELEASE) {
+        isEqual(QT_MAJOR_VERSION, 4): QMAKE_LRELEASE = lrelease-qt4
+        else: QMAKE_LRELEASE = lrelease
     }
 }
 
