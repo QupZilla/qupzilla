@@ -25,7 +25,6 @@
 
 #include <QVector>
 #include <QSqlQuery>
-#include <QInputDialog>
 #include <QMessageBox>
 
 #define INTERNAL_SERVER_ID QLatin1String("qupzilla.internal")
@@ -281,32 +280,12 @@ bool DatabaseEncryptedPasswordBackend::hasPermission()
 
     m_askPasswordDialogVisible = true;
 
-    QInputDialog dialog;
-    dialog.setWindowModality(Qt::ApplicationModal);
-    dialog.setWindowTitle(AutoFill::tr("Enter Master Password"));
-    dialog.setLabelText(AutoFill::tr("Permission is required, please enter Master Password:"));
-    dialog.setTextEchoMode(QLineEdit::Password);
+    AskMasterPassword* dialog = new AskMasterPassword(this);
 
-    if (dialog.exec() == QDialog::Accepted && !dialog.textValue().isEmpty()) {
-        QByteArray enteredPassword = AesInterface::passwordToHash(dialog.textValue());
-        if (!isPasswordVerified(enteredPassword)) {
-            QMessageBox::information(mApp->getWindow(), AutoFill::tr("Warning!"), AutoFill::tr("Entered password is wrong!"));
-            setAskMasterPasswordState(true);
-
-            m_askPasswordDialogVisible = false;
-            return false;
-        }
-        else {
-            setAskMasterPasswordState(false);
-            //TODO: start timer for reset ask state to true
-
-            m_askPasswordDialogVisible = false;
-            return true;
-        }
-    }
+    bool authorized = dialog->exec() == QDialog::Accepted;
 
     m_askPasswordDialogVisible = false;
-    return false;
+    return authorized;
 }
 
 bool DatabaseEncryptedPasswordBackend::isPasswordVerified(const QByteArray &password)
@@ -517,7 +496,7 @@ void DatabaseEncryptedPasswordBackend::updateSampleData(const QByteArray &passwo
 #include <QTimer>
 
 MasterPasswordDialog::MasterPasswordDialog(DatabaseEncryptedPasswordBackend* backend, QWidget* parent)
-    : QDialog(parent, Qt::MSWindowsFixedSizeDialogHint)
+    : QDialog(parent, Qt::WindowStaysOnTopHint | Qt::MSWindowsFixedSizeDialogHint)
     , ui(new Ui::MasterPasswordDialog)
     , m_backend(backend)
 {
@@ -669,4 +648,56 @@ bool MasterPasswordDialog::samePasswordEntry(const PasswordEntry &entry1, const 
         return false;
     }
     return true;
+}
+
+
+AskMasterPassword::AskMasterPassword(DatabaseEncryptedPasswordBackend* backend, QWidget* parent)
+    : QDialog(parent, Qt::WindowStaysOnTopHint | Qt::MSWindowsFixedSizeDialogHint)
+    , m_backend(backend)
+{
+    setWindowModality(Qt::ApplicationModal);
+    setWindowTitle(AutoFill::tr("Enter Master Password"));
+
+    QVBoxLayout* verticalLayout = new QVBoxLayout(this);
+    QLabel* label = new QLabel(this);
+    label->setText(AutoFill::tr("Permission is required, please enter Master Password:"));
+    m_lineEdit = new QLineEdit(this);
+    m_lineEdit->setEchoMode(QLineEdit::Password);
+    m_buttonBox = new QDialogButtonBox(this);
+    m_buttonBox->setStandardButtons(QDialogButtonBox::Cancel | QDialogButtonBox::Ok);
+    m_labelWarning = new QLabel(this);
+    m_labelWarning->setText(AutoFill::tr("Entered password is wrong!"));
+    QPalette pal = m_labelWarning->palette();
+    pal.setBrush(QPalette::WindowText, Qt::red);
+    m_labelWarning->setPalette(pal);
+    m_labelWarning->hide();
+
+    verticalLayout->addWidget(label);
+    verticalLayout->addWidget(m_lineEdit);
+    verticalLayout->addWidget(m_labelWarning);
+    verticalLayout->addWidget(m_buttonBox);
+    setLayout(verticalLayout);
+
+    connect(m_lineEdit, SIGNAL(returnPressed()), this, SLOT(verifyPassword()));
+    connect(m_buttonBox, SIGNAL(accepted()), this, SLOT(verifyPassword()));
+    connect(m_buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+
+    setAttribute(Qt::WA_DeleteOnClose);
+}
+
+void AskMasterPassword::verifyPassword()
+{
+    QByteArray enteredPassword = AesInterface::passwordToHash(m_lineEdit->text());
+    if (!m_backend->isPasswordVerified(enteredPassword)) {
+        m_backend->setAskMasterPasswordState(true);
+        m_labelWarning->show();
+        m_lineEdit->clear();
+        m_lineEdit->setFocus();
+    }
+    else {
+        m_backend->setAskMasterPasswordState(false);
+        //TODO: start timer for reset ask state to true
+
+        accept();
+    }
 }

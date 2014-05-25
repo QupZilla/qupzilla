@@ -118,4 +118,24 @@ private:
     DatabaseEncryptedPasswordBackend* m_backend;
 };
 
+class QDialogButtonBox;
+class QLineEdit;
+class QLabel;
+
+class AskMasterPassword : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit AskMasterPassword(DatabaseEncryptedPasswordBackend* backend, QWidget* parent = 0);
+
+private slots:
+    void verifyPassword();
+
+private:
+    DatabaseEncryptedPasswordBackend* m_backend;
+    QDialogButtonBox* m_buttonBox;
+    QLineEdit* m_lineEdit;
+    QLabel* m_labelWarning;
+};
 #endif // DATABASEENCRYPTEDPASSWORDBACKEND_H
