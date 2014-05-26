@@ -46,6 +46,9 @@ mac {
     bashcompletion.files = $$PWD/../linux/completion/qupzilla
     bashcompletion.path = /usr/share/bash-completion/completions
 
+    appdata.files = $$PWD/../linux/appdata/qupzilla.appdata.xml
+    appdata.path = /usr/share/appdata
+
 
     INSTALLS += target target1 target2 target3
     INSTALLS += ico16 ico32 ico48 ico64 ico128 ico256
