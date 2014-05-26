@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+ <id type="desktop">qupzila.desktop</id>
+ <metadata_license>CC0-1.0</metadata_license>
+ <project_license>GPL-3.0+</project_license>
+ <name>QupZilla</name>
+ <summary>Web Browser</summary>
+ <description>
+  <p>
+    QupZilla is a new and very fast QtWebKit browser. It aims to be a lightweight web browser available through all major platforms. This project has been originally started only for educational purposes. But from its start, QupZilla has grown into a feature-rich browser.
+  </p>
+  <p>
+    QupZilla has all standard functions you expect from a web browser. It includes bookmarks, history (both also in sidebar) and tabs. Above that, you can manage RSS feeds with an included RSS reader, block ads with a builtin AdBlock plugin, block Flash content with Click2Flash and edit the local CA Certificates database with an SSL Manager.
+  </p>
+  <p>
+    QupZilla's main aim is to be a very fast and very stable QtWebKit browser available to everyone. There are already a lot of QtWebKit browsers available, but they are either bound to the KDE environment, not actively developed or very unstable and miss important features. QupZilla, a multiplatform, modern and actively developed browser, is here to fill this gap by providing a very stable browsing experience.
+  </p>
+ </description>
+ <screenshots>
+  <screenshot type="default" width="864" height="567">http://www.qupzilla.com/screens/gnome.png</screenshot>
+  <screenshot width="948" height="638">http://www.qupzilla.com/screens/kde_window.png</screenshot>
+  <screenshot width="864" height="567">http://www.qupzilla.com/screens/dial_gnome.png</screenshot>
+  <screenshot width="944" height="633">http://www.qupzilla.com/screens/kde_speeddial.png</screenshot>
+  <screenshot width="809" height="528">http://www.qupzilla.com/screens/preferences_gnome.png</screenshot>
+  <screenshot width="760" height="518">http://www.qupzilla.com/screens/kde_preferences.png</screenshot>
+ </screenshots>
+ <url type="homepage">www.qupzilla.com/</url>
+ <updatecontact>nowrep_at_gmail.com</updatecontact>
+</application>
