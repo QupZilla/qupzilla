@@ -53,4 +53,5 @@ mac {
     INSTALLS += target target1 target2 target3
     INSTALLS += ico16 ico32 ico48 ico64 ico128 ico256
     INSTALLS += bashcompletion
+    INSTALLS += appdata
 }
