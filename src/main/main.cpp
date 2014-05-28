@@ -167,6 +167,18 @@ int main(int argc, char* argv[])
     signal(SIGSEGV, qupzilla_signal_handler);
 #endif
 
+    // Hack to fix QT_STYLE_OVERRIDE with QProxyStyle
+    const QByteArray style = qgetenv("QT_STYLE_OVERRIDE");
+    if (!style.isEmpty()) {
+        char **args = (char**) malloc(sizeof(char*) * (argc + 1));
+        for (int i = 0; i < argc; ++i)
+            args[i] = argv[i];
+
+        QString stylecmd = QL1S("-style=") + style;
+        args[argc++] = qstrdup(stylecmd.toUtf8().constData());
+        argv = args;
+    }
+
     MainApplication app(argc, argv);
 
     if (app.isClosing())
