@@ -52,6 +52,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
+    ui->treeTags->setLayoutDirection(Qt::LeftToRight);
 
     ListItemDelegate* delegate = new ListItemDelegate(24, ui->listWidget);
     delegate->setUpdateParentHeight(true);

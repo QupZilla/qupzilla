@@ -34,6 +34,7 @@ AdBlockTreeWidget::AdBlockTreeWidget(AdBlockSubscription* subscription, QWidget*
     setDefaultItemShowMode(TreeWidget::ItemsExpanded);
     setHeaderHidden(true);
     setAlternatingRowColors(true);
+    setLayoutDirection(Qt::LeftToRight);
 
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
     connect(this, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
