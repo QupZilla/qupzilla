@@ -819,7 +819,7 @@ void BrowserWindow::toggleOfflineMode()
     bool enable = !qzSettings->workOffline;
 
     Settings().setValue("Web-Browser-Settings/WorkOffline", enable);
-    
+
     qzSettings->workOffline = enable;
 }
 
@@ -1559,9 +1559,10 @@ void BrowserWindow::moveToVirtualDesktop(int desktopId)
 #ifdef Q_OS_WIN
 void BrowserWindow::applyBlurToMainWindow(bool force)
 {
-    if (!force && !isTransparentBackgroundAllowed()) {
+    if (mApp->isClosing() || (!force && !isTransparentBackgroundAllowed())) {
         return;
     }
+
     int topMargin = 0;
     int bottomMargin = 1;
     int rightMargin = 1;

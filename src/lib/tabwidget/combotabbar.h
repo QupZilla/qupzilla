@@ -229,7 +229,6 @@ public:
 
     bool isDisplayedOnViewPort(int globalLeft, int globalRight);
     bool isDragInProgress() const;
-    void enableBluredBackground(bool enable);
 
     static void initStyleBaseOption(QStyleOptionTabBarBaseV2* optTabBase, QTabBar* tabbar, QSize size);
 
@@ -256,7 +255,6 @@ private:
     bool m_activeTabBar;
     bool m_isPinnedTabBar;
     bool m_useFastTabSizeHint;
-    bool m_bluredBackground;
 };
 
 class QUPZILLA_EXPORT TabScrollBar : public QScrollBar
@@ -293,8 +291,6 @@ public:
     bool isOverflowed() const;
     int tabAt(const QPoint &pos) const;
 
-    void enableBluredBackground(bool enable);
-
 public slots:
     void ensureVisible(int index = -1, int xmargin = 132);
     void scrollToLeft(int n = 5, QEasingCurve::Type type = QEasingCurve::OutQuad);
@@ -318,7 +314,6 @@ private:
     ToolButton* m_rightScrollButton;
     ToolButton* m_leftScrollButton;
     bool m_usesScrollButtons;
-    bool m_bluredBackground;
     int m_totalDeltas;
 };
 

@@ -45,6 +45,7 @@ ComboTabBar::ComboTabBar(QWidget* parent)
     , m_mainBarOverFlowed(false)
     , m_lastAppliedOverflow(false)
     , m_usesScrollButtons(false)
+    , m_bluredBackground(false)
     , m_blockCurrentChangedSignal(false)
 {
     QObject::setObjectName(QSL("tabbarwidget"));
@@ -101,6 +102,10 @@ ComboTabBar::ComboTabBar(QWidget* parent)
 
     m_mainTabBar->installEventFilter(this);
     m_pinnedTabBar->installEventFilter(this);
+    m_leftContainer->installEventFilter(this);
+    m_rightContainer->installEventFilter(this);
+    m_mainTabBarWidget->installEventFilter(this);
+    m_pinnedTabBarWidget->installEventFilter(this);
 }
 
 int ComboTabBar::addTab(const QString &text)
@@ -561,10 +566,6 @@ void ComboTabBar::setCloseButtonsToolTip(const QString &tip)
 void ComboTabBar::enableBluredBackground(bool enable)
 {
     m_bluredBackground = enable;
-    m_mainTabBar->enableBluredBackground(enable);
-    m_pinnedTabBar->enableBluredBackground(enable);
-    m_mainTabBarWidget->enableBluredBackground(enable);
-    m_pinnedTabBarWidget->enableBluredBackground(enable);
 }
 
 int ComboTabBar::mainTabBarWidth() const
@@ -610,13 +611,13 @@ void ComboTabBar::wheelEvent(QWheelEvent* event)
 
 bool ComboTabBar::eventFilter(QObject* obj, QEvent* ev)
 {
-    if (m_bluredBackground) {
-        if (ev->type() == QEvent::Paint && (obj == m_leftContainer || obj == m_rightContainer)) {
-            QPaintEvent* event = static_cast<QPaintEvent*>(ev);
-            QPainter p(qobject_cast<QWidget*>(obj));
-            p.setCompositionMode(QPainter::CompositionMode_Clear);
-            p.fillRect(event->rect(), QColor(0, 0, 0, 0));
-        }
+    if (m_bluredBackground  && ev->type() == QEvent::Paint &&
+        (obj == m_leftContainer || obj == m_rightContainer ||
+         obj == m_mainTabBarWidget || obj == m_pinnedTabBarWidget)) {
+        QPaintEvent* event = static_cast<QPaintEvent*>(ev);
+        QPainter p(qobject_cast<QWidget*>(obj));
+        p.setCompositionMode(QPainter::CompositionMode_Clear);
+        p.fillRect(event->rect(), QColor(0, 0, 0, 0));
     }
 
     if (obj == m_mainTabBar && ev->type() == QEvent::Resize) {
@@ -928,7 +929,6 @@ TabBarHelper::TabBarHelper(bool isPinnedTabBar, ComboTabBar* comboTabBar)
     , m_activeTabBar(false)
     , m_isPinnedTabBar(isPinnedTabBar)
     , m_useFastTabSizeHint(false)
-    , m_bluredBackground(false)
 {
 }
 
@@ -1016,14 +1016,6 @@ bool TabBarHelper::isDragInProgress() const
     return m_dragInProgress;
 }
 
-void TabBarHelper::enableBluredBackground(bool enable)
-{
-    if (enable != m_bluredBackground) {
-        m_bluredBackground = enable;
-        update();
-    }
-}
-
 void TabBarHelper::setCurrentIndex(int index)
 {
     if (index == currentIndex() && !m_activeTabBar) {
@@ -1086,12 +1078,6 @@ void TabBarHelper::initStyleBaseOption(QStyleOptionTabBarBaseV2* optTabBase, QTa
 // Adapted from qtabbar.cpp
 void TabBarHelper::paintEvent(QPaintEvent* event)
 {
-    if (m_bluredBackground) {
-        QPainter p(this);
-        p.setCompositionMode(QPainter::CompositionMode_Clear);
-        p.fillRect(event->rect(), QColor(0, 0, 0, 0));
-    }
-
     // Note: this code doesn't support vertical tabs
     if (m_dragInProgress) {
         QTabBar::paintEvent(event);
@@ -1272,7 +1258,6 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
     : QWidget(parent)
     , m_tabBar(tabBar)
     , m_usesScrollButtons(false)
-    , m_bluredBackground(false)
     , m_totalDeltas(0)
 {
     m_scrollArea = new QScrollArea(this);
@@ -1511,14 +1496,6 @@ int TabBarScrollWidget::tabAt(const QPoint &pos) const
     }
 
     return m_tabBar->tabAt(m_tabBar->mapFromGlobal(mapToGlobal(pos)));
-}
-
-void TabBarScrollWidget::enableBluredBackground(bool enable)
-{
-    if (enable != m_bluredBackground) {
-        m_bluredBackground = enable;
-        update();
-    }
 }
 
 void TabBarScrollWidget::mouseMoveEvent(QMouseEvent* event)
