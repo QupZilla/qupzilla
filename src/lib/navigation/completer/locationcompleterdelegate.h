@@ -36,15 +36,10 @@ public:
 
 private:
     bool drawSwitchToTab() const;
-    QRect adjustRect(const QRect &original, const QRect &created) const;
 
-    void drawHighlightedTextLine(const QRect &rect, const QString &text, const QString &searchText,
-                                 QPainter* painter, const QStyle* style, const QStyleOptionViewItemV4 &option,
-                                 const QPalette::ColorRole &role) const;
-
-    void drawTextLine(const QRect &rect, QString text, QPainter* painter,
-                      const QStyle* style, const QStyleOptionViewItemV4 &option,
-                      const QPalette::ColorRole &role) const;
+    void viewItemDrawText(QPainter *p, const QStyleOptionViewItemV4 *option, const QRect &rect,
+                          const QString &text, const QPalette::ColorRole &role,
+                          const QString &searchText = QString()) const;
 
     mutable int m_rowHeight;
     mutable int m_padding;

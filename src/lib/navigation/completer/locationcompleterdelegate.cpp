@@ -24,6 +24,7 @@
 #include <QPainter>
 #include <QApplication>
 #include <QMouseEvent>
+#include <QTextLayout>
 
 LocationCompleterDelegate::LocationCompleterDelegate(LocationCompleterView* parent)
     : QStyledItemDelegate(parent)
@@ -100,10 +101,10 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // RTL Support: remove conflicting of right-aligned text and starpixmap!
     const int rightTitleEdge = rightPosition - m_padding - starPixmapWidth;
     QRect titleRect(leftTitleEdge, opt.rect.top() + m_padding, rightTitleEdge - leftTitleEdge, titleMetrics.height());
-    QString title(titleMetrics.elidedText(index.data(LocationCompleterModel::TitleRole).toString(), Qt::ElideRight, titleRect.width()));
+    QString title = index.data(LocationCompleterModel::TitleRole).toString();
     painter->setFont(titleFont);
 
-    drawHighlightedTextLine(titleRect, title, searchText, painter, style, opt, colorRole);
+    viewItemDrawText(painter, &opt, titleRect, title, colorRole, searchText);
 
     // Draw link
     const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading() + 2;
@@ -122,7 +123,6 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         link = QString::fromLatin1(linkArray.left(500));
     }
 
-    link = opt.fontMetrics.elidedText(link, Qt::ElideRight, linkRect.width());
     painter->setFont(opt.font);
 
     // Draw url (or switch to tab)
@@ -136,10 +136,10 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
         QRect textRect(linkRect);
         textRect.setX(textRect.x() + m_padding + 16 + m_padding);
-        drawTextLine(textRect, LocationCompleterView::tr("Switch to tab"), painter, style, opt, colorLinkRole);
+        viewItemDrawText(painter, &opt, textRect, LocationCompleterView::tr("Switch to tab"), colorLinkRole);
     }
     else {
-        drawHighlightedTextLine(linkRect, link, searchText, painter, style, opt, colorLinkRole);
+        viewItemDrawText(painter, &opt, linkRect, link, colorLinkRole, searchText);
     }
 
     // Draw line at the very bottom of item if the item is not highlighted
@@ -185,150 +185,128 @@ bool LocationCompleterDelegate::drawSwitchToTab() const
     return qzSettings->showSwitchTab && m_drawSwitchToTab;
 }
 
-QRect LocationCompleterDelegate::adjustRect(const QRect &original, const QRect &created) const
-{
-    if (created.left() + created.width() >= original.right()) {
-        QRect nRect = created;
-        nRect.setWidth(original.right() - created.left());
-        return nRect;
-    }
-
-    return created;
-}
-
 static bool sizeBiggerThan(const QString &s1, const QString &s2)
 {
     return s1.size() > s2.size();
 }
 
-void LocationCompleterDelegate::drawHighlightedTextLine(const QRect &rect, const QString &text, const QString &searchText,
-        QPainter* painter, const QStyle* style, const QStyleOptionViewItemV4 &option,
-        const QPalette::ColorRole &role) const
+static QSizeF viewItemTextLayout(QTextLayout &textLayout, int lineWidth)
 {
-    QList<int> delimiters;
-    QStringList searchStrings = searchText.split(QLatin1Char(' '), QString::SkipEmptyParts);
+    qreal height = 0;
+    qreal widthUsed = 0;
+    textLayout.beginLayout();
+    QTextLine line = textLayout.createLine();
+    if (line.isValid()) {
+        line.setLineWidth(lineWidth);
+        line.setPosition(QPointF(0, height));
+        height += line.height();
+        widthUsed = qMax(widthUsed, line.naturalTextWidth());
 
-    // Look for longer parts first
-    qSort(searchStrings.begin(), searchStrings.end(), sizeBiggerThan);
-
-    foreach (const QString &string, searchStrings) {
-        int delimiter = text.indexOf(string, 0, Qt::CaseInsensitive);
-
-        while (delimiter != -1) {
-            int start = delimiter;
-            int end = delimiter + string.length();
-
-            bool alreadyContains = false;
-            for (int i = 0; i < delimiters.count(); ++i) {
-                int dStart = delimiters.at(i);
-                int dEnd = delimiters.at(++i);
-
-                if (dStart <= start && dEnd >= end) {
-                    alreadyContains = true;
-                    break;
-                }
-            }
-
-            if (!alreadyContains) {
-                delimiters.append(start);
-                delimiters.append(end);
-            }
-
-            delimiter = text.indexOf(string, end, Qt::CaseInsensitive);
-        }
+        textLayout.endLayout();
     }
-
-    // We need to sort delimiters to properly paint all parts that user typed
-    qSort(delimiters);
-
-    // If we don't find any match, just paint it without any highlight
-    if (delimiters.isEmpty() || delimiters.count() % 2) {
-        drawTextLine(rect, text, painter, style, option, role);
-        return;
-    }
-
-    QFont normalFont = painter->font();
-    QFont boldFont = normalFont;
-    boldFont.setBold(true);
-
-    QFontMetrics normalMetrics(normalFont);
-    QFontMetrics boldMetrics(boldFont);
-
-    int lastEndPos = 0;
-    int lastRectPos = rect.left();
-
-    while (!delimiters.isEmpty()) {
-        int start = delimiters.takeFirst();
-        int end = delimiters.takeFirst();
-
-        const QString normalPart = text.mid(lastEndPos, start - lastEndPos);
-        const QString boldPart = text.mid(start, end - start);
-
-        lastEndPos = end;
-
-        if (!normalPart.isEmpty()) {
-            int width = normalMetrics.width(normalPart);
-            QRect nRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
-
-            if (nRect.width() > 0) {
-                if (text.isRightToLeft()) {
-                    nRect = style->visualRect(Qt::RightToLeft, rect, nRect);
-                }
-                painter->setFont(normalFont);
-                drawTextLine(nRect, normalPart, painter, style, option, role);
-
-                lastRectPos += nRect.width();
-            }
-        }
-
-        if (!boldPart.isEmpty()) {
-            int width = boldMetrics.width(boldPart);
-            QRect bRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
-
-            if (bRect.width() > 0) {
-                if (text.isRightToLeft()) {
-                    bRect = style->visualRect(Qt::RightToLeft, rect, bRect);
-                }
-                painter->setFont(boldFont);
-                drawTextLine(bRect, boldPart, painter, style, option, role);
-
-                // Paint manually line under text instead of using QFont::underline
-                QRect underlineRect(bRect.left(), bRect.top() + boldMetrics.ascent() + 1,
-                                    bRect.width(), boldFont.pointSize() > 8 ? 2 : 1);
-
-                painter->fillRect(underlineRect, option.palette.color(role));
-
-                lastRectPos += bRect.width();
-            }
-        }
-
-        if (delimiters.isEmpty() && lastEndPos != text.size()) {
-            const QString lastText = text.mid(lastEndPos);
-
-            int width = normalMetrics.width(lastText);
-            QRect nRect = adjustRect(rect, QRect(lastRectPos, rect.top(), width, rect.height()));
-            if (text.isRightToLeft()) {
-                nRect = style->visualRect(Qt::RightToLeft, rect, nRect);
-            }
-            painter->setFont(normalFont);
-            drawTextLine(nRect, lastText, painter, style, option, role);
-        }
-    }
+    return QSizeF(widthUsed, height);
 }
 
-void LocationCompleterDelegate::drawTextLine(const QRect &rect, QString text, QPainter* painter,
-        const QStyle* style, const QStyleOptionViewItemV4 &option,
-        const QPalette::ColorRole &role) const
+// most of codes taken from QCommonStylePrivate::viewItemDrawText()
+// added highlighting and simplified for single-line textlayouts
+void LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItemV4 *option, const QRect &rect,
+                                                 const QString &text, const QPalette::ColorRole &role, const QString &searchText) const
 {
-    if (rect.width() > 0) {
-        const Qt::LayoutDirection direction = option.widget ? option.widget->layoutDirection() : QApplication::layoutDirection();
-        Qt::LayoutDirection textDirection = text.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight;
-        Qt::Alignment alignment = textDirection == direction ? Qt::AlignLeft : Qt::AlignRight;
+    const QColor &color = option->palette.color(role);
+    const QWidget *widget = option->widget;
+    const QStyle* proxyStyle = widget ? widget->style()->proxy() : QApplication::style()->proxy();
+    const int textMargin = proxyStyle->pixelMetric(QStyle::PM_FocusFrameHMargin, 0, widget) + 1;
 
-        // Insert unicode control characters: prepend RLE or LRE and append (RLM or LRM)+PDF
-        text.isRightToLeft() ? text.prepend(QChar(0x202B)).append(0x200F) : text.prepend(QChar(0x202A)).append(0x200E);
-        text.append(QChar(0x202C));
+    QRect textRect = rect.adjusted(textMargin, 0, -textMargin, 0); // remove width padding
+    const QFontMetrics &fontMetrics(p->font());
+    // a workaround for not drawing highlighted text on icon
+    const QString &elidedText = fontMetrics.elidedText(text, option->textElideMode, textRect.width() - 2 * m_padding - 2);
+    QTextOption textOption;
+    textOption.setWrapMode(QTextOption::NoWrap);
+    textOption.setTextDirection(text.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight);
+    textOption.setAlignment(QStyle::visualAlignment(textOption.textDirection(), option->displayAlignment));
+    QTextLayout textLayout;
+    textLayout.setFont(p->font());
+    textLayout.setText(elidedText);
+    textLayout.setTextOption(textOption);
 
-        style->drawItemText(painter, rect, Qt::TextSingleLine | alignment, option.palette, true, text, role);
+    if (!searchText.isEmpty()) {
+        QList<int> delimiters;
+        QStringList searchStrings = searchText.split(QLatin1Char(' '), QString::SkipEmptyParts);
+        // Look for longer parts first
+        qSort(searchStrings.begin(), searchStrings.end(), sizeBiggerThan);
+
+        foreach (const QString &string, searchStrings) {
+            int delimiter = text.indexOf(string, 0, Qt::CaseInsensitive);
+
+            while (delimiter != -1) {
+                int start = delimiter;
+                int end = delimiter + string.length();
+                bool alreadyContains = false;
+                for (int i = 0; i < delimiters.count(); ++i) {
+                    int dStart = delimiters.at(i);
+                    int dEnd = delimiters.at(++i);
+
+                    if (dStart <= start && dEnd >= end) {
+                        alreadyContains = true;
+                        break;
+                    }
+                }
+                if (!alreadyContains) {
+                    delimiters.append(start);
+                    delimiters.append(end);
+                }
+
+                delimiter = text.indexOf(string, end, Qt::CaseInsensitive);
+            }
+        }
+
+        // We need to sort delimiters to properly paint all parts that user typed
+        qSort(delimiters);
+
+        // If we don't find any match, just paint it without any highlight
+        if (!delimiters.isEmpty() && !(delimiters.count() % 2)) {
+            QList<QTextLayout::FormatRange> highlightParts;
+
+            QTextLayout::FormatRange lighterWholeLine;
+            lighterWholeLine.start = 0;
+            lighterWholeLine.length = elidedText.size();
+            QColor lighterColor = color.lighter(130);
+            if (lighterColor == color) {
+                lighterColor = QColor(Qt::gray).darker(180);
+            }
+            lighterWholeLine.format.setForeground(lighterColor);
+            highlightParts << lighterWholeLine;
+
+            while (!delimiters.isEmpty()) {
+                QTextLayout::FormatRange highlightedPart;
+                int start = delimiters.takeFirst();
+                int end = delimiters.takeFirst();
+                highlightedPart.start = start;
+                highlightedPart.length = end - start;
+                highlightedPart.format.setFontWeight(QFont::Bold);
+                highlightedPart.format.setUnderlineStyle(QTextCharFormat::SingleUnderline);
+                highlightedPart.format.setForeground(color);
+
+                highlightParts << highlightedPart;
+            }
+
+            textLayout.setAdditionalFormats(highlightParts);
+        }
+    }
+
+    // do layout
+    viewItemTextLayout(textLayout, textRect.width());
+
+    // draw line
+    p->setPen(color);
+    const int lineCount = textLayout.lineCount();
+    if (lineCount > 0) {
+        qreal height = textLayout.lineAt(0).height();
+        qreal width = qMax<qreal>(textRect.width(), textLayout.lineAt(0).width());
+        const QRect &layoutRect = QStyle::alignedRect(option->direction, option->displayAlignment, QSize(int(width), int(height)), textRect);
+        const QPointF &position = layoutRect.topLeft();
+
+        textLayout.lineAt(0).draw(p, position);
     }
 }
