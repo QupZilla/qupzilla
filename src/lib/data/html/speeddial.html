@@ -3,52 +3,45 @@
 <title>%SITE-TITLE%</title>
 <link rel="icon" href="%FAVICON%" type="image/x-icon" />
 <style type="text/css" media="screen">
-html {background: #dddddd url("%IMG_BACKGROUND%") no-repeat center center;background-size: %B_SIZE%;}
-body {font-family: sans-serif;color: #525c66;direction: %DIRECTION%;}
-body * {-webkit-user-select: none;font-size: 100%;line-height: 1.6;margin: 0px;}
-.add {position: absolute;%RIGHT_STR%:6px;top:10px;width: 32px;height: 32px;background: url(%IMG_PLUS%); cursor: pointer;}
-
-#quickdial {margin: auto;text-align: center;}
-#quickdial div.entry {position: relative; float: %LEFT_STR%; border-width: 10px;
--webkit-border-image: url(%BOX-BORDER%) 10;margin: 5px;}
-#quickdial img {display: block;margin: auto;}
-#quickdial a {position: absolute;%LEFT_STR%: 0px;top: 0px;width: 100%;height: 87%;}
-
-div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload{display: inline;}
-span.boxTitle {width:100%;max-height: 20px; position: absolute;top: 88%;%LEFT_STR%: 0px;text-align: center;overflow:hidden;}
-span.close {width: 14px;height: 14px;position: absolute;%LEFT_STR%: 92%;top: 90%;
-background: url(%IMG_CLOSE%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
-span.close:hover {border-color: grey; border-radius: 3px;}
-span.edit {width: 14px;height: 14px;position: absolute;%LEFT_STR%: 0px;top: 90%;
-background: url(%IMG_EDIT%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
-span.edit:hover {border-color: grey; border-radius: 3px;}
-span.reload {width: 16px;height: 16px;position: absolute;%LEFT_STR%: 92%;top: 0px;background: url(%IMG_RELOAD%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
-span.reload:hover {border-color: grey; border-radius: 4px;}
-
-#overlay-edit {width: 380px;max-height: 265px;border-width: 20px;margin-%LEFT_STR%:auto;margin-%RIGHT_STR%: auto;margin-top: 100px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;}
-#overlay-edit img {display: block;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;max-width:231px;max-height:131px;}
-#overlay-edit img[src*=".gif"] {width:54px;height:55px;}
-#overlay-edit .buttonbox input {margin-%RIGHT_STR%:0px;margin-%LEFT_STR%:3px;}
-
-.formTable {width: 350px;margin-%LEFT_STR%: auto;margin-%RIGHT_STR%: auto;margin-top: 15px;}
-.formTable input[type="text"] {width: 100%;-webkit-user-select: auto;background-color: #eeeeee;border-radius: 5px;}
-
-.sett {position: absolute;%RIGHT_STR%:40px;top:10px;width: 32px;height: 32px;background: url(%IMG_SETTINGS%); cursor: pointer;}
-#settingsBox {margin-%LEFT_STR%:auto;margin-%RIGHT_STR%: auto;margin-top: 100px;width: 350px;height: auto;padding:0 8px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;border-width: 20px;}
-#settingsBox .content {margin-%LEFT_STR%:auto;margin-%RIGHT_STR%:auto;padding-bottom:2px;border-bottom: 1px solid #888;}
-#settingsBox .thumbhold {margin-%LEFT_STR%:auto;margin-%RIGHT_STR%:auto;margin-bottom: 5px;padding: 1px;border-radius: 10px;text-align:center;width:180px;height:100px;background: #AAA;}
-#settingsBox .thumbhold p {padding: 0;background: #eeeeee url("%IMG_BACKGROUND%") no-repeat center center;background-size: %B_SIZE%;width: 178px;height:98px;border-radius: 10px;position: relative;%LEFT_STR%: 1px;top: 1px;line-height:98px;cursor:default;}
-#settingsBox p label {margin: 2px;padding: 1px;text-align: center;}
-#settingsBox p select {margin: 2px;padding: 1px;text-align: center;width: auto;}
-#settingsBox p select option {text-align: center;}
-#settingsBox .togop {margin-bottom: 1px;padding-bottom:2px;}
-#settingsBox .button {margin: 2px;padding: 1px;text-align:center;width: 98%;}
-#settingsBox .rowsel {margin: 2px;padding: 3px 0;border-bottom: 1px solid #888;}
-#settingsBox .rowsel input {text-align: center;width: 80%;height: 12px;margin: 0px;padding-bottom: 0;}
-#settingsBox .rowsel span {font-weight: bold;text-align: center;margin: 2px;margin-%RIGHT_STR%: 7px;display: inline-block;width: 25px;}
-
-.buttonbox {margin-top: 5px;margin-bottom:-5px;text-align:%RIGHT_STR%;}
-.overlay {background:rgba(128,128,128,0.8);background:-webkit-radial-gradient(rgba(127, 127, 127, 0.5),rgba(127, 127, 127, 0.5) 35%,rgba(0, 0, 0, 0.7));bottom:0;%LEFT_STR%: 0;padding: 20px;padding-bottom: 130px;position: fixed;%RIGHT_STR%:0;top:0;}
+html { background: #dddddd url("%IMG_BACKGROUND%") no-repeat center center; background-size: %B_SIZE%; }
+body { font-family: sans-serif; color: #525c66; direction: %DIRECTION%; }
+body * { -webkit-user-select: none; font-size: 100%; line-height: 1.6; margin: 0; }
+.add { %RIGHT_STR%: 6px; background: url(%IMG_PLUS%); }
+.sett { %RIGHT_STR%: 40px; background: url(%IMG_SETTINGS%); }
+.add, .sett { position: absolute; top: 10px; width: 32px; height: 32px; cursor: pointer; border-radius: 2px; }
+.add:hover, .sett:hover { box-shadow: 0 0 1px 2px rgba(255,255,255, 0.5); }
+#quickdial { margin: auto; text-align: center; }
+#quickdial div.entry { background-color: #ffffff; position: relative; float: %LEFT_STR%; margin: 5px; padding: 5px; border-radius: 7px; border: 1px solid; border-color: rgba(0,0,0, 0.3); /*box-shadow: 0 0 1px 1px rgba(255,255,255, 0.6);*/ }
+#quickdial div.entry:hover { box-shadow: 0 0 0 4px rgba(255,255,255, 0.5); }
+#quickdial img { display: block; margin: auto; }
+#quickdial a { position: absolute; %LEFT_STR%: 0; top: 0; width: 100%; height: 87%; }
+span.boxTitle { width: 88%; position: absolute; %LEFT_STR%: 0; bottom: 1px; max-height: 20px; margin: 0 6%; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+span.edit, span.close, span.reload { width: 16px; height: 16px; position: absolute; background-position: center; border: 1px solid transparent; display: none; }
+span.edit { %LEFT_STR%: 1px; bottom: 1px; background: url(%IMG_EDIT%) no-repeat; }
+span.close { %RIGHT_STR%: 1px; bottom: 1px; background: url(%IMG_CLOSE%) no-repeat; }
+span.reload { %RIGHT_STR%: 1px; top: 1px; background: url(%IMG_RELOAD%) no-repeat; }
+span.edit:hover, span.close:hover, span.reload:hover { border-color: grey; border-radius: 5px; }
+div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload { display: inline; }
+#overlay-edit { width: 380px; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; margin-top: 5%; background-color: #ffffff; border-radius: 7px; border: 1px solid; border-color: rgba(0,0,0, 0.3); box-shadow: 0 0 0 5px rgba(255,255,255, 0.5); padding: 15px; padding-bottom: 0; }
+#overlay-edit img { display: block; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; max-width: 100%; max-height: auto; }
+#overlay-edit img[src*=".gif"] { width: 54px; height: 55px; }
+#overlay-edit .buttonbox input { margin-%RIGHT_STR%: 0; margin-%LEFT_STR%: 3px; }
+#overlay-edit table { width: 100%; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; }
+#overlay-edit table input[type="text"] { width: 100%; -webkit-user-select: auto; background-color: #eeeeee; border-radius: 5px; }
+#settingsBox { margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; margin-top: 5%; width: 350px; height: auto; padding: 15px 20px 0; background-color: #ffffff; border-radius: 7px; border: 1px solid; border-color: rgba(0,0,0, 0.3); box-shadow: 0 0 0 5px rgba(255,255,255, 0.5); }
+#settingsBox .content { margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; padding-bottom: 5px; border-bottom: 1px solid #888; }
+#settingsBox .thumbhold { margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; margin-bottom: 5px; border-radius: 10px; text-align: center; width: 180px; height: 100px; background: #AAA; }
+#settingsBox .thumbhold p { padding: 0; background: #ffffff url("%IMG_BACKGROUND%") no-repeat center center; background-size: %B_SIZE%; width: 178px; height: 98px; border-radius: 10px; position: relative; %LEFT_STR%: 1px; top: 1px; line-height: 98px; cursor: default; }
+#settingsBox p label { margin: 2px; padding: 1px; text-align: center; }
+#settingsBox p select { margin: 2px; padding: 1px; text-align: center; width: auto; }
+#settingsBox p select option { text-align: center; }
+#settingsBox .togop { margin-bottom: 1px; padding-bottom: 2px; }
+#settingsBox .button { margin: 2px; padding: 1px; text-align:center; width: 98%; }
+#settingsBox .rowsel { margin: 2px; padding: 3px 0; border-bottom: 1px solid #888; }
+#settingsBox .rowsel input { text-align: center; width: 80%; height: 12px; margin: 0; padding-bottom: 0; }
+#settingsBox .rowsel span { font-weight: bold; text-align: center; margin: 2px; margin-%RIGHT_STR%: 7px; display: inline-block; width: 25px; }
+.buttonbox { margin: 7px 0; text-align: %RIGHT_STR%; }
+.overlay { background: rgba(128,128,128,0.8); background: -webkit-radial-gradient(rgba(127, 127, 127, 0.5),rgba(127, 127, 127, 0.5) 35%,rgba(0, 0, 0, 0.7)); bottom: 0; %LEFT_STR%: 0; padding: 20px; padding-bottom: 130px; position: fixed; %RIGHT_STR%: 0; top: 0; }
 </style>
 <script type="text/javascript" src="%JQUERY%"></script>
 <script type="text/javascript" src="%JQUERY-UI%"></script>
@@ -134,7 +127,7 @@ function onEditClick(box) {
     $('body').append('<div id="fadeOverlay" class="overlay" style="display:none;">' +
         '<div id="overlay-edit" onkeypress="return onEditKeyPress(event)">' +
         '<img src="' + $(box).children('img').first().attr('src') + '"> ' +
-        '<table class="formTable"><tr><td>' + URL + ': </td><td>' +
+        '<table><tr><td>' + URL + ': </td><td>' +
         '<input type="text" id="formUrl" value="' + boxUrl + '"></td></tr>' +
         '<tr id="titleLine"><td>' + TITLE + ': </td><td>' +
         '<input type="text" id="formTitle" value="' + boxTitle + '"></td></tr>' +
@@ -212,6 +205,7 @@ function addBox(url, title, img_source) {
     a.setAttribute('class', 'boxUrl');
     var span1 = document.createElement('span');
     span1.setAttribute('class', 'boxTitle');
+    span1.setAttribute('title', unescapeTitle(title));
     span1.innerText = unescapeTitle(title);
     var span2 = document.createElement('span');
     span2.setAttribute('class', 'edit');
@@ -381,8 +375,8 @@ function sdSizeToggle() {
     var SdSizeSl = document.getElementById('sliderValueSd');
 
     SdSize.disabled = (check.checked ? false : true);
-    SdSize.value = (check.checked ? SdSize.value : 231);
-    SdSizeSl.innerHTML = (check.checked ? DIAL_WIDTH : 231);
+    SdSize.value = (check.checked ? SdSize.value : 240);
+    SdSizeSl.innerHTML = (check.checked ? DIAL_WIDTH : 240);
 }
 
 function bgImgUpdate() {
@@ -405,7 +399,7 @@ $(document).ready(function () {
   var sdCntr = "%SD-CNTR%";
 
   bgImg == '' ? $('#BgImgToggle').prop('checked', false) : $('#BgImgToggle').prop('checked', true)
-  sdSize == '231' ? $('#SdSizeToggle').prop('checked', false) : $('#SdSizeToggle').prop('checked', true)
+  sdSize == '240' ? $('#SdSizeToggle').prop('checked', false) : $('#SdSizeToggle').prop('checked', true)
   $('#BgImgToggle').is(':checked') ? $('#BgImgSel').removeAttr('disabled') : $('#BgImgSel').attr('disabled', 'disabled');
   $('#BgImgToggle').is(':checked') ? $('#BgImgSelSiz').removeAttr('disabled') : $('#BgImgSelSiz').attr('disabled', 'disabled');
   $('#SdSizeToggle').is(':checked') ? $('#SdSize').removeAttr('disabled') : $('#SdSize').attr('disabled', 'disabled');
@@ -446,7 +440,7 @@ $("#quickdial").sortable({
     </div>
     <div class="rowsel">
       <span id="sliderValuePg">%ROW-PAGES%</span>
-      <input id="PgInRow" type="range" min="2" max="8" value="%ROW-PAGES%" step="1" onchange="$('#sliderValuePg').html(this.value);" />
+      <input id="PgInRow" type="range" min="2" max="10" value="%ROW-PAGES%" step="1" onchange="$('#sliderValuePg').html(this.value);" />
     </div>
     <div class="togop">
       <input type="checkbox" name="sdcntrt" id="SdCntrToggle" />&nbsp;<label for="SdCntrToggle">%TXT_CNTRDLS%</label><br />
@@ -454,7 +448,7 @@ $("#quickdial").sortable({
     </div>
     <div class="rowsel">
       <span id="sliderValueSd">%SD-SIZE%</span>
-      <input id="SdSize" type="range" min="145" max="500" value="%SD-SIZE%" step="1" onchange="$('#sliderValueSd').html(this.value);" />
+      <input id="SdSize" type="range" min="100" max="500" value="%SD-SIZE%" step="1" onchange="$('#sliderValueSd').html(this.value);" />
     </div>
     <div class="togop">
       <input type="checkbox" name="sdbackimg" id="BgImgToggle" onchange="bgImgToggle();bgImgUpdate()" />&nbsp;<label for="BgImgToggle">%TXT_NOTE%</label>
