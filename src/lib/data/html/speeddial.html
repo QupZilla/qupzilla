@@ -11,9 +11,9 @@ body * { -webkit-user-select: none; font-size: 100%; line-height: 1.6; margin: 0
 .add, .sett { position: absolute; top: 10px; width: 32px; height: 32px; cursor: pointer; border-radius: 2px; }
 .add:hover, .sett:hover { box-shadow: 0 0 1px 2px rgba(255,255,255, 0.5); }
 #quickdial { margin: auto; text-align: center; }
-#quickdial div.entry { background-color: #ffffff; position: relative; float: %LEFT_STR%; margin: 5px; padding: 5px; border-radius: 7px; border: 1px solid; border-color: rgba(0,0,0, 0.3); /*box-shadow: 0 0 1px 1px rgba(255,255,255, 0.6);*/ }
-#quickdial div.entry:hover { box-shadow: 0 0 0 4px rgba(255,255,255, 0.5); }
-#quickdial img { display: block; margin: auto; }
+#quickdial div.entry { background-color: #ffffff; position: relative; float: %LEFT_STR%; margin: 5px; border-radius: 7px; border: 1px solid rgba(0,0,0, 0.3); background-clip: padding-box; box-shadow: 0 0 1px 1px rgba(0,0,0, 0.2); }
+#quickdial div.entry:hover { box-shadow: 0 0 0 4px rgba(255,255,255, 0.6); }
+#quickdial img { display: block; margin: auto; border-radius: 7px 7px 0 0; }
 #quickdial a { position: absolute; %LEFT_STR%: 0; top: 0; width: 100%; height: 87%; }
 span.boxTitle { width: 88%; position: absolute; %LEFT_STR%: 0; bottom: 1px; max-height: 20px; margin: 0 6%; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 span.edit, span.close, span.reload { width: 16px; height: 16px; position: absolute; background-position: center; border: 1px solid transparent; display: none; }
@@ -22,13 +22,13 @@ span.close { %RIGHT_STR%: 1px; bottom: 1px; background: url(%IMG_CLOSE%) no-repe
 span.reload { %RIGHT_STR%: 1px; top: 1px; background: url(%IMG_RELOAD%) no-repeat; }
 span.edit:hover, span.close:hover, span.reload:hover { border-color: grey; border-radius: 5px; }
 div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload { display: inline; }
-#overlay-edit { width: 380px; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; margin-top: 5%; background-color: #ffffff; border-radius: 7px; border: 1px solid; border-color: rgba(0,0,0, 0.3); box-shadow: 0 0 0 5px rgba(255,255,255, 0.5); padding: 15px; padding-bottom: 0; }
+#overlay-edit { width: 380px; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; margin-top: 5%; background-color: #ffffff; border-radius: 7px; border: 1px solid rgba(0,0,0, 0.3); box-shadow: 0 0 0 5px rgba(255,255,255, 0.6); padding: 15px; padding-bottom: 0; }
 #overlay-edit img { display: block; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; max-width: 100%; max-height: auto; }
 #overlay-edit img[src*=".gif"] { width: 54px; height: 55px; }
 #overlay-edit .buttonbox input { margin-%RIGHT_STR%: 0; margin-%LEFT_STR%: 3px; }
 #overlay-edit table { width: 100%; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; }
 #overlay-edit table input[type="text"] { width: 100%; -webkit-user-select: auto; background-color: #eeeeee; border-radius: 5px; }
-#settingsBox { margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; margin-top: 5%; width: 350px; height: auto; padding: 15px 20px 0; background-color: #ffffff; border-radius: 7px; border: 1px solid; border-color: rgba(0,0,0, 0.3); box-shadow: 0 0 0 5px rgba(255,255,255, 0.5); }
+#settingsBox { margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; margin-top: 5%; width: 350px; height: auto; padding: 15px 20px 0; background-color: #ffffff; border-radius: 7px; border: 1px solid rgba(0,0,0, 0.3); box-shadow: 0 0 0 5px rgba(255,255,255, 0.6); }
 #settingsBox .content { margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; padding-bottom: 5px; border-bottom: 1px solid #888; }
 #settingsBox .thumbhold { margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; margin-bottom: 5px; border-radius: 10px; text-align: center; width: 180px; height: 100px; background: #AAA; }
 #settingsBox .thumbhold p { padding: 0; background: #ffffff url("%IMG_BACKGROUND%") no-repeat center center; background-size: %B_SIZE%; width: 178px; height: 98px; border-radius: 10px; position: relative; %LEFT_STR%: 1px; top: 1px; line-height: 98px; cursor: default; }
