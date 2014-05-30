@@ -195,6 +195,13 @@ function allPages() {
     return value;
 }
 
+function reloadAll() {
+    if (confirm("%TITLE-WARN-REL%"))
+    $('div.entry').each(function(i) {
+        onReloadClick($(this));
+    });
+}
+
 function addBox(url, title, img_source) {
     var div = document.createElement('div');
     div.setAttribute('class', 'entry');

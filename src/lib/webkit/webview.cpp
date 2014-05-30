@@ -1011,6 +1011,8 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
         menu->addSeparator();
         menu->addAction(QIcon::fromTheme("list-add"), tr("&Add New Page"), this, SLOT(addSpeedDial()));
         menu->addAction(IconProvider::settingsIcon(), tr("&Configure Speed Dial"), this, SLOT(configureSpeedDial()));
+        menu->addSeparator();
+        menu->addAction(QIcon::fromTheme(QSL("view-refresh")), tr("Reload All Dials"), this, SLOT(reloadAllSpeedDials()));
         return;
     }
 
@@ -1236,6 +1238,11 @@ void WebView::addSpeedDial()
 void WebView::configureSpeedDial()
 {
     page()->mainFrame()->evaluateJavaScript("configureSpeedDial()");
+}
+
+void WebView::reloadAllSpeedDials()
+{
+    page()->mainFrame()->evaluateJavaScript("reloadAll()");
 }
 
 void WebView::wheelEvent(QWheelEvent* event)
