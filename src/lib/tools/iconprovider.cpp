@@ -193,7 +193,7 @@ QImage IconProvider::imageForDomain(const QUrl &url)
     }
 
     QSqlQuery query;
-    query.prepare("SELECT icon FROM icons WHERE url LIKE ?");
+    query.prepare("SELECT icon FROM icons WHERE url LIKE ? LIMIT 1");
     query.addBindValue(QString("%%1%").arg(url.host()));
     query.exec();
 
