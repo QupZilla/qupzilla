@@ -187,15 +187,18 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
     m_menu->clear();
 
     const QWebHitTestResult hitTest = page()->mainFrame()->hitTestContent(event->pos());
+    const QUrl pageUrl = page()->url();
 
     createContextMenu(m_menu, hitTest, event->pos());
 
-    if (!hitTest.isContentEditable() && !hitTest.isContentSelected() && m_window) {
+    if (!hitTest.isContentEditable() && !hitTest.isContentSelected() && pageUrl.scheme() != QLatin1String("qupzilla") && m_window) {
         m_menu->addAction(m_window->adBlockIcon()->menuAction());
     }
 
-    m_menu->addSeparator();
-    m_menu->addAction(tr("Inspect Element"), this, SLOT(inspectElement()));
+    if (pageUrl.scheme() != QLatin1String("qupzilla")) {
+        m_menu->addSeparator();
+        m_menu->addAction(tr("Inspect Element"), this, SLOT(inspectElement()));
+    }
 
     if (!m_menu->isEmpty()) {
         // Prevent choosing first option with double rightclick
