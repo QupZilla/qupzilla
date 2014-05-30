@@ -95,11 +95,11 @@ void LocationCompleterRefreshJob::runJob()
     }
 
     // Load all icons into QImage
+    QSqlQuery query;
+    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? LIMIT 1"));
     foreach (QStandardItem* item, m_items) {
         const QUrl url = item->data(LocationCompleterModel::UrlRole).toUrl();
 
-        QSqlQuery query;
-        query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? LIMIT 1"));
         query.addBindValue(QString(QL1S("%1%")).arg(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment))));
         QSqlQuery res = SqlDatabase::instance()->exec(query);
 
