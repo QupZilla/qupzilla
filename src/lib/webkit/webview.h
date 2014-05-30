@@ -180,6 +180,9 @@ private slots:
     void checkRss();
     void addSpeedDial();
     void configureSpeedDial();
+    void editSpeedDial();
+    void reloadSpeedDial();
+    void deleteSpeedDial();
 
 private:
     QList<int> m_zoomLevels;
