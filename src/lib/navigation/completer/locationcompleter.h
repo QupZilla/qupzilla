@@ -51,6 +51,7 @@ signals:
     void loadCompletion();
     void clearCompletion();
     void popupClosed();
+    void cancelRefreshJob();
 
 private slots:
     void refreshJobFinished();

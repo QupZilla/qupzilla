@@ -70,8 +70,11 @@ void LocationCompleter::complete(const QString &string)
     // Eg. popup was not closed yet this completion session
     m_popupClosed = false;
 
+    emit cancelRefreshJob();
+
     LocationCompleterRefreshJob* job = new LocationCompleterRefreshJob(trimmedStr);
     connect(job, SIGNAL(finished()), this, SLOT(refreshJobFinished()));
+    connect(this, SIGNAL(cancelRefreshJob()), job, SLOT(jobCancelled()));
 }
 
 void LocationCompleter::showMostVisited()
