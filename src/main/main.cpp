@@ -170,7 +170,7 @@ int main(int argc, char* argv[])
     // Hack to fix QT_STYLE_OVERRIDE with QProxyStyle
     const QByteArray style = qgetenv("QT_STYLE_OVERRIDE");
     if (!style.isEmpty()) {
-        char **args = (char**) malloc(sizeof(char*) * (argc + 1));
+        char** args = (char**) malloc(sizeof(char*) * (argc + 1));
         for (int i = 0; i < argc; ++i)
             args[i] = argv[i];
 

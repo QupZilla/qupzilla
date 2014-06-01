@@ -36,6 +36,7 @@ public:
 
     QWidget* overlayWidget();
     void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position);
+    void openNewTab(Qz::NewTabPositionFlags position);
 
 signals:
 

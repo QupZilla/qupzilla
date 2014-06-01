@@ -214,10 +214,10 @@ void TabbedWebView::closeView()
     emit wantsCloseTab(tabIndex());
 }
 
-void TabbedWebView::openNewTab()
+void TabbedWebView::openNewTab(Qz::NewTabPositionFlags position)
 {
     if (m_window) {
-        m_window->tabWidget()->addView(QUrl());
+        m_window->tabWidget()->addView(QUrl(), position);
     }
 }
 

@@ -75,6 +75,18 @@ void PopupWebView::loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags 
     }
 }
 
+void PopupWebView::openNewTab(Qz::NewTabPositionFlags position)
+{
+    Q_UNUSED(position)
+
+    BrowserWindow* window = mApp->getWindow();
+
+    if (window) {
+        window->tabWidget()->addView(QUrl(), Qz::NT_SelectedTab);
+        window->raise();
+    }
+}
+
 void PopupWebView::closeView()
 {
     parentWidget()->close();

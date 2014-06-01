@@ -59,7 +59,7 @@ public slots:
     void userLoadAction(const LoadRequest &req);
 
     void closeView();
-    void openNewTab();
+    void openNewTab(Qz::NewTabPositionFlags position);
     void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position);
 
 private slots:
