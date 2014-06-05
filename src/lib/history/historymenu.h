@@ -45,7 +45,6 @@ private slots:
     void aboutToShow();
     void aboutToHide();
 
-    void aboutToShowRecentlyVisited();
     void aboutToShowMostVisited();
     void aboutToShowClosedTabs();
 
@@ -61,7 +60,6 @@ private:
     void init();
 
     QPointer<BrowserWindow> m_window;
-    Menu* m_menuRecentlyVisited;
     Menu* m_menuMostVisited;
     Menu* m_menuClosedTabs;
 };

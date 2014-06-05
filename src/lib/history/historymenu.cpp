@@ -87,21 +87,20 @@ void HistoryMenu::aboutToShow()
         actions().at(0)->setEnabled(view->history()->canGoBack());
         actions().at(1)->setEnabled(view->history()->canGoForward());
     }
-}
 
-void HistoryMenu::aboutToHide()
-{
-    // Enable Back/Forward actions to ensure shortcuts are working
-    actions().at(0)->setEnabled(true);
-    actions().at(1)->setEnabled(true);
-}
+    while (actions().count() != 7) {
+        QAction* act = actions().at(7);
+        if (act->menu()) {
+            act->menu()->clear();
+        }
+        removeAction(act);
+        delete act;
+    }
 
-void HistoryMenu::aboutToShowRecentlyVisited()
-{
-    m_menuRecentlyVisited->clear();
+    addSeparator();
 
     QSqlQuery query;
-    query.exec("SELECT title, url FROM history ORDER BY date DESC LIMIT 15");
+    query.exec(QSL("SELECT title, url FROM history ORDER BY date DESC LIMIT 10"));
 
     while (query.next()) {
         const QUrl url = query.value(1).toUrl();
@@ -112,12 +111,15 @@ void HistoryMenu::aboutToShowRecentlyVisited()
         connect(act, SIGNAL(triggered()), this, SLOT(historyEntryActivated()));
         connect(act, SIGNAL(ctrlTriggered()), this, SLOT(historyEntryCtrlActivated()));
         connect(act, SIGNAL(shiftTriggered()), this, SLOT(historyEntryShiftActivated()));
-        m_menuRecentlyVisited->addAction(act);
+        addAction(act);
     }
+}
 
-    if (m_menuRecentlyVisited->isEmpty()) {
-        m_menuRecentlyVisited->addAction(tr("Empty"))->setEnabled(false);
-    }
+void HistoryMenu::aboutToHide()
+{
+    // Enable Back/Forward actions to ensure shortcuts are working
+    actions().at(0)->setEnabled(true);
+    actions().at(1)->setEnabled(true);
 }
 
 void HistoryMenu::aboutToShowMostVisited()
@@ -230,16 +232,12 @@ void HistoryMenu::init()
     connect(this, SIGNAL(aboutToShow()), this, SLOT(aboutToShow()));
     connect(this, SIGNAL(aboutToHide()), this, SLOT(aboutToHide()));
 
-    m_menuRecentlyVisited = new Menu(tr("Recently Visited"), this);
-    connect(m_menuRecentlyVisited, SIGNAL(aboutToShow()), this, SLOT(aboutToShowRecentlyVisited()));
-
     m_menuMostVisited = new Menu(tr("Most Visited"), this);
     connect(m_menuMostVisited, SIGNAL(aboutToShow()), this, SLOT(aboutToShowMostVisited()));
 
     m_menuClosedTabs = new Menu(tr("Closed Tabs"));
     connect(m_menuClosedTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabs()));
 
-    addMenu(m_menuRecentlyVisited);
     addMenu(m_menuMostVisited);
     addMenu(m_menuClosedTabs);
 }
