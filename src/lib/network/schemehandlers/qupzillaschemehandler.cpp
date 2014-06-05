@@ -293,7 +293,6 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.append(QzTools::readAllFileContents(":html/speeddial.html"));
         dPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
         dPage.replace(QLatin1String("%IMG_PLUS%"), QLatin1String("qrc:html/plus.png"));
-        dPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border-small.png"));
         dPage.replace(QLatin1String("%IMG_CLOSE%"), QLatin1String("qrc:html/close.png"));
         dPage.replace(QLatin1String("%IMG_EDIT%"), QLatin1String("qrc:html/edit.png"));
         dPage.replace(QLatin1String("%IMG_RELOAD%"), QLatin1String("qrc:html/reload.png"));
@@ -308,6 +307,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%TITLE-REMOVE%"), tr("Remove"));
         dPage.replace(QLatin1String("%TITLE-RELOAD%"), tr("Reload"));
         dPage.replace(QLatin1String("%TITLE-WARN%"), tr("Are you sure to remove this speed dial?"));
+        dPage.replace(QLatin1String("%TITLE-WARN-REL%"), tr("Are you sure to reload all speed dials?"));
         dPage.replace(QLatin1String("%TITLE-FETCHTITLE%"), tr("Load title from page"));
         dPage.replace(QLatin1String("%URL%"), tr("Url"));
         dPage.replace(QLatin1String("%TITLE%"), tr("Title"));
