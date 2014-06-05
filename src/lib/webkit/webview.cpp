@@ -1072,11 +1072,6 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
 
 void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
 {
-    // Workaround for QtWebKit <= 2.0 when selecting link text on right click
-    if (page()->selectedText() == hitTest.linkText()) {
-        findText(QString());
-    }
-
     menu->addSeparator();
     Action* act = new Action(IconProvider::newTabIcon(), tr("Open link in new &tab"));
     act->setData(hitTest.linkUrl());
