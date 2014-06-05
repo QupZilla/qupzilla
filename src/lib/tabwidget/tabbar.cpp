@@ -158,16 +158,14 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
         return QSize(-1, -1);
     }
 
-    static int PINNED_TAB_WIDTH = comboTabBarPixelMetric(ComboTabBar::PinnedTabWidth);
-    static int MINIMUM_ACTIVE_TAB_WIDTH = comboTabBarPixelMetric(ComboTabBar::ActiveTabMinimumWidth);
-    static int MAXIMUM_TAB_WIDTH = comboTabBarPixelMetric(ComboTabBar::NormalTabMaximumWidth);
-    static int MINIMUM_TAB_WIDTH = comboTabBarPixelMetric(ComboTabBar::NormalTabMinimumWidth);
+    const int pinnedTabWidth = comboTabBarPixelMetric(ComboTabBar::PinnedTabWidth);
+    const int minTabWidth = comboTabBarPixelMetric(ComboTabBar::NormalTabMinimumWidth);
 
     QSize size = ComboTabBar::tabSizeHint(index);
 
     // The overflowed tabs have same size and we can use this fast method
     if (fast) {
-        size.setWidth(index >= pinnedTabsCount() ? MINIMUM_TAB_WIDTH : PINNED_TAB_WIDTH);
+        size.setWidth(index >= pinnedTabsCount() ? minTabWidth : pinnedTabWidth);
         return size;
     }
 
@@ -175,7 +173,7 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
     TabBar* tabBar = const_cast <TabBar*>(this);
 
     if (webTab && webTab->isPinned()) {
-        size.setWidth(PINNED_TAB_WIDTH);
+        size.setWidth(pinnedTabWidth);
     }
     else {
         int availableWidth = mainTabBarWidth() - comboTabBarPixelMetric(ExtraReservedWidth);
@@ -185,25 +183,28 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
         }
 
         const int normalTabsCount = ComboTabBar::normalTabsCount();
+        const int maxTabWidth = comboTabBarPixelMetric(ComboTabBar::NormalTabMaximumWidth);
 
-        if (availableWidth >= MAXIMUM_TAB_WIDTH * normalTabsCount) {
-            m_normalTabWidth = MAXIMUM_TAB_WIDTH;
+        if (availableWidth >= maxTabWidth * normalTabsCount) {
+            m_normalTabWidth = maxTabWidth;
             size.setWidth(m_normalTabWidth);
         }
         else if (normalTabsCount > 0) {
+            const int minActiveTabWidth = comboTabBarPixelMetric(ComboTabBar::ActiveTabMinimumWidth);
+
             int maxWidthForTab = availableWidth / normalTabsCount;
             int realTabWidth = maxWidthForTab;
             bool adjustingActiveTab = false;
 
-            if (realTabWidth < MINIMUM_ACTIVE_TAB_WIDTH) {
-                maxWidthForTab = normalTabsCount > 1 ? (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH) / (normalTabsCount - 1) : 0;
-                realTabWidth = MINIMUM_ACTIVE_TAB_WIDTH;
+            if (realTabWidth < minActiveTabWidth) {
+                maxWidthForTab = normalTabsCount > 1 ? (availableWidth - minActiveTabWidth) / (normalTabsCount - 1) : 0;
+                realTabWidth = minActiveTabWidth;
                 adjustingActiveTab = true;
             }
 
-            bool tryAdjusting = availableWidth >= MINIMUM_TAB_WIDTH * normalTabsCount;
+            bool tryAdjusting = availableWidth >= minTabWidth * normalTabsCount;
 
-            if (m_showCloseOnInactive != 1 && tabsClosable() && availableWidth < (MINIMUM_TAB_WIDTH + 25) * normalTabsCount) {
+            if (m_showCloseOnInactive != 1 && tabsClosable() && availableWidth < (minTabWidth + 25) * normalTabsCount) {
                 // Hiding close buttons to save some space
                 tabBar->setTabsClosable(false);
                 tabBar->showCloseButton(currentIndex());
@@ -220,7 +221,7 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
                 // Fill any empty space (we've got from rounding) with active tab
                 if (index == mainTabBarCurrentIndex()) {
                     if (adjustingActiveTab) {
-                        m_activeTabWidth = (availableWidth - MINIMUM_ACTIVE_TAB_WIDTH
+                        m_activeTabWidth = (availableWidth - minActiveTabWidth
                                             - maxWidthForTab * (normalTabsCount - 1)) + realTabWidth;
                     }
                     else {
@@ -235,7 +236,7 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
         }
 
         // Restore close buttons according to preferences
-        if (m_showCloseOnInactive != 2 && !tabsClosable() && availableWidth >= (MINIMUM_TAB_WIDTH + 25) * normalTabsCount) {
+        if (m_showCloseOnInactive != 2 && !tabsClosable() && availableWidth >= (minTabWidth + 25) * normalTabsCount) {
             tabBar->setTabsClosable(true);
 
             // Hide close buttons on pinned tabs

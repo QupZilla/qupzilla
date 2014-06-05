@@ -676,13 +676,6 @@ void WebView::bookmarkLink()
     }
 }
 
-void WebView::showSourceOfSelection()
-{
-#if QTWEBKIT_FROM_2_2
-    showSource(page()->mainFrame(), selectedHtml());
-#endif
-}
-
 void WebView::openUrlInSelectedTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
@@ -989,14 +982,6 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
 
     menu->addSeparator();
     mApp->plugins()->populateWebViewMenu(menu, this, hitTest);
-
-#if QTWEBKIT_FROM_2_2
-    //    still bugged? in 4.8 RC (it shows selection of webkit's internal source, not html from page)
-    //    it may or may not be bug, but this implementation is useless for us
-    //
-    //    if (!selectedHtml().isEmpty())
-    //        menu->addAction(tr("Show source of selection"), this, SLOT(showSourceOfSelection()));
-#endif
 }
 
 void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
@@ -1011,63 +996,62 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
     action->setEnabled(history()->canGoForward());
 
-    if (url() != QUrl("qupzilla:speeddial")) {
-
-        menu->addAction(m_actionReload);
-        menu->addAction(m_actionStop);
-        menu->addSeparator();
-
-        if (frameAtPos && page()->mainFrame() != frameAtPos) {
-            m_clickedFrame = frameAtPos;
-            Menu* frameMenu = new Menu(tr("This frame"));
-            frameMenu->setCloseOnMiddleClick(true);
-            frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
-            Action* act = new Action(IconProvider::newTabIcon(), tr("Show this frame in new &tab"));
-            connect(act, SIGNAL(triggered()), this, SLOT(loadClickedFrameInNewTab()));
-            connect(act, SIGNAL(ctrlTriggered()), this, SLOT(loadClickedFrameInBgTab()));
-            frameMenu->addAction(act);
-            frameMenu->addSeparator();
-            frameMenu->addAction(QIcon::fromTheme(QSL("view-refresh")), tr("&Reload"), this, SLOT(reloadClickedFrame()));
-            frameMenu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
-            frameMenu->addSeparator();
-            frameMenu->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &in"), this, SLOT(clickedFrameZoomIn()));
-            frameMenu->addAction(QIcon::fromTheme("zoom-out"), tr("&Zoom out"), this, SLOT(clickedFrameZoomOut()));
-            frameMenu->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(clickedFrameZoomReset()));
-            frameMenu->addSeparator();
-            frameMenu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce of frame"), this, SLOT(showClickedFrameSource()));
-
-            menu->addMenu(frameMenu);
-        }
-
-        menu->addSeparator();
-        menu->addAction(QIcon::fromTheme("bookmark-new"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
-        menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(savePageAs()));
-        menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
-        menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
-        menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printPage()));
-        menu->addSeparator();
-        menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(editSelectAll()));
-        menu->addSeparator();
-
-        if (url().scheme() == QLatin1String("http") || url().scheme() == QLatin1String("https")) {
-            const QUrl w3url = QUrl::fromEncoded("http://validator.w3.org/check?uri=" + QUrl::toPercentEncoding(url().toEncoded()));
-            menu->addAction(QIcon(":icons/sites/w3.png"), tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(w3url);
-
-            QByteArray langCode = mApp->currentLanguage().left(2).toUtf8();
-            const QUrl gturl = QUrl::fromEncoded("http://translate.google.com/translate?sl=auto&tl=" + langCode + "&u=" + QUrl::toPercentEncoding(url().toEncoded()));
-            menu->addAction(QIcon(":icons/sites/translate.png"), tr("Translate page"), this, SLOT(openUrlInSelectedTab()))->setData(gturl);
-        }
-
-        menu->addSeparator();
-        menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
-        menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()));
-    }
-
-    else {
+    // Special menu for Speed Dial page
+    if (url().toString() == QL1S("qupzilla:speeddial")) {
         menu->addSeparator();
         menu->addAction(QIcon::fromTheme("list-add"), tr("&Add New Page"), this, SLOT(addSpeedDial()));
         menu->addAction(IconProvider::settingsIcon(), tr("&Configure Speed Dial"), this, SLOT(configureSpeedDial()));
+        return;
     }
+
+    menu->addAction(m_actionReload);
+    menu->addAction(m_actionStop);
+    menu->addSeparator();
+
+    if (frameAtPos && page()->mainFrame() != frameAtPos) {
+        m_clickedFrame = frameAtPos;
+        Menu* frameMenu = new Menu(tr("This frame"));
+        frameMenu->setCloseOnMiddleClick(true);
+        frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
+        Action* act = new Action(IconProvider::newTabIcon(), tr("Show this frame in new &tab"));
+        connect(act, SIGNAL(triggered()), this, SLOT(loadClickedFrameInNewTab()));
+        connect(act, SIGNAL(ctrlTriggered()), this, SLOT(loadClickedFrameInBgTab()));
+        frameMenu->addAction(act);
+        frameMenu->addSeparator();
+        frameMenu->addAction(QIcon::fromTheme(QSL("view-refresh")), tr("&Reload"), this, SLOT(reloadClickedFrame()));
+        frameMenu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
+        frameMenu->addSeparator();
+        frameMenu->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &in"), this, SLOT(clickedFrameZoomIn()));
+        frameMenu->addAction(QIcon::fromTheme("zoom-out"), tr("&Zoom out"), this, SLOT(clickedFrameZoomOut()));
+        frameMenu->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(clickedFrameZoomReset()));
+        frameMenu->addSeparator();
+        frameMenu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce of frame"), this, SLOT(showClickedFrameSource()));
+
+        menu->addMenu(frameMenu);
+    }
+
+    menu->addSeparator();
+    menu->addAction(QIcon::fromTheme("bookmark-new"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
+    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(savePageAs()));
+    menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
+    menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printPage()));
+    menu->addSeparator();
+    menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(editSelectAll()));
+    menu->addSeparator();
+
+    if (url().scheme() == QLatin1String("http") || url().scheme() == QLatin1String("https")) {
+        const QUrl w3url = QUrl::fromEncoded("http://validator.w3.org/check?uri=" + QUrl::toPercentEncoding(url().toEncoded()));
+        menu->addAction(QIcon(":icons/sites/w3.png"), tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(w3url);
+
+        QByteArray langCode = mApp->currentLanguage().left(2).toUtf8();
+        const QUrl gturl = QUrl::fromEncoded("http://translate.google.com/translate?sl=auto&tl=" + langCode + "&u=" + QUrl::toPercentEncoding(url().toEncoded()));
+        menu->addAction(QIcon(":icons/sites/translate.png"), tr("Translate page"), this, SLOT(openUrlInSelectedTab()))->setData(gturl);
+    }
+
+    menu->addSeparator();
+    menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
+    menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()));
 }
 
 void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)

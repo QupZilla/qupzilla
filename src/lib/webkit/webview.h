@@ -129,7 +129,6 @@ protected slots:
     void searchSelectedText();
     void searchSelectedTextInBackgroundTab();
     void bookmarkLink();
-    void showSourceOfSelection();
     void openUrlInSelectedTab();
     void openUrlInBackgroundTab();
 
