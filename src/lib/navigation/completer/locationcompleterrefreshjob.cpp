@@ -31,10 +31,13 @@
 #include <QtConcurrentRun>
 #endif
 
+QHash<QString, QByteArray> LocationCompleterRefreshJob::m_iconCache;
+
 LocationCompleterRefreshJob::LocationCompleterRefreshJob(const QString &searchString)
     : QObject()
     , m_timestamp(QDateTime::currentMSecsSinceEpoch())
     , m_searchString(searchString)
+    , m_jobCancelled(false)
 {
     m_watcher = new QFutureWatcher<void>(this);
     connect(m_watcher, SIGNAL(finished()), this, SLOT(slotFinished()));
@@ -63,6 +66,11 @@ QString LocationCompleterRefreshJob::domainCompletion() const
     return m_domainCompletion;
 }
 
+void LocationCompleterRefreshJob::jobCancelled()
+{
+    m_jobCancelled = true;
+}
+
 void LocationCompleterRefreshJob::slotFinished()
 {
     emit finished();
@@ -83,7 +91,7 @@ static bool countBiggerThan(const QStandardItem* i1, const QStandardItem* i2)
 
 void LocationCompleterRefreshJob::runJob()
 {
-    if (mApp->isClosing() || !mApp) {
+    if (m_jobCancelled || mApp->isClosing() || !mApp) {
         return;
     }
 
@@ -96,16 +104,36 @@ void LocationCompleterRefreshJob::runJob()
 
     // Load all icons into QImage
     QSqlQuery query;
-    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? LIMIT 1"));
+    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE \'!\' LIMIT 1"));
 
     foreach (QStandardItem* item, m_items) {
         const QUrl url = item->data(LocationCompleterModel::UrlRole).toUrl();
+        QString urlString = QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment));
+
+        // escaped sqlite wildcards
+        urlString.replace("!", "!!");
+        urlString.replace("%", "!%");
+        urlString.replace("_", "!_");
 
         query.bindValue(0, QString(QL1S("%1%")).arg(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment))));
-        QSqlQuery res = SqlDatabase::instance()->exec(query);
 
-        if (res.next()) {
-            item->setData(QImage::fromData(res.value(0).toByteArray()), LocationCompleterModel::ImageRole);
+        if (m_iconCache.contains(urlString)) {
+            item->setData(QImage::fromData(m_iconCache.value(urlString)), LocationCompleterModel::ImageRole);
+        }
+        else {
+            if (m_jobCancelled) {
+                return;
+            }
+            query.bindValue(0, QString(QL1S("%1%")).arg(urlString));
+            QSqlQuery res = SqlDatabase::instance()->exec(query);
+            if (res.next()) {
+                const QByteArray &iconData = res.value(0).toByteArray();
+                m_iconCache.insert(urlString, iconData);
+                item->setData(QImage::fromData(iconData), LocationCompleterModel::ImageRole);
+            }
+            else {
+                m_iconCache.insert(urlString, QByteArray());
+            }
         }
     }
 
