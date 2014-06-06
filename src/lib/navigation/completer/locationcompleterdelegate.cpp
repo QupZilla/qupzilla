@@ -212,15 +212,18 @@ static QSizeF viewItemTextLayout(QTextLayout &textLayout, int lineWidth)
 void LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItemV4 *option, const QRect &rect,
                                                  const QString &text, const QPalette::ColorRole &role, const QString &searchText) const
 {
+    if (text.isEmpty()) {
+        return;
+    }
+
     const QColor &color = option->palette.color(role);
-    const QWidget *widget = option->widget;
+    const QWidget* widget = option->widget;
     const QStyle* proxyStyle = widget ? widget->style()->proxy() : QApplication::style()->proxy();
     const int textMargin = proxyStyle->pixelMetric(QStyle::PM_FocusFrameHMargin, 0, widget) + 1;
 
     QRect textRect = rect.adjusted(textMargin, 0, -textMargin, 0); // remove width padding
-    const QFontMetrics &fontMetrics(p->font());
-    // a workaround for not drawing highlighted text on icon
-    const QString &elidedText = fontMetrics.elidedText(text, option->textElideMode, textRect.width() - 2 * m_padding - 2);
+    const QFontMetrics fontMetrics(p->font());
+    QString elidedText = fontMetrics.elidedText(text, option->textElideMode, textRect.width());
     QTextOption textOption;
     textOption.setWrapMode(QTextOption::NoWrap);
     textOption.setTextDirection(text.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight);
@@ -298,15 +301,33 @@ void LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOption
     // do layout
     viewItemTextLayout(textLayout, textRect.width());
 
+    if (textLayout.lineCount() <= 0) {
+        return;
+    }
+
+    QTextLine textLine = textLayout.lineAt(0);
+
+    // if elidedText after highlighting is longer
+    // than available width then re-elide it and redo layout
+    int diff = textLine.naturalTextWidth() - textRect.width();
+    if (diff > 0) {
+        elidedText = fontMetrics.elidedText(elidedText, option->textElideMode, textRect.width() - diff);
+
+        textLayout.setText(elidedText);
+        // redo layout
+        viewItemTextLayout(textLayout, textRect.width());
+
+        if (textLayout.lineCount() <= 0) {
+            return;
+        }
+        textLine = textLayout.lineAt(0);
+    }
+
     // draw line
     p->setPen(color);
-    const int lineCount = textLayout.lineCount();
-    if (lineCount > 0) {
-        qreal height = textLayout.lineAt(0).height();
-        qreal width = qMax<qreal>(textRect.width(), textLayout.lineAt(0).width());
-        const QRect &layoutRect = QStyle::alignedRect(option->direction, option->displayAlignment, QSize(int(width), int(height)), textRect);
-        const QPointF &position = layoutRect.topLeft();
+    qreal width = qMax<qreal>(textRect.width(), textLayout.lineAt(0).width());
+    const QRect &layoutRect = QStyle::alignedRect(option->direction, option->displayAlignment, QSize(int(width), int(textLine.height())), textRect);
+    const QPointF &position = layoutRect.topLeft();
 
-        textLayout.lineAt(0).draw(p, position);
-    }
+    textLine.draw(p, position);
 }
