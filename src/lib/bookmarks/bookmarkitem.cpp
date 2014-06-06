@@ -24,6 +24,7 @@ BookmarkItem::BookmarkItem(BookmarkItem::Type type, BookmarkItem* parent)
     , m_visitCount(0)
     , m_expanded(false)
     , m_sidebarExpanded(false)
+    , m_changed(true)
 {
     if (m_parent) {
         parent->addChild(this);
@@ -189,6 +190,16 @@ void BookmarkItem::removeChild(BookmarkItem* child)
 {
     child->m_parent = 0;
     m_children.removeOne(child);
+}
+
+bool BookmarkItem::isChanged() const
+{
+    return m_changed;
+}
+
+void BookmarkItem::setChanged(bool changed)
+{
+    m_changed = changed;
 }
 
 BookmarkItem::Type BookmarkItem::typeFromString(const QString &string)

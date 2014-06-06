@@ -82,6 +82,12 @@ public:
     void addChild(BookmarkItem* child, int index = -1);
     void removeChild(BookmarkItem* child);
 
+    // Only applicable to Folder type,
+    // return true if at least one of item's children
+    // has changed/removed or a new child has added
+    bool isChanged() const;
+    void setChanged(bool changed);
+
     static Type typeFromString(const QString &string);
     static QString typeToString(Type type);
 
@@ -99,6 +105,7 @@ private:
     int m_visitCount;
     bool m_expanded;
     bool m_sidebarExpanded;
+    bool m_changed;
 };
 
 #endif // BOOKMARKITEM_H

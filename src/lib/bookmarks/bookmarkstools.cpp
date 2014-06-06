@@ -33,6 +33,8 @@
 #include <QLineEdit>
 #include <QStyle>
 #include <QDialog>
+#include <QApplication>
+#include <QDesktopWidget>
 
 // BookmarksFoldersMenu
 BookmarksFoldersMenu::BookmarksFoldersMenu(QWidget* parent)
@@ -310,21 +312,19 @@ void BookmarksTools::addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem
     Q_ASSERT(folder);
     Q_ASSERT(folder->isFolder());
 
-    Menu* m = new Menu(folder->title());
+    Menu* m = new Menu;
+    static int width = qMin(500, QApplication::desktop()->screenGeometry(menu).width() / 4);
+    QString title = QFontMetrics(m->font()).elidedText(folder->title(), Qt::ElideRight, width);
+
+    m->setTitle(title);
     m->setIcon(folder->icon());
+
     QObject::connect(m, SIGNAL(menuMiddleClicked(Menu*)), receiver, SLOT(menuMiddleClicked(Menu*)));
+    QObject::connect(m, SIGNAL(aboutToShow()), receiver, SLOT(aboutToShow()));
 
     QAction* act = menu->addMenu(m);
     act->setData(QVariant::fromValue<void*>(static_cast<void*>(folder)));
     act->setIconVisibleInMenu(true);
-
-    foreach (BookmarkItem* child, folder->children()) {
-        addActionToMenu(receiver, m, child);
-    }
-
-    if (m->isEmpty()) {
-        m->addAction(Bookmarks::tr("Empty"))->setDisabled(true);
-    }
 }
 
 void BookmarksTools::addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* bookmark)
@@ -333,7 +333,14 @@ void BookmarksTools::addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* b
     Q_ASSERT(bookmark);
     Q_ASSERT(bookmark->isUrl());
 
-    Action* act = new Action(bookmark->icon(), bookmark->title());
+    Action* act = new Action;
+
+    static int width = qMin(500, QApplication::desktop()->screenGeometry(menu).width() / 4);
+    QString title = QFontMetrics(act->font()).elidedText(bookmark->title(), Qt::ElideRight, width);
+
+    act->setText(title);
+    act->setIcon(bookmark->icon());
+
     act->setData(QVariant::fromValue<void*>(static_cast<void*>(bookmark)));
     act->setIconVisibleInMenu(true);
 

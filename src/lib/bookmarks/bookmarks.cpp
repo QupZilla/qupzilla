@@ -142,6 +142,8 @@ void Bookmarks::insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item
 
     m_lastFolder = parent;
     m_model->addBookmark(parent, row, item);
+    parent->setChanged(true);
+
     emit bookmarkAdded(item);
 
     m_autoSaver->changeOcurred();
@@ -151,6 +153,10 @@ bool Bookmarks::removeBookmark(BookmarkItem* item)
 {
     if (!canBeModified(item)) {
         return false;
+    }
+
+    if (item && item->parent()) {
+        item->parent()->setChanged(true);
     }
 
     m_model->removeBookmark(item);
@@ -163,6 +169,11 @@ bool Bookmarks::removeBookmark(BookmarkItem* item)
 void Bookmarks::changeBookmark(BookmarkItem* item)
 {
     Q_ASSERT(item);
+
+    if (item && item->parent()) {
+        item->parent()->setChanged(true);
+    }
+
     emit bookmarkChanged(item);
 
     m_autoSaver->changeOcurred();

@@ -72,10 +72,41 @@ void BookmarksMenu::bookmarksChanged()
 
 void BookmarksMenu::aboutToShow()
 {
-    if (m_changed) {
-        refresh();
-        m_changed = false;
+    Menu* menu = qobject_cast<Menu*>(sender());
+    if (!menu) {
+        return;
     }
+
+    // root menu
+    if (menu == this) {
+        if (mApp->bookmarks()->rootItem()->isChanged() || mApp->bookmarks()->menuFolder()->isChanged()) {
+            refresh();
+            mApp->bookmarks()->menuFolder()->setChanged(false);
+            mApp->bookmarks()->rootItem()->setChanged(false);
+        }
+        return;
+    }
+
+    // sub menus
+    BookmarkItem* folder = static_cast<BookmarkItem*>(menu->menuAction()->data().value<void*>());
+
+    if (!folder || !folder->isFolder() || !folder->isChanged()) {
+        return;
+    }
+
+    menu->clear();
+    foreach(BookmarkItem* child, folder->children()) {
+        BookmarksTools::addActionToMenu(this, menu, child);
+        if (child->isFolder()) {
+            child->setChanged(true);
+        }
+    }
+
+    if (menu->isEmpty()) {
+        menu->addAction(Bookmarks::tr("Empty"))->setDisabled(true);
+    }
+
+    folder->setChanged(false);
 }
 
 void BookmarksMenu::menuMiddleClicked(Menu* menu)
@@ -171,6 +202,7 @@ void BookmarksMenu::refresh()
     }
 
     BookmarksTools::addActionToMenu(this, this, mApp->bookmarks()->toolbarFolder());
+    mApp->bookmarks()->toolbarFolder()->setChanged(true);
     addSeparator();
 
     foreach (BookmarkItem* child, mApp->bookmarks()->menuFolder()->children()) {
@@ -179,4 +211,5 @@ void BookmarksMenu::refresh()
 
     addSeparator();
     BookmarksTools::addActionToMenu(this, this, mApp->bookmarks()->unsortedFolder());
+    mApp->bookmarks()->unsortedFolder()->setChanged(true);
 }
