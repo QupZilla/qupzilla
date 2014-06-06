@@ -40,7 +40,6 @@ public:
     LoadRequest &operator=(const LoadRequest &other);
 
     bool isEmpty() const;
-    void load(QWebView* view) const;
 
     QUrl url() const;
     void setUrl(const QUrl &url);

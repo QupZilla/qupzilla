@@ -158,6 +158,7 @@ protected:
     void keyReleaseEvent(QKeyEvent* event);
     void resizeEvent(QResizeEvent* event);
 
+    void loadRequest(const LoadRequest &req);
     void applyZoom();
     QUrl lastUrl();
 

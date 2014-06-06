@@ -192,14 +192,24 @@ void WebView::load(const LoadRequest &request)
     }
 
     if (reqUrl.isEmpty() || isUrlValid(reqUrl)) {
-        request.load(this);
-        m_aboutToLoadUrl = reqUrl;
+        loadRequest(request);
+        return;
+    }
+
+    // Make sure to correctly load hosts like localhost (eg. without the dot)
+    if (!reqUrl.isEmpty() &&
+        reqUrl.scheme().isEmpty() &&
+        !reqUrl.path().contains(QL1C(' ')) &&
+        !reqUrl.path().contains(QL1C('.'))
+       ) {
+        LoadRequest req = request;
+        req.setUrl(QUrl(QSL("http://") + reqUrl.path()));
+        loadRequest(req);
         return;
     }
 
     const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(reqUrl.toString());
-    m_aboutToLoadUrl = searchRequest.url();
-    searchRequest.load(this);
+    loadRequest(searchRequest);
 }
 
 bool WebView::loadingError() const
@@ -1481,6 +1491,16 @@ void WebView::resizeEvent(QResizeEvent* event)
 {
     QWebView::resizeEvent(event);
     emit viewportResized(page()->viewportSize());
+}
+
+void WebView::loadRequest(const LoadRequest &req)
+{
+    m_aboutToLoadUrl = req.url();
+
+    if (req.operation() == LoadRequest::GetOperation)
+        QWebView::load(req.networkRequest());
+    else
+        QWebView::load(req.networkRequest(), QNetworkAccessManager::PostOperation, req.data());
 }
 
 bool WebView::eventFilter(QObject* obj, QEvent* event)

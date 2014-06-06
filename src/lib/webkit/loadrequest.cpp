@@ -34,7 +34,7 @@ LoadRequest::LoadRequest(const LoadRequest &other)
 LoadRequest::LoadRequest(const QUrl &url)
     : m_operation(GetOperation)
 {
-    m_request.setUrl(url);
+    setUrl(url);
 }
 
 LoadRequest::LoadRequest(const QNetworkRequest &req, LoadRequest::Operation op, const QByteArray &data)
@@ -55,16 +55,6 @@ LoadRequest &LoadRequest::operator=(const LoadRequest &other)
 bool LoadRequest::isEmpty() const
 {
     return m_request.url().isEmpty();
-}
-
-void LoadRequest::load(QWebView* view) const
-{
-    if (m_operation == GetOperation) {
-        view->load(m_request);
-    }
-    else {
-        view->load(m_request, QNetworkAccessManager::PostOperation, m_data);
-    }
 }
 
 QUrl LoadRequest::url() const
