@@ -43,6 +43,7 @@ signals:
 
 private slots:
     void slotFinished();
+    void jobCancelled();
 
 private:
     enum Type {
@@ -63,6 +64,7 @@ private:
     QString m_domainCompletion;
     QList<QStandardItem*> m_items;
     QFutureWatcher<void>* m_watcher;
+    bool m_jobCancelled;
 };
 
 #endif // LOCATIONCOMPLETERREFRESHJOB_H

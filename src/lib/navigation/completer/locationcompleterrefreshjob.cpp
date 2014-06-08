@@ -36,6 +36,7 @@ LocationCompleterRefreshJob::LocationCompleterRefreshJob(const QString &searchSt
     : QObject()
     , m_timestamp(QDateTime::currentMSecsSinceEpoch())
     , m_searchString(searchString)
+    , m_jobCancelled(false)
 {
     m_watcher = new QFutureWatcher<void>(this);
     connect(m_watcher, SIGNAL(finished()), this, SLOT(slotFinished()));
@@ -64,6 +65,11 @@ QString LocationCompleterRefreshJob::domainCompletion() const
     return m_domainCompletion;
 }
 
+void LocationCompleterRefreshJob::jobCancelled()
+{
+    m_jobCancelled = true;
+}
+
 void LocationCompleterRefreshJob::slotFinished()
 {
     emit finished();
@@ -84,7 +90,7 @@ static bool countBiggerThan(const QStandardItem* i1, const QStandardItem* i2)
 
 void LocationCompleterRefreshJob::runJob()
 {
-    if (mApp->isClosing() || !mApp) {
+    if (m_jobCancelled || mApp->isClosing() || !mApp) {
         return;
     }
 
@@ -100,6 +106,10 @@ void LocationCompleterRefreshJob::runJob()
     query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE ? LIMIT 1"));
 
     foreach (QStandardItem* item, m_items) {
+        if (m_jobCancelled) {
+            return;
+        }
+
         const QUrl url = item->data(LocationCompleterModel::UrlRole).toUrl();
 
         query.bindValue(0, QString(QL1S("%1%")).arg(QzTools::escapeSqlString(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment)))));
