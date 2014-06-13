@@ -20,6 +20,7 @@
 #include "sqldatabase.h"
 #include "autosaver.h"
 #include "webview.h"
+#include "qztools.h"
 
 #include <QTimer>
 #include <QBuffer>
@@ -168,8 +169,10 @@ QImage IconProvider::imageForUrl(const QUrl &url)
     }
 
     QSqlQuery query;
-    query.prepare("SELECT icon FROM icons WHERE url LIKE ? LIMIT 1");
-    query.addBindValue(QString("%1%").arg(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment))));
+    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE ? LIMIT 1"));
+
+    query.addBindValue(QString("%1%").arg(QzTools::escapeSqlString(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment)))));
+    query.addBindValue(QL1S("!"));
     query.exec();
 
     if (query.next()) {
@@ -193,8 +196,10 @@ QImage IconProvider::imageForDomain(const QUrl &url)
     }
 
     QSqlQuery query;
-    query.prepare("SELECT icon FROM icons WHERE url LIKE ? LIMIT 1");
-    query.addBindValue(QString("%%1%").arg(url.host()));
+    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE ? LIMIT 1"));
+
+    query.addBindValue(QString("%%1%").arg(QzTools::escapeSqlString(url.host())));
+    query.addBindValue(QL1S("!"));
     query.exec();
 
     if (query.next()) {

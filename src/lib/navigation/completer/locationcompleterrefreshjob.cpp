@@ -22,6 +22,7 @@
 #include "sqldatabase.h"
 #include "qzsettings.h"
 #include "bookmarks.h"
+#include "qztools.h"
 
 #include <QDateTime>
 
@@ -96,12 +97,13 @@ void LocationCompleterRefreshJob::runJob()
 
     // Load all icons into QImage
     QSqlQuery query;
-    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? LIMIT 1"));
+    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE ? LIMIT 1"));
 
     foreach (QStandardItem* item, m_items) {
         const QUrl url = item->data(LocationCompleterModel::UrlRole).toUrl();
 
-        query.bindValue(0, QString(QL1S("%1%")).arg(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment))));
+        query.bindValue(0, QString(QL1S("%1%")).arg(QzTools::escapeSqlString(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment)))));
+        query.bindValue(1, QL1S("!"));
         QSqlQuery res = SqlDatabase::instance()->exec(query);
 
         if (res.next()) {

@@ -195,6 +195,16 @@ QString QzTools::urlEncodeQueryString(const QUrl &url)
     return returnString;
 }
 
+QString QzTools::escapeSqlString(QString urlString)
+{
+    const static QString &escapeString = QL1S("!");
+    urlString.replace(escapeString, escapeString + escapeString);
+    urlString.replace(QL1S("_"), escapeString + QL1S("_"));
+    urlString.replace(QL1S("%"), escapeString + QL1S("%"));
+
+    return urlString;
+}
+
 QString QzTools::ensureUniqueFilename(const QString &name, const QString &appendFormat)
 {
     if (!QFile::exists(name)) {
