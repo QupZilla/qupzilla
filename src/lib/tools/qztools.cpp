@@ -195,6 +195,16 @@ QString QzTools::urlEncodeQueryString(const QUrl &url)
     return returnString;
 }
 
+QString QzTools::fromPunycode(const QString &str)
+{
+    if (!str.startsWith(QL1S("xn--")))
+        return str;
+
+    // QUrl::fromAce will only decode domains from idn whitelist
+    const QString decoded = QUrl::fromAce(str.toUtf8() + QByteArray(".org"));
+    return decoded.left(decoded.size() - 4);
+}
+
 QString QzTools::escapeSqlString(QString urlString)
 {
     const static QString &escapeString = QL1S("!");

@@ -46,6 +46,7 @@ public:
 
     static QString samePartOfStrings(const QString &one, const QString &other);
     static QString urlEncodeQueryString(const QUrl &url);
+    static QString fromPunycode(const QString &str);
     static QString escapeSqlString(QString urlString);
 
     static QString ensureUniqueFilename(const QString &name, const QString &appendFormat = QString("(%1)"));
@@ -88,7 +89,8 @@ public:
     static void setWmClass(const QString &name, const QWidget* widget);
 
     template <typename T>
-    static bool containsIndex(const T &container, int index) {
+    static bool containsIndex(const T &container, int index)
+    {
         return (index >= 0 && container.count() > index);
     }
 };

@@ -767,7 +767,8 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             // If a one-word host was not find, search for the text instead
             // It needs to be async to correctly refresh loading state
             if (!exOption->url.host().isEmpty() && !exOption->url.host().contains(QL1C('.'))) {
-                QMetaObject::invokeMethod(this, "doWebSearch", Qt::QueuedConnection, Q_ARG(QString, exOption->url.host()));
+                const QString text = QzTools::fromPunycode(exOption->url.host().toUtf8());
+                QMetaObject::invokeMethod(this, "doWebSearch", Qt::QueuedConnection, Q_ARG(QString, text));
                 return false;
             }
             errorString = tr("Server not found");
