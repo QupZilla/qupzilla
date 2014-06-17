@@ -77,15 +77,9 @@ void LocationCompleterRefreshJob::slotFinished()
 
 static bool countBiggerThan(const QStandardItem* i1, const QStandardItem* i2)
 {
-    // Move bookmarks up
-    bool i1Bookmark = i1->data(LocationCompleterModel::BookmarkRole).toBool();
-    bool i2Bookmark = i2->data(LocationCompleterModel::BookmarkRole).toBool();
-
-    if (i1Bookmark && i2Bookmark) {
-        return i1->data(LocationCompleterModel::CountRole).toInt() >
-               i2->data(LocationCompleterModel::CountRole).toInt();
-    }
-    return i1Bookmark;
+    int i1Count = i1->data(LocationCompleterModel::CountRole).toInt();
+    int i2Count = i2->data(LocationCompleterModel::CountRole).toInt();
+    return i1Count > i2Count;
 }
 
 void LocationCompleterRefreshJob::runJob()
@@ -120,9 +114,6 @@ void LocationCompleterRefreshJob::runJob()
             item->setData(QImage::fromData(res.value(0).toByteArray()), LocationCompleterModel::ImageRole);
         }
     }
-
-    // Sort by count
-    qSort(m_items.begin(), m_items.end(), countBiggerThan);
 
     // Get domain completion
     if (!m_searchString.isEmpty() && qzSettings->useInlineCompletion) {
@@ -166,6 +157,9 @@ void LocationCompleterRefreshJob::completeFromHistory()
             m_items.append(item);
         }
     }
+
+    // Sort by count
+    qSort(m_items.begin(), m_items.end(), countBiggerThan);
 
     // Search in history
     if (showType == HistoryAndBookmarks || showType == History) {

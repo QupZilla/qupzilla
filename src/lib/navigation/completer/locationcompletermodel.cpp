@@ -46,29 +46,6 @@ void LocationCompleterModel::setCompletions(const QList<QStandardItem*> &items)
     appendColumn(items);
 }
 
-void LocationCompleterModel::showMostVisited()
-{
-    clear();
-
-    QSqlQuery query;
-    query.exec("SELECT id, url, title FROM history ORDER BY count DESC LIMIT 15");
-
-    while (query.next()) {
-        QStandardItem* item = new QStandardItem();
-        const QUrl url = query.value(1).toUrl();
-
-        item->setIcon(IconProvider::iconForUrl(url));
-        item->setText(url.toEncoded());
-        item->setData(query.value(0), IdRole);
-        item->setData(query.value(2), TitleRole);
-        item->setData(url, UrlRole);
-        item->setData(QVariant(false), BookmarkRole);
-        setTabPosition(item);
-
-        appendRow(item);
-    }
-}
-
 QSqlQuery LocationCompleterModel::createDomainQuery(const QString &text)
 {
     if (text.isEmpty() || text == QLatin1String("www.")) {
@@ -85,7 +62,7 @@ QSqlQuery LocationCompleterModel::createDomainQuery(const QString &text)
         query.append(QLatin1String("url LIKE ? OR url LIKE ? OR "));
     }
 
-    query.append(QLatin1String("(url LIKE ? OR url LIKE ?) ORDER BY count DESC LIMIT 1"));
+    query.append(QLatin1String("(url LIKE ? OR url LIKE ?) LIMIT 1"));
 
     QSqlQuery sqlQuery;
     sqlQuery.prepare(query);
@@ -125,7 +102,7 @@ QSqlQuery LocationCompleterModel::createHistoryQuery(const QString &searchString
         }
     }
 
-    query.append(QLatin1String("LIMIT ?"));
+    query.append(QLatin1String("ORDER BY date DESC LIMIT ?"));
 
     QSqlQuery sqlQuery;
     sqlQuery.prepare(query);

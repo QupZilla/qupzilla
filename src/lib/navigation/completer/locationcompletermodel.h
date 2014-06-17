@@ -44,7 +44,6 @@ public:
     explicit LocationCompleterModel(QObject* parent = 0);
 
     void setCompletions(const QList<QStandardItem*> &items);
-    void showMostVisited();
 
     static QSqlQuery createHistoryQuery(const QString &searchString, int limit, bool exactMatch = false);
     static QSqlQuery createDomainQuery(const QString &text);
