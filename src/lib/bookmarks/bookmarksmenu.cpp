@@ -35,6 +35,7 @@ BookmarksMenu::BookmarksMenu(QWidget* parent)
     connect(mApp->bookmarks(), SIGNAL(bookmarkAdded(BookmarkItem*)), this, SLOT(bookmarksChanged()));
     connect(mApp->bookmarks(), SIGNAL(bookmarkRemoved(BookmarkItem*)), this, SLOT(bookmarksChanged()));
     connect(mApp->bookmarks(), SIGNAL(bookmarkChanged(BookmarkItem*)), this, SLOT(bookmarksChanged()));
+    connect(mApp, SIGNAL(settingsReloaded()), this, SLOT(settingsReloaded()));
 }
 
 void BookmarksMenu::setMainWindow(BrowserWindow* window)
@@ -179,4 +180,10 @@ void BookmarksMenu::refresh()
 
     addSeparator();
     BookmarksTools::addActionToMenu(this, this, mApp->bookmarks()->unsortedFolder());
+}
+
+
+void BookmarksMenu::settingsReloaded()
+{
+    refresh();
 }

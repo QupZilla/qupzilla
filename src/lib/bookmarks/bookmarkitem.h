@@ -48,7 +48,7 @@ public:
     bool isSeparator() const;
 
     BookmarkItem* parent() const;
-    QList<BookmarkItem*> children() const;
+    const QList<BookmarkItem*>& children() const;
 
     QIcon icon();
     QString urlString() const;

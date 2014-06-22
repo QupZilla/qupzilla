@@ -213,6 +213,10 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     startProfileIndexChanged(ui->startProfile->currentIndex());
 
     //APPEREANCE
+    settings.beginGroup("Bookmarks-Settings");
+    ui->hideEmptyFoldersInMenu->setChecked(settings.value("hideEmptyFoldersInMenu", false).toBool());
+    settings.endGroup();
+
     settings.beginGroup("Browser-View-Settings");
     ui->showStatusbar->setChecked(settings.value("showStatusBar", true).toBool());
     ui->showBookmarksToolbar->setChecked(settings.value("showBookmarksToolbar", true).toBool());
@@ -901,6 +905,11 @@ void Preferences::saveSettings()
      *
      *
      */
+
+    //BOOKMARKS
+    settings.beginGroup("Bookmarks-Settings");
+    settings.setValue("hideEmptyFoldersInMenu", ui->hideEmptyFoldersInMenu->isChecked());
+    settings.endGroup();
 
     //WINDOW
     settings.beginGroup("Browser-View-Settings");

@@ -310,6 +310,12 @@ void BookmarksTools::addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem
     Q_ASSERT(folder);
     Q_ASSERT(folder->isFolder());
 
+    Settings settings;
+    bool hideEmptyFoldersInMenu = settings.value("Bookmarks-Settings/hideEmptyFoldersInMenu", true).toBool();
+    if (hideEmptyFoldersInMenu && folder->children().isEmpty()) {
+        return;
+    }
+
     Menu* m = new Menu(menu);
     QString title = QFontMetrics(m->font()).elidedText(folder->title(), Qt::ElideRight, 250);
     m->setTitle(title);
