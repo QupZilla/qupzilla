@@ -50,6 +50,7 @@ LocationBar::LocationBar(BrowserWindow* window)
     , m_pasteAndGoAction(0)
     , m_clearAction(0)
     , m_holdingAlt(false)
+    , m_backspacePressed(false)
     , m_loadProgress(0)
     , m_progressVisible(false)
 {
@@ -161,6 +162,11 @@ void LocationBar::clearCompletion()
 void LocationBar::showDomainCompletion(const QString &completion)
 {
     m_domainCompleterModel->setStringList(QStringList() << completion);
+
+    // We need to manually force the completion because model is updated asynchronously
+    // But don't force the completion when backspace was pressed!
+    if (!m_backspacePressed)
+        completer()->complete();
 }
 
 LoadRequest LocationBar::createLoadRequest() const
@@ -473,6 +479,10 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         m_holdingAlt = true;
         break;
 
+    case Qt::Key_Backspace:
+        m_backspacePressed = true;
+        break;
+
     case Qt::Key_Return:
     case Qt::Key_Enter:
         switch (event->modifiers()) {
@@ -514,6 +524,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
 
     default:
         m_holdingAlt = false;
+        m_backspacePressed = false;
     }
 
     LineEdit::keyPressEvent(event);

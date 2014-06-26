@@ -108,6 +108,7 @@ private:
 
     bool m_rssIconVisible;
     bool m_holdingAlt;
+    bool m_backspacePressed;
 
     int m_loadProgress;
     bool m_progressVisible;

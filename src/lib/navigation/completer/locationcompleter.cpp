@@ -87,7 +87,7 @@ void LocationCompleter::refreshJobFinished()
     LocationCompleterRefreshJob* job = qobject_cast<LocationCompleterRefreshJob*>(sender());
     Q_ASSERT(job);
 
-    // Don't show result of older jobs
+    // Don't show results of older jobs
     // Also don't open the popup again when it was already closed
     if (job->timestamp() > m_lastRefreshTimestamp && !m_popupClosed) {
         s_model->setCompletions(job->completions());
