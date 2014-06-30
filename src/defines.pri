@@ -22,6 +22,13 @@ win32-msvc* {
 # QtDBus not available on Mac
 mac: DEFINES *= DISABLE_DBUS
 
+haiku* {
+    DEFINES *= QUPZILLA_PREFIX="/boot/home/config/apps/QupZilla/"
+    DEFINES *= DISABLE_DBUS
+    DEFINES *= NO_SYSTEM_DATAPATH
+    DEFINES *= NO_X11
+}
+
 # Check for pkg-config availability
 !mac:unix:system(pkg-config --version > /dev/null) {
     isEqual(QT_MAJOR_VERSION, 5) {
