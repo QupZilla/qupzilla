@@ -75,6 +75,7 @@ pid_t ProcessInfo::GetPIDbyName(const char* cchrptr_ProcessName) const
 
     // Loop while not NULL
     while ((de_DirEntity = readdir(dir_proc))) {
+#ifndef __HAIKU__    	
         if (de_DirEntity->d_type == DT_DIR) {
             if (IsNumeric(de_DirEntity->d_name)) {
                 strcpy(chrarry_CommandLinePath, "/proc/") ;
@@ -108,6 +109,7 @@ pid_t ProcessInfo::GetPIDbyName(const char* cchrptr_ProcessName) const
                 }
             }
         }
+#endif        
     }
 
     closedir(dir_proc) ;
