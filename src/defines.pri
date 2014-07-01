@@ -22,7 +22,7 @@ win32-msvc* {
 # QtDBus not available on Mac
 mac: DEFINES *= DISABLE_DBUS
 
-haiku* {
+haiku-* {
     DEFINES *= QUPZILLA_PREFIX="/boot/home/config/apps/QupZilla/"
     DEFINES *= DISABLE_DBUS
     DEFINES *= NO_SYSTEM_DATAPATH
