@@ -97,6 +97,9 @@ public:
 
     // Migration from Sql Bookmarks (returns true if bookmarks migrated)
     static bool migrateBookmarksIfNecessary(Bookmarks* bookmarks);
+
+private:
+    static bool isFolderEmpty(const BookmarkItem* folder);
 };
 
 #endif // BOOKMARKSTOOLS_H

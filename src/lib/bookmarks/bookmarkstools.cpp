@@ -310,6 +310,12 @@ void BookmarksTools::addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem
     Q_ASSERT(folder);
     Q_ASSERT(folder->isFolder());
 
+    Settings settings;
+    bool hideEmptyFoldersInMenu = settings.value("Bookmarks-Settings/hideEmptyFoldersInMenu", false).toBool();
+    if (hideEmptyFoldersInMenu && isFolderEmpty(folder)) {
+        return;
+    }
+
     Menu* m = new Menu(menu);
     QString title = QFontMetrics(m->font()).elidedText(folder->title(), Qt::ElideRight, 250);
     m->setTitle(title);
@@ -327,6 +333,21 @@ void BookmarksTools::addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem
     if (m->isEmpty()) {
         m->addAction(Bookmarks::tr("Empty"))->setDisabled(true);
     }
+}
+
+bool BookmarksTools::isFolderEmpty(const BookmarkItem* folder)
+{
+    foreach (BookmarkItem* child, folder->children()) {
+        if (child->type() == BookmarkItem::Url) {
+            return false;
+        }
+        if (child->type() == BookmarkItem::Folder) {
+            if (!isFolderEmpty(child)) {
+              return false;
+            }
+        }
+    }
+    return true;
 }
 
 void BookmarksTools::addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* bookmark)

@@ -52,6 +52,7 @@ private slots:
     void openBookmark(BookmarkItem* item);
     void openBookmarkInNewTab(BookmarkItem* item);
     void openBookmarkInNewWindow(BookmarkItem* item);
+    void settingsReloaded();
 
 private:
     void init();

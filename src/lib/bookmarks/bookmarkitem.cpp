@@ -65,7 +65,7 @@ BookmarkItem* BookmarkItem::parent() const
     return m_parent;
 }
 
-QList<BookmarkItem*> BookmarkItem::children() const
+const QList<BookmarkItem*>& BookmarkItem::children() const
 {
     return m_children;
 }
