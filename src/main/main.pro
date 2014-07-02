@@ -32,8 +32,8 @@ OTHER_FILES += appicon.rc \
 os2:RC_FILE = appicon_os2.rc
 win32:RC_FILE = appicon.rc
 
-haiku-* {
-  LIBS += -lexecinfo
+openbsd-*|freebsd-*|haiku-* {
+    LIBS += -lexecinfo
 }
 
 include(../install.pri)

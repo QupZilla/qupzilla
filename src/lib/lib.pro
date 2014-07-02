@@ -532,10 +532,6 @@ os2 {
     LIBS += -lcrypto
 }
 
-openbsd-*|freebsd-*|haiku-* {
-    LIBS += -lexecinfo
-}
-
 mac {
     HEADERS += other/macmenureceiver.h \
                webview/macwebviewscroller.h
