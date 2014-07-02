@@ -532,7 +532,7 @@ os2 {
     LIBS += -lcrypto
 }
 
-openbsd-*|freebsd-* {
+openbsd-*|freebsd-*|haiku-* {
     LIBS += -lexecinfo
 }
 
