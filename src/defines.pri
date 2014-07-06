@@ -28,6 +28,7 @@ d_use_lib_path = $$(USE_LIBPATH)
 d_disable_dbus = $$(DISABLE_DBUS)
 d_disable_updates_check = $$(DISABLE_UPDATES_CHECK)
 d_debug_build = $$(DEBUG_BUILD)
+d_prefix = $$(QUPZILLA_PREFIX)
 
 equals(d_no_system_datapath, "true") { DEFINES *= NO_SYSTEM_DATAPATH }
 equals(d_use_webgl, "true") { DEFINES *= USE_WEBGL }
@@ -104,22 +105,10 @@ else {
     }
 }
 
+
 !mac:unix {
-    x86libpath = /usr/lib/i386-linux-gnu
-    x64libpath = /usr/lib/x86_64-linux-gnu
-    system_lib_path = /usr/lib
-
-    # QMAKE_HOST.arch is empty on x86
-    contains(QMAKE_HOST.arch, x86_64) {
-        exists($$x64libpath): system_lib_path = $$x64libpath
-    }
-    else {
-        exists($$x86libpath): system_lib_path = $$x86libpath
-    }
-
-    d_prefix = $$(QUPZILLA_PREFIX)
     binary_folder = /usr/bin
-    library_folder = $$system_lib_path
+    library_folder = /usr/lib/$${QT_ARCH}-linux-gnu
     data_folder = /usr/share/qupzilla
     launcher_folder = /usr/share/applications
     icon_folder = /usr/share/pixmaps
