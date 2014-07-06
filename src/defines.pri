@@ -73,8 +73,6 @@ else {
 DEFINES *= QT_NO_URL_CAST_FROM_STRING
 DEFINES *= QT_USE_QSTRINGBUILDER
 
-CONFIG(debug, debug|release): DEFINES *= QUPZILLA_DEBUG_BUILD
-
 d_no_system_datapath = $$(NO_SYSTEM_DATAPATH)
 d_use_webgl = $$(USE_WEBGL)
 d_w7api = $$(W7API)
@@ -88,6 +86,7 @@ d_use_qtwebkit_2_2 = $$(USE_QTWEBKIT_2_2)
 d_use_lib_path = $$(USE_LIBPATH)
 d_disable_dbus = $$(DISABLE_DBUS)
 d_disable_updates_check = $$(DISABLE_UPDATES_CHECK)
+d_debug_build = $$(DEBUG_BUILD)
 
 equals(d_no_system_datapath, "true") { DEFINES *= NO_SYSTEM_DATAPATH }
 equals(d_use_webgl, "true") { DEFINES *= USE_WEBGL }
@@ -101,6 +100,10 @@ equals(d_nonblock_dialogs, "true") { DEFINES *= NONBLOCK_JS_DIALOGS }
 equals(d_use_qtwebkit_2_2, "true") { DEFINES *= USE_QTWEBKIT_2_2 }
 equals(d_disable_dbus, "true") { DEFINES *= DISABLE_DBUS }
 equals(d_disable_updates_check, "true") { DEFINES *= DISABLE_UPDATES_CHECK }
+equals(d_debug_build, "true") { CONFIG += debug }
+
+CONFIG(debug, debug|release): DEFINES *= QUPZILLA_DEBUG_BUILD
+
 
 !mac:unix {
     x86libpath = /usr/lib/i386-linux-gnu
