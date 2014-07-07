@@ -11,10 +11,6 @@ mocinclude.CONFIG *= fix_target
 unix: VERSION = 1.7.0
 DEFINES *= QUPZILLA_VERSION=\\\"""$$VERSION"\\\""
 
-# Please read BUILD information #
-# Qt-Version should set in build script with
-# export QT_SELECT={4|5}
-
 d_no_system_datapath = $$(NO_SYSTEM_DATAPATH)
 d_use_webgl = $$(USE_WEBGL)
 d_kde = $$(KDE) # Backwards compatibility
@@ -108,7 +104,9 @@ else {
 
 !mac:unix {
     binary_folder = /usr/bin
-    library_folder = /usr/lib/$${QT_ARCH}-linux-gnu
+    library_folder = /usr/lib
+    arch_lib_path = /usr/lib/$${QT_ARCH}-linux-gnu
+    exists($$arch_lib_path): library_folder = $$arch_lib_path
     data_folder = /usr/share/qupzilla
     launcher_folder = /usr/share/applications
     icon_folder = /usr/share/pixmaps
