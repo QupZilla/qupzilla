@@ -94,6 +94,13 @@ bool TipLabel::eventFilter(QObject* o, QEvent* e)
         hide();
         break;
 
+    case QEvent::MouseMove:
+    case QEvent::MouseButtonPress:
+    case QEvent::MouseButtonRelease:
+        if (o == this)
+            hide();
+        break;
+
     default:
         break;
     }
