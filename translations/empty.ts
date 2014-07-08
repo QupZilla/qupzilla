@@ -1148,7 +1148,7 @@ Please install latest version of QupZilla.</source>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/app/browserwindow.cpp" line="1390"/>
-        <source>There are still %n open tab(s) and your session won&apos;t be stored. 
+        <source>There are still %n open tabs and your session won&apos;t be stored. 
 Are you sure to close this window?</source>
         <translation type="unfinished">
             <numerusform></numerusform>
