@@ -43,7 +43,8 @@ AdBlockAddSubscriptionDialog::AdBlockAddSubscriptionDialog(QWidget* parent)
                          << Subscription("Antisocial (English)", "http://adversity.googlecode.com/hg/Antisocial.txt")
                          << Subscription("RU Adlist (Russian)", "https://ruadlist.googlecode.com/hg/advblock.txt")
                          << Subscription("ABPindo (Indonesian)", "https://indonesianadblockrules.googlecode.com/hg/subscriptions/abpindo.txt")
-                         << Subscription("ChinaList (Chinese)", "http://adblock-chinalist.googlecode.com/svn/trunk/adblock.txt");
+                         << Subscription("ChinaList (Chinese)", "http://adblock-chinalist.googlecode.com/svn/trunk/adblock.txt")
+                         << Subscription(tr("Other..."), QString());
 
     foreach (const Subscription &subscription, m_knownSubscriptions) {
         ui->comboBox->addItem(subscription.title);
@@ -67,18 +68,25 @@ void AdBlockAddSubscriptionDialog::indexChanged(int index)
 {
     const Subscription subscription = m_knownSubscriptions.at(index);
 
-    int pos = subscription.title.indexOf(QLatin1Char('('));
-    QString title = subscription.title;
-
-    if (pos > 0) {
-        title = title.left(pos).trimmed();
+    // "Other..." entry
+    if (subscription.url.isEmpty()) {
+        ui->title->clear();
+        ui->url->clear();
     }
+    else {
+        int pos = subscription.title.indexOf(QLatin1Char('('));
+        QString title = subscription.title;
 
-    ui->title->setText(title);
-    ui->title->setCursorPosition(0);
+        if (pos > 0) {
+            title = title.left(pos).trimmed();
+        }
 
-    ui->url->setText(subscription.url);
-    ui->url->setCursorPosition(0);
+        ui->title->setText(title);
+        ui->title->setCursorPosition(0);
+
+        ui->url->setText(subscription.url);
+        ui->url->setCursorPosition(0);
+    }
 }
 
 AdBlockAddSubscriptionDialog::~AdBlockAddSubscriptionDialog()
