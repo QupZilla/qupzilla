@@ -182,6 +182,11 @@ QString PasswordManager::createHost(const QUrl &url)
         host = url.toString();
     }
 
+    if (url.port() != -1) {
+        host.append(QLatin1Char(':'));
+        host.append(QString::number(url.port()));
+    }
+
     return host;
 }
 
