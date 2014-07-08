@@ -42,6 +42,9 @@ private slots:
     void historyClicked(bool state);
     void dialogAccepted();
     void optimizeDb();
+    void showCookieManager();
+    void showNotifsPerms();
+    void showGeolocPerms();
 
 private:
     void closeEvent(QCloseEvent* e);

@@ -24,10 +24,12 @@
 #include "datapaths.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
-#include "clickablelabel.h"
 #include "ui_clearprivatedata.h"
 #include "iconprovider.h"
 #include "qztools.h"
+#include "cookiemanager.h"
+#include "desktopnotificationsfactory.h"
+#include "html5permissions/html5permissionsdialog.h"
 
 #include <QNetworkCookie>
 #include <QMessageBox>
@@ -46,11 +48,11 @@ ClearPrivateData::ClearPrivateData(QWidget* parent)
     ui->setupUi(this);
     ui->buttonBox->setFocus();
     connect(ui->history, SIGNAL(clicked(bool)), this, SLOT(historyClicked(bool)));
-    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(dialogAccepted()));
-    connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
-
-    //Resizing +2 of sizeHint to get visible underlined link
-    resize(sizeHint().width(), sizeHint().height() + 2);
+    connect(ui->clear, SIGNAL(clicked(bool)), this, SLOT(dialogAccepted()));
+    connect(ui->optimizeDb, SIGNAL(clicked(bool)), this, SLOT(optimizeDb()));
+    connect(ui->editCookies, SIGNAL(clicked()), this, SLOT(showCookieManager()));
+    connect(ui->editNotifs, SIGNAL(clicked()), this, SLOT(showNotifsPerms()));
+    connect(ui->editGeoloc, SIGNAL(clicked()), this, SLOT(showGeolocPerms()));
 
     Settings settings;
     settings.beginGroup("ClearPrivateData");
@@ -104,14 +106,6 @@ void ClearPrivateData::closeEvent(QCloseEvent* e)
 
 void ClearPrivateData::dialogAccepted()
 {
-    QMessageBox::StandardButton b = QMessageBox::question(this, tr("Clear Private Data"),
-                                    tr("Are you sure to clear selected private data?"),
-                                    QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
-
-    if (b != QMessageBox::Yes) {
-        return;
-    }
-
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     if (ui->history->isChecked()) {
@@ -167,7 +161,10 @@ void ClearPrivateData::dialogAccepted()
 
     QApplication::restoreOverrideCursor();
 
-    close();
+    ui->clear->setEnabled(false);
+    ui->clear->setText(tr("Done"));
+
+    QTimer::singleShot(1000, this, SLOT(close()));
 }
 
 void ClearPrivateData::optimizeDb()
@@ -184,6 +181,29 @@ void ClearPrivateData::optimizeDb()
     mApp->restoreOverrideCursor();
 
     QMessageBox::information(this, tr("Database Optimized"), tr("Database successfully optimized.<br/><br/><b>Database Size Before: </b>%1<br/><b>Database Size After: </b>%2").arg(sizeBefore, sizeAfter));
+}
+
+void ClearPrivateData::showCookieManager()
+{
+    CookieManager* m = mApp->cookieManager();
+    m->refreshTable();
+
+    m->setWindowModality(Qt::WindowModal);
+    m->show();
+    m->raise();
+}
+
+void ClearPrivateData::showNotifsPerms()
+{
+    HTML5PermissionsDialog dialog(this);
+    dialog.exec();
+}
+
+void ClearPrivateData::showGeolocPerms()
+{
+    HTML5PermissionsDialog dialog(this);
+    dialog.setCurrentTab(1);
+    dialog.exec();
 }
 
 static const int stateDataVersion = 0x0001;

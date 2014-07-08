@@ -33,6 +33,7 @@ class HTML5PermissionsDialog : public QDialog
 public:
     explicit HTML5PermissionsDialog(QWidget* parent = 0);
     ~HTML5PermissionsDialog();
+    void setCurrentTab(int index);
 
 private slots:
     void removeNotifEntry();

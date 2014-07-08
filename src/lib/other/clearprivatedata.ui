@@ -6,15 +6,55 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>246</width>
-    <height>289</height>
+    <width>377</width>
+    <height>342</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Clear Recent History</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="3" column="1" colspan="2">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>&lt;b&gt;Clear Recent History&lt;/b&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" alignment="Qt::AlignRight">
+    <widget class="QLabel" name="icon">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../data/icons.qrc">:/icons/preferences/applications-system.png</pixmap>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Checked items will be cleared upon clicking the Clear button.</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QCheckBox" name="history">
+     <property name="text">
+      <string>Visited pages history from:</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1" alignment="Qt::AlignRight">
     <widget class="QComboBox" name="historyLength">
      <property name="enabled">
       <bool>false</bool>
@@ -41,151 +81,140 @@
      </item>
     </widget>
    </item>
-   <item row="12" column="1" colspan="2">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="0" colspan="2">
-    <widget class="QCheckBox" name="localStorage">
-     <property name="text">
-      <string>Clear local storage</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="0" colspan="2">
-    <widget class="QCheckBox" name="cookies">
-     <property name="text">
-      <string>Clear cookies</string>
-     </property>
-     <property name="checked">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </item>
    <item row="3" column="0">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Fixed</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>25</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="0" colspan="3">
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>Choose what you want to delete:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="0" colspan="2">
-    <widget class="QCheckBox" name="icons">
-     <property name="text">
-      <string>Clear icons</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="0" colspan="2">
-    <widget class="QCheckBox" name="cache">
-     <property name="text">
-      <string>Clear cache</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0" colspan="2">
     <widget class="QCheckBox" name="databases">
      <property name="text">
-      <string>Clear web databases</string>
+      <string>Web databases</string>
      </property>
      <property name="checked">
       <bool>true</bool>
      </property>
     </widget>
    </item>
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="label_3">
+   <item row="4" column="0">
+    <widget class="QCheckBox" name="localStorage">
      <property name="text">
-      <string>&lt;b&gt;Clear Recent History&lt;/b&gt;</string>
+      <string>Local storage</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2">
-    <widget class="QCheckBox" name="history">
+   <item row="5" column="0">
+    <widget class="QCheckBox" name="cache">
      <property name="text">
-      <string>Clear history</string>
+      <string>Cache</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QCheckBox" name="cookies">
+     <property name="text">
+      <string>Cookies</string>
      </property>
      <property name="checked">
       <bool>false</bool>
      </property>
     </widget>
    </item>
-   <item row="0" column="2">
-    <widget class="QLabel" name="icon">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
+   <item row="6" column="1" alignment="Qt::AlignRight">
+    <widget class="QPushButton" name="editCookies">
      <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="../data/icons.qrc">:/icons/preferences/applications-system.png</pixmap>
+      <string>Edit cookies</string>
      </property>
     </widget>
    </item>
-   <item row="10" column="0" colspan="3">
+   <item row="7" column="0">
+    <widget class="QCheckBox" name="icons">
+     <property name="text">
+      <string>Icons</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>HTML5 notifications data</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="1" alignment="Qt::AlignRight">
+    <widget class="QPushButton" name="editNotifs">
+     <property name="text">
+      <string>Edit permissions</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>HTML5 geolocation data</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="1" alignment="Qt::AlignRight">
+    <widget class="QPushButton" name="editGeoloc">
+     <property name="text">
+      <string>Edit permissions</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="1" alignment="Qt::AlignRight">
+    <widget class="QPushButton" name="optimizeDb">
+     <property name="text">
+      <string>Optimize database</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string>Database</string>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="0" colspan="2">
     <widget class="Line" name="line">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="11" column="0" colspan="3">
-    <widget class="ClickableLabel" name="optimizeDb">
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
+   <item row="12" column="0" alignment="Qt::AlignLeft">
+    <widget class="QPushButton" name="clear">
+     <property name="minimumSize">
+      <size>
+       <width>90</width>
+       <height>0</height>
+      </size>
      </property>
      <property name="text">
-      <string>Optimize database</string>
+      <string>Clear</string>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </widget>
+   </item>
+   <item row="12" column="1" alignment="Qt::AlignRight">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
-     <property name="html-link-look" stdset="0">
-      <bool>true</bool>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel</set>
+     </property>
+     <property name="centerButtons">
+      <bool>false</bool>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>ClickableLabel</class>
-   <extends>QLabel</extends>
-   <header>clickablelabel.h</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="../data/icons.qrc"/>
  </resources>

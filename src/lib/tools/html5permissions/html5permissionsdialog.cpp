@@ -73,6 +73,11 @@ HTML5PermissionsDialog::HTML5PermissionsDialog(QWidget* parent) :
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(saveSettings()));
 }
 
+void HTML5PermissionsDialog::setCurrentTab(int index)
+{
+    ui->tabWidget->setCurrentIndex(index);
+}
+
 void HTML5PermissionsDialog::removeNotifEntry()
 {
     QTreeWidgetItem* item = ui->notifTree->currentItem();
