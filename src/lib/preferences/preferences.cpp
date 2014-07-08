@@ -49,6 +49,7 @@
 #include "profilemanager.h"
 #include "html5permissions/html5permissionsdialog.h"
 #include "pac/pacmanager.h"
+#include "searchenginesdialog.h"
 
 #include <QSettings>
 #include <QInputDialog>
@@ -488,6 +489,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     connect(ui->deleteHtml5storage, SIGNAL(clicked()), this, SLOT(deleteHtml5storage()));
     connect(ui->uaManager, SIGNAL(clicked()), this, SLOT(openUserAgentManager()));
     connect(ui->jsOptionsButton, SIGNAL(clicked()), this, SLOT(openJsOptions()));
+    connect(ui->searchEngines, SIGNAL(clicked()), this, SLOT(openSearchEnginesManager()));
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
@@ -704,6 +706,12 @@ void Preferences::openJsOptions()
 {
     JsOptions options(this);
     options.exec();
+}
+
+void Preferences::openSearchEnginesManager()
+{
+    SearchEnginesDialog* dialog = new SearchEnginesDialog(this);
+    dialog->exec();
 }
 
 void Preferences::showAcceptLanguage()

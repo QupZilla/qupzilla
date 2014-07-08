@@ -63,6 +63,7 @@ private slots:
     void chooseExternalDownloadManager();
     void openUserAgentManager();
     void openJsOptions();
+    void openSearchEnginesManager();
 
     void saveHistoryChanged(bool state);
     void allowHtml5storageChanged(bool state);
