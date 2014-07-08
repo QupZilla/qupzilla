@@ -896,10 +896,10 @@ void MainApplication::loadSettings()
     webSettings->setFontFamily(QWebSettings::FixedFont, settings.value("FixedFont", webSettings->fontFamily(QWebSettings::FixedFont)).toString());
     webSettings->setFontFamily(QWebSettings::SansSerifFont, settings.value("SansSerifFont", webSettings->fontFamily(QWebSettings::SansSerifFont)).toString());
     webSettings->setFontFamily(QWebSettings::SerifFont, settings.value("SerifFont", webSettings->fontFamily(QWebSettings::SerifFont)).toString());
-    webSettings->setFontSize(QWebSettings::DefaultFontSize, settings.value("DefaultFontSize", webSettings->fontSize(QWebSettings::DefaultFontSize)).toInt());
-    webSettings->setFontSize(QWebSettings::DefaultFixedFontSize, settings.value("FixedFontSize", webSettings->fontSize(QWebSettings::DefaultFixedFontSize)).toInt());
-    webSettings->setFontSize(QWebSettings::MinimumFontSize, settings.value("MinimumFontSize", webSettings->fontSize(QWebSettings::MinimumFontSize)).toInt());
-    webSettings->setFontSize(QWebSettings::MinimumLogicalFontSize, settings.value("MinimumLogicalFontSize", webSettings->fontSize(QWebSettings::MinimumLogicalFontSize)).toInt());
+    webSettings->setFontSize(QWebSettings::DefaultFontSize, settings.value("DefaultFontSize", 13).toInt());
+    webSettings->setFontSize(QWebSettings::DefaultFixedFontSize, settings.value("FixedFontSize", 11).toInt());
+    webSettings->setFontSize(QWebSettings::MinimumFontSize, settings.value("MinimumFontSize", 0).toInt());
+    webSettings->setFontSize(QWebSettings::MinimumLogicalFontSize, settings.value("MinimumLogicalFontSize", 0).toInt());
     settings.endGroup();
 
     webSettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::emptyWebIcon().pixmap(16, 16));
