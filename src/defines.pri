@@ -11,8 +11,39 @@ mocinclude.CONFIG *= fix_target
 unix: VERSION = 1.7.0
 DEFINES *= QUPZILLA_VERSION=\\\"""$$VERSION"\\\""
 
-# Please read BUILD information #
-#DEFINES *= PORTABLE_BUILD
+d_no_system_datapath = $$(NO_SYSTEM_DATAPATH)
+d_use_webgl = $$(USE_WEBGL)
+d_kde = $$(KDE) # Backwards compatibility
+d_kde_integration = $$(KDE_INTEGRATION)
+d_gnome_integration = $$(GNOME_INTEGRATION)
+d_nox11 = $$(NO_X11)
+d_portable = $$(PORTABLE_BUILD)
+d_nonblock_dialogs = $$(NONBLOCK_JS_DIALOGS)
+d_use_qtwebkit_2_2 = $$(USE_QTWEBKIT_2_2)
+d_use_lib_path = $$(USE_LIBPATH)
+d_disable_dbus = $$(DISABLE_DBUS)
+d_disable_updates_check = $$(DISABLE_UPDATES_CHECK)
+d_debug_build = $$(DEBUG_BUILD)
+d_prefix = $$(QUPZILLA_PREFIX)
+
+equals(d_no_system_datapath, "true") { DEFINES *= NO_SYSTEM_DATAPATH }
+equals(d_use_webgl, "true") { DEFINES *= USE_WEBGL }
+equals(d_kde, "true") { DEFINES *= KDE_INTEGRATION }
+equals(d_kde_integration, "true") { DEFINES *= KDE_INTEGRATION }
+equals(d_gnome_integration, "true") { DEFINES *= GNOME_INTEGRATION }
+equals(d_nox11, "true") { DEFINES *= NO_X11 }
+equals(d_portable, "true") { DEFINES *= PORTABLE_BUILD }
+equals(d_nonblock_dialogs, "true") { DEFINES *= NONBLOCK_JS_DIALOGS }
+equals(d_use_qtwebkit_2_2, "true") { DEFINES *= USE_QTWEBKIT_2_2 }
+equals(d_disable_dbus, "true") { DEFINES *= DISABLE_DBUS }
+equals(d_disable_updates_check, "true") { DEFINES *= DISABLE_UPDATES_CHECK }
+equals(d_debug_build, "true") { CONFIG += debug }
+
+DEFINES *= QT_NO_URL_CAST_FROM_STRING
+DEFINES *= QT_USE_QSTRINGBUILDER
+
+CONFIG(debug, debug|release): DEFINES *= QUPZILLA_DEBUG_BUILD
+
 
 win32-msvc* {
     DEFINES *= W7API
@@ -70,57 +101,12 @@ else {
     }
 }
 
-DEFINES *= QT_NO_URL_CAST_FROM_STRING
-DEFINES *= QT_USE_QSTRINGBUILDER
-
-d_no_system_datapath = $$(NO_SYSTEM_DATAPATH)
-d_use_webgl = $$(USE_WEBGL)
-d_w7api = $$(W7API)
-d_kde = $$(KDE) # Backwards compatibility
-d_kde_integration = $$(KDE_INTEGRATION)
-d_gnome_integration = $$(GNOME_INTEGRATION)
-d_nox11 = $$(NO_X11)
-d_portable = $$(PORTABLE_BUILD)
-d_nonblock_dialogs = $$(NONBLOCK_JS_DIALOGS)
-d_use_qtwebkit_2_2 = $$(USE_QTWEBKIT_2_2)
-d_use_lib_path = $$(USE_LIBPATH)
-d_disable_dbus = $$(DISABLE_DBUS)
-d_disable_updates_check = $$(DISABLE_UPDATES_CHECK)
-d_debug_build = $$(DEBUG_BUILD)
-
-equals(d_no_system_datapath, "true") { DEFINES *= NO_SYSTEM_DATAPATH }
-equals(d_use_webgl, "true") { DEFINES *= USE_WEBGL }
-win32-msvc*:equals(d_w7api, "true") { DEFINES *= W7API }
-equals(d_kde, "true") { DEFINES *= KDE_INTEGRATION }
-equals(d_kde_integration, "true") { DEFINES *= KDE_INTEGRATION }
-equals(d_gnome_integration, "true") { DEFINES *= GNOME_INTEGRATION }
-equals(d_nox11, "true") { DEFINES *= NO_X11 }
-equals(d_portable, "true") { DEFINES *= PORTABLE_BUILD }
-equals(d_nonblock_dialogs, "true") { DEFINES *= NONBLOCK_JS_DIALOGS }
-equals(d_use_qtwebkit_2_2, "true") { DEFINES *= USE_QTWEBKIT_2_2 }
-equals(d_disable_dbus, "true") { DEFINES *= DISABLE_DBUS }
-equals(d_disable_updates_check, "true") { DEFINES *= DISABLE_UPDATES_CHECK }
-equals(d_debug_build, "true") { CONFIG += debug }
-
-CONFIG(debug, debug|release): DEFINES *= QUPZILLA_DEBUG_BUILD
-
 
 !mac:unix {
-    x86libpath = /usr/lib/i386-linux-gnu
-    x64libpath = /usr/lib/x86_64-linux-gnu
-    system_lib_path = /usr/lib
-
-    # QMAKE_HOST.arch is empty on x86
-    contains(QMAKE_HOST.arch, x86_64) {
-        exists($$x64libpath): system_lib_path = $$x64libpath
-    }
-    else {
-        exists($$x86libpath): system_lib_path = $$x86libpath
-    }
-
-    d_prefix = $$(QUPZILLA_PREFIX)
     binary_folder = /usr/bin
-    library_folder = $$system_lib_path
+    library_folder = /usr/lib
+    arch_lib_path = /usr/lib/$${QT_ARCH}-linux-gnu
+    exists($$arch_lib_path): library_folder = $$arch_lib_path
     data_folder = /usr/share/qupzilla
     launcher_folder = /usr/share/applications
     icon_folder = /usr/share/pixmaps
