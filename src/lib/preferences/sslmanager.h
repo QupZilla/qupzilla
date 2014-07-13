@@ -43,6 +43,7 @@ private slots:
 
     void deleteCertificate();
     void ignoreAll(bool state);
+    void disableWeakCiphers(bool state);
 
     void addPath();
     void deletePath();

@@ -39,13 +39,14 @@
 #include "schemehandlers/fileschemehandler.h"
 #include "schemehandlers/ftpschemehandler.h"
 
+#include <QDir>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QCheckBox>
 #include <QDialogButtonBox>
 #include <QNetworkDiskCache>
-#include <QDir>
+#include <QSslCipher>
 #include <QSslSocket>
 #include <QSslConfiguration>
 #include <QDateTime>
@@ -71,6 +72,7 @@ NetworkManager::NetworkManager(QObject* parent)
     : NetworkManagerProxy(parent)
     , m_adblockManager(0)
     , m_ignoreAllWarnings(false)
+    , m_disableWeakCiphers(true)
 {
     connect(this, SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)), this, SLOT(authentication(QNetworkReply*,QAuthenticator*)));
     connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)), this, SLOT(proxyAuthentication(QNetworkProxy,QAuthenticator*)));
@@ -157,6 +159,26 @@ void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
         if (webPage->url().host() == reply->url().host()) {
             webPage->setSSLCertificate(cert);
         }
+    }
+}
+
+void NetworkManager::disableWeakCiphers(bool disable)
+{
+    if (disable) {
+        QStringList blacklist;
+        blacklist << QSL("SRP-AES-256-CBC-SHA")  // open to MitM
+                  << QSL("SRP-AES-128-CBC-SHA"); // open to MitM
+
+        // Disable blacklisted ciphers and ciphers with less than 128b key
+        QList<QSslCipher> acceptedCiphers;
+        foreach (const QSslCipher &c, QSslSocket::defaultCiphers()) {
+            if (!blacklist.contains(c.name()) && c.usedBits() >= 128)
+                acceptedCiphers.append(c);
+        }
+        QSslSocket::setDefaultCiphers(acceptedCiphers);
+    }
+    else {
+        QSslSocket::setDefaultCiphers(QSslSocket::supportedCiphers());
     }
 }
 
@@ -650,14 +672,27 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     }
 }
 
+bool NetworkManager::isIgnoringAllWarnings() const
+{
+    return m_ignoreAllWarnings;
+}
+
 void NetworkManager::setIgnoreAllWarnings(bool state)
 {
     m_ignoreAllWarnings = state;
+    Settings().setValue("SSL-Configuration/IgnoreAllSSLWarnings", m_ignoreAllWarnings);
 }
 
-bool NetworkManager::isIgnoringAllWarnings()
+bool NetworkManager::isDisablingWeakCiphers() const
 {
-    return m_ignoreAllWarnings;
+    return m_disableWeakCiphers;
+}
+
+void NetworkManager::setDisableWeakCiphers(bool state)
+{
+    m_disableWeakCiphers = state;
+    disableWeakCiphers(m_disableWeakCiphers);
+    Settings().setValue("SSL-Configuration/DisableWeakCiphers", m_disableWeakCiphers);
 }
 
 NetworkProxyFactory* NetworkManager::proxyFactory() const
@@ -690,6 +725,7 @@ void NetworkManager::saveSettings()
     settings.beginGroup("SSL-Configuration");
     settings.setValue("CACertPaths", m_certPaths);
     settings.setValue("IgnoreAllSSLWarnings", m_ignoreAllWarnings);
+    settings.setValue("DisableWeakCiphers", m_disableWeakCiphers);
     settings.endGroup();
 
     settings.beginGroup("Web-Browser-Settings");
@@ -703,7 +739,10 @@ void NetworkManager::loadCertificates()
     settings.beginGroup("SSL-Configuration");
     m_certPaths = settings.value("CACertPaths", QStringList()).toStringList();
     m_ignoreAllWarnings = settings.value("IgnoreAllSSLWarnings", false).toBool();
+    m_disableWeakCiphers = settings.value("DisableWeakCiphers", true).toBool();
     settings.endGroup();
+
+    disableWeakCiphers(m_disableWeakCiphers);
 
     // CA Certificates
     m_caCerts = QSslSocket::defaultCaCertificates();

@@ -49,8 +49,11 @@ public:
     void setCertificatePaths(const QStringList &paths) { m_certPaths = paths; }
     QStringList certificatePaths() { return m_certPaths; }
 
+    bool isIgnoringAllWarnings() const;
     void setIgnoreAllWarnings(bool state);
-    bool isIgnoringAllWarnings();
+
+    bool isDisablingWeakCiphers() const;
+    void setDisableWeakCiphers(bool state);
 
     NetworkProxyFactory* proxyFactory() const;
 
@@ -68,6 +71,8 @@ private slots:
     void setSSLConfiguration(QNetworkReply* reply);
 
 private:
+    void disableWeakCiphers(bool disable);
+
     AdBlockManager* m_adblockManager;
     NetworkProxyFactory* m_proxyFactory;
 
@@ -81,6 +86,7 @@ private:
     QByteArray m_acceptLanguage;
 
     bool m_ignoreAllWarnings;
+    bool m_disableWeakCiphers;
     bool m_doNotTrack;
     bool m_sendReferer;
 };
