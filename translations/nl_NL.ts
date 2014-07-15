@@ -19,7 +19,7 @@
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="59"/>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="86"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="88"/>
         <source>&lt; About QupZilla</source>
         <translation>&lt; Over QupZilla</translation>
     </message>
@@ -29,27 +29,27 @@
         <translation>&lt;p&gt;&lt;b&gt;Programmaversie %1&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="74"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="76"/>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
         <translation>&lt;b&gt;WebKit-versie %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="76"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="78"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;Bouwtijd: %1&lt;/small&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="89"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="91"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Hoofdontwikkelaar:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="90"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="92"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Bijdragers:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="101"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="103"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Vertalers:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -110,11 +110,16 @@
         <source>Add new subscription to AdBlock:</source>
         <translation>Nieuw abonnement toevoegen aan Advertentieblokkeerder:</translation>
     </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.cpp" line="47"/>
+        <source>Other...</source>
+        <translation>Overig...</translation>
+    </message>
 </context>
 <context>
     <name>AdBlockCustomList</name>
     <message>
-        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="458"/>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="466"/>
         <source>Custom Rules</source>
         <translation>Aangepaste regels</translation>
     </message>
@@ -262,7 +267,7 @@
 <context>
     <name>AdBlockSubscription</name>
     <message>
-        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="172"/>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="174"/>
         <source>Cannot load subscription!</source>
         <translation>Kan abonnement niet laden!</translation>
     </message>
@@ -270,32 +275,32 @@
 <context>
     <name>AdBlockTreeWidget</name>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="79"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="80"/>
         <source>Add Rule</source>
         <translation>Regel toevoegen</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="81"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="82"/>
         <source>Remove Rule</source>
         <translation>Regel verwijderen</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="140"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="141"/>
         <source>Add Custom Rule</source>
         <translation>Aangepaste regels</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="140"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="141"/>
         <source>Please write your rule here:</source>
         <translation>Schrijf uw regels hier, a.u.b.:</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="178"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="179"/>
         <source>%1 (recently updated)</source>
         <translation>%1 (onlangs bijgewerkt)</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="187"/>
+        <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="188"/>
         <source>%1 (Error: %2)</source>
         <translation>%1 (Fout: %2)</translation>
     </message>
@@ -336,35 +341,34 @@ Installeer alstublieft de nieuwste versie van QupZilla.</translation>
 <context>
     <name>AutoFill</name>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="244"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="243"/>
         <source>Database (encrypted)</source>
         <translation>Database (versleuteld)</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="286"/>
-        <source>Enter Master Password</source>
-        <translation>Vul hoofdwachtwoord in</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="287"/>
-        <source>Permission is required, please enter Master Password:</source>
-        <translation>Toestemming is vereist, vul alstublieft het hoofdwachtwoord in:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="293"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="589"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="568"/>
         <source>Warning!</source>
         <translation>Waarschuwing!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="293"/>
-        <source>Entered password is wrong!</source>
-        <translation>Het ingevulde wachtwoord is fout!</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="569"/>
         <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
         <translation>Deze opslagmethode vereist een ingesteld hoofdwachtwoord! QupZilla zal terugvallen op de standaard opslagmethode.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="659"/>
+        <source>Enter Master Password</source>
+        <translation>Vul hoofdwachtwoord in</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="663"/>
+        <source>Permission is required, please enter Master Password:</source>
+        <translation>Toestemming is vereist, vul alstublieft het hoofdwachtwoord in:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="669"/>
+        <source>Entered password is wrong!</source>
+        <translation>Het ingevulde wachtwoord is fout!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="32"/>
@@ -591,38 +595,38 @@ Installeer alstublieft de nieuwste versie van QupZilla.</translation>
 <context>
     <name>Bookmarks</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="185"/>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="192"/>
         <source>Bookmarks Toolbar</source>
         <translation>Bladwijzerwerkbalk</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="186"/>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="193"/>
         <source>Bookmarks located in Bookmarks Toolbar</source>
         <translation>Bladwijzers op Bladwijzerwerkbalk</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="189"/>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="196"/>
         <source>Bookmarks Menu</source>
         <translation>Bladwijzermenu</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="190"/>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="197"/>
         <source>Bookmarks located in Bookmarks Menu</source>
         <translation>Bladwijzers in Bladwijzermenu</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="193"/>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="200"/>
         <source>Unsorted Bookmarks</source>
         <translation>Ongesorteerde bladwijzers</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="194"/>
+        <location filename="../src/lib/bookmarks/bookmarks.cpp" line="201"/>
         <source>All other bookmarks</source>
         <translation>Alle overige bladwijzers</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbarbutton.cpp" line="115"/>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="326"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="328"/>
         <source>Empty</source>
         <translation>Leeg</translation>
     </message>
@@ -1076,90 +1080,91 @@ Installeer alstublieft de nieuwste versie van QupZilla.</translation>
         <translation>IP-adres van huidige pagina</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="591"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="595"/>
         <source> (Private Browsing)</source>
         <translation> (Incognito browsen)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="832"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="845"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="887"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="900"/>
         <source>&amp;Menu Bar</source>
         <translation>&amp;Menubalk</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="891"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="904"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>&amp;Navigatiewerkbalk</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="895"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="908"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>&amp;Bladwijzerwerkbalk</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="901"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="914"/>
         <source>&amp;Tabs on Top</source>
         <translation>&amp;Tabbladen bovenaan</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="917"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="930"/>
         <source>Other</source>
         <translation>Overig</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1014"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
         <source>HTML files</source>
         <translation>HTML-bestanden</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1014"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
         <source>Image files</source>
         <translation>Afbeeldingsbestanden</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1014"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
         <source>Text files</source>
         <translation>Tekstbestanden</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1014"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
         <source>All files</source>
         <translation>Alle bestanden</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1016"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1029"/>
         <source>Open file...</source>
         <translation>Bestand openen...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1121"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1134"/>
         <location filename="../src/lib/other/pagescreen.cpp" line="172"/>
         <source>QupZilla %1 (%2)</source>
         <translation>QupZilla %1 (%2)</translation>
     </message>
-    <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1364"/>
-        <source>There are still %1 open tabs and your session won't be stored. 
+    <message numerus="yes">
+        <location filename="../src/lib/app/browserwindow.cpp" line="1390"/>
+        <source>There are still %n open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
-        <translation>Er zijn nog %1 openstaande tabbladen en uw sessie wordt niet opgeslagen.
-Weet u zeker dat u dit venster wilt sluiten?</translation>
+        <translation><numerusform>Er zijn nog steeds %n openstaande tabbladen en uw sessie wordt niet opgeslagen.
+Weet u zeker dat u dit venster wilt sluiten?</numerusform><numerusform>Er zijn nog steeds %n openstaande tabbladen en uw sessie wordt niet opgeslagen.
+Weet u zeker dat u dit venster wilt sluiten?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1365"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1391"/>
         <source>Don&apos;t ask again</source>
         <translation>Nooit meer vragen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1366"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1392"/>
         <source>There are still open tabs</source>
         <translation>Er zijn nog openstaande tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="82"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="80"/>
         <source>Close Tab</source>
         <translation>Tabblad sluiten</translation>
     </message>
@@ -1266,87 +1271,113 @@ Weet u zeker dat u dit venster wilt sluiten?</translation>
         <translation>Recente geschiedenis verwijderen</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="24"/>
-        <source>Earlier Today</source>
-        <translation>Eerder vandaag</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="29"/>
-        <source>Week</source>
-        <translation>Week</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="34"/>
-        <source>Month</source>
-        <translation>Maand</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="39"/>
-        <source>All</source>
-        <translation>Alles</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="57"/>
-        <source>Clear local storage</source>
-        <translation>Lokale opslag verwijderen</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="67"/>
-        <source>Clear cookies</source>
-        <translation>Cookies verwijderen</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="93"/>
-        <source>Choose what you want to delete:</source>
-        <translation>Geef aan wat u wilt verwijderen:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="100"/>
-        <source>Clear icons</source>
-        <translation>Pictogrammen verwijderen</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
-        <source>Clear cache</source>
-        <translation>Cache verwijderen</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="117"/>
-        <source>Clear web databases</source>
-        <translation>Web-databases verwijderen</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="20"/>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
         <translation>&lt;b&gt;Recente geschiedenis verwijderen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
-        <source>Clear history</source>
-        <translation>Geschiedenis verwijderen</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="43"/>
+        <source>Checked items will be cleared upon clicking the Clear button.</source>
+        <translation>Geselecteerde items zullen worden gewist na het klikken op de knop Wissen.</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="170"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="50"/>
+        <source>Visited pages history from:</source>
+        <translation>Bezochte paginageschiedenis van:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="64"/>
+        <source>Earlier Today</source>
+        <translation>Eerder vandaag</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="69"/>
+        <source>Week</source>
+        <translation>Week</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="74"/>
+        <source>Month</source>
+        <translation>Maand</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="79"/>
+        <source>All</source>
+        <translation>Alles</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
+        <source>Web databases</source>
+        <translation>Web-databases</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="97"/>
+        <source>Local storage</source>
+        <translation>Lokale opslag</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
+        <source>Cache</source>
+        <translation>Cache</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="117"/>
+        <source>Cookies</source>
+        <translation>Cookies</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
+        <source>Edit cookies</source>
+        <translation>Cookies bewerken</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
+        <source>Icons</source>
+        <translation>Pictogrammen</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="144"/>
+        <source>HTML5 notifications data</source>
+        <translation>HTML5-meldingsdata</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="151"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="165"/>
+        <source>Edit permissions</source>
+        <translation>Toestemmingen bewerken</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="158"/>
+        <source>HTML5 geolocation data</source>
+        <translation>HTML5-geolocatie-data</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="172"/>
         <source>Optimize database</source>
         <translation>Optimaliseer database</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="107"/>
-        <source>Clear Private Data</source>
-        <translation>Wis privé-data</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="179"/>
+        <source>Database</source>
+        <translation>Database</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="108"/>
-        <source>Are you sure to clear selected private data?</source>
-        <translation>Weet u zeker dat de u geselecteerde privé-data wilt wissen?</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="199"/>
+        <source>Clear</source>
+        <translation>Wissen</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="165"/>
+        <source>Done</source>
+        <translation>Voltooid</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="183"/>
         <source>Database Optimized</source>
         <translation>Database geoptimaliseerd</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="186"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="183"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation>Database succesvol geoptimaliseerd.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database-grootte vooraf: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database-grootte nadien: &lt;/b&gt;%2</translation>
     </message>
@@ -1374,22 +1405,22 @@ Weet u zeker dat u dit venster wilt sluiten?</translation>
         <translation>%1 toevoegen aan witte lijst</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="293"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="292"/>
         <source>Flash Object</source>
         <translation>Flash-object</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="295"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="294"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Naam van attribuut&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="296"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="295"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Waarde&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="317"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="316"/>
         <source>No more information available.</source>
         <translation>Geen verdere informatie beschikbaar.</translation>
     </message>
@@ -1544,8 +1575,8 @@ Weet u zeker dat u dit venster wilt sluiten?</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
-        <source>Filter 3rd party cookies</source>
-        <translation>Filter cookies van derden</translation>
+        <source>Filter 3rd party cookies:</source>
+        <translation>Filter cookies van derden:</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
@@ -1556,6 +1587,30 @@ Weet u zeker dat u dit venster wilt sluiten?</translation>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
         <translation>&lt;b&gt;Waarschuwing:&lt;/b. Filter cookies van derden en Filter opsporingscookies kan leiden tot het weigeren van cookies door sommige websites. Als u problemen heeft met cookies, probeer dan eerst om deze voorkeuren uit te schakelen!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="480"/>
+        <source>&lt;p&gt;&lt;b&gt;Always:&lt;/b&gt; Allow third-party resources to set and retrieve cookies.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Never:&lt;/b&gt; Never allow third-party resources to set and retrieve cookies.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Keep existing:&lt;/b&gt; If the cookie jar already contains cookies from a third-party, allow it to set and retrieve new and existing cookies.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;&lt;b&gt;Altijd:&lt;/b&gt; Toestaan dat derde partijen cookies mogen instellen en opvragen.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Nooit:&lt;/b&gt; Weigeren dat derde partijen cookies mogen instellen en opvragen.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Huidige behouden:&lt;/b&gt; Toestaan dat derde partijen cookies mogen instellen en nieuwe en huidige mogen opvragen wanneer de koektrommel reeds cookies van een derde partij bevat.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="486"/>
+        <source>Always</source>
+        <translation>Altijd</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="491"/>
+        <source>Never</source>
+        <translation>Nooit</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="496"/>
+        <source>Keep existing</source>
+        <translation>Huidige behouden</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="80"/>
@@ -2088,67 +2143,67 @@ kon niet worden gevonden!</translation>
 <context>
     <name>History</name>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="79"/>
+        <location filename="../src/lib/history/history.cpp" line="80"/>
         <source>Empty Page</source>
         <translation>Lege pagina</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="268"/>
+        <location filename="../src/lib/history/history.cpp" line="269"/>
         <source>January</source>
         <translation>Januari</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="270"/>
+        <location filename="../src/lib/history/history.cpp" line="271"/>
         <source>February</source>
         <translation>Februari</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="272"/>
+        <location filename="../src/lib/history/history.cpp" line="273"/>
         <source>March</source>
         <translation>Maart</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="274"/>
+        <location filename="../src/lib/history/history.cpp" line="275"/>
         <source>April</source>
         <translation>April</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="276"/>
+        <location filename="../src/lib/history/history.cpp" line="277"/>
         <source>May</source>
         <translation>Mei</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="278"/>
+        <location filename="../src/lib/history/history.cpp" line="279"/>
         <source>June</source>
         <translation>Juni</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="280"/>
+        <location filename="../src/lib/history/history.cpp" line="281"/>
         <source>July</source>
         <translation>Juli</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="282"/>
+        <location filename="../src/lib/history/history.cpp" line="283"/>
         <source>August</source>
         <translation>Augustus</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="284"/>
+        <location filename="../src/lib/history/history.cpp" line="285"/>
         <source>September</source>
         <translation>September</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="286"/>
+        <location filename="../src/lib/history/history.cpp" line="287"/>
         <source>October</source>
         <translation>Oktober</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="288"/>
+        <location filename="../src/lib/history/history.cpp" line="289"/>
         <source>November</source>
         <translation>November</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="290"/>
+        <location filename="../src/lib/history/history.cpp" line="291"/>
         <source>December</source>
         <translation>December</translation>
     </message>
@@ -2162,6 +2217,7 @@ kon niet worden gevonden!</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.ui" line="20"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="143"/>
         <source>Delete</source>
         <translation>Verwijderen</translation>
     </message>
@@ -2171,72 +2227,91 @@ kon niet worden gevonden!</translation>
         <translation>Alle geschiedenis verwijderen</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="74"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="77"/>
         <source>Confirmation</source>
         <translation>Bevestiging</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="75"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="78"/>
         <source>Are you sure to delete all history?</source>
         <translation>Weet u zeker dat u alle geschiedenis wilt verwijderen?</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymanager.cpp" line="134"/>
+        <source>Open in new tab</source>
+        <translation>Openen in nieuw tabblad</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymanager.cpp" line="135"/>
+        <source>Open in new window</source>
+        <translation>Openen in nieuw venster</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymanager.cpp" line="136"/>
+        <source>Open in new private window</source>
+        <translation>Openen in nieuw incognito-venster</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymanager.cpp" line="139"/>
+        <source>Copy url</source>
+        <translation>Websiteadres kopiëren</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymanager.cpp" line="140"/>
+        <source>Copy title</source>
+        <translation>Websitetitel kopiëren</translation>
     </message>
 </context>
 <context>
     <name>HistoryMenu</name>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="119"/>
-        <location filename="../src/lib/history/historymenu.cpp" line="139"/>
-        <location filename="../src/lib/history/historymenu.cpp" line="163"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="141"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="165"/>
         <source>Empty</source>
         <translation>Leeg</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="167"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="169"/>
         <source>Restore All Closed Tabs</source>
         <translation>Alle gesloten tabbladen herstellen</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="168"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="170"/>
         <source>Clear list</source>
         <translation>Lijst wissen</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="214"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="216"/>
         <source>Hi&amp;story</source>
         <translation>&amp;Geschiedenis</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="216"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="218"/>
         <source>&amp;Back</source>
         <translation>&amp;Terug</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="219"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="221"/>
         <source>&amp;Forward</source>
         <translation>&amp;Vooruit</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="222"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="224"/>
         <source>&amp;Home</source>
         <translation>&amp;Startpagina</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="225"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="227"/>
         <source>Show &amp;All History</source>
         <translation>&amp;Alle geschiedenis weergeven</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="233"/>
-        <source>Recently Visited</source>
-        <translation>Onlangs bezocht</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="236"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="235"/>
         <source>Most Visited</source>
         <translation>Vaakst bezocht</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="239"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="238"/>
         <source>Closed Tabs</source>
         <translation>Gesloten tabbladen</translation>
     </message>
@@ -2287,32 +2362,24 @@ kon niet worden gevonden!</translation>
         <source>Search...</source>
         <translation>Zoeken...</translation>
     </message>
-</context>
-<context>
-    <name>HistoryView</name>
     <message>
-        <location filename="../src/lib/history/historyview.cpp" line="157"/>
-        <source>Open link in current tab</source>
-        <translation>Link openen in huidig tabblad</translation>
+        <location filename="../src/lib/sidebar/historysidebar.cpp" line="85"/>
+        <source>Open in new tab</source>
+        <translation>Openen in nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historyview.cpp" line="158"/>
-        <source>Open link in new tab</source>
-        <translation>Link openen in nieuw tabblad</translation>
+        <location filename="../src/lib/sidebar/historysidebar.cpp" line="86"/>
+        <source>Open in new window</source>
+        <translation>Openen in nieuw venster</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historyview.cpp" line="160"/>
-        <source>Copy title</source>
-        <translation>Titel kopiëren</translation>
+        <location filename="../src/lib/sidebar/historysidebar.cpp" line="87"/>
+        <source>Open in new private window</source>
+        <translation>Openen in nieuw incognito-venster</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historyview.cpp" line="161"/>
-        <source>Copy address</source>
-        <translation>Adres kopiëren</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/history/historyview.cpp" line="163"/>
-        <source>Remove</source>
+        <location filename="../src/lib/sidebar/historysidebar.cpp" line="90"/>
+        <source>Delete</source>
         <translation>Verwijderen</translation>
     </message>
 </context>
@@ -2457,17 +2524,17 @@ kon niet worden gevonden!</translation>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="142"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="145"/>
         <source>Enter URL address or search on %1</source>
         <translation>Voer een URL in of zoek op %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="350"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="365"/>
         <source>Paste And &amp;Go</source>
         <translation>Plakken en &amp;gaan</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="515"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="535"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.nl</translation>
@@ -2489,22 +2556,22 @@ kon niet worden gevonden!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1031"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1054"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>QupZilla is op dit moment niet uw standaard browser. Wilt u QupZilla uw standaard browser maken?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1032"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1055"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Altijd deze controle uitvoeren wanneer QupZilla opstart.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1034"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1057"/>
         <source>Default Browser</source>
         <translation>Standaard browser</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1080"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1103"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla is een nieuwe, snelle en veilige open source webbrowser. QupZilla is gelicenseerd onder GPL-versie 3 of (naar uw keuze) een latere versie. Het is gebaseerd op de WebKit-kern en het Qt Framework.</translation>
     </message>
@@ -2512,252 +2579,257 @@ kon niet worden gevonden!</translation>
 <context>
     <name>MainMenu</name>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="498"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="506"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp;Over QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="503"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="511"/>
         <source>Pr&amp;eferences</source>
         <translation>&amp;Instellingen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="509"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="517"/>
         <source>Quit</source>
         <translation>Afsluiten</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="516"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
         <source>&amp;File</source>
         <translation>&amp;Bestand</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="520"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
         <source>&amp;New Window</source>
         <translation>&amp;Nieuw venster</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="522"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
         <source>New &amp;Private Window</source>
         <translation>Nieuw &amp;incognito-venster</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="523"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
         <source>Open Location</source>
         <translation>Locatie openen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
         <source>Open &amp;File...</source>
         <translation>&amp;Bestand openen...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
         <source>Close Window</source>
         <translation>Venster sluiten</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="535"/>
         <source>&amp;Save Page As...</source>
         <translation>&amp;Sla pagina op als...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="536"/>
         <source>Save Page Screen</source>
         <translation>Pagina-schermafbeelding opslaan</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
         <source>Send Link...</source>
         <translation>Link versturen...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="538"/>
         <source>&amp;Print...</source>
         <translation>&amp;Print...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="535"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
+        <source>Work &amp;Offline</source>
+        <translation>&amp;Offline werken</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
         <source>&amp;Edit</source>
         <translation>Be&amp;werken</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
         <source>&amp;Undo</source>
         <translation>&amp;Ongedaan maken</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
         <source>&amp;Redo</source>
         <translation>&amp;Herhalen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="542"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
         <source>&amp;Cut</source>
         <translation>&amp;Knippen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="543"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="553"/>
         <source>C&amp;opy</source>
         <translation>&amp;Kopiëren</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="544"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
         <source>&amp;Paste</source>
         <translation>&amp;Plakken</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="546"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="556"/>
         <source>Select &amp;All</source>
         <translation>&amp;Alles selecteren</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="547"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="557"/>
         <source>&amp;Find</source>
         <translation>&amp;Zoeken</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="551"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
         <source>&amp;View</source>
         <translation>&amp;Beeld</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="555"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
         <source>Toolbars</source>
         <translation>Werkbalken</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="557"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="567"/>
         <source>Sidebar</source>
         <translation>Zijpaneel</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="559"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="569"/>
         <source>Character &amp;Encoding</source>
         <translation>&amp;Karakter-tekenset</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="568"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Sta&amp;tusbalk</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="570"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
         <source>&amp;Stop</source>
         <translation>&amp;Stoppen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="571"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="581"/>
         <source>&amp;Reload</source>
         <translation>&amp;Herladen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="573"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
         <source>Zoom &amp;In</source>
         <translation>I&amp;nzoomen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
         <source>Zoom &amp;Out</source>
         <translation>U&amp;itzoomen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="575"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="585"/>
         <source>Reset</source>
         <translation>Herstellen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
         <source>&amp;Caret Browsing</source>
         <translation>Navigeren met &amp;navigatietoetsen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="590"/>
         <source>&amp;Page Source</source>
         <translation>&amp;Pagina-broncode</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="581"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="591"/>
         <source>&amp;FullScreen</source>
         <translation>&amp;Volledig scherm</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
         <source>&amp;Tools</source>
         <translation>&amp;Hulpmiddelen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="588"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
         <source>&amp;Web Search</source>
         <translation>&amp;Webzoeken</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="589"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="599"/>
         <source>Site &amp;Info</source>
         <translation>Website-&amp;informatie</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="591"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="601"/>
         <source>&amp;Download Manager</source>
         <translation>&amp;Downloadbeheerder</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="592"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="602"/>
         <source>&amp;Cookies Manager</source>
         <translation>&amp;Cookies-beheerder</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="593"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;Advertentieblokkeerder</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="604"/>
         <source>RSS &amp;Reader</source>
         <translation>&amp;RSS-lezer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="595"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="605"/>
         <source>Web In&amp;spector</source>
         <translation>Web-in&amp;specteur</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="596"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="606"/>
         <source>Clear Recent &amp;History</source>
         <translation>Recente &amp;geschiedenis wissen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="600"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="610"/>
         <source>&amp;Help</source>
         <translation>&amp;Help</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="613"/>
         <source>About &amp;Qt</source>
         <translation>Over &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="608"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
         <source>Information about application</source>
         <translation>Informatie over programma</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="619"/>
         <source>Configuration Information</source>
         <translation>Informatie over configuratie</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="610"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="620"/>
         <source>Report &amp;Issue</source>
         <translation>&amp;Probleem rapporteren</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="623"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="633"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>&amp;Gesloten tabblad herstellen</translation>
     </message>
@@ -2815,30 +2887,30 @@ kon niet worden gevonden!</translation>
         <translation>&lt;b&gt;Noot:&lt;/b&gt; Het hoofdwachtwoord is niet her-instelbaar. Vergeet het alstublieft niet.</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="557"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="562"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="611"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="654"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="536"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="541"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="633"/>
         <source>Warning!</source>
         <translation>Waarschuwing!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="557"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="536"/>
         <source>You entered a wrong password!</source>
         <translation>U heeft een verkeerd wachtwoord ingevuld!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="562"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="541"/>
         <source>New/Confirm password fields do not match!</source>
         <translation>Nieuwe/Bevestig wachtwoord-velden komen niet overeen!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="611"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
         <source>Are you sure to clear master password and decrypt data?</source>
         <translation>Weet u zeker dat u het hoofdwachtwoord wilt verwijderen en de data wilt ontgrendelen?</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="654"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="633"/>
         <source>Some data has not been decrypted. The master password was not cleared!</source>
         <translation>Sommige data is niet ontgrendeld. Het hoofdwachtwoord is niet verwijderd!</translation>
     </message>
@@ -2846,43 +2918,43 @@ kon niet worden gevonden!</translation>
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="61"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="53"/>
         <source>Back</source>
         <translation>Terug</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="70"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="62"/>
         <source>Forward</source>
         <translation>Vooruit</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="89"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="79"/>
         <source>Home</source>
         <translation>Startpagina</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="97"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="87"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="114"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="108"/>
         <source>Main Menu</source>
         <translation>Hoofdmenu</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="133"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="126"/>
         <source>Exit Fullscreen</source>
         <translation>Volledig scherm verlaten</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="258"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="292"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="249"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="283"/>
         <source>Clear history</source>
         <translation>Geschiedenis verwijderen</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="394"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="385"/>
         <source>Empty Page</source>
         <translation>Lege pagina</translation>
     </message>
@@ -2890,96 +2962,96 @@ kon niet worden gevonden!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="203"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
         <source>SSL Certificate Error!</source>
         <translation>SSL-certificaatfout!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>De pagina die u probeert te bereiken bevat de volgende fouten in haar SSL-certificaat:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="219"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organisatie: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="221"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Domeinnaam: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="223"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Verloopt op: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="229"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Fout: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="237"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Wilt u een uitzondering maken voor dit certificaat?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="277"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="278"/>
         <source>Authorisation required</source>
         <translation>Toestemming nodig</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="284"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="391"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="463"/>
-        <source>Username: </source>
-        <translation>Gebruikersnaam: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
         <location filename="../src/lib/network/networkmanager.cpp" line="392"/>
         <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
+        <source>Username: </source>
+        <translation>Gebruikersnaam: </translation>
+    </message>
+    <message>
+        <location filename="../src/lib/network/networkmanager.cpp" line="286"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="393"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="465"/>
         <source>Password: </source>
         <translation>Wachtwoord: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="290"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="291"/>
         <source>Save username and password on this site</source>
         <translation>Sla gebruikersnaam en wachtwoord van deze site op</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="299"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Er wordt om een gebruikersnaam en wachtwoord gevraagd door %1. De site zegt: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="384"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="385"/>
         <source>FTP authorisation required</source>
         <translation>Ftp toestemming nodig</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="397"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="398"/>
         <source>Login anonymously</source>
         <translation>Anoniem inloggen</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>Er wordt om een gebruikersnaam en wachtwoord gevraagd door %1:%2.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="456"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
         <source>Proxy authorisation required</source>
         <translation>Proxy-toestemming vereist</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="476"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="477"/>
         <source>Remember username and password for this proxy.</source>
         <translation>Gebruikersnaam en wachtwoord onthouden voor deze proxy.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="478"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Er wordt om een gebruikersnaam en wachtwoord gevraagd door proxy %1.</translation>
     </message>
@@ -3106,7 +3178,7 @@ kon niet worden gevonden!</translation>
 <context>
     <name>PopupWebView</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="97"/>
+        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="109"/>
         <source>Inspect Element</source>
         <translation>Element inspecteren</translation>
     </message>
@@ -3219,7 +3291,7 @@ kon niet worden gevonden!</translation>
         <translation>&amp;Pagina-broncode</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="290"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="260"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -3299,7 +3371,7 @@ kon niet worden gevonden!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="204"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="848"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="857"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Let op: u kunt het actieve profiel niet verwijderen.</translation>
     </message>
@@ -3663,9 +3735,9 @@ kon niet worden gevonden!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1023"/>
         <location filename="../src/lib/preferences/preferences.ui" line="1382"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2036"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2141"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2046"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2151"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2602"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -3986,302 +4058,326 @@ kon niet worden gevonden!</translation>
         <translation>.nl-domeinnaam toevoegen door ALT-toets in te drukken in de adresbalk</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2010"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1993"/>
+        <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
+        <translation>Bestaande sneltoetsen:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - vorig tabblad&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - volgend tabblad&lt;br&gt;&lt;b&gt;/&lt;/b&gt; - zoeken op pagina</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1996"/>
+        <source>Use single key shortcuts</source>
+        <translation>Enkele toets-sneltoetsen gebruiken</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2020"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Downloadlocatie&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2017"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2027"/>
         <source>Ask everytime for download location</source>
         <translation>Elke keer vragen om downloadloactie</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2024"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2034"/>
         <source>Use defined location: </source>
         <translation>Gebruik de volgende downloadlocatie:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2074"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2084"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Download-instellingen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2081"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2091"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Bestandsdialoogvenster van systeem gebruiken
 (kan problemen veroorzaken bij downloaden van SSL-beveiligde inhoud)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2089"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2099"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Downloadbeheerder sluiten nadat downloaden voltooid is</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2096"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2106"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Externe downloadbeheerder&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2103"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2113"/>
         <source>Use external download manager</source>
         <translation>Externe downloadbeheerder gebruiken</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2115"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2125"/>
         <source>Executable:</source>
         <translation>Uitvoerbaar bestand:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2122"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2132"/>
         <source>Arguments:</source>
         <translation>Argumenten:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2129"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2139"/>
         <source>Leave blank if unsure</source>
         <translation>Dit veld leeg laten indien onzeker</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2150"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2160"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation>&lt;b&gt;%d&lt;/b&gt; zal worden vervangen door url om te downloaden</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2176"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2186"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Automatisch aanvullen-instellingen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2183"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2193"/>
         <source>Allow saving passwords from sites</source>
         <translation>Toestaan dat wachtwoorden van websites worden opgeslagen</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2238"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2248"/>
         <source>Send Referer header to servers</source>
         <translation>Verwijskop meesturen naar servers</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2245"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2255"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2252"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2262"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Servers laten weten dat ik niet gevolgd wil worden</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2259"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2568"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2269"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Overig&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2266"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2276"/>
         <source>Manage CA certificates</source>
         <translation>CA-certificaten beheren</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2295"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2305"/>
         <source>Certificate Manager</source>
         <translation>Certificaatbeheerder</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2302"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2312"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL-certificaten&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2312"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2322"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2322"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2332"/>
         <source>Manage JavaScript privacy options</source>
         <translation>JavaScript-privacyinstellingen beheren</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2335"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2345"/>
         <source>JavaScript options</source>
         <translation>JavaScript-instellingen</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2348"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2358"/>
         <source>Cookies Manager</source>
         <translation>Cookies-beheerder</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2371"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2381"/>
         <source>Manage Cookies</source>
         <translation>Cookies beheren</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2391"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2401"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation>&lt;b&gt;HTML5-toestemmingen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2398"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2408"/>
         <source>Manage HTML5 permissions</source>
         <translation>HTML5-toestemmingen beheren</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2411"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2421"/>
         <source>HTML5 Permissions</source>
         <translation>HTML5-toestemmingen</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2422"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2432"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Meldingen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2429"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2439"/>
         <source>Use OSD Notifications</source>
         <translation>OSD-meldingen gebruiken</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2439"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2449"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Systeemmeldingen gebruiken (geldt alleen voor Linux)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2446"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2456"/>
         <source>Do not use Notifications</source>
         <translation>Geen meldingen gebruiken</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2497"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2507"/>
         <source>Expiration timeout:</source>
         <translation>Vervaltijd-timeout:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2510"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2520"/>
         <source> seconds</source>
         <translation> seconden</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2519"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2529"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Tip: &lt;/b&gt; u kunt de positie van OSD-meldingen veranderen door deze te verslepen op het scherm.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2575"/>
-        <source>StyleSheet automatically loaded with all websites: </source>
-        <translation>Stijlblad dat automatisch moet worden geladen met alle websites:</translation>
+        <location filename="../src/lib/preferences/preferences.ui" line="2578"/>
+        <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Zoekmachines beheren&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2594"/>
-        <source>Languages</source>
-        <translation>Talen</translation>
+        <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
+        <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Gebruikers-stijlblad&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2616"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2592"/>
+        <source>Style Sheet automatically loaded with all websites: </source>
+        <translation>Stijlblad welke automatisch geladen wordt met alle websites: </translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Voorkeurstalen voor websites&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2665"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2642"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Browseridentificatie veranderen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2690"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2667"/>
         <source>User Agent Manager</source>
         <translation>Browseridentificatie-beheerder</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2727"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2707"/>
+        <source>Languages</source>
+        <translation>Talen</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2747"/>
+        <source>Search Engines Manager</source>
+        <translation>Zoekmachines-beheerder</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2784"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="155"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="575"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="156"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="578"/>
         <source>Default</source>
         <translation>Standaard</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="159"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="160"/>
         <source>Set as default</source>
         <translation>Stel in als standaard</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="559"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="562"/>
         <source>OSD Notification</source>
         <translation>OSD-melding</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="560"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="563"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Versleep het op het scherm en plaats het waar u wilt.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="601"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="604"/>
         <source>Choose download location...</source>
         <translation>Downloadlocatie kiezen...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="615"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="618"/>
         <source>Choose stylesheet location...</source>
         <translation>Locatie van stijlblad kiezen...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="626"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="629"/>
         <source>Deleted</source>
         <translation>Verwijderd</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="632"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="635"/>
         <source>Choose executable location...</source>
         <translation>Locatie kiezen van uitvoerbaar bestand...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="756"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="765"/>
         <source>Choose cache path...</source>
         <translation>Cache-pad kiezen...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="802"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="811"/>
         <source>New Profile</source>
         <translation>Nieuw profiel</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="802"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="811"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Voer de nieuw profielnaam in:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="818"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="822"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="827"/>
         <source>Error!</source>
         <translation>Fout!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="822"/>
         <source>This profile already exists!</source>
         <translation>Dit profiel bestaat al!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="818"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="827"/>
         <source>Cannot create profile directory!</source>
         <translation>Kan profielmap niet aanmaken!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="829"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="838"/>
         <source>Confirmation</source>
         <translation>Bevestiging</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="830"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="839"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Weet u zeker dat u profiel &quot;%1&quot; wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1121"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1131"/>
         <source>Select Color</source>
         <translation>Kleur selecteren</translation>
     </message>
@@ -4299,7 +4395,7 @@ kon niet worden gevonden!</translation>
         <translation>Systeemmelding</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/opensearchreader.cpp" line="104"/>
+        <location filename="../src/lib/opensearch/opensearchreader.cpp" line="105"/>
         <source>The file is not an OpenSearch 1.1 file.</source>
         <translation>Dit bestand is geen OpenSearch 1.1-bestand.</translation>
     </message>
@@ -4309,42 +4405,42 @@ kon niet worden gevonden!</translation>
         <translation>&lt;niet aangegeven in certificaat&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="315"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="335"/>
         <source>Unknown size</source>
         <translation>Onbekende grootte</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="320"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="340"/>
         <source>KB</source>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="325"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="345"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="329"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="349"/>
         <source>GB</source>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="766"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="786"/>
         <source>Executable: </source>
         <translation>Uitvoerbaar:</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="767"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="787"/>
         <source>Arguments: </source>
         <translation>Argumenten:</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="769"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="789"/>
         <source>Cannot start external program</source>
         <translation>Kan externe programma niet starten</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="770"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="790"/>
         <source>Cannot start external program! %1</source>
         <translation>Kan externe programma niet starten! %1</translation>
     </message>
@@ -4446,376 +4542,381 @@ kon niet worden gevonden!</translation>
         <translation>Vul alstublieft alle verplichte velden in!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="193"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
         <source>Start Page</source>
         <translation>Startpagina</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="194"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="196"/>
         <source>Search on Web</source>
         <translation>Zoek op het internet</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="197"/>
         <source>Search results provided by DuckDuckGo</source>
         <translation>Zoekresultaten worden gegeven door DuckDuckGo</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="197"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="215"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="216"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="199"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="217"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="218"/>
         <source>About QupZilla</source>
         <translation>Over QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="198"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="200"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Incognito browsen&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="217"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="219"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
         <source>Information about version</source>
         <translation>Informatie over versie</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="218"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="220"/>
         <source>Copyright</source>
         <translation>Copyright</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="221"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="383"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="223"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
         <source>Version</source>
         <translation>Versie</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="226"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="230"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
         <source>WebKit version</source>
         <translation>WebKit-versie</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="227"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="231"/>
         <source>Main developer</source>
         <translation>Hoofdontwikkelaar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="229"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="233"/>
         <source>Contributors</source>
         <translation>Bijdragers</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="240"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="244"/>
         <source>Translators</source>
         <translation>Vertalers</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
         <source>Speed Dial</source>
         <translation>Snelkiezer</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
         <source>Add New Page</source>
         <translation>Nieuwe pagina toevoegen</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
         <source>Edit</source>
         <translation>Bewerk</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
         <source>Remove</source>
         <translation>Verwijder</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
         <source>Reload</source>
         <translation>Herladen</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
         <source>Are you sure to remove this speed dial?</source>
         <translation>Weet u zeker dat u deze snelkiezer wilt verwijderen?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
+        <source>Are you sure to reload all speed dials?</source>
+        <translation>Weet u zeker dat u alle snelkiezers wilt verversen?</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
         <source>Load title from page</source>
         <translation>Paginatitel laden</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
         <source>Url</source>
         <translation>URL</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
         <source>Title</source>
         <translation>Titel</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
         <source>Apply</source>
         <translation>Toepassen</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
         <source>Close</source>
         <translation>Sluiten</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="316"/>
         <source>New Page</source>
         <translation>Nieuwe pagina</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="317"/>
         <source>Speed Dial settings</source>
         <translation>Snelkiezer-instellingen</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="318"/>
         <source>Placement: </source>
         <translation>Plaatsing: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="319"/>
         <source>Auto</source>
         <translation>Auto</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="316"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="320"/>
         <source>Cover</source>
         <translation>Overlappend</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="317"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="321"/>
         <source>Fit</source>
         <translation>Passend</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="318"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="322"/>
         <source>Fit Width</source>
         <translation>Passend in breedte</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="319"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="323"/>
         <source>Fit Height</source>
         <translation>Passend in hoogte</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="320"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="324"/>
         <source>Use background image</source>
         <translation>Achtergrondafbeelding gebruiken</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="321"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
         <source>Select image</source>
         <translation>Afbeelding selecteren</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="322"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
         <source>Maximum pages in a row:</source>
         <translation>Maximaal aantal pagina&apos;s in een rij:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="323"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="327"/>
         <source>Change size of pages:</source>
         <translation>Verander grootte van pagina&apos;s:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="324"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="328"/>
         <source>Center speed dials</source>
         <translation>Centreer snelkiezers</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="350"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
         <source>Restore Session</source>
         <translation>Sessie herstellen</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
         <source>Oops, QupZilla crashed.</source>
         <translation>Oeps, QupZilla crashte.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
         <translation>Onze excuses hiervoor. Wilt u de laatst opgeslagen sessie herstellen?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
         <translation>Probeer één of meerdere tabbladen te sluiten die u verdenkt van het veroorzaken van problemen</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="358"/>
         <source>Or you can start completely new session</source>
         <translation>Of u kunt een compleet nieuwe sessie starten</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
         <source>Configuration Information</source>
         <translation>Informatie over configuratie</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Deze pagina bevat informatie over QupZilla&apos;s huidige configuratie - nuttig voor probleemoplossing. Plaats deze informatie bij het verzenden van bug-rapporten.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
         <source>Browser Identification</source>
         <translation>Browseridentificatie</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
         <source>Paths</source>
         <translation>Paden</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
         <source>Build Configuration</source>
         <translation>Bouwconfiguratie</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
         <source>Preferences</source>
         <translation>Instellingen</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="383"/>
         <source>Option</source>
         <translation>Optie</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
         <source>Value</source>
         <translation>Waarde</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
         <source>Extensions</source>
         <translation>Extensies</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
         <source>Name</source>
         <translation>Naam</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
         <source>Author</source>
         <translation>Auteur</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
         <source>Description</source>
         <translation>Beschrijving</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
         <source>Application version</source>
         <translation>Programma-versie</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="393"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
         <source>Qt version</source>
         <translation>Qt-versie</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
         <source>Build time</source>
         <translation>Bouwtijd</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="402"/>
         <source>Platform</source>
         <translation>Platform</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
         <source>Profile</source>
         <translation>Profiel</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="406"/>
         <source>Settings</source>
         <translation>Instellingen</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
         <source>Saved session</source>
         <translation>Opgeslagen sessie</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="402"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
         <source>Pinned tabs</source>
         <translation>Vastgemaakte tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="409"/>
         <source>Data</source>
         <translation>Data</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="410"/>
         <source>Themes</source>
         <translation>Thema&apos;s</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="411"/>
         <source>Translations</source>
         <translation>Vertalingen</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="414"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="420"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="426"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="432"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="437"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ingeschakeld&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="410"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="416"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="422"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="428"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="434"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="437"/>
         <source>Disabled</source>
         <translation>Uitgeschakeld</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="434"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="440"/>
         <source>Debug build</source>
         <translation>Debugbare bouw</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="435"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="441"/>
         <source>WebGL support</source>
         <translation>WebGL-ondersteuning</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="436"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="442"/>
         <source>Windows 7 API</source>
         <translation>Windows 7-API</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="437"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="443"/>
         <source>KDE integration</source>
         <translation>KDE-integratie</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="438"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="444"/>
         <source>Portable build</source>
         <translation>Meeneembare bouw</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="456"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="462"/>
         <source>No available extensions.</source>
         <translation>Geen beschikbare extensies.</translation>
     </message>
@@ -5042,6 +5143,19 @@ Misschien dat herstarten met beheerdersrechten wonderen verricht! ;)</translatio
     </message>
 </context>
 <context>
+    <name>ReloadStopButton</name>
+    <message>
+        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="57"/>
+        <source>Stop</source>
+        <translation>Stoppen</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="61"/>
+        <source>Reload</source>
+        <translation>Herladen</translation>
+    </message>
+</context>
+<context>
     <name>RssIcon</name>
     <message>
         <location filename="../src/lib/rss/rssicon.cpp" line="30"/>
@@ -5195,7 +5309,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="48"/>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="343"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="344"/>
         <source>Add Search Engine</source>
         <translation>Zoekmachine toevoegen</translation>
     </message>
@@ -5218,27 +5332,27 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="429"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="430"/>
         <source>Search Engine Added</source>
         <translation>Zoekmachine toegevoegd</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="429"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="430"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>Zoekmachine &quot;%1&quot; is succesvol toegevoegd.</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="436"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="437"/>
         <source>Search Engine is not valid!</source>
         <translation>Zoekmachine is ongeldig!</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="437"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="438"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="437"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="438"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Fout tijdens het toevoegen van de zoekmachine. &lt;br&gt;&lt;b&gt;Foutmelding:&lt;/b&gt; %1</translation>
     </message>
@@ -5400,68 +5514,68 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>&lt;niet ingesteld in certificaat&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="149"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="150"/>
         <source>No databases are used by this page.</source>
         <translation>Er zijn geen databases in gebruik door deze pagina.</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="155"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="156"/>
         <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
         <translation>&lt;b&gt;Verbinding is beveiligd.&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="156"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="157"/>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Uw verbinding met deze pagina is beveiligd met dit certifitcaat: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="161"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="162"/>
         <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
         <translation>&lt;b&gt;Verbinding niet beveiligd.&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="162"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="163"/>
         <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
         <translation>&lt;b&gt;Uw verbinding met deze pagina is niet beveiligd!&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="189"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="190"/>
         <source>Copy Image Location</source>
         <translation>Afbeeldingslocatie kopiëren</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="190"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="191"/>
         <source>Copy Image Name</source>
         <translation>Afbeeldingsnaam kopiëren</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="192"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="193"/>
         <source>Save Image to Disk</source>
         <translation>Afbeelding opslaan op schijf</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="231"/>
-        <location filename="../src/lib/other/siteinfo.cpp" line="243"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="232"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="244"/>
         <source>Error!</source>
         <translation>Fout!</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="231"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="232"/>
         <source>This preview is not available!</source>
         <translation>Dit voorbeeld is niet beschikbaar!</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="237"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="238"/>
         <source>Save image...</source>
         <translation>Afbeelding opslaan als...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="243"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="244"/>
         <source>Cannot write to file!</source>
         <translation>Kan niet schrijven naar bestand!</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="281"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="282"/>
         <source>Preview not available</source>
         <translation>Voorbeeld niet beschikbaar</translation>
     </message>
@@ -5710,7 +5824,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="20"/>
         <source>&lt;b&gt;Dictionary path&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Woordenboek pad&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Woordenboek-pad&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="36"/>
@@ -5720,7 +5834,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="61"/>
         <source>&lt;b&gt;User dictionary&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Gebruikers woordenboek&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Gebruikers-woordenboek&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.ui" line="88"/>
@@ -5740,7 +5854,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="70"/>
         <source>Choose dictionary path...</source>
-        <translation>Kies woordenboek pad...</translation>
+        <translation>Woordenboek-pad kiezen...</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/qtwebkit/spellcheck/spellcheckdialog.cpp" line="79"/>
@@ -5766,18 +5880,18 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Talen</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="209"/>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="364"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="211"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="366"/>
         <source>No suggestions</source>
         <translation>Geen suggesties</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="212"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="214"/>
         <source>Add to dictionary</source>
         <translation>Toevoegen aan woordenboek</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="369"/>
+        <location filename="../src/lib/plugins/qtwebkit/spellcheck/speller.cpp" line="371"/>
         <source>Settings</source>
         <translation>Instellingen</translation>
     </message>
@@ -5806,80 +5920,80 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="139"/>
-        <source>&amp;New tab</source>
-        <translation>&amp;Nieuw tabblad</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="148"/>
-        <source>&amp;Stop Tab</source>
-        <translation>&amp;Stop tabblad</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="151"/>
-        <source>&amp;Reload Tab</source>
-        <translation>Tabblad &amp;herladen</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="154"/>
-        <source>&amp;Duplicate Tab</source>
-        <translation>&amp;Tabblad dupliceren</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="157"/>
-        <source>D&amp;etach Tab</source>
-        <translation>Koppel tabblad af</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="160"/>
-        <source>Un&amp;pin Tab</source>
-        <translation>&amp;Tabblad losmaken</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="160"/>
-        <source>&amp;Pin Tab</source>
-        <translation>Tabblad vast&amp;maken</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="162"/>
-        <source>Re&amp;load All Tabs</source>
-        <translation>Alle tabbladen &amp;herladen</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="163"/>
-        <source>&amp;Bookmark This Tab</source>
-        <translation>&amp;Dit tabblad bladwijzeren</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="164"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="174"/>
-        <source>Bookmark &amp;All Tabs</source>
-        <translation>&amp;Alle tabbladen bladwijzeren</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="168"/>
-        <source>Close Ot&amp;her Tabs</source>
-        <translation>&amp;Andere tabbladen sluiten</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="169"/>
-        <source>Cl&amp;ose</source>
-        <translation>&amp;Sluit</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="173"/>
-        <source>Reloa&amp;d All Tabs</source>
-        <translation>Alle tabbladen &amp;herladen</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="201"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="143"/>
         <source>Close Tabs</source>
         <translation>Tabbladen sluiten</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="201"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="143"/>
         <source>Do you really want to close other tabs?</source>
         <translation>Weet u zeker dat u andere tabbladen wilt sluiten?</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="325"/>
+        <source>&amp;New tab</source>
+        <translation>&amp;Nieuw tabblad</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="334"/>
+        <source>&amp;Stop Tab</source>
+        <translation>&amp;Stop tabblad</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="337"/>
+        <source>&amp;Reload Tab</source>
+        <translation>Tabblad &amp;herladen</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="340"/>
+        <source>&amp;Duplicate Tab</source>
+        <translation>&amp;Tabblad dupliceren</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="343"/>
+        <source>D&amp;etach Tab</source>
+        <translation>Koppel tabblad af</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="346"/>
+        <source>Un&amp;pin Tab</source>
+        <translation>&amp;Tabblad losmaken</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="346"/>
+        <source>&amp;Pin Tab</source>
+        <translation>Tabblad vast&amp;maken</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
+        <source>Re&amp;load All Tabs</source>
+        <translation>Alle tabbladen &amp;herladen</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
+        <source>&amp;Bookmark This Tab</source>
+        <translation>&amp;Dit tabblad bladwijzeren</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="350"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="360"/>
+        <source>Bookmark &amp;All Tabs</source>
+        <translation>&amp;Alle tabbladen bladwijzeren</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
+        <source>Close Ot&amp;her Tabs</source>
+        <translation>&amp;Andere tabbladen sluiten</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <source>Cl&amp;ose</source>
+        <translation>&amp;Sluit</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
+        <source>Reloa&amp;d All Tabs</source>
+        <translation>Alle tabbladen &amp;herladen</translation>
     </message>
 </context>
 <context>
@@ -5890,38 +6004,38 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="163"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="161"/>
         <source>Closed tabs</source>
         <translation>Gesloten tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="174"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="172"/>
         <source>List of tabs</source>
         <translation>Lijst van tabbladen</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="285"/>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="503"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="283"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="487"/>
         <source>Currently you have %n opened tab(s)</source>
         <translation><numerusform>U heeft momenteel %n geopend tabblad</numerusform><numerusform>U heeft momenteel %n geopende tabblad(en)</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="302"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="300"/>
         <source>Empty</source>
         <translation>Leeg</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="306"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="304"/>
         <source>Restore All Closed Tabs</source>
         <translation>Alle gesloten tabbladen herstellen</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="307"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="305"/>
         <source>Clear list</source>
         <translation>Wis lijst</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="844"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="819"/>
         <location filename="../src/lib/tabwidget/tabwidget.h" line="104"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>
@@ -5930,7 +6044,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>TabbedWebView</name>
     <message>
-        <location filename="../src/lib/webtab/tabbedwebview.cpp" line="204"/>
+        <location filename="../src/lib/webtab/tabbedwebview.cpp" line="198"/>
         <source>Inspect Element</source>
         <translation>Inspecteer element</translation>
     </message>
@@ -5956,19 +6070,6 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <location filename="../src/lib/preferences/thememanager.ui" line="112"/>
         <source>License</source>
         <translation>Licentie</translation>
-    </message>
-</context>
-<context>
-    <name>ToolButton</name>
-    <message>
-        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="33"/>
-        <source>Stop</source>
-        <translation>Stop</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/navigation/reloadstopbutton.cpp" line="41"/>
-        <source>Reload</source>
-        <translation>Herladen</translation>
     </message>
 </context>
 <context>
@@ -6070,159 +6171,158 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Externe Protocol Verzoek</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="551"/>
-        <source>To show this page, QupZilla must resend request which do it again 
-(like searching on making an shopping, which has been already done.)</source>
-        <translation>Om deze pagina weer te geven moet QupZilla het verzoek opnieuw verzenden waardoor
-de actie overnieuw zal worden gedaan (zoals het zoeken bij het shoppen, wat al gedaan was).</translation>
+        <location filename="../src/lib/webkit/webpage.cpp" line="561"/>
+        <source>To display this page, QupZilla must resend the request 
+(such as a search or order confirmation) that was performed earlier.</source>
+        <translation>Om deze pagina te tonen moet QupZilla het eerder gedane verzoek (zoals een zoekopdracht of orderbevestiging) opnieuw versturen.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="553"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="563"/>
         <source>Confirm form resubmission</source>
         <translation>Bevestig herindiening forumlier</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="730"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="740"/>
         <source>Select files to upload...</source>
         <translation>Bestanden selecteren om te uploaden...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="751"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="761"/>
         <source>Server refused the connection</source>
         <translation>Server weigerde de verbinding</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="754"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="764"/>
         <source>Server closed the connection</source>
         <translation>Server sloot de verbinding</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="757"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="774"/>
         <source>Server not found</source>
         <translation>Server niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="760"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="777"/>
         <source>Connection timed out</source>
         <translation>Verbinding onderbroken</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="763"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="780"/>
         <source>Untrusted connection</source>
         <translation>Onbeveiligde verbinding</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="766"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="783"/>
         <source>Temporary network failure</source>
         <translation>Tijdelijke netwerkfout</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="769"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="786"/>
         <source>Proxy connection refused</source>
         <translation>Proxy-verbinding geweigerd</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="772"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="789"/>
         <source>Proxy server not found</source>
         <translation>Proxy-server niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="775"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="792"/>
         <source>Proxy connection timed out</source>
         <translation>Proxy-verbinding tijdsonderbreking</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="778"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="795"/>
         <source>Proxy authentication required</source>
         <translation>Proxy-authenticatie vereist</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="781"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="798"/>
         <source>Content not found</source>
         <translation>Inhoud niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="784"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="801"/>
         <source>Unknown network error</source>
         <translation>Onbekende netwerkfout</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="814"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="831"/>
         <source>AdBlocked Content</source>
         <translation>AdBlock geblokkeerde inhoud</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="818"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="835"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Geblokkeerd door &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="835"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="852"/>
         <source>Content Access Denied</source>
         <translation>Inhoudstoegang geweigerd</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="850"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="867"/>
         <source>Error code %1</source>
         <translation>Foutcode %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="862"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="879"/>
         <source>Failed loading page</source>
         <translation>Mislukt om pagina te laden</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="868"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="885"/>
         <source>QupZilla can&apos;t load page.</source>
         <translation>QupZilla kan de pagina niet laden.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="868"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="885"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla kan de pagina niet laden van %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="872"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="889"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Controleer het adres op typfouten zoals &lt;b&gt;ww.&lt;/b&gt;voorbeeld.nl in plaats van &lt;b&gt;www.&lt;/b&gt;voorbeeld.nl</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="873"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="890"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Indien u niet in staat bent om eender welke pagina te laden, controleer dan uw netwerkverbinding.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="874"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="891"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Indien uw computer of netwerk beveiligd is door een firewall of proxy, zorg dan dat QupZilla toestemming heeft om het web te benaderen.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="875"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="892"/>
         <source>Try Again</source>
         <translation>Probeer nogmaals</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="975"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="992"/>
         <source>JavaScript alert</source>
         <translation>JavaScript-waarschuwing</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="983"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1000"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Voorkom dat deze pagina extra dialoogvensters aanmaakt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1036"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1053"/>
         <source>Choose file...</source>
         <translation>Kies bestand...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1044"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1061"/>
         <source>Cannot read data from &lt;b&gt;%1&lt;/b&gt;. Upload was cancelled!</source>
         <translation>Kan geen data lezen van &lt;b&gt;%1&lt;/b&gt;. Upload is geannuleerd!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1045"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1062"/>
         <source>Cannot read file!</source>
         <translation>Kan bestand niet lezen!</translation>
     </message>
@@ -6258,12 +6358,12 @@ de actie overnieuw zal worden gedaan (zoals het zoeken bij het shoppen, wat al g
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="354"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="361"/>
         <source>Loading...</source>
         <translation>Bezig met laden...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="365"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="377"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -6271,200 +6371,205 @@ de actie overnieuw zal worden gedaan (zoals het zoeken bij het shoppen, wat al g
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="125"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="124"/>
         <source>Empty Page</source>
         <translation>Lege pagina</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="850"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="861"/>
         <source>Create Search Engine</source>
         <translation>Creeër zoekmachine</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="867"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="878"/>
         <source>Cut</source>
         <translation>Knippen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="869"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="880"/>
         <source>Copy</source>
         <translation>Kopiëren</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="871"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="882"/>
         <source>Paste</source>
         <translation>Plakken</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="873"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="884"/>
         <source>Select All</source>
         <translation>Alles selecteren</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="875"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="886"/>
         <source>Default</source>
         <translation>Standaard</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="876"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="887"/>
         <source>Left to Right</source>
         <translation>Links-naar-rechts</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="877"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="888"/>
         <source>Right to Left</source>
         <translation>Rechts-naar-links</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="878"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="889"/>
         <source>Bold</source>
         <translation>Vet</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="879"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="890"/>
         <source>Italic</source>
         <translation>Cursief</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="880"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="891"/>
         <source>Underline</source>
         <translation>Onderstreep</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="882"/>
-        <location filename="../src/lib/webkit/webview.cpp" line="1021"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="893"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1033"/>
         <source>&amp;Reload</source>
         <translation>&amp;Herladen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="883"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="894"/>
         <source>S&amp;top</source>
         <translation>&amp;Stop</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="923"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="934"/>
         <source>Undo</source>
         <translation>Ongedaan maken</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="926"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="937"/>
         <source>Redo</source>
         <translation>Herhalen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="948"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="960"/>
         <source>Delete</source>
         <translation>Verwijderen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="997"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1001"/>
         <source>&amp;Back</source>
         <translation>&amp;Terug</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1001"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1005"/>
         <source>&amp;Forward</source>
         <translation>&amp;Vooruit</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1013"/>
-        <source>This frame</source>
-        <translation>Dit frame</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1015"/>
-        <source>Show &amp;only this frame</source>
-        <translation>Toon &amp;alleen dit frame</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1016"/>
-        <source>Show this frame in new &amp;tab</source>
-        <translation>Toon dit frame in nieuw &amp;tabblad</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1022"/>
-        <source>Print frame</source>
-        <translation>Druk frame af</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1024"/>
-        <source>Zoom &amp;in</source>
-        <translation>Zoom &amp;in</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1025"/>
-        <source>&amp;Zoom out</source>
-        <translation>&amp;Zoom uit</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1026"/>
-        <source>Reset</source>
-        <translation>Zet terug</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1028"/>
-        <source>Show so&amp;urce of frame</source>
-        <translation>Toon &amp;bron van frame</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1034"/>
-        <source>Book&amp;mark page</source>
-        <translation>Pagina &amp;bladwijzeren</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1035"/>
-        <source>&amp;Save page as...</source>
-        <translation>&amp;Sla pagina op als...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1036"/>
-        <source>&amp;Copy page link</source>
-        <translation>Paginalink &amp;kopiëren</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1037"/>
-        <source>Send page link...</source>
-        <translation>Paginalink versturen...</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1038"/>
-        <source>&amp;Print page</source>
-        <translation>&amp;Print pagina</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1040"/>
-        <source>Select &amp;all</source>
-        <translation>&amp;Alles selecteren</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1045"/>
-        <source>Validate page</source>
-        <translation>Valideer pagina</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1049"/>
-        <source>Translate page</source>
-        <translation>Pagina vertalen</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1053"/>
-        <source>Show so&amp;urce code</source>
-        <translation>&amp;Toon broncode</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1054"/>
-        <source>Show info ab&amp;out site</source>
-        <translation>Toon info &amp;over site</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1059"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1012"/>
         <source>&amp;Add New Page</source>
         <translation>&amp;Nieuwe pagina toevoegen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1060"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1013"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>&amp;Snelkiezer instellen</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1015"/>
+        <source>Reload All Dials</source>
+        <translation>Alle snelkiezers verversen</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1025"/>
+        <source>This frame</source>
+        <translation>Dit frame</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1027"/>
+        <source>Show &amp;only this frame</source>
+        <translation>Toon &amp;alleen dit frame</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1028"/>
+        <source>Show this frame in new &amp;tab</source>
+        <translation>Toon dit frame in nieuw &amp;tabblad</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1034"/>
+        <source>Print frame</source>
+        <translation>Druk frame af</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1036"/>
+        <source>Zoom &amp;in</source>
+        <translation>Zoom &amp;in</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1037"/>
+        <source>&amp;Zoom out</source>
+        <translation>&amp;Zoom uit</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1038"/>
+        <source>Reset</source>
+        <translation>Zet terug</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1040"/>
+        <source>Show so&amp;urce of frame</source>
+        <translation>Toon &amp;bron van frame</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1046"/>
+        <source>Book&amp;mark page</source>
+        <translation>Pagina &amp;bladwijzeren</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1047"/>
+        <source>&amp;Save page as...</source>
+        <translation>&amp;Sla pagina op als...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1048"/>
+        <source>&amp;Copy page link</source>
+        <translation>Paginalink &amp;kopiëren</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1049"/>
+        <source>Send page link...</source>
+        <translation>Paginalink versturen...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1050"/>
+        <source>&amp;Print page</source>
+        <translation>&amp;Print pagina</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1052"/>
+        <source>Select &amp;all</source>
+        <translation>&amp;Alles selecteren</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1057"/>
+        <source>Validate page</source>
+        <translation>Valideer pagina</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1061"/>
+        <source>Translate page</source>
+        <translation>Pagina vertalen</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1065"/>
+        <source>Show so&amp;urce code</source>
+        <translation>&amp;Toon broncode</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webkit/webview.cpp" line="1066"/>
+        <source>Show info ab&amp;out site</source>
+        <translation>Toon info &amp;over site</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1072"/>

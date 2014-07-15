@@ -41,6 +41,7 @@ TRANSLATIONS += \
     translations/es_VE.ts \
     translations/eu_ES.ts \
     translations/fa_IR.ts \
+    translations/fi_FI.ts \
     translations/fr_FR.ts \
     translations/he_IL.ts \
     translations/hr_HR.ts \
