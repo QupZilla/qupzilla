@@ -295,6 +295,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
         ui->defaultZoomLevel->addItem(QString("%1%").arg(level));
     }
     ui->defaultZoomLevel->setCurrentIndex(settings.value("DefaultZoomLevel", WebView::zoomLevels().indexOf(100)).toInt());
+    ui->closeAppWithCtrlQ->setChecked(settings.value("closeAppWithCtrlQ", true).toBool());
 
     //Cache
     ui->pagesInCache->setValue(settings.value("maximumCachedPages", 3).toInt());
@@ -995,6 +996,7 @@ void Preferences::saveSettings()
     settings.setValue("DefaultZoomLevel", ui->defaultZoomLevel->currentIndex());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
     settings.setValue("enableFormsUndoRedo", ui->formsUndoRedo->isChecked());
+    settings.setValue("closeAppWithCtrlQ", ui->closeAppWithCtrlQ->isChecked());
 #ifdef Q_OS_WIN
     settings.setValue("CheckDefaultBrowser", ui->checkDefaultBrowser->isChecked());
 #endif

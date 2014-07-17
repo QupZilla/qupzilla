@@ -98,6 +98,17 @@
 
 const QString BrowserWindow::WEBKITVERSION = qWebKitVersion();
 
+static QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallBack, QKeySequence shortcutRTL = QKeySequence(), QKeySequence fallbackRTL = QKeySequence())
+{
+    if (QApplication::isRightToLeft() && (!shortcutRTL.isEmpty() || !fallbackRTL.isEmpty())) {
+        return (shortcutRTL.isEmpty() ? fallbackRTL : shortcutRTL);
+    }
+    else {
+        return (shortcut.isEmpty() ? fallBack : shortcut);
+    }
+}
+
+
 BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     : QMainWindow(0)
     , m_startUrl(startUrl)
@@ -411,6 +422,15 @@ void BrowserWindow::loadSettings()
     m_useTabNumberShortcuts = settings.value("useTabNumberShortcuts", true).toBool();
     m_useSpeedDialNumberShortcuts = settings.value("useSpeedDialNumberShortcuts", true).toBool();
     m_useSingleKeyShortcuts = settings.value("useSingleKeyShortcuts", false).toBool();
+    settings.endGroup();
+
+    settings.beginGroup("Web-Browser-Settings");
+    QAction *quitAction = m_mainMenu->action(QSL("Standard/Quit"));
+    if (settings.value("closeAppWithCtrlQ", true).toBool()) {
+        quitAction->setShortcut(actionShortcut(QKeySequence::Quit, QKeySequence(QSL("Ctrl+Q"))));
+    } else {
+        quitAction->setShortcut(QKeySequence());
+    }
     settings.endGroup();
 
     m_adblockIcon->setEnabled(settings.value("AdBlock/enabled", true).toBool());
