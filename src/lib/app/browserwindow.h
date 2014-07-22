@@ -175,6 +175,10 @@ private:
     void setupUi();
     void setupMenu();
 
+    QAction *createEncodingAction(const QString &codecName, const QString &activeCodecName,
+                                  QMenu *menu);
+    void createEncodingSubMenu(const QString &name, QStringList &codecNames, QMenu *menu);
+
     QUrl m_startUrl;
     QUrl m_homepage;
     Qz::BrowserWindowType m_windowType;

@@ -373,6 +373,38 @@ void BrowserWindow::setupMenu()
     connect(inspectorAction, SIGNAL(activated()), this, SLOT(showWebInspector()));
 }
 
+QAction *BrowserWindow::createEncodingAction(const QString &codecName,
+                                             const QString &activeCodecName, QMenu *menu)
+{
+    QAction* action = new QAction(codecName, menu);
+    action->setData(codecName);
+    action->setCheckable(true);
+    connect(action, SIGNAL(triggered()), this, SLOT(changeEncoding()));
+    if (activeCodecName.compare(codecName, Qt::CaseInsensitive) == 0) {
+        action->setChecked(true);
+    }
+    return action;
+}
+
+void BrowserWindow::createEncodingSubMenu(const QString &name, QStringList &codecNames, QMenu *menu)
+{
+    if (codecNames.isEmpty()) {
+        return;
+    }
+
+    /// TODO: Alphanumeric sorting: QCollator (5.2+) or http://www.davekoelle.com/alphanum.html
+    std::sort(codecNames.begin(), codecNames.end());
+
+    QMenu* subMenu = new QMenu(name, menu);
+    const QString activeCodecName = QWebSettings::globalSettings()->defaultTextEncoding();
+
+    foreach (const QString &codecName, codecNames) {
+        subMenu->addAction(createEncodingAction(codecName, activeCodecName, subMenu));
+    }
+
+    menu->addMenu(subMenu);
+}
+
 void BrowserWindow::loadSettings()
 {
     Settings settings;
@@ -923,68 +955,43 @@ void BrowserWindow::createSidebarsMenu(QMenu* menu)
 
 void BrowserWindow::createEncodingMenu(QMenu* menu)
 {
-    QMenu* menuISO = new QMenu("ISO", this);
-    QMenu* menuUTF = new QMenu("UTF", this);
-    QMenu* menuWindows = new QMenu("Windows", this);
-    QMenu* menuIscii = new QMenu("Iscii", this);
-    QMenu* menuOther = new QMenu(tr("Other"), this);
+    const QString activeCodecName = QWebSettings::globalSettings()->defaultTextEncoding();
 
-    QList<QByteArray> available = QTextCodec::availableCodecs();
-    qSort(available);
-    const QString activeCodec = QWebSettings::globalSettings()->defaultTextEncoding();
+    QStringList isoCodecs, utfCodecs, windowsCodecs, isciiCodecs, otherCodecs;
 
-    foreach (const QByteArray &name, available) {
-        QTextCodec* codec = QTextCodec::codecForName(name);
-        if (codec && codec->aliases().contains(name)) {
-            continue;
-        }
+    foreach (const int mib, QTextCodec::availableMibs()) {
+        const QString codecName = QString::fromUtf8(QTextCodec::codecForMib(mib)->name());
 
-        const QString nameString = QString::fromUtf8(name);
-
-        QAction* action = new QAction(nameString, 0);
-        action->setData(nameString);
-        action->setCheckable(true);
-        connect(action, SIGNAL(triggered()), this, SLOT(changeEncoding()));
-        if (activeCodec.compare(nameString, Qt::CaseInsensitive) == 0) {
-            action->setChecked(true);
+        if (codecName.startsWith(QLatin1String("ISO")) && !isoCodecs.contains(codecName)) {
+            isoCodecs << codecName;
         }
-
-        if (nameString.startsWith(QLatin1String("ISO"))) {
-            menuISO->addAction(action);
+        else if (codecName.startsWith(QLatin1String("UTF")) && !utfCodecs.contains(codecName)) {
+            qDebug() << codecName << QTextCodec::codecForName(codecName.toUtf8())->mibEnum();
+            utfCodecs << codecName;
         }
-        else if (nameString.startsWith(QLatin1String("UTF"))) {
-            menuUTF->addAction(action);
+        else if (codecName.startsWith(QLatin1String("windows"))
+                 && !windowsCodecs.contains(codecName)) {
+            windowsCodecs << codecName;
         }
-        else if (nameString.startsWith(QLatin1String("windows"))) {
-            menuWindows->addAction(action);
+        else if (codecName.startsWith(QLatin1String("Iscii")) && !isciiCodecs.contains(codecName)) {
+            isciiCodecs << codecName;
         }
-        else if (nameString.startsWith(QLatin1String("Iscii"))) {
-            menuIscii->addAction(action);
+        else if (codecName == QLatin1String("System")) {
+            menu->addAction(createEncodingAction(codecName, activeCodecName, menu));
         }
-        else if (nameString == QLatin1String("System")) {
-            menu->addAction(action);
-        }
-        else {
-            menuOther->addAction(action);
+        else if (!otherCodecs.contains(codecName)) {
+            otherCodecs << codecName;
         }
     }
 
-    menu->addSeparator();
-    if (!menuISO->isEmpty()) {
-        menu->addMenu(menuISO);
+    if (!menu->isEmpty()) {
+        menu->addSeparator();
     }
-    if (!menuUTF->isEmpty()) {
-        menu->addMenu(menuUTF);
-    }
-    if (!menuWindows->isEmpty()) {
-        menu->addMenu(menuWindows);
-    }
-    if (!menuIscii->isEmpty()) {
-        menu->addMenu(menuIscii);
-    }
-    if (!menuOther->isEmpty()) {
-        menu->addMenu(menuOther);
-    }
+    createEncodingSubMenu("ISO", isoCodecs, menu);
+    createEncodingSubMenu("UTF", utfCodecs, menu);
+    createEncodingSubMenu("Windows", windowsCodecs, menu);
+    createEncodingSubMenu("Iscii", isciiCodecs, menu);
+    createEncodingSubMenu(tr("Other"), otherCodecs, menu);
 }
 
 void BrowserWindow::addTab()
