@@ -39,16 +39,6 @@
 #include <QWebPage>
 #include <QMenuBar>
 
-static QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallBack, QKeySequence shortcutRTL = QKeySequence(), QKeySequence fallbackRTL = QKeySequence())
-{
-    if (QApplication::isRightToLeft() && (!shortcutRTL.isEmpty() || !fallbackRTL.isEmpty())) {
-        return (shortcutRTL.isEmpty() ? fallbackRTL : shortcutRTL);
-    }
-    else {
-        return (shortcut.isEmpty() ? fallBack : shortcut);
-    }
-}
-
 MainMenu::MainMenu(BrowserWindow* window, QWidget* parent)
     : QMenu(parent)
     , m_window(window)
@@ -516,7 +506,7 @@ void MainMenu::init()
 
     action = new QAction(QIcon::fromTheme(QSL("application-exit")), tr("Quit"), this);
     action->setMenuRole(QAction::QuitRole);
-    action->setShortcut(actionShortcut(QKeySequence::Quit, QKeySequence(QSL("Ctrl+Q"))));
+    // shortcut set from browserwindow
     connect(action, SIGNAL(triggered()), this, SLOT(quitApplication()));
     m_actions[QSL("Standard/Quit")] = action;
 
