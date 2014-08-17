@@ -11,8 +11,13 @@ mac: TARGET = QupZilla
 
 TEMPLATE = app
 
+compile_libtool {
+LIBS += $$QZ_DESTDIR/libQupZilla.la
+}
+else {
 !unix|mac: LIBS += -L$$QZ_DESTDIR -lQupZilla
 !mac:unix: LIBS += $$QZ_DESTDIR/libQupZilla.so
+}
 
 unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
 
