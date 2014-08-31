@@ -143,8 +143,10 @@ void DataPaths::init()
 
     // Temp
 #ifdef Q_OS_UNIX
-    dir.mkpath(QDir::tempPath() + QLatin1String("/qupzilla/tmp"));
-    m_paths[Temp].append(QDir::tempPath() + QLatin1String("/qupzilla/tmp"));
+    const QByteArray &user = qgetenv("USER");
+    const QString &tempPath = QString(QSL("%1/qupzilla-%2/tmp")).arg(QDir::tempPath(), user.constData());
+    dir.mkpath(tempPath);
+    m_paths[Temp].append(tempPath);
 #else
     m_paths[Temp].append(m_paths[Config].first() + QLatin1String("/tmp"));
 #endif
