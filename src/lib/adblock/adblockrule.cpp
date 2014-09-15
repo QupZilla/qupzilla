@@ -374,9 +374,9 @@ void AdBlockRule::parseFilter()
     }
 
     // CSS Element hiding rule
-    if (parsedLine.contains(QL1S("##"))) {
+    if (parsedLine.contains(QL1S("##")) || parsedLine.contains(QL1S("#@#"))) {
         m_type = CssRule;
-        int pos = parsedLine.indexOf(QL1S("##"));
+        int pos = parsedLine.indexOf(QL1C('#'));
 
         // Domain restricted rule
         if (!parsedLine.startsWith(QL1S("##"))) {
@@ -384,7 +384,15 @@ void AdBlockRule::parseFilter()
             parseDomains(domains, QL1C(','));
         }
 
-        m_matchString = parsedLine.mid(pos + 2);
+        m_isException = parsedLine.at(pos + 1) == QL1C('@');
+        m_matchString = parsedLine.mid(m_isException ? pos + 3 : pos + 2);
+
+        // CSS Element hiding exceptions not supported for now
+        if (m_isException) {
+            m_isInternalDisabled = true;
+            m_type = Invalid;
+            return;
+        }
 
         // CSS rule cannot have more options -> stop parsing
         return;
