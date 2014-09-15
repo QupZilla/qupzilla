@@ -74,6 +74,7 @@ void AdBlockManager::setEnabled(bool enabled)
     settings.endGroup();
 
     load();
+    mApp->reloadUserStyleSheet();
 }
 
 QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
