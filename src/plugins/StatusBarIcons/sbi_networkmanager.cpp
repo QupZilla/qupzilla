@@ -27,7 +27,7 @@ SBI_NetworkManager* SBI_NetworkManager::s_instance = 0;
 
 SBI_NetworkManager::SBI_NetworkManager(const QString &settingsPath, QObject* parent)
     : QObject(parent)
-    , m_settingsFile(settingsPath + "networkicon.ini")
+    , m_settingsFile(settingsPath + QL1S("/networkicon.ini"))
     , m_currentProxy(0)
 {
     s_instance = this;

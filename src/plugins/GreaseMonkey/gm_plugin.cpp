@@ -52,7 +52,6 @@ PluginSpec GM_Plugin::pluginSpec()
 void GM_Plugin::init(InitState state, const QString &settingsPath)
 {
     m_manager = new GM_Manager(settingsPath, this);
-    m_settingsPath = settingsPath;
 
     connect(mApp->plugins(), SIGNAL(webPageCreated(WebPage*)), this, SLOT(webPageCreated(WebPage*)));
     connect(mApp->plugins(), SIGNAL(mainWindowCreated(BrowserWindow*)), m_manager, SLOT(mainWindowCreated(BrowserWindow*)));

@@ -74,7 +74,7 @@ void GM_Downloader::scriptDownloaded()
             file.write(response);
             file.close();
 
-            QSettings settings(m_manager->settinsPath() + QL1S("greasemonkey/requires/requires.ini"), QSettings::IniFormat);
+            QSettings settings(m_manager->settinsPath() + QL1S("/greasemonkey/requires/requires.ini"), QSettings::IniFormat);
             settings.beginGroup("Files");
 
             QzRegExp rx("@require(.*)\\n");

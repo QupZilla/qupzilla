@@ -23,7 +23,7 @@
 SBI_Icon::SBI_Icon(BrowserWindow* window, const QString &settingsPath)
     : ClickableLabel(window)
     , m_window(window)
-    , m_settingsFile(settingsPath + QLatin1String("extensions.ini"))
+    , m_settingsFile(settingsPath + QL1S("/extensions.ini"))
 {
 }
 

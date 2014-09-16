@@ -59,9 +59,10 @@ void TestPlugin::init(InitState state, const QString &settingsPath)
     // it will be called even if we return false from testPlugin()
     // so it is recommended not to call any QupZilla function here
 
-    // Settings path is PROFILE/extensions/, in this directory
-    // you can use global .ini file for QSettings named "extensions.ini"
-    // or create new folder for your plugin and save in it anything you want
+    // Settings path is PROFILE/extensions (without trailign slash),
+    // in this directory you can use global .ini file for QSettings
+    // named "extensions.ini" or create new folder for your plugin
+    // and save in it anything you want
     m_settingsPath = settingsPath;
 
     // State can be either StartupInitState or LateInitState, and it

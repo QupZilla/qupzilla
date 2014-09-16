@@ -48,7 +48,7 @@ void AutoScrollPlugin::init(InitState state, const QString &settingsPath)
 {
     Q_UNUSED(state)
 
-    m_scroller = new AutoScroller(settingsPath + QLatin1String("extensions.ini"), this);
+    m_scroller = new AutoScroller(settingsPath + QL1S("/extensions.ini"), this);
 
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::MouseMoveHandler);
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::MousePressHandler);

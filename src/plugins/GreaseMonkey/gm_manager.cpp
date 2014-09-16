@@ -92,7 +92,7 @@ QString GM_Manager::requireScripts(const QStringList &urlList) const
 void GM_Manager::unloadPlugin()
 {
     // Save settings
-    QSettings settings(m_settingsPath + "extensions.ini", QSettings::IniFormat);
+    QSettings settings(m_settingsPath + "/extensions.ini", QSettings::IniFormat);
     settings.beginGroup("GreaseMonkey");
     settings.setValue("disabledScripts", m_disabledScripts);
     settings.endGroup();
@@ -236,9 +236,9 @@ void GM_Manager::pageLoadStart()
 
 void GM_Manager::load()
 {
-    QDir gmDir(m_settingsPath + "greasemonkey");
+    QDir gmDir(m_settingsPath + QL1S("/greasemonkey"));
     if (!gmDir.exists()) {
-        gmDir.mkdir(m_settingsPath + "greasemonkey");
+        gmDir.mkdir(m_settingsPath + QL1S("/greasemonkey"));
     }
 
     if (!gmDir.exists("requires")) {

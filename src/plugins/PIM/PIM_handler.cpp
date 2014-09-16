@@ -31,7 +31,7 @@
 
 PIM_Handler::PIM_Handler(const QString &sPath, QObject* parent)
     : QObject(parent)
-    , m_settingsFile(sPath + "extensions.ini")
+    , m_settingsFile(sPath + QL1S("/extensions.ini"))
     , m_loaded(false)
 {
 }

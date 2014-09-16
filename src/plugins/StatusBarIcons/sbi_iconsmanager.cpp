@@ -40,7 +40,7 @@ SBI_IconsManager::SBI_IconsManager(const QString &settingsPath, QObject* parent)
 
 void SBI_IconsManager::loadSettings()
 {
-    QSettings settings(m_settingsPath + "extensions.ini", QSettings::IniFormat);
+    QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
     settings.beginGroup("StatusBarIcons");
     m_showImagesIcon = settings.value("showImagesIcon", true).toBool();
     m_showJavaScriptIcon = settings.value("showJavaScriptIcon", true).toBool();
@@ -56,7 +56,7 @@ bool SBI_IconsManager::showImagesIcon() const
 
 void SBI_IconsManager::setShowImagesIcon(bool show)
 {
-    QSettings settings(m_settingsPath + QL1S("extensions.ini"), QSettings::IniFormat);
+    QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
     settings.setValue("StatusBarIcons/showImagesIcon", show);
 
     m_showImagesIcon = show;
@@ -69,7 +69,7 @@ bool SBI_IconsManager::showJavaScriptIcon() const
 
 void SBI_IconsManager::setShowJavaScriptIcon(bool show)
 {
-    QSettings settings(m_settingsPath + QL1S("extensions.ini"), QSettings::IniFormat);
+    QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
     settings.setValue("StatusBarIcons/showJavaScriptIcon", show);
 
     m_showJavaScriptIcon = show;
@@ -82,7 +82,7 @@ bool SBI_IconsManager::showNetworkIcon() const
 
 void SBI_IconsManager::setShowNetworkIcon(bool show)
 {
-    QSettings settings(m_settingsPath + QL1S("extensions.ini"), QSettings::IniFormat);
+    QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
     settings.setValue("StatusBarIcons/showNetworkIcon", show);
 
     m_showNetworkIcon = show;
@@ -95,7 +95,7 @@ bool SBI_IconsManager::showZoomWidget() const
 
 void SBI_IconsManager::setShowZoomWidget(bool show)
 {
-    QSettings settings(m_settingsPath + QL1S("extensions.ini"), QSettings::IniFormat);
+    QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
     settings.setValue("StatusBarIcons/showZoomWidget", show);
 
     m_showZoomWidget = show;

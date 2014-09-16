@@ -50,7 +50,6 @@ private slots:
 
 private:
     GM_Manager* m_manager;
-    QString m_settingsPath;
 };
 
 #endif // GM_PLUGIN_H
