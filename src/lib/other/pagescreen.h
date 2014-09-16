@@ -60,7 +60,7 @@ private:
 
     QFutureWatcher<QImage>* m_imageScaling;
     QVector<QImage> m_pageImages;
-    QHash<int, QString> m_formats;
+    QStringList m_formats;
 };
 
 #endif // PAGESCREEN_H

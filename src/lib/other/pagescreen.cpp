@@ -48,20 +48,17 @@ PageScreen::PageScreen(WebView* view, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    m_formats[0] = QLatin1String("PNG");
-    m_formats[1] = QLatin1String("BMP");
-    m_formats[2] = QLatin1String("JPG");
-    m_formats[3] = QLatin1String("PPM");
-    m_formats[4] = QLatin1String("TIFF");
-    m_formats[5] = QLatin1String("PDF");
+    m_formats.append(QSL("PNG"));
+    m_formats.append(QSL("BMP"));
+    m_formats.append(QSL("JPG"));
+    m_formats.append(QSL("PPM"));
+    m_formats.append(QSL("TIFF"));
+    m_formats.append(QSL("PDF"));
 
-    QHashIterator<int, QString> i(m_formats);
-    while (i.hasNext()) {
-        i.next();
-        ui->formats->addItem(tr("Save as %1").arg(i.value()));
+    foreach (const QString &format, m_formats) {
+        ui->formats->addItem(tr("Save as %1").arg(format));
     }
 
-    // Set png as a default format
     m_pageTitle = m_view->title();
 
     Settings settings;
@@ -87,10 +84,10 @@ void PageScreen::formatChanged()
     int pos = text.lastIndexOf(QLatin1Char('.'));
 
     if (pos > -1) {
-        text = text.left(pos + 1) + m_formats[ui->formats->currentIndex()].toLower();
+        text = text.left(pos + 1) + m_formats.at(ui->formats->currentIndex()).toLower();
     }
     else {
-        text.append(QLatin1Char('.') + m_formats[ui->formats->currentIndex()].toLower());
+        text.append(QLatin1Char('.') + m_formats.at(ui->formats->currentIndex()).toLower());
     }
 
     ui->location->setText(text);
@@ -99,7 +96,7 @@ void PageScreen::formatChanged()
 void PageScreen::changeLocation()
 {
     const QString name = QzTools::filterCharsFromFilename(m_pageTitle).replace(QLatin1Char(' '), QLatin1Char('_'));
-    const QString suggestedPath = QString("%1/%2.%3").arg(QDir::homePath(), name, m_formats[ui->formats->currentIndex()].toLower());
+    const QString suggestedPath = QString("%1/%2.%3").arg(QDir::homePath(), name, m_formats.at(ui->formats->currentIndex()).toLower());
 
     const QString path = QzTools::getSaveFileName("PageScreen-Location", this, tr("Choose location..."), suggestedPath);
 
@@ -123,7 +120,7 @@ void PageScreen::dialogAccepted()
 
         QApplication::setOverrideCursor(Qt::WaitCursor);
 
-        const QString format = m_formats[ui->formats->currentIndex()];
+        const QString format = m_formats.at(ui->formats->currentIndex());
         if (format == QLatin1String("PDF")) {
             saveAsDocument(format);
         }
