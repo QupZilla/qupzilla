@@ -38,6 +38,8 @@ public slots:
     void deleteValue(const QString &nspace, const QString &name);
     QStringList listValues(const QString &nspace);
 
+    void setClipboard(const QString &text);
+
 private:
     QSettings* m_settings;
 };

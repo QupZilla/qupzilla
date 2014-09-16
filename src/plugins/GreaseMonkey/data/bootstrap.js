@@ -63,7 +63,13 @@ if(typeof GM_log === "undefined") {
 
 if(typeof GM_openInTab === "undefined") {
     function GM_openInTab(url) {
-        window.open(url)
+        return window.open(url);
+    }
+}
+
+if(typeof GM_setClipboard === "undefined") {
+    function GM_setClipboard(text) {
+        window._qz_greasemonkey.setClipboard(text);
     }
 }
 

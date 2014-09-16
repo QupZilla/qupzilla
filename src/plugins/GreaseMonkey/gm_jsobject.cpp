@@ -17,6 +17,9 @@
 * ============================================================ */
 #include "gm_jsobject.h"
 
+#include <QApplication>
+#include <QClipboard>
+
 GM_JSObject::GM_JSObject(QObject* parent)
     : QObject(parent)
     , m_settings(0)
@@ -111,6 +114,11 @@ QStringList GM_JSObject::listValues(const QString &nspace)
     m_settings->endGroup();
 
     return keys;
+}
+
+void GM_JSObject::setClipboard(const QString &text)
+{
+    QApplication::clipboard()->setText(text);
 }
 
 GM_JSObject::~GM_JSObject()
