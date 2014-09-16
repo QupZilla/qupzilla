@@ -220,7 +220,7 @@ void GM_Manager::frameLoadStart()
     foreach (GM_Script* script, m_endScripts) {
         if (script->match(urlString)) {
             const QString jscript = QString(QSL("window.addEventListener(\"DOMContentLoaded\","
-                                            "function(e) { \n%1\n }, false);")).arg(m_bootstrap + script->script());
+                                            "function(e) { \n%1\n }, true);")).arg(m_bootstrap + script->script());
             frame->evaluateJavaScript(jscript);
         }
     }
