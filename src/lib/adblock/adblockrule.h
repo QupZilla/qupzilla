@@ -64,6 +64,8 @@ public:
     AdBlockRule(const QString &filter = QString(), AdBlockSubscription* subscription = 0);
     ~AdBlockRule();
 
+    AdBlockRule* copy() const;
+
     AdBlockSubscription* subscription() const;
     void setSubscription(AdBlockSubscription* subscription);
 

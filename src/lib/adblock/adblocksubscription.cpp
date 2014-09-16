@@ -454,7 +454,7 @@ void AdBlockSubscription::populateCache()
             continue;
         }
 
-        AdBlockRule* copiedRule = new AdBlockRule(originalRule->filter());
+        AdBlockRule* copiedRule = originalRule->copy();
         copiedRule->m_options |= AdBlockRule::DomainRestrictedOption;
         copiedRule->m_blockedDomains.append(rule->m_allowedDomains);
 

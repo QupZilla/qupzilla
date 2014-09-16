@@ -111,6 +111,31 @@ AdBlockRule::~AdBlockRule()
     delete m_regExp;
 }
 
+AdBlockRule* AdBlockRule::copy() const
+{
+    AdBlockRule* rule = new AdBlockRule();
+    rule->m_subscription = m_subscription;
+    rule->m_type = m_type;
+    rule->m_options = m_options;
+    rule->m_exceptions = m_exceptions;
+    rule->m_filter = m_filter;
+    rule->m_matchString = m_matchString;
+    rule->m_caseSensitivity = m_caseSensitivity;
+    rule->m_isEnabled = m_isEnabled;
+    rule->m_isException = m_isException;
+    rule->m_isInternalDisabled = m_isInternalDisabled;
+    rule->m_allowedDomains = m_allowedDomains;
+    rule->m_blockedDomains = m_blockedDomains;
+
+    if (m_regExp) {
+        rule->m_regExp = new RegExp;
+        rule->m_regExp->regExp = m_regExp->regExp;
+        rule->m_regExp->matchers = m_regExp->matchers;
+    }
+
+    return rule;
+}
+
 AdBlockSubscription* AdBlockRule::subscription() const
 {
     return m_subscription;
