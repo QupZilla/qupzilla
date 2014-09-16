@@ -116,6 +116,7 @@ protected:
     FollowRedirectReply* m_reply;
 
     QVector<AdBlockRule*> m_rules;
+    QVector<AdBlockRule*> m_createdRules;
     QString m_elementHidingRules;
 
     QVector<const AdBlockRule*> m_networkExceptionRules;

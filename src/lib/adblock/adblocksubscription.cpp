@@ -397,10 +397,11 @@ void AdBlockSubscription::populateCache()
     m_documentRules.clear();
     m_elemhideRules.clear();
 
-    // Apparently, excessive amount of selectors for one CSS rule is not what WebKit likes.
-    // (In my testings, 4931 is the number that makes it crash)
-    // So let's split it by 1000 selectors...
-    int hidingRulesCount = 0;
+    qDeleteAll(m_createdRules);
+    m_createdRules.clear();
+
+    QHash<QString, const AdBlockRule*> cssRulesHash;
+    QVector<const AdBlockRule*> exceptionCssRules;
 
     int count = m_rules.count();
     for (int i = 0; i < count; ++i) {
@@ -418,17 +419,11 @@ void AdBlockSubscription::populateCache()
                 continue;
             }
 
-            if (rule->isDomainRestricted()) {
-                m_domainRestrictedCssRules.append(rule);
-            }
-            else if (Q_UNLIKELY(hidingRulesCount == 1000)) {
-                m_elementHidingRules.append(rule->cssSelector());
-                m_elementHidingRules.append("{display:none !important;} ");
-                hidingRulesCount = 0;
+            if (rule->isException()) {
+                exceptionCssRules.append(rule);
             }
             else {
-                m_elementHidingRules.append(rule->cssSelector() + QLatin1Char(','));
-                hidingRulesCount++;
+                cssRulesHash.insert(rule->cssSelector(), rule);
             }
         }
         else if (rule->isDocument()) {
@@ -449,9 +444,51 @@ void AdBlockSubscription::populateCache()
         }
     }
 
+    count = exceptionCssRules.count();
+    for (int i = 0; i < count; ++i) {
+        const AdBlockRule* rule = exceptionCssRules.at(i);
+        const AdBlockRule* originalRule = cssRulesHash.value(rule->cssSelector());
+
+        // If we don't have this selector, the exception does nothing
+        if (!originalRule) {
+            continue;
+        }
+
+        AdBlockRule* copiedRule = new AdBlockRule(originalRule->filter());
+        copiedRule->m_options |= AdBlockRule::DomainRestrictedOption;
+        copiedRule->m_blockedDomains.append(rule->m_allowedDomains);
+
+        cssRulesHash[rule->cssSelector()] = copiedRule;
+        m_createdRules.append(copiedRule);
+    }
+
+    // Apparently, excessive amount of selectors for one CSS rule is not what WebKit likes.
+    // (In my testings, 4931 is the number that makes it crash)
+    // So let's split it by 1000 selectors...
+    int hidingRulesCount = 0;
+
+    QHashIterator<QString, const AdBlockRule*> it(cssRulesHash);
+    while (it.hasNext()) {
+        it.next();
+        const AdBlockRule* rule = it.value();
+
+        if (rule->isDomainRestricted()) {
+            m_domainRestrictedCssRules.append(rule);
+        }
+        else if (Q_UNLIKELY(hidingRulesCount == 1000)) {
+            m_elementHidingRules.append(rule->cssSelector());
+            m_elementHidingRules.append(QL1S("{display:none !important;} "));
+            hidingRulesCount = 0;
+        }
+        else {
+            m_elementHidingRules.append(rule->cssSelector() + QLatin1Char(','));
+            hidingRulesCount++;
+        }
+    }
+
     if (hidingRulesCount != 0) {
         m_elementHidingRules = m_elementHidingRules.left(m_elementHidingRules.size() - 1);
-        m_elementHidingRules.append("{display:none !important;} ");
+        m_elementHidingRules.append(QL1S("{display:none !important;} "));
     }
 }
 

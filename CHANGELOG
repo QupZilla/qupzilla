@@ -3,6 +3,7 @@ Version 1.7.0
     * added new autoscroll plugin
     * added support for window.onload event
     * added support for external.AddSearchProvider js function
+    * added support for exception css rules in AdBlock
     * completely rewritten bookmarks (including multi-level folders support)
     * menus are not closed when opening links with middle mouse button
     * support for shadow builds with Qt Creator

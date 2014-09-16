@@ -387,13 +387,6 @@ void AdBlockRule::parseFilter()
         m_isException = parsedLine.at(pos + 1) == QL1C('@');
         m_matchString = parsedLine.mid(m_isException ? pos + 3 : pos + 2);
 
-        // CSS Element hiding exceptions not supported for now
-        if (m_isException) {
-            m_isInternalDisabled = true;
-            m_type = Invalid;
-            return;
-        }
-
         // CSS rule cannot have more options -> stop parsing
         return;
     }

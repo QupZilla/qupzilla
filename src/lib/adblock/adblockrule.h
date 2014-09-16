@@ -168,6 +168,7 @@ private:
     RegExp* m_regExp;
 
     friend class AdBlockSearchTree;
+    friend class AdBlockSubscription;
 };
 
 #endif // ADBLOCKRULE_H
