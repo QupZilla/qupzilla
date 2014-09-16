@@ -101,7 +101,7 @@ void PageScreen::changeLocation()
     const QString name = QzTools::filterCharsFromFilename(m_pageTitle).replace(QLatin1Char(' '), QLatin1Char('_'));
     const QString suggestedPath = QString("%1/%2.%3").arg(QDir::homePath(), name, m_formats[ui->formats->currentIndex()].toLower());
 
-    const QString path = QzTools::getOpenFileName("PageScreen-Location", this, tr("Choose location..."), suggestedPath);
+    const QString path = QzTools::getSaveFileName("PageScreen-Location", this, tr("Choose location..."), suggestedPath);
 
     if (!path.isEmpty()) {
         ui->location->setText(path);
