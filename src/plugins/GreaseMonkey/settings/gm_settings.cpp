@@ -41,16 +41,16 @@ GM_Settings::GM_Settings(GM_Manager* manager, QWidget* parent)
     connect(ui->openDirectory, SIGNAL(clicked()),
             this, SLOT(openScriptsDirectory()));
     connect(ui->link, SIGNAL(clicked(QPoint)),
-            this, SLOT(openUserscripts()));
+            this, SLOT(openUserJs()));
     connect(manager, SIGNAL(scriptsChanged()),
             this, SLOT(loadScripts()));
 
     loadScripts();
 }
 
-void GM_Settings::openUserscripts()
+void GM_Settings::openUserJs()
 {
-    mApp->addNewTab(QUrl("http://www.userscripts.org"));
+    mApp->addNewTab(QUrl(QSL("http://openuserjs.org")));
     close();
 }
 

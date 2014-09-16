@@ -160,7 +160,7 @@
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
-        <string notr="true">userscripts.org</string>
+        <string notr="true">openuserjs.org</string>
        </property>
        <property name="html-link-look" stdset="0">
         <bool>true</bool>

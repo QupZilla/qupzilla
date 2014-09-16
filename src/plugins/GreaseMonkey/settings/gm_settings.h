@@ -45,7 +45,7 @@ private slots:
     void itemChanged(QListWidgetItem* item);
 
     void openScriptsDirectory();
-    void openUserscripts();
+    void openUserJs();
 
     void loadScripts();
 
