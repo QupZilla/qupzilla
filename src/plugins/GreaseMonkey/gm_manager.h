@@ -24,6 +24,7 @@
 #include <QHash>
 
 class QUrl;
+class QWebFrame;
 class QNetworkRequest;
 
 class BrowserWindow;
@@ -67,7 +68,8 @@ public slots:
     void mainWindowCreated(BrowserWindow* window);
     void mainWindowDeleted(BrowserWindow* window);
 
-    void pageLoadStart();
+    void frameLoadStart();
+    void frameCreated(QWebFrame* frame);
 
 private slots:
     void load();

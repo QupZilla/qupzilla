@@ -194,44 +194,41 @@ void GM_Manager::showNotification(const QString &message, const QString &title)
     mApp->desktopNotifications()->showNotification(icon, title.isEmpty() ? tr("GreaseMonkey") : title, message);
 }
 
-void GM_Manager::pageLoadStart()
+void GM_Manager::frameLoadStart()
 {
-    QWebFrame* mainFrame = qobject_cast<QWebFrame*>(sender());
-    if (!mainFrame) {
+    QWebFrame* frame = qobject_cast<QWebFrame*>(sender());
+    if (!frame) {
         return;
     }
 
-    const QString urlScheme = mainFrame->url().scheme();
-    const QString urlString = mainFrame->url().toEncoded();
+    const QUrl url = frame->url().isEmpty() ? frame->baseUrl() : frame->url();
+    const QString urlScheme = url.scheme();
+    const QString urlString = url.toEncoded();
 
     if (!canRunOnScheme(urlScheme)) {
         return;
     }
 
-    // Run it in every frame
-    QList<QWebFrame*> frames;
-    frames.append(mainFrame);
-    while (!frames.isEmpty()) {
-        QWebFrame* frame = frames.takeFirst();
-        if (frame) {
-            mainFrame->addToJavaScriptWindowObject("_qz_greasemonkey", m_jsObject);
+    frame->addToJavaScriptWindowObject(QSL("_qz_greasemonkey"), m_jsObject);
 
-            foreach (GM_Script* script, m_startScripts) {
-                if (script->match(urlString)) {
-                    mainFrame->evaluateJavaScript(m_bootstrap + script->script());
-                }
-            }
-
-            foreach (GM_Script* script, m_endScripts) {
-                if (script->match(urlString)) {
-                    const QString jscript = QString("window.addEventListener(\"DOMContentLoaded\","
-                                                    "function(e) { \n%1\n }, false);").arg(m_bootstrap + script->script());
-                    mainFrame->evaluateJavaScript(jscript);
-                }
-            }
-            frames += frame->childFrames();
+    foreach (GM_Script* script, m_startScripts) {
+        if (script->match(urlString)) {
+            frame->evaluateJavaScript(m_bootstrap + script->script());
         }
     }
+
+    foreach (GM_Script* script, m_endScripts) {
+        if (script->match(urlString)) {
+            const QString jscript = QString(QSL("window.addEventListener(\"DOMContentLoaded\","
+                                            "function(e) { \n%1\n }, false);")).arg(m_bootstrap + script->script());
+            frame->evaluateJavaScript(jscript);
+        }
+    }
+}
+
+void GM_Manager::frameCreated(QWebFrame *frame)
+{
+    connect(frame, SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(frameLoadStart()));
 }
 
 void GM_Manager::load()
