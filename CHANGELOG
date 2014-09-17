@@ -1,15 +1,37 @@
 Version 1.7.0
     * development version
-    * added new autoscroll plugin
-    * added support for window.onload event
+    * added support for window.beforeunload event
     * added support for external.AddSearchProvider js function
-    * added support for exception css rules in AdBlock
+    * added undo/redo actions to context menu in forms
+    * added new commandline option to toggle fullscreen
+    * added new commandline option to enable portable mode
+    * added new context menu action to open links in private window
+    * added new smooth and fully transparent loading animation
+    * added option to disable weak ciphers in SSL Manager
+    * added support for shadow builds with Qt Creator
     * completely rewritten bookmarks (including multi-level folders support)
+    * location bar completer is now running in separate thread
     * menus are not closed when opening links with middle mouse button
-    * support for shadow builds with Qt Creator
+    * ctrl+w shortcut no longer closes pinned tab
+    * pinned tabs are now restored everytime, not only when restoring session
+    * enable sending DoNotTrack header by default
+    * full support for search engines that use POST method
+    * Oxygen icon theme is now default fallback icon theme
+    * Qt translations are now loaded from system directories where available
+    * correctly load one-word hosts (eg. localhost or anything other in /etc/hosts)
+    * search engines manager can now be opened from preferences
+    * various tweaks in SpeedDial theme including lower minimal size for dials
+    * various tweaks in Linux theme including support for big fonts in location bar
+    * various fixes for Qt5 including bugs in tab bar
+    * various fixes for RTL languages including rendering of location bar completer
+    * AdBlock: support for exception css rules
+    * AdBlock: improved performance of loading rules
+    * MouseGestures: option to set mouse button for gestures
+    * MouseGestures: support for rocker navigation to go back/forward in history
     * GreaseMonkey: correctly load scripts in frames
     * GreaseMonkey: fix rare issue that userscripts won't load on some sites
     * KWalletPasswords: support for KF5 KWallet
+    * windows: load font.ttf (from current dir, if exists) and set it as default app font
 
 Version 1.6.6
     * released 12 May 2014
