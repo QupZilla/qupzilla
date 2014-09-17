@@ -108,7 +108,6 @@ static QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallBack,
     }
 }
 
-
 BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     : QMainWindow(0)
     , m_startUrl(startUrl)
@@ -122,10 +121,7 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("QupZilla"));
-
-    if (mApp->isPrivate()) {
-        setProperty("private", QVariant(true));
-    }
+    setProperty("private", mApp->isPrivate());
 
     setupUi();
     setupMenu();
