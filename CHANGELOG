@@ -9,6 +9,7 @@ Version 1.7.0
     * support for shadow builds with Qt Creator
     * GreaseMonkey: correctly load scripts in frames
     * GreaseMonkey: fix rare issue that userscripts won't load on some sites
+    * KWalletPasswords: support for KF5 KWallet
 
 Version 1.6.6
     * released 12 May 2014

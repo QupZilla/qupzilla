@@ -33,7 +33,7 @@ outOfDirPlugins = $$(QUPZILLA_PLUGINS_SRCDIR)
 !CONFIG(debug, debug|release): disablePlugin(TestPlugin)
 
 # KWalletPasswords only with KDE_INTEGRATION
-!contains(DEFINES, KDE_INTEGRATION) | equals(QT_MAJOR_VERSION, 5): disablePlugin(KWalletPasswords)
+!contains(DEFINES, KDE_INTEGRATION) | !qtHaveModule(KWallet): disablePlugin(KWalletPasswords)
 
 # GnomeKeyringPasswords only with GNOME_INTEGRATION
 !contains(DEFINES, GNOME_INTEGRATION) | !system(pkg-config --exists gnome-keyring-1): disablePlugin(GnomeKeyringPasswords)

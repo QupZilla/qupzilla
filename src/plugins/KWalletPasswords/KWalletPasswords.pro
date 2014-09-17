@@ -49,7 +49,11 @@ TRANSLATIONS += \
     translations/zh_CN.ts \
     translations/zh_TW.ts \
 
-LIBS += -lkdeui
+qtHaveModule(KWallet) {
+    QT += KWallet
+} else {
+    LIBS += -lkdeui
+}
 
 PLUGIN_DIR = $$PWD
 include(../../plugins.pri)
