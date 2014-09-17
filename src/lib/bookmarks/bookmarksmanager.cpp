@@ -231,24 +231,23 @@ void BookmarksManager::updateEditBox(BookmarkItem* item)
 
     bool editable = bookmarkEditable(item);
     bool showAddressAndKeyword = item && item->isUrl();
-    bool clearBox = !item;
 
-    if (clearBox) {
+    if (!item) {
         ui->title->clear();
         ui->address->clear();
         ui->keyword->clear();
         ui->description->clear();
-
-        ui->title->setReadOnly(true);
-        ui->address->setReadOnly(true);
-        ui->keyword->setReadOnly(true);
-        ui->description->setReadOnly(true);
     }
     else {
         ui->title->setText(item->title());
         ui->address->setText(item->url().toEncoded());
         ui->keyword->setText(item->keyword());
         ui->description->setPlainText(item->description());
+
+        ui->title->setCursorPosition(0);
+        ui->address->setCursorPosition(0);
+        ui->keyword->setCursorPosition(0);
+        ui->description->moveCursor(QTextCursor::Start);
     }
 
     ui->title->setReadOnly(!editable);
