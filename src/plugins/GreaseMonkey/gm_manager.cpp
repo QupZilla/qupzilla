@@ -209,6 +209,8 @@ void GM_Manager::frameLoadStart()
         return;
     }
 
+    const QString readyState = frame->evaluateJavaScript(QSL("document.readyState")).toString();
+
     frame->addToJavaScriptWindowObject(QSL("_qz_greasemonkey"), m_jsObject);
 
     foreach (GM_Script* script, m_startScripts) {
@@ -219,9 +221,15 @@ void GM_Manager::frameLoadStart()
 
     foreach (GM_Script* script, m_endScripts) {
         if (script->match(urlString)) {
-            const QString jscript = QString(QSL("window.addEventListener(\"DOMContentLoaded\","
-                                            "function(e) { \n%1\n }, true);")).arg(m_bootstrap + script->script());
-            frame->evaluateJavaScript(jscript);
+            // If DOMContentLoaded already fired
+            if (readyState == QL1S("complete")) {
+                frame->evaluateJavaScript(m_bootstrap + script->script());
+            }
+            else {
+                const QString jscript = QString(QSL("window.addEventListener(\"DOMContentLoaded\","
+                                                "function(e) { \n%1\n }, true);")).arg(m_bootstrap + script->script());
+                frame->evaluateJavaScript(jscript);
+            }
         }
     }
 }
