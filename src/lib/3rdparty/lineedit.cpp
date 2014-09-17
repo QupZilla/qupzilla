@@ -166,7 +166,7 @@ QMenu* LineEdit::createContextMenu(QAction* pasteAndGoAction)
     }
 
     action = popup->addAction(QIcon::fromTheme(QSL("edit-select-all")), tr("Select All") + ACCEL_KEY(QKeySequence::SelectAll));
-    action->setEnabled(!text().isEmpty() && selectedText() == text());
+    action->setEnabled(!text().isEmpty() && selectedText() != text());
     connect(action, SIGNAL(triggered()), SLOT(selectAll()));
 
 #if !defined(QT_NO_IM) && QT_VERSION < 0x050000
