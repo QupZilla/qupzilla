@@ -93,12 +93,10 @@ BookmarkItem* OperaImporter::importBookmarks()
             item = new BookmarkItem(BookmarkItem::Folder, PARENT);
             while (!m_stream.atEnd()) {
                 Token tok = parseLine(m_stream.readLine());
-                if (tok == EmptyLine) {
+                if (tok == EmptyLine)
                     break;
-                }
-                else if (tok == KeyValuePair && m_key == QLatin1String("NAME")) {
+                else if (tok == KeyValuePair && m_key == QLatin1String("NAME"))
                     item->setTitle(m_value);
-                }
             }
             folders.append(item);
             break;
@@ -117,15 +115,14 @@ BookmarkItem* OperaImporter::importBookmarks()
                     break;
                 }
                 else if (tok == KeyValuePair) {
-                    if (m_key == QL1S("NAME")) {
+                    if (m_key == QL1S("NAME"))
                         item->setTitle(m_value);
-                    } else if (m_key == QL1S("URL")) {
+                    else if (m_key == QL1S("URL"))
                         item->setUrl(QUrl(m_value));
-                    } else if (m_key == QL1S("DESCRIPTION")) {
+                    else if (m_key == QL1S("DESCRIPTION"))
                         item->setDescription(m_value);
-                    } else if (m_key == QL1S("SHORT NAME")) {
+                    else if (m_key == QL1S("SHORT NAME"))
                         item->setKeyword(m_value);
-                    }
                 }
             }
             break;
@@ -159,7 +156,7 @@ BookmarkItem* OperaImporter::importBookmarks()
 
 OperaImporter::Token OperaImporter::parseLine(const QString &line)
 {
-    QString str = line.trimmed();
+    const QString str = line.trimmed();
 
     if (str.isEmpty()) {
         return EmptyLine;
