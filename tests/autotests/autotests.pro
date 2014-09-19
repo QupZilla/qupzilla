@@ -15,9 +15,11 @@ TARGET = autotests
 QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}$$PWD/../../bin
 
 # KWallet plugin
-isEqual(QT_MAJOR_VERSION, 4):exists($$PWD/../../bin/plugins/libKWalletPasswords.so) {
-    LIBS += $$PWD/../../bin/plugins/libKWalletPasswords.so
-    DEFINES += HAVE_KDE_PASSWORDS_PLUGIN
+exists($$PWD/../../bin/plugins/libKWalletPasswords.so) {
+    isEqual(QT_MAJOR_VERSION, 4) | qtHaveModule(KWallet) {
+        LIBS += $$PWD/../../bin/plugins/libKWalletPasswords.so
+        DEFINES += HAVE_KDE_PASSWORDS_PLUGIN
+    }
 }
 
 # GnomeKeyring plugin
@@ -26,8 +28,7 @@ exists($$PWD/../../bin/plugins/libGnomeKeyringPasswords.so) {
     DEFINES += HAVE_GNOME_PASSWORDS_PLUGIN
 }
 
-
-DESTDIR = 
+DESTDIR =
 OBJECTS_DIR = build
 MOC_DIR = build
 RCC_DIR = build
