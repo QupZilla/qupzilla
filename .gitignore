@@ -36,3 +36,4 @@ bin/qupzilla.app
 *.dylib
 hunspell
 callgrind.out.*
+tests/autotests/autotests
