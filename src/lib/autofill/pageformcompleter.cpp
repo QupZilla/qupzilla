@@ -25,9 +25,34 @@
 #include <QUrlQuery>
 #endif
 
-PageFormCompleter::PageFormCompleter(QWebPage* page)
-    : m_page(page)
+PageFormCompleter::PageFormCompleter()
+    : m_page(0)
+    , m_frame(0)
 {
+}
+
+PageFormData PageFormCompleter::extractFormData(QWebPage* page, const QByteArray &postData)
+{
+    m_page = page;
+    return extractFormData(postData);
+}
+
+PageFormData PageFormCompleter::extractFormData(QWebFrame* frame, const QByteArray &postData)
+{
+    m_frame = frame;
+    return extractFormData(postData);
+}
+
+bool PageFormCompleter::completeFormData(QWebPage* page, const QByteArray &data)
+{
+    m_page = page;
+    return completeFormData(data);
+}
+
+bool PageFormCompleter::completeFormData(QWebFrame* frame, const QByteArray &data)
+{
+    m_frame = frame;
+    return completeFormData(data);
 }
 
 PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) const
@@ -89,7 +114,7 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
 }
 
 // Returns if any data was actually filled in page
-bool PageFormCompleter::completePage(const QByteArray &data) const
+bool PageFormCompleter::completeFormData(const QByteArray &data) const
 {
     bool completed = false;
     const QueryItems queryItems = createQueryItems(data);
@@ -233,7 +258,13 @@ QWebElementCollection PageFormCompleter::getAllElementsFromPage(const QString &s
 {
     QWebElementCollection list;
 
-    if (!m_page || !m_page->mainFrame())
+    if (!m_page && !m_frame)
+        return list;
+
+    if (m_frame)
+        return m_frame->findAllElements(selector);
+
+    if (!m_page->mainFrame())
         return list;
 
     QList<QWebFrame*> frames;

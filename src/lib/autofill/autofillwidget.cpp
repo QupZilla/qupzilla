@@ -68,8 +68,8 @@ void AutoFillWidget::loginToPage()
     if (ok && QzTools::containsIndex(m_data, index)) {
         const PasswordEntry entry = m_data.at(index);
 
-        PageFormCompleter completer(m_view->page());
-        completer.completePage(entry.data);
+        PageFormCompleter completer;
+        completer.completeFormData(m_view->page(), entry.data);
     }
 
     close();

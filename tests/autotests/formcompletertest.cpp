@@ -284,16 +284,16 @@ void FormCompleterTest::completeWithData(const QString &html, const QByteArray &
 {
     view->setHtml(html);
 
-    PageFormCompleter completer(view->page());
-    completer.completePage(data);
+    PageFormCompleter completer;
+    completer.completeFormData(view->page(), data);
 }
 
 PageFormData FormCompleterTest::extractFormData(const QString &html, const QByteArray &data)
 {
     view->setHtml(html);
 
-    PageFormCompleter completer(view->page());
-    return completer.extractFormData(data);
+    PageFormCompleter completer;
+    return completer.extractFormData(view->page(), data);
 }
 
 QVariant FormCompleterTest::getElementByIdValue(const QString &id)

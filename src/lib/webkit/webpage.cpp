@@ -93,6 +93,7 @@ WebPage::WebPage(QObject* parent)
     connect(this, SIGNAL(printRequested(QWebFrame*)), this, SLOT(printFrame(QWebFrame*)));
     connect(this, SIGNAL(downloadRequested(QNetworkRequest)), this, SLOT(downloadRequested(QNetworkRequest)));
     connect(this, SIGNAL(windowCloseRequested()), this, SLOT(windowCloseRequested()));
+    connect(this, SIGNAL(restoreFrameStateRequested(QWebFrame*)), this, SLOT(restoreFrameRequested(QWebFrame*)));
 
     connect(this, SIGNAL(databaseQuotaExceeded(QWebFrame*,QString)),
             this, SLOT(dbQuotaExceeded(QWebFrame*)));
@@ -274,9 +275,6 @@ void WebPage::finished()
         m_fileWatcher->removePaths(m_fileWatcher->files());
     }
 
-    // Autofill
-    m_passwordEntries = mApp->autoFill()->completePage(this);
-
     // AdBlock
     cleanBlockedObjects();
 }
@@ -449,6 +447,12 @@ void WebPage::windowCloseRequested()
     }
 
     webView->closeView();
+}
+
+void WebPage::restoreFrameRequested(QWebFrame* frame)
+{
+    // Autofill
+    m_passwordEntries = mApp->autoFill()->completeFrame(frame);
 }
 
 void WebPage::dbQuotaExceeded(QWebFrame* frame)

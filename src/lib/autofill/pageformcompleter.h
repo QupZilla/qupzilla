@@ -25,6 +25,7 @@
 #include "qzcommon.h"
 
 class QWebPage;
+class QWebFrame;
 class QWebElement;
 class QWebElementCollection;
 
@@ -41,14 +42,20 @@ struct PageFormData {
 class QUPZILLA_EXPORT PageFormCompleter
 {
 public:
-    explicit PageFormCompleter(QWebPage* page);
+    explicit PageFormCompleter();
 
-    PageFormData extractFormData(const QByteArray &postData) const;
-    bool completePage(const QByteArray &data) const;
+    PageFormData extractFormData(QWebPage* page, const QByteArray &postData);
+    PageFormData extractFormData(QWebFrame* frame, const QByteArray &postData);
+
+    bool completeFormData(QWebPage* page, const QByteArray &data);
+    bool completeFormData(QWebFrame* frame, const QByteArray &data);
 
 private:
     typedef QPair<QString, QString> QueryItem;
     typedef QList<QPair<QString, QString> > QueryItems;
+
+    PageFormData extractFormData(const QByteArray &postData) const;
+    bool completeFormData(const QByteArray &data) const;
 
     bool queryItemsContains(const QueryItems &queryItems, const QString &attributeName,
                             const QString &attributeValue) const;
@@ -58,6 +65,7 @@ private:
     QWebElementCollection getAllElementsFromPage(const QString &selector) const;
 
     QWebPage* m_page;
+    QWebFrame* m_frame;
 };
 
 #endif // PAGEFORMCOMPLETER_H

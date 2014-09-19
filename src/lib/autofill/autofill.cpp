@@ -169,16 +169,16 @@ void AutoFill::removeAllEntries()
 }
 
 // If password was filled in the page, returns all saved passwords on this page
-QVector<PasswordEntry> AutoFill::completePage(WebPage* page)
+QVector<PasswordEntry> AutoFill::completeFrame(QWebFrame* frame)
 {
     bool completed = false;
     QVector<PasswordEntry> list;
 
-    if (!page) {
+    if (!frame) {
         return list;
     }
 
-    QUrl pageUrl = page->url();
+    QUrl pageUrl = frame->url();
     if (!isStored(pageUrl)) {
         return list;
     }
@@ -188,8 +188,8 @@ QVector<PasswordEntry> AutoFill::completePage(WebPage* page)
     if (!list.isEmpty()) {
         const PasswordEntry entry = list.first();
 
-        PageFormCompleter completer(page);
-        completed = completer.completePage(entry.data);
+        PageFormCompleter completer;
+        completed = completer.completeFormData(frame, entry.data);
     }
 
     if (!completed) {
@@ -206,11 +206,16 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
         return;
     }
 
-    QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-    WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
-    if (!WebPage::isPointerSafeToUse(webPage)) {
+    QWebFrame* frame = qobject_cast<QWebFrame*>(request.originatingObject());
+    if (!frame) {
         return;
     }
+
+    WebPage* webPage = qobject_cast<WebPage*>(frame->page());
+    if (!webPage) {
+        return;
+    }
+
     WebView* webView = qobject_cast<WebView*>(webPage->view());
     if (!webView) {
         return;
@@ -222,8 +227,8 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
         return;
     }
 
-    PageFormCompleter completer(webPage);
-    const PageFormData formData = completer.extractFormData(outgoingData);
+    PageFormCompleter completer;
+    const PageFormData formData = completer.extractFormData(frame, outgoingData);
 
     if (!formData.isValid()) {
         return;

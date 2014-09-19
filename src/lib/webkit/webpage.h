@@ -104,6 +104,7 @@ private slots:
     void downloadRequested(const QNetworkRequest &request);
     void windowCloseRequested();
 
+    void restoreFrameRequested(QWebFrame* frame);
     void dbQuotaExceeded(QWebFrame* frame);
     void doWebSearch(const QString &text);
 
