@@ -49,7 +49,7 @@ TRANSLATIONS += \
     translations/zh_CN.ts \
     translations/zh_TW.ts \
 
-qtHaveModule(KWallet) {
+isEqual(QT_MAJOR_VERSION, 5) {
     QT += KWallet
 } else {
     LIBS += -lkdeui
