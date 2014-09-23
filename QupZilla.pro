@@ -14,7 +14,14 @@ lessThan(QT_VERSION, 4.7) {
 mac|unix: system(test -d bin/plugins || mkdir bin/plugins)
 
 TEMPLATE = subdirs
-SUBDIRS = src/lib src/main
-CONFIG += ordered
 
-SUBDIRS += src/plugins
+src_lib.subdir = src/lib
+src_lib.target = sub-src-lib
+
+src_main.subdir = src/main
+src_main.depends = sub-src-lib
+
+src_plugins.subdir = src/plugins
+src_plugins.depends = sub-src-lib
+
+SUBDIRS += src_lib src_main src_plugins
