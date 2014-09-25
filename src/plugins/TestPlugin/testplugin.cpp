@@ -68,6 +68,7 @@ void TestPlugin::init(InitState state, const QString &settingsPath)
     // State can be either StartupInitState or LateInitState, and it
     // indicates when the plugin have been loaded.
     // Currently, it can be from preferences, or automatically at startup.
+    // Plugins are loaded before first BrowserWindow is created.
     Q_UNUSED(state)
 
     // Registering this plugin as a MousePressHandler.

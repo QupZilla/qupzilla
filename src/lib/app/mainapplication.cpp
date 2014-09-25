@@ -245,10 +245,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveSession()));
 
     translateApp();
-
-    BrowserWindow* window = createWindow(Qz::BW_FirstAppWindow, startUrl);
-    connect(window, SIGNAL(startingCompleted()), this, SLOT(restoreOverrideCursor()));
-
     loadSettings();
 
     m_plugins = new PluginProxy;
@@ -256,6 +252,10 @@ MainApplication::MainApplication(int &argc, char** argv)
     if (!noAddons) {
         m_plugins->loadPlugins();
     }
+
+    BrowserWindow* window = createWindow(Qz::BW_FirstAppWindow, startUrl);
+    connect(window, SIGNAL(startingCompleted()), this, SLOT(restoreOverrideCursor()));
+
 
     if (!isPrivate()) {
         Settings settings;
@@ -882,8 +882,10 @@ void MainApplication::loadSettings()
 #endif
 
     setWheelScrollLines(settings.value("wheelScrollLines", wheelScrollLines()).toInt());
-    webSettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", QString()).toString()));
+    const QString userCss = settings.value("userStyleSheet", QString()).toString();
     settings.endGroup();
+
+    webSettings->setUserStyleSheetUrl(userStyleSheet(userCss));
 
     settings.beginGroup("Browser-Fonts");
     webSettings->setFontFamily(QWebSettings::StandardFont, settings.value("StandardFont", webSettings->fontFamily(QWebSettings::StandardFont)).toString());
@@ -953,8 +955,7 @@ void MainApplication::loadTheme(const QString &name)
 
 void MainApplication::translateApp()
 {
-    Settings settings;
-    QString file = settings.value(QSL("Language/language"), QLocale::system().name()).toString();
+    QString file = Settings().value(QSL("Language/language"), QLocale::system().name()).toString();
 
     if (!file.isEmpty() && !file.endsWith(QL1S(".qm"))) {
         file.append(QL1S(".qm"));

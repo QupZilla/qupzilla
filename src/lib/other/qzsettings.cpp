@@ -76,5 +76,3 @@ void QzSettings::saveSettings()
     settings.setValue("TabsOnTop", tabsOnTop);
     settings.endGroup();
 }
-
-
