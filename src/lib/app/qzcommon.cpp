@@ -23,11 +23,11 @@ const int sessionVersion = 0x0003;
 const int sessionVersionQt5 = 0x0003 | 0x050000;
 const int bookmarksVersion = 1;
 
-const char* APPNAME = "QupZilla";
+QUPZILLA_EXPORT const char* APPNAME = "QupZilla";
 QUPZILLA_EXPORT const char* VERSION = QUPZILLA_VERSION;
-const char* BUILDTIME =  __DATE__" "__TIME__;
-const char* AUTHOR = "David Rosca";
-const char* COPYRIGHT = "2010-2014";
-const char* WWWADDRESS = "http://www.qupzilla.com";
-const char* WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
+QUPZILLA_EXPORT const char* BUILDTIME =  __DATE__" "__TIME__;
+QUPZILLA_EXPORT const char* AUTHOR = "David Rosca";
+QUPZILLA_EXPORT const char* COPYRIGHT = "2010-2014";
+QUPZILLA_EXPORT const char* WWWADDRESS = "http://www.qupzilla.com";
+QUPZILLA_EXPORT const char* WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
 }

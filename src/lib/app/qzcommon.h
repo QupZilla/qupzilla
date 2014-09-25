@@ -62,13 +62,13 @@ extern const int sessionVersionQt5;
 // Version of bookmarks.json file
 extern const int bookmarksVersion;
 
-extern const char* APPNAME;
+QUPZILLA_EXPORT extern const char* APPNAME;
 QUPZILLA_EXPORT extern const char* VERSION;
-extern const char* BUILDTIME;
-extern const char* AUTHOR;
-extern const char* COPYRIGHT;
-extern const char* WWWADDRESS;
-extern const char* WIKIADDRESS;
+QUPZILLA_EXPORT extern const char* BUILDTIME;
+QUPZILLA_EXPORT extern const char* AUTHOR;
+QUPZILLA_EXPORT extern const char* COPYRIGHT;
+QUPZILLA_EXPORT extern const char* WWWADDRESS;
+QUPZILLA_EXPORT extern const char* WIKIADDRESS;
 
 enum BrowserWindowType {
     BW_FirstAppWindow,
