@@ -81,7 +81,7 @@ void BookmarksIcon::speedDialChanged()
 
 void BookmarksIcon::iconClicked()
 {
-    if (!m_view || m_view->url().scheme() == QLatin1String("qupzilla")) {
+    if (!m_view) {
         return;
     }
 
