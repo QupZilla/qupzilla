@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@ijekavian" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@Ijekavian" version="2.0">
 <context>
     <name>PIM_Handler</name>
     <message>
@@ -87,7 +87,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="14"/>
         <source>PIM Settings</source>
-        <translation>ПИМ подешавања</translation>
+        <translation>ПИМ поставке</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="42"/>

@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.ui" line="14"/>
         <source>About QupZilla</source>
-        <translation>Par „QupZilla“</translation>
+        <translation>Par QupZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.ui" line="64"/>
@@ -113,7 +113,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.cpp" line="47"/>
         <source>Other...</source>
-        <translation type="unfinished"/>
+        <translation>Citi...</translation>
     </message>
 </context>
 <context>
@@ -1149,7 +1149,10 @@ Lūdzu, uzstādiet jaunāko „QupZilla“ versiju.</translation>
         <location filename="../src/lib/app/browserwindow.cpp" line="1390"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Ir atvērtas %n cilnes, un šī sesija netiks saglabāta.
+Vai tiešām vēlaties aizvērt šo logu?</numerusform><numerusform>Joprojām ir atvērta %n cilne, un šī sesija netiks saglabāta.
+Vai tiešām vēlaties aizvērt šo logu?</numerusform><numerusform>Joprojām ir atvērtas %n cilnes, un šī sesija netiks saglabāta.
+Vai tiešām vēlaties aizvērt šo logu?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1391"/>
@@ -1276,12 +1279,12 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="43"/>
         <source>Checked items will be cleared upon clicking the Clear button.</source>
-        <translation type="unfinished"/>
+        <translation>Atzīmētie vienumi pēc pogas Notīrīt nospiešanas tiks noņemti.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="50"/>
         <source>Visited pages history from:</source>
-        <translation type="unfinished"/>
+        <translation>Apmeklētās lapas vēstures forma:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="64"/>
@@ -1306,48 +1309,48 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
         <source>Web databases</source>
-        <translation type="unfinished"/>
+        <translation>Tīmekļa datubāzes</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="97"/>
         <source>Local storage</source>
-        <translation type="unfinished"/>
+        <translation>Vietējā glabātava</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
         <source>Cache</source>
-        <translation type="unfinished"/>
+        <translation>Kešatmiņa</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="117"/>
         <source>Cookies</source>
-        <translation type="unfinished"/>
+        <translation>Sīkdatnes</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
         <source>Edit cookies</source>
-        <translation type="unfinished"/>
+        <translation>Rediģēt sīkdatnes</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
         <source>Icons</source>
-        <translation type="unfinished"/>
+        <translation>Ikonas</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="144"/>
         <source>HTML5 notifications data</source>
-        <translation type="unfinished"/>
+        <translation>HTML5 ziņojumu dati</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="151"/>
         <location filename="../src/lib/other/clearprivatedata.ui" line="165"/>
         <source>Edit permissions</source>
-        <translation type="unfinished"/>
+        <translation>Rediģēt atļaujas</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="158"/>
         <source>HTML5 geolocation data</source>
-        <translation type="unfinished"/>
+        <translation>HTML5 ģeolokācijas dati</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="172"/>
@@ -1357,17 +1360,17 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="179"/>
         <source>Database</source>
-        <translation type="unfinished"/>
+        <translation>Datubāze</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="199"/>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Notīrīt</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="165"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Pabeigts</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="183"/>
@@ -2649,7 +2652,7 @@ netika atrasta!</translation>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
         <source>Work &amp;Offline</source>
-        <translation type="unfinished"/>
+        <translation>Darboties &amp;Nesaistē</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
@@ -2960,96 +2963,96 @@ netika atrasta!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>SSL Certificate Error!</source>
         <translation>SSL sertifikāta kļūda!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="227"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>Lapai, kurai Jūs mēģināt piekļūt, ir sekojošās kļūdas SSL sertifikātā:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizācija: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Domēna nosaukums: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="246"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Beigu termiņš: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="252"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Kļūda: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Vai vēlaties izveidot izņēmumu attiecībā uz šo sertifikātu?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="278"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
         <source>Authorisation required</source>
         <translation>Nepieciešama autorizācija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="392"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="486"/>
         <source>Username: </source>
         <translation>Lietotājvārds:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="286"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="393"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="465"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="308"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="487"/>
         <source>Password: </source>
         <translation>Parole:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="291"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="313"/>
         <source>Save username and password on this site</source>
         <translation>Saglabāt šīs vietnes lietotājvārdu un paroli</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="322"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>%1 pieprasa lietotājvārdu un paroli. Vietne saka: „%2“</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="385"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="407"/>
         <source>FTP authorisation required</source>
         <translation>Nepieciešama FTP autorizācija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="398"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="420"/>
         <source>Login anonymously</source>
         <translation>Pieslēgties anonīmi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>%1:%2 pieprasa lietotājvārdu un paroli.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
         <source>Proxy authorisation required</source>
         <translation>Nepieciešama starpniekservera autorizācija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="477"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="499"/>
         <source>Remember username and password for this proxy.</source>
         <translation>Atcerēties šī starpniekservera lietotājvārdu un paroli.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="501"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Starpniekserveris %1 pieprasa lietotājvārdu un paroli. </translation>
     </message>
@@ -4058,7 +4061,7 @@ netika atrasta!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1993"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
-        <translation type="unfinished"/>
+        <translation>Pašreizējās saīsnes:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; — iepriekšējā cilne&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; — jauna cilne&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; ˘ meklēt lapā</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1996"/>
@@ -4250,17 +4253,17 @@ netika atrasta!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2578"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Pārvaldīt meklētājprogrammas&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Izmantot Stila lapu&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2592"/>
         <source>Style Sheet automatically loaded with all websites: </source>
-        <translation type="unfinished"/>
+        <translation>Stila lapa, kas tiks automātiski ielādēta visām tīmekļa lapām: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
@@ -4285,7 +4288,7 @@ netika atrasta!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2747"/>
         <source>Search Engines Manager</source>
-        <translation type="unfinished"/>
+        <translation>Meklētājprogrammu pārvaldnieks</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2784"/>
@@ -4637,7 +4640,7 @@ netika atrasta!</translation>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
         <source>Are you sure to reload all speed dials?</source>
-        <translation type="unfinished"/>
+        <translation>Vai tiešām vēlaties pārlādēt visus ātros zvanus?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
@@ -5231,24 +5234,29 @@ Varbūt palaišana no jauna ar administratora tiesībām darīs brīnumu! ;)</tr
         <translation>Ignorēt visus SSL brīdinājumus</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="239"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="224"/>
+        <source>Disable weak ciphers</source>
+        <translation>Atslēgt vājos kodēšanas šifrus</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Visiem sertifikātiem jābūt .crt paplašinājumam.
 Pēc sertifikātu vietas norādīšanas, lai veiktās izmaiņas stātos spēkā, ir nepieciešams pārlūku „QupZilla“ pārstartēt.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="61"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="64"/>
         <source>Choose path...</source>
         <translation>Izvēlieties ceļu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="132"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="135"/>
         <source>Import certificate...</source>
         <translation>Importēt sertifikātu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="163"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="166"/>
         <source>Certificate Informations</source>
         <translation>Sertifikāta informācija</translation>
     </message>
@@ -6478,7 +6486,7 @@ Pēc sertifikātu vietas norādīšanas, lai veiktās izmaiņas stātos spēkā,
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1015"/>
         <source>Reload All Dials</source>
-        <translation type="unfinished"/>
+        <translation>Pārlādēt visus zvanus</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1025"/>

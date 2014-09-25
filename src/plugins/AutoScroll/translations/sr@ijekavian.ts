@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="sr@ijekavian">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@Ijekavian" version="2.0">
 <context>
     <name>AutoScrollSettings</name>
     <message>
@@ -19,7 +17,7 @@
         <translation>Дјелилац:</translation>
     </message>
     <message>
-        <location filename="../autoscrollsettings.ui" line="134"/>
+        <location filename="../autoscrollsettings.ui" line="138"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Setting higher divider will slow down scrolling</source>
         <translation>&lt;b&gt;Напомена:&lt;/b&gt; Постављање дјелиоца на вишу вриједност ће успорити клизање</translation>
     </message>

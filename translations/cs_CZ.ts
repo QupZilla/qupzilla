@@ -2958,96 +2958,96 @@ nebyl nalezen!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>SSL Certificate Error!</source>
         <translation>Chyba zabezpečení!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="227"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>Stránka kterou se snažíte navštívit zaslala SSL Certifikát s těmito chybami:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizace: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Doména: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="246"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Vyprší: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="252"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Chyba: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Chcete udělit výjimku tomuto certifikátu?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="278"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
         <source>Authorisation required</source>
         <translation>Vyžadována autorizace</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="392"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="486"/>
         <source>Username: </source>
         <translation>Uživatelské jméno: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="286"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="393"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="465"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="308"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="487"/>
         <source>Password: </source>
         <translation>Heslo: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="291"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="313"/>
         <source>Save username and password on this site</source>
         <translation>Uložit jméno a heslo pro tuto stránku</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="322"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Server %1 požaduje vaše uživatelské jméno a heslo s komentářem: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="385"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="407"/>
         <source>FTP authorisation required</source>
         <translation>Vyžadována FTP autorizace</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="398"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="420"/>
         <source>Login anonymously</source>
         <translation>Připojit se anonymně</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>Server %1:%2 požaduje uživatelské jméno a heslo.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
         <source>Proxy authorisation required</source>
         <translation>Vyžadována proxy autorizace</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="477"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="499"/>
         <source>Remember username and password for this proxy.</source>
         <translation>Zapamatovat si uživatelské jméno a heslo pro tuto proxy.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="501"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Proxy %1 požaduje uživatelské jméno a heslo.</translation>
     </message>
@@ -5229,24 +5229,29 @@ Je také možné že spuštění QupZilly s právy administrátora tento problé
         <translation>Ignorovat všechna SSL varování</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="239"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="224"/>
+        <source>Disable weak ciphers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Všechny certifikáty musí mít .crt příponu.
 Po přidání či odstranění cest k certifikátům je nutné k projevení změn restart prohlížeče.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="61"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="64"/>
         <source>Choose path...</source>
         <translation>Vyberte cestu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="132"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="135"/>
         <source>Import certificate...</source>
         <translation>Importovat certifikát...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="163"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="166"/>
         <source>Certificate Informations</source>
         <translation>Informace o certifikátě</translation>
     </message>

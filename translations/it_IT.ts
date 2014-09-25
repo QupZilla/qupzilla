@@ -113,7 +113,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.cpp" line="47"/>
         <source>Other...</source>
-        <translation type="unfinished"/>
+        <translation>Altro...</translation>
     </message>
 </context>
 <context>
@@ -1150,7 +1150,9 @@ Installa l&apos;ultima versione di QupZilla.
         <location filename="../src/lib/app/browserwindow.cpp" line="1390"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>È ancora presente %n scheda aperta e la sessione non verrà salvata. 
+Sei sicuro di voler chiudere questa finestra?</numerusform><numerusform>Sono ancora presenti %n schede aperte e la sessione non verrà salvata. 
+Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1391"/>
@@ -1277,12 +1279,12 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="43"/>
         <source>Checked items will be cleared upon clicking the Clear button.</source>
-        <translation type="unfinished"/>
+        <translation>Gli elementi selezionati verranno ripuliti facendo click sul pulsante Pulisci</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="50"/>
         <source>Visited pages history from:</source>
-        <translation type="unfinished"/>
+        <translation>Cronologia delle pagine visitate da:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="64"/>
@@ -1307,48 +1309,48 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
         <source>Web databases</source>
-        <translation type="unfinished"/>
+        <translation>Database web</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="97"/>
         <source>Local storage</source>
-        <translation type="unfinished"/>
+        <translation>Archiviazione locale</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
         <source>Cache</source>
-        <translation type="unfinished"/>
+        <translation>Cache</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="117"/>
         <source>Cookies</source>
-        <translation type="unfinished"/>
+        <translation>Cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
         <source>Edit cookies</source>
-        <translation type="unfinished"/>
+        <translation>Modifica i cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
         <source>Icons</source>
-        <translation type="unfinished"/>
+        <translation>Icone</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="144"/>
         <source>HTML5 notifications data</source>
-        <translation type="unfinished"/>
+        <translation>Dati di notifica HTML5</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="151"/>
         <location filename="../src/lib/other/clearprivatedata.ui" line="165"/>
         <source>Edit permissions</source>
-        <translation type="unfinished"/>
+        <translation>Modifica permessi</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="158"/>
         <source>HTML5 geolocation data</source>
-        <translation type="unfinished"/>
+        <translation>Dati di geolocalizzazione HTML5</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="172"/>
@@ -1358,17 +1360,17 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="179"/>
         <source>Database</source>
-        <translation type="unfinished"/>
+        <translation>Database</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="199"/>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Pulisci</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="165"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Fatto</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="183"/>
@@ -2650,7 +2652,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
         <source>Work &amp;Offline</source>
-        <translation type="unfinished"/>
+        <translation>Lavora &amp;offline</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
@@ -2961,96 +2963,96 @@ Are you sure to close this window?</source>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>SSL Certificate Error!</source>
         <translation>Errore Certificato SSL!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="227"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>La pagina cui stai cercando di accedere ha i seguenti errori nel certificato SSL:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizzazione: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Nome Dominio: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="246"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Data di Scadenza: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="252"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Errore: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Vuoi fare un&apos;eccezione per questo certificato?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="278"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
         <source>Authorisation required</source>
         <translation>Autorizzazione richiesta</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="392"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="486"/>
         <source>Username: </source>
         <translation>Nome Utente:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="286"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="393"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="465"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="308"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="487"/>
         <source>Password: </source>
         <translation>Password:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="291"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="313"/>
         <source>Save username and password on this site</source>
         <translation>Salva nome utente e password per questo sito</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="322"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Nome utente e password sono richiesti da %1. Questo sito: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="385"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="407"/>
         <source>FTP authorisation required</source>
         <translation>Autorizzazione FTP richiesta</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="398"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="420"/>
         <source>Login anonymously</source>
         <translation>Login anonimo</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>Un nome utente ed una password sono richieste da %1:%2.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
         <source>Proxy authorisation required</source>
         <translation>Autorizzazione proxy richiesta</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="477"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="499"/>
         <source>Remember username and password for this proxy.</source>
         <translation>Salva nome utente e password per questo proxy.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="501"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Nome utente e password sono richiesti dal proxy %1. </translation>
     </message>
@@ -4059,7 +4061,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1993"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
-        <translation type="unfinished"/>
+        <translation>Scorciatoie esistenti::&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - scheda precedente&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - scheda successiva&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - cerca nella pagina</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1996"/>
@@ -4251,17 +4253,17 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2578"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Gestisci motori di ricerca&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Foglio di stile utente&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2592"/>
         <source>Style Sheet automatically loaded with all websites: </source>
-        <translation type="unfinished"/>
+        <translation>Foglio di stile caricato automaticamente con tutti i siti web:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
@@ -4286,7 +4288,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2747"/>
         <source>Search Engines Manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestore dei motori di ricerca</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2784"/>
@@ -4638,7 +4640,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
         <source>Are you sure to reload all speed dials?</source>
-        <translation type="unfinished"/>
+        <translation>Vuoi ricaricare tutti gli speed dial?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
@@ -5232,24 +5234,29 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Ignora tutti gli avvisi SSL</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="239"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="224"/>
+        <source>Disable weak ciphers</source>
+        <translation>Disattiva cifre deboli</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Tutti i certificati devono avere .crt come suffisso.
 Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessario riavviare il browser per rendere effettive le modifiche.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="61"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="64"/>
         <source>Choose path...</source>
         <translation>Scegli il percorso...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="132"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="135"/>
         <source>Import certificate...</source>
         <translation>Importa certificato...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="163"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="166"/>
         <source>Certificate Informations</source>
         <translation>Informazioni sul certificato</translation>
     </message>
@@ -6479,7 +6486,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1015"/>
         <source>Reload All Dials</source>
-        <translation type="unfinished"/>
+        <translation>Ricarica tutti i dial</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1025"/>

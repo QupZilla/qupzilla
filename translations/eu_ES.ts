@@ -2962,96 +2962,96 @@ ez da aurkitu!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>SSL Certificate Error!</source>
         <translation>SSL Egiaztapen Akatsa!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="227"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>Sartzen saiatzen ari zaren orrialdeak hurrengo akatsak ditu SSL egiaztagirian:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Erakundea: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Domeinu Izena: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="246"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Epemuga Eguna: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="252"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Akatsa: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Nahi duzu salbuespen bat egitea egiaztagiri honentzat?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="278"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
         <source>Authorisation required</source>
         <translation>Baimena beharrezkoa</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="392"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="486"/>
         <source>Username: </source>
         <translation>Erabiltzaile-izena: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="286"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="393"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="465"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="308"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="487"/>
         <source>Password: </source>
         <translation>Sarhitza: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="291"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="313"/>
         <source>Save username and password on this site</source>
         <translation>Gorde erabiltzaile-izena eta sarhitza gune honetan</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="322"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>%1-k erabiltzaile-izena eta sarhitza eskatzen ditu. Guneak hau dio: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="385"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="407"/>
         <source>FTP authorisation required</source>
         <translation>FTB baimena beharrezkoa</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="398"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="420"/>
         <source>Login anonymously</source>
         <translation>Hasi-saioa izengabe</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>%1:%2-k erabiltzaile-izena eta sarhitza eskatzen ditu.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
         <source>Proxy authorisation required</source>
         <translation>Proxy baimena beharrezkoa</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="477"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="499"/>
         <source>Remember username and password for this proxy.</source>
         <translation>Gogoratu erabiltzaile-izena eta sarhitza proxy honentzat.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="501"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>%1 proxyak erabiltzaile-izena eta sarhitza eskatzen ditu. </translation>
     </message>
@@ -5233,24 +5233,29 @@ Badaiteke administrari eskubideekin berrabiaraztea magikoa izatea zuretzat! ;)</
         <translation>Ezikusi SSL Kontuz ohar guztiak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="239"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="224"/>
+        <source>Disable weak ciphers</source>
+        <translation>Ezgaitu zifratu ahulak</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Egiaztagiri guztiak .crt atzizkia izan behar dute.
 Egiaztagiri helburuak gehitu edo kendu ondoren, beharrezkoa da QupZilla berrabiaraztea aldaketek eragina izateko.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="61"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="64"/>
         <source>Choose path...</source>
         <translation>Hautatu helburua...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="132"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="135"/>
         <source>Import certificate...</source>
         <translation>Inportatu egiaztagiria...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="163"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="166"/>
         <source>Certificate Informations</source>
         <translation>Egiaztapen Argibideak</translation>
     </message>

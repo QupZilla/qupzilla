@@ -8,7 +8,7 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
-        <source>Current page settings</source>
+        <source>Current Page Settings</source>
         <translation>إعدادات الصفحة الحالية</translation>
     </message>
     <message>
@@ -23,7 +23,7 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
-        <source>Global settings</source>
+        <source>Global Settings</source>
         <translation>الإعدادات العامّة</translation>
     </message>
     <message>
@@ -40,27 +40,27 @@
         <translation>بدّل إعدادات جافاسكربت لكل موقع على حدة أو لكل المواقع معاً</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="48"/>
-        <source>Current page settings</source>
+        <location filename="../sbi_javascripticon.cpp" line="50"/>
+        <source>Current Page Settings</source>
         <translation>إعدادات الصفحة الحالية</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="51"/>
+        <location filename="../sbi_javascripticon.cpp" line="53"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>امنع جافاسكربت (مؤقتاً)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="54"/>
+        <location filename="../sbi_javascripticon.cpp" line="56"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>اسمح بجافاسكربت (مؤقتاً)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="63"/>
-        <source>Global settings</source>
+        <location filename="../sbi_javascripticon.cpp" line="65"/>
+        <source>Global Settings</source>
         <translation>الإعدادات العامّة</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="64"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Manage JavaScript settings</source>
         <translation>أدِر إعدادات جافاسكربت</translation>
     </message>
@@ -69,8 +69,8 @@
     <name>SBI_NetworkIcon</name>
     <message>
         <location filename="../sbi_networkicon.cpp" line="66"/>
-        <source>Proxy configuration</source>
-        <translation>إعدادات الخادوم الوكيل</translation>
+        <source>Proxy Configuration</source>
+        <translation>ضبط الخادوم الوكيل</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="68"/>
@@ -288,7 +288,7 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="118"/>
         <source>Zoom widget</source>
-        <translation type="unfinished"/>
+        <translation>أداة التقريب</translation>
     </message>
 </context>
 <context>
@@ -296,7 +296,7 @@
     <message>
         <location filename="../sbi_zoomwidget.cpp" line="47"/>
         <source>Zoom: %1%</source>
-        <translation type="unfinished"/>
+        <translation>التقريب: %1%</translation>
     </message>
 </context>
 </TS>

@@ -2958,96 +2958,96 @@ Are you sure to close this window?</source>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>SSL Certificate Error!</source>
         <translation>ߓߟߐߟߐ ߥߏ߬ߦߏ ߟߊߞߊ߲ߘߊߟߊ߲ ߟߊߜߍߟߌ ߝߌ߬ߟߌ߹</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="227"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߞߐߜߍ ߡߍ߲ ߠߊߛߐ߬ߘߐ߲߫ ߣߌ߲߬߸ ߝߌ߬ߟߌ ߡߍ߲߬ ߠߎ߬ ߟߋ߬ ߊ߬ ߓߟߐߟߐ߫ ߥߦߏ ߟߊߞߊ߲ߘߊ ߟߊߜߍߟߊ߲ ߘߐ߫:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;ߛߌ߲߬ߝߏ߬ߧߊ߬ߟߌ: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;ߡߙߊ߬ߘߊ ߕߐ߮: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="246"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;ߓߊ߲߫ ߕߎߡߊ: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="252"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;ߝߌ߬ߟߌ: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߟߊ߬ߜߍ߬ߟߊ߲ ߣߌ߲߬ ߞߍ߫ ߢߌ߬ߣߊ߬ߓߐ߬ߕߊ ߘߏ߫ ߟߋ߬ ߘߌ߫ ߢߍ؟</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="278"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
         <source>Authorisation required</source>
         <translation>ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ߫ ߢߊ߲߬ߞߐ߬ߓߊߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="392"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="486"/>
         <source>Username: </source>
         <translation>ߟߐ߲ߕߐ߮:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="286"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="393"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="465"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="308"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="487"/>
         <source>Password: </source>
         <translation>ߕߊ߬ߡߌ߲߬ߞߊ߲:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="291"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="313"/>
         <source>Save username and password on this site</source>
         <translation>ߟߐ߲ߕߐ߮ ߣߌ߫ ߕߊ߬ߡߌ߲߬ߞߊ߲ ߠߊߞߎ߲߬ߘߎ߬ ߞߍߦߙߐ ߣߌ߲߬ ߢߍ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="322"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>ߟߐ߲ߕߐ߮ ߣߌ߫ ߕߊ߬ߡߌ߲߬ߞߊ ߢߌߣߌ߲ߣߍ߲߫ %1 ߓߟߏ߫. ߞߍߦߙߐ ߞߊ߲߫ ߞߏ߫: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="385"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="407"/>
         <source>FTP authorisation required</source>
         <translation>ߞߐߕߐ߯ߘߐ ߟߊߘߌ߫ ߝߐߞߊ߲ ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ ߟߊߢߌߣߌ߲ߣߍ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="398"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="420"/>
         <source>Login anonymously</source>
         <translation>ߜߊ߲߬ߞߎ߲߬ߠߌ߬ ߕߐ߯ߒߕߊ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>ߟߐ߲ߕߐ߮ ߣߌ߫ ߕߊ߬ߡߌ߲߬ߞߊ ߢߌߣߌ߲ߣߍ߲߫ %1 ߓߟߏ߫: %2.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
         <source>Proxy authorisation required</source>
         <translation>ߕߍߟߐ ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ ߟߊߢߌߣߌ߲ߣߍ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="477"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="499"/>
         <source>Remember username and password for this proxy.</source>
         <translation>ߌ ߦߟߌߕߏ߫ ߟߐ߲ߕߐ߮ ߣߌ߫ ߕߊ߬ߡߌ߲߬ߞߊ߲ ߘߐ߫ ߕߍߟߐ ߣߌ߲߬ ߢߍ߫.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="501"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>ߟߐ߲ߕߐ߮ ߣߌ߫ ߕߊ߬ߡߌ߲߬ߞߊ ߢߌߣߌ߲ߣߍ߲߫ ߕߍߟߐ %1 ߓߟߏ߫.</translation>
     </message>
@@ -5231,24 +5231,29 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>ߢߌ߬ߣߊ߬ SSL ߖߊ߲߬ߕߏ߬ߟߌ ߟߎ߬ ߞߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="239"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="224"/>
+        <source>Disable weak ciphers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>ߟߊ߬ߜߍ߬ߟߊ߲ ߓߍ߯ ߣߌ߫ crt suffix ߟߋ߬ ߞߊ߫ ߞߊ߲߫.
 ߣߴߌ ߓߊ߲߫ ߘߊ߫ ߟߊ߬ߜߍ߬ߟߊ߲ ߛߌߟߊ ߖߐ߬ߛߌ߬ ߟߊ߫ ߥߟߊ߫ ߞߵߊ߬ ߝߙߊ߬߸ ߞߎߖ߭ߌߟߊ ߟߊߥߌ߬ߟߌ ߘߌ߫ ߞߴߌ ߡߊ߬ ߛߋ߲ߛߋߘߋ߲ ߘߌ߫ ߏ߬ ߘߐ߫ ߦߊ߬ߣߌ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߦߋ߫ ߕߊ߬.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="61"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="64"/>
         <source>Choose path...</source>
         <translation>ߞߍߘߊ ߛߎߥߊ߲ߘߌ߫...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="132"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="135"/>
         <source>Import certificate...</source>
         <translation>ߟߊ߬ߜߍ߬ߟߊ߲ ߠߊߛߣߍ߫...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="163"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="166"/>
         <source>Certificate Informations</source>
         <translation>ߟߊ߬ߜߍ߬ߟߊ߲ ߞߌ߬ߓߊ߬ߙߏ</translation>
     </message>

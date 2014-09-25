@@ -113,7 +113,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.cpp" line="47"/>
         <source>Other...</source>
-        <translation type="unfinished"/>
+        <translation>其他...</translation>
     </message>
 </context>
 <context>
@@ -628,12 +628,12 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/bookmarks/bookmarkstoolbarbutton.cpp" line="115"/>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="328"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>空的</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="149"/>
         <source>Choose name and location of this bookmark.</source>
-        <translation type="unfinished"/>
+        <translation>选择书签的名称和网址。</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="153"/>
@@ -643,12 +643,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="193"/>
         <source>Choose folder for bookmarks:</source>
-        <translation type="unfinished"/>
+        <translation>为书签选择文件夹：</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="194"/>
         <source>Bookmark All Tabs</source>
-        <translation type="unfinished"/>
+        <translation>为所有标签页加为书签</translation>
     </message>
 </context>
 <context>
@@ -656,37 +656,37 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="14"/>
         <source>Export Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>导出书签</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="20"/>
         <source>&lt;b&gt;Export Bookmarks&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;导出书签&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="27"/>
         <source>Export options</source>
-        <translation type="unfinished"/>
+        <translation>导出选项</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="42"/>
         <source>Choose...</source>
-        <translation type="unfinished"/>
+        <translation>选择...</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="73"/>
         <source>Output File:</source>
-        <translation type="unfinished"/>
+        <translation>输出文件：</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="89"/>
         <source>Format:</source>
-        <translation type="unfinished"/>
+        <translation>格式：</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.cpp" line="64"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>出错！</translation>
     </message>
 </context>
 <context>
@@ -694,22 +694,22 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="31"/>
         <source>HTML File</source>
-        <translation type="unfinished"/>
+        <translation>HTML 文件</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="37"/>
         <source>HTML Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>HTML 书签</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="38"/>
         <source>Choose file...</source>
-        <translation type="unfinished"/>
+        <translation>选择文件…</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="47"/>
         <source>Cannot open file for writing!</source>
-        <translation type="unfinished"/>
+        <translation>无法打开文件供写入！</translation>
     </message>
 </context>
 <context>
@@ -717,7 +717,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="73"/>
         <source>Choose %1</source>
-        <translation type="unfinished"/>
+        <translation>选择 %1</translation>
     </message>
 </context>
 <context>
@@ -726,12 +726,12 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/bookmarks/bookmarksicon.cpp" line="37"/>
         <location filename="../src/lib/bookmarks/bookmarksicon.cpp" line="105"/>
         <source>Bookmark this Page</source>
-        <translation type="unfinished"/>
+        <translation>将此页加为书签</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksicon.cpp" line="97"/>
         <source>Edit this bookmark</source>
-        <translation type="unfinished"/>
+        <translation>编辑此书签</translation>
     </message>
 </context>
 <context>
@@ -814,7 +814,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="33"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in</source>
-        <translation type="unfinished"/>
+        <translation>谷歌浏览器（Google Chrome）的书签文件通常位于 &lt;b&gt;Bookmarks&lt;/b&gt; 文本文件。该文件通常位于</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="48"/>
@@ -823,64 +823,64 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="44"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="50"/>
         <source>Choose file...</source>
-        <translation type="unfinished"/>
+        <translation>选择文件…</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="57"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="53"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="59"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished"/>
+        <translation>无法打开文件。</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="73"/>
         <source>Cannot parse JSON file!</source>
-        <translation type="unfinished"/>
+        <translation>无法解析 JSON 文件！</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="42"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in</source>
-        <translation type="unfinished"/>
+        <translation>火狐浏览器（Mozilla Firefox）的书签文件通常位于 &lt;b&gt;places.sqlite&lt;/b&gt; SQLite 数据库。该文件通常位于</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="32"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation type="unfinished"/>
+        <translation>您可以从任何支持 HTML 的浏览器中导入书签。此文件通常使用这些后缀：</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="43"/>
         <source>HTML Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>HTML 书签</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="33"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in</source>
-        <translation type="unfinished"/>
+        <translation>Internet Explorer 的书签文件通常位于&lt;b&gt;收藏夹&lt;/b&gt;文件夹。该文件夹通常位于</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="52"/>
         <source>Directory does not exist.</source>
-        <translation type="unfinished"/>
+        <translation>目录不存在。</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="62"/>
         <source>The directory does not contain any bookmarks.</source>
-        <translation type="unfinished"/>
+        <translation>此目录不包含书签。</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="35"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in</source>
-        <translation type="unfinished"/>
+        <translation>Opera 的书签文件通常位于 &lt;b&gt;bookmarks.adr&lt;/b&gt; 文本文件。该文件通常位于</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="66"/>
         <source>File is not valid Opera bookmarks file!</source>
-        <translation type="unfinished"/>
+        <translation>文件不是有效的 Opera 书签文件！</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="71"/>
         <source>Only UTF-8 encoded Opera bookmarks file is supported!</source>
-        <translation type="unfinished"/>
+        <translation>仅支持 UTF-8 编码的 Opera 书签文件！</translation>
     </message>
 </context>
 <context>
@@ -893,22 +893,22 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="32"/>
         <source>Title:</source>
-        <translation type="unfinished"/>
+        <translation>标题：</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="42"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>地址：</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="52"/>
         <source>Keyword:</source>
-        <translation type="unfinished"/>
+        <translation>关键字：</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="62"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="105"/>
@@ -929,23 +929,23 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="110"/>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>新建书签</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="111"/>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="179"/>
         <source>New Folder</source>
-        <translation type="unfinished"/>
+        <translation>新建文件夹</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="112"/>
         <source>New Separator</source>
-        <translation type="unfinished"/>
+        <translation>新建分隔符</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="114"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
@@ -953,22 +953,22 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="151"/>
         <source>&amp;Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>书签 (&amp;B)</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="153"/>
         <source>Bookmark &amp;This Page</source>
-        <translation type="unfinished"/>
+        <translation>将此页加为书签… (&amp;T)</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="154"/>
         <source>Bookmark &amp;All Tabs</source>
-        <translation type="unfinished"/>
+        <translation>将全部标签页加为书签 (&amp;A)</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="155"/>
         <source>Organize &amp;Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>管理书签 (&amp;B)</translation>
     </message>
 </context>
 <context>
@@ -976,12 +976,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="147"/>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>标题</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="149"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>地址</translation>
     </message>
 </context>
 <context>
@@ -1012,7 +1012,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="108"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
@@ -1030,7 +1030,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="73"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
@@ -1112,7 +1112,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="930"/>
         <source>Other</source>
-        <translation type="unfinished"/>
+        <translation>其他</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
@@ -1143,7 +1143,7 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/app/browserwindow.cpp" line="1134"/>
         <location filename="../src/lib/other/pagescreen.cpp" line="172"/>
         <source>QupZilla %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla %1 (%2)</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/app/browserwindow.cpp" line="1390"/>
@@ -1177,7 +1177,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/browsinglibrary.ui" line="60"/>
         <source>Import and Export</source>
-        <translation type="unfinished"/>
+        <translation>导入和导出</translation>
     </message>
     <message>
         <location filename="../src/lib/other/browsinglibrary.ui" line="86"/>
@@ -1202,12 +1202,12 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/browsinglibrary.cpp" line="57"/>
         <source>Import Bookmarks...</source>
-        <translation type="unfinished"/>
+        <translation>导入书签...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/browsinglibrary.cpp" line="58"/>
         <source>Export Bookmarks...</source>
-        <translation type="unfinished"/>
+        <translation>导出书签…</translation>
     </message>
 </context>
 <context>
@@ -1306,48 +1306,48 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
         <source>Web databases</source>
-        <translation type="unfinished"/>
+        <translation>Web 数据库</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="97"/>
         <source>Local storage</source>
-        <translation type="unfinished"/>
+        <translation>本地存储</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
         <source>Cache</source>
-        <translation type="unfinished"/>
+        <translation>缓存</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="117"/>
         <source>Cookies</source>
-        <translation type="unfinished"/>
+        <translation>Cookie</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
         <source>Edit cookies</source>
-        <translation type="unfinished"/>
+        <translation>编辑 Cookie</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
         <source>Icons</source>
-        <translation type="unfinished"/>
+        <translation>图标</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="144"/>
         <source>HTML5 notifications data</source>
-        <translation type="unfinished"/>
+        <translation>HTML5 通知数据</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="151"/>
         <location filename="../src/lib/other/clearprivatedata.ui" line="165"/>
         <source>Edit permissions</source>
-        <translation type="unfinished"/>
+        <translation>编辑权限</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="158"/>
         <source>HTML5 geolocation data</source>
-        <translation type="unfinished"/>
+        <translation>HTML5 地理定位数据</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="172"/>
@@ -1357,17 +1357,17 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="179"/>
         <source>Database</source>
-        <translation type="unfinished"/>
+        <translation>数据库</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="199"/>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>清除</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="165"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>完成</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="183"/>
@@ -1574,7 +1574,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
         <source>Filter 3rd party cookies:</source>
-        <translation type="unfinished"/>
+        <translation>过滤第三方 Cookie：</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
@@ -1596,17 +1596,17 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="486"/>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>始终</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="491"/>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>从不</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="496"/>
         <source>Keep existing</source>
-        <translation type="unfinished"/>
+        <translation>保持现有</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="80"/>
@@ -1684,7 +1684,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="186"/>
         <source>Done - %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>完成 - %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="248"/>
@@ -1700,17 +1700,17 @@ Are you sure to close this window?</source>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="257"/>
         <source>%n seconds</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 秒</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="260"/>
         <source>%n minutes</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 分钟</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/downloads/downloaditem.cpp" line="263"/>
         <source>%n hours</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 小时</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="270"/>
@@ -1790,7 +1790,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="381"/>
         <source>Remove From List</source>
-        <translation type="unfinished"/>
+        <translation>从列表中移除</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="383"/>
@@ -2141,7 +2141,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/history/history.cpp" line="80"/>
         <source>Empty Page</source>
-        <translation type="unfinished"/>
+        <translation>清空页面</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="269"/>
@@ -2250,12 +2250,12 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="139"/>
         <source>Copy url</source>
-        <translation type="unfinished"/>
+        <translation>复制 URL</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="140"/>
         <source>Copy title</source>
-        <translation type="unfinished"/>
+        <translation>复制标题</translation>
     </message>
 </context>
 <context>
@@ -2269,47 +2269,47 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="169"/>
         <source>Restore All Closed Tabs</source>
-        <translation type="unfinished"/>
+        <translation>还原全部最近关闭的标签页</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="170"/>
         <source>Clear list</source>
-        <translation type="unfinished"/>
+        <translation>清除列表 </translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="216"/>
         <source>Hi&amp;story</source>
-        <translation type="unfinished"/>
+        <translation>历史 (&amp;s)</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="218"/>
         <source>&amp;Back</source>
-        <translation type="unfinished"/>
+        <translation>后退 (&amp;B)</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="221"/>
         <source>&amp;Forward</source>
-        <translation type="unfinished"/>
+        <translation>前进 (&amp;F)</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="224"/>
         <source>&amp;Home</source>
-        <translation type="unfinished"/>
+        <translation>主页 (&amp;H)</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="227"/>
         <source>Show &amp;All History</source>
-        <translation type="unfinished"/>
+        <translation>显示全部历史 (&amp;A)</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="235"/>
         <source>Most Visited</source>
-        <translation type="unfinished"/>
+        <translation>最常访问</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="238"/>
         <source>Closed Tabs</source>
-        <translation type="unfinished"/>
+        <translation>最近关闭的标签页</translation>
     </message>
 </context>
 <context>
@@ -2376,7 +2376,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="90"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
@@ -2479,12 +2479,12 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/3rdparty/lineedit.cpp" line="123"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"/>
+        <translation>撤消 (&amp;U)</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/lineedit.cpp" line="127"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"/>
+        <translation>重做 (&amp;R)</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/lineedit.cpp" line="136"/>
@@ -2958,96 +2958,96 @@ Are you sure to close this window?</source>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>SSL Certificate Error!</source>
         <translation>SSL 证书错误！</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="227"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>您试图访问的网页有 SSL 证书错误：</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;机构：&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;域名：&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="246"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;过期日期：&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="252"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;错误：&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>您想为这个证书添加例外吗？</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="278"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
         <source>Authorisation required</source>
         <translation>要求授权</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="392"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="486"/>
         <source>Username: </source>
         <translation>用户名：</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="286"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="393"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="465"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="308"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="487"/>
         <source>Password: </source>
         <translation>密码：</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="291"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="313"/>
         <source>Save username and password on this site</source>
         <translation>保存您在本网站的用户名和密码</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="322"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>%1请求输入用户名和密码。该网站信息：“%2”</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="385"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="407"/>
         <source>FTP authorisation required</source>
         <translation>FTP 要求授权</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="398"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="420"/>
         <source>Login anonymously</source>
         <translation>匿名登录</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>%1请求输入用户名和密码：%2。</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
         <source>Proxy authorisation required</source>
         <translation>代理服务器要求授权</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="477"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="499"/>
         <source>Remember username and password for this proxy.</source>
         <translation>记住此代理的用户名和密码。</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="501"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>代理“%1”要求用户名和密码。</translation>
     </message>
@@ -3358,7 +3358,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="115"/>
         <source>Other</source>
-        <translation>其它</translation>
+        <translation>其他</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="173"/>
@@ -3432,7 +3432,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="347"/>
         <source>Open other page...</source>
-        <translation>打开其它网页…</translation>
+        <translation>打开其他网页…</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="355"/>
@@ -4154,7 +4154,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2269"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
-        <translation>&lt;b&gt;其它&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;其他&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2276"/>
@@ -5060,7 +5060,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="105"/>
         <source>Other...</source>
-        <translation>其它…</translation>
+        <translation>其他…</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="143"/>
@@ -5075,12 +5075,12 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="155"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
-        <translation>添加此 RSS 订阅到其它程序，请使用这些信息：&lt;BR /&gt;&lt;BR /&gt;&lt;B&gt;标题：&lt;/B&gt;%1&lt;BR /&gt;&lt;B&gt;URL 网址：&lt;/B&gt;%2&lt;BR /&gt;&lt;BR /&gt;此订阅的 URL 地址已经复制到剪贴板。</translation>
+        <translation>添加此 RSS 订阅到其他程序，请使用这些信息：&lt;BR /&gt;&lt;BR /&gt;&lt;B&gt;标题：&lt;/B&gt;%1&lt;BR /&gt;&lt;B&gt;URL 网址：&lt;/B&gt;%2&lt;BR /&gt;&lt;BR /&gt;此订阅的 URL 地址已经复制到剪贴板。</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="158"/>
         <source>Add feed into other application</source>
-        <translation>添加订阅到其它程序</translation>
+        <translation>添加订阅到其他程序</translation>
     </message>
 </context>
 <context>
@@ -5230,24 +5230,29 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>忽略所有 SSL 警告</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="239"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="224"/>
+        <source>Disable weak ciphers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>所有证书必须有 .Crt 后缀。
 添加或删除证书路径后，需要重新启动 QupZilla 才能生效。</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="61"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="64"/>
         <source>Choose path...</source>
         <translation>选择路径…</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="132"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="135"/>
         <source>Import certificate...</source>
         <translation>导入证书…</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="163"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="166"/>
         <source>Certificate Informations</source>
         <translation>证书信息</translation>
     </message>
@@ -5318,7 +5323,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="86"/>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
-        <translation>不能删除默认搜索引擎。&lt;br&gt;删除 %1 前请先将其它引擎设为默认。</translation>
+        <translation>不能删除默认搜索引擎。&lt;br&gt;删除 %1 前请先将其他引擎设为默认。</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="103"/>
@@ -5924,7 +5929,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="143"/>
         <source>Do you really want to close other tabs?</source>
-        <translation>确认要关闭其它标签吗？</translation>
+        <translation>您确定要关闭其他标签页吗？</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="325"/>
@@ -5980,7 +5985,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
         <source>Close Ot&amp;her Tabs</source>
-        <translation>关闭其它标签页 (&amp;O)</translation>
+        <translation>关闭其他标签页 (&amp;O)</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>

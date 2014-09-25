@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@ijekavian" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@Ijekavian" version="2.0">
 <context>
     <name>TestPlugin</name>
     <message>
@@ -9,7 +9,7 @@
     <message>
         <location filename="../testplugin.cpp" line="132"/>
         <source>Example Plugin Settings</source>
-        <translation>Подешавања пробног прикључка</translation>
+        <translation>Поставке пробног прикључка</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="160"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@ijekavian" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@Ijekavian" version="2.0">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -32,22 +32,22 @@
         <translation>Прикажи изворни кôд скрипте</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="48"/>
+        <location filename="../gm_addscriptdialog.cpp" line="49"/>
         <source>&lt;p&gt;runs at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;покреће се на&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="52"/>
+        <location filename="../gm_addscriptdialog.cpp" line="53"/>
         <source>&lt;p&gt;does not run at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;не покреће се на&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="82"/>
+        <location filename="../gm_addscriptdialog.cpp" line="83"/>
         <source>Cannot install script</source>
         <translation>Не могу да инсталирам скрипту</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="85"/>
+        <location filename="../gm_addscriptdialog.cpp" line="86"/>
         <source>&apos;%1&apos; installed successfully</source>
         <translation>„%1“ је успјешно инсталирана</translation>
     </message>
@@ -55,7 +55,7 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="144"/>
+        <location filename="../gm_downloader.cpp" line="155"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>„%1“ је већ инсталирана</translation>
     </message>

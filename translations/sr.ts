@@ -113,7 +113,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.cpp" line="47"/>
         <source>Other...</source>
-        <translation type="unfinished"/>
+        <translation>Остале...</translation>
     </message>
 </context>
 <context>
@@ -1149,7 +1149,10 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/app/browserwindow.cpp" line="1390"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>И даље имате %n отворен језичак а ваша сесија неће бити сачувана.
+Желите ли заиста да затворите овај прозор?</numerusform><numerusform>И даље имате %n отворена језичка а ваша сесија неће бити сачувана.
+Желите ли заиста да затворите овај прозор?</numerusform><numerusform>И даље имате %n отворених језичака а ваша сесија неће бити сачувана.
+Желите ли заиста да затворите овај прозор?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1391"/>
@@ -1276,12 +1279,12 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="43"/>
         <source>Checked items will be cleared upon clicking the Clear button.</source>
-        <translation type="unfinished"/>
+        <translation>Означене ставке ће бити обрисане кликом на дугме „Обриши“.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="50"/>
         <source>Visited pages history from:</source>
-        <translation type="unfinished"/>
+        <translation>Историјат посећених страница:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="64"/>
@@ -1306,48 +1309,48 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
         <source>Web databases</source>
-        <translation type="unfinished"/>
+        <translation>Веб базе података</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="97"/>
         <source>Local storage</source>
-        <translation type="unfinished"/>
+        <translation>Локално складиште</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
         <source>Cache</source>
-        <translation type="unfinished"/>
+        <translation>Кеш</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="117"/>
         <source>Cookies</source>
-        <translation type="unfinished"/>
+        <translation>Колачићи</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
         <source>Edit cookies</source>
-        <translation type="unfinished"/>
+        <translation>Уреди колачиће</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
         <source>Icons</source>
-        <translation type="unfinished"/>
+        <translation>Иконе</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="144"/>
         <source>HTML5 notifications data</source>
-        <translation type="unfinished"/>
+        <translation>Подаци ХТМЛ5 обавештења</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="151"/>
         <location filename="../src/lib/other/clearprivatedata.ui" line="165"/>
         <source>Edit permissions</source>
-        <translation type="unfinished"/>
+        <translation>Уреди дозволе</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="158"/>
         <source>HTML5 geolocation data</source>
-        <translation type="unfinished"/>
+        <translation>Подаци ХТМЛ5 геолокације</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="172"/>
@@ -1357,17 +1360,17 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="179"/>
         <source>Database</source>
-        <translation type="unfinished"/>
+        <translation>База података</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="199"/>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Обриши</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="165"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Завршено</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="183"/>
@@ -2649,7 +2652,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
         <source>Work &amp;Offline</source>
-        <translation type="unfinished"/>
+        <translation>Рад &amp;ван мреже</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
@@ -2960,96 +2963,96 @@ Are you sure to close this window?</source>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>SSL Certificate Error!</source>
         <translation>Грешка ССЛ сертификата!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="227"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>Страница којој покушавате да приступите има следеће грешке у ССЛ сертификату:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Организација: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Име домена: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="246"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Датум истека: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="252"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Грешка: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Желите ли да направите изузетак за овај сертификат?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="278"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
         <source>Authorisation required</source>
         <translation>Потребно овлашћење</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="392"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="486"/>
         <source>Username: </source>
         <translation>Корисничко име: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="286"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="393"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="465"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="308"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="487"/>
         <source>Password: </source>
         <translation>Лозинка: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="291"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="313"/>
         <source>Save username and password on this site</source>
         <translation>Сачувај корисничко име и лозинку на овом сајту</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="322"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>%1 захтева корисничко име и лозинку. Сајт каже: „%2“</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="385"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="407"/>
         <source>FTP authorisation required</source>
         <translation>Потребно је овлашћење за ФТП</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="398"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="420"/>
         <source>Login anonymously</source>
         <translation>Анонимна пријава</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>%1:%2 захтева корисничко име и шифру.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
         <source>Proxy authorisation required</source>
         <translation>Потребно је овлашћење за прокси</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="477"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="499"/>
         <source>Remember username and password for this proxy.</source>
         <translation>Запамти корисничко име и лозинку за овај прокси.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="501"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Прокси %1 захтева корисничко име и шифру. </translation>
     </message>
@@ -4058,7 +4061,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1993"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
-        <translation type="unfinished"/>
+        <translation>Доступне пречице:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - претходни језичак&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - следећи језичак&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - претрага</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1996"/>
@@ -4250,17 +4253,17 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2578"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Управљај моторима претраге&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Кориснички опис стила&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2592"/>
         <source>Style Sheet automatically loaded with all websites: </source>
-        <translation type="unfinished"/>
+        <translation>Опис стила који ће аутоматски бити учитан за све сајтове:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
@@ -4285,7 +4288,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2747"/>
         <source>Search Engines Manager</source>
-        <translation type="unfinished"/>
+        <translation>Менаџер мотора претраге</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2784"/>
@@ -4637,7 +4640,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
         <source>Are you sure to reload all speed dials?</source>
-        <translation type="unfinished"/>
+        <translation>Желите ли заиста да поново учитате сва брза бирања?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
@@ -5231,24 +5234,29 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Занемари сва ССЛ упозорења</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="239"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="224"/>
+        <source>Disable weak ciphers</source>
+        <translation>Онемогући слабе шифраре</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Сви сертификати морају имати .crt наставак.
 Након додавања или уклањања путања сертификата потребно је да поново покренете Капзилу како би измене имале ефекта.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="61"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="64"/>
         <source>Choose path...</source>
         <translation>Изабери путању...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="132"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="135"/>
         <source>Import certificate...</source>
         <translation>Увоз сертификата...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="163"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="166"/>
         <source>Certificate Informations</source>
         <translation>Подаци о сертификату</translation>
     </message>
@@ -6478,7 +6486,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1015"/>
         <source>Reload All Dials</source>
-        <translation type="unfinished"/>
+        <translation>Поново учитај сва брза бирања</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1025"/>

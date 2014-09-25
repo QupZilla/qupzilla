@@ -212,7 +212,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="115"/>
         <source>Show AdBlock &amp;Settings</source>
-        <translation>Настройки AdBlock</translation>
+        <translation>&amp;Настройки AdBlock</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="123"/>
@@ -243,7 +243,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="158"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
-        <translation>Список заблокированного. Кликните, чтобы редактировать правило</translation>
+        <translation>Список заблокированного - нажмите, чтобы изменить правило</translation>
     </message>
 </context>
 <context>
@@ -963,7 +963,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="154"/>
         <source>Bookmark &amp;All Tabs</source>
-        <translation>Закладки для &amp;всех открытых вкладок</translation>
+        <translation>Закладки для &amp;всех вкладок</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="155"/>
@@ -1149,7 +1149,10 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/app/browserwindow.cpp" line="1390"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>У Вас открыта %n вкладка и Ваша сессия не сохранится.
+Вы уверены, что хотите закрыть это окно?</numerusform><numerusform>У Вас %n открытые вкладки и Ваша сессия не сохранится.
+Вы уверены, что хотите закрыть это окно?</numerusform><numerusform>У Вас %n открытых вкладок и Ваша сессия не сохранится.
+Вы уверены, что хотите закрыть это окно?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1391"/>
@@ -1276,12 +1279,12 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="43"/>
         <source>Checked items will be cleared upon clicking the Clear button.</source>
-        <translation type="unfinished"/>
+        <translation>Отмеченные элементы будут очищены после нажатия на кнопку очистить.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="50"/>
         <source>Visited pages history from:</source>
-        <translation type="unfinished"/>
+        <translation>Посещённые страницы истории от:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="64"/>
@@ -1306,12 +1309,12 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
         <source>Web databases</source>
-        <translation type="unfinished"/>
+        <translation>Web база данных</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="97"/>
         <source>Local storage</source>
-        <translation type="unfinished"/>
+        <translation>Локальное хранилище</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
@@ -1326,7 +1329,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
         <source>Edit cookies</source>
-        <translation type="unfinished"/>
+        <translation>Редактировать cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
@@ -1336,18 +1339,18 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="144"/>
         <source>HTML5 notifications data</source>
-        <translation type="unfinished"/>
+        <translation>Данные HTML5 уведомлений</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="151"/>
         <location filename="../src/lib/other/clearprivatedata.ui" line="165"/>
         <source>Edit permissions</source>
-        <translation type="unfinished"/>
+        <translation>Изменить разрешения</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="158"/>
         <source>HTML5 geolocation data</source>
-        <translation type="unfinished"/>
+        <translation>Данные HTML5 геолокаций</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="172"/>
@@ -1357,17 +1360,17 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="179"/>
         <source>Database</source>
-        <translation type="unfinished"/>
+        <translation>База данных</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="199"/>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Очистить</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="165"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Готово</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="183"/>
@@ -1574,7 +1577,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
         <source>Filter 3rd party cookies:</source>
-        <translation>Фильтрация cookies со сторонних сайтов</translation>
+        <translation>Фильтр cookies со сторонних сайтов:</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
@@ -1810,8 +1813,8 @@ Are you sure to close this window?</source>
  %1 
  was not found!</source>
         <translation>Извините, файл
-%1
-не найден!</translation>
+ %1
+ не найден!</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="456"/>
@@ -2529,7 +2532,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="365"/>
         <source>Paste And &amp;Go</source>
-        <translation>Вставить и перейти</translation>
+        <translation>Вставить и &amp;перейти</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="535"/>
@@ -2649,7 +2652,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
         <source>Work &amp;Offline</source>
-        <translation type="unfinished"/>
+        <translation>Работа о&amp;флайн</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
@@ -2779,7 +2782,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="602"/>
         <source>&amp;Cookies Manager</source>
-        <translation>Менеджер &amp;Cookie</translation>
+        <translation>Менеджер &amp;Cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
@@ -2900,7 +2903,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="541"/>
         <source>New/Confirm password fields do not match!</source>
-        <translation>Новые или старые пароли не совпадают!</translation>
+        <translation>Пароли не совпадают!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
@@ -2961,98 +2964,98 @@ Are you sure to close this window?</source>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="204"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
         <source>SSL Certificate Error!</source>
         <translation>Ошибка сертификата SSL!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="205"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="227"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation> Страница, которую Вы пытаетесь просмотреть, имеет следующие ошибки в сертификате SSL:</translation>
+        <translation>Страница, которую Вы пытаетесь просмотреть, имеет следующие ошибки в сертификате SSL:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Организация: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="222"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Имя домена: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="224"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="246"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Истекает: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="230"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="252"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Ошибка: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Сделать исключение для данного сертификата?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="278"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
         <source>Authorisation required</source>
         <translation>Необходима авторизация</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="285"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="392"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="464"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="486"/>
         <source>Username: </source>
         <translation>Имя пользователя: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="286"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="393"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="465"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="308"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="487"/>
         <source>Password: </source>
         <translation>Пароль: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="291"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="313"/>
         <source>Save username and password on this site</source>
         <translation>Запомнить имя пользователя и пароль для этого сайта</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="322"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
-        <translation>%1 требует имя пользователя и пароль. Ответ сайта: &quot;%2&quot;</translation>
+        <translation>%1 запрашивает имя пользователя и пароль. Ответ сайта: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="385"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="407"/>
         <source>FTP authorisation required</source>
         <translation>FTP необходима авторизация</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="398"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="420"/>
         <source>Login anonymously</source>
         <translation>Войти анонимно</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>Имя пользователя и пароль запрашиваются %1:%2.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="457"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
         <source>Proxy authorisation required</source>
-        <translation>Прокси-сервер требует авторизацию</translation>
+        <translation>Прокси-сервер запрашивает авторизацию</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="477"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="499"/>
         <source>Remember username and password for this proxy.</source>
         <translation>Запомнить имя пользователя и пароль для этого прокси-сервера.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="501"/>
         <source>A username and password are being requested by proxy %1. </source>
-        <translation>Прокси-сервер %1 требует имя пользователя и пароль.</translation>
+        <translation>Прокси-сервер %1 запрашивает имя пользователя и пароль. </translation>
     </message>
 </context>
 <context>
@@ -3841,7 +3844,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1301"/>
         <source>Maximum </source>
-        <translation>Максимум</translation>
+        <translation>Максимум </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1308"/>
@@ -4059,7 +4062,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1993"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
-        <translation type="unfinished"/>
+        <translation>Сочетания клавиш:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - предыдущая вкладка&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - следующая вкладка&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - поиск по странице</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1996"/>
@@ -4251,17 +4254,17 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2578"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Управление поисковыми системами&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Пользовательские стили&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2592"/>
         <source>Style Sheet automatically loaded with all websites: </source>
-        <translation type="unfinished"/>
+        <translation>Автоматически загружать стиль с веб-сайтов: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
@@ -4286,7 +4289,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2747"/>
         <source>Search Engines Manager</source>
-        <translation type="unfinished"/>
+        <translation>Управление поисковыми системами</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2784"/>
@@ -4638,7 +4641,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
         <source>Are you sure to reload all speed dials?</source>
-        <translation type="unfinished"/>
+        <translation>Вы уверены, что хотите обновить все эскизы?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
@@ -4989,7 +4992,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="207"/>
         <source>Fill title and URL of a feed: </source>
-        <translation>Введите название и адрес ленты:</translation>
+        <translation>Введите название и адрес ленты: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="209"/>
@@ -5137,7 +5140,8 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <location filename="../src/lib/other/registerqappassociation.cpp" line="109"/>
         <source>There are some problems. Please, reinstall QupZilla.
 Maybe relaunch with administrator right do a magic for you! ;)</source>
-        <translation>Есть некоторые проблемы. Пожалуйста, переустановите QupZilla. ⏎ Может быть, запуск с правами администратора приятно удивит Вас! ;)</translation>
+        <translation>Есть некоторые проблемы. Пожалуйста, переустановите QupZilla.
+Может быть, запуск с правами администратора приятно Вас удивит! ;)</translation>
     </message>
 </context>
 <context>
@@ -5231,24 +5235,29 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Игнорировать все предупреждения SSL</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="239"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="224"/>
+        <source>Disable weak ciphers</source>
+        <translation>Отключить слабые шифры</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Все сертификаты должны иметь расширение .crt
 Чтобы применить изменения, необходимо перезапустить QupZilla.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="61"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="64"/>
         <source>Choose path...</source>
         <translation>Выберите папку...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="132"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="135"/>
         <source>Import certificate...</source>
         <translation>Импортировать сертификат...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="163"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="166"/>
         <source>Certificate Informations</source>
         <translation>Информация о сертификате</translation>
     </message>
@@ -5421,7 +5430,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="34"/>
         <source>Databases</source>
-        <translation>Базы данных</translation>
+        <translation>База данных</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="39"/>
@@ -5950,7 +5959,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="343"/>
         <source>D&amp;etach Tab</source>
-        <translation>Отключить вкладку</translation>
+        <translation>Откл&amp;ючить вкладку</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="346"/>
@@ -6015,7 +6024,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="283"/>
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="487"/>
         <source>Currently you have %n opened tab(s)</source>
-        <translation><numerusform>В данный момент у Вас открыта %n вкладка</numerusform><numerusform>В данный момент у Вас открыто %n вкладок</numerusform><numerusform>В данный момент у Вас открыто %n вкладки</numerusform></translation>
+        <translation><numerusform>У Вас открыта %n вкладка</numerusform><numerusform>У Вас %n открытые вкладки</numerusform><numerusform>У Вас %n открытых вкладок</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="300"/>
@@ -6233,7 +6242,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webkit/webpage.cpp" line="795"/>
         <source>Proxy authentication required</source>
-        <translation>Прокси-сервер требует авторизацию</translation>
+        <translation>Требуется проверка подлинности прокси</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webpage.cpp" line="798"/>
@@ -6478,7 +6487,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1015"/>
         <source>Reload All Dials</source>
-        <translation type="unfinished"/>
+        <translation>Обновить все эскизы</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1025"/>
@@ -6663,7 +6672,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1201"/>
         <source>&amp;Play</source>
-        <translation>Про&amp;играть</translation>
+        <translation>Воспрои&amp;зведение</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1201"/>
@@ -6673,12 +6682,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1202"/>
         <source>Un&amp;mute</source>
-        <translation>&amp;Включение</translation>
+        <translation>Включи&amp;ть звук</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1202"/>
         <source>&amp;Mute</source>
-        <translation>&amp;Отключение</translation>
+        <translation>Выключи&amp;ть звук</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1204"/>

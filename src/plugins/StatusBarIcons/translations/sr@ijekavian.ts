@@ -1,33 +1,33 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@ijekavian" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@Ijekavian" version="2.0">
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="36"/>
+        <location filename="../sbi_imagesicon.cpp" line="32"/>
         <source>Modify images loading settings per-site and globally</source>
         <translation>Измјена поставки учитавања слика</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="60"/>
-        <source>Current page settings</source>
+        <location filename="../sbi_imagesicon.cpp" line="56"/>
+        <source>Current Page Settings</source>
         <translation>Поставке текуће странице</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="63"/>
+        <location filename="../sbi_imagesicon.cpp" line="59"/>
         <source>Disable loading images (temporarily)</source>
         <translation>Привремено онемогући учитавање слика</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="66"/>
+        <location filename="../sbi_imagesicon.cpp" line="62"/>
         <source>Enable loading images (temporarily)</source>
         <translation>Привремено омогући учитавање слика</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="70"/>
-        <source>Global settings</source>
+        <location filename="../sbi_imagesicon.cpp" line="66"/>
+        <source>Global Settings</source>
         <translation>Опште поставке</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="72"/>
+        <location filename="../sbi_imagesicon.cpp" line="68"/>
         <source>Automatically load images</source>
         <translation>Аутоматски учитавај слике</translation>
     </message>
@@ -35,32 +35,32 @@
 <context>
     <name>SBI_JavaScriptIcon</name>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="34"/>
+        <location filename="../sbi_javascripticon.cpp" line="33"/>
         <source>Modify JavaScript settings per-site and globally</source>
         <translation>Измјена поставки учитавања јаваскрипти</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="49"/>
-        <source>Current page settings</source>
+        <location filename="../sbi_javascripticon.cpp" line="50"/>
+        <source>Current Page Settings</source>
         <translation>Поставке текуће странице</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="52"/>
+        <location filename="../sbi_javascripticon.cpp" line="53"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>Привремено онемогући јаваскрипте</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="55"/>
+        <location filename="../sbi_javascripticon.cpp" line="56"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>Привремено омогући јаваскрипте</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="59"/>
-        <source>Global settings</source>
+        <location filename="../sbi_javascripticon.cpp" line="65"/>
+        <source>Global Settings</source>
         <translation>Опште поставке</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="60"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Manage JavaScript settings</source>
         <translation>Управљај поставкама јаваскрипти</translation>
     </message>
@@ -68,62 +68,57 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="73"/>
-        <source>Proxy configuration</source>
+        <location filename="../sbi_networkicon.cpp" line="66"/>
+        <source>Proxy Configuration</source>
         <translation>Поставке проксија</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="75"/>
+        <location filename="../sbi_networkicon.cpp" line="68"/>
         <source>Select proxy</source>
         <translation>Изабери прокси</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="89"/>
+        <location filename="../sbi_networkicon.cpp" line="82"/>
         <source>Empty</source>
         <translation>Празно</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="93"/>
+        <location filename="../sbi_networkicon.cpp" line="86"/>
         <source>Manage proxies</source>
         <translation>Управљај проксијима</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="106"/>
+        <location filename="../sbi_networkicon.cpp" line="99"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>Приказ стања мреже и менаџер проксија&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Мрежа:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Прокси:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="110"/>
+        <location filename="../sbi_networkicon.cpp" line="102"/>
         <source>Connected</source>
         <translation>Повезан</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="114"/>
+        <location filename="../sbi_networkicon.cpp" line="105"/>
         <source>Offline</source>
         <translation>Неповезан</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="118"/>
-        <source>Unknown</source>
-        <translation>Непознато</translation>
-    </message>
-    <message>
-        <location filename="../sbi_networkicon.cpp" line="124"/>
+        <location filename="../sbi_networkicon.cpp" line="110"/>
         <source>System proxy</source>
         <translation>Системски прокси</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="128"/>
+        <location filename="../sbi_networkicon.cpp" line="114"/>
         <source>No proxy</source>
         <translation>Без проксија</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="132"/>
+        <location filename="../sbi_networkicon.cpp" line="118"/>
         <source>PAC (Proxy Auto-Config)</source>
         <translation>Аутоматска поставка (ПАЦ)</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="136"/>
+        <location filename="../sbi_networkicon.cpp" line="122"/>
         <source>User defined</source>
         <translation>Кориснички дефинисан</translation>
     </message>
@@ -289,6 +284,19 @@
         <location filename="../sbi_settingsdialog.ui" line="111"/>
         <source>Network Icon</source>
         <translation>Мрежа</translation>
+    </message>
+    <message>
+        <location filename="../sbi_settingsdialog.ui" line="118"/>
+        <source>Zoom widget</source>
+        <translation>Виџет увеличања</translation>
+    </message>
+</context>
+<context>
+    <name>SBI_ZoomWidget</name>
+    <message>
+        <location filename="../sbi_zoomwidget.cpp" line="47"/>
+        <source>Zoom: %1%</source>
+        <translation>Увеличање: %1%</translation>
     </message>
 </context>
 </TS>
