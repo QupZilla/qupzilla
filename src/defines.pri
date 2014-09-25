@@ -54,7 +54,6 @@ win32-msvc* {
 mac: DEFINES *= DISABLE_DBUS
 
 haiku-* {
-    DEFINES *= QUPZILLA_PREFIX="/boot/home/config/apps/QupZilla/"
     DEFINES *= DISABLE_DBUS
     DEFINES *= NO_SYSTEM_DATAPATH
     DEFINES *= NO_X11
