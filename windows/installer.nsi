@@ -171,6 +171,13 @@ SectionGroup $(TITLE_SecThemes) SecThemes
   File "themes\mac\images\*"
   SectionEnd
 
+  Section Breathe SecBreathe
+  SetOutPath "$INSTDIR\themes\breathe"
+  File "themes\breathe\*"
+  SetOutPath "$INSTDIR\themes\breathe\images"
+  File "themes\breathe\images\*"
+  SectionEnd
+
   Section Old SecOld
   SetOutPath "$INSTDIR\themes\default"
   File "themes\default\*"
