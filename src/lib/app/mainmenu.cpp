@@ -39,6 +39,10 @@
 #include <QWebPage>
 #include <QMenuBar>
 
+#ifdef Q_OS_MAC
+extern void qt_mac_set_dock_menu(QMenu* menu);
+#endif
+
 MainMenu::MainMenu(BrowserWindow* window, QWidget* parent)
     : QMenu(parent)
     , m_window(window)
@@ -631,6 +635,13 @@ void MainMenu::init()
     // Add standard actions to File Menu (as it won't be ever cleared) and Mac menubar should move them to "Application" menu
     m_menuFile->addAction(m_actions[QSL("Standard/About")]);
     m_menuFile->addAction(m_actions[QSL("Standard/Preferences")]);
+
+    // Create Dock menu
+    QMenu* dockMenu = new QMenu(0);
+    dockMenu->addAction(m_actions[QSL("File/NewTab")]);
+    dockMenu->addAction(m_actions[QSL("File/NewWindow")]);
+    dockMenu->addAction(m_actions[QSL("File/NewPrivateWindow")]);
+    qt_mac_set_dock_menu(dockMenu);
 #endif
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)

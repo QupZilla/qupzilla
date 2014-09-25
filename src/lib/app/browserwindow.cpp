@@ -546,15 +546,6 @@ void BrowserWindow::goBack()
     weView()->back();
 }
 
-QMenuBar* BrowserWindow::menuBar() const
-{
-#ifdef Q_OS_MAC
-    return mApp->macMenuReceiver()->menuBar();
-#endif
-
-    return QMainWindow::menuBar();
-}
-
 TabbedWebView* BrowserWindow::weView() const
 {
     return weView(m_tabWidget->currentIndex());

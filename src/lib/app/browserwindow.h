@@ -25,7 +25,6 @@
 #include "restoremanager.h"
 #include "qzcommon.h"
 
-class QMenuBar;
 class QLabel;
 class QVBoxLayout;
 class QSplitter;
@@ -84,7 +83,6 @@ public:
     void createEncodingMenu(QMenu* menu);
 
     SideBar* addSideBar();
-    virtual QMenuBar* menuBar() const;
 
     QByteArray saveState(int version = 0) const;
     bool restoreState(const QByteArray &state, int version = 0);

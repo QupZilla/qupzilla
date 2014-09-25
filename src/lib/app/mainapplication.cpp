@@ -102,7 +102,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_registerQAppAssociation(0)
 #endif
 #ifdef Q_OS_MAC
-    , m_macMenuReceiver(0)
     , m_macDockMenu(0)
 #endif
 {
@@ -1115,29 +1114,7 @@ RegisterQAppAssociation* MainApplication::associationManager()
 #endif
 
 #ifdef Q_OS_MAC
-#include "macmenureceiver.h"
-
 #include <QFileOpenEvent>
-#include <QMenu>
-
-extern void qt_mac_set_dock_menu(QMenu* menu);
-
-QMenu* MainApplication::macDockMenu()
-{
-    if (!m_macDockMenu) {
-        m_macDockMenu = new QMenu(0);
-        qt_mac_set_dock_menu(m_macDockMenu);
-    }
-    return m_macDockMenu;
-}
-
-MacMenuReceiver* MainApplication::macMenuReceiver()
-{
-    if (!m_macMenuReceiver) {
-        m_macMenuReceiver = new MacMenuReceiver(this);
-    }
-    return m_macMenuReceiver;
-}
 
 bool MainApplication::event(QEvent* e)
 {

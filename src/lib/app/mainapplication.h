@@ -31,6 +31,7 @@ class QNetworkDiskCache;
 
 class History;
 class AutoFill;
+class MainMenu;
 class Bookmarks;
 class CookieJar;
 class AutoSaver;
@@ -47,10 +48,6 @@ class SearchEnginesManager;
 class HTML5PermissionsManager;
 class RegisterQAppAssociation;
 class DesktopNotificationsFactory;
-
-#ifdef Q_OS_MAC
-class MacMenuReceiver;
-#endif
 
 class QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -188,13 +185,7 @@ private:
 
 #ifdef Q_OS_MAC
 public:
-    MacMenuReceiver* macMenuReceiver();
-    QMenu* macDockMenu();
     bool event(QEvent* e);
-
-private:
-    MacMenuReceiver* m_macMenuReceiver;
-    QMenu* m_macDockMenu;
 #endif
 };
 
