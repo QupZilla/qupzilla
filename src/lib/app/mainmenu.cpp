@@ -97,7 +97,6 @@ void MainMenu::initSuperMenu(QMenu* superMenu) const
     superMenu->addAction(m_actions[QSL("File/WorkOffline")]);
     superMenu->addSeparator();
     superMenu->addAction(m_actions[QSL("Standard/Quit")]);
-    m_actions[QSL("File/WorkOffline")]->setChecked(qzSettings->workOffline);
 }
 
 QAction* MainMenu::action(const QString &name) const
@@ -379,6 +378,7 @@ void MainMenu::aboutToShowFileMenu()
 #ifndef Q_OS_MAC
     m_actions[QSL("File/CloseWindow")]->setEnabled(mApp->windowCount() > 1);
 #endif
+    m_actions[QSL("File/WorkOffline")]->setChecked(qzSettings->workOffline);
 }
 
 void MainMenu::aboutToHideFileMenu()
