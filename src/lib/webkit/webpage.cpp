@@ -93,7 +93,9 @@ WebPage::WebPage(QObject* parent)
     connect(this, SIGNAL(printRequested(QWebFrame*)), this, SLOT(printFrame(QWebFrame*)));
     connect(this, SIGNAL(downloadRequested(QNetworkRequest)), this, SLOT(downloadRequested(QNetworkRequest)));
     connect(this, SIGNAL(windowCloseRequested()), this, SLOT(windowCloseRequested()));
-    connect(this, SIGNAL(restoreFrameStateRequested(QWebFrame*)), this, SLOT(restoreFrameRequested(QWebFrame*)));
+
+    frameCreated(mainFrame());
+    connect(this, SIGNAL(frameCreated(QWebFrame*)), this, SLOT(frameCreated(QWebFrame*)));
 
     connect(this, SIGNAL(databaseQuotaExceeded(QWebFrame*,QString)),
             this, SLOT(dbQuotaExceeded(QWebFrame*)));
@@ -449,8 +451,19 @@ void WebPage::windowCloseRequested()
     webView->closeView();
 }
 
-void WebPage::restoreFrameRequested(QWebFrame* frame)
+void WebPage::frameCreated(QWebFrame *frame)
 {
+    connect(frame, SIGNAL(initialLayoutCompleted()), this, SLOT(frameInitialLayoutCompleted()));
+}
+
+void WebPage::frameInitialLayoutCompleted()
+{
+    QWebFrame* frame = qobject_cast<QWebFrame*>(sender());
+    if (!frame)
+        return;
+
+    qDebug() << frame;
+
     // Autofill
     m_passwordEntries = mApp->autoFill()->completeFrame(frame);
 }
