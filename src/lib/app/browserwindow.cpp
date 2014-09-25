@@ -474,7 +474,10 @@ void BrowserWindow::loadSettings()
     statusBar()->setVisible(!isFullScreen() && showStatusBar);
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
     m_navigationToolbar->setVisible(showNavigationToolbar);
+
+#ifndef Q_OS_MAC
     menuBar()->setVisible(!isFullScreen() && showMenuBar);
+#endif
 
     m_navigationToolbar->setSuperMenuVisible(!showMenuBar);
     m_navigationToolbar->buttonReloadStop()->setVisible(showReloadButton);
@@ -821,10 +824,12 @@ void BrowserWindow::toggleShowNavigationToolbar()
 
     Settings().setValue("Browser-View-Settings/showNavigationToolbar", m_navigationToolbar->isVisible());
 
+#ifndef Q_OS_MAC
     // Make sure we show Menu Bar when Navigation Toolbar is hidden
     if (!m_navigationToolbar->isVisible() && !menuBar()->isVisible()) {
         toggleShowMenubar();
     }
+#endif
 }
 
 void BrowserWindow::toggleTabsOnTop(bool enable)
@@ -944,9 +949,13 @@ void BrowserWindow::restoreWindowState(const RestoreManager::WindowData &d)
 
 void BrowserWindow::createToolbarsMenu(QMenu* menu)
 {
-    QAction* action = menu->addAction(tr("&Menu Bar"), this, SLOT(toggleShowMenubar()));
+    QAction* action;
+
+#ifndef Q_OS_MAC
+    action = menu->addAction(tr("&Menu Bar"), this, SLOT(toggleShowMenubar()));
     action->setCheckable(true);
     action->setChecked(menuBar()->isVisible());
+#endif
 
     action = menu->addAction(tr("&Navigation Toolbar"), this, SLOT(toggleShowNavigationToolbar()));
     action->setCheckable(true);
@@ -1102,9 +1111,11 @@ bool BrowserWindow::event(QEvent* event)
             // Enter fullscreen
             m_windowStates = ev->oldState();
 
-            m_menuBarVisible = menuBar()->isVisible();
             m_statusBarVisible = statusBar()->isVisible();
+#ifndef Q_OS_MAC
+            m_menuBarVisible = menuBar()->isVisible();
             menuBar()->hide();
+#endif
             statusBar()->hide();
 
             m_navigationContainer->hide();
@@ -1122,8 +1133,10 @@ bool BrowserWindow::event(QEvent* event)
             // Leave fullscreen
             setWindowState(m_windowStates);
 
-            menuBar()->setVisible(m_menuBarVisible);
             statusBar()->setVisible(m_statusBarVisible);
+#ifndef Q_OS_MAC
+            menuBar()->setVisible(m_menuBarVisible);
+#endif
 
             m_navigationContainer->show();
             m_navigationToolbar->setSuperMenuVisible(!m_menuBarVisible);

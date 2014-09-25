@@ -101,9 +101,6 @@ MainApplication::MainApplication(int &argc, char** argv)
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     , m_registerQAppAssociation(0)
 #endif
-#ifdef Q_OS_MAC
-    , m_macDockMenu(0)
-#endif
 {
     setApplicationName(QLatin1String("QupZilla"));
     setApplicationVersion(Qz::VERSION);

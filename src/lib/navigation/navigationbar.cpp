@@ -100,7 +100,6 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_buttonForward->setMenu(m_menuForward);
     connect(m_buttonForward, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowHistoryNextMenu()));
 
-#ifndef Q_OS_MAC
     m_supMenu = new ToolButton(this);
     m_supMenu->setObjectName("navigation-button-supermenu");
     m_supMenu->setPopupMode(QToolButton::InstantPopup);
@@ -110,7 +109,6 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_supMenu->setFocusPolicy(Qt::NoFocus);
     m_supMenu->setMenu(m_window->superMenu());
     m_supMenu->setShowMenuInside(true);
-#endif
 
     m_searchLine = new WebSearchBar(m_window);
 
@@ -135,9 +133,7 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_layout->addWidget(m_buttonHome);
     m_layout->addWidget(m_buttonAddTab);
     m_layout->addWidget(m_navigationSplitter);
-#ifndef Q_OS_MAC
     m_layout->addWidget(m_supMenu);
-#endif
     m_layout->addWidget(m_exitFullscreen);
 
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -187,11 +183,6 @@ void NavigationBar::showStopButton()
 
 void NavigationBar::setSuperMenuVisible(bool visible)
 {
-#ifdef Q_OS_MAC
-    Q_UNUSED(visible)
-    return;
-#endif
-
     m_supMenu->setVisible(visible);
 }
 
