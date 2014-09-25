@@ -949,6 +949,9 @@ void BrowserWindow::restoreWindowState(const RestoreManager::WindowData &d)
 
 void BrowserWindow::createToolbarsMenu(QMenu* menu)
 {
+    removeActions(menu->actions());
+    menu->clear();
+
     QAction* action;
 
 #ifndef Q_OS_MAC
@@ -970,6 +973,8 @@ void BrowserWindow::createToolbarsMenu(QMenu* menu)
     action = menu->addAction(tr("&Tabs on Top"), this, SLOT(toggleTabsOnTop(bool)));
     action->setCheckable(true);
     action->setChecked(qzSettings->tabsOnTop);
+
+    addActions(menu->actions());
 }
 
 void BrowserWindow::createSidebarsMenu(QMenu* menu)
@@ -1016,6 +1021,13 @@ void BrowserWindow::createEncodingMenu(QMenu* menu)
     createEncodingSubMenu("Windows", windowsCodecs, menu);
     createEncodingSubMenu("Iscii", isciiCodecs, menu);
     createEncodingSubMenu(tr("Other"), otherCodecs, menu);
+}
+
+void BrowserWindow::removeActions(const QList<QAction *> &actions)
+{
+    foreach (QAction *action, actions) {
+        removeAction(action);
+    }
 }
 
 void BrowserWindow::addTab()

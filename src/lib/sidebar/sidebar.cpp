@@ -93,6 +93,9 @@ SideBarManager::SideBarManager(BrowserWindow* parent)
 
 void SideBarManager::createMenu(QMenu* menu)
 {
+    m_window->removeActions(menu->actions());
+    menu->clear();
+
     QAction* act = menu->addAction(SideBar::tr("Bookmarks"), this, SLOT(slotShowSideBar()));
     act->setCheckable(true);
     act->setShortcut(QKeySequence("Ctrl+Shift+B"));
@@ -116,9 +119,6 @@ void SideBarManager::createMenu(QMenu* menu)
     }
 
     m_window->addActions(menu->actions());
-
-    // Menu is only valid until hidden
-    connect(menu, SIGNAL(aboutToHide()), this, SLOT(clearMenu()));
 }
 
 void SideBarManager::addSidebar(const QString &id, SideBarInterface* interface)
@@ -140,14 +140,6 @@ void SideBarManager::slotShowSideBar()
     if (QAction* act = qobject_cast<QAction*>(sender())) {
         showSideBar(act->data().toString());
     }
-}
-
-void SideBarManager::clearMenu()
-{
-    QMenu* menu = qobject_cast<QMenu*>(sender());
-    Q_ASSERT(menu);
-
-    menu->clear();
 }
 
 void SideBarManager::showSideBar(const QString &id, bool toggle)

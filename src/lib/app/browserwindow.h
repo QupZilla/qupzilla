@@ -82,6 +82,8 @@ public:
     void createSidebarsMenu(QMenu* menu);
     void createEncodingMenu(QMenu* menu);
 
+    void removeActions(const QList<QAction*> &actions);
+
     SideBar* addSideBar();
 
     QByteArray saveState(int version = 0) const;

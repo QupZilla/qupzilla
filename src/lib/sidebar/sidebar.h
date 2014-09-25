@@ -72,7 +72,6 @@ public:
 
 private slots:
     void slotShowSideBar();
-    void clearMenu();
 
 private:
     BrowserWindow* m_window;

@@ -465,7 +465,6 @@ void MainMenu::aboutToShowSidebarsMenu()
     Q_ASSERT(menu);
 
     if (m_window) {
-        menu->clear();
         m_window->createSidebarsMenu(menu);
     }
 }
