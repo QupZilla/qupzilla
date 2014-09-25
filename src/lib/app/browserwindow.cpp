@@ -399,7 +399,7 @@ void BrowserWindow::createEncodingSubMenu(const QString &name, QStringList &code
         return;
     }
 
-    /// TODO: Alphanumeric sorting: QCollator (5.2+) or http://www.davekoelle.com/alphanum.html
+    // TODO: Alphanumeric sorting: QCollator (5.2+) or http://www.davekoelle.com/alphanum.html
     std::sort(codecNames.begin(), codecNames.end());
 
     QMenu* subMenu = new QMenu(name, menu);

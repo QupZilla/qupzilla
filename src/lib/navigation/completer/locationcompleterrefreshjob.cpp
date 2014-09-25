@@ -159,7 +159,7 @@ void LocationCompleterRefreshJob::completeFromHistory()
     }
 
     // Sort by count
-    qSort(m_items.begin(), m_items.end(), countBiggerThan);
+    std::sort(m_items.begin(), m_items.end(), countBiggerThan);
 
     // Search in history
     if (showType == HistoryAndBookmarks || showType == History) {

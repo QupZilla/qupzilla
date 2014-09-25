@@ -237,7 +237,7 @@ void LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOption
         QList<int> delimiters;
         QStringList searchStrings = searchText.split(QLatin1Char(' '), QString::SkipEmptyParts);
         // Look for longer parts first
-        qSort(searchStrings.begin(), searchStrings.end(), sizeBiggerThan);
+        std::sort(searchStrings.begin(), searchStrings.end(), sizeBiggerThan);
 
         foreach (const QString &string, searchStrings) {
             int delimiter = text.indexOf(string, 0, Qt::CaseInsensitive);
@@ -265,7 +265,7 @@ void LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOption
         }
 
         // We need to sort delimiters to properly paint all parts that user typed
-        qSort(delimiters);
+        std::sort(delimiters.begin(), delimiters.end());
 
         // If we don't find any match, just paint it without any highlight
         if (!delimiters.isEmpty() && !(delimiters.count() % 2)) {
