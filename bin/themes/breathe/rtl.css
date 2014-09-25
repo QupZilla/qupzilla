@@ -1,0 +1,19 @@
+#navigation-button-next
+{
+    qproperty-icon: url(images/go-previous.png);
+}
+
+#navigation-button-back
+{
+    qproperty-icon: url(images/go-next.png);
+}
+
+#tabbar-button-right
+{
+    qproperty-icon: url(images/tab-left-arrow.png);
+}
+
+#tabbar-button-left
+{
+    qproperty-icon: url(images/tab-right-arrow.png);
+}
