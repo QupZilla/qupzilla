@@ -21,7 +21,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="1" alignment="Qt::AlignRight">
+   <item row="0" column="1">
     <widget class="QLabel" name="icon">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -54,7 +54,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="1" alignment="Qt::AlignRight">
+   <item row="2" column="1">
     <widget class="QComboBox" name="historyLength">
      <property name="enabled">
       <bool>false</bool>
@@ -121,7 +121,7 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="1" alignment="Qt::AlignRight">
+   <item row="6" column="1">
     <widget class="QPushButton" name="editCookies">
      <property name="text">
       <string>Edit cookies</string>
@@ -145,7 +145,7 @@
      </property>
     </widget>
    </item>
-   <item row="8" column="1" alignment="Qt::AlignRight">
+   <item row="8" column="1">
     <widget class="QPushButton" name="editNotifs">
      <property name="text">
       <string>Edit permissions</string>
@@ -159,14 +159,14 @@
      </property>
     </widget>
    </item>
-   <item row="9" column="1" alignment="Qt::AlignRight">
+   <item row="9" column="1">
     <widget class="QPushButton" name="editGeoloc">
      <property name="text">
       <string>Edit permissions</string>
      </property>
     </widget>
    </item>
-   <item row="10" column="1" alignment="Qt::AlignRight">
+   <item row="10" column="1">
     <widget class="QPushButton" name="optimizeDb">
      <property name="text">
       <string>Optimize database</string>
@@ -187,7 +187,7 @@
      </property>
     </widget>
    </item>
-   <item row="12" column="0" alignment="Qt::AlignLeft">
+   <item row="12" column="0">
     <widget class="QPushButton" name="clear">
      <property name="minimumSize">
       <size>
@@ -200,7 +200,7 @@
      </property>
     </widget>
    </item>
-   <item row="12" column="1" alignment="Qt::AlignRight">
+   <item row="12" column="1">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>

@@ -24,6 +24,8 @@
 #include "bookmarks.h"
 #include "qztools.h"
 
+#include <algorithm>
+
 #include <QDateTime>
 
 #if QT_VERSION >= 0x050000

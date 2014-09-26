@@ -66,6 +66,8 @@
 #include "historymenu.h"
 #include "mainmenu.h"
 
+#include <algorithm>
+
 #include <QKeyEvent>
 #include <QSplitter>
 #include <QStatusBar>

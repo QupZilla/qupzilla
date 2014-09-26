@@ -18,6 +18,8 @@
 #ifndef BUTTONWITHMENU_H
 #define BUTTONWITHMENU_H
 
+#include <QVariant>
+
 #include "toolbutton.h"
 #include "qzcommon.h"
 

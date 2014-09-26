@@ -21,6 +21,8 @@
 #include "iconprovider.h"
 #include "qzsettings.h"
 
+#include <algorithm>
+
 #include <QPainter>
 #include <QApplication>
 #include <QMouseEvent>
