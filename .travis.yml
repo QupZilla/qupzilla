@@ -8,7 +8,7 @@ env:
 branches:
   only:
     - 'master'
-    - 'v1.6'
+    - 'v1.8'
 
 before_install:
   - export DISPLAY=:99.0
