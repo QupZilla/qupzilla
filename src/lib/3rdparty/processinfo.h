@@ -18,6 +18,8 @@
 #ifndef PROCESSINFO_H
 #define PROCESSINFO_H
 
+#include <QtGlobal>
+
 #if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
 #include <sys/types.h>
 #endif
