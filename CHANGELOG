@@ -1,8 +1,9 @@
-Version 1.7.0
-    * development version
+Version 1.8.0
+    * released 25 September 2014
     * added support for window.beforeunload event
     * added support for external.AddSearchProvider js function
     * added undo/redo actions to context menu in forms
+    * added new theme Breathe
     * added new commandline option to toggle fullscreen
     * added new commandline option to enable portable mode
     * added new context menu action to open links in private window

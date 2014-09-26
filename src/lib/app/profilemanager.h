@@ -59,6 +59,7 @@ private:
     void update120();
     void update130();
     void update140();
+    void update160();
 
     bool m_databaseConnected;
 };

@@ -209,8 +209,8 @@ void ProfileManager::updateProfile(const QString &current, const QString &profil
         return;
     }
 
-    // 1.7.0 development version
     if (prof >= Updater::Version("1.6.0") && prof < Updater::Version("1.8.0")) {
+        update160();
         return;
     }
 
@@ -343,4 +343,9 @@ void ProfileManager::update140()
 
     QSqlQuery query;
     query.exec("ALTER TABLE search_engines ADD COLUMN postData TEXT");
+}
+
+void ProfileManager::update160()
+{
+    // Nothing to upgrade
 }
