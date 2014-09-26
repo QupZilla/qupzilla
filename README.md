@@ -1,10 +1,10 @@
 QupZilla Web Browser
 ----------------------------------------------------------------------------------------
 
-[![Build Status](https://travis-ci.org/QupZilla/qupzilla.svg?branch=master)](https://travis-ci.org/QupZilla/qupzilla)  
-Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)  
-Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)  
-IRC: `#qupzilla` at `irc.freenode.net`  
+[![Build Status](https://travis-ci.org/QupZilla/qupzilla.svg?branch=v1.8)](https://travis-ci.org/QupZilla/qupzilla)
+Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)
+Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)
+IRC: `#qupzilla` at `irc.freenode.net`
 Translations: [https://www.transifex.com](https://www.transifex.com/projects/p/qupzilla)
 
 About QupZilla
@@ -38,17 +38,17 @@ Compiling
 ----------------------------------------------------------------------------------------
 
 Before you start compiling, make sure that you have installed the Qt (>=4.7) development libraries
-and you have read the [BUILDING](https://github.com/QupZilla/qupzilla/blob/master/BUILDING) information.  
+and you have read the [BUILDING](https://github.com/QupZilla/qupzilla/blob/master/BUILDING) information.
 
-**Linux**  
+**Linux**
 
  * OpenSSL (libcrypto) is required
  * pkg-config is recommended (to correctly detect versions of QtWebKit)
  * pkg-config is required for Hunspell spellcheck
  * Hunspell development package for spellcheck
  * QtWebKit 2.3 is needed to have support for spellcheck
- 
-**Windows**  
+
+**Windows**
  * OpenSSL (libeay32) is required
  * QtWebKit 2.3 is required
  * Hunspell library is required for spellcheck
