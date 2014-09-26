@@ -451,7 +451,7 @@ void WebPage::windowCloseRequested()
     webView->closeView();
 }
 
-void WebPage::frameCreated(QWebFrame *frame)
+void WebPage::frameCreated(QWebFrame* frame)
 {
     connect(frame, SIGNAL(initialLayoutCompleted()), this, SLOT(frameInitialLayoutCompleted()));
 }
@@ -461,8 +461,6 @@ void WebPage::frameInitialLayoutCompleted()
     QWebFrame* frame = qobject_cast<QWebFrame*>(sender());
     if (!frame)
         return;
-
-    qDebug() << frame;
 
     // Autofill
     m_passwordEntries = mApp->autoFill()->completeFrame(frame);

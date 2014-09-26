@@ -995,7 +995,6 @@ void BrowserWindow::createEncodingMenu(QMenu* menu)
             isoCodecs << codecName;
         }
         else if (codecName.startsWith(QLatin1String("UTF")) && !utfCodecs.contains(codecName)) {
-            qDebug() << codecName << QTextCodec::codecForName(codecName.toUtf8())->mibEnum();
             utfCodecs << codecName;
         }
         else if (codecName.startsWith(QLatin1String("windows"))
