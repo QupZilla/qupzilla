@@ -27,6 +27,7 @@ class QUrl;
 class QWebFrame;
 class QPixmap;
 
+class AutoSaver;
 class PageThumbnailer;
 
 class QUPZILLA_EXPORT SpeedDial : public QObject
@@ -44,9 +45,9 @@ public:
     };
 
     explicit SpeedDial(QObject* parent = 0);
+    ~SpeedDial();
 
     void loadSettings();
-    void saveSettings();
 
     Page pageForUrl(const QUrl &url);
     QUrl urlForShortcut(int key);
@@ -81,6 +82,7 @@ public slots:
 
 private slots:
     void thumbnailCreated(const QPixmap &pixmap);
+    void saveSettings();
 
 private:
     QString escapeTitle(QString string) const;
@@ -99,6 +101,7 @@ private:
 
     QList<QPointer<QWebFrame> > m_webFrames;
     QList<Page> m_webPages;
+    AutoSaver* m_autoSaver;
 
     bool m_loaded;
     bool m_regenerateScript;

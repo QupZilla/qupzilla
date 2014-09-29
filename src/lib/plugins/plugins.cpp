@@ -93,7 +93,6 @@ void Plugins::loadSettings()
 void Plugins::shutdown()
 {
     c2f_saveSettings();
-    m_speedDial->saveSettings();
 
     foreach (PluginInterface* iPlugin, m_loadedPlugins) {
         iPlugin->unload();
