@@ -1187,7 +1187,7 @@ void BrowserWindow::printPage(QWebFrame* frame)
         connect(dialog, SIGNAL(paintRequested(QPrinter*)), weView(), SLOT(print(QPrinter*)));
     }
     else {
-        dialog->printer()->setDocName(QzTools::getFileNameFromUrl(frame->url()));
+        dialog->printer()->setDocName(QzTools::getFileNameFromUrl(QzTools::frameUrl(frame)));
 
         connect(dialog, SIGNAL(paintRequested(QPrinter*)), frame, SLOT(print(QPrinter*)));
     }

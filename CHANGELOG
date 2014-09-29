@@ -1,3 +1,8 @@
+Version 1.8.1
+    * not yet released
+    * fixed: autofill not working for some frames
+    * fixed: building on Mac
+
 Version 1.8.0
     * released 25 September 2014
     * added support for window.beforeunload event

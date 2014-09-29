@@ -39,6 +39,7 @@
 #include <QSysInfo>
 #include <QProcess>
 #include <QMessageBox>
+#include <QWebFrame>
 
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
@@ -213,6 +214,11 @@ QString QzTools::escapeSqlString(QString urlString)
     urlString.replace(QL1S("%"), escapeString + QL1S("%"));
 
     return urlString;
+}
+
+QUrl QzTools::frameUrl(QWebFrame* frame)
+{
+    return frame->url().isEmpty() ? frame->baseUrl() : frame->url();
 }
 
 QString QzTools::ensureUniqueFilename(const QString &name, const QString &appendFormat)
