@@ -294,6 +294,9 @@ MainApplication::~MainApplication()
     // Delete all classes that are saving data in destructor
     delete m_bookmarks;
     delete m_cookieJar;
+    delete m_plugins;
+
+    Settings::syncSettings();
 }
 
 bool MainApplication::isClosing() const
@@ -761,7 +764,6 @@ void MainApplication::saveSettings()
     qzSettings->saveSettings();
     AdBlockManager::instance()->save();
     QFile::remove(DataPaths::currentProfilePath() + QLatin1String("/WebpageIcons.db"));
-    Settings::syncSettings();
 }
 
 void MainApplication::messageReceived(const QString &message)

@@ -20,6 +20,7 @@
 #include "settings.h"
 #include "datapaths.h"
 #include "qztools.h"
+#include "autosaver.h"
 
 #include <QDir>
 #include <QCryptographicHash>
@@ -38,6 +39,14 @@ SpeedDial::SpeedDial(QObject* parent)
     , m_loaded(false)
     , m_regenerateScript(true)
 {
+    m_autoSaver = new AutoSaver(this);
+    connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveSettings()));
+    connect(this, SIGNAL(pagesChanged()), m_autoSaver, SLOT(changeOcurred()));
+}
+
+SpeedDial::~SpeedDial()
+{
+    m_autoSaver->saveIfNecessary();
 }
 
 void SpeedDial::loadSettings()
