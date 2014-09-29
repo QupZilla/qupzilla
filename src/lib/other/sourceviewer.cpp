@@ -38,7 +38,7 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     , m_selectedHtml(selectedHtml)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    setWindowTitle(tr("Source of ") + frame->url().toString());
+    setWindowTitle(tr("Source of ") + QzTools::frameUrl(frame).toString());
     m_layout = new QBoxLayout(QBoxLayout::TopToBottom, this);
     m_sourceEdit = new PlainEditWithLines(this);
     m_sourceEdit->setObjectName("sourceviewer-textedit");
@@ -46,7 +46,7 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     m_sourceEdit->setUndoRedoEnabled(false);
 
     m_statusBar = new QStatusBar(this);
-    m_statusBar->showMessage(frame->url().toString());
+    m_statusBar->showMessage(QzTools::frameUrl(frame).toString());
 
     QMenuBar* menuBar = new QMenuBar(this);
     m_layout->addWidget(m_sourceEdit);

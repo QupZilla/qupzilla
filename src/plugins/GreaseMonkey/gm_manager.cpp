@@ -201,7 +201,7 @@ void GM_Manager::frameLoadStart()
         return;
     }
 
-    const QUrl url = frame->url().isEmpty() ? frame->baseUrl() : frame->url();
+    const QUrl url = QzTools::frameUrl(frame);
     const QString urlScheme = url.scheme();
     const QString urlString = url.toEncoded();
 

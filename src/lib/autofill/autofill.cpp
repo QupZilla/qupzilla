@@ -26,6 +26,7 @@
 #include "pageformcompleter.h"
 #include "settings.h"
 #include "passwordmanager.h"
+#include "qztools.h"
 
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
@@ -178,12 +179,12 @@ QVector<PasswordEntry> AutoFill::completeFrame(QWebFrame* frame)
         return list;
     }
 
-    QUrl pageUrl = frame->url();
-    if (!isStored(pageUrl)) {
+    const QUrl frameUrl = QzTools::frameUrl(frame);
+    if (!isStored(frameUrl)) {
         return list;
     }
 
-    list = getFormData(pageUrl);
+    list = getFormData(frameUrl);
 
     if (!list.isEmpty()) {
         const PasswordEntry entry = list.first();
@@ -221,9 +222,8 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
         return;
     }
 
-    const QUrl siteUrl = webPage->url();
-
-    if (!isStoringEnabled(siteUrl)) {
+    const QUrl frameUrl = QzTools::frameUrl(frame);
+    if (!isStoringEnabled(frameUrl)) {
         return;
     }
 
@@ -236,8 +236,8 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
 
     PasswordEntry updateData;
 
-    if (isStored(siteUrl)) {
-        const QVector<PasswordEntry> &list = getFormData(siteUrl);
+    if (isStored(frameUrl)) {
+        const QVector<PasswordEntry> &list = getFormData(frameUrl);
 
         foreach (const PasswordEntry &data, list) {
             if (data.username == formData.username) {
@@ -257,7 +257,7 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
         }
     }
 
-    AutoFillNotification* aWidget = new AutoFillNotification(siteUrl, formData, updateData);
+    AutoFillNotification* aWidget = new AutoFillNotification(frameUrl, formData, updateData);
     webView->addNotification(aWidget);
 }
 

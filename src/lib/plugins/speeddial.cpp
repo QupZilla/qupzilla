@@ -382,7 +382,7 @@ QList<QWebFrame*> SpeedDial::cleanFrames()
 
     for (int i = 0; i < m_webFrames.count(); i++) {
         QWebFrame* frame = m_webFrames.at(i).data();
-        if (!frame || frame->url().toString() != QLatin1String("qupzilla:speeddial")) {
+        if (!frame || QzTools::frameUrl(frame).toString() != QLatin1String("qupzilla:speeddial")) {
             m_webFrames.removeAt(i);
             i--;
             continue;
