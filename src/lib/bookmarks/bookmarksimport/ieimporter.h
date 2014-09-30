@@ -36,8 +36,9 @@ public:
     BookmarkItem* importBookmarks();
 
 private:
+    void readDir(const QDir &dir, BookmarkItem* parent);
+
     QString m_path;
-    QFileInfoList urls;
 };
 
 #endif // IEIMPORTER_H
