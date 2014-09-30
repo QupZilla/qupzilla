@@ -41,7 +41,7 @@ QString IeImporter::standardPath() const
 
 QString IeImporter::getPath(QWidget* parent)
 {
-    m_path = QFileDialog::getOpenFileName(parent, BookmarksImporter::tr("Choose file..."), standardPath());
+    m_path = QFileDialog::getExistingDirectory(parent, BookmarksImporter::tr("Choose file..."), standardPath());
     return m_path;
 }
 
@@ -53,16 +53,6 @@ bool IeImporter::prepareImport()
         return false;
     }
 
-    QStringList filters;
-    filters << "*.url";
-
-    urls = dir.entryInfoList(filters);
-
-    if (urls.isEmpty()) {
-        setError(BookmarksImporter::tr("The directory does not contain any bookmarks."));
-        return false;
-    }
-
     return true;
 }
 
@@ -71,15 +61,28 @@ BookmarkItem* IeImporter::importBookmarks()
     BookmarkItem* root = new BookmarkItem(BookmarkItem::Folder);
     root->setTitle("Internet Explorer Import");
 
-    foreach (QFileInfo file, urls) {
-        QSettings urlFile(file.absoluteFilePath(), QSettings::IniFormat, this);
-
-        QUrl url = urlFile.value("InternetShortcut/URL").toUrl();
-
-        BookmarkItem* b = new BookmarkItem(BookmarkItem::Url, root);
-        b->setTitle(file.baseName());
-        b->setUrl(url);
-    }
-
+    readDir(QDir(m_path), root);
     return root;
+}
+
+void IeImporter::readDir(const QDir &dir, BookmarkItem *parent)
+{
+    foreach (const QFileInfo &file, dir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot)) {
+        if (file.isDir()) {
+            BookmarkItem* folder = new BookmarkItem(BookmarkItem::Folder, parent);
+            folder->setTitle(file.baseName());
+
+            QDir folderDir = dir;
+            folderDir.cd(file.baseName());
+            readDir(folderDir, folder);
+        }
+        else if (file.isFile()) {
+            QSettings urlFile(file.absoluteFilePath(), QSettings::IniFormat);
+            const QUrl url = urlFile.value("InternetShortcut/URL").toUrl();
+
+            BookmarkItem* item = new BookmarkItem(BookmarkItem::Url, parent);
+            item->setTitle(file.baseName());
+            item->setUrl(url);
+        }
+    }
 }
