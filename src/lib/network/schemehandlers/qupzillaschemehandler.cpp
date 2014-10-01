@@ -277,7 +277,8 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Lasso Kante", "kantemou@gmail.com") + " (N'ko)<br/>" +
                       authorString("Kizito Birabwa", "kbirabwa@yahoo.co.uk") + " (Luganda)<br/>" +
                       authorString("Juan Carlos Sánchez", "hollow1984angel@gmail.com") + " (Mexican Spanish)<br/>" +
-                      authorString("Xabier Aramendi", "azpidatziak@gmail.com") + " (Basque)"
+                      authorString("Xabier Aramendi", "azpidatziak@gmail.com") + " (Basque)<br/>" +
+                      authorString("Ferhat AYDIN", "ferhataydin44@gmail.com") + " (Turkish)"
                      );
         aPage = QzTools::applyDirectionToPage(aPage);
     }
