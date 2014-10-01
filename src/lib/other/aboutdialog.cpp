@@ -134,7 +134,8 @@ void AboutDialog::showAuthors()
                                                "Lasso Kante<br/>"
                                                "Kizito Birabwa<br/>"
                                                "Juan Carlos Sánchez<br/>"
-                                               "Xabier Aramendi")
+                                               "Xabier Aramendi<br/>"
+                                               "Ferhat AYDIN")
                          );
         m_authorsHtml += "</div></center>";
     }
