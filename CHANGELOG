@@ -1,5 +1,6 @@
 Version 1.8.1
     * not yet released
+    * reverted setting DNT header by default
     * fixed: autofill not working for some frames
     * fixed: saving speed dial in case of crash
     * fixed: building on Mac
