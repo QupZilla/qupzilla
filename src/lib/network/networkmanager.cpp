@@ -106,7 +106,7 @@ void NetworkManager::loadSettings()
                << QLatin1String("live.com") << QLatin1String("i0.cz") << QLatin1String("sermepa.es");
 
     settings.beginGroup("Web-Browser-Settings");
-    m_doNotTrack = settings.value("DoNotTrack", true).toBool();
+    m_doNotTrack = settings.value("DoNotTrack", false).toBool();
     m_sendReferer = settings.value("SendReferer", true).toBool();
     m_sslv3Sites = settings.value("SSLv3Sites", sslv3Sites).toStringList();
     settings.endGroup();
