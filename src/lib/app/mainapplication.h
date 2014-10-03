@@ -38,7 +38,6 @@ class AutoSaver;
 class RSSManager;
 class ProxyStyle;
 class PluginProxy;
-class CookieManager;
 class BrowserWindow;
 class NetworkManager;
 class BrowsingLibrary;
@@ -93,7 +92,6 @@ public:
     BrowsingLibrary* browsingLibrary();
 
     RSSManager* rssManager();
-    CookieManager* cookieManager();
     NetworkManager* networkManager();
     RestoreManager* restoreManager();
     DownloadManager* downloadManager();
@@ -158,7 +156,6 @@ private:
     BrowsingLibrary* m_browsingLibrary;
 
     RSSManager* m_rssManager;
-    CookieManager* m_cookieManager;
     NetworkManager* m_networkManager;
     RestoreManager* m_restoreManager;
     DownloadManager* m_downloadManager;

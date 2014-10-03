@@ -18,7 +18,7 @@
 #ifndef COOKIEMANAGER_H
 #define COOKIEMANAGER_H
 
-#include <QWidget>
+#include <QDialog>
 
 #include "qzcommon.h"
 
@@ -31,7 +31,7 @@ class QTreeWidgetItem;
 
 class BrowserWindow;
 
-class QUPZILLA_EXPORT CookieManager : public QWidget
+class QUPZILLA_EXPORT CookieManager : public QDialog
 {
     Q_OBJECT
 

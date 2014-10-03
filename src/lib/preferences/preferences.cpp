@@ -684,11 +684,8 @@ void Preferences::allowHtml5storageChanged(bool stat)
 
 void Preferences::showCookieManager()
 {
-    CookieManager* m = mApp->cookieManager();
-    m->refreshTable();
-
-    m->show();
-    m->raise();
+    CookieManager m(this);
+    m.exec();
 }
 
 void Preferences::showHtml5Permissions()

@@ -33,7 +33,7 @@
 #include <QCloseEvent>
 
 CookieManager::CookieManager(QWidget* parent)
-    : QWidget(parent)
+    : QDialog(parent)
     , ui(new Ui::CookieManager)
     , m_refreshCookieJar(true)
 {
@@ -87,6 +87,8 @@ CookieManager::CookieManager(QWidget* parent)
     connect(removeShortcut, SIGNAL(activated()), this, SLOT(deletePressed()));
 
     QzTools::setWmClass("Cookies", this);
+
+    refreshTable();
 }
 
 void CookieManager::removeAll()

@@ -315,8 +315,8 @@ void MainMenu::showDownloadManager()
 
 void MainMenu::showCookieManager()
 {
-    CookieManager* m = mApp->cookieManager();
-    m->refreshTable();
+    CookieManager* m = new CookieManager(0);
+    m->setAttribute(Qt::WA_DeleteOnClose);
     m->show();
     m->raise();
 }
