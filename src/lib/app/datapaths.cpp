@@ -52,7 +52,7 @@ void DataPaths::setPortableVersion()
     d->m_paths[Temp] = d->m_paths[Config];
     d->m_paths[Temp].first().append(QLatin1String("/tmp"));
 
-    // Make sure the Config and Temp pathes exist
+    // Make sure the Config and Temp paths exists
     QDir dir;
     dir.mkpath(d->m_paths[Config].first());
     dir.mkpath(d->m_paths[Temp].first());
@@ -142,20 +142,19 @@ void DataPaths::init()
     // Profiles
     m_paths[Profiles].append(m_paths[Config].first() + QLatin1String("/profiles"));
 
-    // Make sure the Config and Temp pathes exist
-    QDir dir;
-    dir.mkpath(m_paths[Config].first());
-
     // Temp
 #ifdef Q_OS_UNIX
     const QByteArray &user = qgetenv("USER");
     const QString &tempPath = QString(QSL("%1/qupzilla-%2/tmp")).arg(QDir::tempPath(), user.constData());
-    dir.mkpath(tempPath);
     m_paths[Temp].append(tempPath);
 #else
     m_paths[Temp].append(m_paths[Config].first() + QLatin1String("/tmp"));
-    dir.mkpath(m_paths[Temp].first());
 #endif
+
+    // Make sure the Config and Temp paths exists
+    QDir dir;
+    dir.mkpath(m_paths[Config].first());
+    dir.mkpath(m_paths[Temp].first());
 
     // We also allow to load data from Config path
     m_paths[Translations].append(m_paths[Config].first() + QLatin1String("/locale"));
