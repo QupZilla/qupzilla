@@ -51,6 +51,11 @@ void DataPaths::setPortableVersion()
 
     d->m_paths[Temp] = d->m_paths[Config];
     d->m_paths[Temp].first().append(QLatin1String("/tmp"));
+
+    // Make sure the Config and Temp pathes exist
+    QDir dir;
+    dir.mkpath(d->m_paths[Config].first());
+    dir.mkpath(d->m_paths[Temp].first());
 }
 
 // static
@@ -134,12 +139,12 @@ void DataPaths::init()
         m_paths[Config].append(confPath.absolutePath());
     }
 
-    // Make sure the Config path exists
-    QDir dir;
-    dir.mkpath(m_paths[Config].first());
-
     // Profiles
     m_paths[Profiles].append(m_paths[Config].first() + QLatin1String("/profiles"));
+
+    // Make sure the Config and Temp pathes exist
+    QDir dir;
+    dir.mkpath(m_paths[Config].first());
 
     // Temp
 #ifdef Q_OS_UNIX
@@ -149,6 +154,7 @@ void DataPaths::init()
     m_paths[Temp].append(tempPath);
 #else
     m_paths[Temp].append(m_paths[Config].first() + QLatin1String("/tmp"));
+    dir.mkpath(m_paths[Temp].first());
 #endif
 
     // We also allow to load data from Config path
