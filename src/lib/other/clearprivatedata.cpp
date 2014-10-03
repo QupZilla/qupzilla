@@ -185,12 +185,8 @@ void ClearPrivateData::optimizeDb()
 
 void ClearPrivateData::showCookieManager()
 {
-    CookieManager* m = mApp->cookieManager();
-    m->refreshTable();
-
-    m->setWindowModality(Qt::WindowModal);
-    m->show();
-    m->raise();
+    CookieManager m(this);
+    m.exec();
 }
 
 void ClearPrivateData::showNotifsPerms()

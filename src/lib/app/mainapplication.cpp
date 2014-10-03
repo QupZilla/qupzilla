@@ -35,7 +35,6 @@
 #include "sqldatabase.h"
 #include "iconprovider.h"
 #include "browserwindow.h"
-#include "cookiemanager.h"
 #include "networkmanager.h"
 #include "checkboxdialog.h"
 #include "profilemanager.h"
@@ -88,7 +87,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_networkCache(0)
     , m_browsingLibrary(0)
     , m_rssManager(0)
-    , m_cookieManager(0)
     , m_networkManager(0)
     , m_restoreManager(0)
     , m_downloadManager(0)
@@ -529,14 +527,6 @@ RSSManager* MainApplication::rssManager()
         m_rssManager = new RSSManager(getWindow());
     }
     return m_rssManager;
-}
-
-CookieManager* MainApplication::cookieManager()
-{
-    if (!m_cookieManager) {
-        m_cookieManager = new CookieManager();
-    }
-    return m_cookieManager;
 }
 
 NetworkManager* MainApplication::networkManager()
