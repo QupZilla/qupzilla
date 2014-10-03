@@ -54,8 +54,8 @@ void DataPaths::setPortableVersion()
 
     // Make sure the Config and Temp pathes exist
     QDir dir;
-    dir.mkpath(m_paths[Config].first());
-    dir.mkpath(m_paths[Temp].first());
+    dir.mkpath(d->m_paths[Config].first());
+    dir.mkpath(d->m_paths[Temp].first());
 }
 
 // static
