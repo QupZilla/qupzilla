@@ -32,7 +32,6 @@
 #include "rssmanager.h"
 #include "proxystyle.h"
 #include "pluginproxy.h"
-#include "sqldatabase.h"
 #include "iconprovider.h"
 #include "browserwindow.h"
 #include "networkmanager.h"
@@ -55,6 +54,7 @@
 #include <QFontDatabase>
 #include <QSqlDatabase>
 #include <QLibraryInfo>
+#include <QMessageBox>
 #include <QTranslator>
 #include <QThreadPool>
 #include <QSettings>
@@ -109,6 +109,14 @@ MainApplication::MainApplication(int &argc, char** argv)
     if (QIcon::fromTheme(QSL("view-refresh")).isNull()) {
         QIcon::setThemeSearchPaths(QStringList() << QL1S(":/oxygen-fallback"));
         QIcon::setThemeName(QSL("oxygen-fallback"));
+    }
+
+    // QSQLITE database plugin is required
+    if (!QSqlDatabase::isDriverAvailable(QSL("QSQLITE"))) {
+        QMessageBox::critical(0, QSL("Error"), QSL("Qt SQLite database plugin is not available. "
+                                                   "Please install it and restart the application."));
+        m_isClosing = true;
+        return;
     }
 
 #ifdef Q_OS_WIN
