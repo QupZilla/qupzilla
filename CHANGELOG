@@ -1,8 +1,10 @@
 Version 1.8.1
-    * not yet released
+    * released 5 October 2014
     * reverted setting DNT header by default
     * fixed: autofill not working for some frames
     * fixed: saving speed dial in case of crash
+    * fixed: open file in download option on windows
+    * fixed: Internet Explorer bookmarks importer
     * fixed: building on Mac
 
 Version 1.8.0
