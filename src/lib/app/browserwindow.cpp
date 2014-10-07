@@ -361,6 +361,8 @@ void BrowserWindow::setupMenu()
     else {
         macMainMenu->setWindow(this);
     }
+
+    m_mainMenu = macMainMenu;
 #else
     setMenuBar(new MenuBar(this));
 
