@@ -81,7 +81,7 @@ void HistoryMenu::showHistoryManager()
 void HistoryMenu::aboutToShow()
 {
     // Set enabled states for Back/Forward actions according to current WebView
-    TabbedWebView* view = m_window->weView();
+    TabbedWebView* view = m_window ? m_window->weView() : 0;
 
     if (view) {
         actions().at(0)->setEnabled(view->history()->canGoBack());
