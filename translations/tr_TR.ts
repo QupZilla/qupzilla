@@ -119,7 +119,7 @@
 <context>
     <name>AdBlockCustomList</name>
     <message>
-        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="466"/>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="503"/>
         <source>Custom Rules</source>
         <translation>Özel Kurallar</translation>
     </message>
@@ -249,7 +249,7 @@
 <context>
     <name>AdBlockManager</name>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="261"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="262"/>
         <source>EasyList</source>
         <translation>EasyList</translation>
     </message>
@@ -1070,94 +1070,94 @@ Lütfen QupZilla uygulamasının en son sürümünü yükleyin.</translation>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="113"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="125"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="326"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="335"/>
         <source>IP Address of current page</source>
         <translation>Aktif sayfanın IP adresi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="595"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="647"/>
         <source> (Private Browsing)</source>
         <translation> (Gizli Tarama)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="845"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="899"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="900"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="960"/>
         <source>&amp;Menu Bar</source>
         <translation>&amp;Menu Çubuğu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="904"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="965"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Gezi&amp;nme Çubuğu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="908"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="969"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Yer İmleri Çu&amp;buğu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="914"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="975"/>
         <source>&amp;Tabs on Top</source>
         <translation>Üs&amp;tteki Sekmeler</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="930"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1024"/>
         <source>Other</source>
         <translation>Diğer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1071"/>
         <source>HTML files</source>
         <translation>HTML dosyaları</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1071"/>
         <source>Image files</source>
         <translation>Resim dosyaları</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1071"/>
         <source>Text files</source>
         <translation>Metin dosyaları</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1071"/>
         <source>All files</source>
         <translation>Tüm dosyalar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1029"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1073"/>
         <source>Open file...</source>
         <translation>Dosya aç...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1134"/>
-        <location filename="../src/lib/other/pagescreen.cpp" line="172"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1182"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="169"/>
         <source>QupZilla %1 (%2)</source>
         <translation>QupZilla %1 (%2)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1390"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1438"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1391"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1439"/>
         <source>Don&apos;t ask again</source>
         <translation>Tekrar sorma</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1392"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1440"/>
         <source>There are still open tabs</source>
         <translation>Açık sekmeler var</translation>
     </message>
@@ -2546,7 +2546,7 @@ Are you sure to close this window?</source>
 <context>
     <name>LocationCompleterView</name>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="139"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="141"/>
         <source>Switch to tab</source>
         <translation>Sekmeyi değiştir</translation>
     </message>
@@ -2554,22 +2554,22 @@ Are you sure to close this window?</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1054"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1051"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>QupZilla varsayılan web tarayıcınız değil. QupZillayı varsayılan web tarayıcınız yapmak ister misiniz?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1055"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1052"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>QupZilla başladığında bu kontrolü herzaman yap.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1057"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1054"/>
         <source>Default Browser</source>
         <translation>Varsayılan Web Tarayıcı</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1103"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1100"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla yeni, hızlı ve güvenli Web tarayıcısıdır. QupZilla GPL v3 altında lisanslanmıştır ve gelecekte de lisanslanacaktır.QupZilla WebKit ve Qt Framework tabanlı bir uygulamadır.</translation>
     </message>
@@ -2577,257 +2577,257 @@ Are you sure to close this window?</source>
 <context>
     <name>MainMenu</name>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="506"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="499"/>
         <source>&amp;About QupZilla</source>
         <translation>QupZilla H&amp;akkında</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="511"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="504"/>
         <source>Pr&amp;eferences</source>
         <translation>Seç&amp;enekler</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="517"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="510"/>
         <source>Quit</source>
         <translation>Çık</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="517"/>
         <source>&amp;File</source>
         <translation>Dos&amp;ya</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
         <source>New Tab</source>
         <translation>Yeni Sekme</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="522"/>
         <source>&amp;New Window</source>
         <translation>Yeni Pe&amp;ncere</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="523"/>
         <source>New &amp;Private Window</source>
         <translation>Yeni Gi&amp;zli Pencere</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
         <source>Open Location</source>
         <translation>Konum Aç</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
         <source>Open &amp;File...</source>
         <translation>D&amp;osya Aç...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="526"/>
         <source>Close Window</source>
         <translation>Pencereyi Kapat</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="535"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
         <source>&amp;Save Page As...</source>
         <translation>&amp;Sayfayı Farklı Kaydet...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="536"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
         <source>Save Page Screen</source>
         <translation>Sayfa Görüntüsünüı Farklı Kaydet</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
         <source>Send Link...</source>
         <translation>Linki Gönder...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="538"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
         <source>&amp;Print...</source>
         <translation>&amp;Yazdır...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
         <source>Work &amp;Offline</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="538"/>
         <source>&amp;Edit</source>
         <translation>Düzen&amp;le</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="542"/>
         <source>&amp;Undo</source>
         <translation>Geri A&amp;l</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="543"/>
         <source>&amp;Redo</source>
         <translation>Yin&amp;ele</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
         <source>&amp;Cut</source>
         <translation>&amp;Kes</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="553"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="546"/>
         <source>C&amp;opy</source>
         <translation>K&amp;opyala</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="547"/>
         <source>&amp;Paste</source>
         <translation>Yap&amp;ıştır</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="556"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
         <source>Select &amp;All</source>
         <translation>T&amp;ümünü Seç</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="557"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
         <source>&amp;Find</source>
         <translation>B&amp;ul</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
         <source>&amp;View</source>
         <translation>Gör&amp;ünüm</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="558"/>
         <source>Toolbars</source>
         <translation>Araç Çubukları</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="567"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="560"/>
         <source>Sidebar</source>
         <translation>Yan Bar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="569"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="562"/>
         <source>Character &amp;Encoding</source>
         <translation>Karakter Şifrelem&amp;e</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="571"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Durum Çubu&amp;ğu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="573"/>
         <source>&amp;Stop</source>
         <translation>Du&amp;r</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="581"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
         <source>&amp;Reload</source>
         <translation>&amp;Tekrar Yükle</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="576"/>
         <source>Zoom &amp;In</source>
         <translation>&amp;Yakınlaştır</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
         <source>Zoom &amp;Out</source>
         <translation>&amp;Uzaklaştır</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="585"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
         <source>Reset</source>
         <translation>Sıfırla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
         <source>&amp;Caret Browsing</source>
         <translation>D&amp;üzenleme işaretçisini kullanarak tarama özelliği</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="590"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
         <source>&amp;Page Source</source>
         <translation>Say&amp;fa Kaynağı</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="591"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
         <source>&amp;FullScreen</source>
         <translation>Ta&amp;m Ekran</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
         <source>&amp;Tools</source>
         <translation>Ara&amp;çlar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="591"/>
         <source>&amp;Web Search</source>
         <translation>&amp;Web Arama</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="599"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="592"/>
         <source>Site &amp;Info</source>
         <translation>Site Bilgi&amp;si</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="601"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
         <source>&amp;Download Manager</source>
         <translation>İndirme Y&amp;öneticisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="602"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="595"/>
         <source>&amp;Cookies Manager</source>
         <translation>&amp;Çerez Yöneticisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="596"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="604"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
         <source>RSS &amp;Reader</source>
         <translation>&amp;RSS Okuyucu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="605"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
         <source>Web In&amp;spector</source>
         <translation>We&amp;b Denetçisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="606"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="599"/>
         <source>Clear Recent &amp;History</source>
         <translation>Yakın G&amp;eçmişi Temizle</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="610"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
         <source>&amp;Help</source>
         <translation>Y&amp;ardım</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="613"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="606"/>
         <source>About &amp;Qt</source>
         <translation>&amp;Qt Hakkında</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="611"/>
         <source>Information about application</source>
         <translation>Uygulama hakkında bilgi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="619"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="612"/>
         <source>Configuration Information</source>
         <translation>El ile ayar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="620"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="613"/>
         <source>Report &amp;Issue</source>
         <translation>Hata Rapor&amp;la</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="633"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="626"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Kapatılmış Sekmeyi Tekrar A&amp;ç</translation>
     </message>
@@ -2936,23 +2936,23 @@ Are you sure to close this window?</source>
         <translation>Yeni Sekme</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="108"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="107"/>
         <source>Main Menu</source>
         <translation>Ana Menü</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="126"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="124"/>
         <source>Exit Fullscreen</source>
         <translation>Tam Ekrandan Çık</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="249"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="283"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="240"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="274"/>
         <source>Clear history</source>
         <translation>Geçmişi Temizle</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="385"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="376"/>
         <source>Empty Page</source>
         <translation>Boş Sayfa</translation>
     </message>
@@ -3077,22 +3077,22 @@ Are you sure to close this window?</source>
         <translation>Göster...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="61"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="59"/>
         <source>Save as %1</source>
         <translation>Farklı kaydet %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="104"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="101"/>
         <source>Choose location...</source>
         <translation>Yeri göster...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="115"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="112"/>
         <source>File &apos;%1&apos; already exists. Do you want to overwrite it?</source>
         <translation>%1 isimli dosya zaten mevcut. Üzerine yazılsın mı?</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="116"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="113"/>
         <source>File already exists</source>
         <translation>Dosya zaten mevcut</translation>
     </message>
@@ -3369,7 +3369,7 @@ Are you sure to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="204"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="857"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="858"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Not: Geçerli profili silemezsiniz.</translation>
     </message>
@@ -3733,9 +3733,9 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1023"/>
         <location filename="../src/lib/preferences/preferences.ui" line="1382"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2046"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2151"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2602"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2056"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2161"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2612"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -4066,235 +4066,245 @@ Are you sure to close this window?</source>
         <translation>Kısayollarda tek tuş kullan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2020"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2003"/>
+        <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2006"/>
+        <source>Close application with Ctrl-Q</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2030"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;İndirme Yeri&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2027"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2037"/>
         <source>Ask everytime for download location</source>
         <translation>İndirme yerini her zaman sor</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2034"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2044"/>
         <source>Use defined location: </source>
         <translation>Tanımlı yeri kullan: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2084"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2094"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;İndirme Seçenekleri&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2091"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2101"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Sistem dosya dialog pencerelerini kullan
 (SSL güvenlikli içeriklerin indirilmesinde problemlere neden olabilir veya olmayabilir)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2099"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2109"/>
         <source>Close download manager when downloading finishes</source>
         <translation>İndirmeler bitince İndirme Yöneticisini kapat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2106"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2116"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Harici indirme yöneticisi&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2113"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2123"/>
         <source>Use external download manager</source>
         <translation>Harici indirme yöneticisi kullan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2125"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2135"/>
         <source>Executable:</source>
         <translation>Çalıştırılabilir dosya:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2132"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2142"/>
         <source>Arguments:</source>
         <translation>Komutlar:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2139"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2149"/>
         <source>Leave blank if unsure</source>
         <translation>Emin değilseniz boş bırakın</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2160"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2170"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation>&lt;b&gt;%d&lt;/b&gt; öğesi indirilebilir URL ile değiştirilecektir</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2186"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2196"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Otomatik doldurma ayarları&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2193"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2203"/>
         <source>Allow saving passwords from sites</source>
         <translation>Sitelerdeki parolaları kaydetmeye izin ver</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2248"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2258"/>
         <source>Send Referer header to servers</source>
         <translation>Sunuculara başlık başvurusu gönder</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2255"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2265"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Çerezler&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2262"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2272"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Send Do Not Track header to servers</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2269"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2279"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Diğer&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2276"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2286"/>
         <source>Manage CA certificates</source>
         <translation>CA sertifikalarını yönet</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2305"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2315"/>
         <source>Certificate Manager</source>
         <translation>Sertifika Yöneticisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2312"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2322"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL Sertifikaları&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2322"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2332"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2332"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2342"/>
         <source>Manage JavaScript privacy options</source>
         <translation>JavaScript gizlilik ayarlarını yönet</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2345"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2355"/>
         <source>JavaScript options</source>
         <translation>JavaScript seçenekleri</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2358"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2368"/>
         <source>Cookies Manager</source>
         <translation>Çerez Yöneticisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2381"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2391"/>
         <source>Manage Cookies</source>
         <translation>Çerezleri Yönet</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2401"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2411"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation>&lt;b&gt;HTML5 İzinleri&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2408"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2418"/>
         <source>Manage HTML5 permissions</source>
         <translation>HTML5 izinlerini yönet</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2421"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2431"/>
         <source>HTML5 Permissions</source>
         <translation>HTML5 İzinleri</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2432"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2442"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Bildirimler&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2439"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2449"/>
         <source>Use OSD Notifications</source>
         <translation>OSD Bildirimlerini Kullan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2449"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2459"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Yerel Sistem Bildirimlerini kullan(sadece linux için)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2456"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2466"/>
         <source>Do not use Notifications</source>
         <translation>Bildirimleri kullanma</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2507"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2517"/>
         <source>Expiration timeout:</source>
         <translation>Son kullanma zamanaşımı:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2520"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2530"/>
         <source> seconds</source>
         <translation>saniye</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2529"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2539"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Not: &lt;/b&gt;OSD bildirim kutusunu ekranda sürükleyerek pozisyonunu değiştirebilirsiniz.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2578"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2588"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2595"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2592"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2602"/>
         <source>Style Sheet automatically loaded with all websites: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2632"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Web siteleri için tercih edilen diller&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2642"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2652"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Tarayıcı kimliğini değiştir&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2667"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2677"/>
         <source>User Agent Manager</source>
         <translation>Kullanıcı Yetki Yöneticisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2707"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2717"/>
         <source>Languages</source>
         <translation>Diller</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2747"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2757"/>
         <source>Search Engines Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2784"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2794"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="156"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="578"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="579"/>
         <source>Default</source>
         <translation>Varsayılan</translation>
     </message>
@@ -4304,78 +4314,78 @@ Are you sure to close this window?</source>
         <translation>Varsayılan olarak ayarla</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="562"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="563"/>
         <source>OSD Notification</source>
         <translation>OSD Bildirimi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="563"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="564"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Ekranda istediğiniz yere sürükleyin.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="604"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="605"/>
         <source>Choose download location...</source>
         <translation>İndirme konumunu seçin...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="618"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="619"/>
         <source>Choose stylesheet location...</source>
         <translation>Stil konumunu seçin...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="629"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="630"/>
         <source>Deleted</source>
         <translation>Silindi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="635"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="636"/>
         <source>Choose executable location...</source>
         <translation>Çalıştırılabilir dosya konumunu seçin...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="765"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="766"/>
         <source>Choose cache path...</source>
         <translation>Önbellek klasöünü seçin...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="811"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
         <source>New Profile</source>
         <translation>Yeni Profil</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="811"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Yeni profil ismini girin:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="822"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="827"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="823"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="828"/>
         <source>Error!</source>
         <translation>Hata!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="822"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="823"/>
         <source>This profile already exists!</source>
         <translation>Bu profil zaten mevcut!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="827"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="828"/>
         <source>Cannot create profile directory!</source>
         <translation>Profil klasörü oluşturulamadı!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="838"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="839"/>
         <source>Confirmation</source>
         <translation>Onay</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="839"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="840"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>%1 isimli profili kalıcı olarak silmek istediğinizden emin misiniz? Bu işlem geri alınamaz!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1131"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1133"/>
         <source>Select Color</source>
         <translation>Renk Seç</translation>
     </message>
@@ -5395,13 +5405,13 @@ Sertifika yollarını ekledikten veya kaldırdıktan sonra, değişikliklerin ge
     <name>SideBar</name>
     <message>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="64"/>
-        <location filename="../src/lib/sidebar/sidebar.cpp" line="96"/>
+        <location filename="../src/lib/sidebar/sidebar.cpp" line="99"/>
         <source>Bookmarks</source>
         <translation>Yer İmleri</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="71"/>
-        <location filename="../src/lib/sidebar/sidebar.cpp" line="102"/>
+        <location filename="../src/lib/sidebar/sidebar.cpp" line="105"/>
         <source>History</source>
         <translation>Geçmiş</translation>
     </message>
@@ -6174,159 +6184,159 @@ Sertifika yollarını ekledikten veya kaldırdıktan sonra, değişikliklerin ge
         <translation>Harici Protokol Başvurusu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="561"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="576"/>
         <source>To display this page, QupZilla must resend the request 
 (such as a search or order confirmation) that was performed earlier.</source>
         <translation>Bu sayfayı görüntülemek için, QupZilla yeniden
 (örneğin, bir arama veya sipariş onayı gibi) daha önce gerçekleştirilen işlemi tekrarlayacak.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="563"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="578"/>
         <source>Confirm form resubmission</source>
         <translation>Tekrar sunma biçimini onayla</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="740"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="755"/>
         <source>Select files to upload...</source>
         <translation>Yüklenecek dosyaları seçin...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="761"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="776"/>
         <source>Server refused the connection</source>
         <translation>Sunucu bağlantıyı reddetti</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="764"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="779"/>
         <source>Server closed the connection</source>
         <translation>Sunucu bağlantıyı kapattı</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="774"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="789"/>
         <source>Server not found</source>
         <translation>Sunucu bulunamadı</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="777"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="792"/>
         <source>Connection timed out</source>
         <translation>Bağlantı zaman aşımı</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="780"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="795"/>
         <source>Untrusted connection</source>
         <translation>Güvenli olmayan bağlantı</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="783"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="798"/>
         <source>Temporary network failure</source>
         <translation>Geçici ağ hatası</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="786"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="801"/>
         <source>Proxy connection refused</source>
         <translation>Proksi bağlantısı reddedildi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="789"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="804"/>
         <source>Proxy server not found</source>
         <translation>Proksi sunucu bulunamadı</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="792"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="807"/>
         <source>Proxy connection timed out</source>
         <translation>Proksi bağlantısı zaman aşımı</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="795"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="810"/>
         <source>Proxy authentication required</source>
         <translation>Proksi doğrulama gerekli</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="798"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="813"/>
         <source>Content not found</source>
         <translation>İçerik bulunamadı</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="801"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="816"/>
         <source>Unknown network error</source>
         <translation>Bilinmeyen ağ hatası</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="831"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="846"/>
         <source>AdBlocked Content</source>
         <translation>Reklam İçeriği Engellendi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="835"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="850"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation> &lt;i&gt;%1&lt;/i&gt; tarafından engellendi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="852"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="867"/>
         <source>Content Access Denied</source>
         <translation>İçerik Erişim Engellendi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="867"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="882"/>
         <source>Error code %1</source>
         <translation>Hata kodu %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="879"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="894"/>
         <source>Failed loading page</source>
         <translation>Sayfa yüklenirken hata oluştu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="885"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="900"/>
         <source>QupZilla can&apos;t load page.</source>
         <translation>QupZilla sayfayı yükleyemedi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="885"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="900"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla sayfayı %1 öğesinden yükleyemedi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="889"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="904"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Adresi yazım hatalarına karşı kontrol edin. Örneğin &lt;b&gt;ww.&lt;/b&gt;deneme.com hatalı yazımını &lt;b&gt;www.&lt;/b&gt;deneme.com şeklinde düzeltin</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="890"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="905"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Eğer hiçbir sayfaya erişemiyorsanız bilgisayarınızın internete erişimini kontrol edin.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="891"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="906"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Eğer internete bir güvenlik duvarı veya proksi sunucusu üzerinden bağlanıyorsanız, QupZilla uygulamasına gerekli izinleri verdiğinizden emin olun.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="892"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="907"/>
         <source>Try Again</source>
         <translation>Tekrar Deneyin</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="992"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1007"/>
         <source>JavaScript alert</source>
         <translation>JavaScript uyarısı</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1000"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1015"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Ek diyaloglar oluşturarak bu sayfayı engelle</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1053"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1068"/>
         <source>Choose file...</source>
         <translation>Dosya seç...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1061"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1076"/>
         <source>Cannot read data from &lt;b&gt;%1&lt;/b&gt;. Upload was cancelled!</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; öğesinden veri okunamdı. Karşıya yükleme işlemi iptal edildi!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1062"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1077"/>
         <source>Cannot read file!</source>
         <translation>Dosya okunamadı!</translation>
     </message>

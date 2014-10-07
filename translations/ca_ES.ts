@@ -119,7 +119,7 @@
 <context>
     <name>AdBlockCustomList</name>
     <message>
-        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="466"/>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="503"/>
         <source>Custom Rules</source>
         <translation>Normes personalitzades</translation>
     </message>
@@ -249,7 +249,7 @@
 <context>
     <name>AdBlockManager</name>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="261"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="262"/>
         <source>EasyList</source>
         <translation>EasyList</translation>
     </message>
@@ -1070,94 +1070,94 @@ Si us plau, instal·leu l&apos;última versió del QupZilla.</translation>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="113"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="125"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="326"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="335"/>
         <source>IP Address of current page</source>
         <translation>IP de la pàgina actual</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="595"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="647"/>
         <source> (Private Browsing)</source>
         <translation> (Navegació privada)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="845"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="899"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="900"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="960"/>
         <source>&amp;Menu Bar</source>
         <translation>Barra del &amp;menú</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="904"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="965"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Barra de &amp;navegació</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="908"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="969"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Barra de les ad&amp;reces d&apos;interès</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="914"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="975"/>
         <source>&amp;Tabs on Top</source>
         <translation>Pestan&amp;yes a dalt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="930"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1024"/>
         <source>Other</source>
         <translation>Altres</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1071"/>
         <source>HTML files</source>
         <translation>Fitxers HTML</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1071"/>
         <source>Image files</source>
         <translation>Fitxers d&apos;imatge</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1071"/>
         <source>Text files</source>
         <translation>Fitxers de text</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1027"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1071"/>
         <source>All files</source>
         <translation>Tots els fitxers</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1029"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1073"/>
         <source>Open file...</source>
         <translation>Obre un fitxer...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1134"/>
-        <location filename="../src/lib/other/pagescreen.cpp" line="172"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1182"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="169"/>
         <source>QupZilla %1 (%2)</source>
         <translation>QupZilla %1 (%2)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1390"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1438"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1391"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1439"/>
         <source>Don&apos;t ask again</source>
         <translation>No m&apos;ho tornis a preguntar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1392"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1440"/>
         <source>There are still open tabs</source>
         <translation>Encara hi ha pestanyes obertes</translation>
     </message>
@@ -2544,7 +2544,7 @@ no s&apos;ha trobat!</translation>
 <context>
     <name>LocationCompleterView</name>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="139"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="141"/>
         <source>Switch to tab</source>
         <translation>Canvia a la pestanya</translation>
     </message>
@@ -2552,22 +2552,22 @@ no s&apos;ha trobat!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1054"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1051"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>El QupZilla no és el navegador predeterminat. Voleu fer que ho sigui?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1055"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1052"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Fes aquesta comprovació sempre que s&apos;iniciï el QupZilla.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1057"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1054"/>
         <source>Default Browser</source>
         <translation>Navegador per defecte</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1103"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1100"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>El QupZilla és un navegador web de codi obert nou, ràpid i segur. QupZilla està llicenciat sota GPL versió 3 o (si ho preferiu) qualsevol versió posterior. Està basat en el motor WebKit i el marc de treball Qt.</translation>
     </message>
@@ -2575,257 +2575,257 @@ no s&apos;ha trobat!</translation>
 <context>
     <name>MainMenu</name>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="506"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="499"/>
         <source>&amp;About QupZilla</source>
         <translation>Quant &amp;al QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="511"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="504"/>
         <source>Pr&amp;eferences</source>
         <translation>&amp;Preferències</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="517"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="510"/>
         <source>Quit</source>
         <translation>Surt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="517"/>
         <source>&amp;File</source>
         <translation>&amp;Fitxer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
         <source>New Tab</source>
         <translation>Pestanya nova</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="522"/>
         <source>&amp;New Window</source>
         <translation>Obre u&amp;na finestra</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="523"/>
         <source>New &amp;Private Window</source>
         <translation>Finestra &amp;privada nova</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
         <source>Open Location</source>
         <translation>Introdueix URL</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
         <source>Open &amp;File...</source>
         <translation>Obre un &amp;fitxer...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="526"/>
         <source>Close Window</source>
         <translation>Tanca la finestra</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="535"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
         <source>&amp;Save Page As...</source>
         <translation>&amp;Anomena i desa la pàgina...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="536"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
         <source>Save Page Screen</source>
         <translation>Captura de pantalla de la pàgina</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
         <source>Send Link...</source>
         <translation>Envia un enllaç...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="538"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
         <source>&amp;Print...</source>
         <translation>&amp;Imprimeix...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
         <source>Work &amp;Offline</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="538"/>
         <source>&amp;Edit</source>
         <translation>&amp;Edita</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="542"/>
         <source>&amp;Undo</source>
         <translation>&amp;Desfés</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="543"/>
         <source>&amp;Redo</source>
         <translation>&amp;Refés</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
         <source>&amp;Cut</source>
         <translation>&amp;Retalla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="553"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="546"/>
         <source>C&amp;opy</source>
         <translation>&amp;Copia</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="547"/>
         <source>&amp;Paste</source>
         <translation>&amp;Enganxa</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="556"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
         <source>Select &amp;All</source>
         <translation>&amp;Selecciona-ho tot</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="557"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
         <source>&amp;Find</source>
         <translation>&amp;Cerca</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
         <source>&amp;View</source>
         <translation>&amp;Visualitza</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="558"/>
         <source>Toolbars</source>
         <translation>Barres d&apos;eines</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="567"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="560"/>
         <source>Sidebar</source>
         <translation>Panell lateral</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="569"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="562"/>
         <source>Character &amp;Encoding</source>
         <translation>&amp;Codificació de caràcters</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="571"/>
         <source>Sta&amp;tus Bar</source>
         <translation>&amp;Barra d&apos;estat</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="573"/>
         <source>&amp;Stop</source>
         <translation>&amp;Atura</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="581"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
         <source>&amp;Reload</source>
         <translation>&amp;Actualitza</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="576"/>
         <source>Zoom &amp;In</source>
         <translation>&amp;Augmenta</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
         <source>Zoom &amp;Out</source>
         <translation>&amp;Redueix</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="585"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
         <source>Reset</source>
         <translation>Reinicia</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
         <source>&amp;Caret Browsing</source>
         <translation>Navegació per &amp;cursor de text</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="590"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
         <source>&amp;Page Source</source>
         <translation>Codi &amp;font de la pàgina</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="591"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
         <source>&amp;FullScreen</source>
         <translation>&amp;Pantalla completa</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
         <source>&amp;Tools</source>
         <translation>&amp;Eines</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="591"/>
         <source>&amp;Web Search</source>
         <translation>&amp;Barra de cerca</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="599"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="592"/>
         <source>Site &amp;Info</source>
         <translation>&amp;Informació del lloc</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="601"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
         <source>&amp;Download Manager</source>
         <translation>Baixa&amp;des</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="602"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="595"/>
         <source>&amp;Cookies Manager</source>
         <translation>Mostra les &amp;galetes</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="596"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="604"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
         <source>RSS &amp;Reader</source>
         <translation>Lector &amp;RSS</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="605"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
         <source>Web In&amp;spector</source>
         <translation>&amp;Inspecciona l&apos;element</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="606"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="599"/>
         <source>Clear Recent &amp;History</source>
         <translation>&amp;Neteja l&apos;historial recent</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="610"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
         <source>&amp;Help</source>
         <translation>A&amp;juda</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="613"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="606"/>
         <source>About &amp;Qt</source>
         <translation>&amp;Quant a Qt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="611"/>
         <source>Information about application</source>
         <translation>Informació sobre l&apos;aplicació</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="619"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="612"/>
         <source>Configuration Information</source>
         <translation>Informació de la configuració</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="620"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="613"/>
         <source>Report &amp;Issue</source>
         <translation>&amp;Informa d&apos;errors</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="633"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="626"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Restaura la &amp;pestanya tancada</translation>
     </message>
@@ -2934,23 +2934,23 @@ no s&apos;ha trobat!</translation>
         <translation>Obre una pestanya</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="108"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="107"/>
         <source>Main Menu</source>
         <translation>Menú principal</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="126"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="124"/>
         <source>Exit Fullscreen</source>
         <translation>Surt de la pantalla completa</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="249"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="283"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="240"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="274"/>
         <source>Clear history</source>
         <translation>Neteja l&apos;historial</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="385"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="376"/>
         <source>Empty Page</source>
         <translation>Pàgina buida</translation>
     </message>
@@ -3075,22 +3075,22 @@ no s&apos;ha trobat!</translation>
         <translation>Navega...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="61"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="59"/>
         <source>Save as %1</source>
         <translation>Anomena i desa %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="104"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="101"/>
         <source>Choose location...</source>
         <translation>Tria una ubicació...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="115"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="112"/>
         <source>File &apos;%1&apos; already exists. Do you want to overwrite it?</source>
         <translation>El fitxer &apos;%1&apos; ja existeix. Voleu sobreescriure&apos;l?</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="116"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="113"/>
         <source>File already exists</source>
         <translation>El fitxer ja existeix</translation>
     </message>
@@ -3367,7 +3367,7 @@ no s&apos;ha trobat!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="204"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="857"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="858"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Nota: No podeu eliminar el perfil actiu.</translation>
     </message>
@@ -3731,9 +3731,9 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1023"/>
         <location filename="../src/lib/preferences/preferences.ui" line="1382"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2046"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2151"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2602"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2056"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2161"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2612"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -4064,235 +4064,245 @@ no s&apos;ha trobat!</translation>
         <translation>Utilitza dreceres d&apos;una sola tecla</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2020"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2003"/>
+        <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2006"/>
+        <source>Close application with Ctrl-Q</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2030"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ubicació de la baixada&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2027"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2037"/>
         <source>Ask everytime for download location</source>
         <translation>Demana&apos;m sempre on desar els fitxers</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2034"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2044"/>
         <source>Use defined location: </source>
         <translation>Fes servir una ubicació predefinida: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2084"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2094"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Opcions de baixada&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2091"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2101"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Fes servir el diàleg natiu del sistema d&apos;arxius
 (podria causar problemes en baixar contingut segur SSL)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2099"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2109"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Tanca el gestor de baixades quan acabin les baixades</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2106"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2116"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Gestor de baixades extern&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2113"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2123"/>
         <source>Use external download manager</source>
         <translation>Fes servir un gestor de baixades extern</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2125"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2135"/>
         <source>Executable:</source>
         <translation>Executable:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2132"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2142"/>
         <source>Arguments:</source>
         <translation>Arguments:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2139"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2149"/>
         <source>Leave blank if unsure</source>
         <translation>Deixeu-ho en blanc si no n&apos;esteu segur</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2160"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2170"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation>&lt;b&gt;%d&lt;/b&gt; serà substituït per la URL que voleu baixar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2186"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2196"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Opcions d&apos;autocompletat&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2193"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2203"/>
         <source>Allow saving passwords from sites</source>
         <translation>Recorda les contrasenyes dels llocs web</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2248"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2258"/>
         <source>Send Referer header to servers</source>
         <translation>Envia l&apos;encapçalament del referent als servidors</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2255"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2265"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Galetes&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2262"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2272"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Fes saber als llocs web que no vull que se&apos;m segueixi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2269"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2279"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Altres&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2276"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2286"/>
         <source>Manage CA certificates</source>
         <translation>Gestiona els certificats CA</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2305"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2315"/>
         <source>Certificate Manager</source>
         <translation>Gestor de certificats</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2312"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2322"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;Certificats SSL&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2322"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2332"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2332"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2342"/>
         <source>Manage JavaScript privacy options</source>
         <translation>Gestiona les opcions de privacitat de JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2345"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2355"/>
         <source>JavaScript options</source>
         <translation>Opcions de JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2358"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2368"/>
         <source>Cookies Manager</source>
         <translation>Gestor de galetes</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2381"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2391"/>
         <source>Manage Cookies</source>
         <translation>Gestiona les galetes</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2401"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2411"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Permisos d&apos;HTML5&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2408"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2418"/>
         <source>Manage HTML5 permissions</source>
         <translation>Gestiona els permisos d&apos;HTML5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2421"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2431"/>
         <source>HTML5 Permissions</source>
         <translation>Permisos d&apos;HTML5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2432"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2442"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Notificacions&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2439"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2449"/>
         <source>Use OSD Notifications</source>
         <translation>Utiltiza notificacions OSD</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2449"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2459"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Fes servir el sistema de notificacions natiu (només Linux)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2456"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2466"/>
         <source>Do not use Notifications</source>
         <translation>No facis servir notificacions</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2507"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2517"/>
         <source>Expiration timeout:</source>
         <translation>Durada:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2520"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2530"/>
         <source> seconds</source>
         <translation> segons</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2529"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2539"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Nota: &lt;/b&gt;Es pot canviar la posició de la notificació OSD arrossegant-la per la pantalla.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2578"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2588"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2595"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2592"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2602"/>
         <source>Style Sheet automatically loaded with all websites: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2632"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Idioma en què es mostraran preferentment les pàgines&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2642"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2652"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Canvia la identificació del navegador&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2667"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2677"/>
         <source>User Agent Manager</source>
         <translation>Agent d&apos;usuari</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2707"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2717"/>
         <source>Languages</source>
         <translation>Idiomes</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2747"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2757"/>
         <source>Search Engines Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2784"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2794"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="156"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="578"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="579"/>
         <source>Default</source>
         <translation>Per defecte</translation>
     </message>
@@ -4302,78 +4312,78 @@ no s&apos;ha trobat!</translation>
         <translation>Estableix com a predeterminat</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="562"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="563"/>
         <source>OSD Notification</source>
         <translation>Notificació OSD</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="563"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="564"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Arrossegueu-la per la pantalla per col·locar-la on vulgueu.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="604"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="605"/>
         <source>Choose download location...</source>
         <translation>Tria la carpeta de baixades...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="618"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="619"/>
         <source>Choose stylesheet location...</source>
         <translation>Tria la ubicació del full d&apos;estils...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="629"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="630"/>
         <source>Deleted</source>
         <translation>Suprimit</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="635"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="636"/>
         <source>Choose executable location...</source>
         <translation>Tria la ubicació de l&apos;executable...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="765"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="766"/>
         <source>Choose cache path...</source>
         <translation>Tria la ruta de la memòria cau...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="811"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
         <source>New Profile</source>
         <translation>Perfil nou</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="811"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Introduïu el nom del nou perfil:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="822"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="827"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="823"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="828"/>
         <source>Error!</source>
         <translation>Hi ha hagut un error!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="822"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="823"/>
         <source>This profile already exists!</source>
         <translation>Aquest perfil ja existeix!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="827"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="828"/>
         <source>Cannot create profile directory!</source>
         <translation>No s&apos;ha pogut crear el directori del perfil!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="838"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="839"/>
         <source>Confirmation</source>
         <translation>Confirmació</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="839"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="840"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Voleu eliminar permanentment el perfil &quot;%1&quot;? Aquesta acció no es pot desfer!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1131"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1133"/>
         <source>Select Color</source>
         <translation>Selecciona un color</translation>
     </message>
@@ -5393,13 +5403,13 @@ Després d&apos;afegir o eliminar les rutes de certificats, és necessari reinic
     <name>SideBar</name>
     <message>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="64"/>
-        <location filename="../src/lib/sidebar/sidebar.cpp" line="96"/>
+        <location filename="../src/lib/sidebar/sidebar.cpp" line="99"/>
         <source>Bookmarks</source>
         <translation>Adreces d&apos;interès</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="71"/>
-        <location filename="../src/lib/sidebar/sidebar.cpp" line="102"/>
+        <location filename="../src/lib/sidebar/sidebar.cpp" line="105"/>
         <source>History</source>
         <translation>Historial</translation>
     </message>
@@ -6172,159 +6182,159 @@ Després d&apos;afegir o eliminar les rutes de certificats, és necessari reinic
         <translation>Sol·licitud de protocol extern</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="561"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="576"/>
         <source>To display this page, QupZilla must resend the request 
 (such as a search or order confirmation) that was performed earlier.</source>
         <translation>Per mostrar aquesta pàgina, el QupZilla ha de tornar a enviar la petició
 (com ara una cerca o la confirmació d&apos;una comanda) que s&apos;ha fet abans.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="563"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="578"/>
         <source>Confirm form resubmission</source>
         <translation>Confirmeu el reenviament del formulari</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="740"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="755"/>
         <source>Select files to upload...</source>
         <translation>Seleccioneu els fitxers per carregar...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="761"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="776"/>
         <source>Server refused the connection</source>
         <translation>El servidor ha rebutjat la connexió</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="764"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="779"/>
         <source>Server closed the connection</source>
         <translation>El servidor ha tancat la connexió</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="774"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="789"/>
         <source>Server not found</source>
         <translation>No s&apos;ha trobat el servidor</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="777"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="792"/>
         <source>Connection timed out</source>
         <translation>La connexió ha expirat</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="780"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="795"/>
         <source>Untrusted connection</source>
         <translation>La connexió no és fiable</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="783"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="798"/>
         <source>Temporary network failure</source>
         <translation>S&apos;ha produït una caiguda temporal de la xarxa</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="786"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="801"/>
         <source>Proxy connection refused</source>
         <translation>S&apos;ha rebutjat la connexió del servidor intermediari</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="789"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="804"/>
         <source>Proxy server not found</source>
         <translation>No s&apos;ha trobat el servidor intermediari</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="792"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="807"/>
         <source>Proxy connection timed out</source>
         <translation>Ha expirat el temps de connexió al servidor intermediari</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="795"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="810"/>
         <source>Proxy authentication required</source>
         <translation>Cal l&apos;autentificació del servidor intermediari</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="798"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="813"/>
         <source>Content not found</source>
         <translation>No s&apos;ha trobat el contingut</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="801"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="816"/>
         <source>Unknown network error</source>
         <translation>Hi ha hagut un error de xarxa desconegut</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="831"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="846"/>
         <source>AdBlocked Content</source>
         <translation>Contingut bloquejat per l&apos;AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="835"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="850"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Bloquejat per &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="852"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="867"/>
         <source>Content Access Denied</source>
         <translation>S&apos;ha denegat l&apos;accés al contingut</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="867"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="882"/>
         <source>Error code %1</source>
         <translation>Codi d&apos;error %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="879"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="894"/>
         <source>Failed loading page</source>
         <translation>No s&apos;ha pogut carregar la pàgina</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="885"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="900"/>
         <source>QupZilla can&apos;t load page.</source>
         <translation>No s&apos;ha pogut carregar la pàgina.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="885"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="900"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>El QupZilla no pot carregar la pàgina de %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="889"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="904"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Comproveu que no s&apos;hagin introduït errors en teclejar l&apos;adreça com ara &lt;b&gt;ww.&lt;/b&gt;exemple.com enlloc de &lt;b&gt;www.&lt;/b&gt;exemple.com</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="890"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="905"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Si no podeu carregar cap pàgina, comproveu la connexió a Internet.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="891"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="906"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Si el vostre ordinador o xarxa estan protegits per un servidor intermediari o un tallafocs, assegureu-vos que el QupZilla té permès l&apos;accés a Internet.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="892"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="907"/>
         <source>Try Again</source>
         <translation>Torna-ho a provar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="992"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1007"/>
         <source>JavaScript alert</source>
         <translation>Alerta JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1000"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1015"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Evita que aquesta pàgina creï diàlegs addicionals</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1053"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1068"/>
         <source>Choose file...</source>
         <translation>Tria un fitxer...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1061"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1076"/>
         <source>Cannot read data from &lt;b&gt;%1&lt;/b&gt;. Upload was cancelled!</source>
         <translation>No es poden llegir les dades de &lt;b&gt;%1&lt;/b&gt;. La pujada s&apos;ha cancel·lat!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1062"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1077"/>
         <source>Cannot read file!</source>
         <translation>No es pot llegir el fitxer.</translation>
     </message>
