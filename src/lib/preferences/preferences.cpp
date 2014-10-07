@@ -265,7 +265,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     bool pbInABuseCC = settings.value("UseCustomProgressColor", false).toBool();
     ui->checkBoxCustomProgressColor->setChecked(pbInABuseCC);
     ui->progressBarColorSelector->setEnabled(pbInABuseCC);
-    QColor pbColor = settings.value("CustomProgressColor", m_window->palette().color(QPalette::Highlight)).value<QColor>();
+    QColor pbColor = settings.value("CustomProgressColor", palette().color(QPalette::Highlight)).value<QColor>();
     setProgressBarColorIcon(pbColor);
     connect(ui->customColorToolButton, SIGNAL(clicked(bool)), SLOT(selectCustomProgressBarColor()));
     connect(ui->resetProgressBarcolor, SIGNAL(clicked()), SLOT(setProgressBarColorIcon()));
@@ -592,11 +592,17 @@ void Preferences::allowCacheChanged(bool state)
 
 void Preferences::useActualHomepage()
 {
+    if (!m_window)
+        return;
+
     ui->homepage->setText(m_window->weView()->url().toString());
 }
 
 void Preferences::useActualNewTab()
 {
+    if (!m_window)
+        return;
+
     ui->newTabUrl->setText(m_window->weView()->url().toString());
 }
 
@@ -1118,7 +1124,7 @@ void Preferences::setProgressBarColorIcon(QColor color)
     const int size = style()->pixelMetric(QStyle::PM_ToolBarIconSize);
     QPixmap pm(QSize(size, size));
     if (!color.isValid()) {
-        color = m_window->palette().color(QPalette::Highlight);
+        color = palette().color(QPalette::Highlight);
     }
     pm.fill(color);
     ui->customColorToolButton->setIcon(pm);
