@@ -7,7 +7,9 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleGetInfoString</key>
-    <string>Created by Qt/QMake</string>
+    <string>1.8.1</string>
+    <key>CFBundleVersion</key>
+    <string>1.8.1</string>
     <key>CFBundleSignature</key>
     <string>@TYPEINFO@</string>
     <key>CFBundleExecutable</key>
@@ -44,7 +46,7 @@
     <string>QupZilla</string>
     <key>CFBundleDisplayName</key>
     <string>QupZilla</string>
-    
+
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.productivity</string>
 
