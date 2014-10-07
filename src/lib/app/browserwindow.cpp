@@ -392,8 +392,8 @@ void BrowserWindow::setupMenu()
     connect(inspectorAction, SIGNAL(activated()), this, SLOT(showWebInspector()));
 }
 
-QAction *BrowserWindow::createEncodingAction(const QString &codecName,
-                                             const QString &activeCodecName, QMenu *menu)
+QAction* BrowserWindow::createEncodingAction(const QString &codecName,
+                                             const QString &activeCodecName, QMenu* menu)
 {
     QAction* action = new QAction(codecName, menu);
     action->setData(codecName);
@@ -405,7 +405,7 @@ QAction *BrowserWindow::createEncodingAction(const QString &codecName,
     return action;
 }
 
-void BrowserWindow::createEncodingSubMenu(const QString &name, QStringList &codecNames, QMenu *menu)
+void BrowserWindow::createEncodingSubMenu(const QString &name, QStringList &codecNames, QMenu* menu)
 {
     if (codecNames.isEmpty()) {
         return;
