@@ -1,3 +1,11 @@
+Version 1.8.2
+    * released 9 October 2014
+    * updated translations
+    * use bigger default font sizes
+    * fixed: profile version check when updating from 1.8.0
+    * fixed: crash on startup on Mac
+    * fixed: crash when opening menu on Mac when there is no browser window
+
 Version 1.8.1
     * released 5 October 2014
     * reverted setting DNT header by default
