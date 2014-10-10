@@ -39,6 +39,9 @@ void Settings::createSettings(const QString &fileName)
 
 void Settings::syncSettings()
 {
+    if (!s_settings)
+        return;
+
     s_settings->sync();
 }
 
