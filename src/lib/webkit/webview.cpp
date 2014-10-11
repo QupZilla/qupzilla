@@ -1380,6 +1380,12 @@ void WebView::keyPressEvent(QKeyEvent* event)
         }
     }
 
+    // Text navigation is handled automatically in editable elements
+    const QString js = QSL("document.activeElement.contentEditable==='true'||typeof document.activeElement.value != 'undefined'");
+    QWebFrame* frame = page()->currentFrame();
+    if (frame && frame->evaluateJavaScript(js).toBool())
+        return QWebView::keyPressEvent(event);
+
     switch (eventKey) {
     case Qt::Key_C:
         if (event->modifiers() == Qt::ControlModifier) {
