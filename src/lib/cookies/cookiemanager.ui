@@ -433,7 +433,7 @@
        <item row="4" column="1" colspan="2">
         <widget class="QLabel" name="label_14">
          <property name="text">
-          <string>Filter 3rd party cookies:</string>
+          <string>Allow 3rd party cookies:</string>
          </property>
         </widget>
        </item>
@@ -460,7 +460,7 @@
        <item row="5" column="1" colspan="3">
         <widget class="QLabel" name="label_19">
          <property name="text">
-          <string>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</string>
+          <string>&lt;b&gt;Warning:&lt;/b&gt; Allow 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -475,7 +475,7 @@
         </widget>
        </item>
        <item row="4" column="3">
-        <widget class="QComboBox" name="filter3rdParty">
+        <widget class="QComboBox" name="allowThirdPartyCookies">
          <property name="toolTip">
           <string>&lt;p&gt;&lt;b&gt;Always:&lt;/b&gt; Allow third-party resources to set and retrieve cookies.&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;Never:&lt;/b&gt; Never allow third-party resources to set and retrieve cookies.&lt;/p&gt;
