@@ -57,7 +57,7 @@ private:
 
     bool m_allowCookies;
     bool m_filterTrackingCookie;
-    int m_blockThirdParty;
+    int m_allowThirdParty;
     bool m_deleteOnClose;
 
     QStringList m_whitelist;

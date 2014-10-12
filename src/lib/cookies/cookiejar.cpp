@@ -49,7 +49,7 @@ void CookieJar::loadSettings()
     Settings settings;
     settings.beginGroup("Cookie-Settings");
     m_allowCookies = settings.value("allowCookies", true).toBool();
-    m_blockThirdParty = settings.value("allowCookiesFromVisitedDomainOnly", 1).toInt();
+    m_allowThirdParty = settings.value("allowThirdPartyCookies", 0).toInt();
     m_filterTrackingCookie = settings.value("filterTrackingCookie", false).toBool();
     m_deleteOnClose = settings.value("deleteCookiesOnClose", false).toBool();
     m_whitelist = settings.value("whitelist", QStringList()).toStringList();
@@ -57,7 +57,7 @@ void CookieJar::loadSettings()
     settings.endGroup();
 
 #if QTWEBKIT_FROM_2_3
-    switch (m_blockThirdParty) {
+    switch (m_allowThirdParty) {
     case 0:
         QWebSettings::globalSettings()->setThirdPartyCookiePolicy(QWebSettings::AlwaysAllowThirdPartyCookies);
         break;
@@ -220,7 +220,7 @@ bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie
 
 // This feature is now natively in QtWebKit 2.3
 #if QTWEBKIT_TO_2_3
-    if (m_blockThirdParty) {
+    if (m_allowThirdParty) {
         bool result = matchDomain(cookieDomain, domain);
         if (!result) {
 #ifdef COOKIE_DEBUG
