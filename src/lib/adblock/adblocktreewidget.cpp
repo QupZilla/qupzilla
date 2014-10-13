@@ -208,12 +208,12 @@ void AdBlockTreeWidget::adjustItemFeatures(QTreeWidgetItem* item, const AdBlockR
     item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
     item->setCheckState(0, Qt::Checked);
 
-    if (rule->isCssRule()) {
-        item->setForeground(0, QColor(Qt::darkBlue));
+    if (rule->isException()) {
+        item->setForeground(0, QColor(Qt::darkGreen));
         item->setFont(0, QFont());
     }
-    else if (rule->isException()) {
-        item->setForeground(0, QColor(Qt::darkGreen));
+    else if (rule->isCssRule()) {
+        item->setForeground(0, QColor(Qt::darkBlue));
         item->setFont(0, QFont());
     }
     else {
