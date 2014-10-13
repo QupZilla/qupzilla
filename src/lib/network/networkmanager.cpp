@@ -563,7 +563,10 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
         return reply;
     }
 
-    if (req.rawHeader("X-QupZilla-UserLoadAction") == QByteArray("1")) {
+    // Indicates whether the load action was triggered by user (eg. opening new tab, clicking on link, ...)
+    bool userLoadAction = req.rawHeader("X-QupZilla-UserLoadAction") == QByteArray("1");
+
+    if (userLoadAction) {
         req.setRawHeader("X-QupZilla-UserLoadAction", QByteArray());
         req.setAttribute(QNetworkRequest::Attribute(QNetworkRequest::User + 151), QString());
     }
@@ -585,7 +588,7 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     //req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
 
     // Adblock
-    if (op == QNetworkAccessManager::GetOperation) {
+    if (!userLoadAction && op == QNetworkAccessManager::GetOperation) {
         if (!m_adblockManager) {
             m_adblockManager = AdBlockManager::instance();
         }
