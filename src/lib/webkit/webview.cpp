@@ -587,7 +587,10 @@ void WebView::savePageAs()
 
 void WebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlags position)
 {
-    loadInNewTab(url, position);
+    QNetworkRequest request(url);
+    request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
+
+    loadInNewTab(request, position);
 }
 
 void WebView::downloadUrlToDisk()
@@ -711,7 +714,6 @@ void WebView::userDefinedOpenUrlInNewTab(const QUrl &url, bool invert)
         else {
             position &= ~Qz::NT_NotSelectedTab;
             position |= Qz::NT_SelectedTab;
-
         }
     }
 
