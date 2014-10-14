@@ -174,7 +174,16 @@ void ClearPrivateData::optimizeDb()
     const QString profilePath = DataPaths::currentProfilePath();
     QString sizeBefore = QzTools::fileSizeToString(QFileInfo(profilePath + "/browsedata.db").size());
 
-    mApp->history()->optimizeHistory();
+    // Delete icons for entries older than 6 months
+    const QDateTime date = QDateTime::currentDateTime().addMonths(-6);
+
+    QSqlQuery query;
+    query.prepare(QSL("DELETE FROM icons WHERE id IN (SELECT id FROM history WHERE date < ?)"));
+    query.addBindValue(date.toMSecsSinceEpoch());
+    query.exec();
+
+    query.clear();
+    query.exec(QSL("VACUUM"));
 
     QString sizeAfter = QzTools::fileSizeToString(QFileInfo(profilePath + "/browsedata.db").size());
 
