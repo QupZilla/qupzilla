@@ -81,7 +81,6 @@ void HistoryManager::clearHistory()
     }
 
     mApp->history()->clearHistory();
-    mApp->history()->optimizeHistory();
 }
 
 void HistoryManager::search(const QString &searchText)

@@ -62,7 +62,7 @@ public:
 
     QVector<HistoryEntry> mostVisited(int count);
 
-    bool clearHistory();
+    void clearHistory();
     bool optimizeHistory();
     bool isSaving();
     void setSaving(bool state);

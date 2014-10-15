@@ -241,15 +241,13 @@ bool History::optimizeHistory()
     return query.exec("VACUUM");
 }
 
-bool History::clearHistory()
+void History::clearHistory()
 {
     QSqlQuery query;
-    if (query.exec("DELETE FROM history")) {
-        emit resetHistory();
-        return true;
-    }
+    query.exec(QSL("DELETE FROM history"));
+    query.exec(QSL("VACUUM"));
 
-    return false;
+    emit resetHistory();
 }
 
 void History::setSaving(bool state)
