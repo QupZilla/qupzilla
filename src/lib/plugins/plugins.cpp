@@ -87,6 +87,13 @@ void Plugins::loadSettings()
     m_allowedPlugins = settings.value("AllowedPlugins", QStringList()).toStringList();
     settings.endGroup();
 
+    // Plugins are saved with relative path in portable mode
+    if (mApp->isPortable()) {
+        QDir dir(DataPaths::path(DataPaths::Plugins));
+        for (int i = 0; i < m_allowedPlugins.count(); ++i)
+            m_allowedPlugins[i] = dir.absoluteFilePath(m_allowedPlugins[i]);
+    }
+
     c2f_loadSettings();
 }
 
@@ -166,12 +173,8 @@ void Plugins::loadAvailablePlugins()
     QStringList dirs = DataPaths::allPaths(DataPaths::Plugins);
 
     // Portable build: Load only plugins from DATADIR/plugins/ directory.
-    // Loaded plugins are saved with relative path, instead of absolute for
-    // normal build.
-
-    if (mApp->isPortable()) {
+    if (mApp->isPortable())
         dirs = QStringList(DataPaths::path(DataPaths::Plugins));
-    }
 
     foreach (const QString &dir, dirs) {
         QDir pluginsDir = QDir(dir);
