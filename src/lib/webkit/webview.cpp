@@ -58,9 +58,6 @@ WebView::WebView(QWidget* parent)
     , m_progress(0)
     , m_clickedFrame(0)
     , m_page(0)
-    , m_actionReload(0)
-    , m_actionStop(0)
-    , m_actionsInitialized(false)
     , m_disableTouchMocking(false)
     , m_isReloading(false)
     , m_hasRss(false)
@@ -166,6 +163,9 @@ void WebView::setPage(QWebPage* page)
 
     // Set default zoom level
     zoomReset();
+
+    // Actions needs to be initialized for every QWebPage change
+    initializeActions();
 
     mApp->plugins()->emitWebPageCreated(m_page);
 
@@ -446,11 +446,6 @@ void WebView::slotLoadStarted()
     m_isLoading = true;
     m_progress = 0;
 
-    if (m_actionsInitialized) {
-        m_actionStop->setEnabled(true);
-        m_actionReload->setEnabled(false);
-    }
-
     m_rssChecked = false;
     emit rssChanged(false);
 }
@@ -468,11 +463,6 @@ void WebView::slotLoadFinished()
 {
     m_isLoading = false;
     m_progress = 100;
-
-    if (m_actionsInitialized) {
-        m_actionStop->setEnabled(false);
-        m_actionReload->setEnabled(true);
-    }
 
     if (!m_isReloading) {
         mApp->history()->addHistoryEntry(this);
@@ -873,35 +863,6 @@ void WebView::createSearchEngine()
 
 void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, const QPoint &pos)
 {
-    if (!m_actionsInitialized) {
-        m_actionsInitialized = true;
-
-        pageAction(QWebPage::Cut)->setIcon(QIcon::fromTheme("edit-cut"));
-        pageAction(QWebPage::Cut)->setText(tr("Cut"));
-        pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
-        pageAction(QWebPage::Copy)->setText(tr("Copy"));
-        pageAction(QWebPage::Paste)->setIcon(QIcon::fromTheme("edit-paste"));
-        pageAction(QWebPage::Paste)->setText(tr("Paste"));
-        pageAction(QWebPage::SelectAll)->setIcon(QIcon::fromTheme("edit-select-all"));
-        pageAction(QWebPage::SelectAll)->setText(tr("Select All"));
-
-        pageAction(QWebPage::SetTextDirectionDefault)->setText(tr("Default"));
-        pageAction(QWebPage::SetTextDirectionLeftToRight)->setText(tr("Left to Right"));
-        pageAction(QWebPage::SetTextDirectionRightToLeft)->setText(tr("Right to Left"));
-        pageAction(QWebPage::ToggleBold)->setText(tr("Bold"));
-        pageAction(QWebPage::ToggleItalic)->setText(tr("Italic"));
-        pageAction(QWebPage::ToggleUnderline)->setText(tr("Underline"));
-
-        m_actionReload = new QAction(QIcon::fromTheme(QSL("view-refresh")), tr("&Reload"), this);
-        m_actionStop = new QAction(QIcon::fromTheme(QSL("process-stop")), tr("S&top"), this);
-
-        connect(m_actionReload, SIGNAL(triggered()), this, SLOT(reload()));
-        connect(m_actionStop, SIGNAL(triggered()), this, SLOT(stop()));
-
-        m_actionReload->setEnabled(!isLoading());
-        m_actionStop->setEnabled(isLoading());
-    }
-
     // cppcheck-suppress variableScope
     int spellCheckActionCount = 0;
 
@@ -932,11 +893,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
             // Apparently createStandardContextMenu() can return null pointer
             if (pageMenu) {
                 if (qzSettings->enableFormsUndoRedo) {
-                    pageAction(QWebPage::Undo)->setIcon(QIcon::fromTheme("edit-undo"));
-                    pageAction(QWebPage::Undo)->setText(tr("Undo"));
                     menu->addAction(pageAction(QWebPage::Undo));
-                    pageAction(QWebPage::Redo)->setIcon(QIcon::fromTheme("edit-redo"));
-                    pageAction(QWebPage::Redo)->setText(tr("Redo"));
                     menu->addAction(pageAction(QWebPage::Redo));
                     menu->addSeparator();
                 }
@@ -960,7 +917,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
 
                     if (act == pageAction(QWebPage::Paste)) {
                         QAction* a = menu->addAction(QIcon::fromTheme("edit-delete"), tr("Delete"), this, SLOT(editDelete()));
-                        a->setEnabled(!selectedText().isEmpty());
+                        a->setShortcut(QKeySequence("Del"));
                     }
 
                     ++i;
@@ -1018,8 +975,8 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
         return;
     }
 
-    menu->addAction(m_actionReload);
-    menu->addAction(m_actionStop);
+    menu->addAction(pageAction(QWebPage::Reload));
+    menu->addAction(pageAction(QWebPage::Stop));
     menu->addSeparator();
 
     if (frameAtPos && page()->mainFrame() != frameAtPos) {
@@ -1247,6 +1204,62 @@ void WebView::reloadAllSpeedDials()
     page()->mainFrame()->evaluateJavaScript("reloadAll()");
 }
 
+void WebView::initializeActions()
+{
+    QAction* undoAction = pageAction(QWebPage::Undo);
+    undoAction->setText(tr("&Undo"));
+    undoAction->setShortcut(QKeySequence("Ctrl+Z"));
+    undoAction->setIcon(QIcon::fromTheme(QSL("edit-undo")));
+
+    QAction* redoAction = pageAction(QWebPage::Redo);
+    redoAction->setText(tr("&Redo"));
+    redoAction->setShortcut(QKeySequence("Ctrl+Shift+Z"));
+    redoAction->setIcon(QIcon::fromTheme(QSL("edit-redo")));
+
+    QAction* cutAction = pageAction(QWebPage::Cut);
+    cutAction->setText(tr("&Cut"));
+    cutAction->setShortcut(QKeySequence("Ctrl+X"));
+    cutAction->setIcon(QIcon::fromTheme(QSL("edit-cut")));
+
+    QAction* copyAction = pageAction(QWebPage::Copy);
+    copyAction->setText(tr("&Copy"));
+    copyAction->setShortcut(QKeySequence("Ctrl+C"));
+    copyAction->setIcon(QIcon::fromTheme(QSL("edit-copy")));
+
+    QAction* pasteAction = pageAction(QWebPage::Paste);
+    pasteAction->setText(tr("&Paste"));
+    pasteAction->setShortcut(QKeySequence("Ctrl+V"));
+    pasteAction->setIcon(QIcon::fromTheme(QSL("edit-paste")));
+
+    QAction* selectAllAction = pageAction(QWebPage::SelectAll);
+    selectAllAction->setText(tr("Select All"));
+    selectAllAction->setShortcut(QKeySequence("Ctrl+A"));
+    selectAllAction->setIcon(QIcon::fromTheme(QSL("edit-select-all")));
+
+    QAction* reloadAction = pageAction(QWebPage::Reload);
+    reloadAction->setText(tr("&Reload"));
+    reloadAction->setIcon(QIcon::fromTheme(QSL("view-refresh")));
+
+    QAction* stopAction = pageAction(QWebPage::Stop);
+    stopAction->setText(tr("S&top"));
+    stopAction->setIcon(QIcon::fromTheme(QSL("process-stop")));
+
+    pageAction(QWebPage::SetTextDirectionDefault)->setText(tr("Default"));
+    pageAction(QWebPage::SetTextDirectionLeftToRight)->setText(tr("Left to Right"));
+    pageAction(QWebPage::SetTextDirectionRightToLeft)->setText(tr("Right to Left"));
+    pageAction(QWebPage::ToggleBold)->setText(tr("Bold"));
+    pageAction(QWebPage::ToggleItalic)->setText(tr("Italic"));
+    pageAction(QWebPage::ToggleUnderline)->setText(tr("Underline"));
+
+    // Make action shortcuts available for webview
+    addAction(undoAction);
+    addAction(redoAction);
+    addAction(cutAction);
+    addAction(copyAction);
+    addAction(pasteAction);
+    addAction(selectAllAction);
+}
+
 void WebView::wheelEvent(QWheelEvent* event)
 {
     if (mApp->plugins()->processWheelEvent(Qz::ON_WebView, this, event)) {
@@ -1389,22 +1402,6 @@ void WebView::keyPressEvent(QKeyEvent* event)
         return QWebView::keyPressEvent(event);
 
     switch (eventKey) {
-    case Qt::Key_C:
-        if (event->modifiers() == Qt::ControlModifier) {
-            triggerPageAction(QWebPage::Copy);
-            event->accept();
-            return;
-        }
-        break;
-
-    case Qt::Key_A:
-        if (event->modifiers() == Qt::ControlModifier) {
-            editSelectAll();
-            event->accept();
-            return;
-        }
-        break;
-
     case Qt::Key_Up:
         if (event->modifiers() & Qt::ShiftModifier) {
             triggerPageAction(QWebPage::SelectPreviousLine);

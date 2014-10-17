@@ -183,6 +183,8 @@ private slots:
     void reloadAllSpeedDials();
 
 private:
+    void initializeActions();
+
     QList<int> m_zoomLevels;
     int m_currentZoomLevel;
 
@@ -199,8 +201,6 @@ private:
     QUrl m_clickedUrl;
 
     WebPage* m_page;
-    QAction* m_actionReload;
-    QAction* m_actionStop;
     bool m_actionsInitialized;
 
     bool m_disableTouchMocking;
