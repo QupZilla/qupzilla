@@ -67,17 +67,15 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_menuBar->addMenu(menuFile);
 
     m_menuEdit = new QMenu(tr("Edit"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("&Undo"), m_view, SLOT(editUndo()))->setShortcut(QKeySequence("Ctrl+Z"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-redo"), tr("&Redo"), m_view, SLOT(editRedo()))->setShortcut(QKeySequence("Ctrl+Shift+Z"));
+    m_menuEdit->addAction(m_view->pageAction(QWebPage::Undo));
+    m_menuEdit->addAction(m_view->pageAction(QWebPage::Redo));
     m_menuEdit->addSeparator();
-    m_menuEdit->addAction(QIcon::fromTheme("edit-cut"), tr("&Cut"), m_view, SLOT(editCut()))->setShortcut(QKeySequence("Ctrl+X"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-copy"), tr("C&opy"), m_view, SLOT(editCopy()))->setShortcut(QKeySequence("Ctrl+C"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-paste"), tr("&Paste"), m_view, SLOT(editPaste()))->setShortcut(QKeySequence("Ctrl+V"));
+    m_menuEdit->addAction(m_view->pageAction(QWebPage::Cut));
+    m_menuEdit->addAction(m_view->pageAction(QWebPage::Copy));
+    m_menuEdit->addAction(m_view->pageAction(QWebPage::Paste));
     m_menuEdit->addSeparator();
-    m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select All"), m_view, SLOT(editSelectAll()))->setShortcut(QKeySequence("Ctrl+A"));
+    m_menuEdit->addAction(m_view->pageAction(QWebPage::SelectAll));
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
-    connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEditMenu()));
-    connect(m_menuEdit, SIGNAL(aboutToHide()), this, SLOT(aboutToHideEditMenu()));
     m_menuBar->addMenu(m_menuEdit);
 
     m_menuView = new QMenu(tr("View"));
@@ -107,8 +105,6 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_layout->addWidget(m_view);
     m_layout->addWidget(m_statusBar);
     setLayout(m_layout);
-
-    aboutToHideEditMenu();
 
     connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
     connect(m_view, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
@@ -212,30 +208,6 @@ void PopupWindow::closeEvent(QCloseEvent* event)
     m_view->deleteLater();
 
     event->accept();
-}
-
-void PopupWindow::aboutToShowEditMenu()
-{
-    m_menuEdit->actions().at(0)->setEnabled(m_view->pageAction(QWebPage::Undo)->isEnabled());
-    m_menuEdit->actions().at(1)->setEnabled(m_view->pageAction(QWebPage::Redo)->isEnabled());
-    // Separator
-    m_menuEdit->actions().at(3)->setEnabled(m_view->pageAction(QWebPage::Cut)->isEnabled());
-    m_menuEdit->actions().at(4)->setEnabled(m_view->pageAction(QWebPage::Copy)->isEnabled());
-    m_menuEdit->actions().at(5)->setEnabled(m_view->pageAction(QWebPage::Paste)->isEnabled());
-    // Separator
-    m_menuEdit->actions().at(7)->setEnabled(m_view->pageAction(QWebPage::SelectAll)->isEnabled());
-}
-
-void PopupWindow::aboutToHideEditMenu()
-{
-    m_menuEdit->actions().at(0)->setEnabled(false);
-    m_menuEdit->actions().at(1)->setEnabled(false);
-    // Separator
-    m_menuEdit->actions().at(3)->setEnabled(false);
-    m_menuEdit->actions().at(4)->setEnabled(false);
-    m_menuEdit->actions().at(5)->setEnabled(false);
-    // Separator
-    m_menuEdit->actions().at(7)->setEnabled(false);
 }
 
 void PopupWindow::savePageScreen()

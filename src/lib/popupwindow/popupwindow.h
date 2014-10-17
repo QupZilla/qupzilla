@@ -59,9 +59,6 @@ private slots:
     void loadProgress(int value);
     void loadFinished();
 
-    void aboutToShowEditMenu();
-    void aboutToHideEditMenu();
-
     void savePageScreen();
     void searchOnPage();
 
