@@ -1,10 +1,15 @@
 # Unix
 !mac:unix {
-    buildNotifications = true
+    contains(DEFINES, USE_QTWEBKIT_2_2) {
+        buildNotifications = true
 
-    contains(DEFINES, USE_QTWEBKIT_2_3):system(pkg-config --exists hunspell) {
-        buildSpellcheck = true
-        LIBS += $$system(pkg-config --libs hunspell)
+        contains(DEFINES, USE_QTWEBKIT_2_3):system(pkg-config --exists hunspell) {
+            buildSpellcheck = true
+            LIBS += $$system(pkg-config --libs hunspell)
+        }
+    }
+    else {
+        buildPlugin = false
     }
 }
 
