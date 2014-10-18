@@ -80,6 +80,17 @@ public:
         RightSide
     };
 
+    enum EditAction {
+        Undo = 0,
+        Redo = 1,
+        Cut = 2,
+        Copy = 3,
+        Paste = 4,
+        Delete = 5,
+        ClearAll = 6,
+        SelectAll = 7
+    };
+
     LineEdit(QWidget* parent = 0);
 
     void addWidget(QWidget* widget, WidgetPosition position);
@@ -95,6 +106,7 @@ public:
     void setMinHeight(int height);
 
     QSize sizeHint() const;
+    QAction* editAction(EditAction action) const;
 
 public slots:
     void setLeftMargin(int margin);
@@ -119,6 +131,7 @@ private:
     QHBoxLayout* m_leftLayout;
     QHBoxLayout* m_rightLayout;
     QHBoxLayout* mainLayout;
+    QAction* m_editActions[8];
 
     int m_minHeight;
     int m_leftMargin;

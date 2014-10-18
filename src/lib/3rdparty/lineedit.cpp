@@ -89,6 +89,61 @@ void LineEdit::init()
 
     connect(m_leftWidget, SIGNAL(sizeHintChanged()), this, SLOT(updateTextMargins()));
     connect(m_rightWidget, SIGNAL(sizeHintChanged()), this, SLOT(updateTextMargins()));
+
+    QAction* undoAction = new QAction(QIcon::fromTheme(QSL("edit-undo")), tr("&Undo"), this);
+    undoAction->setShortcut(QKeySequence(QSL("Ctrl+Z")));
+    undoAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+    connect(undoAction, SIGNAL(triggered()), SLOT(undo()));
+
+    QAction* redoAction = new QAction(QIcon::fromTheme(QSL("edit-redo")), tr("&Redo"), this);
+    redoAction->setShortcut(QKeySequence(QSL("Ctrl+Shift+Z")));
+    redoAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+    connect(redoAction, SIGNAL(triggered()), SLOT(redo()));
+
+    QAction* cutAction = new QAction(QIcon::fromTheme(QSL("edit-cut")), tr("Cu&t"), this);
+    cutAction->setShortcut(QKeySequence(QSL("Ctrl+X")));
+    cutAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+    connect(cutAction, SIGNAL(triggered()), SLOT(cut()));
+
+    QAction* copyAction = new QAction(QIcon::fromTheme(QSL("edit-copy")), tr("&Copy"), this);
+    copyAction->setShortcut(QKeySequence(QSL("Ctrl+C")));
+    copyAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+    connect(copyAction, SIGNAL(triggered()), SLOT(copy()));
+
+    QAction* pasteAction = new QAction(QIcon::fromTheme(QSL("edit-paste")), tr("&Paste"), this);
+    pasteAction->setShortcut(QKeySequence(QSL("Ctrl+V")));
+    pasteAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+    connect(pasteAction, SIGNAL(triggered()), SLOT(paste()));
+
+    QAction* deleteAction = new QAction(QIcon::fromTheme(QSL("edit-delete")), tr("Delete"), this);
+    connect(deleteAction, SIGNAL(triggered()), SLOT(slotDelete()));
+
+    QAction* clearAllAction = new QAction(QIcon::fromTheme(QSL("edit-clear")), tr("Clear All"), this);
+    connect(clearAllAction, SIGNAL(triggered()), SLOT(clear()));
+
+    QAction* selectAllAction = new QAction(QIcon::fromTheme(QSL("edit-select-all")), tr("Select All"), this);
+    selectAllAction->setShortcut(QKeySequence(QSL("Ctrl+A")));
+    selectAllAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+    connect(selectAllAction, SIGNAL(triggered()), SLOT(selectAll()));
+
+    m_editActions[Undo] = undoAction;
+    m_editActions[Redo] = redoAction;
+    m_editActions[Cut] = cutAction;
+    m_editActions[Copy] = copyAction;
+    m_editActions[Paste] = pasteAction;
+    m_editActions[Delete] = deleteAction;
+    m_editActions[ClearAll] = clearAllAction;
+    m_editActions[SelectAll] = selectAllAction;
+
+    // Make action shortcuts available for webview
+    addAction(undoAction);
+    addAction(redoAction);
+    addAction(cutAction);
+    addAction(copyAction);
+    addAction(pasteAction);
+    addAction(deleteAction);
+    addAction(clearAllAction);
+    addAction(selectAllAction);
 }
 
 bool LineEdit::event(QEvent* event)
@@ -274,6 +329,11 @@ QSize LineEdit::sizeHint() const
     }
 
     return s;
+}
+
+QAction* LineEdit::editAction(EditAction action) const
+{
+    return m_editActions[action];
 }
 
 void LineEdit::updateTextMargins()
