@@ -47,8 +47,6 @@ LocationBar::LocationBar(BrowserWindow* window)
     : LineEdit(window)
     , m_window(window)
     , m_webView(0)
-    , m_pasteAndGoAction(0)
-    , m_clearAction(0)
     , m_holdingAlt(false)
     , m_backspacePressed(false)
     , m_loadProgress(0)
@@ -87,6 +85,10 @@ LocationBar::LocationBar(BrowserWindow* window)
     domainCompleter->setCompletionMode(QCompleter::InlineCompletion);
     domainCompleter->setModel(m_domainCompleterModel);
     setCompleter(domainCompleter);
+
+    editAction(PasteAndGo)->setText(tr("Paste And &Go"));
+    editAction(PasteAndGo)->setIcon(QIcon::fromTheme(QSL("edit-paste")));
+    connect(editAction(PasteAndGo), SIGNAL(triggered()), this, SLOT(pasteAndGo()));
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEditted()));
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(requestLoadUrl()));
@@ -361,13 +363,7 @@ void LocationBar::pasteAndGo()
 
 void LocationBar::contextMenuEvent(QContextMenuEvent* event)
 {
-    if (!m_pasteAndGoAction) {
-        m_pasteAndGoAction = new QAction(QIcon::fromTheme("edit-paste"), tr("Paste And &Go"), this);
-        m_pasteAndGoAction->setShortcut(QKeySequence("Ctrl+Shift+V"));
-        connect(m_pasteAndGoAction, SIGNAL(triggered()), this, SLOT(pasteAndGo()));
-    }
-
-    QMenu* menu = createContextMenu(m_pasteAndGoAction);
+    QMenu* menu = createContextMenu();
     menu->setAttribute(Qt::WA_DeleteOnClose);
 
     // Prevent choosing first option with double rightclick

@@ -86,9 +86,10 @@ public:
         Cut = 2,
         Copy = 3,
         Paste = 4,
-        Delete = 5,
-        ClearAll = 6,
-        SelectAll = 7
+        PasteAndGo = 5,
+        Delete = 6,
+        ClearAll = 7,
+        SelectAll = 8
     };
 
     LineEdit(QWidget* parent = 0);
@@ -112,8 +113,6 @@ public slots:
     void setLeftMargin(int margin);
     void updateTextMargins();
 
-    void slotDelete();
-
 protected:
     void focusInEvent(QFocusEvent* event);
     void mousePressEvent(QMouseEvent* event);
@@ -121,7 +120,11 @@ protected:
     void mouseDoubleClickEvent(QMouseEvent* event);
     bool event(QEvent* event);
 
-    QMenu* createContextMenu(QAction* pasteAndGoAction);
+    QMenu* createContextMenu();
+
+private slots:
+    void updateActions();
+    void slotDelete();
 
 private:
     void init();
@@ -131,7 +134,7 @@ private:
     QHBoxLayout* m_leftLayout;
     QHBoxLayout* m_rightLayout;
     QHBoxLayout* mainLayout;
-    QAction* m_editActions[8];
+    QAction* m_editActions[9];
 
     int m_minHeight;
     int m_leftMargin;

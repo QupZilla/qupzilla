@@ -89,9 +89,6 @@ private:
     SearchEnginesManager* m_searchManager;
     QPointer<SearchEnginesDialog> m_searchDialog;
 
-    QAction* m_pasteAndGoAction;
-    QAction* m_clearAction;
-
     bool m_reloadingEngines;
 };
 

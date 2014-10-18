@@ -103,9 +103,6 @@ private:
     BrowserWindow* m_window;
     TabbedWebView* m_webView;
 
-    QAction* m_pasteAndGoAction;
-    QAction* m_clearAction;
-
     bool m_rssIconVisible;
     bool m_holdingAlt;
     bool m_backspacePressed;

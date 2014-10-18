@@ -115,6 +115,10 @@ void LineEdit::init()
     pasteAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
     connect(pasteAction, SIGNAL(triggered()), SLOT(paste()));
 
+    QAction* pasteAndGoAction = new QAction(this);
+    pasteAndGoAction->setShortcut(QKeySequence(QSL("Ctrl+Shift+V")));
+    pasteAndGoAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+
     QAction* deleteAction = new QAction(QIcon::fromTheme(QSL("edit-delete")), tr("Delete"), this);
     connect(deleteAction, SIGNAL(triggered()), SLOT(slotDelete()));
 
@@ -131,6 +135,7 @@ void LineEdit::init()
     m_editActions[Cut] = cutAction;
     m_editActions[Copy] = copyAction;
     m_editActions[Paste] = pasteAction;
+    m_editActions[PasteAndGo] = pasteAndGoAction;
     m_editActions[Delete] = deleteAction;
     m_editActions[ClearAll] = clearAllAction;
     m_editActions[SelectAll] = selectAllAction;
@@ -141,9 +146,17 @@ void LineEdit::init()
     addAction(cutAction);
     addAction(copyAction);
     addAction(pasteAction);
+    addAction(pasteAndGoAction);
     addAction(deleteAction);
     addAction(clearAllAction);
     addAction(selectAllAction);
+
+    // Connections to update edit actions
+    connect(this, SIGNAL(textChanged(QString)), this, SLOT(updateActions()));
+    connect(this, SIGNAL(selectionChanged()), this, SLOT(updateActions()));
+    connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(updateActions()));
+
+    updateActions();
 }
 
 bool LineEdit::event(QEvent* event)
@@ -167,62 +180,32 @@ bool LineEdit::event(QEvent* event)
 #define ACCEL_KEY(k) QLatin1Char('\t') + QKeySequence(k).toString()
 
 // Modified QLineEdit::createStandardContextMenu to support icons and PasteAndGo action
-QMenu* LineEdit::createContextMenu(QAction* pasteAndGoAction)
+QMenu* LineEdit::createContextMenu()
 {
     QMenu* popup = new QMenu(this);
     popup->setObjectName(QSL("qt_edit_menu"));
 
-    QAction* action = 0;
-
     if (!isReadOnly()) {
-        action = popup->addAction(QIcon::fromTheme(QSL("edit-undo")), tr("&Undo") + ACCEL_KEY(QKeySequence::Undo));
-        action->setEnabled(isUndoAvailable());
-        connect(action, SIGNAL(triggered()), SLOT(undo()));
-
-        action = popup->addAction(QIcon::fromTheme(QSL("edit-redo")), tr("&Redo") + ACCEL_KEY(QKeySequence::Redo));
-        action->setEnabled(isRedoAvailable());
-        connect(action, SIGNAL(triggered()), SLOT(redo()));
-
+        popup->addAction(m_editActions[Undo]);
+        popup->addAction(m_editActions[Redo]);
         popup->addSeparator();
+        popup->addAction(m_editActions[Cut]);
     }
 
-#ifndef QT_NO_CLIPBOARD
-    if (!isReadOnly()) {
-        action = popup->addAction(QIcon::fromTheme(QSL("edit-cut")), tr("Cu&t") + ACCEL_KEY(QKeySequence::Cut));
-        action->setEnabled(hasSelectedText() && echoMode() == QLineEdit::Normal);
-        connect(action, SIGNAL(triggered()), SLOT(cut()));
-    }
-
-    action = popup->addAction(QIcon::fromTheme(QSL("edit-copy")), tr("&Copy") + ACCEL_KEY(QKeySequence::Copy));
-    action->setEnabled(hasSelectedText() && echoMode() == QLineEdit::Normal);
-    connect(action, SIGNAL(triggered()), SLOT(copy()));
+    popup->addAction(m_editActions[Copy]);
 
     if (!isReadOnly()) {
-        action = popup->addAction(QIcon::fromTheme(QSL("edit-paste")), tr("&Paste") + ACCEL_KEY(QKeySequence::Paste));
-        action->setEnabled(!QApplication::clipboard()->text().isEmpty());
-        connect(action, SIGNAL(triggered()), SLOT(paste()));
+        popup->addAction(m_editActions[Paste]);
 
-        pasteAndGoAction->setEnabled(action->isEnabled());
-        popup->addAction(pasteAndGoAction);
-    }
-#endif
+        if (!m_editActions[PasteAndGo]->text().isEmpty())
+            popup->addAction(m_editActions[PasteAndGo]);
 
-    if (!isReadOnly()) {
-        action = popup->addAction(QIcon::fromTheme(QSL("edit-delete")), tr("Delete") + ACCEL_KEY(QKeySequence::Delete));
-        action->setEnabled(hasSelectedText());
-        connect(action, SIGNAL(triggered()), this, SLOT(slotDelete()));
-
-        action = popup->addAction(QIcon::fromTheme(QSL("edit-clear")), tr("Clear All"));
-        connect(action, SIGNAL(triggered()), this, SLOT(clear()));
+        popup->addAction(m_editActions[Delete]);
+        popup->addAction(m_editActions[ClearAll]);
     }
 
-    if (!popup->isEmpty()) {
-        popup->addSeparator();
-    }
-
-    action = popup->addAction(QIcon::fromTheme(QSL("edit-select-all")), tr("Select All") + ACCEL_KEY(QKeySequence::SelectAll));
-    action->setEnabled(!text().isEmpty() && selectedText() != text());
-    connect(action, SIGNAL(triggered()), SLOT(selectAll()));
+    popup->addSeparator();
+    popup->addAction(m_editActions[SelectAll]);
 
 #if !defined(QT_NO_IM) && QT_VERSION < 0x050000
     QInputContext* qic = inputContext();
@@ -245,6 +228,24 @@ QMenu* LineEdit::createContextMenu(QAction* pasteAndGoAction)
     }
 
     return popup;
+}
+
+void LineEdit::updateActions()
+{
+    m_editActions[Undo]->setEnabled(!isReadOnly() && isUndoAvailable());
+    m_editActions[Redo]->setEnabled(!isReadOnly() && isRedoAvailable());
+    m_editActions[Cut]->setEnabled(!isReadOnly() && hasSelectedText() && echoMode() == QLineEdit::Normal);
+    m_editActions[Copy]->setEnabled(hasSelectedText() && echoMode() == QLineEdit::Normal);
+    m_editActions[Paste]->setEnabled(!isReadOnly() && !QApplication::clipboard()->text().isEmpty());
+    m_editActions[Delete]->setEnabled(!isReadOnly() && hasSelectedText());
+    m_editActions[SelectAll]->setEnabled(!text().isEmpty() && selectedText() != text());
+}
+
+void LineEdit::slotDelete()
+{
+    if (hasSelectedText()) {
+        del();
+    }
 }
 
 void LineEdit::addWidget(QWidget* widget, WidgetPosition position)
@@ -348,13 +349,6 @@ void LineEdit::updateTextMargins()
     }
 
     setTextMargins(left, top, right, bottom);
-}
-
-void LineEdit::slotDelete()
-{
-    if (hasSelectedText()) {
-        del();
-    }
 }
 
 void LineEdit::focusInEvent(QFocusEvent* event)

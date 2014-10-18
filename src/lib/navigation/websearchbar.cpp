@@ -56,8 +56,6 @@ void WebSearchBar_Button::contextMenuEvent(QContextMenuEvent* event)
 WebSearchBar::WebSearchBar(BrowserWindow* window)
     : LineEdit(window)
     , m_window(window)
-    , m_pasteAndGoAction(0)
-    , m_clearAction(0)
     , m_reloadingEngines(false)
 {
     setObjectName("websearchbar");
@@ -96,6 +94,10 @@ WebSearchBar::WebSearchBar(BrowserWindow* window)
     m_openSearchEngine->setNetworkAccessManager(mApp->networkManager());
     connect(m_openSearchEngine, SIGNAL(suggestions(QStringList)), this, SLOT(addSuggestions(QStringList)));
     connect(this, SIGNAL(textEdited(QString)), m_openSearchEngine, SLOT(requestSuggestions(QString)));
+
+    editAction(PasteAndGo)->setText(tr("Paste And &Search"));
+    editAction(PasteAndGo)->setIcon(QIcon::fromTheme(QSL("edit-paste")));
+    connect(editAction(PasteAndGo), SIGNAL(triggered()), this, SLOT(pasteAndGo()));
 
     QTimer::singleShot(0, this, SLOT(setupEngines()));
 }
@@ -257,13 +259,7 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
 {
     Q_UNUSED(event)
 
-    if (!m_pasteAndGoAction) {
-        m_pasteAndGoAction = new QAction(QIcon::fromTheme("edit-paste"), tr("Paste And &Search"), this);
-        m_pasteAndGoAction->setShortcut(QKeySequence("Ctrl+Shift+V"));
-        connect(m_pasteAndGoAction, SIGNAL(triggered()), this, SLOT(pasteAndGo()));
-    }
-
-    QMenu* menu = createContextMenu(m_pasteAndGoAction);
+    QMenu* menu = createContextMenu();
     menu->setAttribute(Qt::WA_DeleteOnClose);
 
     menu->addSeparator();
