@@ -1209,31 +1209,37 @@ void WebView::initializeActions()
     QAction* undoAction = pageAction(QWebPage::Undo);
     undoAction->setText(tr("&Undo"));
     undoAction->setShortcut(QKeySequence("Ctrl+Z"));
+    undoAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
     undoAction->setIcon(QIcon::fromTheme(QSL("edit-undo")));
 
     QAction* redoAction = pageAction(QWebPage::Redo);
     redoAction->setText(tr("&Redo"));
     redoAction->setShortcut(QKeySequence("Ctrl+Shift+Z"));
+    redoAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
     redoAction->setIcon(QIcon::fromTheme(QSL("edit-redo")));
 
     QAction* cutAction = pageAction(QWebPage::Cut);
     cutAction->setText(tr("&Cut"));
     cutAction->setShortcut(QKeySequence("Ctrl+X"));
+    cutAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
     cutAction->setIcon(QIcon::fromTheme(QSL("edit-cut")));
 
     QAction* copyAction = pageAction(QWebPage::Copy);
     copyAction->setText(tr("&Copy"));
     copyAction->setShortcut(QKeySequence("Ctrl+C"));
+    copyAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
     copyAction->setIcon(QIcon::fromTheme(QSL("edit-copy")));
 
     QAction* pasteAction = pageAction(QWebPage::Paste);
     pasteAction->setText(tr("&Paste"));
     pasteAction->setShortcut(QKeySequence("Ctrl+V"));
+    pasteAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
     pasteAction->setIcon(QIcon::fromTheme(QSL("edit-paste")));
 
     QAction* selectAllAction = pageAction(QWebPage::SelectAll);
     selectAllAction->setText(tr("Select All"));
     selectAllAction->setShortcut(QKeySequence("Ctrl+A"));
+    selectAllAction->setShortcutContext(Qt::WidgetWithChildrenShortcut);
     selectAllAction->setIcon(QIcon::fromTheme(QSL("edit-select-all")));
 
     QAction* reloadAction = pageAction(QWebPage::Reload);
