@@ -33,6 +33,7 @@ class AutoScroller : public QObject
     Q_OBJECT
 public:
     explicit AutoScroller(const QString &settingsFile, QObject* parent = 0);
+    ~AutoScroller();
 
     bool mouseMove(QObject* obj, QMouseEvent* event);
     bool mousePress(QObject* obj, QMouseEvent* event);
