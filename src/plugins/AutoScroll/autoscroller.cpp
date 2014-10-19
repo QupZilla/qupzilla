@@ -45,6 +45,11 @@ AutoScroller::AutoScroller(const QString &settingsFile, QObject* parent)
     settings.endGroup();
 }
 
+AutoScroller::~AutoScroller()
+{
+    delete m_indicator;
+}
+
 bool AutoScroller::mouseMove(QObject* obj, QMouseEvent* event)
 {
     Q_UNUSED(obj)
