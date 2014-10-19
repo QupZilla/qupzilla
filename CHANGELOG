@@ -1,3 +1,14 @@
+Version 1.8.3
+    * released 19 October 2014
+    * fixed: crash when passing messages to running instance
+    * fixed: keyboard text navigation in some custom html code editors
+    * fixed: string for filter third party cookies + changed default to allow
+    * fixed: coloring CSS exception rules in AdBlock subscription tree
+    * fixed: auto-loading saved plugins on startup in portable mode
+    * fixed: text edit shortcuts not working with non-latin keyboard layout
+    * fixed: building on Linux with Qt 4.7
+    * fixed: crash when unloading AutoScroll plugin on Windows
+
 Version 1.8.2
     * released 9 October 2014
     * updated translations
