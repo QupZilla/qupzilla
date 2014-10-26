@@ -180,9 +180,6 @@ void Plugins::loadAvailablePlugins()
         QDir pluginsDir = QDir(dir);
         foreach (const QString &fileName, pluginsDir.entryList(QDir::Files)) {
             const QString absolutePath = pluginsDir.absoluteFilePath(fileName);
-            if (m_allowedPlugins.contains(absolutePath)) {
-                continue;
-            }
 
             QPluginLoader* loader = new QPluginLoader(absolutePath);
             PluginInterface* iPlugin = qobject_cast<PluginInterface*>(loader->instance());
