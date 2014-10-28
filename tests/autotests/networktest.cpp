@@ -45,7 +45,6 @@ void NetworkTest::sslv3test_data()
     QTest::newRow("centrum.sk") << QUrl("https://user.centrum.sk/");
     QTest::newRow("centrum.cz") << QUrl("https://user.centrum.cz/");
     QTest::newRow("oneaccount.com") << QUrl("https://service.oneaccount.com/onlineV2/OSV2?event=login&pt=3");
-    QTest::newRow("hdi.de") << QUrl("https://www.hdi.de/");
     QTest::newRow("office-webapps") << QUrl("https://skydrive.live.com/view.aspx?resid=4FE8716FF67627C7!1218&cid=4fe8716ff67627c7&app=Word&wdo=2");
     QTest::newRow("i0.cz") << QUrl("https://i0.cz/6/ju/css/login/centrum.sk.css");
 }
