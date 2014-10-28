@@ -506,7 +506,12 @@ RESOURCES += \
     data/oxygen-fallback.qrc
 
 isEqual(QT_MAJOR_VERSION, 5) {
-    include(3rdparty/qftp/qftp.pri)
+    qtHaveModule(ftp) {
+        QT *= ftp
+    } else {
+        include(3rdparty/qftp/qftp.pri)
+    }
+
     SOURCES += tools/qzregexp.cpp
 }
 
