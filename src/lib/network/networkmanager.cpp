@@ -103,7 +103,7 @@ void NetworkManager::loadSettings()
     // Force SSLv3 for servers that doesn't understand TLSv1 handshake
     QStringList sslv3Sites;
     sslv3Sites << QLatin1String("centrum.sk") << QLatin1String("centrum.cz") << QLatin1String("oneaccount.com")
-               << QLatin1String("live.com") << QLatin1String("i0.cz") << QLatin1String("sermepa.es");
+               << QLatin1String("i0.cz") << QLatin1String("sermepa.es");
 
     settings.beginGroup("Web-Browser-Settings");
     m_doNotTrack = settings.value("DoNotTrack", false).toBool();
